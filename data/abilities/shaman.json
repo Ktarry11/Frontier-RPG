@@ -435,27 +435,42 @@
           "effect_value": 33
         },
         {
+          "cost": 35,
           "rank": 2,
-          "level_req": 20,
-          "cost": 53,
-          "effect_value": 56
+          "level_req": 18,
+          "effect_value": 46
         },
         {
+          "cost": 35,
           "rank": 3,
-          "level_req": 36,
-          "cost": 71,
-          "effect_value": 78
+          "level_req": 28,
+          "effect_value": 60
         },
         {
+          "cost": 35,
           "rank": 4,
-          "level_req": 54,
-          "cost": 89,
+          "level_req": 38,
+          "effect_value": 73
+        },
+        {
+          "cost": 35,
+          "rank": 5,
+          "level_req": 48,
+          "effect_value": 87
+        },
+        {
+          "cost": 35,
+          "rank": 6,
+          "level_req": 58,
           "effect_value": 100
         }
       ],
       "target_type": "self",
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "shaman_frost_shock",
@@ -477,23 +492,36 @@
           "effect_value": 28
         },
         {
+          "cost": 32,
           "rank": 2,
-          "level_req": 36,
-          "cost": 49,
+          "level_req": 30,
           "effect_value": 46
         },
         {
+          "cost": 32,
           "rank": 3,
-          "level_req": 56,
-          "cost": 66,
-          "effect_value": 65
+          "level_req": 40,
+          "effect_value": 64
+        },
+        {
+          "cost": 32,
+          "rank": 4,
+          "level_req": 50,
+          "effect_value": 82
+        },
+        {
+          "cost": 32,
+          "rank": 5,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "buff_scope": "combat",
       "cast_speed": "quick",
       "_tuning": [
-        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)"
+        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)",
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ]
     },
     {
@@ -643,6 +671,12 @@
           "level_req": 50,
           "cost": 0,
           "effect_value": 100
+        },
+        {
+          "cost": 0,
+          "rank": 2,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "target_type": "self",
@@ -650,7 +684,10 @@
       "is_instant": true,
       "icon_id": null,
       "buff_scope": "combat",
-      "_design_note": "Not learned from level alone - granted by the Feral Spirit talent in the Enhancement tree. PLACEHOLDER: real WOTLK Feral Spirit summons two wolves that fight alongside you and heal you - this engine has no pet/summon system yet, so this is a temporary Attack Power buff instead until that exists."
+      "_design_note": "Not learned from level alone - granted by the Feral Spirit talent in the Enhancement tree. PLACEHOLDER: real WOTLK Feral Spirit summons two wolves that fight alongside you and heal you - this engine has no pet/summon system yet, so this is a temporary Attack Power buff instead until that exists.",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "shaman_natures_swiftness",
@@ -738,10 +775,16 @@
           "effect_value": 100
         },
         {
-          "rank": 2,
-          "level_req": 48,
           "cost": 0,
-          "effect_value": 122
+          "rank": 2,
+          "level_req": 46,
+          "effect_value": 100
+        },
+        {
+          "cost": 0,
+          "rank": 3,
+          "level_req": 56,
+          "effect_value": 100
         }
       ],
       "target_type": "party",
@@ -751,7 +794,10 @@
       "buff_scope": "combat",
       "_design_note": "Not learned from level alone - granted by the Mana Tide Totem talent in the Restoration tree. PLACEHOLDER: real WOTLK Mana Tide Totem is a party-wide mana-regeneration totem - this engine has no totem-placement system yet, so this is a temporary self-only Spirit buff instead until that exists.",
       "exclusive_group": "shaman_totem_water",
-      "_source": "Element slot 'water' added 6 Nov 2026 as exclusive_group 'shaman_totem_water', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks. was target_type 'self', which made a Restoration shaman's signature mana cooldown refill only its own bar. The real 3.3.5a spell restores mana 'to group members within 30 yards' - quoted from Spell.dbc via data/reference/wotlk/shaman.json."
+      "_source": "Element slot 'water' added 6 Nov 2026 as exclusive_group 'shaman_totem_water', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks. was target_type 'self', which made a Restoration shaman's signature mana cooldown refill only its own bar. The real 3.3.5a spell restores mana 'to group members within 30 yards' - quoted from Spell.dbc via data/reference/wotlk/shaman.json.",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "shaman_earth_shield",
@@ -1345,31 +1391,40 @@
           }
         },
         {
+          "cost": 0,
+          "proc": {
+            "bonus_pct": 0.4
+          },
           "rank": 2,
           "level_req": 30,
-          "cost": 0,
-          "effect_value": 123,
-          "proc": {
-            "bonus_pct": 0.533
-          }
+          "effect_value": 100
         },
         {
+          "cost": 0,
+          "proc": {
+            "bonus_pct": 0.4
+          },
           "rank": 3,
-          "level_req": 42,
-          "cost": 0,
-          "effect_value": 151,
-          "proc": {
-            "bonus_pct": 0.667
-          }
+          "level_req": 40,
+          "effect_value": 100
         },
         {
-          "rank": 4,
-          "level_req": 56,
           "cost": 0,
-          "effect_value": 184,
           "proc": {
-            "bonus_pct": 0.8
-          }
+            "bonus_pct": 0.4
+          },
+          "rank": 4,
+          "level_req": 50,
+          "effect_value": 100
+        },
+        {
+          "cost": 0,
+          "proc": {
+            "bonus_pct": 0.4
+          },
+          "rank": 5,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "target_type": "self",
@@ -1393,7 +1448,10 @@
         }
       },
       "buff_scope": "raid",
-      "_source": "  DESCRIPTION: removed stat-sheet figures per Kyle's standing rule, and real-world durations - \"Lasts 30 min\" means nothing in a turn-based game, and the real duration lives in this entry's own duration/buff_scope fields. Original: \"Imbue your weapon with biting cold: 35% of your melee hits add a heavy Frost strike and slow the target. The control imbue. Only one imbue can be active at a time.\""
+      "_source": "  DESCRIPTION: removed stat-sheet figures per Kyle's standing rule, and real-world durations - \"Lasts 30 min\" means nothing in a turn-based game, and the real duration lives in this entry's own duration/buff_scope fields. Original: \"Imbue your weapon with biting cold: 35% of your melee hits add a heavy Frost strike and slow the target. The control imbue. Only one imbue can be active at a time.\"",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "shaman_windfury_weapon",
@@ -1957,6 +2015,34 @@
       "_design_note": "Earth totem. Grants your party a large Nature resistance bonus. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this instantly buffs the whole party instead, matching the same simplification every other party totem uses.",
       "exclusive_group": "shaman_totem_air",
       "_source": "Element slot 'air' added 6 Nov 2026 as exclusive_group 'shaman_totem_air', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks."
+    },
+    {
+      "ability_id": "shaman_cure_toxins",
+      "name": "Cure Toxins",
+      "resource_type": "mana",
+      "cooldown": 2,
+      "effect_type": "dispel",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Removes 1 poison or disease from a friendly target.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 30,
+          "effect_value": 0
+        }
+      ],
+      "target_type": "ally",
+      "dispel_type": [
+        "poison",
+        "disease"
+      ],
+      "is_instant": true,
+      "icon_id": null,
+      "_tuning": [
+        "16 Nov 2026, support pass: added so this healer can cleanse a party member (tools/add_missing_cleanses.py)"
+      ]
     }
   ]
 }

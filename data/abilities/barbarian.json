@@ -298,11 +298,38 @@
           "level_req": 18,
           "cost": 15,
           "effect_value": 100
+        },
+        {
+          "cost": 15,
+          "rank": 2,
+          "level_req": 28,
+          "effect_value": 100
+        },
+        {
+          "cost": 15,
+          "rank": 3,
+          "level_req": 38,
+          "effect_value": 100
+        },
+        {
+          "cost": 15,
+          "rank": 4,
+          "level_req": 48,
+          "effect_value": 100
+        },
+        {
+          "cost": 15,
+          "rank": 5,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Throw your ranged weapon at your enemy's legs ... slowing their movement speed by -50%'. There is no movement in a turn fight, and a haste debuff would have been worse than nothing: a Monster reads ONLY `armor` and `attack_power` out of a status effect's stat_mods (entities/monster.py), so haste on an enemy is inert. A hobbled enemy hitting softer is what actually lands.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "barbarian_ancestral_roar",
@@ -1490,12 +1517,27 @@
           "level_req": 38,
           "cost": 25,
           "effect_value": 100
+        },
+        {
+          "cost": 25,
+          "rank": 2,
+          "level_req": 48,
+          "effect_value": 100
+        },
+        {
+          "cost": 25,
+          "rank": 3,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'War Cry / Splash Zone at pull start for the party's attack-speed and attack/spell power burst', 'increasing melee and ranged attack speed by 20%, and attack power by 150 of allies'.",
       "target_type": "party",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "barbarian_splash_zone",
@@ -1515,12 +1557,27 @@
           "level_req": 40,
           "cost": 25,
           "effect_value": 100
+        },
+        {
+          "cost": 25,
+          "rank": 2,
+          "level_req": 50,
+          "effect_value": 100
+        },
+        {
+          "cost": 25,
+          "rank": 3,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Share a drink from your Tankard with all party and raid members, granting 95 increased attack or spell power'. CoA's either/or is both here - there is no 'whichever stat you use' selector, and giving both is closer to the intent than guessing.",
       "target_type": "party",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "barbarian_tavern_brawl",

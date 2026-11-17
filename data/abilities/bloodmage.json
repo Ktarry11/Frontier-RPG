@@ -989,13 +989,22 @@
           "rank": 1,
           "level_req": 44,
           "cost": 25,
-          "effect_value": 0
+          "effect_value": 100
+        },
+        {
+          "cost": 25,
+          "rank": 2,
+          "level_req": 54,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "CoA's Sanguine tree gates Crimson Terror and Torture off Transgression ('grants spell damage equal to 50% of your Spirit for the duration', 'extends the duration of Transgression by 5 sec'), so it is a real damage window.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "bloodmage_blood_curse",
@@ -1368,13 +1377,34 @@
           "rank": 1,
           "level_req": 30,
           "cost": 25,
-          "effect_value": 0
+          "effect_value": 100
+        },
+        {
+          "cost": 25,
+          "rank": 2,
+          "level_req": 40,
+          "effect_value": 100
+        },
+        {
+          "cost": 25,
+          "rank": 3,
+          "level_req": 50,
+          "effect_value": 100
+        },
+        {
+          "cost": 25,
+          "rank": 4,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'pop Bloodsurge (an enrage, Shadow damage and spell crit up) ... for burst windows'.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "bloodmage_final_embrace",
@@ -2154,13 +2184,28 @@
           "rank": 1,
           "level_req": 36,
           "cost": 30,
-          "effect_value": 0
+          "effect_value": 100
+        },
+        {
+          "cost": 30,
+          "rank": 2,
+          "level_req": 46,
+          "effect_value": 100
+        },
+        {
+          "cost": 30,
+          "rank": 3,
+          "level_req": 56,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Sanguine Essence is a transformation that doesn't lock out your caster spells. It amplifies the kit you already have.' Deliberately NOT in the curse exclusive_group for exactly that reason. healing_power_pct is percent POINTS.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "bloodmage_gorge",
@@ -2265,34 +2310,44 @@
           }
         },
         {
+          "cost": 20,
+          "stat_mods": {
+            "armor": 80,
+            "physical_damage_taken_pct": -4.0
+          },
           "rank": 2,
-          "level_req": 34,
-          "cost": 29,
-          "effect_value": 100,
-          "stat_mods": {
-            "armor": 115,
-            "physical_damage_taken_pct": -4.0
-          }
+          "level_req": 32,
+          "effect_value": 100
         },
         {
+          "cost": 20,
+          "stat_mods": {
+            "armor": 80,
+            "physical_damage_taken_pct": -4.0
+          },
           "rank": 3,
-          "level_req": 46,
-          "cost": 37,
-          "effect_value": 100,
-          "stat_mods": {
-            "armor": 149,
-            "physical_damage_taken_pct": -4.0
-          }
+          "level_req": 42,
+          "effect_value": 100
         },
         {
-          "rank": 4,
-          "level_req": 58,
-          "cost": 46,
-          "effect_value": 100,
+          "cost": 20,
           "stat_mods": {
-            "armor": 184,
+            "armor": 80,
             "physical_damage_taken_pct": -4.0
-          }
+          },
+          "rank": 4,
+          "level_req": 52,
+          "effect_value": 100
+        },
+        {
+          "cost": 20,
+          "stat_mods": {
+            "armor": 80,
+            "physical_damage_taken_pct": -4.0
+          },
+          "rank": 5,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -2300,7 +2355,8 @@
       "target_type": "ally",
       "buff_scope": "raid",
       "_tuning": [
-        "15 Nov 2026, rank-depth pass (Kyle: \"ensure there are appropriate ranks for spells, abilities, buffs etc ... in line with Classic\"): ranks every 12 levels. Only the ARMOUR grows (along the same level line monster armour uses) - the world curve already grows attack/spell power and primary stats, and the other mods are percentages or flags. Each rank carries its own stat_mods (Ability.stat_mods), so the rest stays as written."
+        "15 Nov 2026, rank-depth pass (Kyle: \"ensure there are appropriate ranks for spells, abilities, buffs etc ... in line with Classic\"): ranks every 12 levels. Only the ARMOUR grows (along the same level line monster armour uses) - the world curve already grows attack/spell power and primary stats, and the other mods are percentages or flags. Each rank carries its own stat_mods (Ability.stat_mods), so the rest stays as written.",
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ]
     }
   ]

@@ -110,13 +110,19 @@ def healing_per_turn(spec, level, turns, gen, cm, fight_seed=0, gear_seed=0):
                     engine._end_turn(char)
             elapsed += spent_time
         return landed[0] / elapsed
-    heals = [a for a in learned if a.effect_type in HEALS and getattr(a, "target_type", None) != "enemy"]
+    # NOT a damage spell that heals on the side (16 Nov 2026, the every-healer pass): "!= 'enemy'" let an
+    # enemy_aoe damage-and-heal through (Pyromancer's Cleansing Flames), which the rotation then cast at ITSELF for
+    # its healing-power share alone, so Flameweaving read as half a healer at 50 and 60
+    heals = [a for a in learned if a.effect_type in HEALS
+             and getattr(a, "target_type", None) not in ("enemy", "enemy_aoe", "all_enemies")]
     heals.sort(key=lambda a: -((getattr(a, "heal_value", 0) or 0) or (a.effect_value or 0)))
     # SHIELDS COUNT AS HEALING (15 Nov 2026): Discipline's Power Word: Shield and two dozen others soak a share
     # of max health (absorb_pct_max_health) and never touch heal(), so a shield healer read as the weakest healer.
     # A shield is cast first when none is up, and what it puts on the target is counted.
+    # a shield on SOMEONE ELSE is healing; one the healer puts on itself (Volcanic Shell, Ice Barrier, a Dreadnought
+    # Shield) is a defensive cooldown and isn't counted (the every-healer pass, 16 Nov 2026)
     shields = [a for a in learned if (getattr(a, "absorb_pct_max_health", 0) or 0) > 0
-               and getattr(a, "target_type", None) in (None, "self", "ally", "party")]
+               and getattr(a, "target_type", None) in ("ally", "party")]
     heals = shields + heals
 
     def absorb_pool():

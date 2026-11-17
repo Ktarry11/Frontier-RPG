@@ -931,13 +931,28 @@
           "rank": 1,
           "level_req": 40,
           "cost": 20,
-          "effect_value": 0
+          "effect_value": 100
+        },
+        {
+          "cost": 20,
+          "rank": 2,
+          "level_req": 50,
+          "effect_value": 100
+        },
+        {
+          "cost": 20,
+          "rank": 3,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Lich Form is the Undead-transform become-the-Lich cooldown ... increasing your Frost damage dealt by 10%. While active you generate 3 Runic Power every 5 sec.' frost_spell_power is read by Character.get_effective_spell_power, so this really does only scale Frost. The passive Runic Power tick has no hook - no engine path grants a resource per turn from a buff. Duration 0 and an exclusive_group make it a stance.",
       "target_type": "self",
-      "exclusive_group": "necromancer_form"
+      "exclusive_group": "necromancer_form",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "necromancer_chilling_presence",
@@ -1299,14 +1314,29 @@
           "rank": 1,
           "level_req": 34,
           "cost": 30,
-          "effect_value": 0
+          "effect_value": 100
+        },
+        {
+          "cost": 30,
+          "rank": 2,
+          "level_req": 44,
+          "effect_value": 100
+        },
+        {
+          "cost": 30,
+          "rank": 3,
+          "level_req": 54,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Keep Tomb King up so every minion attack hits harder' - 'all of your Undead minion's attacks deal an additional 10% of the damage dealt as Plague damage'. A Pet reads only three talent keys off its owner (pet_damage/pet_health/pet_armor, see entities/pet.py) and nothing at all off the owner's buffs, so a buff cannot reach a minion. This raises the Necromancer's own damage instead and the tree's pet_damage nodes carry the minion half.",
       "target_type": "self",
       "buff_scope": "combat",
-      "is_instant": true
+      "is_instant": true,
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "necromancer_sacrifice_undead",

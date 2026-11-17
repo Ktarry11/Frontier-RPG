@@ -442,44 +442,54 @@
           }
         },
         {
+          "cost": 15,
+          "stat_mods": {
+            "spell_power": 40,
+            "armor": 150
+          },
           "rank": 2,
-          "level_req": 20,
-          "cost": 28,
-          "effect_value": 100,
-          "stat_mods": {
-            "spell_power": 40,
-            "armor": 282
-          }
+          "level_req": 18,
+          "effect_value": 100
         },
         {
+          "cost": 15,
+          "stat_mods": {
+            "spell_power": 40,
+            "armor": 150
+          },
           "rank": 3,
-          "level_req": 32,
-          "cost": 41,
-          "effect_value": 100,
-          "stat_mods": {
-            "spell_power": 40,
-            "armor": 413
-          }
+          "level_req": 28,
+          "effect_value": 100
         },
         {
+          "cost": 15,
+          "stat_mods": {
+            "spell_power": 40,
+            "armor": 150
+          },
           "rank": 4,
-          "level_req": 44,
-          "cost": 54,
-          "effect_value": 100,
-          "stat_mods": {
-            "spell_power": 40,
-            "armor": 545
-          }
+          "level_req": 38,
+          "effect_value": 100
         },
         {
-          "rank": 5,
-          "level_req": 56,
-          "cost": 66,
-          "effect_value": 100,
+          "cost": 15,
           "stat_mods": {
             "spell_power": 40,
-            "armor": 677
-          }
+            "armor": 150
+          },
+          "rank": 5,
+          "level_req": 48,
+          "effect_value": 100
+        },
+        {
+          "cost": 15,
+          "stat_mods": {
+            "spell_power": 40,
+            "armor": 150
+          },
+          "rank": 6,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -499,7 +509,8 @@
         }
       },
       "_tuning": [
-        "15 Nov 2026, rank-depth pass (Kyle: \"ensure there are appropriate ranks for spells, abilities, buffs etc ... in line with Classic\"): ranks every 12 levels. Only the ARMOUR grows (along the same level line monster armour uses) - the world curve already grows attack/spell power and primary stats, and the other mods are percentages or flags. Each rank carries its own stat_mods (Ability.stat_mods), so the rest stays as written."
+        "15 Nov 2026, rank-depth pass (Kyle: \"ensure there are appropriate ranks for spells, abilities, buffs etc ... in line with Classic\"): ranks every 12 levels. Only the ARMOUR grows (along the same level line monster armour uses) - the world curve already grows attack/spell power and primary stats, and the other mods are percentages or flags. Each rank carries its own stat_mods (Ability.stat_mods), so the rest stays as written.",
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ]
     },
     {
@@ -566,11 +577,38 @@
           "level_req": 20,
           "cost": 15,
           "effect_value": 100
+        },
+        {
+          "cost": 15,
+          "rank": 2,
+          "level_req": 30,
+          "effect_value": 100
+        },
+        {
+          "cost": 15,
+          "rank": 3,
+          "level_req": 40,
+          "effect_value": 100
+        },
+        {
+          "cost": 15,
+          "rank": 4,
+          "level_req": 50,
+          "effect_value": 100
+        },
+        {
+          "cost": 15,
+          "rank": 5,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "exclusive_group": "runemaster_palm_sigil",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "runemaster_leyfeed",
@@ -820,6 +858,24 @@
           "level_req": 30,
           "cost": 40,
           "effect_value": 100
+        },
+        {
+          "cost": 40,
+          "rank": 2,
+          "level_req": 40,
+          "effect_value": 100
+        },
+        {
+          "cost": 40,
+          "rank": 3,
+          "level_req": 50,
+          "effect_value": 100
+        },
+        {
+          "cost": 40,
+          "rank": 4,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "generates": {
@@ -827,7 +883,10 @@
         "amount": 3
       },
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "runemaster_fist_of_the_ancients",
@@ -997,10 +1056,19 @@
           "level_req": 50,
           "cost": 40,
           "effect_value": 100
+        },
+        {
+          "cost": 40,
+          "rank": 2,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "runemaster_augurs_shield",

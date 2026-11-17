@@ -501,11 +501,44 @@
           "level_req": 8,
           "cost": 18,
           "effect_value": 100
+        },
+        {
+          "cost": 18,
+          "rank": 2,
+          "level_req": 18,
+          "effect_value": 100
+        },
+        {
+          "cost": 18,
+          "rank": 3,
+          "level_req": 28,
+          "effect_value": 100
+        },
+        {
+          "cost": 18,
+          "rank": 4,
+          "level_req": 38,
+          "effect_value": 100
+        },
+        {
+          "cost": 18,
+          "rank": 5,
+          "level_req": 48,
+          "effect_value": 100
+        },
+        {
+          "cost": 18,
+          "rank": 6,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_implementation_note": "The real mechanic empowers the NEXT 'Lunar Phase' spell cast, not a flat self-buff - this engine doesn't have a 'next-cast-consumes-this' primitive shared cleanly across many different spells yet, modeled as a short self-buff window instead.",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "starcaller_huntress_shot",
@@ -706,8 +739,10 @@
       ],
       "icon_id": null,
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.77x steeper than it, biggest single-rank jump 1.21x); overall size kept. tools/fix_rank_lines.py"
-      ]
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.77x steeper than it, biggest single-rank jump 1.21x); overall size kept. tools/fix_rank_lines.py",
+        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 0.9 (combat/heal_formula.rank_size). Two cooldown-free core heals both at the top of their shape put Moon Priest a fifth over the others."
+      ],
+      "formula_identity": 0.9
     },
     {
       "ability_id": "starcaller_elunes_purification",
@@ -789,7 +824,11 @@
           "effect_value": 277
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "formula_identity": 0.9,
+      "_tuning": [
+        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 0.9 (combat/heal_formula.rank_size). Two cooldown-free core heals both at the top of their shape put Moon Priest a fifth over the others."
+      ]
     },
     {
       "ability_id": "starcaller_moonflow",
@@ -1915,10 +1954,25 @@
           "level_req": 42,
           "cost": 18,
           "effect_value": 100
+        },
+        {
+          "cost": 18,
+          "rank": 2,
+          "level_req": 52,
+          "effect_value": 100
+        },
+        {
+          "cost": 18,
+          "rank": 3,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "starcaller_avatar_of_vengeance",
@@ -1939,10 +1993,19 @@
           "level_req": 50,
           "cost": 45,
           "effect_value": 100
+        },
+        {
+          "cost": 45,
+          "rank": 2,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     }
   ]
 }

@@ -462,14 +462,41 @@
           "rank": 1,
           "level_req": 22,
           "cost": 30,
-          "effect_value": 0
+          "effect_value": 100
+        },
+        {
+          "cost": 30,
+          "rank": 2,
+          "level_req": 32,
+          "effect_value": 100
+        },
+        {
+          "cost": 30,
+          "rank": 3,
+          "level_req": 42,
+          "effect_value": 100
+        },
+        {
+          "cost": 30,
+          "rank": 4,
+          "level_req": 52,
+          "effect_value": 100
+        },
+        {
+          "cost": 30,
+          "rank": 5,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "CoA class tree: 'Unleash fel energy upon enemies at target location, fearing them and slowing their movement speed by -80%. Damage caused may interrupt the effect.' is_stun covers the fear (the engine's one lose-your-turn mechanic); the break-on-damage half has no hook, so this fear is not breakable.",
       "target_type": "enemy_aoe",
       "max_targets": 5,
-      "is_stun": true
+      "is_stun": true,
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "felsworn_annihilation",
@@ -924,38 +951,48 @@
           }
         },
         {
+          "cost": 20,
+          "stat_mods": {
+            "armor": -140
+          },
           "rank": 2,
-          "level_req": 32,
-          "cost": 29,
-          "effect_value": 100,
-          "stat_mods": {
-            "armor": -205
-          }
+          "level_req": 30,
+          "effect_value": 100
         },
         {
+          "cost": 20,
+          "stat_mods": {
+            "armor": -140
+          },
           "rank": 3,
-          "level_req": 44,
-          "cost": 38,
-          "effect_value": 100,
-          "stat_mods": {
-            "armor": -271
-          }
+          "level_req": 40,
+          "effect_value": 100
         },
         {
-          "rank": 4,
-          "level_req": 56,
-          "cost": 48,
-          "effect_value": 100,
+          "cost": 20,
           "stat_mods": {
-            "armor": -336
-          }
+            "armor": -140
+          },
+          "rank": 4,
+          "level_req": 50,
+          "effect_value": 100
+        },
+        {
+          "cost": 20,
+          "stat_mods": {
+            "armor": -140
+          },
+          "rank": 5,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'You open with Bane of Frailty to strip a chunk of the target's armor'. Flat armor, not armor_pct: Monster resolves armour through get_status_stat_mod('armor') and reads no percentage key, so armor_pct on an enemy would do nothing.",
       "target_type": "enemy",
       "_tuning": [
-        "15 Nov 2026, rank-depth pass (Kyle: \"ensure there are appropriate ranks for spells, abilities, buffs etc ... in line with Classic\"): ranks every 12 levels. Only the ARMOUR grows (along the same level line monster armour uses) - the world curve already grows attack/spell power and primary stats, and the other mods are percentages or flags. Each rank carries its own stat_mods (Ability.stat_mods), so the rest stays as written."
+        "15 Nov 2026, rank-depth pass (Kyle: \"ensure there are appropriate ranks for spells, abilities, buffs etc ... in line with Classic\"): ranks every 12 levels. Only the ARMOUR grows (along the same level line monster armour uses) - the world curve already grows attack/spell power and primary stats, and the other mods are percentages or flags. Each rank carries its own stat_mods (Ability.stat_mods), so the rest stays as written.",
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ]
     },
     {

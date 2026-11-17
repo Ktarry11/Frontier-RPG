@@ -312,22 +312,37 @@
           "effect_value": 43
         },
         {
-          "rank": 2,
-          "level_req": 30,
           "cost": 25,
-          "effect_value": 71
+          "rank": 2,
+          "level_req": 24,
+          "effect_value": 57
         },
         {
-          "rank": 3,
-          "level_req": 50,
           "cost": 25,
+          "rank": 3,
+          "level_req": 34,
+          "effect_value": 72
+        },
+        {
+          "cost": 25,
+          "rank": 4,
+          "level_req": 44,
+          "effect_value": 86
+        },
+        {
+          "cost": 25,
+          "rank": 5,
+          "level_req": 54,
           "effect_value": 100
         }
       ],
       "icon_id": null,
       "buff_scope": "combat",
       "secondary_cost": 20,
-      "_source": "Combo-point FINISHER, wired 5 Nov 2026: secondary_cost 20 means it spends 1 combo point(s) ON TOP OF its Energy cost, via the new Ability.secondary_cost. debuff finisher, usable at 1 point. Cost set from measured fight length (2-3 turns trash, 5-6 boss), not from real WoW's 5-point finishers, which would never fire here. Damage does NOT scale with points spent - no engine mechanism reads a live resource amount."
+      "_source": "Combo-point FINISHER, wired 5 Nov 2026: secondary_cost 20 means it spends 1 combo point(s) ON TOP OF its Energy cost, via the new Ability.secondary_cost. debuff finisher, usable at 1 point. Cost set from measured fight length (2-3 turns trash, 5-6 boss), not from real WoW's 5-point finishers, which would never fire here. Damage does NOT scale with points spent - no engine mechanism reads a live resource amount.",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "rogue_adrenaline_rush",
@@ -349,9 +364,21 @@
           "effect_value": 60
         },
         {
-          "rank": 2,
-          "level_req": 46,
           "cost": 0,
+          "rank": 2,
+          "level_req": 42,
+          "effect_value": 73
+        },
+        {
+          "cost": 0,
+          "rank": 3,
+          "level_req": 52,
+          "effect_value": 87
+        },
+        {
+          "cost": 0,
+          "rank": 4,
+          "level_req": 58,
           "effect_value": 100
         }
       ],
@@ -359,7 +386,10 @@
       "icon_id": null,
       "buff_scope": "combat",
       "requires_talent": true,
-      "_design_note": "Not learned from level alone - granted by the Adrenaline Rush talent in the Combat tree, matching real WOTLK where this is talent-exclusive, not baseline. Doubles your Energy regeneration for a short time."
+      "_design_note": "Not learned from level alone - granted by the Adrenaline Rush talent in the Combat tree, matching real WOTLK where this is talent-exclusive, not baseline. Doubles your Energy regeneration for a short time.",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "rogue_mutilate",

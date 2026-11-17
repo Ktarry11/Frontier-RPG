@@ -849,14 +849,41 @@
           "rank": 1,
           "level_req": 20,
           "cost": 20,
-          "effect_value": 0
+          "effect_value": 100
+        },
+        {
+          "cost": 20,
+          "rank": 2,
+          "level_req": 30,
+          "effect_value": 100
+        },
+        {
+          "cost": 20,
+          "rank": 3,
+          "level_req": 40,
+          "effect_value": 100
+        },
+        {
+          "cost": 20,
+          "rank": 4,
+          "level_req": 50,
+          "effect_value": 100
+        },
+        {
+          "cost": 20,
+          "rank": 5,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Only one Quiver buff, Poison or Searing, can be active at a time, so a lot of the play is picking the right one'. Same exclusive_group, which is the engine's real one-at-a-time hook (Tinker's Rounds use it).",
       "target_type": "self",
       "buff_scope": "raid",
-      "exclusive_group": "ranger_quiver"
+      "exclusive_group": "ranger_quiver",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "ranger_searing_quiver",
@@ -1279,13 +1306,34 @@
           "rank": 1,
           "level_req": 30,
           "cost": 20,
-          "effect_value": 0
+          "effect_value": 100
+        },
+        {
+          "cost": 20,
+          "rank": 2,
+          "level_req": 40,
+          "effect_value": 100
+        },
+        {
+          "cost": 20,
+          "rank": 3,
+          "level_req": 50,
+          "effect_value": 100
+        },
+        {
+          "cost": 20,
+          "rank": 4,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'your melee auto attacks deal an additional 30% of the damage dealt as Nature damage and reduces your target's healing received'. An on-swing damage rider is a proc, not a buff stat_mod, so this carries flat power and crit for the same window instead.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "ranger_emerald_arrow",
@@ -1593,13 +1641,34 @@
           "rank": 1,
           "level_req": 28,
           "cost": 25,
-          "effect_value": 0
+          "effect_value": 100
+        },
+        {
+          "cost": 25,
+          "rank": 2,
+          "level_req": 38,
+          "effect_value": 100
+        },
+        {
+          "cost": 25,
+          "rank": 3,
+          "level_req": 48,
+          "effect_value": 100
+        },
+        {
+          "cost": 25,
+          "rank": 4,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Empower party and raid members, increasing their attack or spell power'. Both stats, because the engine has no 'whichever one the ally uses' switch and halving it for casters would make the spec worse in exactly the group it is built for.",
       "target_type": "party",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "ranger_frenzy",

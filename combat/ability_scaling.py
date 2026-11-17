@@ -144,7 +144,7 @@ AURA_RANGE = (0.35, 1.75)
 #: ran 16.5% to 45.6% of a tank a turn (Pyromancer's rotation leans on shields and a cooldown heal, Vizier's Alkahest
 #: is a big heal on a short cooldown), so the range is wide UNTIL each healer's kit is fixed by hand in the support
 #: pass (docs/heal_formula.md, "every healer"), then it comes back to HEAL_AURA_GOAL.
-HEAL_AURA_RANGE = (0.6, 1.6)
+HEAL_AURA_RANGE = (0.9, 1.1)
 HEAL_AURA_GOAL = (0.9, 1.1)
 
 

@@ -180,27 +180,42 @@
           "effect_value": 100
         },
         {
+          "cost": 22,
           "rank": 2,
-          "level_req": 23,
-          "cost": 34,
-          "effect_value": 120
+          "level_req": 16,
+          "effect_value": 100
         },
         {
+          "cost": 22,
           "rank": 3,
-          "level_req": 40,
-          "cost": 45,
-          "effect_value": 140
+          "level_req": 26,
+          "effect_value": 100
         },
         {
+          "cost": 22,
           "rank": 4,
-          "level_req": 57,
-          "cost": 57,
-          "effect_value": 160
+          "level_req": 36,
+          "effect_value": 100
+        },
+        {
+          "cost": 22,
+          "rank": 5,
+          "level_req": 46,
+          "effect_value": 100
+        },
+        {
+          "cost": 22,
+          "rank": 6,
+          "level_req": 56,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "CoA class tree: 'When your Shrinking Jinx is dispelled it now applies Misery to the dispeller'. The jinx itself shrinks what the target can swing.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "witch_doctor_hex_of_malice",
@@ -532,22 +547,31 @@
           "effect_value": 100
         },
         {
+          "cost": 45,
           "rank": 2,
-          "level_req": 45,
-          "cost": 68,
-          "effect_value": 125
+          "level_req": 42,
+          "effect_value": 100
         },
         {
+          "cost": 45,
           "rank": 3,
+          "level_req": 52,
+          "effect_value": 100
+        },
+        {
+          "cost": 45,
+          "rank": 4,
           "level_req": 58,
-          "cost": 90,
-          "effect_value": 150
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Summon a mimic ward for 12 seconds. For the duration when you cast Malefic Wrath and Loa's Brew the ward will also cast it on your target.' There is no repeat-my-last-cast mechanic in the engine, so the window lands as the spell power the echo would have been worth. The cast-echo is the one part of this kit with no honest equivalent.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "witch_doctor_power_wuju",
@@ -941,12 +965,27 @@
           "level_req": 40,
           "cost": 55,
           "effect_value": 100
+        },
+        {
+          "cost": 55,
+          "rank": 2,
+          "level_req": 50,
+          "effect_value": 100
+        },
+        {
+          "cost": 55,
+          "rank": 3,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Let the spirit of Bwonsamdi possess you for 15 seconds. Dealing periodic damage unleashes a trapped voodoo spirit at enemies'; 'Voice of Bwonsamdi is your big damage cooldown'.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "witch_doctor_potion_toss",

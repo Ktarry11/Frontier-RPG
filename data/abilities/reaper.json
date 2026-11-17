@@ -571,24 +571,34 @@
           }
         },
         {
-          "rank": 2,
-          "level_req": 40,
-          "cost": 35,
-          "effect_value": 100,
+          "cost": 26,
           "stat_mods": {
-            "armor": -190,
+            "armor": -140,
             "magic_damage_taken_pct": 10.0
-          }
+          },
+          "rank": 2,
+          "level_req": 38,
+          "effect_value": 100
         },
         {
-          "rank": 3,
-          "level_req": 52,
-          "cost": 44,
-          "effect_value": 100,
+          "cost": 26,
           "stat_mods": {
-            "armor": -240,
+            "armor": -140,
             "magic_damage_taken_pct": 10.0
-          }
+          },
+          "rank": 3,
+          "level_req": 48,
+          "effect_value": 100
+        },
+        {
+          "cost": 26,
+          "stat_mods": {
+            "armor": -140,
+            "magic_damage_taken_pct": 10.0
+          },
+          "rank": 4,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -599,7 +609,8 @@
         "amount": 10
       },
       "_tuning": [
-        "15 Nov 2026, rank-depth pass (Kyle: \"ensure there are appropriate ranks for spells, abilities, buffs etc ... in line with Classic\"): ranks every 12 levels. Only the ARMOUR grows (along the same level line monster armour uses) - the world curve already grows attack/spell power and primary stats, and the other mods are percentages or flags. Each rank carries its own stat_mods (Ability.stat_mods), so the rest stays as written."
+        "15 Nov 2026, rank-depth pass (Kyle: \"ensure there are appropriate ranks for spells, abilities, buffs etc ... in line with Classic\"): ranks every 12 levels. Only the ARMOUR grows (along the same level line monster armour uses) - the world curve already grows attack/spell power and primary stats, and the other mods are percentages or flags. Each rank carries its own stat_mods (Ability.stat_mods), so the rest stays as written.",
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ]
     },
     {

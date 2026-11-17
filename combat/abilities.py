@@ -1460,9 +1460,14 @@ class Ability:
         the buff can't disagree."""
         potency = self._talent(caster, f"ability_{self.ability_id}_potency") if caster is not None else 0.0
         scalar = self._stat_mod_scalar()
+        # FLAT STATS ARE A SHARE OF WHAT A CHARACTER OF THE RANK'S LEVEL HAS (combat/support_formula.py, Kyle 16 Nov
+        # 2026: support skills "not actually benefiting from ranking up and being obsolete"). The rank's own level
+        # sizes them, so the scalar (33% -> 100% across the old ranks) no longer applies to them.
+        from combat import support_formula as _sf
+        sized = _sf.ability_mods(self)
         out = {}
         for k, v in (self.stat_mods or {}).items():
-            scaled = v * scalar * (1.0 + potency)
+            scaled = (sized[k] if k in sized else v * scalar) * (1.0 + potency)
             out[k] = scaled if k.endswith("_pct") else int(scaled)
         return out
 
@@ -1950,7 +1955,9 @@ class Ability:
     SPELL_VARIANCE = 0.09
 
     #: Cryobolt / Cryolance: the share of a converted Frostbolt's or Ice Lance's damage that heals the neediest ally
-    CRYO_HEAL_SHARE = 0.30
+    #: 0.30 until the healing formula's every-healer pass (16 Nov 2026): it put the Cryotherapist at 1.5x the 75% of a
+    #: dedicated healer it's held to (tools/sim_heal_parity.HYBRID_HEALERS), with the healers' heals sized down
+    CRYO_HEAL_SHARE = 0.12
 
     #: The ability types whose amount is rolled by _roll_variance. Physical "damage" rolls on
     #: the weapon's own min-max instead, and a DoT/HoT ticks for a fixed amount.
@@ -4602,7 +4609,6 @@ class Ability:
             # convention as talented_cost/talented_cooldown, just for buff
             # MAGNITUDE rather than resource cost or cooldown, since nothing
             # existed to scale a buff's stat_mods by talent before this.
-            potency_bonus = self._talent(caster, f"ability_{self.ability_id}_potency")
             # Percentage-shaped stat keys (the "_pct" convention -
             # damage_taken_pct, max_health_pct, etc. - see
             # Character._recalculate_derived_stats/take_damage, which read
@@ -4614,11 +4620,8 @@ class Ability:
             # headless test before this fix). Flat stats (agility, armor,
             # attack_power, ...) keep their existing int() scaling exactly
             # as before - only the _pct suffix changes behavior here.
-            mods = {}
-            scalar = self._stat_mod_scalar()
-            for k, v in (self.stat_mods or {}).items():
-                scaled = v * scalar * (1.0 + potency_bonus)
-                mods[k] = scaled if k.endswith("_pct") else int(scaled)
+            # one place sizes a buff's stats, the tooltip's and the cast's alike (scaled_stat_mods)
+            mods = self.scaled_stat_mods(caster)
             if self.anticipate_resist:
                 school = self._anticipated_school(engine)
                 mods = dict(mods)
@@ -4648,6 +4651,14 @@ class Ability:
                 if self.absorb_pct_max_health:
                     shield_amt = max(1, int(getattr(recipient, "health", 0)
                                             * self.absorb_pct_max_health))
+                    # a shield on somebody else is healing-shaped (combat/heal_formula.shield_size)
+                    from combat import heal_formula as _hf
+                    from combat import ability_scaling as _as
+                    if _as.USE_HEAL_FORMULA:
+                        sized = _hf.shield_size(self, caster)
+                        if sized is not None:
+                            spec = self._damage_multiplier(caster, "healing", recipient=recipient)
+                            shield_amt = max(1, int(sized * spec))
                 effect = StatusEffect(
                     absorb=shield_amt,
                     effect_id=self.ability_id, name=self.name,
@@ -4787,11 +4798,7 @@ class Ability:
                 # Same _pct-suffix exemption as the buff branch above -
                 # percentage-shaped debuff stat_mods must stay fractional,
                 # not get int()-truncated to 0.
-                mods = {}
-                scalar = self._stat_mod_scalar()
-                for k, v in (self.stat_mods or {}).items():
-                    scaled = v * scalar
-                    mods[k] = scaled if k.endswith("_pct") else int(scaled)
+                mods = self.scaled_stat_mods(None)
                 real_time = None if self.buff_scope == "combat" else _UNSET
                 for t in recipients:
                     # DYNAMIC RESISTANCE SELECTION, resolved per TARGET from

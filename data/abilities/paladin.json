@@ -293,27 +293,42 @@
           "effect_value": 33
         },
         {
+          "cost": 52,
           "rank": 2,
-          "level_req": 16,
-          "cost": 80,
-          "effect_value": 56
+          "level_req": 14,
+          "effect_value": 46
         },
         {
+          "cost": 52,
           "rank": 3,
-          "level_req": 32,
-          "cost": 106,
-          "effect_value": 78
+          "level_req": 24,
+          "effect_value": 60
         },
         {
+          "cost": 52,
           "rank": 4,
-          "level_req": 50,
-          "cost": 134,
+          "level_req": 34,
+          "effect_value": 73
+        },
+        {
+          "cost": 52,
+          "rank": 5,
+          "level_req": 44,
+          "effect_value": 87
+        },
+        {
+          "cost": 52,
+          "rank": 6,
+          "level_req": 54,
           "effect_value": 100
         }
       ],
       "target_type": "party",
       "icon_id": null,
-      "buff_scope": "raid"
+      "buff_scope": "raid",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "paladin_hammer_of_justice",
@@ -691,28 +706,37 @@
           "effect_value": 100
         },
         {
+          "cost": 60,
           "rank": 2,
           "level_req": 30,
-          "cost": 74,
-          "effect_value": 123
+          "effect_value": 100
         },
         {
+          "cost": 60,
           "rank": 3,
-          "level_req": 42,
-          "cost": 91,
-          "effect_value": 151
+          "level_req": 40,
+          "effect_value": 100
         },
         {
+          "cost": 60,
           "rank": 4,
-          "level_req": 56,
-          "cost": 110,
-          "effect_value": 184
+          "level_req": 50,
+          "effect_value": 100
+        },
+        {
+          "cost": 60,
+          "rank": 5,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "target_type": "party",
       "buff_scope": "raid",
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "paladin_exorcism",

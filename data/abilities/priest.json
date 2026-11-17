@@ -415,27 +415,48 @@
           "effect_value": 33
         },
         {
+          "cost": 60,
           "rank": 2,
-          "level_req": 13,
-          "cost": 90,
-          "effect_value": 56
+          "level_req": 11,
+          "effect_value": 44
         },
         {
+          "cost": 60,
           "rank": 3,
-          "level_req": 29,
-          "cost": 120,
+          "level_req": 21,
+          "effect_value": 55
+        },
+        {
+          "cost": 60,
+          "rank": 4,
+          "level_req": 31,
+          "effect_value": 66
+        },
+        {
+          "cost": 60,
+          "rank": 5,
+          "level_req": 41,
           "effect_value": 78
         },
         {
-          "rank": 4,
-          "level_req": 47,
-          "cost": 150,
+          "cost": 60,
+          "rank": 6,
+          "level_req": 51,
+          "effect_value": 89
+        },
+        {
+          "cost": 60,
+          "rank": 7,
+          "level_req": 58,
           "effect_value": 100
         }
       ],
       "target_type": "party",
       "icon_id": null,
-      "buff_scope": "raid"
+      "buff_scope": "raid",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "priest_mind_blast",
@@ -505,21 +526,33 @@
           "effect_value": 33
         },
         {
+          "cost": 45,
           "rank": 2,
-          "level_req": 18,
-          "cost": 69,
-          "effect_value": 56
+          "level_req": 16,
+          "effect_value": 46
         },
         {
+          "cost": 45,
           "rank": 3,
-          "level_req": 34,
-          "cost": 93,
-          "effect_value": 78
+          "level_req": 26,
+          "effect_value": 60
         },
         {
+          "cost": 45,
           "rank": 4,
-          "level_req": 52,
-          "cost": 117,
+          "level_req": 36,
+          "effect_value": 73
+        },
+        {
+          "cost": 45,
+          "rank": 5,
+          "level_req": 46,
+          "effect_value": 87
+        },
+        {
+          "cost": 45,
+          "rank": 6,
+          "level_req": 56,
           "effect_value": 100
         }
       ],
@@ -527,7 +560,10 @@
       "icon_id": null,
       "buff_scope": "combat",
       "absorb_pct_max_health": 0.3,
-      "_source": "  ABSORBED NOTHING. Its own description promises absorption and it carried no absorb field at all, while StatusEffect.absorb has supported this the whole time - it soaks the RAW incoming amount before armour, resistance, avoidance and every percentage reduction (Character.take_damage). 24 other abilities already use absorb_pct_max_health, a FRACTION of the recipient's max health, banded 0.06-0.40. Caught by the description-vs-data check in tools/validate_class.py. Sized near the top of the band because this is the premier absorb in the game and the peers there are Templar's Tome of Light at 0.40 and Cultist's Eldritch Bastion at 0.35."
+      "_source": "  ABSORBED NOTHING. Its own description promises absorption and it carried no absorb field at all, while StatusEffect.absorb has supported this the whole time - it soaks the RAW incoming amount before armour, resistance, avoidance and every percentage reduction (Character.take_damage). 24 other abilities already use absorb_pct_max_health, a FRACTION of the recipient's max health, banded 0.06-0.40. Caught by the description-vs-data check in tools/validate_class.py. Sized near the top of the band because this is the premier absorb in the game and the peers there are Templar's Tome of Light at 0.40 and Cultist's Eldritch Bastion at 0.35.",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "priest_holy_fire",
@@ -616,8 +652,10 @@
       "icon_id": null,
       "_design_note": "Not learned from level alone - granted by the Penance talent in the Discipline tree. Real WOTLK Penance channels 3 bolts over 2 sec, healing an ally or damaging an enemy - this engine has no channel mechanic, so it resolves as a single strong heal instead.",
       "_tuning": [
-        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
-      ]
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py",
+        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 1.3 (combat/heal_formula.rank_size). Discipline sat a quarter under the others; Penance is its own heal."
+      ],
+      "formula_identity": 1.3
     },
     {
       "ability_id": "priest_circle_of_healing",

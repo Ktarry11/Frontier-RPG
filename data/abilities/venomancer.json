@@ -430,8 +430,10 @@
         1.62
       ],
       "_tuning": [
-        "15 Nov 2026, class pass: every rank x1.62 - its total was 0.49x what a hot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
-      ]
+        "15 Nov 2026, class pass: every rank x1.62 - its total was 0.49x what a hot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
+        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 0.8 (combat/heal_formula.rank_size). Vizier rolls three HoTs at once and healed a quarter more than the others."
+      ],
+      "formula_identity": 0.8
     },
     {
       "ability_id": "venomancer_beetle_pheromones",
@@ -459,26 +461,35 @@
           "effect_value": 100
         },
         {
+          "cost": 36,
           "rank": 2,
           "level_req": 30,
-          "cost": 44,
-          "effect_value": 123
+          "effect_value": 100
         },
         {
+          "cost": 36,
           "rank": 3,
-          "level_req": 42,
-          "cost": 54,
-          "effect_value": 151
+          "level_req": 40,
+          "effect_value": 100
         },
         {
+          "cost": 36,
           "rank": 4,
-          "level_req": 56,
-          "cost": 66,
-          "effect_value": 184
+          "level_req": 50,
+          "effect_value": 100
+        },
+        {
+          "cost": 36,
+          "rank": 5,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "buff_scope": "raid"
+      "buff_scope": "raid",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "venomancer_nullifying_toxin",
@@ -782,11 +793,13 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.34x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py",
         "15 Nov 2026, class pass: every rank x1.78 - its total was 0.45x what a hot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
-        "15 Nov 2026, deep dive: the up-front heal CoA's tooltip gives it ('32 healing, plus 5 every 3 sec' at rank 1 - the direct part about 0.8x the HoT's total) as heal_value, which a HoT now lands on cast. Without it the Vizier had no spammable heal before Alkahest at 20 and sat at the healing aura's cap at 10 and 20."
+        "15 Nov 2026, deep dive: the up-front heal CoA's tooltip gives it ('32 healing, plus 5 every 3 sec' at rank 1 - the direct part about 0.8x the HoT's total) as heal_value, which a HoT now lands on cast. Without it the Vizier had no spammable heal before Alkahest at 20 and sat at the healing aura's cap at 10 and 20.",
+        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 0.8 (combat/heal_formula.rank_size). Vizier rolls three HoTs at once and healed a quarter more than the others."
       ],
       "_over_time_lifted": [
         1.78
-      ]
+      ],
+      "formula_identity": 0.8
     },
     {
       "ability_id": "venomancer_alkahest",
@@ -837,7 +850,11 @@
           "effect_value": 279
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "formula_identity": 0.85,
+      "_tuning": [
+        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 0.85 (combat/heal_formula.rank_size). Its big heal on a short cooldown, with the HoTs, put Vizier at the top."
+      ]
     },
     {
       "ability_id": "venomancer_mending_mist",
@@ -939,7 +956,11 @@
           "effect_value": 290
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "formula_identity": 0.8,
+      "_tuning": [
+        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 0.8 (combat/heal_formula.rank_size). Vizier rolls three HoTs at once and healed a quarter more than the others."
+      ]
     },
     {
       "ability_id": "venomancer_blight_antidote",

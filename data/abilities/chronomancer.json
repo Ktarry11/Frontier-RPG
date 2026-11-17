@@ -339,8 +339,10 @@
       "_source": "CoA class tree ability, and half of Time's core loop. || Duration 4 -> 7 turns, 5 Nov 2026. Kyle: 'Chronomancer is a lot of DoTs. So we need to have longer dots to represent it properly.' effect_value is the TOTAL across the whole duration (abilities.py:2695) and per-turn potency is total/duration - so lengthening ALONE would have spread the same damage thinner and made the dot strictly worse. Totals raised by 1.14x alongside (4->7 is 1.75x duration, scaled by 0.65), so per-tick falls ~35% while total damage rises ~14%: a long patient dot that out-damages over a full fight without becoming burst. Part of a wider pass Kyle wants on dot AND hot durations - 82 ability dots across the game sit at exactly 3 turns. || Duration corrected to 5 turns, 6 Nov 2026, REVERSING the 8-10 turn lengthening I applied earlier the same day. Fight length was then measured through the real engine rather than assumed from CoA's 18-24 second windows: trash fights run 2-3 turns (p90 4-5) and boss fights 5-6 (p90 8-10). A 10-turn dot therefore delivers only 35% of its damage on trash and 63% on a boss, where a 3-turn dot delivers 91%/100% - so my 'longer dots to represent the class properly' had made Chronomancer WORSE than before I touched it. Kyle's call once measured: fit the dots to the fights. This ability now sits in the sustained bucket of a five-bucket taxonomy capped at 6 turns (2 burst, 3 standard, 4 tail, 5 sustained, 6 boss finisher). Per-tick is held at 12.5, the value the game originally shipped with, and the total scales with duration - so length adds damage at unchanged tick strength instead of thinning a fixed total.",
       "target_type": "ally",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.53x steeper than it, biggest single-rank jump 1.16x); overall size kept. tools/fix_rank_lines.py"
-      ]
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.53x steeper than it, biggest single-rank jump 1.16x); overall size kept. tools/fix_rank_lines.py",
+        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 0.85 (combat/heal_formula.rank_size). Epoch on a one-turn cooldown plus a HoT that never stops put Time at the top."
+      ],
+      "formula_identity": 0.85
     },
     {
       "ability_id": "chronomancer_roll_back",
@@ -858,13 +860,34 @@
           "level_req": 26,
           "cost": 35,
           "effect_value": 100
+        },
+        {
+          "cost": 35,
+          "rank": 2,
+          "level_req": 36,
+          "effect_value": 100
+        },
+        {
+          "cost": 35,
+          "rank": 3,
+          "level_req": 46,
+          "effect_value": 100
+        },
+        {
+          "cost": 35,
+          "rank": 4,
+          "level_req": 56,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Reduces enemy casting speed by -10% for 20 seconds, increasing by -10% every time they cast.' The escalation needs an on-enemy-cast hook; a flat slow plus an attack-power cut is the static version. Monsters read haste and attack_power off status effects and nothing else, so those are the two levers that work on them.",
       "target_type": "enemy",
       "buff_scope": "combat",
-      "requires_talent": true
+      "requires_talent": true,
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "chronomancer_infinite_horizon",
@@ -979,8 +1002,10 @@
       "_source": "CoA: 'Core loop is Epoch (a heal that builds Sands of Time stacks) and Accelerated Recovery (a HoT).' Sands of Time cannot be a resource (see module docstring), so the stack payoff is the Carbon Dating and Epic Recovery talents raising Epoch's own healing.",
       "target_type": "ally",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.65x steeper than it, biggest single-rank jump 1.18x); overall size kept. tools/fix_rank_lines.py"
-      ]
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.65x steeper than it, biggest single-rank jump 1.18x); overall size kept. tools/fix_rank_lines.py",
+        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 0.85 (combat/heal_formula.rank_size). Epoch on a one-turn cooldown plus a HoT that never stops put Time at the top."
+      ],
+      "formula_identity": 0.85
     },
     {
       "ability_id": "chronomancer_correct_the_mistake",

@@ -354,8 +354,10 @@
       ],
       "icon_id": null,
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 2.05x steeper than it, biggest single-rank jump 1.28x); overall size kept. tools/fix_rank_lines.py"
-      ]
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 2.05x steeper than it, biggest single-rank jump 1.28x); overall size kept. tools/fix_rank_lines.py",
+        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 1.35 (combat/heal_formula.rank_size). Grovekeeper sat well under the 75% of a dedicated healer a damage-healer is held to."
+      ],
+      "formula_identity": 1.35
     },
     {
       "ability_id": "primalist_boon_of_the_turtle",
@@ -570,26 +572,35 @@
           "effect_value": 100
         },
         {
+          "cost": 26,
           "rank": 2,
           "level_req": 30,
-          "cost": 32,
-          "effect_value": 123
+          "effect_value": 100
         },
         {
+          "cost": 26,
           "rank": 3,
-          "level_req": 42,
-          "cost": 39,
-          "effect_value": 151
+          "level_req": 40,
+          "effect_value": 100
         },
         {
+          "cost": 26,
           "rank": 4,
-          "level_req": 56,
-          "cost": 48,
-          "effect_value": 184
+          "level_req": 50,
+          "effect_value": 100
+        },
+        {
+          "cost": 26,
+          "rank": 5,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "primalist_soothing_touch",
@@ -672,20 +683,29 @@
           "effect_value": 100
         },
         {
+          "cost": 45,
           "rank": 2,
           "level_req": 40,
-          "cost": 53,
-          "effect_value": 119
+          "effect_value": 100
         },
         {
+          "cost": 45,
           "rank": 3,
-          "level_req": 52,
-          "cost": 64,
-          "effect_value": 142
+          "level_req": 50,
+          "effect_value": 100
+        },
+        {
+          "cost": 45,
+          "rank": 4,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "buff_scope": "raid"
+      "buff_scope": "raid",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "primalist_grove_instinct",
@@ -1362,7 +1382,11 @@
           "effect_value": 255
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "formula_identity": 1.3,
+      "_tuning": [
+        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 1.3 (combat/heal_formula.rank_size). Grovekeeper's HoTs, the same reason."
+      ]
     },
     {
       "ability_id": "primalist_blessing_of_neptulon",
@@ -1413,7 +1437,11 @@
           "effect_value": 229
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "formula_identity": 1.3,
+      "_tuning": [
+        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 1.3 (combat/heal_formula.rank_size). Grovekeeper's HoTs, the same reason."
+      ]
     },
     {
       "ability_id": "primalist_sacred_grove",
@@ -1466,8 +1494,10 @@
       ],
       "icon_id": null,
       "_tuning": [
-        "15 Nov 2026, class pass: every rank x0.65 - it sat at 2.47x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
-      ]
+        "15 Nov 2026, class pass: every rank x0.65 - it sat at 2.47x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
+        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 1.3 (combat/heal_formula.rank_size). Grovekeeper's HoTs, the same reason."
+      ],
+      "formula_identity": 1.3
     },
     {
       "ability_id": "primalist_judgement_of_the_three_hammers",

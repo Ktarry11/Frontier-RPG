@@ -580,21 +580,30 @@
           "effect_value": 100
         },
         {
+          "cost": 36,
           "rank": 2,
           "level_req": 38,
-          "cost": 43,
-          "effect_value": 120
+          "effect_value": 100
         },
         {
+          "cost": 36,
           "rank": 3,
-          "level_req": 50,
-          "cost": 52,
-          "effect_value": 143
+          "level_req": 48,
+          "effect_value": 100
+        },
+        {
+          "cost": 36,
+          "rank": 4,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "buff_scope": "raid",
-      "exclusive_group": "sun_cleric_devotion"
+      "exclusive_group": "sun_cleric_devotion",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "sun_cleric_vow_of_dawn",
@@ -1669,6 +1678,42 @@
           "level_req": 2,
           "cost": 9,
           "effect_value": 100
+        },
+        {
+          "cost": 9,
+          "rank": 2,
+          "level_req": 12,
+          "effect_value": 100
+        },
+        {
+          "cost": 9,
+          "rank": 3,
+          "level_req": 22,
+          "effect_value": 100
+        },
+        {
+          "cost": 9,
+          "rank": 4,
+          "level_req": 32,
+          "effect_value": 100
+        },
+        {
+          "cost": 9,
+          "rank": 5,
+          "level_req": 42,
+          "effect_value": 100
+        },
+        {
+          "cost": 9,
+          "rank": 6,
+          "level_req": 52,
+          "effect_value": 100
+        },
+        {
+          "cost": 9,
+          "rank": 7,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
@@ -1680,7 +1725,10 @@
       "ability_id": "sun_cleric_vow_of_the_valkyr",
       "name": "Vow of the Valkyr",
       "_source": "The Valkyrie talent was authored as unlock_mechanic: 'vow_of_the_valkyr_transform', which nothing read. The greater vow has to exist for the talent to transform into it.",
-      "requires_talent": true
+      "requires_talent": true,
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     }
   ]
 }

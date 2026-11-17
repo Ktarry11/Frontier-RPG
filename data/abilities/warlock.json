@@ -324,26 +324,41 @@
           "effect_value": 33
         },
         {
+          "cost": 25,
           "rank": 2,
-          "level_req": 16,
-          "cost": 37,
-          "effect_value": 56
+          "level_req": 14,
+          "effect_value": 46
         },
         {
+          "cost": 25,
           "rank": 3,
-          "level_req": 32,
-          "cost": 49,
-          "effect_value": 78
+          "level_req": 24,
+          "effect_value": 60
         },
         {
+          "cost": 25,
           "rank": 4,
-          "level_req": 50,
-          "cost": 61,
+          "level_req": 34,
+          "effect_value": 73
+        },
+        {
+          "cost": 25,
+          "rank": 5,
+          "level_req": 44,
+          "effect_value": 87
+        },
+        {
+          "cost": 25,
+          "rank": 6,
+          "level_req": 54,
           "effect_value": 100
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "warlock_drain_life",
@@ -417,27 +432,36 @@
           "effect_value": 33
         },
         {
+          "cost": 45,
           "rank": 2,
-          "level_req": 32,
-          "cost": 67,
-          "effect_value": 56
+          "level_req": 30,
+          "effect_value": 50
         },
         {
+          "cost": 45,
           "rank": 3,
-          "level_req": 48,
-          "cost": 89,
-          "effect_value": 78
+          "level_req": 40,
+          "effect_value": 66
         },
         {
+          "cost": 45,
           "rank": 4,
-          "level_req": 60,
-          "cost": 111,
+          "level_req": 50,
+          "effect_value": 83
+        },
+        {
+          "cost": 45,
+          "rank": 5,
+          "level_req": 58,
           "effect_value": 100
         }
       ],
       "target_type": "self",
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "warlock_unstable_affliction",
@@ -573,6 +597,12 @@
           "level_req": 50,
           "cost": 0,
           "effect_value": 100
+        },
+        {
+          "cost": 0,
+          "rank": 2,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "target_type": "self",
@@ -580,7 +610,10 @@
       "is_instant": true,
       "icon_id": null,
       "buff_scope": "combat",
-      "_design_note": "Not learned from level alone - granted by the Metamorphosis talent in the Demonology tree. REQUIRES_FORM (not yet enforced - no forms system): real WOTLK Metamorphosis transforms you into a demon with a new ability set - placeholder grants a temporary Attack Power + Armor buff instead until forms exist."
+      "_design_note": "Not learned from level alone - granted by the Metamorphosis talent in the Demonology tree. REQUIRES_FORM (not yet enforced - no forms system): real WOTLK Metamorphosis transforms you into a demon with a new ability set - placeholder grants a temporary Attack Power + Armor buff instead until forms exist.",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "warlock_conflagrate",

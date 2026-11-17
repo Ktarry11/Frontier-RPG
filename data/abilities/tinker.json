@@ -1330,10 +1330,31 @@
           "level_req": 24,
           "cost": 30,
           "effect_value": 100
+        },
+        {
+          "cost": 30,
+          "rank": 2,
+          "level_req": 34,
+          "effect_value": 100
+        },
+        {
+          "cost": 30,
+          "rank": 3,
+          "level_req": 44,
+          "effect_value": 100
+        },
+        {
+          "cost": 30,
+          "rank": 4,
+          "level_req": 54,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "tinker_healing_radiator",

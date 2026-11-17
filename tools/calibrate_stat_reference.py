@@ -13,8 +13,8 @@ Per level (1, then every STEP, then 60): every damage, tank and healer spec is b
 (tools/sim_matrix.build), and for each stat the reference is the 75th percentile across them: the value a character
 who USES that stat has (a Warrior's Intellect would drag a median down to nothing). Effective values, gear and talents
 in, on the scale buffs are written in (spell and healing power on the old power scale: entities/power_scale.py lifts
-a buff's value onto the item scale when it folds in). Then a smooth fit through each stat's ratio to the world curve,
-as the healing reference does, so the table never dips.
+a buff's value onto the item scale when it folds in). Then each stat's ratio to the world curve is interpolated between the measured levels and
+held non-decreasing, so the table never dips (a buff rank is never a step down).
 
 And the monsters: the median trash creature of the level's armour and attack power, for debuffs that take them down.
 """
@@ -55,10 +55,36 @@ def p75(xs):
     return xs[min(len(xs) - 1, int(round(0.75 * (len(xs) - 1))))] if xs else 0.0
 
 
+def smooth(points_by_stat):
+    """Every level 1..60 from the measured points: each value's ratio to the world curve interpolated between the
+    measured levels (tools/calibrate_heal_reference.fill), then held non-decreasing. A straight-line fit (the healing
+    reference's) bent the top down for stats that flatten late, so a level-56 rank came out smaller than a level-50
+    one; a buff rank must never be a step down."""
+    from tools.calibrate_heal_reference import fill
+    table = {}
+    for k, pts in points_by_stat.items():
+        good = {int(L): v for L, v in pts.items() if v > 0}
+        if len(good) < 2:
+            continue
+        row, peak = {}, 0.0
+        for L, v in sorted(fill(good).items()):
+            peak = max(peak, v)
+            row[str(L)] = peak
+        table[k] = row
+    return table
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--step", type=int, default=10)
+    ap.add_argument("--refit", action="store_true", help="rebuild the table from the measured points already saved")
     args = ap.parse_args()
+    if args.refit:
+        data = json.loads(OUT.read_text(encoding="utf-8"))
+        data["reference"] = smooth(data["measured"])
+        OUT.write_text(json.dumps(data, indent=1), encoding="utf-8")
+        print(f"refit {OUT.relative_to(ROOT)}")
+        return 0
     import sim_matrix as M
     from tools.calibrate_heal_reference import fit
     from entities import power_scale as PS
@@ -102,11 +128,7 @@ def main():
         print(f"  level {L:2d}: " + "  ".join(f"{k} {measured[k][L]:.0f}" for k in CHAR_KEYS)
               + f"  | monster armour {monster['monster_armor'][L]:.0f} AP {monster['monster_attack_power'][L]:.0f}",
               flush=True)
-    table = {}
-    for k, pts in {**measured, **monster}.items():
-        good = {L: v for L, v in pts.items() if v > 0}
-        if len(good) >= 2:
-            table[k] = {str(L): v for L, v in fit(good).items()}
+    table = smooth({**measured, **monster})
     data = {"_about": "What a geared character has at each level, per stat (the 75th percentile across every spec: "
                       "what one who uses the stat has), and the median trash monster's armour and attack power. "
                       "Written by tools/calibrate_stat_reference.py; read by combat/support_formula.py.",

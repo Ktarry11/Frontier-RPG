@@ -347,8 +347,10 @@
       "target_type": "ally",
       "is_instant": true,
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.58x steeper than it, biggest single-rank jump 1.17x); overall size kept. tools/fix_rank_lines.py"
-      ]
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.58x steeper than it, biggest single-rank jump 1.17x); overall size kept. tools/fix_rank_lines.py",
+        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 1.35 (combat/heal_formula.rank_size). Flameweaving still sat a fifth under at 50 and 60 after the first lift (1.25)."
+      ],
+      "formula_identity": 1.35
     },
     {
       "ability_id": "pyromancer_meteor",
@@ -642,16 +644,25 @@
           "effect_value": 100
         },
         {
+          "cost": 70,
           "rank": 2,
-          "level_req": 54,
-          "cost": 90,
-          "effect_value": 130
+          "level_req": 50,
+          "effect_value": 100
+        },
+        {
+          "cost": 70,
+          "rank": 3,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Eruption (a damage-and-healing buff that also feeds Heat)' - Draconic's burst window, and the target of three of its talents.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "pyromancer_ignite",
@@ -951,8 +962,10 @@
       "_source": "CoA Flameweaving: 'Sustain the tank with Kindle/Cinderheart as your mana-efficient heals'. The cheap cast-time heal.",
       "target_type": "ally",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.51x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py"
-      ]
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.51x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py",
+        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 1.35 (combat/heal_formula.rank_size). Flameweaving still sat a fifth under at 50 and 60 after the first lift (1.25)."
+      ],
+      "formula_identity": 1.35
     },
     {
       "ability_id": "pyromancer_cinderheart",
@@ -1011,8 +1024,10 @@
       "_source": "CoA Flameweaving: the bigger of the two cast-time heals, and the target of Sageweaving, Ember Charm, Touched by Fire and Soothing Flames.",
       "target_type": "ally",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.41x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
-      ]
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.41x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py",
+        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 1.35 (combat/heal_formula.rank_size). Flameweaving still sat a fifth under at 50 and 60 after the first lift (1.25)."
+      ],
+      "formula_identity": 1.35
     },
     {
       "ability_id": "pyromancer_cleansing_flames",
@@ -1671,27 +1686,36 @@
           "effect_value": 100
         },
         {
+          "cost": 50,
           "rank": 2,
-          "level_req": 32,
-          "cost": 64,
-          "effect_value": 114
+          "level_req": 30,
+          "effect_value": 100
         },
         {
+          "cost": 50,
           "rank": 3,
-          "level_req": 44,
-          "cost": 78,
-          "effect_value": 128
+          "level_req": 40,
+          "effect_value": 100
         },
         {
+          "cost": 50,
           "rank": 4,
-          "level_req": 56,
-          "cost": 92,
-          "effect_value": 142
+          "level_req": 50,
+          "effect_value": 100
+        },
+        {
+          "cost": 50,
+          "rank": 5,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "CoA: Draconic is a 'Battle-caster built to survive melee range: dragon-scale defensives, Int-to-armor and a Phoenix pet', and the rotation opens 'Pre-pull: Draconic Aspect and Inner Flame up'. buff_scope defaults to raid, so it sits there like Arcane Intellect rather than ticking down in combat.",
-      "target_type": "self"
+      "target_type": "self",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "pyromancer_inner_flame",
@@ -1713,23 +1737,32 @@
           "effect_value": 100
         },
         {
+          "cost": 60,
           "rank": 2,
-          "level_req": 41,
-          "cost": 77,
-          "effect_value": 130
+          "level_req": 34,
+          "effect_value": 100
         },
         {
+          "cost": 60,
           "rank": 3,
-          "level_req": 58,
-          "cost": 94,
-          "effect_value": 160
+          "level_req": 44,
+          "effect_value": 100
+        },
+        {
+          "cost": 60,
+          "rank": 4,
+          "level_req": 54,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "CoA Draconic: 'Increases critical strike chance of all party and raid members by 3%. Does not stack with similar effects.' A spec talent in CoA, so talent-gated here.",
       "target_type": "party",
       "requires_talent": true,
-      "buff_scope": "raid"
+      "buff_scope": "raid",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     }
   ]
 }

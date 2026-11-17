@@ -216,27 +216,48 @@
           "effect_value": 33
         },
         {
-          "rank": 2,
-          "level_req": 13,
           "cost": 10,
-          "effect_value": 56
+          "rank": 2,
+          "level_req": 11,
+          "effect_value": 44
         },
         {
-          "rank": 3,
-          "level_req": 29,
           "cost": 10,
+          "rank": 3,
+          "level_req": 21,
+          "effect_value": 55
+        },
+        {
+          "cost": 10,
+          "rank": 4,
+          "level_req": 31,
+          "effect_value": 66
+        },
+        {
+          "cost": 10,
+          "rank": 5,
+          "level_req": 41,
           "effect_value": 78
         },
         {
-          "rank": 4,
-          "level_req": 47,
           "cost": 10,
+          "rank": 6,
+          "level_req": 51,
+          "effect_value": 89
+        },
+        {
+          "cost": 10,
+          "rank": 7,
+          "level_req": 58,
           "effect_value": 100
         }
       ],
       "target_type": "party",
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "warrior_overpower",
@@ -306,20 +327,35 @@
           "effect_value": 43
         },
         {
-          "rank": 2,
-          "level_req": 30,
           "cost": 10,
-          "effect_value": 71
+          "rank": 2,
+          "level_req": 24,
+          "effect_value": 57
         },
         {
-          "rank": 3,
-          "level_req": 50,
           "cost": 10,
+          "rank": 3,
+          "level_req": 34,
+          "effect_value": 72
+        },
+        {
+          "cost": 10,
+          "rank": 4,
+          "level_req": 44,
+          "effect_value": 86
+        },
+        {
+          "cost": 10,
+          "rank": 5,
+          "level_req": 54,
           "effect_value": 100
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "warrior_mortal_strike",
@@ -740,28 +776,37 @@
           "effect_value": 100
         },
         {
+          "cost": 25,
           "rank": 2,
           "level_req": 32,
-          "cost": 25,
-          "effect_value": 122
+          "effect_value": 100
         },
         {
+          "cost": 25,
           "rank": 3,
-          "level_req": 44,
-          "cost": 25,
-          "effect_value": 149
+          "level_req": 42,
+          "effect_value": 100
         },
         {
-          "rank": 4,
-          "level_req": 58,
           "cost": 25,
-          "effect_value": 180
+          "rank": 4,
+          "level_req": 52,
+          "effect_value": 100
+        },
+        {
+          "cost": 25,
+          "rank": 5,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "target_type": "enemy_aoe",
       "is_instant": true,
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "warrior_shield_wall",

@@ -869,13 +869,40 @@
           "rank": 1,
           "level_req": 18,
           "cost": 25,
-          "effect_value": 0
+          "effect_value": 100
+        },
+        {
+          "cost": 25,
+          "rank": 2,
+          "level_req": 28,
+          "effect_value": 100
+        },
+        {
+          "cost": 25,
+          "rank": 3,
+          "level_req": 38,
+          "effect_value": 100
+        },
+        {
+          "cost": 25,
+          "rank": 4,
+          "level_req": 48,
+          "effect_value": 100
+        },
+        {
+          "cost": 25,
+          "rank": 5,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "CoA names it alongside Song of Steel as the AP-scaling ally buff pair. || target_type self -> party, 5 Nov 2026. CoA: 'Emanate an aura around you for 15 seconds, causing allied players within 100 yds to deal 35% AP additional damage as Holy damage when they deal direct damage.' An ally-facing aura authored as self.",
       "target_type": "party",
-      "buff_scope": "party"
+      "buff_scope": "party",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "guardian_standard_of_valiance",
@@ -1012,14 +1039,35 @@
           "rank": 1,
           "level_req": 28,
           "cost": 25,
-          "effect_value": 0
+          "effect_value": 100
+        },
+        {
+          "cost": 25,
+          "rank": 2,
+          "level_req": 38,
+          "effect_value": 100
+        },
+        {
+          "cost": 25,
+          "rank": 3,
+          "level_req": 48,
+          "effect_value": 100
+        },
+        {
+          "cost": 25,
+          "rank": 4,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Spirit uniquely powers Soldier's/Spellcaster's/Hero's Decrees'. One decree at a time.",
       "target_type": "self",
       "buff_scope": "party",
-      "exclusive_group": "guardian_decree"
+      "exclusive_group": "guardian_decree",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "guardian_spellcasters_decree",
@@ -1038,14 +1086,35 @@
           "rank": 1,
           "level_req": 28,
           "cost": 25,
-          "effect_value": 0
+          "effect_value": 100
+        },
+        {
+          "cost": 25,
+          "rank": 2,
+          "level_req": 38,
+          "effect_value": 100
+        },
+        {
+          "cost": 25,
+          "rank": 3,
+          "level_req": 48,
+          "effect_value": 100
+        },
+        {
+          "cost": 25,
+          "rank": 4,
+          "level_req": 58,
+          "effect_value": 100
         }
       ],
       "icon_id": null,
       "_source": "The caster-facing decree of the same trio.",
       "target_type": "self",
       "buff_scope": "party",
-      "exclusive_group": "guardian_decree"
+      "exclusive_group": "guardian_decree",
+      "_tuning": [
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
+      ]
     },
     {
       "ability_id": "guardian_sound_of_war",

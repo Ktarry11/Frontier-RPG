@@ -30,9 +30,16 @@ from pathlib import Path
 BARE_SHARE = 0.20       # a normal-speed, single-target, top-rank heal with no talents and no gear: 20% of the tank
 GEAR_SHARE = 0.40       # rare gear at your level adds 40% of that
 SPEC_CAP = 1.25         # every healing talent and the spec aura together: at most +25%
-HOT_FACTOR = 1.2        # a HoT, in total over its duration
+#: a HoT, in total over its duration. 1.2 in the sign-off; measured the same night, every healer whose kit rolls
+#: several HoTs at once (Vizier's three, the Sun Cleric's two, the Chronomancer's Accelerated Recovery) out-healed the
+#: rest by a quarter to a third, because each cast of a HoT was worth 1.2 heals and they stack. At 1.0 a HoT is a
+#: heal delivered later, which is what it is in a turn-based fight.
+HOT_FACTOR = 1.0
 HYBRID_FACTOR = 0.75    # the heal on a damage spell
-IDENTITY_RANGE = (0.8, 1.25)
+#: narrowed the night it went in (the every-healer pass): at 0.8-1.25 a class's core heal could sit a fifth under its
+#: shape (Pyromancer's Ember Touch, the Witch Doctor's Loa's Brew) and a big cooldown heal a quarter over (Alkahest)
+IDENTITY_RANGE = (0.9, 1.15)
+EXPLICIT_RANGE = (0.75, 1.35)
 HEAL_CRIT_MULTIPLIER = 1.5   # a critical heal, flat (damage crits 2.0x and takes crit-damage talents; heals don't)
 #: the authored rank line (fix_rank_lines.py): a rank is (1 + AUTHORED_SLOPE x (level - 1)) of its rank-1 size
 AUTHORED_SLOPE = 0.03636
@@ -117,6 +124,10 @@ def rank_size(entry, level_req, authored, kind):
         return max(1, int(round(target)))
     identity = authored / (line * sh)
     lo, hi = IDENTITY_RANGE
+    # A KIT FIXED BY HAND (the every-healer pass): an ability may name its own identity, "formula_identity", where its
+    # class leans on it (Pyromancer's Ember Touch) and the authored number undersold it. Held to EXPLICIT_RANGE.
+    if entry.get("formula_identity") is not None:
+        identity, (lo, hi) = float(entry["formula_identity"]), EXPLICIT_RANGE
     return max(1, int(round(target * max(lo, min(hi, identity)))))
 
 
@@ -153,3 +164,32 @@ def take_echo(carrier, trigger, amount):
     allowed = int(min(amount, room))
     carrier._heal_echo_room = room - allowed
     return allowed
+
+
+# ---- SHIELDS ON THE SAME SCALE (the every-healer pass). A shield cast on someone else soaks SHIELD_FACTOR of the
+# heal of its shape: it can't overheal, so it's a little smaller. Before, an ally shield was a flat share of the
+# recipient's health (Power Word: Shield 30%, Void Shield 18%, Inferno Barrier 16%), the same naked or geared, at 6
+# or at 60, and with no healing power in it at all. A shield on yourself (Ice Barrier, Volcanic Shell) is a defensive
+# cooldown, not healing, and keeps its share of your own health.
+SHIELD_FACTOR = 0.9
+
+
+def shield_size(ability, caster):
+    """The absorb of a shield ability cast on an ally or the party. None when it isn't one (the caller keeps the
+    share-of-health rule), or the table is missing."""
+    if not enabled() or getattr(ability, "target_type", None) not in ("ally", "party"):
+        return None
+    if not hasattr(caster, "talent_trees"):          # a monster's or a pet's shield keeps its rule
+        return None
+    from combat.abilities import _heal_power, _scaling_coef
+    try:
+        lv = ability.current_rank.get("level_req", 1) or 1
+    except Exception:                                   # noqa: BLE001
+        lv = getattr(caster, "level", 1) or 1
+    entry = {"cast_speed": getattr(ability, "cast_speed", 1.0) or 1.0, "target_type": ability.target_type,
+             "heal_scope": getattr(ability, "heal_scope", None), "max_targets": getattr(ability, "max_targets", None),
+             "cooldown": getattr(ability, "cooldown", 0)}
+    sh = shape(entry)
+    base = BARE_SHARE * tank(lv) * sh
+    power = _heal_power(caster) * _scaling_coef(ability, "heal", caster)
+    return max(1, int((base + power) * SHIELD_FACTOR))
