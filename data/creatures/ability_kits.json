@@ -74987,6 +74987,190 @@
           "attack_power": 160
         }
       }
+    ],
+    "the_salt_widow": [
+      {
+        "name": "Brine Bolt",
+        "kind": "damage",
+        "amount": 260,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "frost",
+        "boss_rework": 1
+      },
+      {
+        "name": "Salt in the Wound",
+        "kind": "dot",
+        "amount": 84,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 5,
+        "dispel_type": "curse",
+        "authored_mechanic": "curse"
+      },
+      {
+        "name": "The Widow's Wail",
+        "kind": "damage",
+        "amount": 200,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "is_aoe": true
+      },
+      {
+        "name": "Dried to the Bone",
+        "kind": "damage",
+        "amount": 222,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost",
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "attack_speed": -44
+          }
+        }
+      },
+      {
+        "name": "Nothing Left to Keep",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 104
+        }
+      }
+    ],
+    "coil_of_the_old_sea": [
+      {
+        "name": "Old Sea Bite",
+        "kind": "damage",
+        "amount": 402,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Constrict",
+        "kind": "damage",
+        "amount": 498,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Fossil Teeth",
+        "kind": "dot",
+        "amount": 126,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4,
+        "dispel_type": "bleed",
+        "authored_mechanic": "bleed"
+      },
+      {
+        "name": "Tail Through the Shelf",
+        "kind": "damage",
+        "amount": 312,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "The Sea Comes Back",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 128
+        }
+      }
+    ],
+    "mother_of_crawlers": [
+      {
+        "name": "Brood Mandible",
+        "kind": "damage",
+        "amount": 378,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Call the Brood",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 7,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 0,
+        "authored_mechanic": "summon",
+        "summon": {
+          "name": "Limestone Crawler",
+          "template": "vermin_sneaky",
+          "kit": "limestone_crawler",
+          "count": 2,
+          "level_offset": -1,
+          "max_alive": 3,
+          "max_casts": 2
+        }
+      },
+      {
+        "name": "Limestone Acid",
+        "kind": "dot",
+        "amount": 120,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "dispel_type": "poison",
+        "authored_mechanic": "curse"
+      },
+      {
+        "name": "Up Out of the Floor",
+        "kind": "damage",
+        "amount": 292,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Every Last One",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 116
+        }
+      }
     ]
   }
 }

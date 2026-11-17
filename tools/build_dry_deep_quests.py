@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Four quests that point down into The Dry Deep.
+"""Seven quests that point down into The Dry Deep.
 
     python3 tools/build_dry_deep_quests.py [--apply]
 
@@ -14,6 +14,10 @@ the overhaul has patched that file since (labels, stripped counts), and regenera
 that. This merges four quests into data/quests/abyssal_sands.json by quest_id and nothing else, so
 it is safe to run twice. It borrows the Sands builder's own Q() so the rewards are made the same
 way and at the same budget.
+
+THE OPTIONAL THREE (16 Nov 2026, the recut): one quest each for the bosses round the edge, from the three people
+in Fourth Peg with the fewest quests and a reason of their own. None of them is on the chain above; each is picked
+up on its own, and each sends you to a room the chain never walks you through.
 
 Writing rules (claude/quest_overhaul_tracker): no counts in the prose, every kill named, places
 named, ASCII only.
@@ -101,6 +105,51 @@ def quests():
         "I felt that through the rope from up here. It's dead, then.\n\nThere's a passage on "
         "the east side of the Sea that goes further down. I've never had a lamp past it. If you "
         "go looking, I'd like to hear what you find."))
+
+    # ---- the optional three, round the edge of the recut map
+    q.append(B.Q(
+        "dd_where_the_brine_comes_from", "Where the Brine Comes From", B.SEPP, B.AB, 46, 46, "cameup",
+        "Go to the Salt Galleries in the far north-west of the Dry Deep and kill the Salt Widow.",
+        [explore(10, 9, "the Salt Galleries"), boss("The Salt Widow")],
+        "I told Peska the revenants had been cured in brine and that the nearest brine was four days away. I was "
+        "wrong about the second part.\n\nVizzi's lamp went down the First Hole last week and came back up crusted "
+        "white. There's salt under the First Hole, in layers, where the old sea dried out a bit at a time. Vizzi "
+        "calls it the Salt Galleries. It's past the bottom of the First Hole, to the north-west, as far as the cave "
+        "goes.\n\nSomething down there is curing them. Vizzi saw a revenant twice the size of the others, standing "
+        "in the salt like it was waiting. The crew call it the Salt Widow. Kill it, and bring me a lump of the salt "
+        "it stands in.",
+        "That's the salt. It's still wet, and nothing in that cave should be wet.\n\nIf the Widow was making them, "
+        "we'll see fewer revenants on the Long Collapse road. If we don't, then I'm wrong again, and I'd rather "
+        "know. Here, for the walk."))
+
+    q.append(B.Q(
+        "dd_teeth_of_the_old_sea", "Teeth of the Old Sea", B.GORRA, B.AB, 47, 47, "cameup",
+        "Go to the Fossil Shelf, off the foot of Nineteen Mile Pit, and kill the Coil of the Old Sea.",
+        [explore(92, 15, "the Fossil Shelf"), boss("Coil of the Old Sea")],
+        "Hask brought me a tooth from under Nineteen Mile. He found it lying loose on a shelf of rock that's all "
+        "bones, things that swam, set in the wall where the sea floor stood up on its edge.\n\nI put it to my "
+        "file and the file lost. I've shod kodo for nine years and nothing has ever beaten that file.\n\nThe tooth "
+        "wasn't old, though. Hask says the thing it came from is still down there on the Fossil Shelf, alive, and "
+        "the crew call it the Coil of the Old Sea. Go down Nineteen Mile Pit and take the north-east passage at "
+        "the bottom. It goes nowhere else. Kill it and bring me its teeth. I'll have a file out of them that "
+        "doesn't lose.",
+        "Every one of them is sharper than my best edge. You couldn't buy these anywhere.\n\nThe first file goes on "
+        "the Fourth Peg forge. Take this. I made it the old way, because the new file isn't cut yet."))
+
+    q.append(B.Q(
+        "dd_mother_of_crawlers", "Mother of Crawlers", B.TOBBIT, B.AB, 46, 46, "survey",
+        "Find where the Limestone Crawlers breed, on the Brood Shelf past the Throat, and kill the Mother of "
+        "Crawlers.",
+        [explore(12, 85, "the Brood Shelf"), boss("Mother of Crawlers")],
+        "The Limestone Crawlers came up through the depot floor again last night. They chewed a cart axle, and "
+        "that's the third this season. I keep four carts and I need all four to strike this town in a day, which "
+        "is the only reason the port keeps paying for it.\n\nPeska says the crawlers nest in holes the oozes leave. "
+        "That's true up here. But Vizzi says there's a shelf under the Throat, deep in the south-west of the Dry "
+        "Deep, where the floor is nothing but eggs and something big sits in the middle of them.\n\nGo down the "
+        "Throat, take the passage south-west at the bottom to the Brood Shelf, and kill what's sitting there. The "
+        "crew call it the Mother of Crawlers.",
+        "Nothing came through the floor last night. That's the first quiet night in a month.\n\nThis came off the "
+        "second cart. Let's call it what's owed for the axles."))
     return q
 
 
@@ -113,12 +162,18 @@ def main():
         if not text.isascii():
             print(f"FAILED: {q['quest_id']} has non-ASCII text")
             return 1
+    # ADDS, never replaces, unless --rewrite: the first four's rewards have been through later passes (the item
+    # curve, whole-number gear), and rebuilding them here would quietly undo those.
+    rewrite = "--rewrite" in sys.argv
+    added = 0
     for q in new:
         if q["quest_id"] in have:
-            doc["quests"][have[q["quest_id"]]] = q
+            if rewrite:
+                doc["quests"][have[q["quest_id"]]] = q
         else:
             doc["quests"].append(q)
-    print(f"{len(new)} Dry Deep quests; the file now holds {len(doc['quests'])}")
+            added += 1
+    print(f"{len(new)} Dry Deep quests, {added} new; the file now holds {len(doc['quests'])}")
     if "--apply" in sys.argv:
         OUT.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print("written")

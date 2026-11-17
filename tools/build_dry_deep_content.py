@@ -17,6 +17,20 @@ Underlight (47), not against the raw numbers in tools/monster_kits.py, which are
       and heavy: a stun to answer, a shield to burn through, and it gets worse when it cracks.
   OLD DRY-EYE - blind, on a beach at the bottom of a desert. Fast, hits the back row, and leaves a
       poison somebody has to take off.
+
+THE OPTIONAL THREE (Kyle, 16 Nov 2026: "more tunnels, more places, optional bosses round the edge"). Off every
+route a quest walks you along, at the edge of the recut map, each with its own loot and a quest that names it:
+
+  THE SALT WIDOW - the first Saltbone Revenant, in the Salt Galleries. A caster: a frost bolt, a salt curse on
+      the healer that wants dispelling, and a wail that hits everyone.
+  COIL OF THE OLD SEA - something that swam here when it was a sea, on the Fossil Shelf, and did not die with
+      it. Constricts (a stun), and its bite bleeds.
+  MOTHER OF CRAWLERS - where the Limestone Crawlers come from, on the Brood Shelf. She calls her brood, and
+      they come.
+
+WRITES ONLY WHAT IS MISSING. The first two kits have been added to since they were written here (the boss-turn
+and boss-AoE passes append to them), so a re-run leaves an existing creature, kit and loot pool alone and
+adds the new ones. --rewrite rewrites all of it, which undoes those passes: do not.
 """
 import json
 import sys
@@ -35,6 +49,10 @@ LOOT = ROOT / "data/loot/dry_deep_boss_loot.json"
 ROSTER = {
     "The Weight of the Floor": ("elemental_bruiser", 47, 2.0),
     "Old Dry-Eye":             ("beast_large",       46, 1.8),   # vermin_sneaky left it at 1,324 health (Kyle: no)
+    # the optional three
+    "The Salt Widow":          ("undead_caster",     46, 1.8),
+    "Coil of the Old Sea":     ("beast_large",       47, 1.9),
+    "Mother of Crawlers":      ("beast_large",       46, 1.8),
 }
 
 
@@ -62,6 +80,36 @@ KITSETS = {
         dmg("Thrash in the Shallows", 298, cooldown=5, is_aoe=True),
         enrage("Blind and Cornered", 112),
     ],
+    "The Salt Widow": [
+        # a caster's numbers: the undead_caster template's spell scaling already carries her (authored like a
+        # bruiser she measured at 70% of T an action, the clamp's ceiling)
+        dmg("Brine Bolt", 260, school="frost", boss_rework=1),
+        dot("Salt in the Wound", 84, 5, 5, school="shadow", dispel_type="curse",
+            authored_mechanic="curse"),
+        dmg("The Widow's Wail", 200, cooldown=5, school="shadow", is_aoe=True),
+        dmg("Dried to the Bone", 222, cooldown=4, school="frost",
+            rider={"effect": "debuff", "duration": 3, "stat_mods": {"attack_speed": -44}}),
+        enrage("Nothing Left to Keep", 104, school="frost"),
+    ],
+    "Coil of the Old Sea": [
+        dmg("Old Sea Bite", 402, boss_rework=1),
+        dmg("Constrict", 498, cooldown=5, authored_mechanic="stun",
+            rider={"effect": "debuff", "duration": 1, "is_stun": True, "stat_mods": {}}),
+        dot("Fossil Teeth", 126, 4, 4, dispel_type="bleed", authored_mechanic="bleed"),
+        dmg("Tail Through the Shelf", 312, cooldown=5, is_aoe=True),
+        enrage("The Sea Comes Back", 128),
+    ],
+    "Mother of Crawlers": [
+        dmg("Brood Mandible", 378, boss_rework=1),
+        dict(name="Call the Brood", kind="summon", amount=0, cooldown=7, mana_cost=0, school="physical",
+             duration=0, authored_mechanic="summon",
+             summon={"name": "Limestone Crawler", "template": "vermin_sneaky", "kit": "limestone_crawler",
+                     "count": 2, "level_offset": -1, "max_alive": 3, "max_casts": 2}),
+        dot("Limestone Acid", 120, 5, 4, school="nature", dispel_type="poison",
+            authored_mechanic="curse"),
+        dmg("Up Out of the Floor", 292, cooldown=5, is_aoe=True),
+        enrage("Every Last One", 116),
+    ],
 }
 
 #: (item level, [(name, slot, kind, type, stat template)]). Two of each armour class across the
@@ -81,6 +129,24 @@ POOLS = {
         ("Tideless Sash", "waist", "armor", "cloth", "spi_healer"),
         ("Dry-Eye's Tooth", "main_hand", "weapon", "dagger", "agi_physical"),
     ]),
+    "The Salt Widow": (50, [
+        ("Salt-Woven Veil", "head", "armor", "cloth", "int_caster"),
+        ("Widow's Brine Wraps", "wrist", "armor", "mail", "spi_healer"),
+        ("Saltbound Girdle", "waist", "armor", "plate", "str_physical"),
+        ("The Widow's Rod", "main_hand", "weapon", "staff", "int_caster"),
+    ]),
+    "Coil of the Old Sea": (51, [
+        ("Coilscale Spaulders", "shoulder", "armor", "mail", "agi_int_hybrid"),
+        ("Old Sea Treads", "feet", "armor", "leather", "agi_physical"),
+        ("Fossil-Plate Gauntlets", "hands", "armor", "plate", "str_int_hybrid"),
+        ("Spine of the Old Sea", "main_hand", "weapon", "polearm", "str_physical"),
+    ]),
+    "Mother of Crawlers": (50, [
+        ("Nestsilk Robe", "chest", "armor", "cloth", "spi_healer"),
+        ("Crawlerhide Cowl", "head", "armor", "leather", "agi_int_hybrid"),
+        ("Broodshell Legguards", "legs", "armor", "mail", "str_physical"),
+        ("Mother's Mandible", "main_hand", "weapon", "sword_1h", "agi_physical"),
+    ]),
 }
 
 
@@ -90,11 +156,18 @@ def main():
         print(f"FAILED: the zone places {sorted(D.BOSSES)}, this file defines {sorted(ROSTER)}")
         return 1
 
+    rewrite = "--rewrite" in sys.argv
+    have_c = json.loads(CREATURES.read_text(encoding="utf-8"))["creatures"]
+    have_k = json.loads(KITS.read_text(encoding="utf-8"))["kits"]
     creatures = {n: {"template": t, "level_range": [lv, lv], "is_boss": True,
                      "ability_kit": kit_slug(n), "boss_multiplier": mult}
-                 for n, (t, lv, mult) in ROSTER.items()}
-    merge_json(CREATURES, "creatures", creatures, "creatures.json")
-    merge_json(KITS, "kits", {kit_slug(n): k for n, k in KITSETS.items()}, "ability_kits.json")
+                 for n, (t, lv, mult) in ROSTER.items() if rewrite or n not in have_c}
+    kits = {kit_slug(n): k for n, k in KITSETS.items() if rewrite or kit_slug(n) not in have_k}
+    if creatures:
+        merge_json(CREATURES, "creatures", creatures, "creatures.json")
+    if kits:
+        merge_json(KITS, "kits", kits, "ability_kits.json")
+    old = json.loads(LOOT.read_text(encoding="utf-8")) if LOOT.exists() else {}
 
     from entities.loot_generator import LootGenerator
     gen = LootGenerator()
@@ -102,6 +175,10 @@ def main():
                       "tools/build_dry_deep_content.py; stats from LootGenerator at rare budget.")}
     rows = []
     for boss, (ilvl, items) in POOLS.items():
+        if boss in old and not rewrite:
+            out[boss] = old[boss]
+            rows.extend(items)
+            continue
         built = []
         for (name, slot, kind, atype, template) in items:
             if kind == "armor":

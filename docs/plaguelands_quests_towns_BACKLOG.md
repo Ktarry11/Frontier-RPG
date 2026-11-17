@@ -168,6 +168,23 @@ outside." (map screenshot: the Drained Sea in the middle, ten "Under the ..." ro
   its own loot and a reason to go.
 - Re-check reachability, packs and chests after the recut.
 
+**Done, 17 Nov 2026 morning.** `tools/handbuilt_dry_deep.py` went from 10 rooms and 12 tunnels to 17 rooms, 23
+tunnels and 3 dead-end side passages:
+- Seven new places on the outside ring: the Salt Galleries, the Brine Seep, the Whispering Fault, the Fossil Shelf,
+  the Brood Shelf, the Black Pool and the Glass Seam.
+- Four new loops round the edge that never touch the Drained Sea. `verify()` now checks that every room except the
+  three dead ends has two ways out, and that the outer ring still joins up with the Sea taken out.
+- Three optional bosses, all off the chain's route: the Salt Widow (46, a caster with a curse and a wail), the
+  Coil of the Old Sea (47, a stun and a bleed) and the Mother of Crawlers (46, she calls Limestone Crawlers).
+  Each has its own four-piece loot pool (`build_dry_deep_content.py`, loot_audit passes over all five pools) and
+  its own quest from someone in Fourth Peg (Sepp, Gorra and Tobbit, the three with the fewest).
+- Damage is calibrated for all three (field_boss).
+- Four more chests, seven in all.
+- Both builders now only ADD. The first two bosses' kits and the first four quests' rewards had been through later
+  passes, so a re-run leaves them alone (`--rewrite` to force).
+- QA: reachability, encounters, portals, boss turns, summons, quest hubs, givers, lore and voice are all green.
+  audit_loot's ore/wood tier warning was already failing on main.
+
 ## Kyle, 16 Nov 2026 21:34: next up once the Plaguelands are done
 "do the backlog of support skills. Full audit to put them closer to where they should be and 100% we need to fix the
 healing end game.....we need an actual formula and do it right.... a spot heal from a non-spec'd character shouldn't

@@ -61,6 +61,16 @@ CHAMBERS = [(n, _under(c)[0], _under(c)[1], 8, 7) for (n, _p, c) in SHAFTS] + [
     # Kyle, 13 Nov 2026, of the way down to the layer below: "I want it at the end of the descent."
     # The furthest room from every shaft: east of the Drained Sea, a dead end with a stair in it.
     ("The Last Descent",  95, 40, 7, 6),
+    # ---- THE OUTSIDE RING (Kyle, 16 Nov 2026: "more tunnels, more places, optional bosses round the edge").
+    # It was a hub with spokes: every room led to the Drained Sea. These are the rooms past the shafts, at the
+    # edges of where the sea was, and the tunnels between them make loops that never touch the middle.
+    ("The Salt Galleries",   10, 9, 7, 5),       # 10: where the sea left its salt, in layers you can walk along
+    ("The Brine Seep",        8, 37, 5, 6),      # 11: the last of the water, still coming out of the wall
+    ("The Whispering Fault", 46, 7, 9, 4),       # 12: a crack along the top of the cave; the wind comes down it
+    ("The Fossil Shelf",     92, 15, 8, 6),      # 13: the old sea's floor, standing on its edge
+    ("The Brood Shelf",      12, 85, 8, 6),      # 14: where the crawlers come from
+    ("The Black Pool",       74, 86, 8, 5),      # 15: water nobody has found the bottom of
+    ("The Glass Seam",      102, 55, 4, 4),      # 16: a vein of glass, at the end of a crawl
 ]
 
 #: Down to The Black Strand (tools/handbuilt_black_strand.py), and where you arrive coming up.
@@ -72,13 +82,34 @@ DOWN_ARRIVAL = (95, 40)
 TUNNELS = [
     (0, 1, 4), (0, 2, 4), (2, 3, 4), (3, 8, 3), (8, 4, 4), (4, 5, 4), (5, 7, 4), (7, 1, 3),
     (2, 6, 4), (1, 6, 4), (4, 6, 4), (7, 6, 3),
+    # the outside ring: four loops that go round the edge without touching the Drained Sea...
+    (0, 10, 3), (10, 11, 3), (11, 3, 3),         # First Hole -> Salt Galleries -> Brine Seep -> Throat
+    (0, 12, 3), (12, 1, 3),                      # First Hole -> Whispering Fault -> Nineteen Mile
+    (3, 14, 3), (14, 8, 3),                      # Throat -> Brood Shelf -> Old Shoreline
+    (4, 15, 3), (15, 5, 3),                      # Long Collapse -> Black Pool -> Underlight
+    # ...and two rooms at the end of one way in
+    (1, 13, 3),                                  # Nineteen Mile -> the Fossil Shelf
+    (7, 16, 2),                                  # the Glass Roots -> the Glass Seam, a crawl
 ]
 
-BOSSES = {"The Weight of the Floor": (60, 48), "Old Dry-Eye": (38, 78)}
+#: Dead-end side passages: a crawl off a room that ends in a pocket and goes nowhere. (path, pocket rx, ry)
+SPURS = [
+    ([(38, 82), (41, 88), (46, 91)], 3, 2),      # off the Old Shoreline, down to where the beach ends
+    ([(15, 58), (9, 61), (4, 63)], 2, 3),        # off the Throat, west, under the dunes
+    ([(95, 74), (101, 79), (104, 84)], 3, 3),    # off the Underlight, east, toward nothing
+]
+
+#: rooms at the end of one way in, by design (verify() lets these have a single tunnel)
+DEAD_ENDS = {9, 13, 16}
+
+BOSSES = {"The Weight of the Floor": (60, 48), "Old Dry-Eye": (38, 78),
+          # the optional three, round the edge and off every route a quest walks you along
+          "The Salt Widow": (8, 8), "Coil of the Old Sea": (95, 14), "Mother of Crawlers": (10, 87)}
 # NOT the Glasswall Elemental: a quest on the surface sends you to the Glasswall for nine of them,
 # and with them down here too the quest's own directions stopped pointing at the Glasswall.
 #: Off the ring, in the corners of rooms a quest does not send you to the middle of.
-CHESTS = [(30, 22), (80, 58), (24, 56)]
+CHESTS = [(30, 22), (80, 58), (24, 56),
+          (77, 88), (103, 56), (40, 6), (45, 91)]
 TRASH = ["Limestone Crawler", "Hollowing Ooze", "Sinkhole Lurker", "Saltbone Revenant"]
 
 
@@ -109,6 +140,11 @@ def build_dry_deep():
     # anywhere joined a neighbour (tried twice). You pass the Weight's room to get here; you do
     # not have to kill it.
     b.corridor([(70, 44), (82, 40), (95, 40)], width=3)
+
+    for (path, rx, ry) in SPURS:
+        b.corridor(path, width=2)
+        ex, ey = path[-1]
+        b.lobes([(ex, ey, rx, ry)])
 
     for (px, py) in PORTALS:
         zone.collision_layer[py][px] = None
@@ -149,6 +185,21 @@ def dress(zone, L):
     # the wreck of whoever came down the Wide Sink first with a winch
     P("sf_hand_winch", PORTAL[0] - 5, PORTAL[1] - 2, 4, **F)
     P("sf_crate_stack", PORTAL[0] + 5, PORTAL[1] + 2, 4, **F)
+    # ---- the outside ring
+    for (x, y) in [(6, 11), (14, 7), (16, 11)]:                 # the Salt Galleries: salt, and the dead it kept
+        P("sn_split_stone", x, y, 3, near_ok=True, **N)
+    P("sn_rib_bones", 12, 12, 3, near_ok=True, **N)
+    for (x, y) in [(6, 34), (10, 41)]:                          # the Brine Seep
+        P("sn_driftwood_salt", x, y, 3, near_ok=True, **N)
+    for (x, y) in [(40, 8), (52, 7)]:                           # the Whispering Fault
+        P("sn_split_stone", x, y, 3, near_ok=True, **N)
+    for (x, y) in [(88, 14), (98, 17), (92, 19)]:               # the Fossil Shelf: things that swam, in the wall
+        P("sn_kodo_skull" if x == 88 else "sn_rib_bones", x, y, 4, near_ok=True, **N)
+    for (x, y) in [(8, 82), (16, 88), (14, 82)]:                # the Brood Shelf
+        P("sn_stone_pile", x, y, 3, near_ok=True, **N)
+    for (x, y) in [(70, 84), (80, 87)]:                         # the Black Pool's edge
+        P("sn_driftwood_salt", x, y, 3, near_ok=True, **N)
+    P("sf_resin_growth", 101, 53, 4, near_ok=True, **F)         # the Glass Seam
     return zone, L
 
 
@@ -172,7 +223,31 @@ def verify(zone):
     lost = [n for n, p in BOSSES.items() if not any((p[0] + dx, p[1] + dy) in seen
                                                      for dx in (-2, -1, 0, 1, 2) for dy in (-2, -1, 0, 1, 2))]
     assert not lost, f"cannot be reached: {lost}"
-    return dict(chambers=len(CHAMBERS), shafts=len(PORTALS), reachable=len(seen))
+    gone = [c for c in CHESTS if c not in seen]
+    assert not gone, f"chests that cannot be reached: {gone}"
+    # NOT A HUB WITH SPOKES: every room but the dead ends has two ways out, and the outside ring still joins up
+    # with the Drained Sea taken out of it.
+    deg = collections.Counter()
+    for (a, c, _w) in TUNNELS:
+        deg[a] += 1
+        deg[c] += 1
+    thin = [CHAMBERS[i][0] for i in range(len(CHAMBERS)) if i not in DEAD_ENDS and i != 9 and deg[i] < 2]
+    assert not thin, f"rooms with one way out that are not meant to be dead ends: {thin}"
+    ring = collections.defaultdict(set)
+    for (a, c, _w) in TUNNELS:
+        if 6 not in (a, c):
+            ring[a].add(c)
+            ring[c].add(a)
+    reach, todo = {0}, [0]
+    while todo:
+        for n in ring[todo.pop()] - reach:
+            reach.add(n)
+            todo.append(n)
+    outer = [i for i in range(len(CHAMBERS)) if i not in (6, 9)]
+    cut_off = [CHAMBERS[i][0] for i in outer if i not in reach]
+    assert not cut_off, f"without the Drained Sea these rooms are cut off: {cut_off}"
+    return dict(chambers=len(CHAMBERS), shafts=len(PORTALS), tunnels=len(TUNNELS), spurs=len(SPURS),
+                bosses=len(BOSSES), chests=len(CHESTS), reachable=len(seen))
 
 
 def finish(zone, L):
@@ -195,5 +270,20 @@ def generate_dry_deep():
 
 
 if __name__ == "__main__":
-    z, _ = build_dry_deep_baked()
-    print(verify(z))
+    import sys
+    z, _L = build_dry_deep_baked()
+    print(verify(z), "props", _L.placed, "skipped", _L.skipped)
+    if "--preview" in sys.argv:
+        from PIL import Image
+        im = Image.new("RGB", (W * 6, H * 6))
+        px = im.load()
+        marks = {p: (60, 160, 255) for p in PORTALS}
+        marks.update({p: (220, 40, 40) for p in BOSSES.values()})
+        marks.update({p: (250, 210, 40) for p in CHESTS})
+        for y in range(H):
+            for x in range(W):
+                c = marks.get((x, y), (200, 175, 120) if z.is_walkable(x, y) else (60, 45, 35))
+                for dy in range(6):
+                    for dx in range(6):
+                        px[x * 6 + dx, y * 6 + dy] = c
+        im.save(sys.argv[sys.argv.index("--preview") + 1])

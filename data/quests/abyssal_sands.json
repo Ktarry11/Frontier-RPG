@@ -3063,6 +3063,321 @@
       ],
       "gear_reward_gear_level": 49,
       "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "dd_where_the_brine_comes_from",
+      "title": "Where the Brine Comes From",
+      "giver_npc_id": "ab_reagents",
+      "zone": "the_abyssal_sands",
+      "level_min": 46,
+      "level_max": 46,
+      "description": "Go to the Salt Galleries in the far north-west of the Dry Deep and kill the Salt Widow.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_dry_deep",
+          "target_x": 10,
+          "target_y": 9,
+          "radius": 7,
+          "label": "the Salt Galleries"
+        },
+        {
+          "type": "kill_boss",
+          "target": "The Salt Widow",
+          "count": 1,
+          "zone": "the_dry_deep"
+        }
+      ],
+      "reward_exp": 4316,
+      "reward_gold": 17160,
+      "accept_text": "I told Peska the revenants had been cured in brine and that the nearest brine was four days away. I was wrong about the second part.\n\nVizzi's lamp went down the First Hole last week and came back up crusted white. There's salt under the First Hole, in layers, where the old sea dried out a bit at a time. Vizzi calls it the Salt Galleries. It's past the bottom of the First Hole, to the north-west, as far as the cave goes.\n\nSomething down there is curing them. Vizzi saw a revenant twice the size of the others, standing in the salt like it was waiting. The crew call it the Salt Widow. Kill it, and bring me a lump of the salt it stands in.",
+      "turn_in_text": "That's the salt. It's still wet, and nothing in that cave should be wet.\n\nIf the Widow was making them, we'll see fewer revenants on the Long Collapse road. If we don't, then I'm wrong again, and I'd rather know. Here, for the walk.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Up-Through Chain Belt",
+          "slot": "waist",
+          "item_level": 48,
+          "rarity": "rare",
+          "required_level": 46,
+          "flavor_text": "Dropped down a hole on a line and brought back up on the same line.",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 18,
+            "spell_hit_rating": 7
+          },
+          "armor_type": "mail",
+          "armor_value": 174,
+          "label": "Mail Belt (Int/SP/spell_hit_rating)"
+        },
+        {
+          "name": "Lamplit Treads",
+          "slot": "feet",
+          "item_level": 48,
+          "rarity": "rare",
+          "required_level": 46,
+          "flavor_text": "Dropped down a hole on a line and brought back up on the same line.",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 12
+          },
+          "secondary_stats": {
+            "defense_rating": 7
+          },
+          "armor_type": "plate",
+          "armor_value": 261,
+          "label": "Plate Boots (Str/Sta/Def)"
+        },
+        {
+          "name": "Second-Shelf Saber",
+          "slot": "main_hand",
+          "item_level": 48,
+          "rarity": "rare",
+          "required_level": 46,
+          "flavor_text": "Dropped down a hole on a line and brought back up on the same line.",
+          "weapon_type": "sword_1h",
+          "primary_stats": {
+            "stamina": 16
+          },
+          "secondary_stats": {
+            "parry_rating": 6
+          },
+          "weapon_damage_min": 85,
+          "weapon_damage_max": 115,
+          "attack_speed": 2.4,
+          "label": "Sword (Sta/Armor/Parry)",
+          "armor_value": 40
+        },
+        {
+          "name": "Rope-Hand's Cord",
+          "slot": "waist",
+          "item_level": 48,
+          "rarity": "rare",
+          "required_level": 46,
+          "flavor_text": "Whatever wore this came from somewhere that still has a roof.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 12,
+            "parry_rating": 11
+          },
+          "armor_type": "leather",
+          "armor_value": 109,
+          "label": "Leather Belt (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "dd_teeth_of_the_old_sea",
+      "title": "Teeth of the Old Sea",
+      "giver_npc_id": "ab_smith",
+      "zone": "the_abyssal_sands",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "Go to the Fossil Shelf, off the foot of Nineteen Mile Pit, and kill the Coil of the Old Sea.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_dry_deep",
+          "target_x": 92,
+          "target_y": 15,
+          "radius": 7,
+          "label": "the Fossil Shelf"
+        },
+        {
+          "type": "kill_boss",
+          "target": "Coil of the Old Sea",
+          "count": 1,
+          "zone": "the_dry_deep"
+        }
+      ],
+      "reward_exp": 4420,
+      "reward_gold": 17550,
+      "accept_text": "Hask brought me a tooth from under Nineteen Mile. He found it lying loose on a shelf of rock that's all bones, things that swam, set in the wall where the sea floor stood up on its edge.\n\nI put it to my file and the file lost. I've shod kodo for nine years and nothing has ever beaten that file.\n\nThe tooth wasn't old, though. Hask says the thing it came from is still down there on the Fossil Shelf, alive, and the crew call it the Coil of the Old Sea. Go down Nineteen Mile Pit and take the north-east passage at the bottom. It goes nowhere else. Kill it and bring me its teeth. I'll have a file out of them that doesn't lose.",
+      "turn_in_text": "Every one of them is sharper than my best edge. You couldn't buy these anywhere.\n\nThe first file goes on the Fourth Peg forge. Take this. I made it the old way, because the new file isn't cut yet.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Lamplit Greaves",
+          "slot": "legs",
+          "item_level": 49,
+          "rarity": "rare",
+          "required_level": 47,
+          "flavor_text": "Whatever wore this came from somewhere that still has a roof.",
+          "primary_stats": {
+            "stamina": 18
+          },
+          "secondary_stats": {
+            "defense_rating": 14,
+            "dodge_rating": 10
+          },
+          "armor_type": "plate",
+          "armor_value": 385,
+          "label": "Plate Legs (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Rope-Hand's Sabatons",
+          "slot": "feet",
+          "item_level": 49,
+          "rarity": "rare",
+          "required_level": 47,
+          "flavor_text": "It smells of wet rock in a place with no water.",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 18,
+            "spell_hit_rating": 7
+          },
+          "armor_type": "mail",
+          "armor_value": 178,
+          "label": "Mail Boots (Int/SP/spell_hit_rating)"
+        },
+        {
+          "name": "Up-Through Buckler",
+          "slot": "off_hand",
+          "item_level": 49,
+          "rarity": "rare",
+          "required_level": 47,
+          "flavor_text": "Dropped down a hole on a line and brought back up on the same line.",
+          "weapon_type": "shield",
+          "primary_stats": {
+            "stamina": 13
+          },
+          "armor_value": 99,
+          "block_value": 124,
+          "label": "Shield (Parry/Block/Dodge)"
+        },
+        {
+          "name": "No-Bottom Cuffs",
+          "slot": "wrist",
+          "item_level": 49,
+          "rarity": "rare",
+          "required_level": 47,
+          "flavor_text": "Dropped down a hole on a line and brought back up on the same line.",
+          "primary_stats": {},
+          "secondary_stats": {
+            "dodge_rating": 12,
+            "parry_rating": 11
+          },
+          "armor_type": "leather",
+          "armor_value": 111,
+          "label": "Leather Bracers (Dodge/Parry)"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "dd_mother_of_crawlers",
+      "title": "Mother of Crawlers",
+      "giver_npc_id": "ab_quartermaster",
+      "zone": "the_abyssal_sands",
+      "level_min": 46,
+      "level_max": 46,
+      "description": "Find where the Limestone Crawlers breed, on the Brood Shelf past the Throat, and kill the Mother of Crawlers.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "the_dry_deep",
+          "target_x": 12,
+          "target_y": 85,
+          "radius": 7,
+          "label": "the Brood Shelf"
+        },
+        {
+          "type": "kill_boss",
+          "target": "Mother of Crawlers",
+          "count": 1,
+          "zone": "the_dry_deep"
+        }
+      ],
+      "reward_exp": 4316,
+      "reward_gold": 17160,
+      "accept_text": "The Limestone Crawlers came up through the depot floor again last night. They chewed a cart axle, and that's the third this season. I keep four carts and I need all four to strike this town in a day, which is the only reason the port keeps paying for it.\n\nPeska says the crawlers nest in holes the oozes leave. That's true up here. But Vizzi says there's a shelf under the Throat, deep in the south-west of the Dry Deep, where the floor is nothing but eggs and something big sits in the middle of them.\n\nGo down the Throat, take the passage south-west at the bottom to the Brood Shelf, and kill what's sitting there. The crew call it the Mother of Crawlers.",
+      "turn_in_text": "Nothing came through the floor last night. That's the first quiet night in a month.\n\nThis came off the second cart. Let's call it what's owed for the axles.",
+      "next_quest_id": null,
+      "unique_item_defs": [
+        {
+          "name": "Chainman's Cuirass",
+          "slot": "chest",
+          "item_level": 48,
+          "rarity": "rare",
+          "required_level": 46,
+          "flavor_text": "Everything this camp owns fits on four carts and this was on the second.",
+          "primary_stats": {
+            "strength": 13,
+            "stamina": 17
+          },
+          "secondary_stats": {
+            "crit_chance_physical": 8
+          },
+          "armor_type": "plate",
+          "armor_value": 378,
+          "label": "Plate Chest (Str/Sta/Crit)"
+        },
+        {
+          "name": "Chainman's Cuffs",
+          "slot": "wrist",
+          "item_level": 48,
+          "rarity": "rare",
+          "required_level": 46,
+          "flavor_text": "Survey kit, and it has been struck and re-pitched three times.",
+          "primary_stats": {
+            "agility": 10
+          },
+          "secondary_stats": {
+            "hit_rating": 8,
+            "crit_chance_physical": 8
+          },
+          "armor_type": "leather",
+          "armor_value": 109,
+          "label": "Leather Bracers (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Peg-Iron Walking Stick",
+          "slot": "main_hand",
+          "item_level": 48,
+          "rarity": "rare",
+          "required_level": 46,
+          "flavor_text": "Worn where a hand holds it for eight hours at a stretch.",
+          "weapon_type": "staff",
+          "primary_stats": {
+            "intellect": 17,
+            "spirit": 17
+          },
+          "secondary_stats": {
+            "healing_power": 46
+          },
+          "weapon_damage_min": 47,
+          "weapon_damage_max": 63,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/Spi/HP)"
+        },
+        {
+          "name": "Peg-Iron Cord",
+          "slot": "waist",
+          "item_level": 48,
+          "rarity": "rare",
+          "required_level": 46,
+          "flavor_text": "Everything this camp owns fits on four carts and this was on the second.",
+          "primary_stats": {
+            "stamina": 9,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "healing_power": 16
+          },
+          "armor_type": "cloth",
+          "armor_value": 54,
+          "label": "Cloth Belt (Sta/Int/HP)"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "rare"
     }
   ]
 }
