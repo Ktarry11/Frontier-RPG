@@ -126,3 +126,27 @@ phase is written as motion and agony: hunched, roaring, clawing at the eclipse, 
 Re-roll any phase where Cairne stops being recognisable (the beard, the horns and the regalia carry it), and any boss
 that looks like a known character from another franchise. If a sheet refuses, cut the single hardest phrase in it and
 re-roll, then tell Claude which phrase it was.
+
+---
+
+## SHEET C, phase 4 alone (v3, MAGENTA KEY)
+
+v2 came back (`tools/building_sheets/mulgore_raid_c_v2.png`) much closer: the beard, the horns, the regalia and the spear
+carry through every phase. Phases 1 to 3 stand. The note on phase 4: "make phase four less like a giant armored Cairne
+and more like an entire tauren nightmare with Cairne trapped at its heart". So phase 4 gets its own image, one figure
+on the whole canvas, with v2 attached as the reference for his design.
+
+```
+Generate ONE sprite image, 2048x2048, ONE single enormous figure centred on a flat pure #FF00FF magenta background with a wide margin, nothing cropped, nothing touching the image edge. No ground, no floor patch, no cast shadow, no glow halo bleeding onto the background (light stays on the figure), no text, no labels, no frames, no borders. Never use magenta or pink anywhere on the figure (flesh is ashen, grey, bruised purple and bone, never magenta). Nothing modern or from the real world.
+
+Match the attached reference EXACTLY in style, outline, palette and level of detail, and keep CAIRNE's design from it: the long white braided beard, the great curved horns, the scraps of red and turquoise chieftain's cloth, the bronze bull-head medallions and the runed spear. Painterly semi-realistic WoW Classic style: strong readable silhouette, soft dark outline, chunky shapes legible at small size, lit from the top-left by a thin cold light as if from the white rim of an eclipsed sun.
+
+Camera: three-quarters toward the lower-right, the same angle as the reference.
+
+This is the final form of the last raid boss, CAIRNE UNMADE. It is NOT a giant armoured tauren. It is an ENTIRE TAUREN NIGHTMARE: a towering, heaving mound built out of the bodies of Thunder Bluff's dead, dozens of tauren fused together into one shape that moves, their horned heads and grasping arms and hooves pushing out of it in every direction, totems, broken spears, chains, banners and the timbers of the city's lodges grown into it. Its silhouette is wide, lumpy and wrong, like a hill of bodies that has stood up, with no single body shape. The heads all scream; the arms all reach. Black horns and ridges of bone jut from it at every angle. Black ichor runs down it and the eclipse's white fire burns through cracks all over it.
+
+CAIRNE IS TRAPPED AT ITS HEART: in the middle of the mass, half sunk into it, Cairne's own upper body and face, still recognisably him with his white braided beard and his horns, his arms pinned in the mass of bodies, his face contorted in agony, white fire streaming from his eyes like tears, his mouth open in a roar. Above his head the black eclipse ringed with white fire, and below him the runed spear still clutched in one of the mass's many hands. He is the only face in it that isn't screaming at you; he's screaming at what he has become.
+
+Body horror through mutation and fusion, as dark and grotesque as it goes, with no open wounds: fused bodies, corrupted hide and bone, dark stains, black ichor, chains and broken shackles. The figure fills most of the image.
+```
+
