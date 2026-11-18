@@ -191,7 +191,7 @@ VOICE = {
     ),
     "raynewood_vigil_lights": (
         None,
-        "We keep a vigil here for the ones the forest has lost. I don't mean the fallen. I mean the lost, and that's a longer list: the ones who went into the corruption and didn't come out and were never found to be buried.\n\nIt's lit with wisp-light, and it has been since before Raynewood had a roof.\n\nThe wisps give it freely, if you ask them. That's the entire method, and I'm aware of how it sounds to somebody who arrived this morning with an axe.\n\nSo ask them. Stand still, and ask, and take what they let fall.\n\nIf you take one that wasn't offered, the vigil will still light. It simply won't mean anything, and I'd be the only one who knew, and I'd know for years.",
+        "We keep a vigil here for the ones the forest has lost. I don't mean the fallen. I mean the lost, and that's a longer list: the ones who went into the corruption and didn't come out and were never found to be buried.\n\nIt's lit with wisp-light, and it has been since before Raynewood had a roof.\n\nThe wisps give it freely, if you ask them. That's the entire method, and I'm aware of how it sounds to somebody who arrived this morning with an axe.\n\nSo ask them. Stand still, and ask, and take what they let fall.\n\nIf you take a light that wasn't offered, the vigil will still light. It simply won't mean anything, and I'd be the only one who knew, and I'd know for years.",
         None,
     ),
     "raynewood_dryads": (

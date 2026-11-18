@@ -401,8 +401,8 @@ def drops():
         return r
     out = {n: [row(FEATHER, 0.35)] for n in DEADWOOD}
     out[GRIMPELT] = [row(FEATHER, 1.0, 3)]
-    out["Deadwood Gardener"].append(row(SEEDS, 0.6, category="quest"))
-    out["Seepage Ooze"] = [row(SAMPLE, 0.6, category="quest")]
+    out["Deadwood Gardener"].append(row(SEEDS, 0.75, category="quest"))
+    out["Seepage Ooze"] = [row(SAMPLE, 0.75, category="quest")]
     return out
 
 

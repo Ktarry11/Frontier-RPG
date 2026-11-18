@@ -8,7 +8,8 @@ a separate menu that replaces the stuck. Remove the hotkey from it." FOUR CLAIMS
   1. Every innkeeper's town is on the list, once, with a name (world/fast_travel.py).
   2. Teleporting to each one puts you in that zone, on a walkable tile, within three tiles of
      the innkeeper.
-  3. The overworld has a Teleport button and no Unstuck button, and U does nothing.
+  3. The overworld has a Teleport button and no Unstuck button, and U (the Collection's key since
+     17 Nov) opens neither.
   4. No town's label is a bare zone slug.
 """
 import json
@@ -54,8 +55,11 @@ def main():
     src = (ROOT / "ui/screens/overworld_screen.py").read_text(encoding="utf-8")
     if '"Teleport"' not in src or 'self.tab_rects["teleport"]' not in src:
         bad.append("no Teleport button in the tab column")
-    if re.search(r'"Unstuck', src) or "K_u:" in src or "K_u)" in src:
-        bad.append("the Unstuck button or its U hotkey is still there")
+    if re.search(r'"Unstuck', src):
+        bad.append("the Unstuck button is still there")
+    m = re.search(r"event\.key == pygame\.K_u:(.*?)return", src, re.S)
+    if m and re.search(r"unstuck|teleport|TELEPORT", m.group(1), re.I):
+        bad.append("U still opens Unstuck or Teleport")
 
     print(f"{len(dests)} towns: " + ", ".join(labels))
     for b in bad:

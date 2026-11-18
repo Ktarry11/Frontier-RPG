@@ -35,7 +35,11 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "tools"))
 
-from audit_item_budgets import spend, budget_for, collect, _RARITY  # noqa: E402
+from audit_item_budgets import budget_for, collect, _RARITY  # noqa: E402
+# Stats are judged on the item curve the game prices them with (entities/item_budget.py), not on the suffix
+# table's older prices: that table charged a point of block rating 0.5 where the curve charges 2, so a tank's
+# epic read as weaker than a blue it was better than (Thunderhoof and Breastplate of the Unbowed, 18 Nov 2026).
+from entities.item_budget import budget_ratio  # noqa: E402
 
 RARE = _RARITY["rare"]["stat_budget_multiplier"]
 EPIC = _RARITY["epic"]["stat_budget_multiplier"]
@@ -53,9 +57,9 @@ def main():
         bad = []
 
         if budget:
-            got = spend(item)
-            if got < budget * FLOOR:
-                bad.append(f"stats {got:.0f} < {budget * FLOOR:.0f}")
+            ratio = budget_ratio(item)
+            if ratio is not None and ratio < FLOOR:
+                bad.append(f"stats {ratio:.2f} of an epic's budget < {FLOOR:.2f}")
         if armor and item.get("armor_value") is not None:
             if item["armor_value"] < armor * FLOOR:
                 bad.append(f"armor {item['armor_value']} < {armor * FLOOR:.0f}")

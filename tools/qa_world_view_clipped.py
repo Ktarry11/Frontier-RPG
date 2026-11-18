@@ -48,9 +48,12 @@ def main():
     # and the strip under the travel buttons.
     # The strip's left end holds the mail and encounter badges since 16 Nov 2026 (OverworldScreen.MAIL_BADGE,
     # ENCOUNTER_BADGE), so only the rest of it is tested.
+    # The experience rate switch sits further along it since 18 Nov 2026 (OverworldScreen.XP_TOGGLE_X), with its
+    # caption 24px above, so the strip is tested up to it.
     left = ow.ENCOUNTER_BADGE.right + 6
+    xp_left = ow.XP_TOGGLE_X - 6
     empties = [pygame.Rect(vp.right + 6, 240, 1080 - vp.right - 12, vp.bottom - 250),
-               pygame.Rect(left, 668, 1060 - left, 46)]
+               pygame.Rect(left, 668, xp_left - left, 46)]
     zones = [z for z in ("Razor Hill", "Orgrimmar", "Booty Bay", "Crossroads", "Brill", "Astranaar",
                          "Central Stranglethorn", "Undercity", "Durotar", "Grom'gol") if z in zm.zones]
     check(len(zones) >= 8, f"rig: only {len(zones)} of the test zones exist")

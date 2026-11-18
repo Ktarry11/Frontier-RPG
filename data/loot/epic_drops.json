@@ -1806,12 +1806,11 @@
       "weapon_type": "mace_1h",
       "stat_template": "str_int_hybrid",
       "primary_stats": {
-        "strength": 7
+        "strength": 14,
+        "intellect": 12,
+        "stamina": 12
       },
-      "secondary_stats": {
-        "block_rating": 12,
-        "attack_power": 1
-      },
+      "secondary_stats": {},
       "armor_value": 0,
       "weapon_damage_min": 92,
       "weapon_damage_max": 124,
@@ -3391,10 +3390,11 @@
       "weapon_type": null,
       "stat_template": "str_physical",
       "primary_stats": {
-        "strength": 11
+        "strength": 17,
+        "stamina": 15
       },
       "secondary_stats": {
-        "block_rating": 18
+        "block_rating": 12
       },
       "armor_value": 511,
       "weapon_damage_min": 0,
@@ -4504,7 +4504,7 @@
       "weapon_type": "shield",
       "stat_template": null,
       "primary_stats": {
-        "stamina": 23
+        "stamina": 31
       },
       "secondary_stats": {},
       "armor_value": 726,
