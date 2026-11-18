@@ -28,6 +28,11 @@ East road.
    - Maybe a handful more quests out of the zone (the plan's Silvermoon and Undercity chains) to reach about 90.
 2. **Later, Kyle's call**: the Sunreach Conclave's island home.
 
+**Recruits, sheet 5** (18 Nov): 16 new, prompts in `docs/recruit_art_prompts_sheet5.md`, slicer
+`tools/asset_pipeline/slice_recruit_sheet5.py`. Waiting on Kyle's art. When it lands, build the records and kits
+(the sheet-4 way); Tobias and the seven in older zones go live at once, the Deadwind four, Moonglade two and
+Winterspring two when those maps exist.
+
 ## 1b. Deadwind Pass (vision and art prompts only, 17 Nov 2026)
 - `docs/deadwind_brief.md` and `docs/deadwind_art_prompts.md` (8 sheets). Kyle: "I just want the vision and the
   prompts....then go back to happy Azshara!" Nothing to build until the art is in and Kyle says go. It holds the last T0
