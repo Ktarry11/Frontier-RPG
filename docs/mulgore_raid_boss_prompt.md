@@ -156,3 +156,9 @@ top with the eclipse over his horns and the runed spear in one of its hands. **T
 A (Central 4, Hunter 3, the Risen Brave), sheet B (Spirit 3, Elder 3), Cairne phases 1 to 3 from `mulgore_raid_c_v2.png`
 and phase 4 from this one. All saved unsliced until the raid is built.
 
+**Kyle's gifts, 18 Nov 2026** ("some gifts <3"): four Mulgore scenes, saved in `assets/backgrounds/mulgore/` for the
+zone's and the raid's combat backgrounds when they're built (not wired to anything yet): `s_mulgore_bonefield` (the
+plains under the eclipse, bones and risen beasts in the fog), `s_mulgore_faces` (lava cracks through ground made of
+screaming faces), `s_mulgore_blood_lake` (the blood lake and the ruined tauren camps), `s_thunder_bluff_rises` (the
+four rises on their mesas, rope bridges over lava, under the eclipse).
+
