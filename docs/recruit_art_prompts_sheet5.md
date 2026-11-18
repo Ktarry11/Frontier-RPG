@@ -38,9 +38,9 @@ nobody, or a level band that was thin (only six recruits under 10, thirteen in t
   camp, with its working name Ariden's Watch. Deadwind's Earth references run heavy, and these four are a lot of the
   reason. Like the Plaguelands five, they're placed when the maps exist.
 - **Moonglade, two. Winterspring, two (58 to 60).** They're placed when those zones are built.
-- **Light's Hope Chapel, one (56).** Tobias goes live as soon as the art lands, so the top end gets a tank this week,
-  not when Deadwind's done.
-- **Older zones, seven (8 to 43)**, all live as soon as the art lands: Western Tirisfal, the Crossroads, Camp Taurajo,
+- **Light's Hope Chapel, one (56).** Tobias is live now, so the top end has a tank this week, not when Deadwind's
+  done.
+- **Older zones, seven (8 to 43)**, all live now: Western Tirisfal, the Crossroads, Camp Taurajo,
   Arathi West, the Scarlet Monastery Grounds, Gurbashi Arena and Northern Tanaris.
 
 None stands in a hidden place. **The recruits-don't-know-each-other rule still holds:** the four liquidators share a
@@ -90,7 +90,7 @@ One-line hooks (full backgrounds get written with their records, in the recruit-
   Yukon with yetis, and he keeps a trophy from every hunt.
 - **Ximena**, a mountain guide from Huaraz who has summited Huascarán eleven times. Mountains don't move for anyone,
   and neither does she.
-- **Héctor**, a retired luchador from Mexico City who wrestled under a mask for fifteen years. The Gurubashi crowd
+- **Héctor**, a retired luchador from Mexico City who wrestled under a mask for fifteen years as El Relámpago de Plata. The Gurubashi crowd
   loves him, witch doctors wear masks too, and the spirits here like his.
 - **Tobias**, a stonemason on the Cologne Cathedral works crew, who spent his days keeping eight hundred years of
   stone standing. Light's Hope's walls are much younger, and he's patching them.
@@ -100,6 +100,127 @@ One-line hooks (full backgrounds get written with their records, in the recruit-
   in the Forsaken's own fields, and he's cheerful about blood magic in a way that unnerves even them.
 - **Enzo**, a sabre fencer from Naples who never made the Olympic team. The Scarlets wanted his blade and he said no.
   A darker god offered more, and he's still deciding if that was worth it.
+
+## Backstories and character traits
+
+Every one of them has the full recruit text in `tools/writing/sheet5_recruits.py`: a greeting, a backstory and the
+four background sections (before, adjustment, forward, now). Their character traits are their kits, in
+`tools/build_sheet5_recruits.py`: one passive and three trump cards each (12 to 15 turn cooldowns), every one quoting
+the line of their story it comes from. Taras's are all Kashtan's (Kyle: "Taras better get character traits related
+to his dog lol"). The art landed the same morning and is sliced, so the eight in built zones are in the game now. The
+Deadwind, Moonglade and Winterspring eight are written and waiting for their maps.
+
+**1. Taras Kovalenko** (Witch Hunter, level 57, Deadwind Pass). Dry, morbid humour and soft as butter with his dog. A guide to his bones, who counts heads without thinking, hates it when someone wanders off and trusts Kashtan's nose over anyone's word.
+- *Greeting:* "Stay on the path, please, and don't touch anything that glows. I've said that to a lot of tourists, and I've never meant it more."
+- *Passive, Sausage in His Pockets:* pet damage +20, pet health +20.
+- *Kashtan* (15-turn cooldown): Whistles Kashtan in to fight beside him.
+- *Kashtan Won't Go There* (15-turn cooldown): Kashtan growls at it. For 3 turns, shows what the target will do next, and the party's attacks on it can't miss.
+- *Every Dog at Every Checkpoint* (15-turn cooldown): Taras whistles, and Kashtan and every stray in earshot pile onto one enemy row. Marks it for 5 turns, and the party deals 30% more damage to marked enemies.
+
+**2. Lúcia Ferreira** (Sun Cleric, level 15, Crossroads). Warm, chatty and devout. She's a terrible gossip, but she never repeats anything said in the chair, and she can tell how a person's doing from their hair.
+- *Greeting:* "Sit down, sit down, you've got half the Barrens in your hair. I'll fix it while you tell me everything."
+- *Passive, Out Loud and With Her Whole Heart:* crit chance spell +5, shadow resistance +10.
+- *A Copper and a Blessing* (12-turn cooldown): Holy damage. Heals the most wounded ally for 80% of the damage dealt.
+- *Every Name on the List* (12-turn cooldown): Holy damage. Each use in a fight deals 12% more, up to 60% more.
+- *The Saint's Medal* (15-turn cooldown): For 4 turns, a blow that would kill the ally leaves them at 15% health instead.
+
+**3. Wes Dahlberg** (Warrior, level 58, Deadwind Pass). Slow to speak, impossible to rattle and a stickler for procedure. Underneath, he's soft about his daughters and the camp's mule.
+- *Greeting:* "Suit check before you go past the fence. I don't care who you are, I check everybody."
+- *Passive, Twenty Years in a Suit:* max health pct +10, armor pct +10, nature resistance +10.
+- *Suit Check* (12-turn cooldown): For 4 turns, Wes draws far more attention and takes 20% less damage.
+- *With a Partner* (12-turn cooldown): For 2 turns, Wes takes the next hit meant for any ally, at 50% less damage.
+- *Outlives Everybody* (15-turn cooldown): For 4 turns, a blow that would kill Wes leaves him at 20% health instead.
+
+**4. Mariana Treviño** (Priest, level 57, Deadwind Pass). Calm, precise and kind, with a gallows streak she only shows other medics. She plans everything, and she's quietly competitive about it.
+- *Greeting:* "Come in and sit on the cot. I'll tell you what I'm doing before I do it, so nothing's a surprise."
+- *Passive, To the Millimetre:* healing done +10, mp5 +6.
+- *Hit the Tumour and Nothing Else* (12-turn cooldown): A careful heal on one ally, 30% stronger on an ally below half health.
+- *Not Afraid of the Word* (12-turn cooldown): Takes one harmful effect off every ally and heals them for the damage it would have done.
+- *The Last Day of Treatment* (12-turn cooldown): Heals the party, 25% more for each wounded ally.
+
+**5. Neil Hartley** (Felsworn, level 59, Deadwind Pass). Dry, unflappable and pedantic about safety. He makes terrible puns about half-lives, and he takes the green fire more seriously than he lets on.
+- *Greeting:* "Hard hat's optional, but I'd stand behind me if I were you. The green bit doesn't care whose side you're on."
+- *Passive, A Written Plan:* fire damage pct +10, shadow resistance +10.
+- *The Old Ponds* (15-turn cooldown): Brings an infernal down to fight for him.
+- *Half-Life* (12-turn cooldown): Fel fire burns one enemy row over 4 turns.
+- *He Wants the Dose* (12-turn cooldown): For 5 turns, shows what the target will do next and lowers every resistance it has by 20.
+
+**6. Cristóbal Muñoz** (Knight of Xoroth, level 19, Camp Taurajo). Brave, loud and reckless with himself but never with anyone else. He's a mummy's boy who calls everybody 'hermano'.
+- *Greeting:* "Hermano, you smell like smoke, which is good. It means you've been somewhere interesting."
+- *Passive, Four Days on the Hills:* fire resistance +15, max health pct +5.
+- *Cut a Firebreak* (12-turn cooldown): For 3 turns, the enemies in one row deal 30% less damage.
+- *Walked Out of It* (12-turn cooldown): For 4 turns, 30% of the fire damage the party takes heals them instead.
+- *Reckless With Himself* (12-turn cooldown): A huge opening blow. Deals 100% more damage to a target above 60% health.
+
+**7. Valentina Soto** (Starcaller, level 59, Moonglade). Bright, curious and a born teacher. She gets lost in the sky, and she's easily moved, a little dreamy and fiercely protective.
+- *Greeting:* "Look up at it, really look. I've never seen anything like the sky over this lake, and I've seen a lot of sky."
+- *Passive, Three Languages a Night:* crit chance physical +5, arcane damage pct +10.
+- *The Southern Cross First* (12-turn cooldown): A starlit cut that cannot miss.
+- *Night Eyes* (12-turn cooldown): For 4 turns, each turn Valentina doesn't attack adds 30% to her next blow, up to 120%.
+- *New Charts* (12-turn cooldown): For 3 turns, shows what the target will do next, and the party's attacks on it can't miss.
+
+**8. Faris Al-Tamimi** (Shaman, level 58, Moonglade). Gentle, patient and slow to anger. He's a gardener's soul and a good listener who misses home with his whole body.
+- *Greeting:* "Peace be with you. Sit by the water for a while, it's good water. I can tell."
+- *Passive, Look After the Water First:* healing done +10, nature resistance +10.
+- *Where the Rivers Meet* (15-turn cooldown): Heals the party for 30% of their maximum health and gives back 20% of their resource.
+- *In the Shade of the Palms* (12-turn cooldown): For 4 turns, the first time the ally drops below 35% health they're healed for 30% of their maximum.
+- *Good Water* (12-turn cooldown): Gives every ally back 15% of their mana.
+
+**9. Iker Etxeberria** (Guardian, level 30, Arathi West). Relentlessly upbeat and loud. He's competitive about everything, can't sit still and believes anyone can do one more lap.
+- *Greeting:* "Up, up, up! You can rest when you're dead, and you don't look dead to me."
+- *Passive, Never Been Tired in His Life:* max health pct +5, crit chance physical +5.
+- *One More Lap* (12-turn cooldown): Shouts an ally on. Heals them, and they take a turn straight away.
+- *Off the Fronton Wall* (12-turn cooldown): Each hit on the same target in a row deals 25% more, up to 100% more.
+- *The Whistle* (15-turn cooldown): Blows the whistle. Heals the party for 15% of their maximum health and gives back 20% of their resource.
+
+**10. Wade Lindgren** (Barbarian, level 59, Winterspring). Laconic, practical and a bit old-fashioned. He respects the animals he hunts, and he likes his own company more than he admits.
+- *Greeting:* "Wind's from the north tonight. If you're heading out, wear more than that."
+- *Passive, Thirty Winters:* frost resistance +15, max health pct +5.
+- *Taken Cleanly* (12-turn cooldown): A finishing blow on a target below 30% health, for triple damage.
+- *Wind's From the North* (12-turn cooldown): For 2 turns, every enemy misses 25% more often.
+- *A Trophy From Every Hunt* (12-turn cooldown): Each time Wade uses it in a fight it deals 12% more, up to 60% more.
+
+**11. Ximena Huamán** (Primalist, level 60, Winterspring). Stubborn, steady and fearless. She's blunt to the point of rudeness on a mountain and the warmest person in the room off it.
+- *Greeting:* "If you want to go up, you go up with me, roped in, and you do what I tell you. Then we'll be friends."
+- *Passive, Eleven Summits:* armor pct +10, max health pct +10, frost resistance +10.
+- *Roped In* (12-turn cooldown): For 4 turns, every enemy turns on Ximena, and the party takes 20% less damage.
+- *Snow Hole* (15-turn cooldown): For 5 turns, shields every ally for 70 damage, and the shield refills each turn.
+- *The Way a Mountain Does* (15-turn cooldown): For 4 turns, a blow that would kill Ximena leaves her at 20% health instead.
+
+**12. Héctor Salinas** (Witch Doctor, level 36, Gurbashi Arena). A showman with a big laugh. He's superstitious, sentimental about his wrestling years and much smarter than he plays.
+- *Greeting:* "Ah, a fan! Don't be shy. Everybody wants a picture with El Relámpago de Plata, even here."
+- *Passive, Fifteen Years Under the Mask:* crit chance spell +5, dodge +5.
+- *Off the Top Rope* (12-turn cooldown): Shadow damage, up to 50% more against a target with more health.
+- *The Crowd Loves Him* (12-turn cooldown): Marks one enemy row for 5 turns. The party deals 30% more damage to marked enemies.
+- *Never Unmasked* (12-turn cooldown): For 3 turns, 40% of the magic damage Héctor takes becomes a shield on him.
+
+**13. Tobias Keller** (Paladin, level 56, Light's Hope Chapel). Patient, methodical and quietly devout. He's a perfectionist about joints and mortar and says very little, but all of it's true.
+- *Greeting:* "Mind the scaffold. That wall's coming along, but I'd rather you didn't lean on it yet."
+- *Passive, Seven Hundred Years of Repairs:* armor pct +12, max health pct +8.
+- *Repointing* (15-turn cooldown): For 5 turns, shields every ally for 70 damage, and the shield refills each turn.
+- *Mind the Scaffold* (12-turn cooldown): For 4 turns, Tobias draws far more attention and takes 20% less damage.
+- *All of It's True* (12-turn cooldown): Draws one harmful effect out of an ally and turns the damage it would have done back on its caster.
+
+**14. Camila Ortega** (Venomancer, level 43, Northern Tanaris). Still, watchful and dryly funny. She has nerves of steel, and she's fond of the things everyone else is scared of.
+- *Greeting:* "Stand still, please. There's a scorpid under your boot, and it's having a worse day than you."
+- *Passive, Ten Thousand Times:* dodge +5, nature damage pct +10.
+- *Waiting for It to Move* (12-turn cooldown): For 4 turns, each turn Camila doesn't attack adds 30% to her next strike, up to 120%.
+- *Milking the Sting* (12-turn cooldown): For 5 turns the target takes 15% more damage. Using it again stacks it, up to three times.
+- *The Dose, the Timing and the Antidote* (12-turn cooldown): Takes one poison or disease off every ally and heals them for the damage it would have done.
+
+**15. Sebastián Cruz** (Bloodmage, level 8, Western Tirisfal). Cheerful, sociable and unbothered by gore. He's a born host who'll feed anyone, and the Forsaken find him deeply unsettling.
+- *Greeting:* "You look hungry, my friend. I've got something on the coals, and I promise it isn't anyone you know."
+- *Passive, Twelve Years at the Grill:* crit chance spell +5, max health pct +5.
+- *Low and Slow* (12-turn cooldown): Blood magic that wears one enemy row down over 4 turns.
+- *He Knows When It's Ready* (12-turn cooldown): Shadow damage that deals up to 80% more the more health the target is missing.
+- *Asado for Twenty* (15-turn cooldown): Feeds everyone. Heals the party for 30% of their maximum health and gives back 20% of their resource.
+
+**16. Enzo Marchetti** (Cultist, level 34, Scarlet Monastery Grounds). Proud, intense and haunted by coming fourth. He's charming when he wants to be, and he's honest with himself about what he traded.
+- *Greeting:* "You're watching my feet. Good, that's where everybody should look. Most people look at the blade."
+- *Passive, Fourth, Twice:* crit chance physical +5, dodge +5.
+- *Riposte* (12-turn cooldown): For 4 turns, every attack that misses Enzo is answered with a free attack.
+- *Flèche* (12-turn cooldown): Enzo takes another turn straight away.
+- *What He Traded* (15-turn cooldown): A blade full of shadow that can't miss and always lands a critical hit.
 
 ---------------------------------------------------------------------
 ## SHEET I: SPRITES, ALL 16  (paste this whole block)
@@ -172,7 +293,7 @@ way.
 ---------------------------------------------------------------------
 ## After you generate them
 
-Send me the two images (the 4x4 sprite sheet and the portraits). `tools/asset_pipeline/slice_recruit_sheet5.py` has
+Delivered 18 Nov 2026 and sliced (the portraits came back edge to edge, so they're cut on the grid). `tools/asset_pipeline/slice_recruit_sheet5.py` has
 this id list in sprite order:
 
 ```
@@ -182,5 +303,5 @@ iker_guardian, wade_barbarian, ximena_primalist, hector_witchdoctor,
 tobias_paladin, camila_venomancer, sebastian_bloodmage, enzo_cultist
 ```
 
-Then the records and kits get built: Tobias and the seven in older zones go live at once, and the Deadwind,
-Moonglade and Winterspring eight are placed as each zone is built.
+The records and kits are built (`tools/build_sheet5_recruits.py`), so Tobias and the seven in older zones are in the
+game. The Deadwind, Moonglade and Winterspring eight get placed by re-running the builder once each zone exists.
