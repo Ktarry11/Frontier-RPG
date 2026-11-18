@@ -213,6 +213,13 @@ ZONE_BACKGROUND = {
     "The Rotroot Deeps": "dark_dungeon",          # the fel rot under Timbermaw Hold
     "The Drowned Palace": "dark_dungeon",         # Azshara's palace, half in the sea
     "The Drowned Palace: The Queen's Vault": "dark_dungeon",
+    # --- Deadwind Pass (docs/deadwind_brief.md, 18 Nov 2026): until it gets backgrounds of its own ----------
+    "Deadwind West": "blighted",                  # the dead forest
+    "Deadwind East": "blighted",                  # the ash, the gorge and the rupture
+    "Ariden's Watch": "blighted",                 # the liquidators' camp
+    "The Widows' Nest": "dark_dungeon",           # the spiders' funnel
+    "The Drowned Seep": ("nautical", "Flooded"),  # the drain under the Drowned Hollow
+    "The Exclusion Zone": "dark_dungeon",         # under the wheel
     "Eastern Kingdoms - Stranglethorn": "jungle",  # region label over the tropical zones
 
     # --- desert and salt ---------------------------------------------------

@@ -5628,6 +5628,9 @@ def create_all_zones():
     from tools import handbuilt_azshara_central as dac
     from tools import handbuilt_azshara_east as dae
     from tools import handbuilt_talrendis_landing as dtl
+    from tools import handbuilt_deadwind_west as ddww
+    from tools import handbuilt_deadwind_east as ddwe
+    from tools import handbuilt_ariden_watch as daw_watch
     from tools import handbuilt_timbermaw_hold as dth
     from tools import handbuilt_hammerfall as dhf
     from tools import handbuilt_saltspur_landing as dssl
@@ -5793,6 +5796,10 @@ def create_all_zones():
         "Timbermaw Hold": dth.generate_timbermaw_hold(),        # the Timbermaw's caldera city, off the Ursolan pass
         "Central Azshara": dac.generate_azshara_central(),      # tools/handbuilt_azshara_central.py, 54-57
         "East Azshara": dae.generate_azshara_east(),            # tools/handbuilt_azshara_east.py, the coast, 56-59
+        # ===== DEADWIND PASS (55-60, docs/deadwind_brief.md, 18 Nov 2026): the leylines tore, and the wheel came through
+        "Deadwind West": ddww.generate_deadwind_west(),         # tools/handbuilt_deadwind_west.py, 55-57
+        "Deadwind East": ddwe.generate_deadwind_east(),         # tools/handbuilt_deadwind_east.py, 56-58
+        "Ariden's Watch": daw_watch.generate_ariden_watch(),    # the liquidators' camp, its own map
         # HAMMERFALL IS ITS OWN ZONE as of 7 Nov. It was nine props on the open moor
         # inside Arathi Central with nineteen NPCs standing in a 34x31 box of it.
         "Hammerfall": dhf.generate_hammerfall(),  # hand-built stockade town (tools/handbuilt_hammerfall.py)
@@ -6014,6 +6021,11 @@ def create_all_zones():
     from tools import handbuilt_drowned_palace as dpal         # Azshara's last dungeon, 59-60, two floors
     for _floor in dpal.FLOORS:
         zones[_floor] = dpal.generate_floor(_floor)
+    from tools import handbuilt_deadwind_caves as dwcaves     # Deadwind's two caves: the Widows' Nest, the Drowned Seep
+    for _cave in dwcaves.CAVES:
+        zones[_cave] = dwcaves.generate(_cave)
+    from tools.handbuilt_exclusion_zone import generate_exclusion_zone
+    zones["The Exclusion Zone"] = generate_exclusion_zone()  # Deadwind's dungeon under the wheel, 57-60, the last T0 token
     from tools.handbuilt_eldest_sequoia import generate_eldest_trunk, generate_eldest_crown
     zones["The Eldest Sequoia"] = generate_eldest_trunk()   # Stonetalon's dungeon, map 1: up the trunk
     zones["The Eldest's Crown"] = generate_eldest_crown()   # map 2: the branches, open air (tools/bake_eldest_crown.py)

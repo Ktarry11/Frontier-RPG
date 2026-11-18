@@ -127,7 +127,10 @@ LORE = re.compile(
     r"wasn'?t here|was not here|before the change|after the change|"
     r"somewhere flatter|out of nowhere|off nowhere|where you'?re from|"
     # Kyle, 16 Nov 2026: every transplant knows they came from Earth and the Order says so out loud
-    r"\bon Earth\b|\bfrom Earth\b|back home on|back home,? I|, back home\b", re.I)
+    r"\bon Earth\b|\bfrom Earth\b|back home on|back home,? I|, back home\b|"
+    # Deadwind's liquidators (18 Nov 2026) name the places they came from, and no place on Azeroth has these names
+    r"\b(Chernobyl|Pripyat|Fukushima|Goiania|Rongelap|Windscale|Semey|Nevada|Kupuvate|Slavutych|Utah)\b|"
+    r"back home in\b|where we came from|\bin (1954|1957|1986|1987)\b", re.I)
 
 #: Named by claude/quest_writing_guide.md as the tics that make quest text read as filler.
 TICS = {

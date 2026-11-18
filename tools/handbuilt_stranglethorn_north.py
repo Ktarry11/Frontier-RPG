@@ -18,9 +18,12 @@ between them are the only road.
     Zul'Marosh Steps ..... a troll stair-temple built up the side of a crag, north-east
     Rotvine Hollow ....... cave (150,40), in the crag face above the Steps
     Rotvine Fen .......... the rotting east, downhill of the Hollow's outflow
+    The cracked tunnel ... (182,115), in the fen's eastern shoulder: the one land route out of the jungle, a crack
+                           the merging of the worlds opened through the mountain to Deadwind Pass (18 Nov 2026,
+                           docs/deadwind_brief.md). It came later than the rest; the jungle had no land route before it.
 
 HARD CONTRACTS (world/portal_manager.py):
-    portals  Grom'gol (54,96)   Rotvine Hollow (150,40)   Central Stranglethorn (100,177)
+    portals  Grom'gol (54,96)   Rotvine Hollow (150,40)   Central Stranglethorn (100,177)   Deadwind West (182,115)
     arrivals 2 tiles NORTH of an edge portal; a cave exit lands 1 tile SOUTH of its mouth.
 
 ART.  Nothing here waits on new art.  The jungle floor, rock and water are baked by
@@ -50,8 +53,9 @@ BAKED_DIR = "assets/tiles/stranglethorn/baked_north"
 W, H = 200, 180
 IS_TOWN = False
 
-PORTALS = {(54, 96): "Grom'gol", (150, 40): "Rotvine Hollow", (100, 177): "Central Stranglethorn"}
-ARRIVALS = [(54, 94), (150, 41), (100, 175)]
+PORTALS = {(54, 96): "Grom'gol", (150, 40): "Rotvine Hollow", (100, 177): "Central Stranglethorn",
+           (182, 115): "Deadwind West"}
+ARRIVALS = [(54, 94), (150, 41), (100, 175), (182, 117)]
 START = (54, 100)
 
 # ------------------------------------------------------------------ the plan
@@ -294,6 +298,15 @@ def dress(L):
     A = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=SP, **kw)
     X = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=SP, **kw)
     J = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=SP, **kw)
+
+    # ---- the cracked tunnel to Deadwind, in the fen's eastern shoulder: the rock glows round its mouth --------
+    from tools import handbuilt_central_barrens as CB
+    path = "assets/buildings/dw_tunnel_mouth.png"
+    h = 8
+    w = max(1, round(h * CB._aspect(path)))
+    L.z.add_landmark(path, 182 - w // 2, 115 - h + 1, w, h, mouth_offset=(w // 2, h - 1))
+    L.prop("dw_warning_cairn", 176, 118, 3, path_dir="assets/tiles/deadwind/props/", solid="core")
+    L.prop("dw_quarantine_stake", 188, 119, 4, path_dir="assets/tiles/deadwind/props/", solid="core")
 
     # ---- the Grom'gol gate apron: the road out of the camp, orc marks on it -------------------------
     P("br_signpost", 60, 100, 5)

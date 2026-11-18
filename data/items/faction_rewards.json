@@ -2930,6 +2930,255 @@
       "block_value": 0,
       "price": 2750000,
       "faction": "sunreach_conclave"
+    },
+    "liq_liquidators_dosimeter": {
+      "name": "Liquidator's Dosimeter",
+      "slot": "neck",
+      "item_level": 67,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 20
+      },
+      "secondary_stats": {
+        "defense_rating": 13,
+        "dodge_rating": 9
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 50000,
+      "flavor_text": "Kenji builds them out of Seep-glass and cat gut. It clicks faster when you're somewhere you shouldn't be, which in Deadwind is most places.",
+      "identity": "tank_any",
+      "icon_id": "gear_inv_jewelry_amulet_07",
+      "price": 400000,
+      "faction": "the_liquidators"
+    },
+    "liq_decon_suit_robe": {
+      "name": "Decontamination Suit",
+      "slot": "chest",
+      "item_level": 67,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 26
+      },
+      "secondary_stats": {
+        "spell_power": 59
+      },
+      "armor_value": 109,
+      "required_level": 60,
+      "sell_price": 82500,
+      "flavor_text": "Oilcloth over silk, sealed at every seam with wax. The Forsaken think the living wear far too many layers.",
+      "identity": "caster",
+      "icon_id": "gear_inv_shirt_guildtabard_01",
+      "price": 660000,
+      "faction": "the_liquidators"
+    },
+    "liq_pyre_tenders_gauntlets": {
+      "name": "Pyre-Tender's Gauntlets",
+      "slot": "hands",
+      "item_level": 67,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 14
+      },
+      "secondary_stats": {
+        "healing_power": 62
+      },
+      "armor_value": 380,
+      "required_level": 60,
+      "sell_price": 75000,
+      "flavor_text": "Old Tobiah's spare pair. He says the green fire doesn't burn plate, only the hands inside it.",
+      "identity": "plate_healer",
+      "icon_id": "gear_inv_gauntlets_30",
+      "price": 600000,
+      "faction": "the_liquidators"
+    },
+    "liq_wireline_boots": {
+      "name": "Wireline Boots",
+      "slot": "feet",
+      "item_level": 67,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 16,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "attack_power": 41
+      },
+      "armor_value": 201,
+      "required_level": 60,
+      "sell_price": 72500,
+      "flavor_text": "Corporal Delgado's patrols wear through a pair a week walking the fence.",
+      "identity": "agility",
+      "icon_id": "gear_inv_boots_08",
+      "price": 580000,
+      "faction": "the_liquidators"
+    },
+    "liq_sample_runners_hauberk": {
+      "name": "Sample-Runner's Hauberk",
+      "slot": "chest",
+      "item_level": 67,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 20
+      },
+      "secondary_stats": {
+        "healing_power": 90
+      },
+      "armor_value": 372,
+      "required_level": 60,
+      "sell_price": 85000,
+      "flavor_text": "Mail for the runners who carry Morwen's samples back across the pass, washed at the troughs every time.",
+      "identity": "tide_healer",
+      "icon_id": "gear_inv_chest_chain_10",
+      "price": 680000,
+      "faction": "the_liquidators"
+    },
+    "liq_quarantine_wardens_girdle": {
+      "name": "Quarantine Warden's Girdle",
+      "slot": "waist",
+      "item_level": 67,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 23,
+        "strength": 9
+      },
+      "secondary_stats": {
+        "defense_rating": 18
+      },
+      "armor_value": 380,
+      "required_level": 60,
+      "sell_price": 65000,
+      "flavor_text": "Deathguard Harrow's own design, with a hook for the gate key and another for the ledger.",
+      "identity": "tank",
+      "icon_id": "gear_inv_belt_22",
+      "price": 520000,
+      "faction": "the_liquidators"
+    },
+    "liq_board_of_names_band": {
+      "name": "Band of the Board",
+      "slot": "ring",
+      "item_level": 67,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "spell_power": 30,
+        "crit_chance_spell": 12
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 68750,
+      "flavor_text": "Every name on the board by the pyre is scratched inside it, very small, and there's room for more.",
+      "identity": "caster_crit",
+      "icon_id": "gear_inv_jewelry_ring_26",
+      "price": 550000,
+      "faction": "the_liquidators"
+    },
+    "liq_staff_of_the_long_shift": {
+      "name": "Staff of the Long Shift",
+      "slot": "main_hand",
+      "item_level": 73,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "staff",
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 42,
+        "spirit": 34
+      },
+      "secondary_stats": {
+        "healing_power": 184
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 375000,
+      "flavor_text": "Cut from a dead Deadwind oak and capped with Seep-glass. It glows when the wound is close, so you'll know.",
+      "identity": "high_healer",
+      "icon_id": "gear_epic_staff_3",
+      "weapon_damage_min": 89,
+      "weapon_damage_max": 120,
+      "attack_speed": 3.2,
+      "block_value": 0,
+      "price": 3000000,
+      "faction": "the_liquidators"
+    },
+    "liq_liquidators_shovel": {
+      "name": "The Liquidator's Spade",
+      "slot": "main_hand",
+      "item_level": 73,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "axe_2h",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 28
+      },
+      "secondary_stats": {
+        "attack_power": 74,
+        "crit_chance_physical": 28
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 400000,
+      "flavor_text": "The men on the reactor roof cleared the graphite with spades, ninety seconds at a time. This one's for the pass.",
+      "identity": "strength_crit",
+      "icon_id": "gear_epic_axe_2h_3",
+      "weapon_damage_min": 218,
+      "weapon_damage_max": 296,
+      "attack_speed": 3.6,
+      "block_value": 0,
+      "price": 3200000,
+      "faction": "the_liquidators"
+    },
+    "liq_fence_runners_knife": {
+      "name": "Fence-Runner's Knife",
+      "slot": "main_hand",
+      "item_level": 73,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "dagger",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 24
+      },
+      "secondary_stats": {
+        "attack_power": 63,
+        "crit_chance_physical": 24
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 362500,
+      "flavor_text": "Ray Delgado's, from before he came over. He won't say what he used it for in Utah, only that it was legal.",
+      "identity": "rogue_crit",
+      "icon_id": "gear_epic_dagger_3",
+      "weapon_damage_min": 162,
+      "weapon_damage_max": 219,
+      "attack_speed": 1.7,
+      "block_value": 0,
+      "price": 2900000,
+      "faction": "the_liquidators"
     }
   }
 }

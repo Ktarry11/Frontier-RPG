@@ -7374,6 +7374,77 @@
         "cook_flour",
         "beast_lure"
       ]
+    },
+    {
+      "vendor_id": "dw_peg",
+      "name": "Peg Thwaite",
+      "zone": "aridens_watch",
+      "x": 56,
+      "y": 62,
+      "tile_sprite": "npc",
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 56,
+      "sells_gear": false,
+      "race": "human",
+      "gender": "female",
+      "appearance_variant": 5,
+      "facing": "down",
+      "greeting": "We kept a dairy in Cumbria, under Windscale. When the pile caught fire in fifty-seven, they poured away every drop of milk from two hundred square miles for a month, ours with it. I feed this camp now, and I check every barrel twice before it goes on a table.",
+      "sells": [
+        "meal_ember_glazed_ribs",
+        "drink_starfall_wine",
+        "high_table_feast",
+        "cook_flour",
+        "cook_spice",
+        "cook_water",
+        "cook_mushroom"
+      ]
+    },
+    {
+      "vendor_id": "dw_quartermaster",
+      "name": "Quartermaster Dale Henning",
+      "zone": "aridens_watch",
+      "x": 70,
+      "y": 51,
+      "tile_sprite": "npc",
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 56,
+      "sells_gear": true,
+      "race": "human",
+      "gender": "male",
+      "appearance_variant": 4,
+      "facing": "down",
+      "greeting": "I spent thirty years cleaning up Hanford, in Washington, where they made the plutonium. The paperwork alone could have shielded a reactor. The Liquidators pay in what we've got, and what we've got goes to the people who've earned it. Do the work and my shelf opens up.",
+      "sells": [
+        "kit_field_repair",
+        "healing_potion_masterwork",
+        "mana_potion_masterwork",
+        "parchment"
+      ]
+    },
+    {
+      "vendor_id": "dw_smith",
+      "name": "Ironmonger Edric Vail",
+      "zone": "aridens_watch",
+      "x": 80,
+      "y": 55,
+      "tile_sprite": "npc",
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 56,
+      "sells_gear": true,
+      "race": "forsaken",
+      "gender": "male",
+      "appearance_variant": 3,
+      "facing": "left",
+      "greeting": "The Seep gets into steel the way it gets into everything else, from the inside, where you can't see it until the blade snaps. Let me look at your gear before you trust your life to it out there.",
+      "sells": [
+        "kit_field_repair",
+        "whetstone",
+        "flux_strong"
+      ]
     }
   ]
 }

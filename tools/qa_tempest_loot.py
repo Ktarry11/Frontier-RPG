@@ -42,8 +42,9 @@ def main():
     order = list(T["bosses"])
     # 19 on Tempest Isle, 5 in the Royal Hive (shoulders) and 8 in Jaedenar (hands), 14 Nov 2026; then the
     # Plaguelands, 16 Nov 2026: 12 in Scholomance (heads), 14 in Stratholme (chests), 10 in Hearthglen (feet)
-    if len(order) != 68:
-        bad.append(f"{len(order)} bosses carry tokens, wanted 68")
+    # and Deadwind's Exclusion Zone, 18 Nov 2026: 6 (the bracers, moved there from Khaz Varun)
+    if len(order) != 74:
+        bad.append(f"{len(order)} bosses carry tokens, wanted 74")
     # the 2-for-1 fights: 3 of a pool of 9; the Barovs are one fight with one hoard, the same 3 of 9
     MULTI = {"Hive-Mother Ahn'thera": (3, 9), "The Duskwhisper Sisters": (3, 9), "Lord Alexei Barov": (3, 9)}
 
@@ -93,13 +94,14 @@ def main():
             bad.append(f"{name} dropped {sorted(kinds - allowed) or 'too few kinds'}")
     slots = [T["bosses"][n]["slot"] for n in order]
     if slots != (["waist"] * 12 + ["legs"] * 7 + ["shoulder"] * 5 + ["hands"] * 8
-                 + ["head"] * 12 + ["chest"] * 14 + ["feet"] * 10):
+                 + ["head"] * 12 + ["chest"] * 14 + ["feet"] * 10 + ["wrist"] * 6):
         bad.append(f"token slots by boss are {slots}")
     if [n for n in order if T["bosses"][n]["guaranteed"]] != ["Thane Morrun the Unmade", "The Caldera",
                                                                 "Hive-Mother Ahn'thera", "Zar'gothrax the Unbound",
                                                                 "Darkmaster Gandling", "Grand Crusader Dathrohan",
-                                                                "Baron Rivendare", "Grand Crusader Victor Hale"]:
-        bad.append("the guaranteed bosses are not the eight last bosses")
+                                                                "Baron Rivendare", "Grand Crusader Victor Hale",
+                                                                "The Wound's Heart"]:
+        bad.append("the guaranteed bosses are not the nine last bosses")
 
     # 5, 6
     with contextlib.redirect_stdout(io.StringIO()):

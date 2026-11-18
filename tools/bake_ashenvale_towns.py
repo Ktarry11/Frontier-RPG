@@ -29,7 +29,8 @@ TOWNS = {"astranaar": "tools.handbuilt_astranaar", "splintertree": "tools.handbu
          "sun_rock_retreat": "tools.handbuilt_sun_rock_retreat", "bulwark": "tools.handbuilt_bulwark",
          "pale_watch": "tools.handbuilt_pale_watch", "lights_hope": "tools.handbuilt_lights_hope",
          "talrendis_landing": "tools.handbuilt_talrendis_landing",
-         "timbermaw_hold": "tools.handbuilt_timbermaw_hold"}
+         "timbermaw_hold": "tools.handbuilt_timbermaw_hold",
+         "ariden_watch": "tools.handbuilt_ariden_watch"}
 
 MATS = dict(AV.MATERIALS)
 MATS.update({
@@ -81,6 +82,7 @@ def bake(key, mat_dir, preview=None, sc=8):
     P.sealed_land = getattr(L, "sealed_land", [])
     P.sealed_water = getattr(L, "sealed_water", [])
     P.grade = getattr(M, "GRADE", None)
+    P.lift = getattr(M, "LIFT", None)
     scores = build_scores(P, M)
     out = ROOT / M.BAKED_DIR
     written = P.bake(MATS, scores, out, chunk_tiles=20, post=AV.post)

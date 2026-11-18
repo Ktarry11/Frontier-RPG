@@ -61,6 +61,7 @@ TOWN_REGION = {
     "timbermaw_tunnel": "North Felwood",
     "talrendis_landing": "West Azshara",
     "timbermaw_hold": "West Azshara",
+    "ariden_watch": "Deadwind West",
     "lights_hope_chapel": "Eastern Plaguelands East",
     "undercity": "Undercity",
     "sepulcher": "Silverpine North",

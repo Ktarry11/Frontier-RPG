@@ -36,7 +36,13 @@ os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 from build_sheet4_recruits import A, P, COST, EDGE  # noqa: E402
 from writing.sheet5_recruits import BATCH  # noqa: E402
 
-DEADWIND, MOONGLADE, WINTERSPRING = "Deadwind Pass", "Moonglade", "Winterspring"
+#: Deadwind's four live in Ariden's Watch, the liquidators' camp (tools/handbuilt_ariden_watch.py, 18 Nov 2026)
+DEADWIND, MOONGLADE, WINTERSPRING = "Ariden's Watch", "Moonglade", "Winterspring"
+#: the camp's four stand at their posts (docs/deadwind_quest_plan.md), not where the walk would drop them: Taras at
+#: the wash troughs inside the gate with Kashtan, Wes on the east fence, Mariana at the infirmary, Neil at the
+#: apothecaries' sample racks
+PINNED = {"taras_witchhunter": (34, 17), "wes_warrior": (89, 31), "mariana_priest": (21, 41),
+          "neil_felsworn": (38, 55)}
 
 #: id -> (name, spec, class, level, zone, gender, colour, row)
 ROSTER = {
@@ -44,13 +50,13 @@ ROSTER = {
     "lucia_suncleric":      ("Lúcia Ferreira", "sun_cleric_piety", "Sun Cleric", 15, "Crossroads", "female", "#E8C25A", "back"),
     "wes_warrior":          ("Wes Dahlberg", "warrior_protection", "Warrior", 58, DEADWIND, "male", "#8A8F94", "front"),
     "mariana_priest":       ("Mariana Treviño", "priest_holy", "Priest", 57, DEADWIND, "female", "#F2EBD9", "back"),
-    "neil_felsworn":        ("Neil Hartley", "felsworn_infernal", "Felsworn", 59, DEADWIND, "male", "#4FA83A", "back"),
+    "neil_felsworn":        ("Neil Hartley", "felsworn_infernal", "Felsworn", 58, DEADWIND, "male", "#4FA83A", "back"),
     "cristobal_knight":     ("Cristóbal Muñoz", "knight_of_xoroth_hellfire", "Knight of Xoroth", 19, "Camp Taurajo", "male", "#C2401C", "front"),
-    "valentina_starcaller": ("Valentina Soto", "starcaller_warden", "Starcaller", 59, MOONGLADE, "female", "#7F9BD6", "front"),
+    "valentina_starcaller": ("Valentina Soto", "starcaller_warden", "Starcaller", 58, MOONGLADE, "female", "#7F9BD6", "front"),
     "faris_shaman":         ("Faris Al-Tamimi", "shaman_restoration", "Shaman", 58, MOONGLADE, "male", "#3C8DAD", "back"),
     "iker_guardian":        ("Iker Etxeberria", "guardian_inspiration", "Guardian", 30, "Arathi West", "male", "#C8102E", "front"),
-    "wade_barbarian":       ("Wade Lindgren", "barbarian_headhunting", "Barbarian", 59, WINTERSPRING, "male", "#9C7B55", "front"),
-    "ximena_primalist":     ("Ximena Huamán", "primalist_mountain_king", "Primalist", 60, WINTERSPRING, "female", "#7D8A96", "front"),
+    "wade_barbarian":       ("Wade Lindgren", "barbarian_headhunting", "Barbarian", 58, WINTERSPRING, "male", "#9C7B55", "front"),
+    "ximena_primalist":     ("Ximena Huamán", "primalist_mountain_king", "Primalist", 58, WINTERSPRING, "female", "#7D8A96", "front"),
     "hector_witchdoctor":   ("Héctor Salinas", "witch_doctor_shadowhunting", "Witch Doctor", 36, "Gurbashi Arena", "male", "#5A3D7A", "back"),
     "tobias_paladin":       ("Tobias Keller", "paladin_protection", "Paladin", 56, "Light's Hope Chapel", "male", "#D9C27A", "front"),
     "camila_venomancer":    ("Camila Ortega", "venomancer_stalking", "Venomancer", 43, "Northern Tanaris", "female", "#3F7A3A", "front"),
@@ -365,6 +371,12 @@ def main():
         target = first_boss * 0.55 if first_boss else max(d for d, _x, _y in cands) * 0.35
         mid = (z.width / 2, z.height / 2)
         d, x, y = min(cands, key=lambda c: (abs(c[0] - target) // 6, math.dist((c[1], c[2]), mid)))
+        if rid in PINNED:
+            x, y = PINNED[rid]
+            if (x, y) not in dist or not all(math.dist((x, y), o) >= 3 for o in occupied if o[0] is not None):
+                problems.append(f"{rid}: pinned post ({x},{y}) isn't walkable or is on top of someone")
+                continue
+            d = dist[(x, y)]
         placed_here.setdefault(zname, []).append((x, y))
         p = BATCH[rid]
         rec = {"recruit_id": rid, "name": name, "char_class": cls, "spec": spec, "level": level, "zone": zname,

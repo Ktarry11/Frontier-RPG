@@ -89,6 +89,11 @@ _TROLL_VARIANTS = [f"troll_{i}" for i in range(1, 21)]
 # NPC-only.
 _FURBOLG_VARIANTS = [f"furbolg_{i}" for i in range(1, 7)]
 _TREANT_VARIANTS = [f"treant_{i}" for i in range(1, 3)]
+# Deadwind Pass's two who aren't people any more (18 Nov 2026, tools/build_deadwind.py), from Kyle's Deadwind creature
+# sheet: Grull the Younger, the ogre fused with the child he was, and the Bridge Echo, a liquidator caught mid-stride
+# on the broken bridge. NPC-only, one each, single-facing like the furbolgs.
+_OGRE_VARIANTS = ["ogre_1"]
+_ECHO_VARIANTS = ["echo_1"]
 
 # Forsaken - replaces Skeleton AND Zombie entirely as the Undead-flavor
 # race (Kyle's call: "forsaken are currently garbage zombies and
@@ -196,6 +201,22 @@ RACE_OPTIONS = [
         genders=[GenderOption("male", "Male", "", _TREANT_VARIANTS),
                  GenderOption("female", "Female", "", _TREANT_VARIANTS)],
         available=False,      # NPC-only: the forest's own, standing with the Reclamation
+    ),
+    RaceOption(
+        race_id="ogre",
+        label="Ogre",
+        race_folder="ogre",
+        genders=[GenderOption("male", "Male", "", _OGRE_VARIANTS),
+                 GenderOption("female", "Female", "", _OGRE_VARIANTS)],
+        available=False,      # NPC-only: Grull the Younger, in Deadwind Pass
+    ),
+    RaceOption(
+        race_id="echo",
+        label="Echo",
+        race_folder="echo",
+        genders=[GenderOption("male", "Male", "", _ECHO_VARIANTS),
+                 GenderOption("female", "Female", "", _ECHO_VARIANTS)],
+        available=False,      # NPC-only: the Bridge Echo, in Deadwind Pass
     ),
     RaceOption(
         race_id="troll",

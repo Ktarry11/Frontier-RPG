@@ -282,12 +282,83 @@ TIMBERMAW_HOLD_SHEET.update({
     "av_cliff_b":        _az("az_scree"),           # the deep mountain: grey scree (rock_hill's orange grass read as mush)
     "av_corrupt_ground": _az("az_felrot_soil"),
 })
+#: DEADWIND PASS (docs/deadwind_brief.md). Kyle's Deadwind ground sheet (docs/deadwind_art_prompts.md sheet 1, sliced to
+#: assets/tiles/deadwind/ground, 18 Nov 2026). West is the dead forest: leaf rot and dead grass, grave flags at Morgan's
+#: Plot, the seep (the corrupt layer) glowing through cracks along the stream and in the tunnel. East is where time
+#: broke: the bluebell layer is shattered time, the moon pools are stopped water, the corrupt layer is slag and the
+#: fel layer black glass round the rupture. The cliffs are the sheet's own black rock and rock wall.
+_DW = T / "deadwind" / "ground"
+
+
+def _dw(name, off=0.5, rec=None, extra=None):
+    return (_DW / f"{name}.png", off, rec, extra)
+
+
+DEADWIND_SHEET = {
+    "av_forest_floor":   _dw("dw_dead_floor"),
+    "av_forest_grass":   _dw("dw_dead_grass"),
+    "av_fern_floor":     _dw("dw_mould_litter"),
+    "av_root_earth":     _dw("dw_root_soil"),
+    "av_needle_mulch":   _dw("dw_dead_needles"),
+    "av_bluebell":       _dw("dw_glow_roots"),
+    "av_road_centre":    _dw("dw_broken_cobble"),      # the old pass road, cobbled, the dead grass coming up through it
+    "av_road_edge":      _dw("dw_cart_ruts"),
+    "av_elven_paving":   _dw("dw_grave_flags"),
+    "av_mossy_cobble":   _dw("dw_grave_flags"),
+    "av_plaza_stone":    _dw("dw_grave_earth"),
+    "av_rocky_ground":   _dw("dw_scree"),
+    "av_stream_bed":     _dw("dw_dead_streambed"),
+    "av_lake_mud":       _dw("dw_ooze_mud"),
+    "av_lake_shallow":   _dw("dw_toxic_water"),
+    "av_lake_deep":      _dw("dw_black_pond"),
+    "av_moon_water":     _dw("dw_stopped_water"),
+    "av_moon_deep":      _dw("dw_stopped_water", 0.2),
+    "av_moon_rim":       _dw("dw_shattered_time"),
+    "av_cliff_a":        _dw("dw_rock_wall"),
+    "av_cliff_b":        _dw("dw_black_rock"),
+    "av_canopy":         _dw("dw_black_veins"),
+    "av_beach":          _dw("dw_cracked_earth"),
+    "av_wet_sand":       _dw("dw_brackish"),
+    "av_sea_shallow":    _dw("dw_rust_water"),
+    "av_sea_deep":       _dw("dw_black_pond"),
+    "av_scorched":       _dw("dw_ash_floor"),
+    "av_burned_forest":  _dw("dw_glow_ash"),
+    "av_fel_earth":      _dw("dw_seep_cracks"),
+    "av_corrupt_ground": _dw("dw_pustule_ground"),
+    "av_satyr_earth":    _dw("dw_camp_mud"),
+}
+DEADWIND_EAST_SHEET = dict(DEADWIND_SHEET)
+DEADWIND_EAST_SHEET.update({
+    "av_forest_floor":   _dw("dw_ash_floor"),
+    "av_forest_grass":   _dw("dw_dead_grass"),
+    "av_fern_floor":     _dw("dw_aged_dust"),
+    "av_needle_mulch":   _dw("dw_echo_prints"),
+    "av_bluebell":       _dw("dw_shattered_time"),
+    "av_rocky_ground":   _dw("dw_gorge_floor"),
+    "av_elven_paving":   _dw("dw_forsaken_path"),
+    "av_plaza_stone":    _dw("dw_stain_rings"),
+    "av_corrupt_ground": _dw("dw_slag_crust"),
+    "av_fel_earth":      _dw("dw_black_glass"),
+    "av_burned_forest":  _dw("dw_glow_ash"),
+    "av_satyr_earth":    _dw("dw_rift_rock"),
+    "av_cliff_b":        _dw("dw_rift_rock"),
+})
+#: Ariden's Watch (tools/handbuilt_ariden_watch.py): the camp's trodden mud and Forsaken flagstone inside the wire.
+ARIDEN_SHEET = dict(DEADWIND_SHEET)
+ARIDEN_SHEET.update({
+    "av_road_centre":    _dw("dw_forsaken_path"),
+    "av_road_edge":      _dw("dw_camp_mud"),
+    "av_elven_paving":   _dw("dw_forsaken_path"),
+    "av_plaza_stone":    _dw("dw_camp_mud"),
+    "av_forest_grass":   _dw("dw_dead_grass"),
+})
 WPL_SHEET = _plague_sheet(east=False)
 EPL_SHEET = _plague_sheet(east=True)
 ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_SHEET, "epl_east": EPL_SHEET, "felwood_north": NORTH_SHEET, "stonetalon_east": STONETALON_SHEET,
                "stonetalon_west": STONETALON_WEST_SHEET, "sun_rock": SUN_ROCK_SHEET,
                "azshara_west": AZSHARA_SHEET, "timbermaw_hold": TIMBERMAW_HOLD_SHEET,
-               "azshara_central": AZSHARA_CENTRAL_SHEET, "azshara_east": AZSHARA_EAST_SHEET}
+               "azshara_central": AZSHARA_CENTRAL_SHEET, "azshara_east": AZSHARA_EAST_SHEET,
+               "deadwind_west": DEADWIND_SHEET, "deadwind_east": DEADWIND_EAST_SHEET, "ariden_watch": ARIDEN_SHEET}
 
 def _recolour(a, hue, sat, val):
     """a float 0..1 HxWx3 -> luminance-preserving tint."""
@@ -621,6 +692,12 @@ def bake(zone="west", preview=None, scale=4, only=None):
     elif zone == "azshara_central":
         # Central Azshara (docs/azshara_brief.md): the leylines, Eldarath and the Bay of Storms (AZSHARA_CENTRAL_SHEET)
         from tools import handbuilt_azshara_central as M
+    elif zone == "deadwind_west":
+        # Deadwind West (docs/deadwind_quest_plan.md): the tunnel, the dead forest, Morgan's Plot, the ogres (DEADWIND_SHEET)
+        from tools import handbuilt_deadwind_west as M
+    elif zone == "deadwind_east":
+        # Deadwind East: the gorge, broken time, Karazhan's crag and the rupture under the wheel (DEADWIND_EAST_SHEET)
+        from tools import handbuilt_deadwind_east as M
     elif zone == "stonetalon_east":
         # Stonetalon East: the blast zone, painted from the Aspen materials (STONETALON_SHEET)
         from tools import handbuilt_stonetalon_east as M
@@ -653,7 +730,7 @@ def main():
     if "--preview" in sys.argv:
         preview = sys.argv[sys.argv.index("--preview") + 1]
     sc = int(sys.argv[sys.argv.index("--scale") + 1]) if "--scale" in sys.argv else 4
-    zone = next((z for z in ("azshara_east", "azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
+    zone = next((z for z in ("deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
     only = None
     if "--region" in sys.argv:       # x0,y0,x1,y1 in tiles: bake only the 20x20 chunks touching it (fast look-dev)
         x0, y0, x1, y1 = map(int, sys.argv[sys.argv.index("--region") + 1].split(","))

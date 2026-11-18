@@ -7,8 +7,7 @@ zone dungeon (We need one more dungeon with our last T0 token - this is it)". Ea
 55-60. Contents: the open zone (one or two maps), an outpost, caves, creatures and bosses, and the Fallout Zone dungeon.
 Art: eight sheets (`docs/deadwind_art_prompts.md`).
 
-**Status:** vision and art prompts only. Kyle: "I just want the vision and the prompts....then go back to happy
-Azshara!" Nothing is built until he says so.
+**Status:** built, 18 Nov 2026. What's in the game is `docs/deadwind_build_log.md`.
 
 ---
 

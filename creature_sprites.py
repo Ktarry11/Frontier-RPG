@@ -43,6 +43,10 @@ SHEETS = {
     'plaguelands_dungeon_bosses': ['sm_boss_interrogator', 'sm_boss_bloodmage', 'sm_boss_houndmaster', 'sm_boss_arcanist', 'sm_boss_champion', 'sm_boss_commander', 'sm_boss_high_inquisitor', 'scholo_boss_gargoyle', 'scholo_boss_ghost_lady', 'scholo_boss_bone_construct', 'scholo_boss_frost_lich', 'scholo_boss_alchemist', 'scholo_boss_librarian', 'scholo_boss_instructor', 'scholo_boss_noble_lady', 'scholo_boss_noble_lord', 'scholo_boss_headmaster', 'scholo_ghost_servant', 'strat_boss_ghoul_runt', 'strat_boss_cannon_master', 'strat_boss_archivist', 'strat_boss_grand_crusader', 'strat_boss_dreadlord', 'strat_boss_magistrate', 'strat_boss_crypt_lord', 'strat_boss_baroness', 'strat_boss_lich', 'strat_boss_flesh_golem', 'strat_boss_baron', 'strat_deathcharger', 'pl_boss_cult_necromancer', 'pl_silver_hand_ghost', 'pl_boss_gate_guardian', 'pl_boss_eye_construct', 'pl_boss_chorus_leader', 'pl_boss_abom_butcher'],
     # ---- the Plaguelands' hidden places (Kyle's sheet 10, 17 Nov; docs/plaguelands_secrets_art_prompts.md)
     'plaguelands_secrets': ['ps_woolly_mammoth', 'ps_woolly_rhino', 'ps_dire_wolf', 'ps_giant_elk', 'ps_cave_bear', 'ps_steppe_bison', 'ps_boss_mammoth_matriarch', 'ps_boss_cave_lion', 'ps_boss_walking_glacier', 'ps_stone_age_woman', 'ps_palaeontologist', 'ps_frozen_hunter', 'ps_mere_wisp', 'ps_fen_drowned', 'ps_fen_owl', 'ps_bog_lurker', 'ps_barrow_shade', 'ps_bog_hulk', 'ps_boss_lamplighter', 'ps_boss_bog_hag', 'ps_finnish_scientist', 'ps_forsaken_fisherwoman', 'ps_bog_eel', 'ps_reed_heron', 'ps_eversong_lynx', 'ps_mana_wyrm', 'ps_arcane_remnant', 'ps_sentinel_shade', 'ps_elf_ranger', 'ps_elf_quartermaster', 'ps_boss_magister', 'ps_boss_breach_gnawer', 'ps_gaunt_ghoul', 'ps_scourge_necromancer', 'ps_wardstone', 'ps_dead_elf_ranger'],
+    # ---- Deadwind Pass (Kyle's sheets 5 and 7, 18 Nov 2026; docs/deadwind_art_prompts.md, tools/build_deadwind_content.py).
+    #      dw_twice_ogre and dw_echo are people (Grull the Younger, the Bridge Echo), so they're parked here on purpose
+    'deadwind_creatures': ['dw_tumour_wolf', 'dw_three_age_wolf', 'dw_many_eyed_crow', 'dw_pustule_boar', 'dw_fused_bat', 'dw_cage_deer', 'dw_ogre_brute', 'dw_two_faced_ogre', 'dw_sore_shaman', 'dw_twice_ogre', 'dw_chained_mauler', 'dw_leaking_ogre', 'dw_echo', 'dw_aged_walker', 'dw_shard_wraith', 'dw_many_moments', 'dw_flicker_hound', 'dw_stopped_soldier', 'dw_spectral_servant', 'dw_spectral_stablehand', 'dw_violet_armour', 'dw_book_flock', 'dw_arcane_anomaly', 'dw_dancing_ghost', 'dw_slag_crawler', 'dw_bloated_walker', 'dw_fused_abomination', 'dw_bone_ooze', 'dw_many_arms', 'dw_seep_wyrm', 'dw_widow', 'dw_widow_hatchlings', 'dw_broodmother', 'dw_cave_burrower', 'dw_cave_leech', 'dw_mud_horror'],
+    'deadwind_bosses': ['fz_boss_gristlemaw', 'fz_boss_stopped_man', 'fz_boss_vexis', 'fz_boss_glow_eater', 'fz_boss_archivist', 'fz_boss_wound_heart', 'dw_boss_silk_mother', 'dw_boss_drowned_thing', 'dw_rare_three_heads', 'dw_rare_wagon_driver', 'dw_rare_moggrak', 'dw_rare_crow_king'],
     # ---- Azshara (Kyle's sheet 5, 17 Nov; docs/azshara_art_prompts.md)
     'azshara_creatures': ['az_naga_siren', 'az_naga_tidehunter', 'az_naga_sea_witch', 'az_naga_royal_guard', 'az_naga_brute', 'az_serpent_hatchling', 'az_ghost_noble', 'az_ghost_arcanist', 'az_ghost_guard', 'az_ghost_handmaiden', 'az_ghost_hound', 'az_ghost_tormented', 'az_satyr_cursed', 'az_satyr_sorcerer', 'az_satyr_houndmaster', 'az_felhound', 'az_eredar_warlock', 'az_doomguard_sentinel', 'az_blue_drake', 'az_blue_dragonspawn', 'az_blue_whelp', 'az_mana_wyrm_leader', 'az_arcane_construct', 'az_ley_beast', 'az_rot_furbolg', 'az_rot_shaman', 'az_rot_beast', 'az_spore_cloud', 'az_root_horror', 'az_rot_tender', 'az_timber_wolf', 'az_thunder_lizard', 'az_shore_crab', 'az_cliff_hippogryph', 'az_autumn_treant', 'az_russet_boar'],
     # ---- the Drowned Palace's bosses (Kyle's Azshara dungeon sheet, row 6; tools/build_drowned_palace_content.py)
@@ -243,6 +247,76 @@ _RULES = [
     (r"^barnacled\ shorecrab$", "az_shore_crab"),
     (r"^tide-priestess\ sel'thira$", "az_naga_sea_witch"),
     (r"^hetaera$", "serpent_2"),
+    # DEADWIND PASS (tools/build_deadwind_content.py, 18 Nov 2026): exact names, Kyle's Deadwind creature sheets.
+    # dw_twice_ogre and dw_echo are people (Grull and the Bridge Echo) and never drawn on a hostile.
+    (r"^tumour\ wolf$", "dw_tumour_wolf"),
+    (r"^pustule\ boar$", "dw_pustule_boar"),
+    (r"^many\-eyed\ crow$", "dw_many_eyed_crow"),
+    (r"^fused\ bat$", "dw_fused_bat"),
+    (r"^tunnel\ slagcrawler$", "dw_slag_crawler"),
+    (r"^plot\ risen$", "dw_aged_walker"),
+    (r"^grave\ ooze$", "dw_bone_ooze"),
+    (r"^grosh'gok\ brute$", "dw_ogre_brute"),
+    (r"^grosh'gok\ two\-face$", "dw_two_faced_ogre"),
+    (r"^grosh'gok\ sore\-shaman$", "dw_sore_shaman"),
+    (r"^chained\ mauler$", "dw_chained_mauler"),
+    (r"^deadwind\ widow$", "dw_widow"),
+    (r"^widow\ hatchlings$", "dw_widow_hatchlings"),
+    (r"^glowsac\ broodmother$", "dw_broodmother"),
+    (r"^sickwater\ leech$", "dw_cave_leech"),
+    (r"^tarn\ horror$", "dw_mud_horror"),
+    (r"^dissolving\ stag$", "dw_cage_deer"),
+    (r"^the\ wagon\ driver$", "dw_rare_wagon_driver"),
+    (r"^mog'grak\ the\ twice\-born$", "dw_rare_moggrak"),
+    (r"^three\-age\ wolf$", "dw_three_age_wolf"),
+    (r"^flicker\ hound$", "dw_flicker_hound"),
+    (r"^gorge\ slagcrawler$", "dw_slag_crawler"),
+    (r"^seep\ wyrm$", "dw_seep_wyrm"),
+    (r"^bridge\ onlooker$", "dw_aged_walker"),
+    (r"^hollow\ mudhorror$", "dw_mud_horror"),
+    (r"^shard\ wraith$", "dw_shard_wraith"),
+    (r"^many\ moments$", "dw_many_moments"),
+    (r"^arcane\ anomaly$", "dw_arcane_anomaly"),
+    (r"^spectral\ servant$", "dw_spectral_servant"),
+    (r"^spectral\ stablehand$", "dw_spectral_stablehand"),
+    (r"^ballroom\ phantom$", "dw_dancing_ghost"),
+    (r"^violet\ sentinel$", "dw_violet_armour"),
+    (r"^book\ flock$", "dw_book_flock"),
+    (r"^bloated\ walker$", "dw_bloated_walker"),
+    (r"^fused\ mass$", "dw_fused_abomination"),
+    (r"^many\-armed\ thing$", "dw_many_arms"),
+    (r"^old\ three\-heads$", "dw_rare_three_heads"),
+    (r"^the\ crow\ king$", "dw_rare_crow_king"),
+    (r"^funnel\ widow$", "dw_widow"),
+    (r"^nest\ hatchlings$", "dw_widow_hatchlings"),
+    (r"^cocoon\ burrower$", "dw_cave_burrower"),
+    (r"^the\ silk\ mother$", "dw_boss_silk_mother"),
+    (r"^seep\ leech$", "dw_cave_leech"),
+    (r"^drain\ horror$", "dw_mud_horror"),
+    (r"^bloated\ drowner$", "dw_bloated_walker"),
+    (r"^the\ drowned\ thing$", "dw_boss_drowned_thing"),
+    (r"^exclusion\ ogre$", "dw_leaking_ogre"),
+    (r"^heaped\ abomination$", "dw_fused_abomination"),
+    (r"^bursting\ walker$", "dw_bloated_walker"),
+    (r"^brood\ seepwidow$", "dw_widow"),
+    (r"^brood\ hatchling\ swarm$", "dw_widow_hatchlings"),
+    (r"^brood\ burrower$", "dw_cave_burrower"),
+    (r"^bubbler\ slagcrawler$", "dw_slag_crawler"),
+    (r"^bubbler\ wyrm$", "dw_seep_wyrm"),
+    (r"^bubbler\ ooze$", "dw_bone_ooze"),
+    (r"^archive\ wraith$", "dw_shard_wraith"),
+    (r"^archive\ anomaly$", "dw_arcane_anomaly"),
+    (r"^hollow\ guardian$", "dw_violet_armour"),
+    (r"^swarming\ pages$", "dw_book_flock"),
+    (r"^stopped\ volunteer$", "dw_stopped_soldier"),
+    (r"^moment\ without\ end$", "dw_many_moments"),
+    (r"^aged\ volunteer$", "dw_aged_walker"),
+    (r"^gristlemaw$", "fz_boss_gristlemaw"),
+    (r"^broodmother\ vexis$", "fz_boss_vexis"),
+    (r"^the\ glow\-eater$", "fz_boss_glow_eater"),
+    (r"^archivist\ nine$", "fz_boss_archivist"),
+    (r"^the\ stopped\ man$", "fz_boss_stopped_man"),
+    (r"^the\ wound's\ heart$", "fz_boss_wound_heart"),
     # AZSHARA'S OPEN WORLD (tools/build_azshara_openworld.py): exact names, Kyle's Azshara creature sheet, with
     # Felwood's satyrs and imp in the camps.
     (r"^autumn\ timber\ wolf$", "az_timber_wolf"),
@@ -1168,6 +1242,10 @@ for _sid in ("ps_stone_age_woman ps_palaeontologist ps_frozen_hunter ps_forsaken
 # looks for a named person's own figure
 for _sid in ("ps_finnish_scientist", "ps_elf_ranger", "ps_elf_quartermaster"):
     SPARE.setdefault(_sid, "sheet 10 figure worn by a named person (assets/npcs/leaders), not by a creature")
+# Deadwind's two who aren't people any more (tools/build_deadwind.py): worn by Grull the Younger and the Bridge Echo
+# through their own NPC races (assets/npcs/ogre, assets/npcs/echo), never by a hostile
+for _sid in ("dw_twice_ogre", "dw_echo"):
+    SPARE.setdefault(_sid, "a Deadwind figure worn by a named person (Grull, the Bridge Echo), not by a creature")
 
 DEFAULT = "bandit_human"
 

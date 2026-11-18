@@ -33,7 +33,9 @@ _DIRS = [AP, XP, GP, "assets/tiles/barrens/props/", "assets/tiles/dungeon_props/
          "assets/tiles/plaguelands/props/", "assets/tiles/eastern_kingdoms/props/",
          "assets/tiles/undead_farmland/props/", "assets/tiles/haunted_forest/props/",
          # Azshara (Kyle's sheets, 17 Nov 2026)
-         "assets/tiles/azshara/props/"]
+         "assets/tiles/azshara/props/",
+         # Deadwind (Kyle's sheets, 18 Nov 2026)
+         "assets/tiles/deadwind/props/"]
 INDEX = {}
 for _d in _DIRS:
     if os.path.isdir(_d):

@@ -314,7 +314,9 @@ _set("azshara", 8, 6, "tools/tile_sheets/azshara_ground.png", "assets/tiles/azsh
 
 
 # DEADWIND PASS (docs/deadwind_art_prompts.md sheets 1 and 6, Kyle 18 Nov 2026). Both came back smaller than asked
-# (1536x1024 and 1448x1086) but on an even 8x6 grid, measured: no gutters, rows and columns even.
+# (1536x1024 and 1448x1086). The dungeon sheet is an even 8x6 grid. The ground sheet's columns are even but its
+# rows are not: measured on the seams, they fall at 187/365/512/662/835 against an even 171/341/512/683/853, and
+# cutting evenly left a strip of the next row along the top or bottom of most tiles.
 _set("deadwind", 8, 6, "tools/building_sheets/deadwind_ground.png", "assets/tiles/deadwind/ground", """
     dw_dead_floor dw_ash_floor dw_dead_grass dw_root_soil dw_mould_litter dw_dead_needles dw_cracked_earth dw_mud_path
     dw_black_rock dw_scree dw_gorge_floor dw_rock_wall dw_broken_cobble dw_cart_ruts dw_grave_earth dw_grave_flags
@@ -322,7 +324,7 @@ _set("deadwind", 8, 6, "tools/building_sheets/deadwind_ground.png", "assets/tile
     dw_flesh_growth dw_black_veins dw_bruise_mould dw_bone_crust dw_sick_moss dw_glow_roots dw_web_floor dw_egg_floor
     dw_shattered_time dw_aged_dust dw_stopped_water dw_rift_rock dw_echo_prints dw_black_glass dw_forsaken_path dw_camp_mud
     dw_black_pond dw_toxic_water dw_brackish dw_dead_streambed dw_rust_water dw_cave_floor dw_cave_seep dw_cave_wall
-""")
+""", rows_y=[0, 187, 365, 512, 662, 835, 1024])
 _set("deadwind_dungeon", 8, 6, "tools/building_sheets/deadwind_dungeon_tiles.png", "assets/tiles/fallout_zone", """
     fz_gouged_rock fz_gravel fz_seep_rock fz_ash_earth fz_scorched_rock fz_rubble fz_rock_wall fz_seep_wall
     fz_slag fz_stain_rings fz_ooze_stone fz_deep_ash fz_corroded fz_crystal_floor fz_slag_wall fz_ooze_pool

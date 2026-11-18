@@ -214,6 +214,21 @@
       "sell_price": 79,
       "buff_category": null,
       "_source": "16 Nov 2026 crafting expansion (tools/build_crafting_expansion_nov16.py)"
+    },
+    {
+      "consumable_id": "liq_seep_washed_bandage",
+      "name": "Seep-Washed Bandage",
+      "consumable_type": "health_potion",
+      "description": "Boiled linen, washed three times at the troughs, rolled by the infirmary by the hundred. Restores health at once.",
+      "effect_value": 1050,
+      "effect_duration": 0,
+      "level_multiplier": 0.0,
+      "required_level": 52,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 90,
+      "buff_category": null
     }
   ],
   "mana_potions": [
@@ -3415,6 +3430,24 @@
         "arcane_resistance": 55
       },
       "_source": "16 Nov 2026 crafting expansion (tools/build_crafting_expansion_nov16.py)"
+    },
+    {
+      "consumable_id": "liq_iodine_tincture",
+      "name": "Liquidator's Iodine Tincture",
+      "consumable_type": "elixir",
+      "description": "Iodine in a little spirit, a spoonful before you go out. In 1986 they gave the people near Chernobyl iodine so the fallout's couldn't settle in them. +40 Nature Resistance for 30 minutes. Guardian buff.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 50,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 60,
+      "buff_category": "guardian",
+      "stat_bonuses": {
+        "nature_resistance": 40
+      }
     }
   ],
   "food": [

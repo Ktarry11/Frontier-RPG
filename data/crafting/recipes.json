@@ -12791,6 +12791,110 @@
           "source": "vendor",
           "faction": "sunreach_conclave",
           "_rare_ingredients_todo": true
+        },
+        "rep_liq_hazard_suit": {
+          "name": "Liquidator's Hazard Suit",
+          "inputs": {
+            "bolt_voidweave": 16,
+            "thread_silken": 2
+          },
+          "skill_required": 300,
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "stat_template": "spi_healer",
+            "item_level": 73,
+            "rarity": "epic",
+            "material_tier": "voidweave",
+            "identity": "spirit_healer",
+            "flavor": "The full suit, hood to boots, the way the Watch's seamstresses cut it after the first year's losses.",
+            "fixed_item_level": true,
+            "required_level": 60,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Liquidator's Hazard Suit",
+              "slot": "chest",
+              "item_level": 73,
+              "rarity": "epic",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 33,
+                "intellect": 33
+              },
+              "secondary_stats": {
+                "healing_power": 88
+              },
+              "armor_value": 179,
+              "required_level": 60,
+              "sell_price": 48942,
+              "flavor_text": "The full suit, hood to boots, the way the Watch's seamstresses cut it after the first year's losses.",
+              "identity": "spirit_healer",
+              "icon_id": "gear_wow_chest_cloth_12_1"
+            }
+          },
+          "skill_range": [
+            300,
+            305,
+            310,
+            315
+          ],
+          "source": "vendor",
+          "faction": "the_liquidators",
+          "_rare_ingredients_todo": true
+        },
+        "rep_liq_quarantine_wraps": {
+          "name": "Quarantine Wraps",
+          "inputs": {
+            "bolt_voidweave": 16,
+            "thread_silken": 2
+          },
+          "skill_required": 300,
+          "output": {
+            "kind": "armor",
+            "slot": "wrist",
+            "stat_template": "spi_healer",
+            "item_level": 67,
+            "rarity": "rare",
+            "material_tier": "voidweave",
+            "identity": "spirit_healer",
+            "flavor": "Linen bound twice round the wrist and waxed, so nothing gets in at the cuff. Dr. Seitkali's design.",
+            "fixed_item_level": true,
+            "required_level": 60,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Quarantine Wraps",
+              "slot": "wrist",
+              "item_level": 67,
+              "rarity": "rare",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 14,
+                "intellect": 14
+              },
+              "secondary_stats": {
+                "healing_power": 34
+              },
+              "armor_value": 91,
+              "required_level": 60,
+              "sell_price": 11791,
+              "flavor_text": "Linen bound twice round the wrist and waxed, so nothing gets in at the cuff. Dr. Seitkali's design.",
+              "identity": "spirit_healer",
+              "icon_id": "gear_wow_wrist_96"
+            }
+          },
+          "skill_range": [
+            300,
+            305,
+            310,
+            315
+          ],
+          "source": "vendor",
+          "faction": "the_liquidators",
+          "_rare_ingredients_todo": true
         }
       }
     },

@@ -306,6 +306,9 @@ class PortalManager:
             "Northern Stranglethorn": {
                 (54, 96): ("Grom'gol", 32, 53),
                 (150, 40): ("Rotvine Hollow", 32, 10),
+                # The tunnel the worlds' merging cracked through the fen's eastern shoulder (18 Nov 2026,
+                # docs/deadwind_brief.md): Deadwind Pass at the other end. Arrive (34,175), at its foot.
+                (182, 115): ("Deadwind West", 34, 177),
                 (100, 177): ("Central Stranglethorn", 100, 7),  # seam: land on (100,5), not on the portal
             },
             "Central Stranglethorn": {
@@ -566,6 +569,28 @@ class PortalManager:
             },
             "Talrendis Landing": {
                 (30, 1): ("West Azshara", 40, 150),            # arrive (40,148), outside the Landing's gate
+            },
+            # ===== DEADWIND PASS (docs/deadwind_brief.md, 18 Nov 2026) =====
+            "Deadwind West": {
+                (34, 177): ("Northern Stranglethorn", 182, 119),  # arrive (182,117), out of the tunnel's mouth
+                (96, 74): ("Ariden's Watch", 48, 7),               # arrive (48,5), inside the Watch's gate
+                (196, 62): ("Deadwind East", 4, 62),               # arrive on East's west road
+                (150, 24): ("The Widows' Nest", 48, 97),           # the spiders' cave (tools/handbuilt_deadwind_caves.py)
+            },
+            "Deadwind East": {
+                (4, 62): ("Deadwind West", 196, 62),               # arrive on West's east road
+                (152, 93): ("The Exclusion Zone", 100, 194),       # the door at the wheel's foot: arrive (100,192)
+                (30, 145): ("The Drowned Seep", 50, 97),           # the drain under the Drowned Hollow
+            },
+            "Ariden's Watch": {
+                (48, 1): ("Deadwind West", 96, 74),                # arrive (96,72), outside the Watch's gate
+            },
+            "The Widows' Nest": {(48, 97): ("Deadwind West", 150, 24)},
+            "The Drowned Seep": {(50, 97): ("Deadwind East", 30, 145)},
+            # The Exclusion Zone (tools/handbuilt_exclusion_zone.py): the climb back out, and the fast exit in the hub
+            "The Exclusion Zone": {
+                (100, 196): ("Deadwind East", 152, 93),            # back up into the crater under the wheel
+                (84, 100): ("Deadwind East", 152, 93),             # the fast exit past the Wound's Heart, one way
             },
             # Azshara's caves: one door each, back out to the mouth (arrive two tiles north of it)
             "Haldarr Den": {(48, 97): ("West Azshara", 166, 154)},

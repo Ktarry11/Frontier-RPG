@@ -134,6 +134,9 @@ class QuestManager:
             grant_items=q_def.get("grant_items"),
             reward_recipe=q_def.get("reward_recipe"),
         )
+        # A CHOICE (Deadwind, 18 Nov 2026: the last egg goes to Morwen or to Halyna, never both). A quest listing
+        # others under excludes_quests closes for good once any of them is taken, so picking one side locks the other.
+        quest.excludes_quests = list(q_def.get("excludes_quests") or [])
         # REPEATABLE TURN-INS (16 Nov 2026): Scourgestones at Light's Hope and Crusader's Insignia at Sorrow Hill,
         # handed in by the stack as often as you have them (Kyle: the Argent Dawn's rep comes from killing the
         # Scourge, the Pale Flame's from killing the Crusade). A repeatable quest goes back to NOT_STARTED when it's
@@ -219,6 +222,10 @@ class QuestManager:
             for req in quest.requires_quests:
                 other = self.quests.get(req)
                 if other is None or other.status != QuestStatus.COMPLETED:
+                    return False
+            for ex in getattr(quest, "excludes_quests", None) or ():
+                other = self.quests.get(ex)
+                if other is not None and other.status != QuestStatus.NOT_STARTED:
                     return False
         # Faction standing gates. Authored in data/factions/factions.json under rewards.quests rather than
         # on the quest, so a faction owns its own unlock list in one place instead of scattering a

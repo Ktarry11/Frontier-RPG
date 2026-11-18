@@ -5,6 +5,11 @@ Lots of lore....they should be exciting to do." His picks the same morning: two 
 **the Exclusion Zone**, the camp is **Ariden's Watch**, and the liquidators get **their own faction**. The vision is
 `docs/deadwind_brief.md`.
 
+**Built 18 Nov 2026** (`docs/deadwind_build_log.md`): 63 quests over every arc below. Where the build moved from the
+plan: the Watch's people grew (Dr. Aigerim Seitkali, Lisbeth Vane, Luiz Ferreira, Rine Lajuon, Baba Hanna and
+Deathstalker Vessa Morrow joined, so nobody gives more than four), the dungeon's quests are all given in the camp,
+Gristlemaw's by Harrow on Grull's behalf, and the last egg is a real choice between Morwen and Dr. Seitkali.
+
 Rules carried over from Azshara: every kill target spawns where the quest says, every fetch item drops, every explore
 point is walkable, dungeon and cave quests are given in the camp, a chain is a chain, no giver gives more than four,
 and the rewards give every spec something. Earth comes up in well over a quarter of the quests here. The liquidators

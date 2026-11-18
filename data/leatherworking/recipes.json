@@ -10931,6 +10931,110 @@
       "source": "vendor",
       "faction": "timbermaw_hold",
       "_rare_ingredients_todo": true
+    },
+    "rep_liq_seep_proof_jerkin": {
+      "name": "Seep-Proof Jerkin",
+      "inputs": {
+        "leather_frostscale": 10,
+        "thread_silken": 2
+      },
+      "skill_required": 300,
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "stat_template": "agi_physical",
+        "item_level": 73,
+        "rarity": "epic",
+        "material_tier": "frostscale",
+        "identity": "agility",
+        "flavor": "Boiled leather sealed with apothecary wax, for the ones who have to go in close.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "leather",
+        "item": {
+          "name": "Seep-Proof Jerkin",
+          "slot": "chest",
+          "item_level": 73,
+          "rarity": "epic",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 38,
+            "stamina": 22
+          },
+          "secondary_stats": {
+            "attack_power": 99
+          },
+          "armor_value": 334,
+          "required_level": 60,
+          "sell_price": 48942,
+          "flavor_text": "Boiled leather sealed with apothecary wax, for the ones who have to go in close.",
+          "identity": "agility",
+          "icon_id": "gear_wow_chest_leather_16_1"
+        }
+      },
+      "skill_range": [
+        300,
+        305,
+        310,
+        315
+      ],
+      "source": "vendor",
+      "faction": "the_liquidators",
+      "_rare_ingredients_todo": true
+    },
+    "rep_liq_wireline_gloves": {
+      "name": "Wireline Gloves",
+      "inputs": {
+        "leather_frostscale": 10,
+        "thread_silken": 2
+      },
+      "skill_required": 300,
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "stat_template": "agi_physical",
+        "item_level": 67,
+        "rarity": "rare",
+        "material_tier": "frostscale",
+        "identity": "agility",
+        "flavor": "Thick enough to handle the fence wire, thin enough to feel it hum. Corporal Delgado swears by them.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "leather",
+        "item": {
+          "name": "Wireline Gloves",
+          "slot": "hands",
+          "item_level": 67,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 16,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "attack_power": 41
+          },
+          "armor_value": 152,
+          "required_level": 60,
+          "sell_price": 15328,
+          "flavor_text": "Thick enough to handle the fence wire, thin enough to feel it hum. Corporal Delgado swears by them.",
+          "identity": "agility",
+          "icon_id": "gear_wow_hands_desecrated_leatherglove"
+        }
+      },
+      "skill_range": [
+        300,
+        305,
+        310,
+        315
+      ],
+      "source": "vendor",
+      "faction": "the_liquidators",
+      "_rare_ingredients_todo": true
     }
   }
 }
