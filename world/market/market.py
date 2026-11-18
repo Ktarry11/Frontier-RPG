@@ -88,11 +88,12 @@ RECRUIT_LIST_CHANCE = 0.15
 NPC_TURNOVER = 0.5
 
 # ------------------------------------------------------------------ the Collection (docs/collection_design.md)
-#: Kyle, 18 Nov 2026: collectables are "randomly sold in the AH", "rare and rotating": a handful listed at once across
-#: both books (about three to six), each for about a market day, picked by rarity (world/collection.py's weights).
-COLLECTION_TARGET = {"horde": 3, "goblin": 2}
-#: chance an hour that a book short of its target gets one more, so they turn up through the day, not all at once
-COLLECTION_ARRIVAL = 0.3
+#: Kyle, 18 Nov 2026: collectables are "randomly sold in the AH" by whoever has one, at whatever they ask, and the
+#: Collection section should hold "dozens to ~100" at a time across both books, each listed for about a market day
+#: and picked by rarity (world/collection.py's weights), so the rare ones stay rare.
+COLLECTION_TARGET = {"horde": 55, "goblin": 35}
+#: new listings an hour, per missing listing, so a book fills back up through the day, not all at once
+COLLECTION_ARRIVAL = 0.12
 COLLECTION_HOURS = (18.0, 30.0)
 #: demand per hour: the odd collector buys one, so something you're watching can vanish
 COLLECTION_DEMAND = 0.01
@@ -799,7 +800,7 @@ class Market:
                 self.spawn_npc_listing(market, posted_at=self.clock - self.rng.uniform(0, dur * 0.95),
                                        duration=dur)
             for _ in range(COLLECTION_TARGET[market]):
-                self._collection_supply(market, 0, force=True)
+                self._list_collectable(market, force=True)
 
     # ------------------------------------------------------------ the clock
     def advance(self, hours):
@@ -1099,15 +1100,24 @@ class Market:
         self.stats["news"] += 1
 
     def collection_listings(self, market):
-        return [a for a in self.books[market].values() if a.mkey.startswith("g:collectable_")]
+        book = self.books[market]
+        return [book[i] for k, ids in self._by_key[market].items() if k.startswith("g:collectable_")
+                for i in ids if i in book]
 
-    def _collection_supply(self, market, dt, force=False):
-        """Keep a few collectables on the book (docs/collection_design.md): one more now and then while it's short
-        of COLLECTION_TARGET, picked by rarity from the ones not already listed in either house."""
-        if len(self.collection_listings(market)) >= COLLECTION_TARGET[market]:
-            return None
-        if not force and self.rng.random() >= 1.0 - (1.0 - COLLECTION_ARRIVAL) ** dt:
-            return None
+    def _collection_supply(self, market, dt):
+        """Keep the book's Collection section stocked (docs/collection_design.md): new listings arrive through the
+        day while it's short of COLLECTION_TARGET."""
+        short = COLLECTION_TARGET[market] - len(self.collection_listings(market))
+        if short <= 0:
+            return 0
+        n = min(short, poisson(self.rng, short * COLLECTION_ARRIVAL * dt))
+        for _ in range(n):
+            self._list_collectable(market)
+        return n
+
+    def _list_collectable(self, market, force=False):
+        """One collectable listed by a trader at their own price, picked by rarity from the ones not already listed
+        in either house."""
         from world import collection as CL
         listed = {a.mkey for m in MARKETS for a in self.collection_listings(m)}
         pool = [e for e in CL.entries() if f"g:collectable_{e['id']}" not in listed]

@@ -329,6 +329,33 @@ MOUNT_LENGTH_TILES = {
 MOUNT_SEAT = {"down": 0.56, "up": 0.56, "left": 0.52, "right": 0.52}
 
 
+def _mount_sheet(mount_id, direction):
+    """One facing of a mount: its own file, or a Collection colourway coloured from its base mount on first use
+    (world/collection_art.py)."""
+    sheet = _load_sheet(f"assets/mounts/{mount_id}_{direction}.png")
+    if sheet is not None:
+        return sheet
+    from world.collection_art import split_colourway, colorize
+    cw = split_colourway(mount_id)
+    if cw is None:
+        return None
+    key = f"colourway:{mount_id}:{direction}"
+    if key in _sheet_cache:
+        return _sheet_cache[key]
+    surf = None
+    try:
+        from PIL import Image
+        colour, base = cw
+        im = colorize(Image.open(f"assets/mounts/{base}_{direction}.png"), colour)
+        surf = pygame.image.fromstring(im.tobytes(), im.size, "RGBA")
+        if pygame.display.get_surface() is not None:
+            surf = surf.convert_alpha()
+    except (OSError, pygame.error, ValueError):
+        surf = None
+    _sheet_cache[key] = surf
+    return surf
+
+
 def get_mount_sprite(mount_id, direction, tile_size):
     """Scaled mount sprite (assets/mounts/<id>_<dir>.png) or None.  Returns (surface, seat_fraction)."""
     if direction not in MOUNT_SEAT:
@@ -338,12 +365,14 @@ def get_mount_sprite(mount_id, direction, tile_size):
         return _sprite_cache[cache_key]
     result = None
     try:
-        sheet = _load_sheet(f"assets/mounts/{mount_id}_{direction}.png")
-        sides = [_load_sheet(f"assets/mounts/{mount_id}_{d}.png") for d in ("left", "right")]
+        sheet = _mount_sheet(mount_id, direction)
+        sides = [_mount_sheet(mount_id, d) for d in ("left", "right")]
         sides = [x for x in sides if x is not None]
         if sheet is not None and sides:
             avg_w = sum(x.get_width() for x in sides) / len(sides)
-            k = MOUNT_LENGTH_TILES.get(mount_id, 2.8) * tile_size / avg_w
+            from world.collection_art import split_colourway
+            base = (split_colourway(mount_id) or (None, mount_id))[1]
+            k = MOUNT_LENGTH_TILES.get(base, 2.8) * tile_size / avg_w
             scaled = pygame.transform.smoothscale(
                 sheet, (max(1, round(sheet.get_width() * k)), max(1, round(sheet.get_height() * k))))
             result = (scaled, MOUNT_SEAT[direction])
@@ -351,6 +380,27 @@ def get_mount_sprite(mount_id, direction, tile_size):
         result = None
     _sprite_cache[cache_key] = result
     return result
+
+
+def get_form_sprite(path, facing, tile_height):
+    """A Collection form (world/collection.py): one creature picture, scaled to stand a little taller than a person
+    and mirrored when walking left, because creature art faces one way."""
+    cache_key = ("form", path, facing, tile_height)
+    if cache_key in _sprite_cache:
+        return _sprite_cache[cache_key]
+    out = None
+    sheet = _load_sheet(path)
+    if sheet is not None:
+        try:
+            w, h = sheet.get_size()
+            out_h = tile_height
+            out = pygame.transform.smoothscale(sheet, (max(1, round(w * out_h / h)), out_h))
+            if facing == "left":
+                out = pygame.transform.flip(out, True, False)
+        except (pygame.error, ValueError, ZeroDivisionError):
+            out = None
+    _sprite_cache[cache_key] = out
+    return out
 
 
 def prewarm_chunk_sprites(tilemap, tile_size, feather_px=48):

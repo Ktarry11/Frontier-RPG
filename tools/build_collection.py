@@ -12,7 +12,8 @@ FIELDS
     id          collection id; the bag item carries it as `collection_id`
     name        the bag item's name, which is also what the Collection tab shows
     kind        mount | form | travel | service | tome | heirloom (the tab it's on: tomes sit on Travel)
-    price       base price in copper, before the market's own price index moves it (Kyle: "50-750g")
+    price       base price in copper, before the market's own price index moves it. Kyle: "50-750g", then for the
+                mass-made kinds "Some are dirt cheap. Some are expensive", so 2g to 750g
     rarity      common | uncommon | rare | epic: how often it turns up on the auction house, and its name colour
     blurb       one line for the tooltip and the tab
     effect      what learning it does (world/collection.py reads it)
@@ -21,10 +22,14 @@ FIELDS
     needs_art   mounts and forms can be learned before their art lands, but not used until it does
 """
 import json
+import re
 import sys
+import zlib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "tools"))
 OUT = ROOT / "data" / "collection" / "collectables.json"
 G = 10000
 
@@ -40,35 +45,140 @@ def add(cid, name, kind, gold, rarity, blurb, effect, icon, needs_art=False):
 
 # ---------------------------------------------------------------- mounts (still need riding; ridden at your speed)
 for cid, name, gold, rar, blurb in (
-        ("bone_white_kodo", "Reins of the Bone-White Kodo", 300, "uncommon",
+        ("bone_white_kodo", "Bone-White Kodo", 300, "uncommon",
          "An elder's kodo from Thunder Bluff, pale as chalk and older than most towns."),
-        ("steamwheedle_runabout", "Key to the Steamwheedle Runabout", 350, "uncommon",
+        ("steamwheedle_runabout", "Steamwheedle Runabout", 350, "uncommon",
          "A goblin's brass strider with a leaky boiler and no brakes worth the name."),
         ("tidecaller_sea_turtle", "Tidecaller Sea Turtle", 450, "rare",
          "A great turtle from the Tempest Isle shallows, slow to look at and quick under you."),
-        ("dread_elk_of_felwood", "Reins of the Dread Elk", 500, "rare",
+        ("dread_elk_of_felwood", "Dread Elk", 500, "rare",
          "A black elk with green fire in its antlers, from the edge of the corrupted woods."),
         ("sunreach_hawkstrider", "Sunreach Hawkstrider", 600, "epic",
          "A tall gold and white strider bred by the Sunreach Conclave."),
-        ("ashen_nightmare", "Reins of the Ashen Nightmare", 750, "epic",
+        ("ashen_nightmare", "Ashen Nightmare", 750, "epic",
          "A black horse with an ember mane, ridden out of the Plaguelands' worst night.")):
-    add(cid, name, "mount", gold, rar, blurb, {"mount_id": cid}, "qi_trophy_cord", needs_art=True)
+    add(cid, f"Reins of the {name}", "mount", gold, rar, blurb, {"mount_id": cid, "mount_name": name, "tier": 1},
+        "qi_trophy_cord", needs_art=True)
+
+# MOUNT COLOURWAYS (Kyle: "Mount colours", then "don't full colour shift mounts. Hue shift them. And I'll get art"):
+# every mount in seven hue-shifted colourways, made from its own art when drawn (world/collection_art.py).
+COLOUR_NAMES = {"rose": "Rose", "dawn": "Dawn", "spring": "Spring", "jade": "Jade", "tide": "Tide",
+                "dusk": "Dusk", "twilight": "Twilight"}
+COLOUR_BAND = {"rose": ("uncommon", (25, 60, 140)), "dawn": ("uncommon", (25, 60, 140)),
+               "spring": ("uncommon", (25, 60, 140)), "jade": ("rare", (100, 180, 300)),
+               "tide": ("rare", (100, 180, 300)), "dusk": ("rare", (120, 200, 320)),
+               "twilight": ("epic", (350, 450, 600))}
+COLOUR_LINE = {"rose": "in rose and wine colours", "dawn": "in the colours of first light",
+               "spring": "in the colours of new leaves", "jade": "with a jade sheen",
+               "tide": "in the blues of a turning tide", "dusk": "in the colours of dusk",
+               "twilight": "in the deep colours of twilight"}
+
+
+def _travel_mounts():
+    return json.loads((ROOT / "data/travel/travel_data.json").read_text(encoding="utf-8"))["mounts"]
+
+
+for m in _travel_mounts():
+    for colour, cname in COLOUR_NAMES.items():
+        rar, bands = COLOUR_BAND[colour]
+        gold = bands[min(2, m["tier"] - 1)]
+        mname = f"{cname} {m['name']}"
+        add(f"{colour}_{m['id']}", f"Reins of the {mname}", "mount", gold, rar,
+            f"A {m['name'].lower()} {COLOUR_LINE[colour]}.",
+            {"mount_id": f"{colour}_{m['id']}", "mount_name": mname, "tier": m["tier"]}, "qi_trophy_cord")
 
 # ---------------------------------------------------------------- forms (map only: the party leader walks as it)
-for cid, name, gold, rar, blurb in (
-        ("murloc", "Murloc", 150, "common", "Mrglglgl."),
-        ("kobold_miner", "Kobold Miner", 150, "common", "Candle included. You no take it."),
-        ("gnoll_brute", "Gnoll Brute", 200, "uncommon", "Hunched, hungry and very pleased with itself."),
-        ("treant_sapling", "Treant Sapling", 250, "uncommon", "A walking sprig of Ashenvale."),
-        ("little_ooze", "Little Ooze", 250, "uncommon", "It squelches. It's happy."),
-        ("carrion_crow", "Carrion Crow", 300, "uncommon", "Hops more than it flies."),
-        ("furbolg_elder", "Furbolg Elder", 350, "rare", "A grey-muzzled furbolg with a walking stick."),
-        ("wandering_skeleton", "Wandering Skeleton", 400, "rare", "The Forsaken find it in poor taste."),
-        ("spirit_wolf", "Spirit Wolf", 600, "epic", "A ghostly wolf that leaves no tracks."),
-        ("shade_of_the_drowned_court", "Shade of the Drowned Court", 700, "epic",
-         "A drowned courtier of the old queen, walking in a cold blue light.")):
-    add(cid, f"Charm of the {name}" if cid != "shade_of_the_drowned_court" else "Charm of the Drowned Shade",
-        "form", gold, rar, blurb, {"form_id": cid, "form_name": name}, "qi_totem", needs_art=True)
+# The ten named in the design, each worn with a creature picture the game already has (two tinted by
+# tools/build_collection_art.py), then one form for every other creature picture in the open world.
+CURATED_FORMS = (
+    ("murloc", "Murloc", 15, "common", "Mrglglgl.", "assets/creatures/murloc_1.png"),
+    ("kobold_miner", "Kobold Miner", 15, "common", "Candle included. You no take it.",
+     "assets/creatures/kobold_1.png"),
+    ("gnoll_brute", "Gnoll Brute", 40, "uncommon", "Hunched, hungry and very pleased with itself.",
+     "assets/creatures/gnoll_2.png"),
+    ("treant_sapling", "Treant", 60, "uncommon", "A walking sprig of Ashenvale.", "assets/creatures/treant_1.png"),
+    ("little_ooze", "Ooze", 50, "uncommon", "It squelches. It's happy.", "assets/creatures/ooze_acid_1.png"),
+    ("carrion_crow", "Carrion Vulture", 60, "uncommon", "Hops more than it flies.",
+     "assets/creatures/pl_carrion_vulture.png"),
+    ("furbolg_elder", "Furbolg", 150, "rare", "A grey-muzzled furbolg with a walking stick.",
+     "assets/creatures/furbolg.png"),
+    ("wandering_skeleton", "Wandering Skeleton", 200, "rare", "The Forsaken find it in poor taste.",
+     "assets/creatures/skeleton_warrior_1.png"),
+    ("spirit_wolf", "Spirit Wolf", 600, "epic", "A ghostly wolf that leaves no tracks.",
+     "assets/collection/forms/spirit_wolf.png"),
+    ("shade_of_the_drowned_court", "Shade of the Drowned Court", 700, "epic",
+     "A drowned courtier of the old queen, walking in a cold blue light.",
+     "assets/collection/forms/shade_of_the_drowned_court.png"))
+for cid, name, gold, rar, blurb, sprite in CURATED_FORMS:
+    add(cid, f"Charm of the {name}", "form", gold, rar, blurb, {"form_id": cid, "form_name": name, "sprite": sprite},
+        "qi_totem")
+
+
+def _jitter(key, lo, hi):
+    """A steady price between lo and hi for this key, so a rebuild never reprices anything."""
+    return lo + (zlib.crc32(key.encode("utf-8")) % 1000) / 999.0 * (hi - lo)
+
+
+def creature_forms():
+    """One form per creature picture used in the open world: named for the earliest ordinary creature that wears it
+    (a boss's name only when nothing else does), priced and graded by that creature's level. Nothing that lives in a
+    hidden place is ever a form, and nothing above 60."""
+    import creature_sprites as CS
+    from world.hidden_zones import creature_kinds
+    hidden = set(creature_kinds()) | set(CS._hidden_sprites())
+    raw = json.loads((ROOT / "data/creatures/creatures.json").read_text(encoding="utf-8"))
+    creatures = raw.get("creatures", raw)
+    used = {sprite.split("/")[-1][:-4] for *_x, sprite in CURATED_FORMS}
+    by = {}
+    for name, c in creatures.items():
+        if name in hidden or not isinstance(c, dict):
+            continue
+        lo, hi = (c.get("level_range") or [1, 1])[:2]
+        if lo > 60:
+            continue
+        sid = CS.sprite_file(name, c.get("template"))
+        if sid in used or not CS.sprite_path(sid).exists():
+            continue
+        by.setdefault(sid, []).append((bool(c.get("is_boss")), lo, len(name), name))
+    taken = {e["name"] for e in ITEMS}
+    out = []
+    for sid in sorted(by):
+        rows = sorted(by[sid])
+        boss_only = all(r[0] for r in rows)
+        for boss, lo, _n, name in rows:
+            if f"Charm of the {name}" not in taken:
+                break
+        else:
+            continue
+        taken.add(f"Charm of the {name}")
+        label = f"Charm of {name}" if boss_only or name.startswith("The ") else f"Charm of the {name}"
+        if boss_only:
+            rar, (a, b) = ("rare", (150, 300)) if lo < 30 else ("epic", (300, 750))
+            gold = _jitter(sid, a, a + (b - a) * min(1.0, lo / 60.0))
+            blurb = f"Walk the map as {name}, which most people only ever see at the end of a dungeon."
+        else:
+            bands = [(10, "common", 2, 8), (20, "common", 8, 25), (30, "uncommon", 25, 60), (40, "uncommon", 60, 120),
+                     (50, "rare", 120, 220), (60, "rare", 220, 350)]
+            top, rar, a, b = next(x for x in bands if lo <= x[0])
+            gold = _jitter(sid, a, b)
+            blurb = f"Walk the map as {'an' if name[0] in 'AEIOU' else 'a'} {name}."
+        out.append((f"form_{sid}", name, label, max(2, int(round(gold))), rar, blurb, f"assets/creatures/{sid}.png"))
+    return out
+
+
+for cid, name, label, gold, rar, blurb, sprite in creature_forms():
+    add(cid, label, "form", gold, rar, blurb, {"form_id": cid, "form_name": name, "sprite": sprite},
+        "qi_totem")
+
+# ---------------------------------------------------------------- titles (text with your name)
+from collection_titles import COMMON, UNCOMMON, RARE, EPIC  # noqa: E402
+for rar, titles, (a, b) in (("common", COMMON, (2, 15)), ("uncommon", UNCOMMON, (20, 80)),
+                            ("rare", RARE, (100, 250)), ("epic", EPIC, (300, 750))):
+    for t in titles:
+        slug = re.sub(r"[^a-z0-9]+", "_", t.replace("{name}", "").lower()).strip("_")
+        shown = t.replace("{name}", "...").replace(" ...", "").replace("... ", "").replace("...,", "").strip(" ,")
+        add(f"title_{slug}", f"Title: {shown}", "title", int(round(_jitter(slug, a, b))), rar,
+            f"Shown with your name: {t.replace('{name}', 'You')}.", {"title": t}, "qi_scroll")
 
 # ---------------------------------------------------------------- travel
 add("feather_kalimdor", "Windrider Feather of Kalimdor", "travel", 400, "rare",
@@ -134,8 +244,11 @@ def problems():
     if len(names) != len(set(names)):
         out.append("duplicate names")
     for i in ITEMS:
-        if not 50 * G <= i["price"] <= 750 * G:
-            out.append(f"{i['id']}: price {i['price'] // G}g is outside Kyle's 50-750g")
+        if not 2 * G <= i["price"] <= 750 * G:
+            out.append(f"{i['id']}: price {i['price'] // G}g is outside 2-750g (Kyle: \"Some are dirt cheap. Some "
+                       f"are expensive\", up to 750g)")
+        if i["kind"] == "form" and not (ROOT / i["effect"]["sprite"]).exists():
+            out.append(f"{i['id']}: no picture {i['effect']['sprite']}")
         if i["rarity"] not in RARITY_WEIGHT:
             out.append(f"{i['id']}: rarity {i['rarity']}")
         if not (ROOT / "assets/icons/quest_items" / f"{i['icon_id']}.png").exists():

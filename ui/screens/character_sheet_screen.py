@@ -341,8 +341,18 @@ class CharacterSheetScreen(BaseScreen):
         # was a box reserving space for nothing while announcing to the
         # player that the game was unfinished. Gone - the name and level now
         # start at the top of the column where the frame used to begin.
+        shown = stats['name']
+        if player is self.state_manager.player:
+            # a Collection title (world/collection.py) is the leader's alone
+            try:
+                from world.travel_manager import get_travel_manager
+                from world.collection import titled_name
+                shown = titled_name(shown, get_travel_manager().active_title)
+            except Exception:
+                pass
         self.renderer.draw_text(
-            screen, f"{stats['name']}", (right_x, 40), size="large", color=COLOR_GOLD)
+            screen, self.renderer.truncate(shown, SCREEN_WIDTH - right_x - 20, size="large"), (right_x, 40), size="large",
+            color=COLOR_GOLD)
         self.renderer.draw_text(
             screen, f"Level {stats['level']} {stats['class']}",
             (right_x, 76), color=COLOR_LIGHT_GRAY)

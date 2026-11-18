@@ -74,7 +74,7 @@ TREE = [
     ("Item Enhancements", ENHANCE_SUBS),
     ("Recipes", RECIPE_SUBS),
     # the Collection's account-wide unlocks (docs/collection_design.md)
-    ("Collection", ["Mounts", "Forms", "Travel", "Services", "Heirlooms"]),
+    ("Collection", ["Mounts", "Forms", "Titles", "Travel", "Services", "Heirlooms"]),
     ("Miscellaneous", []),
 ]
 

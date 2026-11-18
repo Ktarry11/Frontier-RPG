@@ -863,9 +863,10 @@ class TilemapRenderer:
                 _form = get_travel_manager().active_form
                 if _form and not get_travel_manager().mounted:
                     from world.collection import form_sprite_path, art_ready
+                    from ui.sprite_loader import get_form_sprite
                     if art_ready(_form):
-                        _fs = get_npc_sprite(form_sprite_path(_form), player_facing,
-                                             tile_height=int(self.tile_size * self.npc_sprite_scale))
+                        _fs = get_form_sprite(form_sprite_path(_form), player_facing,
+                                              int(self.tile_size * self.npc_sprite_scale))
                         if _fs is not None:
                             sprite = _fs
             except Exception:

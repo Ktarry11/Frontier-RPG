@@ -4,7 +4,9 @@
     PYTHONPATH=. python3 tools/qa_collection.py
 
 Every claim is something Kyle asked for on 18 Nov 2026:
-  1. THE CATALOGUE: 40 collectables, prices 50-750g, a full heirloom set is +80% XP.
+  1. THE CATALOGUE: hundreds of collectables ("I'd want 100s to 1000s of fun collection stuff"), 2g to 750g ("Some
+     are dirt cheap. Some are expensive"), every form has its picture, none is a creature from a hidden place, and
+     a full heirloom set is +80% XP.
   2. ITS OWN FILE, OUTSIDE THE SAVES, and learning is one transaction: the item leaves the bag, the file is written
      and the character saved together; a failed character save rolls the learning back and the item stays.
   3. LEARN ONCE, EVERY CHARACTER HAS IT: a fresh TravelManager (a second character) sees the feathers' flights.
@@ -13,8 +15,8 @@ Every claim is something Kyle asked for on 18 Nov 2026:
   5. HEIRLOOMS: one for every class that can use it, fitted to the wearer (armour type, stats), re-fitted on level
      up, +10/+20% XP while worn up to 80%, none at 60, can't be sold or auctioned, one copy at a time.
   6. SERVICES: once per market day.
-  7. THE AUCTION HOUSE: a handful listed at a time across both books, in a Collection category, at 50-750g-ish
-     prices, and a bought one arrives as a learnable item.
+  7. THE AUCTION HOUSE: "dozens to ~100" listed at a time across both books, in a Collection category, the rare ones
+     rarer, and a bought one arrives as a learnable item.
 """
 import os
 import sys
@@ -23,6 +25,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "tools"))
 os.chdir(ROOT)
 os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 
@@ -44,11 +47,24 @@ def main():
         # ---- 1. the catalogue
         print("1. the catalogue")
         es = C.entries()
-        if len(es) != 40:
-            bad.append(f"{len(es)} collectables, the design has 40")
+        if len(es) < 500:
+            bad.append(f"only {len(es)} collectables; Kyle wants hundreds")
         for e in es:
-            if not 50 * 10000 <= e["price"] <= 750 * 10000:
-                bad.append(f"{e['id']} costs {e['price'] // 10000}g, outside 50-750g")
+            if not 2 * 10000 <= e["price"] <= 750 * 10000:
+                bad.append(f"{e['id']} costs {e['price'] // 10000}g, outside 2-750g")
+        import creature_sprites as CS
+        from world.hidden_zones import creature_kinds
+        hidden_names = set(creature_kinds()) | set(CS._hidden_sprites())
+        for e in es:
+            if e["kind"] == "form":
+                if not Path(e["effect"]["sprite"]).exists():
+                    bad.append(f"{e['id']} has no picture")
+                if e["effect"]["form_name"] in hidden_names:
+                    bad.append(f"a form is named for a creature from a hidden place ({e['id']})")
+        kinds = {}
+        for e in es:
+            kinds[e["kind"]] = kinds.get(e["kind"], 0) + 1
+        print(f"  {kinds}")
         full = sum(e["effect"]["xp_pct"] for e in es if e["kind"] == "heirloom"
                    and e["effect"]["heirloom_slot"] not in ("one_hand", "shield", "off_hand"))
         print(f"  {len(es)} collectables; armour and a two-hander give +{full}%")
@@ -227,7 +243,7 @@ def main():
         m = Market(seed=11)
         m.ensure_started()
         counts, seen, prices = [], set(), []
-        for _ in range(24 * 10):
+        for _ in range(24 * 3):
             m.advance(1)
             cur = [a for mk in MARKETS for a in m.collection_listings(mk)]
             counts.append(len(cur))
@@ -237,12 +253,12 @@ def main():
                 if a.cat != "Collection":
                     bad.append(f"{a.name} is listed under {a.cat}")
         avg = sum(counts) / len(counts)
-        print(f"  {avg:.1f} listed on average ({min(counts)}-{max(counts)}), {len(seen)} different in 10 days, "
+        print(f"  {avg:.1f} listed on average ({min(counts)}-{max(counts)}), {len(seen)} different in 3 days, "
               f"{min(prices) // 10000}g-{max(prices) // 10000}g")
-        if not 3 <= avg <= 6:
-            bad.append(f"{avg:.1f} collectables listed on average, the design says three to six")
-        if min(prices) < 30 * 10000 or max(prices) > 1100 * 10000:
-            bad.append("collectable prices wandered far outside 50-750g")
+        if not 50 <= avg <= 120:
+            bad.append(f"{avg:.1f} collectables listed on average, Kyle said dozens to about 100")
+        if min(prices) < 1 * 10000 or max(prices) > 1500 * 10000:
+            bad.append("collectable prices wandered far outside 2-750g")
         a = m.collection_listings("horde")[0]
         m.party = Party(Character("Buyer", "Mage"))
         m.party.copper = 10 ** 9

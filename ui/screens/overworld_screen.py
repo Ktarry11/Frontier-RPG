@@ -1541,6 +1541,19 @@ class OverworldScreen(BaseScreen):
         text_y = info_y
         self.renderer.draw_text(screen, f"{player.name}", (bars_x, text_y), size="large")
         text_y += 28
+        # a Collection title (world/collection.py) goes under the name, in gold
+        try:
+            from world.travel_manager import get_travel_manager
+            from world.collection import titled_name
+            _t = get_travel_manager().active_title
+            if _t:
+                shown = titled_name(player.name, _t)
+                if shown != player.name:
+                    self.renderer.draw_text(screen, self.renderer.truncate(shown, 300, font_size=15), (bars_x, text_y),
+                                            font_size=15, color=(230, 200, 120))
+                    text_y += 20
+        except Exception:
+            pass
         self.renderer.draw_text(screen, f"Level {player.level}  |  Prestige {player.prestige_level}", (bars_x, text_y))
 
         # Bars start below the portrait once the portrait is taller than the

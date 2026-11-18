@@ -58,6 +58,7 @@ class TravelManager:
         self.hearth2_steps_left = 0
         self.collection_used = {}
         self.active_form = None
+        self.active_title = None
         try:
             from world.collection import apply_feathers
             apply_feathers(self)
@@ -335,6 +336,7 @@ class TravelManager:
             "hearth2_steps_left": self.hearth2_steps_left,
             "collection_used": dict(self.collection_used),
             "active_form": self.active_form,
+            "active_title": self.active_title,
         }
 
     def load_from_dict(self, data):
@@ -362,6 +364,7 @@ class TravelManager:
         self.hearth2_steps_left = max(0, int(data.get("hearth2_steps_left", 0)))
         self.collection_used = {k: float(v) for k, v in (data.get("collection_used") or {}).items()}
         self.active_form = data.get("active_form")
+        self.active_title = data.get("active_title")
         try:
             from world.collection import apply_feathers, form_ids
             apply_feathers(self)

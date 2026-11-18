@@ -25,11 +25,11 @@ XP_CAP_LEVEL = 60
 #: Kyle: "+80% total"
 XP_CAP_PCT = 80
 
-TABS = (("mount", "Mounts"), ("form", "Forms"), ("travel", "Travel"), ("service", "Services"),
+TABS = (("mount", "Mounts"), ("form", "Forms"), ("title", "Titles"), ("travel", "Travel"), ("service", "Services"),
         ("heirloom", "Heirlooms"))
 #: tomes sit on the Travel tab with the feathers and the hearths
-TAB_OF = {"mount": "mount", "form": "form", "travel": "travel", "tome": "travel", "service": "service",
-          "heirloom": "heirloom"}
+TAB_OF = {"mount": "mount", "form": "form", "title": "title", "travel": "travel", "tome": "travel",
+          "service": "service", "heirloom": "heirloom"}
 
 FORM_DIR = ROOT / "assets" / "collection" / "forms"
 MOUNT_DIR = ROOT / "assets" / "mounts"
@@ -104,9 +104,13 @@ def art_ready(cid):
     if e is None:
         return False
     if e["kind"] == "mount":
-        return all((MOUNT_DIR / f"{cid}_{d}.png").exists() for d in DIRECTIONS)
+        mid = e["effect"]["mount_id"]
+        from world.collection_art import split_colourway
+        cw = split_colourway(mid)
+        base = cw[1] if cw else mid
+        return all((MOUNT_DIR / f"{base}_{d}.png").exists() for d in DIRECTIONS)
     if e["kind"] == "form":
-        return all((FORM_DIR / cid / f"{d}.png").exists() for d in DIRECTIONS)
+        return (ROOT / e["effect"]["sprite"]).exists() if e["effect"].get("sprite") else False
     return True
 
 
@@ -133,7 +137,7 @@ def mount_def(mount_id):
     e = get_entry(mount_id)
     if e is None or e["kind"] != "mount":
         return None
-    return {"id": mount_id, "name": e["name"].replace("Reins of the ", "").replace("Key to the ", ""), "tier": 1,
+    return {"id": mount_id, "name": e["effect"].get("mount_name") or e["name"], "tier": e["effect"].get("tier", 1),
             "price": 0, "vendors": [], "blurb": e["blurb"], "collection": True}
 
 
@@ -148,8 +152,22 @@ def form_ids():
 
 
 def form_sprite_path(form_id):
-    """The folder get_npc_sprite reads a form's down/left/right/up.png from (relative to the game root)."""
-    return f"assets/collection/forms/{form_id}"
+    """The one picture a form is drawn with (ui/sprite_loader.get_form_sprite), relative to the game root."""
+    e = get_entry(form_id) or {}
+    return (e.get("effect") or {}).get("sprite")
+
+
+# ------------------------------------------------------------------ titles
+def title_ids():
+    return [e["id"] for e in learned_entries("title")]
+
+
+def titled_name(name, title_id):
+    """'Kyle the Undercutter' for a learned title, or the plain name."""
+    e = get_entry(title_id) if title_id else None
+    if e is None or e["kind"] != "title" or not learned(title_id):
+        return name
+    return e["effect"]["title"].replace("{name}", name)
 
 
 # ------------------------------------------------------------------ travel

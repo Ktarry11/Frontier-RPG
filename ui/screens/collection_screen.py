@@ -4,7 +4,9 @@ Kyle, 18 Nov 2026: "This will need a new system tab that's account-wide", and "W
 from character. So anywhere. Not bank. Otherwise it defeats the purpose." So it opens from the overworld's tab column
 (and U), wherever you are.
 
-Five tabs: Mounts, Forms, Travel (feathers, hearths and the tomes), Services and Heirlooms. A card for every
+Six tabs: Mounts, Forms, Titles, Travel (feathers, hearths and the tomes), Services and Heirlooms. There are hundreds
+(Kyle: "I'd want 100s to 1000s of fun collection stuff"), so each tab has a filter (all, learned, missing) and a
+search you type into. A card for every
 collectable: learned ones in their rarity colour with what you can do with them, the rest greyed with their name, so
 you can see what's still out there. The buttons do the thing: ride a mount, wear a form, take the second hearth,
 call a portable service (once per market day), or take an heirloom copy for this character.
@@ -16,9 +18,10 @@ from core.game_states import GameState
 from ui.screens.base_screen import BaseScreen
 from ui.scrollbar import ScrollBar, GUTTER
 
-TOP = 150
-CARD_W, CARD_H, CARD_GAP = 590, 92, 10
+TOP = 190
+CARD_W, CARD_H, CARD_GAP = 590, 80, 8
 COLS = 2
+FILTERS = (("all", "All"), ("learned", "Learned"), ("missing", "Missing"))
 LEFT = 30
 GREY, DIM, GREEN, RED, GOLD = (170, 170, 180), (95, 95, 105), (140, 220, 160), (240, 160, 140), (230, 200, 120)
 RARITY = {"common": (235, 235, 235), "uncommon": (30, 255, 0), "rare": (0, 112, 221), "epic": (163, 53, 238)}
@@ -39,8 +42,12 @@ class CollectionScreen(BaseScreen):
         self.message, self.message_ok = "", True
         self.close_rect = pygame.Rect(SCREEN_WIDTH - 130, 20, 110, 46)
         self.tab_rects = []
+        self.filter_rects = []
+        self.filter = "all"
+        self.search = ""
         self.buttons = []           # (rect, cid, action)
         self.cards = []             # (rect, entry)
+        self._pics = {}
 
     # ------------------------------------------------------------ helpers
     def _travel(self):
@@ -66,7 +73,17 @@ class CollectionScreen(BaseScreen):
 
     def _rows(self):
         from world import collection as C
-        return C.by_tab(self.tab)
+        rows = C.by_tab(self.tab)
+        if self.filter == "learned":
+            rows = [e for e in rows if C.learned(e["id"])]
+        elif self.filter == "missing":
+            rows = [e for e in rows if not C.learned(e["id"])]
+        if self.search:
+            q = self.search.lower()
+            rows = [e for e in rows if q in e["name"].lower() or q in e["blurb"].lower()]
+        # learned first, then by rarity (the rarest last), then by name
+        order = {"common": 0, "uncommon": 1, "rare": 2, "epic": 3}
+        return sorted(rows, key=lambda e: (not C.learned(e["id"]), order.get(e["rarity"], 0), e["name"]))
 
     # ------------------------------------------------------------ what each card can do
     def _status(self, e):
@@ -88,6 +105,11 @@ class CollectionScreen(BaseScreen):
             if tm.active_form == cid:
                 return "Learned. You're wearing it on the map.", GREEN, [("Take off", "form_off")]
             return "Learned.", GREEN, [("Wear", "form_on")]
+        if kind == "title":
+            shown = C.titled_name(self.state_manager.player.name, cid)
+            if getattr(tm, "active_title", None) == cid:
+                return f"Learned. You're {shown}.", GREEN, [("Remove", "title_off")]
+            return f"Learned. You'd be {shown}.", GREEN, [("Use", "title_on")]
         eff = e["effect"]
         if eff.get("feather"):
             from world.travel_manager import travel_data
@@ -125,6 +147,12 @@ class CollectionScreen(BaseScreen):
         if action == "form_off":
             tm.active_form = None
             return self._say(True, "You're yourself again.")
+        if action == "title_on":
+            tm.active_title = cid
+            return self._say(True, f"You're {C.titled_name(sm.player.name, cid)} now, on every screen with your name.")
+        if action == "title_off":
+            tm.active_title = None
+            return self._say(True, "Just your name again.")
         if action == "hearth2":
             ow = sm.states.get(GameState.OVERWORLD)
             if ow is None or not hasattr(ow, "use_second_hearth"):
@@ -186,8 +214,22 @@ class CollectionScreen(BaseScreen):
         if new is not None:
             self.scroll = new
             return
-        if event.type == pygame.KEYDOWN and event.key in (pygame.K_ESCAPE, pygame.K_u):
-            self.state_manager.transition_to(GameState.OVERWORLD)
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                if self.search:
+                    self.search, self.scroll = "", 0
+                else:
+                    self.state_manager.transition_to(GameState.OVERWORLD)
+                return
+            if event.key == pygame.K_BACKSPACE:
+                self.search, self.scroll = self.search[:-1], 0
+                return
+            ch = getattr(event, "unicode", "") or ""
+            if ch and (ch.isalnum() or ch in " '-") and len(self.search) < 24:
+                self.search, self.scroll = self.search + ch, 0
+                return
+            if event.key == pygame.K_u and not self.search:
+                self.state_manager.transition_to(GameState.OVERWORLD)
             return
         if event.type == pygame.MOUSEWHEEL:
             self.scroll = max(0, self.scroll - event.y)
@@ -201,6 +243,10 @@ class CollectionScreen(BaseScreen):
             if rect.collidepoint(event.pos):
                 self.tab, self.scroll, self.message = tab, 0, ""
                 return
+        for rect, key in self.filter_rects:
+            if rect.collidepoint(event.pos):
+                self.filter, self.scroll = key, 0
+                return
         for rect, cid, action in self.buttons:
             if rect.collidepoint(event.pos):
                 self._do(cid, action)
@@ -208,6 +254,31 @@ class CollectionScreen(BaseScreen):
 
     # ------------------------------------------------------------ drawing
     def _icon(self, e, size):
+        """A form shows its creature, a mount its own side view; everything else its bag icon."""
+        key = (e["id"], size)
+        if key in self._pics:
+            return self._pics[key]
+        pic = None
+        try:
+            if e["kind"] == "form" and e["effect"].get("sprite"):
+                src = pygame.image.load(e["effect"]["sprite"]).convert_alpha()
+            elif e["kind"] == "mount":
+                from ui.sprite_loader import _mount_sheet
+                src = _mount_sheet(e["effect"]["mount_id"], "right")
+            else:
+                src = None
+            if src is not None:
+                w, h = src.get_size()
+                k = size / max(w, h)
+                pic = pygame.transform.smoothscale(src, (max(1, int(w * k)), max(1, int(h * k))))
+        except Exception:
+            pic = None
+        if pic is None:
+            pic = self._bag_icon(e, size)
+        self._pics[key] = pic
+        return pic
+
+    def _bag_icon(self, e, size):
         if not self.icon_ui_helper:
             return None
         try:
@@ -225,6 +296,18 @@ class CollectionScreen(BaseScreen):
         self.renderer.draw_text(screen, f"Shared by every character on this install.  {have} of {len(everything)} "
                                         f"learned.  Collectables turn up on the auction house.", (LEFT, 66),
                                 color=GREY)
+        self.filter_rects = []
+        fx = LEFT
+        for key, label in FILTERS:
+            r = pygame.Rect(fx, 146, 110, 32)
+            self.renderer.draw_button(screen, r, label, color=(70, 90, 130) if key == self.filter else (36, 40, 56))
+            self.filter_rects.append((r, key))
+            fx += 118
+        box = pygame.Rect(fx + 12, 146, 360, 32)
+        self.renderer.draw_rect(screen, box, (22, 22, 30))
+        self.renderer.draw_rect(screen, box, (90, 90, 110), fill=False)
+        self.renderer.draw_text(screen, (self.search + "_") if self.search else "Type to search...",
+                                (box.x + 10, box.y + 6), color=COLOR_WHITE if self.search else DIM)
         self.renderer.draw_button(screen, self.close_rect, "Close (U)")
 
         self.tab_rects = []
@@ -232,11 +315,11 @@ class CollectionScreen(BaseScreen):
         for tab, label in C.TABS:
             rows = C.by_tab(tab)
             n = sum(1 for e in rows if C.learned(e["id"]))
-            rect = pygame.Rect(x, 98, 180, 38)
+            rect = pygame.Rect(x, 98, 186, 38)
             self.renderer.draw_button(screen, rect, f"{label} {n}/{len(rows)}",
                                       color=(70, 90, 130) if tab == self.tab else (36, 40, 56))
             self.tab_rects.append((rect, tab))
-            x += 190
+            x += 192
 
         rows = self._rows()
         per_page = ((SCREEN_HEIGHT - 60 - TOP) // (CARD_H + CARD_GAP)) * COLS
@@ -272,7 +355,7 @@ class CollectionScreen(BaseScreen):
             if not known:
                 icon = icon.copy()
                 icon.fill((90, 90, 90, 255), special_flags=pygame.BLEND_RGBA_MULT)
-            screen.blit(icon, (rect.x + 12, rect.y + (rect.height - 64) // 2))
+            screen.blit(icon, (rect.x + 12 + (64 - icon.get_width()) // 2, rect.y + (rect.height - icon.get_height()) // 2))
             tx = rect.x + 88
         bw = 0
         for label, action in reversed(actions):
@@ -282,10 +365,10 @@ class CollectionScreen(BaseScreen):
             self.buttons.append((b, e["id"], action))
             bw += w + 8
         width = rect.right - tx - 16 - bw
-        self.renderer.draw_text(screen, self.renderer.truncate(e["name"], width), (tx, rect.y + 8),
+        self.renderer.draw_text(screen, self.renderer.truncate(e["name"], width), (tx, rect.y + 6),
                                 color=RARITY.get(e["rarity"], COLOR_WHITE) if known else DIM)
-        self.renderer.draw_text(screen, self.renderer.truncate(e["blurb"], width, font_size=14), (tx, rect.y + 34),
+        self.renderer.draw_text(screen, self.renderer.truncate(e["blurb"], width, font_size=14), (tx, rect.y + 31),
                                 font_size=14, color=GREY if known else DIM)
-        self.renderer.draw_text(screen, self.renderer.truncate(line, width, font_size=14), (tx, rect.y + 58),
+        self.renderer.draw_text(screen, self.renderer.truncate(line, width, font_size=14), (tx, rect.y + 53),
                                 font_size=14, color=colour)
         self.cards.append((rect, e))
