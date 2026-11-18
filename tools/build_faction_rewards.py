@@ -55,7 +55,9 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "tools"))
 
 G = 10000                   # copper in a gold
-BLUE_ILVL, EPIC_ILVL, WORN_AT = 67, 73, 60
+# 18 Nov 2026: Kyle's level-60 ladder moved these to Revered 66, Exalted 68 (Honored 62) with
+# tools/relevel_rep_gear.py, which refits the authored items; this file is not re-run (it would re-author them)
+BLUE_ILVL, EPIC_ILVL, WORN_AT = 66, 68, 60
 
 #: faction -> its quartermaster, and the shop its patterns sit on (the same one unless said)
 QM = {

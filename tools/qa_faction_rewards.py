@@ -8,8 +8,10 @@ blues per vendor AND 3 epics per vendor. There will also be crafting stuff for r
 TBC DEALS WITH REP!!!", "I want the epics to be around 250g to 350g", and "exalted rep recipes make epics as
 well! Around Ilvl 73". Built by tools/build_faction_rewards.py. Per faction this holds:
   - a quartermaster who exists;
-  - revered: 6 rare items, ilvl 67, worn at 60; exalted: 3 epics, ilvl 73, worn at 60, priced 250-350g;
-  - patterns at honored and revered, and 2 exalted recipes whose items are ilvl 73 epics worn at 60;
+  - revered: 6 rare items, ilvl 66, worn at 60; exalted: 3 epics, ilvl 68, worn at 60, priced 250-350g;
+  - patterns at honored and revered, and 2 exalted recipes whose items are ilvl 68 epics worn at 60;
+The levels moved on 18 Nov 2026 to Kyle's level-60 ladder (tools/relevel_rep_gear.py): Revered 66 like a heroic's
+blues, Exalted 68 like the Fallen Bluff's epics, Honored 62.
   - nothing on the faction's shelves is also on a town's (a rep pattern is the faction's only);
   - the vendor screen shows all of it at exalted and none of it at neutral.
 """
@@ -107,7 +109,7 @@ def main():
             check(d is not None, f"{fid}: {uid} isn't in faction_rewards.json")
             if d is None:
                 continue
-            want = ("rare", 67) if uid in rev else ("epic", 73)
+            want = ("rare", 66) if uid in rev else ("epic", 68)
             check((d["rarity"], d["item_level"]) == want, f"{d['name']}: {d['rarity']} ilvl {d['item_level']}, "
                                                            f"wanted {want}")
             check(d["required_level"] == 60, f"{d['name']}: worn at {d['required_level']}, not 60")
@@ -129,7 +131,7 @@ def main():
         for rid in pats["exalted"]:
             out = recipes[rid][1].get("output") or {}
             it = out.get("item") or {}
-            check(it.get("rarity") == "epic" and it.get("item_level") == 73 and it.get("required_level") == 60,
+            check(it.get("rarity") == "epic" and it.get("item_level") == 68 and it.get("required_level") == 60,
                   f"{rid}: makes {it.get('rarity')} ilvl {it.get('item_level')} worn at {it.get('required_level')}")
         for tier, ids in pats.items():
             for rid in ids:
