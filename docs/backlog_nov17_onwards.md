@@ -32,11 +32,6 @@ East road.
 in the game, and Deadwind's four and Moonglade's two have been placed since (18 Nov). Winterspring's two are still
 waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exists, and it places them.
 
-## 1c. Moonglade (built 18 Nov 2026, `docs/moonglade_build_log.md`)
-- The three dungeons, doors already on the map: the Barrow Dens (corrupted druids), the Dreaming Arch (the Emerald
-  Dream), under the lake (the island's stair). What's waking gets decided with the first of them.
-- The Cenarion Circle and the Wakened only reach Friendly on quests; the dungeons are the road past it.
-
 ## 1a. The Collection (account-wide unlocks on the AH, 18 Nov 2026)
 - Built: `docs/collection_design.md`, 741 collectables, the Collection screen (U), the AH's Collection category.
 - **Art:** Sheet C (six unique mounts) and Sheet D (36 icons) in `docs/collection_art_prompts.md`. Kyle: "I'll get
@@ -44,14 +39,18 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - **Next wave:** callboards and daily quests (needs its own design). More of everything as Kyle thinks of it.
 - **Pack Mule** is +12 backpack spaces, not a fifth bag slot; Kyle to say if he wants the real slot.
 
-## 1b. Deadwind Pass (vision and art prompts; Kyle's four picks settled 18 Nov, then on hold)
-- `docs/deadwind_brief.md` and `docs/deadwind_art_prompts.md` (8 sheets). Kyle: "I just want the vision and the
-  prompts....then go back to happy Azshara!" Nothing to build until the art is in and Kyle says go. It holds the last T0
-  token (the bracers), reached by a tunnel through Stranglethorn's north-east mountains.
+## 1b. Deadwind Pass (built 18 Nov 2026, `docs/deadwind_build_log.md`)
+- Left: combat backgrounds of its own (the pass borrows "blighted", the Exclusion Zone's floors "dark_dungeon"); needs
+  an art prompt sheet.
 
 ## 1c. Mulgore: The Fallen Bluff, the Thunder Bluff raid (art prompts in progress, 18 Nov 2026)
 - `docs/mulgore_raid_boss_prompt.md`: Kyle's first raid. Bosses by rise (Central 5 with the final boss unlocking
   last, Hunter 3, Spirit 3, Elder 3), drawn in batches of seven.
+
+## 1d. Moonglade (built 18 Nov 2026, `docs/moonglade_build_log.md`)
+- The three dungeons, doors already on the map: the Barrow Dens (corrupted druids), the Dreaming Arch (the Emerald
+  Dream), under the lake (the island's stair). What's waking gets decided with the first of them.
+- The Cenarion Circle and the Wakened only reach Friendly on quests; the dungeons are the road past it.
 
 ## 2. Banks, auction houses and mail (Kyle, 17 Nov 2026)
 - **Every bank, auction house and mailbox stands together** (Kyle: "generally we will want an auction house, a bank,
