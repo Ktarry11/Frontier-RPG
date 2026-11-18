@@ -78,10 +78,12 @@ def main():
     # Timbermaw (build_timbermaw_hold.py) are held to the same rules
     import build_plaguelands_rewards as PR
     import build_timbermaw_hold as TM
-    QMS = {**B.QM, **PR.QM, TM.FID: TM.QM_ID}
-    REVERED = {**B.REVERED, **PR.REVERED, TM.FID: TM.REVERED}
-    EXALTED = {**B.EXALTED, **PR.EXALTED, TM.FID: TM.EXALTED}
-    EXALTED_RECIPES = {**B.EXALTED_RECIPES, **PR.EXALTED_RECIPES, TM.FID: TM.EXALTED_RECIPES}
+    import build_sunreach_conclave as SC          # the Sunreach Conclave (18 Nov 2026)
+    QMS = {**B.QM, **PR.QM, TM.FID: TM.QM_ID, SC.FID: SC.QM}
+    REVERED = {**B.REVERED, **PR.REVERED, TM.FID: TM.REVERED, SC.FID: SC.REVERED}
+    EXALTED = {**B.EXALTED, **PR.EXALTED, TM.FID: TM.EXALTED, SC.FID: SC.EXALTED}
+    EXALTED_RECIPES = {**B.EXALTED_RECIPES, **PR.EXALTED_RECIPES, TM.FID: TM.EXALTED_RECIPES,
+                       SC.FID: [r[:8] for r in SC.EXALTED_RECIPES]}
     shelved = {fid for fid, f in fd.items() if not f.get("secret") and (f.get("rewards") or {}).get("vendor_stock")}
     check(shelved <= set(QMS), f"factions with a shelf this check doesn't know: {sorted(shelved - set(QMS))}")
     totals = {"blue": 0, "epic": 0, "recipes": 0}

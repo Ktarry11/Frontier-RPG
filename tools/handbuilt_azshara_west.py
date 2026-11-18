@@ -122,7 +122,8 @@ SPEC = E.Spec("West Azshara", W, H, ROADS, rivers=RIVERS, lakes=LAKES, deep_shri
               thicket=(0.70, 10.0, 2.3))
 
 #: Most of Azshara's quests are given in its two hubs (Kyle's ~70%); the open-world people come with the quest pass.
-NPC_POSITIONS = {}
+#: Valormok's last grunt (tools/build_sunreach_conclave.py writes him; docs/azshara_quest_plan.md)
+NPC_POSITIONS = {"az_valormok_grunt": (116, 172)}
 
 
 def fields(gx, gy):

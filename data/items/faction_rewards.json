@@ -2706,6 +2706,230 @@
       "icon_id": "gear_inv_bracer_18",
       "price": 460000,
       "faction": "timbermaw_hold"
+    },
+    "sc_sunreach_spellweave_robe": {
+      "name": "Sunreach Spellweave Robe",
+      "slot": "chest",
+      "item_level": 67,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 26
+      },
+      "secondary_stats": {
+        "spell_power": 59
+      },
+      "armor_value": 130,
+      "required_level": 60,
+      "sell_price": 82500,
+      "flavor_text": "Red and gold silk the Conclave brought by ship from Quel'Thalas, before there was no Quel'Thalas to sail from.",
+      "identity": "caster",
+      "icon_id": "gear_inv_shirt_02",
+      "price": 660000,
+      "faction": "sunreach_conclave"
+    },
+    "sc_dawnwatch_spaulders": {
+      "name": "Dawnwatch Spaulders",
+      "slot": "shoulder",
+      "item_level": 67,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 17
+      },
+      "secondary_stats": {
+        "healing_power": 76
+      },
+      "armor_value": 446,
+      "required_level": 60,
+      "sell_price": 77500,
+      "flavor_text": "Plate for the magisters' guards, chased with a sunburst that warms in the light.",
+      "identity": "plate_healer",
+      "icon_id": "gear_inv_shoulder_31",
+      "price": 620000,
+      "faction": "sunreach_conclave"
+    },
+    "sc_leystriders_boots": {
+      "name": "Leystrider's Boots",
+      "slot": "feet",
+      "item_level": 67,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 16,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "attack_power": 41
+      },
+      "armor_value": 152,
+      "required_level": 60,
+      "sell_price": 72500,
+      "flavor_text": "Soft boots for walking the leylines, soled with a leather that never quite touches the ground.",
+      "identity": "agility",
+      "icon_id": "gear_inv_boots_08",
+      "price": 580000,
+      "faction": "sunreach_conclave"
+    },
+    "sc_tidewarders_hauberk": {
+      "name": "Tidewarder's Hauberk",
+      "slot": "chest",
+      "item_level": 67,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 20
+      },
+      "secondary_stats": {
+        "healing_power": 90
+      },
+      "armor_value": 372,
+      "required_level": 60,
+      "sell_price": 85000,
+      "flavor_text": "Mail the Conclave's wardens wear on the coast, its rings blessed against the salt.",
+      "identity": "tide_healer",
+      "icon_id": "gear_inv_chest_chain_10",
+      "price": 680000,
+      "faction": "sunreach_conclave"
+    },
+    "sc_spellbreakers_vambraces": {
+      "name": "Spellbreaker's Vambraces",
+      "slot": "wrist",
+      "item_level": 67,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 23,
+        "strength": 9
+      },
+      "secondary_stats": {
+        "defense_rating": 18
+      },
+      "armor_value": 365,
+      "required_level": 60,
+      "sell_price": 60000,
+      "flavor_text": "Worn by the Spellbreakers who watch the Landing's gate, and the orcs who argue with them.",
+      "identity": "tank",
+      "icon_id": "gear_inv_bracer_07",
+      "price": 480000,
+      "faction": "sunreach_conclave"
+    },
+    "sc_sunreach_signet": {
+      "name": "Sunreach Signet",
+      "slot": "ring",
+      "item_level": 67,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "spell_power": 30,
+        "crit_chance_spell": 12
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 68750,
+      "flavor_text": "The Grand Magister's house mark, a sun rising over a line of sea.",
+      "identity": "caster_crit",
+      "icon_id": "gear_inv_jewelry_ring_33",
+      "price": 550000,
+      "faction": "sunreach_conclave"
+    },
+    "sc_staff_of_the_last_spire": {
+      "name": "Staff of the Last Spire",
+      "slot": "main_hand",
+      "item_level": 73,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "staff",
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 67
+      },
+      "secondary_stats": {
+        "spell_power": 151
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 400000,
+      "flavor_text": "Cut from the top of a spire that fell into the sea, and carried out of Quel'Thalas by the Grand Magister herself.",
+      "identity": "caster",
+      "icon_id": "gear_epic_staff_1",
+      "weapon_damage_min": 89,
+      "weapon_damage_max": 120,
+      "attack_speed": 3.2,
+      "block_value": 0,
+      "price": 3200000,
+      "faction": "sunreach_conclave"
+    },
+    "sc_dawnblade_of_the_conclave": {
+      "name": "Dawnblade of the Conclave",
+      "slot": "main_hand",
+      "item_level": 73,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "sword_1h",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 28
+      },
+      "secondary_stats": {
+        "attack_power": 74,
+        "crit_chance_physical": 28
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 375000,
+      "flavor_text": "A Spellbreaker's sword, made for the Conclave's champion. The Conclave hasn't chosen one yet.",
+      "identity": "strength_crit",
+      "icon_id": "gear_epic_sword_1h_3",
+      "weapon_damage_min": 162,
+      "weapon_damage_max": 219,
+      "attack_speed": 2.4,
+      "block_value": 0,
+      "price": 3000000,
+      "faction": "sunreach_conclave"
+    },
+    "sc_tome_of_the_sunken_court": {
+      "name": "Tome of the Sunken Court",
+      "slot": "off_hand",
+      "item_level": 73,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "tome",
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 21,
+        "spirit": 17
+      },
+      "secondary_stats": {
+        "healing_power": 93
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 343750,
+      "flavor_text": "Highborne court records the dig brought up, rebound in Conclave red. The magisters still argue about what's in it.",
+      "identity": "high_healer",
+      "icon_id": "gear_epic_tome_3",
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "price": 2750000,
+      "faction": "sunreach_conclave"
     }
   }
 }

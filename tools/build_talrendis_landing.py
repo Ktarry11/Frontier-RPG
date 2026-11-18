@@ -70,6 +70,22 @@ AMBIENT = {
     "tl_overseer": ("Overseer Durgash Stonejaw", "orc", M, 5, "down",
                     "Orgrimmar sent me to keep the dig honest. Everything that comes up out of the ground gets "
                     "counted twice, once by me and once by the elves, and the counts never match."),
+    # the quest pass's people (docs/azshara_quest_plan.md): they give the Landing's quests, so the two above don't have to
+    "tl_conclave_archivist": ("Magister Caelin Brightspire", "blood_elf", M, 2, "down",
+                              "I catalogue everything that comes out of the ground. The orcs catalogue it too, and "
+                              "then we compare lists, and then we argue about the lists."),
+    "tl_conclave_dig_magister": ("Magistrix Ysolde Emberwind", "blood_elf", F, 3, "right",
+                                 "There's a ward under this courtyard older than Silvermoon, and it's still awake. "
+                                 "Mind where you put your feet."),
+    "tl_salvage_boss": ("Salvage Boss Rukka Ironhide", "orc", F, 4, "down",
+                        "My crews do the lifting and the elves do the pointing. If you've got arms and you're not "
+                        "afraid of a ghost, I've got work."),
+    "tl_archaeologist": ("Dr. Amara Okafor", "human", F, 3, "down",
+                         "I dug Iron Age sites in Nigeria for twenty years and I've never seen anything like this. "
+                         "Both sides pay me, and both sides think I'm theirs. I'm the dig's."),
+    "tl_farseer": ("Farseer Thrag Windcaller", "orc", M, 5, "left",
+                   "The leylines under this coast are pulling toward the sea. The elves say that's fine. The spirits "
+                   "say it isn't."),
     "tl_sunreach_magister": ("Grand Magister Velanthe Sunreach", "blood_elf", F, 4, "down",
                              "Our ancestors lived on this coast before the Sundering, and now the sea is giving the "
                              "city back. The Conclave means to be standing on the shore when it does."),

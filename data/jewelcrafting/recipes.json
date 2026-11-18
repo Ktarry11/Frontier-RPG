@@ -6512,6 +6512,59 @@
       "sold_by": [
         "secret_hz_sunward_velaren"
       ]
+    },
+    "rep_sc_band_of_the_rising_sea": {
+      "name": "Band of the Rising Sea",
+      "inputs": {
+        "setting_necklace_thorium": 1,
+        "bar_thorium": 2,
+        "gem_azure_diamond": 4
+      },
+      "skill_required": 300,
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "stat_template": "int_caster",
+        "item_level": 73,
+        "rarity": "epic",
+        "material_tier": "thorium",
+        "identity": "arcane_crit",
+        "flavor": "A gold band set with a pearl the dig found in Zin-Azshari's silt.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": null,
+        "item": {
+          "name": "Band of the Rising Sea",
+          "slot": "ring",
+          "item_level": 73,
+          "rarity": "epic",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "arcane_spell_power": 62,
+            "crit_chance_spell": 20
+          },
+          "armor_value": 0,
+          "required_level": 60,
+          "sell_price": 29365,
+          "flavor_text": "A gold band set with a pearl the dig found in Zin-Azshari's silt.",
+          "identity": "arcane_crit",
+          "icon_id": "gear_inv_jewelry_talisman_03"
+        }
+      },
+      "skill_range": [
+        300,
+        305,
+        310,
+        315
+      ],
+      "source": "vendor",
+      "faction": "sunreach_conclave",
+      "_rare_ingredients_todo": true
     }
   }
 }

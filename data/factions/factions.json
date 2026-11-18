@@ -2302,6 +2302,208 @@
           "The Rotroot Deeps"
         ]
       }
+    },
+    "sunreach_conclave": {
+      "name": "The Sunreach Conclave",
+      "description": "Blood elf magisters reclaiming what their ancestors lost on the Azshara coast, now that the sea is giving Zin-Azshari back.",
+      "home_zone": "talrendis_landing",
+      "home_name": "Talrendis Landing, in Azshara (its field camp, until the Conclave has a home of its own)",
+      "leader": {
+        "title": "Grand Magister",
+        "name": "Velanthe Sunreach",
+        "npc_id": "tl_sunreach_magister",
+        "location": "The Conclave's tents on the lakeshore, Talrendis Landing",
+        "line": "I watched the last spires of Quel'Thalas fall into a sea that wasn't there the day before. I won't watch our history go the same way. I want it back, all of it, the good and the shameful."
+      },
+      "_lore_note": "Kyle, 17-18 Nov 2026: the Sunreach Conclave, its own TBC shelf, its leader quest-free and movable; 'Proud, fair magister'.",
+      "lore": [
+        "When the worlds merged, the sea came up over the last of Quel'Thalas's coast. The magisters who got out took ship south and found Azshara's shore rising instead: Zin-Azshari, the city their ancestors left ten thousand years ago, coming back up out of the water.",
+        "Grand Magister Velanthe Sunreach gathered them into the Conclave. They mean to be standing on the shore when the city comes back, to take back what was theirs before anyone else can, and to learn what their ancestors did to make the gods sink it.",
+        "They share Talrendis Landing with Orgrimmar's salvage crews, because the Warchief has the muscle and they have the magic. Neither side likes the arrangement, and both sides keep two lists of everything that comes out of the ground.",
+        "The Conclave is waiting for a home of its own. Until then the Grand Magister and her quartermaster keep the field camp on the lakeshore, and the Conclave's work goes through her magisters."
+      ],
+      "quest_rep": {
+        "_comment": "Per quest, by shape. Paid by giver (tools/build_azshara_quests.FACTION_BY_GIVER).",
+        "default": 325,
+        "boss": 350,
+        "capstones": {},
+        "zones": []
+      },
+      "kill_rep": {
+        "_comment": [
+          "Azshara's naga and drowned dead: 10 a kill to Honored. The Drowned Palace's trash: 10 a kill to Revered, since the Palace is the road past Honored."
+        ],
+        "creatures": {
+          "Ravencrest Shade": [
+            10,
+            "honored"
+          ],
+          "Eldarath Shade": [
+            10,
+            "honored"
+          ],
+          "Eldarath Construct": [
+            10,
+            "honored"
+          ],
+          "Stormbay Tidehunter": [
+            10,
+            "honored"
+          ],
+          "Stormbay Siren": [
+            10,
+            "honored"
+          ],
+          "Stormbay Myrmidon": [
+            10,
+            "honored"
+          ],
+          "Bitter Reaches Raider": [
+            10,
+            "honored"
+          ],
+          "Bitter Reaches Wavecaller": [
+            10,
+            "honored"
+          ],
+          "Bitter Reaches Brute": [
+            10,
+            "honored"
+          ],
+          "Promenade Noble": [
+            10,
+            "honored"
+          ],
+          "Promenade Handmaiden": [
+            10,
+            "honored"
+          ],
+          "Court Sentinel": [
+            10,
+            "honored"
+          ],
+          "Court Tormented": [
+            10,
+            "honored"
+          ],
+          "Court Naga Guard": [
+            10,
+            "honored"
+          ],
+          "Zin-Malor Priestess": [
+            10,
+            "honored"
+          ],
+          "Zin-Malor Warden": [
+            10,
+            "honored"
+          ],
+          "Zin-Malor Myrmidon": [
+            10,
+            "honored"
+          ],
+          "Zin-Azshari Myrmidon": [
+            10,
+            "revered"
+          ],
+          "Zin-Azshari Royal Guard": [
+            10,
+            "revered"
+          ],
+          "Zin-Azshari Siren": [
+            10,
+            "revered"
+          ],
+          "Zin-Azshari Tidecaller": [
+            10,
+            "revered"
+          ],
+          "Hydra Spawn": [
+            10,
+            "revered"
+          ],
+          "Drowned Highborne": [
+            10,
+            "revered"
+          ],
+          "Moonguard Sentinel": [
+            10,
+            "revered"
+          ],
+          "Highborne Spellbinder": [
+            10,
+            "revered"
+          ],
+          "Queen's Handmaiden": [
+            10,
+            "revered"
+          ],
+          "Tormented Courtier": [
+            10,
+            "revered"
+          ],
+          "Vault Hound": [
+            10,
+            "revered"
+          ],
+          "Arcane Sentry": [
+            10,
+            "revered"
+          ],
+          "Mana Wyrm": [
+            10,
+            "revered"
+          ],
+          "Ley Beast": [
+            10,
+            "revered"
+          ]
+        }
+      },
+      "dungeon_rep": {
+        "_comment": "A boss kill in the Drowned Palace pays 75 (tools/build_drowned_palace_content.py).",
+        "per_boss": 75,
+        "dungeons": [
+          "The Drowned Palace",
+          "The Drowned Palace: The Queen's Vault"
+        ]
+      },
+      "rewards": {
+        "vendor_stock": {
+          "tl_sunreach_quartermaster": {
+            "friendly": [
+              "mana_potion_supreme",
+              "healing_potion_supreme"
+            ],
+            "honored": [
+              "flask_mending",
+              "elixir_purple_lotus",
+              "tail_shadowsilk_case"
+            ],
+            "revered": [
+              "tail_bloodsilk_trunk",
+              "unique:sc_sunreach_spellweave_robe",
+              "unique:sc_dawnwatch_spaulders",
+              "unique:sc_leystriders_boots",
+              "unique:sc_tidewarders_hauberk",
+              "unique:sc_spellbreakers_vambraces",
+              "unique:sc_sunreach_signet"
+            ],
+            "exalted": [
+              "unique:sc_staff_of_the_last_spire",
+              "unique:sc_dawnblade_of_the_conclave",
+              "unique:sc_tome_of_the_sunken_court",
+              "rep_sc_sunreach_regalia",
+              "rep_sc_band_of_the_rising_sea"
+            ]
+          }
+        },
+        "_comment": [
+          "Gates, not a displayed ladder (the faction panel stays information only).",
+          "TBC-style shelves (tools/build_sunreach_conclave.py, 18 Nov 2026): friendly and honored supplies, revered six ilvl 67 blues, exalted three ilvl 73 epics and two epic recipes."
+        ],
+        "quests": {}
+      }
     }
   }
 }

@@ -150,7 +150,8 @@ SPEC = _Spec("East Azshara", W, H, ROADS, lakes=LAKES, deep_shrink=DEEP_SHRINK, 
              rim={"west": 6}, gaps=GAPS, thicket=(0.74, 10.0, 1.1))
 
 #: Most of Azshara's quests are given in its two hubs (Kyle's ~70%); the open-world people come with the quest pass.
-NPC_POSITIONS = {}
+#: Stormwatch's two (tools/build_sunreach_conclave.py writes them; docs/azshara_quest_plan.md)
+NPC_POSITIONS = {"az_stormwatch_captain": (88, 114), "az_stormwatch_ranger": (97, 113)}
 
 
 def fields(gx, gy):

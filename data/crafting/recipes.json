@@ -12739,6 +12739,58 @@
           "sold_by": [
             "secret_hz_sunward_velaren"
           ]
+        },
+        "rep_sc_sunreach_regalia": {
+          "name": "Sunreach Regalia",
+          "inputs": {
+            "bolt_voidweave": 16,
+            "thread_silken": 2
+          },
+          "skill_required": 300,
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "stat_template": "spi_healer",
+            "item_level": 73,
+            "rarity": "epic",
+            "material_tier": "voidweave",
+            "identity": "spirit_healer",
+            "flavor": "The Conclave's formal robes, cut the way the Highborne court cut them before the Sundering.",
+            "fixed_item_level": true,
+            "required_level": 60,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Sunreach Regalia",
+              "slot": "chest",
+              "item_level": 73,
+              "rarity": "epic",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 33,
+                "intellect": 33
+              },
+              "secondary_stats": {
+                "healing_power": 88
+              },
+              "armor_value": 179,
+              "required_level": 60,
+              "sell_price": 48942,
+              "flavor_text": "The Conclave's formal robes, cut the way the Highborne court cut them before the Sundering.",
+              "identity": "spirit_healer",
+              "icon_id": "gear_wow_chest_cloth_11_1"
+            }
+          },
+          "skill_range": [
+            300,
+            305,
+            310,
+            315
+          ],
+          "source": "vendor",
+          "faction": "sunreach_conclave",
+          "_rare_ingredients_todo": true
         }
       }
     },

@@ -108,6 +108,12 @@ NPC_POSITIONS = {
     "tl_sunreach_quartermaster": (21, 61),
     # the mess by the water
     "tl_provisioner":        (53, 64),
+    # the quest pass's people (tools/build_talrendis_landing.py, 18 Nov 2026; docs/azshara_quest_plan.md)
+    "tl_conclave_archivist": (34, 48),    # the Conclave's archivist, by the lakeshore tents
+    "tl_conclave_dig_magister": (58, 44), # the Conclave's magister on the dig's west edge
+    "tl_salvage_boss":       (72, 22),    # the orc crews' boss, on the high ground beside the Overseer
+    "tl_archaeologist":      (64, 30),    # the transplant archaeologist, in the dig itself
+    "tl_farseer":            (86, 30),    # the dig's shaman, off on his own where he can feel the leylines
 }
 CHESTS = []
 
