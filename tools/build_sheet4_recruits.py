@@ -70,7 +70,8 @@ def P(name, frm, **stats):
 
 
 KITS = {
-    "rhys_ranger": (P("She Came Through With Him", "'his hawk came through with him'", pet_damage=15, pet_health=15), [
+    # Kyle, 18 Nov 2026: "Drop Rhys to 10% damage and no hp" (it was +15% pet damage and +15% pet health).
+    "rhys_ranger": (P("She Came Through With Him", "'his hawk came through with him'", pet_damage=10), [
         A("rhys_ranger", "Flown at Weddings", "'Rhys flew hawks at weddings in the Brecon Beacons'",
           "live: summon_pet", "summon_pet", "self", 12, 0, 40, "Calls Tegan, his hawk, to fight beside him.",
           summon_pet_template="war_falcon"),
