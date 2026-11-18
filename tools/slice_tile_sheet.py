@@ -313,6 +313,26 @@ _set("azshara", 8, 6, "tools/tile_sheets/azshara_ground.png", "assets/tiles/azsh
 """, rows_y=[0, 209, 418, 627, 817, 1012, 1254])
 
 
+# DEADWIND PASS (docs/deadwind_art_prompts.md sheets 1 and 6, Kyle 18 Nov 2026). Both came back smaller than asked
+# (1536x1024 and 1448x1086) but on an even 8x6 grid, measured: no gutters, rows and columns even.
+_set("deadwind", 8, 6, "tools/building_sheets/deadwind_ground.png", "assets/tiles/deadwind/ground", """
+    dw_dead_floor dw_ash_floor dw_dead_grass dw_root_soil dw_mould_litter dw_dead_needles dw_cracked_earth dw_mud_path
+    dw_black_rock dw_scree dw_gorge_floor dw_rock_wall dw_broken_cobble dw_cart_ruts dw_grave_earth dw_grave_flags
+    dw_seep_cracks dw_glow_ash dw_slag_crust dw_stain_rings dw_ooze_mud dw_pustule_ground dw_rust_sludge dw_flesh_mat
+    dw_flesh_growth dw_black_veins dw_bruise_mould dw_bone_crust dw_sick_moss dw_glow_roots dw_web_floor dw_egg_floor
+    dw_shattered_time dw_aged_dust dw_stopped_water dw_rift_rock dw_echo_prints dw_black_glass dw_forsaken_path dw_camp_mud
+    dw_black_pond dw_toxic_water dw_brackish dw_dead_streambed dw_rust_water dw_cave_floor dw_cave_seep dw_cave_wall
+""")
+_set("deadwind_dungeon", 8, 6, "tools/building_sheets/deadwind_dungeon_tiles.png", "assets/tiles/fallout_zone", """
+    fz_gouged_rock fz_gravel fz_seep_rock fz_ash_earth fz_scorched_rock fz_rubble fz_rock_wall fz_seep_wall
+    fz_slag fz_stain_rings fz_ooze_stone fz_deep_ash fz_corroded fz_crystal_floor fz_slag_wall fz_ooze_pool
+    fz_flesh fz_flesh_stone fz_bone_mat fz_root_flesh fz_blisters fz_sinew fz_flesh_wall fz_bone_wall
+    fz_shattered fz_black_glass fz_echo_stone fz_stopped_water fz_aged_dust fz_light_cracks fz_glass_wall fz_stopped_wall
+    fz_fused fz_wound_tissue fz_eye_flesh fz_glow_veins fz_tar fz_bone_crystal fz_wound_wall fz_sunk_wall
+    fz_toxic_deep fz_toxic_shallow fz_black_water fz_rust_water fz_quiet_stone fz_ash_stone fz_iron_grate fz_tower_flags
+""")
+
+
 if __name__ == "__main__":
     pv = sys.argv[sys.argv.index("--preview") + 1] if "--preview" in sys.argv else None
     keys = [a for a in sys.argv[1:] if a in SETS] or list(SETS)

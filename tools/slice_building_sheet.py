@@ -335,6 +335,48 @@ _set("azshara_dungeons", 6, 6, "assets/creatures/_src/azshara", """
     vz_vault_door vz_artifact_pedestal vz_water_mirror vz_treasure_pile vz_ancient_well vz_queens_throne
     fr_boss_mossjaw fr_boss_sporeheart fr_boss_kazthul fr_boss_thornblight fr_boss_xavras fr_elite_guard
     vz_boss_ssiriss vz_boss_vashjren vz_boss_chamberlain vz_boss_elaria vz_boss_revenant vz_boss_echo_queen""")
+#: DEADWIND PASS (docs/deadwind_art_prompts.md sheets 2-5, 7 and 8, Kyle 18 Nov 2026). Sheet 7's 24 set pieces (the fz_
+#: props, not the bosses) move on to assets/tiles/dungeon_props when the Exclusion Zone is built.
+_set("deadwind_props", 6, 6, "assets/tiles/deadwind/props", """
+    dw_dead_tree dw_tumour_tree dw_dead_birches dw_fungus_log dw_thornbush dw_seep_boulder
+    dw_gravestone dw_graves dw_crypt dw_iron_fence dw_open_grave dw_rotted_angel
+    dw_ogre_hut dw_skull_totem dw_ogre_cookpot dw_ogre_palisade dw_ogre_banner dw_bone_heap
+    dw_wagon_wreck dw_horse_skeleton dw_rotted_signpost dw_stable_ruin dw_iron_lamp dw_black_well
+    dw_crow_perch dw_web_mass dw_web_cocoon dw_egg_sacs dw_bone_nest dw_split_tree
+    dw_quarantine_stake dw_warning_cairn dw_pyre_unlit dw_pyre_burned dw_sample_crate dw_rope_barrier""")
+_set("deadwind_anomalies", 6, 6, "assets/tiles/deadwind/props", """
+    dw_stopped_rockslide dw_stopped_crow dw_stopped_waterfall dw_stopped_fire dw_aged_tree dw_frozen_leaves
+    dw_echo_wagon dw_time_doorway dw_false_reflection dw_sundial dw_echo_fence dw_echo_cottage
+    dw_seep_pool dw_slag_crystals dw_fume_vent dw_ember_ash dw_dissolved_deer dw_ooze_cauldron
+    dw_tumour_growth dw_eye_mushrooms dw_flesh_pods dw_flesh_mass dw_teeth_flower dw_hand_roots
+    dw_rift_crack dw_floating_rock dw_glass_spire dw_broken_stones dw_bone_rock dw_air_tear
+    dw_carcass_heap dw_many_ribs dw_fused_ogre_tree dw_ogre_cocoon dw_glow_crater dw_shed_skin""")
+_set("deadwind_outpost", 6, 6, "assets/buildings", """
+    dw_inn dw_infirmary dw_command_house dw_laboratory dw_bat_roost dw_gatehouse
+    dw_barracks dw_quartermaster dw_sealed_store dw_watchtower dw_smithy dw_canvas_tent
+    dw_wash_trough dw_scrub_station dw_mask_rack dw_salt_barrel dw_burn_bin dw_sample_coffer
+    dw_great_pyre dw_body_cart dw_stretchers dw_body_sacks dw_ossuary dw_exam_table
+    dw_vial_rack dw_copper_still dw_map_table dw_names_board dw_quarantine_fence dw_fence_gate
+    dw_mess_table dw_lean_to dw_supply_stack dw_water_tank dw_signpost dw_candle_shrine""")
+_set("deadwind_creatures", 6, 6, "assets/creatures/_src/deadwind", """
+    dw_tumour_wolf dw_three_age_wolf dw_many_eyed_crow dw_pustule_boar dw_fused_bat dw_cage_deer
+    dw_ogre_brute dw_two_faced_ogre dw_sore_shaman dw_twice_ogre dw_chained_mauler dw_leaking_ogre
+    dw_echo dw_aged_walker dw_shard_wraith dw_many_moments dw_flicker_hound dw_stopped_soldier
+    dw_spectral_servant dw_spectral_stablehand dw_violet_armour dw_book_flock dw_arcane_anomaly dw_dancing_ghost
+    dw_slag_crawler dw_bloated_walker dw_fused_abomination dw_bone_ooze dw_many_arms dw_seep_wyrm
+    dw_widow dw_widow_hatchlings dw_broodmother dw_cave_burrower dw_cave_leech dw_mud_horror""")
+_set("deadwind_dungeon", 6, 6, "assets/creatures/_src/deadwind", """
+    fz_down_stair fz_barricade fz_dead_kit fz_crystal_pillar fz_collapsed_support fz_rune_stone
+    fz_slag_pool fz_fume_vent fz_slag_cluster fz_ooze_fall fz_carcass_heap fz_hanging_cage
+    fz_flesh_pillar fz_flesh_sac fz_eye_cluster fz_rib_arch fz_open_pod fz_bone_altar
+    fz_stopped_blast fz_glass_shard fz_floating_ring fz_air_tear fz_heart_mass fz_wound_pit
+    fz_boss_gristlemaw fz_boss_stopped_man fz_boss_vexis fz_boss_glow_eater fz_boss_archivist fz_boss_wound_heart
+    dw_boss_silk_mother dw_boss_drowned_thing dw_rare_three_heads dw_rare_wagon_driver dw_rare_moggrak dw_rare_crow_king""")
+_set("deadwind_landmarks", 3, 3, "assets/buildings", """
+    dw_ferris_wheel dw_dark_tower dw_stopped_avalanche
+    dw_broken_bridge dw_ogre_gate dw_great_crypt
+    dw_elder_tree dw_containment_spire dw_tunnel_mouth""")
+
 #: THE BANKS AND AUCTION HOUSES (docs/bank_auction_art_prompts.md, Kyle 17 Nov 2026): one grand bank (MerchantTusk's
 #: tusk-coin sign) and one grand auction house (the gavel and scales) in each of six styles.
 _set("bank_auction", 4, 3, "assets/buildings", """
