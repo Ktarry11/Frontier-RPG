@@ -1216,6 +1216,32 @@ class Ability:
             return self.ranks[self.current_rank_index + 1]["level_req"]
         return None
 
+    def reach_text(self):
+        """Who this lands on and how far it reaches, for the tooltip: "Ranged, one enemy", "Melee, the front row".
+        Kyle, 15 Nov 2026, for the battle screen's icons: hovering shows "the name, the damage, healing or potency
+        range, cast speed, cost and cooldown"; range here is the row rule (combat/rows.py), the one thing the old
+        tooltip never said. Worded from rows.reach_of and the target type, so it can't drift from what the engine
+        does."""
+        from combat.rows import reach_of, RANGED
+        tt = self.target_type
+        if tt == "self":
+            return "Yourself"
+        if tt == "pet":
+            return "Your pet"
+        if tt == "ally":
+            return "One ally"
+        if tt == "party":
+            n = getattr(self, "max_recipients", 0) or 0
+            return f"The {n} most hurt in your party" if n else "Your whole party"
+        ranged = reach_of(self) == RANGED
+        kind = "Ranged" if ranged else "Melee"
+        if tt == "all_enemies":
+            return f"{kind}, every enemy"
+        if tt == "enemy_aoe":
+            cap = f", up to {self.max_targets}" if getattr(self, "max_targets", None) else ""
+            return f"{kind}, a row of your choice{cap}" if ranged else f"{kind}, the front row{cap}"
+        return f"{kind}, any one enemy" if ranged else f"{kind}, one enemy in the front row"
+
     def get_tooltip_lines(self, caster=None):
         """Real hover-tooltip content for this ability, at its CURRENT rank.
 
@@ -1250,6 +1276,9 @@ class Ability:
         lines = []
         rank_suffix = f" (Rank {self.rank_number})" if len(self.ranks) > 1 else ""
         lines.append(f"{self.name}{rank_suffix}")
+        reach = self.reach_text()
+        if reach:
+            lines.append(reach)
 
         cost_bits = []
         if self.cost:
@@ -1427,7 +1456,10 @@ class Ability:
             "ally": "one ally",
             "party": "your whole party",
             "enemy": "one enemy",
-            "enemy_aoe": "all enemies",
+            # one row since the row rule (Kyle, 6 Nov; CombatEngine.execute_ability's enemy_aoe branch). This said
+            # "all enemies" two lines under a reach line saying "a row of your choice" (18 Nov 2026).
+            "enemy_aoe": "every enemy in one row",
+            "all_enemies": "every enemy",
         }.get(self.target_type, "the target")
         if self.is_aoe and self.target_type not in ("party", "enemy_aoe"):
             who = "all enemies"

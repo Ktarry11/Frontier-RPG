@@ -16,6 +16,24 @@ from ui.screens.base_screen import BaseScreen
 from ui.coin_format import format_coins
 
 
+
+class _ConsumableTip:
+    """A hotbar consumable seen through the ability tooltip (ui/ability_tooltip.py reads get_tooltip_lines). The
+    slot shows only the icon and the count, so the hover is where its name and what it does live."""
+
+    def __init__(self, consumable, actor=None):
+        self.consumable, self.actor = consumable, actor
+
+    def get_tooltip_lines(self, caster=None):
+        c = self.consumable
+        lines = [c.name, f"{c.quantity} in your bags"]
+        cd = getattr(self.actor, "consumable_cooldown", 0) or 0
+        if cd > 0:
+            lines.append(f"Ready in {cd} turn{'s' if cd != 1 else ''}")
+        if getattr(c, "description", ""):
+            lines.append(c.description)
+        return lines
+
 class CombatScreen(BaseScreen):
     """Combat screen with redesigned UI layout."""
     
@@ -226,6 +244,9 @@ class CombatScreen(BaseScreen):
     
     def _init_combat(self):
         """Initialize combat when entering screen."""
+        # A hover from the last fight isn't a hover in this one: its tooltip stayed up over the new bar until the
+        # mouse moved (found 18 Nov 2026 by tools/qa_hotbar_icons.py).
+        self.hovered_ability = None
         # Always create a fresh combat engine (fixes instant loss on new fight bug)
         player = self.state_manager.player
         enemy = self.state_manager.current_enemy
@@ -348,7 +369,10 @@ class CombatScreen(BaseScreen):
                 for i, rect in enumerate(rects):
                     if rect.collidepoint(event.pos):
                         slot_content = slots[i] if i < len(slots) else None
-                        if slot_content and not isinstance(slot_content, Consumable):
+                        if isinstance(slot_content, Consumable):
+                            # an icon has no name on it, so a potion says what it is on hover too
+                            self.hovered_ability = _ConsumableTip(slot_content, actor)
+                        elif slot_content:
                             self.hovered_ability = actor.ability_book.get_ability(slot_content)
                         hit = True
                         break
@@ -1003,6 +1027,102 @@ class CombatScreen(BaseScreen):
             out.append((hotkey, (rect.right - pad - w, rect.bottom - pad - glyph_h(font_s)), "small"))
         return out
 
+    # ------------------------------------------------------------------------------------------------------
+    # ICONS ON THE HOTBAR (Kyle, 15 Nov 2026: "ability icons on the combat hotbar instead of labelled boxes").
+    # The ability's own art fills the slot, the hotkey sits in its corner, and its state reads at a glance the
+    # way WoW's does: dark with the turns left in big numbers on cooldown, dark with "Form" when it needs another
+    # form, blue when you can't pay for it. The name, reach, cost, cast speed and cooldown are on hover
+    # (ui/ability_tooltip.py). An ability or consumable with no art keeps the old labelled box.
+    # ------------------------------------------------------------------------------------------------------
+    _ICON_DIRS = ("assets/icons/abilities", "assets/icons/talents", "assets/icons/coa", "assets/icons/consumables")
+    _icon_cache = {}
+
+    @classmethod
+    def _icon_surface(cls, keys, size):
+        """The first of `keys` with art on disk, scaled to size x size, or None."""
+        from pathlib import Path
+        for key in keys:
+            if not key:
+                continue
+            ck = (key, size)
+            if ck in cls._icon_cache:
+                if cls._icon_cache[ck] is not None:
+                    return cls._icon_cache[ck]
+                continue
+            surf = None
+            for d in cls._ICON_DIRS:
+                path = Path(d) / f"{key}.png"
+                if path.exists():
+                    try:
+                        img = pygame.image.load(str(path))
+                        img = img.convert_alpha() if pygame.display.get_surface() else img
+                        surf = pygame.transform.smoothscale(img, (size, size))
+                    except (pygame.error, ValueError):
+                        surf = None
+                    break
+            cls._icon_cache[ck] = surf
+            if surf is not None:
+                return surf
+        return None
+
+    def _ability_icon(self, ability, size):
+        return self._icon_surface((getattr(ability, "icon_id", None), getattr(ability, "ability_id", None)), size)
+
+    def _consumable_icon(self, consumable, size):
+        return self._icon_surface((getattr(consumable, "icon_id", None),), size)
+
+    def _draw_icon_slot(self, screen, rect, surf, ready=True, shade=None, big=None, small=None, count=None,
+                        hotkey=None):
+        """One icon slot. Returns False (drawing nothing) when there's no art, so the caller draws its label."""
+        if surf is None:
+            return False
+        inner = rect.inflate(-4, -4)
+        pygame.draw.rect(screen, (12, 12, 16), rect)
+        screen.blit(surf, inner.topleft)
+        if shade is None and not ready:
+            shade = (0, 0, 0, 165)
+        if shade:
+            veil = pygame.Surface(inner.size, pygame.SRCALPHA)
+            veil.fill(shade)
+            screen.blit(veil, inner.topleft)
+        hover = rect.collidepoint(pygame.mouse.get_pos())
+        border = COLOR_GOLD if hover else ((170, 170, 170) if ready else (90, 70, 70))
+        pygame.draw.rect(screen, border, rect, 2)
+
+        def text(value, font_size, colour, anchor, at):
+            font = self.renderer._get_font(font_size=font_size)
+            img = font.render(str(value), True, colour)
+            shadow = font.render(str(value), True, (0, 0, 0))
+            r = img.get_rect(**{anchor: at})
+            for dx, dy in ((1, 1), (-1, 1), (1, -1), (-1, -1)):
+                screen.blit(shadow, r.move(dx, dy))
+            screen.blit(img, r)
+
+        if big is not None:
+            text(big, 32, (255, 255, 255), "center", inner.center)
+        if small:
+            text(small, 14, (255, 120, 110), "midbottom", (inner.centerx, inner.bottom - 3))
+        if count is not None and count != 1:
+            text(count, 16, (255, 255, 255), "bottomright", (inner.right - 3, inner.bottom - 2))
+        if hotkey:
+            text(hotkey, 14, (220, 220, 255), "topleft", (inner.x + 3, inner.y + 2))
+        return True
+
+    def _draw_ability_icon_slot(self, screen, rect, ability, player, hotkey=None):
+        surf = self._ability_icon(ability, rect.w - 4)
+        if surf is None:
+            return False
+        big = small = shade = None
+        ready = ability.is_usable_by(player)
+        if not ability.is_available():
+            big = ability.turns_remaining
+        elif not ability.is_form_ready(player):
+            small = "Stance" if getattr(player, "current_stance", None) else "Form"
+        elif not ready and ability.is_form_ready(player) and ability.is_ranged_weapon_ready(player):
+            shade = (30, 50, 150, 120)          # can't pay for it: WoW's blue
+        return self._draw_icon_slot(screen, rect, surf, ready=ready, shade=shade, big=big, small=small,
+                                    hotkey=hotkey)
+
     def _draw_slot_label(self, screen, rect, name, sub=None, sub_color=None, hotkey=None):
         placed = self._fit_slot_label(rect, name, sub, hotkey)
         for i, (text, pos, size) in enumerate(placed):
@@ -1647,12 +1767,15 @@ class CombatScreen(BaseScreen):
                     else:
                         btn_color = (40, 60, 40)  # Green (ready)
                     
-                    pygame.draw.rect(screen, btn_color, rect)
-                    pygame.draw.rect(screen, COLOR_WHITE, rect, 1)
-                    
-                    self._draw_slot_label(screen, rect, consumable.name,
-                                          sub=f"x{consumable.quantity}", sub_color=COLOR_GOLD,
-                                          hotkey=self._hotbar_slot_to_key_label(i))
+                    if not self._draw_icon_slot(screen, rect, self._consumable_icon(consumable, rect.w - 4),
+                                                ready=player.consumable_cooldown <= 0,
+                                                count=consumable.quantity,
+                                                hotkey=self._hotbar_slot_to_key_label(i)):
+                        pygame.draw.rect(screen, btn_color, rect)
+                        pygame.draw.rect(screen, COLOR_WHITE, rect, 1)
+                        self._draw_slot_label(screen, rect, consumable.name,
+                                              sub=f"x{consumable.quantity}", sub_color=COLOR_GOLD,
+                                              hotkey=self._hotbar_slot_to_key_label(i))
                 else:
                     # It's an ability
                     ability_id = hotbar_content
@@ -1664,6 +1787,9 @@ class CombatScreen(BaseScreen):
                         pygame.draw.rect(screen, (90, 90, 90), rect, 1)
                         continue
 
+                    if self._draw_ability_icon_slot(screen, rect, ability, player,
+                                                    hotkey=self._hotbar_slot_to_key_label(i)):
+                        continue
                     # Button color based on availability - is_usable_by()
                     # also checks form-gating (Mangle-style abilities that
                     # require Bear/Cat Form), not just cooldown, so an
@@ -1673,10 +1799,10 @@ class CombatScreen(BaseScreen):
                         btn_color = (40, 60, 40)  # Dark green
                     else:
                         btn_color = (60, 40, 40)  # Dark red (on cooldown or wrong form)
-                    
+                
                     pygame.draw.rect(screen, btn_color, rect)
                     pygame.draw.rect(screen, COLOR_WHITE, rect, 1)
-                    
+                
                     # What goes under the name: the cooldown, the reason it cannot be cast,
                     # or its cost.
                     if not ability.is_available():
@@ -1725,14 +1851,19 @@ class CombatScreen(BaseScreen):
                 if isinstance(slot_content, _Consumable):
                     consumable = slot_content
                     btn_color = (60, 40, 40) if player.consumable_cooldown > 0 else (40, 60, 40)
-                    pygame.draw.rect(screen, btn_color, rect)
-                    pygame.draw.rect(screen, COLOR_WHITE, rect, 1)
-                    self._draw_slot_label(screen, rect, consumable.name,
-                                          sub=f"x{consumable.quantity}", sub_color=COLOR_GOLD)
+                    if not self._draw_icon_slot(screen, rect, self._consumable_icon(consumable, rect.w - 4),
+                                                ready=player.consumable_cooldown <= 0,
+                                                count=consumable.quantity):
+                        pygame.draw.rect(screen, btn_color, rect)
+                        pygame.draw.rect(screen, COLOR_WHITE, rect, 1)
+                        self._draw_slot_label(screen, rect, consumable.name,
+                                              sub=f"x{consumable.quantity}", sub_color=COLOR_GOLD)
                 else:
                     ability_id = slot_content
                     ability = player.ability_book.get_ability(ability_id)
-                    if ability:
+                    if ability and self._draw_ability_icon_slot(screen, rect, ability, player):
+                        pass
+                    elif ability:
                         btn_color = (40, 60, 40) if ability.is_usable_by(player) else (60, 40, 40)
                         pygame.draw.rect(screen, btn_color, rect)
                         pygame.draw.rect(screen, COLOR_WHITE, rect, 1)

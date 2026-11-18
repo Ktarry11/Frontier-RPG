@@ -78,11 +78,10 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - **Recruit kit text I changed** because the game has no such thing (the list in playtest_backlog_2026_11_10, group
   N): Kyle to veto any.
 - **Shelved by Kyle:** an hp5 tank (a tank built round health regeneration).
+- **Thunder Clap is single-target** in the data (found 18 Nov, when the hotbar tooltip started saying who an ability
+  hits). In WoW it hits everything near you. Kyle to say whether it should hit the front row.
 
 ## 5. UI
-- **Icons on the battle screen** (Kyle, 15 Nov: "the next UI item after classes"): ability icons on the combat hotbar
-  instead of labelled boxes. Hovering one shows the name, the damage, healing or potency range, cast speed, cost and
-  cooldown. Party buffs and debuffs as icons with hover text.
 - **Screen backgrounds** (Kyle, 14 Nov): a faint per-zone underlay inside the quest dialog (Barrens quests look
   Barrens), then the profession and Soul screens. It needs per-zone art prompts.
 - **Scroll wheel**: fixed on 14 Nov. Kyle to say if any screen still clicks on a wheel turn.
@@ -137,6 +136,13 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
   (82), enchanting EN1-EN4 (144) and recipe sheets RC2-RC3.
 - **The professions screen's own art**: tab art, frames and station art.
 - **Greater Heal and Chain Heal** need proper icons (stand-ins today).
+- **20 player abilities have no icon** (the combat hotbar shows their name instead, 18 Nov): Bloodbond (Bloodmage),
+  Borrowed Moments (Chronomancer), Remove Curse (Druid), Abolish Poison (Druid), Felbrand (Felsworn), Marching Song
+  (Guardian), Trueshot Aura (Hunter), Hellfire Ward (Knight of Xoroth), Remove Curse (Mage), Grave Wisdom
+  (Necromancer), Divine Spirit (Priest), Farstrider's Mark (Ranger), Cutthroat's Edge (Rogue), Cure Toxins (Shaman),
+  Moonwell's Blessing (Starcaller), Templar's Oath (Templar), Demonic Pact (Warlock), Commanding Shout (Warrior),
+  Spirit Fetish (Witch Doctor), Hunter's Ward (Witch Hunter). And two pairs share one picture on the same bar:
+  Rejuvenation and Swiftmend (Druid), Living Flame and Fire Blast (Mage).
 - **Walk cycles**: rolling out sheet by sheet by playable race (claude/walk_cycle_prompts.md).
 - **The recoloured T0 set versions** are plain hue turns (some gold sets come out lime). Kyle's eye.
 
