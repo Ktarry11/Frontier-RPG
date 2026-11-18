@@ -46,6 +46,21 @@ def whole_stats(primary_stats, secondary_stats, armor_value=0):
     return out[0], out[1], whole(armor)
 
 
+
+
+def _saved_price(data):
+    """A saved item's sell price. Quest rewards from before the price curve (16 Nov 2026) were saved at 0, which
+    the constructor reads as "deliberately worthless" (a recruit's kit, starting gear) and keeps, so they sold for
+    nothing forever. A 0 on a quest reward (the "unique_" id world/quest.build_unique_reward_set gives every one;
+    no authored reward carries an id of its own) loads as None, "price me", and the curve prices it. Recruit kits
+    have their own ids and stay at 0."""
+    price = data.get("sell_price", 0)
+    if price == 0:
+        item_id = str(data.get("item_id") or "")
+        if item_id.startswith("unique_"):
+            return None
+    return price
+
 class Item:
     """A single equippable item instance."""
 
@@ -375,7 +390,7 @@ class Item:
             bag_capacity=data.get("bag_capacity", 0),
             icon_id=data.get("icon_id"),
             required_level=data.get("required_level", 1),
-            sell_price=data.get("sell_price", 0),
+            sell_price=_saved_price(data),
             flavor_text=data.get("flavor_text", ""),
             set_id=data.get("set_id"),
             sockets=data.get("sockets", []),

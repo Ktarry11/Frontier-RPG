@@ -48,7 +48,39 @@ from world.portal_manager import PortalManager          # noqa: E402
 from world.zone_generator import create_all_zones       # noqa: E402
 
 #: Portals with no return trip that are deliberate. Anything else one-way gets reported.
-ONE_WAY_OK = set()
+#: A dungeon's last floor has a fast exit straight out to the zone (you walked in from the top), and the boat runs
+#: Booty Bay, Ratchet and the Crossing as a loop, with the ship's two cabins opening back onto its deck.
+ONE_WAY_OK = {
+    ("Hearthglen: Mardenholde Keep", "Western Plaguelands North"),
+    ("Scholomance: Lower Halls", "Western Plaguelands South"),
+    ("Stratholme: Slaughter Square", "Eastern Plaguelands West"),
+    ("The Drowned Palace: The Queen's Vault", "East Azshara"),
+    ("The Eldest's Crown", "Stonetalon West"),
+    ("The Exclusion Zone: The Foot", "Deadwind East"),
+    ("The Cistern", "Glittervein"),
+    ("Ratchet", "Booty Bay"), ("The Crossing", "Ratchet"),
+    ("The Captain's Cabin", "The Crossing"), ("The Raider's Hold", "The Crossing"),
+}
+
+
+def secret_entered():
+    """Maps whose way in is a secret door (data/world/secrets.json, opened by world/secrets.py) or a hidden zone's
+    entry (data/world/hidden_zones.json), not a portal. Their way out is a portal, so the registry sees a one-way
+    link, and that is the design: the door is found, not listed. Nothing here is printed."""
+    import json
+    out = set()
+    try:
+        sec = json.loads((ROOT / "data/world/secrets.json").read_text(encoding="utf-8"))["secrets"]
+        for e in (sec.values() if isinstance(sec, dict) else sec):
+            if isinstance(e.get("door"), dict) and e["door"].get("to"):
+                out.add(e["door"]["to"])
+    except (OSError, ValueError, KeyError):
+        pass
+    try:
+        out |= set(json.loads((ROOT / "data/world/hidden_zones.json").read_text(encoding="utf-8"))["zones"])
+    except (OSError, ValueError, KeyError):
+        pass
+    return out
 
 
 def nearest_walkable(zone, x, y, rad=12):
@@ -157,7 +189,8 @@ def main():
 
     # ---- 6: one-way links
     print("\n== return trips")
-    oneway = [(a, b) for (a, b) in links if (b, a) not in links and (a, b) not in ONE_WAY_OK]
+    hidden = secret_entered()
+    oneway = [(a, b) for (a, b) in links if (b, a) not in links and (a, b) not in ONE_WAY_OK and a not in hidden]
     print(f"  {len(links)} links, {len(oneway)} with no return trip")
     for a, b in sorted(oneway):
         print(f"  one-way: {a} -> {b}  (no portal back)")

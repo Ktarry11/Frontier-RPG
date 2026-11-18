@@ -213,9 +213,14 @@ def budget_ratio(item, mods=None):
 # budget stat by target / ratio puts the item exactly on the line and keeps its stat mix. Weapon damage, speed
 # and armour are not budget stats and don't move.
 # ---------------------------------------------------------------------------------------------------------
+#: the smallest rating an item carries, 0.5% (Kyle, 14 Nov: "No rating under 5 points"; tools/rating_pass.py MIN_RATING)
+MIN_RATING = 5
+
+
 def fit_to_curve(item, target=1.0):
     """Scale an item's budget stats in place so budget_ratio(item) is about `target`. Returns (before, after),
     or None when the item is off the table or has no priced stat to scale."""
+    from entities.power_scale import RATING_KEYS
     before = budget_ratio(item)
     if not before:
         return None
@@ -226,7 +231,11 @@ def fit_to_curve(item, target=1.0):
             if amount is None or amount <= 0:
                 continue
             v = amount * f
-            if isinstance(amount, int) or float(amount).is_integer():
+            if stat in RATING_KEYS:
+                # A rating is whole points and never under 5 (0.5%), Kyle's floor (14 Nov), however the scale lands:
+                # a scaled 5.9 Parry Rating or 4 Defense Rating reads as a leftover percent (tools/qa_rating_stats.py).
+                stats[stat] = max(MIN_RATING, int(round(v)))
+            elif isinstance(amount, int) or float(amount).is_integer():
                 stats[stat] = max(1, int(round(v)))
             else:
                 stats[stat] = round(v, 1)

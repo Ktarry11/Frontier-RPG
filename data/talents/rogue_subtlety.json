@@ -415,7 +415,7 @@
     {
       "talent_id": "rogue_subtlety_enveloping_shadows",
       "name": "Enveloping Shadows",
-      "description": "Shadows cling to you, increasing dodge by 2% per rank.",
+      "description": "Shadows cling to you, increasing dodge by 1% per rank.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -423,9 +423,9 @@
       "hex_x": -3,
       "hex_y": 2,
       "effects": {
-        "dodge": 2.0
+        "dodge": 1.0
       },
-      "_source": "WotLK row 6, NEW to our tree: 'Reduces the damage taken by area of effect attacks by 10%/20%/30%.' DEPARTURE - there is no aoe_damage_taken_pct key anywhere in this engine. Probed with tools/probe_talent_key.py: it reaches the talent bus and nothing reads it, and grep finds zero read sites, so authoring it would have been silent dead data. Delivered as raw dodge instead - general avoidance rather than AoE-specific mitigation, which is a real loss and is recorded as one.",
+      "_source": "WotLK row 6, NEW to our tree: 'Reduces the damage taken by area of effect attacks by 10%/20%/30%.' DEPARTURE - there is no aoe_damage_taken_pct key anywhere in this engine. Probed with tools/probe_talent_key.py: it reaches the talent bus and nothing reads it, and grep finds zero read sites, so authoring it would have been silent dead data. Delivered as raw dodge instead - general avoidance rather than AoE-specific mitigation, which is a real loss and is recorded as one. 18 Nov 2026: 1% a rank, was 2%. With Fleet Footed and Lightning Reflexes a geared rogue reached the 50% dodge plus parry cap by level 50 (tools/audit_avoidance_and_crit.py).",
       "connected_to": [
         "rogue_subtlety_master_of_subtlety"
       ]

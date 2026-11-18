@@ -12,6 +12,10 @@ How this file works:
   (quest voice, heal formula, stun diminishing, vendor levels, the Plaguelands dungeons) aren't here. Those older
   files are history now.
 - **Secrets are counts and names only, never where**, the same rule as everywhere else.
+- **Check it's still open before fixing it** (Kyle, 18 Nov: "Update fixed things so they don't get fixed 50 times").
+  Re-measure an item before starting on it, and the moment it's fixed or found already fixed, it comes off here in
+  the same commit and goes on `docs/backlog_fixed.md` with what fixed it and the check that now guards it. Look
+  there first: if it's listed, it's done.
 
 ---
 
@@ -67,7 +71,6 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 ## 4. Classes, combat and balance
 - **Tanks on the new armour curve**: the caster/tank shield split isn't built; tank abilities and block, dodge and
   parry haven't been re-tuned to carry more of the load. Look at it once Kyle has played a tank.
-- **Dodge plus parry on an Agility rogue** still reaches the 50% combined cap at 60 (the target was under 40%).
 - **Primalist talents**: 18 talents point at abilities unlocked in another tree (`validate_class`). Kyle: "hold off on
   for now."
 - **Runemaster**: the kit went from 63 abilities to 39 in the refine pass. Kyle to say whether it now plays smoothly
@@ -82,11 +85,11 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
   cooldown. Party buffs and debuffs as icons with hover text.
 - **Screen backgrounds** (Kyle, 14 Nov): a faint per-zone underlay inside the quest dialog (Barrens quests look
   Barrens), then the profession and Soul screens. It needs per-zone art prompts.
-- **Combat log**: an "(as Frost)" note on hits a rune converted to another element.
 - **Scroll wheel**: fixed on 14 Nov. Kyle to say if any screen still clicks on a wheel turn.
 
 ## 6. Quests and writing
-- **22 SILENT direction findings** (outside Stonetalon): the text names no direction for a far target.
+- **Quest directions** (`tools/audit_quest_directions.py --all`, re-measured 18 Nov): 8 WRONG (the text points the wrong
+  way) and 32 SILENT (a far target with no direction or place name). In progress.
 - **Quest mail** (designed with Kyle on 15 Nov, parked behind the Plaguelands): follow-ups, mail-start quests,
   thank-you rewards, hidden chains with no hints. A draft module exists (see the auction house build log).
 - **New chains that connect zones and build to something** (left over from [37]).
@@ -102,23 +105,18 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
   Bay to Ratchet boat (deck, rigging, the sea round it).
 - **33 authored pieces still missing from their maps** (measured 17 Nov): not a restore list. Only put back what a
   town of that size needs (`qa_authored_pieces_appear` lists them).
-- **Ragefire Chasm** has an NPC tile at (100,100), inside solid rock, that no data file accounts for. Cause not found.
 - **Fourth Peg**: look again at what was ugly round the old camp ground on the Abyssal Sands now that the town is
   its own map.
-- **Southshore's QA leftovers**: verify_portals' one-way links to hidden maps, and qa_hillsbrad_quests (the giver of
-  arw_through_the_wall, tarren_mill_flight_master, has no spot in Tarren Mill's layout).
+- **verify_portals: 21 portal tiles aren't walkable** (found 18 Nov). Not yet checked whether those portals fire
+  from the tile beside them, which would make it a stale check rather than a bug.
 - **Glittervein** (Kyle to look): the rim is a big ring of nearly empty sand, and the cliff texture's repeat shows
   when the whole zone is on screen.
 
 ## 8. Items, gear and economy
-- **A QA check that no hand-authored item carries a percentage rating stat** (the ratings conversion is done; the
-  guard isn't).
 - **Gear sets** (parked by Kyle): 6-piece and 8-piece bonuses, drop tables for the T0 sets (waiting on the 50-60
   dungeons), T0.5, and 3- and 5-piece sets.
 - **Isle epics** are in the global pool, not isle-only. Fire resistance gear waits on the player-side resistance
   rescale (resistance_player_side_rescale_PENDING).
-- **Crafted intermediates** (scopes, pages, kits) aren't on the material price curve. Price them from their recipes.
-- **Old saves**: quest-reward gear in a save from before the price curve keeps a 0 sell price.
 
 ## 9. Crafting
 - **Upgrading found gear with your trade** (crafting_raid_upgrades_BACKLOG, Kyle and his friend, 16-17 Nov). The

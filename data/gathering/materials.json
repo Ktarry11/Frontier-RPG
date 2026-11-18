@@ -429,7 +429,7 @@
       "tier": "kit",
       "description": "A set of fine tools and polish, used to refine any Copper-tier crafted item up one rarity rank. Only works on Blacksmithed Copper gear.",
       "stack_limit": 20,
-      "sell_price": 15,
+      "sell_price": 66,
       "icon_id": "upgrade_kit_copper",
       "skill_range": null,
       "_source": "Kyle, Oct 2026: 'crafting upgrade kits..like a copper upgrade kit let's me upgrade a normal item from normal to improved to refined which boosts stats' - refined into 'white will improve to green with kits, green to blue' (reusing the existing rarity ladder rather than a new tier system) + 'only crafted' (gated to is_crafted items). Later corrected again: 'You use the same kit twice. Like copper kit only upgrades copper stuff' - a kit matches an item by its material_tier tag (entities/item.py, world/upgrade_manager.py), not by a fixed rarity jump, and the SAME Copper kit is used again for the item's next rank once more copper gear exists past Rare. skill_range is null (not a gathered material, never greys out/has nothing to teach - no skill-up relevance at all)."
@@ -441,7 +441,7 @@
       "tier": "kit",
       "description": "A costlier set of tools built for working Bronze, used to refine any Bronze-tier crafted item up one rarity rank. Only works on Blacksmithed Bronze gear.",
       "stack_limit": 20,
-      "sell_price": 35,
+      "sell_price": 554,
       "icon_id": "upgrade_kit_bronze",
       "skill_range": null,
       "_source": "Replaces an earlier, incorrect 'Silver Upgrade Kit' (tied to a fixed common->uncommon/uncommon->rare JUMP rather than a material) after Kyle's correction above. Bronze is the only other material_tier real gear exists for right now (Rough Bronze Cuirass/Leggings - data/blacksmithing/recipes.json); a Silver kit has nothing to target since no recipe produces Silver-tier gear yet. Kyle, Oct 2026: 'let's just start with copper and bronze to lvl 75 to test the system' (40 total ores/herbs exist, more material tiers of both kits and gear are coming later - this is deliberately scoped to just the two tiers that already have real recipes). Costs 35 (vs Copper's 15) reflecting 'the cost grows the higher rank materials.'"
@@ -677,7 +677,7 @@
       "tier": "early",
       "description": "Stringy fibre rasped from soft planks. Good for bowstrings and cordage.",
       "stack_limit": 20,
-      "sell_price": 3,
+      "sell_price": 9,
       "icon_id": "fiber_coarse",
       "skill_range": null
     },
@@ -688,7 +688,7 @@
       "tier": "early",
       "description": "Long, pliable fibres. Strong enough for a longbow.",
       "stack_limit": 20,
-      "sell_price": 6,
+      "sell_price": 13,
       "icon_id": "fiber_supple",
       "skill_range": null
     },
@@ -699,7 +699,7 @@
       "tier": "mid",
       "description": "Wiry fibre pulled from heartwood. It will not snap.",
       "stack_limit": 20,
-      "sell_price": 11,
+      "sell_price": 38,
       "icon_id": "fiber_tough",
       "skill_range": null
     },
@@ -710,7 +710,7 @@
       "tier": "early",
       "description": "Thin wood-pulp sheets, pressed flat. Ink bleeds a little.",
       "stack_limit": 20,
-      "sell_price": 3,
+      "sell_price": 9,
       "icon_id": "pages_rough",
       "skill_range": null
     },
@@ -721,7 +721,7 @@
       "tier": "early",
       "description": "Smooth, tightly pressed pages that take ink well.",
       "stack_limit": 20,
-      "sell_price": 6,
+      "sell_price": 13,
       "icon_id": "pages_pressed",
       "skill_range": null
     },
@@ -732,7 +732,7 @@
       "tier": "mid",
       "description": "Pale, durable pages fit for a scholar's tome.",
       "stack_limit": 20,
-      "sell_price": 11,
+      "sell_price": 38,
       "icon_id": "pages_fine",
       "skill_range": null
     },
@@ -839,7 +839,7 @@
       "tier": "kit",
       "description": "Needles and fine thread, used to refine any Linen-tier crafted item up one rarity rank. Only works on Tailored Linen gear.",
       "stack_limit": 20,
-      "sell_price": 22,
+      "sell_price": 53,
       "icon_id": "upgrade_kit_linen",
       "skill_range": null
     },
@@ -850,7 +850,7 @@
       "tier": "kit",
       "description": "A tailor's heavier kit for Wool-tier crafted items. Only works on Tailored Wool gear.",
       "stack_limit": 20,
-      "sell_price": 48,
+      "sell_price": 75,
       "icon_id": "upgrade_kit_wool",
       "skill_range": null
     },
@@ -861,7 +861,7 @@
       "tier": "kit",
       "description": "Silver needles and silk thread for Silk-tier crafted items. Only works on Tailored Silk gear.",
       "stack_limit": 20,
-      "sell_price": 95,
+      "sell_price": 220,
       "icon_id": "upgrade_kit_silk",
       "skill_range": null
     },
@@ -872,7 +872,7 @@
       "tier": "kit",
       "description": "Rasps, oils and a little glue, used to refine any Ashwood-tier crafted item up one rarity rank. Only works on Woodworked early-tier gear.",
       "stack_limit": 20,
-      "sell_price": 22,
+      "sell_price": 55,
       "icon_id": "upgrade_kit_ashwood",
       "skill_range": null
     },
@@ -883,7 +883,7 @@
       "tier": "kit",
       "description": "Heavier tools for dense timber, used to refine any Ironbark-tier crafted item up one rarity rank. Only works on Woodworked mid-tier gear.",
       "stack_limit": 20,
-      "sell_price": 60,
+      "sell_price": 238,
       "icon_id": "upgrade_kit_ironbark",
       "skill_range": null
     },
@@ -2718,7 +2718,7 @@
       "tier": "kit",
       "icon_id": "upgrade_kit_scrap",
       "description": "Crude patches and rough cord. Refines Scrap-tier crafted leather gear up one rarity rank.",
-      "sell_price": 12,
+      "sell_price": 44,
       "skill_range": null
     },
     "upgrade_kit_light": {
@@ -2728,7 +2728,7 @@
       "tier": "kit",
       "icon_id": "upgrade_kit_light",
       "description": "Needle and waxed thread for Light-tier crafted leather gear.",
-      "sell_price": 22,
+      "sell_price": 44,
       "skill_range": null
     },
     "upgrade_kit_medium": {
@@ -2738,7 +2738,7 @@
       "tier": "kit",
       "icon_id": "upgrade_kit_medium",
       "description": "Heavier tools for Medium-tier crafted leather gear.",
-      "sell_price": 38,
+      "sell_price": 902,
       "skill_range": null
     },
     "upgrade_kit_heavy": {
@@ -2748,7 +2748,7 @@
       "tier": "kit",
       "icon_id": "upgrade_kit_heavy",
       "description": "Rivets and awl for Heavy-tier crafted leather gear.",
-      "sell_price": 55,
+      "sell_price": 1531,
       "skill_range": null
     },
     "upgrade_kit_thick": {
@@ -2758,7 +2758,7 @@
       "tier": "kit",
       "icon_id": "upgrade_kit_thick",
       "description": "Reinforced tools for Thick-tier crafted mail gear.",
-      "sell_price": 75,
+      "sell_price": 2222,
       "skill_range": null
     },
     "upgrade_kit_rugged": {
@@ -2768,7 +2768,7 @@
       "tier": "kit",
       "icon_id": "upgrade_kit_rugged",
       "description": "Master craftwork tools for Rugged-tier crafted mail gear.",
-      "sell_price": 95,
+      "sell_price": 4475,
       "skill_range": null
     },
     "upgrade_kit_fiendish": {
@@ -2778,7 +2778,7 @@
       "tier": "kit",
       "icon_id": "upgrade_kit_fiendish",
       "description": "Rare tools for Fiendish-tier crafted mail gear.",
-      "sell_price": 130,
+      "sell_price": 2178,
       "skill_range": null
     },
     "upgrade_kit_light_armor": {
@@ -2788,7 +2788,7 @@
       "tier": "kit",
       "icon_id": "upgrade_kit_light_armor",
       "description": "Stitched leather padding. Adds 6 armor to a chest, legs, gloves or boots. Read it on with the Enchant button in your bags; it replaces any enchantment already there.",
-      "sell_price": 8,
+      "sell_price": 16,
       "skill_range": null
     },
     "upgrade_kit_medium_armor": {
@@ -2798,7 +2798,7 @@
       "tier": "kit",
       "icon_id": "upgrade_kit_medium_armor",
       "description": "Layered leather panels. Adds 19 armor to a chest, legs, gloves or boots. Read it on with the Enchant button in your bags; it replaces any enchantment already there.",
-      "sell_price": 18,
+      "sell_price": 361,
       "skill_range": null
     },
     "upgrade_kit_thick_armor": {
@@ -2808,7 +2808,7 @@
       "tier": "kit",
       "icon_id": "upgrade_kit_thick_armor",
       "description": "Dense plates of thick leather riveted together. Adds 36 armor to a chest, legs, gloves or boots. Read it on with the Enchant button in your bags; it replaces any enchantment already there.",
-      "sell_price": 32,
+      "sell_price": 1111,
       "skill_range": null
     },
     "upgrade_kit_rough_iron": {
@@ -2818,7 +2818,7 @@
       "tier": "kit",
       "icon_id": "upgrade_kit_rough_iron",
       "description": "Iron shims and files for Rough Iron-tier crafted gear.",
-      "sell_price": 38,
+      "sell_price": 185,
       "skill_range": null
     },
     "upgrade_kit_steel": {
@@ -2828,7 +2828,7 @@
       "tier": "kit",
       "icon_id": "upgrade_kit_steel",
       "description": "Precision tools for Steel-tier crafted gear.",
-      "sell_price": 65,
+      "sell_price": 2039,
       "skill_range": null
     },
     "upgrade_kit_cotton": {
@@ -2838,7 +2838,7 @@
       "tier": "kit",
       "icon_id": "upgrade_kit_cotton",
       "description": "Tailor's kit for Cotton-tier crafted cloth gear.",
-      "sell_price": 18,
+      "sell_price": 110,
       "skill_range": null
     },
     "upgrade_kit_hempen": {
@@ -2848,7 +2848,7 @@
       "tier": "kit",
       "icon_id": "upgrade_kit_hempen",
       "description": "Tailor's kit for Hempen-tier crafted cloth gear.",
-      "sell_price": 28,
+      "sell_price": 127,
       "skill_range": null
     },
     "upgrade_kit_mageweave": {
@@ -2858,7 +2858,7 @@
       "tier": "kit",
       "icon_id": "upgrade_kit_mageweave",
       "description": "Fine tailor's kit for Mageweave-tier crafted cloth gear.",
-      "sell_price": 55,
+      "sell_price": 352,
       "skill_range": null
     },
     "upgrade_kit_runecloth": {
@@ -2868,7 +2868,7 @@
       "tier": "kit",
       "icon_id": "upgrade_kit_runecloth",
       "description": "Master tailor's kit for Runecloth-tier crafted cloth gear.",
-      "sell_price": 90,
+      "sell_price": 1155,
       "skill_range": null
     },
     "vial_empty": {
@@ -3217,7 +3217,7 @@
       "description": "Iron shims, rivets and a tin of grinding paste. Reworks iron-forged gear into something a smith will admit to having made.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 30,
+      "sell_price": 1201,
       "icon_id": "upgrade_kit_iron",
       "skill_range": null
     },
@@ -3314,7 +3314,7 @@
       "description": "Azure crystal shims and a wound coil. Re-tunes crystal-bound gear until it sings true.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 40,
+      "sell_price": 396,
       "icon_id": "upgrade_kit_resonant",
       "skill_range": null
     },
@@ -3326,7 +3326,7 @@
       "description": "Twenty-odd bolts, near enough the same size.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 2,
+      "sell_price": 11,
       "icon_id": "copper_bolts",
       "skill_range": null
     },
@@ -3338,7 +3338,7 @@
       "description": "Drawn and seamed by hand. The seam is the weak point.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 2,
+      "sell_price": 22,
       "icon_id": "copper_tube",
       "skill_range": null
     },
@@ -3350,7 +3350,7 @@
       "description": "Cut to the shoulder, sanded, not yet fitted.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 3,
+      "sell_price": 18,
       "icon_id": "wooden_stock",
       "skill_range": null
     },
@@ -3362,7 +3362,7 @@
       "description": "Strikes a spark nine times in ten.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 3,
+      "sell_price": 20,
       "icon_id": "flint_striker",
       "skill_range": null
     },
@@ -3374,7 +3374,7 @@
       "description": "A coil and a cage. Smooths a mote's output into something usable.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 4,
+      "sell_price": 32,
       "icon_id": "copper_modulator",
       "skill_range": null
     },
@@ -3386,7 +3386,7 @@
       "description": "Ground, polished, and checked against the sun.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 5,
+      "sell_price": 18,
       "icon_id": "glass_lens",
       "skill_range": null
     },
@@ -3398,7 +3398,7 @@
       "description": "The skeleton most of the bigger work is built onto.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 7,
+      "sell_price": 158,
       "icon_id": "bronze_framework",
       "skill_range": null
     },
@@ -3410,7 +3410,7 @@
       "description": "Seamless, unlike its copper predecessor. Holds pressure.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 8,
+      "sell_price": 158,
       "icon_id": "bronze_tube",
       "skill_range": null
     },
@@ -3422,7 +3422,7 @@
       "description": "Wound tight and tempered. Do not uncage it on the bench.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 8,
+      "sell_price": 79,
       "icon_id": "coiled_spring",
       "skill_range": null
     },
@@ -3434,7 +3434,7 @@
       "description": "Meshed, oiled, and turning true.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 9,
+      "sell_price": 245,
       "icon_id": "gear_assembly",
       "skill_range": null
     },
@@ -3446,7 +3446,7 @@
       "description": "Two lenses and a tube. The beginning of a scope.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 10,
+      "sell_price": 119,
       "icon_id": "sight_glass",
       "skill_range": null
     },
@@ -3458,7 +3458,7 @@
       "description": "Crystal wound in wire. Hums when something nearby does.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 11,
+      "sell_price": 99,
       "icon_id": "azure_coil",
       "skill_range": null
     },
@@ -3470,7 +3470,7 @@
       "description": "Heavy, plain, and strong enough to contain a mistake.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 13,
+      "sell_price": 601,
       "icon_id": "iron_casing",
       "skill_range": null
     },
@@ -3482,7 +3482,7 @@
       "description": "Bored straight, which is harder than it sounds.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 15,
+      "sell_price": 774,
       "icon_id": "steel_barrel",
       "skill_range": null
     },
@@ -3494,7 +3494,7 @@
       "description": "Hair-fine. Engineers carry these in a padded tin.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 16,
+      "sell_price": 507,
       "icon_id": "unstable_trigger",
       "skill_range": null
     },
@@ -3506,7 +3506,7 @@
       "description": "Etched with range marks nobody has verified.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 18,
+      "sell_price": 558,
       "icon_id": "precision_sight",
       "skill_range": null
     },
@@ -3518,7 +3518,7 @@
       "description": "The crystal and the essence finally agreeing to work together.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 19,
+      "sell_price": 188,
       "icon_id": "resonant_core",
       "skill_range": null
     },
@@ -3530,7 +3530,7 @@
       "description": "Keeps umbral essence doing what it is told. Mostly.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 23,
+      "sell_price": 800,
       "icon_id": "void_regulator",
       "skill_range": null
     },
@@ -3542,7 +3542,7 @@
       "description": "Fits to a gun or crossbow. Steadier than a squint.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 9,
+      "sell_price": 42,
       "icon_id": "scope_crude",
       "skill_range": null
     },
@@ -3554,7 +3554,7 @@
       "description": "Fits to a gun or crossbow. Steadier than a squint.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 18,
+      "sell_price": 289,
       "icon_id": "scope_standard",
       "skill_range": null
     },
@@ -3566,7 +3566,7 @@
       "description": "Fits to a gun or crossbow. Steadier than a squint.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 28,
+      "sell_price": 1014,
       "icon_id": "scope_precision",
       "skill_range": null
     },
@@ -3578,7 +3578,7 @@
       "description": "Fits to a gun or crossbow. Steadier than a squint.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 35,
+      "sell_price": 867,
       "icon_id": "scope_resonant",
       "skill_range": null
     },
@@ -3590,7 +3590,7 @@
       "description": "A shaped horn tip that seats the string true. Stops the limb fraying itself.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 7,
+      "sell_price": 19,
       "icon_id": "nock_horn",
       "skill_range": null
     },
@@ -3602,7 +3602,7 @@
       "description": "Three woods glued against the grain. Springs back harder than any one of them would.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 16,
+      "sell_price": 106,
       "icon_id": "limbs_laminated",
       "skill_range": null
     },
@@ -3614,7 +3614,7 @@
       "description": "A filed brass pin set above the grip. Takes the guesswork out of a long shot.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 26,
+      "sell_price": 160,
       "icon_id": "pin_truesight",
       "skill_range": null
     },
@@ -3626,7 +3626,7 @@
       "description": "Cut from the dense centre of an ironbark. Heavy to draw, brutal to be hit by.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 35,
+      "sell_price": 200,
       "icon_id": "limbs_heartwood",
       "skill_range": null
     },
@@ -5845,7 +5845,7 @@
       "tier": "kit",
       "icon_id": "upgrade_kit_cragscale",
       "description": "Reinforced tools for Cragscale-tier crafted gear.",
-      "sell_price": 75,
+      "sell_price": 154,
       "skill_range": null
     },
     "upgrade_kit_stormscale": {
@@ -5855,7 +5855,7 @@
       "tier": "kit",
       "icon_id": "upgrade_kit_stormscale",
       "description": "Reinforced tools for Stormscale-tier crafted gear.",
-      "sell_price": 75,
+      "sell_price": 319,
       "skill_range": null
     },
     "upgrade_kit_stonebound": {
@@ -5865,7 +5865,7 @@
       "tier": "kit",
       "icon_id": "upgrade_kit_stonebound",
       "description": "Reinforced tools for Stonebound-tier crafted gear.",
-      "sell_price": 75,
+      "sell_price": 539,
       "skill_range": null
     },
     "upgrade_kit_spidersilk": {
@@ -5875,7 +5875,7 @@
       "tier": "kit",
       "icon_id": "upgrade_kit_spidersilk",
       "description": "Reinforced tools for Spidersilk-tier crafted gear.",
-      "sell_price": 75,
+      "sell_price": 352,
       "skill_range": null
     },
     "upgrade_kit_dusk_velvet": {
@@ -5885,7 +5885,7 @@
       "tier": "kit",
       "icon_id": "upgrade_kit_dusk_velvet",
       "description": "Reinforced tools for Dusk Velvet-tier crafted gear.",
-      "sell_price": 75,
+      "sell_price": 436,
       "skill_range": null
     },
     "upgrade_kit_gossamer": {
@@ -5895,7 +5895,7 @@
       "tier": "kit",
       "icon_id": "upgrade_kit_gossamer",
       "description": "Reinforced tools for Gossamer-tier crafted gear.",
-      "sell_price": 75,
+      "sell_price": 528,
       "skill_range": null
     },
     "upgrade_kit_thistledown": {
@@ -5905,7 +5905,7 @@
       "tier": "kit",
       "icon_id": "upgrade_kit_thistledown",
       "description": "Reinforced tools for Thistledown-tier crafted gear.",
-      "sell_price": 75,
+      "sell_price": 629,
       "skill_range": null
     },
     "herb_wild_steelbloom": {
@@ -6299,7 +6299,7 @@
       "tier": "early",
       "icon_id": "stick_green",
       "stack_limit": 20,
-      "sell_price": 8,
+      "sell_price": 18,
       "description": "Cut this season. It still has a little give in it."
     },
     "stick_seasoned": {
@@ -6309,7 +6309,7 @@
       "tier": "mid",
       "icon_id": "stick_seasoned",
       "stack_limit": 20,
-      "sell_price": 30,
+      "sell_price": 77,
       "description": "Dried slowly in the dark until it stopped arguing."
     },
     "stick_hardened": {
@@ -6319,7 +6319,7 @@
       "tier": "late",
       "icon_id": "stick_hardened",
       "stack_limit": 20,
-      "sell_price": 52,
+      "sell_price": 370,
       "description": "Fire-cured and planed true. It will not warp again."
     },
     "stick_lacquered": {
@@ -6329,7 +6329,7 @@
       "tier": "endgame",
       "icon_id": "stick_lacquered",
       "stack_limit": 20,
-      "sell_price": 74,
+      "sell_price": 755,
       "description": "Sealed against damp and rot, and it rings when struck."
     },
     "stick_banded": {
@@ -6339,7 +6339,7 @@
       "tier": "endgame",
       "icon_id": "stick_banded",
       "stack_limit": 20,
-      "sell_price": 96,
+      "sell_price": 1879,
       "description": "Ringed with metal at the stress points so it does not split."
     },
     "stick_ironbound": {
@@ -6349,7 +6349,7 @@
       "tier": "endgame",
       "icon_id": "stick_ironbound",
       "stack_limit": 20,
-      "sell_price": 118,
+      "sell_price": 1327,
       "description": "Wrapped end to end. Heavy in the hand, and it will outlast you."
     },
     "fiber_braided": {
@@ -6359,7 +6359,7 @@
       "tier": "endgame",
       "icon_id": "fiber_braided",
       "stack_limit": 20,
-      "sell_price": 74,
+      "sell_price": 377,
       "description": "Three strands worked together; it takes a load without creaking."
     },
     "fiber_corded": {
@@ -6369,7 +6369,7 @@
       "tier": "endgame",
       "icon_id": "fiber_corded",
       "stack_limit": 20,
-      "sell_price": 96,
+      "sell_price": 939,
       "description": "Twisted tight and tarred. Rope-makers would recognise the work."
     },
     "fiber_warded": {
@@ -6379,7 +6379,7 @@
       "tier": "endgame",
       "icon_id": "fiber_warded",
       "stack_limit": 20,
-      "sell_price": 118,
+      "sell_price": 663,
       "description": "Steeped in something that keeps the rot and the rats off."
     },
     "pages_vellum": {
@@ -6389,7 +6389,7 @@
       "tier": "endgame",
       "icon_id": "pages_vellum",
       "stack_limit": 20,
-      "sell_price": 74,
+      "sell_price": 377,
       "description": "Thin enough to read through, strong enough to argue with."
     },
     "pages_leafed": {
@@ -6399,7 +6399,7 @@
       "tier": "endgame",
       "icon_id": "pages_leafed",
       "stack_limit": 20,
-      "sell_price": 96,
+      "sell_price": 939,
       "description": "Pressed between boards until every sheet lies flat."
     },
     "pages_gilded": {
@@ -6409,7 +6409,7 @@
       "tier": "endgame",
       "icon_id": "pages_gilded",
       "stack_limit": 20,
-      "sell_price": 118,
+      "sell_price": 663,
       "description": "Edged in gold leaf. Mostly for show, but the show matters."
     },
     "meat_marbled": {
@@ -16060,7 +16060,7 @@
       "tier": "kit",
       "description": "Shaping tools and silverbark inlay, used to refine any Silverbark-tier crafted item up one rarity rank. Only works on Woodworked Silverbark gear.",
       "stack_limit": 20,
-      "sell_price": 304,
+      "sell_price": 367,
       "icon_id": "upgrade_kit_silverbark",
       "skill_range": null
     },
@@ -16071,7 +16071,7 @@
       "tier": "kit",
       "description": "Shaping tools and duskwood inlay, used to refine any Duskwood-tier crafted item up one rarity rank. Only works on Woodworked Duskwood gear.",
       "stack_limit": 20,
-      "sell_price": 310,
+      "sell_price": 992,
       "icon_id": "upgrade_kit_duskwood",
       "skill_range": null
     },
@@ -16082,7 +16082,7 @@
       "tier": "kit",
       "description": "Shaping tools and goldenleaf inlay, used to refine any Goldenleaf-tier crafted item up one rarity rank. Only works on Woodworked Goldenleaf gear.",
       "stack_limit": 20,
-      "sell_price": 336,
+      "sell_price": 433,
       "icon_id": "upgrade_kit_goldenleaf",
       "skill_range": null
     },
@@ -16093,7 +16093,7 @@
       "tier": "kit",
       "description": "Shaping tools and nightshade inlay, used to refine any Nightshade-tier crafted item up one rarity rank. Only works on Woodworked Nightshade gear.",
       "stack_limit": 20,
-      "sell_price": 336,
+      "sell_price": 1177,
       "icon_id": "upgrade_kit_nightshade",
       "skill_range": null
     },
@@ -16104,7 +16104,7 @@
       "tier": "kit",
       "description": "Shaping tools and sapglow inlay, used to refine any Sapglow-tier crafted item up one rarity rank. Only works on Woodworked Sapglow gear.",
       "stack_limit": 20,
-      "sell_price": 348,
+      "sell_price": 587,
       "icon_id": "upgrade_kit_sapglow",
       "skill_range": null
     },
@@ -16115,7 +16115,7 @@
       "tier": "kit",
       "description": "Shaping tools and redbark inlay, used to refine any Redbark-tier crafted item up one rarity rank. Only works on Woodworked Redbark gear.",
       "stack_limit": 20,
-      "sell_price": 360,
+      "sell_price": 508,
       "icon_id": "upgrade_kit_redbark",
       "skill_range": null
     },
@@ -16126,7 +16126,7 @@
       "tier": "kit",
       "description": "Shaping tools and thornveil inlay, used to refine any Thornveil-tier crafted item up one rarity rank. Only works on Woodworked Thornveil gear.",
       "stack_limit": 20,
-      "sell_price": 368,
+      "sell_price": 1375,
       "icon_id": "upgrade_kit_thornveil",
       "skill_range": null
     },
@@ -16137,7 +16137,7 @@
       "tier": "kit",
       "description": "Shaping tools and bloodroot inlay, used to refine any Bloodroot-tier crafted item up one rarity rank. Only works on Woodworked Bloodroot gear.",
       "stack_limit": 20,
-      "sell_price": 396,
+      "sell_price": 2341,
       "icon_id": "upgrade_kit_bloodroot",
       "skill_range": null
     },
@@ -16148,7 +16148,7 @@
       "tier": "kit",
       "description": "Shaping tools and marshwillow inlay, used to refine any Marshwillow-tier crafted item up one rarity rank. Only works on Woodworked Marshwillow gear.",
       "stack_limit": 20,
-      "sell_price": 396,
+      "sell_price": 1571,
       "icon_id": "upgrade_kit_marshwillow",
       "skill_range": null
     },
@@ -16159,7 +16159,7 @@
       "tier": "kit",
       "description": "Shaping tools and bloodwood inlay, used to refine any Bloodwood-tier crafted item up one rarity rank. Only works on Woodworked Bloodwood gear.",
       "stack_limit": 20,
-      "sell_price": 424,
+      "sell_price": 2574,
       "icon_id": "upgrade_kit_bloodwood",
       "skill_range": null
     },
@@ -16170,7 +16170,7 @@
       "tier": "kit",
       "description": "Shaping tools and felbark inlay, used to refine any Felbark-tier crafted item up one rarity rank. Only works on Woodworked Felbark gear.",
       "stack_limit": 20,
-      "sell_price": 456,
+      "sell_price": 2825,
       "icon_id": "upgrade_kit_felbark",
       "skill_range": null
     },
@@ -16181,7 +16181,7 @@
       "tier": "kit",
       "description": "Shaping tools and moonpetal inlay, used to refine any Moonpetal-tier crafted item up one rarity rank. Only works on Woodworked Moonpetal gear.",
       "stack_limit": 20,
-      "sell_price": 488,
+      "sell_price": 3098,
       "icon_id": "upgrade_kit_moonpetal",
       "skill_range": null
     },
@@ -16192,7 +16192,7 @@
       "tier": "kit",
       "description": "Shaping tools and emberwood inlay, used to refine any Emberwood-tier crafted item up one rarity rank. Only works on Woodworked Emberwood gear.",
       "stack_limit": 20,
-      "sell_price": 508,
+      "sell_price": 4589,
       "icon_id": "upgrade_kit_emberwood",
       "skill_range": null
     },
@@ -16203,7 +16203,7 @@
       "tier": "kit",
       "description": "Shaping tools and frostheart inlay, used to refine any Frostheart-tier crafted item up one rarity rank. Only works on Woodworked Frostheart gear.",
       "stack_limit": 20,
-      "sell_price": 528,
+      "sell_price": 6068,
       "icon_id": "upgrade_kit_frostheart",
       "skill_range": null
     },
@@ -16214,7 +16214,7 @@
       "tier": "kit",
       "description": "Shaping tools and starleaf inlay, used to refine any Starleaf-tier crafted item up one rarity rank. Only works on Woodworked Starleaf gear.",
       "stack_limit": 20,
-      "sell_price": 530,
+      "sell_price": 4721,
       "icon_id": "upgrade_kit_starleaf",
       "skill_range": null
     },
@@ -16225,7 +16225,7 @@
       "tier": "kit",
       "description": "Shaping tools and ebonthorn inlay, used to refine any Ebonthorn-tier crafted item up one rarity rank. Only works on Woodworked Ebonthorn gear.",
       "stack_limit": 20,
-      "sell_price": 548,
+      "sell_price": 6318,
       "icon_id": "upgrade_kit_ebonthorn",
       "skill_range": null
     },
@@ -16236,7 +16236,7 @@
       "tier": "kit",
       "description": "Shaping tools and stormoak inlay, used to refine any Stormoak-tier crafted item up one rarity rank. Only works on Woodworked Stormoak gear.",
       "stack_limit": 20,
-      "sell_price": 576,
+      "sell_price": 5139,
       "icon_id": "upgrade_kit_stormoak",
       "skill_range": null
     },
@@ -16247,7 +16247,7 @@
       "tier": "kit",
       "description": "Shaping tools and sunheart inlay, used to refine any Sunheart-tier crafted item up one rarity rank. Only works on Woodworked Sunheart gear.",
       "stack_limit": 20,
-      "sell_price": 600,
+      "sell_price": 5218,
       "icon_id": "upgrade_kit_sunheart",
       "skill_range": null
     },
@@ -16259,7 +16259,7 @@
       "description": "Recurved limbs of bloodroot. They snap back hard enough to sting the hand. Fits a bow or crossbow: +14 weapon damage, permanently.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 61,
+      "sell_price": 1217,
       "icon_id": "limbs_bloodroot",
       "skill_range": null
     },
@@ -16271,7 +16271,7 @@
       "description": "A pale moonpetal sight pin. It catches the light on the darkest night. Fits a bow or crossbow: +17 weapon damage, permanently.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 76,
+      "sell_price": 2530,
       "icon_id": "pin_moonpetal",
       "skill_range": null
     },
@@ -16283,7 +16283,7 @@
       "description": "A starleaf nock that seats every arrow the same way, every time. Fits a bow or crossbow: +20 weapon damage, permanently.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 88,
+      "sell_price": 4057,
       "icon_id": "nock_starleaf",
       "skill_range": null
     },
@@ -16295,7 +16295,7 @@
       "description": "Stormoak limbs, heavy and alive. The draw fights you, and the shot doesn't miss. Fits a bow or crossbow: +24 weapon damage, permanently.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 96,
+      "sell_price": 3764,
       "icon_id": "limbs_stormoak",
       "skill_range": null
     },
@@ -16307,7 +16307,7 @@
       "description": "A mithril-bodied scope with a ground lens. Fits a gun or a crossbow. +14 weapon damage, permanently.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 61,
+      "sell_price": 1377,
       "icon_id": "scope_mithril",
       "skill_range": null
     },
@@ -16319,7 +16319,7 @@
       "description": "A heavy thorium scope with a resonant crosshair. +18 weapon damage, permanently.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 81,
+      "sell_price": 2295,
       "icon_id": "scope_thorium",
       "skill_range": null
     },
@@ -16331,7 +16331,7 @@
       "description": "Arcanite and voidglass. It sees a little further than it should. +24 weapon damage, permanently.",
       "stack_limit": 20,
       "vendor_price": 0,
-      "sell_price": 96,
+      "sell_price": 2640,
       "icon_id": "scope_arcanite",
       "skill_range": null
     },

@@ -196,6 +196,7 @@ NPC_POSITIONS = {
     "hbe_mill_caravan_master": (14, 64),     # by the stables
     "hbe_mill_hunter": (12, 46),             # Huntsman Dell Varrow, west edge
     "hbe_hollow_trapper": (16, 34),          # Trapper Gus Mirren, north-west
+    "tarren_mill_flight_master": (78, 39),   # Wind-Rider Ghulrak, under the bat roost
     "hbe_naze_infiltrator": (80, 39),        # Infiltrator Vess, east bank
     "hbe_durnholde_watcher": (74, 18),       # Watcher Odrin Falk, the north rise, toward Durnholde
     "hbe_durnholde_scholar": (53, 26),       # Scholar Emeline Vask

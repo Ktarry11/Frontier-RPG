@@ -12,6 +12,8 @@ need to advertise its 'mid-tier'".
   4. NO MONEY LOOP: no recipe whose inputs can all be bought from a vendor makes something
      that sells for more than the inputs cost - materials or gear
   5. the material card does not say "tier"
+  6. every crafted intermediate (kits, parts, pages, sticks, fibre) sells for at least what goes into it
+     (tools/price_intermediates.py --check)
 """
 import json
 import os
@@ -84,6 +86,12 @@ def main():
     i = src.index("def _draw_material_tooltip")
     body = src[i:src.index("\n    def ", i + 10)]
     check(".tier" not in body, "the material card still prints the material's tier")
+
+    sys.path.insert(0, str(ROOT / "tools"))
+    from price_intermediates import plan
+    under = plan(mats)
+    check(not under, f"{len(under)} intermediates sell under their recipe: {sorted(under)[:6]} "
+                     f"(PYTHONPATH=. python3 tools/price_intermediates.py)")
 
     print(f"{priced} materials on the curve; {seen} all-vendor recipes checked for money loops of {len(recipes)}")
     if fails:

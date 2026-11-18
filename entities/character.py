@@ -2966,7 +2966,11 @@ class Character(StatusEffectMixin):
     #: Agility -> dodge. Kept the most generous of the three conversions on
     #: purpose: Kyle wants stacking Agility to still buy real dodge, and
     #: dodge is the one avoidance stat he said should reward it.
-    AGI_PER_DODGE = (5.0, 10.0)
+    #:
+    #: (5, 14) since 18 Nov 2026, was (5, 10): a rogue in greens with its three dodge talents sat at 45% dodge plus
+    #: parry at level 40 and 49% at 60, against "a tank should struggle to reach 40% avoidance before lvl 60". At 14 the
+    #: same rogue is 38% at 40 and 41% at 60, still the dodgiest class there is.
+    AGI_PER_DODGE = (5.0, 14.0)
     #: Strength -> parry, and ONLY Strength. It used to be the average of
     #: Strength and Agility, which handed every Rogue and Hunter a large
     #: free parry for stacking the stat that was already buying them dodge

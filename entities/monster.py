@@ -1118,9 +1118,14 @@ class Monster(StatusEffectMixin):
         # A CONVERSION OR CHAOS CAPSTONE (world/runes.py) changes the school the hit LANDS as,
         # here and only here: the ability kept its own school for every talent and bonus already
         # applied, and from this line on the target's resistance to the new school decides it.
+        # landed_as is the school it turned into, for the combat log's "(as Frost)", or None when it landed as cast.
+        self.landed_as = None
         if attacker is not None and damage_type is not None:
             from world.runes import landing_school
+            cast_as = damage_type
             damage_type = landing_school(attacker, damage_type)
+            if damage_type != cast_as and isinstance(damage_type, str):
+                self.landed_as = damage_type
 
         # Attacker penetration, matching Character.take_damage. The docstring
         # above used to say Monster "has no use for" the attacker and only

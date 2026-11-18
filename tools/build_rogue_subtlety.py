@@ -425,8 +425,8 @@ node("deadliness", "Deadliness",
 
 # ----------------------------------------------------------------- tier 4
 node("enveloping_shadows", "Enveloping Shadows",
-     "Shadows cling to you, increasing dodge by 2% per rank.",
-     4, -3, 3, effects={"dodge": 2.0},
+     "Shadows cling to you, increasing dodge by 1% per rank.",
+     4, -3, 3, effects={"dodge": 1.0},
      connected_to=["master_of_subtlety"],
      source="WotLK row 6, NEW to our tree: 'Reduces the damage taken by "
             "area of effect attacks by 10%/20%/30%.' DEPARTURE - there is "

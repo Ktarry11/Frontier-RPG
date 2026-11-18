@@ -90,6 +90,16 @@ def level_diff_multiplier(attacker_level, defender_level):
     return max(LEVEL_DIFF_MIN_MULT, min(LEVEL_DIFF_MAX_MULT, mult))
 
 
+
+def _landed_note(target):
+    """" (as Frost)" when a rune's conversion turned the hit into another school (Monster.take_damage sets
+    landed_as), so the log says why a fire-immune target just took a Fireball. Empty when it landed as cast."""
+    school = getattr(target, "landed_as", None)
+    if not school:
+        return ""
+    name = getattr(school, "value", school)
+    return f" (as {str(name).replace('_', ' ').title()})"
+
 class ResourceType(Enum):
     RAGE = "rage"
     ENERGY = "energy"
@@ -2012,7 +2022,7 @@ class Ability:
         dealt = target.take_damage(max(1, int(base_damage)), school,
                                    attacker_level=getattr(caster, "level", None), attacker=caster)
         if dealt:
-            hit_lines.append(f"echo {dealt} to {target.name}")
+            hit_lines.append(f"echo {dealt} to {target.name}" + _landed_note(target))
             self._last_threat_events.append((target, dealt, True))
         return dealt
 
@@ -4079,7 +4089,7 @@ class Ability:
                                 if first_hit_amount is None:
                                     first_hit_amount = actual
                                 self._last_threat_events.append((t, actual, True))
-                                hit_lines.append(f"{actual} to {t.name} (main hand misses, off hand lands)")
+                                hit_lines.append(f"{actual} to {t.name}" + _landed_note(t) + " (main hand misses, off hand lands)")
                                 _oh_note = " (main hand misses, off hand lands)"
                                 continue
                         hit_lines.append(f"misses {t.name}")
@@ -4103,7 +4113,7 @@ class Ability:
                             # generate threat for a hit that didn't land.
                             hit_lines.append(f"is dodged/parried by {t.name}")
                         else:
-                            hit_lines.append(f"{actual_damage} to {t.name}" + (" (CRIT!)" if is_crit else ""))
+                            hit_lines.append(f"{actual_damage} to {t.name}" + _landed_note(t) + (" (CRIT!)" if is_crit else ""))
                             any_hit = True
                             if first_hit_amount is None:
                                 first_hit_amount = actual_damage
@@ -4172,7 +4182,7 @@ class Ability:
                             self._last_crit = True
                         hit_damage = int(base_damage * crit_mult)
                         actual_damage = t.take_damage(hit_damage, spell_damage_school, attacker_level=getattr(caster, "level", None), attacker=caster)
-                        hit_lines.append(f"{actual_damage} to {t.name}" + (" (CRIT!)" if is_crit else ""))
+                        hit_lines.append(f"{actual_damage} to {t.name}" + _landed_note(t) + (" (CRIT!)" if is_crit else ""))
                         any_hit = True
                         if first_hit_amount is None:
                             first_hit_amount = actual_damage
@@ -4274,7 +4284,7 @@ class Ability:
                             self._last_crit = True
                         hit_damage = int(base_damage * crit_mult)
                         actual_damage = t.take_damage(hit_damage, cryo_school, attacker_level=getattr(caster, "level", None), attacker=caster)
-                        hit_lines.append(f"{actual_damage} to {t.name}" + (" (CRIT!)" if is_crit else ""))
+                        hit_lines.append(f"{actual_damage} to {t.name}" + _landed_note(t) + (" (CRIT!)" if is_crit else ""))
                         any_hit = True
                         if first_hit_amount is None:
                             first_hit_amount = actual_damage
@@ -4327,7 +4337,7 @@ class Ability:
                             self._last_crit = True
                         hit_damage = int(base_damage * crit_mult)
                         actual_damage = t.take_damage(hit_damage, discharge_school, attacker_level=getattr(caster, "level", None), attacker=caster)
-                        hit_lines.append(f"{actual_damage} to {t.name}" + (" (CRIT!)" if is_crit else ""))
+                        hit_lines.append(f"{actual_damage} to {t.name}" + _landed_note(t) + (" (CRIT!)" if is_crit else ""))
                         self._last_threat_events.append((t, actual_damage, True))
 
                 dmg_summary = ', '.join(hit_lines)
