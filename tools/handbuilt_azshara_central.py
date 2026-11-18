@@ -25,8 +25,8 @@ ground from sheet 1 (AZSHARA_CENTRAL_SHEET: leyline grass round the Font, dig ea
 in the Font itself), and the props are sheet 2's and the Landing's salvage pieces from sheet 3.
 
 HARD CONTRACTS (world/portal_manager.py)
-  portals  West Azshara (4,96) <-> its east road (196,96). Later the East coast (196,130) and the naga grotto
-           (186,58), in LATER_PORTALS until those maps exist
+  portals  West Azshara (4,96) <-> its east road (196,96); East Azshara (196,130) <-> its west road (4,130). Later
+           the naga grotto (186,58), in LATER_PORTALS until the cave exists
 """
 import numpy as np
 
@@ -38,10 +38,10 @@ AZP = "assets/tiles/azshara/props/"      # Kyle's Azshara props sheet (sheet 2)
 BLD = "assets/buildings/"                # the Landing's salvage pieces (sheet 3)
 W, H = 200, 200
 
-PORTALS = {(4, 96): "West Azshara"}
-ARRIVALS = [(6, 96)]
+PORTALS = {(4, 96): "West Azshara", (196, 130): "East Azshara"}
+ARRIVALS = [(6, 96), (194, 130)]
 #: the doors whose maps come next; their clearings, roads and gaps are already cut
-LATER_PORTALS = {(196, 130): "East Azshara", (186, 58): "The Naga Grotto"}
+LATER_PORTALS = {(186, 58): "The Naga Grotto"}
 START = (104, 100)     # the crossroads: everything must be reachable from here
 
 # ------------------------------------------------------------------ the plan
@@ -217,7 +217,7 @@ def build_layout():
     for lm in L.z.landmarks:
         ax, ay, w, h = lm["anchor_x"], lm["anchor_y"], lm["width_tiles"], lm["height_tiles"]
         L.free_mask[max(0, ay):ay + h + 1, max(0, ax - 1):ax + w + 1] = False
-    E.scatter_trees(L, TREES, seed=5401, spacing=5.6)
+    E.scatter_trees(L, TREES, seed=5401, spacing=5.6, grove_keep=0.75)
     sprinkle(L)
     E.seal_unreachable(L, START)
     chests(L)

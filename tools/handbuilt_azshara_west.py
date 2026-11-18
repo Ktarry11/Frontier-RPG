@@ -171,7 +171,7 @@ def build_layout():
     for lm in L.z.landmarks:
         ax, ay, w, h = lm["anchor_x"], lm["anchor_y"], lm["width_tiles"], lm["height_tiles"]
         L.free_mask[max(0, ay):ay + h + 1, max(0, ax - 1):ax + w + 1] = False
-    E.scatter_trees(L, TREES, seed=5201, spacing=5.6)
+    E.scatter_trees(L, TREES, seed=5201, spacing=5.6, grove_keep=0.86)
     sprinkle(L)
     E.seal_unreachable(L, START)
     chests(L)

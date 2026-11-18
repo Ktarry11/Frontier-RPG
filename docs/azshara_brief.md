@@ -11,9 +11,11 @@ The Integration shook the sea floor, and the old Highborne capital is coming up 
 spires stand offshore, and the naga are coming up with them. Highborne ghosts walk the ruins, and they think it's ten
 thousand years ago and you're trespassing.
 
-It rises as you quest. Early on, only spires show offshore. A late chain on the East coast brings a drowned district up
-onto the shore, and that becomes new ground with its own quests, rares and the vault's door. It's a save-flag swap,
-the same way the Plaguelands towns work.
+**It has already risen** (Kyle, 18 Nov 2026: "i dont want change with quests - too much work and will fuck up on
+prestige", then "yes its risen already, lore stays same"). Spires stand in the Bay of Storms and off the coast, and on
+the East coast a whole district, the Drowned Court, is up out of the sea for good, with the Vault's door in it. Nothing
+on the map changes with quests, so every run sees the same coast. (The first plan was a save-flag swap mid-questline;
+it's dropped. Nothing in the game swaps a map on a quest, and the Plaguelands towns never did.)
 
 ## The shape
 
@@ -21,7 +23,7 @@ the same way the Plaguelands towns work.
 |---|---|---|
 | **West Azshara** | 52-55 | Borders Ashenvale (west) and Orgrimmar (south). Talrendis Landing, the gate up to Timbermaw Hold in the northern mountains, and the satyr den. |
 | **Central Azshara** | 54-57 | The Highborne ruins and the salvage dig, Lake Mennar and the leylines the blues guard, the satyr and demon camps, and the naga grotto on the Bay of Storms. |
-| **East Azshara (the coast)** | 56-59 | The drowned shore where Zin-Azshari comes up: reefs, temple ruins, the Tower of Eldara. Later the risen district, and the Vault's door in it. |
+| **East Azshara (the coast)** | 56-59 | The drowned shore where Zin-Azshari has come up: reefs, temple ruins, the Tower of Eldara, and the risen district (the Drowned Court) with the Vault's door in it. |
 | **Talrendis Landing** | town | Its own map, off West. |
 | **Timbermaw Hold** | town | Its own map, off West's northern mountains. |
 | 2 caves | | A satyr den and a naga grotto. |
@@ -76,7 +78,7 @@ pass.
   - Every boss pays Timbermaw rep.
 - **The Vault of Zin-Azshari** (dungeon, 59-60, 6 bosses over two floors): the flooded halls, then Azshara's own
   vault. It's Scholomance-sized.
-  - Its door appears when the drowned district rises at the end of the East coast chain.
+  - Its door is at the head of the Drowned Court, the risen district off East Azshara's shore.
 
 Names for the two dungeons and their boss rosters are still to settle.
 
@@ -115,7 +117,7 @@ Names for the two dungeons and their boss rosters are still to settle.
 1. This brief, then the six art prompts.
 2. West Azshara and the Orgrimmar and Ashenvale links. Then Talrendis Landing and Timbermaw Hold, and the tunnel's
    east passage.
-3. Central, then East. Then the rising (the save-flag swap) and the risen district.
+3. Central, then East (with the risen district already up).
 4. The caves, then the fel rot dungeon, then the Vault.
 5. Quests, factions and shelves (the Sunreach Conclave's shelf, and Timbermaw's moving to the Hold), recruits, and the
    hidden content.
@@ -172,5 +174,21 @@ evening, sliced the same night; `docs/azshara_art_prompts.md` has the slice tabl
   - Painted from the Azshara ground sheet (`AZSHARA_CENTRAL_SHEET`: leyline grass, dig earth, arcane water in the Font).
     Linked both ways to West Azshara. The East coast's door (east edge) and the grotto's are cut and waiting
     (`LATER_PORTALS`). No creatures or people yet: they come with the quest pass and sheet 5.
-- **Next:** East Azshara, the coast.
+- **East Azshara** (`tools/handbuilt_azshara_east.py`, 200x200, 56-59; 18 Nov 2026), off Central's east road:
+  - **The forest gives out to the shore** along a ragged line a little west of the middle: autumn woods on the west,
+    then shell silt, wet and barnacled marble, coral stone and tide pools down to the sea, which runs the whole east
+    side (`AZSHARA_EAST_SHEET`; the shell silt washes up through the baker's satyr layer).
+  - **Stormwatch** (the crossroads at the forest's edge): a small Horde lookout over the coast road.
+  - **The Bitter Reaches** (north coast): wrecks and a naga shrine. **Tower of Eldara** on the northern cape, still
+    standing and still humming.
+  - **The Drowned Promenade** (the middle of the shore): a Highborne boulevard of arches and statues running into the
+    sea, for the ghosts. A causeway leads off its end to **the Drowned Court**, the district that came up: wet marble
+    streets, spires standing in tide pools, and the Vault's door at its head, with two barnacled statues guarding it
+    (the door opens with the dungeon; `LATER_PORTALS`).
+  - **Temple of Zin-Malor** on the southern headland, the naga's now, and **the Jagged Reef** off the south-east
+    coast (coral and stone breaking the surface, a wreck caught on them).
+- **Trees** (Kyle, 18 Nov: "reduce trees by about 25%"): the groves' trunks are solid, so each of the three maps lost
+  about a quarter of its groves (`scatter_trees(grove_keep=...)`): West 587 -> 446 trees, Central 469 -> 357, East
+  354 -> 267.
+- **Next:** the caves (the satyr den and the naga grotto).
 

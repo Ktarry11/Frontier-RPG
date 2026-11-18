@@ -380,6 +380,8 @@ ZONE_POPULATION_MIX = {
     "west_azshara": [("orc", 50), ("blood_elf", 25), ("furbolg", 15), ("human", 10)],
     # the salvage crews out at Eldarath and the Font, and the odd Timbermaw scout
     "central_azshara": [("orc", 45), ("blood_elf", 35), ("human", 10), ("furbolg", 10)],
+    # Stormwatch's grunts and the Conclave's magisters come out to the coast for what the sea gave back
+    "east_azshara": [("orc", 45), ("blood_elf", 40), ("human", 15)],
     # The only people down here are the Crimson Codex and the handful of Horde the Codex have hired or
     # tolerated. Nobody is native to a place that is four years old.
     "the_crystalline_underdark": [("blood_elf", 82), ("forsaken", 10), ("orc", 8)],

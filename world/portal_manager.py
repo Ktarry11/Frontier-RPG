@@ -536,8 +536,13 @@ class PortalManager:
                 (196, 96): ("Central Azshara", 4, 96),         # arrive (6,96), on the west road in (18 Nov 2026)
             },
             "Central Azshara": {
-                # tools/handbuilt_azshara_central.py. Later: the East coast (196,130) and the naga grotto (186,58).
+                # tools/handbuilt_azshara_central.py. Later: the naga grotto (186,58).
                 (4, 96): ("West Azshara", 196, 96),            # arrive (194,96), on West's east road
+                (196, 130): ("East Azshara", 4, 130),          # arrive (4,128), on the coast road in (18 Nov 2026)
+            },
+            "East Azshara": {
+                # tools/handbuilt_azshara_east.py. Later: the Vault of Zin-Azshari (178,92) in the Drowned Court.
+                (4, 130): ("Central Azshara", 196, 130),       # arrive (196,128), on Central's east road
             },
             "Timbermaw Hold": {
                 # The Timbermaw's caldera city (tools/handbuilt_timbermaw_hold.py, 17 Nov 2026).

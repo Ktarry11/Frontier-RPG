@@ -419,10 +419,16 @@ GROVE_SPACING = 11          # min distance between grove centres (tiles)
 GROVE_TRUNK_R2 = 3.6
 
 
-def scatter_trees(L, kit, seed, spacing=4.2, scale=1.0, woods_deco=True):
+def scatter_trees(L, kit, seed, spacing=4.2, scale=1.0, woods_deco=True, grove_keep=1.0):
     """Deliberate forest: jittered grid, density field decides where, tree size by density.
     kit = {"big": [(name,h)], "mid": [...], "small": [...]}.  Woodland trees get a trunk collision core;
-    the woods massif edge gets purely visual canopy sprites so the painted woods read as real forest."""
+    the woods massif edge gets purely visual canopy sprites so the painted woods read as real forest.
+
+    grove_keep < 1 drops that share of the groves (each grove's trunks are a solid mass you walk round), for a zone
+    that should be easier to walk without losing its look. Azshara's three maps are each set so a quarter of their
+    trees go (West 0.86, Central 0.75, East 0.68; dropped groves leave room, so the share isn't the drop) (Kyle, 17 Nov
+    2026: "reduce trees by about 25% to prevent too much trouble walking in all of Azshara"). At 1.0 nothing changes,
+    not even the dice."""
     import random
     rnd = random.Random(seed)
     spec = L.spec
@@ -450,6 +456,9 @@ def scatter_trees(L, kit, seed, spacing=4.2, scale=1.0, woods_deco=True):
     placed = []
     for (cx, cy, d) in centres:
         if any(abs(cx - px) < GROVE_SPACING and abs(cy - py) < GROVE_SPACING for (px, py) in placed):
+            continue
+        if grove_keep < 1.0 and rnd.random() > grove_keep:
+            placed.append((cx, cy))      # a clearing where the grove would have stood, so nothing crowds into it
             continue
         k = rnd.randint(4, 7)
         trees = []

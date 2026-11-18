@@ -375,6 +375,7 @@ ZONE_BIOME = {
     "Talrendis Landing": "mythical_forest",
     "Timbermaw Hold": "mountain",
     "Central Azshara": "mythical_forest",    # painted ground (baked); the biome only names the fallback
+    "East Azshara": "coast",                 # painted ground (baked); the biome only names the fallback
     "North Felwood": "mythical_forest",      # painted ground (baked); the biome only names the fallback
     "Western Plaguelands South": "decayed_forest",   # painted ground (baked); the biome only names the fallback
     "Western Plaguelands North": "decayed_forest",
