@@ -156,7 +156,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Deals damage to the target.",
+      "description": "Slams the ground, dealing damage to every enemy in the row facing you.",
       "ranks": [
         {
           "rank": 1,
@@ -195,7 +195,8 @@
           "effect_value": 124
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "target_type": "enemy_aoe"
     },
     {
       "ability_id": "warrior_battle_shout",

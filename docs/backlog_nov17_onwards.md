@@ -78,8 +78,9 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - **Recruit kit text I changed** because the game has no such thing (the list in playtest_backlog_2026_11_10, group
   N): Kyle to veto any.
 - **Shelved by Kyle:** an hp5 tank (a tank built round health regeneration).
-- **Thunder Clap is single-target** in the data (found 18 Nov, when the hotbar tooltip started saying who an ability
-  hits). In WoW it hits everything near you. Kyle to say whether it should hit the front row.
+- **qa_kit_abilities_batch10 fails** on seven recruit kit abilities whose scaling doesn't happen (Slow and Correct,
+  Exactly Right, Several Seasons for the Sentence to Finish, Learning Them, One Hundred and Forty, Relentlessly,
+  Something Offered). It failed the same way at the start of 18 Nov, before anything that day.
 
 ## 5. UI
 - **Screen backgrounds** (Kyle, 14 Nov): a faint per-zone underlay inside the quest dialog (Barrens quests look
@@ -133,14 +134,6 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - Done 17 Nov: the two crafting icon-fix sheets (45 icons), the consumables sheet (28), the three crafted-epic sheets
   (82), enchanting EN1-EN4 (144) and recipe sheets RC2-RC3.
 - **The professions screen's own art**: tab art, frames and station art.
-- **Greater Heal and Chain Heal** need proper icons (stand-ins today).
-- **20 player abilities have no icon** (the combat hotbar shows their name instead, 18 Nov): Bloodbond (Bloodmage),
-  Borrowed Moments (Chronomancer), Remove Curse (Druid), Abolish Poison (Druid), Felbrand (Felsworn), Marching Song
-  (Guardian), Trueshot Aura (Hunter), Hellfire Ward (Knight of Xoroth), Remove Curse (Mage), Grave Wisdom
-  (Necromancer), Divine Spirit (Priest), Farstrider's Mark (Ranger), Cutthroat's Edge (Rogue), Cure Toxins (Shaman),
-  Moonwell's Blessing (Starcaller), Templar's Oath (Templar), Demonic Pact (Warlock), Commanding Shout (Warrior),
-  Spirit Fetish (Witch Doctor), Hunter's Ward (Witch Hunter). And two pairs share one picture on the same bar:
-  Rejuvenation and Swiftmend (Druid), Living Flame and Fire Blast (Mage).
 - **Walk cycles**: rolling out sheet by sheet by playable race (claude/walk_cycle_prompts.md).
 - **The recoloured T0 set versions** are plain hue turns (some gold sets come out lime). Kyle's eye.
 

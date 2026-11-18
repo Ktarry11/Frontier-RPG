@@ -70,7 +70,7 @@ ICONS = {
  # ---- Mage
  "mage_fireball": "spell_fire_flamebolt", "mage_frostbolt": "spell_frost_frostbolt02",
  "mage_arcane_explosion": "spell_nature_wispsplode", "mage_blast_wave": "spell_holy_excorcism_02",
- "mage_blizzard": "spell_frost_icestorm", "mage_living_flame": "spell_fire_fireball",
+ "mage_blizzard": "spell_frost_icestorm", "mage_living_flame": "spell_fire_masterofelements",
  "mage_arcane_intellect": "spell_holy_magicalsentry", "mage_frost_nova": "spell_frost_frostnova",
  "mage_pyroblast": "spell_fire_fireball02", "mage_ice_barrier": "spell_ice_lament",
  "mage_presence_of_mind": "spell_nature_enchantarmor", "mage_icy_veins": "spell_frost_coldhearted",
