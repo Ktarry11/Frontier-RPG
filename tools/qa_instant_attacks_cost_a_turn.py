@@ -17,6 +17,8 @@ swiftness."
   2. The ones from the playtests are not free: Searing Pain, Maul, Ice Lance, Polymorph, Fear, Swiftmend.
      The ones Kyle named still are: Icy Veins, Nature's Swiftness.
   3. In a real fight: Searing Pain hands the turn on; Icy Veins doesn't.
+  4. RACIALS ARE THE EXCEPTION. Kyle, 18 Nov 2026, asked about War Stomp and Arcane Torrent: "Racials stay instant".
+     Every racial authored instant, with a real cooldown, is still a free action.
 """
 import glob
 import json
@@ -32,6 +34,8 @@ os.chdir(ROOT)
 COST_THE_TURN = ["warlock_searing_pain", "druid_maul", "mage_ice_lance", "mage_polymorph", "warlock_fear",
                  "druid_swiftmend", "warlock_conflagrate", "warrior_charge"]
 STAY_FREE = ["mage_icy_veins", "druid_natures_swiftness"]
+RACIALS_FREE = ["racial_tauren_war_stomp", "racial_blood_elf_arcane_torrent", "racial_forsaken_cannibalize",
+                "racial_human_every_man_for_himself"]
 
 
 def entries():
@@ -66,7 +70,8 @@ def main():
         authored += bool(e.get("is_instant"))
         if ab.is_instant:
             still += 1
-            if not is_free_action(ab.effect_type, ab.target_type, ab.cooldown):
+            if not is_free_action(ab.effect_type, ab.target_type, ab.cooldown) \
+                    and not str(ab.ability_id).startswith("racial_"):
                 bad.append(f"{ab.name} ({ab.ability_id}, {ab.effect_type}, cd {ab.cooldown}) is a free action")
     print(f"1. {len(built)} abilities read; {authored} authored instant, {still} still free actions, "
           f"all of them cooldown buffs")
@@ -77,6 +82,12 @@ def main():
             bad.append(f"{aid} is not in the data")
         elif ab.is_instant:
             bad.append(f"{ab.name} is still a free action")
+    for aid in RACIALS_FREE:
+        ab = built.get(aid)
+        if ab is None:
+            bad.append(f"{aid} is not in the data")
+        elif not ab.is_instant:
+            bad.append(f"{ab.name} costs the turn, but Kyle said racials stay instant")
     for aid in STAY_FREE:
         ab = built.get(aid)
         if ab is None:

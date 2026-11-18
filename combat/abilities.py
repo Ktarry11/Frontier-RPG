@@ -898,7 +898,10 @@ class Ability:
         # power infusion etc. Or natures swiftness." So it is an ALLOWLIST now, same as
         # OUT_OF_COMBAT_EFFECTS: a free action is a cooldown you weave in before your real action,
         # and nothing else. A new effect_type defaults to costing the turn.
-        if self.is_instant and not is_free_action(self.effect_type, self.target_type, self.cooldown):
+        # RACIALS ARE THE EXCEPTION. Kyle, 18 Nov 2026, asked whether War Stomp and Arcane Torrent should cost the
+        # turn under the rule above: "Racials stay instant". They're 12-turn trump cards, one per race.
+        racial = str(ability_id).startswith("racial_") and (self.cooldown or 0) >= FREE_ACTION_MIN_COOLDOWN
+        if self.is_instant and not racial and not is_free_action(self.effect_type, self.target_type, self.cooldown):
             self.is_instant = False
 
         # max_targets: caps an "enemy_aoe" hit to N targets instead of
