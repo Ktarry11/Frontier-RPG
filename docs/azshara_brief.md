@@ -96,7 +96,14 @@ Names for the two dungeons and their boss rosters are still to settle.
   - Chains run out to Orgrimmar, Ashenvale, Felwood and other continents.
 - **Earth shows up a lot** (it's 50s content): transplants among the salvage crews and as volunteers in the Hold, with
   Earth references common in the writing, like Felwood. There are no Earth objects in the world.
-- **Two or three recruits**: a blood elf magister, an orc salvager and a transplant, in the Landing and the Hold.
+- **One recruit, an Earth transplant** (Kyle, 18 Nov 2026: "we can ONLY recruit earth transplants", then "One
+  transplant"). Recruits are only ever Earth transplants, so the magister and the orc salvager stay people in the
+  Landing, not recruits.
+- **The story** (Kyle, 18 Nov: "Braided, both ends"): the Landing's quests run the orc and blood elf salvage feud and
+  end in the Drowned Palace; the Hold's run the rot and end in the Rotroot Deeps; the two meet at the Ruins of
+  Eldarath.
+- **The Sunreach Conclave's leader** (Kyle, 18 Nov: "Proud, fair magister"): an older magistrix who lost Quel'Thalas's
+  last spires in the Integration and wants her people's history back, not power. Quest-free, so she can move.
 - **Hidden content**: Kyle said "Surprise me". Where it is will never be written anywhere he reads, by the same rule as
   every other secret.
 
@@ -225,6 +232,14 @@ evening, sliced the same night; `docs/azshara_art_prompts.md` has the slice tabl
     Azshara's empty throne), with a fast exit back up to the Court.
   - 20 creatures, four items a boss at boss level + 3, and the Echo rolls two named epics at 5%. Its reputation waits
     on the Sunreach Conclave (the content pass).
-- **Next:** Azshara's people and content: creatures for the three open maps, about 90 quests, the Sunreach Conclave,
-  the recruits and the hidden content.
+- **The open world** (`tools/build_azshara_openworld.py`, 18 Nov 2026): 53 creatures over the three maps from Kyle's
+  creature sheet (Felwood's satyrs and imp fill out the camps). West has wolves, boars, hippogryphs and treants, the
+  Shadowsong and Ravencrest dead, Haldarr's satyrs and the Mere's thunder lizards. Central has the Legash satyrs, the
+  Forlorn Ridge demons, the blues and mana wyrms at Lake Mennar, the shades and constructs at Eldarath, and the naga on
+  the Bay of Storms. East has naga raiders on the Bitter Reaches, Eldara's guardians, the ghosts of the Promenade and
+  the Court, and the temple's naga. Talrendis Point, Valormok and Stormwatch are safe. Nine rares (two West, three
+  Central, four East), four items each at level + 3, and gathering on all three maps (the 50s herbs, ore and woods,
+  and fishing).
+- **Next:** the Sunreach Conclave, about 90 quests (the braided arc), the one transplant recruit and the hidden
+  content.
 

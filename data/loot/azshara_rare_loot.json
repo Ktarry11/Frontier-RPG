@@ -1,0 +1,640 @@
+{
+  "_notes": "Azshara's open-world rares (52-59). ONE item per kill from the rare's four; item_level = the rare's level + 3. Hand-authored in tools/build_azshara_openworld.py.",
+  "Vrexx the Hornbreaker": [
+    {
+      "name": "Hornbreaker's Girdle",
+      "slot": "waist",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "primary_stats": {
+        "strength": 16,
+        "stamina": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 316,
+      "stat_template": "str_physical",
+      "item_id": "azw_hornbreakers_girdle"
+    },
+    {
+      "name": "Satyr-Hide Boots",
+      "slot": "feet",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "primary_stats": {
+        "agility": 16,
+        "stamina": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 131,
+      "stat_template": "agi_physical",
+      "item_id": "azw_satyr_hide_boots"
+    },
+    {
+      "name": "Fel-Singed Cowl",
+      "slot": "head",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "primary_stats": {
+        "intellect": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {
+        "spell_power": 17
+      },
+      "armor_type": "cloth",
+      "armor_value": 80,
+      "stat_template": "int_caster",
+      "item_id": "azw_fel_singed_cowl"
+    },
+    {
+      "name": "Haldarr Fang",
+      "slot": "main_hand",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "strength": 16,
+        "agility": 16
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 101,
+      "weapon_damage_max": 137,
+      "attack_speed": 1.7,
+      "stat_template": "agi_physical",
+      "item_id": "azw_haldarr_fang"
+    }
+  ],
+  "Old Stormhide": [
+    {
+      "name": "Stormhide Jerkin",
+      "slot": "chest",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "primary_stats": {
+        "agility": 23,
+        "spirit": 23
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 190,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "azw_stormhide_jerkin"
+    },
+    {
+      "name": "Thunderscale Gauntlets",
+      "slot": "hands",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "primary_stats": {
+        "intellect": 9,
+        "spirit": 9
+      },
+      "secondary_stats": {
+        "healing_power": 25
+      },
+      "armor_type": "mail",
+      "armor_value": 210,
+      "stat_template": "spi_healer",
+      "item_id": "azw_thunderscale_gauntlets"
+    },
+    {
+      "name": "Mere-Stalker's Bracers",
+      "slot": "wrist",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "primary_stats": {
+        "strength": 16,
+        "intellect": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 316,
+      "stat_template": "str_int_hybrid",
+      "item_id": "azw_mere_stalkers_bracers"
+    },
+    {
+      "name": "Charged Scale Pendant",
+      "slot": "neck",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "primary_stats": {
+        "intellect": 10,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "spell_power": 13
+      },
+      "stat_template": "int_caster",
+      "item_id": "azw_charged_scale_pendant"
+    }
+  ],
+  "Warlord Seth'rak": [
+    {
+      "name": "Seth'rak's War Glaive",
+      "slot": "main_hand",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 36,
+        "stamina": 46
+      },
+      "secondary_stats": {
+        "defense_rating": 27
+      },
+      "weapon_damage_min": 141,
+      "weapon_damage_max": 191,
+      "attack_speed": 3.3,
+      "stat_template": "str_physical",
+      "item_id": "azw_sethraks_war_glaive"
+    },
+    {
+      "name": "Legash Warplate Legguards",
+      "slot": "legs",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "strength": 24,
+        "stamina": 24
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 472,
+      "stat_template": "str_physical",
+      "item_id": "azw_legash_warplate_legguards"
+    },
+    {
+      "name": "Shadowcaster's Wraps",
+      "slot": "wrist",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "intellect": 10
+      },
+      "secondary_stats": {
+        "spell_power": 25,
+        "crit_chance_spell": 7
+      },
+      "armor_type": "cloth",
+      "armor_value": 68,
+      "stat_template": "int_caster",
+      "item_id": "azw_shadowcasters_wraps"
+    },
+    {
+      "name": "Satyr Lord's Cloak",
+      "slot": "back",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "agility": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {},
+      "stat_template": "agi_physical",
+      "item_id": "azw_satyr_lords_cloak"
+    }
+  ],
+  "Gatekeeper Azgaroth": [
+    {
+      "name": "Gatekeeper's Pauldrons",
+      "slot": "shoulder",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "strength": 20,
+        "intellect": 20
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 399,
+      "stat_template": "str_int_hybrid",
+      "item_id": "azw_gatekeepers_pauldrons"
+    },
+    {
+      "name": "Felforged Hauberk",
+      "slot": "chest",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "agility": 17,
+        "intellect": 17
+      },
+      "secondary_stats": {
+        "attack_power": 28
+      },
+      "armor_type": "mail",
+      "armor_value": 315,
+      "stat_template": "agi_physical",
+      "item_id": "azw_felforged_hauberk"
+    },
+    {
+      "name": "Doom-Etched Wand",
+      "slot": "ranged",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 10,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "spell_power": 13
+      },
+      "weapon_damage_min": 88,
+      "weapon_damage_max": 120,
+      "attack_speed": 1.9,
+      "stat_template": "int_caster",
+      "item_id": "azw_doom_etched_wand"
+    },
+    {
+      "name": "Forlorn Ridge Treads",
+      "slot": "feet",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "stamina": 11,
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "healing_power": 20
+      },
+      "armor_type": "cloth",
+      "armor_value": 68,
+      "stat_template": "spi_healer",
+      "item_id": "azw_forlorn_ridge_treads"
+    }
+  ],
+  "Azurewing": [
+    {
+      "name": "Azure Drakescale Mantle",
+      "slot": "shoulder",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "agility": 20,
+        "spirit": 20
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 266,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "azw_azure_drakescale_mantle"
+    },
+    {
+      "name": "Leyline-Woven Robe",
+      "slot": "chest",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "intellect": 14,
+        "spirit": 14
+      },
+      "secondary_stats": {
+        "healing_power": 38
+      },
+      "armor_type": "cloth",
+      "armor_value": 98,
+      "stat_template": "spi_healer",
+      "item_id": "azw_leyline_woven_robe"
+    },
+    {
+      "name": "Azurewing's Talon",
+      "slot": "main_hand",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 25,
+        "stamina": 25
+      },
+      "secondary_stats": {
+        "spell_power": 32
+      },
+      "weapon_damage_min": 57,
+      "weapon_damage_max": 77,
+      "attack_speed": 3.2,
+      "stat_template": "int_caster",
+      "item_id": "azw_azurewings_talon"
+    },
+    {
+      "name": "Drakehide Leggings",
+      "slot": "legs",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "strength": 24,
+        "agility": 24
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 196,
+      "stat_template": "agi_physical",
+      "item_id": "azw_drakehide_leggings"
+    }
+  ],
+  "Captain Ssarith": [
+    {
+      "name": "Wreck-Iron Trident",
+      "slot": "main_hand",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "agility": 33,
+        "intellect": 33
+      },
+      "secondary_stats": {
+        "attack_power": 58
+      },
+      "weapon_damage_min": 143,
+      "weapon_damage_max": 193,
+      "attack_speed": 3.3,
+      "stat_template": "agi_physical",
+      "item_id": "azw_wreck_iron_trident"
+    },
+    {
+      "name": "Captain's Barnacled Helm",
+      "slot": "head",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "strength": 14,
+        "stamina": 18
+      },
+      "secondary_stats": {
+        "defense_rating": 11
+      },
+      "armor_type": "mail",
+      "armor_value": 271,
+      "stat_template": "str_physical",
+      "item_id": "azw_captains_barnacled_helm"
+    },
+    {
+      "name": "Salvaged Sea-Silk Sash",
+      "slot": "waist",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "stamina": 12,
+        "intellect": 12
+      },
+      "secondary_stats": {
+        "healing_power": 20
+      },
+      "armor_type": "cloth",
+      "armor_value": 69,
+      "stat_template": "spi_healer",
+      "item_id": "azw_salvaged_sea_silk_sash"
+    },
+    {
+      "name": "Ssarith's Plunder Ring",
+      "slot": "ring",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "strength": 15,
+        "agility": 15
+      },
+      "secondary_stats": {},
+      "stat_template": "agi_physical",
+      "item_id": "azw_ssariths_plunder_ring"
+    }
+  ],
+  "Magus Valethion": [
+    {
+      "name": "Valethion's Spellblade",
+      "slot": "main_hand",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "intellect": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {
+        "spell_power": 18
+      },
+      "weapon_damage_min": 106,
+      "weapon_damage_max": 143,
+      "attack_speed": 2.4,
+      "stat_template": "int_caster",
+      "item_id": "azw_valethions_spellblade"
+    },
+    {
+      "name": "Eldara Mage-Gloves",
+      "slot": "hands",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "intellect": 10
+      },
+      "secondary_stats": {
+        "spell_power": 25,
+        "crit_chance_spell": 7
+      },
+      "armor_type": "cloth",
+      "armor_value": 69,
+      "stat_template": "int_caster",
+      "item_id": "azw_eldara_mage_gloves"
+    },
+    {
+      "name": "Tower Warden's Spaulders",
+      "slot": "shoulder",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "agility": 20,
+        "stamina": 20
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 169,
+      "stat_template": "agi_physical",
+      "item_id": "azw_tower_wardens_spaulders"
+    },
+    {
+      "name": "Ward-Bound Girdle",
+      "slot": "waist",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "intellect": 17,
+        "spirit": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 221,
+      "stat_template": "spi_healer",
+      "item_id": "azw_ward_bound_girdle"
+    }
+  ],
+  "The Weeping Duchess": [
+    {
+      "name": "Duchess's Tear",
+      "slot": "neck",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "stamina": 11,
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "healing_power": 18
+      },
+      "stat_template": "spi_healer",
+      "item_id": "azw_duchesss_tear"
+    },
+    {
+      "name": "Drowned Court Leggings",
+      "slot": "legs",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "intellect": 17,
+        "stamina": 17
+      },
+      "secondary_stats": {
+        "spell_power": 22
+      },
+      "armor_type": "cloth",
+      "armor_value": 101,
+      "stat_template": "int_caster",
+      "item_id": "azw_drowned_court_leggings"
+    },
+    {
+      "name": "Mourning Plate Helm",
+      "slot": "head",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "strength": 21,
+        "stamina": 21
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 413,
+      "stat_template": "str_physical",
+      "item_id": "azw_mourning_plate_helm"
+    },
+    {
+      "name": "Courtly Grief Wraps",
+      "slot": "wrist",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "agility": 17,
+        "spirit": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 140,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "azw_courtly_grief_wraps"
+    }
+  ],
+  "High Priestess Naz'eth": [
+    {
+      "name": "Zin-Malor Tidecaller",
+      "slot": "main_hand",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "intellect": 12,
+        "spirit": 12
+      },
+      "secondary_stats": {
+        "healing_power": 33
+      },
+      "weapon_damage_min": 107,
+      "weapon_damage_max": 145,
+      "attack_speed": 2.6,
+      "stat_template": "spi_healer",
+      "item_id": "azw_zin_malor_tidecaller"
+    },
+    {
+      "name": "Priestess's Coral Shield",
+      "slot": "off_hand",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 28
+      },
+      "armor_value": 126,
+      "block_value": 158,
+      "stat_template": "str_int_hybrid",
+      "item_id": "azw_priestesss_coral_shield"
+    },
+    {
+      "name": "Temple Scale Boots",
+      "slot": "feet",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "agility": 12,
+        "intellect": 12
+      },
+      "secondary_stats": {
+        "attack_power": 20
+      },
+      "armor_type": "mail",
+      "armor_value": 225,
+      "stat_template": "agi_physical",
+      "item_id": "azw_temple_scale_boots"
+    },
+    {
+      "name": "Naz'eth's Pearl Hood",
+      "slot": "head",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "intellect": 21,
+        "spirit": 21
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 172,
+      "stat_template": "spi_healer",
+      "item_id": "azw_nazeths_pearl_hood"
+    }
+  ]
+}

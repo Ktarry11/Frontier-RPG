@@ -23,12 +23,13 @@ Hold, 18 Nov), the Drowned Palace (two floors off the Drowned Court, 18 Nov), Or
 East road.
 
 1. **People and content**:
-   - Creature records from sheet 5 and encounter tables for the three open maps (none yet).
    - The Drowned Palace's reputation: the Sunreach Conclave pays for it once the faction exists.
    - About 90 quests, about 70% given in the Landing and the Hold.
    - **The Sunreach Conclave** faction and its TBC shelf. Its leader and quartermaster stay quest-free, because the
      elves get an island later.
-   - Two or three recruits: a blood elf magister, an orc salvager and a transplant.
+   - One recruit, an Earth transplant (Kyle: recruits are ONLY ever Earth transplants).
+   - The arc is braided (Kyle, 18 Nov): the Landing's salvage feud ends in the Drowned Palace, the Hold's rot in the
+     Rotroot Deeps, and they meet at Eldarath. The Conclave's leader is a proud, fair older magistrix.
    - The hidden content ("Surprise me"). Never described.
 2. **Later, Kyle's call**: the Sunreach Conclave's island home.
 

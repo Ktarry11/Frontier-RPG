@@ -5797,6 +5797,66 @@
             "The Bound Magister": 0
           }
         }
+      },
+      "name": "West Azshara",
+      "open_zone": {
+        "name": "West Azshara",
+        "creatures": {
+          "Autumn Timber Wolf": 4,
+          "Russet Boar": 4,
+          "Cliff Hippogryph": 3,
+          "Autumn Treant": 3
+        }
+      },
+      "subzones": {
+        "Ursolan": {
+          "name": "Ursolan",
+          "creatures": {
+            "Autumn Timber Wolf": 5,
+            "Cliff Hippogryph": 4
+          }
+        },
+        "Shadowsong Shrine": {
+          "name": "Shadowsong Shrine",
+          "creatures": {
+            "Shadowsong Sentinel": 6,
+            "Autumn Treant": 2
+          }
+        },
+        "Ravencrest Monument": {
+          "name": "Ravencrest Monument",
+          "creatures": {
+            "Ravencrest Shade": 6,
+            "Shadowsong Sentinel": 2
+          }
+        },
+        "Talrendis Point": {
+          "name": "Talrendis Point",
+          "safe": true,
+          "creatures": {}
+        },
+        "Haldarr Encampment": {
+          "name": "Haldarr Encampment",
+          "creatures": {
+            "Haldarr Rogue": 5,
+            "Haldarr Trickster": 4,
+            "Haldarr Felsworn": 4,
+            "Vrexx the Hornbreaker": 0
+          }
+        },
+        "The Sundering Mere": {
+          "name": "The Sundering Mere",
+          "creatures": {
+            "Mere Thunderhide": 5,
+            "Mere Mudclaw": 4,
+            "Old Stormhide": 0
+          }
+        },
+        "Valormok": {
+          "name": "Valormok",
+          "safe": true,
+          "creatures": {}
+        }
       }
     },
     "Central Azshara": {
@@ -5811,6 +5871,75 @@
             "Barnacled Shorecrab": 4,
             "Tide-Priestess Sel'thira": 0,
             "Hetaera": 0
+          }
+        }
+      },
+      "name": "Central Azshara",
+      "open_zone": {
+        "name": "Central Azshara",
+        "creatures": {
+          "Autumn Timber Wolf": 4,
+          "Leyline Prowler": 3,
+          "Russet Boar": 2
+        }
+      },
+      "subzones": {
+        "Forlorn Ridge": {
+          "name": "Forlorn Ridge",
+          "creatures": {
+            "Forlorn Eredar": 4,
+            "Forlorn Doomguard": 4,
+            "Forlorn Imp": 5,
+            "Gatekeeper Azgaroth": 0
+          }
+        },
+        "Lake Mennar": {
+          "name": "Lake Mennar",
+          "creatures": {
+            "Mennar Mana Wyrm": 5,
+            "Azure Whelp": 4,
+            "Azure Dragonspawn": 4,
+            "Leyline Prowler": 3,
+            "Azurewing": 0
+          }
+        },
+        "Ruins of Eldarath": {
+          "name": "Ruins of Eldarath",
+          "creatures": {
+            "Eldarath Shade": 5,
+            "Eldarath Construct": 4,
+            "Mennar Mana Wyrm": 2
+          }
+        },
+        "Legash Encampment": {
+          "name": "Legash Encampment",
+          "creatures": {
+            "Legash Satyr": 5,
+            "Legash Shadowcaster": 4,
+            "Legash Felhound": 4,
+            "Warlord Seth'rak": 0
+          }
+        },
+        "Bay of Storms": {
+          "name": "Bay of Storms",
+          "creatures": {
+            "Stormbay Tidehunter": 5,
+            "Stormbay Siren": 4
+          }
+        },
+        "Hetaera's Clutch": {
+          "name": "Hetaera's Clutch",
+          "creatures": {
+            "Stormbay Tidehunter": 4,
+            "Stormbay Siren": 4,
+            "Stormbay Myrmidon": 4
+          }
+        },
+        "Southridge Beach": {
+          "name": "Southridge Beach",
+          "creatures": {
+            "Southridge Shorecrab": 5,
+            "Southridge Hatchling": 4
           }
         }
       }
@@ -5869,6 +5998,71 @@
             "The Moonguard Revenant": 0,
             "Magistrix Elaria the Undying": 0,
             "Echo of the Queen": 0
+          }
+        }
+      },
+      "open_zone": {
+        "name": "East Azshara",
+        "creatures": {
+          "Reef Shorecrab": 4,
+          "Drowned Hound": 3,
+          "Autumn Timber Wolf": 2
+        }
+      },
+      "subzones": {
+        "Stormwatch": {
+          "name": "Stormwatch",
+          "safe": true,
+          "creatures": {}
+        },
+        "The Bitter Reaches": {
+          "name": "The Bitter Reaches",
+          "creatures": {
+            "Bitter Reaches Raider": 5,
+            "Bitter Reaches Wavecaller": 4,
+            "Bitter Reaches Brute": 4,
+            "Captain Ssarith": 0
+          }
+        },
+        "Tower of Eldara": {
+          "name": "Tower of Eldara",
+          "creatures": {
+            "Eldara Arcane Guardian": 5,
+            "Eldara Mana Wyrm": 5,
+            "Magus Valethion": 0
+          }
+        },
+        "The Drowned Promenade": {
+          "name": "The Drowned Promenade",
+          "creatures": {
+            "Promenade Noble": 5,
+            "Promenade Handmaiden": 4,
+            "Drowned Hound": 3
+          }
+        },
+        "The Drowned Court": {
+          "name": "The Drowned Court",
+          "creatures": {
+            "Court Sentinel": 5,
+            "Court Tormented": 4,
+            "Court Naga Guard": 4,
+            "The Weeping Duchess": 0
+          }
+        },
+        "Temple of Zin-Malor": {
+          "name": "Temple of Zin-Malor",
+          "creatures": {
+            "Zin-Malor Priestess": 4,
+            "Zin-Malor Warden": 5,
+            "Zin-Malor Myrmidon": 4,
+            "High Priestess Naz'eth": 0
+          }
+        },
+        "The Jagged Reef": {
+          "name": "The Jagged Reef",
+          "creatures": {
+            "Reef Shorecrab": 5,
+            "Reef Hydra Hatchling": 4
           }
         }
       }
