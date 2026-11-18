@@ -150,3 +150,9 @@ CAIRNE IS TRAPPED AT ITS HEART: in the middle of the mass, half sunk into it, Ca
 Body horror through mutation and fusion, as dark and grotesque as it goes, with no open wounds: fused bodies, corrupted hide and bone, dark stains, black ichor, chains and broken shackles. The figure fills most of the image.
 ```
 
+**Delivered, 18 Nov 2026** (`tools/building_sheets/mulgore_raid_c_phase4.png`, 1254x1254): a hill of fused tauren dead
+that has stood up, screaming heads and grasping arms all over it, banners and chains grown in, Cairne trapped at the
+top with the eclipse over his horns and the runed spear in one of its hands. **The raid's boss art is complete:** sheet
+A (Central 4, Hunter 3, the Risen Brave), sheet B (Spirit 3, Elder 3), Cairne phases 1 to 3 from `mulgore_raid_c_v2.png`
+and phase 4 from this one. All saved unsliced until the raid is built.
+
