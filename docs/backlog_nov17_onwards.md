@@ -18,25 +18,28 @@ How this file works:
 ## 1. Azshara (in progress, in Kyle's order: "One thing at a time")
 
 Brief: `docs/azshara_brief.md`. Done so far: Kyle's six art sheets, West Azshara, Talrendis Landing, Timbermaw Hold,
-Central Azshara, East Azshara (the Drowned Court already risen), Orgrimmar's north gate and the Ashenvale East road.
+Central Azshara, East Azshara (the Drowned Court already risen), both caves, Orgrimmar's north gate and the Ashenvale East road.
 
-1. **The caves**: the satyr den (Haldarr) and the naga grotto, with bosses, loot and encounter tables.
-2. **The fel rot under the Hold** (dungeon, 55-58, 5 bosses): every boss pays Timbermaw.
-3. **The Vault of Zin-Azshari** (dungeon, 59-60, 6 bosses over two floors), Scholomance-sized. Kyle settles the two
+1. **The fel rot under the Hold** (dungeon, 55-58, 5 bosses): every boss pays Timbermaw.
+2. **The Vault of Zin-Azshari** (dungeon, 59-60, 6 bosses over two floors), Scholomance-sized. Kyle settles the two
    dungeons' names and rosters (the art uses working names).
-4. **People and content**:
+3. **People and content**:
    - Creature records from sheet 5 and encounter tables (West Azshara has none yet).
    - About 90 quests, about 70% given in the Landing and the Hold.
    - **The Sunreach Conclave** faction and its TBC shelf. Its leader and quartermaster stay quest-free, because the
      elves get an island later.
    - Two or three recruits: a blood elf magister, an orc salvager and a transplant.
    - The hidden content ("Surprise me"). Never described.
-5. **Later, Kyle's call**: the Sunreach Conclave's island home.
+4. **Later, Kyle's call**: the Sunreach Conclave's island home.
 
 ## 1b. Deadwind Pass (vision and art prompts only, 17 Nov 2026)
 - `docs/deadwind_brief.md` and `docs/deadwind_art_prompts.md` (8 sheets). Kyle: "I just want the vision and the
   prompts....then go back to happy Azshara!" Nothing to build until the art is in and Kyle says go. It holds the last T0
   token (the bracers), reached by a tunnel through Stranglethorn's north-east mountains.
+
+## 1c. Mulgore: the Thunder Bluff raid (art prompts in progress, 18 Nov 2026)
+- `docs/mulgore_raid_boss_prompt.md`: Kyle's first raid. Bosses by rise (Central 5 with the final boss unlocking
+  last, Hunter 3, Spirit 3, Elder 3), drawn in batches of seven.
 
 ## 2. Banks, auction houses and mail (Kyle, 17 Nov 2026)
 - **Every bank, auction house and mailbox stands together** (Kyle: "generally we will want an auction house, a bank,

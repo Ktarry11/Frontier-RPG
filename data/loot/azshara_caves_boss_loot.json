@@ -1,0 +1,291 @@
+{
+  "_notes": "Boss loot for Azshara's two caves (54-58). ONE item per kill from the boss's four; item_level = boss level + 2. Hand-authored in tools/build_azshara_caves_content.py.",
+  "Haldarr the Hornlord": [
+    {
+      "name": "Hornlord's Breastplate",
+      "slot": "chest",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "primary_stats": {
+        "strength": 16,
+        "stamina": 21
+      },
+      "secondary_stats": {
+        "defense_rating": 12
+      },
+      "armor_type": "plate",
+      "armor_value": 456,
+      "stat_template": "str_physical",
+      "item_id": "azc_hornlords_breastplate"
+    },
+    {
+      "name": "Rootwarren Stalkers",
+      "slot": "feet",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "primary_stats": {
+        "agility": 16,
+        "stamina": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 131,
+      "stat_template": "agi_physical",
+      "item_id": "azc_rootwarren_stalkers"
+    },
+    {
+      "name": "Haldarr's Hooked Glaive",
+      "slot": "main_hand",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 45,
+        "agility": 45
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 136,
+      "weapon_damage_max": 185,
+      "attack_speed": 3.3,
+      "stat_template": "agi_physical",
+      "item_id": "azc_haldarrs_hooked_glaive"
+    },
+    {
+      "name": "Cursed Bark Cloak",
+      "slot": "back",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "primary_stats": {
+        "intellect": 8,
+        "spirit": 8
+      },
+      "secondary_stats": {
+        "healing_power": 23
+      },
+      "stat_template": "spi_healer",
+      "item_id": "azc_cursed_bark_cloak"
+    }
+  ],
+  "The Bound Magister": [
+    {
+      "name": "Magister's Chained Robes",
+      "slot": "chest",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "primary_stats": {
+        "intellect": 16,
+        "stamina": 16
+      },
+      "secondary_stats": {
+        "spell_power": 21
+      },
+      "armor_type": "cloth",
+      "armor_value": 95,
+      "stat_template": "int_caster",
+      "item_id": "azc_magisters_chained_robes"
+    },
+    {
+      "name": "Leyshackle Gauntlets",
+      "slot": "hands",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "primary_stats": {
+        "agility": 11,
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "attack_power": 19
+      },
+      "armor_type": "mail",
+      "armor_value": 210,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "azc_leyshackle_gauntlets"
+    },
+    {
+      "name": "Ten Thousand Year Rod",
+      "slot": "ranged",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "spell_power": 21,
+        "crit_chance_spell": 6
+      },
+      "weapon_damage_min": 86,
+      "weapon_damage_max": 116,
+      "attack_speed": 1.9,
+      "stat_template": "int_caster",
+      "item_id": "azc_ten_thousand_year_rod"
+    },
+    {
+      "name": "Broken Fetter Girdle",
+      "slot": "waist",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "primary_stats": {
+        "strength": 16,
+        "intellect": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 316,
+      "stat_template": "str_int_hybrid",
+      "item_id": "azc_broken_fetter_girdle"
+    }
+  ],
+  "Tide-Priestess Sel'thira": [
+    {
+      "name": "Sel'thira's Coral Crown",
+      "slot": "head",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "stamina": 14,
+        "intellect": 14
+      },
+      "secondary_stats": {
+        "healing_power": 24
+      },
+      "armor_type": "cloth",
+      "armor_value": 83,
+      "stat_template": "spi_healer",
+      "item_id": "azc_selthiras_coral_crown"
+    },
+    {
+      "name": "Undertow Leggings",
+      "slot": "legs",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "agility": 24,
+        "spirit": 24
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 196,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "azc_undertow_leggings"
+    },
+    {
+      "name": "Tidecaller's Trident",
+      "slot": "main_hand",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 25,
+        "stamina": 25
+      },
+      "secondary_stats": {
+        "spell_power": 32
+      },
+      "weapon_damage_min": 57,
+      "weapon_damage_max": 77,
+      "attack_speed": 3.2,
+      "stat_template": "int_caster",
+      "item_id": "azc_tidecallers_trident"
+    },
+    {
+      "name": "Pearl-Scale Spaulders",
+      "slot": "shoulder",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "intellect": 20,
+        "spirit": 20
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 266,
+      "stat_template": "spi_healer",
+      "item_id": "azc_pearl_scale_spaulders"
+    }
+  ],
+  "Hetaera": [
+    {
+      "name": "Hydra-Tooth Cleaver",
+      "slot": "main_hand",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "weapon_type": "axe_2h",
+      "primary_stats": {
+        "strength": 47,
+        "stamina": 47
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 141,
+      "weapon_damage_max": 191,
+      "attack_speed": 3.6,
+      "stat_template": "str_physical",
+      "item_id": "azc_hydra_tooth_cleaver"
+    },
+    {
+      "name": "Brood-Mother's Scale Hauberk",
+      "slot": "chest",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "agility": 17,
+        "intellect": 17
+      },
+      "secondary_stats": {
+        "attack_power": 28
+      },
+      "armor_type": "mail",
+      "armor_value": 315,
+      "stat_template": "agi_physical",
+      "item_id": "azc_brood_mothers_scale_hauberk"
+    },
+    {
+      "name": "Shed-Skin Bracers",
+      "slot": "wrist",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "intellect": 10,
+        "spirit": 10
+      },
+      "secondary_stats": {
+        "healing_power": 26
+      },
+      "armor_type": "leather",
+      "armor_value": 136,
+      "stat_template": "spi_healer",
+      "item_id": "azc_shed_skin_bracers"
+    },
+    {
+      "name": "Many-Headed Signet",
+      "slot": "ring",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "strength": 12
+      },
+      "secondary_stats": {
+        "hit_rating": 9,
+        "crit_chance_physical": 9
+      },
+      "stat_template": "str_physical",
+      "item_id": "azc_many_headed_signet"
+    }
+  ]
+}

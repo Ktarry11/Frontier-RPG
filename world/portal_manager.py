@@ -534,11 +534,13 @@ class PortalManager:
                 (40, 150): ("Talrendis Landing", 30, 7),       # arrive (30,5), under the Landing's gate
                 (62, 4): ("Timbermaw Hold", 120, 196),         # arrive (120,194), inside the Hold's south gate
                 (196, 96): ("Central Azshara", 4, 96),         # arrive (6,96), on the west road in (18 Nov 2026)
+                (166, 154): ("Haldarr Den", 48, 97),           # the satyrs' cave (tools/handbuilt_azshara_caves.py)
             },
             "Central Azshara": {
-                # tools/handbuilt_azshara_central.py. Later: the naga grotto (186,58).
+                # tools/handbuilt_azshara_central.py.
                 (4, 96): ("West Azshara", 196, 96),            # arrive (194,96), on West's east road
                 (196, 130): ("East Azshara", 4, 130),          # arrive (4,128), on the coast road in (18 Nov 2026)
+                (186, 58): ("Hetaera's Grotto", 50, 97),       # the naga's sea cave (tools/handbuilt_azshara_caves.py)
             },
             "East Azshara": {
                 # tools/handbuilt_azshara_east.py. Later: the Vault of Zin-Azshari (178,92) in the Drowned Court.
@@ -552,6 +554,9 @@ class PortalManager:
             "Talrendis Landing": {
                 (30, 1): ("West Azshara", 40, 150),            # arrive (40,148), outside the Landing's gate
             },
+            # Azshara's caves: one door each, back out to the mouth (arrive two tiles north of it)
+            "Haldarr Den": {(48, 97): ("West Azshara", 166, 154)},
+            "Hetaera's Grotto": {(50, 97): ("Central Azshara", 186, 58)},
             # ===== FELWOOD (claude/felwood_brief.md): north out of Ashenvale East =====
             "South Felwood": {
                 (74, 196): ("Ashenvale East", 40, 4),

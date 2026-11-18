@@ -190,5 +190,16 @@ evening, sliced the same night; `docs/azshara_art_prompts.md` has the slice tabl
 - **Trees** (Kyle, 18 Nov: "reduce trees by about 25%"): the groves' trunks are solid, so each of the three maps lost
   about a quarter of its groves (`scatter_trees(grove_keep=...)`): West 587 -> 446 trees, Central 469 -> 357, East
   354 -> 267.
-- **Next:** the caves (the satyr den and the naga grotto).
+- **The caves** (`tools/handbuilt_azshara_caves.py`, `tools/build_azshara_caves_content.py`; 18 Nov 2026, Kyle picked
+  the names and the bosses):
+  - **Haldarr Den** (off West Azshara, 54-56), shaped like the cursed tree's roots: you climb the taproot to Haldarr's
+    hollow, and the side roots fork into pockets where the satyrs keep the Highborne they bound. Haldarr the Hornlord;
+    the Bound Magister (optional) in the farthest pocket. Kyle: "dont make it too zig-zag as its hard to walk", so the
+    taproot is a straight sweep.
+  - **Hetaera's Grotto** (off Central's Hetaera's Clutch, 56-58), shaped like a nautilus shell: chambers getting
+    smaller along a spiral, the sea standing in each, down to the drowned Highborne hall at the core. Tide-Priestess
+    Sel'thira; Hetaera the hydra mother (optional) in a deep pool off the second turn.
+  - 14 creatures on Kyle's creature sheet, four bosses with four items each (boss level + 2). Haldarr borrows
+    Felwood's satyr lord and Hetaera a sea serpent until they get art.
+- **Next:** the fel rot dungeon under the Hold.
 

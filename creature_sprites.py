@@ -43,6 +43,8 @@ SHEETS = {
     'plaguelands_dungeon_bosses': ['sm_boss_interrogator', 'sm_boss_bloodmage', 'sm_boss_houndmaster', 'sm_boss_arcanist', 'sm_boss_champion', 'sm_boss_commander', 'sm_boss_high_inquisitor', 'scholo_boss_gargoyle', 'scholo_boss_ghost_lady', 'scholo_boss_bone_construct', 'scholo_boss_frost_lich', 'scholo_boss_alchemist', 'scholo_boss_librarian', 'scholo_boss_instructor', 'scholo_boss_noble_lady', 'scholo_boss_noble_lord', 'scholo_boss_headmaster', 'scholo_ghost_servant', 'strat_boss_ghoul_runt', 'strat_boss_cannon_master', 'strat_boss_archivist', 'strat_boss_grand_crusader', 'strat_boss_dreadlord', 'strat_boss_magistrate', 'strat_boss_crypt_lord', 'strat_boss_baroness', 'strat_boss_lich', 'strat_boss_flesh_golem', 'strat_boss_baron', 'strat_deathcharger', 'pl_boss_cult_necromancer', 'pl_silver_hand_ghost', 'pl_boss_gate_guardian', 'pl_boss_eye_construct', 'pl_boss_chorus_leader', 'pl_boss_abom_butcher'],
     # ---- the Plaguelands' hidden places (Kyle's sheet 10, 17 Nov; docs/plaguelands_secrets_art_prompts.md)
     'plaguelands_secrets': ['ps_woolly_mammoth', 'ps_woolly_rhino', 'ps_dire_wolf', 'ps_giant_elk', 'ps_cave_bear', 'ps_steppe_bison', 'ps_boss_mammoth_matriarch', 'ps_boss_cave_lion', 'ps_boss_walking_glacier', 'ps_stone_age_woman', 'ps_palaeontologist', 'ps_frozen_hunter', 'ps_mere_wisp', 'ps_fen_drowned', 'ps_fen_owl', 'ps_bog_lurker', 'ps_barrow_shade', 'ps_bog_hulk', 'ps_boss_lamplighter', 'ps_boss_bog_hag', 'ps_finnish_scientist', 'ps_forsaken_fisherwoman', 'ps_bog_eel', 'ps_reed_heron', 'ps_eversong_lynx', 'ps_mana_wyrm', 'ps_arcane_remnant', 'ps_sentinel_shade', 'ps_elf_ranger', 'ps_elf_quartermaster', 'ps_boss_magister', 'ps_boss_breach_gnawer', 'ps_gaunt_ghoul', 'ps_scourge_necromancer', 'ps_wardstone', 'ps_dead_elf_ranger'],
+    # ---- Azshara (Kyle's sheet 5, 17 Nov; docs/azshara_art_prompts.md)
+    'azshara_creatures': ['az_naga_siren', 'az_naga_tidehunter', 'az_naga_sea_witch', 'az_naga_royal_guard', 'az_naga_brute', 'az_serpent_hatchling', 'az_ghost_noble', 'az_ghost_arcanist', 'az_ghost_guard', 'az_ghost_handmaiden', 'az_ghost_hound', 'az_ghost_tormented', 'az_satyr_cursed', 'az_satyr_sorcerer', 'az_satyr_houndmaster', 'az_felhound', 'az_eredar_warlock', 'az_doomguard_sentinel', 'az_blue_drake', 'az_blue_dragonspawn', 'az_blue_whelp', 'az_mana_wyrm_leader', 'az_arcane_construct', 'az_ley_beast', 'az_rot_furbolg', 'az_rot_shaman', 'az_rot_beast', 'az_spore_cloud', 'az_root_horror', 'az_rot_tender', 'az_timber_wolf', 'az_thunder_lizard', 'az_shore_crab', 'az_cliff_hippogryph', 'az_autumn_treant', 'az_russet_boar'],
     # ---- Stonetalon (Kyle's sheet, 15 Nov; docs/stonetalon_art_prompts.md sheet 4)
     'stonetalon': ['st_grim_warrior', 'st_grim_shaman', 'st_grim_hunter', 'st_grim_brute', 'st_grim_mystic', 'st_grim_elder', 'st_venture_logger', 'st_venture_sawyer', 'st_venture_demolitionist', 'st_venture_foreman', 'st_venture_rigger', 'st_venture_shredder', 'st_windshear_harpy', 'st_windshear_witch', 'st_cougar', 'st_bull_elk', 'st_bald_eagle', 'st_black_bear', 'st_ash_elemental', 'st_pumice_golem', 'st_steam_elemental', 'st_basalt_elemental', 'st_bark_beetle', 'st_redwood_ancient', 'st_beetle_mother', 'st_sap_ooze', 'st_canopy_owl', 'st_sky_serpent', 'st_risen_tauren', 'st_risen_stalker', 'st_boss_rigboss_gazzle', 'st_boss_heartrot_queen', 'st_boss_ambermaw', 'st_boss_old_talonwing', 'st_boss_topper_kezzik', 'st_boss_the_eldest'],
     # ---- Felwood (Kyle's sheet, 14 Nov; tools/file_felwood_art.py)
@@ -221,6 +223,22 @@ ALL_SPRITES = {s for v in SHEETS.values() for s in v}
 #: FIRST MATCH WINS, so order matters - the specific sits above the general. Each entry is
 #: (compiled pattern on the creature NAME, sprite id).
 _RULES = [
+    # AZSHARA'S CAVES (tools/build_azshara_caves_content.py): exact names, each to Kyle's Azshara creature sheet.
+    # Haldarr borrows Felwood's satyr lord and Hetaera a sea serpent until they have their own art.
+    (r"^haldarr\ cursed$", "az_satyr_cursed"),
+    (r"^haldarr\ fel-sorcerer$", "az_satyr_sorcerer"),
+    (r"^haldarr\ houndmaster$", "az_satyr_houndmaster"),
+    (r"^crystalback\ felhound$", "az_felhound"),
+    (r"^bound\ highborne\ servant$", "az_ghost_handmaiden"),
+    (r"^haldarr\ the\ hornlord$", "fw_satyr_lord"),
+    (r"^the\ bound\ magister$", "az_ghost_arcanist"),
+    (r"^clutch\ tidehunter$", "az_naga_tidehunter"),
+    (r"^clutch\ siren$", "az_naga_siren"),
+    (r"^clutch\ brute$", "az_naga_brute"),
+    (r"^hetaera's\ brood$", "az_serpent_hatchling"),
+    (r"^barnacled\ shorecrab$", "az_shore_crab"),
+    (r"^tide-priestess\ sel'thira$", "az_naga_sea_witch"),
+    (r"^hetaera$", "serpent_2"),
     # THE PLAGUELANDS' DUNGEONS (tools/build_plaguelands_dungeons_content.py): Scholomance, Stratholme and
     # Hearthglen, exact names, each to its picture: Kyle's dungeon boss sheet (sheet 8) for the bosses, his
     # Plaguelands and Scarlet sheets and the shared undead art for the trash.
@@ -996,6 +1014,32 @@ FAMILY_FALLBACK = {
 #: tools/qa_creature_sprites.py counts it as parked rather than as dead weight. Give one a rule
 #: the moment a creature earns it.
 SPARE = {
+    # Azshara's open-world creatures (docs/azshara_brief.md): sliced and installed with the caves, given to
+    # creatures when the creature and quest pass comes. They come off this list then.
+    "az_naga_royal_guard": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
+    "az_ghost_noble": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
+    "az_ghost_guard": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
+    "az_ghost_hound": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
+    "az_ghost_tormented": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
+    "az_eredar_warlock": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
+    "az_doomguard_sentinel": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
+    "az_blue_drake": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
+    "az_blue_dragonspawn": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
+    "az_blue_whelp": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
+    "az_mana_wyrm_leader": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
+    "az_arcane_construct": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
+    "az_ley_beast": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
+    "az_rot_furbolg": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
+    "az_rot_shaman": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
+    "az_rot_beast": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
+    "az_spore_cloud": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
+    "az_root_horror": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
+    "az_rot_tender": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
+    "az_timber_wolf": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
+    "az_thunder_lizard": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
+    "az_cliff_hippogryph": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
+    "az_autumn_treant": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
+    "az_russet_boar": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
     # the great sequoia's bosses (docs/stonetalon_art_prompts.md sheet 4): drawn for the Stonetalon dungeon, which
     # isn't built yet. They come off this list when its bosses exist.
     "demon_brute_2": "second demon brute. Freed up 2026-10-31 when Fel Pup stopped resolving "

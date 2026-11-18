@@ -22,6 +22,12 @@ never-magenta line, the no-Earth line, and every cell numbered row by row.
 
 **Priority:** sheets 1, 2, 3 and 8 make the open zone; 4 the outpost; 5 the creatures; 6 and 7 the dungeon.
 
+**Delivered 18 Nov 2026, all eight** (Kyle: "somehow....chatGPT didn't stop me!"), saved unsliced in
+`tools/building_sheets/deadwind_*.png` until the build: ground (1536x1024), props, anomalies (two copies came back:
+`deadwind_anomalies.png` is the one to slice, `deadwind_anomalies_alt.png` the spare), outpost, creatures, dungeon
+tiles (1448x1086), dungeon pieces and bosses, landmarks. The tile sheets came back smaller than asked, so measure the
+row lines before slicing (as with Azshara's ground).
+
 **Style references to attach (at most 3 per sheet):**
 - Sheet 1: `pl_ash_soil.png`, `pl_blight_mud.png`, `pl_corpse_pit.png`
 - Sheet 2: `pl_dead_oak.png`, `pl_plaguewood_tree.png`, `pl_ruin_arch.png`

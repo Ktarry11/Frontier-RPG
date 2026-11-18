@@ -26,7 +26,7 @@ in the Font itself), and the props are sheet 2's and the Landing's salvage piece
 
 HARD CONTRACTS (world/portal_manager.py)
   portals  West Azshara (4,96) <-> its east road (196,96); East Azshara (196,130) <-> its west road (4,130). Later
-           the naga grotto (186,58), in LATER_PORTALS until the cave exists
+           Hetaera's Grotto (186,58) <-> its way out (50,97)
 """
 import numpy as np
 
@@ -38,10 +38,10 @@ AZP = "assets/tiles/azshara/props/"      # Kyle's Azshara props sheet (sheet 2)
 BLD = "assets/buildings/"                # the Landing's salvage pieces (sheet 3)
 W, H = 200, 200
 
-PORTALS = {(4, 96): "West Azshara", (196, 130): "East Azshara"}
-ARRIVALS = [(6, 96), (194, 130)]
+PORTALS = {(4, 96): "West Azshara", (196, 130): "East Azshara", (186, 58): "Hetaera's Grotto"}
+ARRIVALS = [(6, 96), (194, 130), (186, 56)]
 #: the doors whose maps come next; their clearings, roads and gaps are already cut
-LATER_PORTALS = {(186, 58): "The Naga Grotto"}
+LATER_PORTALS = {}
 START = (104, 100)     # the crossroads: everything must be reachable from here
 
 # ------------------------------------------------------------------ the plan
@@ -180,7 +180,7 @@ def plaza_field(P, wp):
     return np.maximum.reduce([P.blob(*d, 0.6, wp) for d in DIGS])
 
 
-CAVES = {(186, 58): ("ent_sea_cave", 9, 7)}     # the grotto's mouth, drawn now; its door opens with the cave
+CAVES = {(186, 58): ("ent_sea_cave", 9, 7)}     # Hetaera's Grotto's mouth
 
 SUBZONES = [   # (table_key, x, y, w, h, display_name) - later registrations win on overlap
     ("Forlorn Ridge", 4, 140, 70, 56, None),
