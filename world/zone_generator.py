@@ -6024,8 +6024,9 @@ def create_all_zones():
     from tools import handbuilt_deadwind_caves as dwcaves     # Deadwind's two caves: the Widows' Nest, the Drowned Seep
     for _cave in dwcaves.CAVES:
         zones[_cave] = dwcaves.generate(_cave)
-    from tools.handbuilt_exclusion_zone import generate_exclusion_zone
-    zones["The Exclusion Zone"] = generate_exclusion_zone()  # Deadwind's dungeon under the wheel, 57-60, the last T0 token
+    from tools import handbuilt_exclusion_zone as exz         # Deadwind's dungeon under the wheel, 57-60, three floors
+    for _floor in exz.FLOORS:
+        zones[_floor] = exz.generate_floor(_floor)
     from tools.handbuilt_eldest_sequoia import generate_eldest_trunk, generate_eldest_crown
     zones["The Eldest Sequoia"] = generate_eldest_trunk()   # Stonetalon's dungeon, map 1: up the trunk
     zones["The Eldest's Crown"] = generate_eldest_crown()   # map 2: the branches, open air (tools/bake_eldest_crown.py)

@@ -62,8 +62,10 @@ MAPS = {
     SQ.WN: (None, None, ("Deadwind West", "The Widows' Nest")),
     SQ.DS: (None, None, ("Deadwind East", "The Drowned Seep")),
     SQ.EZ: (None, None, ("Deadwind East", "The Exclusion Zone")),
+    SQ.EZ_HALL: (None, None, ("Deadwind East", "The Exclusion Zone: The Reactor Hall")),
+    SQ.EZ_FOOT: (None, None, ("Deadwind East", "The Exclusion Zone: The Foot")),
 }
-CAVES = {SQ.WN, SQ.DS, SQ.EZ}
+CAVES = {SQ.WN, SQ.DS, SQ.EZ, SQ.EZ_HALL, SQ.EZ_FOOT}
 
 XP = lambda lvl: 80 * lvl - 360        # noqa: E731  (the scale every pass uses: 4040 at 55, 4440 at 60)
 GOLD = lambda lvl: 300 * lvl - 600     # noqa: E731

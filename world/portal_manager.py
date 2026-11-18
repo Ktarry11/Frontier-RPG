@@ -587,10 +587,18 @@ class PortalManager:
             },
             "The Widows' Nest": {(48, 97): ("Deadwind West", 150, 24)},
             "The Drowned Seep": {(50, 97): ("Deadwind East", 30, 145)},
-            # The Exclusion Zone (tools/handbuilt_exclusion_zone.py): the climb back out, and the fast exit in the hub
+            # The Exclusion Zone (tools/handbuilt_exclusion_zone.py): three floors, a stair down each hub, a fast exit
             "The Exclusion Zone": {
                 (100, 196): ("Deadwind East", 152, 93),            # back up into the crater under the wheel
-                (84, 100): ("Deadwind East", 152, 93),             # the fast exit past the Wound's Heart, one way
+                (100, 100): ("The Exclusion Zone: The Reactor Hall", 90, 10),   # down the axle: arrive (90,8)
+            },
+            "The Exclusion Zone: The Reactor Hall": {
+                (90, 4): ("The Exclusion Zone", 100, 104),         # back up the axle: arrive on its island (100,102)
+                (92, 72): ("The Exclusion Zone: The Foot", 75, 8),  # down beside the Lid: arrive (75,6)
+            },
+            "The Exclusion Zone: The Foot": {
+                (75, 2): ("The Exclusion Zone: The Reactor Hall", 92, 78),   # back up into the Lid: arrive (92,76)
+                (30, 84): ("Deadwind East", 152, 93),              # the fast exit past the Wound's Heart, one way
             },
             # Azshara's caves: one door each, back out to the mouth (arrive two tiles north of it)
             "Haldarr Den": {(48, 97): ("West Azshara", 166, 154)},

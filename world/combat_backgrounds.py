@@ -220,6 +220,8 @@ ZONE_BACKGROUND = {
     "The Widows' Nest": "dark_dungeon",           # the spiders' funnel
     "The Drowned Seep": ("nautical", "Flooded"),  # the drain under the Drowned Hollow
     "The Exclusion Zone": "dark_dungeon",         # under the wheel
+    "The Exclusion Zone: The Reactor Hall": "dark_dungeon",
+    "The Exclusion Zone: The Foot": "dark_dungeon",
     "Eastern Kingdoms - Stranglethorn": "jungle",  # region label over the tropical zones
 
     # --- desert and salt ---------------------------------------------------

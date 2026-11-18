@@ -34,8 +34,10 @@ the useful thing first, every kill target named, no count beside an objective wo
 from tools.build_durotar_quests import kill, fetch  # noqa: F401
 
 # ---- the maps (the key the game passes on a kill: the map's name lowercased, spaces to underscores, no apostrophes)
-DW, DE, AW = "deadwind_west", "deadwind_east", "ariden_watch"
+DW, DE, AW = "deadwind_west", "deadwind_east", "aridens_watch"     # zone slugs drop the apostrophe
 WN, DS, EZ = "the_widows_nest", "the_drowned_seep", "the_exclusion_zone"
+#: the Exclusion Zone's lower floors (tools/handbuilt_exclusion_zone.py): the Reactor Hall, the Foot
+EZ_HALL, EZ_FOOT = "the_exclusion_zone:_the_reactor_hall", "the_exclusion_zone:_the_foot"
 GG = "gromgol"
 
 # ---- the people
@@ -148,7 +150,7 @@ MORGAN_CRYPT, COACH_WRECK, BLACK_WELL = (146, 130), (138, 90), (100, 147)
 # Deadwind East
 STOPPED_WATER, STOPPED_PLACES, HANGING_SLIDE = (68, 80), (112, 72), (96, 46)
 KARAZHAN_FOOT, TIME_DOOR = (148, 138), (124, 74)
-SPIRE_BASE, CRATER_LIP, WHEEL_WEST, WHEEL_EAST = (136, 102), (152, 97), (142, 92), (162, 92)
+SPIRE_BASE, CRATER_LIP, WHEEL_WEST, WHEEL_EAST = (127, 91), (152, 98), (141, 92), (163, 92)
 # Ariden's Watch
 NAMES_BOARD, SEALED_STORE, PYRE = (40, 34), (30, 68), (48, 40)
 
@@ -731,48 +733,51 @@ def build():
         "body, the whole time, and neither of us said a word. I think that's the closest we've come to agreeing "
         "on anything."))
     A(Q("dw_the_glow_eater", "The Glow-Eater", AIGERIM, 58, 58, "Gloweater",
-        "There are two pools of the seep in the rim's north chamber, and the liquidators call them the Bubbler "
+        "The Exclusion Zone doesn't stop under the wheel. Below the first floor the wound has built a copy of "
+        "the reactor, and its flooded basement holds two pools of the seep that the liquidators call the Bubbler "
         "Pools. Something lives between them that eats the seep and grows on it, and Dr. Seitkali calls it the "
         "Glow-Eater.\n\nKenji's readings say it's the reason the pulses from the wheel have been getting stronger.",
-        [boss("The Glow-Eater", EZ)],
-        "The Bubbler Pools are the north chamber, round the rim past the Brood. The Glow-Eater gets stronger the "
-        "longer it feeds, so don't give it time.",
+        [boss("The Glow-Eater", EZ_HALL)],
+        "Take the stair down the shaft at the wheel's hub into the Reactor Hall, then follow the turbine hall "
+        "south to the flooded basement. The Glow-Eater gets stronger the longer it feeds, so don't give it time.",
         "Halyna's father knew one of the men who drained the bubbler pools under the reactor in 1986. Three of "
         "them went into the flooded basement in the dark to open the valves, so the core couldn't fall into the "
         "water.\n\nShe named those pools for them. I think they'd have liked you."))
     A(Q("dw_archivist_nine", "Archivist Nine", KENJI, 59, 59, "Archivist's",
         "Ariden's pages were written by Karazhan's librarian at nine different ages, and Kenji has worked out "
-        "where he went. The rim's east chamber is shelved with black glass, every moment the tear has kept is "
+        "where he went. The rim's north chamber is shelved with black glass, every moment the tear has kept is "
         "filed on it, and the librarian is still writing.\n\nThe liquidators call him Archivist Nine. Kenji wants "
         "his first page, the one about the night the tear opened.",
         [boss("Archivist Nine", EZ)],
-        "The Stacks are the east chamber, round the rim past the Bubbler Pools. He'll read you your own death "
+        "The Stacks are the north chamber, round the rim past the Brood. He'll read you your own death "
         "while you fight him, Ariden says. Don't let him finish the sentence.",
         "The first page. He saw the leylines bunch under the tower, and he saw them tear, and he wrote down that "
         "it was beautiful.\n\nAt Fukushima the sea wall was built for a wave of five metres, and the wave was "
         "fourteen. Somebody always writes down that it's fine.",
         requires_quests=["dw_let_the_evening_end"]))
     A(Q("dw_let_him_go", "Let Him Go", HALYNA, 59, 59, "Mykola's",
-        "The spoke that runs from the Stacks to the heart of the Exclusion Zone is full of stopped time, and the "
-        "liquidators work it in ninety-second shifts, like the men who cleared the roof at Chernobyl by hand. At the "
-        "middle of it stands a figure frozen in the middle of a scream.\n\nThe Stopped Man is Mykola Bondar, and "
-        "Halyna has asked you to let him go.",
-        [boss("The Stopped Man", EZ)],
-        "The Ninety Seconds is the spoke east of the heart, behind the Stacks. He'll fight you, because the wound "
-        "made him again and it wants to keep him. Don't hesitate when you see his face, because he wouldn't want you to.",
+        "The wound copied the reactor wrong way up, and it put the roof on the inside. That gallery is full of "
+        "stopped time, and the liquidators work it in ninety-second shifts, like the men who cleared the roof at "
+        "Chernobyl by hand. At the far end of it stands a figure frozen in the middle of a scream.\n\nThe Stopped "
+        "Man is Mykola Bondar, and Halyna has asked you to let him go.",
+        [boss("The Stopped Man", EZ_HALL)],
+        "The Ninety Seconds is the long gallery up the east side of the Reactor Hall, past the Bubbler Pools. He's "
+        "at the north end, beside the breach into the core. He'll fight you, because the wound made him again and "
+        "it wants to keep him. Don't hesitate when you see his face, because he wouldn't want you to.",
         "Thank you.\n\nWhen I was small he used to hide under the kitchen table, under our father's dosimeter, and "
         "I'd pretend I couldn't find him. He'd stay there for hours. I'll put his name back on the board in the "
         "morning, and this time it'll stay there.",
         requires_quests=["dw_its_a_mouth", "dw_raise_the_spire"]))
     A(Q("dw_the_elephants_foot", "The Elephant's Foot", KENJI, 60, 60, "Fallout",
-        "At the hub of the Exclusion Zone is the knot that keeps every copy the wound makes: flesh, black glass "
-        "and stopped light, fused into one mass. Kenji gave it the name the first time he saw it.\n\nUnder "
-        "Chernobyl's reactor, the core melted through the floor and set in the basement as a lump of fuel, sand "
+        "At the very bottom of the Exclusion Zone, under the reactor the wound copied, is the knot that keeps "
+        "every copy it makes: flesh, black glass and stopped light, fused into one mass. Kenji gave it the name the first time he saw "
+        "it.\n\nUnder Chernobyl's reactor, the core melted through the floor and set in the basement as a lump of fuel, sand "
         "and concrete. They called it the Elephant's Foot, and five minutes beside it would kill you.",
-        [boss("The Wound's Heart", EZ)],
-        "Cross the bridge at the end of the Ninety Seconds onto the island in the middle. The Wound's Heart is "
-        "waiting there. Killing it won't close the tear, but it'll stop it remembering, and then what dies in "
-        "Deadwind can stay dead.",
+        [boss("The Wound's Heart", EZ_FOOT)],
+        "Go in through the breach to the Lid, and take the stair down beside it. The Steam Corridor goes three "
+        "sides round the basement before it lets you in. The Wound's Heart is on an island in the middle of the "
+        "melt. Killing it won't close the tear, but it'll stop it remembering, and then what dies in Deadwind "
+        "can stay dead.",
         "The needles all fell at once. Every dosimeter in the camp.\n\nThe tear's still open, and it'll be open "
         "when I'm dead. But it's stopped making things, and nothing it kept is coming back. For a liquidator, "
         "that's what winning looks like.",
@@ -782,15 +787,15 @@ def build():
         "are still there, stopped or aged to dust where they stood. Luiz Ferreira wants their kits back.\n\nEvery "
         "kit has a name stitched inside the flap.",
         [fetch("dw_q_liquidator_kit", 5)],
-        "The Stopped Volunteers and the Aged Volunteers are along the Ninety Seconds and round the heart. Bring "
-        "me every kit you find, masks and all. The families can't have the bodies, but they can have these.",
+        "The Stopped Volunteers and the Aged Volunteers are in the Reactor Hall and all the way down the Steam "
+        "Corridor. Bring me every kit you find, masks and all. The families can't have the bodies, but they can have these.",
         "There are five names here. Kenji knew two of them, and Halyna knew all five.\n\nWe can't send them home. There's no "
         "post to where we came from. But the board will have them, and somebody will read it."))
     A(Q("dw_deep_samples", "Deep Samples", LISBETH, 59, 59, "Deepwater",
         "Lisbeth Vane wants a sample from the very bottom of the Bubbler Pools, before the Wound's Heart dies and "
         "the seep changes. She's decided which report she's sending, and she needs the samples to prove it.",
         [fetch("dw_q_bubbler_sample", 5)],
-        "The Bubbler Oozes live in the pools in the Exclusion Zone's north chamber. Seal each flask before you "
+        "The Bubbler Oozes live round the pools in the Reactor Hall's flooded basement. Seal each flask before you "
         "lift it out, and don't spill a drop on your boots.",
         "Thank you. These go to the Undercity with the true report.\n\nMaster Ashgrave's arm, and what the Seep "
         "does to the living, and every name on the board. If the Society wants to use it as a weapon, they'll "

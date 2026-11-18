@@ -72,7 +72,10 @@ TOKENS = ROOT / "data/items/set_tokens.json"
 SRC = ROOT / "assets/creatures/_src/deadwind"
 WEST, EAST = DWW.NAME, DWE.NAME
 NEST, SEEP, EXZ = DWC.NEST, DWC.SEEP, EZ.NAME
-ZONE_LEVELS = {WEST: [55, 57], EAST: [56, 58], NEST: [56, 58], SEEP: [57, 58], EXZ: [57, 60]}
+ZONE_LEVELS = {WEST: [55, 57], EAST: [56, 58], NEST: [56, 58], SEEP: [57, 58],
+               **{f: list(EZ.LEVELS[f]) for f in EZ.FLOORS}}
+#: the dungeon's roster as a whole (each floor is checked against its own band in check())
+EXZ_BAND = (57, 60)
 ARMOUR = ("plate", "mail", "leather", "cloth")
 #: the sprites that are people, never hostiles
 NOT_HOSTILE = {"dw_twice_ogre", "dw_echo"}
@@ -190,13 +193,13 @@ ROSTER = {
     "Brood Seepwidow":       ("vermin_sneaky", 58, 59, None, "dw_widow", EXZ, "", "nature", []),
     "Brood Hatchling Swarm": ("vermin_swarm", 58, 59, None, "dw_widow_hatchlings", EXZ, "", "nature", []),
     "Brood Burrower":        ("vermin_sneaky", 58, 59, None, "dw_cave_burrower", EXZ, "", "physical", []),
-    "Bubbler Slagcrawler":   ("elemental_bruiser", 58, 59, None, "dw_slag_crawler", EXZ, "", "nature", []),
+    "Bubbler Slagcrawler":   ("elemental_bruiser", 59, 60, None, "dw_slag_crawler", EXZ, "", "nature", []),
     "Bubbler Wyrm":          ("beast_fast", 58, 59, None, "dw_seep_wyrm", EXZ, "", "nature", []),
     "Bubbler Ooze":          ("elemental_caster", 58, 59, None, "dw_bone_ooze", EXZ, "", "nature", []),
-    "Archive Wraith":        ("undead_caster", 59, 60, None, "dw_shard_wraith", EXZ, "", "arcane", []),
-    "Archive Anomaly":       ("elemental_caster", 59, 60, None, "dw_arcane_anomaly", EXZ, "", "arcane", []),
-    "Hollow Guardian":       ("elemental_bruiser", 59, 60, None, "dw_violet_armour", EXZ, "", "arcane", []),
-    "Swarming Pages":        ("elemental_caster", 59, 60, None, "dw_book_flock", EXZ, "", "arcane", []),
+    "Archive Wraith":        ("undead_caster", 58, 59, None, "dw_shard_wraith", EXZ, "", "arcane", []),
+    "Archive Anomaly":       ("elemental_caster", 58, 59, None, "dw_arcane_anomaly", EXZ, "", "arcane", []),
+    "Hollow Guardian":       ("elemental_bruiser", 58, 59, None, "dw_violet_armour", EXZ, "", "arcane", []),
+    "Swarming Pages":        ("elemental_caster", 58, 59, None, "dw_book_flock", EXZ, "", "arcane", []),
     "Stopped Volunteer":     ("undead_warrior", 59, 60, None, "dw_stopped_soldier", EXZ, "", "arcane", []),
     "Moment Without End":    ("undead_warrior", 59, 60, None, "dw_many_moments", EXZ, "", "arcane", []),
     "Aged Volunteer":        ("undead_basic", 59, 60, None, "dw_aged_walker", EXZ, "", "shadow", []),
@@ -212,6 +215,12 @@ CAVE_BOSSES = {n for n, r in ROSTER.items() if r[3] and r[5] in (NEST, SEEP)}
 EZ_BOSSES = [b[2] for b in EZ.BOSS_LIST]
 EZ_FINAL = "The Wound's Heart"
 EZ_TRASH = [n for n, r in ROSTER.items() if r[5] == EXZ and not r[3]]
+
+
+def ez_floor_creatures(floor):
+    """One floor's bosses and trash, in the roster's order."""
+    on = {b[2] for b in EZ.FLOOR[floor]["bosses"]} | {m for p in EZ._trash(floor) for (_x, _y, m, _l) in p}
+    return [n for n in ROSTER if n in on]
 
 
 def summon(name, creature, cooldown, max_alive, max_casts):
@@ -566,15 +575,28 @@ def check(k, loot):
     for cave in (NEST, SEEP):
         if set(DWC.BOSSES[cave]) != {n for n in CAVE_BOSSES if ROSTER[n][5] == cave}:
             bad.append(f"{cave}'s map places {sorted(DWC.BOSSES[cave])}")
-    if set(EZ.BOSSES) != set(EZ_BOSSES):
-        bad.append(f"the Exclusion Zone's map places {sorted(EZ.BOSSES)}")
+    placed = {n for f in EZ.FLOORS for n in EZ.BOSSES.get(f, {})}
+    if placed != set(EZ_BOSSES):
+        bad.append(f"the Exclusion Zone's maps place {sorted(placed)}")
+    for f in EZ.FLOORS:
+        lo, hi = EZ.LEVELS[f]
+        for n in ez_floor_creatures(f):
+            r = ROSTER[n]
+            if not (lo <= r[1] and r[2] <= hi):
+                bad.append(f"{n} ({r[1]}-{r[2]}) is on {f}, which is {lo}-{hi}")
+        for p in EZ._trash(f):
+            for (_x, _y, m, lvl) in p:
+                if not (ROSTER[m][1] <= lvl <= ROSTER[m][2]) or not (lo <= lvl <= hi):
+                    bad.append(f"a pack on {f} puts {m} at {lvl}")
     on_map = {m for (_x, _y, m, _l) in [s for p in EZ._trash() for s in p]}
     if on_map != set(EZ_TRASH):
         bad.append(f"the Exclusion Zone's trash and the roster differ: {sorted(on_map ^ set(EZ_TRASH))}")
     for b in EZ_BOSSES:
         if any(i["slot"] == "wrist" for i in loot[b]):
             bad.append(f"{b} carries bracers in the dungeon whose token they are")
-    for zone, (lo, hi) in ZONE_LEVELS.items():
+    for zone, (lo, hi) in list(ZONE_LEVELS.items()) + [(EXZ, EXZ_BAND)]:
+        if zone in EZ.FLOORS:
+            continue                    # the floors are checked above, each against its own band
         for n, r in ROSTER.items():
             if r[5] == zone and not (lo <= r[1] and r[2] <= hi):
                 bad.append(f"{n} ({r[1]}-{r[2]}) sits outside {zone} {lo}-{hi}")
@@ -616,7 +638,8 @@ def _write(path, data, raw):
 def main():
     for cave in (NEST, SEEP):
         DWC.build(cave)                 # the maps place the bosses; build them so the check can read them
-    EZ.build_exclusion()
+    for f in EZ.FLOORS:
+        EZ.build_floor(f)               # the maps place the bosses; build them so the check can read them
     copied = install_sprites()
     k = kits()
     loot, rows, moved = build_loot()
@@ -645,8 +668,9 @@ def main():
                                  {"name": s, "creatures": dict(c)}) for s, c in table["subzones"].items()}
     for cave, (parent, table) in CAVE_TABLES.items():
         enc["zones"][parent].setdefault("caves", {})[cave] = {"name": cave, "creatures": dict(table)}
-    enc["zones"][EAST].setdefault("caves", {})[EXZ] = {
-        "name": EXZ, "creatures": {n: (0 if n in EZ_BOSSES else 4) for n in EZ_BOSSES + EZ_TRASH}}
+    for f in EZ.FLOORS:
+        enc["zones"][EAST].setdefault("caves", {})[f] = {
+            "name": f, "creatures": {n: (0 if n in EZ_BOSSES else 4) for n in ez_floor_creatures(f)}}
     _write(ENCOUNTERS, enc, raw)
 
     raw = LEVELS.read_text(encoding="utf-8")

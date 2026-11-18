@@ -241,7 +241,9 @@ def main():
         "creatures": {**{n: [10, "honored"] for n in open_world}, **{n: [10, "revered"] for n in ez_trash}},
     }
     rec["dungeon_rep"] = {"_comment": "A boss kill in the Exclusion Zone pays 75 (tools/build_deadwind_content.py).",
-                          "per_boss": 75, "dungeons": ["The Exclusion Zone"]}
+                          "per_boss": 75,
+                          "dungeons": ["The Exclusion Zone", "The Exclusion Zone: The Reactor Hall",
+                                       "The Exclusion Zone: The Foot"]}
     rw = keep_rewards or {}
     rw["vendor_stock"] = {QM: {
         "friendly": list(FRIENDLY_SUPPLIES),

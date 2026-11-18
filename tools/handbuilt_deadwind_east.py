@@ -208,7 +208,7 @@ def build_layout():
 
 
 #: no trees round the rupture: nothing grows within a long stone's throw of the wheel
-NO_TREES = [(152, 92, 26, 20)]
+NO_TREES = [(152, 92, 26, 20), (152, 64, 30, 26)]
 
 
 def open_ground(L):
@@ -252,6 +252,11 @@ CHEST_SPOTS = [
 def chests(L):
     for (x, y) in CHEST_SPOTS:
         L.chest(x, y)
+
+
+#: the wheel: 44 tiles tall over the glow crater, its feet on row 89 and its fenced lot behind them
+WHEEL_H = 44
+WHEEL_LOT = [(x, y) for y in range(56, 89) for x in range(136, 169)] + [(x, 89) for x in (140, 141, 142, 162, 163, 164)]
 
 
 def landmark(L, path, cx, base_y, h, core=()):
@@ -318,29 +323,29 @@ def dress(L):
     D("dw_stopped_rockslide", 90, 42, 5, solid="core")
     D("dw_floating_rock", 102, 44, 4, solid="core")
     # ---- the rupture: the crater, the wheel over it, the spire, and the door at the wheel's foot
-    # the wheel stands over everything: the tallest thing in the pass after the tower
-    landmark(L, BLD + "dw_ferris_wheel.png", 152, 89, 24,
-             core=[(145, 89), (146, 89), (158, 89), (159, 89)])
-    D("dw_glow_crater", 152, 96, 5, solid=False, road_ok=True, allow_overlap=True)
-    landmark(L, BLD + "dw_containment_spire.png", 136, 98, 18, core=[(135, 98), (136, 98), (137, 98)])
+    # THE WHEEL stands over everything, the tallest thing in the pass, taller than the tower (Kyle, 18 Nov: "make
+    # the wheel massive and iconic!"). Its lot is fenced: nothing walks behind it, where the wheel would hide them
+    landmark(L, BLD + "dw_ferris_wheel.png", 152, 89, WHEEL_H, core=WHEEL_LOT)
+    D("dw_glow_crater", 152, 97, 7, solid=False, road_ok=True, allow_overlap=True)
+    landmark(L, BLD + "dw_containment_spire.png", 127, 88, 18, core=[(126, 88), (127, 88), (128, 88)])
     # the ground round it, where the fallout comes up thickest
     D("dw_seep_pool", 168, 92, 3, solid="core")
     D("dw_seep_pool", 140, 112, 3, solid="core")
     D("dw_glow_crater", 170, 106, 3, solid="core")
     D("dw_tumour_growth", 158, 110, 5, solid="core")
-    D("dw_flesh_pods", 166, 80, 4, solid="core")
+    D("dw_flesh_pods", 174, 92, 4, solid="core")
     D("dw_slag_crystals", 134, 86, 4, solid="core")
     D("dw_fume_vent", 150, 108, 4, solid="core")
     D("dw_hand_roots", 172, 96, 3, solid="core")
     D("dw_eye_mushrooms", 144, 116, 3, solid="core")
     D("dw_rift_crack", 164, 96, 4, solid="core")
     D("dw_rift_crack", 142, 104, 4, solid="core")
-    D("dw_slag_crystals", 166, 86, 4, solid="core")
+    D("dw_slag_crystals", 172, 86, 4, solid="core")
     D("dw_fume_vent", 160, 104, 4, solid="core")
-    D("dw_flesh_mass", 138, 84, 5, solid="core")
+    D("dw_flesh_mass", 134, 94, 5, solid="core")
     D("dw_many_ribs", 168, 100, 4, solid="core")
-    D("dw_quarantine_stake", 130, 80, 4, solid="core")
-    D("dw_quarantine_stake", 144, 76, 4, solid="core")
+    D("dw_quarantine_stake", 120, 80, 4, solid="core")
+    D("dw_quarantine_stake", 132, 98, 4, solid="core")
     B("dw_sample_coffer", 130, 92, 3, solid="core")
     # ---- the swamp road, shut at the liquidators' barricade
     B("dw_quarantine_fence", 190, 116, 5, solid="core", road_ok=True)
