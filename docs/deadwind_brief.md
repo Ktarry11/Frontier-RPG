@@ -84,9 +84,18 @@ Grotesque, not gory: tumours, extra limbs, fused bodies, sores, glowing pustules
 this so the image generator will actually draw it. Dark: dead grey-brown forest, black rock, sickly green-yellow glow,
 bruise purple, rust. The only warm colour in the pass is the outpost's pyre, and the wheel's yellow paint.
 
+## Settled with Kyle, 18 Nov 2026
+
+- **Two maps for the pass**: the west (the Stranglethorn tunnel, the dead forest, Morgan's Plot, the ogre compound)
+  and the east (the rupture, the wheel, Karazhan's crag, the stopped avalanche).
+- **The dungeon is the Exclusion Zone.**
+- **The outpost is Ariden's Watch.**
+- **The liquidators get their own faction**, with an honored and revered shelf like the Sunreach Conclave's.
+- Four sheet-5 recruits are written for the camp (Taras, Wes, Mariana, Neil; `docs/recruit_art_prompts_sheet5.md`),
+  waiting for the map. Then Kyle: "Actually. Let's hold off on deadwind. I want something else first." Nothing is
+  built yet.
+
 ## Open (for when it's built)
 
-- Final names: the dungeon (working "the Fallout Zone"), the outpost, the two caves, the bosses.
-- One map or two for the pass.
+- Final names: the two caves and the bosses.
 - The fallout's in-world name. The transplants call it the fallout; the natives need their own word.
-- Reputation: does the camp get its own faction, or pay the Forsaken?
