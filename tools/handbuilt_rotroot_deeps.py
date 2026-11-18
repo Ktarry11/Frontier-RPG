@@ -100,6 +100,39 @@ CHESTS = []
 TRASH = []
 
 
+FR = "assets/tiles/dungeon_props/fr_"
+#: Kyle's Rotroot props (the Azshara dungeon sheet, rows 1, 2 and 5): (prop, x, base y, height, solid)
+DRESSING = (
+    # the burial halls: a niche in every alcove, the clan totem at the gate, the bier's totems
+    [("burial_niche", (x0 + x1) // 2, y1, 4, False) for (x0, y0, x1, y1) in NICHES]
+    + [("corrupt_totem", 18, 14, 4, False), ("corrupt_totem", 48, 14, 4, False),
+       ("corrupt_totem", 28, 47, 4, False), ("corrupt_totem", 38, 47, 4, False),
+       ("rotten_beam", 33, 22, 3, False)]
+    # the Sporegarden: mushrooms round the rim, spore vents on the fungus islands
+    + [("fel_mushrooms", 68, 71, 3, False), ("fel_mushrooms", 90, 55, 3, False), ("fel_mushrooms", 108, 63, 3, False),
+       ("fel_mushrooms", 72, 79, 3, False), ("spore_vent", 74, 63, 3, False), ("spore_vent", 98, 73, 3, False),
+       ("fungus_gate", 118, 66, 5, False)]
+    # the gauntlet: a root cage in every alcove
+    + [("root_cage", (x0 + x1) // 2, y1, 4, False) for (x0, y0, x1, y1) in ALCOVES]
+    # the cathedral: roots coming down on the landings, a crystal vein on the far knot
+    + [("root_wall", 172, 102, 4, False), ("root_wall", 122, 143, 4, False), ("crystal_vein", 132, 116, 3, False)]
+    # the Gloomhollow: ritual circles on the platforms, the ooze pool in the side room, the throne
+    + [("ritual_circle", 58, 143, 3, False), ("ritual_circle", 98, 143, 3, False), ("ritual_circle", 78, 165, 3, False),
+       ("ooze_pool", 46, 146, 3, False), ("root_throne", 78, 149, 5, "core")]
+)
+
+
+def _dress(b):
+    """Each prop's base pulled onto the nearest floor within three tiles (the ooze's edge wanders)."""
+    z = b.zone
+    for (name, x, y, h, solid) in DRESSING:
+        spot = min(((dx * dx + dy * dy, x + dx, y + dy) for dy in range(-3, 4) for dx in range(-3, 4)
+                    if z.is_walkable(x + dx, y + dy)), default=None)
+        if spot is None:
+            raise AssertionError(("prop with no floor within reach", name, x, y))
+        b.prop(f"{FR}{name}.png", spot[1], spot[2], h, solid=solid, fraction=0.3)
+
+
 def _seal_strays(zone):
     """Any floor the gate can't walk to (a corner the ooze cut off) goes back to rock."""
     from collections import deque
@@ -149,6 +182,8 @@ def build_rotroot():
     zone.collision_layer[py][px] = None
     zone.collision_layer[py + 1][px] = None
     _seal_strays(zone)
+    _dress(b)
+    _seal_strays(zone)                  # the throne's base can wall off a corner of the island
 
     fixed = []
     for (x, y, n) in BOSS_LIST:
