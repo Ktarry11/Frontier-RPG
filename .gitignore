@@ -10,3 +10,6 @@ __pycache__/
 data/saves/*.json
 data/saves/**/*.json
 !data/saves/.gitkeep
+
+# qa_save_slots backs the real saves up here while it runs, and restores them after
+data/_saves_qa_backup/
