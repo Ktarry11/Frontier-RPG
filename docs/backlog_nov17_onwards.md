@@ -27,7 +27,6 @@ Hold, 18 Nov), the Drowned Palace (two floors off the Drowned Court, 18 Nov), Or
 East road.
 
 1. **What's left** (the Conclave, the open world and 81 quests are in, 18 Nov):
-   - Mohammed Saleh's sprite and portrait (`docs/azshara_recruit_art_prompt.md`); he's in the game on a stand-in.
    - The hidden content ("Surprise me"). Never described.
    - Maybe a handful more quests out of the zone (the plan's Silvermoon and Undercity chains) to reach about 90.
 2. **Later, Kyle's call**: the Sunreach Conclave's island home.
@@ -38,13 +37,9 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 
 ## 1a. The Collection (account-wide unlocks on the AH, 18 Nov 2026)
 - Built: `docs/collection_design.md`, 741 collectables, the Collection screen (U), the AH's Collection category.
-- **Art:** Sheet C (six unique mounts) and Sheet D (36 icons) in `docs/collection_art_prompts.md`. Kyle: "I'll get
-  art" for the mount colourways too.
+- **Art:** the Collection's own sheets are all in (C, D, and the 18 Nov drop). Still to paste: see section 10.
 - **Next wave:** callboards and daily quests (needs its own design). More of everything as Kyle thinks of it.
 - **Pack Mule** is +12 backpack spaces, not a fifth bag slot; Kyle to say if he wants the real slot.
-
-## 1b. Deadwind Pass (built 18 Nov 2026, `docs/deadwind_build_log.md`)
-- Left: combat backgrounds of its own, prompts written as sheet H3 of `docs/harvest_fishing_art_prompts.md`.
 
 ## 1c. Mulgore: The Fallen Bluff, the Thunder Bluff raid (art prompts in progress, 18 Nov 2026)
 - `docs/mulgore_raid_boss_prompt.md`: Kyle's first raid. Bosses by rise (Central 5 with the final boss unlocking
