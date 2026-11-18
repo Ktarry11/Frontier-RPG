@@ -57,15 +57,22 @@ watching can vanish.
 market hours) before it can be used again. The wait belongs to the character, since the market clock lives in each
 save.
 
-**Heirlooms.** Learning one adds it to the Heirlooms tab, and any character can take a copy from there (one copy of
-each at a time). A copy is bound to the account, can't be sold or auctioned, and is blue quality at the wearer's
-level: it fits itself to the character when it's taken (the right armour type and the stats their spec wants, the
-right weapon type for their class) and re-fits itself every time they level. The XP bonus adds up across the pieces
-they're wearing, to +80% at most, and stops at level 60 because there's nothing left to earn.
+**Heirlooms.** Kyle: "We should have the heirlooms as we need cloth, leather, mail, and plate. And all the weapons,
+shields, OH, etc.", "You know how heirlooms work", and the families: "caster cloth, healer cloth, agi leather, healer
+leather, caster leather, dps mail, caster mail, healer mail. Dps plate, tank plate, hybrid plate, healer plate." So each
+heirloom is its own item: twelve armour families of four pieces (helm, shoulders, chest, legs), a cloak and a
+trinket for each of the six stat families (caster, healer, agility, strength, tank, hybrid), and every weapon a spec
+actually wields in its family, 106 in all. Learning one adds it to the Heirlooms tab, and any character who can wear
+it can take a copy (one at a time). A copy is bound to the account, can't be sold or auctioned, is wearable from 1 to
+60, and is remade at the wearer's level every level-up with its family's fixed stats, worth about 85% of a blue of
+that level ("slightly worse than items of the same level as they have the exp boost in them"). The XP bonus is the
+**leader's**: "They also affect the whole party so the main player wears them and party quest / kill exp improves so
+the main character doesn't blow past his allies." A two-hander is +20%; a one-hander, shield or off-hand +10%; each
+armour piece, cloak and trinket +10%; +80% at most; ranged-slot pieces give none; nothing at 60.
 
 **Titles.** The leader wears one at a time; it shows under their name beside the map and on the character sheet.
 
-## What's in it (741, built by `tools/build_collection.py`)
+## What's in it (837, built by `tools/build_collection.py`)
 
 | Kind | Count | Price | Where it comes from |
 |---|---|---|---|
@@ -75,7 +82,7 @@ they're wearing, to +80% at most, and stops at level 60 because there's nothing 
 | Travel | 4 | 300g to 400g | Windrider Feathers of Kalimdor and the Eastern Kingdoms, the Tome of the Swift Hearth (half the hearth's cooldown), the Hearthstone of the Second Home (its own bind at any innkeeper, its own cooldown). |
 | Services | 6 | 150g to 250g | Travelling Bank, Peddler's Bell (sells anything), Courier's Horn (mail), Book of the Wandering Master (your class trainer), Book of Professions (every profession trainer, so you can learn a new one too), Alchemist's Satchel (reagents). |
 | Tomes | 4 | 100g to 350g | Pack Mule (every backpack holds 12 more), Deep Vault (a free extra bank tab, the Collector's Shelf), Quick Study (Apprentice Riding costs nothing), First Steps (new characters start with a six-slot bag and 5g). |
-| Heirlooms | 10 | 120g to 300g | Helm, Shoulders, Chest, Legs, Cloak, Trinket, Two-Hander, One-Hander, Shield, Off-Hand. |
+| Heirlooms | 106 | 120g to 300g | Twelve armour families of four pieces, a cloak and a trinket per stat family, and every weapon a spec wields (above). |
 
 Two of the approved extras came out slightly different from how I first wrote them:
 
@@ -85,11 +92,9 @@ Two of the approved extras came out slightly different from how I first wrote th
 
 ## Art still to come (`docs/collection_art_prompts.md`)
 
-1. **The six unique mounts**, in four directions each, matching the existing mount sprites. Until then they can be
-   bought and learned but not ridden, and say so.
+1. **The six unique mounts**: delivered and sliced 18 Nov 2026.
 2. **Mount colourway art** if Kyle wants hand-made versions to replace the hue shifts ("I'll get art").
-3. **Icons:** the bag icons for each kind (reins, charms, title scrolls, feathers, tomes, the service items, the
-   heirlooms). Until then they use stand-ins from the quest-item set.
+3. **Icons:** delivered and sliced 18 Nov 2026 (`assets/icons/collection/`).
 
 ## Later
 
@@ -97,3 +102,9 @@ Two of the approved extras came out slightly different from how I first wrote th
   character sees it. This is the next wave, and it needs its own design (what dailies are, what they pay, where the
   boards stand).
 - **More of everything**, as Kyle thinks of it: the builder makes the catalogue, so adding a kind is a section there.
+
+## Also built alongside (18 Nov 2026)
+
+**The experience rate switch** (`world/xp_rate.py`), under the leader's bars beside the map. Kyle: "0.5x, 1x, 1.5x,
+2x, 2.5x, or 3x EXP which will be for quests and kills. So people can pick their own level of fun." It's kept with the
+save and applied last to every quest and kill reward, so the quest card shows what you'll actually get.
