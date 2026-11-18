@@ -381,11 +381,20 @@ class CreatureManager:
                     level_range = ov
             level = random.randint(level_range[0], level_range[1])
         
+        # A HEROIC RUN (world/heroic.py): everything in the dungeon is level 60, whatever the normal level.
+        # A hidden creature never is (its own heroics are the special kind, not built yet).
+        from world import heroic
+        from world.hidden_zones import creature_kinds
+        is_heroic = heroic.active() and creature_name not in creature_kinds()
+        if is_heroic:
+            level = heroic.MONSTER_LEVEL
+
         # Get ability kit if specified, otherwise Monster uses template default
         ability_kit = creature_def.get("ability_kit")
         
         # Create Monster using template + ability kit
         monster = Monster(creature_name, template_name, level, kit=ability_kit)
+        monster._heroic = is_heroic          # elite on top of its own row (world/difficulty.factor)
 
         # A CREATURE RESISTS WHAT IT CASTS. The template gives a type
         # baseline (undead shrug off shadow, demons shrug off fire), but

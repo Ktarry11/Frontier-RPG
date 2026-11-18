@@ -118,6 +118,10 @@ def factor(monster, what):
     # THE FIRST TEN LEVELS (Kyle, 16 Nov 2026: "tone down the difficulty before lvl 10 by about 20% overall.
     # Any enemies below lvl 10 should deal 20% less damage and have 15% less HP"): on top of the row above,
     # whatever kind of creature it is.
+    # A HEROIC (world/heroic.py, Kyle 18 Nov 2026: "Level 60 elites"): every monster in a heroic run is level 60, and
+    # elite on top of whatever row it already has.
+    if getattr(monster, "_heroic", False):
+        f *= float((table().get("heroic") or {}).get(what, 1.0))
     low = table().get("low_level") or {}
     if (getattr(monster, "level", 99) or 99) < int(low.get("below_level", 0)):
         f *= float(low.get(what, 1.0))

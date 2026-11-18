@@ -200,7 +200,7 @@ def shares_hoard(boss_name):
     return boss_name in SHARED_HOARD
 
 
-def get_fixed_boss_loot_all(boss_name):
+def get_fixed_boss_loot_all(boss_name, heroic_ilvl=None):
     """Every Item this boss drops, as a list - one for an ordinary boss,
     MULTI_DROP[boss_name] for one that drops several, and empty for a boss
     whose hoard belongs to somebody else.
@@ -229,5 +229,13 @@ def get_fixed_boss_loot_all(boss_name):
         picks = random.sample(plain, min(count, len(plain)))
         if epics and random.random() < chance:
             picks = picks[:max(0, count - 1)] + [random.choice(epics)]
-        return [_item_from_def(d) for d in picks]
-    return [_item_from_def(d) for d in random.sample(pool, count)]
+        return [_item_from_def(_heroic(d, heroic_ilvl)) for d in picks]
+    return [_item_from_def(_heroic(d, heroic_ilvl)) for d in random.sample(pool, count)]
+
+
+def _heroic(item_def, heroic_ilvl):
+    """In a heroic (world/heroic.py) a boss drops the same item, rebuilt at the heroic level."""
+    if not heroic_ilvl:
+        return item_def
+    from world.heroic import heroic_def
+    return heroic_def(item_def, heroic_ilvl)

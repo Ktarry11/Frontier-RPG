@@ -103,5 +103,10 @@
     "damage": 0.8,
     "health": 0.85
   },
-  "_hidden_18nov": "Kyle, 18 Nov 2026, after a tester's druid went from 1439 to 109 in one hit from Amberheart, the Sap-Mother: 'So lets drop down skull zone by 1x for hp and damage and frontier zones by 1.5x and 1.5x hp and damage'. Skull zones 2.5 -> 1.5; frontier deep 5.0/5.5 -> 3.5/4.0; frontier open 3.5/3.5 -> 2.0/2.0. Hidden layers stay 4/4.5. Then: 'Drop damage to 3.5x for frontier caves and dungeons. Drop hidden layers to 4x as well': frontier deep damage 4.0 -> 3.5, hidden layer damage 4.5 -> 4.0."
+  "_hidden_18nov": "Kyle, 18 Nov 2026, after a tester's druid went from 1439 to 109 in one hit from Amberheart, the Sap-Mother: 'So lets drop down skull zone by 1x for hp and damage and frontier zones by 1.5x and 1.5x hp and damage'. Skull zones 2.5 -> 1.5; frontier deep 5.0/5.5 -> 3.5/4.0; frontier open 3.5/3.5 -> 2.0/2.0. Hidden layers stay 4/4.5. Then: 'Drop damage to 3.5x for frontier caves and dungeons. Drop hidden layers to 4x as well': frontier deep damage 4.0 -> 3.5, hidden layer damage 4.5 -> 4.0.",
+  "heroic": {
+    "damage": 1.15,
+    "health": 1.3,
+    "_why": "Kyle, 18 Nov 2026: heroic dungeons are \"Level 60 elites\" (world/heroic.py). Every monster in a heroic run is level 60, and these multiply on top of its own row (cave, boss, ...). A first guess, to tune with tools/sim_difficulty.py once heroics are played."
+  }
 }

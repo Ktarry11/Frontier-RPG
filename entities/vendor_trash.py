@@ -268,11 +268,16 @@ def roll_drops(enemy, rng=random):
     rates = cfg["rates"][place]
     family, coin = classify(name)
     out = {"copper": 0, "items": []}
+    # A HEROIC monster (world/heroic.py) pays more for its coin and its trash
+    hmult = 1.0
+    if getattr(enemy, "_heroic", False):
+        from world.heroic import COIN_MULT
+        hmult = COIN_MULT
 
     def _coin(scale):
         base = level * cfg["coin"]["per_level"]
         c = base + int(base * rng.random() * cfg["coin"]["bonus_max"])
-        return max(1, int(c * rates["coin_mult"] * scale
+        return max(1, int(c * rates["coin_mult"] * scale * hmult
                           * (cfg["boss"]["coin_mult"] if boss else 1.0)))
 
     if coin:
@@ -295,4 +300,6 @@ def roll_drops(enemy, rng=random):
             n = 0
         for _ in range(n):
             out["items"].append(_pick(family, level, name))
+    if hmult != 1.0:
+        out["items"] = [dict(it, price=max(1, int(it["price"] * hmult))) for it in out["items"]]
     return out

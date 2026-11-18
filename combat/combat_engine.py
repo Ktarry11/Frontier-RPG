@@ -54,6 +54,12 @@ class CombatEngine:
         self.player = player
         self.party = party if party is not None else Party(player)
         self.zone = zone
+        # a heroic run (world/heroic.py): heroic loot, rep past Revered, and a tabard takes the kill rep
+        try:
+            from world.heroic import active as _heroic_active
+            self.heroic = bool(_heroic_active(zone))
+        except Exception:
+            self.heroic = False
         self._break_resting()
 
         # Keep .enemy pointing at a live enemy for any legacy caller, but the
@@ -1121,13 +1127,19 @@ class CombatEngine:
             # a hidden-zone monster drops more often than ordinary trash.
             lift = int(getattr(enemy, "loot_ilvl_bonus", 0) or 0)
             if getattr(enemy, "is_boss", False):
-                drops = get_fixed_boss_loot_all(enemy.name)
+                from world.heroic import ITEM_LEVEL as _HEROIC_ILVL
+                drops = get_fixed_boss_loot_all(enemy.name, heroic_ilvl=_HEROIC_ILVL if self.heroic else None)
                 if not drops and not shares_hoard(enemy.name):
                     drops = [self.loot_generator.generate_boss_loot(
-                        creature_level=enemy.level + lift,
+                        creature_level=(_HEROIC_ILVL if self.heroic else enemy.level + lift),
                         char_class=self.player.char_class,
-                        player_level=self.player.level + lift,
+                        player_level=(_HEROIC_ILVL if self.heroic else self.player.level + lift),
                     )]
+            elif self.heroic and getattr(enemy, "_heroic", False):
+                # heroic trash drops above a normal level-60 dungeon's gear (world/heroic.TRASH_ITEM_LEVEL)
+                from world.heroic import TRASH_ITEM_LEVEL as _HT
+                drops = [self.loot_generator.generate_loot_for_creature(
+                    creature_level=_HT, char_class=self.player.char_class, player_level=_HT)]
             else:
                 drops = [self.loot_generator.generate_loot_for_creature(
                     creature_level=enemy.level + lift,
@@ -1142,6 +1154,12 @@ class CombatEngine:
                     drops.append(self.loot_generator.generate_item_for_class(
                         self.loot_generator._roll_target_class(self.player.char_class),
                         min(enemy.level, self.player.level + 2) + lift, rarity="epic"))
+            if self.heroic and (getattr(enemy, "is_boss", False) or getattr(enemy, "_heroic", False)):
+                # heroic loot is worn at 60 whatever its level (world/heroic.WORN_AT)
+                from world.heroic import WORN_AT as _HEROIC_WORN
+                for d in drops:
+                    if d is not None and (getattr(d, "required_level", 0) or 0) > _HEROIC_WORN:
+                        d.required_level = _HEROIC_WORN
             for loot in [d for d in drops if d]:
                 if self.player.add_to_inventory(loot):
                     self.loot_dropped = loot

@@ -86,6 +86,22 @@ HIGH_TIER_LEATHER = {mid for mid, s in _ladder("leather") if s > PRE_60_SKILL_CE
 
 HIGH_TIER = HIGH_TIER_CLOTH | HIGH_TIER_LEATHER
 
+#: WHAT A HEROIC DROPS FROM THE TOP TIERS. Kyle, 18 Nov 2026: "Only TWO of the top tier crafting materials each bro.
+#: We want to keep a backup for higher tiers" and "heroics can get the same 2 crafting materials that We would put in
+#: the first few pure 60 zones. Do note which ones they are." The two lowest rungs above the pre-60 line, per kind:
+#: cloth Dreamsilk (310) and Chronoweave (320), leather Manticore (310) and Chimera (320). Only cloth and leather drop
+#: from monsters; ore, herbs, wood and gems are gathered, and a dungeon has no nodes. Everything above these stays
+#: for later content. A heroic monster otherwise rolls the level-59 pool, and its recipes stay pre-60
+#: (entities/cloth_drops, entities/skinning_drops, docs/heroic_design.md).
+HEROIC_TOP = {kind: [mid for mid, _s in _ladder(kind) if _s > PRE_60_SKILL_CEILING][:2] for kind in ("cloth", "leather")}
+#: their weight in a heroic monster's pool, the first more common than the second
+HEROIC_TOP_WEIGHTS = (3, 2)
+
+
+def heroic_top(kind):
+    """{material id: weight} a heroic monster adds to its level-59 pool: the two lowest top-tier rungs of `kind`."""
+    return dict(zip(HEROIC_TOP.get(kind, []), HEROIC_TOP_WEIGHTS))
+
 
 #: THE ZONE DECIDES, NOT THE CREATURE. Kyle, 16 Nov 2026: "this is CRITICAL that no post-game materials
 #: drop and no post-game gathering nodes in zones that are NOT pure 60. So even though these zones go to

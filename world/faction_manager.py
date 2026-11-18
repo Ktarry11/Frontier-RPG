@@ -296,8 +296,9 @@ class FactionManager:
         in_dungeon = False
         if zone:
             try:
-                from world.zone_classification import is_dungeon
-                in_dungeon = bool(is_dungeon(zone))
+                # combat passes its zone key ("wailing_caverns"), not the display name
+                from world.zone_classification import is_dungeon_any
+                in_dungeon = bool(is_dungeon_any(zone))
             except Exception:
                 in_dungeon = False
         frontier = False

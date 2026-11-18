@@ -90,8 +90,14 @@ PRE_60_BANDS = pre60_bands("cloth", backbone={"cloth_linen", "cloth_wool", "clot
     + [(53, 59, {"cloth_felcloth": 1})]
 
 
-def _pick_material(level: int, rng) -> str:
+def _pick_material(level: int, rng, heroic: bool = False) -> str:
     pool: dict[str, float] = {}
+    if heroic:
+        # a heroic monster (world/heroic.py): the level-59 pool plus the two lowest top-tier cloths
+        # (entities/material_tiers.HEROIC_TOP)
+        from entities.material_tiers import heroic_top
+        level = HIGH_TIER_FLOOR - 1
+        pool.update(heroic_top("cloth"))
     for lo, hi, weights in (PRE_60_BANDS if level < HIGH_TIER_FLOOR else BANDS):
         if lo <= level <= hi:
             for mid, w in in_reach(weights, level).items():
@@ -124,13 +130,14 @@ def roll_cloth(enemy, rng=random):
     if family != "humanoid":
         return []
     level = tier_level(max(1, int(getattr(enemy, "level", 1))))      # held at 59 outside pure 60 zones
+    _heroic = bool(getattr(enemy, "_heroic", False))
     if getattr(enemy, "is_boss", False):
-        return [(_pick_material(level, rng), rng.randint(*BOSS_QTY))]
+        return [(_pick_material(level, rng, _heroic), rng.randint(*BOSS_QTY))]
     location_type = getattr(enemy, "location_type", "open_zone")
     place = "cave" if location_type == "cave" else "open_zone"
     if rng.random() < CHANCE[place]:
         # 1-3 cloth per kill: ~50% chance of 1, ~35% chance of 2, ~15% chance of 3
         roll = rng.random()
         qty = 1 if roll < 0.50 else (2 if roll < 0.85 else 3)
-        return [(_pick_material(level, rng), qty)]
+        return [(_pick_material(level, rng, _heroic), qty)]
     return []

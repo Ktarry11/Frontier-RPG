@@ -80,8 +80,14 @@ PRE_60_BANDS = pre60_bands("leather", backbone={"leather_scrap", "leather_light"
                                                 "leather_heavy", "leather_thick", "leather_rugged"})
 
 
-def _pick_material(level: int, rng) -> str:
+def _pick_material(level: int, rng, heroic: bool = False) -> str:
     pool: dict[str, float] = {}
+    if heroic:
+        # a heroic monster (world/heroic.py): the level-59 pool plus the two lowest top-tier leathers
+        # (entities/material_tiers.HEROIC_TOP)
+        from entities.material_tiers import heroic_top
+        level = HIGH_TIER_FLOOR - 1
+        pool.update(heroic_top("leather"))
     for lo, hi, weights in (PRE_60_BANDS if level < HIGH_TIER_FLOOR else BANDS):
         if lo <= level <= hi:
             for mat, w in in_reach(weights, level).items():
@@ -117,9 +123,10 @@ def roll_leather(enemy, player=None, rng=random):
         return []
 
     level = tier_level(max(1, int(getattr(enemy, "level", 1))))      # held at 59 outside pure 60 zones
+    _heroic = bool(getattr(enemy, "_heroic", False))
 
     if getattr(enemy, "is_boss", False):
-        return [(_pick_material(level, rng), rng.randint(*BOSS_QTY))]
+        return [(_pick_material(level, rng, _heroic), rng.randint(*BOSS_QTY))]
 
     # Normal beast: always exactly 1 leather — 100% rate, no luck involved.
-    return [(_pick_material(level, rng), 1)]
+    return [(_pick_material(level, rng, _heroic), 1)]

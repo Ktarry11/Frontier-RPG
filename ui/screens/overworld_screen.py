@@ -83,6 +83,10 @@ class OverworldScreen(BaseScreen):
         self.teleport_menu_open = False
         self.teleport_rects = []          # [(rect, destination)] built each frame while open
         self.teleport_close_rect = None
+        # THE HEROIC DOOR (world/heroic.py, Kyle 18 Nov 2026: pick Normal or Heroic at the dungeon's door, at 60).
+        # (zone, x, y) of the dungeon being walked into while the choice is up; its buttons are built each frame.
+        self.heroic_door = None
+        self.heroic_door_rects = []       # [(rect, "normal" | "heroic" | None for stay)]
         # THE FOOD PICKER (Kyle, 16 Nov 2026: "we need to have a way to see our food buff. Also a way to select food.
         # these should open menu to select food options"). Clicking Eat or Drink opens it ("meal" / "drink"); a pick
         # is remembered as what F / Q eat (Character.rest_choice). Built each frame while open, like the teleport menu.
@@ -120,6 +124,22 @@ class OverworldScreen(BaseScreen):
                     self.rest_picker = None
             elif event.type == pygame.KEYDOWN and event.key in (pygame.K_ESCAPE, pygame.K_f, pygame.K_q):
                 self.rest_picker = None
+            return
+
+        # The heroic door takes over all input while it's up, like the teleport menu below.
+        if self.heroic_door:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                for rect, pick in self.heroic_door_rects:
+                    if rect.collidepoint(event.pos):
+                        self._enter_dungeon(pick)
+                        break
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    self.heroic_door = None
+                elif event.key in (pygame.K_n, pygame.K_1):
+                    self._enter_dungeon("normal")
+                elif event.key in (pygame.K_h, pygame.K_2):
+                    self._enter_dungeon("heroic")
             return
 
         # The teleport menu takes over ALL input while it is open, so a click on a town can never
@@ -377,8 +397,15 @@ class OverworldScreen(BaseScreen):
                 elif ambient_npc:
                     self.state_manager.transition_to(GameState.QUEST_DIALOG, current_quest_npc=ambient_npc)
                 else:
-                    # Fall back to portal if nothing else is here
-                    self.zone_manager.try_use_portal()
+                    # Fall back to portal if nothing else is here. A dungeon's door at level 60 asks Normal or
+                    # Heroic first (world/heroic.py).
+                    dest = self.zone_manager.portal_destination()
+                    from world import heroic
+                    here = self.zone_manager.current_zone.name if self.zone_manager.current_zone else None
+                    if dest and heroic.offers_choice(dest[0], here, self.state_manager.player):
+                        self.heroic_door = dest
+                    else:
+                        self.zone_manager.try_use_portal()
         
         if event.type == pygame.KEYUP:
             # Release keys for continuous movement
@@ -1656,6 +1683,8 @@ class OverworldScreen(BaseScreen):
         # inventory_screen.py's destroy-confirmation.
         if self.teleport_menu_open:
             self._render_teleport_menu(screen)
+        if self.heroic_door:
+            self._render_heroic_door(screen)
         if self.rest_picker:
             self._render_rest_picker(screen)
         if self.mount_picker:
@@ -1663,6 +1692,56 @@ class OverworldScreen(BaseScreen):
 
         # Last, so nothing in the HUD draws over it.
         self._render_banter(screen)
+
+    def _enter_dungeon(self, pick):
+        """The heroic door's answer: walk in as Normal, start a heroic run (once per market day), or stay."""
+        from world import heroic
+        dest, self.heroic_door = self.heroic_door, None
+        if not dest or pick is None:
+            return
+        tm = self._travel_manager()
+        if pick == "heroic":
+            ok, msg = heroic.start(dest[0], heroic.market_clock(self.state_manager.get_party()), tm)
+            self._notify(msg, (230, 170, 90) if ok else (240, 140, 140))
+            if not ok:
+                return
+        else:
+            heroic.leave(tm)
+        self.zone_manager.transition_to_zone(dest[0], dest[1], dest[2])
+
+    def _travel_manager(self):
+        from world.travel_manager import get_travel_manager
+        return get_travel_manager()
+
+    def _render_heroic_door(self, screen):
+        """Normal or Heroic, at a dungeon's door. Heroic says whether it's open today."""
+        from world import heroic
+        zone = self.heroic_door[0]
+        overlay = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
+        overlay.fill((0, 0, 0, 170))
+        screen.blit(overlay, (0, 0))
+        box = pygame.Rect(0, 0, 560, 250)
+        box.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
+        self.renderer.draw_rect(screen, box, (25, 25, 30))
+        self.renderer.draw_rect(screen, box, (200, 150, 70), fill=False)
+        self.renderer.draw_text(screen, zone, (box.x + 24, box.y + 16), color=(240, 210, 150), size="large")
+        locked = heroic.locked_today(zone, heroic.market_clock(self.state_manager.get_party()),
+                                     self._travel_manager())
+        line = ("You've run its heroic today. It opens again at the next market day." if locked else
+                f"Heroic: everything is level 60 and elite, and drops item level {heroic.ITEM_LEVEL}. Once a day.")
+        self.renderer.draw_text(screen, line, (box.x + 24, box.y + 64), color=(210, 210, 210))
+        self.heroic_door_rects = []
+        normal = pygame.Rect(box.x + 24, box.y + 120, 240, 44)
+        hero = pygame.Rect(box.right - 264, box.y + 120, 240, 44)
+        self.renderer.draw_button(screen, normal, "Normal (N)", color=(45, 60, 80))
+        self.renderer.draw_button(screen, hero, "Heroic (H)", color=(60, 50, 50) if locked else (110, 60, 30))
+        self.heroic_door_rects.append((normal, "normal"))
+        if not locked:
+            self.heroic_door_rects.append((hero, "heroic"))
+        stay = pygame.Rect(0, 0, 140, 36)
+        stay.midbottom = (box.centerx, box.bottom - 14)
+        self.renderer.draw_button(screen, stay, "Stay out (Esc)")
+        self.heroic_door_rects.append((stay, None))
 
     def _teleport_to(self, dest):
         """Put the party in front of that town's innkeeper. A teleport, not a walk through a door

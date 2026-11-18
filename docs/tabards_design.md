@@ -34,9 +34,7 @@ their dungeon road.
 
 ## Not built yet
 
-- **Heroic mode.** There's nothing heroic anywhere in the game yet. The combat engine reads `self.heroic`, which
-  nothing sets, so until heroics exist dungeons stop at Revered and tabards wait. Quests still go to Exalted. This is
-  the next design job with Kyle.
+- **Heroic mode** is built (stage 1, `docs/heroic_design.md`), so tabards and the past-Revered road are live.
 - **Tabard art** landed 18 Nov (sheet T1, `docs/tabard_art_prompts.md`).
 
 QA: `tools/qa_tabards_and_dungeon_cap.py`.

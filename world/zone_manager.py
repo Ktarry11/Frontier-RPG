@@ -649,6 +649,13 @@ class ZoneManager:
             from world.zone_keys import zone_slug
             get_quest_manager().record_zone_entered(zone_slug(new_zone.name))
 
+            # A HEROIC RUN ends when the party walks out of the dungeons (world/heroic.py)
+            try:
+                from world.heroic import on_zone_change
+                on_zone_change(getattr(leaving, "name", None), new_zone.name)
+            except Exception:
+                pass
+
             # BANTER. A town gets the town trigger and everywhere else gets the zone one; leaving a
             # dungeon whose boss is down is its own beat. The manager decides whether anybody actually
             # speaks - it is on a cooldown and most of these calls do nothing, which is the point.
@@ -930,6 +937,14 @@ class ZoneManager:
         self.cave_spawns.consume(sp)
         self.pending_spawn = sp
         return monsters
+
+    def portal_destination(self):
+        """(zone, x, y) the portal or boat the player stands on leads to, or None. What try_use_portal would do,
+        without doing it, so the overworld can ask Normal or Heroic at a dungeon's door first."""
+        interaction = self.current_zone.get_interaction(self.player_x, self.player_y)
+        if interaction not in ("portal", "boat"):
+            return None
+        return self.portal_manager.get_destination(self.current_zone.name, self.player_x, self.player_y)
 
     def try_use_portal(self):
         """

@@ -60,6 +60,10 @@ class TravelManager:
         self.active_form = None
         # {class form id: Collection look id}: how Bear Form and friends look on the map (world/collection.py)
         self.form_looks = {}
+        # heroic dungeons (world/heroic.py): the run in progress (the dungeon entered from outside) and the market
+        # day each heroic was last entered, for the once-a-day lockout
+        self.heroic_run = None
+        self.heroic_locks = {}
         self.active_title = None
         try:
             from world.collection import apply_feathers
@@ -347,6 +351,8 @@ class TravelManager:
             "collection_used": dict(self.collection_used),
             "active_form": self.active_form,
             "form_looks": dict(self.form_looks),
+            "heroic_run": self.heroic_run,
+            "heroic_locks": dict(self.heroic_locks),
             "active_title": self.active_title,
         }
 
@@ -376,6 +382,9 @@ class TravelManager:
         self.collection_used = {k: float(v) for k, v in (data.get("collection_used") or {}).items()}
         self.active_form = data.get("active_form")
         self.form_looks = {k: v for k, v in (data.get("form_looks") or {}).items() if isinstance(v, str)}
+        self.heroic_run = data.get("heroic_run") if isinstance(data.get("heroic_run"), str) else None
+        self.heroic_locks = {k: int(v) for k, v in (data.get("heroic_locks") or {}).items()
+                             if isinstance(v, (int, float))}
         self.active_title = data.get("active_title")
         try:
             from world.collection import apply_feathers, form_ids

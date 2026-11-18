@@ -62,16 +62,17 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - **The Gilded Vale** (a skull zone) leading to **the Emberwild** (its frontier), painted with the Azshara autumn
   set, "elsewhere in the world". The parent zone is chosen blind and never written down.
 
-## 3a. Heroic dungeons (NEXT, design with Kyle; 18 Nov 2026)
-- **Heroic mode doesn't exist yet.** Normal dungeons now stop paying rep at Revered, and faction tabards move a
-  heroic's kill rep to the faction you pick (`docs/tabards_design.md`). Both wait on heroics for the road to Exalted.
-  Still to design with Kyle: how a heroic is entered, what changes (level, health, damage, mechanics), lockouts,
-  and which dungeons get one.
+## 3a. Heroic dungeons (stage 1 built 18 Nov 2026, `docs/heroic_design.md`)
+- **Stage 2:** a badge from every heroic boss and a badge vendor selling 66 gear; one heroic-only rare 66 per dungeon
+  from its last boss.
+- **Stage 3:** one heroic-only trick per boss; now and then a heroic-only boss ("for spice").
+- **Later:** the skull zone (68) and frontier zone (69) heroics; tuning the elite multipliers (health x1.3, damage
+  x1.15) once played.
 - **The level-60 gear ladder** (Kyle, 18 Nov 2026), item levels: normal 60 dungeons 60-63, Honored rep 62, Revered
   rep 66 ("Ok revered at 66", level with heroic blues, since a tabard gets you to Revered through heroics), heroics 66
   (68 and 69 for the two special kinds), Exalted rep 68 (the same as T1 but no set bonus; 250-350g), the Fallen Bluff
-  (T1) 68, Cairne Unmade 71. The rep gear is on it already (see backlog_fixed); heroic and raid loot get these
-  numbers when they're built.
+  (T1) 68, Cairne Unmade 71. The rep gear and heroics are on it (see backlog_fixed); the raid's loot gets its
+  numbers when it's built.
 
 ## 4. Classes, combat and balance
 - **Tanks on the new armour curve**: the caster/tank shield split isn't built; tank abilities and block, dodge and

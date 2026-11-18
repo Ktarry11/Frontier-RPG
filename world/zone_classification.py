@@ -118,3 +118,36 @@ def is_dungeon(zone_name):
         return True
     info = registry().get(zone_name) or {}
     return info.get("kind") == "frontier" and info.get("frontier_type", "deep") == "deep"
+
+
+def _key(name):
+    return str(name or "").lower().replace(" ", "_").replace("'", "").replace(":", "")
+
+
+def dungeon_name(zone):
+    """The dungeon's display name for `zone`, given either its display name or the key combat uses
+    ("wailing_caverns", ui/screens/combat_screen.py), or None if it isn't one of DUNGEONS. Combat only ever has the
+    key, so anything that asks "is this fight in a dungeon" from inside combat goes through here."""
+    if zone in DUNGEONS:
+        return zone
+    k = _key(zone)
+    for d in DUNGEONS:
+        if _key(d) == k:
+            return d
+    return None
+
+
+def is_dungeon_any(zone):
+    """is_dungeon for a display name or a combat key."""
+    if is_dungeon(zone):
+        return True
+    name = dungeon_name(zone)
+    if name:
+        return True
+    from world.hidden_zones import registry
+    k = _key(zone)
+    for hz in registry():
+        if _key(hz) == k:
+            return is_dungeon(hz)
+    return False
+

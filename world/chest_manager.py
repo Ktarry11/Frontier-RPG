@@ -237,6 +237,15 @@ class ChestManager:
         with self._seeded((tilemap.name, x, y)):
             # the level is a roll too (a zone's band), so it's inside the seed with the rest
             effective_level = self.chest_level(tilemap.name, player_level)
+            # A HEROIC RUN'S CHESTS (world/heroic.py): boss chests at the heroic level, side chests at its trash
+            # level, both worn at 60
+            from world import heroic
+            if heroic.active(tilemap.name):
+                lv = heroic.ITEM_LEVEL if is_boss_chest else heroic.TRASH_ITEM_LEVEL
+                item = self._roll_chest(loot_gen, lv, lv, is_boss_chest)
+                if item is not None and (getattr(item, "required_level", 0) or 0) > heroic.WORN_AT:
+                    item.required_level = heroic.WORN_AT
+                return item
             return self._roll_chest(loot_gen, effective_level, player_level, is_boss_chest)
 
     def _roll_chest(self, loot_gen, effective_level, player_level, is_boss_chest):
