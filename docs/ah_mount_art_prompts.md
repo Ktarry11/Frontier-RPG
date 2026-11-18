@@ -1,4 +1,4 @@
-# Auction house exclusive mounts (3 sheets, 11 mounts)
+# Auction house exclusive mounts (6 sheets of mounts, 27 mounts, plus one icon sheet)
 
 Kyle, 18 Nov 2026: "can you whip up another 3 art prompts for mounts that are AH exclusive?!" Three Collection mounts
 that only ever turn up on the auction house, put up by its traders: no vendor, no drop, no quest. Built into the
@@ -66,3 +66,35 @@ SHEET.png ruby_scorpid golden_dromedary obsidian_rhino jadehorn_elk`. Sent to Ky
 4. JADEHORN ELK: a giant elk with carved jade antlers hung with gold charms, green silk barding.
 
 Scale: scorpid widest and lowest, dromedary tall with a long neck, rhino heaviest, elk with the widest antlers.
+
+---------------------------------------------------------------------
+## SHEET H7: four more auction house mounts, 4 facings each
+
+Kyle, 18 Nov 2026: "one more". Same rules as H5 (4x4, 1024x1024). Ids: `gilded_bone_steed gilded_mechanostrider
+crowned_grizzly emerald_basilisk`. Sent to Kyle in full the same day.
+
+1. GILDED BONE STEED: a skeletal warhorse, every bone plated in gold, violet ghost-fire, purple silk barding.
+2. GILDED MECHANOSTRIDER: a gold-plated two-legged goblin machine bird, glass dome head, red leather bucket seat.
+3. CROWNED GRIZZLY: a colossal black bear in a gold crown helm and an ermine-trimmed red robe.
+4. EMERALD BASILISK: a long low lizard with emerald gem scales, crystal spikes, gold leg bands.
+
+---------------------------------------------------------------------
+## SHEET H8: 36 icons to buy the auction house mounts and forms with
+
+Kyle, 18 Nov 2026: "quick icons to BUY these mounts with. Like a harness or whistle or something! Aim for 36 icons."
+Sent to Kyle in full the same day. 6x6 at 2048x2048, the H1 rules. Sliced in this order:
+
+```
+col_reins_bazaar_brute, col_reins_coinscale_raptor, col_reins_velvet_saber, col_reins_ledger_tortoise, col_reins_silkwind_strider, col_reins_goldtusk_boar,
+col_reins_platinum_direwolf, col_reins_ruby_scorpid, col_reins_golden_dromedary, col_reins_obsidian_rhino, col_reins_jadehorn_elk, col_reins_gilded_bone_steed,
+col_reins_gilded_mechanostrider, col_reins_crowned_grizzly, col_reins_emerald_basilisk, col_charm_tycoon_golem, col_charm_treasure_mimic, col_charm_pearl_murloc_king,
+col_charm_bronze_drakonid, col_charm_gilded_infernal, col_charm_spirit_ancestor, col_charm_living_geode, col_charm_opulent_furbolg, col_charm_goldleaf_treant,
+col_charm_silken_harpy_matriarch, col_charm_ember_djinn, col_charm_goldtooth_pirate_ghost, col_charm_beast, col_charm_undead, col_charm_demon,
+col_charm_elemental, col_charm_dragonkin, col_charm_insect, col_charm_humanoid, col_charm_giant, col_charm_plant
+```
+
+1-15 are the fifteen H4 to H7 mounts' summoning items (a bell, coin reins, a velvet collar, a tortoise-shell key, a
+silk bridle, a ruby tusk cap, a wolf-head whistle, a stinger pendant, a coin harness, an obsidian horn, a jade tine, a
+gilded skull ornament, a gold ignition key, ermine reins, an emerald leg band). 16-27 are the F6 and F7 auction house
+forms' charms. 28-36 are nine creature-family disguise charms (beast, undead, demon, elemental, dragonkin, insect,
+humanoid, giant, plant) to split up the 418 forms that share the wolf charm today.
