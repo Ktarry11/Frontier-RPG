@@ -105,8 +105,6 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
   town of that size needs (`qa_authored_pieces_appear` lists them).
 - **Fourth Peg**: look again at what was ugly round the old camp ground on the Abyssal Sands now that the town is
   its own map.
-- **verify_portals: 21 portal tiles aren't walkable** (found 18 Nov). Not yet checked whether those portals fire
-  from the tile beside them, which would make it a stale check rather than a bug.
 - **Glittervein** (Kyle to look): the rim is a big ring of nearly empty sand, and the cliff texture's repeat shows
   when the whole zone is on screen.
 

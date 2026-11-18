@@ -122,6 +122,13 @@ def main():
         only = sys.argv[sys.argv.index("--zone") + 1]
 
     zones = create_all_zones()
+    # The world as the game builds it: ZoneManager lays the secrets and the hidden levels' fast exits over the maps
+    # when it starts, and a secret door's tile is only walkable once they're laid. Without this the check failed
+    # every secret door as "not walkable" (21 of them, 18 Nov 2026) while each one worked in the game.
+    from world.secrets import get_secrets
+    from world.hidden_zones import apply_fast_exits
+    get_secrets().apply_all(zones)
+    apply_fast_exits(zones)
     pm = PortalManager()
     fails = []
     drift = []
