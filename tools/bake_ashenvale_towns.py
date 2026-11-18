@@ -30,7 +30,7 @@ TOWNS = {"astranaar": "tools.handbuilt_astranaar", "splintertree": "tools.handbu
          "pale_watch": "tools.handbuilt_pale_watch", "lights_hope": "tools.handbuilt_lights_hope",
          "talrendis_landing": "tools.handbuilt_talrendis_landing",
          "timbermaw_hold": "tools.handbuilt_timbermaw_hold",
-         "ariden_watch": "tools.handbuilt_ariden_watch"}
+         "ariden_watch": "tools.handbuilt_ariden_watch", "moonglade": "tools.handbuilt_moonglade"}
 
 MATS = dict(AV.MATERIALS)
 MATS.update({
@@ -106,13 +106,18 @@ def main():
         Image.open(src).convert("RGB").resize((AV.SIZE, AV.SIZE), Image.LANCZOS).save(Path(mat_dir) / f"{stem}.png")
     for k in keys:
         # a town with its own palette (Sun Rock Retreat paints from the Stonetalon sheet) gets its own materials
-        sheet = getattr(importlib.import_module(TOWNS[k]), "SHEET", None)
+        mod = importlib.import_module(TOWNS[k])
+        sheet = getattr(mod, "SHEET", None)
         md = mat_dir
         if sheet:
             md, _p = AV.build_material_dir(AV.ZONE_SHEETS[sheet])
             for stem in EXTRA_REAL:
                 src = AV.REAL_DIR / f"{stem}.png"
                 Image.open(src).convert("RGB").resize((AV.SIZE, AV.SIZE), Image.LANCZOS).save(Path(md) / f"{stem}.png")
+            # a town's own planks (Moonglade's pier is its sheet's silver boardwalk): {stem: tile path}
+            for stem, path in getattr(mod, "EXTRA_TILES", {}).items():
+                Image.open(ROOT / path).convert("RGB").resize((AV.SIZE, AV.SIZE), Image.LANCZOS).save(
+                    Path(md) / f"{stem}.png")
         bake(k, md, preview.replace(".png", f"_{k}.png") if preview else None, sc)
 
 

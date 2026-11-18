@@ -446,6 +446,21 @@
       "sell_price": 79,
       "buff_category": null,
       "_source": "16 Nov 2026 crafting expansion (tools/build_crafting_expansion_nov16.py)"
+    },
+    {
+      "consumable_id": "cc_moonwell_draught",
+      "name": "Moonwell Draught",
+      "consumable_type": "mana_potion",
+      "description": "A stoppered flask of water from Nighthaven's great moonwell. Restores mana at once.",
+      "effect_value": 1050,
+      "effect_duration": 0,
+      "level_multiplier": 0.0,
+      "required_level": 52,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 90,
+      "buff_category": null
     }
   ],
   "elixirs": [
@@ -3447,6 +3462,24 @@
       "buff_category": "guardian",
       "stat_bonuses": {
         "nature_resistance": 40
+      }
+    },
+    {
+      "consumable_id": "wk_waking_tea",
+      "name": "Waking Tea",
+      "consumable_type": "elixir",
+      "description": "Strong black tea the way the Wakened make it, to keep the night watch awake. +25 Spirit for 30 minutes. Battle elixir: one at a time.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 52,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 90,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "spirit": 25
       }
     }
   ],

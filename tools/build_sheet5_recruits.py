@@ -42,7 +42,10 @@ DEADWIND, MOONGLADE, WINTERSPRING = "Ariden's Watch", "Moonglade", "Winterspring
 #: the wash troughs inside the gate with Kashtan, Wes on the east fence, Mariana at the infirmary, Neil at the
 #: apothecaries' sample racks
 PINNED = {"taras_witchhunter": (34, 17), "wes_warrior": (89, 31), "mariana_priest": (21, 41),
-          "neil_felsworn": (38, 55)}
+          "neil_felsworn": (38, 55),
+          # Moonglade's two (tools/handbuilt_moonglade.py RECRUITS, 18 Nov 2026): Valentina on the north shore under
+          # the open sky, Faris in the reed beds below the Wakened's settlement
+          "valentina_starcaller": (84, 44), "faris_shaman": (44, 112)}
 
 #: id -> (name, spec, class, level, zone, gender, colour, row)
 ROSTER = {

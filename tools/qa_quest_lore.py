@@ -130,7 +130,10 @@ LORE = re.compile(
     r"\bon Earth\b|\bfrom Earth\b|back home on|back home,? I|, back home\b|"
     # Deadwind's liquidators (18 Nov 2026) name the places they came from, and no place on Azeroth has these names
     r"\b(Chernobyl|Pripyat|Fukushima|Goiania|Rongelap|Windscale|Semey|Nevada|Kupuvate|Slavutych|Utah)\b|"
-    r"back home in\b|where we came from|\bin (1954|1957|1986|1987)\b", re.I)
+    r"back home in\b|where we came from|\bin (1954|1957|1986|1987)\b|"
+    # Moonglade's Wakened (18 Nov 2026) name where they came from and the languages they dream in
+    r"\b(Trondheim|Isle of Lewis|Buffalo|Lagos|Porto|Chengdu|Sichuanese|Mandarin|Norwegian|Yoruba)\b|"
+    r"the worlds came together", re.I)
 
 #: Named by claude/quest_writing_guide.md as the tics that make quest text read as filler.
 TICS = {

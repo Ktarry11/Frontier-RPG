@@ -352,13 +352,59 @@ ARIDEN_SHEET.update({
     "av_plaza_stone":    _dw("dw_camp_mud"),
     "av_forest_grass":   _dw("dw_dead_grass"),
 })
+#: MOONGLADE (tools/handbuilt_moonglade.py, docs/moonglade_brief.md). Kyle's Moonglade ground sheet
+#: (docs/moonglade_art_prompts.md sheet 1, sliced to assets/tiles/moonglade/ground, 18 Nov 2026): lush moonlit grass, moss
+#: and star-flowers, moonstone flags for Nighthaven's streets, the lake's clear shallows over sand going down to luminous
+#: blue, the Dream's grass round the arch (the fel layer), bramble earth at the barrow door (the corrupt layer), the
+#: barrow hill's old earth (the satyr layer), the Wakened's garden beds (the scorch layer), fallen petals (burned).
+_MG = T / "moonglade" / "ground"
+
+
+def _mg(name, off=0.5, rec=None, extra=None):
+    return (_MG / f"{name}.png", off, rec, extra)
+
+
+MOONGLADE_SHEET = {
+    "av_forest_floor":   _mg("mg_grass"),
+    "av_forest_grass":   _mg("mg_grass_long"),
+    "av_fern_floor":     _mg("mg_moss"),
+    "av_root_earth":     _mg("mg_forest_floor"),
+    "av_needle_mulch":   _mg("mg_clover"),
+    "av_bluebell":       _mg("mg_star_flowers"),
+    "av_road_centre":    _mg("mg_moon_flags"),
+    "av_road_edge":      _mg("mg_river_stones"),
+    "av_elven_paving":   _mg("mg_pale_stone"),
+    "av_mossy_cobble":   _mg("mg_moon_flags"),
+    "av_plaza_stone":    _mg("mg_pale_stone"),
+    "av_rocky_ground":   _mg("mg_scree"),
+    "av_stream_bed":     _mg("mg_pebbles"),
+    "av_lake_mud":       _mg("mg_wet_sand"),
+    "av_lake_shallow":   _mg("mg_shallows_stone"),
+    "av_lake_deep":      _mg("mg_lake_mid"),
+    "av_moon_water":     _mg("mg_moonwell_water"),
+    "av_moon_deep":      _mg("mg_lake_moonstone"),
+    "av_moon_rim":       _mg("mg_pale_stone"),
+    "av_cliff_a":        _mg("mg_cliff_wall"),
+    "av_cliff_b":        _mg("mg_mountain_rock"),
+    "av_canopy":         _mg("mg_fern_floor", extra="canopy"),
+    "av_beach":          _mg("mg_sand"),
+    "av_wet_sand":       _mg("mg_wet_sand"),
+    "av_sea_shallow":    _mg("mg_shallows_stone"),
+    "av_sea_deep":       _mg("mg_lake_deep"),
+    "av_scorched":       _mg("mg_garden_loam"),
+    "av_burned_forest":  _mg("mg_petal_carpet"),
+    "av_fel_earth":      _mg("mg_dream_grass"),
+    "av_corrupt_ground": _mg("mg_bramble_earth"),
+    "av_satyr_earth":    _mg("mg_barrow_earth"),
+}
 WPL_SHEET = _plague_sheet(east=False)
 EPL_SHEET = _plague_sheet(east=True)
 ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_SHEET, "epl_east": EPL_SHEET, "felwood_north": NORTH_SHEET, "stonetalon_east": STONETALON_SHEET,
                "stonetalon_west": STONETALON_WEST_SHEET, "sun_rock": SUN_ROCK_SHEET,
                "azshara_west": AZSHARA_SHEET, "timbermaw_hold": TIMBERMAW_HOLD_SHEET,
                "azshara_central": AZSHARA_CENTRAL_SHEET, "azshara_east": AZSHARA_EAST_SHEET,
-               "deadwind_west": DEADWIND_SHEET, "deadwind_east": DEADWIND_EAST_SHEET, "ariden_watch": ARIDEN_SHEET}
+               "deadwind_west": DEADWIND_SHEET, "deadwind_east": DEADWIND_EAST_SHEET, "ariden_watch": ARIDEN_SHEET,
+               "moonglade": MOONGLADE_SHEET}
 
 def _recolour(a, hue, sat, val):
     """a float 0..1 HxWx3 -> luminance-preserving tint."""

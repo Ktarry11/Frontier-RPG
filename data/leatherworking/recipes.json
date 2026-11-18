@@ -11035,6 +11035,162 @@
       "source": "vendor",
       "faction": "the_liquidators",
       "_rare_ingredients_todo": true
+    },
+    "rep_cc_grovewalkers_harness": {
+      "name": "Grovewalker's Harness",
+      "inputs": {
+        "leather_frostscale": 10,
+        "thread_silken": 2
+      },
+      "skill_required": 300,
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "stat_template": "agi_physical",
+        "item_level": 73,
+        "rarity": "epic",
+        "material_tier": "frostscale",
+        "identity": "feral",
+        "flavor": "The Circle's own pattern for the druids who walk out to the sick lands, cut to shift with them.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "leather",
+        "item": {
+          "name": "Grovewalker's Harness",
+          "slot": "chest",
+          "item_level": 73,
+          "rarity": "epic",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 33,
+            "stamina": 27
+          },
+          "secondary_stats": {
+            "attack_power": 99
+          },
+          "armor_value": 310,
+          "required_level": 60,
+          "sell_price": 48942,
+          "flavor_text": "The Circle's own pattern for the druids who walk out to the sick lands, cut to shift with them.",
+          "identity": "feral",
+          "icon_id": "gear_wow_chest_leather_09_1"
+        }
+      },
+      "skill_range": [
+        300,
+        305,
+        310,
+        315
+      ],
+      "source": "vendor",
+      "faction": "cenarion_circle",
+      "_rare_ingredients_todo": true
+    },
+    "rep_cc_moonleaf_bracers": {
+      "name": "Moonleaf Bracers",
+      "inputs": {
+        "leather_frostscale": 10,
+        "thread_silken": 2
+      },
+      "skill_required": 300,
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "stat_template": "agi_physical",
+        "item_level": 67,
+        "rarity": "rare",
+        "material_tier": "frostscale",
+        "identity": "agility",
+        "flavor": "Leather pressed with moonleaf, the way the Circle's scouts have worn it since the War of the Ancients.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "leather",
+        "item": {
+          "name": "Moonleaf Bracers",
+          "slot": "wrist",
+          "item_level": 67,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 16,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "attack_power": 41
+          },
+          "armor_value": 167,
+          "required_level": 60,
+          "sell_price": 11791,
+          "flavor_text": "Leather pressed with moonleaf, the way the Circle's scouts have worn it since the War of the Ancients.",
+          "identity": "agility",
+          "icon_id": "gear_wow_wrist_desecrated_leatherbracer"
+        }
+      },
+      "skill_range": [
+        300,
+        305,
+        310,
+        315
+      ],
+      "source": "vendor",
+      "faction": "cenarion_circle",
+      "_rare_ingredients_todo": true
+    },
+    "rep_cc_barrowguard_gloves": {
+      "name": "Barrowguard Gloves",
+      "inputs": {
+        "leather_frostscale": 10,
+        "thread_silken": 2
+      },
+      "skill_required": 300,
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "stat_template": "agi_physical",
+        "item_level": 67,
+        "rarity": "rare",
+        "material_tier": "frostscale",
+        "identity": "bear",
+        "flavor": "Heavy gloves for the wardens at the Barrow Dens, thick enough to hold back a thorn ward.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "leather",
+        "item": {
+          "name": "Barrowguard Gloves",
+          "slot": "hands",
+          "item_level": 67,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 20,
+            "agility": 14
+          },
+          "secondary_stats": {
+            "dodge_rating": 10
+          },
+          "armor_value": 167,
+          "required_level": 60,
+          "sell_price": 15328,
+          "flavor_text": "Heavy gloves for the wardens at the Barrow Dens, thick enough to hold back a thorn ward.",
+          "identity": "bear",
+          "icon_id": "gear_wow_hands_85_1"
+        }
+      },
+      "skill_range": [
+        300,
+        305,
+        310,
+        315
+      ],
+      "source": "vendor",
+      "faction": "cenarion_circle",
+      "_rare_ingredients_todo": true
     }
   }
 }

@@ -10941,5 +10941,221 @@
         "reveals_intent": "all"
       }
     ]
+  },
+  "valentina_starcaller": {
+    "name": "Valentina Soto",
+    "passives": {
+      "_name": "Three Languages a Night",
+      "_from": "'in Spanish, English and Portuguese'",
+      "crit_chance_physical": 5,
+      "arcane_damage_pct": 10
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_valentina_the_southern_cross_first",
+        "name": "The Southern Cross First",
+        "from": "'She always found the Southern Cross first'",
+        "engine": "live: cannot_miss",
+        "effect_type": "damage",
+        "target_type": "enemy",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "A starlit cut that cannot miss.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 75
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 42,
+            "effect_value": 156
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 54,
+            "effect_value": 236
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 66,
+            "effect_value": 317
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 78,
+            "effect_value": 398
+          }
+        ],
+        "is_instant": true,
+        "cannot_miss": true
+      },
+      {
+        "ability_id": "personal_valentina_night_eyes",
+        "name": "Night Eyes",
+        "from": "'so she doesn't ruin her night eyes'",
+        "engine": "live: idle_charge",
+        "effect_type": "buff",
+        "target_type": "self",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 4,
+        "stat_mods": {},
+        "description": "For 4 turns, each turn Valentina doesn't attack adds 30% to her next blow, up to 120%.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 30
+          }
+        ],
+        "is_instant": true,
+        "idle_charge": {
+          "pct": 30,
+          "cap": 120
+        }
+      },
+      {
+        "ability_id": "personal_valentina_new_charts",
+        "name": "New Charts",
+        "from": "'she started drawing new charts'",
+        "engine": "live: reveals_intent and sure_target",
+        "effect_type": "debuff",
+        "target_type": "enemy",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 3,
+        "stat_mods": {},
+        "description": "For 3 turns, shows what the target will do next, and the party's attacks on it can't miss.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 0
+          }
+        ],
+        "is_instant": true,
+        "reveals_intent": "all",
+        "sure_target": true
+      }
+    ]
+  },
+  "faris_shaman": {
+    "name": "Faris Al-Tamimi",
+    "passives": {
+      "_name": "Look After the Water First",
+      "_from": "'you look after the water first and the palms look after themselves'",
+      "healing_done": 10,
+      "nature_resistance": 10
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_faris_where_the_rivers_meet",
+        "name": "Where the Rivers Meet",
+        "from": "'where the Tigris and the Euphrates meet'",
+        "engine": "live: heals_party_pct_max and party_resource_pct",
+        "effect_type": "heal",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 15,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Heals the party for 30% of their maximum health and gives back 20% of their resource.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 40
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 42,
+            "effect_value": 106
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 54,
+            "effect_value": 172
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 66,
+            "effect_value": 238
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 78,
+            "effect_value": 304
+          }
+        ],
+        "is_instant": true,
+        "heals_party_pct_max": 30,
+        "party_resource_pct": 20
+      },
+      {
+        "ability_id": "personal_faris_in_the_shade_of_the_palms",
+        "name": "In the Shade of the Palms",
+        "from": "'Ninety palms, a house with a courtyard and a fig tree'",
+        "engine": "live: on_low_health",
+        "effect_type": "buff",
+        "target_type": "ally",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 4,
+        "stat_mods": {},
+        "description": "For 4 turns, the first time the ally drops below 35% health they're healed for 30% of their maximum.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 100
+          }
+        ],
+        "is_instant": true,
+        "on_low_health": {
+          "pct": 35,
+          "heal_pct": 30
+        }
+      },
+      {
+        "ability_id": "personal_faris_good_water",
+        "name": "Good Water",
+        "from": "'Sit by the water for a while, it's good water.'",
+        "engine": "live: mana_restore_pct",
+        "effect_type": "restore_resource",
+        "target_type": "party",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Gives every ally back 15% of their mana.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 15
+          }
+        ],
+        "is_instant": true,
+        "mana_restore_pct": 15
+      }
+    ]
   }
 }

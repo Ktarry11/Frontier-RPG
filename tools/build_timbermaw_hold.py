@@ -66,8 +66,9 @@ AMBIENT = {
                  "tunnel's open, I can see to it from home. We let the Deadwood leave us, and we mean to bring back "
                  "whoever of them can still be brought."),
     "tm_windtalker": ("Windtalker Selva Brightpelt", "furbolg", "female", 6, "right",
-                      "The passage past my spring went on to Moonglade, until the roof came down. Now the spring "
-                      "only tells me what the wind brings up from Felwood, and lately that's the Deadwood's drums."),
+                      "The passage past my spring goes on to Moonglade again. The druids up there dug it out from "
+                      "their side, them and the strange humans they call the Wakened, and now the wind brings the "
+                      "glade down to me as well as Felwood's drums."),
     "tm_pathfinder": ("Pathfinder Grosk", "furbolg", "male", 5, "left",
                       "I walk the tunnel down to Felwood every morning and count what's changed in Felpaw. Every "
                       "morning, something has."),
@@ -211,7 +212,8 @@ FACTION = {
         "they've been raiding the forest ever since. Felpaw Village is the worst of them.",
         "The day the world changed, the roof came down on the tunnel's Winterspring and Moonglade passages. The "
         "Elders took it as a sign to look south instead, and for the first time in a long time they opened the "
-        "tunnel's Felwood mouth to outsiders who'd help.",
+        "tunnel's Felwood mouth to outsiders who'd help. The Moonglade passage has since been dug out from the "
+        "glade's side; Winterspring's is still shut.",
         "They trade with the Emerald Reclamation and they like its druids, but the Hold keeps its own counsel and "
         "its own ledger. The Timbermaw remember every favour, and every insult, for a very long time.",
     ],
@@ -341,8 +343,8 @@ def quests():
         Q("tm_what_the_water_carries", "What the Water Carries", "tm_windtalker", 54, 54, tm,
           "Bring Windtalker Selva Brightpelt Bloodvenom Samples from the Seepage Oozes at Bloodvenom Falls.",
           [{"type": "fetch", "target": SAMPLE[0], "count": 6}],
-          ("My spring's water comes down through the mountain from the north, and since the day the world changed "
-           "the Moonglade side's been shut and the water tastes of Felwood. Something from the Bloodvenom is "
+          ("My spring's water comes down through the mountain from the north, and for three years the Moonglade "
+           "side was shut and the water tasted of Felwood. It still does. Something from the Bloodvenom is "
            "getting into it.\n\nThe oozes at Bloodvenom Falls are made of that water. Bring me what's inside them, "
            "sealed, and I'll find out what it is. The falls are " + DOWN + " and a long way south, past "
            "Talonbranch Glade."),

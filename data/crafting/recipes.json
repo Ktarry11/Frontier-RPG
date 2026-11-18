@@ -12895,6 +12895,109 @@
           "source": "vendor",
           "faction": "the_liquidators",
           "_rare_ingredients_todo": true
+        },
+        "rep_wk_dreamwoven_robe": {
+          "name": "Dreamwoven Robe",
+          "inputs": {
+            "bolt_voidweave": 16,
+            "thread_silken": 2
+          },
+          "skill_required": 300,
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "stat_template": "spi_healer",
+            "item_level": 73,
+            "rarity": "epic",
+            "material_tier": "voidweave",
+            "identity": "spirit_healer",
+            "flavor": "Woven on the Wakened's first loom from linen the druids grew for them. The pattern came to Mei-Lin in a dream.",
+            "fixed_item_level": true,
+            "required_level": 60,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Dreamwoven Robe",
+              "slot": "chest",
+              "item_level": 73,
+              "rarity": "epic",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 33,
+                "intellect": 33
+              },
+              "secondary_stats": {
+                "healing_power": 88
+              },
+              "armor_value": 179,
+              "required_level": 60,
+              "sell_price": 48942,
+              "flavor_text": "Woven on the Wakened's first loom from linen the druids grew for them. The pattern came to Mei-Lin in a dream.",
+              "identity": "spirit_healer",
+              "icon_id": "gear_inv_chest_cloth_45"
+            }
+          },
+          "skill_range": [
+            300,
+            305,
+            310,
+            315
+          ],
+          "source": "vendor",
+          "faction": "the_wakened",
+          "_rare_ingredients_todo": true
+        },
+        "rep_wk_sleepers_handwraps": {
+          "name": "Sleeper's Handwraps",
+          "inputs": {
+            "bolt_voidweave": 16,
+            "thread_silken": 2
+          },
+          "skill_required": 300,
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "stat_template": "int_caster",
+            "item_level": 67,
+            "rarity": "rare",
+            "material_tier": "voidweave",
+            "identity": "caster",
+            "flavor": "Soft linen for the hands of anyone who sleeps in the Dens. The Wakened make them for strangers too.",
+            "fixed_item_level": true,
+            "required_level": 60,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Sleeper's Handwraps",
+              "slot": "hands",
+              "item_level": 67,
+              "rarity": "rare",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 18
+              },
+              "secondary_stats": {
+                "spell_power": 41
+              },
+              "armor_value": 76,
+              "required_level": 60,
+              "sell_price": 15328,
+              "flavor_text": "Soft linen for the hands of anyone who sleeps in the Dens. The Wakened make them for strangers too.",
+              "identity": "caster",
+              "icon_id": "gear_wow_hands_90_2"
+            }
+          },
+          "skill_range": [
+            300,
+            305,
+            310,
+            315
+          ],
+          "source": "vendor",
+          "faction": "the_wakened",
+          "_rare_ingredients_todo": true
         }
       }
     },
@@ -26458,6 +26561,64 @@
           ],
           "source": "vendor",
           "faction": "timbermaw_hold",
+          "_rare_ingredients_todo": true
+        },
+        "rep_cc_moonbough_longbow": {
+          "name": "Greatbough Longbow",
+          "inputs": {
+            "plank_sunheart": 14,
+            "fiber_warded": 4,
+            "stick_ironbound": 2,
+            "resin": 2
+          },
+          "skill_required": 300,
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "stat_template": "agi_physical",
+            "item_level": 73,
+            "rarity": "epic",
+            "material_tier": "sunheart",
+            "identity": "hunter_crit",
+            "flavor": "Shaped from a fallen bough of the great tree and cured in the moonwell for a full year.",
+            "fixed_item_level": true,
+            "required_level": 60,
+            "weapon_type": "bow",
+            "item": {
+              "name": "Greatbough Longbow",
+              "slot": "ranged",
+              "item_level": 73,
+              "rarity": "epic",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 20
+              },
+              "secondary_stats": {
+                "attack_power": 55,
+                "crit_chance_physical": 20
+              },
+              "armor_value": 0,
+              "required_level": 60,
+              "sell_price": 39153,
+              "flavor_text": "Shaped from a fallen bough of the great tree and cured in the moonwell for a full year.",
+              "identity": "hunter_crit",
+              "icon_id": "gear_wow_bow_bow_45",
+              "weapon_damage_min": 137,
+              "weapon_damage_max": 186,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
+          },
+          "skill_range": [
+            300,
+            305,
+            310,
+            315
+          ],
+          "source": "vendor",
+          "faction": "cenarion_circle",
           "_rare_ingredients_todo": true
         }
       }

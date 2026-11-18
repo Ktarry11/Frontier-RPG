@@ -7445,6 +7445,76 @@
         "whetstone",
         "flux_strong"
       ]
+    },
+    {
+      "vendor_id": "mg_circle_qm",
+      "name": "Quartermaster Ellandris Dawnleaf",
+      "zone": "moonglade",
+      "x": 182,
+      "y": 118,
+      "tile_sprite": "npc",
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 58,
+      "sells_gear": true,
+      "race": "night_elf",
+      "gender": "female",
+      "appearance_variant": 4,
+      "facing": "down",
+      "greeting": "The Circle doesn't sell what it makes to strangers. Help us for a while and you won't be a stranger, and then my shelf is yours.",
+      "sells": [
+        "kit_field_repair",
+        "healing_potion_masterwork",
+        "mana_potion_masterwork"
+      ]
+    },
+    {
+      "vendor_id": "mg_wakened_qm",
+      "name": "Quartermaster Tomas Ribeiro",
+      "zone": "moonglade",
+      "x": 20,
+      "y": 80,
+      "tile_sprite": "npc",
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 58,
+      "sells_gear": true,
+      "race": "human",
+      "gender": "male",
+      "appearance_variant": 4,
+      "facing": "down",
+      "greeting": "I ran a hardware shop in Porto for nineteen years. Here I run the Wakened's stores, and it's the same job: know what people need before they ask. Earn their trust and I'll open the back room for you.",
+      "sells": [
+        "kit_field_repair",
+        "healing_potion_masterwork",
+        "parchment"
+      ]
+    },
+    {
+      "vendor_id": "mg_provisioner",
+      "name": "Provisioner Kesha Windmane",
+      "zone": "moonglade",
+      "x": 176,
+      "y": 148,
+      "tile_sprite": "npc",
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 56,
+      "sells_gear": false,
+      "race": "tauren",
+      "gender": "female",
+      "appearance_variant": 6,
+      "facing": "down",
+      "greeting": "We fed a whole lodge on the plains from one kodo, and nobody went to bed hungry. Up here I feed night elves, tauren and transplants, and every one of them eats like it's the last night of the world.",
+      "sells": [
+        "meal_ember_glazed_ribs",
+        "drink_starfall_wine",
+        "high_table_feast",
+        "cook_flour",
+        "cook_spice",
+        "cook_water",
+        "cook_mushroom"
+      ]
     }
   ]
 }

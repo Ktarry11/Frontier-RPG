@@ -398,6 +398,8 @@ ZONE_POPULATION_MIX = {
     "talrendis_landing": [("orc", 50), ("blood_elf", 38), ("human", 12)],
     # Kyle, 17 Nov 2026: "It's still going to be furbolgs though like 90%....but some orcs, some humans, some goblins."
     "timbermaw_hold": [("furbolg", 90), ("orc", 4), ("human", 3), ("goblin", 3)],
+    # Moonglade (18 Nov 2026): the Circle's night elves and tauren in Nighthaven, the Wakened on the west shore
+    "moonglade": [("night_elf", 45), ("tauren", 35), ("human", 20)],
     "west_azshara": [("orc", 50), ("blood_elf", 25), ("furbolg", 15), ("human", 10)],
     # the salvage crews out at Eldarath and the Font, and the odd Timbermaw scout
     "central_azshara": [("orc", 45), ("blood_elf", 35), ("human", 10), ("furbolg", 10)],

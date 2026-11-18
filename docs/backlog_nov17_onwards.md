@@ -29,8 +29,13 @@ East road.
 2. **Later, Kyle's call**: the Sunreach Conclave's island home.
 
 **Recruits, sheet 5** (18 Nov): 16 written, kitted and sliced (`docs/recruit_art_prompts_sheet5.md`). Eight are
-in the game. The other eight are waiting for their maps: re-run `tools/build_sheet5_recruits.py --write` once Deadwind
-Pass (four), Moonglade (two) and Winterspring (two) exist, and it places them.
+in the game, and Deadwind's four and Moonglade's two have been placed since (18 Nov). Winterspring's two are still
+waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exists, and it places them.
+
+## 1c. Moonglade (built 18 Nov 2026, `docs/moonglade_build_log.md`)
+- The three dungeons, doors already on the map: the Barrow Dens (corrupted druids), the Dreaming Arch (the Emerald
+  Dream), under the lake (the island's stair). What's waking gets decided with the first of them.
+- The Cenarion Circle and the Wakened only reach Friendly on quests; the dungeons are the road past it.
 
 ## 1a. The Collection (account-wide unlocks on the AH, 18 Nov 2026)
 - Built: `docs/collection_design.md`, 741 collectables, the Collection screen (U), the AH's Collection category.

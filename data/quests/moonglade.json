@@ -1,0 +1,2888 @@
+{
+  "quests": [
+    {
+      "quest_id": "mg_the_way_up",
+      "title": "The Way Up",
+      "giver_npc_id": "tm_windtalker",
+      "zone": "timbermaw_tunnel",
+      "level_min": 55,
+      "level_max": 55,
+      "description": "The Moonglade passage past Windtalker Selva Brightpelt's spring was buried for three years, and the druids dug it out from their side. Selva has filled a jar from her spring for the Circle, so they'll know what the mountain's water tastes of down here.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "mg_q_spring_jar",
+          "count": 1,
+          "label": "Take Selva's jar of spring water to Rabine Saturna in Nighthaven"
+        }
+      ],
+      "accept_text": "Up the Moonglade passage, past the boulders they rolled aside, and out into the glade. Give the jar to Rabine Saturna in Nighthaven. Tell him the water still tastes of Felwood, and that I'm sorry for it.",
+      "turn_in_text": "Felwood in a jar. I'd know that taste anywhere, and I wish I didn't.\n\nThank Selva for me. The Timbermaw kept the tunnel for us through three bad years, and we didn't even know they were doing it. Welcome to Moonglade.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "mg_rabine",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "mg_q_spring_jar",
+            "name": "Jar of Spring Water",
+            "description": "A stoppered jar of water from Selva's spring. It's cold, and there's a faint green taint in it when you hold it to the light.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Wayfarer's Hauberk",
+          "slot": "chest",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 12,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 34
+          },
+          "armor_value": 224,
+          "required_level": 55,
+          "sell_price": 10788,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_03"
+        },
+        {
+          "name": "Wayfarer's Sash",
+          "slot": "waist",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 24
+          },
+          "armor_value": 66,
+          "required_level": 55,
+          "sell_price": 5933,
+          "identity": "caster",
+          "icon_id": "gear_inv_belt_15"
+        },
+        {
+          "name": "Wayfarer's Sabatons",
+          "slot": "feet",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 14,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 11
+          },
+          "armor_value": 251,
+          "required_level": 55,
+          "sell_price": 7012,
+          "identity": "tank",
+          "icon_id": "gear_inv_boots_06"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_welcome_to_nighthaven",
+      "title": "Welcome to Nighthaven",
+      "giver_npc_id": "mg_rabine",
+      "zone": "moonglade",
+      "level_min": 55,
+      "level_max": 55,
+      "description": "Rabine Saturna keeps Nighthaven for the Cenarion Circle, and he wants you to see the glade properly before you're any use to it. Start at the great moonwell, then take his letter across the lake to the Wakened.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "moonglade",
+          "target_x": 174,
+          "target_y": 86,
+          "radius": 4,
+          "label": "Stand at the great moonwell in Nighthaven's square"
+        },
+        {
+          "type": "deliver",
+          "target": "mg_q_rabine_letter",
+          "count": 1,
+          "label": "Take Rabine's letter to Dr. Ingrid Sandvik on the west shore"
+        }
+      ],
+      "accept_text": "The great moonwell's in the square, a few steps from here. Look into it for a while. Then follow the shore road round to the west side, where the Wakened live, and give Dr. Sandvik this letter. She'll explain them better than I can.",
+      "turn_in_text": "Rabine writes the politest letters in the whole of Kalimdor. He's asking me to look after you, and to tell you how we got here.\n\nYou'd better sit down. It's not a short story, and you'll want to hear it before you hear anybody else's.",
+      "next_quest_id": "mg_the_first_morning",
+      "turn_in_npc_id": "mg_sandvik",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "mg_q_rabine_letter",
+            "name": "Rabine's Letter",
+            "description": "A letter sealed with a pressed leaf, addressed in a careful hand to Dr. Ingrid Sandvik.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Nighthaven Grips",
+          "slot": "hands",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 97,
+          "required_level": 55,
+          "sell_price": 7012,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_19"
+        },
+        {
+          "name": "Nighthaven Spaulders",
+          "slot": "shoulder",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "healing_power": 46
+          },
+          "armor_value": 190,
+          "required_level": 55,
+          "sell_price": 8630,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_shoulder_05"
+        },
+        {
+          "name": "Nighthaven Pendant",
+          "slot": "neck",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 55,
+          "sell_price": 6473,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_necklace_07"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_the_first_morning",
+      "title": "The First Morning",
+      "giver_npc_id": "mg_sandvik",
+      "zone": "moonglade",
+      "level_min": 55,
+      "level_max": 55,
+      "description": "When the worlds came together, the transplants who came through near Moonglade arrived asleep. Dr. Ingrid Sandvik woke up on the grass by the lake with a druid standing over her, and she wants you to see the two places that tell the rest of it: the wall where the Wakened carve their last memories, and the cots where the ones who don't wake are kept.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "moonglade",
+          "target_x": 42,
+          "target_y": 82,
+          "radius": 4,
+          "label": "Read the wall of last memories"
+        },
+        {
+          "type": "explore",
+          "target": "moonglade",
+          "target_x": 30,
+          "target_y": 116,
+          "radius": 4,
+          "label": "Sit for a while by the dream cots outside the infirmary"
+        }
+      ],
+      "accept_text": "I spent twenty years in Trondheim studying sleep, what the brain does at night and why it dreams. I'd have told you I knew everything about it from the outside. Now go and look at the wall, and then at the cots, and come back and tell me which of them frightened you more.",
+      "turn_in_text": "It's the cots, isn't it? It's always the cots.\n\nThe ones on the wall woke up and remembered something. The ones on the cots are still dreaming, and none of us knows what about. That's the question the Wakened are here to answer, and the Circle's trying to answer it too, from the other side.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "mg_welcome_to_nighthaven"
+      ],
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Morning Cloak",
+          "slot": "back",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 24,
+            "hit_rating": 6
+          },
+          "armor_value": 59,
+          "required_level": 55,
+          "sell_price": 5933,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_10"
+        },
+        {
+          "name": "Morning Cuffs",
+          "slot": "wrist",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 48,
+          "required_level": 55,
+          "sell_price": 5394,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_16"
+        },
+        {
+          "name": "Morning Legplates",
+          "slot": "legs",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 14,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 34
+          },
+          "armor_value": 337,
+          "required_level": 55,
+          "sell_price": 10788,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_06"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_the_last_thing_you_remember",
+      "title": "The Last Thing You Remember",
+      "giver_npc_id": "mg_carver",
+      "zone": "moonglade",
+      "level_min": 56,
+      "level_max": 56,
+      "description": "Hamish MacLeod started the wall of last memories with his mother's kitchen on the Isle of Lewis. Every new Wakened carves a plank now, and he's out of wood, because the Circle won't let anyone cut a living tree in the glade. He's found a way round it that the druids have agreed to, just about.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "mg_q_warpwood_heart",
+          "count": 6
+        }
+      ],
+      "accept_text": "The Warpwood Treants in North Felwood were trees once, before the fel got into them. Under the bark the heartwood's still sound. Put them out of their misery and bring me the heartwood. The Circle says that's kinder than leaving them, and I'd like to think they're right.",
+      "turn_in_text": "Clean as the day it grew, under all that black.\n\nThere's a new lad, came through last month, who can't remember anything but a red bus in the rain. This plank's his. It'll be the first thing on the wall that came out of Felwood clean.",
+      "next_quest_id": "mg_a_carving_for_danny",
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Carver's Cap",
+          "slot": "head",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 15,
+            "agility": 10
+          },
+          "secondary_stats": {
+            "dodge_rating": 8
+          },
+          "armor_value": 121,
+          "required_level": 56,
+          "sell_price": 8957,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_39"
+        },
+        {
+          "name": "Carver's Band",
+          "slot": "ring",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 27
+          },
+          "armor_value": 0,
+          "required_level": 56,
+          "sell_price": 6718,
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_ring_04"
+        },
+        {
+          "name": "Carver's Gauntlets",
+          "slot": "hands",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 8,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 158,
+          "required_level": 56,
+          "sell_price": 7277,
+          "identity": "earthen",
+          "icon_id": "gear_inv_gauntlets_17"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_a_carving_for_danny",
+      "title": "A Carving for Danny",
+      "giver_npc_id": "mg_carver",
+      "zone": "moonglade",
+      "level_min": 56,
+      "level_max": 56,
+      "description": "Hamish has carved a small plank for Danny Kowalczyk, the Wakened who keeps trying to fall asleep and wake up back home in Buffalo. Danny's never carved anything for the wall. Hamish thinks he might, if somebody else starts it for him.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "mg_q_danny_carving",
+          "count": 1,
+          "label": "Give Hamish's carving to Danny Kowalczyk by the dream cots"
+        }
+      ],
+      "accept_text": "It's his house, as near as I could get it from what he's told me. A porch, two wee boys on the steps and a dog I've made up. Danny's usually by the cots. Don't tell him it's from me until he's looked at it.",
+      "turn_in_text": "That's the porch. That's exactly the porch, and the dog's wrong, we never had a dog.\n\nTell Hamish I'll finish it. I'll put the dog on. The boys always wanted one, and I always said next year.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "mg_dreamer",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "mg_q_danny_carving",
+            "name": "Hamish's Carving",
+            "description": "A small plank carved with a house, a porch, two boys on the steps and a dog nobody asked for.",
+            "count": 1
+          }
+        ]
+      },
+      "requires_quests": [
+        "mg_the_last_thing_you_remember"
+      ],
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Whittled Staff",
+          "slot": "main_hand",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 24
+          },
+          "secondary_stats": {
+            "spell_power": 54
+          },
+          "armor_value": 0,
+          "required_level": 56,
+          "sell_price": 13995,
+          "identity": "caster",
+          "icon_id": "gear_inv_staff_30",
+          "weapon_damage_min": 41,
+          "weapon_damage_max": 56,
+          "attack_speed": 3.2,
+          "block_value": 0
+        },
+        {
+          "name": "Whittled Jerkin",
+          "slot": "chest",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 14,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 35
+          },
+          "armor_value": 143,
+          "required_level": 56,
+          "sell_price": 11196,
+          "identity": "strength",
+          "icon_id": "gear_inv_chest_leather_02"
+        },
+        {
+          "name": "Whittled Waistguard",
+          "slot": "waist",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 39
+          },
+          "armor_value": 237,
+          "required_level": 56,
+          "sell_price": 6158,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_belt_05"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_the_man_who_wants_to_sleep",
+      "title": "The Man Who Wants to Sleep",
+      "giver_npc_id": "mg_dreamer",
+      "zone": "moonglade",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "Danny Kowalczyk was asleep in Buffalo when the worlds came together, and he woke up here. He's convinced that if he falls asleep the right way, in the right place, he'll wake up back there with his wife and his boys. Tonight he wants to try it on the north shore, where the moonlight lies on the water, and he doesn't want to do it alone.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "moonglade",
+          "target_x": 84,
+          "target_y": 48,
+          "radius": 4,
+          "label": "Sit with Danny on the north shore while he tries to sleep"
+        }
+      ],
+      "accept_text": "Ingrid says it doesn't work like that, and Adaeze says I'm going to hurt myself. Maybe they're right. Come and sit with me on the north shore, that's all I'm asking, and if I don't wake up in the morning, you can tell them they were wrong.",
+      "turn_in_text": "I did sleep, and I dreamed about the porch, and the boys were there, and I could hear them, but they couldn't hear me.\n\nI woke up here again. I knew I would. I think I'm going to stop trying for a while, and I think I'm going to finish that carving.",
+      "next_quest_id": null,
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Sleepless Mantle",
+          "slot": "shoulder",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "spell_power": 30
+          },
+          "armor_value": 61,
+          "required_level": 57,
+          "sell_price": 9290,
+          "identity": "caster",
+          "icon_id": "gear_inv_shoulder_20"
+        },
+        {
+          "name": "Sleepless Breeches",
+          "slot": "legs",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 14,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 36
+          },
+          "armor_value": 145,
+          "required_level": 57,
+          "sell_price": 11613,
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_11"
+        },
+        {
+          "name": "Sleepless Vambraces",
+          "slot": "wrist",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 14,
+            "strength": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 11
+          },
+          "armor_value": 283,
+          "required_level": 57,
+          "sell_price": 5806,
+          "identity": "tank",
+          "icon_id": "gear_inv_bracer_01"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_waking_badly",
+      "title": "Waking Badly",
+      "giver_npc_id": "mg_infirmary",
+      "zone": "moonglade",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "Some of the Wakened still wake badly, sitting up in the dark not knowing which world they're in. Nurse Adaeze Okafor has found that the soft light of a wisp calms them faster than anything she could give them in Lagos. The gentle wisps of South Felwood give their light up freely when they fade.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "mg_q_wisp_light",
+          "count": 6
+        }
+      ],
+      "accept_text": "The Moonlit Wisps drift through South Felwood, round the Emerald Sanctuary. When they fade, their light stays behind for a while. Catch it in your hands and bring it to me. I'll hang it over the cots, and nobody will wake up in the dark again.",
+      "turn_in_text": "Look at that. It's like the night lights we had on the ward, the ones the children liked.\n\nI worked nights for eleven years. The worst moment is always the same one, when somebody opens their eyes and doesn't know where they are. Now there'll be something soft to look at while they work it out.",
+      "next_quest_id": null,
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Nightnurse Shield",
+          "slot": "off_hand",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "spell_power": 21,
+            "haste": 6
+          },
+          "armor_value": 452,
+          "required_level": 57,
+          "sell_price": 9290,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_shield_08",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 52
+        },
+        {
+          "name": "Nightnurse Greaves",
+          "slot": "feet",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 161,
+          "required_level": 57,
+          "sell_price": 7548,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_plate_06"
+        },
+        {
+          "name": "Nightnurse Robe",
+          "slot": "chest",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 12,
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 98,
+          "required_level": 57,
+          "sell_price": 11613,
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_shirt_yellow_01"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_the_night_watch",
+      "title": "The Night Watch",
+      "giver_npc_id": "mg_dreamer",
+      "zone": "moonglade",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "The Wakened keep a watch every night, because somebody ought to be awake in a valley full of sleepers. Danny Kowalczyk can't sleep, so he took the rota over, and tonight he's short a watchman. The round takes in the three places in Moonglade the Wakened don't like to leave alone in the dark.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "moonglade",
+          "target_x": 100,
+          "target_y": 27,
+          "radius": 4,
+          "label": "Walk the night watch past the Dreaming Arch in the north woods"
+        },
+        {
+          "type": "explore",
+          "target": "moonglade",
+          "target_x": 34,
+          "target_y": 156,
+          "radius": 4,
+          "label": "Walk the night watch past the Barrow Dens' door"
+        },
+        {
+          "type": "explore",
+          "target": "moonglade",
+          "target_x": 138,
+          "target_y": 88,
+          "radius": 4,
+          "label": "Finish the night watch at the end of Nighthaven's pier"
+        }
+      ],
+      "accept_text": "The arch in the north woods first, then down the west shore to the Barrow Dens' door, then all the way round to the end of the pier in Nighthaven. You don't have to do anything at any of them. Just look, and remember what you saw.",
+      "turn_in_text": "Warm stones, a door that whispers and an island that hums. You saw all three, then.\n\nIn Buffalo I drove a snowplough on the night shift, and the worst thing out there was the lake wind. Here I write down the same three things every night, and every night they're a little bit louder.",
+      "next_quest_id": null,
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Watchman's Shield",
+          "slot": "off_hand",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 15,
+            "strength": 6
+          },
+          "secondary_stats": {
+            "block_value": 14
+          },
+          "armor_value": 452,
+          "required_level": 57,
+          "sell_price": 9290,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_08",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 52
+        },
+        {
+          "name": "Watchman's Breeches",
+          "slot": "legs",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 18,
+            "agility": 12
+          },
+          "secondary_stats": {
+            "dodge_rating": 9
+          },
+          "armor_value": 145,
+          "required_level": 57,
+          "sell_price": 11613,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_08"
+        },
+        {
+          "name": "Watchman's Gloves",
+          "slot": "hands",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "arcane_spell_power": 30
+          },
+          "armor_value": 50,
+          "required_level": 57,
+          "sell_price": 7548,
+          "identity": "arcane",
+          "icon_id": "gear_inv_gauntlets_22"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_something_to_grow",
+      "title": "Something to Grow",
+      "giver_npc_id": "mg_gardener",
+      "zone": "moonglade",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "Mei-Lin Zhou's grandmother grew chillies on a balcony in Chengdu, and Mei-Lin plants things in the Wakened's gardens because it's how she knows where she is. The druids grow everything here without her help, so she wants something of her own: a bed of Golden Sansam, which grows wild in the high places and nowhere in the glade.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "herb_golden_sansam",
+          "count": 5,
+          "label": "Golden Sansam from the wild"
+        }
+      ],
+      "accept_text": "Golden Sansam grows in Felwood, Azshara and the high passes, anywhere it's hard to get to. Pick it with the roots on and bring it back wrapped in damp moss. I'll do the rest.",
+      "turn_in_text": "Look at the roots on those, they'll take in a week.\n\nMy grandmother talked to her plants every morning, in Sichuanese, and the neighbours thought she was mad. I talk to mine in Mandarin and English, and the druids think it's the most sensible thing any of us does.",
+      "next_quest_id": null,
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Gardener's Spear",
+          "slot": "main_hand",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 30
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 14516,
+          "identity": "strength",
+          "icon_id": "gear_inv_weapon_halberd_03",
+          "weapon_damage_min": 104,
+          "weapon_damage_max": 141,
+          "attack_speed": 3.3,
+          "block_value": 0
+        },
+        {
+          "name": "Gardener's Hood",
+          "slot": "head",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 37
+          },
+          "armor_value": 61,
+          "required_level": 57,
+          "sell_price": 9290,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_56"
+        },
+        {
+          "name": "Gardener's Grips",
+          "slot": "hands",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 100,
+          "required_level": 57,
+          "sell_price": 7548,
+          "identity": "feral",
+          "icon_id": "gear_inv_gauntlets_03"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_what_the_sleepers_say",
+      "title": "What the Sleepers Say",
+      "giver_npc_id": "mg_sandvik",
+      "zone": "moonglade",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "The druids and the Wakened who sleep in the Barrow Dens have started talking in their sleep. Dr. Sandvik wants someone to sit outside the door and write down what they say, because the wardens won't, and the Circle has asked her not to go herself.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "moonglade",
+          "target_x": 34,
+          "target_y": 156,
+          "radius": 4,
+          "label": "Sit by the Barrow Dens' door and write down what the sleepers say"
+        }
+      ],
+      "accept_text": "Warden Taerenas will let you sit by the door if you don't touch it. Write down everything, even the words you don't understand, and those most of all. I've heard that some of it isn't in any language they speak here.",
+      "turn_in_text": "That line's Norwegian, and that one's Yoruba, and those three are Polish, and this one's Darnassian, and they're all saying the same sentence.\n\nThey're saying it opens from underneath. I don't know what it is. Neither do they, I think, and that frightens me more than anything on that page.",
+      "next_quest_id": "mg_a_doctor_and_a_keeper",
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Listener's Legguards",
+          "slot": "legs",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "nature_spell_power": 33,
+            "haste": 10
+          },
+          "armor_value": 258,
+          "required_level": 57,
+          "sell_price": 11613,
+          "identity": "storm",
+          "icon_id": "gear_inv_pants_07"
+        },
+        {
+          "name": "Listener's Cloak",
+          "slot": "back",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 22
+          },
+          "armor_value": 44,
+          "required_level": 57,
+          "sell_price": 6387,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_19"
+        },
+        {
+          "name": "Listener's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 30
+          },
+          "armor_value": 295,
+          "required_level": 57,
+          "sell_price": 9290,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_22"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_a_doctor_and_a_keeper",
+      "title": "A Doctor and a Keeper",
+      "giver_npc_id": "mg_sandvik",
+      "zone": "moonglade",
+      "level_min": 58,
+      "level_max": 58,
+      "description": "Dr. Sandvik has copied out what the sleepers said, line by line, with the languages beside them. She's never asked Keeper Remulos for anything before, but she thinks he needs to see this, and she thinks he might listen to someone who isn't her.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "mg_q_sleepers_transcript",
+          "count": 1,
+          "label": "Take Ingrid Sandvik's transcript to Keeper Remulos at his shrine"
+        }
+      ],
+      "accept_text": "Remulos is under his tree on the north-west point. He's always been kind to us, and he's always treated us like patients. Give him this, and tell him it's from the doctor, not from one of the sleepers.",
+      "turn_in_text": "Eleven languages, and one sentence. She's done in a night what the Circle couldn't do in a year.\n\nTell Ingrid I'll come to the longhouse myself. It's time the Circle stopped asking the Wakened to wait outside while we decide what's happening to all of us.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "mg_remulos",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "mg_q_sleepers_transcript",
+            "name": "Sandvik's Transcript",
+            "description": "Pages of neat handwriting, one line repeated in eleven languages down the left side, and the doctor's notes down the right.",
+            "count": 1
+          }
+        ]
+      },
+      "requires_quests": [
+        "mg_what_the_sleepers_say"
+      ],
+      "reward_exp": 4280,
+      "reward_gold": 16800,
+      "unique_item_defs": [
+        {
+          "name": "Keeper's Staff",
+          "slot": "main_hand",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 31
+          },
+          "armor_value": 0,
+          "required_level": 58,
+          "sell_price": 15046,
+          "identity": "agility",
+          "icon_id": "gear_inv_staff_17",
+          "weapon_damage_min": 106,
+          "weapon_damage_max": 143,
+          "attack_speed": 3.6,
+          "block_value": 0
+        },
+        {
+          "name": "Keeper's Belt",
+          "slot": "waist",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 102,
+          "required_level": 58,
+          "sell_price": 6620,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_01"
+        },
+        {
+          "name": "Keeper's Band",
+          "slot": "ring",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 0,
+          "required_level": 58,
+          "sell_price": 7222,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_ring_24"
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_the_ones_who_dont_wake",
+      "title": "The Ones Who Don't Wake",
+      "giver_npc_id": "mg_infirmary",
+      "zone": "moonglade",
+      "level_min": 58,
+      "level_max": 58,
+      "description": "Not every transplant who arrived asleep in Moonglade woke up. Nurse Adaeze Okafor visits the ones who didn't, in the Barrow Dens beside the druids, and lately their sleep has turned restless. A draught of Dreamfoil eases a dreamer's sleep without waking them, and the glade doesn't grow it.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "herb_dreamfoil",
+          "count": 6,
+          "label": "Dreamfoil from the wild"
+        }
+      ],
+      "accept_text": "Dreamfoil grows in the high wild places, in Felwood and Azshara and the passes. Bring me the leaves fresh and I'll steep them tonight. I can't wake them, but I can make sure they're not frightened while they sleep.",
+      "turn_in_text": "This is good Dreamfoil, the bitter kind.\n\nOn the ward in Lagos we had patients who never woke, and we talked to them every shift because somebody told us they could hear. I still do it. I tell the sleepers here the news from the longhouse, and I swear one of them laughed last week.",
+      "next_quest_id": null,
+      "reward_exp": 4280,
+      "reward_gold": 16800,
+      "unique_item_defs": [
+        {
+          "name": "Dreamfoil Breastplate",
+          "slot": "chest",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "healing_power": 58
+          },
+          "armor_value": 355,
+          "required_level": 58,
+          "sell_price": 12037,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_chest_plate02"
+        },
+        {
+          "name": "Dreamfoil Slippers",
+          "slot": "feet",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 26
+          },
+          "armor_value": 51,
+          "required_level": 58,
+          "sell_price": 7824,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_plate_08"
+        },
+        {
+          "name": "Dreamfoil Wristguards",
+          "slot": "wrist",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 10,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 182,
+          "required_level": 58,
+          "sell_price": 6018,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_bracer_12"
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_iron_from_nothing",
+      "title": "Iron from Nothing",
+      "giver_npc_id": "mg_carver",
+      "zone": "moonglade",
+      "level_min": 58,
+      "level_max": 58,
+      "description": "The wall of last memories has worn out every chisel the Wakened own. Hamish MacLeod wants proper steel ones, and the Wakened's new forge can make them, if somebody brings the ore. The Circle won't have mining in the glade, so it has to come from outside.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "ore_thorium",
+          "count": 8,
+          "label": "Thorium ore from the hills"
+        }
+      ],
+      "accept_text": "Thorium's in the hard country, the Plaguelands, Azshara's mountains and the passes up here. Bring me the ore and Tomas Ribeiro will smelt it. He sold hammers in Porto for nineteen years, and now he wants to make one.",
+      "turn_in_text": "That's proper ore. Tomas will ruin the first three bars, and the fourth will be fine.\n\nOn Lewis my father said a good chisel outlasts the man who sharpens it. Every plank on that wall is going to outlast all of us, and I'd like the tools to as well.",
+      "next_quest_id": null,
+      "reward_exp": 4280,
+      "reward_gold": 16800,
+      "unique_item_defs": [
+        {
+          "name": "Ironmonger's Longbow",
+          "slot": "ranged",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 0,
+          "required_level": 58,
+          "sell_price": 9630,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_02",
+          "weapon_damage_min": 66,
+          "weapon_damage_max": 90,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Ironmonger's Coif",
+          "slot": "head",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "healing_power": 49
+          },
+          "armor_value": 200,
+          "required_level": 58,
+          "sell_price": 9630,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_01"
+        },
+        {
+          "name": "Ironmonger's Leggings",
+          "slot": "legs",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 16
+          },
+          "secondary_stats": {
+            "spell_power": 37
+          },
+          "armor_value": 74,
+          "required_level": 58,
+          "sell_price": 12037,
+          "identity": "caster",
+          "icon_id": "gear_inv_pants_07"
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_a_lantern_for_the_longhouse",
+      "title": "A Lantern for the Longhouse",
+      "giver_npc_id": "mg_rabine",
+      "zone": "moonglade",
+      "level_min": 58,
+      "level_max": 58,
+      "description": "Keeper Remulos has told Rabine Saturna about Ingrid Sandvik's transcript, and Rabine has decided the Circle owes the Wakened more than politeness. He's sending them a moon lantern lit from the great moonwell, the same kind that hangs over every druid's door in Nighthaven.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "mg_q_moon_lantern",
+          "count": 1,
+          "label": "Take the Circle's moon lantern to Dr. Ingrid Sandvik at the longhouse"
+        }
+      ],
+      "accept_text": "Hang it over the longhouse door if she'll let you. It means the Wakened are welcome in any druid's house in Kalimdor, and that we'd like to be welcome in theirs. We should have done it three years ago.",
+      "turn_in_text": "Over the door, yes. Everyone will see it from the water.\n\nWhen I first woke up, a druid gave me a blanket and asked my name, and I couldn't remember it for two days. I remember that blanket better than anything from my first year in Trondheim.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "mg_a_doctor_and_a_keeper"
+      ],
+      "turn_in_npc_id": "mg_sandvik",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "mg_q_moon_lantern",
+            "name": "Moon Lantern",
+            "description": "A lantern of curved silver wood with a cool blue light in it that came from the great moonwell. It never needs refilling.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 4280,
+      "reward_gold": 16800,
+      "unique_item_defs": [
+        {
+          "name": "Lanternlit Knife",
+          "slot": "main_hand",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 0,
+          "required_level": 58,
+          "sell_price": 11435,
+          "identity": "agility",
+          "icon_id": "gear_inv_weapon_shortblade_13",
+          "weapon_damage_min": 78,
+          "weapon_damage_max": 106,
+          "attack_speed": 1.7,
+          "block_value": 0
+        },
+        {
+          "name": "Lanternlit Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 9,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 38
+          },
+          "armor_value": 125,
+          "required_level": 58,
+          "sell_price": 9630,
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_12"
+        },
+        {
+          "name": "Lanternlit Sabatons",
+          "slot": "feet",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 246,
+          "required_level": 58,
+          "sell_price": 7824,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_plate_01"
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_satyrs_in_the_green",
+      "title": "Satyrs in the Green",
+      "giver_npc_id": "mg_rabine",
+      "zone": "moonglade",
+      "level_min": 56,
+      "level_max": 56,
+      "description": "Felwood was the Circle's forest before the Legion poisoned it, and the satyrs of the Jadefire are still there, still spreading the rot. Rabine Saturna sends the Circle's help out to the sick lands, and he'd like to send you.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Jadefire Felsworn",
+          "count": 8,
+          "zone": "north_felwood"
+        },
+        {
+          "type": "kill",
+          "target": "Jadefire Trickster",
+          "count": 6,
+          "zone": "north_felwood"
+        }
+      ],
+      "accept_text": "The Jadefire Felsworn and the Jadefire Tricksters run in North Felwood, round the Jadefire glens. The Felsworn are the ones spreading the fel, and the Tricksters are the ones making sure nobody stops them. Thin them both out, and don't let the Tricksters get behind you.",
+      "turn_in_text": "The Emerald Reclamation will feel that before we do, and they've earned some good news.\n\nThe Circle can't heal Felwood from here. What we can do is make sure there's somebody left in it to heal it when the time comes.",
+      "next_quest_id": "mg_the_black_gate",
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Wardens' Tome",
+          "slot": "off_hand",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 33
+          },
+          "armor_value": 0,
+          "required_level": 56,
+          "sell_price": 6718,
+          "identity": "healer",
+          "icon_id": "gear_inv_tome_4",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        },
+        {
+          "name": "Wardens' Handguards",
+          "slot": "hands",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 14,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 11
+          },
+          "armor_value": 237,
+          "required_level": 56,
+          "sell_price": 7277,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_16"
+        },
+        {
+          "name": "Wardens' Girdle",
+          "slot": "waist",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 158,
+          "required_level": 56,
+          "sell_price": 6158,
+          "identity": "hunter",
+          "icon_id": "gear_inv_belt_25"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_the_black_gate",
+      "title": "The Black Gate",
+      "giver_npc_id": "mg_rabine",
+      "zone": "moonglade",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "Behind the Black Gate of Jaedenar, the Shadow Council keeps a demon chained, and Zar'gothrax the Unbound has been pulling at those chains since the worlds came together. The Circle has felt every pull in the roots of the glade. Rabine wants the demon dead.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Zar'gothrax the Unbound",
+          "count": 1,
+          "zone": "jaedenar"
+        }
+      ],
+      "accept_text": "Jaedenar's in the north-west of North Felwood, behind the Black Gate. Zar'gothrax is at the very bottom, and you'll have to get through the Council first. Take friends you trust.",
+      "turn_in_text": "The roots are quiet. For the first time in three years the roots are quiet.\n\nI'll tell the Emerald Reclamation it was you. Aelyra Moonbough has been asking the Circle for help for a long time, and this is the first time we've been able to send it.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "mg_satyrs_in_the_green"
+      ],
+      "reward_exp": 5460,
+      "reward_gold": 21450,
+      "unique_item_defs": [
+        {
+          "name": "Gatebreaker's Mace",
+          "slot": "main_hand",
+          "item_level": 59,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 11,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "healing_power": 50
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 17153,
+          "identity": "healer",
+          "icon_id": "gear_inv_mace_14",
+          "weapon_damage_min": 103,
+          "weapon_damage_max": 139,
+          "attack_speed": 2.6,
+          "block_value": 0
+        },
+        {
+          "name": "Gatebreaker's Jerkin",
+          "slot": "chest",
+          "item_level": 59,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 19,
+            "intellect": 16
+          },
+          "secondary_stats": {
+            "attack_power": 37
+          },
+          "armor_value": 193,
+          "required_level": 57,
+          "sell_price": 18055,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_02"
+        },
+        {
+          "name": "Gatebreaker's Pendant",
+          "slot": "neck",
+          "item_level": 59,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 10833,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_amulet_05"
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "mg_the_rot_under_the_hold",
+      "title": "The Rot Under the Hold",
+      "giver_npc_id": "mg_hamuul",
+      "zone": "moonglade",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "The Timbermaw took Archdruid Hamuul Runetotem's people in for a night on their way up the mountain, when the tauren had nowhere else to go. Now the Timbermaw have a rot of their own under Timbermaw Hold in Azshara, and Hamuul hasn't forgotten the debt.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Xavras the Gloomtender",
+          "count": 1,
+          "zone": "the_rotroot_deeps"
+        }
+      ],
+      "accept_text": "Under Timbermaw Hold there's the Rotroot Deeps, and at the bottom of it waits Xavras the Gloomtender, the satyr growing the fel into the Hold's own roots. Go through the deep gate in the Hold's basin, and take friends. The Timbermaw will thank you, and so will I.",
+      "turn_in_text": "The Timbermaw gave us honey and a fire and didn't ask a single question. That was the night I knew we might live.\n\nThere's a debt paid. My people have a lot of debts, and I'd like to pay every one of them before I die.",
+      "next_quest_id": null,
+      "reward_exp": 5460,
+      "reward_gold": 21450,
+      "unique_item_defs": [
+        {
+          "name": "Rotbreaker's Greatsword",
+          "slot": "main_hand",
+          "item_level": 59,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 16,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "attack_power": 41
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 22569,
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_41",
+          "weapon_damage_min": 139,
+          "weapon_damage_max": 188,
+          "attack_speed": 3.4,
+          "block_value": 0
+        },
+        {
+          "name": "Rotbreaker's Bracers",
+          "slot": "wrist",
+          "item_level": 59,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 13,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 33
+          },
+          "armor_value": 134,
+          "required_level": 57,
+          "sell_price": 9028,
+          "identity": "agility",
+          "icon_id": "gear_inv_bracer_18"
+        },
+        {
+          "name": "Rotbreaker's Hood",
+          "slot": "head",
+          "item_level": 59,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 18
+          },
+          "secondary_stats": {
+            "spell_power": 41
+          },
+          "armor_value": 96,
+          "required_level": 57,
+          "sell_price": 14444,
+          "identity": "caster",
+          "icon_id": "gear_inv_helmet_17"
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "mg_bloodvenom",
+      "title": "Bloodvenom",
+      "giver_npc_id": "mg_moonwell_keeper",
+      "zone": "moonglade",
+      "level_min": 56,
+      "level_max": 56,
+      "description": "Moonwell Keeper Aedris Silverbrook has kept Nighthaven's great moonwell for longer than most of Kalimdor has had names. She believes the water under Felwood and the water under Moonglade are the same water, and she wants to know how much of the Bloodvenom has found its way up the mountain.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "mg_q_bloodvenom_residue",
+          "count": 5
+        }
+      ],
+      "accept_text": "The Seepage Oozes at Bloodvenom Falls, in North Felwood, are the poison given a body. Bring me what's inside them, sealed in wax, and don't let it touch your skin. I'll set it beside a cup of moonwell water and see what each of them does.",
+      "turn_in_text": "The moonwell water turned it clear. All of it, in less than an hour.\n\nSo the well can still heal what the Legion did. That's the best thing I've learned in three years. It means whatever's making the well run over at night isn't sickness.",
+      "next_quest_id": null,
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Moonwell Hauberk",
+          "slot": "chest",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 12,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 35
+          },
+          "armor_value": 228,
+          "required_level": 56,
+          "sell_price": 11196,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_11"
+        },
+        {
+          "name": "Moonwell Sash",
+          "slot": "waist",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 25
+          },
+          "armor_value": 49,
+          "required_level": 56,
+          "sell_price": 6158,
+          "identity": "caster",
+          "icon_id": "gear_inv_belt_32"
+        },
+        {
+          "name": "Moonwell Sabatons",
+          "slot": "feet",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 14,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 11
+          },
+          "armor_value": 237,
+          "required_level": 56,
+          "sell_price": 7277,
+          "identity": "tank",
+          "icon_id": "gear_inv_boots_01"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_what_dies_in_deadwind",
+      "title": "What Dies in Deadwind",
+      "giver_npc_id": "mg_remulos",
+      "zone": "moonglade",
+      "level_min": 58,
+      "level_max": 58,
+      "description": "Keeper Remulos can walk the Emerald Dream to almost anywhere in Azeroth, and since the worlds came together there's one place he can't reach: Deadwind Pass. He wants to know what's happening to the living things there, and the deer of the pass will tell him, if you bring him what's left of them.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "mg_q_dissolving_antler",
+          "count": 5
+        }
+      ],
+      "accept_text": "The Dissolving Stags wander Deadwind West, coming apart a little more every day and not dying. Bring me their antlers. The bone remembers what the animal dreamed, and I'll read it.",
+      "turn_in_text": "They don't dream at all. Every living thing dreams, and these don't.\n\nThe liquidators at Ariden's Watch have a name for what's happening to that pass. They say it's remembering. If the Dream can't reach it, then something else is doing the remembering, and I'd like very much to know what.",
+      "next_quest_id": null,
+      "reward_exp": 4280,
+      "reward_gold": 16800,
+      "unique_item_defs": [
+        {
+          "name": "Dreamwalker's Grips",
+          "slot": "hands",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 225,
+          "required_level": 58,
+          "sell_price": 7824,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_28"
+        },
+        {
+          "name": "Dreamwalker's Spaulders",
+          "slot": "shoulder",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "healing_power": 49
+          },
+          "armor_value": 223,
+          "required_level": 58,
+          "sell_price": 9630,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_shoulder_29"
+        },
+        {
+          "name": "Dreamwalker's Pendant",
+          "slot": "neck",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 23
+          },
+          "armor_value": 0,
+          "required_level": 58,
+          "sell_price": 7222,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_necklace_07"
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_ten_thousand_years_of_horns",
+      "title": "Ten Thousand Years of Horns",
+      "giver_npc_id": "mg_hamuul",
+      "zone": "moonglade",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "The Circle has kept a count of satyrs since the War of the Ancients, horn by horn. Hamuul Runetotem has taken over the counting since he came, partly because the night elves asked and partly, he says, because it gives a tauren something to do with his hands.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "mg_q_satyr_horn",
+          "count": 6
+        }
+      ],
+      "accept_text": "The Legash Satyrs hold the old ruins in Central Azshara, round the Legash encampment. Bring me their horns. I'll add them to the count, and I'll tell the night elves, and they'll pretend they're not impressed.",
+      "turn_in_text": "Six more on the count. The number's very long now, and it never seems to get shorter at the other end.\n\nMy father told me the satyrs were night elves once, who wanted too much. I think about that every time I carve a mark.",
+      "next_quest_id": null,
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Hornbreaker's Cloak",
+          "slot": "back",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 25,
+            "hit_rating": 6
+          },
+          "armor_value": 60,
+          "required_level": 57,
+          "sell_price": 6387,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_03"
+        },
+        {
+          "name": "Hornbreaker's Cuffs",
+          "slot": "wrist",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 50,
+          "required_level": 57,
+          "sell_price": 5806,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_15"
+        },
+        {
+          "name": "Hornbreaker's Legplates",
+          "slot": "legs",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 14,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 36
+          },
+          "armor_value": 349,
+          "required_level": 57,
+          "sell_price": 11613,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_04"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_the_totems_on_our_backs",
+      "title": "The Totems on Our Backs",
+      "giver_npc_id": "mg_tauren_elder",
+      "zone": "moonglade",
+      "level_min": 56,
+      "level_max": 56,
+      "description": "When Thunder Bluff fell, the tauren who reached Moonglade carried their lodges' totems up the mountain on their backs. Elder Mahala Dawnhorn has kept them laid down ever since. She'd like someone who wasn't there to stand at the memorial the survivors built, and tell her what it looks like to a stranger.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "moonglade",
+          "target_x": 184,
+          "target_y": 56,
+          "radius": 4,
+          "label": "Stand at the tauren memorial in Nighthaven"
+        }
+      ],
+      "accept_text": "The memorial's on the north side of Nighthaven, by the lodges, a cairn with feathers on it. Look at it properly. Then come back and tell me whether it looks like a grave or a promise.",
+      "turn_in_text": "You'd call it a promise, then. That's what the young ones say too, and the old ones say grave.\n\nWe've been arguing about it for three years, the old and the young. I'm glad it's a promise to you. It means the young ones might be right.",
+      "next_quest_id": "mg_moonwell_water_for_the_totems",
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Plainsborn Cap",
+          "slot": "head",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 15,
+            "agility": 10
+          },
+          "secondary_stats": {
+            "dodge_rating": 8
+          },
+          "armor_value": 143,
+          "required_level": 56,
+          "sell_price": 8957,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_38"
+        },
+        {
+          "name": "Plainsborn Band",
+          "slot": "ring",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 27
+          },
+          "armor_value": 0,
+          "required_level": 56,
+          "sell_price": 6718,
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_ring_07"
+        },
+        {
+          "name": "Plainsborn Gauntlets",
+          "slot": "hands",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 8,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 176,
+          "required_level": 56,
+          "sell_price": 7277,
+          "identity": "earthen",
+          "icon_id": "gear_inv_gauntlets_11"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_moonwell_water_for_the_totems",
+      "title": "Moonwell Water for the Totems",
+      "giver_npc_id": "mg_tauren_elder",
+      "zone": "moonglade",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "Elder Mahala has decided to raise one of the totems the tauren carried out of Thunder Bluff. Only one, for the ones they carried, not the ones they left. Before it goes up it has to be washed, and she wants the water from Nighthaven's great moonwell, with Aedris Silverbrook's blessing.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "mg_q_moonwell_flask",
+          "count": 1,
+          "label": "Bring a flask of the great moonwell's water to Elder Mahala"
+        }
+      ],
+      "accept_text": "Aedris has already filled the flask. She put it in my hands and then took it back and said someone else should carry it. I think she means it shouldn't be one of us. Take it from her and bring it here.",
+      "turn_in_text": "It's clean, and it's standing, and it looks like it belongs here.\n\nIt's for the ones we carried up the mountain, who lived because somebody wouldn't put them down. The ones we left will get theirs when we go home. If we go home.",
+      "next_quest_id": null,
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "mg_q_moonwell_flask",
+            "name": "Flask of Moonwell Water",
+            "description": "Water from Nighthaven's great moonwell, glowing faintly through the glass. It's lighter than it should be.",
+            "count": 1
+          }
+        ]
+      },
+      "requires_quests": [
+        "mg_the_totems_on_our_backs"
+      ],
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Totemkeeper's Staff",
+          "slot": "main_hand",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 24
+          },
+          "secondary_stats": {
+            "spell_power": 56
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 14516,
+          "identity": "caster",
+          "icon_id": "gear_inv_staff_11",
+          "weapon_damage_min": 42,
+          "weapon_damage_max": 57,
+          "attack_speed": 3.2,
+          "block_value": 0
+        },
+        {
+          "name": "Totemkeeper's Jerkin",
+          "slot": "chest",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 14,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 36
+          },
+          "armor_value": 145,
+          "required_level": 57,
+          "sell_price": 11613,
+          "identity": "strength",
+          "icon_id": "gear_inv_chest_leather_02"
+        },
+        {
+          "name": "Totemkeeper's Waistguard",
+          "slot": "waist",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 40
+          },
+          "armor_value": 259,
+          "required_level": 57,
+          "sell_price": 6387,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_belt_16"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_the_thunder_bluff_road",
+      "title": "The Thunder Bluff Road",
+      "giver_npc_id": "mg_bunthen",
+      "zone": "moonglade",
+      "level_min": 58,
+      "level_max": 58,
+      "description": "Bunthen Plainswind flew the Thunder Bluff road for twenty years before it fell. Elder Longtread at Camp Taurajo keeps the seat for Cairne Bloodhoof, and Bunthen has never been able to bring himself to fly him the list of who reached Moonglade. Archdruid Hamuul has written it out, every name.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "mg_q_hamuuls_list",
+          "count": 1,
+          "label": "Take Hamuul's list of the survivors to Elder Longtread at Camp Taurajo"
+        }
+      ],
+      "accept_text": "Camp Taurajo's in the Southern Barrens. I'll fly you as far as the wind riders will go. Give Longtread the list, and tell him it's all of them. Tell him we looked, and that's everyone.",
+      "turn_in_text": "He's written down every name. I'd heard some of them were alive, and I didn't let myself believe it.\n\nTell Bunthen I'll keep this with the seat. When the High Chieftain comes home, it'll be the first thing he reads. I'll make sure of it.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "taurajo_elder",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "mg_q_hamuuls_list",
+            "name": "Hamuul's List",
+            "description": "A long roll of hide covered on both sides with names, in Hamuul Runetotem's big careful hand.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 4280,
+      "reward_gold": 16800,
+      "unique_item_defs": [
+        {
+          "name": "Windrider's Mantle",
+          "slot": "shoulder",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "spell_power": 31
+          },
+          "armor_value": 62,
+          "required_level": 58,
+          "sell_price": 9630,
+          "identity": "caster",
+          "icon_id": "gear_inv_shoulder_06"
+        },
+        {
+          "name": "Windrider's Breeches",
+          "slot": "legs",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 14,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 37
+          },
+          "armor_value": 148,
+          "required_level": 58,
+          "sell_price": 12037,
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_10"
+        },
+        {
+          "name": "Windrider's Vambraces",
+          "slot": "wrist",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 14,
+            "strength": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 11
+          },
+          "armor_value": 264,
+          "required_level": 58,
+          "sell_price": 6018,
+          "identity": "tank",
+          "icon_id": "gear_inv_bracer_13"
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_warm_stones",
+      "title": "Warm Stones",
+      "giver_npc_id": "mg_arch_watcher",
+      "zone": "moonglade",
+      "level_min": 58,
+      "level_max": 58,
+      "description": "The Dreaming Arch in the north woods has stood cold for ten thousand years. Now its stones are warm at night, and the flowers round it bloom only when they are. Dreamwatcher Lethiel sits with it every night, and she'd like a second pair of eyes she can trust.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "moonglade",
+          "target_x": 100,
+          "target_y": 27,
+          "radius": 4,
+          "label": "Put your hands on the Dreaming Arch's stones after dark"
+        }
+      ],
+      "accept_text": "It's up the path into the north woods, behind the Shrine. Put your hands flat on the stones and hold them there. Tell me if they feel warm like a hearth, or warm like something alive.",
+      "turn_in_text": "Like something alive. I knew it, and I didn't want to be the only one who knew it.\n\nThe arch doesn't lead anywhere. It never has. But the space inside it has started to look like it's waiting for something to come through, and I don't think it'll wait for ever.",
+      "next_quest_id": null,
+      "reward_exp": 4280,
+      "reward_gold": 16800,
+      "unique_item_defs": [
+        {
+          "name": "Dreamwatcher's Shield",
+          "slot": "off_hand",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "spell_power": 21,
+            "haste": 6
+          },
+          "armor_value": 460,
+          "required_level": 58,
+          "sell_price": 9630,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_shield_11",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 53
+        },
+        {
+          "name": "Dreamwatcher's Greaves",
+          "slot": "feet",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 27
+          },
+          "armor_value": 164,
+          "required_level": 58,
+          "sell_price": 7824,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_plate_09"
+        },
+        {
+          "name": "Dreamwatcher's Robe",
+          "slot": "chest",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 12,
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "healing_power": 33
+          },
+          "armor_value": 74,
+          "required_level": 58,
+          "sell_price": 12037,
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_chest_cloth_09"
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_the_well_runs_over",
+      "title": "The Well Runs Over",
+      "giver_npc_id": "mg_moonwell_keeper",
+      "zone": "moonglade",
+      "level_min": 58,
+      "level_max": 58,
+      "description": "Every night the great moonwell runs over by a finger's width, and every morning it's settled again. Aedris Silverbrook has been writing down the times, and they match something on the lake. She wants someone at the end of the pier to watch the island while she watches the well.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "moonglade",
+          "target_x": 138,
+          "target_y": 88,
+          "radius": 4,
+          "label": "Watch the island in the lake from the end of the pier"
+        }
+      ],
+      "accept_text": "Go to the end of Nighthaven's pier and watch the island in the middle of the lake. When the well rises, I'll know. You'll know too, I think. Come back and tell me what you saw.",
+      "turn_in_text": "The pool on the island lit, and the well rose, both at once.\n\nThe island's pool doesn't reflect the sky, it never has. The old keepers wrote that the night elves built something under the lake before the Sundering and flooded it on purpose. I always thought that was a story.",
+      "next_quest_id": null,
+      "reward_exp": 4280,
+      "reward_gold": 16800,
+      "unique_item_defs": [
+        {
+          "name": "Overflow Shield",
+          "slot": "off_hand",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 15,
+            "strength": 6
+          },
+          "secondary_stats": {
+            "block_value": 14
+          },
+          "armor_value": 460,
+          "required_level": 58,
+          "sell_price": 9630,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_11",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 53
+        },
+        {
+          "name": "Overflow Breeches",
+          "slot": "legs",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 19,
+            "agility": 12
+          },
+          "secondary_stats": {
+            "dodge_rating": 9
+          },
+          "armor_value": 148,
+          "required_level": 58,
+          "sell_price": 12037,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_13"
+        },
+        {
+          "name": "Overflow Gloves",
+          "slot": "hands",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "arcane_spell_power": 31
+          },
+          "armor_value": 51,
+          "required_level": 58,
+          "sell_price": 7824,
+          "identity": "arcane",
+          "icon_id": "gear_inv_gauntlets_22"
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_who_are_they_talking_to",
+      "title": "Who Are They Talking To?",
+      "giver_npc_id": "mg_barrow_warden",
+      "zone": "moonglade",
+      "level_min": 58,
+      "level_max": 58,
+      "description": "Warden Taerenas guards the Barrow Dens' door, and he's heard the sleepers inside answer someone. Not each other, he says, but someone else. He wants a witness who isn't a warden, because the Circle will say a warden was only frightened.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "moonglade",
+          "target_x": 34,
+          "target_y": 156,
+          "radius": 4,
+          "label": "Stand at the Barrow Dens' door and listen for the other voice"
+        }
+      ],
+      "accept_text": "Stand at the door with me and listen, nothing more. Don't touch the thorns. If you hear it, you'll know it, because it's the only voice in there that doesn't sound asleep.",
+      "turn_in_text": "You heard it. I can see it on your face.\n\nI've guarded sleepers for four hundred years. Sleepers dream, and they talk, and they turn over. They don't wait for an answer and then nod at it. Go and tell the Keeper, please. He'll believe you sooner than me.",
+      "next_quest_id": null,
+      "reward_exp": 4280,
+      "reward_gold": 16800,
+      "unique_item_defs": [
+        {
+          "name": "Wardensworn Spear",
+          "slot": "main_hand",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 31
+          },
+          "armor_value": 0,
+          "required_level": 58,
+          "sell_price": 15046,
+          "identity": "strength",
+          "icon_id": "gear_inv_weapon_halberd_03",
+          "weapon_damage_min": 106,
+          "weapon_damage_max": 143,
+          "attack_speed": 3.3,
+          "block_value": 0
+        },
+        {
+          "name": "Wardensworn Hood",
+          "slot": "head",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 9,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 38
+          },
+          "armor_value": 85,
+          "required_level": 58,
+          "sell_price": 9630,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_05"
+        },
+        {
+          "name": "Wardensworn Grips",
+          "slot": "hands",
+          "item_level": 59,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 27
+          },
+          "armor_value": 120,
+          "required_level": 58,
+          "sell_price": 7824,
+          "identity": "feral",
+          "icon_id": "gear_inv_gauntlets_05"
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_the_fish_are_turning",
+      "title": "The Fish Are Turning",
+      "giver_npc_id": "pt_mg_fish",
+      "zone": "moonglade",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "Ilyssa Moonwater has fished Lake Elune'ara her whole life, and she says the fish have started turning toward the island at night, all of them, the way a field of flowers turns to the sun. She wants someone to see it from the falls, where the water's clearest.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "moonglade",
+          "target_x": 114,
+          "target_y": 44,
+          "radius": 4,
+          "label": "Watch the lake from the foot of the Falls of Elune'ara"
+        }
+      ],
+      "accept_text": "The Falls of Elune'ara come down on the north shore. Stand where the spray settles and look into the water. You'll see them, hundreds of them, all facing the same way.",
+      "turn_in_text": "Hundreds, all facing the island and not moving.\n\nMy mother fished this lake and her mother before her, and not one of them ever saw it do that. The fish know something. Fish always know first.",
+      "next_quest_id": null,
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Lakeside Legguards",
+          "slot": "legs",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "nature_spell_power": 33,
+            "haste": 10
+          },
+          "armor_value": 232,
+          "required_level": 57,
+          "sell_price": 11613,
+          "identity": "storm",
+          "icon_id": "gear_inv_pants_05"
+        },
+        {
+          "name": "Lakeside Cloak",
+          "slot": "back",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 22
+          },
+          "armor_value": 44,
+          "required_level": 57,
+          "sell_price": 6387,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_07"
+        },
+        {
+          "name": "Lakeside Pauldrons",
+          "slot": "shoulder",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 30
+          },
+          "armor_value": 295,
+          "required_level": 57,
+          "sell_price": 9290,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_13"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_the_same_dream",
+      "title": "The Same Dream",
+      "giver_npc_id": "mg_innkeeper",
+      "zone": "moonglade",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "Innkeeper Talowyn Nightbreeze keeps a book for her guests to write in, and for the last month half of them have written down the same dream: a door under water, and a stair going down. She wants Dr. Sandvik to see it, because the doctor's the only one in the glade who collects dreams on purpose.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "mg_q_guest_book",
+          "count": 1,
+          "label": "Take Talowyn's guest book to Dr. Ingrid Sandvik"
+        }
+      ],
+      "accept_text": "It's all in the back half of the book. People who've never met, writing the same thing in their own words. Take it round the lake to the doctor. She'll want it more than I do.",
+      "turn_in_text": "A door under water and a stair going down, nineteen times, from nineteen strangers.\n\nIn Trondheim we'd have called this a contagion of suggestion and written a paper about it. Here I'm going to call it what it looks like: something under that lake is reaching out to everyone who sleeps near it.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "mg_sandvik",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "mg_q_guest_book",
+            "name": "Talowyn's Guest Book",
+            "description": "A thick book with a leaf pressed on the cover. The back half is full of the same dream in different hands.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Innkeeper's Staff",
+          "slot": "main_hand",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 30
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 14516,
+          "identity": "agility",
+          "icon_id": "gear_inv_staff_17",
+          "weapon_damage_min": 104,
+          "weapon_damage_max": 141,
+          "attack_speed": 3.6,
+          "block_value": 0
+        },
+        {
+          "name": "Innkeeper's Belt",
+          "slot": "waist",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 100,
+          "required_level": 57,
+          "sell_price": 6387,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_25"
+        },
+        {
+          "name": "Innkeeper's Band",
+          "slot": "ring",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 6968,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_ring_21"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_seedlings_for_the_sanctuary",
+      "title": "Seedlings for the Sanctuary",
+      "giver_npc_id": "pt_mg_herbs",
+      "zone": "moonglade",
+      "level_min": 56,
+      "level_max": 56,
+      "description": "Herbwarden Mylla Starbloom grows seedlings from the glade's oldest trees, and the Emerald Reclamation in Felwood has asked for them, to plant where the fel has been burned away. Moonglade's soil is the cleanest in Kalimdor, and the Sanctuary needs every bit of it.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "mg_q_seedling_tray",
+          "count": 1,
+          "label": "Take Mylla's seedlings to Arch Druid Aelyra Moonbough at the Emerald Sanctuary"
+        }
+      ],
+      "accept_text": "Fly down to the Emerald Sanctuary in South Felwood and give the tray to Arch Druid Aelyra Moonbough. Keep them out of the wind, and whatever happens, don't let them near Felwood's water.",
+      "turn_in_text": "Moonglade oak, the real thing. I haven't had seedlings this clean since before the Legion came.\n\nTell Mylla we'll plant them on the burned ground by the old moonwell. In a hundred years there'll be a wood there, and somebody will wonder where it came from.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "es_arch_druid",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "mg_q_seedling_tray",
+            "name": "Tray of Seedlings",
+            "description": "A shallow tray of moss with a dozen tiny silver oak seedlings in it, each with two leaves.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Seedbearer's Breastplate",
+          "slot": "chest",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "healing_power": 55
+          },
+          "armor_value": 515,
+          "required_level": 56,
+          "sell_price": 11196,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_chest_plate15"
+        },
+        {
+          "name": "Seedbearer's Slippers",
+          "slot": "feet",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 25
+          },
+          "armor_value": 49,
+          "required_level": 56,
+          "sell_price": 7277,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_fabric_01"
+        },
+        {
+          "name": "Seedbearer's Wristguards",
+          "slot": "wrist",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 10,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 19
+          },
+          "armor_value": 158,
+          "required_level": 56,
+          "sell_price": 5598,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_bracer_09"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mg_what_is_waking",
+      "title": "What Is Waking",
+      "giver_npc_id": "mg_remulos",
+      "zone": "moonglade",
+      "level_min": 60,
+      "level_max": 60,
+      "description": "The sleepers answer someone, the arch is warm, the well runs over when the island lights, and strangers dream of a stair under the water. Keeper Remulos has listened to all of it, and he wants you at his shrine while he walks into the Dream to look.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "moonglade",
+          "target_x": 34,
+          "target_y": 46,
+          "radius": 4,
+          "label": "Keep watch at the Shrine of Remulos while the Keeper walks the Dream"
+        }
+      ],
+      "accept_text": "Stand by the moonwell under my tree. If I don't come back by morning, don't wake me, whatever the druids tell you. Go to Ingrid Sandvik instead. She'll know better than they will how to bring somebody back.",
+      "turn_in_text": "I came back. Something walked a long way with me, and then it turned aside.\n\nIt isn't one thing. It's something under the lake, and something behind the arch, and something in the dreams of the sleepers, all waking at once, as if they'd heard the same bell. When they open their eyes, Moonglade will need you.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "mg_warm_stones",
+        "mg_the_well_runs_over",
+        "mg_who_are_they_talking_to",
+        "mg_what_the_sleepers_say"
+      ],
+      "reward_exp": 4440,
+      "reward_gold": 17400,
+      "unique_item_defs": [
+        {
+          "name": "Keeper's Longbow",
+          "slot": "ranged",
+          "item_level": 61,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 0,
+          "required_level": 60,
+          "sell_price": 10328,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_11",
+          "weapon_damage_min": 69,
+          "weapon_damage_max": 93,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Keeper's Coif",
+          "slot": "head",
+          "item_level": 61,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "healing_power": 50
+          },
+          "armor_value": 207,
+          "required_level": 60,
+          "sell_price": 10328,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_35"
+        },
+        {
+          "name": "Keeper's Leggings",
+          "slot": "legs",
+          "item_level": 61,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 17
+          },
+          "secondary_stats": {
+            "spell_power": 38
+          },
+          "armor_value": 76,
+          "required_level": 60,
+          "sell_price": 12910,
+          "identity": "caster",
+          "icon_id": "gear_inv_pants_02"
+        }
+      ],
+      "gear_reward_gear_level": 61,
+      "gear_reward_rarity": "uncommon"
+    }
+  ]
+}

@@ -377,6 +377,27 @@ _set("deadwind_landmarks", 3, 3, "assets/buildings", """
     dw_broken_bridge dw_ogre_gate dw_great_crypt
     dw_elder_tree dw_containment_spire dw_tunnel_mouth""")
 
+#: MOONGLADE (docs/moonglade_art_prompts.md sheets 2 and 3, Kyle 18 Nov 2026): the glade's nature, and Nighthaven's and
+#: the Wakened's buildings.
+_set("moonglade_nature", 6, 6, "assets/tiles/moonglade/props", """
+    mg_ancient_oak mg_violet_tree mg_willow mg_silver_birch mg_pine mg_twisted_tree
+    mg_sapling mg_blossom_tree mg_berry_bush mg_fern mg_flower_hedge mg_mossy_log
+    mg_star_flowers mg_lupins mg_glow_mushroom_ring mg_silver_mushrooms mg_moon_lilies mg_nightbloom
+    mg_reed_bed mg_lily_cluster mg_shore_boulders mg_stepping_stones mg_cascade mg_sunken_stone
+    mg_moonstone mg_moonstone_ring mg_cup_boulder mg_moon_crystals mg_elven_pillar mg_rock_outcrop
+    mg_gold_flowers mg_dream_motes mg_bramble mg_antlers mg_owl_stump mg_white_rabbits""")
+_set("moonglade_town", 6, 6, "assets/buildings", """
+    mg_elf_house mg_elf_cottage mg_circle_house mg_elf_inn mg_druid_treehouse mg_moon_lantern
+    mg_tauren_lodge mg_tauren_tent mg_tauren_totem mg_tauren_cookfire mg_hide_rack mg_tauren_memorial
+    mg_herb_stall mg_alchemy_table mg_hide_frame mg_pier mg_market_stall mg_stable_pen
+    mg_longhouse mg_cabin mg_infirmary mg_memory_wall mg_garden_beds mg_wash_house
+    mg_bench_shelter mg_footbridge mg_woodpile mg_rain_barrel mg_dream_cot mg_meeting_house
+    mg_circle_banner mg_wakened_banner mg_moonwell mg_druid_altar mg_thorn_barrier mg_warden_post""")
+_set("moonglade_landmarks", 3, 3, "assets/buildings", """
+    mg_shrine_of_remulos mg_great_moonwell mg_flight_roost
+    mg_barrow_door mg_dreaming_arch mg_island
+    mg_circle_hall mg_wakened_longhouse mg_falls""")
+
 #: THE BANKS AND AUCTION HOUSES (docs/bank_auction_art_prompts.md, Kyle 17 Nov 2026): one grand bank (MerchantTusk's
 #: tusk-coin sign) and one grand auction house (the gavel and scales) in each of six styles.
 _set("bank_auction", 4, 3, "assets/buildings", """

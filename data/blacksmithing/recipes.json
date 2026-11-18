@@ -11805,6 +11805,112 @@
       "sold_by": [
         "secret_hz_winter_knapper"
       ]
+    },
+    "rep_wk_night_watch_breastplate": {
+      "name": "Night Watch Breastplate",
+      "inputs": {
+        "bar_elementium": 12,
+        "flux_strong": 2,
+        "whetstone": 2
+      },
+      "skill_required": 300,
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "stat_template": "str_physical",
+        "item_level": 73,
+        "rarity": "epic",
+        "material_tier": "elementium",
+        "identity": "tank",
+        "flavor": "The Wakened's smiths learned on this one. They say if you can make it, you can make anything.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "plate",
+        "item": {
+          "name": "Night Watch Breastplate",
+          "slot": "chest",
+          "item_level": 73,
+          "rarity": "epic",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 55,
+            "strength": 22
+          },
+          "secondary_stats": {
+            "defense_rating": 44
+          },
+          "armor_value": 768,
+          "required_level": 60,
+          "sell_price": 48942,
+          "flavor_text": "The Wakened's smiths learned on this one. They say if you can make it, you can make anything.",
+          "identity": "tank",
+          "icon_id": "gear_inv_chest_plate13"
+        }
+      },
+      "skill_range": [
+        300,
+        305,
+        310,
+        315
+      ],
+      "source": "vendor",
+      "faction": "the_wakened",
+      "_rare_ingredients_todo": true
+    },
+    "rep_wk_longhouse_bracers": {
+      "name": "Longhouse Bracers",
+      "inputs": {
+        "bar_elementium": 12,
+        "flux_strong": 2,
+        "whetstone": 2
+      },
+      "skill_required": 300,
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "stat_template": "str_physical",
+        "item_level": 67,
+        "rarity": "rare",
+        "material_tier": "elementium",
+        "identity": "strength",
+        "flavor": "Plain iron bands from the Wakened's forge, the first thing every new smith there learns to make.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "plate",
+        "item": {
+          "name": "Longhouse Bracers",
+          "slot": "wrist",
+          "item_level": 67,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 16,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "attack_power": 41
+          },
+          "armor_value": 434,
+          "required_level": 60,
+          "sell_price": 11791,
+          "flavor_text": "Plain iron bands from the Wakened's forge, the first thing every new smith there learns to make.",
+          "identity": "strength",
+          "icon_id": "gear_wow_wrist_82"
+        }
+      },
+      "skill_range": [
+        300,
+        305,
+        310,
+        315
+      ],
+      "source": "vendor",
+      "faction": "the_wakened",
+      "_rare_ingredients_todo": true
     }
   }
 }

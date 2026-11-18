@@ -5631,6 +5631,7 @@ def create_all_zones():
     from tools import handbuilt_deadwind_west as ddww
     from tools import handbuilt_deadwind_east as ddwe
     from tools import handbuilt_ariden_watch as daw_watch
+    from tools import handbuilt_moonglade as dmg
     from tools import handbuilt_timbermaw_hold as dth
     from tools import handbuilt_hammerfall as dhf
     from tools import handbuilt_saltspur_landing as dssl
@@ -5800,6 +5801,8 @@ def create_all_zones():
         "Deadwind West": ddww.generate_deadwind_west(),         # tools/handbuilt_deadwind_west.py, 55-57
         "Deadwind East": ddwe.generate_deadwind_east(),         # tools/handbuilt_deadwind_east.py, 56-58
         "Ariden's Watch": daw_watch.generate_ariden_watch(),    # the liquidators' camp, its own map
+        # ===== MOONGLADE (docs/moonglade_brief.md, 18 Nov 2026): a town and hub round Lake Elune'ara, no monsters
+        "Moonglade": dmg.generate_moonglade(),                  # tools/handbuilt_moonglade.py, up the Moonglade passage
         # HAMMERFALL IS ITS OWN ZONE as of 7 Nov. It was nine props on the open moor
         # inside Arathi Central with nineteen NPCs standing in a 34x31 box of it.
         "Hammerfall": dhf.generate_hammerfall(),  # hand-built stockade town (tools/handbuilt_hammerfall.py)

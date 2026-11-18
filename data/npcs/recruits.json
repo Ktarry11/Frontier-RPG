@@ -2661,6 +2661,62 @@
         "now": "At the liquidators' camp in Deadwind Pass, at the sample racks, labelling jars.\n\nHe's put up a sign by the pyre that says how long to stand near it. Nobody reads it, and he updates it anyway."
       },
       "look": "English man, 44, tall and fit, grey hair with some dark left in it, a neat short beard, green eyes. Black and iron felsworn robes over light plate with green fel runes, a staff with a caged green flame, a white hard hat with a reflective stripe hanging from his belt."
+    },
+    {
+      "recruit_id": "valentina_starcaller",
+      "name": "Valentina Soto",
+      "char_class": "Starcaller",
+      "spec": "starcaller_warden",
+      "level": 58,
+      "zone": "Moonglade",
+      "x": 84,
+      "y": 44,
+      "row": "front",
+      "npc_color": "#7F9BD6",
+      "backstory": "Valentina took tourists out into the Atacama desert at night to look at the stars, in Spanish, English and Portuguese. She always found the Southern Cross first and always cried a little when someone saw the Milky Way for the first time. She's bright, curious and a born teacher who gets lost in the sky. Here the stars answer her, and the druids of Moonglade have been teaching her what they mean.",
+      "greeting": "Look up at it, really look. I've never seen anything like the sky over this lake, and I've seen a lot of sky.",
+      "gear_theme": "melee_dps",
+      "home_town": null,
+      "home_x": null,
+      "home_y": null,
+      "home_note": null,
+      "gender": "female",
+      "appearance_variant": 7,
+      "background_sections": {
+        "before": "A hostel in San Pedro de Atacama with a telescope on the roof and four dogs that belonged to nobody.\n\nShe was studying for an astronomy degree by correspondence, and she was two courses short.",
+        "adjustment": "The first night she looked up, she didn't recognise a single star. She sat down and cried, and then she started drawing new charts.\n\nBy the end of the month the stars were answering her, and she's been fighting by their light since.",
+        "forward": "She wants to finish her chart of this world's sky, all of it, and name the constellations properly.\n\nShe also wants to know if Earth's sun is up there somewhere, and she's afraid of the answer.",
+        "now": "In Moonglade, out by the lake, where she can see the most sky.\n\nShe carries a little red torch so she doesn't ruin her night eyes, and she makes visitors use it too."
+      },
+      "look": "Chilean woman, 28, athletic and slim, long straight black hair over one shoulder, warm tan skin, dark almond eyes. Silver and night-blue warden armour, a long glaive with a crescent blade edged in starlight, a small red-lens torch on a cord round her neck."
+    },
+    {
+      "recruit_id": "faris_shaman",
+      "name": "Faris Al-Tamimi",
+      "char_class": "Shaman",
+      "spec": "shaman_restoration",
+      "level": 58,
+      "zone": "Moonglade",
+      "x": 44,
+      "y": 112,
+      "row": "back",
+      "npc_color": "#3C8DAD",
+      "backstory": "Faris grew dates on his family's land along the Shatt al-Arab outside Basra, where the Tigris and the Euphrates meet. His grandfather taught him that you look after the water first and the palms look after themselves. He's gentle, patient and a very good listener, and he misses home with his whole body. The water spirits here took to him at once, and Moonglade's lake is the first water since home that he trusts.",
+      "greeting": "Peace be with you. Sit by the water for a while, it's good water. I can tell.",
+      "gear_theme": "healer",
+      "home_town": null,
+      "home_x": null,
+      "home_y": null,
+      "home_note": null,
+      "gender": "male",
+      "appearance_variant": 8,
+      "background_sections": {
+        "before": "Ninety palms, a house with a courtyard and a fig tree, and a big family that ate together every Friday.\n\nHe took his nephews out on the river in a flat boat and taught them the names of every bird.",
+        "adjustment": "He came through into dry country, and for weeks he couldn't sleep without the sound of water.\n\nA shaman found him at a spring talking to it, and told him the spring was talking back.",
+        "forward": "He wants to plant something here that'll still be standing in a hundred years.\n\nHe's been trying to grow a date palm from the stone of the last date he had in his pocket.",
+        "now": "In Moonglade, by the lake, looking after the water and the people who come to it.\n\nHe keeps his grandfather's prayer beads round his wrist, and he turns them when he's thinking."
+      },
+      "look": "Iraqi man, 36, medium build and very fit, short black wavy hair, a close-trimmed beard, warm brown skin, dark eyes. River-blue and palm-green shaman mail and leathers, a wooden totem staff carved with fish and reeds, amber prayer beads round his wrist."
     }
   ],
   "notes": "Recruitable companions - diverse classes, specs (FIXED), locations, and backgrounds. Each has distinctive NPC color for visibility. Backgrounds shortened to fit screen. Spec-locked recruitment identity. Recruits with \"placed\": false are fully authored (class, spec, background, art slot) but not yet standing anywhere in the world; \"suggested_zone\" is only a hint for when they are placed (several will go to the Eastern Kingdoms). A recruit's level matches the zone they are found in (Kyle, 2026-10-22), so nobody is a level 2 in a level 14 town."

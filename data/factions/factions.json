@@ -2214,7 +2214,7 @@
       "lore": [
         "The Timbermaw's home is the Hold in Azshara, and their tunnels run through the mountains from there to Felwood, Winterspring and Moonglade. They were the only furbolgs the fel never took, because they kept to the mountain and kept their own counsel.",
         "Their cousins weren't so lucky. The Deadwood tribes of Felwood drank the corruption with the water, and they've been raiding the forest ever since. Felpaw Village is the worst of them.",
-        "The day the world changed, the roof came down on the tunnel's Winterspring and Moonglade passages. The Elders took it as a sign to look south instead, and for the first time in a long time they opened the tunnel's Felwood mouth to outsiders who'd help.",
+        "The day the world changed, the roof came down on the tunnel's Winterspring and Moonglade passages. The Elders took it as a sign to look south instead, and for the first time in a long time they opened the tunnel's Felwood mouth to outsiders who'd help. The Moonglade passage has since been dug out from the glade's side; Winterspring's is still shut.",
         "They trade with the Emerald Reclamation and they like its druids, but the Hold keeps its own counsel and its own ledger. The Timbermaw remember every favour, and every insult, for a very long time."
       ],
       "quest_rep": {
@@ -2928,6 +2928,164 @@
         "_comment": [
           "Gates, not a displayed ladder (the faction panel stays information only).",
           "TBC-style shelf (tools/build_liquidators.py, 18 Nov 2026): friendly the camp's supplies, honored the dosimeter, revered six ilvl 67 blues, exalted three ilvl 73 epics and two recipes."
+        ],
+        "quests": {}
+      }
+    },
+    "cenarion_circle": {
+      "name": "The Cenarion Circle",
+      "description": "The druids of Moonglade, night elf and tauren together, keeping the glade and watching over every land that's fallen sick.",
+      "home_zone": "moonglade",
+      "home_name": "Nighthaven, in Moonglade",
+      "leader": {
+        "title": "Keeper of Nighthaven",
+        "name": "Rabine Saturna",
+        "npc_id": "mg_rabine",
+        "location": "The Cenarion Circle's hall, Nighthaven",
+        "line": "The Circle was here before the worlds came together, and it'll be here after whatever's waking has finished waking. That's not a boast. It's a promise we made a long time ago."
+      },
+      "_lore_note": "Kyle, 18 Nov 2026: 'the cenarion circle is still there' and 'true to lore'.",
+      "lore": [
+        "The Cenarion Circle is the druids' order, night elf and tauren together, and Moonglade is its home. Keeper Remulos stands at his shrine on the lake's north-west shore, and the druids who walk the Emerald Dream sleep in the Barrow Dens.",
+        "When Thunder Bluff fell, the tauren druids who survived came up the mountain to the glade, and the Circle took them in. Archdruid Hamuul Runetotem leads them. The tauren half of Nighthaven is crowded and grieving and still makes room for anyone who comes.",
+        "The Circle watches the sick lands: Felwood, Azshara's rot, the Plaguelands and the wound in Deadwind. Lately it's been watching its own glade too, because something in Moonglade is waking up.",
+        "It's in good standing with the Wakened, the transplants who woke on its shore, and it argues with them about the Dream the way old friends argue."
+      ],
+      "quest_rep": {
+        "_comment": "Per quest, paid by giver (tools/build_moonglade_quests.py).",
+        "default": 325,
+        "boss": 350,
+        "capstones": {},
+        "zones": [],
+        "also": [
+          "mg_the_way_up",
+          "mg_welcome_to_nighthaven",
+          "mg_a_lantern_for_the_longhouse",
+          "mg_satyrs_in_the_green",
+          "mg_the_black_gate",
+          "mg_the_rot_under_the_hold",
+          "mg_bloodvenom",
+          "mg_what_dies_in_deadwind",
+          "mg_ten_thousand_years_of_horns",
+          "mg_the_totems_on_our_backs",
+          "mg_moonwell_water_for_the_totems",
+          "mg_the_thunder_bluff_road",
+          "mg_warm_stones",
+          "mg_the_well_runs_over",
+          "mg_who_are_they_talking_to",
+          "mg_the_fish_are_turning",
+          "mg_the_same_dream",
+          "mg_seedlings_for_the_sanctuary",
+          "mg_what_is_waking"
+        ]
+      },
+      "rewards": {
+        "vendor_stock": {
+          "mg_circle_qm": {
+            "friendly": [
+              "cc_moonwell_draught"
+            ],
+            "honored": [
+              "flask_mending",
+              "unique:cc_moonbough_pendant",
+              "rep_cc_moonleaf_bracers"
+            ],
+            "revered": [
+              "unique:cc_grove_wardens_vest",
+              "unique:cc_moonwell_keepers_cowl",
+              "unique:cc_thornward_greaves",
+              "unique:cc_stormcrow_mantle",
+              "unique:cc_band_of_the_glade",
+              "unique:cc_barrow_wardens_bracers",
+              "rep_cc_barrowguard_gloves"
+            ],
+            "exalted": [
+              "unique:cc_staff_of_the_moonglade",
+              "unique:cc_thornheart_maul",
+              "unique:cc_nighthaven_longbow",
+              "rep_cc_grovewalkers_harness",
+              "rep_cc_moonbough_longbow"
+            ]
+          }
+        },
+        "_comment": [
+          "Gates, not a displayed ladder (the faction panel stays information only).",
+          "TBC-style shelf (tools/build_moonglade.py, 18 Nov 2026): friendly the faction's supply, honored a neck piece and a pattern, revered six ilvl 67 blues and a pattern, exalted three ilvl 73 epics and two recipes."
+        ],
+        "quests": {}
+      }
+    },
+    "the_wakened": {
+      "name": "The Wakened",
+      "description": "Transplants who arrived asleep in Moonglade's grass, were woken by the druids, and stayed to understand the Dream from the outside.",
+      "home_zone": "moonglade",
+      "home_name": "The Wakened's settlement, on Moonglade's west shore",
+      "leader": {
+        "title": "Dr.",
+        "name": "Ingrid Sandvik",
+        "npc_id": "mg_sandvik",
+        "location": "The longhouse, the Wakened's settlement",
+        "line": "Everyone here woke up in the same place, in the same grass, with a druid standing over them. What we do about that is up to us, and we've decided to do it together."
+      },
+      "_lore_note": "Kyle, 18 Nov 2026: 'the Wakened ... transplant led ... in good standing' with the Circle.",
+      "lore": [
+        "When the worlds came together, the Emerald Dream bled into Moonglade for a moment, and every transplant who came through anywhere near the glade arrived asleep. The druids found them lying in the grass round the lake and woke them one at a time.",
+        "Most of them stayed. They built a settlement on the west shore with their own hands, badly at first, and they carved the last thing each of them remembered from Earth into a wall that's now longer than their longhouse.",
+        "Not everyone woke. The ones who didn't sleep on in the Barrow Dens beside the druids, and the Wakened visit them.",
+        "Dr. Ingrid Sandvik leads them. She spent twenty years in Trondheim studying what people's brains do at night, and now she's studying the Dream from the only angle the druids never had: the outside."
+      ],
+      "quest_rep": {
+        "_comment": "Per quest, paid by giver (tools/build_moonglade_quests.py).",
+        "default": 325,
+        "boss": 350,
+        "capstones": {},
+        "zones": [],
+        "also": [
+          "mg_the_first_morning",
+          "mg_the_last_thing_you_remember",
+          "mg_a_carving_for_danny",
+          "mg_the_man_who_wants_to_sleep",
+          "mg_waking_badly",
+          "mg_the_night_watch",
+          "mg_something_to_grow",
+          "mg_what_the_sleepers_say",
+          "mg_a_doctor_and_a_keeper",
+          "mg_the_ones_who_dont_wake",
+          "mg_iron_from_nothing"
+        ]
+      },
+      "rewards": {
+        "vendor_stock": {
+          "mg_wakened_qm": {
+            "friendly": [
+              "wk_waking_tea"
+            ],
+            "honored": [
+              "flask_mending",
+              "unique:wk_locket_of_the_last_memory",
+              "rep_wk_sleepers_handwraps"
+            ],
+            "revered": [
+              "unique:wk_longhouse_jerkin",
+              "unique:wk_night_nurses_robes",
+              "unique:wk_boots_of_the_first_morning",
+              "unique:wk_carvers_gauntlets",
+              "unique:wk_sleepwalkers_cord",
+              "unique:wk_night_watch_shield",
+              "rep_wk_longhouse_bracers"
+            ],
+            "exalted": [
+              "unique:wk_the_waking_ledger",
+              "unique:wk_ribeiros_hammer",
+              "unique:wk_blade_of_the_wakeful",
+              "rep_wk_dreamwoven_robe",
+              "rep_wk_night_watch_breastplate"
+            ]
+          }
+        },
+        "_comment": [
+          "Gates, not a displayed ladder (the faction panel stays information only).",
+          "TBC-style shelf (tools/build_moonglade.py, 18 Nov 2026): friendly the faction's supply, honored a neck piece and a pattern, revered six ilvl 67 blues and a pattern, exalted three ilvl 73 epics and two recipes."
         ],
         "quests": {}
       }

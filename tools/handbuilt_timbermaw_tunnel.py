@@ -37,8 +37,9 @@ HARD CONTRACTS (world/portal_manager.py)
   portal   (90,196) <-> North Felwood (94,4): you arrive at (90,194) coming in and (94,7) going out
   portal   (177,152) <-> Timbermaw Hold (1,108), the end of the East Passage: you arrive at (174,152) coming in and
            (4,108) going out
-  later    the Winterspring passage's end (146,8) and the Moonglade passage's end (12,34) become doors when those zones
-           exist; the rockfalls come out then
+  portal   (12,34) <-> Moonglade (156,169), the Moonglade passage's end (opened 18 Nov 2026, when Moonglade was built):
+           you arrive at (12,36) coming back and (156,165) going in
+  later    the Winterspring passage's end (146,8) becomes a door when Winterspring exists; its rockfall comes out then
   NPC ids  tm_*, written by tools/build_timbermaw_hold.py from NPC_POSITIONS
 """
 from world.tilemap import Tilemap
@@ -53,8 +54,10 @@ PORTAL = (90, 196)
 #: the east passage's end (17 Nov 2026): the door through to Timbermaw Hold in Azshara
 EAST_PORTAL = (177, 152)
 START = (90, 192)
-#: where the two shut passages end; doors when Winterspring and Moonglade exist
-LATER_DOORS = {(146, 8): "Winterspring", (12, 34): "Moonglade"}
+#: the Moonglade passage's end (18 Nov 2026): the way up into Moonglade
+MOON_PORTAL = (12, 34)
+#: where the shut passage ends; a door when Winterspring exists
+LATER_DOORS = {(146, 8): "Winterspring"}
 
 PATHS = {   # (points, width at start, width at end)
     # the switchbacks up from Felwood
@@ -135,6 +138,10 @@ def build_tunnel():
     for dx in range(0, 4):
         zone.collision_layer[ey][ex - dx] = None
     L.mark("portal", ex, ey)
+    mx, my = MOON_PORTAL
+    for dy in range(0, 3):
+        zone.collision_layer[my + dy][mx] = None
+    L.mark("portal", mx, my)
     for npc_id, (x, y) in NPC_POSITIONS.items():
         if not zone.is_walkable(x, y):
             raise AssertionError(f"{NAME}: {npc_id} at ({x},{y}) is not on walkable ground")
@@ -193,10 +200,9 @@ def dress(zone, L):
     P("ash_glow_mushroom_ring", 22, 82, 3)
     P("furbolg_totem", 40, 86, 5)
     P("ash_mossy_spire", 17, 79, 7, solid="core")
-    # ---- the Moonglade passage: the roof came down
-    for (x, y, h, name) in [(8, 34, 5, "asp_boulder_lichen"), (12, 32, 6, "asp_boulder_split"),
-                            (16, 34, 5, "asp_boulder")]:
-        P(name, x, y, h, solid=True, near_ok=True)
+    # ---- the Moonglade passage: the rockfall's cleared to the sides, and the moon rune by the way up
+    for (x, y, h, name) in [(7, 38, 5, "asp_boulder_lichen"), (17, 37, 5, "asp_boulder")]:
+        P(name, x, y, h, solid="core", near_ok=True)
     P("ash_moon_rune_stone", 14, 42, 5)
     # ---- the Honey Galleries
     P("fw_timbermaw_totem", 140, 94, 6, solid="core")
@@ -224,7 +230,7 @@ def dress(zone, L):
 
 
 def finish(zone, L):
-    return L.finish([PORTAL, EAST_PORTAL] + list(NPC_POSITIONS.values()))
+    return L.finish([PORTAL, EAST_PORTAL, MOON_PORTAL] + list(NPC_POSITIONS.values()))
 
 
 def build_tunnel_baked():

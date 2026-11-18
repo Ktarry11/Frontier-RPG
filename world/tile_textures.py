@@ -379,6 +379,7 @@ ZONE_BIOME = {
     "Deadwind West": "decayed_forest",       # painted ground (baked); the biome only names the fallback
     "Deadwind East": "decayed_forest",
     "Ariden's Watch": "decayed_forest",
+    "Moonglade": "mythical_forest",
     "North Felwood": "mythical_forest",      # painted ground (baked); the biome only names the fallback
     "Western Plaguelands South": "decayed_forest",   # painted ground (baked); the biome only names the fallback
     "Western Plaguelands North": "decayed_forest",

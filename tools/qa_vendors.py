@@ -62,6 +62,7 @@ TOWN_REGION = {
     "talrendis_landing": "West Azshara",
     "timbermaw_hold": "West Azshara",
     "ariden_watch": "Deadwind West",
+    "moonglade": "Moonglade",                  # a town map with its own band (55-60), no open zone outside
     "lights_hope_chapel": "Eastern Plaguelands East",
     "undercity": "Undercity",
     "sepulcher": "Silverpine North",

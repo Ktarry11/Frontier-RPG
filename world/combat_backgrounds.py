@@ -217,6 +217,8 @@ ZONE_BACKGROUND = {
     "Deadwind West": "blighted",                  # the dead forest
     "Deadwind East": "blighted",                  # the ash, the gorge and the rupture
     "Ariden's Watch": "blighted",                 # the liquidators' camp
+    # --- Moonglade (docs/moonglade_brief.md, 18 Nov 2026): no monsters yet, but every map has one
+    "Moonglade": "fantasy_forest",
     "The Widows' Nest": "dark_dungeon",           # the spiders' funnel
     "The Drowned Seep": ("nautical", "Flooded"),  # the drain under the Drowned Hollow
     "The Exclusion Zone": "dark_dungeon",         # under the wheel

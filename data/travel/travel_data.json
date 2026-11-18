@@ -461,6 +461,16 @@
         142
       ],
       "continent": "eastern_kingdoms"
+    },
+    "moonglade": {
+      "name": "Moonglade",
+      "zone": "Moonglade",
+      "master": "mg_bunthen",
+      "pos": [
+        -30,
+        -128
+      ],
+      "continent": "kalimdor"
     }
   },
   "flight_cost": {
@@ -733,6 +743,12 @@
       "inn"
     ],
     "dw_bat_handler": [
+      "flight"
+    ],
+    "mg_innkeeper": [
+      "inn"
+    ],
+    "mg_bunthen": [
       "flight"
     ]
   }

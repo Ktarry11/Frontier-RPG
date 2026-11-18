@@ -15,7 +15,9 @@ His picks, the same day:
 - **The way under the lake is an island in the middle**, there from the start and out of reach until its dungeon exists.
 - **The Cenarion Circle is a reputation faction** with its own quartermaster. The Wakened are the second.
 
-**Status:** design and art prompts only. Nothing is built.
+**Status:** built, 18 Nov 2026, from Kyle's four sheets. What's in the game is `docs/moonglade_build_log.md`. Two
+changes from the design: the Wakened's recipes are tailoring and blacksmithing (cooking makes no gear), and the
+Circle's are leatherworking and woodworking.
 
 ---
 

@@ -735,6 +735,11 @@ class PortalManager:
                 # The Timbermaw's tunnel above North Felwood (tools/handbuilt_timbermaw_tunnel.py, 17 Nov 2026).
                 (90, 196): ("North Felwood", 94, 9),                # arrive (94,7), at the foot of the tunnel
                 (177, 152): ("Timbermaw Hold", 4, 110),             # the East Passage: arrive (4,108), in the Hold
+                (12, 34): ("Moonglade", 156, 167),                  # the Moonglade passage: arrive (156,165)
+            },
+            "Moonglade": {
+                # The druids' valley (tools/handbuilt_moonglade.py, 18 Nov 2026): one way in, up from the tunnel.
+                (156, 169): ("Timbermaw Tunnel", 12, 38),           # arrive (12,36), at the top of the passage
             },
             "Southshore": {
                 # Its own map since 17 Nov 2026 (tools/handbuilt_southshore.py); the gate on the trunk road.

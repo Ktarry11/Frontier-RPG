@@ -335,6 +335,18 @@ _set("deadwind_dungeon", 8, 6, "tools/building_sheets/deadwind_dungeon_tiles.png
 """)
 
 
+
+# MOONGLADE (docs/moonglade_art_prompts.md sheet 1, Kyle 18 Nov 2026). 1536x1024, columns even, rows measured on the
+# seams (182/356/511/668/831): the same uneven rows the Deadwind sheet had.
+_set("moonglade", 8, 6, "tools/building_sheets/moonglade_ground.png", "assets/tiles/moonglade/ground", """
+    mg_grass mg_grass_long mg_star_flowers mg_wildflowers mg_moss mg_glow_moss mg_clover mg_silver_meadow
+    mg_forest_floor mg_fern_floor mg_root_earth mg_petal_carpet mg_garden_loam mg_mushroom_grass mg_dew_litter mg_deep_shade
+    mg_footpath mg_moon_flags mg_river_stones mg_pale_stone mg_mountain_rock mg_cliff_wall mg_scree mg_boardwalk
+    mg_sand mg_wet_sand mg_pebbles mg_shallows_sand mg_shallows_stone mg_reeds mg_lilies mg_mud_shore
+    mg_lake_mid mg_lake_mid_dark mg_lake_deep mg_lake_deepest mg_lake_mirror mg_lake_ripple mg_lake_moonstone mg_moonwell_water
+    mg_dream_grass mg_dream_flowers mg_barrow_earth mg_barrow_flags mg_root_floor mg_bramble_earth mg_island_sand mg_black_pool
+""", rows_y=[0, 182, 356, 511, 668, 831, 1024])
+
 if __name__ == "__main__":
     pv = sys.argv[sys.argv.index("--preview") + 1] if "--preview" in sys.argv else None
     keys = [a for a in sys.argv[1:] if a in SETS] or list(SETS)
