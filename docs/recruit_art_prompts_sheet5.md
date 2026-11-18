@@ -112,7 +112,7 @@ Deadwind, Moonglade and Winterspring eight are written and waiting for their map
 
 **1. Taras Kovalenko** (Witch Hunter, level 57, Deadwind Pass). Dry, morbid humour and soft as butter with his dog. A guide to his bones, who counts heads without thinking, hates it when someone wanders off and trusts Kashtan's nose over anyone's word.
 - *Greeting:* "Stay on the path, please, and don't touch anything that glows. I've said that to a lot of tourists, and I've never meant it more."
-- *Passive, Sausage in His Pockets:* pet damage +20, pet health +20.
+- *Passive, Sausage in His Pockets:* pet damage +5%, pet health +7.5%.
 - *Kashtan* (15-turn cooldown): Whistles Kashtan in to fight beside him.
 - *Kashtan Won't Go There* (15-turn cooldown): Kashtan growls at it. For 3 turns, shows what the target will do next, and the party's attacks on it can't miss.
 - *Every Dog at Every Checkpoint* (15-turn cooldown): Taras whistles, and Kashtan and every stray in earshot pile onto one enemy row. Marks it for 5 turns, and the party deals 30% more damage to marked enemies.

@@ -60,9 +60,10 @@ ROSTER = {
 
 KITS = {
     # Kyle, 18 Nov 2026: "Taras better get character traits related to his dog lol. Remember that traits are trump
-    # cards with long CDs or some passives." So all four are Kashtan's.
+    # cards with long CDs or some passives." So all four are Kashtan's. The passive was +20/+20; Kyle: "This is
+    # too high. Do 5% and 7.5%".
     "taras_witchhunter": (P("Sausage in His Pockets", "'every dog at every checkpoint ... knew his pockets had sausage "
-                            "in them'", pet_damage=20, pet_health=20), [
+                            "in them'", pet_damage=5, pet_health=7.5), [
         A("taras_witchhunter", "Kashtan", "'a Zone stray he'd been feeding at the checkpoint for years'",
           "live: summon_pet", "summon_pet", "self", 15, 0, 40, "Whistles Kashtan in to fight beside him.",
           summon_pet_template="wolf"),
