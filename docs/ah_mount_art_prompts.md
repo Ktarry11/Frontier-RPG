@@ -1,4 +1,4 @@
-# Auction house exclusive mounts (1 sheet, 3 mounts)
+# Auction house exclusive mounts (2 sheets, 7 mounts)
 
 Kyle, 18 Nov 2026: "can you whip up another 3 art prompts for mounts that are AH exclusive?!" Three Collection mounts
 that only ever turn up on the auction house, put up by its traders: no vendor, no drop, no quest. Built into the
@@ -39,3 +39,17 @@ Before you finish, check the image: every column should show one animal from the
 ```
 
 Their reins icons can go on any later icon sheet; until then they borrow the Collection's reins.
+
+---------------------------------------------------------------------
+## SHEET H5: four more auction house mounts, 4 facings each
+
+Kyle, 18 Nov 2026: "4 more mounts please". Same rules as H4, four columns: 4 columns x 4 rows, 1024x1024, magenta key,
+no rider. Sliced by `tools/asset_pipeline/slice_mount_sheet.py SHEET.png ledger_tortoise silkwind_strider goldtusk_boar
+platinum_direwolf`. The prompt is the H4 block with these four columns (sent to Kyle in full the same day):
+
+1. LEDGER TORTOISE: a giant tortoise, gold-leaf domed shell, a padlocked strongbox vault and ledgers on top.
+2. SILKWIND STRIDER: a very tall flightless bird, emerald and gold plumes, trailing teal and gold silk, gold bells.
+3. GOLDTUSK BOAR: a massive war boar, gold-capped tusks ringed with rubies, red lacquered barding.
+4. PLATINUM DIREWOLF: a white direwolf in engraved platinum plates, sapphires on the brow, white fur saddle.
+
+Scale: tortoise widest and lowest, strider tallest and thinnest, boar short and heavy, wolf long and lean.
