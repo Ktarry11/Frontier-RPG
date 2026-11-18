@@ -6074,8 +6074,10 @@ def create_all_zones():
 
     # Group pulls: dungeons with fixed trash get 3-4 mob packs (data/dungeons/trash_packs.json, built by
     # tools/build_dungeon_pulls.py; no-op for a dungeon that has no entry).
-    from world.dungeon_packs import apply_packs
+    from world.dungeon_packs import apply_packs, pad_to_bands
     apply_packs(zones)
+    # ...and every dungeon's packs filled to its band's size: 3-4 below level 30, 4-5 from 30 (Kyle, 17 Nov 2026)
+    pad_to_bands(zones)
     # Furniture, same seam and for the same reason - see world/dungeon_dressing.py.
     from world.dungeon_dressing import apply_dressing
     apply_dressing(zones)

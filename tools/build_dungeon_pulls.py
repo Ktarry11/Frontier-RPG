@@ -59,6 +59,14 @@ ROLE = {"humanoid_warrior": "melee", "beast_large": "melee", "elemental_bruiser"
 NEIGH = ((1, 0), (-1, 0), (0, 1), (0, -1))
 
 
+def pack_size(name):
+    """(smallest, largest) pack for this dungeon: 3-4 below level 30, 4-5 from 30 (Kyle, 17 Nov 2026: "we keep them
+    3-4 below 30"). The rule lives in world/dungeon_packs.band_sizes, which the game also pads every dungeon to."""
+    sys.path.insert(0, ROOT)
+    from world.dungeon_packs import band_sizes
+    return band_sizes(name)
+
+
 # ----------------------------------------------------------------------------------------------- map helpers
 def bfs(zone, src):
     """Distance + parent maps over walkable tiles from src."""
@@ -182,7 +190,7 @@ def pack_score(creatures, pack):
 
 
 def balanced_clusters(mobs, k, rng):
-    """Split mobs ([(x,y,name,lvl)]) into k spatial groups of 3-4 (sizes differ by at most 1)."""
+    """Split mobs ([(x,y,name,lvl)]) into k spatial groups (3-4, or 4-5 from level 30; sizes differ by at most 1)."""
     n = len(mobs)
     sizes = [n // k + (1 if i < n % k else 0) for i in range(k)]
     # init: contiguous chunks along the route-sorted list, then a few k-means passes
@@ -301,7 +309,8 @@ def route_pool(zone, creatures, cm, dist_s, par_s, start, bosses, cfg, rng):
         usable = path[4:max(5, len(path) - 12)] or path[:max(1, len(path) - 8)]
         for i in range(k):
             t = usable[int((i + 0.5) / k * len(usable))] if usable else path[len(path) // 2]
-            size = 4 if (i + 1) % 2 == 0 or k == 1 else 3
+            lo, hi = cfg.get("pack", (3, 4))
+            size = hi if (i + 1) % 2 == 0 or k == 1 else lo
             for _ in range(size):
                 nm = rng.choices(names, weights=weights, k=1)[0]
                 mobs.append((t[0] + rng.randint(-2, 2), t[1] + rng.randint(-2, 2), nm, None, dist_s.get(t, 0)))
@@ -353,6 +362,8 @@ def fix_supply(groups_flat, sup, table_names, rng):
 # ----------------------------------------------------------------------------------------------- main per dungeon
 def build_dungeon(zone, cfg, cm, creatures, drops, quests):
     rng = random.Random(zone.name)
+    cfg = dict(cfg, pack=pack_size(zone.name))
+    lo, hi = cfg["pack"]
     portal = [(x, y) for y in range(zone.height) for x in range(zone.width) if zone.interaction_layer[y][x] == "portal"]
     start = (portal[0][0], portal[0][1] - 2)
     dist_s, par_s = bfs(zone, start)
@@ -430,13 +441,13 @@ def build_dungeon(zone, cfg, cm, creatures, drops, quests):
             m = (t[0], t[1], m[2], m[3], dist_s[t])
             gen_of[min(bosses, key=lambda b: boss_dist[b].get(t, 10 ** 9))].append(m)
         for b in bosses:
-            want = int(k_cfg[b] * 3.5)
+            want = int(k_cfg[b] * (lo + hi) / 2)
             extra = gen_of.get(b, [])
             while len(mobs_of[b]) < want and extra:
                 mobs_of[b].append(extra.pop(0))
                 counter[mobs_of[b][-1][2]] += 1
 
-    cap = {b: 4 * k_cfg[b] for b in bosses}
+    cap = {b: hi * k_cfg[b] for b in bosses}
     # phase A: drop surplus mobs wherever a quest does not need them
     for b in bosses:
         mobs = mobs_of[b]
@@ -468,7 +479,7 @@ def build_dungeon(zone, cfg, cm, creatures, drops, quests):
         if not mobs:
             plan[b] = (0, mobs)
             continue
-        k = max(-(-len(mobs) // 4), min(k_cfg[b], len(mobs) // 3), 1)
+        k = max(-(-len(mobs) // hi), min(k_cfg[b], len(mobs) // lo), 1)
         plan[b] = (k, mobs)
 
     # ---- 4. cluster + role mix
@@ -476,7 +487,7 @@ def build_dungeon(zone, cfg, cm, creatures, drops, quests):
     for b, (k, mobs) in plan.items():
         if k == 0 or not mobs:
             continue
-        k = max(-(-len(mobs) // 4), min(k, len(mobs) // 3), 1)
+        k = max(-(-len(mobs) // hi), min(k, len(mobs) // lo), 1)
         k = min(k, len(mobs))
         groups = balanced_clusters(mobs, k, rng)
         mix_roles(creatures, groups, rng)

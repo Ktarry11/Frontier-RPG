@@ -17,8 +17,8 @@ How this file works:
 
 ## 1. Azshara (in progress, in Kyle's order: "One thing at a time")
 
-Brief: `docs/azshara_brief.md`. Done so far: Kyle's six art sheets, West Azshara, Talrendis Landing, Orgrimmar's north
-gate and the Ashenvale East road.
+Brief: `docs/azshara_brief.md`. Done so far: Kyle's six art sheets, West Azshara, Talrendis Landing, Timbermaw Hold,
+Orgrimmar's north gate and the Ashenvale East road.
 
 1. **Central Azshara** (54-57): the Highborne ruins and the salvage dig, Lake Mennar, the leylines, the satyr and
    demon camps, and the naga grotto's door on the Bay of Storms.
@@ -52,21 +52,11 @@ gate and the Ashenvale East road.
   set, "elsewhere in the world". The parent zone is chosen blind and never written down.
 
 ## 4. Classes, combat and balance
-- **Grovekeeper healing**: Kyle, 17 Nov: "We can buff all its heals about 10% across the board." (Next, after
-  Timbermaw Hold.)
-- **Dungeon packs**: Kyle, 17 Nov: "we keep them 3-4 below 30". So of the 11 older dungeons in
-  `build_dungeon_pulls.py`, the ones at 30 and above go to packs of 4-5; those below 30 stay at 3-4.
-- **A QA check that fails any fixed-spawn dungeon missing from trash_packs.json**, so no new dungeon ships with lone
-  trash. Kyle: "Add this QA, yes." (Next.)
 - **Tanks on the new armour curve**: the caster/tank shield split isn't built; tank abilities and block, dodge and
   parry haven't been re-tuned to carry more of the load. Look at it once Kyle has played a tank.
 - **Dodge plus parry on an Agility rogue** still reaches the 50% combined cap at 60 (the target was under 40%).
-- **Starcaller's Keen Sight**: its Int-to-ranged-AP is 10x smaller than every other tree's. Kyle: "We can fix up Keen
-  Sight now." (Next.)
 - **Primalist talents**: 18 talents point at abilities unlocked in another tree (`validate_class`). Kyle: "hold off on
   for now."
-- **audit_recruit_combat** still exits 1 on Ryan's Health Funnel healing his Felhunter. Kyle: "We can fix this up
-  now." (Next.)
 - **Runemaster**: the kit went from 63 abilities to 39 in the refine pass. Kyle to say whether it now plays smoothly
   turn-based, or whether the sigils and glyphs need their own overhaul.
 - **Recruit kit text I changed** because the game has no such thing (the list in playtest_backlog_2026_11_10, group

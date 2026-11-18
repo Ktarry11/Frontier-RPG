@@ -1109,9 +1109,11 @@
         "apply_effect": {
           "effect_id": "yogg_shred",
           "name": "Crazed",
-          "effect_type": "buff",
+          "effect_type": "debuff",
           "duration": 4,
-          "stat_mods": "{'armor': -120}",
+          "stat_mods": {
+            "armor": -120
+          },
           "on_target": true,
           "real_time_seconds": null
         }

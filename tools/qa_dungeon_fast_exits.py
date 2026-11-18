@@ -26,9 +26,7 @@ os.environ.setdefault("SDL_AUDIODRIVER", "dummy")
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-#: Boss maps that are dungeons in all but name (ships of the Return Voyage, the Eldest Sequoia).
-ALSO_DUNGEONS = {"The Bloodsail Raider", "The Raider's Hold", "The Galleon's Weather Deck", "The Galleon's Hold",
-                 "The Captain's Cabin", "The Eldest Sequoia", "The Eldest's Crown"}
+from world.dungeon_packs import ALSO_DUNGEONS  # noqa: E402  (boss maps that are dungeons in all but name)
 
 
 def main():

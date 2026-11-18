@@ -46,6 +46,10 @@ turn. The hidden spec aura had to be widened to 0.6-1.6 to cover it.
 
 **Left over:**
 - Grovekeeper, a damage-healer held to 75% of a healer, still wants about 1.5 at the explicit cap.
+  - **17 Nov 2026**, Kyle: "We can buff all its heals about 10% across the board." Every heal a Grovekeeper casts is
+    now x1.10 on top of its aura (`combat/ability_scaling.HEAL_SPEC_BONUS`), HoT ticks and Seismic Wave included.
+    The parity sim puts it at 0.85 / 0.72 / 0.81 of its 75% target at 20 / 40 / 60 (it was about 0.65-0.77), so
+    it's closer but still short. The rest would be a kit change (more or bigger heals), Kyle's call.
 - Restoration Druid wants about 1.3 at 30-40, where its kit is thin.
 
 ## Shields on someone else

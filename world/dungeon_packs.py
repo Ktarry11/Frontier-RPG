@@ -86,3 +86,59 @@ def attach_packs(zone, packs, avoid=()):
     zone.trash_packs = built
     zone.trash_spawns = [m for p in built for m in p]
     return built
+
+
+#: Boss maps that are dungeons in all but name (the Return Voyage's ships, the Eldest Sequoia): their trash is held to
+#: the same pack sizes. tools/qa_dungeon_packs.py and tools/qa_dungeon_fast_exits.py read this list.
+ALSO_DUNGEONS = {"The Bloodsail Raider", "The Raider's Hold", "The Galleon's Weather Deck", "The Galleon's Hold",
+                 "The Captain's Cabin", "The Eldest Sequoia", "The Eldest's Crown"}
+#: PACK SIZE BY LEVEL (Kyle, 14 Nov 2026: "in dungeons enemies are in packs of 4 to 5...not individual!"; 17 Nov: "we
+#: keep them 3-4 below 30"). A dungeon whose band starts at 30 or above fights in packs of 4-5, below that 3-4.
+BIG_PACKS_FROM = 30
+
+
+def band_sizes(name, levels=None):
+    """(smallest, largest) pack for a dungeon, from its band in data/zones/zone_levels.json."""
+    if levels is None:
+        try:
+            with open(os.path.join(os.path.dirname(PACKS_PATH), "..", "zones", "zone_levels.json"),
+                      encoding="utf-8") as f:
+                levels = json.load(f)
+        except (OSError, ValueError):
+            levels = {}
+        levels = levels.get("zones") or levels
+    band = levels.get(name)
+    return (4, 5) if band and band[0] >= BIG_PACKS_FROM else (3, 4)
+
+
+def pad_to_bands(zones):
+    """Fill every dungeon's packs up to its band's size (17 Nov 2026). Several dungeons were built with packs of two
+    and three before the sizes were settled, Stonetalon's, the Return Voyage's ships and the Arena among them, and
+    some hidden ones; this brings every one to the rule in one place rather than in each builder. A pack already big
+    enough is left alone, and a pack with no floor beside it stays as it is (tools/qa_dungeon_packs.py reports it).
+    Runs after apply_packs, inside create_all_zones."""
+    from world.zone_classification import is_dungeon
+    try:
+        with open(os.path.join(os.path.dirname(PACKS_PATH), "..", "zones", "zone_levels.json"),
+                  encoding="utf-8") as f:
+            levels = json.load(f)
+    except (OSError, ValueError):
+        levels = {}
+    levels = levels.get("zones") or levels
+    padded = 0
+    for name, zone in zones.items():
+        packs = getattr(zone, "trash_packs", None)
+        if not packs or not (is_dungeon(name) or name in ALSO_DUNGEONS):
+            continue
+        lo, hi = band_sizes(name, levels)
+        if all(len(p) >= lo for p in packs):
+            continue
+        avoid = [(b[0], b[1]) for b in (getattr(zone, "boss_positions", None) or [])]
+        layer = getattr(zone, "interaction_layer", None) or []
+        avoid += [(x, y) for y, row in enumerate(layer) for x, v in enumerate(row) if v == "portal"]
+        sizes = (lo, hi)
+        built = pad_packs(zone, [list(p) for p in packs], avoid, sizes=sizes)
+        padded += sum(len(b) - len(p) for b, p in zip(built, packs))
+        zone.trash_packs = built
+        zone.trash_spawns = [m for p in built for m in p]
+    return padded

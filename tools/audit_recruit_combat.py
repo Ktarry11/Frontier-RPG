@@ -451,6 +451,10 @@ def heal_reach(subject, level):
         satisfy_gates(engine, subject, ability, enemy)
         before_lead = lead.current_health
         before_self = subject.current_health
+        # A PET OR A TURRET IS PARTY TOO (17 Nov 2026): Diego's Repair Shot picks the lowest ally, which can be his own
+        # Sentry Turret, and healing it is right. So any other ally gaining health counts as the heal reaching someone.
+        others = [a for a in engine.living_allies() if a is not lead and a is not subject]
+        before_others = [a.current_health for a in others]
         target = resolve_target(engine, subject, ability, enemy)
         ok, msg = cast(engine, subject, ability.ability_id, target)
         if not ok:
@@ -460,7 +464,8 @@ def heal_reach(subject, level):
                 lead.tick_status_effects()
             except Exception:                   # noqa: BLE001
                 break
-        if lead.current_health <= before_lead and subject.current_health <= before_self:
+        if (lead.current_health <= before_lead and subject.current_health <= before_self
+                and all(a.current_health <= h for a, h in zip(others, before_others))):
             bad.append((ability.ability_id, ability.target_type, msg))
     return bad
 
@@ -576,17 +581,36 @@ def gear_gaps(recruit, character):
     because the promise and the result are not the same thing.
     """
     from world.recruit_manager import GEAR_THEMES
-    theme = GEAR_THEMES.get(recruit.gear_theme)
-    if not theme:
+    from entities.spec_gear import profile as spec_profile
+    prof = spec_profile(getattr(recruit, "spec", None))
+    theme = GEAR_THEMES.get(recruit.gear_theme) or GEAR_THEMES.get(prof["role"])
+    if not theme or getattr(recruit, "recruit_id", None) == "asher_coleman":
         return []
     slots = character.equipment.slots or {}
     gaps = []
     for slot in theme["slots"]:
         if not slots.get(slot):
             gaps.append(f"{slot} empty")
+    # THE PROMISE IS THE SPEC'S WEAPON FIRST, THE THEME'S SECOND, the same order Recruit.build_character equips them
+    # in (17 Nov 2026). Since the 12 Nov starting-gear fix a recruit carries their class's own weapon ("Barbarian axes,
+    # Witch Hunter crossbow") and the theme is only the fallback, so comparing against the theme alone failed 60-odd
+    # recruits for carrying exactly the weapon they should. A two-hander leaves no hand for the theme's shield.
+    main = slots.get("main_hand")
+    two_handed = str(getattr(main, "weapon_type", "") or "").endswith("_2h") or getattr(main, "weapon_type", "") in (
+        "staff", "polearm", "bow", "gun", "crossbow")
+    # THREE MORE THINGS THE BUILDER SKIPS ON PURPOSE, so the audit skips them too (17 Nov 2026):
+    # - Asher Coleman's loadout is hand-authored and permanent (RecruitNPC._build_asher_kit), not a theme kit.
+    # - A one-hander in the off hand is dual wielding, which is trained at 20 and spec-gated (can_dual_wield); a
+    #   recruit met below that carries no second weapon, by design.
+    # - A weapon the class cannot use at all (can_wear_weapon_type), which equip_item would refuse anyway.
+    from entities.proficiency import can_dual_wield, can_wear_weapon_type
     for key in ("main_hand", "off_hand"):
-        want = theme.get(key)
-        if not want:
+        want = prof["weapons"].get(key) or theme.get(key)
+        if not want or (key == "off_hand" and two_handed):
+            continue
+        if key == "off_hand" and want not in ("shield", "tome") and not can_dual_wield(character):
+            continue
+        if not can_wear_weapon_type(getattr(character, "char_class", None), want):
             continue
         item = slots.get(key)
         if item is None:

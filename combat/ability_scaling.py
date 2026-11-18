@@ -146,6 +146,11 @@ AURA_RANGE = (0.35, 1.75)
 #: pass (docs/heal_formula.md, "every healer"), then it comes back to HEAL_AURA_GOAL.
 HEAL_AURA_RANGE = (0.9, 1.1)
 HEAL_AURA_GOAL = (0.9, 1.1)
+#: A SPEC'S HEALING RAISED BY HAND, on top of its aura and outside the clamp, because the designer asked for it and a
+#: recalibration must not undo it. Grovekeeper (Kyle, 17 Nov 2026: "We can buff all its heals about 10% across the
+#: board"): Primalist's melee healer, held to 75% of a healer, sat under that target with its aura already at the top
+#: of HEAL_AURA_RANGE (docs/support_pass.md, "Left over"). Every heal it casts, HoT ticks and Seismic Wave included.
+HEAL_SPEC_BONUS = {"primalist_grovekeeper": 1.10}
 
 
 def _aura_table():
@@ -184,13 +189,14 @@ def spec_aura(caster, kind="damage"):
         spec = active_spec(caster)
     except Exception:                                          # noqa: BLE001
         return 1.0
+    bonus = HEAL_SPEC_BONUS.get(spec, 1.0) if kind == "healing" else 1.0
     if spec not in table:
-        return 1.0
+        return bonus
     v = _interp(table[spec], getattr(caster, "level", 1) or 1)
     if kind == "healing" and USE_HEAL_FORMULA:
         lo, hi = HEAL_AURA_RANGE
         v = max(lo, min(hi, v))
-    return v
+    return v * bonus
 
 
 #: ---- 1b. LATE HEALS, A LITTLE SMALLER (Kyle, 16 Nov 2026: "end game has no challenge. i can 2 man dungeons", "my 0 gear
