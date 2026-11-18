@@ -72,7 +72,7 @@ pass.
   lord.
 - **The naga grotto** (cave): the sea cave where the naga come up from Zin-Azshari, with tide pools, coral and drowned
   Highborne statues.
-- **The fel rot under the Hold** (dungeon, 55-58, 5 bosses): whatever turned the Deadwood came up from below the Hold
+- **The Rotroot Deeps** (dungeon, 55-58, 5 bosses; built 18 Nov, see build state): whatever turned the Deadwood came up from below the Hold
   itself, so it's a satyr-and-demon dungeon under the furbolgs' feet.
   - Its door is a sealed lower gate inside the caldera, guarded by the Timbermaw.
   - Every boss pays Timbermaw rep.
@@ -201,5 +201,16 @@ evening, sliced the same night; `docs/azshara_art_prompts.md` has the slice tabl
     Sel'thira; Hetaera the hydra mother (optional) in a deep pool off the second turn.
   - 14 creatures on Kyle's creature sheet, four bosses with four items each (boss level + 2). Haldarr borrows
     Felwood's satyr lord and Hetaera a sea serpent until they get art.
-- **Next:** the fel rot dungeon under the Hold.
+- **The Rotroot Deeps** (`tools/handbuilt_rotroot_deeps.py`, `tools/build_rotroot_deeps_content.py`; 18 Nov 2026, Kyle
+  named it and kept the art's five bosses, then "feel free to make the dungeons more exciting than....that"): a
+  descent into a rotting fel lake under the Hold, 55-58, through the deep gate in the basin floor.
+  - The Burial Halls (a pillared nave with burial niches; Old Mossjaw on his bier), the Sporegarden (fungus islands
+    and spits over fel pools; Mother Sporeheart), the Warden's Gauntlet (the run past the cages; Rotwarden Kaz'thul),
+    the Root Cathedral (a fel lake wall to wall, the Hold's roots the only floor; Thornblight on the middle knot) and
+    the Gloomhollow (a causeway out to Xavras the Gloomtender's throne island). The Rotting Stair is the way back up.
+  - The ooze is real collision. Packs of four or five.
+  - 13 creatures (Kyle's Azshara sheet and his Rotroot boss sheet), four items a boss at boss level + 3, and Xavras
+    rolls two named epics at 5%.
+  - Timbermaw Hold pays 75 a boss and 10 a trash kill up to Revered.
+- **Next:** the Vault of Zin-Azshari.
 

@@ -1,0 +1,360 @@
+{
+  "_notes": "Boss loot for the Rotroot Deeps (55-58), under Timbermaw Hold. ONE item per kill from the boss's four; item_level = boss level + 3. Hand-authored in tools/build_rotroot_deeps_content.py.",
+  "Old Mossjaw": [
+    {
+      "name": "Mossjaw's Burial Mantle",
+      "slot": "shoulder",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "primary_stats": {
+        "strength": 19,
+        "stamina": 19
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 386,
+      "stat_template": "str_physical",
+      "item_id": "rrd_mossjaws_burial_mantle"
+    },
+    {
+      "name": "Bier-Bearer's Leggings",
+      "slot": "legs",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "primary_stats": {
+        "agility": 23,
+        "stamina": 23
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 190,
+      "stat_template": "agi_physical",
+      "item_id": "rrd_bier_bearers_leggings"
+    },
+    {
+      "name": "Chieftain's Grave Totem",
+      "slot": "off_hand",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "weapon_type": "totem",
+      "primary_stats": {
+        "intellect": 11,
+        "spirit": 11
+      },
+      "secondary_stats": {
+        "healing_power": 28
+      },
+      "stat_template": "spi_healer",
+      "item_id": "rrd_chieftains_grave_totem"
+    },
+    {
+      "name": "Clan-Ring of the Hold",
+      "slot": "ring",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "primary_stats": {
+        "intellect": 10,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "spell_power": 13
+      },
+      "stat_template": "int_caster",
+      "item_id": "rrd_clan_ring_of_the_hold"
+    }
+  ],
+  "Mother Sporeheart": [
+    {
+      "name": "Sporeheart's Cap",
+      "slot": "head",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "intellect": 20,
+        "spirit": 20
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 81,
+      "stat_template": "spi_healer",
+      "item_id": "rrd_sporehearts_cap"
+    },
+    {
+      "name": "Mycelium Wraps",
+      "slot": "wrist",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "agility": 16,
+        "spirit": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 214,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "rrd_mycelium_wraps"
+    },
+    {
+      "name": "Fungal Bloom Staff",
+      "slot": "main_hand",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 25,
+        "stamina": 25
+      },
+      "secondary_stats": {
+        "spell_power": 32
+      },
+      "weapon_damage_min": 56,
+      "weapon_damage_max": 76,
+      "attack_speed": 3.2,
+      "stat_template": "int_caster",
+      "item_id": "rrd_fungal_bloom_staff"
+    },
+    {
+      "name": "Gardener's Rot-Boots",
+      "slot": "feet",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "strength": 16,
+        "intellect": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 321,
+      "stat_template": "str_int_hybrid",
+      "item_id": "rrd_gardeners_rot_boots"
+    }
+  ],
+  "Rotwarden Kaz'thul": [
+    {
+      "name": "Warden's Keyring Belt",
+      "slot": "waist",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "strength": 16,
+        "agility": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 136,
+      "stat_template": "agi_physical",
+      "item_id": "rrd_wardens_keyring_belt"
+    },
+    {
+      "name": "Cage-Breaker Gauntlets",
+      "slot": "hands",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "strength": 11,
+        "stamina": 15
+      },
+      "secondary_stats": {
+        "defense_rating": 9
+      },
+      "armor_type": "plate",
+      "armor_value": 327,
+      "stat_template": "str_physical",
+      "item_id": "rrd_cage_breaker_gauntlets"
+    },
+    {
+      "name": "Kaz'thul's Hooked Glaive",
+      "slot": "main_hand",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "agility": 33,
+        "intellect": 33
+      },
+      "secondary_stats": {
+        "attack_power": 56
+      },
+      "weapon_damage_min": 141,
+      "weapon_damage_max": 191,
+      "attack_speed": 3.3,
+      "stat_template": "agi_physical",
+      "item_id": "rrd_kazthuls_hooked_glaive"
+    },
+    {
+      "name": "Chainwhip Cloak",
+      "slot": "back",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "intellect": 9
+      },
+      "secondary_stats": {
+        "spell_power": 22,
+        "crit_chance_spell": 6
+      },
+      "stat_template": "int_caster",
+      "item_id": "rrd_chainwhip_cloak"
+    }
+  ],
+  "Thornblight": [
+    {
+      "name": "Heartwood Breastplate",
+      "slot": "chest",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "strength": 24,
+        "stamina": 24
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 472,
+      "stat_template": "str_physical",
+      "item_id": "rrd_heartwood_breastplate"
+    },
+    {
+      "name": "Rootbark Hauberk",
+      "slot": "chest",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "intellect": 14,
+        "spirit": 14
+      },
+      "secondary_stats": {
+        "healing_power": 38
+      },
+      "armor_type": "mail",
+      "armor_value": 315,
+      "stat_template": "spi_healer",
+      "item_id": "rrd_rootbark_hauberk"
+    },
+    {
+      "name": "Thornwoven Robe",
+      "slot": "chest",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "intellect": 14
+      },
+      "secondary_stats": {
+        "spell_power": 35,
+        "crit_chance_spell": 10
+      },
+      "armor_type": "cloth",
+      "armor_value": 98,
+      "stat_template": "int_caster",
+      "item_id": "rrd_thornwoven_robe"
+    },
+    {
+      "name": "Blighted Bramble Maul",
+      "slot": "main_hand",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 47,
+        "intellect": 47
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 141,
+      "weapon_damage_max": 191,
+      "attack_speed": 3.6,
+      "stat_template": "str_int_hybrid",
+      "item_id": "rrd_blighted_bramble_maul"
+    }
+  ],
+  "Xavras the Gloomtender": [
+    {
+      "name": "Gloomtender's Shroud",
+      "slot": "chest",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "intellect": 17,
+        "stamina": 17
+      },
+      "secondary_stats": {
+        "spell_power": 22
+      },
+      "armor_type": "cloth",
+      "armor_value": 100,
+      "stat_template": "int_caster",
+      "item_id": "rrd_gloomtenders_shroud"
+    },
+    {
+      "name": "Xavras's Hoofguards",
+      "slot": "feet",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "agility": 17,
+        "stamina": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 221,
+      "stat_template": "agi_physical",
+      "item_id": "rrd_xavrass_hoofguards"
+    },
+    {
+      "name": "Scythe of the Rot Below",
+      "slot": "main_hand",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "weapon_type": "axe_2h",
+      "primary_stats": {
+        "strength": 37,
+        "stamina": 47
+      },
+      "secondary_stats": {
+        "defense_rating": 28
+      },
+      "weapon_damage_min": 143,
+      "weapon_damage_max": 193,
+      "attack_speed": 3.6,
+      "stat_template": "str_physical",
+      "item_id": "rrd_scythe_of_the_rot_below"
+    },
+    {
+      "name": "Tender's Pruning Knife",
+      "slot": "main_hand",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "stamina": 12,
+        "intellect": 12
+      },
+      "secondary_stats": {
+        "healing_power": 21
+      },
+      "weapon_damage_min": 106,
+      "weapon_damage_max": 143,
+      "attack_speed": 1.7,
+      "stat_template": "spi_healer",
+      "item_id": "rrd_tenders_pruning_knife"
+    }
+  ]
+}

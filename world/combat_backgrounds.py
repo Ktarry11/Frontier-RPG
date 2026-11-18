@@ -210,6 +210,7 @@ ZONE_BACKGROUND = {
     "East Azshara": "coast",                      # the drowned coast and the Drowned Court
     "Haldarr Den": "dark_dungeon",                # the satyrs' root warren
     "Hetaera's Grotto": "dark_dungeon",           # the naga's sea cave
+    "The Rotroot Deeps": "dark_dungeon",          # the fel rot under Timbermaw Hold
     "Eastern Kingdoms - Stranglethorn": "jungle",  # region label over the tropical zones
 
     # --- desert and salt ---------------------------------------------------

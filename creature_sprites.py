@@ -45,6 +45,8 @@ SHEETS = {
     'plaguelands_secrets': ['ps_woolly_mammoth', 'ps_woolly_rhino', 'ps_dire_wolf', 'ps_giant_elk', 'ps_cave_bear', 'ps_steppe_bison', 'ps_boss_mammoth_matriarch', 'ps_boss_cave_lion', 'ps_boss_walking_glacier', 'ps_stone_age_woman', 'ps_palaeontologist', 'ps_frozen_hunter', 'ps_mere_wisp', 'ps_fen_drowned', 'ps_fen_owl', 'ps_bog_lurker', 'ps_barrow_shade', 'ps_bog_hulk', 'ps_boss_lamplighter', 'ps_boss_bog_hag', 'ps_finnish_scientist', 'ps_forsaken_fisherwoman', 'ps_bog_eel', 'ps_reed_heron', 'ps_eversong_lynx', 'ps_mana_wyrm', 'ps_arcane_remnant', 'ps_sentinel_shade', 'ps_elf_ranger', 'ps_elf_quartermaster', 'ps_boss_magister', 'ps_boss_breach_gnawer', 'ps_gaunt_ghoul', 'ps_scourge_necromancer', 'ps_wardstone', 'ps_dead_elf_ranger'],
     # ---- Azshara (Kyle's sheet 5, 17 Nov; docs/azshara_art_prompts.md)
     'azshara_creatures': ['az_naga_siren', 'az_naga_tidehunter', 'az_naga_sea_witch', 'az_naga_royal_guard', 'az_naga_brute', 'az_serpent_hatchling', 'az_ghost_noble', 'az_ghost_arcanist', 'az_ghost_guard', 'az_ghost_handmaiden', 'az_ghost_hound', 'az_ghost_tormented', 'az_satyr_cursed', 'az_satyr_sorcerer', 'az_satyr_houndmaster', 'az_felhound', 'az_eredar_warlock', 'az_doomguard_sentinel', 'az_blue_drake', 'az_blue_dragonspawn', 'az_blue_whelp', 'az_mana_wyrm_leader', 'az_arcane_construct', 'az_ley_beast', 'az_rot_furbolg', 'az_rot_shaman', 'az_rot_beast', 'az_spore_cloud', 'az_root_horror', 'az_rot_tender', 'az_timber_wolf', 'az_thunder_lizard', 'az_shore_crab', 'az_cliff_hippogryph', 'az_autumn_treant', 'az_russet_boar'],
+    # ---- the Rotroot Deeps' bosses (Kyle's sheet, 18 Nov 2026; tools/build_rotroot_deeps_content.py)
+    'rotroot_deeps': ['fr_boss_mossjaw', 'fr_boss_sporeheart', 'fr_boss_kazthul', 'fr_boss_thornblight', 'fr_boss_xavras', 'fr_elite_guard'],
     # ---- Stonetalon (Kyle's sheet, 15 Nov; docs/stonetalon_art_prompts.md sheet 4)
     'stonetalon': ['st_grim_warrior', 'st_grim_shaman', 'st_grim_hunter', 'st_grim_brute', 'st_grim_mystic', 'st_grim_elder', 'st_venture_logger', 'st_venture_sawyer', 'st_venture_demolitionist', 'st_venture_foreman', 'st_venture_rigger', 'st_venture_shredder', 'st_windshear_harpy', 'st_windshear_witch', 'st_cougar', 'st_bull_elk', 'st_bald_eagle', 'st_black_bear', 'st_ash_elemental', 'st_pumice_golem', 'st_steam_elemental', 'st_basalt_elemental', 'st_bark_beetle', 'st_redwood_ancient', 'st_beetle_mother', 'st_sap_ooze', 'st_canopy_owl', 'st_sky_serpent', 'st_risen_tauren', 'st_risen_stalker', 'st_boss_rigboss_gazzle', 'st_boss_heartrot_queen', 'st_boss_ambermaw', 'st_boss_old_talonwing', 'st_boss_topper_kezzik', 'st_boss_the_eldest'],
     # ---- Felwood (Kyle's sheet, 14 Nov; tools/file_felwood_art.py)
@@ -239,6 +241,21 @@ _RULES = [
     (r"^barnacled\ shorecrab$", "az_shore_crab"),
     (r"^tide-priestess\ sel'thira$", "az_naga_sea_witch"),
     (r"^hetaera$", "serpent_2"),
+    # THE ROTROOT DEEPS (tools/build_rotroot_deeps_content.py): exact names, Kyle's Azshara creature sheet and his
+    # Rotroot boss sheet; the Gloomhollow satyrs borrow Felwood's shadowstalker.
+    (r"^rotroot\ furbolg$", "az_rot_furbolg"),
+    (r"^rotroot\ mystic$", "az_rot_shaman"),
+    (r"^rotroot\ mauler$", "az_rot_beast"),
+    (r"^drifting\ sporecloud$", "az_spore_cloud"),
+    (r"^satyr\ rot-tender$", "az_rot_tender"),
+    (r"^gloomhollow\ satyr$", "fw_satyr_shadowstalker"),
+    (r"^rootbound\ horror$", "az_root_horror"),
+    (r"^rotroot\ bodyguard$", "fr_elite_guard"),
+    (r"^old\ mossjaw$", "fr_boss_mossjaw"),
+    (r"^mother\ sporeheart$", "fr_boss_sporeheart"),
+    (r"^rotwarden\ kaz'thul$", "fr_boss_kazthul"),
+    (r"^thornblight$", "fr_boss_thornblight"),
+    (r"^xavras\ the\ gloomtender$", "fr_boss_xavras"),
     # THE PLAGUELANDS' DUNGEONS (tools/build_plaguelands_dungeons_content.py): Scholomance, Stratholme and
     # Hearthglen, exact names, each to its picture: Kyle's dungeon boss sheet (sheet 8) for the bosses, his
     # Plaguelands and Scarlet sheets and the shared undead art for the trash.
@@ -1029,12 +1046,6 @@ SPARE = {
     "az_mana_wyrm_leader": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
     "az_arcane_construct": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
     "az_ley_beast": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
-    "az_rot_furbolg": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
-    "az_rot_shaman": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
-    "az_rot_beast": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
-    "az_spore_cloud": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
-    "az_root_horror": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
-    "az_rot_tender": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
     "az_timber_wolf": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
     "az_thunder_lizard": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
     "az_cliff_hippogryph": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",

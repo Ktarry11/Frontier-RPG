@@ -550,7 +550,10 @@ class PortalManager:
                 # The Timbermaw's caldera city (tools/handbuilt_timbermaw_hold.py, 17 Nov 2026).
                 (120, 198): ("West Azshara", 62, 9),           # arrive (62,7), under the totem gate at the pass top
                 (1, 108): ("Timbermaw Tunnel", 174, 154),      # arrive (174,152), at the end of the East Passage
+                (129, 96): ("The Rotroot Deeps", 22, 8),       # the deep gate: arrive (22,6), on the stair down
             },
+            # The dungeon under the Hold (tools/handbuilt_rotroot_deeps.py): its door is at the top of the map
+            "The Rotroot Deeps": {(22, 3): ("Timbermaw Hold", 129, 100)},   # arrive (129,98), before the deep gate
             "Talrendis Landing": {
                 (30, 1): ("West Azshara", 40, 150),            # arrive (40,148), outside the Landing's gate
             },

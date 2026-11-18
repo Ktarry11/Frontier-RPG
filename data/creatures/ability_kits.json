@@ -75798,6 +75798,717 @@
           "attack_power": 152
         }
       }
+    ],
+    "rotroot_furbolg": [
+      {
+        "name": "Rotten Claw",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Maul",
+        "kind": "damage",
+        "amount": 180,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rot Fever",
+        "kind": "dot",
+        "amount": 50,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "disease"
+      }
+    ],
+    "rotroot_mystic": [
+      {
+        "name": "Fel Totem Bolt",
+        "kind": "damage",
+        "amount": 214,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Rot Mending",
+        "kind": "heal",
+        "amount": 299,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "holy"
+      },
+      {
+        "name": "Grave Moss",
+        "kind": "dot",
+        "amount": 55,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "magic"
+      }
+    ],
+    "rotroot_mauler": [
+      {
+        "name": "Gore",
+        "kind": "damage",
+        "amount": 214,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Trample",
+        "kind": "damage",
+        "amount": 136,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Mossy Hide",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -30
+        }
+      }
+    ],
+    "drifting_sporecloud": [
+      {
+        "name": "Spore Puff",
+        "kind": "damage",
+        "amount": 214,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Burst",
+        "kind": "damage",
+        "amount": 136,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Choking Spores",
+        "kind": "dot",
+        "amount": 51,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "satyr_rot_tender": [
+      {
+        "name": "Fel Bolt",
+        "kind": "damage",
+        "amount": 218,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Tend the Rot",
+        "kind": "heal",
+        "amount": 305,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "holy"
+      },
+      {
+        "name": "Wither",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "haste": -15
+        }
+      }
+    ],
+    "gloomhollow_satyr": [
+      {
+        "name": "Hooked Blade",
+        "kind": "damage",
+        "amount": 222,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Backstab",
+        "kind": "damage",
+        "amount": 244,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Gloomrot Poison",
+        "kind": "dot",
+        "amount": 53,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "rootbound_horror": [
+      {
+        "name": "Root Lash",
+        "kind": "damage",
+        "amount": 232,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Thrash",
+        "kind": "damage",
+        "amount": 142,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Grasping Roots",
+        "kind": "damage",
+        "amount": 133,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      }
+    ],
+    "rotroot_bodyguard": [
+      {
+        "name": "Cleave",
+        "kind": "damage",
+        "amount": 222,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shield Bash",
+        "kind": "damage",
+        "amount": 190,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bark Shield",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 240
+        },
+        "self_only": true
+      }
+    ],
+    "old_mossjaw": [
+      {
+        "name": "Chieftain's Maul",
+        "kind": "damage",
+        "amount": 350,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Rotten Bite",
+        "kind": "damage",
+        "amount": 308,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Grave-Rend",
+        "kind": "damage",
+        "amount": 455,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Grave-Roar",
+        "kind": "damage",
+        "amount": 238,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Wake the Clan",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "summon": {
+          "name": "Rotroot Furbolg",
+          "template": "humanoid_warrior",
+          "kit": "rotroot_furbolg",
+          "count": 1,
+          "level_offset": -1,
+          "max_alive": 2,
+          "max_casts": 4
+        }
+      },
+      {
+        "name": "Bier-Breaker",
+        "kind": "damage",
+        "amount": 665,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Roar of the Fallen",
+        "kind": "damage",
+        "amount": 560,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true,
+        "hp_below": 0.3
+      },
+      {
+        "name": "The Last Chieftain",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 140
+        }
+      }
+    ],
+    "mother_sporeheart": [
+      {
+        "name": "Spore Lash",
+        "kind": "damage",
+        "amount": 360,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature",
+        "boss_rework": 1
+      },
+      {
+        "name": "Fungal Whip",
+        "kind": "damage",
+        "amount": 316,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Crushing Cap",
+        "kind": "damage",
+        "amount": 468,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Spore Burst",
+        "kind": "damage",
+        "amount": 244,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Seed the Air",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "summon": {
+          "name": "Drifting Sporecloud",
+          "template": "elemental_caster",
+          "kit": "drifting_sporecloud",
+          "count": 1,
+          "level_offset": -1,
+          "max_alive": 3,
+          "max_casts": 6
+        }
+      },
+      {
+        "name": "Feed on the Garden",
+        "kind": "heal",
+        "amount": 396,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Mycelial Rot",
+        "kind": "dot",
+        "amount": 180,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "dispel_type": "disease"
+      },
+      {
+        "name": "Sporestorm",
+        "kind": "damage",
+        "amount": 396,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Full Bloom",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 144
+        }
+      }
+    ],
+    "rotwarden_kazthul": [
+      {
+        "name": "Warden's Lash",
+        "kind": "damage",
+        "amount": 370,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow",
+        "boss_rework": 1
+      },
+      {
+        "name": "Chain Whip",
+        "kind": "damage",
+        "amount": 325,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Fel Brand",
+        "kind": "damage",
+        "amount": 481,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Rot Breath",
+        "kind": "damage",
+        "amount": 251,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "is_aoe": true
+      },
+      {
+        "name": "Caged",
+        "kind": "damage",
+        "amount": 259,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Open the Cages",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "summon": {
+          "name": "Rootbound Horror",
+          "template": "elemental_bruiser",
+          "kit": "rootbound_horror",
+          "count": 1,
+          "level_offset": -1,
+          "max_alive": 2,
+          "max_casts": 4
+        }
+      },
+      {
+        "name": "The Warden's Due",
+        "kind": "damage",
+        "amount": 703,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Keys to Every Cage",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 148
+        }
+      }
+    ],
+    "thornblight": [
+      {
+        "name": "Root Slam",
+        "kind": "damage",
+        "amount": 370,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature",
+        "boss_rework": 1
+      },
+      {
+        "name": "Thorn Lash",
+        "kind": "damage",
+        "amount": 325,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Heartwood Crush",
+        "kind": "damage",
+        "amount": 481,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Bramble Sweep",
+        "kind": "damage",
+        "amount": 251,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Entangling Roots",
+        "kind": "damage",
+        "amount": 222,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Blighted Bark",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 444
+      },
+      {
+        "name": "Thorn Storm",
+        "kind": "damage",
+        "amount": 444,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "The Roof Comes Down",
+        "kind": "damage",
+        "amount": 592,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true,
+        "hp_below": 0.3
+      },
+      {
+        "name": "Rot to the Core",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 148
+        }
+      }
+    ],
+    "xavras_the_gloomtender": [
+      {
+        "name": "Gloom Bolt",
+        "kind": "damage",
+        "amount": 380,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow",
+        "boss_rework": 1
+      },
+      {
+        "name": "Rotting Touch",
+        "kind": "damage",
+        "amount": 334,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Fel Blight",
+        "kind": "damage",
+        "amount": 494,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Gloomwave",
+        "kind": "damage",
+        "amount": 258,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "is_aoe": true
+      },
+      {
+        "name": "Tenders, to Me",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "summon": {
+          "name": "Gloomhollow Satyr",
+          "template": "humanoid_rogue",
+          "kit": "gloomhollow_satyr",
+          "count": 1,
+          "level_offset": -1,
+          "max_alive": 2,
+          "max_casts": 5
+        }
+      },
+      {
+        "name": "Seed of Rot",
+        "kind": "damage",
+        "amount": 266,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "healing_power": -60,
+            "haste": -10
+          }
+        }
+      },
+      {
+        "name": "The Rot Below",
+        "kind": "damage",
+        "amount": 760,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Gloomrot",
+        "kind": "dot",
+        "amount": 190,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "dispel_type": "magic"
+      },
+      {
+        "name": "Fel Tide",
+        "kind": "damage",
+        "amount": 646,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true,
+        "hp_below": 0.3
+      },
+      {
+        "name": "The Garden Wakes",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 152
+        }
+      }
     ]
   }
 }

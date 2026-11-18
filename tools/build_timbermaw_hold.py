@@ -183,6 +183,11 @@ DEADWOOD = ["Deadwood Warrior", "Deadwood Den Watcher", "Deadwood Pathfinder", "
             "Deadwood Gardener"]
 GRIMPELT = "Chieftain Grimpelt"
 
+#: the Rotroot Deeps' trash (tools/build_rotroot_deeps_content.py ROSTER), written out here so a rebuild of the Hold
+#: keeps paying for it without importing the dungeon's builder
+ROTROOT_TRASH = ["Rotroot Furbolg", "Rotroot Mystic", "Rotroot Mauler", "Drifting Sporecloud", "Satyr Rot-Tender",
+                 "Gloomhollow Satyr", "Rootbound Horror", "Rotroot Bodyguard"]
+
 FACTION = {
     "name": "Timbermaw Hold",
     "description": ("The Timbermaw furbolgs of the hold above Felwood: the last of their people the fel didn't "
@@ -222,7 +227,15 @@ FACTION = {
     "kill_rep": {
         "_comment": ["The Deadwood (Classic's Timbermaw rep): 10 a kill and Grimpelt 50, up to Honored. Past Honored "
                      "it's Deadwood Headdress Feathers at the Hold and the Hold's quests."],
-        "creatures": {**{n: [10, "honored"] for n in DEADWOOD}, GRIMPELT: [50, "honored"]},
+        "creatures": {**{n: [10, "honored"] for n in DEADWOOD}, GRIMPELT: [50, "honored"],
+                      # the Rotroot Deeps under the Hold (tools/build_rotroot_deeps_content.py): its trash pays on
+                      # past Honored, since the dungeon is how the Hold's people get to Revered
+                      **{n: [10, "revered"] for n in ROTROOT_TRASH}},
+    },
+    "dungeon_rep": {
+        "_comment": "A boss kill in the Rotroot Deeps pays 75 (tools/build_rotroot_deeps_content.py).",
+        "per_boss": 75,
+        "dungeons": ["The Rotroot Deeps"],
     },
 }
 

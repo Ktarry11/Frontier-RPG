@@ -39,7 +39,8 @@ Timbermaw pieces from Felwood and Ashenvale; trees are the Azshara autumn set. T
 HARD CONTRACTS (world/portal_manager.py)
   portal   (120,198) <-> West Azshara (62,4): you arrive at (120,194) coming in and (62,7) going out
   portal   (1,108) <-> Timbermaw Tunnel (177,152): you arrive at (4,108) coming in and (174,152) going out
-  later    the deep gate (LATER_DOORS) becomes the fel rot dungeon's door
+  portal   (129,96) <-> The Rotroot Deeps (22,3), in front of the deep gate's doors: you arrive at (129,98) coming
+           out and (22,6) going down
   NPC ids  th_*, ct_timbermaw_hold, pt_th_* (the Hold's own) and the two who moved up from the tunnel, tm_elder and
            tm_quartermaster; all written by tools/build_timbermaw_hold.py, which holds every Timbermaw
 """
@@ -56,11 +57,11 @@ W, H = 220, 200
 BAKED_DIR = "assets/tiles/azshara/baked_timbermaw_hold"
 SHEET = "timbermaw_hold"
 EDGE = "rock"
-PORTALS = {(120, 198): "West Azshara", (1, 108): "Timbermaw Tunnel"}
-ARRIVALS = [(120, 194), (4, 108)]
+PORTALS = {(120, 198): "West Azshara", (1, 108): "Timbermaw Tunnel", (129, 96): "The Rotroot Deeps"}
+ARRIVALS = [(120, 194), (4, 108), (129, 98)]
 START = (120, 188)
-#: the deep gate in the basin floor: the fel rot dungeon's door when it's built
-LATER_DOORS = {(130, 92): "The Fel Rot"}
+#: the deep gate in the basin floor opened on 18 Nov 2026: its door is the tile in front of the gate's doors, in PORTALS
+LATER_DOORS = {}
 
 ROADS = {
     # the climb in from the south gate, through the market, down into the basin

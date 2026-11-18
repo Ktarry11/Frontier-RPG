@@ -2224,6 +2224,38 @@
           "Chieftain Grimpelt": [
             50,
             "honored"
+          ],
+          "Rotroot Furbolg": [
+            10,
+            "revered"
+          ],
+          "Rotroot Mystic": [
+            10,
+            "revered"
+          ],
+          "Rotroot Mauler": [
+            10,
+            "revered"
+          ],
+          "Drifting Sporecloud": [
+            10,
+            "revered"
+          ],
+          "Satyr Rot-Tender": [
+            10,
+            "revered"
+          ],
+          "Gloomhollow Satyr": [
+            10,
+            "revered"
+          ],
+          "Rootbound Horror": [
+            10,
+            "revered"
+          ],
+          "Rotroot Bodyguard": [
+            10,
+            "revered"
           ]
         }
       },
@@ -2262,6 +2294,13 @@
           "TBC-style shelves (tools/build_timbermaw_hold.py, 17 Nov 2026): friendly supplies, honored patterns, revered six ilvl 67 blues, exalted three ilvl 73 epics (250-350g) and two epic recipes."
         ],
         "quests": {}
+      },
+      "dungeon_rep": {
+        "_comment": "A boss kill in the Rotroot Deeps pays 75 (tools/build_rotroot_deeps_content.py).",
+        "per_boss": 75,
+        "dungeons": [
+          "The Rotroot Deeps"
+        ]
       }
     }
   }
