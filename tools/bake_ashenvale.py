@@ -241,6 +241,17 @@ AZSHARA_SHEET = {
     "av_corrupt_ground": _az("az_cursed_soil"),
     "av_satyr_earth":    _az("az_cursed_soil"),
 }
+#: CENTRAL AZSHARA (tools/handbuilt_azshara_central.py): West's autumn floor, plus the leyline grass round the Mennar
+#: Font (the bluebell layer), dig earth in the Talrendis crews' trenches at Eldarath (the plaza layer) and arcane water
+#: in the Font itself (the moon-pool layers).
+AZSHARA_CENTRAL_SHEET = dict(AZSHARA_SHEET)
+AZSHARA_CENTRAL_SHEET.update({
+    "av_bluebell":       _az("az_leyline_grass"),
+    "av_plaza_stone":    _az("az_dig_earth"),
+    "av_moon_water":     _az("az_arcane_water"),
+    "av_moon_deep":      _az("az_arcane_water", 0.2),
+    "av_moon_rim":       _az("az_crystal_glass"),
+})
 #: TIMBERMAW HOLD (tools/handbuilt_timbermaw_hold.py): the caldera floor. Gold mountain grass and leaf-strewn earth on
 #: the terraces, the Timbermaw's trodden paths and honey clay in the middle, lichen-grey rock for the walls and crags.
 TIMBERMAW_HOLD_SHEET = dict(AZSHARA_SHEET)
@@ -262,7 +273,8 @@ WPL_SHEET = _plague_sheet(east=False)
 EPL_SHEET = _plague_sheet(east=True)
 ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_SHEET, "epl_east": EPL_SHEET, "felwood_north": NORTH_SHEET, "stonetalon_east": STONETALON_SHEET,
                "stonetalon_west": STONETALON_WEST_SHEET, "sun_rock": SUN_ROCK_SHEET,
-               "azshara_west": AZSHARA_SHEET, "timbermaw_hold": TIMBERMAW_HOLD_SHEET}
+               "azshara_west": AZSHARA_SHEET, "timbermaw_hold": TIMBERMAW_HOLD_SHEET,
+               "azshara_central": AZSHARA_CENTRAL_SHEET}
 
 def _recolour(a, hue, sat, val):
     """a float 0..1 HxWx3 -> luminance-preserving tint."""
@@ -590,6 +602,9 @@ def bake(zone="west", preview=None, scale=4, only=None):
     elif zone == "azshara_west":
         # West Azshara (docs/azshara_brief.md): autumn forest, Kyle's Azshara ground sheet (AZSHARA_SHEET)
         from tools import handbuilt_azshara_west as M
+    elif zone == "azshara_central":
+        # Central Azshara (docs/azshara_brief.md): the leylines, Eldarath and the Bay of Storms (AZSHARA_CENTRAL_SHEET)
+        from tools import handbuilt_azshara_central as M
     elif zone == "stonetalon_east":
         # Stonetalon East: the blast zone, painted from the Aspen materials (STONETALON_SHEET)
         from tools import handbuilt_stonetalon_east as M
@@ -622,7 +637,7 @@ def main():
     if "--preview" in sys.argv:
         preview = sys.argv[sys.argv.index("--preview") + 1]
     sc = int(sys.argv[sys.argv.index("--scale") + 1]) if "--scale" in sys.argv else 4
-    zone = next((z for z in ("azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
+    zone = next((z for z in ("azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
     only = None
     if "--region" in sys.argv:       # x0,y0,x1,y1 in tiles: bake only the 20x20 chunks touching it (fast look-dev)
         x0, y0, x1, y1 = map(int, sys.argv[sys.argv.index("--region") + 1].split(","))

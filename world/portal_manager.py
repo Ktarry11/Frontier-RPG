@@ -533,6 +533,11 @@ class PortalManager:
                 (120, 196): ("Orgrimmar", 134, 7),             # arrive (134,5), inside the north gate
                 (40, 150): ("Talrendis Landing", 30, 7),       # arrive (30,5), under the Landing's gate
                 (62, 4): ("Timbermaw Hold", 120, 196),         # arrive (120,194), inside the Hold's south gate
+                (196, 96): ("Central Azshara", 4, 96),         # arrive (6,96), on the west road in (18 Nov 2026)
+            },
+            "Central Azshara": {
+                # tools/handbuilt_azshara_central.py. Later: the East coast (196,130) and the naga grotto (186,58).
+                (4, 96): ("West Azshara", 196, 96),            # arrive (194,96), on West's east road
             },
             "Timbermaw Hold": {
                 # The Timbermaw's caldera city (tools/handbuilt_timbermaw_hold.py, 17 Nov 2026).

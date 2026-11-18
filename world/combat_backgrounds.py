@@ -206,6 +206,7 @@ ZONE_BACKGROUND = {
     "West Azshara": "fantasy_forest",             # Azshara's autumn forest (until its own background)
     "Talrendis Landing": "coast",                 # the salvage camp on the bay
     "Timbermaw Hold": "mountain",                 # the Timbermaw's caldera
+    "Central Azshara": "fantasy_forest",          # Azshara's autumn forest and the Bay of Storms
     "Eastern Kingdoms - Stranglethorn": "jungle",  # region label over the tropical zones
 
     # --- desert and salt ---------------------------------------------------

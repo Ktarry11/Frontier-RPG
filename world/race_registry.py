@@ -378,6 +378,8 @@ ZONE_POPULATION_MIX = {
     # Kyle, 17 Nov 2026: "It's still going to be furbolgs though like 90%....but some orcs, some humans, some goblins."
     "timbermaw_hold": [("furbolg", 90), ("orc", 4), ("human", 3), ("goblin", 3)],
     "west_azshara": [("orc", 50), ("blood_elf", 25), ("furbolg", 15), ("human", 10)],
+    # the salvage crews out at Eldarath and the Font, and the odd Timbermaw scout
+    "central_azshara": [("orc", 45), ("blood_elf", 35), ("human", 10), ("furbolg", 10)],
     # The only people down here are the Crimson Codex and the handful of Horde the Codex have hired or
     # tolerated. Nobody is native to a place that is four years old.
     "the_crystalline_underdark": [("blood_elf", 82), ("forsaken", 10), ("orc", 8)],

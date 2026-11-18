@@ -155,5 +155,22 @@ evening, sliced the same night; `docs/azshara_art_prompts.md` has the slice tabl
     (the faction's leader, at the Great Lodge) and Quartermaster Bruna (the shelf). The faction's home is the Hold now.
     "The Tunnel Opens" ends at the Elder in the Hold, and "The Shamans Who Turned" moved to Pathfinder Grosk in the
     tunnel.
-- **Next:** Central Azshara, then East.
+- **Central Azshara** (`tools/handbuilt_azshara_central.py`, 200x200, 54-57; 18 Nov 2026), off West's east road:
+  - **The sea comes in.** The north coast and the **Bay of Storms** take the north-east, with the first drowned spires
+    already standing in the bay. **Southridge Beach** is the south-east coast. The rest is still the red-gold forest,
+    with the northern mountains continuing from West's Ursolan peaks.
+  - **Legash Encampment** (north, under the mountains): the satyrs' war camp, tents round a throne, a Timbermaw totem
+    they took.
+  - **Lake Mennar** (south-west) and **the Mennar Font** on its north-east shore, where the leylines meet: a pool of
+    arcane water ringed by crystal trees, leyline nodes, a mana tower, and the salvage crews' pylon tapping it. The
+    leyline grass runs from the Font toward Eldarath. The blues guard it (creatures with the quest pass).
+  - **Ruins of Eldarath** (south-middle): the biggest Highborne ruin this side of the sea, two broken spires and an
+    arch, with the Talrendis crews' main dig in it (trenches, a crane, the sorting shed, a survey tower).
+  - **Forlorn Ridge** (south-west): the Legion's leftovers round a fel gate that never quite closed.
+  - **Hetaera's Clutch** (the headland east of the bay): the naga's beachhead, and the **naga grotto's** sea-cave mouth
+    in its crag (drawn now; its door opens with the cave).
+  - Painted from the Azshara ground sheet (`AZSHARA_CENTRAL_SHEET`: leyline grass, dig earth, arcane water in the Font).
+    Linked both ways to West Azshara. The East coast's door (east edge) and the grotto's are cut and waiting
+    (`LATER_PORTALS`). No creatures or people yet: they come with the quest pass and sheet 5.
+- **Next:** East Azshara, the coast.
 
