@@ -83,6 +83,9 @@ AMBIENT = {
     "tl_archaeologist": ("Dr. Amara Okafor", "human", F, 3, "down",
                          "I dug Iron Age sites in Nigeria for twenty years and I've never seen anything like this. "
                          "Both sides pay me, and both sides think I'm theirs. I'm the dig's."),
+    "tl_conclave_warder": ("Spellwarder Aelis Dawnmere", "blood_elf", F, 3, "down",
+                           "I keep the Conclave's wards on the dig, and lately they've started pointing out to sea. "
+                           "That isn't what wards are supposed to do."),
     "tl_farseer": ("Farseer Thrag Windcaller", "orc", M, 5, "left",
                    "The leylines under this coast are pulling toward the sea. The elves say that's fine. The spirits "
                    "say it isn't."),

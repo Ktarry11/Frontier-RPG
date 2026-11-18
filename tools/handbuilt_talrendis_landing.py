@@ -114,6 +114,7 @@ NPC_POSITIONS = {
     "tl_salvage_boss":       (72, 22),    # the orc crews' boss, on the high ground beside the Overseer
     "tl_archaeologist":      (64, 30),    # the transplant archaeologist, in the dig itself
     "tl_farseer":            (86, 30),    # the dig's shaman, off on his own where he can feel the leylines
+    "tl_conclave_warder":    (40, 40),    # the Conclave's spellwarder, between the lakeshore and the dig
 }
 CHESTS = []
 

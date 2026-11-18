@@ -240,6 +240,16 @@ evening, sliced the same night; `docs/azshara_art_prompts.md` has the slice tabl
   the Court, and the temple's naga. Talrendis Point, Valormok and Stormwatch are safe. Nine rares (two West, three
   Central, four East), four items each at level + 3, and gathering on all three maps (the 50s herbs, ore and woods,
   and fishing).
-- **Next:** the Sunreach Conclave, about 90 quests (the braided arc), the one transplant recruit and the hidden
-  content.
+- **The Sunreach Conclave** (`tools/build_sunreach_conclave.py`, 18 Nov 2026): the faction, led by Grand Magister
+  Velanthe Sunreach from the Landing (quest-free, so she can move). It's paid by its magisters' quests, Azshara's naga
+  and drowned dead (to Honored) and the Drowned Palace (75 a boss, and its trash to Revered). Its TBC shelf has
+  supplies, two tailoring bag patterns moved off a town shelf, six ilvl 67 blues, three ilvl 73 epics and two epic
+  recipes.
+- **The quests** (`tools/azshara_quests.py`, `tools/azshara_quests_hold.py`, written by
+  `tools/build_azshara_quests.py`; plan in `docs/azshara_quest_plan.md`): 81 quests on the braided arc. Two thirds
+  of them come from the Landing and the Hold (67 of 81), none from the Grand Magister or her quartermaster. Nine new
+  people give them: five in the Landing plus a Conclave spellwarder, two at Stormwatch and one at Valormok. Every
+  dungeon and cave boss has its quest, every open-world rare has one, and the Echo of the Queen opens only when both
+  the Tidelord and Xavras are dead. 39 of them are chained.
+- **Next:** the one transplant recruit and the hidden content.
 
