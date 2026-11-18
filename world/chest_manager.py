@@ -241,6 +241,14 @@ class ChestManager:
             # level, both worn at 60
             from world import heroic
             if heroic.active(tilemap.name):
+                if not is_boss_chest and random.random() < heroic.CHEST_MATERIAL_CHANCE:
+                    # a side chest can hold the first top-tier ore, wood or gem instead of gear
+                    from world.gathering_manager import get_gathering_node_manager
+                    mid, qty = heroic.roll_materials(random)[0]
+                    mat = get_gathering_node_manager().make_material_instance(mid)
+                    if mat is not None:
+                        mat.quantity = qty
+                        return mat
                 lv = heroic.ITEM_LEVEL if is_boss_chest else heroic.TRASH_ITEM_LEVEL
                 item = self._roll_chest(loot_gen, lv, lv, is_boss_chest)
                 if item is not None and (getattr(item, "required_level", 0) or 0) > heroic.WORN_AT:

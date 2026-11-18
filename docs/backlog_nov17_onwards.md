@@ -66,6 +66,11 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - **Stage 2:** a badge from every heroic boss and a badge vendor selling 66 gear; one heroic-only rare 66 per dungeon
   from its last boss.
 - **Stage 3:** one heroic-only trick per boss; now and then a heroic-only boss ("for spice").
+- **A crafting tier from the first top tiers** (Kyle, 18 Nov 2026: "I'll ALWAYS want crafting to be competitive to
+  raiding/Dungeons"). The ten materials heroics drop (Dreamsilk, Chronoweave, Manticore, Chimera, Frostforged
+  Silver, Sylvanite, Emberwood, Voidwood, Glacier Sapphire, Sylvan Emerald) craft almost nothing yet. Woodworking's
+  Emberwood/Frostheart/Ebonthorn pieces make 51-61, below a normal 60 dungeon. Needs recipes at the heroic and raid
+  levels (66-68, the best maybe 71), designed with Kyle.
 - **Later:** the skull zone (68) and frontier zone (69) heroics; tuning the elite multipliers (health x1.3, damage
   x1.15) once played.
 - **The level-60 gear ladder** (Kyle, 18 Nov 2026), item levels: normal 60 dungeons 60-63, Honored rep 62, Revered

@@ -113,6 +113,25 @@ def active(zone_name=None):
     return is_heroic_dungeon(zone_name)
 
 
+# ----------------------------------------------------------------------------------------------- materials
+#: Kyle, 18 Nov 2026: the two lowest top-tier ores, woods and gems come from "Heroic bosses, chests and eventually the
+#: lvl 60 zones" (entities/material_tiers.LEVEL60_TOP). (kind, weight, quantity range) for one find.
+MATERIAL_FINDS = (("ore", 2, (2, 4)), ("wood", 2, (2, 4)), ("gem", 1, (1, 1)))
+#: a heroic side chest holds one of these finds instead of gear this often
+CHEST_MATERIAL_CHANCE = 0.4
+
+
+def roll_materials(rng=None):
+    """One find of the first top-tier ore, wood or gem: [(material_id, quantity)]."""
+    import random as _r
+    from entities.material_tiers import LEVEL60_TOP, HEROIC_TOP_WEIGHTS
+    rng = rng or _r
+    kind, _w, (lo, hi) = rng.choices(MATERIAL_FINDS, weights=[w for _k, w, _q in MATERIAL_FINDS], k=1)[0]
+    mats = LEVEL60_TOP[kind]
+    mid = rng.choices(mats, weights=list(HEROIC_TOP_WEIGHTS[:len(mats)]), k=1)[0]
+    return [(mid, rng.randint(lo, hi))]
+
+
 # ---------------------------------------------------------------------------------------------------------- loot
 def _weapon_hit(level):
     """The generator's average weapon hit for an item level (entities/loot_generator: item_level * 1.1 + 6.4)."""

@@ -16,6 +16,7 @@ Checks, through the real code:
   6. heroic coin and vendor trash pay COIN_MULT more; a heroic boss chest rolls at 66 and a side chest at 63,
      worn at 60
   7. rep: with the combat key a normal dungeon stops at Revered, a heroic doesn't, and a tabard takes the kill
+  6b. a heroic side chest sometimes holds the first top-tier ore, wood or gem, and a boss's find covers all six
   8. a heroic adds only the two lowest top-tier cloths and leathers (Kyle: "Only TWO of the top tier crafting
      materials each"), never the rest, and isn't "pure 60" (so no post-60 recipes); the door and combat wiring are in
 """
@@ -154,12 +155,25 @@ def main():
         tile = types.SimpleNamespace(name="Wailing Caverns", set_tile=lambda *a, **k: None)
         tm.heroic_run = "Wailing Caverns"
         boss_item = chest.open_chest(tile, 3, 3, 60, is_boss_chest=True)
-        side = None
-        for i in range(40):
-            side = chest.open_chest(tile, 10 + i, 4, 60)
-            if side is not None:
-                break
+        side, mats = None, []
+        for i in range(120):
+            got_one = chest.open_chest(tile, 10 + i, 4, 60)
+            if got_one is None:
+                continue
+            if getattr(got_one, "material_id", None):
+                mats.append(got_one.material_id)
+            elif side is None:
+                side = got_one
         tm.heroic_run = None
+        from entities.material_tiers import first_top_tiers
+        check(mats, "no heroic side chest held ore, wood or gems")
+        check(set(mats) <= first_top_tiers(), f"a heroic chest held {sorted(set(mats) - first_top_tiers())}")
+        found = set()
+        for i in range(200):
+            found |= {m for m, _q in H.roll_materials(random.Random(i))}
+        from entities.material_tiers import LEVEL60_TOP
+        want = set(LEVEL60_TOP["ore"]) | set(LEVEL60_TOP["wood"]) | set(LEVEL60_TOP["gem"])
+        check(found == want, f"a heroic boss's find covers {sorted(found)}, wanted {sorted(want)}")
         check(boss_item is not None and boss_item.item_level == H.ITEM_LEVEL and boss_item.required_level <= 60,
               f"a heroic boss chest gave {getattr(boss_item, 'item_level', None)}")
         if side is not None:
@@ -207,6 +221,8 @@ def main():
         ce = (ROOT / "combat/combat_engine.py").read_text(encoding="utf-8")
         check("heroic_ilvl=_HEROIC_ILVL if self.heroic" in ce and "TRASH_ITEM_LEVEL" in ce,
               "combat doesn't roll heroic loot")
+        check("roll_materials()" in ce, "a heroic boss doesn't drop ore, wood or gems")
+        check('getattr(item, "material_id", None)' in ow, "the overworld can't loot materials from a chest")
     finally:
         tm.heroic_run, tm.heroic_locks = saved
         ZM.LIVE = old_live

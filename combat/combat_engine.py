@@ -1160,6 +1160,20 @@ class CombatEngine:
                 for d in drops:
                     if d is not None and (getattr(d, "required_level", 0) or 0) > _HEROIC_WORN:
                         d.required_level = _HEROIC_WORN
+            if self.heroic and getattr(enemy, "is_boss", False):
+                # and the first top-tier ore, wood or gem (world/heroic.roll_materials, Kyle 18 Nov 2026)
+                try:
+                    from world.heroic import roll_materials
+                    from world.gathering_manager import get_gathering_node_manager
+                    for mid, qty in roll_materials():
+                        mat = get_gathering_node_manager().make_material_instance(mid)
+                        if mat is not None:
+                            mat.quantity = qty
+                            self.player.add_material(mat)
+                            self.loot_gained.append(mat)
+                            self.combat_log.append(f"{enemy.name} dropped: {mat.name}{' x%d' % qty if qty > 1 else ''}.")
+                except Exception as exc:  # a bonus; never let it break victory
+                    print(f"WARNING: heroic material drop failed: {exc}")
             for loot in [d for d in drops if d]:
                 if self.player.add_to_inventory(loot):
                     self.loot_dropped = loot

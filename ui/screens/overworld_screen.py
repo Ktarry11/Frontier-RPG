@@ -1342,6 +1342,13 @@ class OverworldScreen(BaseScreen):
             self._notify("The chest is empty.", (170, 170, 170))
             return
 
+        if getattr(item, "material_id", None):
+            # a heroic chest can hold crafting materials (world/heroic.py): they go to the materials bag
+            player.add_material(item)
+            qty = getattr(item, "quantity", 1) or 1
+            self._notify(f"Looted: {item.name}{' x%d' % qty if qty > 1 else ''}!", (140, 220, 160))
+            return
+
         added = player.add_to_inventory(item)
         if not added:
             self._notify(f"Bag full - couldn't loot {item.name}.", (240, 140, 140))

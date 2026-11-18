@@ -86,16 +86,28 @@ HIGH_TIER_LEATHER = {mid for mid, s in _ladder("leather") if s > PRE_60_SKILL_CE
 
 HIGH_TIER = HIGH_TIER_CLOTH | HIGH_TIER_LEATHER
 
-#: WHAT A HEROIC DROPS FROM THE TOP TIERS. Kyle, 18 Nov 2026: "Only TWO of the top tier crafting materials each bro.
-#: We want to keep a backup for higher tiers" and "heroics can get the same 2 crafting materials that We would put in
-#: the first few pure 60 zones. Do note which ones they are." The two lowest rungs above the pre-60 line, per kind:
-#: cloth Dreamsilk (310) and Chronoweave (320), leather Manticore (310) and Chimera (320). Only cloth and leather drop
-#: from monsters; ore, herbs, wood and gems are gathered, and a dungeon has no nodes. Everything above these stays
-#: for later content. A heroic monster otherwise rolls the level-59 pool, and its recipes stay pre-60
-#: (entities/cloth_drops, entities/skinning_drops, docs/heroic_design.md).
-HEROIC_TOP = {kind: [mid for mid, _s in _ladder(kind) if _s > PRE_60_SKILL_CEILING][:2] for kind in ("cloth", "leather")}
-#: their weight in a heroic monster's pool, the first more common than the second
+#: THE FIRST TOP TIERS: what level 60 gets of the endgame ladders. Kyle, 18 Nov 2026: "Only TWO of the top tier
+#: crafting materials each bro. We want to keep a backup for higher tiers", "heroics can get the same 2 crafting
+#: materials that We would put in the first few pure 60 zones. Do note which ones they are", and "So only take 2 from
+#: the ore/cloth/leather/wood and these will be in heroics and lvl 60 zones to craft gear", then gems too.
+#: The two lowest rungs above the pre-60 line, per kind:
+#:     cloth    Dreamsilk (310), Chronoweave (320)        monsters in heroics
+#:     leather  Manticore (310), Chimera (320)            skinning in heroics
+#:     ore      Frostforged Silver (310), Sylvanite (310) heroic bosses and chests
+#:     wood     Emberwood (310), Voidwood (310)           heroic bosses and chests
+#:     gem      Glacier Sapphire (310), Sylvan Emerald (310)  heroic bosses and chests
+#: and, when they're built, the level-60 zones' nodes and drops (Kyle: "Heroic bosses, chests and eventually the lvl 60
+#: zones"). Everything above these two on each ladder is held back for higher content. docs/heroic_design.md.
+FIRST_TOP_KINDS = ("cloth", "leather", "ore", "wood", "gem")
+LEVEL60_TOP = {kind: [mid for mid, _s in _ladder(kind) if _s > PRE_60_SKILL_CEILING][:2] for kind in FIRST_TOP_KINDS}
+HEROIC_TOP = LEVEL60_TOP
+#: their weight in a pool, the first more common than the second
 HEROIC_TOP_WEIGHTS = (3, 2)
+
+
+def first_top_tiers():
+    """Every material level-60 content is allowed from the endgame ladders: the two per kind above."""
+    return {m for ms in LEVEL60_TOP.values() for m in ms}
 
 
 def heroic_top(kind):

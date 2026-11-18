@@ -47,14 +47,22 @@ built yet. Until they are, the hidden places stay as they are and are never hero
   table rolls a 66 blue.
 - **Trash, coin and chests.** Heroic trash gear rolls at 63. Coin and vendor trash pay 1.5x a normal level-60 kill.
   Boss chests roll at 66 and side chests at 63, all worn at 60.
-- **Materials.** A heroic monster rolls the level-59 pool plus only the two lowest top-tier rungs of each kind that
-  monsters drop (`entities/material_tiers.HEROIC_TOP`). These are the same two the first pure-60 zones will use,
-  and the 16 rungs above each pair are kept for higher tiers:
-  - cloth: **Dreamsilk** (skill 310) and **Chronoweave** (320)
-  - leather: **Manticore** (310) and **Chimera** (320)
+- **Materials: the first top tiers.** Kyle: "So only take 2 from the ore/cloth/leather/wood and these will be in
+  heroics and lvl 60 zones to craft gear", then gems too. Level 60 gets only the two lowest rungs of each endgame
+  ladder, and everything above stays for higher content (`entities/material_tiers.LEVEL60_TOP`):
 
-  Ore, herbs, wood and gems are gathered, and a dungeon has no nodes, so they aren't affected. A heroic doesn't
-  count as "pure 60", so its recipes stay pre-60.
+  | Kind | The two | From |
+  |---|---|---|
+  | cloth | **Dreamsilk** (310), **Chronoweave** (320) | humanoids in heroics |
+  | leather | **Manticore** (310), **Chimera** (320) | skinning beasts in heroics |
+  | ore | **Frostforged Silver** (310), **Sylvanite** (310) | heroic bosses (2-4), heroic side chests |
+  | wood | **Emberwood** (310), **Voidwood** (310) | heroic bosses (2-4), heroic side chests |
+  | gem | **Glacier Sapphire** (310), **Sylvan Emerald** (310) | heroic bosses (1), heroic side chests |
+
+  These are the same ten the level-60 zones will use when they're built ("Heroic bosses, chests and eventually the
+  lvl 60 zones"). A heroic monster's cloth and leather come from the level-59 pool plus these two. Every heroic boss
+  also drops one find of ore, wood or a gem. A side chest holds one instead of gear 40% of the time. A heroic
+  doesn't count as "pure 60", so its recipes stay pre-60.
 - **Rep.** A heroic pays past Revered, and a faction's tabard takes its kill rep (`docs/tabards_design.md`).
   Combat passes its zone as a key (`wailing_caverns`), and the Revered cap now reads that key too. Before this fix,
   the cap never fired in a real fight.
@@ -70,6 +78,13 @@ QA: `tools/qa_heroic.py`, `tools/qa_tabards_and_dungeon_cap.py`.
 
 - One heroic-only ability per boss, from the boss mechanics already in the game.
 - Now and then a heroic-only boss.
+
+## Crafting stays competitive (Kyle, 18 Nov 2026: "I'll ALWAYS want crafting to be competitive to raiding/Dungeons")
+
+Measured on 18 Nov: almost nothing crafts from the first top tiers yet. Only woodworking uses them (Emberwood,
+Frostheart and Ebonthorn staves and codices), and it makes item level 51-61, below a normal level-60 dungeon. The
+only crafted gear at the heroic or raid level is the 32 Exalted rep patterns (68). So a crafting tier made from the
+ten materials above, at the heroic and raid levels, is its own job (backlog).
 
 ## Later
 
