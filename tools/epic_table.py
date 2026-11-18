@@ -382,6 +382,7 @@ FINAL_BOSSES = {
     "Hive-Mother Ahn'thera": ("The Royal Hive", 0.05),
     "The Caldera": ("The Emberdeep", 0.05),
     "Xavras the Gloomtender": ("The Rotroot Deeps", 0.05),
+    "Echo of the Queen": ("The Drowned Palace: The Queen's Vault", 0.05),
 }
 SHARED_30S = "shared_30s"
 
@@ -481,6 +482,13 @@ DUNGEON = [
     ("Zhir'ak's Second Scythe", "main_hand", "weapon", "axe_1h", 59, "agi_physical",
      "One of the Consort Zhir'ak's forelimb blades, fitted to a dwarven haft in Onyxhollow.",
      "gear_epic_axe_1h_1", "Hive-Mother Ahn'thera"),
+    # ---- the Drowned Palace (Echo of the Queen, 60)
+    ("Tidecrown of Zin-Azshari", "head", "armor", "mail", 63, "agi_int_hybrid",
+     "A Highborne court helm the sea gave back, worn by the queen's tidewardens.", "gear_wow_head_151",
+     "Echo of the Queen"),
+    ("The Queen's Last Guard", "main_hand", "weapon", "polearm", 63, "str_physical",
+     "A Moonguard halberd from the throne room, still bright after ten thousand years under the sea.",
+     "gear_wow_polearm_halberd15", "Echo of the Queen"),
     # ---- the Rotroot Deeps (Xavras the Gloomtender, 58)
     ("Mantle of the Rot Below", "back", "armor", "accessory", 61, "agi_physical",
      "Xavras's own cloak, woven from the fungus she grew under Timbermaw Hold.", "gear_wow_back_cape_naxxramas_03",

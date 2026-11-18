@@ -19,18 +19,18 @@ How this file works:
 
 Brief: `docs/azshara_brief.md`. Done so far: Kyle's six art sheets, West Azshara, Talrendis Landing, Timbermaw Hold,
 Central Azshara, East Azshara (the Drowned Court already risen), both caves, the Rotroot Deeps (the dungeon under the
-Hold, 18 Nov), Orgrimmar's north gate and the Ashenvale East road.
+Hold, 18 Nov), the Drowned Palace (two floors off the Drowned Court, 18 Nov), Orgrimmar's north gate and the Ashenvale
+East road.
 
-1. **The Vault of Zin-Azshari** (dungeon, 59-60, 6 bosses over two floors), Scholomance-sized. Kyle settles the two
-   dungeons' names and rosters (the art uses working names).
-2. **People and content**:
-   - Creature records from sheet 5 and encounter tables (West Azshara has none yet).
+1. **People and content**:
+   - Creature records from sheet 5 and encounter tables for the three open maps (none yet).
+   - The Drowned Palace's reputation: the Sunreach Conclave pays for it once the faction exists.
    - About 90 quests, about 70% given in the Landing and the Hold.
    - **The Sunreach Conclave** faction and its TBC shelf. Its leader and quartermaster stay quest-free, because the
      elves get an island later.
    - Two or three recruits: a blood elf magister, an orc salvager and a transplant.
    - The hidden content ("Surprise me"). Never described.
-3. **Later, Kyle's call**: the Sunreach Conclave's island home.
+2. **Later, Kyle's call**: the Sunreach Conclave's island home.
 
 ## 1b. Deadwind Pass (vision and art prompts only, 17 Nov 2026)
 - `docs/deadwind_brief.md` and `docs/deadwind_art_prompts.md` (8 sheets). Kyle: "I just want the vision and the

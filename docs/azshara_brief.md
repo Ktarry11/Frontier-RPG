@@ -27,7 +27,7 @@ it's dropped. Nothing in the game swaps a map on a quest, and the Plaguelands to
 | **Talrendis Landing** | town | Its own map, off West. |
 | **Timbermaw Hold** | town | Its own map, off West's northern mountains. |
 | 2 caves | | A satyr den and a naga grotto. |
-| 2 dungeons | | The fel rot under the Hold (55-58) and the Vault of Zin-Azshari (59-60). |
+| 2 dungeons | | The Rotroot Deeps under the Hold (55-58) and the Drowned Palace (59-60). |
 
 Palette: West and Central are Classic's red-gold autumn forest. The East coast turns to drowned teal and silver, with
 wet white marble and coral, as the city comes up.
@@ -76,8 +76,8 @@ pass.
   itself, so it's a satyr-and-demon dungeon under the furbolgs' feet.
   - Its door is a sealed lower gate inside the caldera, guarded by the Timbermaw.
   - Every boss pays Timbermaw rep.
-- **The Vault of Zin-Azshari** (dungeon, 59-60, 6 bosses over two floors): the flooded halls, then Azshara's own
-  vault. It's Scholomance-sized.
+- **The Drowned Palace** (dungeon, 59-60, 6 bosses over two floors; built 18 Nov, see build state; the art calls it
+  the Vault of Zin-Azshari): the flooded halls, then Azshara's own vault. It's Scholomance-sized.
   - Its door is at the head of the Drowned Court, the risen district off East Azshara's shore.
 
 Names for the two dungeons and their boss rosters are still to settle.
@@ -212,5 +212,19 @@ evening, sliced the same night; `docs/azshara_art_prompts.md` has the slice tabl
   - 13 creatures (Kyle's Azshara sheet and his Rotroot boss sheet), four items a boss at boss level + 3, and Xavras
     rolls two named epics at 5%.
   - Timbermaw Hold pays 75 a boss and 10 a trash kill up to Revered.
-- **Next:** the Vault of Zin-Azshari.
+- **The Drowned Palace** (`tools/handbuilt_drowned_palace.py`, `tools/build_drowned_palace_content.py`; 18 Nov 2026,
+  Kyle: "The Drowned Palace", "Naga up, ghosts down", "Sunken palace, dry vault"), 59-60, through the door at the head
+  of the Drowned Court:
+  - **The Flooded Halls** (the naga's): the Sunken Gate, the Siren's Court (Lady Ssiriss on her coral dais in the pool,
+    one fallen column out to her), the Collapsed Gallery (gone into the sea: three ledges and two fallen columns, back
+    and forth), the Drowned Archive (the Drowned Chamberlain) and the Throne of Tides (Tidelord Vashj'ren on his island,
+    the sea wall to wall round it), then the flooded stair down.
+  - **The Queen's Vault** (the Highborne dead's): a dry air pocket under the sea, its walls the sea itself. The Air
+    Pocket, the Moonguard Processional (the Moonguard Revenant), the Arcanum round the cracked well (Magistrix Elaria the
+    Undying), the Hall of Mirrors and its treasuries, and the Queen's Throne Room (the Echo of the Queen before
+    Azshara's empty throne), with a fast exit back up to the Court.
+  - 20 creatures, four items a boss at boss level + 3, and the Echo rolls two named epics at 5%. Its reputation waits
+    on the Sunreach Conclave (the content pass).
+- **Next:** Azshara's people and content: creatures for the three open maps, about 90 quests, the Sunreach Conclave,
+  the recruits and the hidden content.
 

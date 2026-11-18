@@ -543,8 +543,9 @@ class PortalManager:
                 (186, 58): ("Hetaera's Grotto", 50, 97),       # the naga's sea cave (tools/handbuilt_azshara_caves.py)
             },
             "East Azshara": {
-                # tools/handbuilt_azshara_east.py. Later: the Vault of Zin-Azshari (178,92) in the Drowned Court.
+                # tools/handbuilt_azshara_east.py
                 (4, 130): ("Central Azshara", 196, 130),       # arrive (196,128), on Central's east road
+                (178, 92): ("The Drowned Palace", 90, 146),    # the door in the Drowned Court: arrive (90,144)
             },
             "Timbermaw Hold": {
                 # The Timbermaw's caldera city (tools/handbuilt_timbermaw_hold.py, 17 Nov 2026).
@@ -554,6 +555,15 @@ class PortalManager:
             },
             # The dungeon under the Hold (tools/handbuilt_rotroot_deeps.py): its door is at the top of the map
             "The Rotroot Deeps": {(22, 3): ("Timbermaw Hold", 129, 100)},   # arrive (129,98), before the deep gate
+            # The Drowned Palace (tools/handbuilt_drowned_palace.py): two floors, a stair between, a fast exit
+            "The Drowned Palace": {
+                (90, 148): ("East Azshara", 178, 96),                    # out to the Drowned Court: arrive (178,94)
+                (162, 12): ("The Drowned Palace: The Queen's Vault", 20, 8),   # the flooded stair down: arrive (20,6)
+            },
+            "The Drowned Palace: The Queen's Vault": {
+                (20, 2): ("The Drowned Palace", 162, 16),                # back up the stair: arrive (162,14)
+                (164, 117): ("East Azshara", 178, 96),                   # the fast exit past the Echo of the Queen
+            },
             "Talrendis Landing": {
                 (30, 1): ("West Azshara", 40, 150),            # arrive (40,148), outside the Landing's gate
             },

@@ -76509,6 +76509,1055 @@
           "attack_power": 152
         }
       }
+    ],
+    "zin_azshari_myrmidon": [
+      {
+        "name": "Trident Thrust",
+        "kind": "damage",
+        "amount": 230,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sweeping Tail",
+        "kind": "damage",
+        "amount": 147,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Coral Hide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 240
+        },
+        "self_only": true
+      }
+    ],
+    "zin_azshari_royal_guard": [
+      {
+        "name": "Halberd Cleave",
+        "kind": "damage",
+        "amount": 230,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shield Slam",
+        "kind": "damage",
+        "amount": 197,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Pin to the Floor",
+        "kind": "damage",
+        "amount": 138,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      }
+    ],
+    "zin_azshari_siren": [
+      {
+        "name": "Frost Bolt",
+        "kind": "damage",
+        "amount": 230,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Siren's Wail",
+        "kind": "damage",
+        "amount": 147,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Enthral",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 3,
+        "stat_mods": {
+          "haste": -15
+        }
+      }
+    ],
+    "zin_azshari_tidecaller": [
+      {
+        "name": "Tidal Bolt",
+        "kind": "damage",
+        "amount": 230,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Healing Tide",
+        "kind": "heal",
+        "amount": 322,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "holy"
+      },
+      {
+        "name": "Brine",
+        "kind": "dot",
+        "amount": 59,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 3,
+        "dispel_type": "magic"
+      }
+    ],
+    "hydra_spawn": [
+      {
+        "name": "Snapping Jaws",
+        "kind": "damage",
+        "amount": 226,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Many Bites",
+        "kind": "damage",
+        "amount": 194,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hydra Venom",
+        "kind": "dot",
+        "amount": 54,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "drowned_highborne": [
+      {
+        "name": "Drowned Touch",
+        "kind": "damage",
+        "amount": 230,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Lungful of Sea",
+        "kind": "dot",
+        "amount": 59,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 3,
+        "dispel_type": "curse"
+      },
+      {
+        "name": "Ten Thousand Years",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -40
+        }
+      }
+    ],
+    "moonguard_sentinel": [
+      {
+        "name": "Moonblade",
+        "kind": "damage",
+        "amount": 230,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shield Bash",
+        "kind": "damage",
+        "amount": 197,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shield Wall",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 240
+        },
+        "self_only": true
+      }
+    ],
+    "highborne_spellbinder": [
+      {
+        "name": "Arcane Bolt",
+        "kind": "damage",
+        "amount": 230,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Arcane Explosion",
+        "kind": "damage",
+        "amount": 147,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      },
+      {
+        "name": "Spellbind",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 3,
+        "stat_mods": {
+          "haste": -15
+        }
+      }
+    ],
+    "queens_handmaiden": [
+      {
+        "name": "Chilling Touch",
+        "kind": "damage",
+        "amount": 230,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Mend the Court",
+        "kind": "heal",
+        "amount": 322,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "holy"
+      },
+      {
+        "name": "Courtly Curse",
+        "kind": "dot",
+        "amount": 59,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "dispel_type": "curse"
+      }
+    ],
+    "tormented_courtier": [
+      {
+        "name": "Wailing Grasp",
+        "kind": "damage",
+        "amount": 226,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Lament",
+        "kind": "damage",
+        "amount": 194,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Despair",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "stat_mods": {
+          "haste": -10
+        }
+      }
+    ],
+    "vault_hound": [
+      {
+        "name": "Spectral Bite",
+        "kind": "damage",
+        "amount": 226,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Lunge",
+        "kind": "damage",
+        "amount": 194,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hamstring",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -30
+        }
+      }
+    ],
+    "arcane_sentry": [
+      {
+        "name": "Crystal Fist",
+        "kind": "damage",
+        "amount": 240,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Arcane Pulse",
+        "kind": "damage",
+        "amount": 147,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      },
+      {
+        "name": "Mana Lock",
+        "kind": "damage",
+        "amount": 138,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "arcane",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      }
+    ],
+    "mana_wyrm": [
+      {
+        "name": "Arcane Bite",
+        "kind": "damage",
+        "amount": 226,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Mana Spark",
+        "kind": "damage",
+        "amount": 144,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      },
+      {
+        "name": "Drain Mana",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -40
+        }
+      }
+    ],
+    "ley_beast": [
+      {
+        "name": "Leyline Maul",
+        "kind": "damage",
+        "amount": 230,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Trample",
+        "kind": "damage",
+        "amount": 197,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Ley Surge",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": 50
+        },
+        "self_only": true
+      }
+    ],
+    "lady_ssiriss": [
+      {
+        "name": "Four-Armed Lash",
+        "kind": "damage",
+        "amount": 390,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "frost",
+        "boss_rework": 1
+      },
+      {
+        "name": "Pearl Bolt",
+        "kind": "damage",
+        "amount": 343,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Crushing Depths",
+        "kind": "damage",
+        "amount": 507,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "Siren Song",
+        "kind": "damage",
+        "amount": 265,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Enthralling Song",
+        "kind": "damage",
+        "amount": 273,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "arcane",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Sisters, Sing",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "summon": {
+          "name": "Zin-Azshari Siren",
+          "template": "humanoid_caster",
+          "kit": "zin_azshari_siren",
+          "count": 1,
+          "level_offset": -1,
+          "max_alive": 2,
+          "max_casts": 4
+        }
+      },
+      {
+        "name": "Drown",
+        "kind": "damage",
+        "amount": 741,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "frost"
+      },
+      {
+        "name": "The Sea Takes You",
+        "kind": "damage",
+        "amount": 624,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true,
+        "hp_below": 0.3
+      },
+      {
+        "name": "Queen of the Court",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "frost",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 156
+        }
+      }
+    ],
+    "the_drowned_chamberlain": [
+      {
+        "name": "Ring of Keys",
+        "kind": "damage",
+        "amount": 390,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow",
+        "boss_rework": 1
+      },
+      {
+        "name": "Ledger Strike",
+        "kind": "damage",
+        "amount": 343,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Collect the Debt",
+        "kind": "damage",
+        "amount": 507,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Audit",
+        "kind": "damage",
+        "amount": 265,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "is_aoe": true
+      },
+      {
+        "name": "Locked In",
+        "kind": "damage",
+        "amount": 273,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Tithe",
+        "kind": "damage",
+        "amount": 273,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "attack_power": -60,
+            "spell_power": -40
+          }
+        }
+      },
+      {
+        "name": "Final Accounting",
+        "kind": "damage",
+        "amount": 468,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "shadow",
+        "is_aoe": true
+      },
+      {
+        "name": "Interest",
+        "kind": "dot",
+        "amount": 195,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 4,
+        "dispel_type": "curse"
+      },
+      {
+        "name": "Ten Thousand Years Overdue",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 156
+        }
+      }
+    ],
+    "tidelord_vashjren": [
+      {
+        "name": "Trident Strike",
+        "kind": "damage",
+        "amount": 400,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Coral Gore",
+        "kind": "damage",
+        "amount": 352,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Tidal Slam",
+        "kind": "damage",
+        "amount": 520,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Riptide",
+        "kind": "damage",
+        "amount": 272,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Undertow",
+        "kind": "damage",
+        "amount": 280,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "frost",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Guard, to Me",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "summon": {
+          "name": "Zin-Azshari Royal Guard",
+          "template": "humanoid_warrior",
+          "kit": "zin_azshari_royal_guard",
+          "count": 1,
+          "level_offset": -1,
+          "max_alive": 2,
+          "max_casts": 4
+        }
+      },
+      {
+        "name": "The Tide Comes In",
+        "kind": "damage",
+        "amount": 480,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Impale",
+        "kind": "damage",
+        "amount": 800,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Tsunami",
+        "kind": "damage",
+        "amount": 680,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true,
+        "hp_below": 0.3
+      },
+      {
+        "name": "High Tide",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 160
+        }
+      }
+    ],
+    "the_moonguard_revenant": [
+      {
+        "name": "Moonguard Blade",
+        "kind": "damage",
+        "amount": 400,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical",
+        "boss_rework": 1
+      },
+      {
+        "name": "Shield Bash",
+        "kind": "damage",
+        "amount": 352,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Riposte",
+        "kind": "damage",
+        "amount": 520,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Cleave",
+        "kind": "damage",
+        "amount": 272,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Shield Charge",
+        "kind": "damage",
+        "amount": 280,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Shield Wall",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 520
+      },
+      {
+        "name": "Oath of the Moonguard",
+        "kind": "damage",
+        "amount": 800,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Drowned Charge",
+        "kind": "damage",
+        "amount": 640,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true,
+        "hp_below": 0.3
+      },
+      {
+        "name": "Last of the Moonguard",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 160
+        }
+      }
+    ],
+    "magistrix_elaria_the_undying": [
+      {
+        "name": "Blue Fire",
+        "kind": "damage",
+        "amount": 400,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane",
+        "boss_rework": 1
+      },
+      {
+        "name": "Arcane Lance",
+        "kind": "damage",
+        "amount": 352,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Immolating Flame",
+        "kind": "damage",
+        "amount": 520,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Arcane Storm",
+        "kind": "damage",
+        "amount": 272,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      },
+      {
+        "name": "Spell Shackle",
+        "kind": "damage",
+        "amount": 280,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "haste": -15,
+            "spell_power": -40
+          }
+        }
+      },
+      {
+        "name": "Drink the Well",
+        "kind": "heal",
+        "amount": 480,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Well of Eternity",
+        "kind": "damage",
+        "amount": 480,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      },
+      {
+        "name": "Blue Flame",
+        "kind": "dot",
+        "amount": 200,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 4,
+        "dispel_type": "magic"
+      },
+      {
+        "name": "The Undying",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 160
+        }
+      }
+    ],
+    "echo_of_the_queen": [
+      {
+        "name": "Queen's Disdain",
+        "kind": "damage",
+        "amount": 400,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane",
+        "boss_rework": 1
+      },
+      {
+        "name": "Moonlit Lash",
+        "kind": "damage",
+        "amount": 352,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Kneel",
+        "kind": "damage",
+        "amount": 520,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Tidal Glory",
+        "kind": "damage",
+        "amount": 272,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      },
+      {
+        "name": "Kneel Before Me",
+        "kind": "damage",
+        "amount": 300,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "arcane",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "My Court",
+        "kind": "summon",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "summon": {
+          "name": "Queen's Handmaiden",
+          "template": "undead_caster",
+          "kit": "queens_handmaiden",
+          "count": 1,
+          "level_offset": -1,
+          "max_alive": 2,
+          "max_casts": 5
+        }
+      },
+      {
+        "name": "Unworthy",
+        "kind": "damage",
+        "amount": 280,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "rider": {
+          "effect": "debuff",
+          "duration": 3,
+          "stat_mods": {
+            "healing_power": -60,
+            "haste": -10
+          }
+        }
+      },
+      {
+        "name": "The Sea Returns",
+        "kind": "damage",
+        "amount": 520,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "frost",
+        "is_aoe": true
+      },
+      {
+        "name": "Light of Zin-Azshari",
+        "kind": "damage",
+        "amount": 800,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Ten Thousand Years",
+        "kind": "damage",
+        "amount": 720,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true,
+        "hp_below": 0.3
+      },
+      {
+        "name": "The Queen Remembers",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 160
+        }
+      }
     ]
   }
 }

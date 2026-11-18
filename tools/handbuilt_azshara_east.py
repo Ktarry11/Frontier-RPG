@@ -31,8 +31,9 @@ promenade, coral stone, tide-pool rock, and shell silt washing up from the shore
 props are sheet 2's. Trees stop where the forest does.
 
 HARD CONTRACTS (world/portal_manager.py)
-  portals  Central Azshara (4,130) <-> its east road (196,130). Later the Vault of Zin-Azshari (178,92), in
-           LATER_PORTALS until the dungeon exists
+  portals  Central Azshara (4,130) <-> its east road (196,130); the Drowned Palace (90,148) <-> its door at the head
+           of the Drowned Court (178,92), opened 18 Nov 2026: you arrive at (178,94), and the Palace's fast exit lands
+           there too
 """
 import numpy as np
 
@@ -44,10 +45,9 @@ AZP = "assets/tiles/azshara/props/"      # Kyle's Azshara props sheet (sheet 2)
 BLD = "assets/buildings/"                # the Landing's camp pieces (sheet 3)
 W, H = 200, 200
 
-PORTALS = {(4, 130): "Central Azshara"}
-ARRIVALS = [(6, 130)]
-#: the door whose map comes later: the Vault of Zin-Azshari, at the head of the Drowned Court
-LATER_PORTALS = {(178, 92): "The Vault of Zin-Azshari"}
+PORTALS = {(4, 130): "Central Azshara", (178, 92): "The Drowned Palace"}
+ARRIVALS = [(6, 130), (178, 94)]
+LATER_PORTALS = {}
 START = (92, 114)      # Stormwatch: everything must be reachable from here
 FOREST_EDGE = 104      #: trees stop east of a wavy line round here (forest_edge); the shore is open
 

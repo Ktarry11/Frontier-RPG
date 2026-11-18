@@ -90,6 +90,7 @@ DUNGEONS = [
     "Hearthglen", "Hearthglen: Mardenholde Keep",
     # Added 2026-11-18: Azshara's first dungeon, under Timbermaw Hold (tools/build_rotroot_deeps_content.py)
     "The Rotroot Deeps",
+    "The Drowned Palace", "The Drowned Palace: The Queen's Vault",   # Azshara's last (tools/build_drowned_palace_content.py)
 ]
 # Drywhisker Deeps has fixed packs too, but it's the kobolds' MINE with its own ore pool, so like Azurelode
 # Mine it stays off this list and keeps its ore.

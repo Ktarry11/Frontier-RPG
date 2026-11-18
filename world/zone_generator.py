@@ -6011,6 +6011,9 @@ def create_all_zones():
         zones[_cave] = azcaves.generate(_cave)
     from tools.handbuilt_rotroot_deeps import generate_rotroot_deeps
     zones["The Rotroot Deeps"] = generate_rotroot_deeps()   # the dungeon under Timbermaw Hold, 55-58
+    from tools import handbuilt_drowned_palace as dpal         # Azshara's last dungeon, 59-60, two floors
+    for _floor in dpal.FLOORS:
+        zones[_floor] = dpal.generate_floor(_floor)
     from tools.handbuilt_eldest_sequoia import generate_eldest_trunk, generate_eldest_crown
     zones["The Eldest Sequoia"] = generate_eldest_trunk()   # Stonetalon's dungeon, map 1: up the trunk
     zones["The Eldest's Crown"] = generate_eldest_crown()   # map 2: the branches, open air (tools/bake_eldest_crown.py)

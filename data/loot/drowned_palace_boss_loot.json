@@ -1,0 +1,425 @@
+{
+  "_notes": "Boss loot for the Drowned Palace (59-60), off East Azshara. ONE item per kill from the boss's four; item_level = boss level + 3. Hand-authored in tools/build_drowned_palace_content.py.",
+  "Lady Ssiriss": [
+    {
+      "name": "Pearl Crown of the Siren",
+      "slot": "head",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "intellect": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {
+        "spell_power": 19
+      },
+      "armor_type": "cloth",
+      "armor_value": 86,
+      "stat_template": "int_caster",
+      "item_id": "dpl_pearl_crown_of_the_siren"
+    },
+    {
+      "name": "Four-Armed Bracers",
+      "slot": "wrist",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "agility": 17,
+        "stamina": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 140,
+      "stat_template": "agi_physical",
+      "item_id": "dpl_four_armed_bracers"
+    },
+    {
+      "name": "Siren-Scale Leggings",
+      "slot": "legs",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "intellect": 15,
+        "spirit": 15
+      },
+      "secondary_stats": {
+        "healing_power": 39
+      },
+      "armor_type": "mail",
+      "armor_value": 325,
+      "stat_template": "spi_healer",
+      "item_id": "dpl_siren_scale_leggings"
+    },
+    {
+      "name": "Ssiriss's Coral Sceptre",
+      "slot": "main_hand",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "intellect": 12
+      },
+      "secondary_stats": {
+        "spell_power": 31,
+        "crit_chance_spell": 8
+      },
+      "weapon_damage_min": 107,
+      "weapon_damage_max": 145,
+      "attack_speed": 2.6,
+      "stat_template": "int_caster",
+      "item_id": "dpl_ssirisss_coral_sceptre"
+    }
+  ],
+  "The Drowned Chamberlain": [
+    {
+      "name": "Chamberlain's Ledger",
+      "slot": "off_hand",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "weapon_type": "tome",
+      "primary_stats": {
+        "stamina": 13,
+        "intellect": 13
+      },
+      "secondary_stats": {
+        "healing_power": 23
+      },
+      "stat_template": "spi_healer",
+      "item_id": "dpl_chamberlains_ledger"
+    },
+    {
+      "name": "Ring of the Palace Keys",
+      "slot": "ring",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "agility": 15,
+        "spirit": 15
+      },
+      "secondary_stats": {},
+      "stat_template": "agi_int_hybrid",
+      "item_id": "dpl_ring_of_the_palace_keys"
+    },
+    {
+      "name": "Steward's Drowned Gloves",
+      "slot": "hands",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "strength": 17,
+        "intellect": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 338,
+      "stat_template": "str_int_hybrid",
+      "item_id": "dpl_stewards_drowned_gloves"
+    },
+    {
+      "name": "Waterlogged Livery",
+      "slot": "chest",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "strength": 24,
+        "agility": 24
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 203,
+      "stat_template": "agi_physical",
+      "item_id": "dpl_waterlogged_livery"
+    }
+  ],
+  "Tidelord Vashj'ren": [
+    {
+      "name": "Tidelord's Trident",
+      "slot": "main_hand",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 39,
+        "stamina": 49
+      },
+      "secondary_stats": {
+        "defense_rating": 29
+      },
+      "weapon_damage_min": 147,
+      "weapon_damage_max": 199,
+      "attack_speed": 3.3,
+      "stat_template": "str_physical",
+      "item_id": "dpl_tidelords_trident"
+    },
+    {
+      "name": "Coral Warplate",
+      "slot": "chest",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "strength": 25,
+        "stamina": 25
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 496,
+      "stat_template": "str_physical",
+      "item_id": "dpl_coral_warplate"
+    },
+    {
+      "name": "Undertow Belt",
+      "slot": "waist",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "agility": 12,
+        "intellect": 12
+      },
+      "secondary_stats": {
+        "attack_power": 21
+      },
+      "armor_type": "mail",
+      "armor_value": 229,
+      "stat_template": "agi_physical",
+      "item_id": "dpl_undertow_belt"
+    },
+    {
+      "name": "Cloak of the Rising Tide",
+      "slot": "back",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "intellect": 15,
+        "spirit": 15
+      },
+      "secondary_stats": {},
+      "stat_template": "spi_healer",
+      "item_id": "dpl_cloak_of_the_rising_tide"
+    }
+  ],
+  "The Moonguard Revenant": [
+    {
+      "name": "Moonguard Bulwark",
+      "slot": "off_hand",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 29
+      },
+      "armor_value": 128,
+      "block_value": 160,
+      "stat_template": "str_physical",
+      "item_id": "dpl_moonguard_bulwark"
+    },
+    {
+      "name": "Revenant's Silver Greaves",
+      "slot": "feet",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "strength": 17,
+        "intellect": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 343,
+      "stat_template": "str_int_hybrid",
+      "item_id": "dpl_revenants_silver_greaves"
+    },
+    {
+      "name": "Seaweed-Wrapped Pauldrons",
+      "slot": "shoulder",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "agility": 21,
+        "stamina": 21
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 174,
+      "stat_template": "agi_physical",
+      "item_id": "dpl_seaweed_wrapped_pauldrons"
+    },
+    {
+      "name": "Oathkeeper's Mantle",
+      "slot": "shoulder",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "intellect": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {
+        "spell_power": 19
+      },
+      "armor_type": "cloth",
+      "armor_value": 87,
+      "stat_template": "int_caster",
+      "item_id": "dpl_oathkeepers_mantle"
+    }
+  ],
+  "Magistrix Elaria the Undying": [
+    {
+      "name": "Elaria's Blue Flame",
+      "slot": "main_hand",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 26,
+        "stamina": 26
+      },
+      "secondary_stats": {
+        "spell_power": 34
+      },
+      "weapon_damage_min": 60,
+      "weapon_damage_max": 81,
+      "attack_speed": 3.2,
+      "stat_template": "int_caster",
+      "item_id": "dpl_elarias_blue_flame"
+    },
+    {
+      "name": "Robes of the Undying",
+      "slot": "chest",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "intellect": 15,
+        "spirit": 15
+      },
+      "secondary_stats": {
+        "healing_power": 40
+      },
+      "armor_type": "cloth",
+      "armor_value": 103,
+      "stat_template": "spi_healer",
+      "item_id": "dpl_robes_of_the_undying"
+    },
+    {
+      "name": "Wellspring Gauntlets",
+      "slot": "hands",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "agility": 17,
+        "spirit": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 229,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "dpl_wellspring_gauntlets"
+    },
+    {
+      "name": "Magistrix's Sash",
+      "slot": "waist",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "intellect": 10
+      },
+      "secondary_stats": {
+        "spell_power": 26,
+        "crit_chance_spell": 7
+      },
+      "armor_type": "cloth",
+      "armor_value": 71,
+      "stat_template": "int_caster",
+      "item_id": "dpl_magistrixs_sash"
+    }
+  ],
+  "Echo of the Queen": [
+    {
+      "name": "Moonlit Mantle of the Queen",
+      "slot": "shoulder",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "intellect": 13,
+        "spirit": 13
+      },
+      "secondary_stats": {
+        "healing_power": 34
+      },
+      "armor_type": "mail",
+      "armor_value": 279,
+      "stat_template": "spi_healer",
+      "item_id": "dpl_moonlit_mantle_of_the_queen"
+    },
+    {
+      "name": "Echoing Greatsword",
+      "slot": "main_hand",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "weapon_type": "sword_2h",
+      "primary_stats": {
+        "strength": 39,
+        "stamina": 49
+      },
+      "secondary_stats": {
+        "defense_rating": 29
+      },
+      "weapon_damage_min": 147,
+      "weapon_damage_max": 199,
+      "attack_speed": 3.4,
+      "stat_template": "str_physical",
+      "item_id": "dpl_echoing_greatsword"
+    },
+    {
+      "name": "Tidewoven Leggings",
+      "slot": "legs",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "strength": 25,
+        "agility": 25
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 206,
+      "stat_template": "agi_physical",
+      "item_id": "dpl_tidewoven_leggings"
+    },
+    {
+      "name": "Signet of Zin-Azshari",
+      "slot": "ring",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "intellect": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "spell_power": 14
+      },
+      "stat_template": "int_caster",
+      "item_id": "dpl_signet_of_zin_azshari"
+    }
+  ]
+}

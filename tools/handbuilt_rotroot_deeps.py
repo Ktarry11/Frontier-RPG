@@ -62,23 +62,24 @@ ISLANDS = [
     (78, 152, 7, 5),                                        # Xavras's throne island
     (58, 142, 3, 3), (98, 142, 3, 3), (78, 164, 3, 3),      # ritual platforms on the Gloomhollow's rim
 ]
-#: (points, width): passages, spits, root bridges and the causeway, every end on floor
+#: (points, width): passages, spits, root bridges and the causeway, every end on floor. Widths are _carve_path's,
+#: about 2w + 1 tiles across: a root bridge or a spit (w 1) is three tiles wide, a passage (w 2) five
 PASSAGES = [
-    ([(22, 4), (22, 12)], 5),                                   # the gate stair down into the halls
-    ([(48, 46), (58, 54), (66, 60)], 5),                        # 1 -> 2, the first slope
+    ([(22, 4), (22, 12)], 2),                                   # the gate stair down into the halls
+    ([(48, 46), (58, 54), (66, 60)], 2),                        # 1 -> 2, the first slope
     # the Sporegarden's spits: the way round the pools to its far side, and out to the islands
-    ([(66, 62), (74, 62), (86, 68), (98, 72), (110, 66)], 3),
-    ([(104, 56), (114, 62), (122, 70)], 5),                     # 2 -> 3, into the gauntlet
-    ([(174, 84), (176, 94), (172, 102)], 5),                    # 3 -> 4, down into the cathedral
+    ([(66, 62), (74, 62), (86, 68), (98, 72), (110, 66)], 1),
+    ([(104, 56), (114, 62), (122, 70)], 2),                     # 2 -> 3, into the gauntlet
+    ([(174, 84), (176, 94), (172, 102)], 2),                    # 3 -> 4, down into the cathedral
     # the root bridges: the cathedral's south rim to the knots, knot to knot
-    ([(172, 104), (168, 118), (168, 132)], 3),
-    ([(168, 132), (160, 129), (150, 126)], 3),
-    ([(150, 126), (140, 122), (132, 118)], 3),
-    ([(132, 118), (124, 128), (122, 140)], 3),
-    ([(122, 140), (112, 144), (104, 146)], 5),                  # 4 -> 5, down to the Gloomhollow's rim
-    ([(104, 146), (92, 150), (78, 152)], 3),                    # the causeway out to the throne
+    ([(172, 104), (168, 118), (168, 132)], 1),
+    ([(168, 132), (160, 129), (150, 126)], 1),
+    ([(150, 126), (140, 122), (132, 118)], 1),
+    ([(132, 118), (124, 128), (122, 140)], 1),
+    ([(122, 140), (112, 144), (104, 146)], 2),                  # 4 -> 5, down to the Gloomhollow's rim
+    ([(104, 146), (92, 150), (78, 152)], 1),                    # the causeway out to the throne
     # the Rotting Stair: from the Sporegarden down the west wall beside the fel fall, to the rim
-    ([(66, 80), (66, 92), (66, 116), (60, 132), (50, 140)], 3),
+    ([(66, 80), (66, 92), (66, 116), (60, 132), (50, 140)], 1),
 ]
 #: rock left standing: the halls' pillars, and the gauntlet's cage walls
 PILLARS = [(24, 20, 1), (24, 30, 1), (24, 40, 1), (42, 20, 1), (42, 30, 1), (42, 40, 1)]

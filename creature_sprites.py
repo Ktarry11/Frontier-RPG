@@ -45,6 +45,8 @@ SHEETS = {
     'plaguelands_secrets': ['ps_woolly_mammoth', 'ps_woolly_rhino', 'ps_dire_wolf', 'ps_giant_elk', 'ps_cave_bear', 'ps_steppe_bison', 'ps_boss_mammoth_matriarch', 'ps_boss_cave_lion', 'ps_boss_walking_glacier', 'ps_stone_age_woman', 'ps_palaeontologist', 'ps_frozen_hunter', 'ps_mere_wisp', 'ps_fen_drowned', 'ps_fen_owl', 'ps_bog_lurker', 'ps_barrow_shade', 'ps_bog_hulk', 'ps_boss_lamplighter', 'ps_boss_bog_hag', 'ps_finnish_scientist', 'ps_forsaken_fisherwoman', 'ps_bog_eel', 'ps_reed_heron', 'ps_eversong_lynx', 'ps_mana_wyrm', 'ps_arcane_remnant', 'ps_sentinel_shade', 'ps_elf_ranger', 'ps_elf_quartermaster', 'ps_boss_magister', 'ps_boss_breach_gnawer', 'ps_gaunt_ghoul', 'ps_scourge_necromancer', 'ps_wardstone', 'ps_dead_elf_ranger'],
     # ---- Azshara (Kyle's sheet 5, 17 Nov; docs/azshara_art_prompts.md)
     'azshara_creatures': ['az_naga_siren', 'az_naga_tidehunter', 'az_naga_sea_witch', 'az_naga_royal_guard', 'az_naga_brute', 'az_serpent_hatchling', 'az_ghost_noble', 'az_ghost_arcanist', 'az_ghost_guard', 'az_ghost_handmaiden', 'az_ghost_hound', 'az_ghost_tormented', 'az_satyr_cursed', 'az_satyr_sorcerer', 'az_satyr_houndmaster', 'az_felhound', 'az_eredar_warlock', 'az_doomguard_sentinel', 'az_blue_drake', 'az_blue_dragonspawn', 'az_blue_whelp', 'az_mana_wyrm_leader', 'az_arcane_construct', 'az_ley_beast', 'az_rot_furbolg', 'az_rot_shaman', 'az_rot_beast', 'az_spore_cloud', 'az_root_horror', 'az_rot_tender', 'az_timber_wolf', 'az_thunder_lizard', 'az_shore_crab', 'az_cliff_hippogryph', 'az_autumn_treant', 'az_russet_boar'],
+    # ---- the Drowned Palace's bosses (Kyle's Azshara dungeon sheet, row 6; tools/build_drowned_palace_content.py)
+    'drowned_palace': ['vz_boss_ssiriss', 'vz_boss_vashjren', 'vz_boss_chamberlain', 'vz_boss_elaria', 'vz_boss_revenant', 'vz_boss_echo_queen'],
     # ---- the Rotroot Deeps' bosses (Kyle's sheet, 18 Nov 2026; tools/build_rotroot_deeps_content.py)
     'rotroot_deeps': ['fr_boss_mossjaw', 'fr_boss_sporeheart', 'fr_boss_kazthul', 'fr_boss_thornblight', 'fr_boss_xavras', 'fr_elite_guard'],
     # ---- Stonetalon (Kyle's sheet, 15 Nov; docs/stonetalon_art_prompts.md sheet 4)
@@ -241,6 +243,28 @@ _RULES = [
     (r"^barnacled\ shorecrab$", "az_shore_crab"),
     (r"^tide-priestess\ sel'thira$", "az_naga_sea_witch"),
     (r"^hetaera$", "serpent_2"),
+    # THE DROWNED PALACE (tools/build_drowned_palace_content.py): exact names, Kyle's Azshara creature sheet and
+    # the Vault boss row (sheet 6).
+    (r"^zin-azshari\ myrmidon$", "az_naga_brute"),
+    (r"^zin-azshari\ royal\ guard$", "az_naga_royal_guard"),
+    (r"^zin-azshari\ siren$", "az_naga_siren"),
+    (r"^zin-azshari\ tidecaller$", "az_naga_sea_witch"),
+    (r"^hydra\ spawn$", "az_serpent_hatchling"),
+    (r"^drowned\ highborne$", "az_ghost_noble"),
+    (r"^lady\ ssiriss$", "vz_boss_ssiriss"),
+    (r"^the\ drowned\ chamberlain$", "vz_boss_chamberlain"),
+    (r"^tidelord\ vashj'ren$", "vz_boss_vashjren"),
+    (r"^moonguard\ sentinel$", "az_ghost_guard"),
+    (r"^highborne\ spellbinder$", "az_ghost_arcanist"),
+    (r"^queen's\ handmaiden$", "az_ghost_handmaiden"),
+    (r"^tormented\ courtier$", "az_ghost_tormented"),
+    (r"^vault\ hound$", "az_ghost_hound"),
+    (r"^arcane\ sentry$", "az_arcane_construct"),
+    (r"^mana\ wyrm$", "az_mana_wyrm_leader"),
+    (r"^ley\ beast$", "az_ley_beast"),
+    (r"^the\ moonguard\ revenant$", "vz_boss_revenant"),
+    (r"^magistrix\ elaria\ the\ undying$", "vz_boss_elaria"),
+    (r"^echo\ of\ the\ queen$", "vz_boss_echo_queen"),
     # THE ROTROOT DEEPS (tools/build_rotroot_deeps_content.py): exact names, Kyle's Azshara creature sheet and his
     # Rotroot boss sheet; the Gloomhollow satyrs borrow Felwood's shadowstalker.
     (r"^rotroot\ furbolg$", "az_rot_furbolg"),
@@ -1033,19 +1057,11 @@ FAMILY_FALLBACK = {
 SPARE = {
     # Azshara's open-world creatures (docs/azshara_brief.md): sliced and installed with the caves, given to
     # creatures when the creature and quest pass comes. They come off this list then.
-    "az_naga_royal_guard": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
-    "az_ghost_noble": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
-    "az_ghost_guard": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
-    "az_ghost_hound": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
-    "az_ghost_tormented": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
     "az_eredar_warlock": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
     "az_doomguard_sentinel": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
     "az_blue_drake": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
     "az_blue_dragonspawn": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
     "az_blue_whelp": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
-    "az_mana_wyrm_leader": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
-    "az_arcane_construct": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
-    "az_ley_beast": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
     "az_timber_wolf": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
     "az_thunder_lizard": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",
     "az_cliff_hippogryph": "Azshara creature (Kyle's sheet 5, 17 Nov 2026), waiting on the Azshara creature pass.",

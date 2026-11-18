@@ -211,6 +211,8 @@ ZONE_BACKGROUND = {
     "Haldarr Den": "dark_dungeon",                # the satyrs' root warren
     "Hetaera's Grotto": "dark_dungeon",           # the naga's sea cave
     "The Rotroot Deeps": "dark_dungeon",          # the fel rot under Timbermaw Hold
+    "The Drowned Palace": "dark_dungeon",         # Azshara's palace, half in the sea
+    "The Drowned Palace: The Queen's Vault": "dark_dungeon",
     "Eastern Kingdoms - Stranglethorn": "jungle",  # region label over the tropical zones
 
     # --- desert and salt ---------------------------------------------------
