@@ -33,6 +33,11 @@ Central Azshara, East Azshara (the Drowned Court already risen), Orgrimmar's nor
    - The hidden content ("Surprise me"). Never described.
 5. **Later, Kyle's call**: the Sunreach Conclave's island home.
 
+## 1b. Deadwind Pass (vision and art prompts only, 17 Nov 2026)
+- `docs/deadwind_brief.md` and `docs/deadwind_art_prompts.md` (8 sheets). Kyle: "I just want the vision and the
+  prompts....then go back to happy Azshara!" Nothing to build until the art is in and Kyle says go. It holds the last T0
+  token (the bracers), reached by a tunnel through Stranglethorn's north-east mountains.
+
 ## 2. Banks, auction houses and mail (Kyle, 17 Nov 2026)
 - **Every bank, auction house and mailbox stands together** (Kyle: "generally we will want an auction house, a bank,
   and a mailbox close together"), using the new grand buildings (`docs/bank_auction_art_prompts.md`, sliced to
