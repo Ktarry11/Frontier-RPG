@@ -218,21 +218,139 @@ add("book_first_steps", "Book of First Steps", "tome", 100, "common",
     "New characters start with a six-slot bag and 5 gold.", {"new_character": {"copper": 5 * G, "bag": True}},
     "qi_journal")
 
-# ---------------------------------------------------------------- heirlooms (fit the wearer; +80% XP in all)
-for cid, name, slot, xp, gold, rar in (
-        ("heirloom_head", "Heirloom Helm", "head", 10, 150, "common"),
-        ("heirloom_shoulder", "Heirloom Shoulders", "shoulder", 10, 150, "common"),
-        ("heirloom_chest", "Heirloom Chest", "chest", 10, 180, "uncommon"),
-        ("heirloom_legs", "Heirloom Legs", "legs", 10, 180, "uncommon"),
-        ("heirloom_back", "Heirloom Cloak", "back", 10, 120, "common"),
-        ("heirloom_trinket", "Heirloom Trinket", "trinket", 10, 200, "uncommon"),
-        ("heirloom_two_hand", "Heirloom Two-Hander", "two_hand", 20, 300, "rare"),
-        ("heirloom_one_hand", "Heirloom One-Hander", "one_hand", 10, 150, "common"),
-        ("heirloom_shield", "Heirloom Shield", "shield", 10, 120, "common"),
-        ("heirloom_off_hand", "Heirloom Off-Hand", "off_hand", 10, 120, "common")):
-    add(cid, name, "heirloom", gold, rar,
-        f"Fits whoever takes it, levels with them, and gives +{xp}% experience while worn (until 60).",
-        {"heirloom_slot": slot, "xp_pct": xp}, "qi_signet")
+# ---------------------------------------------------------------- heirlooms
+# Kyle, 18 Nov 2026: "We should have the heirlooms as we need cloth, leather, mail, and plate. And all the weapons,
+# shields, OH, etc.", "You know how heirlooms work", then the generalist families: "caster cloth, healer cloth, agi
+# leather, healer leather, caster leather, dps mail, caster mail, healer mail. Dps plate, tank plate, hybrid plate,
+# healer plate." And: "these armor pieces need to level up with the player! So they can be worn at lvl 1 or lvl 60.
+# But obviously they will be slightly worse than items of the same level... They also affect the whole party."
+# Each heirloom is its own item with a set armour (or weapon) type and family; world/collection.py makes it at the
+# wearer's level with the family's fixed stats, a little under a blue. Twelve armour families x four pieces, a cloak
+# and a trinket per family, and every weapon a spec actually wields in its family.
+# XP (Kyle): a two-hander +20%; a one-hander, shield or off-hand +10%; each armour piece, cloak and trinket +10%;
+# +80% at most, read off the leader for the whole party. Ranged-slot pieces scale but give no XP.
+FAMILY_NAME = {"caster": ("Dusty", "Archmage"), "healer": ("Faded", "Lightwarden"), "agi": ("Worn", "Nightstalker"),
+               "str": ("Bloodied", "Warbringer"), "tank": ("Battle-Worn", "Bulwark"),
+               "hybrid": ("Burnished", "Crusader")}
+FAMILY_WORDS = {"caster": "intellect and spell power", "healer": "intellect, spirit and healing",
+                "agi": "agility", "str": "strength", "tank": "stamina, strength and defense",
+                "hybrid": "strength and intellect"}
+ARMOUR_WORDS = {"cloth": ("Hood", "Mantle", "Robe", "Leggings"), "leather": ("Cap", "Spaulders", "Tunic", "Breeches"),
+                "mail": ("Coif", "Pauldrons", "Hauberk", "Legguards"),
+                "plate": ("Helm", "Shoulderguards", "Breastplate", "Legplates")}
+ARMOUR_SLOTS = (("head", 0, "col_heirloom_head"), ("shoulder", 1, "col_heirloom_shoulder"),
+                ("chest", 2, "col_heirloom_chest"), ("legs", 3, "col_heirloom_chest"))
+WEAPON_WORD = {"sword_1h": "Blade", "sword_2h": "Greatsword", "axe_1h": "Axe", "axe_2h": "Greataxe", "mace_1h": "Mace",
+               "mace_2h": "Maul", "dagger": "Dagger", "fist_weapon": "Fist", "staff": "Staff", "polearm": "Halberd",
+               "bow": "Longbow", "gun": "Rifle", "crossbow": "Crossbow", "wand": "Wand", "thrown": "Throwing Knives",
+               "shield": "Shield", "tome": "Tome", "totem": "Totem", "libram": "Libram", "idol": "Idol"}
+WEAPON_ICON = {"shield": "col_heirloom_shield", "tome": "col_book_master"}
+
+
+def _spec_gear():
+    return {k: v for k, v in json.loads((ROOT / "data/items/spec_gear.json").read_text(encoding="utf-8")).items()
+            if not k.startswith("_")}
+
+
+def _hands():
+    return {k: v.get("hand") for k, v in json.loads((ROOT / "data/items/weapon_types.json").read_text(
+        encoding="utf-8"))["weapon_types"].items()}
+
+
+def heirlooms():
+    from world.collection import ARMOUR_FAMILIES, weapon_family
+    specs = _spec_gear()
+    hands = _hands()
+    weapon_fams = sorted({weapon_family(v) for v in specs.values()})
+    weapons = sorted({(wt, weapon_family(v)) for v in specs.values() for wt in (v.get("weapons") or {}).values()
+                      if wt} | {("shield", "tank")})
+    for armour, fams in ARMOUR_FAMILIES.items():
+        for fam in fams:
+            adj, who = FAMILY_NAME[fam]
+            for slot, k, icon in ARMOUR_SLOTS:
+                word = ARMOUR_WORDS[armour][k]
+                yield (f"heirloom_{armour}_{fam}_{slot}", f"{adj} {who}'s {word}",
+                       150 if slot in ("head", "legs") else 180, "uncommon",
+                       f"Heirloom {armour} with {FAMILY_WORDS[fam]}. It levels with whoever wears it, from 1 to 60, "
+                       f"and gives the whole party +10% experience while the leader wears it.",
+                       {"heirloom_slot": slot, "armor_type": armour, "family": fam, "xp_pct": 10}, icon)
+    for fam in weapon_fams:
+        adj, who = FAMILY_NAME[fam]
+        yield (f"heirloom_{fam}_back", f"Inherited Cloak of the {who}", 120, "common",
+               f"An heirloom cloak with {FAMILY_WORDS[fam]}. It levels with whoever wears it and gives the whole "
+               f"party +10% experience while the leader wears it.",
+               {"heirloom_slot": "back", "armor_type": "cloth", "family": fam, "xp_pct": 10}, "col_heirloom_back")
+        yield (f"heirloom_{fam}_trinket", f"{who}'s Keepsake", 200, "uncommon",
+               f"An heirloom trinket with {FAMILY_WORDS[fam]}. It levels with whoever carries it and gives the whole "
+               f"party +10% experience while the leader carries it.",
+               {"heirloom_slot": "trinket", "family": fam, "xp_pct": 10}, "col_hearthstone_2")
+    for wt, fam in weapons:
+        adj, who = FAMILY_NAME[fam]
+        hand = hands.get(wt)
+        xp = 20 if hand == "two_hand" else (10 if hand in ("main_or_off", "off_hand") else 0)
+        slot = {"two_hand": "two_hand", "main_or_off": "one_hand", "off_hand": "off_hand"}.get(hand, "ranged")
+        gold = {20: 300, 10: 150, 0: 120}[xp]
+        line = (f"gives the whole party +{xp}% experience while the leader wields it" if xp
+                else "gives no experience bonus (it's a ranged-slot piece)")
+        yield (f"heirloom_{wt}_{fam}", f"{adj} {who}'s {WEAPON_WORD.get(wt, wt.title())}", gold,
+               "rare" if xp == 20 else "uncommon",
+               f"An heirloom with {FAMILY_WORDS[fam]}. It levels with whoever wields it and {line}.",
+               {"heirloom_slot": slot, "weapon_type": wt, "family": fam, "xp_pct": xp},
+               WEAPON_ICON.get(wt, "col_heirloom_two_hand"))
+
+
+for cid, name, gold, rar, blurb, effect, icon in heirlooms():
+    add(cid, name, "heirloom", gold, rar, blurb, effect, icon)
+
+
+# ---------------------------------------------------------------- the icons (Sheet D, delivered 18 Nov 2026)
+UNIQUE_REINS = {"bone_white_kodo": "kodo", "steamwheedle_runabout": "runabout", "tidecaller_sea_turtle": "turtle",
+                "dread_elk_of_felwood": "elk", "sunreach_hawkstrider": "hawkstrider", "ashen_nightmare": "nightmare"}
+SERVICE_ICON = {"bank": "col_satchel_bank", "peddler": "col_peddler_bell", "mail": "col_courier_horn",
+                "class_trainer": "col_book_master", "profession_trainer": "col_book_professions",
+                "reagents": "col_satchel_reagents"}
+CHARM_WORDS = (("murloc", ("murloc",)),
+               ("serpent", ("serpent", "snake", "naga", "basilisk", "lizard", "crocolisk", "hydra", "wyrm", "drake",
+                            "dragon", "whelp", "scorpid", "slither", "viper", "cobra", "worm")),
+               ("bird", ("crow", "vulture", "owl", "harpy", "bat", "bird", "hawk", "raven", "wyvern", "buzzard",
+                         "gryphon", "roc", "condor", "moth", "wasp", "stinger")),
+               ("spirit", ("spirit", "ghost", "shade", "wraith", "spectre", "specter", "phantom", "banshee", "wisp",
+                           "apparition", "echo")),
+               ("drowned", ("drowned", "sea", "tide", "coral", "reef", "deep", "siren", "brine", "wave", "kraken")))
+
+
+def icon_for(i):
+    k, eff, cid = i["kind"], i["effect"], i["id"]
+    if k == "mount":
+        if cid in UNIQUE_REINS:
+            return f"col_reins_{UNIQUE_REINS[cid]}"
+        colour = cid.split("_")[0]
+        return f"col_reins_{'twilight' if colour == 'dusk' else colour}"
+    if k == "form":
+        name = eff["form_name"].lower()
+        if cid == "spirit_wolf":
+            return "col_charm_spirit"
+        if cid == "shade_of_the_drowned_court":
+            return "col_charm_drowned"
+        for charm, words in CHARM_WORDS:
+            if any(w in name for w in words):
+                return f"col_charm_{charm}"
+        return "col_charm_wolf"
+    if k == "title":
+        return "col_title_rare" if i["rarity"] in ("rare", "epic") else "col_title_common"
+    if eff.get("feather"):
+        return "col_feather_kalimdor" if eff["feather"] == "kalimdor" else "col_feather_eastern"
+    if eff.get("second_hearth"):
+        return "col_hearthstone_2"
+    if k == "service":
+        return SERVICE_ICON[eff["service"]]
+    if k in ("travel", "tome"):
+        return "col_tome_hearth"
+    return i["icon_id"]
+
+
+for _i in ITEMS:
+    _i["icon_id"] = icon_for(_i)
 
 
 def problems():
@@ -251,12 +369,17 @@ def problems():
             out.append(f"{i['id']}: no picture {i['effect']['sprite']}")
         if i["rarity"] not in RARITY_WEIGHT:
             out.append(f"{i['id']}: rarity {i['rarity']}")
-        if not (ROOT / "assets/icons/quest_items" / f"{i['icon_id']}.png").exists():
+        if not any((ROOT / "assets/icons" / d / f"{i['icon_id']}.png").exists() for d in ("quest_items", "collection")):
             out.append(f"{i['id']}: no icon {i['icon_id']}")
-    xp = sum(i["effect"]["xp_pct"] for i in ITEMS if i["kind"] == "heirloom"
-             and i["effect"]["heirloom_slot"] not in ("one_hand", "shield", "off_hand"))
-    if xp != 80:
-        out.append(f"a full heirloom set with a two-hander gives {xp}%, not Kyle's 80%")
+    # a full kit is +80%: four armour pieces, a cloak and a trinket (60) and a two-hander (20)
+    if 4 * 10 + 10 + 10 + 20 != 80 or not any(i["effect"].get("xp_pct") == 20 for i in ITEMS):
+        out.append("a full heirloom kit isn't Kyle's +80%")
+    from world.collection import armour_family, weapon_family
+    have = {i["id"] for i in ITEMS}
+    for k, v in _spec_gear().items():
+        want = [f"heirloom_{v['armor_type']}_{armour_family(v)}_chest", f"heirloom_{weapon_family(v)}_back"]
+        want += [f"heirloom_{wt}_{weapon_family(v)}" for wt in (v.get("weapons") or {}).values() if wt]
+        out += [f"{k} has no {w}" for w in want if w not in have]
     return out
 
 

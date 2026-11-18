@@ -291,81 +291,110 @@ def all_professions():
 
 
 # ------------------------------------------------------------------ heirlooms
-#: (heirloom slot -> the equipment slot it's made for)
-HEIRLOOM_SLOTS = {"head": "head", "shoulder": "shoulder", "chest": "chest", "legs": "legs", "back": "back",
-                  "trinket": "trinket1", "two_hand": "main_hand", "one_hand": "main_hand", "shield": "off_hand",
-                  "off_hand": "off_hand"}
-HEIRLOOM_WORDS = {"head": "Helm", "shoulder": "Shoulders", "chest": "Chestguard", "legs": "Legguards",
-                  "back": "Cloak", "trinket": "Keepsake", "shield": "Shield", "off_hand": "Off-Hand"}
+# Kyle, 18 Nov 2026: "We should have the heirlooms as we need cloth, leather, mail, and plate. And all the weapons,
+# shields, OH, etc.", "You know how heirlooms work", and then the families: "caster cloth, healer cloth, agi leather,
+# healer leather, caster leather, dps mail, caster mail, healer mail. Dps plate, tank plate, hybrid plate, healer
+# plate. So we can have some generalist stuff". Each heirloom is its own item with a set armour (or weapon) type and
+# a set stat family, and it levels with whoever wears it. Its stats are a fixed recipe for the family (no random
+# suffix), sized by the game's own item budget at the wearer's level.
+EQUIP_SLOT = {"head": "head", "shoulder": "shoulder", "chest": "chest", "legs": "legs", "back": "back",
+              "trinket": "trinket", "two_hand": "main_hand", "one_hand": "main_hand", "off_hand": "off_hand",
+              "ranged": "ranged"}
+
+#: Kyle's twelve armour families: armour type -> {family: words}
+ARMOUR_FAMILIES = {"cloth": ("caster", "healer"), "leather": ("agi", "healer", "caster"),
+                   "mail": ("agi", "caster", "healer"), "plate": ("str", "tank", "hybrid", "healer")}
+#: the stat template each family stands in for, so everything that reads stat_template keeps working
+FAMILY_TEMPLATE = {"caster": "int_caster", "healer": "spi_healer", "agi": "agi_physical", "str": "str_physical",
+                   "tank": "str_physical", "hybrid": "str_int_hybrid"}
+#: an heirloom's stats against a blue of the same level (Kyle: "slightly worse")
+HEIRLOOM_BUDGET = 0.85
+#: the share of the item's budget each stat gets
+RECIPES = {
+    "caster": {"intellect": .40, "stamina": .25, "spell_power": .25, "crit_chance_spell": .10},
+    "healer": {"intellect": .35, "spirit": .20, "stamina": .20, "healing_power": .25},
+    "agi": {"agility": .50, "stamina": .30, "attack_power": .10, "crit_chance_physical": .10},
+    "str": {"strength": .50, "stamina": .30, "attack_power": .10, "crit_chance_physical": .10},
+    "tank": {"stamina": .45, "strength": .25, "defense_rating": .15, "dodge_rating": .15},
+    "hybrid": {"strength": .35, "intellect": .25, "stamina": .25, "spell_power": .15},
+}
 
 
-def _spec_of(character):
-    from entities.proficiency import active_spec
-    spec = active_spec(character)
-    gear = _spec_gear()
-    if spec in gear:
-        return spec, gear[spec]
-    for k, v in gear.items():
-        if isinstance(v, dict) and v.get("class") == getattr(character, "char_class", None):
-            return k, v
-    return None, {}
+def armour_family(spec):
+    """Which of Kyle's twelve armour families a spec (a spec_gear.json entry) wears."""
+    a, t, role = spec["armor_type"], spec["stat_template"], spec.get("role")
+    if t == "spi_healer":
+        return "healer"
+    if t == "int_caster":
+        return "healer" if a == "plate" else "caster"
+    if a == "plate":
+        if role == "tank":
+            return "tank"
+        return "hybrid" if t == "str_int_hybrid" else "str"
+    return "agi"
 
 
-_SPEC_GEAR = None
+def weapon_family(spec):
+    """The stat family a spec's heirloom weapons, cloak and trinket come in."""
+    t, role = spec["stat_template"], spec.get("role")
+    if role == "tank" and spec["armor_type"] == "plate":
+        return "tank"
+    return {"int_caster": "caster", "spi_healer": "healer", "str_physical": "str", "str_int_hybrid": "hybrid",
+            "agi_physical": "agi", "agi_int_hybrid": "agi"}[t]
 
 
-def _spec_gear():
-    global _SPEC_GEAR
-    if _SPEC_GEAR is None:
-        _SPEC_GEAR = {k: v for k, v in json.loads((ROOT / "data/items/spec_gear.json").read_text(
-            encoding="utf-8")).items() if not k.startswith("_")}
-    return _SPEC_GEAR
+_BLUE = {}
 
 
-_WEAPONS = None
+def _blue_points(gen, slot, level, armour, family, weapon_type=None):
+    """What a blue of this slot and level is really worth, in budget points: the mean of a dozen rolls of the loot
+    generator itself (sockets, rounding and bonus rolls included), so an heirloom tracks real drops at every level."""
+    key = (slot, level, armour, weapon_type, family)
+    if key in _BLUE:
+        return _BLUE[key]
+    cost = gen.stat_budget_costs
+    tpl = FAMILY_TEMPLATE[family]
+    state = random.getstate()
+    pts = []
+    try:
+        for k in range(12):
+            random.seed(f"blue|{key}|{k}")
+            if weapon_type:
+                it = gen.generate_weapon(slot, weapon_type, tpl, level, "rare")
+            else:
+                it = gen.generate_armor_piece(slot, armour, tpl, level, "rare")
+            if it is not None:
+                pts.append(sum(v * cost.get(st, 1.0) for d in (it.primary_stats, it.secondary_stats)
+                               for st, v in d.items()))
+    finally:
+        random.setstate(state)
+    _BLUE[key] = (sum(pts) / len(pts)) if pts else 0.0
+    return _BLUE[key]
 
 
-def _weapons():
-    global _WEAPONS
-    if _WEAPONS is None:
-        _WEAPONS = json.loads((ROOT / "data/items/weapon_types.json").read_text(encoding="utf-8"))
-    return _WEAPONS
-
-
-def _class_weapons(char_class):
-    return list((_weapons().get("class_weapon_map", {}) or {}).get(char_class, []) or [])
-
-
-def _hand(wt):
-    return (_weapons()["weapon_types"].get(wt) or {}).get("hand")
-
-
-def heirloom_weapon_type(slot, character):
-    """Which weapon type an heirloom weapon becomes for this character, or None if their class can't use one."""
-    _spec, sg = _spec_of(character)
-    mine = _class_weapons(character.char_class)
-    want = (sg.get("weapons") or {})
-    caster = (sg.get("stat_template") or "").endswith(("caster", "healer"))
-    if slot == "two_hand":
-        if want.get("main_hand") in mine and _hand(want.get("main_hand")) == "two_hand":
-            return want["main_hand"]
-        order = (["staff"] if caster else []) + ["sword_2h", "axe_2h", "mace_2h", "polearm", "staff"]
-        return next((w for w in order if w in mine), None)
-    if slot == "one_hand":
-        if want.get("main_hand") in mine and _hand(want.get("main_hand")) == "main_or_off":
-            return want["main_hand"]
-        order = (["mace_1h", "dagger"] if caster else []) + ["sword_1h", "axe_1h", "mace_1h", "dagger", "fist_weapon"]
-        return next((w for w in order if w in mine), None)
-    if slot == "shield":
-        return "shield" if "shield" in mine else None
-    if slot == "off_hand":
-        if "tome" in mine:
-            return "tome"
-        from entities.proficiency import dual_wield_level
-        if dual_wield_level(character):
-            return heirloom_weapon_type("one_hand", character)
-        return None
-    return None
+def _heirloom_stats(gen, slot, level, family, armour=None, weapon_type=None):
+    """The family's recipe, worth HEIRLOOM_BUDGET of a blue of the same slot and level (Kyle: "slightly worse than
+    items of the same level as they have the exp boost in them")."""
+    from entities.item import whole
+    from entities.loot_generator import RATING_FLOOR, _RATING_KEYS
+    total = _blue_points(gen, slot, level, armour, family, weapon_type) * HEIRLOOM_BUDGET
+    prim, sec, spare = {}, {}, 0.0
+    primary = {"strength", "agility", "intellect", "stamina", "spirit"}
+    for stat, w in RECIPES[family].items():
+        cost = gen.stat_budget_costs.get(stat, 1.0)
+        raw = total * w / cost
+        v = whole(raw)
+        if (stat in _RATING_KEYS and v < RATING_FLOOR) or v <= 0:
+            spare += raw * cost
+            continue
+        spare += (raw - v) * cost
+        (prim if stat in primary else sec)[stat] = v
+    main = max(prim, key=prim.get) if prim else "stamina"
+    if spare >= 1:
+        prim[main] = prim.get(main, 0) + whole(spare)
+    if not prim:
+        prim[main] = 1
+    return prim, sec
 
 
 def can_take_heirloom(cid, character, party=None):
@@ -375,11 +404,15 @@ def can_take_heirloom(cid, character, party=None):
         return False, "That isn't an heirloom."
     if not learned(cid):
         return False, "You haven't learned that heirloom yet."
-    slot = e["effect"]["heirloom_slot"]
-    if slot in ("two_hand", "one_hand", "shield", "off_hand") and heirloom_weapon_type(slot, character) is None:
-        return False, f"A {character.char_class} can't use the {e['name']}."
+    item = make_heirloom(cid, character)
+    if item is None:
+        return False, "That heirloom couldn't be made."
+    from entities.proficiency import can_equip
+    ok, why = can_equip(character, item)
+    if not ok and "level" not in why.lower():
+        return False, why
     if heirloom_copy_exists(cid, party, character):
-        return False, f"You already have the {e['name']} with you (one copy at a time)."
+        return False, "You already have a copy with you (one at a time)."
     return True, ""
 
 
@@ -406,44 +439,40 @@ def heirloom_copy_exists(cid, party, character=None):
 
 
 def make_heirloom(cid, character):
-    """A blue heirloom copy of `cid`, fitted to `character` at their level. None if they can't use it."""
+    """A blue copy of heirloom `cid` at `character`'s level: its own armour or weapon type and stat family."""
     e = get_entry(cid)
-    if e is None:
+    if e is None or e["kind"] != "heirloom":
         return None
-    slot = e["effect"]["heirloom_slot"]
-    spec, sg = _spec_of(character)
-    template = sg.get("stat_template")
-    school = sg.get("school")
+    eff = e["effect"]
+    slot = EQUIP_SLOT[eff["heirloom_slot"]]
+    family = eff["family"]
+    tpl = FAMILY_TEMPLATE[family]
     level = max(1, int(getattr(character, "level", 1)))
     gen = _generator()
     state = random.getstate()
-    random.seed(f"{cid}|{character.char_class}|{spec}|{level}")
+    random.seed(f"{cid}|{level}")
     try:
-        if slot in ("two_hand", "one_hand", "shield", "off_hand"):
-            wt = heirloom_weapon_type(slot, character)
-            if wt is None:
-                return None
-            equip = "off_hand" if slot in ("shield", "off_hand") else "main_hand"
-            item = gen.generate_item_for_class(character.char_class, level, slot=equip, rarity="rare",
-                                               weapon_type=wt, stat_template=template, school=school)
+        if eff.get("weapon_type"):
+            item = gen.generate_weapon(slot, eff["weapon_type"], tpl, level, "rare")
         else:
-            item = gen.generate_item_for_class(character.char_class, level, slot=HEIRLOOM_SLOTS[slot],
-                                               rarity="rare", stat_template=template, school=school)
+            item = gen.generate_armor_piece(slot, eff.get("armor_type"), tpl, level, "rare")
+        if item is None:
+            return None
+        if eff.get("weapon_type") != "shield":
+            item.primary_stats, item.secondary_stats = _heirloom_stats(gen, slot, level, family, eff.get("armor_type"),
+                                                                       eff.get("weapon_type"))
+    except Exception:
+        return None
     finally:
         random.setstate(state)
-    if item is None:
-        return None
+    item.sockets = []
     item.heirloom_id = cid
     item.required_level = 1
     item.sell_price = 0
-    word = HEIRLOOM_WORDS.get(slot)
-    if slot in ("two_hand", "one_hand") or (slot == "off_hand" and item.weapon_type != "tome"):
-        word = (_weapons()["weapon_types"].get(item.weapon_type) or {}).get("display_name", "Blade")
-    elif slot == "off_hand":
-        word = "Tome"
-    item.name = f"Heirloom {word}"
-    item.flavor_text = f"+{e['effect']['xp_pct']}% experience while worn, until level {XP_CAP_LEVEL}. " \
-                       f"It grows with whoever wears it."
+    item.name = e["name"]
+    xp = eff.get("xp_pct", 0)
+    item.flavor_text = ((f"+{xp}% experience while worn, until level {XP_CAP_LEVEL}. " if xp else "")
+                        + "It grows with whoever wears it.")
     return item
 
 
@@ -488,11 +517,18 @@ def refit_worn_heirlooms(character):
     return n
 
 
-def heirloom_xp_pct(character):
-    """The experience bonus from the heirlooms this character is wearing, capped at Kyle's +80%, 0 at 60."""
-    if int(getattr(character, "level", 1)) >= XP_CAP_LEVEL:
-        return 0
-    eq = getattr(character, "equipment", None)
+_LEADER = None
+
+
+def set_leader(character):
+    """Who the party's heirloom bonus is read from (entities/party.py sets it to the player)."""
+    global _LEADER
+    _LEADER = character
+
+
+def leader_heirloom_pct():
+    """The bonus from the heirlooms the party LEADER is wearing, capped at Kyle's +80%."""
+    eq = getattr(_LEADER, "equipment", None)
     total = 0
     for it in (getattr(eq, "slots", {}) or {}).values():
         cid = getattr(it, "heirloom_id", None) if it is not None else None
@@ -501,3 +537,12 @@ def heirloom_xp_pct(character):
             if e is not None:
                 total += int(e["effect"].get("xp_pct", 0))
     return min(XP_CAP_PCT, total)
+
+
+def heirloom_xp_pct(character):
+    """The experience bonus `character` gets from heirlooms. Kyle, 18 Nov 2026: "They also affect the whole party
+    so the main player wears them and party quest / kill exp improves so the main character doesn't blow past his
+    allies." So it's the LEADER's heirlooms that count, for everyone in the party; nothing at 60."""
+    if int(getattr(character, "level", 1)) >= XP_CAP_LEVEL:
+        return 0
+    return leader_heirloom_pct()

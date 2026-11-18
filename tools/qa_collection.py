@@ -65,11 +65,7 @@ def main():
         for e in es:
             kinds[e["kind"]] = kinds.get(e["kind"], 0) + 1
         print(f"  {kinds}")
-        full = sum(e["effect"]["xp_pct"] for e in es if e["kind"] == "heirloom"
-                   and e["effect"]["heirloom_slot"] not in ("one_hand", "shield", "off_hand"))
-        print(f"  {len(es)} collectables; armour and a two-hander give +{full}%")
-        if full != 80:
-            bad.append(f"a full heirloom set is +{full}%, Kyle said +80%")
+        print(f"  {len(es)} collectables")
 
         # ---- 2. the file and the transaction
         print("2. learning is one transaction")
@@ -162,69 +158,97 @@ def main():
         hl = [e["id"] for e in es if e["kind"] == "heirloom"]
         for hid in hl:
             col.learned[hid] = 1
-        classes = sorted({v["class"] for k, v in json.loads(Path("data/items/spec_gear.json").read_text(
-            encoding="utf-8")).items() if not k.startswith("_")})
-        made = 0
-        for cls in classes:
-            who = Character("H", cls)
+        specs = {k: v for k, v in json.loads(Path("data/items/spec_gear.json").read_text(
+            encoding="utf-8")).items() if not k.startswith("_")}
+        made, fails = 0, []
+        for k, v in sorted(specs.items()):
+            # every spec can take a full kit of its own armour family and its own weapons
+            who = Character("H", v["class"])
             who.level = 20
-            for hid in hl:
+            af, wf = C.armour_family(v), C.weapon_family(v)
+            want = [f"heirloom_{v['armor_type']}_{af}_{s}" for s in ("head", "shoulder", "chest", "legs")]
+            want += [f"heirloom_{wf}_back", f"heirloom_{wf}_trinket"]
+            want += [f"heirloom_{wt}_{wf}" for wt in (v.get("weapons") or {}).values() if wt]
+            for hid in want:
                 ok, why = C.can_take_heirloom(hid, who, None)
-                slot = C.get_entry(hid)["effect"]["heirloom_slot"]
-                if not ok:
-                    if slot in ("head", "shoulder", "chest", "legs", "back", "trinket", "one_hand"):
-                        bad.append(f"a {cls} can't take the {hid}: {why}")
-                    continue
-                it = C.make_heirloom(hid, who)
-                if it is None or it.rarity != "rare" or it.item_level != 20 or it.is_sellable:
-                    bad.append(f"{cls} {hid}: {it}")
+                it = C.make_heirloom(hid, who) if ok else None
+                if it is None or it.rarity != "rare" or it.item_level != 20 or it.is_sellable \
+                        or it.required_level != 1:
+                    fails.append(f"{k}: {hid} ({why or it})")
                     continue
                 made += 1
-        print(f"  {made} heirlooms made across {len(classes)} classes")
+        print(f"  {len(hl)} heirlooms; {made} taken by the {len(specs)} specs for their own kits, "
+              f"{len(fails)} refused")
+        bad += [f"a spec couldn't take its own heirloom: {f}" for f in fails[:8]]
+        fams = {(e["effect"].get("armor_type"), e["effect"]["family"]) for e in es if e["kind"] == "heirloom"
+                and e["effect"]["heirloom_slot"] == "chest"}
+        kyle = {("cloth", "caster"), ("cloth", "healer"), ("leather", "agi"), ("leather", "healer"),
+                ("leather", "caster"), ("mail", "agi"), ("mail", "caster"), ("mail", "healer"), ("plate", "str"),
+                ("plate", "tank"), ("plate", "hybrid"), ("plate", "healer")}
+        if fams != kyle:
+            bad.append(f"the armour families aren't Kyle's twelve: {sorted(fams ^ kyle)}")
         war = Character("W", "Warrior")
         war.level = 10
-        chest = C.make_heirloom("heirloom_chest", war)
+        party = Party(war)                      # the warrior leads: his heirlooms count for everyone
+        chest = C.make_heirloom("heirloom_plate_str_chest", war)
+        tank = C.make_heirloom("heirloom_plate_tank_chest", war)
         pri = Character("P", "Priest")
         pri.level = 10
-        robe = C.make_heirloom("heirloom_chest", pri)
-        print(f"  warrior's chest: {chest.armor_type} {chest.primary_stats}; priest's: {robe.armor_type} "
-              f"{robe.primary_stats}")
+        robe = C.make_heirloom("heirloom_cloth_healer_chest", pri)
+        from entities.loot_generator import LootGenerator
+        import random
+        random.seed(3)
+        blue = LootGenerator().generate_armor_piece("chest", "plate", "str_physical", 10, "rare")
+        hp, bp = sum(chest.primary_stats.values()), sum(blue.primary_stats.values())
+        print(f"  {chest.name}: {chest.primary_stats} {chest.secondary_stats}; {tank.name}: {tank.primary_stats} "
+              f"{tank.secondary_stats}; {robe.name}: {robe.armor_type} {robe.primary_stats} {robe.secondary_stats}; "
+              f"a level 10 blue chest has {bp} primary points, the heirloom {hp}")
         if chest.armor_type != "plate" or robe.armor_type != "cloth":
-            bad.append("heirlooms didn't fit the wearer's armour")
+            bad.append("an heirloom isn't its own armour type")
+        if tank.primary_stats.get("stamina", 0) <= chest.primary_stats.get("stamina", 0):
+            bad.append("tank plate isn't the stamina family")
+        ok, _ = C.can_take_heirloom("heirloom_plate_str_chest", pri, None)
+        if ok:
+            bad.append("a priest could take a plate heirloom")
         war.equipment.slots["chest"] = chest
-        war.equipment.slots["main_hand"] = C.make_heirloom("heirloom_two_hand", war)
+        war.equipment.slots["main_hand"] = C.make_heirloom("heirloom_sword_2h_str", war)
         if C.heirloom_xp_pct(war) != 30:
             bad.append(f"chest + two-hander gave +{C.heirloom_xp_pct(war)}%, not +30%")
-        before = war.experience
-        war.gain_experience(100)
-        gained = war.experience - before + (0 if war.level == 10 else 10 ** 6)
-        if gained != 130:
-            bad.append(f"100 experience with +30% heirlooms gave {gained}")
+        if C.heirloom_xp_pct(pri) != 30:
+            bad.append("the leader's heirlooms didn't count for the rest of the party")
+        before = pri.experience
+        pri.gain_experience(100)
+        if pri.experience - before != 130:
+            bad.append(f"a party member wearing nothing got {pri.experience - before} from 100 XP, not 130")
         lvl_before = chest.item_level
         war.level_up()
-        print(f"  XP +{C.heirloom_xp_pct(war)}%; the chest went from item level {lvl_before} to "
+        print(f"  XP +{C.heirloom_xp_pct(war)}% for the whole party; the chest went from item level {lvl_before} to "
               f"{war.equipment.slots['chest'].item_level} on level up")
         if war.equipment.slots["chest"].item_level != war.level:
             bad.append("the heirloom didn't grow with its wearer")
-        for slot, hid in (("head", "heirloom_head"), ("shoulder", "heirloom_shoulder"), ("legs", "heirloom_legs"),
-                          ("back", "heirloom_back"), ("trinket1", "heirloom_trinket")):
+        for slot, hid in (("head", "heirloom_plate_str_head"), ("shoulder", "heirloom_plate_str_shoulder"),
+                          ("legs", "heirloom_plate_str_legs"), ("back", "heirloom_str_back"),
+                          ("trinket1", "heirloom_str_trinket")):
             war.equipment.slots[slot] = C.make_heirloom(hid, war)
         if C.heirloom_xp_pct(war) != 80:
             bad.append(f"a full set is +{C.heirloom_xp_pct(war)}%, not +80%")
-        war.level = 60
-        if C.heirloom_xp_pct(war) != 0:
+        war.equipment.slots["ranged"] = C.make_heirloom("heirloom_bow_str", war)
+        if C.heirloom_xp_pct(war) != 80:
+            bad.append("a ranged heirloom took the bonus past +80%")
+        pri.level = 60
+        if C.heirloom_xp_pct(pri) != 0:
             bad.append("heirlooms still pay experience at 60")
         from world.market import goods as G
         ok, _ = G.can_trade(chest)
         if ok:
             bad.append("an heirloom copy can go on the auction house")
-        party = Party(pri)
+        party2 = Party(pri)
         pri.inventory.append(robe)
-        ok, why = C.can_take_heirloom("heirloom_chest", pri, party)
+        ok, why = C.can_take_heirloom("heirloom_cloth_healer_chest", pri, party2)
         if ok:
             bad.append("took a second copy of an heirloom already in the bags")
         rt = type(robe).from_dict(robe.to_dict())
-        if rt.heirloom_id != "heirloom_chest" or rt.is_sellable:
+        if rt.heirloom_id != "heirloom_cloth_healer_chest" or rt.is_sellable:
             bad.append("an heirloom copy forgot it was one after a save")
 
         # ---- 6. services

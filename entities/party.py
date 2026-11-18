@@ -153,6 +153,12 @@ class Party:
         # identically-named Character methods, which are now removed.
         self.copper = 0
         # Shared overflow storage, for the same reason the purse is shared - see entities/bank.py.
+        # the Collection's heirlooms: the leader's count for the whole party (world/collection.py)
+        try:
+            from world.collection import set_leader
+            set_leader(player)
+        except Exception:
+            pass
         from entities.bank import Bank
         self.bank = Bank()
         try:

@@ -324,6 +324,9 @@ def _npc_frame(sheet_path, tile_width, tile_height):
 MOUNT_LENGTH_TILES = {
     "timber_wolf": 3.8, "dire_wolf": 4.1, "brown_kodo": 4.9, "war_kodo": 5.6,
     "razormane_raptor": 3.9, "swift_raptor": 4.2,
+    # the Collection's six (docs/collection_art_prompts.md, Sheet C)
+    "bone_white_kodo": 5.0, "steamwheedle_runabout": 3.4, "tidecaller_sea_turtle": 4.6, "dread_elk_of_felwood": 4.0,
+    "sunreach_hawkstrider": 3.8, "ashen_nightmare": 4.1,
 }
 # Where the saddle seat sits, as a fraction of the sprite's height up from its feet, per view.
 MOUNT_SEAT = {"down": 0.56, "up": 0.56, "left": 0.52, "right": 0.52}
