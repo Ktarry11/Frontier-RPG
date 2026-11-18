@@ -99,7 +99,8 @@ class Bank:
         """Copper for the next tab, or None when every tab is owned."""
         if self.tabs_owned >= MAX_TABS:
             return None
-        return TAB_PRICES[self.tabs_owned]
+        from world.faction_manager import rep_price
+        return rep_price(TAB_PRICES[self.tabs_owned])
 
     def buy_tab(self, party):
         """Spend from the party purse and open the next tab.

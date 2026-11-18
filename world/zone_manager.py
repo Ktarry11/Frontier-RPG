@@ -17,10 +17,18 @@ from world.tile_textures import TILE_SIZE
 from world.zone_keys import zone_key as _zk
 
 
+
+#: the most recently made ZoneManager (the game makes one)
+LIVE = None
+
 class ZoneManager:
     """Manages all zones and player movement."""
     
     def __init__(self):
+        # the live zone manager, for code that asks "where is the player standing" without being handed one
+        # (world/faction_manager.discount: a town's reputation discount)
+        global LIVE
+        LIVE = self
         self.zones = {}
         self.current_zone = None
         self.player_x = 0

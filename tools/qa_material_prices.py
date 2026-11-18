@@ -8,9 +8,9 @@ need to advertise its 'mid-tier'".
      (tools/reprice_materials.py --check)
   2. within a type, a higher-skill material never sells for less than a lower-skill one
      by more than rounding - the ladder climbs
-  3. nothing a vendor sells can be sold back for more than half its price
+  3. nothing a vendor sells can be sold back for more than half its price (so not for more than its Exalted price)
   4. NO MONEY LOOP: no recipe whose inputs can all be bought from a vendor makes something
-     that sells for more than the inputs cost - materials or gear
+     that sells for more than the inputs cost - materials or gear - even bought at Exalted, 20% off
   5. the material card does not say "tier"
   6. every crafted intermediate (kits, parts, pages, sticks, fibre) sells for at least what goes into it
      (tools/price_intermediates.py --check)
@@ -72,7 +72,8 @@ def main():
         if not ins or not all(i in mats and mats[i].get("vendor_price") for i in ins):
             continue
         seen += 1
-        cost = sum(mats[i]["vendor_price"] * q for i, q in ins.items())
+        # at Exalted with the town (20% off, world/faction_manager.REP_DISCOUNT), the cheapest these inputs ever cost
+        cost = sum(mats[i]["vendor_price"] * q for i, q in ins.items()) * 0.8
         out = rec.get("output") or {}
         if out.get("kind") in ("armor", "weapon") or out.get("slot"):
             worth = gear_sell_price(out.get("item_level", 1), out.get("rarity", "uncommon"),

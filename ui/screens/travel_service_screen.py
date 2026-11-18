@@ -134,7 +134,7 @@ class TravelServiceScreen(BaseScreen):
                 owned = mount["id"] in travel.owned_mounts
                 ok, reason = travel.can_buy_mount(mount, copper)
                 rows.append(dict(name=f"{mount['name']}  (Tier {mount['tier']})", sub=mount["blurb"],
-                                 price=None if owned else mount["price"], label="Owned" if owned else "Buy",
+                                 price=None if owned else travel.mount_price(mount), label="Owned" if owned else "Buy",
                                  enabled=ok, reason=reason, action="buy", arg=mount["id"]))
         return rows
 
@@ -303,7 +303,7 @@ class TravelServiceScreen(BaseScreen):
             ok, reason = travel.can_buy_mount(mount, self._copper())
             if not ok:
                 return self._say(reason, RED)
-            party.remove_currency(mount["price"])
+            party.remove_currency(travel.mount_price(mount))
             travel.buy_mount(mount)
             self._say(f"You bought a {mount['name']}. Press R to ride.")
         elif action == "fly":
@@ -372,6 +372,11 @@ class TravelServiceScreen(BaseScreen):
         self.renderer.draw_text(screen, title, (40, 62), color=GREY)
         self.renderer.draw_text(screen, f"Your gold: {format_copper(self._copper())}", (SCREEN_WIDTH - 340, 30),
                                 color=COLOR_GOLD)
+        # the town's reputation discount, already in every price on this screen (world/faction_manager.rep_price)
+        from world.faction_manager import discount_note
+        note = discount_note()
+        if note:
+            self.renderer.draw_text(screen, note, (SCREEN_WIDTH - 340, 58), size="small", color=(140, 220, 140))
 
         travel = get_travel_manager()
         if self.kind == "flight":

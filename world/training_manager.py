@@ -38,6 +38,12 @@ def class_for_trainer(npc_id):
     return trainers().get("class_trainers", {}).get(npc_id)
 
 
+def _rep(copper):
+    """The trainer's price after the town's reputation discount (world/faction_manager.rep_price)."""
+    from world.faction_manager import rep_price
+    return rep_price(copper)
+
+
 def rank_cost(ability, rank_number):
     rank = ability.ranks[rank_number - 1]
     if rank.get("train_cost") is not None:
@@ -71,7 +77,7 @@ def offers(character):
         if top > have:
             out.append({
                 "ability": ability, "name": ability.name, "rank": top, "from_rank": have,
-                "cost": rank_cost(ability, top), "level_req": ability.ranks[top - 1]["level_req"],
+                "cost": _rep(rank_cost(ability, top)), "level_req": ability.ranks[top - 1]["level_req"],
                 "new": have == 0, "max_rank": len(ability.ranks),
                 # The level this ABILITY first became teachable, which never changes. Used for
                 # ordering, and for telling the player how long a skipped one has been waiting.

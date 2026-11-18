@@ -14057,6 +14057,329 @@
       "needs_art": false,
       "found_only": true,
       "source": "fishing"
+    },
+    {
+      "id": "bazaar_brute",
+      "name": "Reins of the Bazaar Brute",
+      "kind": "mount",
+      "price": 7500000,
+      "rarity": "epic",
+      "blurb": "A walking marketplace: a great brute with a goblin stall lashed to its back.",
+      "effect": {
+        "mount_id": "bazaar_brute",
+        "mount_name": "Bazaar Brute",
+        "tier": 1
+      },
+      "icon_id": "col_reins_rose",
+      "art": "col_bazaar_brute",
+      "needs_art": true,
+      "source": "auction_house"
+    },
+    {
+      "id": "coinscale_raptor",
+      "name": "Reins of the Coinscale Raptor",
+      "kind": "mount",
+      "price": 7500000,
+      "rarity": "epic",
+      "blurb": "A bronze raptor barded in a few hundred gold coins, and proud of it.",
+      "effect": {
+        "mount_id": "coinscale_raptor",
+        "mount_name": "Coinscale Raptor",
+        "tier": 1
+      },
+      "icon_id": "col_reins_dawn",
+      "art": "col_coinscale_raptor",
+      "needs_art": true,
+      "source": "auction_house"
+    },
+    {
+      "id": "velvet_saber",
+      "name": "Reins of the Velvet Saber",
+      "kind": "mount",
+      "price": 7500000,
+      "rarity": "epic",
+      "blurb": "A midnight sabre cat in plum velvet and pearls. Elegant, and very sharp.",
+      "effect": {
+        "mount_id": "velvet_saber",
+        "mount_name": "Velvet Saber",
+        "tier": 1
+      },
+      "icon_id": "col_reins_twilight",
+      "art": "col_velvet_saber",
+      "needs_art": true,
+      "source": "auction_house"
+    },
+    {
+      "id": "title_exalted_orgrimmar",
+      "name": "Title: of Orgrimmar",
+      "kind": "title",
+      "price": 7500000,
+      "rarity": "epic",
+      "blurb": "Shown with your name: You of Orgrimmar. Earned at Exalted with Orgrimmar.",
+      "effect": {
+        "title": "{name} of Orgrimmar"
+      },
+      "icon_id": "col_title_rare",
+      "art": "col_title_exalted_orgrimmar",
+      "needs_art": false,
+      "found_only": true,
+      "source": "exalted:orgrimmar"
+    },
+    {
+      "id": "title_exalted_darkspear_tribe",
+      "name": "Title: of the Darkspear",
+      "kind": "title",
+      "price": 7500000,
+      "rarity": "epic",
+      "blurb": "Shown with your name: You of the Darkspear. Earned at Exalted with The Darkspear Tribe.",
+      "effect": {
+        "title": "{name} of the Darkspear"
+      },
+      "icon_id": "col_title_rare",
+      "art": "col_title_exalted_darkspear_tribe",
+      "needs_art": false,
+      "found_only": true,
+      "source": "exalted:darkspear_tribe"
+    },
+    {
+      "id": "title_exalted_the_forsaken",
+      "name": "Title: Champion of the Forsaken",
+      "kind": "title",
+      "price": 7500000,
+      "rarity": "epic",
+      "blurb": "Shown with your name: You, Champion of the Forsaken. Earned at Exalted with The Forsaken.",
+      "effect": {
+        "title": "{name}, Champion of the Forsaken"
+      },
+      "icon_id": "col_title_rare",
+      "art": "col_title_exalted_the_forsaken",
+      "needs_art": false,
+      "found_only": true,
+      "source": "exalted:the_forsaken"
+    },
+    {
+      "id": "title_exalted_thunder_bluff",
+      "name": "Title: Keeper of Thunder Bluff",
+      "kind": "title",
+      "price": 7500000,
+      "rarity": "epic",
+      "blurb": "Shown with your name: You, Keeper of Thunder Bluff. Earned at Exalted with Thunder Bluff.",
+      "effect": {
+        "title": "{name}, Keeper of Thunder Bluff"
+      },
+      "icon_id": "col_title_rare",
+      "art": "col_title_exalted_thunder_bluff",
+      "needs_art": false,
+      "found_only": true,
+      "source": "exalted:thunder_bluff"
+    },
+    {
+      "id": "title_exalted_steamwheedle_cartel",
+      "name": "Title: Partner of the Cartel",
+      "kind": "title",
+      "price": 7500000,
+      "rarity": "epic",
+      "blurb": "Shown with your name: You, Partner of the Cartel. Earned at Exalted with The Steamwheedle Cartel.",
+      "effect": {
+        "title": "{name}, Partner of the Cartel"
+      },
+      "icon_id": "col_title_rare",
+      "art": "col_title_exalted_steamwheedle_cartel",
+      "needs_art": false,
+      "found_only": true,
+      "source": "exalted:steamwheedle_cartel"
+    },
+    {
+      "id": "title_exalted_booty_bay_authority",
+      "name": "Title: Freeman of Booty Bay",
+      "kind": "title",
+      "price": 7500000,
+      "rarity": "epic",
+      "blurb": "Shown with your name: You, Freeman of Booty Bay. Earned at Exalted with The Booty Bay Port Authority.",
+      "effect": {
+        "title": "{name}, Freeman of Booty Bay"
+      },
+      "icon_id": "col_title_rare",
+      "art": "col_title_exalted_booty_bay_authority",
+      "needs_art": false,
+      "found_only": true,
+      "source": "exalted:booty_bay_authority"
+    },
+    {
+      "id": "title_exalted_crimson_codex",
+      "name": "Title: Keeper of the Crimson Codex",
+      "kind": "title",
+      "price": 7500000,
+      "rarity": "epic",
+      "blurb": "Shown with your name: You, Keeper of the Crimson Codex. Earned at Exalted with The Crimson Codex.",
+      "effect": {
+        "title": "{name}, Keeper of the Crimson Codex"
+      },
+      "icon_id": "col_title_rare",
+      "art": "col_title_exalted_crimson_codex",
+      "needs_art": false,
+      "found_only": true,
+      "source": "exalted:crimson_codex"
+    },
+    {
+      "id": "title_exalted_the_ashclaim",
+      "name": "Title: of the Ashclaim",
+      "kind": "title",
+      "price": 7500000,
+      "rarity": "epic",
+      "blurb": "Shown with your name: You of the Ashclaim. Earned at Exalted with The Ashclaim.",
+      "effect": {
+        "title": "{name} of the Ashclaim"
+      },
+      "icon_id": "col_title_rare",
+      "art": "col_title_exalted_the_ashclaim",
+      "needs_art": false,
+      "found_only": true,
+      "source": "exalted:the_ashclaim"
+    },
+    {
+      "id": "title_exalted_emerald_reclamation",
+      "name": "Title: the Reclaimer",
+      "kind": "title",
+      "price": 7500000,
+      "rarity": "epic",
+      "blurb": "Shown with your name: You the Reclaimer. Earned at Exalted with The Emerald Reclamation.",
+      "effect": {
+        "title": "{name} the Reclaimer"
+      },
+      "icon_id": "col_title_rare",
+      "art": "col_title_exalted_emerald_reclamation",
+      "needs_art": false,
+      "found_only": true,
+      "source": "exalted:emerald_reclamation"
+    },
+    {
+      "id": "title_exalted_pale_flame",
+      "name": "Title: of the Pale Flame",
+      "kind": "title",
+      "price": 7500000,
+      "rarity": "epic",
+      "blurb": "Shown with your name: You of the Pale Flame. Earned at Exalted with The Order of the Pale Flame.",
+      "effect": {
+        "title": "{name} of the Pale Flame"
+      },
+      "icon_id": "col_title_rare",
+      "art": "col_title_exalted_pale_flame",
+      "needs_art": false,
+      "found_only": true,
+      "source": "exalted:pale_flame"
+    },
+    {
+      "id": "title_exalted_argent_dawn",
+      "name": "Title: the Argent Champion",
+      "kind": "title",
+      "price": 7500000,
+      "rarity": "epic",
+      "blurb": "Shown with your name: You the Argent Champion. Earned at Exalted with The Argent Dawn.",
+      "effect": {
+        "title": "{name} the Argent Champion"
+      },
+      "icon_id": "col_title_rare",
+      "art": "col_title_exalted_argent_dawn",
+      "needs_art": false,
+      "found_only": true,
+      "source": "exalted:argent_dawn"
+    },
+    {
+      "id": "title_exalted_timbermaw_hold",
+      "name": "Title: Elder-Friend of Timbermaw Hold",
+      "kind": "title",
+      "price": 7500000,
+      "rarity": "epic",
+      "blurb": "Shown with your name: You, Elder-Friend of Timbermaw Hold. Earned at Exalted with Timbermaw Hold.",
+      "effect": {
+        "title": "{name}, Elder-Friend of Timbermaw Hold"
+      },
+      "icon_id": "col_title_rare",
+      "art": "col_title_exalted_timbermaw_hold",
+      "needs_art": false,
+      "found_only": true,
+      "source": "exalted:timbermaw_hold"
+    },
+    {
+      "id": "title_exalted_sunreach_conclave",
+      "name": "Title: of the Sunreach",
+      "kind": "title",
+      "price": 7500000,
+      "rarity": "epic",
+      "blurb": "Shown with your name: You of the Sunreach. Earned at Exalted with The Sunreach Conclave.",
+      "effect": {
+        "title": "{name} of the Sunreach"
+      },
+      "icon_id": "col_title_rare",
+      "art": "col_title_exalted_sunreach_conclave",
+      "needs_art": false,
+      "found_only": true,
+      "source": "exalted:sunreach_conclave"
+    },
+    {
+      "id": "title_exalted_the_liquidators",
+      "name": "Title: the Liquidator",
+      "kind": "title",
+      "price": 7500000,
+      "rarity": "epic",
+      "blurb": "Shown with your name: You the Liquidator. Earned at Exalted with The Liquidators.",
+      "effect": {
+        "title": "{name} the Liquidator"
+      },
+      "icon_id": "col_title_rare",
+      "art": "col_title_exalted_the_liquidators",
+      "needs_art": false,
+      "found_only": true,
+      "source": "exalted:the_liquidators"
+    },
+    {
+      "id": "title_exalted_cenarion_circle",
+      "name": "Title: Guardian of Cenarius",
+      "kind": "title",
+      "price": 7500000,
+      "rarity": "epic",
+      "blurb": "Shown with your name: You, Guardian of Cenarius. Earned at Exalted with The Cenarion Circle.",
+      "effect": {
+        "title": "{name}, Guardian of Cenarius"
+      },
+      "icon_id": "col_title_rare",
+      "art": "col_title_exalted_cenarion_circle",
+      "needs_art": false,
+      "found_only": true,
+      "source": "exalted:cenarion_circle"
+    },
+    {
+      "id": "title_exalted_the_wakened",
+      "name": "Title: the Wakeful",
+      "kind": "title",
+      "price": 7500000,
+      "rarity": "epic",
+      "blurb": "Shown with your name: You the Wakeful. Earned at Exalted with The Wakened.",
+      "effect": {
+        "title": "{name} the Wakeful"
+      },
+      "icon_id": "col_title_rare",
+      "art": "col_title_exalted_the_wakened",
+      "needs_art": false,
+      "found_only": true,
+      "source": "exalted:the_wakened"
+    },
+    {
+      "id": "title_exalted_the_unnamed",
+      "name": "Title: the Unwritten",
+      "kind": "title",
+      "price": 7500000,
+      "rarity": "epic",
+      "blurb": "Shown with your name: You the Unwritten. Earned at Exalted with ????.",
+      "effect": {
+        "title": "{name} the Unwritten"
+      },
+      "icon_id": "col_title_rare",
+      "art": "col_title_exalted_the_unnamed",
+      "needs_art": false,
+      "found_only": true,
+      "source": "exalted:the_unnamed"
     }
   ]
 }

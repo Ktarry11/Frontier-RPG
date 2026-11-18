@@ -33,6 +33,7 @@ OUT = ROOT / "assets" / "mounts"
 #: Row order. Matches the prompt, and the four names the first six mounts already use on disk.
 FACINGS = ["down", "left", "right", "up"]
 
+#: columns = however many mount ids are given (six on the Collection's sheets, three on the AH sheet H4)
 COLS, ROWS = 6, 4
 PAD = 3                 # transparent breathing room around each crop
 MIN_BLOB = 3000         # px; below this is keying noise, not an animal
@@ -66,10 +67,12 @@ def _key(rgb, hard, strength):
 
 
 def main():
+    global COLS
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     dry = "--dry-run" in sys.argv
-    if len(args) != 1 + COLS:
-        raise SystemExit(f"usage: slice_mount_sheet.py SHEET.png <{COLS} mount ids, left to right>")
+    if len(args) < 2:
+        raise SystemExit("usage: slice_mount_sheet.py SHEET.png <mount ids, left to right, one per column>")
+    COLS = len(args) - 1
     sheet, ids = Path(args[0]), args[1:]
     if not sheet.exists():
         raise SystemExit(f"no sheet at {sheet}")

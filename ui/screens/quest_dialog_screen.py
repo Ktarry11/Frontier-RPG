@@ -355,6 +355,9 @@ class QuestDialogScreen(BaseScreen):
                     self.result_message += f"\n+{gained} reputation with {name}."
                     if tier_up:
                         self.result_message += f"\nYou are now {tier_up['name']} with {name}."
+                        from world.collection import exalted_line
+                        if tier_up.get("id") == "exalted" and exalted_line(fid):
+                            self.result_message += "\n" + exalted_line(fid)
                 self.quest_mgr.faction_gain = (None, 0, None)
             # Asher's scripted departure (see QuestManager.turn_in_quest)
             # overrides the generic "Quest complete!" line with his actual

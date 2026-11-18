@@ -357,7 +357,9 @@ class VendorScreen(BaseScreen):
         if not price:
             # None (a recipe scroll) or 0: six planks and a feast were on sale for nothing.
             price = max(1, int((getattr(item, "sell_price", 0) or 0) * 4))
-        return int(price)
+        # reputation with the town's faction (world/faction_manager.rep_price); barter above is not gold and stays
+        from world.faction_manager import rep_price
+        return int(rep_price(int(price)))
 
     def _set_buy_qty(self, qty):
         item = self.selected_vendor_item
@@ -758,6 +760,12 @@ class VendorScreen(BaseScreen):
 
         self.renderer.draw_text(screen, self.vendor.name, (SCREEN_WIDTH // 2 - 100, 20),
                                 size="large", color=COLOR_GOLD)
+        # the town's reputation discount, already in every price below (world/faction_manager.rep_price)
+        if not self._barter():
+            from world.faction_manager import discount_note
+            note = discount_note()
+            if note:
+                self.renderer.draw_text(screen, note, (SCREEN_WIDTH - 300, 50), size="small", color=(140, 220, 140))
         from world.vendor_rotation import rotates, hours_left, clock_for
         if rotates(self.vendor):
             # Kyle, 17 Nov 2026: rotating stock "rewards returning to them", so say when to come back

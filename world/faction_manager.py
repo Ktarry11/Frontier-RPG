@@ -204,6 +204,8 @@ class FactionManager:
         before = f.tier_id
         f.standing += int(amount)
         tier_up = f.tier if f.tier_id != before else None
+        if tier_up and f.tier_id == "exalted":
+            self._grant_exalted_title(faction_id)
         self.last_gain = (faction_id, int(amount), reason)
         self.last_tier_up = (faction_id, tier_up) if tier_up else None
         return int(amount), tier_up
@@ -338,6 +340,20 @@ class FactionManager:
             f = self.factions.get(fid)
             if f:
                 f.standing = int(v)
+        # a save that reached Exalted before the titles existed gets them now
+        for fid, f in self.factions.items():
+            if f.tier_id == "exalted":
+                self._grant_exalted_title(fid, commit=False)
+
+    @staticmethod
+    def _grant_exalted_title(faction_id, commit=True):
+        """Every faction's Exalted title (world/collection.exalted_title), learned the moment you reach it."""
+        try:
+            from world.collection import grant, exalted_title
+            return grant(exalted_title(faction_id), commit=commit)
+        except Exception as exc:
+            print(f"WARNING: exalted title for {faction_id} failed: {exc}")
+            return False
 
     def reset(self):
         for f in self.factions.values():
@@ -377,6 +393,74 @@ def quartermaster_ids():
         for vid in ((f.get("rewards") or {}).get("vendor_stock") or {}):
             out.setdefault(vid, fid)
     return out
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# REPUTATION DISCOUNT. Kyle, 18 Nov 2026: "should we deal with the 5%, 10%, 15%, and 20% cheaper things for rep. For
+# learning professions, skills, mounts, buying etc. Everything except auction house of course."
+# WoW's ladder: Friendly 5%, Honored 10%, Revered 15%, Exalted 20% off whatever a town's people charge you. The
+# town is the zone you're standing in; the factions that claim it are the ones whose home it is or whose quest zones
+# include it, and the best standing among them sets the price (Moonglade is the Circle's and the Wakened's both).
+# Applied inside every gold price an NPC quotes, so the price shown is the price paid: vendors (not barter, not
+# buyback), class and profession training, recipes, riding and mounts, flights, bank tabs and the Craftsman's Codex.
+# Never the auction house, and never what an NPC pays you.
+# ---------------------------------------------------------------------------------------------------------------
+REP_DISCOUNT = {"friendly": 5, "honored": 10, "revered": 15, "exalted": 20}
+
+
+def _here():
+    try:
+        from world import zone_manager as ZM
+        zm = getattr(ZM, "LIVE", None)
+        z = getattr(zm, "current_zone", None) if zm is not None else None
+        return getattr(z, "name", None)
+    except Exception:
+        return None
+
+
+def factions_for_zone(zone):
+    """The factions that call this zone theirs."""
+    zk = _zkey(zone) if zone else None
+    if not zk:
+        return []
+    fm = get_faction_manager()
+    out = []
+    for f in fm.factions.values():
+        zones = {_zkey(z) for z in (f.quest_rep or {}).get("zones", [])}
+        if f.home_zone:
+            zones.add(_zkey(f.home_zone))
+        if zk in zones:
+            out.append(f)
+    return out
+
+
+def discount(zone=None):
+    """(percent, faction) for buying here: the best rep discount any faction that owns the zone gives. (0, None) if
+    none does. zone defaults to wherever the player is standing."""
+    best = (0, None)
+    for f in factions_for_zone(zone or _here()):
+        pct = REP_DISCOUNT.get(f.tier_id, 0)
+        if pct > best[0]:
+            best = (pct, f)
+    return best
+
+
+def rep_price(copper, zone=None):
+    """A gold price an NPC quotes, after the reputation discount. Never below 1 copper for something that cost."""
+    if not copper or copper <= 0:
+        return copper
+    pct, _f = discount(zone)
+    if not pct:
+        return copper
+    return max(1, int(round(copper * (100 - pct) / 100)))
+
+
+def discount_note(zone=None):
+    """'Honored with Orgrimmar: 10% off' for a shop's header, or ''."""
+    pct, f = discount(zone)
+    if not pct:
+        return ""
+    return f"{f.tier['name']} with {f.name}: {pct}% off"
 
 
 def get_faction_manager():

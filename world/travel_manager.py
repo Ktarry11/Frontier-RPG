@@ -165,7 +165,14 @@ class TravelManager:
                 return 0
         except Exception:
             pass
-        return skill["price"]
+        from world.faction_manager import rep_price
+        return rep_price(skill["price"])
+
+    @staticmethod
+    def mount_price(mount):
+        """A stable mount's price after the town's reputation discount."""
+        from world.faction_manager import rep_price
+        return rep_price(mount["price"])
 
     def learn_riding(self):
         nxt = self.next_riding_skill()
@@ -203,7 +210,7 @@ class TravelManager:
         if self.riding_rank < mount["tier"]:
             need = self.riding_skill(mount["tier"])
             return False, f"Requires {need['name']}."
-        if copper < mount["price"]:
+        if copper < self.mount_price(mount):
             return False, f"Costs {format_copper(mount['price'])}."
         return True, ""
 
@@ -320,7 +327,8 @@ class TravelManager:
         a, b = nodes[from_node]["pos"], nodes[to_node]["pos"]
         dist = ((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2) ** 0.5
         cost = travel_data()["flight_cost"]
-        return int(cost["base"] + cost["per_unit"] * dist)
+        from world.faction_manager import rep_price
+        return int(rep_price(int(cost["base"] + cost["per_unit"] * dist)))
 
     # ------------------------------------------------------------------ persistence
     def to_dict(self):

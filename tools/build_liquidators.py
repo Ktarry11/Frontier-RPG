@@ -40,7 +40,7 @@ FACTION = {
     "name": "The Liquidators",
     "description": ("Earth transplants who've lived beside a fallout zone, or cleaned one up, holding the line in "
                     "Deadwind Pass with the Forsaken apothecaries."),
-    "home_zone": WATCH,
+    "home_zone": "aridens_watch",       # the map's key (Ariden's Watch), which the rep discount matches on
     "home_name": "Ariden's Watch, in Deadwind Pass",
     "leader": {
         "title": "Chief Liquidator",

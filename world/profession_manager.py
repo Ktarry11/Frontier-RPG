@@ -113,7 +113,7 @@ def offers(character, profession):
                      if secondary else f"  ({slots_left} of {max_primary(character)} slots free)")
         rows.append(dict(kind="learn", name=f"Learn {info['name']} ({first['name']})",
                          sub=f"{info['description']}  Skill cap {first['cap']}.{slot_note}",
-                         cost=first["cost"], enabled=reason is None, reason=reason))
+                         cost=_rep(first["cost"]), enabled=reason is None, reason=reason))
         return rows
 
     idx = min(character.profession_tiers.get(profession, 0), len(t) - 1)
@@ -128,7 +128,7 @@ def offers(character, profession):
         else:
             reason = f"Requires level {nxt['required_level']}" if character.level < nxt["required_level"] else None
             rows.append(dict(kind="advance", name=f"Train {nxt['name']} {info['name']}",
-                             sub=f"Raises your skill cap from {cap} to {nxt['cap']}.", cost=nxt["cost"],
+                             sub=f"Raises your skill cap from {cap} to {nxt['cap']}.", cost=_rep(nxt["cost"]),
                              enabled=reason is None, reason=reason))
     else:
         rows.append(dict(kind="info", name=f"{info['name']} mastered", sub=f"{t[idx]['name']}  -  skill {skill} / {cap}",
@@ -137,6 +137,12 @@ def offers(character, profession):
                      sub=f"You forget {info['name']} and lose your {skill} skill. This cannot be undone.",
                      cost=None, enabled=True, reason=None))
     return rows
+
+
+def _rep(copper):
+    """A trainer's price after the town's reputation discount (world/faction_manager.rep_price)."""
+    from world.faction_manager import rep_price
+    return rep_price(copper)
 
 
 def _pay(party, cost):
@@ -207,7 +213,7 @@ def recipe_offers(character, profession):
         if r.get("skill_required", 0) > skill:
             continue
         out.append(dict(recipe_id=rid, name=r.get("name", rid), skill=r.get("skill_required", 0),
-                        cost=recipe_price(r)))
+                        cost=_rep(recipe_price(r))))
     return sorted(out, key=lambda o: (o["cost"], o["skill"], o["name"]))
 
 

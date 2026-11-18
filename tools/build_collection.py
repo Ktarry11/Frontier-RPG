@@ -317,13 +317,59 @@ for cid, title, how, _need in _HFC.TITLES:
         {"title": "{name} " + title}, "col_title_rare")
     ITEMS[-1].update(found_only=True, source="fishing")
 
+# ---------------------------------------------------------------- auction house exclusives (sheet H4)
+# Kyle, 18 Nov 2026: "3 art prompts for mounts that are AH exclusive" (docs/ah_mount_art_prompts.md). Only ever put
+# up by the house's traders, like every collectable; these three have no other source at all, and are the dearest.
+AH_EXCLUSIVE = (
+    ("bazaar_brute", "Bazaar Brute", "A walking marketplace: a great brute with a goblin stall lashed to its back."),
+    ("coinscale_raptor", "Coinscale Raptor", "A bronze raptor barded in a few hundred gold coins, and proud of it."),
+    ("velvet_saber", "Velvet Saber", "A midnight sabre cat in plum velvet and pearls. Elegant, and very sharp."),
+)
+for cid, name, blurb in AH_EXCLUSIVE:
+    add(cid, f"Reins of the {name}", "mount", 750, "epic", blurb, {"mount_id": cid, "mount_name": name, "tier": 1},
+        "qi_trophy_cord", needs_art=True)
+    ITEMS[-1].update(source="auction_house")
+
+# ---------------------------------------------------------------- Exalted titles
+# Kyle, 18 Nov 2026: "each faction should get a title for reaching exalted with them." Learned the moment a faction
+# reaches Exalted (world/faction_manager.award -> world/collection.grant), never sold: FOUND ONLY. The faction's own
+# name is in the blurb; "{name}" is where the character's name goes.
+EXALTED_TITLES = {
+    "orgrimmar": "{name} of Orgrimmar",
+    "darkspear_tribe": "{name} of the Darkspear",
+    "the_forsaken": "{name}, Champion of the Forsaken",
+    "thunder_bluff": "{name}, Keeper of Thunder Bluff",
+    "steamwheedle_cartel": "{name}, Partner of the Cartel",
+    "booty_bay_authority": "{name}, Freeman of Booty Bay",
+    "crimson_codex": "{name}, Keeper of the Crimson Codex",
+    "the_ashclaim": "{name} of the Ashclaim",
+    "emerald_reclamation": "{name} the Reclaimer",
+    "pale_flame": "{name} of the Pale Flame",
+    "argent_dawn": "{name} the Argent Champion",
+    "timbermaw_hold": "{name}, Elder-Friend of Timbermaw Hold",
+    "sunreach_conclave": "{name} of the Sunreach",
+    "the_liquidators": "{name} the Liquidator",
+    "cenarion_circle": "{name}, Guardian of Cenarius",
+    "the_wakened": "{name} the Wakeful",
+    "the_unnamed": "{name} the Unwritten",
+}
+_FACTIONS = json.loads((ROOT / "data/factions/factions.json").read_text(encoding="utf-8"))["factions"]
+for _fid, _fmt in EXALTED_TITLES.items():
+    _shown = _fmt.replace("{name}", "").lstrip(", ").strip()
+    add(f"title_exalted_{_fid}", f"Title: {_shown}", "title", 750, "epic",
+        f"Shown with your name: {_fmt.replace('{name}', 'You')}. Earned at Exalted with {_FACTIONS[_fid]['name']}.",
+        {"title": _fmt}, "col_title_rare")
+    ITEMS[-1].update(found_only=True, source=f"exalted:{_fid}")
+
 # ---------------------------------------------------------------- the icons (Sheet D, delivered 18 Nov 2026)
 UNIQUE_REINS = {"bone_white_kodo": "kodo", "steamwheedle_runabout": "runabout", "tidecaller_sea_turtle": "turtle",
                 "dread_elk_of_felwood": "elk", "sunreach_hawkstrider": "hawkstrider", "ashen_nightmare": "nightmare",
                 # the fishing mounts' reins, on the harvest finds sheet H1 (docs/harvest_fishing_art_prompts.md)
                 "brine_crab": "brine_crab", "river_otter": "river_otter", "glimmer_frog": "glimmer_frog",
                 "rimefin_walrus": "rimefin_walrus", "cinder_salamander": "cinder_salamander",
-                "abyssal_lurker": "abyssal_lurker"}
+                "abyssal_lurker": "abyssal_lurker",
+                # the AH exclusives borrow a colourway's reins until they have their own
+                "bazaar_brute": "rose", "coinscale_raptor": "dawn", "velvet_saber": "twilight"}
 SERVICE_ICON = {"bank": "col_satchel_bank", "peddler": "col_peddler_bell", "mail": "col_courier_horn",
                 "class_trainer": "col_book_master", "profession_trainer": "col_book_professions",
                 "reagents": "col_satchel_reagents"}

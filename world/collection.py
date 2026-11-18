@@ -158,6 +158,39 @@ def form_sprite_path(form_id):
 
 
 # ------------------------------------------------------------------ titles
+def exalted_title(faction_id):
+    """The title a faction gives at Exalted (tools/build_collection.py EXALTED_TITLES)."""
+    return f"title_exalted_{faction_id}"
+
+
+def grant(cid, commit=True):
+    """Learn an EARNED collectable outright, with no bag item: an Exalted title is given the moment you reach it
+    (Kyle, 18 Nov 2026: "each faction should get a title for reaching exalted with them"). True if newly learned.
+    commit=False writes only the collection file (a catch-up while a save is loading, when there's no character
+    to commit alongside it)."""
+    import time
+    if get_entry(cid) is None or learned(cid):
+        return False
+    col = collection()
+
+    def go():
+        col.learned[cid] = int(time.time())
+        return True
+    if commit:
+        return bool(col.transact(go))
+    go()
+    return bool(col.save())
+
+
+def exalted_line(faction_id):
+    """'You've earned a title: Guardian of Cenarius.' once a faction's Exalted title is learned, else ''."""
+    cid = exalted_title(faction_id)
+    e = get_entry(cid)
+    if e is None or not learned(cid):
+        return ""
+    return f"You've earned a title: {e['name'].replace('Title: ', '')}."
+
+
 def title_ids():
     return [e["id"] for e in learned_entries("title")]
 

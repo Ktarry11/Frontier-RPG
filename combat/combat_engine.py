@@ -1028,6 +1028,9 @@ class CombatEngine:
                 if tier_up:
                     self.combat_log.append(
                         f"You are now {tier_up['name']} with {faction_mgr.get(fid).name}.")
+                    from world.collection import exalted_line
+                    if tier_up.get("id") == "exalted" and exalted_line(fid):
+                        self.combat_log.append(exalted_line(fid))
         for fid, amt in self.faction_gains.items():
             self.combat_log.append(f"+{amt} reputation with {faction_mgr.get(fid).name}.")
 

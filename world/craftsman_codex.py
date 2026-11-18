@@ -30,7 +30,8 @@ def price(character):
     if pm.max_primary(character) >= pm.primary_total():
         return None
     gold = PRICES_GOLD[n] if n < len(PRICES_GOLD) else CAP_GOLD
-    return gold * GOLD
+    from world.faction_manager import rep_price
+    return rep_price(gold * GOLD)
 
 
 def buy(character, party):
