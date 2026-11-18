@@ -1556,7 +1556,8 @@ class CombatEngine:
         # it on base_exp instead would have let the 1.75x boss and 1.5x cave
         # multipliers claw part of the reduction back.
         from config import KILL_EXP_MULTIPLIER
-        return max(1, int(reward * KILL_EXP_MULTIPLIER))
+        from world.xp_rate import current as player_xp_rate     # the player's own 0.5x-3x (Kyle, 18 Nov 2026)
+        return max(1, int(reward * KILL_EXP_MULTIPLIER * player_xp_rate()))
     
     def get_recent_log(self, count=5):
         """Get last N log entries."""

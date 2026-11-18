@@ -393,6 +393,12 @@ class OverworldScreen(BaseScreen):
         
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouse_pos = event.pos
+            for rate, r in getattr(self, "xp_rate_rects", []):       # the experience rate (world/xp_rate.py)
+                if r.collidepoint(mouse_pos):
+                    from world.xp_rate import set_rate, label
+                    if set_rate(self.state_manager.get_party(), rate):
+                        self._notify(f"Experience from quests and kills is now {label(rate)}.", (230, 200, 120))
+                    return
             if self.ENCOUNTER_BADGE.collidepoint(mouse_pos):       # the badge is a switch too, like E
                 self.encounters_enabled = not self.encounters_enabled
                 return
@@ -691,6 +697,37 @@ class OverworldScreen(BaseScreen):
     BADGE_Y = 668
     MAIL_BADGE = pygame.Rect(20, BADGE_Y, 176, 38)
     ENCOUNTER_BADGE = pygame.Rect(206, BADGE_Y, 200, 38)
+
+    #: the experience rate switch (world/xp_rate.py): the empty corner under the leader's bars, level with the badges
+    XP_TOGGLE_X, XP_TOGGLE_W = 840, 230
+
+    def _render_xp_toggle(self, screen):
+        """Kyle, 18 Nov 2026: "a toggle tab in the bottom of the screen where it looks nice... 0.5x, 1x, 1.5x, 2x,
+        2.5x, or 3x EXP which will be for quests and kills. So people can pick their own level of fun." Six
+        segments in one pill; the chosen one lit gold."""
+        from world.xp_rate import RATES, current, label
+        rate = current()
+        x, y, w = self.XP_TOGGLE_X, self.BADGE_Y, self.XP_TOGGLE_W
+        self.renderer.draw_text(screen, "Experience from quests and kills", (x, y - 24), font_size=14,
+                                color=(170, 170, 180))
+        outer = pygame.Rect(x, y, w, 38)
+        pygame.draw.rect(screen, (22, 22, 30), outer, border_radius=19)
+        pygame.draw.rect(screen, (90, 80, 50), outer, 2, border_radius=19)
+        seg = (w - 8) / len(RATES)
+        self.xp_rate_rects = []
+        mouse = pygame.mouse.get_pos()
+        font = self.renderer._get_font(font_size=15)
+        for i, r in enumerate(RATES):
+            cell = pygame.Rect(int(x + 4 + i * seg), y + 4, int(seg) - 2, 30)
+            on = r == rate
+            hover = cell.collidepoint(mouse)
+            if on:
+                pygame.draw.rect(screen, (200, 160, 60), cell, border_radius=15)
+            elif hover:
+                pygame.draw.rect(screen, (50, 46, 34), cell, border_radius=15)
+            txt = font.render(label(r), True, (30, 22, 10) if on else ((240, 220, 160) if hover else (190, 180, 150)))
+            screen.blit(txt, txt.get_rect(center=cell.center))
+            self.xp_rate_rects.append((r, cell))
 
     def _render_status_badges(self, screen):
         """New mail (a gold badge that breathes, with the raised flag and how many letters are waiting) and the
@@ -1515,6 +1552,7 @@ class OverworldScreen(BaseScreen):
         # icon a bit more noticable this can be both moved to the bottom left. The Mail icon in the bottom left and
         # the Encounters icon moved beside it."). They used to sit in small text over the corner of the world view.
         self._render_status_badges(screen)
+        self._render_xp_toggle(screen)
         self._render_travel_hud(screen)
         self._render_buff_chips(screen)
         

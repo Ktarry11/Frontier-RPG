@@ -360,8 +360,9 @@ class Quest:
         from config import QUEST_EXP_MULTIPLIER
         from combat.difficulty import quest_xp_multiplier
 
+        from world.xp_rate import current as player_xp_rate     # the player's own 0.5x-3x (Kyle, 18 Nov 2026)
         reward = self.reward_exp * quest_xp_multiplier(self.quest_level, player_level)
-        return max(1, int(reward * QUEST_EXP_MULTIPLIER))
+        return max(1, int(reward * QUEST_EXP_MULTIPLIER * player_xp_rate()))
 
     @property
     def quest_level(self):
