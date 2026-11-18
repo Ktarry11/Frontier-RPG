@@ -47,6 +47,9 @@ the roof by hand, ninety seconds each), the Lid (the upper shield the explosion 
 Sandfall (the sand, clay, lead and boron the helicopters dropped in), the Steam Corridor and the Elephant's Foot (where
 the melted core ran down and set).
 
+The Wound's Heart has its own two epics at 5%, like every final boss above 40 (`tools/epic_table.py`): the
+Lead-Lined Mantle (cloth shoulders, caster) and the Halberd of the First Patrol (polearm, strength).
+
 The light gets stronger as you go down: the seep's green round the axle and the Stacks' violet on the first floor;
 the pools, the pale blue of stopped time up the roof gallery and the core lit green from below on the second; on the
 third the melt itself, lit from inside, and a deep red on the Heart's island.

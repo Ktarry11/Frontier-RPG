@@ -303,6 +303,9 @@ def main():
         mult = 1.5 if q.get("elite") else (1.3 if is_boss else 1.0)
         q["reward_exp"] = int(XP(q["level_max"]) * mult)
         q["reward_gold"] = int(GOLD(q["level_max"]) * mult)
+        from tools.reward_icons import unclash
+        for it in items:
+            unclash(it)             # an epic's icon stays the epic's (Kyle, 16 Nov: "only have ONE icon")
         q["unique_item_defs"] = items
         q["gear_reward_gear_level"] = ilvl
         q["gear_reward_rarity"] = rarity

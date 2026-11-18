@@ -84,6 +84,10 @@
     "Echo of the Queen": {
       "dungeon": "The Drowned Palace: The Queen's Vault",
       "chance": 0.05
+    },
+    "The Wound's Heart": {
+      "dungeon": "The Exclusion Zone: The Foot",
+      "chance": 0.05
     }
   },
   "world": [
@@ -7542,6 +7546,116 @@
       "recipe_profession": null,
       "power_scale": 3,
       "boss": "Echo of the Queen"
+    },
+    {
+      "item_id": "epic_lead-lined_mantle",
+      "name": "Lead-Lined Mantle",
+      "slot": "shoulder",
+      "item_level": 63,
+      "rarity": "epic",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 28,
+        "spirit": 28
+      },
+      "secondary_stats": {
+        "spell_power": 4,
+        "healing_power": 6
+      },
+      "armor_value": 127,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_wow_shoulder_113",
+      "required_level": 60,
+      "sell_price": 28735,
+      "flavor_text": "Cut from the lead blankets the liquidators hang over the crater's lip, and lined with Widows' Wood silk.",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        },
+        {
+          "color": "yellow",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "intellect": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "collection_id": null,
+      "heirloom_id": null,
+      "power_scale": 3,
+      "boss": "The Wound's Heart"
+    },
+    {
+      "item_id": "epic_halberd_of_the_first_patrol",
+      "name": "Halberd of the First Patrol",
+      "slot": "main_hand",
+      "item_level": 63,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "polearm",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 42,
+        "stamina": 67
+      },
+      "secondary_stats": {
+        "hit_rating": 22,
+        "attack_power": 13
+      },
+      "armor_value": 0,
+      "weapon_damage_min": 191,
+      "weapon_damage_max": 258,
+      "attack_speed": 3.3,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_wow_polearm_halberd_08",
+      "required_level": 60,
+      "sell_price": 44898,
+      "flavor_text": "Deathguard Harrow's patrol carried it into the crater the night the tear opened. The Heart had kept it.",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "yellow",
+          "gem": null
+        },
+        {
+          "color": "yellow",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "strength": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "collection_id": null,
+      "heirloom_id": null,
+      "power_scale": 3,
+      "boss": "The Wound's Heart"
     },
     {
       "item_id": "epic_mantle_of_the_rot_below",

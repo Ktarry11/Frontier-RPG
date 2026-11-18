@@ -383,6 +383,7 @@ FINAL_BOSSES = {
     "The Caldera": ("The Emberdeep", 0.05),
     "Xavras the Gloomtender": ("The Rotroot Deeps", 0.05),
     "Echo of the Queen": ("The Drowned Palace: The Queen's Vault", 0.05),
+    "The Wound's Heart": ("The Exclusion Zone: The Foot", 0.05),
 }
 SHARED_30S = "shared_30s"
 
@@ -489,6 +490,13 @@ DUNGEON = [
     ("The Queen's Last Guard", "main_hand", "weapon", "polearm", 63, "str_physical",
      "A Moonguard halberd from the throne room, still bright after ten thousand years under the sea.",
      "gear_wow_polearm_halberd15", "Echo of the Queen"),
+    # ---- the Exclusion Zone (The Wound's Heart, 60)
+    ("Lead-Lined Mantle", "shoulder", "armor", "cloth", 63, "int_caster",
+     "Cut from the lead blankets the liquidators hang over the crater's lip, and lined with Widows' Wood silk.",
+     "gear_wow_shoulder_113", "The Wound's Heart"),
+    ("Halberd of the First Patrol", "main_hand", "weapon", "polearm", 63, "str_physical",
+     "Deathguard Harrow's patrol carried it into the crater the night the tear opened. The Heart had kept it.",
+     "gear_wow_polearm_halberd_08", "The Wound's Heart"),
     # ---- the Rotroot Deeps (Xavras the Gloomtender, 58)
     ("Mantle of the Rot Below", "back", "armor", "accessory", 61, "agi_physical",
      "Xavras's own cloak, woven from the fungus she grew under Timbermaw Hold.", "gear_wow_back_cape_naxxramas_03",

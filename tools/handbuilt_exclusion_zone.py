@@ -141,6 +141,8 @@ FLOOR = {
         bridges=[([(116, 100), (104, 100)], 1)],                 # the open spoke's end, over the ring to the island
         #: the Stacks' shelving: rows of black glass, north of the rim's line through the room, an aisle down the middle
         blocks=[(x, y, 2, 5) for x in (76, 82, 88, 110, 116, 122) for y in (13, 20)],
+        #: drawn standing on the blocks themselves: the shelves are black glass, every moment filed in them
+        block_props=[("glass_shard", x + 1, y + 4, 5) for x in (76, 82, 88, 110, 116, 122) for y in (13, 20)],
         bosses=[(100, 168, "Gristlemaw"), (24, 108, "Broodmother Vexis"), (100, 17, "Archivist Nine")],
         final="Archivist Nine",
         doors=[PORTAL, STAIR_DOWN[SHADOW]],
@@ -195,6 +197,9 @@ FLOOR = {
         bridges=[],
         #: the turbines, a row of them down the middle of the hall
         blocks=[(26, y, 9, 11) for y in (26, 50, 74, 98, 122)],
+        #: each turbine a dead engine: its frame standing in the housing, still venting
+        block_props=[p for y in (26, 50, 74, 98, 122)
+                     for p in (("collapsed_support", 30, y + 10, 9), ("fume_vent", 30, y + 6, 4))],
         bosses=[(91, 134, "The Glow-Eater"), (143, 30, "The Stopped Man")],
         final="The Stopped Man",
         doors=[STAIR_UP[HALL], STAIR_DOWN[HALL]],
@@ -215,6 +220,13 @@ FLOOR = {
             ("stopped_blast", 150, 128, 4, False), ("stopped_blast", 146, 94, 4, False),
             ("stopped_blast", 156, 70, 4, False), ("stopped_blast", 150, 44, 4, False),
             ("dead_kit", 158, 112, 3, False), ("dead_kit", 140, 56, 3, False),
+            ("glass_shard", 160, 140, 3, "core"), ("glass_shard", 144, 112, 3, "core"),
+            ("glass_shard", 166, 88, 3, "core"), ("glass_shard", 138, 66, 3, "core"),
+            ("glass_shard", 152, 100, 5, "core"), ("glass_shard", 164, 40, 3, "core"),
+            ("slag_cluster", 140, 140, 3, "core"), ("slag_cluster", 166, 120, 3, "core"),
+            ("collapsed_support", 136, 92, 5, "core"), ("collapsed_support", 166, 70, 5, "core"),
+            ("stopped_blast", 160, 120, 4, False), ("stopped_blast", 140, 76, 4, False),
+            ("dead_kit", 146, 140, 3, False), ("dead_kit", 162, 32, 3, False),
             # the lid, standing on its edge, and the stair down beside it
             ("floating_ring", 92, 64, 9, False), ("crystal_pillar", 80, 60, 4, "core"),
             ("crystal_pillar", 104, 60, 4, "core"), ("down_stair", 92, 73, 4, False),
@@ -402,6 +414,8 @@ def build_floor(name):
                 zone.collision_layer[yy][dx] = None
     _seal(zone, spec["start"])
     _dress(b, spec)
+    for (pname, x, y, h) in spec.get("block_props", ()):
+        b.prop(f"{FZ}{pname}.png", x, y, h, solid=False)
     _seal(zone, spec["start"])
 
     fixed = []
