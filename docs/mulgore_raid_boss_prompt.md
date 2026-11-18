@@ -161,4 +161,7 @@ zone's and the raid's combat backgrounds when they're built (not wired to anythi
 plains under the eclipse, bones and risen beasts in the fog), `s_mulgore_faces` (lava cracks through ground made of
 screaming faces), `s_mulgore_blood_lake` (the blood lake and the ruined tauren camps), `s_thunder_bluff_rises` (the
 four rises on their mesas, rope bridges over lava, under the eclipse).
+A fifth, the same night: a mood piece (a black eclipse ringed in red-white fire over a dark spired ridge, a dead tree
+framing it), kept as a reference for Mulgore's look in `tools/building_sheets/mulgore_mood_eclipse.png`, not as game
+art.
 
