@@ -153,7 +153,7 @@ def build():
         "you're any use to it. Start at the great moonwell, then take his letter across the lake to the Wakened.",
         [explore(*GREAT_MOONWELL, "Stand at the great moonwell in Nighthaven's square"),
          deliver("mg_q_rabine_letter", "Take Rabine's letter to Dr. Ingrid Sandvik on the west shore")],
-        "The great moonwell's in the square, a few steps from here. Look into it for a while. Then follow the shore "
+        "The great moonwell's in the square, a few steps north of here. Look into it for a while. Then follow the shore "
         "road round to the west side, where the Wakened live, and give Dr. Sandvik this letter. She'll explain them "
         "better than I can.",
         "Rabine writes the politest letters in the whole of Kalimdor. He's asking me to look after you, and to tell "
@@ -252,7 +252,7 @@ def build():
         "wants someone to sit outside the door and write down what they say, because the wardens won't, and the "
         "Circle has asked her not to go herself.",
         [explore(*BARROW_DOOR, "Sit by the Barrow Dens' door and write down what the sleepers say")],
-        "Warden Taerenas will let you sit by the door if you don't touch it. Write down everything, even the words "
+        "The Barrow Dens are south of here, in the hills. Warden Taerenas will let you sit by the door if you don't touch it. Write down everything, even the words "
         "you don't understand, and those most of all. I've heard that some of it isn't in any language they speak here.",
         "That line's Norwegian, and that one's Yoruba, and those three are Polish, and this one's Darnassian, "
         "and they're all saying the same sentence.\n\nThey're saying it opens from underneath. I don't know what it "
@@ -380,7 +380,7 @@ def build():
         "their backs. Elder Mahala Dawnhorn has kept them laid down ever since. She'd like someone who wasn't there "
         "to stand at the memorial the survivors built, and tell her what it looks like to a stranger.",
         [explore(*TAUREN_MEMORIAL, "Stand at the tauren memorial in Nighthaven")],
-        "The memorial's on the north side of Nighthaven, by the lodges, a cairn with feathers on it. Look at it "
+        "The memorial's a short walk south-east of here, by the lodges, a cairn with feathers on it. Look at it "
         "properly. Then come back and tell me whether it looks like a grave or a promise.",
         "You'd call it a promise, then. That's what the young ones say too, and the old ones say grave.\n\nWe've been arguing about it "
         "for three years, the old and the young. I'm glad it's a promise to you. It means the young ones might be "

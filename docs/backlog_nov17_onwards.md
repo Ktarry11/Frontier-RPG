@@ -88,8 +88,7 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - **Scroll wheel**: fixed on 14 Nov. Kyle to say if any screen still clicks on a wheel turn.
 
 ## 6. Quests and writing
-- **Quest directions** (`tools/audit_quest_directions.py --all`, re-measured 18 Nov): 8 WRONG (the text points the wrong
-  way) and 32 SILENT (a far target with no direction or place name). In progress.
+- **Quest directions in hidden maps**: 3 SILENT (`tools/audit_quest_directions.py --all`). Counts only.
 - **Quest mail** (designed with Kyle on 15 Nov, parked behind the Plaguelands): follow-ups, mail-start quests,
   thank-you rewards, hidden chains with no hints. A draft module exists (see the auction house build log).
 - **New chains that connect zones and build to something** (left over from [37]).

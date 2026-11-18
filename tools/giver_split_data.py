@@ -564,7 +564,7 @@ MOVES.update({
           "Thalnos, who's kept himself alive a long time on other people.\n\n"
           "He wants the stone Thalnos does it with. The Master Apothecary has her own uses for something that keeps a "
           "heart beating, and she's asked him to find out how it works.",
-        A="Thalnos holds Honor's Tomb, at the far end of the Graveyard past the open burial ground. His ward drinks "
+        A="The Monastery's north of here, in Tirisfal. Thalnos holds Honor's Tomb, at the far end of the Graveyard past the open burial ground. His ward drinks "
           "spells, so hit him with steel. The stone will be on him. Bring it to me, not to the Master Apothecary, "
           "because I want a look at it first.",
         T="It's still warm, and it's still beating.\n\n"

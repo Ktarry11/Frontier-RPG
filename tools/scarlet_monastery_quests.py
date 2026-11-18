@@ -144,7 +144,7 @@ def build():
          "Crusader's Armory in the Monastery, where Smithmaster Corra Bellweather works day and night.\n\n"
          "Novak wants her notebook. If the Order knows what the Crusade wears, the Order knows where it's thin.",
          [boss("Smithmaster Corra Bellweather", A), fetch("sm_q_tempering_notes", 1)],
-         "The Armory's the middle door under the Monastery's front. Go through the Training Grounds and the two "
+         "The Monastery's east of here, up the road, and the Armory's the middle door under its front. Go through the Training Grounds and the two "
          "armouries, and the forge is up the short passage off the Crusader's Armory. She tempers her plate "
          "while you hit her, so don't let it pile up.",
          "Every buckle and rivet. She was thorough.\n\nThe Flamekeeper's going to like this. He was an "
@@ -159,7 +159,7 @@ def build():
          "Guard at the Cathedral's doors today.\n\nNovak doesn't want an apology. He wants Stane's signet, so "
          "the Flamekeeper knows it's done.",
          [boss("Captain Elric Stane", C), fetch("sm_q_stanes_signet", 1)],
-         "The Cathedral's the right-hand door. Cross the Chapel Gardens and go up the steps, and Stane stands "
+         "The Monastery's east of here, up the road, and the Cathedral's its right-hand door. Cross the Chapel Gardens and go up the steps, and Stane stands "
          "at the top. He'll call his centurions to him, so deal with them first or they'll bury you.",
          "That's the ring. I've seen it on his hand in a doorway with the fire behind him.\n\nTake it to Rory "
          "yourself. He should hear it from the one who did it.",
@@ -190,7 +190,7 @@ def build():
          "Cloister, and the Haunting Phantasms drift among the stones. Hollis wants them laid down, gently if "
          "you can manage it and any way you can if you can't.",
          [k("Anguished Dead", 8, G), k("Haunting Phantasm", 6, G)],
-         "Into the Monastery's Graveyard, through the crypt chapel. Past the halls there's an open burial ground "
+         "The Monastery's east of here, up the road. Go into its Graveyard, through the crypt chapel. Past the halls there's an open burial ground "
          "with a mausoleum in the middle. That's where they walk.",
          "Thank you. I'll say a word for them, whatever they were.\n\nThe Crusade calls us abominations, and "
          "then lets its own dead crawl out of the ground. I don't understand them, and I've stopped trying.",
@@ -205,7 +205,7 @@ def build():
          "there's more in it than oil.\n\nBring her the vials, and she'll find out what makes a man burn his "
          "neighbours and sing while he does it.",
          [fetch("sm_q_scarlet_zeal", 6)],
-         "The Torturers and the Scryers both keep to the halls and the Chamber of Atonement in the Graveyard. "
+         "The Monastery's north of here, in Tirisfal. The Torturers and the Scryers both keep to the halls and the Chamber of Atonement in the Graveyard. "
          "Most of them carry a vial. Don't drink any of it.",
          "Incense, oil, and something bitter under both.\n\nIt's a calming draught, and a strong one. They "
          "keep them calm while they do it. That's worse, somehow.",
@@ -217,7 +217,7 @@ def build():
          "Bloodmage Thalnos, and that he's kept himself alive a long time on other people.\n\nShe wants the stone "
          "he does it with. The Society has its own uses for something that keeps a heart beating.",
          [boss("Bloodmage Thalnos", G), fetch("sm_q_thalnos_blood", 1)],
-         "Thalnos holds Honor's Tomb, at the far end of the Graveyard past the open burial ground. His ward drinks "
+         "The Monastery's north of here, in Tirisfal. Thalnos holds Honor's Tomb, at the far end of the Graveyard past the open burial ground. His ward drinks "
          "spells, so hit him with steel. The stone will be on him.",
          "It's still warm, and it's still beating.\n\nThe Dark Lady will want to know about this. Leave it with me, and don't "
          "mention it in the tavern.",

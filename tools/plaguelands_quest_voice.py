@@ -95,7 +95,7 @@ VOICE.update({
         "A sample out of the cauldron itself is no good to me. The cultists add whatever's lying around. The clean "
         "stuff, the batch they started from, is in a flask on the belt of the thing that keeps the cauldron.\n\n"
         "It's a Felstone Cauldron Lord, one of the Scourge's stitched brutes. It's big and slow and it hits like a "
-        "falling barn.\n\nIt stands at the Felstone cauldron. Put it down and bring me the flask. Keep it upright "
+        "falling barn.\n\nIt stands at the Felstone cauldron, north-east of here in Felstone Field. Put it down and bring me the flask. Keep it upright "
         "and keep it out of the sun.",
         "It's still warm, and that's wonderful.\n\nThere are more cauldrons in the south. I'd like them all."),
     "pls_dalsons_tears": V(
@@ -174,7 +174,7 @@ VOICE.update({
         "Nobody goes into the Dalson barn. I lost a patrol in there. The one who came out said it was the father, "
         "Joseph Dalson, still looking for his family. He said it wasn't angry, it was looking, and it killed them "
         "anyway.\n\nThe Dalson Ghost keeps the barn and Dalson's Skeletons keep the yard. I want it ended, and I'd "
-        "like it ended gently, if there's a gentle way.\n\nIt's the red barn on the Dalson farm. The skeletons walk "
+        "like it ended gently, if there's a gentle way.\n\nIt's the red barn on the Dalson farm, north-east of here at Dalson's Tears. The skeletons walk "
         "the yard. The ghost won't come out, so you'll have to go in.",
         "He's at rest, then. I hope he found them.\n\nSome things out here make you remember you were alive once. "
         "That was one of them."),
@@ -472,7 +472,7 @@ VOICE.update({
         "Kill Scarlet Sentries on the road and in the fields below Hearthglen.",
         "Every Scarlet Sentry on the road below Hearthglen turns back anyone who isn't wearing red. That was "
         "fine while they stayed up there. Lately they've been coming down at night, closer every time, and last "
-        "night one of them was close enough to read our gate.\n\nPush them back up the hill. They stand in pairs on "
+        "night one of them was close enough to read our gate.\n\nPush them back up the hill, north of here. They stand in pairs on "
         "the road and in the fields under the gate. They'll call for help if they can, so don't let one run. Keep "
         "it quick and keep it quiet.",
         "That'll keep them on their own side of the hill for a while.\n\nHale used to be a security contractor, back "
@@ -659,14 +659,14 @@ VOICE.update({
         "Kill Scarlet Woodsman Archers in the trees round Northridge.",
         "With the lumberjacks gone, the Crusade's sent Scarlet Woodsman Archers into Northridge's trees to guard "
         "the timber. They're good shots, and they know those woods better than I do.\n\nI can't send wagons in "
-        "while they're up there. They hide in the trees round the camp. Look up, because they like the high "
+        "while they're up there. They hide in the trees round the camp, north-west of here. Look up, because they like the high "
         "branches, and don't let them pin you down in the open.",
         "The woods are clear. My wagons go in tomorrow.\n\nI'll need someone to pick out the good planks before the "
         "rest of them burn the lot."),
     "pln_seasoned_oak": V(
         "Take Seasoned Planks from the Scarlet Sawyers at the Northridge mill.",
         "The wall round the Watch is green wood, and it's started to warp. Another winter and I'll be able to "
-        "post letters through the gaps.\n\nThe Scarlet Sawyers at Northridge carry the camp's best seasoned planks "
+        "post letters through the gaps.\n\nThe Scarlet Sawyers at Northridge, north-west of here, carry the camp's best seasoned planks "
         "to the carts. Seasoned oak won't warp. I want enough to rebuild the gate, at least.\n\nTake the planks off "
         "the sawyers before they reach the carts. Look for Hearthglen's stamp, because that's the good stuff.",
         "Feel the weight of that. That's proper oak.\n\nThe gate will be up by the end of the week. I'd like to meet "
@@ -675,7 +675,7 @@ VOICE.update({
         "Kill Foreman Harrow at the mill in Northridge.",
         "Foreman Harrow runs Northridge for the Crusade. He's the one who sent the archers out, and he came back "
         "to the camp yesterday with a fresh crew.\n\nAs long as he's there, the camp fills up again every time we "
-        "empty it.\n\nHe's at the mill in the middle of Northridge. He's a big man with a big axe, and he doesn't "
+        "empty it.\n\nHe's at the mill in the middle of Northridge, north-west of here. He's a big man with a big axe, and he doesn't "
         "like visitors. Take friends with you.",
         "That's the end of Northridge for the Crusade.\n\nThe camp's ours now. I'll put a crew in there next month "
         "and we'll cut our own timber."),
@@ -738,7 +738,7 @@ VOICE.update({
         "I'm Wendel, and I kept Hearthglen's books until I read what I was writing down, and then I left. I still "
         "keep books. It's an old habit.\n\nThe Scarlet Sentries carry the week's roster, which tells everyone "
         "where to stand on the walls. If I had a copy, the Watch would know those walls as well as I used to.\n\n"
-        "The sentries on the road below the gate carry it in a leather case at the belt. Bring it back dry, "
+        "The sentries on the road north of here, below the gate, carry it in a leather case at the belt. Bring it back dry, "
         "please. The ink runs.",
         "This is in Brother Jessup's hand. I'd know his capitals anywhere.\n\nThe newcomers here always ask how I can "
         "read the walls from a page. It's just bookkeeping, really."),
@@ -746,7 +746,7 @@ VOICE.update({
         "Kill Scarlet War Hounds in the fields below Hearthglen.",
         "The roster says Hearthglen sends its Scarlet War Hounds out at night, to hunt anyone near the walls. I "
         "used to feed those dogs. They were good dogs, once. They'd sit for a crust.\n\nThey aren't good dogs any "
-        "more. They're what Hearthglen made them.\n\nThey hunt the fields below the walls at night, in packs. Don't "
+        "more. They're what Hearthglen made them.\n\nThey hunt the fields north of here, below the walls, at night and in packs. Don't "
         "let them circle you. Back up against something and let them come.",
         "They were good dogs once. I used to give them the scraps from the kitchen.\n\nThat's done, then. Thank you. "
         "I'll write it down, because somebody should."),
@@ -1455,7 +1455,7 @@ VOICE.update({
         "Kill Lord Alexei Barov and Lady Illucia Barov in Scholomance.",
         "I'm Aldren Holt, knight of the Pale Flame, for whatever that's worth to you. I want to tell you about a "
         "family.\n\nThe Barovs owned Caer Darrow, and when the plague came they sold it to the Cult for eternal "
-        "life. They got it. Lord Alexei Barov and Lady Illucia Barov still walk their own vault under the school, "
+        "life. They got it. Lord Alexei Barov and Lady Illucia Barov still walk their own vault under the school on Caer Darrow, north-east of here, "
         "dead and proud of it, and they still think the island's theirs.\n\nI've read their family's letters. They "
         "sold their tenants along with the land, and the tenants are in the ossuary now. Put the Barovs in the "
         "ground with them. They're always together, so plan for both.",

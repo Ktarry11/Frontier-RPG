@@ -60,9 +60,15 @@ def bearing(dx, dy):
     return BEARINGS[int((ang + 22.5) // 45) % 8]
 
 
+#: A compass word that starts a place's name ("West Azshara", "North Felwood", "Eastern Plaguelands") is part of the
+#: name, not a direction: "the boars root all over West Azshara" says nothing about which way to walk. Capitalised, and
+#: followed by a capitalised word. Found 18 Nov 2026, when three quests were WRONG for naming their own zone.
+PLACE_NAME = re.compile(r"\b(?:North|South|East|West)(?:ern)?(?:[\s-](?:East|West)(?:ern)?)?\s+[A-Z][\w'\u2019]+")
+
+
 def said(text):
-    """Compass words in the text. A compound ('south-west') hides its two halves."""
-    found, rest = set(), text
+    """Compass words in the text. A compound ('south-west') hides its two halves. Place names don't count."""
+    found, rest = set(), PLACE_NAME.sub(" ", text)
     for name in ("north-east", "north-west", "south-east", "south-west"):
         if re.search(WORDS[name], rest, re.I):
             found.add(name)

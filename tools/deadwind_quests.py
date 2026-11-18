@@ -286,7 +286,7 @@ def build():
         "Morwen Ashgrave has seen what the Seep does to the living, and now she wants to see what it does to the "
         "dead. The Plot Risen have marrow in them that glows.",
         [fetch("dw_q_seep_marrow", 6)],
-        "The Plot Risen at Morgan's Plot. Break the long bones and take the marrow from the break. It'll be warm. "
+        "The Plot Risen walk Morgan's Plot and Coachman's Bend, east of here. Break the long bones and take the marrow from the break. It'll be warm. "
         "Don't let that alarm you.",
         "Warm, and soft, and alive. It's mending, in dead bone.\n\nThank you. That will be all for now. Lisbeth "
         "will see you out."))
@@ -295,7 +295,7 @@ def build():
         "notes in the sealed store behind the laboratory, and lately she's been taking samples in there and not "
         "bringing them out.\n\nLisbeth can't be seen going in herself.",
         [explore(*SEALED_STORE, "Look inside the sealed store behind the laboratory", AW, radius=3)],
-        "The sealed store's behind the laboratory, south-west of the pyre. The lock's for the living. You'll get "
+        "Go south-east from here to the laboratory. The sealed store's behind it, south-west of the pyre. The lock's for the living. You'll get "
         "past it. Just look, and tell me what you saw.",
         "Her own arm? She's been injecting the Seep into her own arm?\n\nAnd the arm's healing. The rot's going "
         "out of it, the flesh is coming back. She's found a way for us to stop rotting, and she hasn't told "
@@ -388,7 +388,7 @@ def build():
         "Baba Hanna drinks from the old well on the shore of the Black Tarn, and lately the water tastes of "
         "pennies. She wants someone to look down it and tell her what they see.",
         [explore(*BLACK_WELL, "Look down the old well on the shore of the Black Tarn", DW, radius=4)],
-        "The well's on the tarn's north-east shore, with the stone ring round it. Look down it, that's all. "
+        "The well's south-east of here, on the tarn's north-east shore, with the stone ring round it. Look down it, that's all. "
         "Kenji will tell me not to drink from it, and I'll ignore him.",
         "Green, you say, and moving like eyes.\n\nWell, I've drunk worse. At home in Kupuvate the water was clean and the "
         "milk wasn't, and we drank the milk anyway because the cow was all we had. I'll boil it twice.",
@@ -582,7 +582,7 @@ def build():
         "Mykola's echo keeps saying the readings were wrong, and now he's pointing down into the Sleeping Gorge, "
         "at the stretch where the river stopped. He wants someone to stand in it.",
         [explore(*STOPPED_WATER, "Stand in the stopped river on the floor of the Sleeping Gorge", DE, radius=4)],
-        "...down there...stand in the water that doesn't move...look which way it's leaning...",
+        "...south-east, down there...stand in the water that doesn't move...look which way it's leaning...",
         "...it leans toward the wheel. It's not flowing, it's being pulled.\n\nI told them. A hole doesn't pull. "
         "Halya, a hole doesn't pull...",
         requires_quests=["dw_tell_halya"], zone=DE))
@@ -590,7 +590,7 @@ def build():
         "Mykola's echo is pointing at the wheel now, at the glow crater at its foot, and he's almost finished his "
         "sentence. He wants someone to go to the edge of the crater and look down.",
         [explore(*CRATER_LIP, "Look down into the glow crater at the foot of the wheel", DE, radius=4)],
-        "...go to the edge...look down...you'll see what I saw...don't go in alone, I went in alone...",
+        "...go south-east, to the edge under the wheel...look down...you'll see what I saw...don't go in alone, I went in alone...",
         "...it's not a hole. It's a mouth.\n\nIt swallows things, and it keeps them, and it makes them again. "
         "It made me again. Tell Halya to come and let me go.",
         requires_quests=["dw_the_readings_were_wrong"], zone=DE))
@@ -633,7 +633,7 @@ def build():
         "his evening comes in through it every time it starts again.\n\nHe wants someone to walk through it from "
         "the other side, and let the evening finish.",
         [explore(*TIME_DOOR, "Walk through the standing doorway in the Stopped Places", DE, radius=3)],
-        "It's on the far side of the elder tree. Walk through it backwards, the way the evening comes in. I don't "
+        "It's north-east of here, on the far side of the elder tree. Walk through it backwards, the way the evening comes in. I don't "
         "know what you'll see. I hope it's a morning.",
         "The light in the window went out, and then it got dark, and then it got light again.\n\nI'd forgotten "
         "that's what happens after an evening. Thank you. I think I'll sleep now. I think I'll sleep a long time.",

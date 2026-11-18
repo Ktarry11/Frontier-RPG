@@ -562,7 +562,7 @@ def build_landing():
         "Every Promenade Noble still carries the seal of their office, and the Conclave can read the names on them. "
         "Thessaly wants the names before the sea takes them back.",
         [fetch("az_q_court_seal", 8)],
-        "The Promenade Nobles walk the marble road into the sea. Take their seals, gently if you can. They were "
+        "The Promenade Nobles walk the marble road into the sea, east of here. Take their seals, gently if you can. They were "
         "somebody once, and they don't know they've stopped.",
         "Lords, ladies, a court physician. And one name that's on the ledger Brightspire's after.",
         zone=EA, nxt="az_the_weeping_duchess"))

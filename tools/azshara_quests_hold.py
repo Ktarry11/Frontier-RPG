@@ -48,7 +48,7 @@ def build_hold():
         "left their shrine when they died, and now they don't know friend from foe.\n\nHrolm wants them laid to "
         "rest, kindly.",
         [k("Shadowsong Sentinel", 8, WA)],
-        "Shadowsong Shrine's in the north-east of West Azshara, in the trees. Every Shadowsong Sentinel there was a "
+        "Go out of the Hold and Shadowsong Shrine's east of you, in the trees of West Azshara's north-east. Every Shadowsong Sentinel there was a "
         "friend of the Hold once. Let them go, and say a word for them if you can.",
         "They're resting now, all of them. I'll carve their names on the gate. The Timbermaw remember their friends.", zone=TH))
 
@@ -148,7 +148,7 @@ def build_hold():
         "Ingrid says the rot spreads fastest where the satyrs work it, and the Haldarr Rogues carry it on their "
         "blades into the woods. Fewer satyrs means a slower rot.",
         [k("Haldarr Felsworn", 8, WA)],
-        "The Haldarr Felsworn tend the fel fires in the encampment over the den. Put the fires out, and the ones "
+        "The Haldarr Felsworn tend the fel fires in the Haldarr Encampment over the den, far to the south-east in West Azshara. Put the fires out, and the ones "
         "who tend them, and don't breathe the smoke.",
         "The samples from the woods came back cleaner this week. Not clean, cleaner.", zone=TH,
         requires_quests=["az_samples_from_haldarr"]))
@@ -166,7 +166,7 @@ def build_hold():
         "Haldarr's satyrs knock down every Timbermaw totem they find, and Ungar has carved enough replacements. He'd "
         "rather the satyrs stopped.",
         [k("Haldarr Trickster", 8, WA)],
-        "The Haldarr Tricksters run the encampment's curses, and they love knocking totems over. Show them how it "
+        "The Haldarr Tricksters run the curses at the Haldarr Encampment, far to the south-east in West Azshara, and they love knocking totems over. Show them how it "
         "feels to be knocked over.",
         "The totems on the south road are still standing. That's the first time in a month.", zone=TH,
         nxt="az_haldarr_the_hornlord"))
@@ -216,7 +216,7 @@ def build_hold():
         "coming anyway. He'll open it, and he wants someone to go down first.\n\nThe first thing waiting below is Old "
         "Mossjaw, the Hold's own chieftain, the first the rot took.",
         [boss("Old Mossjaw", RD)],
-        "The deep gate's in the basin floor. The wardens will open it for you. Mossjaw lies on his bier at the end "
+        "The deep gate's in the basin floor, south of here. The wardens will open it for you. Mossjaw lies on his bier at the end "
         "of the burial halls. Put him to rest. He was a good chieftain.",
         "Mossjaw's at rest. He'd have wanted it done by someone who didn't flinch.\n\nYou'll have to go deeper. "
         "Grothar knows what's down there.", zone=TH, requires_quests=["az_tell_the_elder"]))
@@ -224,7 +224,7 @@ def build_hold():
         "At the bottom of the deeps, on an island in the fel lake, is the satyr who planted the rot: Xavras the "
         "Gloomtender. Everything the Hold has lost started with her.",
         [boss("Xavras the Gloomtender", RD)],
-        "She's at the bottom, on her throne island in the Gloomhollow. One causeway out to her. She'll call her "
+        "She's at the bottom of the Rotroot Deeps, through the deep gate south of here, on her throne island in the Gloomhollow. One causeway out to her. She'll call her "
         "satyrs, and at the end she'll bring the rot up out of the lake. Don't be standing in it.",
         "Xavras is dead, and the lake's going quiet.\n\nThe Hold will be talking about this for a hundred years. "
         "We'll be talking about you.", zone=TH, requires_quests=["az_thornblight"]))
