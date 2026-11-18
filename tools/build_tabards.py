@@ -10,8 +10,8 @@ to get all factions to exalted and lets the player pick." His answers on the det
 zone rep never move), heroics only, and build it now with heroic mode next (docs/tabards_design.md).
 
 One tabard per faction, the secret one excepted. Each faction's quartermaster sells it at Friendly for 1 gold. No
-stats: it sits in its own slot (entities/equipment.py "tabard"). Its icon is the guild tabard tinted to the faction's
-colours until it gets art of its own.
+stats: it sits in its own slot (entities/equipment.py "tabard"). Its icon is sheet T1's (docs/tabard_art_prompts.md); a
+new faction's tabard gets the guild tabard tinted to its colours until it has art.
 """
 import json
 import sys
@@ -106,7 +106,10 @@ def main():
     text = json.dumps(data, indent=2, ensure_ascii=False) + "\n"
     FACTIONS.write_text(text, encoding="utf-8")
     for fid in plan:
-        tint_icon(fid)
+        # the real icons landed 18 Nov (sheet T1, docs/tabard_art_prompts.md): a stand-in is only made for a
+        # tabard that has none, so a rebuild never paints over the art
+        if not (ROOT / "assets" / "icons" / "gear" / f"{tabard_id(fid)}.png").exists():
+            tint_icon(fid)
     print(f"  written {OUT.relative_to(ROOT)}, {len(plan)} quartermasters, {len(plan)} icons")
     return 0
 
