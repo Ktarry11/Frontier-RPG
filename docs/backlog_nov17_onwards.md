@@ -44,8 +44,7 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - **Pack Mule** is +12 backpack spaces, not a fifth bag slot; Kyle to say if he wants the real slot.
 
 ## 1b. Deadwind Pass (built 18 Nov 2026, `docs/deadwind_build_log.md`)
-- Left: combat backgrounds of its own (the pass borrows "blighted", the Exclusion Zone's floors "dark_dungeon"); needs
-  an art prompt sheet.
+- Left: combat backgrounds of its own, prompts written as sheet H3 of `docs/harvest_fishing_art_prompts.md`.
 
 ## 1c. Mulgore: The Fallen Bluff, the Thunder Bluff raid (art prompts in progress, 18 Nov 2026)
 - `docs/mulgore_raid_boss_prompt.md`: Kyle's first raid. Bosses by rise (Central 5 with the final boss unlocking
@@ -78,9 +77,6 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - **Recruit kit text I changed** because the game has no such thing (the list in playtest_backlog_2026_11_10, group
   N): Kyle to veto any.
 - **Shelved by Kyle:** an hp5 tank (a tank built round health regeneration).
-- **qa_kit_abilities_batch10 fails** on seven recruit kit abilities whose scaling doesn't happen (Slow and Correct,
-  Exactly Right, Several Seasons for the Sentence to Finish, Learning Them, One Hundred and Forty, Relentlessly,
-  Something Offered). It failed the same way at the start of 18 Nov, before anything that day.
 
 ## 5. UI
 - **Screen backgrounds** (Kyle, 14 Nov): a faint per-zone underlay inside the quest dialog (Barrens quests look
@@ -88,7 +84,6 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - **Scroll wheel**: fixed on 14 Nov. Kyle to say if any screen still clicks on a wheel turn.
 
 ## 6. Quests and writing
-- **Quest directions in hidden maps**: 3 SILENT (`tools/audit_quest_directions.py --all`). Counts only.
 - **Quest mail** (designed with Kyle on 15 Nov, parked behind the Plaguelands): follow-ups, mail-start quests,
   thank-you rewards, hidden chains with no hints. A draft module exists (see the auction house build log).
 - **New chains that connect zones and build to something** (left over from [37]).
@@ -97,9 +92,6 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - **Recruit personal quests and Sworn** aren't built. Tarek's ending and his trip and break numbers wait on Kyle.
 
 ## 7. World and towns
-- **NPCs into towns, part two**: quest givers meet the 70/30 rule in every zone (`qa_quest_hubs`). The rest of the
-  town roles (trainers, vendors, innkeepers) standing outside their towns haven't been swept, and no check covers
-  them yet.
 - **The Crossing** (Kyle: "my favorite design concept of double dungeon via invasion"): a visual pass on the Booty
   Bay to Ratchet boat (deck, rigging, the sea round it).
 - **33 authored pieces still missing from their maps** (measured 17 Nov): not a restore list. Only put back what a
@@ -123,16 +115,15 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
   instead. Then build it.
 - **A8. Recipe sources rebalanced**, so the best crafted pieces are found rather than trained.
 - **Higher-end frontier dusts, essences and shards** (later).
-- **Junk and salvage fishing catches**: the sprites are sliced but unused. They need their own catch table.
 
 ## 10. Art (prompts written; waiting on sheets, or on slicing)
+- **The 18 Nov art drop** (`docs/harvest_fishing_art_prompts.md`): H1, the 36 harvest finds and fishing icons (on
+  hue-shifted stand-ins until then); H2, the six fishing mounts (learnable now, rideable when their art lands); H3,
+  eight Deadwind combat backgrounds (the pass borrows "blighted" and the Exclusion Zone "dark_dungeon" until then).
 - **Recipe-scroll sheet RC1** (claude/enchanting_recipe_art_prompts.md): Blacksmithing, Leatherworking, Tailoring and
   Woodworking's first three. Kyle, 17 Nov: "just missing blacksmithing - add that to backlog". Until it lands those
   scrolls keep their one picture per profession. The Woodworking epic scroll also didn't come out on RC2, so it uses
   the master scroll; it can go on RC1.
-- **Timbermaw Warhide's own icon** is on RC3's last row; delivered 17 Nov.
-- Done 17 Nov: the two crafting icon-fix sheets (45 icons), the consumables sheet (28), the three crafted-epic sheets
-  (82), enchanting EN1-EN4 (144) and recipe sheets RC2-RC3.
 - **The professions screen's own art**: tab art, frames and station art.
 - **Walk cycles**: rolling out sheet by sheet by playable race (claude/walk_cycle_prompts.md).
 - **The recoloured T0 set versions** are plain hue turns (some gold sets come out lime). Kyle's eye.

@@ -1,0 +1,943 @@
+{
+  "_about": "Built by tools/build_harvest_finds.py from tools/harvest_finds_content.py; read by world/harvest_finds.py. docs/harvest_finds_design.md.",
+  "quests": [
+    {
+      "quest_id": "hf_ticking_copper_1",
+      "title": "Something in the Copper",
+      "giver_npc_id": "item:hf_ticking_copper",
+      "zone": "razor_hill",
+      "level_min": 8,
+      "level_max": 14,
+      "description": "A nugget of copper ore ticks like a heartbeat. Prizzle Boltwrench in Razor Hill takes apart anything that ticks.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "hf_ticking_copper",
+          "count": 1,
+          "label": "Prizzle Boltwrench, Razor Hill"
+        }
+      ],
+      "turn_in_npc_id": "razorhill_goblin_engineer",
+      "accept_text": "It's ticking in your hand. Not like a clock, which is what you'd expect, but slower, and it skips now and then the way a sleeper's breath does. The goblin in Razor Hill builds things that tick, and if anyone can say what's inside a nugget of copper, it's her.",
+      "turn_in_text": "Give it here, and let me listen. I've had seven inventions explode on me this year, and none of them felt like this. There's nothing in there to wind. It's alive, or it's dreaming about being alive.",
+      "reward_exp": 504,
+      "reward_gold": 2100,
+      "next_quest_id": "hf_ticking_copper_2"
+    },
+    {
+      "quest_id": "hf_ticking_copper_2",
+      "title": "The Stone Is Listening",
+      "giver_npc_id": "razorhill_goblin_engineer",
+      "zone": "razor_hill",
+      "level_min": 12,
+      "level_max": 16,
+      "description": "Prizzle won't take apart a living thing. She wants Keeper Ahnmar Stonetotem at the shrine in the Central Barrens to see the nugget.",
+      "accept_text": "I'm an engineer, and I don't open up things that tick on their own. There's a tauren at the shrine in the Central Barrens, Keeper Ahnmar, who says the stone talks to him. I always laughed at that, and I'm not laughing now. Take it to him, and tell him I didn't drop it.",
+      "turn_in_text": "Put it on the stone, gently, and listen. Do you hear how it slows? It's a seed of the earth, a little spirit that hadn't woken yet, and your pick found it early. It'll sleep here with the others now, and it'll remember you kindly.",
+      "reward_exp": 1000,
+      "reward_gold": 4500,
+      "next_quest_id": null,
+      "requires_quests": [
+        "hf_ticking_copper_1"
+      ],
+      "gear_reward_gear_level": 16,
+      "gear_reward_slot": "chest",
+      "gear_reward_rarity": "uncommon",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "hf_ticking_copper_carried",
+            "name": "Ticking Copper Nugget",
+            "description": "A nugget of copper that's warm in your hand. Hold it still and you can feel it tick, slow and even, like something asleep.",
+            "count": 1,
+            "icon_id": "hf_ticking_copper"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "hf_ticking_copper_carried",
+          "count": 1,
+          "label": "Keeper Ahnmar Stonetotem, the Central Barrens"
+        }
+      ],
+      "turn_in_npc_id": "cb_shrine_keeper"
+    },
+    {
+      "quest_id": "hf_tin_fossil_tooth_1",
+      "title": "A Tooth in the Tin",
+      "giver_npc_id": "item:hf_tin_fossil_tooth",
+      "zone": "camp_taurajo",
+      "level_min": 18,
+      "level_max": 22,
+      "description": "A fossil tooth is sunk in a lump of tin ore. Forge Baine at Camp Taurajo has the steady hands to free it.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "hf_tin_fossil_tooth",
+          "count": 1,
+          "label": "Forge Baine, Camp Taurajo"
+        }
+      ],
+      "turn_in_npc_id": "pt_taurajo_forge",
+      "accept_text": "The tooth's longer than your hand, and it's sunk in the tin like something bit the rock. A smith would know how to get it out without cracking it. There's a forge at Camp Taurajo, and Forge Baine has steady hands.",
+      "turn_in_text": "That's no kodo's tooth. I've split a lot of ore and found shells in it, and once a fern pressed flat, but I've never found a tooth. I'll free it for you. Hold still while I tap.",
+      "reward_exp": 888,
+      "reward_gold": 3780,
+      "next_quest_id": "hf_tin_fossil_tooth_2"
+    },
+    {
+      "quest_id": "hf_tin_fossil_tooth_2",
+      "title": "Bones Under the Plain",
+      "giver_npc_id": "pt_taurajo_forge",
+      "zone": "camp_taurajo",
+      "level_min": 20,
+      "level_max": 24,
+      "description": "Forge Baine wants Bonehunter Rurk Gravetusk in the Southern Barrens to see the tooth.",
+      "accept_text": "There's a bonehunter out on the plain, Rurk Gravetusk, who says giants walked the Barrens once. I've always said he spends too long in the sun. Take him the tooth and let him tell you which of us is right.",
+      "turn_in_text": "Give it here. Oh, look at that. The giants I dig are thunder lizards, the old kind, but this is a hunter's tooth, and it's from something bigger than any of them. You found it in tin from the hills? Then the hills are older than I thought, and I've got a lot more digging to do.",
+      "reward_exp": 1600,
+      "reward_gold": 6000,
+      "next_quest_id": null,
+      "requires_quests": [
+        "hf_tin_fossil_tooth_1"
+      ],
+      "gear_reward_gear_level": 24,
+      "gear_reward_slot": "legs",
+      "gear_reward_rarity": "uncommon",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "hf_tin_fossil_tooth_carried",
+            "name": "Tin Ore With a Fossil Tooth",
+            "description": "A lump of tin ore with a tooth sunk in it, long and serrated and longer than your hand. Whatever it came out of was big, and it was hungry a very long time ago.",
+            "count": 1,
+            "icon_id": "hf_tin_fossil_tooth"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "hf_tin_fossil_tooth_carried",
+          "count": 1,
+          "label": "Bonehunter Rurk Gravetusk, the Southern Barrens"
+        }
+      ],
+      "turn_in_npc_id": "sb_bonehunter"
+    },
+    {
+      "quest_id": "hf_singing_mithril_1",
+      "title": "The Ore That Sings",
+      "giver_npc_id": "item:hf_singing_mithril",
+      "zone": "arathi_central",
+      "level_min": 36,
+      "level_max": 40,
+      "description": "A shard of mithril ore hums, and stones answer it. Scholar Innik Barrowmouth has spent years on the old stones of Arathi.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "hf_singing_mithril",
+          "count": 1,
+          "label": "Scholar Innik Barrowmouth, Arathi"
+        }
+      ],
+      "turn_in_npc_id": "arathi_ring_scholar",
+      "accept_text": "It's humming, one clear note you feel in your teeth more than you hear, and a lower note answers when you hold it near a stone. The scholar at the Ring in Arathi has spent years on why the old stones stand where they do. He'll want to hear this.",
+      "turn_in_text": "Hold it up, higher than that. Do you hear that? The circle's answering it. I've measured these stones for nine years and I've never once heard them make a sound. This shard was cut from the vein the builders used, I'd bet my notes on it.",
+      "reward_exp": 2215,
+      "reward_gold": 8892,
+      "next_quest_id": "hf_singing_mithril_2"
+    },
+    {
+      "quest_id": "hf_singing_mithril_2",
+      "title": "Ring the Circle",
+      "giver_npc_id": "arathi_ring_scholar",
+      "zone": "arathi_central",
+      "level_min": 37,
+      "level_max": 41,
+      "description": "Scholar Innik wants the shard carried round the circle on the Ring Road while you listen for where its note changes.",
+      "accept_text": "I need you to carry it round the circle on the Ring Road, slowly, and listen for where the note changes. Don't hurry it. I'll write down whatever you tell me, and if it means what I think it means, the stones were never a calendar at all.",
+      "turn_in_text": "Three places where it rose and one where it went quiet? Then they're not markers, they're a chord. The builders tuned a valley. I'm going to need a great deal more paper, and probably a drink.",
+      "reward_exp": 3100,
+      "reward_gold": 12000,
+      "next_quest_id": null,
+      "requires_quests": [
+        "hf_singing_mithril_1"
+      ],
+      "gear_reward_gear_level": 41,
+      "gear_reward_slot": "hands",
+      "gear_reward_rarity": "uncommon",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "arathi_central",
+          "target_x": 95,
+          "target_y": 89,
+          "radius": 6,
+          "label": "Look round The Ring Road"
+        }
+      ]
+    },
+    {
+      "quest_id": "hf_thorium_fingerprint_1",
+      "title": "A Fingerprint in the Glass",
+      "giver_npc_id": "item:hf_thorium_fingerprint",
+      "zone": "black_strand",
+      "level_min": 50,
+      "level_max": 54,
+      "description": "Somebody's fingerprint is pressed into a glassy face of thorium ore. Noor Haddad, a geologist from Earth, works out on the Black Strand.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "hf_thorium_fingerprint",
+          "count": 1,
+          "label": "Noor Haddad, The Black Strand"
+        }
+      ],
+      "turn_in_npc_id": "bs_geologist",
+      "accept_text": "Somebody touched this while it was molten, and the glass kept their fingerprint. That isn't possible, and it's sitting in your hand anyway. There's a geologist out on the Black Strand, Noor Haddad, who came through from Earth. She'll know how hot rock has to be to take a print.",
+      "turn_in_text": "Oh, that's a real print. Rock doesn't do this. Glass this clean only forms in a flash, a second of heat and then cold, and somebody's hand was on it in that second. I think I know which second. I think it's the one that brought us here.",
+      "reward_exp": 2376,
+      "reward_gold": 9360,
+      "next_quest_id": "hf_thorium_fingerprint_2"
+    },
+    {
+      "quest_id": "hf_thorium_fingerprint_2",
+      "title": "Whose Hand",
+      "giver_npc_id": "bs_geologist",
+      "zone": "black_strand",
+      "level_min": 54,
+      "level_max": 58,
+      "description": "Noor Haddad wants the print taken to Kenji Watanabe at Ariden's Watch, who keeps the Liquidators' board of names.",
+      "accept_text": "The Liquidators at Ariden's Watch keep a board with the names of everyone who came through near the wound in Deadwind, and their surveyor, Kenji Watanabe, took prints when people would let him. Take the stone to him. If the print's on his board, somebody's family deserves to know where it ended up.",
+      "turn_in_text": "Let me see, and give me a minute with the cards. Here it is. It matches a volunteer called Ilse Brandt, from the first week. She went into the Stopped Places and didn't come out. She'd have liked knowing a piece of her ended up somewhere solid. I'll put the stone on the board beside her name.",
+      "reward_exp": 4280,
+      "reward_gold": 16800,
+      "next_quest_id": null,
+      "requires_quests": [
+        "hf_thorium_fingerprint_1"
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_slot": "feet",
+      "gear_reward_rarity": "rare",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "hf_thorium_fingerprint_carried",
+            "name": "Thorium With a Fingerprint",
+            "description": "A chunk of thorium ore with one glassy face, and pressed into the glass, a fingerprint. A human one, small and clear, as if someone touched the ore while it was still molten.",
+            "count": 1,
+            "icon_id": "hf_thorium_fingerprint"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "hf_thorium_fingerprint_carried",
+          "count": 1,
+          "label": "Kenji Watanabe, Ariden's Watch"
+        }
+      ],
+      "turn_in_npc_id": "dw_kenji"
+    },
+    {
+      "quest_id": "hf_mutated_silverleaf_1",
+      "title": "One Leaf Too Many",
+      "giver_npc_id": "item:hf_mutated_silverleaf",
+      "zone": "orgrimmar",
+      "level_min": 6,
+      "level_max": 10,
+      "description": "A sprig of silverleaf has grown a leaf it shouldn't have, veined in purple. Apothecary Shazra teaches herb lore in Orgrimmar.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "hf_mutated_silverleaf",
+          "count": 1,
+          "label": "Apothecary Shazra, Orgrimmar"
+        }
+      ],
+      "turn_in_npc_id": "pt_org_herbs",
+      "accept_text": "One of the leaves on this sprig shouldn't be there, and its veins have gone purple. Herbalists will tell you silverleaf never sports. Shazra teaches herb lore in Orgrimmar, and he'll want to see a silverleaf that broke the rule.",
+      "turn_in_text": "Let me look. That's not a sport, that's something in the ground. Purple runs in a plant when it's drinking what it shouldn't. I've seen it once before, in a crate of herbs off a Forsaken ship.",
+      "reward_exp": 372,
+      "reward_gold": 1440,
+      "next_quest_id": "hf_mutated_silverleaf_2"
+    },
+    {
+      "quest_id": "hf_mutated_silverleaf_2",
+      "title": "What the Roots Drink",
+      "giver_npc_id": "pt_org_herbs",
+      "zone": "orgrimmar",
+      "level_min": 8,
+      "level_max": 12,
+      "description": "Shazra wants Apothecary Zurm in Orgrimmar to taste the sprig and say what it's been drinking.",
+      "accept_text": "Zurm brews in the Drag, and he's tasted more bad water than anyone in this city. Take him the sprig and ask him what it's been drinking. Don't let him eat it, because he'll try.",
+      "turn_in_text": "Ha, don't worry, I only lick it. Bitter, then sweet, then numb. That's plague water, a little of it, carried a long way through the ground from wherever it was spilled. Somebody's been washing their cauldrons in a river, and rivers go everywhere. I'll write to the Warchief's people. You keep picking, and bring me the next odd one.",
+      "reward_exp": 820,
+      "reward_gold": 3200,
+      "next_quest_id": null,
+      "requires_quests": [
+        "hf_mutated_silverleaf_1"
+      ],
+      "gear_reward_gear_level": 12,
+      "gear_reward_slot": "waist",
+      "gear_reward_rarity": "uncommon",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "hf_mutated_silverleaf_carried",
+            "name": "Mutated Silverleaf",
+            "description": "A sprig of silverleaf with one leaf too many, growing out of the stem where no leaf should be. The veins in it are purple.",
+            "count": 1,
+            "icon_id": "hf_mutated_silverleaf"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "hf_mutated_silverleaf_carried",
+          "count": 1,
+          "label": "Apothecary Zurm, Orgrimmar"
+        }
+      ],
+      "turn_in_npc_id": "orgrimmar_alchemist"
+    },
+    {
+      "quest_id": "hf_bleeding_kingsblood_1",
+      "title": "The Herb That Bleeds",
+      "giver_npc_id": "item:hf_bleeding_kingsblood",
+      "zone": "sun_rock_retreat",
+      "level_min": 26,
+      "level_max": 30,
+      "description": "A cut kingsblood won't stop bleeding. Herbalist Nawa Greenmane at Sun Rock Retreat knows every plant that came back after the fires.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "hf_bleeding_kingsblood",
+          "count": 1,
+          "label": "Herbalist Nawa Greenmane, Sun Rock Retreat"
+        }
+      ],
+      "turn_in_npc_id": "pt_sun_rock_herbs",
+      "accept_text": "Kingsblood's named for its colour, and it isn't supposed to bleed when you cut it. This one hasn't stopped. Sun Rock's herbalist, Nawa Greenmane, knows every plant that came back after the fires, and she'll know if this is one of them.",
+      "turn_in_text": "It's still bleeding? Let me hold it. It's warm, like a hand. This didn't come back after the fires. Something's feeding it, and plants only bleed like this when the ground under them is hurt.",
+      "reward_exp": 1224,
+      "reward_gold": 5040,
+      "next_quest_id": "hf_bleeding_kingsblood_2"
+    },
+    {
+      "quest_id": "hf_bleeding_kingsblood_2",
+      "title": "Hurt Ground",
+      "giver_npc_id": "pt_sun_rock_herbs",
+      "zone": "sun_rock_retreat",
+      "level_min": 28,
+      "level_max": 32,
+      "description": "Nawa wants you to walk the Venture Cutline and see whether anything else on it bleeds.",
+      "accept_text": "The goblins have been cutting the old trees on the Venture Cutline, roots and all. Walk the cutline for me and see whether anything else on it bleeds. Don't touch it if it is. Come back and tell me what you saw.",
+      "turn_in_text": "The stumps are weeping too? Then it's the roots. The great trees held that ground together for a thousand years, and now nothing does. I'll take this to the elders. Thank you for looking, when most people would've just sold the flower.",
+      "reward_exp": 2200,
+      "reward_gold": 9000,
+      "next_quest_id": null,
+      "requires_quests": [
+        "hf_bleeding_kingsblood_1"
+      ],
+      "gear_reward_gear_level": 32,
+      "gear_reward_slot": "shoulder",
+      "gear_reward_rarity": "uncommon",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "stonetalon_west",
+          "target_x": 172,
+          "target_y": 122,
+          "radius": 6,
+          "label": "Look round The Venture Cutline"
+        }
+      ]
+    },
+    {
+      "quest_id": "hf_unfading_fadeleaf_1",
+      "title": "Stuck Halfway",
+      "giver_npc_id": "item:hf_unfading_fadeleaf",
+      "zone": "hammerfall",
+      "level_min": 35,
+      "level_max": 39,
+      "description": "A fadeleaf has stopped fading halfway. Apothecary Vashka at Hammerfall works fadeleaf into her scouts' potions.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "hf_unfading_fadeleaf",
+          "count": 1,
+          "label": "Apothecary Vashka, Hammerfall"
+        }
+      ],
+      "turn_in_npc_id": "pt_hammerfall_herbs",
+      "accept_text": "Fadeleaf goes clear as glass within an hour of picking, and this one's been half clear since you pulled it. It's stuck partway. Vashka at Hammerfall works fadeleaf into the potions that make a scout hard to see, so she'll know what it's meant to do.",
+      "turn_in_text": "It's stuck halfway, and I've never seen that. A fadeleaf that won't finish fading would make a potion that hides half of you, which is worse than useless. Dellwyn's been writing about something like this for months.",
+      "reward_exp": 1656,
+      "reward_gold": 6660,
+      "next_quest_id": "hf_unfading_fadeleaf_2"
+    },
+    {
+      "quest_id": "hf_unfading_fadeleaf_2",
+      "title": "Halfway Down the Jar",
+      "giver_npc_id": "pt_hammerfall_herbs",
+      "zone": "hammerfall",
+      "level_min": 37,
+      "level_max": 41,
+      "description": "Vashka wants Apothecary Dellwyn Voss to set the leaf beside his jars of water from the Sunken Mere.",
+      "accept_text": "Dellwyn Voss, our apothecary, has been writing about the Sunken Mere for months, because his water samples from it stopped settling halfway down the jar. He'll want this leaf beside them. He's just across the yard.",
+      "turn_in_text": "Put it here, beside the jars. Look, the silt in every one of them stopped at the same height your leaf stopped fading. Something's catching things halfway, and it isn't only in the mere. I'll be writing all night.",
+      "reward_exp": 3100,
+      "reward_gold": 12000,
+      "next_quest_id": null,
+      "requires_quests": [
+        "hf_unfading_fadeleaf_1"
+      ],
+      "gear_reward_gear_level": 41,
+      "gear_reward_slot": "head",
+      "gear_reward_rarity": "uncommon",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "hf_unfading_fadeleaf_carried",
+            "name": "Fadeleaf That Won't Fade",
+            "description": "Fadeleaf turns see-through within an hour of picking. This one went half clear and then stopped, as if it got stuck partway.",
+            "count": 1,
+            "icon_id": "hf_unfading_fadeleaf"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "hf_unfading_fadeleaf_carried",
+          "count": 1,
+          "label": "Apothecary Dellwyn Voss, Hammerfall"
+        }
+      ],
+      "turn_in_npc_id": "hammerfall_apothecary"
+    },
+    {
+      "quest_id": "hf_dreaming_dreamfoil_1",
+      "title": "Dreamfoil That Dreams",
+      "giver_npc_id": "item:hf_dreaming_dreamfoil",
+      "zone": "moonglade",
+      "level_min": 54,
+      "level_max": 58,
+      "description": "A sprig of dreamfoil has curled its leaves shut and is breathing. Herbwarden Mylla Starbloom in Nighthaven knows the plants that sleep.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "hf_dreaming_dreamfoil",
+          "count": 1,
+          "label": "Herbwarden Mylla Starbloom, Nighthaven"
+        }
+      ],
+      "turn_in_npc_id": "pt_mg_herbs",
+      "accept_text": "Its leaves curled shut the moment you picked it, like eyes closing, and it's breathing. Slowly, the way a sleeper breathes. If anyone knows a plant that sleeps, it's the herbwarden in Nighthaven, Mylla Starbloom.",
+      "turn_in_text": "It's dreaming, that's what this is. I've grown dreamfoil all my life, and it was always named for what it does to you, never for what it does itself. Since the Integration, half the beds in my garden curl shut at night. I didn't want it to be true until somebody else brought me one.",
+      "reward_exp": 2568,
+      "reward_gold": 10080,
+      "next_quest_id": "hf_dreaming_dreamfoil_2"
+    },
+    {
+      "quest_id": "hf_dreaming_dreamfoil_2",
+      "title": "Eight Breaths a Minute",
+      "giver_npc_id": "pt_mg_herbs",
+      "zone": "moonglade",
+      "level_min": 55,
+      "level_max": 59,
+      "description": "Mylla wants Dr. Ingrid Sandvik of the Wakened to measure the sleeping dreamfoil.",
+      "accept_text": "Take it to Dr. Sandvik on the west shore. She studies sleepers, and she's the only one in the glade who'll measure it rather than pray over it. I'd rather know than wonder, and so would she.",
+      "turn_in_text": "Hold it still. It's breathing eight times a minute, the same as the sleepers in the Barrow Dens. That can't be chance. Whatever's dreaming in the Dens is dreaming through the plants too, or the plants are dreaming with it. I'll keep it by the cots and see if it wakes when they do.",
+      "reward_exp": 5668,
+      "reward_gold": 22230,
+      "next_quest_id": null,
+      "requires_quests": [
+        "hf_dreaming_dreamfoil_1"
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_slot": "wrist",
+      "gear_reward_rarity": "rare",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "hf_dreaming_dreamfoil_carried",
+            "name": "Dreamfoil That Dreams",
+            "description": "A sprig of dreamfoil whose leaves curl closed like eyelids. Hold it close and you'd swear it's breathing slowly, the way a sleeper does.",
+            "count": 1,
+            "icon_id": "hf_dreaming_dreamfoil"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "hf_dreaming_dreamfoil_carried",
+          "count": 1,
+          "label": "Dr. Ingrid Sandvik, Nighthaven"
+        }
+      ],
+      "turn_in_npc_id": "mg_sandvik"
+    },
+    {
+      "quest_id": "hf_scratched_hide_map_1",
+      "title": "X Marks a Hide",
+      "giver_npc_id": "item:hf_scratched_hide_map",
+      "zone": "razor_hill",
+      "level_min": 7,
+      "level_max": 11,
+      "description": "Somebody scratched a map into a beast's hide. Tanner Urzul in Razor Hill has handled every hide in Durotar.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "hf_scratched_hide_map",
+          "count": 1,
+          "label": "Tanner Urzul, Razor Hill"
+        }
+      ],
+      "turn_in_npc_id": "pt_razorhill_hide",
+      "accept_text": "Somebody scratched a map into this hide while it was still on the beast, and the beast healed round it. There's a path, a rock like a tusk, and an X. The tanner in Razor Hill, Urzul, has handled every hide in Durotar, and he might know the rock.",
+      "turn_in_text": "That's a smuggler's mark, and an old one. They'd scratch a map into a young boar so it carried the way for them, and nobody looks twice at a boar. The tusk rock's out on Kolkar Crag.",
+      "reward_exp": 432,
+      "reward_gold": 1620,
+      "next_quest_id": "hf_scratched_hide_map_2"
+    },
+    {
+      "quest_id": "hf_scratched_hide_map_2",
+      "title": "Where the Boar Went",
+      "giver_npc_id": "pt_razorhill_hide",
+      "zone": "razor_hill",
+      "level_min": 9,
+      "level_max": 12,
+      "description": "Urzul wants you to find the tusk rock on Kolkar Crag and see what the smugglers left.",
+      "accept_text": "Go out to Kolkar Crag and find the rock shaped like a tusk. Whatever was buried there's probably long gone, but smugglers always left something for the next crew. Come back and tell me what you find, and we'll split it.",
+      "turn_in_text": "A rusted strongbox with three copper coins in it? Smugglers were always poor. Keep the coins, and keep the hide too. It's a better story than the treasure ever was.",
+      "reward_exp": 820,
+      "reward_gold": 3200,
+      "next_quest_id": null,
+      "requires_quests": [
+        "hf_scratched_hide_map_1"
+      ],
+      "gear_reward_gear_level": 12,
+      "gear_reward_slot": "chest",
+      "gear_reward_rarity": "uncommon",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "durotar",
+          "target_x": 28,
+          "target_y": 124,
+          "radius": 6,
+          "label": "Look round Kolkar Crag"
+        }
+      ]
+    },
+    {
+      "quest_id": "hf_tagged_ear_1",
+      "title": "Tag 0417",
+      "giver_npc_id": "item:hf_tagged_ear",
+      "zone": "tarren_mill",
+      "level_min": 22,
+      "level_max": 26,
+      "description": "A beast you skinned wore an Earth wildlife tag. Huntsman Dell Varrow at Tarren Mill was a gamekeeper before the Integration.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "hf_tagged_ear",
+          "count": 1,
+          "label": "Huntsman Dell Varrow, Tarren Mill"
+        }
+      ],
+      "turn_in_npc_id": "hbe_mill_hunter",
+      "accept_text": "That's a wildlife tag, plastic and printed with a number, the sort a ranger clips on a deer back on Earth. This beast came through with the rest of us. The huntsman at Tarren Mill was a gamekeeper before the Integration, and he'll know what to make of it.",
+      "turn_in_text": "Well, I'll be. That's a deer tag from the Peak District, and I clipped hundreds like it. It's number 0417. I don't remember that one, but I know the series. So the animals came through too, not just us. Some of them, anyway.",
+      "reward_exp": 1080,
+      "reward_gold": 4440,
+      "next_quest_id": "hf_tagged_ear_2"
+    },
+    {
+      "quest_id": "hf_tagged_ear_2",
+      "title": "The Rest of the Herd",
+      "giver_npc_id": "hbe_mill_hunter",
+      "zone": "tarren_mill",
+      "level_min": 23,
+      "level_max": 27,
+      "description": "Dell Varrow wants you to look over the Foothill Pastures for more tagged beasts.",
+      "accept_text": "If one tagged beast came through, there'll be more of the herd near where it landed. The Foothill Pastures look the most like home, and that's where I'd go if I were a confused deer. Have a look round, and count any ear with a tag in it.",
+      "turn_in_text": "Four of them, grazing like nothing happened? That's the best news I've had since I got here. I'll go and see them tomorrow. I'm not going to clip anything, I just want to say hello.",
+      "reward_exp": 1880,
+      "reward_gold": 7500,
+      "next_quest_id": null,
+      "requires_quests": [
+        "hf_tagged_ear_1"
+      ],
+      "gear_reward_gear_level": 27,
+      "gear_reward_slot": "legs",
+      "gear_reward_rarity": "uncommon",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "western_hillsbrad",
+          "target_x": 93,
+          "target_y": 28,
+          "radius": 6,
+          "label": "Look round The Foothill Pastures"
+        }
+      ]
+    },
+    {
+      "quest_id": "hf_great_scale_1",
+      "title": "Too Big for the Beast",
+      "giver_npc_id": "item:hf_great_scale",
+      "zone": "gromgol",
+      "level_min": 35,
+      "level_max": 39,
+      "description": "A scale as big as a shield was stuck in a beast's hide. Smith Dorgun at Grom'gol knows armour.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "hf_great_scale",
+          "count": 1,
+          "label": "Smith Dorgun, Grom'gol"
+        }
+      ],
+      "turn_in_npc_id": "gromgol_smith",
+      "accept_text": "The beast you skinned had this one scale stuck in its hide, and it's as big as a shield. Nothing that size lives in Stranglethorn, or nothing anyone talks about. The smith at Grom'gol, Dorgun, knows armour, and he'll know if it's anything he can use.",
+      "turn_in_text": "Big as a shield and harder than one. Damp doesn't touch it either, and damp touches everything here. That's a crocolisk scale, but the croc that grew it would be the size of a boat. The fishers say they've seen something like that in the Snapjaw Marsh.",
+      "reward_exp": 1656,
+      "reward_gold": 6660,
+      "next_quest_id": "hf_great_scale_2"
+    },
+    {
+      "quest_id": "hf_great_scale_2",
+      "title": "Something in the Snapjaw",
+      "giver_npc_id": "gromgol_smith",
+      "zone": "gromgol",
+      "level_min": 36,
+      "level_max": 40,
+      "description": "Smith Dorgun wants you to look for the giant crocolisk in the Snapjaw Marsh, and not fight it.",
+      "accept_text": "Go and look in the Snapjaw Marsh. Don't fight it if it's there, just look, and tell me how big it is. If it's shedding scales like this, I want to be the smith who makes a shield out of the next one.",
+      "turn_in_text": "You saw the wake and nothing else? That's plenty to go on. A wake that wide means it's still growing. I'll make you something out of this one, and I'll pay the fishers for any more they find.",
+      "reward_exp": 3692,
+      "reward_gold": 14820,
+      "next_quest_id": null,
+      "requires_quests": [
+        "hf_great_scale_1"
+      ],
+      "gear_reward_gear_level": 40,
+      "gear_reward_slot": "hands",
+      "gear_reward_rarity": "uncommon",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "central_stranglethorn",
+          "target_x": 54,
+          "target_y": 155,
+          "radius": 6,
+          "label": "Look round The Snapjaw Marsh"
+        }
+      ]
+    },
+    {
+      "quest_id": "hf_stitched_hide_1",
+      "title": "Stitched While Living",
+      "giver_npc_id": "item:hf_stitched_hide",
+      "zone": "bulwark",
+      "level_min": 51,
+      "level_max": 55,
+      "description": "Two beasts' hides were stitched together while they lived. Anders Holm keeps the hawks at the Bulwark and knows every beast in the fields.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "hf_stitched_hide",
+          "count": 1,
+          "label": "Anders Holm, the Bulwark"
+        }
+      ],
+      "turn_in_npc_id": "wpl_pf_bat_keeper",
+      "accept_text": "This is two hides stitched into one, and they were stitched while the animals were alive, because the edges healed together. The stitching's neat and careful. Anders Holm keeps the hawks at the Bulwark and knows every beast in these fields. He'll want to know what's out there.",
+      "turn_in_text": "My hawks won't go near it. Look at them. That's the Cult's needlework. They've started stitching living beasts together to make something stronger than either, a wolf and a bear from the fur. Somebody out there's building an army that breathes.",
+      "reward_exp": 2424,
+      "reward_gold": 9540,
+      "next_quest_id": "hf_stitched_hide_2"
+    },
+    {
+      "quest_id": "hf_stitched_hide_2",
+      "title": "The Needlework",
+      "giver_npc_id": "wpl_pf_bat_keeper",
+      "zone": "bulwark",
+      "level_min": 52,
+      "level_max": 56,
+      "description": "Anders Holm wants Apothecary Dorian Vesk to learn what keeps the stitched beasts alive.",
+      "accept_text": "Take the hide to Dorian Vesk, our apothecary. He's been studying what the Scourge brew in the fields, and if they're stitching living things now, he'll want to know what they use to keep them alive while they do it.",
+      "turn_in_text": "Black thread soaked in plague water. That's what keeps the halves from rejecting each other. It's clever, and I hate that it's clever. Thank you. I'll have something to fight it by the end of the week, if I don't sleep.",
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "next_quest_id": null,
+      "requires_quests": [
+        "hf_stitched_hide_1"
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_slot": "feet",
+      "gear_reward_rarity": "rare",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "hf_stitched_hide_carried",
+            "name": "Stitched Hide",
+            "description": "A patch of hide made of two animals' skins, stitched together with black thread while both were still alive. The stitches are neat. Somebody took care.",
+            "count": 1,
+            "icon_id": "hf_stitched_hide"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "hf_stitched_hide_carried",
+          "count": 1,
+          "label": "Apothecary Dorian Vesk, the Bulwark"
+        }
+      ],
+      "turn_in_npc_id": "wpl_bulwark_apothecary"
+    },
+    {
+      "quest_id": "hf_message_bottle_1",
+      "title": "Message in a Bottle",
+      "giver_npc_id": "item:hf_message_bottle",
+      "zone": "ratchet",
+      "level_min": 10,
+      "level_max": 14,
+      "description": "A bottle with a goblin's note in it names Ratchet. Fishmonger Gribble knows every crew that ever sailed from there.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "hf_message_bottle",
+          "count": 1,
+          "label": "Fishmonger Gribble, Ratchet"
+        }
+      ],
+      "turn_in_npc_id": "ratchet_fishmonger",
+      "accept_text": "You'd have to break the bottle to read the note properly, but you can make out a goblin's hand and the word Ratchet through the glass. The fishmonger there, Gribble, knows every crew that ever sailed out of that harbour, and he'll know who wrote it.",
+      "turn_in_text": "That's my cousin Snazz's writing. He went down with the Silver Sprocket off the Merchant Coast three years ago. Says here he buried the crew's pay before she sank, under a rock with a gull's nest on it. Snazz never told the truth in his life, but he never lied about money.",
+      "reward_exp": 504,
+      "reward_gold": 2100,
+      "next_quest_id": "hf_message_bottle_2"
+    },
+    {
+      "quest_id": "hf_message_bottle_2",
+      "title": "Snazz's Last Joke",
+      "giver_npc_id": "ratchet_fishmonger",
+      "zone": "ratchet",
+      "level_min": 12,
+      "level_max": 15,
+      "description": "Gribble wants you to find the rock with the gull's nest on the Merchant Coast and dig under it.",
+      "accept_text": "Go to the Merchant Coast and find a rock with a gull's nest on it, then dig under it. If there's a box, half's yours. If there's nothing, then Snazz finally told a lie I'll laugh at, and that's worth something too.",
+      "turn_in_text": "A box with a rusty lock and a note in it saying Gotcha, Gribble? That's Snazz all over. I haven't laughed like that in three years. Here, take this. It's more than his box ever had in it.",
+      "reward_exp": 920,
+      "reward_gold": 3600,
+      "next_quest_id": null,
+      "requires_quests": [
+        "hf_message_bottle_1"
+      ],
+      "gear_reward_gear_level": 15,
+      "gear_reward_slot": "waist",
+      "gear_reward_rarity": "uncommon",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "northern_barrens",
+          "target_x": 239,
+          "target_y": 226,
+          "radius": 6,
+          "label": "Look round Merchant Coast"
+        }
+      ]
+    },
+    {
+      "quest_id": "hf_waterlogged_phone_1",
+      "title": "No Signal",
+      "giver_npc_id": "item:hf_waterlogged_phone",
+      "zone": "ratchet",
+      "level_min": 22,
+      "level_max": 26,
+      "description": "You fished up a phone from Earth. Tinker Sprocket in Ratchet opens anything with a seam in it.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "hf_waterlogged_phone",
+          "count": 1,
+          "label": "Tinker Sprocket, Ratchet"
+        }
+      ],
+      "turn_in_npc_id": "pt_ratchet_essence",
+      "accept_text": "It's a phone, from home. The glass is cracked and there's water behind it, but it isn't crushed. The tinker in Ratchet, Sprocket, opens anything with a seam in it. Maybe there's still something in there worth saving.",
+      "turn_in_text": "Ooh, Earth tech. No gears, no steam, just a slab of glass with a tiny brain behind it. It's full of water. I can't fix the brain, but I know who'd have the trick for drying it. There's an Earth lady at Sun Rock who studies volcanoes.",
+      "reward_exp": 1080,
+      "reward_gold": 4440,
+      "next_quest_id": "hf_waterlogged_phone_2"
+    },
+    {
+      "quest_id": "hf_waterlogged_phone_2",
+      "title": "A Bag of Rice",
+      "giver_npc_id": "pt_ratchet_essence",
+      "zone": "ratchet",
+      "level_min": 26,
+      "level_max": 30,
+      "description": "Sprocket wants Dr. Hannah Lindqvist at Sun Rock Retreat to try drying out the phone.",
+      "accept_text": "Take it to Dr. Lindqvist at Sun Rock Retreat. She's from Earth, so she'll know what these things want. Bring me a drawing of the insides if she opens it, because I'd love to see how the tiny brain's wired.",
+      "turn_in_text": "You put it in rice, that's the trick, and I keep a jar of it for exactly this. Let's see what it does. There, it's on, just for a second. A photo of a dog on a beach, a golden one with a stick. Then it's gone. Whoever's phone this was, they had a good dog. I'll keep it, if that's all right. I'd like to try again.",
+      "reward_exp": 2040,
+      "reward_gold": 8400,
+      "next_quest_id": null,
+      "requires_quests": [
+        "hf_waterlogged_phone_1"
+      ],
+      "gear_reward_gear_level": 30,
+      "gear_reward_slot": "shoulder",
+      "gear_reward_rarity": "uncommon",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "hf_waterlogged_phone_carried",
+            "name": "Waterlogged Phone",
+            "description": "A phone from Earth, its screen cracked across and full of water, with a strand of seaweed caught in the case. It hasn't had a signal in three years and it never will.",
+            "count": 1,
+            "icon_id": "hf_waterlogged_phone"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "hf_waterlogged_phone_carried",
+          "count": 1,
+          "label": "Dr. Hannah Lindqvist, Sun Rock Retreat"
+        }
+      ],
+      "turn_in_npc_id": "sr_transplant_geologist"
+    },
+    {
+      "quest_id": "hf_kelp_journal_1",
+      "title": "The Last Dry Pages",
+      "giver_npc_id": "item:hf_kelp_journal",
+      "zone": "central_stranglethorn",
+      "level_min": 36,
+      "level_max": 40,
+      "description": "A Bloodsail mate's journal came up wrapped in kelp. Netsetter Ulua has pulled Bloodsail wrecks out of Stranglethorn's water.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "hf_kelp_journal",
+          "count": 1,
+          "label": "Netsetter Ulua, Stranglethorn"
+        }
+      ],
+      "turn_in_npc_id": "stvc_marsh_fisher",
+      "accept_text": "Somebody wrapped this journal in kelp and tied it tight before it went over the side, so the last pages stayed dry. The skulls in the margins make it a Bloodsail mate's. The fisher who works the Snapjaw nets, Ulua, has pulled Bloodsail wrecks out of that water before.",
+      "turn_in_text": "It's Bloodsail, yes. The last page names a cove on the Drowned Coast where the mate meant to hide from his own captain. He wanted out, and they don't let anyone out.",
+      "reward_exp": 2215,
+      "reward_gold": 8892,
+      "next_quest_id": "hf_kelp_journal_2"
+    },
+    {
+      "quest_id": "hf_kelp_journal_2",
+      "title": "The Mate Who Wanted Out",
+      "giver_npc_id": "stvc_marsh_fisher",
+      "zone": "central_stranglethorn",
+      "level_min": 38,
+      "level_max": 42,
+      "description": "Netsetter Ulua wants you to find the mate's cove on the Drowned Coast.",
+      "accept_text": "Go down to the Drowned Coast and find the cove he wrote about. If he made it, there'll be a camp, and if he didn't, there'll be something worse. Either way, he wrote it down so somebody would come looking.",
+      "turn_in_text": "A cold fire, a hammock and his name carved on a post? Then he made it, for a while at least. Good for him. I'll row out and carve a line under his name, to say somebody read it.",
+      "reward_exp": 3190,
+      "reward_gold": 12300,
+      "next_quest_id": null,
+      "requires_quests": [
+        "hf_kelp_journal_1"
+      ],
+      "gear_reward_gear_level": 42,
+      "gear_reward_slot": "head",
+      "gear_reward_rarity": "uncommon",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "southern_stranglethorn",
+          "target_x": 172,
+          "target_y": 139,
+          "radius": 6,
+          "label": "Look round The Drowned Coast"
+        }
+      ]
+    },
+    {
+      "quest_id": "hf_rubber_duck_1",
+      "title": "A Duck Named Mo",
+      "giver_npc_id": "item:hf_rubber_duck",
+      "zone": "moonglade",
+      "level_min": 54,
+      "level_max": 58,
+      "description": "A rubber bath duck from Earth came up in your line with a tag that says Mo. Ilyssa Moonwater keeps the pier at Nighthaven, where the Wakened keep their list of names.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "hf_rubber_duck",
+          "count": 1,
+          "label": "Ilyssa Moonwater, Nighthaven"
+        }
+      ],
+      "turn_in_npc_id": "pt_mg_fish",
+      "accept_text": "It's a rubber bath duck from Earth, bobbing about in a fishing pool like it belongs there, and the tag round its neck says Mo. The Wakened in Moonglade keep a list of everyone who came through with them, and Ilyssa, who keeps the pier there, will know whose name to check.",
+      "turn_in_text": "A duck called Mo. I'll ask round, but I know who'll want to see it first. Danny Kowalczyk talks about his boys every night on the pier, and the youngest one's called Mo.",
+      "reward_exp": 2568,
+      "reward_gold": 10080,
+      "next_quest_id": "hf_rubber_duck_2"
+    },
+    {
+      "quest_id": "hf_rubber_duck_2",
+      "title": "Mo",
+      "giver_npc_id": "pt_mg_fish",
+      "zone": "moonglade",
+      "level_min": 55,
+      "level_max": 59,
+      "description": "Ilyssa wants Danny Kowalczyk of the Wakened to see the duck.",
+      "accept_text": "Take it to Danny. I don't know if it's theirs, and I don't think it matters. He'll want to hold something from home that floated all this way.",
+      "turn_in_text": "That's not it. Mo's duck had a chip out of the beak, and this one's fine. It's not his. But somebody wrote Mo on it, so somebody's kid called Mo had it in a bath somewhere. I'm keeping it. When I get home, I'll tell him a duck crossed two worlds looking for him.",
+      "reward_exp": 5668,
+      "reward_gold": 22230,
+      "next_quest_id": null,
+      "requires_quests": [
+        "hf_rubber_duck_1"
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_slot": "wrist",
+      "gear_reward_rarity": "rare",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "hf_rubber_duck_carried",
+            "name": "Rubber Duck Named Mo",
+            "description": "A small yellow rubber duck, faded almost white on top. Tied round its neck on a bit of string is a tag, and on the tag in marker it says MO.",
+            "count": 1,
+            "icon_id": "hf_rubber_duck"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "hf_rubber_duck_carried",
+          "count": 1,
+          "label": "Danny Kowalczyk, Nighthaven"
+        }
+      ],
+      "turn_in_npc_id": "mg_dreamer"
+    }
+  ]
+}

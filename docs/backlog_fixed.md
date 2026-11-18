@@ -36,3 +36,16 @@ Secrets stay counts and names only here too.
 | verify_portals: 21 portal tiles "not walkable" | All 21 were secret doors, and every one works in the game. The check built its maps without laying the secrets, which the game always does when it starts; it lays them now. 447 portals, 0 failures | `verify_portals` (PASS) |
 | Thunder Clap hit one enemy | Kyle, 18 Nov: "Thunderclap should hit one row that the tank is on." It's a melee area ability now, so it hits the front row, the row facing you | `qa_ability_text` |
 | 20 player abilities had no icon, two pairs shared one, Greater Heal and Chain Heal on stand-ins | `tools/fetch_missing_ability_icons.py`: the classic ones got their real WoW icon (Kyle: "you CAN find them online"); the CoA ones a Blizzard icon tinted to their class's colour, read off the class icon (Kyle: "colour tint some other stuff to the theme of the class"). Rejuvenation was wearing Swiftmend's idol. Every class's bar: 0 missing, no shared picture but Bear and Dire Bear Form | `qa_hotbar_icons` |
+| Junk and salvage fishing pools had sprites and no catches | Built as harvest finds (`docs/harvest_finds_design.md`), with Kyle's quest starters from gathering: 16 starters and 32 quests, junk and salvage pools, Earth junk, salvage with greens and eight fishing-only gear pieces, six fishing mounts and four titles | `qa_harvest_finds` |
+| qa_kit_abilities_batch10: seven recruit heals "not growing" | The abilities were fine. The test's recruits were built bare with about 800 health, less than the heals, so every growing heal hit the cap. They get the Stamina for room now | `qa_kit_abilities_batch10` (38 OK) |
+| 3 SILENT quests inside hidden maps | Left silent on purpose: a direction there would say where the map is. Not a bug | `audit_quest_directions --all` (they're the 3 it lists) |
+| NPCs into towns, part two: trainers, vendors and innkeepers had no check | Measured: all 174 stand in a town (a map with an innkeeper or a class trainer, or a hub). No moves needed; the guard is new | `qa_service_npcs_in_towns` |
+| Ariden's Watch and Nighthaven had no mailbox by the inn (missed when they were built, 18 Nov) | `tools/place_market_npcs.py --apply` put one beside each innkeeper | `qa_auction_house` |
+| West, Central and East Azshara, Deadwind West and East had fishing but no pool art picked | Each given its water's pools in `world/fishing_pools.py` (rivers, reeds, the drowned coast, the Black Tarn's plague and swamp, the gorge and the seep's glow) | `qa_fishing_pools` |
+
+## 17 Nov 2026 (moved off the backlog 18 Nov)
+
+| Was | Fixed by |
+|---|---|
+| Timbermaw Warhide's own icon | RC3's last row |
+| Art sheets | The two crafting icon-fix sheets (45 icons), the consumables sheet (28), the three crafted-epic sheets (82), enchanting EN1-EN4 (144), recipe sheets RC2-RC3 |

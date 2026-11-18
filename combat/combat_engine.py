@@ -1346,6 +1346,14 @@ class CombatEngine:
                     # meat and leather drop was silent on the results screen.
                     self.loot_gained.append(mat)
                     self.combat_log.append(f"You skinned {enemy.name}: {mat.name}{' x%d' % qty if qty > 1 else ''}.")
+                    # a strange hide now and then (world/harvest_finds.py), by the beast's level
+                    try:
+                        from world import harvest_finds as HF
+                        for line in HF.on_gather(self.player, "skinning", level=getattr(enemy, "level", None)):
+                            self.combat_log.append(line)
+                        self.loot_gained.extend(HF.LAST_ITEMS)
+                    except Exception as exc:
+                        print(f"WARNING: harvest finds failed: {exc}")
 
                     # Skinning skill-up. This was missing entirely: leather was
                     # handed over but the skill never moved, so Skinning would

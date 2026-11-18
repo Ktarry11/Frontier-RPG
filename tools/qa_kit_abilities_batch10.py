@@ -67,6 +67,11 @@ def main():
             m.dodge = m.parry = 0.0
         eng = CombatEngine(ch, mobs[0], party=party, enemies=mobs)
         for c in [ch] + others:
+            # Room to heal into. A recruit built bare for this test has about 800 health, less than these heals, so
+            # every growing or late heal hit the cap and read as not growing: seven false failures (18 Nov 2026).
+            # Stamina, not health itself: the maximum is recalculated during ticks and would snap back.
+            c.stamina = 125000
+            c._recalculate_derived_stats()
             c.current_health = c.health
             c.dodge = c.parry = 0.0
         return ch, ab, others, mobs, eng

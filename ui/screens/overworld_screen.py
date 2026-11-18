@@ -1275,6 +1275,15 @@ class OverworldScreen(BaseScreen):
             if gem is not None and player.add_material(gem):
                 self._notify(f"You prise a {gem.name} out of the vein!", (230, 200, 120))
 
+        # The strange finds (world/harvest_finds.py): a quest starter now and then, and for fishing the junk, the
+        # salvage, the mounts and the titles. Each line is already in the bag when it's told.
+        try:
+            from world.harvest_finds import on_gather
+            for line in on_gather(player, material.profession, material_id, node=node):
+                self._notify(line, (230, 200, 120))
+        except Exception as exc:
+            print(f"WARNING: harvest finds failed: {exc}")
+
         # Award a small amount of character XP for gathering.
         # Calibration: ~1% of the XP needed to level at the material's
         # effective level (half the skill cap of this material tier, mapped

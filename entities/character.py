@@ -382,6 +382,9 @@ class Character(StatusEffectMixin):
         self.profession_tiers = {}
         # Craftsman Codices read (world/craftsman_codex.py): one more primary profession slot each.
         self.codices = 0
+        #: harvest finds' counters (world/harvest_finds.py): fish caught, salvage hauled, mounts fished up, and the
+        #: quest starters this character has found
+        self.harvest_log = {"fish": 0, "salvage": 0, "mounts": 0, "found": []}
         # Recipe discovery (Oct 2026): recipes must be explicitly learned — either taught by a trainer, found as
         # world drops, bought from a vendor, or rewarded from a quest. A recipe item in the inventory has a
         # recipe_id field; right-clicking it calls learn_recipe() which checks skill_required and adds the id here.
@@ -4408,6 +4411,7 @@ class Character(StatusEffectMixin):
             "soul_runes": list(getattr(self, "soul_runes", None) or [None] * 4),
             "profession_tiers": dict(self.profession_tiers),
             "codices": int(getattr(self, "codices", 0) or 0),
+            "harvest_log": dict(getattr(self, "harvest_log", None) or {}),
             "training_enabled": bool(self.training_enabled),
             "trained_ranks": dict(self.trained_ranks),
             # the LEVEL of each trained rank too, so a rank inserted into an ability later (15 Nov 2026:
@@ -4563,6 +4567,9 @@ class Character(StatusEffectMixin):
             char.known_professions = [p for p, v in char.profession_skills.items() if v > 0]
             char.profession_tiers = {p: 1 for p in char.known_professions if char.profession_skills[p] > 75}
         char.codices = int(data.get("codices", 0) or 0)
+        hl = data.get("harvest_log") or {}
+        char.harvest_log = {"fish": int(hl.get("fish", 0) or 0), "salvage": int(hl.get("salvage", 0) or 0),
+                            "mounts": int(hl.get("mounts", 0) or 0), "found": list(hl.get("found") or [])}
         # A learned trade starts at 1 (see learn_profession); saves from before that sat at 0 and were stuck.
         for p in char.known_professions:
             if char.profession_skills.get(p, 0) < 1:

@@ -47,10 +47,21 @@ class GatheringNode:
         self.pool_tile = None
         #: How many fish have come out of this pool so far (see GatheringNodeManager.POOL_STAYS).
         self.catches = 0
+        #: Fishing spots only (world/harvest_finds.py): "junk" or "salvage" for a junk or salvage pool, None for an
+        #: ordinary one; and the ordinary pool this kind of water would show, which picks its fishing mount.
+        self.find = None
+        self.water = None
 
     def __repr__(self):
         state = "gathered" if self.gathered else "active"
         return f"<GatheringNode {self.material_id} @({self.x},{self.y}) {state}>"
+
+
+#: Junk and salvage pools: their sprites (assets/gathering_nodes/fishing_pools/) and how often a fishing spot is one.
+JUNK_POOLS = [p.stem for p in sorted((Path(__file__).parent.parent / "assets/gathering_nodes/fishing_pools").glob("junk_*.png"))]
+SALVAGE_POOLS = [p.stem for p in sorted((Path(__file__).parent.parent / "assets/gathering_nodes/fishing_pools").glob("salvage_*.png"))]
+JUNK_POOL_SHARE = 0.12
+SALVAGE_POOL_SHARE = 0.06
 
 
 class GatheringNodeManager:
@@ -263,7 +274,15 @@ class GatheringNodeManager:
             node = GatheringNode(x, y, random.choices(ids, weights=weights, k=1)[0])
             node.pool_tile = _water_beside(tilemap, x, y)
             if pool_names:
-                node.pool = random.choice(pool_names)
+                node.pool = node.water = random.choice(pool_names)
+                # Now and then the shore throws up a junk pool (crates, barrels, floating rubbish) or a salvage pool
+                # (a sunken chest, a bottle, bones, an oil slick) instead: same fish, and a find of its own on top
+                # (world/harvest_finds.py, Kyle 18 Nov 2026: "Junk and salvage from fishing, yes").
+                roll = random.random()
+                if roll < SALVAGE_POOL_SHARE and SALVAGE_POOLS:
+                    node.find, node.pool = "salvage", random.choice(SALVAGE_POOLS)
+                elif roll < SALVAGE_POOL_SHARE + JUNK_POOL_SHARE and JUNK_POOLS:
+                    node.find, node.pool = "junk", random.choice(JUNK_POOLS)
             self.active_nodes.append(node)
             tilemap.set_tile(x, y, "gathering_node", "interaction")
 

@@ -5,8 +5,9 @@ the tile beside it (assets/gathering_nodes/fishing_pools/, sliced from Kyle's sh
 tools/slice_fishing_pools.py). Each zone lists the pools that suit its water; a spot picks one
 when it is placed. A zone not listed here gets DEFAULT.
 
-Only the eighteen FISH pools are used so far. The junk and salvage sprites (crates, barrels,
-bottles, the sunken chest) are on disk and waiting for their own catch table, which is not built.
+The eighteen FISH pools are picked here. The junk and salvage sprites (crates, barrels, bottles, the
+sunken chest) are dealt out by world/gathering_manager._populate_fishing, now and then in place of a fish
+pool, and their catches are world/harvest_finds.py's.
 """
 from pathlib import Path
 
@@ -50,6 +51,11 @@ ZONE_POOLS = {
     "eastern_plaguelands_west": ("pool_plagued", "pool_bubbling"),
     "eastern_plaguelands_east": ("pool_plagued", "pool_coast"),       # Blackwood Lake and the coast at Tyr's Hand  # the Bloodvenom: poisoned water
     "ashen_reach": ("pool_lava", "pool_bubbling"),
+    "west_azshara": ("pool_river", "pool_fresh"),        # the autumn woods' streams
+    "central_azshara": ("pool_river", "pool_reeds"),
+    "east_azshara": ("pool_coast", "pool_deep_sea"),     # the drowned coast
+    "deadwind_west": ("pool_plagued", "pool_swamp"),     # the Black Tarn and the Sickwater
+    "deadwind_east": ("pool_river", "pool_glowing"),     # the gorge's river and the seep's glow
     "moonwell_hollow": ("pool_moonlit", "pool_glowing"),
     "aspen_wilderness": ("pool_river", "pool_reeds"),
     "crystalline_underdark": ("pool_glowing", "pool_cave"),

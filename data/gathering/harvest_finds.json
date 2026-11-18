@@ -1,0 +1,615 @@
+{
+  "_about": "Built by tools/build_harvest_finds.py from tools/harvest_finds_content.py; read by world/harvest_finds.py. docs/harvest_finds_design.md.",
+  "starters": [
+    {
+      "id": "hf_ticking_copper",
+      "item_id": "hf_ticking_copper",
+      "name": "Ticking Copper Nugget",
+      "desc": "A nugget of copper that's warm in your hand. Hold it still and you can feel it tick, slow and even, like something asleep.",
+      "trade": "mining",
+      "mats": [
+        "ore_copper"
+      ],
+      "band": [
+        6,
+        18
+      ],
+      "quest": "hf_ticking_copper_1",
+      "icon": "hf_ticking_copper"
+    },
+    {
+      "id": "hf_tin_fossil_tooth",
+      "item_id": "hf_tin_fossil_tooth",
+      "name": "Tin Ore With a Fossil Tooth",
+      "desc": "A lump of tin ore with a tooth sunk in it, long and serrated and longer than your hand. Whatever it came out of was big, and it was hungry a very long time ago.",
+      "trade": "mining",
+      "mats": [
+        "ore_tin"
+      ],
+      "band": [
+        18,
+        28
+      ],
+      "quest": "hf_tin_fossil_tooth_1",
+      "icon": "hf_tin_fossil_tooth"
+    },
+    {
+      "id": "hf_singing_mithril",
+      "item_id": "hf_singing_mithril",
+      "name": "Singing Mithril Shard",
+      "desc": "A shard of mithril ore that hums one clear note when you hold it, and a lower one answers when you hold it near another stone.",
+      "trade": "mining",
+      "mats": [
+        "ore_mithril"
+      ],
+      "band": [
+        36,
+        46
+      ],
+      "quest": "hf_singing_mithril_1",
+      "icon": "hf_singing_mithril"
+    },
+    {
+      "id": "hf_thorium_fingerprint",
+      "item_id": "hf_thorium_fingerprint",
+      "name": "Thorium With a Fingerprint",
+      "desc": "A chunk of thorium ore with one glassy face, and pressed into the glass, a fingerprint. A human one, small and clear, as if someone touched the ore while it was still molten.",
+      "trade": "mining",
+      "mats": [
+        "ore_thorium"
+      ],
+      "band": [
+        50,
+        60
+      ],
+      "quest": "hf_thorium_fingerprint_1",
+      "icon": "hf_thorium_fingerprint"
+    },
+    {
+      "id": "hf_mutated_silverleaf",
+      "item_id": "hf_mutated_silverleaf",
+      "name": "Mutated Silverleaf",
+      "desc": "A sprig of silverleaf with one leaf too many, growing out of the stem where no leaf should be. The veins in it are purple.",
+      "trade": "herbalism",
+      "mats": [
+        "herb_silverleaf",
+        "herb_peacebloom"
+      ],
+      "band": [
+        5,
+        14
+      ],
+      "quest": "hf_mutated_silverleaf_1",
+      "icon": "hf_mutated_silverleaf"
+    },
+    {
+      "id": "hf_bleeding_kingsblood",
+      "item_id": "hf_bleeding_kingsblood",
+      "name": "Kingsblood That Bleeds",
+      "desc": "A kingsblood flower cut at the stem. The stem bleeds slow red drops that don't dry, and it's warm the way a hand is warm.",
+      "trade": "herbalism",
+      "mats": [
+        "herb_kingsblood"
+      ],
+      "band": [
+        24,
+        34
+      ],
+      "quest": "hf_bleeding_kingsblood_1",
+      "icon": "hf_bleeding_kingsblood"
+    },
+    {
+      "id": "hf_unfading_fadeleaf",
+      "item_id": "hf_unfading_fadeleaf",
+      "name": "Fadeleaf That Won't Fade",
+      "desc": "Fadeleaf turns see-through within an hour of picking. This one went half clear and then stopped, as if it got stuck partway.",
+      "trade": "herbalism",
+      "mats": [
+        "herb_fadeleaf"
+      ],
+      "band": [
+        34,
+        44
+      ],
+      "quest": "hf_unfading_fadeleaf_1",
+      "icon": "hf_unfading_fadeleaf"
+    },
+    {
+      "id": "hf_dreaming_dreamfoil",
+      "item_id": "hf_dreaming_dreamfoil",
+      "name": "Dreamfoil That Dreams",
+      "desc": "A sprig of dreamfoil whose leaves curl closed like eyelids. Hold it close and you'd swear it's breathing slowly, the way a sleeper does.",
+      "trade": "herbalism",
+      "mats": [
+        "herb_dreamfoil"
+      ],
+      "band": [
+        50,
+        60
+      ],
+      "quest": "hf_dreaming_dreamfoil_1",
+      "icon": "hf_dreaming_dreamfoil"
+    },
+    {
+      "id": "hf_scratched_hide_map",
+      "item_id": "hf_scratched_hide_map",
+      "name": "Hide With a Map Scratched In",
+      "desc": "A scrap of hide with a map scratched into the underside: a crooked path, a rock shaped like a tusk, and an X.",
+      "trade": "skinning",
+      "mats": [],
+      "band": [
+        6,
+        16
+      ],
+      "quest": "hf_scratched_hide_map_1",
+      "icon": "hf_scratched_hide_map"
+    },
+    {
+      "id": "hf_tagged_ear",
+      "item_id": "hf_tagged_ear",
+      "name": "Tagged Ear",
+      "desc": "A beast's ear with a bright yellow tag clipped through it, smooth and hard and printed with numbers. It's the kind of tag they put on animals on Earth to follow where they go.",
+      "trade": "skinning",
+      "mats": [],
+      "band": [
+        20,
+        30
+      ],
+      "quest": "hf_tagged_ear_1",
+      "icon": "hf_tagged_ear"
+    },
+    {
+      "id": "hf_great_scale",
+      "item_id": "hf_great_scale",
+      "name": "Scale From Something Bigger",
+      "desc": "One scale, dark green with a bronze edge, as big as a shield and heavier than it looks. It came off a beast that was carrying it the way you'd carry a borrowed coat.",
+      "trade": "skinning",
+      "mats": [],
+      "band": [
+        34,
+        44
+      ],
+      "quest": "hf_great_scale_1",
+      "icon": "hf_great_scale"
+    },
+    {
+      "id": "hf_stitched_hide",
+      "item_id": "hf_stitched_hide",
+      "name": "Stitched Hide",
+      "desc": "A patch of hide made of two animals' skins, stitched together with black thread while both were still alive. The stitches are neat. Somebody took care.",
+      "trade": "skinning",
+      "mats": [],
+      "band": [
+        50,
+        60
+      ],
+      "quest": "hf_stitched_hide_1",
+      "icon": "hf_stitched_hide"
+    },
+    {
+      "id": "hf_message_bottle",
+      "item_id": "hf_message_bottle",
+      "name": "Message in a Bottle",
+      "desc": "A green glass bottle crusted with barnacles. There's a rolled note inside, and the cork's sealed with candle wax by somebody who meant it to last.",
+      "trade": "fishing",
+      "mats": [],
+      "band": [
+        6,
+        18
+      ],
+      "quest": "hf_message_bottle_1",
+      "icon": "hf_message_bottle"
+    },
+    {
+      "id": "hf_waterlogged_phone",
+      "item_id": "hf_waterlogged_phone",
+      "name": "Waterlogged Phone",
+      "desc": "A phone from Earth, its screen cracked across and full of water, with a strand of seaweed caught in the case. It hasn't had a signal in three years and it never will.",
+      "trade": "fishing",
+      "mats": [],
+      "band": [
+        20,
+        32
+      ],
+      "quest": "hf_waterlogged_phone_1",
+      "icon": "hf_waterlogged_phone"
+    },
+    {
+      "id": "hf_kelp_journal",
+      "item_id": "hf_kelp_journal",
+      "name": "Kelp-Wrapped Journal",
+      "desc": "A sailor's journal wrapped in kelp and tied with rope, swollen with seawater. The last pages are dry, as if somebody wrapped it carefully before it went into the sea.",
+      "trade": "fishing",
+      "mats": [],
+      "band": [
+        34,
+        46
+      ],
+      "quest": "hf_kelp_journal_1",
+      "icon": "hf_kelp_journal"
+    },
+    {
+      "id": "hf_rubber_duck",
+      "item_id": "hf_rubber_duck",
+      "name": "Rubber Duck Named Mo",
+      "desc": "A small yellow rubber duck, faded almost white on top. Tied round its neck on a bit of string is a tag, and on the tag in marker it says MO.",
+      "trade": "fishing",
+      "mats": [],
+      "band": [
+        50,
+        60
+      ],
+      "quest": "hf_rubber_duck_1",
+      "icon": "hf_rubber_duck"
+    }
+  ],
+  "earth_junk": [
+    {
+      "id": "ej_car_keys",
+      "name": "Car Keys",
+      "desc": "A ring of car keys with a plastic charm on it. Somewhere on Earth there's a car nobody's going to drive again.",
+      "price": 60,
+      "icon": "ej_car_keys"
+    },
+    {
+      "id": "ej_flip_flop",
+      "name": "Single Flip-Flop",
+      "desc": "One blue rubber flip-flop. The other one's out there somewhere, still looking.",
+      "price": 60,
+      "icon": "ej_flip_flop"
+    },
+    {
+      "id": "ej_sunglasses",
+      "name": "Cracked Sunglasses",
+      "desc": "Dark glasses with one lens cracked. They make the world look like a very old photograph.",
+      "price": 60,
+      "icon": "ej_sunglasses"
+    },
+    {
+      "id": "ej_soda_can",
+      "name": "Dented Soda Can",
+      "desc": "A faded red can, empty, dented on one side. It still fizzes faintly when you shake it, which shouldn't be possible.",
+      "price": 60,
+      "icon": "ej_soda_can"
+    },
+    {
+      "id": "ej_wristwatch",
+      "name": "Stopped Wristwatch",
+      "desc": "A steel watch with a cracked face. Its hands stopped at the minute of the Integration, like every watch that came through.",
+      "price": 120,
+      "icon": "ej_wristwatch"
+    },
+    {
+      "id": "ej_tennis_ball",
+      "name": "Waterlogged Tennis Ball",
+      "desc": "A fuzzy ball gone heavy with water. A dog would still love it.",
+      "price": 60,
+      "icon": "ej_tennis_ball"
+    },
+    {
+      "id": "ej_coffee_mug",
+      "name": "Chipped Coffee Mug",
+      "desc": "A white mug with a chip in the rim. Someone drank from it every morning for years, you can tell.",
+      "price": 60,
+      "icon": "ej_coffee_mug"
+    },
+    {
+      "id": "ej_tv_remote",
+      "name": "TV Remote",
+      "desc": "A black remote with rubber buttons. You press one out of habit, and nothing in the world changes channel.",
+      "price": 60,
+      "icon": "ej_tv_remote"
+    },
+    {
+      "id": "ej_garden_gnome",
+      "name": "Algae-Covered Garden Gnome",
+      "desc": "A garden gnome with a red hat and a lot of algae. It's been underwater for a while and it's still smiling.",
+      "price": 150,
+      "icon": "ej_garden_gnome"
+    },
+    {
+      "id": "ej_toy_dinosaur",
+      "name": "Plastic Toy Dinosaur",
+      "desc": "A small green plastic dinosaur. The bonehunters in the Barrens would argue about it for a week.",
+      "price": 60,
+      "icon": "ej_toy_dinosaur"
+    }
+  ],
+  "salvage": [
+    {
+      "id": "sv_barnacled_lockbox",
+      "name": "Barnacled Lockbox",
+      "desc": "A small iron-bound box crusted with barnacles. The lock rusted shut long ago and the merchants pay for it unopened.",
+      "price": 900,
+      "icon": "sv_barnacled_lockbox"
+    },
+    {
+      "id": "sv_sodden_coin_purse",
+      "name": "Sodden Coin Purse",
+      "desc": "A leather purse heavy with seawater and a few coins. A merchant will take it off your hands, coins and all.",
+      "price": 600,
+      "icon": "sv_sodden_coin_purse"
+    },
+    {
+      "id": "sv_goblin_canister",
+      "name": "Leaking Goblin Canister",
+      "desc": "A dented goblin fuel canister leaking a rainbow slick. Somebody in Ratchet will want the fuel back.",
+      "price": 400,
+      "icon": "sv_goblin_canister"
+    },
+    {
+      "id": "sv_wreck_crate",
+      "name": "Waterlogged Wreck Crate",
+      "desc": "A broken crate from a wreck, rope still knotted round it. Salvage merchants buy these by the pound.",
+      "price": 300,
+      "icon": "sv_wreck_crate"
+    }
+  ],
+  "fish_gear": [
+    {
+      "name": "Barnacled Signet",
+      "slot": "ring",
+      "item_level": 16,
+      "rarity": "uncommon",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 1
+      },
+      "secondary_stats": {
+        "attack_power": 6
+      },
+      "armor_value": 0,
+      "required_level": 14,
+      "sell_price": 466,
+      "flavor_text": "A signet ring crusted with tiny barnacles. Whoever wore it last wore it for a long time underwater.",
+      "icon_id": "gear_inv_jewelry_ring_26",
+      "item_id": "fg_barnacled_signet"
+    },
+    {
+      "name": "Net-Woven Cloak",
+      "slot": "back",
+      "item_level": 24,
+      "rarity": "uncommon",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 4
+      },
+      "secondary_stats": {
+        "spell_power": 9
+      },
+      "armor_value": 18,
+      "required_level": 22,
+      "sell_price": 1001,
+      "flavor_text": "A cloak knotted from fishing net and lined with sailcloth. It dries faster than it has any right to.",
+      "icon_id": "gear_inv_misc_cape_11",
+      "item_id": "fg_net_woven_cloak"
+    },
+    {
+      "name": "Kelpweave Sash",
+      "slot": "waist",
+      "item_level": 32,
+      "rarity": "uncommon",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 4,
+        "intellect": 3
+      },
+      "secondary_stats": {
+        "healing_power": 17
+      },
+      "armor_value": 27,
+      "required_level": 30,
+      "sell_price": 1832,
+      "flavor_text": "A sash woven from dried kelp. It smells of the sea and it never quite stops being damp.",
+      "icon_id": "gear_inv_belt_35",
+      "item_id": "fg_kelpweave_sash"
+    },
+    {
+      "name": "Tidewalker Boots",
+      "slot": "feet",
+      "item_level": 38,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 8,
+        "stamina": 5
+      },
+      "secondary_stats": {
+        "attack_power": 21
+      },
+      "armor_value": 86,
+      "required_level": 36,
+      "sell_price": 4659,
+      "flavor_text": "Sealskin boots from a wreck, tar-stitched at every seam. Water rolls off them like they're offended by it.",
+      "icon_id": "gear_inv_boots_plate_05",
+      "item_id": "fg_tidewalker_boots"
+    },
+    {
+      "name": "Saltcrust Bracers",
+      "slot": "wrist",
+      "item_level": 44,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "agility": 8,
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "attack_power": 25
+      },
+      "armor_value": 159,
+      "required_level": 42,
+      "sell_price": 4876,
+      "flavor_text": "Mail bracers with salt grown into every ring. They creak like a ship at anchor.",
+      "icon_id": "gear_inv_bracer_07",
+      "item_id": "fg_saltcrust_bracers"
+    },
+    {
+      "name": "Anchorline Girdle",
+      "slot": "waist",
+      "item_level": 49,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 16,
+        "strength": 6
+      },
+      "secondary_stats": {
+        "defense_rating": 12
+      },
+      "armor_value": 267,
+      "required_level": 47,
+      "sell_price": 6723,
+      "flavor_text": "A plate girdle with a length of anchor chain worked into its buckle. It holds you where you stand.",
+      "icon_id": "gear_inv_belt_22",
+      "item_id": "fg_anchorline_girdle"
+    },
+    {
+      "name": "Drowned Bell Pendant",
+      "slot": "neck",
+      "item_level": 54,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 8,
+        "intellect": 6
+      },
+      "secondary_stats": {
+        "healing_power": 33
+      },
+      "armor_value": 0,
+      "required_level": 52,
+      "sell_price": 8995,
+      "flavor_text": "A ship's bell no bigger than a thumb, still ringing faintly. Sailors say you only hear it when you're about to be saved.",
+      "icon_id": "gear_inv_jewelry_necklace_07",
+      "item_id": "fg_drowned_bell_pendant"
+    },
+    {
+      "name": "Captain's Lost Cutlass",
+      "slot": "main_hand",
+      "item_level": 58,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "sword_1h",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 16,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "attack_power": 39
+      },
+      "armor_value": 0,
+      "required_level": 56,
+      "sell_price": 16548,
+      "flavor_text": "A cutlass from the bottom of the sea, its hilt wrapped in sharkskin. Its captain went down holding it.",
+      "icon_id": "gear_inv_sword_01",
+      "weapon_damage_min": 101,
+      "weapon_damage_max": 137,
+      "attack_speed": 2.4,
+      "block_value": 0,
+      "item_id": "fg_captains_lost_cutlass"
+    }
+  ],
+  "mounts": [
+    {
+      "id": "brine_crab",
+      "name": "Brine Crab",
+      "pools": [
+        "pool_coast",
+        "pool_brine",
+        "pool_storm"
+      ]
+    },
+    {
+      "id": "river_otter",
+      "name": "Great River Otter",
+      "pools": [
+        "pool_river",
+        "pool_fresh",
+        "pool_reeds",
+        "pool_oasis"
+      ]
+    },
+    {
+      "id": "glimmer_frog",
+      "name": "Glimmer Frog",
+      "pools": [
+        "pool_swamp",
+        "pool_jungle",
+        "pool_moonlit",
+        "pool_glowing"
+      ]
+    },
+    {
+      "id": "rimefin_walrus",
+      "name": "Rimefin Walrus",
+      "pools": [
+        "pool_ice_hole"
+      ]
+    },
+    {
+      "id": "cinder_salamander",
+      "name": "Cinder Salamander",
+      "pools": [
+        "pool_lava",
+        "pool_bubbling",
+        "pool_plagued"
+      ]
+    },
+    {
+      "id": "abyssal_lurker",
+      "name": "Abyssal Lurker",
+      "pools": [
+        "pool_deep_sea",
+        "pool_whirlpool",
+        "pool_cave",
+        "pool_blood"
+      ]
+    }
+  ],
+  "titles": [
+    {
+      "id": "title_the_master_angler",
+      "title": "the Master Angler",
+      "needs": {
+        "fish": 1000
+      }
+    },
+    {
+      "id": "title_who_fished_up_the_duck",
+      "title": "Who Fished Up the Duck",
+      "needs": {
+        "found": "hf_rubber_duck"
+      }
+    },
+    {
+      "id": "title_the_salvager",
+      "title": "the Salvager",
+      "needs": {
+        "salvage": 50
+      }
+    },
+    {
+      "id": "title_of_the_deep",
+      "title": "of the Deep",
+      "needs": {
+        "mount": 1
+      }
+    }
+  ]
+}

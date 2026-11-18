@@ -1120,7 +1120,9 @@ class Market:
         in either house."""
         from world import collection as CL
         listed = {a.mkey for m in MARKETS for a in self.collection_listings(m)}
-        pool = [e for e in CL.entries() if f"g:collectable_{e['id']}" not in listed]
+        # a found-only collectable (the fishing mounts and titles, world/harvest_finds.py) is caught or earned, never
+        # put up by a trader; one a player caught and lists themselves is still theirs to sell
+        pool = [e for e in CL.entries() if f"g:collectable_{e['id']}" not in listed and not e.get("found_only")]
         if not pool:
             return None
         weights = [CL.rarity_weight(e["rarity"]) for e in pool]

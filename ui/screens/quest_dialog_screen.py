@@ -52,7 +52,8 @@ def _quest_item_name(item_id):
         # The drop tables FIRST (setdefault keeps the first name found), then every quest file:
         # an item a quest HANDS you (grant_items) is named there and nowhere else, so every
         # "Deliver" objective was printing its id - "Deliver ab collapse log."
-        sources = [root / "data/creatures/quest_drops.json"]
+        # The harvest finds' starters (world/harvest_finds.py) begin quests from a gather, so they're named there.
+        sources = [root / "data/creatures/quest_drops.json", root / "data/gathering/harvest_finds.json"]
         sources += sorted((root / "data/quests").glob("*.json"))
         for path in sources:
             try:

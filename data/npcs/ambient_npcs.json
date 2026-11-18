@@ -11074,6 +11074,32 @@
       "race": "human",
       "appearance_variant": 6,
       "facing": "right"
+    },
+    {
+      "npc_id": "mailbox_dw_innkeeper",
+      "name": "Mailbox",
+      "zone": "aridens_watch",
+      "x": 44,
+      "y": 68,
+      "greeting": "The inn's mailbox. Innkeeper Sela Crowe sorts the letters, parcels and whatever the auction house owes you.",
+      "facing": "down",
+      "race": "human",
+      "appearance_variant": 0,
+      "is_mailbox": true,
+      "prop": "assets/tiles/market/props/mailbox_orc_b.png"
+    },
+    {
+      "npc_id": "mailbox_mg_innkeeper",
+      "name": "Mailbox",
+      "zone": "moonglade",
+      "x": 164,
+      "y": 144,
+      "greeting": "The inn's mailbox. Innkeeper Talowyn Nightbreeze sorts the letters, parcels and whatever the auction house owes you.",
+      "facing": "down",
+      "race": "night_elf",
+      "appearance_variant": 0,
+      "is_mailbox": true,
+      "prop": "assets/tiles/market/props/mailbox_orc_b.png"
     }
   ]
 }

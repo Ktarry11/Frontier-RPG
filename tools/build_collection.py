@@ -303,9 +303,27 @@ for cid, name, gold, rar, blurb, effect, icon in heirlooms():
     add(cid, name, "heirloom", gold, rar, blurb, effect, icon)
 
 
+# ---------------------------------------------------------------- fishing (docs/harvest_finds_design.md)
+# Kyle, 18 Nov 2026, on something unique to fishing: "Collection mounts" and "Titles". Caught or earned, so FOUND
+# ONLY: no trader lists them (world/market/market._list_collectable). One you caught is still yours to sell.
+import harvest_finds_content as _HFC  # noqa: E402
+
+for cid, name, _pools, blurb in _HFC.MOUNTS:
+    add(cid, f"Reins of the {name}", "mount", 500, "epic", blurb, {"mount_id": cid, "mount_name": name, "tier": 1},
+        "qi_trophy_cord", needs_art=True)
+    ITEMS[-1].update(found_only=True, source="fishing")
+for cid, title, how, _need in _HFC.TITLES:
+    add(cid, f"Title: {title}", "title", 60, "rare", f"Shown with your name: You {title}. {how}",
+        {"title": "{name} " + title}, "col_title_rare")
+    ITEMS[-1].update(found_only=True, source="fishing")
+
 # ---------------------------------------------------------------- the icons (Sheet D, delivered 18 Nov 2026)
 UNIQUE_REINS = {"bone_white_kodo": "kodo", "steamwheedle_runabout": "runabout", "tidecaller_sea_turtle": "turtle",
-                "dread_elk_of_felwood": "elk", "sunreach_hawkstrider": "hawkstrider", "ashen_nightmare": "nightmare"}
+                "dread_elk_of_felwood": "elk", "sunreach_hawkstrider": "hawkstrider", "ashen_nightmare": "nightmare",
+                # the fishing mounts' reins, on the harvest finds sheet H1 (docs/harvest_fishing_art_prompts.md)
+                "brine_crab": "brine_crab", "river_otter": "river_otter", "glimmer_frog": "glimmer_frog",
+                "rimefin_walrus": "rimefin_walrus", "cinder_salamander": "cinder_salamander",
+                "abyssal_lurker": "abyssal_lurker"}
 SERVICE_ICON = {"bank": "col_satchel_bank", "peddler": "col_peddler_bell", "mail": "col_courier_horn",
                 "class_trainer": "col_book_master", "profession_trainer": "col_book_professions",
                 "reagents": "col_satchel_reagents"}
