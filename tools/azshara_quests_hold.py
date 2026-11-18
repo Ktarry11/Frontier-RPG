@@ -314,7 +314,7 @@ def build_hold():
         grant_items=carry("az_q_conclave_answer", "The Conclave's Answer", "A letter in the Grand Magister's own hand, "
                                                                            "sealed with a sun over a line of sea.")))
     A(Q("az_the_moonguard_revenant", "The Moonguard Revenant", SALEH, 60, 60, "Moonguard",
-        "Mohammed Saleh dreams of a knight under the sea whose spirit won't rest, and Farseer Thrag says the "
+        "Layla Saleh's brother Mohammed dreams of a knight under the sea whose spirit won't rest, and Farseer Thrag says the "
         "dream's true. The knight swore an oath to a queen who isn't coming back. The Moonguard Revenant holds the processional in the Queen's Vault.",
         [boss("The Moonguard Revenant", DV)],
         "Down the flooded stair into the Queen's Vault. The Revenant's at the end of the processional. It'll put "

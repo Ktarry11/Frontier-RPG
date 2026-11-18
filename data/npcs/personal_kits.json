@@ -9424,5 +9424,116 @@
         "party_resource_pct": 20
       }
     ]
+  },
+  "mohammed_chronomancer": {
+    "name": "Mohammed Saleh",
+    "passives": {
+      "_name": "Thirty Guests a Night",
+      "_from": "'He's warm, chatty and remembers every guest's name and how they take their tea.'",
+      "mp5": 6,
+      "arcane_resistance": 10
+    },
+    "abilities": [
+      {
+        "ability_id": "personal_mohammed_the_same_street_every_night",
+        "name": "The Same Street Every Night",
+        "from": "'the same white street running into the sea, every night'",
+        "engine": "live: reveals_intent and sure_target",
+        "effect_type": "debuff",
+        "target_type": "enemy",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 3,
+        "stat_mods": {},
+        "description": "For 3 turns, shows what the target will do next, and the party's attacks on it can't miss.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 0
+          }
+        ],
+        "is_instant": true,
+        "reveals_intent": "all",
+        "sure_target": true
+      },
+      {
+        "ability_id": "personal_mohammed_a_second_glass",
+        "name": "A Second Glass",
+        "from": "'he never let a guest leave without a second glass'",
+        "engine": "live: immediate repeat_last",
+        "effect_type": "buff",
+        "target_type": "self",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 0,
+        "stat_mods": {},
+        "description": "Casts his last ability again at once.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 100
+          }
+        ],
+        "is_instant": true,
+        "immediate": {
+          "action": "repeat_last"
+        }
+      },
+      {
+        "ability_id": "personal_mohammed_the_sea_gives_it_back",
+        "name": "The Sea Gives It Back",
+        "from": "'he sees a little way along time, backward and forward'",
+        "engine": "live: delayed",
+        "effect_type": "spell_damage",
+        "target_type": "enemy_aoe",
+        "resource_type": "mana",
+        "cooldown": 12,
+        "duration": 2,
+        "stat_mods": {},
+        "description": "Arcane damage that lands on one enemy row two turns from now.",
+        "ranks": [
+          {
+            "rank": 1,
+            "level_req": 1,
+            "cost": 30,
+            "effect_value": 100
+          },
+          {
+            "rank": 2,
+            "level_req": 15,
+            "cost": 42,
+            "effect_value": 150
+          },
+          {
+            "rank": 3,
+            "level_req": 30,
+            "cost": 54,
+            "effect_value": 200
+          },
+          {
+            "rank": 4,
+            "level_req": 45,
+            "cost": 66,
+            "effect_value": 250
+          },
+          {
+            "rank": 5,
+            "level_req": 60,
+            "cost": 78,
+            "effect_value": 300
+          }
+        ],
+        "is_instant": true,
+        "damage_school": "arcane",
+        "delayed": {
+          "turns": 2,
+          "mult": 1.0
+        }
+      }
+    ]
   }
 }

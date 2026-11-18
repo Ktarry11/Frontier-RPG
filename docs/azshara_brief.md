@@ -251,5 +251,10 @@ evening, sliced the same night; `docs/azshara_art_prompts.md` has the slice tabl
   people give them: five in the Landing plus a Conclave spellwarder, two at Stormwatch and one at Valormok. Every
   dungeon and cave boss has its quest, every open-world rare has one, and the Echo of the Queen opens only when both
   the Tidelord and Xavras are dead. 39 of them are chained.
-- **Next:** the one transplant recruit and the hidden content.
+- **The recruit** (`tools/build_azshara_recruit.py`, 18 Nov 2026, Kyle: "Make Mohammad there"): **Mohammed Saleh**,
+  Chronomancer (Artificer, the one Chronomancer spec nobody had), level 56, by the inn door at Talrendis Landing. He
+  ran a guesthouse in Aqaba with his sister and dreams the drowned street every night; here the dreams became seeing
+  time. His sister **Layla** keeps the inn now (Kyle: "We never loose an innkeeper though for our hearth"), and gives
+  the inn's four quests, two of them about his dreams. His art is still to come (`docs/azshara_recruit_art_prompt.md`).
+- **Next:** the hidden content.
 

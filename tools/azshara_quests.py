@@ -168,19 +168,20 @@ def build_landing():
         "The carts got through clean this morning. You've done the drivers a favour they won't thank you for, "
         "because they'll never know."))
 
-    # ---- Innkeeper Mohammed Saleh
+    # ---- Innkeeper Layla Saleh (her brother Mohammed is Azshara's recruit, by the inn door)
     A(Q("az_plumes_for_the_pillows", "Plumes for the Pillows", SALEH, 53, 53, "Featherbed",
-        "Mohammed Saleh ran a guesthouse on the Red Sea before the Integration. He says the beds at the Landing are "
-        "a disgrace, and the cliff hippogryphs drop the best feathers he's ever seen.",
+        "Layla Saleh and her brother ran a guesthouse on the Red Sea before the Integration. She says the beds at the Landing are "
+        "a disgrace, and the cliff hippogryphs drop the best feathers she's ever seen.",
         [fetch("az_q_hippogryph_plume", 8)],
         "The cliff hippogryphs nest up on the Ursolan heights, north of here. Bring me the plumes and I'll make "
         "pillows an elf can't complain about. Well, not much.",
         "These are beautiful. In Aqaba I had down from Turkey, and it wasn't this good.\n\nThe magisters will "
         "sleep better, and I'll get less complaining at breakfast."))
-    A(Q("az_ghosts_in_my_dreams", "Ghosts in My Dreams", SALEH, 57, 57, "Dreamer",
+    A(Q("az_ghosts_in_my_dreams", "Ghosts in His Dreams", SALEH, 57, 57, "Dreamer",
         "Half the Landing dreams of the same street every night: a white marble boulevard running into the sea, "
-        "with people in it who don't see you. Mohammed thinks it's the Drowned Promenade on the coast.\n\nHe wants "
-        "someone to go and look, so he can tell his guests it's a real place. Mohammed came through three years ago, and he's learned to take dreams seriously since.",
+        "with people in it who don't see you. Layla's brother Mohammed dreams it every night, and he thinks it's the Drowned "
+        "Promenade on the coast.\n\nLayla wants someone to go and look, so she can tell her guests it's a real place. They came "
+        "through three years ago, and she's learned to take her brother's dreams seriously since.",
         [explore(140, 108, "Walk the Drowned Promenade on the East Azshara coast", EA, radius=9)],
         "East, past Stormwatch and down to the shore. The Promenade's the marble road that runs into the sea. Tell "
         "me if there are people in it, and tell me if they see you.",
@@ -252,7 +253,7 @@ def build_landing():
         "My crews will do the rest.",
         "The night shift dug three new trenches in one night. I haven't seen them work that hard since we left Durotar."))
     A(Q("az_crab_season", "Crab Season", SALEH, 54, 54, "Shellbreaker",
-        "Mohammed promised the dig crews a crab boil after the big lift, and Dana Whitfield, who cooked on a North "
+        "Layla promised the dig crews a crab boil after the big lift, and Dana Whitfield, who cooked on a North "
         "Sea rig before the Integration, says she knows how to do it properly. The shorecrabs on Southridge Beach are the size of shields.",
         [fetch("az_q_crab_meat", 8)],
         "Southridge Beach is the south coast of Central Azshara. Crack the Southridge Shorecrabs and bring the meat "

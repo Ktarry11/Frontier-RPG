@@ -23,7 +23,7 @@ Hold, 18 Nov), the Drowned Palace (two floors off the Drowned Court, 18 Nov), Or
 East road.
 
 1. **What's left** (the Conclave, the open world and 81 quests are in, 18 Nov):
-   - One recruit, an Earth transplant (Kyle: recruits are ONLY ever Earth transplants). Who it is is Kyle's call.
+   - Mohammed Saleh's sprite and portrait (`docs/azshara_recruit_art_prompt.md`); he's in the game on a stand-in.
    - The hidden content ("Surprise me"). Never described.
    - Maybe a handful more quests out of the zone (the plan's Silvermoon and Undercity chains) to reach about 90.
 2. **Later, Kyle's call**: the Sunreach Conclave's island home.

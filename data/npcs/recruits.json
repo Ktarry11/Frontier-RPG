@@ -2297,6 +2297,34 @@
         "now": "Out in the Eastern Plaguelands, working the fields one row at a time.\n\nThe seed-company cap tucked in his belt is the one he wore on the combine, and he puts it on when the work's done."
       },
       "look": "American man, 44, big and broad, sandy-brown hair cut short, short greying beard, blue eyes, a rugged sun-creased face. Dark brown and iron reaper plate, plain and practical, a huge two-handed scythe carried low, a seed-company cap folded into his belt."
+    },
+    {
+      "recruit_id": "mohammed_chronomancer",
+      "name": "Mohammed Saleh",
+      "char_class": "Chronomancer",
+      "spec": "chronomancer_artificer",
+      "level": 56,
+      "zone": "Talrendis Landing",
+      "x": 20,
+      "y": 30,
+      "row": "back",
+      "npc_color": "#3FA7B5",
+      "backstory": "Mohammed and his sister Layla ran a guesthouse in Aqaba, on the Red Sea, full of divers who came for the coral. He's warm, chatty and remembers every guest's name and how they take their tea. When they came through, he took the first job going, keeping the inn at Talrendis Landing, and then the dreams started: the same white street running into the sea, every night, with the queen's court walking it. Here the dreams turned into something he can use, and now he sees a little way along time, backward and forward.",
+      "greeting": "Sit down, you look tired. Layla keeps the inn now, and I keep the dreams. Lately the dreams are the busier job.",
+      "gear_theme": "ranged_dps",
+      "home_town": null,
+      "home_x": null,
+      "home_y": null,
+      "home_note": null,
+      "gender": "male",
+      "appearance_variant": 4,
+      "background_sections": {
+        "before": "Twelve rooms over a dive shop, a rooftop where the guests ate breakfast looking at Sinai, and a sister who did the books because he was hopeless at them.\n\nHe made the tea himself, every morning, and he never let a guest leave without a second glass.",
+        "adjustment": "He kept doing what he knew, which was keeping people fed and rested, and it held him together.\n\nThe dreams frightened him until Farseer Thrag told him they were true. After that they mostly made him curious.",
+        "forward": "He wants to walk the Drowned Promenade awake, once, and see if it looks the way it does at night.\n\nLayla wants him to stop dreaming and help with the laundry. He says he can do both.",
+        "now": "By the inn door at Talrendis Landing, with a glass of tea going cold beside him.\n\nThe brass key on a cord round his neck is the guesthouse's front door key. He still locks up at night, somewhere in his head."
+      },
+      "look": "Jordanian man, 41, medium build, warm brown skin, short dark curly hair going grey at the temples, a neat short beard, kind dark eyes with laugh lines. Deep teal and sand chronomancer robes with brass trim and a small hourglass at the belt, a staff with a glass orb full of slow-turning sand, a brass key on a cord round his neck."
     }
   ],
   "notes": "Recruitable companions - diverse classes, specs (FIXED), locations, and backgrounds. Each has distinctive NPC color for visibility. Backgrounds shortened to fit screen. Spec-locked recruitment identity. Recruits with \"placed\": false are fully authored (class, spec, background, art slot) but not yet standing anywhere in the world; \"suggested_zone\" is only a hint for when they are placed (several will go to the Eastern Kingdoms). A recruit's level matches the zone they are found in (Kyle, 2026-10-22), so nobody is a level 2 in a level 14 town."

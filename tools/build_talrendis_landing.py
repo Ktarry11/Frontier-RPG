@@ -55,10 +55,12 @@ VENDORS = {
 }
 #: npc_id -> (name, race, gender, variant, facing, greeting)
 AMBIENT = {
-    "tl_innkeeper": ("Innkeeper Mohammed Saleh", "human", M, 4, "down",
-                     "I had a guesthouse in Aqaba, on the Red Sea, before the Integration, and most of my guests "
-                     "were divers. Now it's orcs who snore and elves who complain about them, and it's the same job. "
-                     "Sleep while you can."),
+    # Layla Saleh keeps the inn (Kyle, 18 Nov 2026: "We never loose an innkeeper though for our hearth"): her brother
+    # Mohammed, who kept it first, is Azshara's recruit (tools/build_azshara_recruit.py) and stands by the door
+    "tl_innkeeper": ("Innkeeper Layla Saleh", "human", F, 4, "down",
+                     "My brother and I had a guesthouse in Aqaba, on the Red Sea, and most of our guests were divers. "
+                     "Now it's orcs who snore and elves who complain about them, and it's the same job. He's the one "
+                     "who dreams. I'm the one who keeps the books."),
     "tl_flight_master": ("Windrider Master Kragga", "orc", F, 2, "down",
                          "The wyverns go anywhere you've already been. They don't like the coast, because something "
                          "big moves out past the spires at night, and I don't make them fly over it."),
