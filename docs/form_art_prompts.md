@@ -1,4 +1,4 @@
-# Shapeshift form art (10 sheets, 60 forms, 4 facings each)
+# Shapeshift form art (10 sheets, 60 forms, 4 facings each, plus one icon sheet)
 
 Kyle, 18 Nov 2026: "a quick prompt for shapeshift forms! Bears, trees, cats, etc.", "Then more special shape shift
 forms after to be sold on AH!", "shapeshift forms should have all 4 angles to move with. like mounts!" and "We need each
@@ -344,4 +344,32 @@ Columns, left to right (the same six creatures in every row, each turned accordi
 Every creature fills roughly 70-85% of its cell. Keep design, colours and markings identical across the four facings of the same creature. Fully opaque except where a creature is described as see-through, clean edges, no baked checkerboard or haze.
 
 Before you finish, check the image: every column should show one creature from the front, then from its left side, then from its right side, then from behind. If any column shows the same view twice, redraw that column.
+```
+
+---------------------------------------------------------------------
+## SHEET I1: 36 icons for the form looks  (paste this whole block)
+
+One Collection icon per F3, F4, F5, F8, F9 and F10 look: the token you buy or find that teaches it. Sliced to
+`assets/icons/collection/`. Attach `qi_journal.png`, `qi_horn.png` and `qi_signet.png` as the style reference.
+
+```
+Generate ONE image, 2048x2048, a grid of 6 columns x 6 rows = 36 separate square inventory icons, each about 341x341. Flat pure #FF00FF magenta background around each icon, with a wide margin, nothing touching the neighbours or the image edge. Each icon is ONE object, centred, filling about 75% of its cell, drawn as a classic WoW Classic inventory icon: painterly, rich colour, strong silhouette readable at 40 pixels, soft dark outline, lighting from the top-left, a slight 3/4 view. No frames, no borders, no text, no letters or numbers anywhere, no magenta or pink inside the icons. Each is a small magical token that lets a druid or shapeshifter take on a new look: carved idols, charms, vials, cogs and brooches. Rare ones (every third icon) glow softly.
+
+Icons, row by row, left to right:
+Row 1: 1 a carved black bear idol with a tan muzzle; 2 a grey bear idol with bark and moss plates; 3 a white bear idol with ice crystals and a blue glow; 4 a tawny sandy-gold lion idol; 5 a white snow leopard idol with dark rosettes; 6 a midnight-blue panther idol full of glittering stars.
+Row 2: 7 a little carved tree idol with red and orange autumn leaves; 8 a willow tree idol with long trailing green fronds; 9 a silver-barked tree idol with glowing pale blue leaves; 10 a hairy brown spider idol; 11 a pale yellow spider idol with black bands; 12 a see-through violet crystal spider glowing from inside.
+Row 3: 13 a dark brown scarab idol; 14 a shining metallic green jade scarab; 15 a gold scarab with glowing orange runes; 16 a white owl-bear idol with yellow eyes; 17 a slate-grey owl-bear idol with violet eyes; 18 a golden owl-bear idol with a sun halo.
+Row 4: 19 a heavy brown bear claw carved with a tribal line; 20 a bear idol wrapped in thorny briar vines with red berries; 21 a grey stone bear head with glowing green runes and branch antlers; 22 a grey-green tentacled idol crusted with barnacles; 23 a cracked black stone tentacle idol glowing red in the cracks; 24 a black orb with a starfield inside and a ring of violet light.
+Row 5: 25 a small grey smoke wisp shaped like a hooded figure in a glass vial; 26 a vial of black smoke with orange embers drifting inside; 27 a black disc with a white-gold eclipse ring of light; 28 a rusty dented goblin cog with a bent bolt; 29 a cobalt-blue enamel cog with a glowing blue core; 30 a polished gold cog with ruby rivets and a green core.
+Row 6: 31 a spool of plain grey-white spider silk; 32 a white silk egg sac on a spool of shining thread; 33 a spool of see-through glowing pale blue ghost silk; 34 a bronze chitin brooch with an amber stone; 35 a black chitin brooch with a red crystal; 36 a purple and gold chitin brooch set with emeralds.
+```
+
+Slices in this order:
+```
+col_look_bear_black, col_look_bear_ironhide, col_look_bear_frostmane, col_look_cat_plains_lion, col_look_cat_snow_leopard, col_look_cat_starlight,
+col_look_tree_autumn, col_look_tree_willow, col_look_tree_moonwood, col_look_spider_forest, col_look_spider_sand, col_look_spider_crystal_widow,
+col_look_beetle_dusk, col_look_beetle_jade, col_look_beetle_sunfire, col_look_moonkin_snowy, col_look_moonkin_dusk, col_look_moonkin_solar,
+col_look_dire_bear_brown, col_look_dire_bear_thornhide, col_look_dire_bear_ancient, col_look_void_monstrosity_drowned, col_look_void_monstrosity_ashen, col_look_void_monstrosity_starving,
+col_look_shadowform_grey, col_look_shadowform_ember, col_look_shadowform_eclipse, col_look_mechsuit_rustbucket, col_look_mechsuit_cobalt, col_look_mechsuit_goldplated,
+col_look_weaver_dusk, col_look_weaver_silkmother, col_look_weaver_spectral, col_look_vizier_bronze, col_look_vizier_obsidian, col_look_vizier_royal
 ```
