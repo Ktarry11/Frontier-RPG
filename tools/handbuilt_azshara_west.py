@@ -266,7 +266,7 @@ def dress(L):
     # ---- the Sundering Mere and the river: a few Highborne stones in the shallows
     Z("az_toppled_column", 140, 170, 5, solid="core")
     Z("az_moon_arch", 30, 150, 7, solid="core")
-    Z("az_ruin_wall", 26, 166, 5, solid="core")
+    Z("az_ruin_wall", 28, 144, 5, solid="core")
 
 
 def register_baked(zone):

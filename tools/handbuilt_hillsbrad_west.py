@@ -256,7 +256,7 @@ def dress(L):
     T.grove(L, 30, 16, 7, 5, 6, OAKS, seed=16)
 
     # ---- Southpoint Tower: the ruined watchtower the Forsaken have camped under. The player's hub here.
-    p(RU + "ruin_tower_skulls.png", 46, 20, 9, solid=True, nudge=0)
+    p(RU + "ruin_tower_skulls.png", 58, 26, 9, solid=True, nudge=2)
     b("forsaken_house_small", 40, 26, 8, nudge=2)
     b("forsaken_house_small", 52, 26, 8, nudge=2)
     b("command_war_tent", 46, 30, 8, nudge=5)
@@ -275,7 +275,7 @@ def dress(L):
     T.grove(L, 140, 76, 6, 6, 6, OAKS, seed=2)
 
     # ---- Hillsbrad Fields: the green heart. Worked farms, hedgerows, scarecrows.
-    b("ek_cottage_medium", 94, 72, 9, nudge=2)
+    b("ek_cottage_medium", 88, 80, 9, nudge=2)
     b("ek_townhouse", 108, 84, 9, nudge=2)
     b("ek_cottage_small", 78, 86, 7, nudge=2)
     b("ek_townhouse", 82, 60, 9, nudge=2)
@@ -324,7 +324,6 @@ def dress(L):
         p(CO + "driftwood_pile.png", x, y, 3, shore_ok=True)
     p(CO + "rowboat_wreck.png", 20, 106, 3, shore_ok=True)
     p(CO + "fish_drying_rack.png", 26, 96, 4)
-    p(CO + "coral_reef_outcrop.png", 12, 102, 3, shore_ok=True)
     p(CO + "mooring_posts.png", 18, 112, 3, shore_ok=True)
     p("ek_signpost", 32, 90, 4)
 
