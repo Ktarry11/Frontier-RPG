@@ -1,4 +1,4 @@
-# Auction house exclusive mounts (2 sheets, 7 mounts)
+# Auction house exclusive mounts (3 sheets, 11 mounts)
 
 Kyle, 18 Nov 2026: "can you whip up another 3 art prompts for mounts that are AH exclusive?!" Three Collection mounts
 that only ever turn up on the auction house, put up by its traders: no vendor, no drop, no quest. Built into the
@@ -53,3 +53,16 @@ platinum_direwolf`. The prompt is the H4 block with these four columns (sent to 
 4. PLATINUM DIREWOLF: a white direwolf in engraved platinum plates, sapphires on the brow, white fur saddle.
 
 Scale: tortoise widest and lowest, strider tallest and thinnest, boar short and heavy, wolf long and lean.
+
+---------------------------------------------------------------------
+## SHEET H6: four more auction house mounts, 4 facings each
+
+Kyle, 18 Nov 2026: "more!". Same rules as H5 (4x4, 1024x1024). Sliced by `tools/asset_pipeline/slice_mount_sheet.py
+SHEET.png ruby_scorpid golden_dromedary obsidian_rhino jadehorn_elk`. Sent to Kyle in full the same day.
+
+1. RUBY SCORPID: a giant scorpion, red lacquered carapace edged in gold, a gold stinger with a ruby.
+2. GOLDEN DROMEDARY: a tall camel, a saffron and crimson silk canopy on gilded poles, rows of gold tassels and coins.
+3. OBSIDIAN RHINO: a huge rhino in polished obsidian plates inlaid with gold, a gold-sheathed horn.
+4. JADEHORN ELK: a giant elk with carved jade antlers hung with gold charms, green silk barding.
+
+Scale: scorpid widest and lowest, dromedary tall with a long neck, rhino heaviest, elk with the widest antlers.
