@@ -110,6 +110,8 @@ def art_ready(cid):
         base = cw[1] if cw else mid
         return all((MOUNT_DIR / f"{base}_{d}.png").exists() for d in DIRECTIONS)
     if e["kind"] == "form":
+        if e["effect"].get("facings"):
+            return all((ROOT / f"{e['effect']['facings']}_{d}.png").exists() for d in DIRECTIONS)
         return (ROOT / e["effect"]["sprite"]).exists() if e["effect"].get("sprite") else False
     return True
 
@@ -148,7 +150,32 @@ def collection_mount_ids():
 
 # ------------------------------------------------------------------ forms
 def form_ids():
-    return [e["id"] for e in learned_entries("form") if art_ready(e["id"])]
+    """Disguises you can wear on the map: learned, drawn, and not a class form's look."""
+    return [e["id"] for e in learned_entries("form") if art_ready(e["id"]) and not e["effect"].get("look_of")]
+
+
+#: class shapeshift forms drawn on the map in four facings (assets/forms/<form>_<facing>.png, sheets F1 and F2).
+#: Kyle, 18 Nov 2026: "We need basic forms for shape shifting out of combat too for shifters."
+CLASS_FORM_DIR = ROOT / "assets" / "forms"
+
+
+def look_of(cid):
+    """The class form a Collection look dresses (\"bear\"), or None."""
+    e = get_entry(cid) or {}
+    return (e.get("effect") or {}).get("look_of")
+
+
+def class_form_path(form_id, facing, looks=None):
+    """The picture a character in a class form walks the map as, relative to the game root, or None if that form
+    isn't drawn. `looks` is TravelManager.form_looks: a learned, drawn look replaces the plain form."""
+    if not form_id:
+        return None
+    cid = (looks or {}).get(form_id)
+    if cid and look_of(cid) == form_id and learned(cid) and art_ready(cid):
+        return f"{get_entry(cid)['effect']['facings']}_{facing}.png"
+    if (CLASS_FORM_DIR / f"{form_id}_{facing}.png").exists():
+        return f"assets/forms/{form_id}_{facing}.png"
+    return None
 
 
 def form_sprite_path(form_id):

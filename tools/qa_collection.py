@@ -57,7 +57,7 @@ def main():
         hidden_names = set(creature_kinds()) | set(CS._hidden_sprites())
         for e in es:
             if e["kind"] == "form":
-                if not Path(e["effect"]["sprite"]).exists():
+                if not C.art_ready(e["id"]):
                     bad.append(f"{e['id']} has no picture")
                 if e["effect"]["form_name"] in hidden_names:
                     bad.append(f"a form is named for a creature from a hidden place ({e['id']})")

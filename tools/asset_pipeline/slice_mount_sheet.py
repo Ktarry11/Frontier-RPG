@@ -66,10 +66,47 @@ def _key(rgb, hard, strength):
     return out
 
 
+def _grid_cut(rgb, hard, strength, content, ids, dry):
+    """--grid: when two sprites touch, cut by the grid instead. Each cell keeps the content inside it, the
+    pieces big enough to be part of its sprite, and nothing from the neighbours."""
+    keyed = _key(rgb, hard, strength)
+    H, W, _ = rgb.shape
+    cw, ch = W / COLS, H / ROWS
+    wrote = []
+    for ri in range(ROWS):
+        for ci in range(COLS):
+            x0, y0, x1, y1 = int(ci * cw), int(ri * ch), int((ci + 1) * cw), int((ri + 1) * ch)
+            cell = content[y0:y1, x0:x1]
+            lab, n = ndimage.label(ndimage.binary_closing(cell, structure=np.ones((9, 9))))
+            if not n:
+                raise SystemExit(f"cell row {ri + 1} col {ci + 1} is empty")
+            sizes = ndimage.sum(cell, lab, range(1, n + 1))
+            keep = [i + 1 for i in range(n) if sizes[i] >= max(MIN_BLOB / 6, sizes.max() * 0.04)]
+            mine = ndimage.binary_dilation(np.isin(lab, keep), structure=np.ones((3, 3)))
+            ys, xs = np.where(mine)
+            a, b, c, d = xs.min(), ys.min(), xs.max(), ys.max()
+            cut = keyed[y0:y1, x0:x1].copy()
+            cut[..., 3] = np.where(mine, cut[..., 3], 0)
+            img = Image.fromarray(cut[b:d + 1, a:c + 1], "RGBA")
+            dst = OUT / f"{ids[ci]}_{FACINGS[ri]}.png"
+            wrote.append((dst, img.size))
+            if not dry:
+                OUT.mkdir(parents=True, exist_ok=True)
+                img.save(dst)
+    for dst, size in wrote:
+        print(f"  {'would write' if dry else 'wrote'} {dst.relative_to(ROOT)}  {size[0]}x{size[1]}")
+    print(f"\n{len(wrote)} sprites{' (dry run)' if dry else ''}")
+    return 0
+
+
 def main():
     global COLS
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     dry = "--dry-run" in sys.argv
+    global OUT
+    for a in sys.argv[1:]:
+        if a.startswith("--out="):   # shapeshift forms use the same four-facing sheets (assets/forms/)
+            OUT = ROOT / a.split("=", 1)[1]
     if len(args) < 2:
         raise SystemExit("usage: slice_mount_sheet.py SHEET.png <mount ids, left to right, one per column>")
     COLS = len(args) - 1
@@ -80,6 +117,9 @@ def main():
     rgb = np.array(Image.open(sheet).convert("RGB"))
     hard, strength = _masks(rgb)
     content = ~hard
+
+    if "--grid" in sys.argv:
+        return _grid_cut(rgb, hard, strength, content, ids, dry)
 
     # close small gaps (a thin tail, a gap between legs) so one animal is one blob
     lab, n = ndimage.label(ndimage.binary_closing(content, structure=np.ones((9, 9))))

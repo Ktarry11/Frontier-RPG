@@ -32,6 +32,11 @@ def _hours(h):
     return f"{h} market hour{'s' if h != 1 else ''}"
 
 
+#: the class forms a look can dress, as players know them (combat/forms.py)
+_FORM_NAME = {"bear": "Bear Form", "dire_bear": "Dire Bear Form", "cat": "Cat Form", "moonkin": "Moonkin Form",
+              "tree_of_life": "Tree of Life", "spider": "Spider Form", "beetle": "Beetle Form"}
+
+
 class CollectionScreen(BaseScreen):
     def __init__(self, state_manager, icon_ui_helper=None):
         super().__init__(state_manager)
@@ -101,6 +106,12 @@ class CollectionScreen(BaseScreen):
             if tm.active_mount == cid:
                 return "Learned. It's the mount R summons.", GREEN, []
             return "Learned.", GREEN, [("Ride", "ride")]
+        if kind == "form" and C.look_of(cid):
+            base = C.look_of(cid)
+            what = _FORM_NAME.get(base, base.replace("_", " ").title())
+            if tm.form_looks.get(base) == cid:
+                return f"Learned. It's how your {what} looks.", GREEN, [("Plain look", "look_off")]
+            return f"Learned. A look for {what}, for every character who can take it.", GREEN, [("Use", "look_on")]
         if kind == "form":
             if tm.active_form == cid:
                 return "Learned. You're wearing it on the map.", GREEN, [("Take off", "form_off")]
@@ -144,6 +155,14 @@ class CollectionScreen(BaseScreen):
             tm.mounted = False
             return self._say(True, f"You're walking as a {e['effect'].get('form_name', e['name'])}. "
                                    f"Only the map sees it.")
+        if action == "look_on":
+            base = C.look_of(cid)
+            tm.form_looks[base] = cid
+            what = _FORM_NAME.get(base, base.replace("_", " ").title())
+            return self._say(True, f"Your {what} looks like a {e['effect'].get('form_name', e['name'])} now.")
+        if action == "look_off":
+            tm.form_looks.pop(C.look_of(cid), None)
+            return self._say(True, "Back to the plain look.")
         if action == "form_off":
             tm.active_form = None
             return self._say(True, "You're yourself again.")

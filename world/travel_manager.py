@@ -58,6 +58,8 @@ class TravelManager:
         self.hearth2_steps_left = 0
         self.collection_used = {}
         self.active_form = None
+        # {class form id: Collection look id}: how Bear Form and friends look on the map (world/collection.py)
+        self.form_looks = {}
         self.active_title = None
         try:
             from world.collection import apply_feathers
@@ -344,6 +346,7 @@ class TravelManager:
             "hearth2_steps_left": self.hearth2_steps_left,
             "collection_used": dict(self.collection_used),
             "active_form": self.active_form,
+            "form_looks": dict(self.form_looks),
             "active_title": self.active_title,
         }
 
@@ -372,6 +375,7 @@ class TravelManager:
         self.hearth2_steps_left = max(0, int(data.get("hearth2_steps_left", 0)))
         self.collection_used = {k: float(v) for k, v in (data.get("collection_used") or {}).items()}
         self.active_form = data.get("active_form")
+        self.form_looks = {k: v for k, v in (data.get("form_looks") or {}).items() if isinstance(v, str)}
         self.active_title = data.get("active_title")
         try:
             from world.collection import apply_feathers, form_ids

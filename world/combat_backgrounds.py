@@ -213,17 +213,17 @@ ZONE_BACKGROUND = {
     "The Rotroot Deeps": "dark_dungeon",          # the fel rot under Timbermaw Hold
     "The Drowned Palace": "dark_dungeon",         # Azshara's palace, half in the sea
     "The Drowned Palace: The Queen's Vault": "dark_dungeon",
-    # --- Deadwind Pass (docs/deadwind_brief.md, 18 Nov 2026): until it gets backgrounds of its own ----------
-    "Deadwind West": "blighted",                  # the dead forest
-    "Deadwind East": "blighted",                  # the ash, the gorge and the rupture
-    "Ariden's Watch": "blighted",                 # the liquidators' camp
+    # --- Deadwind Pass (docs/deadwind_brief.md; its own art, sheet H3, 18 Nov 2026) -----------------------
+    "Deadwind West": "deadwind_west",             # the dead forest and the Widows' Wood
+    "Deadwind East": "deadwind_east",             # the stopped gorge and the rupture
+    "Ariden's Watch": "aridens_watch",            # the liquidators' camp, in the dead forest
     # --- Moonglade (docs/moonglade_brief.md, 18 Nov 2026): no monsters yet, but every map has one
     "Moonglade": "fantasy_forest",
-    "The Widows' Nest": "dark_dungeon",           # the spiders' funnel
-    "The Drowned Seep": ("nautical", "Flooded"),  # the drain under the Drowned Hollow
-    "The Exclusion Zone": "dark_dungeon",         # under the wheel
-    "The Exclusion Zone: The Reactor Hall": "dark_dungeon",
-    "The Exclusion Zone: The Foot": "dark_dungeon",
+    "The Widows' Nest": "widows_nest",            # the spiders' funnel, in the webbed wood
+    "The Drowned Seep": "drowned_seep",           # the drain under the Drowned Hollow
+    "The Exclusion Zone": "ez_under_the_wheel",   # under the wheel
+    "The Exclusion Zone: The Reactor Hall": "ez_reactor_hall",
+    "The Exclusion Zone: The Foot": "ez_the_foot",
     "Eastern Kingdoms - Stranglethorn": "jungle",  # region label over the tropical zones
 
     # --- desert and salt ---------------------------------------------------

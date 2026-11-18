@@ -117,13 +117,20 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - **Higher-end frontier dusts, essences and shards** (later).
 
 ## 10. Art (prompts written; waiting on sheets, or on slicing)
-- **The 18 Nov art drop** (`docs/harvest_fishing_art_prompts.md`): H1, the 36 harvest finds and fishing icons (on
-  hue-shifted stand-ins until then); H2, the six fishing mounts (learnable now, rideable when their art lands); H3,
-  eight Deadwind combat backgrounds (the pass borrows "blighted" and the Exclusion Zone "dark_dungeon" until then).
 - **Recipe-scroll sheet RC1** (claude/enchanting_recipe_art_prompts.md): Blacksmithing, Leatherworking, Tailoring and
   Woodworking's first three. Kyle, 17 Nov: "just missing blacksmithing - add that to backlog". Until it lands those
-  scrolls keep their one picture per profession. The Woodworking epic scroll also didn't come out on RC2, so it uses
-  the master scroll; it can go on RC1.
+  scrolls keep their one picture per profession. (The 18 Nov drop sent RC2 again instead; its Woodworking epic was
+  used.)
+- **Still to paste from the 18 Nov prompt run** (Kyle: "you can backlog the others"):
+  - `docs/form_art_prompts.md` F6 and F7 (the twelve AH forms in four facings; they're in now as one picture each),
+    F8, F9 and F10 (looks for the dire bear, void monstrosity, shadowform, mechsuit, weaver and vizier), and I1 (an
+    icon per look; the 18 looks in now share three family charms until it lands).
+  - `docs/rare_mount_art_prompts.md` H9 and H10 (twelve wild mounts; not built yet, where each comes from is open).
+  - `docs/exalted_mount_art_prompts.md` H11 to H13 (one Exalted mount per faction; not built yet, the
+    quartermasters sell them at Exalted) and I2 (their reins and the wild mounts').
+  - `docs/mulgore_raid_boss_prompt.md` (the Fallen Bluff's bosses).
+- **Class forms in combat**: since 18 Nov a shifter walks the map as their form (assets/forms); the combat screen
+  still shows the person. Kyle asked for "out of combat" only, so this is a question, not a bug.
 - **The professions screen's own art**: tab art, frames and station art.
 - **Walk cycles**: rolling out sheet by sheet by playable race (claude/walk_cycle_prompts.md).
 - **The recoloured T0 set versions** are plain hue turns (some gold sets come out lime). Kyle's eye.

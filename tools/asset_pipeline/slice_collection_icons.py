@@ -40,9 +40,18 @@ def cuts(profile, n, size):
 
 
 def main():
-    if len(sys.argv) < 2:
+    global IDS
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    if not args:
         raise SystemExit(__doc__)
-    rgb = np.asarray(Image.open(sys.argv[1]).convert("RGB")).astype(np.int32)
+    for a in sys.argv[1:]:
+        # --ids=a,b,c: any 6x6 icon sheet. An id may carry a folder under assets/icons ("quest_items/hf_x");
+        # "-" skips a cell. Without it, Sheet D's own ids.
+        if a.startswith("--ids="):
+            IDS = [x.strip() for x in a.split("=", 1)[1].split(",")]
+    if len(IDS) != 36:
+        raise SystemExit(f"{len(IDS)} ids given, a 6x6 sheet needs 36")
+    rgb = np.asarray(Image.open(args[0]).convert("RGB")).astype(np.int32)
     r, g, b = rgb[..., 0], rgb[..., 1], rgb[..., 2]
     solid = (np.minimum(r, b) - g) < 80
     H, W = solid.shape
@@ -71,7 +80,10 @@ def main():
             side = max(im.width, im.height)
             sq = Image.new("RGBA", (side, side), (0, 0, 0, 0))
             sq.paste(im, ((side - im.width) // 2, (side - im.height) // 2), im)
-            sq.resize((SIZE, SIZE), Image.LANCZOS).save(os.path.join(OUT, f"{IDS[k]}.png"))
+            if IDS[k] != "-":
+                dst = os.path.join("assets", "icons", f"{IDS[k]}.png") if "/" in IDS[k] else os.path.join(OUT, f"{IDS[k]}.png")
+                os.makedirs(os.path.dirname(dst), exist_ok=True)
+                sq.resize((SIZE, SIZE), Image.LANCZOS).save(dst)
             k += 1
     print(f"  {k} icons written to {OUT} (cuts x {xs[1:-1]}, y {ys[1:-1]})")
 

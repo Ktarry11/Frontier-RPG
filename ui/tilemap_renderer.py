@@ -857,6 +857,24 @@ class TilemapRenderer:
                     sprite = get_walk_sprite(base_path, player_facing, frame, th) if frame else None
                     if sprite is None:
                         sprite = get_npc_sprite(base_path, player_facing, tile_height=th)
+            # A CLASS SHAPESHIFT FORM (Bear, Cat, Tree of Life, Spider...): out of combat a shifter walks the map as
+            # the form, turned four ways like a mount (assets/forms, sheets F1/F2), in a Collection look if one is
+            # chosen. Kyle, 18 Nov 2026: "We need basic forms for shape shifting out of combat too for shifters."
+            try:
+                _cf = getattr(player, "current_form", None) if player is not None else None
+                if _cf:
+                    from world.travel_manager import get_travel_manager
+                    from world.collection import class_form_path
+                    from ui.sprite_loader import get_form_sprite
+                    _tm = get_travel_manager()
+                    _path = None if _tm.mounted else class_form_path(_cf, player_facing, _tm.form_looks)
+                    if _path:
+                        # facing "down": the picture is already turned the right way, so never mirror it
+                        _fs = get_form_sprite(_path, "down", int(self.tile_size * self.npc_sprite_scale))
+                        if _fs is not None:
+                            sprite = _fs
+            except Exception:
+                pass
             # A Collection form (world/collection.py): the leader walks the map as the creature. Map only.
             try:
                 from world.travel_manager import get_travel_manager

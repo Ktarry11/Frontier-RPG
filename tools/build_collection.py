@@ -39,6 +39,9 @@ ITEMS = []
 
 
 def add(cid, name, kind, gold, rarity, blurb, effect, icon, needs_art=False):
+    if needs_art and kind == "mount" and all(
+            (ROOT / f"assets/mounts/{cid}_{d}.png").exists() for d in ("down", "left", "right", "up")):
+        needs_art = False   # its sheet has landed
     ITEMS.append({"id": cid, "name": name, "kind": kind, "price": int(gold * G), "rarity": rarity, "blurb": blurb,
                   "effect": effect, "icon_id": icon, "art": f"col_{cid}", "needs_art": needs_art})
 
@@ -310,7 +313,7 @@ import harvest_finds_content as _HFC  # noqa: E402
 
 for cid, name, _pools, blurb in _HFC.MOUNTS:
     add(cid, f"Reins of the {name}", "mount", 500, "epic", blurb, {"mount_id": cid, "mount_name": name, "tier": 1},
-        "qi_trophy_cord", needs_art=True)
+        f"col_reins_{cid}", needs_art=True)
     ITEMS[-1].update(found_only=True, source="fishing")
 for cid, title, how, _need in _HFC.TITLES:
     add(cid, f"Title: {title}", "title", 60, "rare", f"Shown with your name: You {title}. {how}",
@@ -324,11 +327,77 @@ AH_EXCLUSIVE = (
     ("bazaar_brute", "Bazaar Brute", "A walking marketplace: a great brute with a goblin stall lashed to its back."),
     ("coinscale_raptor", "Coinscale Raptor", "A bronze raptor barded in a few hundred gold coins, and proud of it."),
     ("velvet_saber", "Velvet Saber", "A midnight sabre cat in plum velvet and pearls. Elegant, and very sharp."),
+    # sheets H5 to H7, 18 Nov 2026: "4 more mounts please", "more!", "one more"
+    ("ledger_tortoise", "Ledger Tortoise", "A gold-leaf tortoise with a padlocked vault on its back. Slow, and rich."),
+    ("silkwind_strider", "Silkwind Strider", "A tall plumed strider in teal silk and little gold bells."),
+    ("goldtusk_boar", "Goldtusk Boar", "A war boar whose tusks are capped in gold and ringed with rubies."),
+    ("platinum_direwolf", "Platinum Direwolf", "A white direwolf in engraved platinum, with sapphires on its brow."),
+    ("ruby_scorpid", "Ruby Scorpid", "A scorpid lacquered red and gold, with a ruby set in its golden sting."),
+    ("golden_dromedary", "Golden Dromedary", "A haughty camel under a silk canopy, hung with rows of gold coins."),
+    ("obsidian_rhino", "Obsidian Rhino", "A rhino plated in obsidian and gold, with a gold-sheathed horn."),
+    ("jadehorn_elk", "Jadehorn Elk", "A great elk with antlers of carved jade, hung with little gold charms."),
+    ("gilded_bone_steed", "Gilded Bone Steed", "A skeletal warhorse plated in gold, burning with violet ghost-fire."),
+    ("gilded_mechanostrider", "Gilded Mechanostrider", "A gold-plated goblin strider. It smokes, and it's very shiny."),
+    ("crowned_grizzly", "Crowned Grizzly", "A colossal black bear in a gold crown and an ermine-trimmed robe."),
+    ("emerald_basilisk", "Emerald Basilisk", "A long low basilisk whose scales glitter like cut emeralds."),
 )
 for cid, name, blurb in AH_EXCLUSIVE:
     add(cid, f"Reins of the {name}", "mount", 750, "epic", blurb, {"mount_id": cid, "mount_name": name, "tier": 1},
-        "qi_trophy_cord", needs_art=True)
+        f"col_reins_{cid}", needs_art=True)
     ITEMS[-1].update(source="auction_house")
+
+# AUCTION HOUSE FORMS (sheet F2, single pictures, 18 Nov 2026: "more special shape shift forms after to be sold on
+# AH!"). Map only, like every form; put up only by the house's traders.
+AH_FORMS = (
+    ("tycoon_golem", "Tycoon Golem", "A gold clockwork golem with a coin slot for a belly and a hat for a head."),
+    ("treasure_mimic", "Treasure Mimic", "A chest of gold on little clawed feet. It bites."),
+    ("pearl_murloc_king", "Pearl Murloc King", "A very smug murloc in a crown of clam shell and pearls."),
+    ("bronze_drakonid", "Bronze Drakonid", "A winged dragon-man in bronze scales, holding an hourglass of glowing sand."),
+    ("gilded_infernal", "Gilded Infernal", "A fel-burning rock giant with gold bands riveted onto its fists."),
+    ("spirit_ancestor", "Spirit Ancestor", "A tauren elder walking in pale blue spirit light."),
+    ("living_geode", "Living Geode", "A rock elemental split open to show the amethyst inside."),
+    ("opulent_furbolg", "Opulent Furbolg", "A cheerful furbolg in gold beads, gems and an embroidered vest."),
+    ("goldleaf_treant", "Goldleaf Treant", "An old treant whose leaves have all turned to autumn gold."),
+    ("silken_harpy_matriarch", "Silken Harpy Matriarch", "A harpy queen in emerald and gold feathers."),
+    ("ember_djinn", "Ember Djinn", "A grinning fire spirit that trails off into smoke below the waist."),
+    ("goldtooth_pirate_ghost", "Goldtooth Pirate Ghost", "A ghostly pirate captain with a grin full of gold."),
+)
+for cid, name, blurb in AH_FORMS:
+    add(cid, f"Charm of the {name}", "form", 700, "epic", blurb,
+        {"form_id": cid, "form_name": name, "sprite": f"assets/collection/forms/{cid}.png"}, f"col_charm_{cid}")
+    ITEMS[-1].update(source="auction_house")
+
+# SHAPESHIFT LOOKS (sheets F3 to F5, 18 Nov 2026: "We need each form - Bears, beetles, cats, tree of life, spiders.
+# All 4 angles. Some common and some rare!" and "throw some of these in the collection for alternative forms!").
+# A look changes how a class form walks the map (world/collection.class_form_path); it doesn't change the form.
+LOOK_PRICE = {"common": 40, "uncommon": 120, "rare": 400}
+# stand-ins until sheet I1 (docs/form_art_prompts.md) gives every look its own icon
+LOOK_ICON = {"bear": "col_charm_beast", "cat": "col_charm_beast", "moonkin": "col_charm_beast",
+             "tree_of_life": "col_charm_plant", "spider": "col_charm_insect", "beetle": "col_charm_insect"}
+FORM_LOOKS = (
+    ("bear_black", "bear", "Black Bear", "common", "Bear Form in glossy black fur, with a tan muzzle."),
+    ("bear_ironhide", "bear", "Ironhide Bear", "uncommon", "Bear Form armoured in bark and moss, mushrooms and all."),
+    ("bear_frostmane", "bear", "Frostmane Bear", "rare", "Bear Form as a white bear with ice growing from its back."),
+    ("cat_plains_lion", "cat", "Plains Lion", "common", "Cat Form as a tawny mountain lion."),
+    ("cat_snow_leopard", "cat", "Snow Leopard", "uncommon", "Cat Form in white fur and dark rosettes."),
+    ("cat_starlight", "cat", "Starlight Panther", "rare", "Cat Form in midnight fur full of stars."),
+    ("tree_autumn", "tree_of_life", "Autumn Tree", "common", "Tree of Life in red and orange leaves."),
+    ("tree_willow", "tree_of_life", "Willow Tree", "uncommon", "Tree of Life as a weeping willow, fireflies included."),
+    ("tree_moonwood", "tree_of_life", "Moonwood Tree", "rare", "Tree of Life in silver bark and glowing blue leaves."),
+    ("spider_forest", "spider", "Forest Spider", "common", "Spider Form as a big hairy brown spider."),
+    ("spider_sand", "spider", "Sand Spider", "uncommon", "Spider Form in pale desert yellow and black bands."),
+    ("spider_crystal_widow", "spider", "Crystal Widow", "rare", "Spider Form made of glowing violet crystal."),
+    ("beetle_dusk", "beetle", "Dusk Scarab", "common", "Beetle Form in a plain dark brown shell."),
+    ("beetle_jade", "beetle", "Jade Scarab", "uncommon", "Beetle Form in shining metallic green."),
+    ("beetle_sunfire", "beetle", "Sunfire Scarab", "rare", "Beetle Form in gold with glowing orange runes."),
+    ("moonkin_snowy", "moonkin", "Snowy Moonkin", "common", "Moonkin Form in white feathers."),
+    ("moonkin_dusk", "moonkin", "Dusk Moonkin", "uncommon", "Moonkin Form in slate and violet."),
+    ("moonkin_solar", "moonkin", "Solar Moonkin", "rare", "Moonkin Form in glowing golden feathers."),
+)
+for cid, base, name, rar, blurb in FORM_LOOKS:
+    add(f"look_{cid}", f"Look: {name}", "form", LOOK_PRICE[rar], rar, blurb,
+        {"form_id": f"look_{cid}", "form_name": name, "look_of": base, "facings": f"assets/forms/{cid}"},
+        LOOK_ICON[base])
 
 # ---------------------------------------------------------------- Exalted titles
 # Kyle, 18 Nov 2026: "each faction should get a title for reaching exalted with them." Learned the moment a faction
@@ -368,29 +437,58 @@ UNIQUE_REINS = {"bone_white_kodo": "kodo", "steamwheedle_runabout": "runabout", 
                 "brine_crab": "brine_crab", "river_otter": "river_otter", "glimmer_frog": "glimmer_frog",
                 "rimefin_walrus": "rimefin_walrus", "cinder_salamander": "cinder_salamander",
                 "abyssal_lurker": "abyssal_lurker",
-                # the AH exclusives borrow a colourway's reins until they have their own
-                "bazaar_brute": "rose", "coinscale_raptor": "dawn", "velvet_saber": "twilight"}
+                }
 SERVICE_ICON = {"bank": "col_satchel_bank", "peddler": "col_peddler_bell", "mail": "col_courier_horn",
                 "class_trainer": "col_book_master", "profession_trainer": "col_book_professions",
                 "reagents": "col_satchel_reagents"}
 CHARM_WORDS = (("murloc", ("murloc",)),
+               ("dragonkin", ("dragon", "drake", "whelp", "wyrm", "dragonkin", "drakonid", "dragonspawn")),
+               ("insect", ("spider", "scorpid", "silithid", "beetle", "scarab", "crawler", "tick", "roach",
+                           "nerubian", "widow", "tarantula", "recluse", "creeper", "skitterer", "mantis", "locust")),
                ("serpent", ("serpent", "snake", "naga", "basilisk", "lizard", "crocolisk", "hydra", "wyrm", "drake",
                             "dragon", "whelp", "scorpid", "slither", "viper", "cobra", "worm")),
                ("bird", ("crow", "vulture", "owl", "harpy", "bat", "bird", "hawk", "raven", "wyvern", "buzzard",
                          "gryphon", "roc", "condor", "moth", "wasp", "stinger")),
                ("spirit", ("spirit", "ghost", "shade", "wraith", "spectre", "specter", "phantom", "banshee", "wisp",
                            "apparition", "echo")),
-               ("drowned", ("drowned", "sea", "tide", "coral", "reef", "deep", "siren", "brine", "wave", "kraken")))
+               ("drowned", ("drowned", "sea", "tide", "coral", "reef", "deep", "siren", "brine", "wave", "kraken")),
+               # the nine family charms from sheet H8, which split up the forms that all wore the wolf charm
+               ("undead", ("skeleton", "zombie", "ghoul", "abomination", "lich", "bone", "plague", "scourge", "undead",
+                           "mummy", "corpse", "rotting", "risen", "cadaver", "necro", "skull", "crypt", "geist")),
+               ("demon", ("demon", "imp", "felguard", "fel ", "satyr", "succubus", "infernal", "voidwalker",
+                          "doomguard", "felhound", "dreadlord", "hellcaller", "eredar")),
+               ("elemental", ("elemental", "golem", "earth", "fire", "flame", "storm", "rock", "stone", "ember",
+                              "ooze", "slime", "sludge", "magma", "lava", "cinder", "dust", "sand", "crystal",
+                              "construct", "living")),
+               ("plant", ("treant", "lasher", "bog", "plant", "flower", "vine", "mushroom", "fungal", "ancient",
+                          "sapling", "thorn", "bloom", "moss", "root", "briar")),
+               ("giant", ("ogre", "giant", "gronn", "ettin", "yeti", "behemoth", "colossus", "mountain", "brute")),
+               ("humanoid", ("bandit", "cultist", "defias", "kobold", "gnoll", "quillboar", "centaur", "pirate",
+                             "mage", "warrior", "scout", "guard", "priest", "smuggler", "thug", "dwarf", "human",
+                             "elf", "orc", "troll", "tauren", "goblin", "gnome", "footpad", "raider", "poacher",
+                             "hunter", "trapper", "sentry", "knight", "soldier", "crusader", "zealot", "witch",
+                             "shaman", "mystic", "furbolg", "murk", "acolyte", "outrider", "rogue", "thief",
+                             "worker", "miner", "merchant", "captain", "sailor", "deckhand", "marauder", "harvester",
+                             "geomancer", "seer", "oracle", "apprentice", "scholar", "magus", "sorcer", "warlock")),
+               ("beast", ("bear", "boar", "cat", "lion", "tiger", "panther", "saber", "raptor", "kodo", "hyena",
+                          "gorilla", "ape", "crab", "turtle", "tortoise", "stag", "elk", "deer", "ram", "goat",
+                          "rhino", "thunder", "plainstrider", "strider", "lynx", "cougar", "leopard", "rat", "bear",
+                          "badger", "porcupine", "crocolisk", "hippo", "mammoth", "bison", "tallstrider", "stalker",
+                          "prowler", "mauler", "frog", "toad", "spirit beast")))
 
 
 def icon_for(i):
     k, eff, cid = i["kind"], i["effect"], i["id"]
     if k == "mount":
+        if (ROOT / "assets/icons/collection" / f"col_reins_{cid}.png").exists():
+            return f"col_reins_{cid}"     # its own reins (sheets H1, H8, I2)
         if cid in UNIQUE_REINS:
             return f"col_reins_{UNIQUE_REINS[cid]}"
         colour = cid.split("_")[0]
         return f"col_reins_{'twilight' if colour == 'dusk' else colour}"
     if k == "form":
+        if i["icon_id"].startswith("col_") and (ROOT / "assets/icons/collection" / f"{i['icon_id']}.png").exists():
+            return i["icon_id"]          # given its own charm (sheet H8) or a look's stand-in
         name = eff["form_name"].lower()
         if cid == "spirit_wolf":
             return "col_charm_spirit"
@@ -429,7 +527,11 @@ def problems():
         if not 2 * G <= i["price"] <= 750 * G:
             out.append(f"{i['id']}: price {i['price'] // G}g is outside 2-750g (Kyle: \"Some are dirt cheap. Some "
                        f"are expensive\", up to 750g)")
-        if i["kind"] == "form" and not (ROOT / i["effect"]["sprite"]).exists():
+        if i["kind"] == "form" and i["effect"].get("facings"):
+            for d in ("down", "left", "right", "up"):
+                if not (ROOT / f"{i['effect']['facings']}_{d}.png").exists():
+                    out.append(f"{i['id']}: no picture {i['effect']['facings']}_{d}.png")
+        elif i["kind"] == "form" and not (ROOT / i["effect"]["sprite"]).exists():
             out.append(f"{i['id']}: no picture {i['effect']['sprite']}")
         if i["rarity"] not in RARITY_WEIGHT:
             out.append(f"{i['id']}: rarity {i['rarity']}")
