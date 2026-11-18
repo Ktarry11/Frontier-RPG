@@ -1,4 +1,7 @@
-# Mulgore: the Thunder Bluff raid, boss sheets (3 prompts)
+# Mulgore: The Fallen Bluff, the Thunder Bluff raid's boss sheets (3 prompts)
+
+**The raid is called The Fallen Bluff** (Kyle, 18 Nov 2026). Its wings are the Hunter Rise, the Spirit Rise, the Elder
+Rise and the Central Rise.
 
 Kyle, 18 Nov 2026: "give me a prompt for RAID BOSSES ---- for our Thunder Bluff Raid.... 14 raid bosses", then "we
 want GORE for this....mulgore needs to be beyond fucked and these bosses are all in thunderbluff and they need to be

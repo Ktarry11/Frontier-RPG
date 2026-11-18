@@ -38,7 +38,7 @@ East road.
   prompts....then go back to happy Azshara!" Nothing to build until the art is in and Kyle says go. It holds the last T0
   token (the bracers), reached by a tunnel through Stranglethorn's north-east mountains.
 
-## 1c. Mulgore: the Thunder Bluff raid (art prompts in progress, 18 Nov 2026)
+## 1c. Mulgore: The Fallen Bluff, the Thunder Bluff raid (art prompts in progress, 18 Nov 2026)
 - `docs/mulgore_raid_boss_prompt.md`: Kyle's first raid. Bosses by rise (Central 5 with the final boss unlocking
   last, Hunter 3, Spirit 3, Elder 3), drawn in batches of seven.
 
