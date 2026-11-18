@@ -66,7 +66,14 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - **Heroic mode doesn't exist yet.** Normal dungeons now stop paying rep at Revered, and faction tabards move a
   heroic's kill rep to the faction you pick (`docs/tabards_design.md`). Both wait on heroics for the road to Exalted.
   Still to design with Kyle: how a heroic is entered, what changes (level, health, damage, mechanics), lockouts,
-  rewards, and which dungeons get one.
+  and which dungeons get one.
+- **The level-60 gear ladder** (Kyle, 18 Nov 2026: "Lower rep gear. Revered can be 64, exalted can be 68. Heroics
+  are 66 (skull zones and frontier zones can be 68 and 69 heroics...so different) and T1 can be epic lvl 68 and
+  cairne is 71"). Item levels: normal 60 dungeons 60-63, Honored rep 62, Revered rep 64 (I suggested 66, level with
+  heroics, since a tabard gets you to Revered through heroics; Kyle to choose), heroics 66 (68 and 69 for the two
+  special kinds), Exalted rep 68 (the same as T1 but no set bonus; 250-350g), the Fallen Bluff (T1) 68, Cairne
+  Unmade 71. Heroics "gear people up and let them get rep". `tools/relevel_rep_gear.py` moves the rep gear (148
+  items, 21 recipes) once the Revered number is settled; not run yet.
 
 ## 4. Classes, combat and balance
 - **Tanks on the new armour curve**: the caster/tank shield split isn't built; tank abilities and block, dodge and

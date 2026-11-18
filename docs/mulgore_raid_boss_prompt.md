@@ -168,3 +168,8 @@ A fifth, the same night: a mood piece (a black eclipse ringed in red-white fire 
 framing it), kept as a reference for Mulgore's look in `tools/building_sheets/mulgore_mood_eclipse.png`, not as game
 art.
 
+## Loot (Kyle, 18 Nov 2026)
+
+The Fallen Bluff (T1) drops epics at item level 68, in full sets; Cairne Unmade drops 71, the top of the game.
+Heroic dungeon blues are 66 and Exalted rep epics 68. The whole ladder is in `docs/backlog_nov17_onwards.md`,
+section 3a.
