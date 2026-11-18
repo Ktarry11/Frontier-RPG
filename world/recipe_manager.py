@@ -143,10 +143,7 @@ def make_recipe_scroll(recipe_id: str) -> "Item | None":
     # assets/icons/recipes holds a scroll for each profession plus a default; 192 scrolls, 8 files.
     # Without this every recipe scroll rendered as a rarity-coloured box, because slot "recipe" is
     # not in gear_icons' prefix table and should not be - a scroll is not a piece of gear.
-    icon_id = f"recipe_{profession}"
-    if not (Path(__file__).parent.parent / "assets" / "icons" / "recipes" /
-            f"{icon_id}.png").exists():
-        icon_id = "recipe_default"
+    icon_id = scroll_icon(profession, recipe)
 
     return Item(
         item_id=f"recipe_scroll_{recipe_id}",
@@ -161,6 +158,31 @@ def make_recipe_scroll(recipe_id: str) -> "Item | None":
         recipe_id=recipe_id,
         recipe_profession=profession,
     )
+
+
+#: skill grades for the scroll's look (Kyle's recipe sheets, docs/enchanting_recipe_art_prompts.md): apprentice to master
+_GRADES = (75, 150, 225, 300)
+
+
+def scroll_icon(profession: str, recipe: dict) -> str:
+    """The recipe scroll's picture: the profession's scroll at the recipe's skill grade, found (a drop) or bought (a
+    vendor's or a faction's), or its epic scroll for an epic. Kyle, 17 Nov 2026: "They dont need to be unique but they
+    should be similar.....like each professions get about 6-8 unique ones". Falls back, in order, to the same grade
+    the other way, the profession's one old picture, and the default scroll, so a sheet still to come (RC1) changes
+    nothing."""
+    folder = Path(__file__).parent.parent / "assets" / "icons" / "recipes"
+    prof = "woodworking" if profession == "woodcutting" else profession
+    out = recipe.get("output", {})
+    rarity = out.get("rarity") or (out.get("item") or {}).get("rarity")
+    grade = 1 + sum(recipe.get("skill_required", 0) >= g for g in _GRADES)
+    way = "bought" if recipe.get("source") == "vendor" else "found"
+    other = "found" if way == "bought" else "bought"
+    tries = ([f"recipe_{prof}_epic", f"recipe_{prof}_5_{way}", f"recipe_{prof}_5_{other}"] if rarity == "epic" else [])
+    tries += [f"recipe_{prof}_{grade}_{way}", f"recipe_{prof}_{grade}_{other}", f"recipe_{profession}", "recipe_default"]
+    for t in tries:
+        if (folder / f"{t}.png").exists():
+            return t
+    return "recipe_default"
 
 
 def _profession_prefix(profession: str) -> str:

@@ -38,6 +38,8 @@ def build(recipe):
                                        stat_template=out["stat_template"],
                                        item_level=out["item_level"], rarity=out["rarity"])
         item.name = recipe["name"]
+        if out.get("icon_id"):          # a rolled piece with art of its own (the enchanted wands)
+            item.icon_id = out["icon_id"]
     if item is None:
         return None
     item.is_crafted = True

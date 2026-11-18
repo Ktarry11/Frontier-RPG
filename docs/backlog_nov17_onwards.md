@@ -18,19 +18,19 @@ How this file works:
 ## 1. Azshara (in progress, in Kyle's order: "One thing at a time")
 
 Brief: `docs/azshara_brief.md`. Done so far: Kyle's six art sheets, West Azshara, Talrendis Landing, Timbermaw Hold,
-Central Azshara, East Azshara (the Drowned Court already risen), both caves, Orgrimmar's north gate and the Ashenvale East road.
+Central Azshara, East Azshara (the Drowned Court already risen), both caves, the Rotroot Deeps (the dungeon under the
+Hold, 18 Nov), Orgrimmar's north gate and the Ashenvale East road.
 
-1. **The fel rot under the Hold** (dungeon, 55-58, 5 bosses): every boss pays Timbermaw.
-2. **The Vault of Zin-Azshari** (dungeon, 59-60, 6 bosses over two floors), Scholomance-sized. Kyle settles the two
+1. **The Vault of Zin-Azshari** (dungeon, 59-60, 6 bosses over two floors), Scholomance-sized. Kyle settles the two
    dungeons' names and rosters (the art uses working names).
-3. **People and content**:
+2. **People and content**:
    - Creature records from sheet 5 and encounter tables (West Azshara has none yet).
    - About 90 quests, about 70% given in the Landing and the Hold.
    - **The Sunreach Conclave** faction and its TBC shelf. Its leader and quartermaster stay quest-free, because the
      elves get an island later.
    - Two or three recruits: a blood elf magister, an orc salvager and a transplant.
    - The hidden content ("Surprise me"). Never described.
-4. **Later, Kyle's call**: the Sunreach Conclave's island home.
+3. **Later, Kyle's call**: the Sunreach Conclave's island home.
 
 ## 1b. Deadwind Pass (vision and art prompts only, 17 Nov 2026)
 - `docs/deadwind_brief.md` and `docs/deadwind_art_prompts.md` (8 sheets). Kyle: "I just want the vision and the
@@ -120,12 +120,14 @@ Central Azshara, East Azshara (the Drowned Court already risen), both caves, Org
 - **Junk and salvage fishing catches**: the sprites are sliced but unused. They need their own catch table.
 
 ## 10. Art (prompts written; waiting on sheets, or on slicing)
-- **The 82 crafted epics' own icons** (claude/crafting_epic_icon_prompts.md): 0 of 82 so far. They show the shared
-  epic stand-ins until then.
-- **The two crafting icon-fix sheets** (claude/crafting_icon_fix_prompts.md): slice when they arrive.
+- **Recipe-scroll sheet RC1** (claude/enchanting_recipe_art_prompts.md): Blacksmithing, Leatherworking, Tailoring and
+  Woodworking's first three. Kyle, 17 Nov: "just missing blacksmithing - add that to backlog". Until it lands those
+  scrolls keep their one picture per profession. The Woodworking epic scroll also didn't come out on RC2, so it uses
+  the master scroll; it can go on RC1.
+- **Timbermaw Warhide's own icon** is on RC3's last row; delivered 17 Nov.
+- Done 17 Nov: the two crafting icon-fix sheets (45 icons), the consumables sheet (28), the three crafted-epic sheets
+  (82), enchanting EN1-EN4 (144) and recipe sheets RC2-RC3.
 - **The professions screen's own art**: tab art, frames and station art.
-- **Icons for the four new Alchemy items**: Elixir of Shadow Power, Flask of Mending, Free Action Potion and Potion
-  of Invulnerability.
 - **Greater Heal and Chain Heal** need proper icons (stand-ins today).
 - **Walk cycles**: rolling out sheet by sheet by playable race (claude/walk_cycle_prompts.md).
 - **The recoloured T0 set versions** are plain hue turns (some gold sets come out lime). Kyle's eye.

@@ -235,3 +235,27 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# ---------------------------------------------------------------------------------------------------- lookups
+def enchant_icon_map():
+    """enchant id -> its scroll's icon stem, for every enchant whose scroll art is on disk (else it keeps the
+    shared enchant_scroll picture). tools/build_enchanting.py and tools/slice_enchant_recipe_sheets.py both read it."""
+    out = {}
+    for cells in enchant_cells():
+        for stem, _d, ids in cells:
+            if stem.startswith("enchant_scroll_") and (ROOT / "assets/gathering_nodes/enchanting" /
+                                                       f"{stem}.png").exists():
+                for eid in ids:
+                    out[eid] = stem
+    return out
+
+
+def wand_icon(recipe_id):
+    """A wand recipe's icon (lesser and greater of a material share one); the hidden sellers' copies match by the
+    wand they copy. None for a recipe that isn't one of the eight wands."""
+    for stem, _d in WANDS:
+        material = stem.split("_", 1)[1]                    # magic_wand, mystic_wand, ...
+        if recipe_id.endswith(f"lesser_{material}") or recipe_id.endswith(f"greater_{material}"):
+            return f"gear_ench_{stem}"
+    return None

@@ -53,6 +53,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from tools.build_jewelcrafting import load, save, skill_range  # noqa: E402
+from tools import enchant_recipe_art as ERA  # noqa: E402
 
 MATS = ROOT / "data/gathering/materials.json"
 OUT_ENCH = ROOT / "data/enchanting/enchants.json"
@@ -412,6 +413,7 @@ def main():
     from world import jewelcrafting as J
     doc = load(MATS)
     mats = doc["materials"]
+    SCROLL_ICONS = ERA.enchant_icon_map()
     for k in [k for k, v in mats.items() if v.get("profession") == "enchanting"]:
         del mats[k]
     new = materials(mats)
@@ -431,7 +433,9 @@ def main():
                      "description": f"A scroll holding an enchantment for {GROUPS[e['group']][0].lower()}s"
                                     f"{' (any weapon)' if e['group'] == 'weapon' else ''}. Read it onto "
                                     f"gear with the Enchant button in your bags.",
-                     "stack_limit": 20, "sell_price": max(10, e["level"] * 8), "icon_id": "enchant_scroll"}
+                     "stack_limit": 20, "sell_price": max(10, e["level"] * 8),
+                     # each family's own scroll once its art is in (tools/enchant_recipe_art.py, Kyle's EN sheets)
+                     "icon_id": SCROLL_ICONS.get(eid, "enchant_scroll")}
         recipes[f"ench_{eid[8:]}"] = {
             "name": e["name"], "inputs": inp, "skill_required": e["skill"],
             "output": {"kind": "material", "material_id": eid},
@@ -457,7 +461,8 @@ def main():
         recipes[f"ench_{wid}"] = {
             "name": name, "inputs": inp, "skill_required": skill,
             "output": {"kind": "weapon", "slot": "ranged", "weapon_type": "wand",
-                       "stat_template": "int_caster", "item_level": level, "rarity": rarity},
+                       "stat_template": "int_caster", "item_level": level, "rarity": rarity,
+                       **({"icon_id": ERA.wand_icon(f"ench_{wid}")} if ERA.wand_icon(f"ench_{wid}") else {})},
             "tool": rods_for(skill), "skill_range": skill_range(skill), "source": source}
 
     # ---- weapon oils
