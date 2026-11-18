@@ -1012,6 +1012,10 @@ class CombatEngine:
         from world.faction_manager import get_faction_manager
         faction_mgr = get_faction_manager()
         self.faction_gains = {}
+        # the leader's tabard (world/tabards.py): in a heroic dungeon its faction takes the kill rep.
+        # self.heroic is set by heroic mode, which isn't built yet (docs/tabards_design.md)
+        from world.tabards import worn_by
+        _tabard = worn_by(self.player)
         for e in self.enemies:
             quest_mgr.record_kill(e.name, self.zone, is_boss=getattr(e, "is_boss", False))
             # Only enemies a faction has a stake in pay anything - see faction_manager's docstring for why
@@ -1019,7 +1023,8 @@ class CombatEngine:
             # Returns a LIST - shared ground pays everyone with a stake in it, so one boss in the
             # Barrens can move both Orgrimmar and Thunder Bluff.
             for fid, gained, tier_up in faction_mgr.award_for_kill(
-                    e.name, zone=self.zone, is_boss=getattr(e, "is_boss", False)):
+                    e.name, zone=self.zone, is_boss=getattr(e, "is_boss", False),
+                    heroic=bool(getattr(self, "heroic", False)), tabard=_tabard):
                 # a SECRET faction's standing moves in silence: no gain line, no tier-up line, nothing that
                 # says where it came from (Kyle, 15 Nov 2026: "not advertised where rep comes from")
                 if getattr(faction_mgr.get(fid), "secret", False):

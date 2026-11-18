@@ -67,6 +67,13 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - **The Gilded Vale** (a skull zone) leading to **the Emberwild** (its frontier), painted with the Azshara autumn
   set, "elsewhere in the world". The parent zone is chosen blind and never written down.
 
+## 3a. Heroic dungeons (NEXT, design with Kyle; 18 Nov 2026)
+- **Heroic mode doesn't exist yet.** Normal dungeons now stop paying rep at Revered, and faction tabards move a
+  heroic's kill rep to the faction you pick (`docs/tabards_design.md`). Both wait on heroics for the road to Exalted.
+  Still to design with Kyle: how a heroic is entered, what changes (level, health, damage, mechanics), lockouts,
+  rewards, and which dungeons get one.
+- **Tabard art**: 16 tabard icons (stand-ins are the guild tabard tinted per faction).
+
 ## 4. Classes, combat and balance
 - **Tanks on the new armour curve**: the caster/tank shield split isn't built; tank abilities and block, dodge and
   parry haven't been re-tuned to carry more of the load. Look at it once Kyle has played a tank.

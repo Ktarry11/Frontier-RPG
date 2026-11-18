@@ -37,7 +37,7 @@ def make_unique(unique_id):
         import json
         from pathlib import Path
         _UNIQUES = {}
-        for name in ("secret_uniques.json", "faction_rewards.json", "unnamed_rewards.json"):
+        for name in ("secret_uniques.json", "faction_rewards.json", "unnamed_rewards.json", "tabards.json"):
             path = Path(__file__).resolve().parent.parent / "data" / "items" / name
             try:
                 _UNIQUES.update(json.loads(path.read_text(encoding="utf-8")).get("items", {}))

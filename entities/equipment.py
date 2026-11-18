@@ -29,7 +29,7 @@ def _load_weapon_type_hand(weapon_type):
 EQUIPMENT_SLOTS = [
     "head", "neck", "shoulder", "back", "chest", "wrist", "hands",
     "waist", "legs", "feet", "ring1", "ring2", "trinket1", "trinket2",
-    "main_hand", "off_hand", "ranged",
+    "main_hand", "off_hand", "ranged", "tabard",
     "bag1", "bag2", "bag3", "bag4",
 ]
 

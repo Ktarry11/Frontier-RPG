@@ -36,18 +36,22 @@ def _load(rel):
 @lru_cache(maxsize=1)
 def _table():
     """({name or id: (faction, tier)} needing standing, {name or id} that's a rep item but needs none)."""
-    uniques = _load("data/items/faction_rewards.json").get("items") or {}
+    uniques = dict(_load("data/items/faction_rewards.json").get("items") or {})
+    uniques.update(_load("data/items/tabards.json").get("items") or {})     # a tabard needs Friendly
     from world.recipe_manager import _load_all_recipes
     recipes = _load_all_recipes()
     need, rep = {}, set()
     for fid, f in (_load("data/factions/factions.json").get("factions") or {}).items():
         for tiers in ((f.get("rewards") or {}).get("vendor_stock") or {}).values():
             for tier, items in tiers.items():
-                if tier not in _RANK:
+                if tier not in _RANK and tier != "friendly":
                     continue
                 for entry in items:
                     if not isinstance(entry, str):
                         continue
+                    if tier == "friendly" and not entry.startswith("unique:"):
+                        continue        # Friendly stock is everyday food and potions, except a quartermaster's own
+                                        # hand-made item (a tabard), which is never sold anywhere else
                     if entry.startswith("unique:"):
                         uid = entry[len("unique:"):]
                         d = uniques.get(uid) or {}

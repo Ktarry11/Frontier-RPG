@@ -651,7 +651,7 @@ def _add_gear(out):
     except Exception:
         pass
     secret_ids = set()
-    for name in ("secret_uniques.json", "faction_rewards.json", "unnamed_rewards.json"):
+    for name in ("secret_uniques.json", "faction_rewards.json", "unnamed_rewards.json", "tabards.json"):
         for iid, r in (_load(f"data/items/{name}").get("items") or {}).items():
             secret_ids.add(iid)
             if isinstance(r, dict) and r.get("name"):

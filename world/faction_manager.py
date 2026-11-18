@@ -267,7 +267,7 @@ class FactionManager:
         gained, tier_up = self.award(fid, amt, reason="quest")
         return fid, gained, tier_up
 
-    def award_for_kill(self, creature_name, zone=None, is_boss=False):
+    def award_for_kill(self, creature_name, zone=None, is_boss=False, heroic=False, tabard=None):
         """Called once per defeated enemy. Most calls are a dict miss and return immediately - this runs
         inside the combat victory loop, so it stays cheap on the overwhelmingly common no-match path.
 
@@ -282,14 +282,29 @@ class FactionManager:
         quilboar in Razorfen raid both. Wailing Caverns paying Orgrimmar and nothing to Thunder Bluff was
         an artefact of iteration order, not a design decision anybody made.
 
+        DUNGEONS STOP AT REVERED unless the dungeon is heroic. Kyle, 18 Nov 2026: "drop rep gain from Dungeons that
+        are not heroic beyond revered. This will force players to do heroics to get to exalted!" Every kill inside
+        a dungeon (world/zone_classification.is_dungeon) pays nothing to a faction already at Revered.
+
+        A TABARD (world/tabards.py) moves a heroic dungeon's kill rep to the faction it champions: the kill pays
+        the most any faction would have had for it, all of it to the tabard's faction and none to the others.
+        Kyle's answers: dungeon kills only, heroics only. Outside a heroic the tabard does nothing.
+
         Returns a list of (faction_id, gained, tier_up).
         """
         zk = _zkey(zone) if zone else None
+        in_dungeon = False
+        if zone:
+            try:
+                from world.zone_classification import is_dungeon
+                in_dungeon = bool(is_dungeon(zone))
+            except Exception:
+                in_dungeon = False
         frontier = False
         if is_boss and zone:
             from world.hidden_zones import kind as hidden_kind
             frontier = hidden_kind(zone) == "frontier"
-        out = []
+        out, owed = [], []
         for fid, f in self.factions.items():
             amt = f.kill_rep.get(creature_name, 0)
             cap = f.kill_caps.get(creature_name)
@@ -300,9 +315,22 @@ class FactionManager:
                 continue                     # this source has given all it gives (a capped kill)
             if frontier and f.frontier_boss_rep:
                 amt = max(amt, f.frontier_boss_rep)
+            if amt and in_dungeon and not heroic and f.at_least(DUNGEON_CAP):
+                continue                     # a normal dungeon gives nothing past Revered
             if amt:
-                gained, tier_up = self.award(fid, amt, reason="kill")
-                out.append((fid, gained, tier_up))
+                owed.append((fid, amt))
+        champion = self.factions.get(tabard) if tabard else None
+        if heroic and in_dungeon and champion is not None and not champion.secret:
+            # the tabard's faction takes the kill: the most any faction would have had, and nobody else gets any.
+            # A secret faction's rep never moves: it isn't advertised, so no tabard can point at it or take it.
+            moved = [(fid, a) for fid, a in owed if not self.factions[fid].secret]
+            owed = [(fid, a) for fid, a in owed if self.factions[fid].secret]
+            if moved:
+                gained, tier_up = self.award(tabard, max(a for _f, a in moved), reason="kill")
+                out.append((tabard, gained, tier_up))
+        for fid, amt in owed:
+            gained, tier_up = self.award(fid, amt, reason="kill")
+            out.append((fid, gained, tier_up))
         return out
 
     # ---------------------------------------------------------------- gates
@@ -405,6 +433,9 @@ def quartermaster_ids():
 # buyback), class and profession training, recipes, riding and mounts, flights, bank tabs and the Craftsman's Codex.
 # Never the auction house, and never what an NPC pays you.
 # ---------------------------------------------------------------------------------------------------------------
+#: a normal (not heroic) dungeon pays no faction past this tier (FactionManager.award_for_kill)
+DUNGEON_CAP = "revered"
+
 REP_DISCOUNT = {"friendly": 5, "honored": 10, "revered": 15, "exalted": 20}
 
 

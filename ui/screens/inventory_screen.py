@@ -40,6 +40,8 @@ SLOT_LAYOUT = [
     ("main_hand", "Main Hand", 2, 2),
     ("off_hand", "Off Hand", 2, 3),
     ("ranged", "Ranged", 2, 4),
+    # a faction's tabard: no stats, it says who your heroic dungeon kills earn rep for (world/tabards.py)
+    ("tabard", "Tabard", 2, 5),
 ]
 
 # Bag slots get their own small row rather than living in SLOT_LAYOUT's grid
