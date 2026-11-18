@@ -14,8 +14,8 @@ TWO KINDS (data/world/hidden_zones.json, "kind"):
   layer   a hidden level under a dungeon. Every monster in it is the "hidden_layer" row of
           data/balance/monster_difficulty.json (4x health, 4.5x damage) and drops gear 4-5 item
           levels above itself.
-  skull   a hidden open-world map. Every monster in it is the "skull_zone" row (2.5x health,
-          2.5x damage), same loot lift.
+  skull   a hidden open-world map. Every monster in it is the "skull_zone" row (1.5x health,
+          1.5x damage since Kyle's 18 Nov 2026 drop; it was 2.5), same loot lift.
 Both show a skull beside their name in the overworld banner.
 
 THE WAY IN is a secret door (world/secrets.py, "door"): a portal tile inside a room in the wall of

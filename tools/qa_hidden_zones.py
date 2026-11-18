@@ -5,7 +5,7 @@
 
 Kyle, 14 Nov 2026: hidden levels under dungeons at "4x HP and 4.5x Damage... they drop at 4 to 5
 ilvl and can have unique epics above level 30... 1 to 2 bosses max and like 5 trash pulls"; hidden
-open maps with "a skull next to them" at "2.5x hp and 2.5x damage", with "max of like 3 or 4"
+open maps with "a skull next to them" at "2.5x hp and 2.5x damage" (1.5x since 18 Nov), with "max of like 3 or 4"
 quests, elite ones allowed; and "I don't want to see as I want these to be secrets."
 
 Prints counts only, never places.
@@ -17,7 +17,7 @@ CLAIMS
   3. The door gets no map dot, no exit frame, and no glow for anyone outside its secret.
   4. A layer has one or two bosses and five pulls, all on walkable floor, and its spawns populate.
   5. Every creature is in creatures.json with a kit, and is made at the right strength: health and
-     damage multipliers 4 / 4.5 in a layer, 2.5 / 2.5 in a skull zone, and a loot lift of 4-5.
+     damage multipliers 4 / 4.5 in a layer, 1.5 / 1.5 in a skull zone, and a loot lift of 4-5.
   6. Every boss has a pool of its own at its level + 5, drops two, and from level 30 has a
      one-of-a-kind epic; below 30 it has none.
   7. A skull zone has three or four quests, at least one elite, all from someone standing in it;
@@ -25,7 +25,7 @@ CLAIMS
      every reward builds and can be worn at the quest's level.
   8. The testing screen's zone list doesn't name them.
   9. A frontier zone (a hidden zone inside a hidden zone) opens off a skull zone or a hidden layer,
-     and stays rare; it is a step harder (5 / 5.5 deep, 3.5 / 3.5 open), drops 8 item levels up, and
+     and stays rare; it is harder (3.5 / 4 deep, 2 / 2 open since 18 Nov), drops 8 item levels up, and
      every one of its bosses has an epic.
 """
 import contextlib
@@ -142,8 +142,9 @@ def main():
     # 5. creatures
     from world.creature_manager import CreatureManager
     cm = zm.creature_manager if hasattr(zm, "creature_manager") else CreatureManager()
-    want = {"hidden_layer": (4.0, 4.5), "skull_zone": (2.5, 2.5),
-            "frontier_deep": (5.0, 5.5), "frontier_open": (3.5, 3.5)}
+    # Kyle, 18 Nov 2026: skull zones down 1x, frontier zones down 1.5x (data/balance/monster_difficulty.json)
+    want = {"hidden_layer": (4.0, 4.5), "skull_zone": (1.5, 1.5),
+            "frontier_deep": (3.5, 4.0), "frontier_open": (2.0, 2.0)}
     lift = {"hidden_layer": (4, 5), "skull_zone": (4, 5), "frontier_deep": (8, 8), "frontier_open": (8, 8)}
     ck = creature_kinds()
     if not ck:
