@@ -15,6 +15,7 @@ forest and it frays into dead ground only around the three real trouble spots.  
     Splintertree Post ... town zone, gate (110,160) on the flats; the Barrens road enters at (110,195)
     Satyr's Throne ...... rocky basin north-centre; the throne yard (135,66)
     Twilight Barrow ..... east: void crystals (180,105) / (195,130), a ring of ruined columns (186,108)
+    Azshara road ........ east edge (215,102), out past the Barrow to West Azshara (17 Nov 2026)
     Howling Barrows ..... cave in the north-east cliff face (200,40), reached by a canyon road from the Barrow
     The Demon Wastes .... scorched south-east; fel braziers; Grom's Rest cave (165,175) on the south road
 
@@ -32,8 +33,9 @@ BAKED_DIR = "assets/tiles/ashenvale/baked_east"
 W, H = 220, 200
 
 PORTALS = {(4, 100): "Ashenvale West", (165, 175): "Grom's Rest", (110, 195): "Northern Barrens",
-           (200, 40): "Howling Barrows", (110, 160): "Splintertree Post", (40, 4): "South Felwood"}
-ARRIVALS = [(4, 98), (165, 176), (110, 193), (200, 41), (110, 158), (40, 6)]
+           (200, 40): "Howling Barrows", (110, 160): "Splintertree Post", (40, 4): "South Felwood",
+           (215, 102): "West Azshara"}      # the east road out past the Barrow (17 Nov 2026, docs/azshara_brief.md)
+ARRIVALS = [(4, 98), (165, 176), (110, 193), (200, 41), (110, 158), (40, 6), (215, 100)]
 START = (30, 102)      # a seam-road tile: everything must be reachable from here
 
 # ------------------------------------------------------------------ the plan
@@ -50,6 +52,8 @@ ROADS = {
     "satyr":     ([(96, 104), (100, 90), (110, 78), (122, 71), (133, 67)], 3.0),
     # The Crossing -> Twilight Barrow (east)
     "barrow":    ([(96, 104), (112, 106), (128, 103), (144, 99), (160, 100), (174, 104), (185, 108)], 3.2),
+    # the Azshara road: east out of the Barrow, between the crags, to the east edge (17 Nov 2026)
+    "azshara":   ([(186, 106), (196, 103), (206, 102), (216, 102)], 2.8),
     # the canyon road north to Howling Barrows
     "howling":   ([(185, 108), (188, 92), (192, 76), (196, 60), (199, 48), (200, 42)], 2.8),
     # Splintertree -> the Demon Wastes -> Grom's Rest
@@ -85,6 +89,7 @@ MESAS = [
     # Twilight Barrow country
     (206, 92, 5, 10, 0), (204, 128, 6, 8, 0), (174, 88, 5, 3.5, 0), (170, 142, 6, 4, -15), (196, 100, 4, 4, 0),
     (176, 118, 4, 3, -15), (190, 124, 4, 3, 0),
+    (211, 109, 6, 3.5, 0),             # the shoulder south of the Azshara road (17 Nov 2026): keeps the rim strip shut
     # Howling canyon walls and the cave face (cave sprite sits just under the mesa at (200,40))
     (200, 31, 16, 6, 0), (182, 68, 5, 12, -8), (212, 66, 6, 16, 0), (184, 30, 8, 7, 0),
     # Demon Wastes crags
@@ -137,6 +142,7 @@ CLEARINGS = [   # carved back out of the woods
     (165, 175, 16, 11),         # Grom's Rest
     (150, 176, 14, 8),          # the Wastes road camp
     (40, 7, 10, 7),             # the Felwood road at the rim
+    (212, 102, 8, 5),           # the Azshara road at the east edge
 ]
 # painting-only patches for the baker (cx, cy, rx, ry)
 BLUEBELL_PATCHES = [(30, 153, 12, 8), (20, 100, 12, 6), (96, 110, 8, 5)]
@@ -165,6 +171,7 @@ GAPS = [
     ("ell", 30, 153, 8, 7),
     ("ell", 135, 66, 10, 8),
     ("ell", 186, 108, 9, 7),
+    ("ell", 215, 102, 7, 5),
 ]
 
 SPEC = E.Spec("Ashenvale East", W, H, ROADS, rivers=RIVERS, lakes=LAKES, deep_shrink=DEEP_SHRINK,

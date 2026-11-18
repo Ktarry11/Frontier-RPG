@@ -298,6 +298,21 @@ _set("cold_lands", 6, 6, "tools/tile_sheets/cold_lands_tiles.png", "assets/tiles
 """, gutters=True, seam="overlap")
 
 
+# AZSHARA (docs/azshara_art_prompts.md sheet 1, Kyle 17 Nov 2026). 8x6 = 48 cells on a 1254x1254 sheet, so the
+# cells are taller than wide and are resized square. It came from the first version of the prompt, so cell 16 is a
+# snow-dusted rock and cell 40 a kelp-tangled floor (the rewrite asks for two walls there). Rows MEASURED (Kyle spotted
+# bad crops): 209/209/209/190/195/242, so even division put a strip of row 4 across the top of row 5 and a strip of
+# drowned marble across the top of the water. Columns are even.
+_set("azshara", 8, 6, "tools/tile_sheets/azshara_ground.png", "assets/tiles/azshara/ground", """
+    az_leaf_floor az_leaf_gold az_grass_gold az_grass_trod az_loam az_crimson_brush az_needle_leaf az_moss_shroom
+    az_rock_hill az_scree az_lichen_stone az_mountain_grass az_trail az_furbolg_path az_honey_clay az_snow_rock
+    az_cursed_soil az_scorched az_felrot_soil az_dig_earth az_plank_walk az_dig_sand az_leyline_grass az_crystal_glass
+    az_highborne_paving az_paving_leaves az_moon_mosaic az_mossy_flag az_marble_road az_marble_terrace az_violet_tile az_plaza_slab
+    az_wet_marble az_barnacle_marble az_drowned_mosaic az_coral_stone az_seaweed_marble az_shell_silt az_tidepool_rock az_kelp_floor
+    az_sea_deep az_sea_shallow az_drowned_shallows az_lake_water az_wet_sand az_shell_beach az_storm_surf az_arcane_water
+""", rows_y=[0, 209, 418, 627, 817, 1012, 1254])
+
+
 if __name__ == "__main__":
     pv = sys.argv[sys.argv.index("--preview") + 1] if "--preview" in sys.argv else None
     keys = [a for a in sys.argv[1:] if a in SETS] or list(SETS)

@@ -31,7 +31,9 @@ _DIRS = [AP, XP, GP, "assets/tiles/barrens/props/", "assets/tiles/dungeon_props/
          "assets/tiles/stonetalon/props/",
          # the Plaguelands' towns (the Bulwark, the Pale Watch, Light's Hope): last, so no older name changes folder
          "assets/tiles/plaguelands/props/", "assets/tiles/eastern_kingdoms/props/",
-         "assets/tiles/undead_farmland/props/", "assets/tiles/haunted_forest/props/"]
+         "assets/tiles/undead_farmland/props/", "assets/tiles/haunted_forest/props/",
+         # Azshara (Kyle's sheets, 17 Nov 2026)
+         "assets/tiles/azshara/props/"]
 INDEX = {}
 for _d in _DIRS:
     if os.path.isdir(_d):

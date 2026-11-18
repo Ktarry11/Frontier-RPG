@@ -119,3 +119,21 @@ Names for the two dungeons and their boss rosters are still to settle.
 4. The caves, then the fel rot dungeon, then the Vault.
 5. Quests, factions and shelves (the Sunreach Conclave's shelf, and Timbermaw's moving to the Hold), recruits, and the
    hidden content.
+
+## Build state
+
+**17 Nov 2026, the first slice** (Kyle: "start working on it while I get the art bro", then all six sheets the same
+evening, sliced the same night; `docs/azshara_art_prompts.md` has the slice tables):
+- **West Azshara** (`tools/handbuilt_azshara_west.py`, 200x200, 52-55): painted from the Azshara ground sheet, the
+  autumn trees and the Highborne ruins from sheet 2. Linked both ways to Ashenvale East (a new east road past the
+  Twilight Barrow) and to **Orgrimmar's new north gate** (the canyon between the Magic Quarter and the Valley of
+  Honor now runs out through the rim). Talrendis Landing's door is live; the Hold, the satyr den and Central Azshara
+  are cut and waiting (`LATER_PORTALS`). No creatures yet: they come with the quest pass and sheet 5.
+- **Talrendis Landing** (`tools/handbuilt_talrendis_landing.py`, 112x92): built from the tl_ sheet. Its gate is on
+  the north and the lake on the south and west, the same way round as its door on the overworld (Kyle: "ensure the
+  orientation is accurate"). Kyle said the first draft "looks identical to south shore", so it's built round the dig
+  instead of down a street: a ring road round an excavated Highborne courtyard with the spire still in it, the orcs on
+  the high ground, the Conclave on the lakeshore. Inn, Azshara's flight master (node `talrendis_landing`), nine people
+  (`tools/build_talrendis_landing.py`); the Conclave's magister and quartermaster stay quest-free.
+- **Next:** Timbermaw Hold (the tm_ sheet is sliced), the tunnel's east passage, then Central and East.
+

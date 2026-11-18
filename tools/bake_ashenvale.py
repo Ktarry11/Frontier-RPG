@@ -202,10 +202,50 @@ def _plague_sheet(east):
     }
 
 
+#: AZSHARA (docs/azshara_brief.md). Kyle's Azshara ground sheet (docs/azshara_art_prompts.md sheet 1, sliced to
+#: assets/tiles/azshara/ground by tools/slice_tile_sheet.py azshara, 17 Nov 2026): red and gold leaf floor, gold
+#: grass, crimson undergrowth under the woods, Highborne paving for the ruins, shell beach and teal sea on the coast.
+#: The sheet has no cliff face, so the cliffs stay Ashenvale's.
+_AZ = T / "azshara" / "ground"
+
+
+def _az(name, off=0.5, rec=None, extra=None):
+    return (_AZ / f"{name}.png", off, rec, extra)
+
+
+AZSHARA_SHEET = {
+    "av_forest_floor":   _az("az_leaf_floor"),
+    "av_forest_grass":   _az("az_grass_gold"),
+    "av_fern_floor":     _az("az_crimson_brush"),
+    "av_root_earth":     _az("az_leaf_gold"),
+    "av_needle_mulch":   _az("az_needle_leaf"),
+    "av_bluebell":       _az("az_moss_shroom"),
+    "av_road_centre":    _az("az_trail"),
+    "av_road_edge":      _az("az_grass_trod"),
+    "av_elven_paving":   _az("az_highborne_paving"),
+    "av_mossy_cobble":   _az("az_paving_leaves"),
+    "av_plaza_stone":    _az("az_mossy_flag"),       # the white slabs read as a hole in the ground
+    "av_rocky_ground":   _az("az_rock_hill"),
+    "av_stream_bed":     _az("az_scree"),
+    "av_lake_mud":       _az("az_loam"),
+    "av_lake_shallow":   _az("az_sea_shallow"),
+    "av_lake_deep":      _az("az_lake_water"),
+    "av_canopy":         _az("az_crimson_brush", extra="canopy"),
+    "av_beach":          _az("az_shell_beach"),
+    "av_wet_sand":       _az("az_wet_sand"),
+    "av_sea_shallow":    _az("az_drowned_shallows"),
+    "av_sea_deep":       _az("az_sea_deep"),
+    "av_scorched":       _az("az_scorched"),
+    "av_burned_forest":  _az("az_scorched"),
+    "av_fel_earth":      _az("az_felrot_soil"),
+    "av_corrupt_ground": _az("az_cursed_soil"),
+    "av_satyr_earth":    _az("az_cursed_soil"),
+}
 WPL_SHEET = _plague_sheet(east=False)
 EPL_SHEET = _plague_sheet(east=True)
 ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_SHEET, "epl_east": EPL_SHEET, "felwood_north": NORTH_SHEET, "stonetalon_east": STONETALON_SHEET,
-               "stonetalon_west": STONETALON_WEST_SHEET, "sun_rock": SUN_ROCK_SHEET}
+               "stonetalon_west": STONETALON_WEST_SHEET, "sun_rock": SUN_ROCK_SHEET,
+               "azshara_west": AZSHARA_SHEET}
 
 def _recolour(a, hue, sat, val):
     """a float 0..1 HxWx3 -> luminance-preserving tint."""
@@ -530,6 +570,9 @@ def bake(zone="west", preview=None, scale=4, only=None):
         from tools import handbuilt_epl_east as M
     elif zone == "stonetalon_west":
         from tools import handbuilt_stonetalon_west as M
+    elif zone == "azshara_west":
+        # West Azshara (docs/azshara_brief.md): autumn forest, Kyle's Azshara ground sheet (AZSHARA_SHEET)
+        from tools import handbuilt_azshara_west as M
     elif zone == "stonetalon_east":
         # Stonetalon East: the blast zone, painted from the Aspen materials (STONETALON_SHEET)
         from tools import handbuilt_stonetalon_east as M
@@ -562,7 +605,7 @@ def main():
     if "--preview" in sys.argv:
         preview = sys.argv[sys.argv.index("--preview") + 1]
     sc = int(sys.argv[sys.argv.index("--scale") + 1]) if "--scale" in sys.argv else 4
-    zone = next((z for z in ("wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
+    zone = next((z for z in ("azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
     only = None
     if "--region" in sys.argv:       # x0,y0,x1,y1 in tiles: bake only the 20x20 chunks touching it (fast look-dev)
         x0, y0, x1, y1 = map(int, sys.argv[sys.argv.index("--region") + 1].split(","))

@@ -372,6 +372,10 @@ ZONE_POPULATION_MIX = {
     "southshore": [("human", 100)],
     # The Timbermaw Tunnel is the Timbermaw's own (17 Nov 2026).
     "timbermaw_tunnel": [("furbolg", 100)],
+    # Azshara (17 Nov 2026): the salvage camp is Orgrimmar's muscle and the Sunreach Conclave's magisters, with the
+    # Earth transplants on the crews; out in the forest it's the camp's people and the Timbermaw.
+    "talrendis_landing": [("orc", 50), ("blood_elf", 38), ("human", 12)],
+    "west_azshara": [("orc", 50), ("blood_elf", 25), ("furbolg", 15), ("human", 10)],
     # The only people down here are the Crimson Codex and the handful of Horde the Codex have hired or
     # tolerated. Nobody is native to a place that is four years old.
     "the_crystalline_underdark": [("blood_elf", 82), ("forsaken", 10), ("orc", 8)],

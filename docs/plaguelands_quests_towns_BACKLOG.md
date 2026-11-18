@@ -246,6 +246,18 @@ re-run). Counts only, never places:
 - 402 secrets in all. `qa_secrets` is green: every seller and cache can be walked to, every way in keeps its rock,
   the map keeps lying, and nothing is drawn until you're in there.
 
+## The Gilded Vale and the Emberwild (Kyle, 17 Nov 2026; names only, never where)
+Kyle, on the Azshara autumn trees: "these trees are gorgeous. We will need to make an autumn-style skull-zone and
+frontier zone elsewhere in the world with them. Dunno where but I'd like two zones.... The Gilded Vale (skull) → The
+Emberwild (Frontier)".
+- **The Gilded Vale**, a skull zone: a new hidden open map, entered by a secret door from an ordinary zone, the
+  parent's level band, 2.5x HP and damage, loot +4-5, one resident with 3-4 quests (one elite), no hub.
+- **The Emberwild**, its frontier: entered from inside the Gilded Vale, open 3.5x / 3.5x, loot +8, every boss with
+  an epic, a resident with a chain and a secret seller. The most care of anything (playbook section 8).
+- Both painted with the Azshara autumn set (ground sheet 1, the trees and props on sheet 2). Not Azshara itself:
+  "elsewhere in the world". The choice of parent zone is made blind and never written here or told to Kyle.
+- Next after the Azshara slice is pushed.
+
 ## Grovekeeper healing (backlogged by Kyle, 17 Nov 2026)
 Grovekeeper is Primalist's melee healer, held to 75% of a full healer's output. To reach that in the heal sim, its
 hidden spec aura would need to be about 1.5x, but the aura is capped lower, so it falls short of its own target. The

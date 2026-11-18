@@ -297,6 +297,44 @@ _set("goblin_town", 6, 5, "assets/buildings", """
     gob_warehouse_b gob_cargo_crane gob_dock_office gob_lighthouse gob_customs_house gob_barracks
     gob_racing_garage gob_salvage_yard gob_shredder_hangar gob_water_tower gob_fireworks_shop gob_town_gate""")
 
+#: AZSHARA (docs/azshara_art_prompts.md sheets 2 to 6, Kyle 17 Nov 2026). The Landing's and the Hold's sheets go
+#: whole to assets/buildings (tl_ and tm_); sheet 6 goes whole to the Azshara creature folder and its 24 set pieces
+#: (the fr_ and vz_ props, not the bosses or the elite guard) are moved on by hand to assets/tiles/dungeon_props.
+_set("azshara_props", 6, 6, "assets/tiles/azshara/props", """
+    az_autumn_tree az_gold_tree az_birch_trio az_autumn_log az_crimson_bush az_lichen_boulder
+    az_broken_spire az_toppled_column az_moon_arch az_noble_statue az_ruin_wall az_dry_fountain
+    az_drowned_spire az_barnacle_statue az_coral_arch az_drowned_obelisk az_coral_cluster az_giant_clam
+    az_dig_scaffold az_relic_crate az_containment_pylon az_dig_cart az_survey_stakes az_covered_find
+    az_arcane_crystal az_leyline_node az_crystal_tree az_scale_pile az_mana_tower az_glow_shrooms
+    az_satyr_totem az_fel_bonfire az_cursed_tree az_wreck_prow az_naga_banner az_tide_altar""")
+_set("talrendis", 6, 6, "assets/buildings", """
+    tl_command_hall tl_inn tl_gatehouse tl_wind_rider_roost tl_quartermaster tl_dock
+    tl_orc_barracks tl_orc_forge tl_war_tent tl_lumber_stack tl_stone_crane tl_log_watchtower
+    tl_magister_pavilion tl_research_tent tl_ward_pylon tl_field_spire tl_scribes_canopy tl_mana_cell_rack
+    tl_sorting_shed tl_relic_cage tl_rail_cart tl_stone_sledge tl_column_pile tl_vault_crate
+    tl_split_wall tl_notice_board tl_shared_fire tl_sparring_ring tl_mess_table tl_signpost
+    tl_orc_longboat tl_elf_skiff tl_dig_entrance tl_survey_tower tl_sandbags tl_cairn""")
+_set("timbermaw_hold", 6, 6, "assets/buildings", """
+    tm_elders_great_lodge tm_inn tm_long_hall tm_cliff_lodge tm_round_den tm_carvers_hall
+    tm_cliff_terrace tm_stair_ramp tm_rope_bridge tm_cave_lodge tm_lookout tm_totem_gate
+    tm_hive_tree tm_skep_row tm_honey_store tm_honey_press tm_candle_stand tm_smoke_pot
+    tm_great_totem tm_ancestor_shrine tm_sacred_spring tm_bonfire_pit tm_paw_stone tm_drum_circle
+    tm_smithy tm_tannery tm_market_stall tm_woodpile tm_herb_rack tm_supply_cache
+    tm_deep_gate tm_gate_guard_post tm_warning_totem tm_rockfall tm_fel_crack tm_war_banner""")
+_set("azshara_creatures", 6, 6, "assets/creatures/_src/azshara", """
+    az_naga_siren az_naga_tidehunter az_naga_sea_witch az_naga_royal_guard az_naga_brute az_serpent_hatchling
+    az_ghost_noble az_ghost_arcanist az_ghost_guard az_ghost_handmaiden az_ghost_hound az_ghost_tormented
+    az_satyr_cursed az_satyr_sorcerer az_satyr_houndmaster az_felhound az_eredar_warlock az_doomguard_sentinel
+    az_blue_drake az_blue_dragonspawn az_blue_whelp az_mana_wyrm_leader az_arcane_construct az_ley_beast
+    az_rot_furbolg az_rot_shaman az_rot_beast az_spore_cloud az_root_horror az_rot_tender
+    az_timber_wolf az_thunder_lizard az_shore_crab az_cliff_hippogryph az_autumn_treant az_russet_boar""")
+_set("azshara_dungeons", 6, 6, "assets/creatures/_src/azshara", """
+    fr_burial_niche fr_fel_mushrooms fr_rotten_beam fr_crystal_vein fr_corrupt_totem fr_ooze_pool
+    fr_ritual_circle fr_root_wall fr_fungus_gate fr_root_cage fr_spore_vent fr_root_throne
+    vz_drowned_colonnade vz_flooded_stair vz_coral_throne vz_fallen_chandelier vz_naga_shrine vz_drowned_shelf
+    vz_vault_door vz_artifact_pedestal vz_water_mirror vz_treasure_pile vz_ancient_well vz_queens_throne
+    fr_boss_mossjaw fr_boss_sporeheart fr_boss_kazthul fr_boss_thornblight fr_boss_xavras fr_elite_guard
+    vz_boss_ssiriss vz_boss_vashjren vz_boss_chamberlain vz_boss_elaria vz_boss_revenant vz_boss_echo_queen""")
 _set("market_props", 6, 5, "assets/tiles/market/props", """
     mailbox_orc mailbox_orc_b mailbox_troll mailbox_forsaken mailbox_forsaken_b mailbox_tauren
     mailbox_tauren_b mailbox_goblin mail_tube_goblin parcel_cart mail_sacks notice_board

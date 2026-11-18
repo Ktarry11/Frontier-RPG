@@ -203,6 +203,8 @@ ZONE_BACKGROUND = {
     "Eastern Hillsbrad": "mossy_forest",          # "the first HEALTHY country"
     "Western Hillsbrad": "mossy_forest",          # worked green fields, farm country
     "Southshore": "coast",                        # the Alliance harbour town, its own map
+    "West Azshara": "fantasy_forest",             # Azshara's autumn forest (until its own background)
+    "Talrendis Landing": "coast",                 # the salvage camp on the bay
     "Eastern Kingdoms - Stranglethorn": "jungle",  # region label over the tropical zones
 
     # --- desert and salt ---------------------------------------------------

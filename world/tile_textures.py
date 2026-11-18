@@ -371,6 +371,8 @@ ZONE_BIOME = {
     "Stonetalon West": "mythical_forest",
     "Emerald Sanctuary": "mythical_forest",
     "Timbermaw Tunnel": "mythical_forest",
+    "West Azshara": "mythical_forest",       # painted ground (baked); the biome only names the fallback
+    "Talrendis Landing": "mythical_forest",
     "North Felwood": "mythical_forest",      # painted ground (baked); the biome only names the fallback
     "Western Plaguelands South": "decayed_forest",   # painted ground (baked); the biome only names the fallback
     "Western Plaguelands North": "decayed_forest",

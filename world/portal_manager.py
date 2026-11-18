@@ -170,6 +170,8 @@ class PortalManager:
                 # which was a mislabeled duplicate exit 4 rows further
                 # north with no real distinct destination of its own.
                 (100, 197): ("Durotar", 65, 26),
+                # The north gate (17 Nov 2026): up the canyon between the Magic Quarter and the Valley of Honor to Azshara.
+                (134, 1): ("West Azshara", 120, 196),       # arrive (120,194), on the Orgrimmar road
                 # Ragefire Chasm: lava-mouth in the south wall of the Cleft of
                 # Shadow (tools/handbuilt_orgrimmar.RAGEFIRE).  Arrival is 2
                 # tiles north of the registered tile, on the Cleft's main street.
@@ -523,6 +525,16 @@ class PortalManager:
                 (200, 40): ("Howling Barrows", 47, 76),
                 (110, 160): ("Splintertree Post", 45, 66),
                 (40, 4): ("South Felwood", 74, 196),           # the Warsong camp's north road
+                (215, 102): ("West Azshara", 4, 104),          # the east road past the Barrow (17 Nov 2026)
+            },
+            # ===== AZSHARA (docs/azshara_brief.md, 17 Nov 2026) =====
+            "West Azshara": {
+                (4, 104): ("Ashenvale East", 215, 102),        # arrive (215,100), on the Azshara road
+                (120, 196): ("Orgrimmar", 134, 7),             # arrive (134,5), inside the north gate
+                (40, 150): ("Talrendis Landing", 30, 7),       # arrive (30,5), under the Landing's gate
+            },
+            "Talrendis Landing": {
+                (30, 1): ("West Azshara", 40, 150),            # arrive (40,148), outside the Landing's gate
             },
             # ===== FELWOOD (claude/felwood_brief.md): north out of Ashenvale East =====
             "South Felwood": {

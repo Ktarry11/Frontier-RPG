@@ -510,7 +510,7 @@ class MapScreen(BaseScreen):
         # Twelve glyphs, the boss row and the size and position lines have to fit above the footer even
         # when all four gathering rows are showing: the rows close up a little when they'd run over it.
         room = SCREEN_HEIGHT - 60 - 64 - ly
-        step = max(20, min(26, room // (len(services) + 1)))
+        step = max(16, min(26, room // (len(services) + 1)))   # 16 since the rep row (17 Nov) made it thirteen
         for kind, text in services:
             self._draw_service_icon(screen, kind, lx + 7, ly + 7, scale=0.7)
             self.renderer.draw_text(screen, text, (lx + 22, ly), color=(200, 200, 210))

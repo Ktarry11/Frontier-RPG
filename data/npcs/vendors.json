@@ -7228,6 +7228,80 @@
         "cook_mushroom",
         "beast_lure"
       ]
+    },
+    {
+      "vendor_id": "tl_smith",
+      "name": "Forgemaster Gharza Ironbrow",
+      "zone": "talrendis_landing",
+      "x": 94,
+      "y": 44,
+      "tile_sprite": "npc",
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 54,
+      "sells_gear": true,
+      "race": "orc",
+      "gender": "female",
+      "appearance_variant": 4,
+      "facing": "right",
+      "greeting": "Half of what comes out of that dig is Highborne steel ten thousand years old, and it still takes an edge better than mine. I hate that. Bring me your gear and I'll fix it anyway.",
+      "sells": [
+        "kit_field_repair",
+        "whetstone",
+        "flux_strong",
+        "healing_potion_masterwork"
+      ]
+    },
+    {
+      "vendor_id": "tl_provisioner",
+      "name": "Provisioner Dana Whitfield",
+      "zone": "talrendis_landing",
+      "x": 53,
+      "y": 64,
+      "tile_sprite": "npc",
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 54,
+      "sells_gear": false,
+      "race": "human",
+      "gender": "female",
+      "appearance_variant": 5,
+      "facing": "down",
+      "greeting": "I ran the canteen on an oil rig in the North Sea for nine years. Two crews who can't stand each other, a long way from anywhere, and everyone gets fed the same. This is just warmer.",
+      "sells": [
+        "meal_saltback_roast",
+        "drink_deepwell_cordial",
+        "hunters_brace_platter",
+        "cook_flour",
+        "cook_spice",
+        "cook_water",
+        "cook_mushroom",
+        "beast_lure"
+      ]
+    },
+    {
+      "vendor_id": "tl_sunreach_quartermaster",
+      "name": "Quartermaster Sylvaen Dawnward",
+      "zone": "talrendis_landing",
+      "x": 21,
+      "y": 61,
+      "tile_sprite": "npc",
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 54,
+      "sells_gear": true,
+      "race": "blood_elf",
+      "gender": "male",
+      "appearance_variant": 3,
+      "facing": "left",
+      "greeting": "The Conclave keeps a field store for its own and for anyone who works beside us. Everything you see came by ship from Quel'Thalas, so please don't haggle.",
+      "sells": [
+        "mana_potion_masterwork",
+        "healing_potion_masterwork",
+        "vial_crystal",
+        "parchment",
+        "kit_field_repair"
+      ]
     }
   ]
 }

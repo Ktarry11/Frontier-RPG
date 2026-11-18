@@ -14,6 +14,7 @@ coordinate (no random scatter).
 
 HARD CONTRACTS
   portal   (100,197) -> Durotar (65,26)        (world/portal_manager.py)
+  portal   (134,1) -> West Azshara (120,196), the north gate (17 Nov 2026)
   portal   Ragefire Chasm entrance in the Cleft of Shadow (RAGEFIRE below)
   NPC ids  are referenced by data/quests/*.json - positions are written back to
            data/npcs/*.json by tools/sync_orgrimmar_npcs.py
@@ -32,6 +33,9 @@ OP = "assets/tiles/orgrimmar/props/"
 BAKED_DIR = "assets/tiles/orgrimmar_city/baked"
 W, H = 200, 200
 GATE_PORTAL = (100, 197)
+#: the north gate (17 Nov 2026): the canyon between the Magic Quarter and the Valley of Honor runs on north through the
+#: rim to Azshara (tools/handbuilt_azshara_west.py). Arrival = 2 tiles below the tile they give, so (134,5) coming in.
+NORTH_PORTAL = (134, 1)
 
 # ------------------------------------------------------------------ districts
 # name: (x0, y0, x1, y1, corner radius)  - walled platforms
@@ -66,6 +70,7 @@ GATES = [
 # painted routes (waypoints, width in tiles)
 ROADS = {
     "gate":      ([(100, 199), (100, 186), (100, 150), (100, 134)], 11.0),
+    "north_gate": ([(134, 36), (134, 20), (134, 8), (134, 0)], 6.0),     # the Azshara road (17 Nov 2026)
     "north":     ([(100, 66), (100, 56)], 8.0),
     "west":      ([(62, 99), (56, 99)], 8.0),
     "east":      ([(138, 99), (144, 99)], 8.0),
@@ -204,7 +209,9 @@ def cliff_field(gx, gy):
     cl = rim - edge
     # the great south gate cuts the rim
     gate_cut = np.minimum(13.0 - np.abs(gx - 100.0), gy - 176.0)
-    return np.minimum(cl, -gate_cut + 0.0)
+    # and the north gate cuts it at the top of the canyon, for the Azshara road
+    north_cut = np.minimum(5.5 - np.abs(gx - 134.0), 16.0 - gy)
+    return np.minimum(np.minimum(cl, -gate_cut + 0.0), -north_cut + 0.0)
 
 
 def fields(gx, gy):
@@ -388,6 +395,9 @@ def _portals(L):
     px, py = GATE_PORTAL
     z.collision_layer[py][px] = None
     z.set_tile(px, py, "portal", "interaction")
+    nx, ny = NORTH_PORTAL
+    z.collision_layer[ny][nx] = None
+    z.set_tile(nx, ny, "portal", "interaction")
     rx, ry = RAGEFIRE
     z.collision_layer[ry][rx] = None
     z.set_tile(rx, ry, "portal", "interaction")
@@ -407,6 +417,10 @@ def _dress(L):
     p("vot_rock_arch", 100, 198, 7, solid=False, road_ok=True, portal_ok=True, allow_overlap=True, nudge=0)
     p("vot_war_banner", 96, 196, 5, portal_ok=True, road_ok=True)
     p("vot_war_banner", 104, 196, 5, portal_ok=True, road_ok=True)
+    # ================================================================ NORTH GATE (the Azshara road, 17 Nov 2026)
+    p("vot_rock_arch", 134, 3, 7, solid=False, road_ok=True, portal_ok=True, allow_overlap=True, nudge=0)
+    op("war_banner", 129, 14, 6, nudge=1)
+    op("war_banner", 139, 14, 6, nudge=1)
     # gate avenue: banners and braziers between the gate and the market
     for y in (140, 152, 164):
         op("war_banner", 94, y, 7, road_ok=True, nudge=1)
