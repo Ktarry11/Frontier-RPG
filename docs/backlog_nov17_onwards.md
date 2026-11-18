@@ -22,15 +22,10 @@ Central Azshara, East Azshara (the Drowned Court already risen), both caves, the
 Hold, 18 Nov), the Drowned Palace (two floors off the Drowned Court, 18 Nov), Orgrimmar's north gate and the Ashenvale
 East road.
 
-1. **People and content**:
-   - The Drowned Palace's reputation: the Sunreach Conclave pays for it once the faction exists.
-   - About 90 quests, about 70% given in the Landing and the Hold.
-   - **The Sunreach Conclave** faction and its TBC shelf. Its leader and quartermaster stay quest-free, because the
-     elves get an island later.
-   - One recruit, an Earth transplant (Kyle: recruits are ONLY ever Earth transplants).
-   - The arc is braided (Kyle, 18 Nov): the Landing's salvage feud ends in the Drowned Palace, the Hold's rot in the
-     Rotroot Deeps, and they meet at Eldarath. The Conclave's leader is a proud, fair older magistrix.
+1. **What's left** (the Conclave, the open world and 81 quests are in, 18 Nov):
+   - One recruit, an Earth transplant (Kyle: recruits are ONLY ever Earth transplants). Who it is is Kyle's call.
    - The hidden content ("Surprise me"). Never described.
+   - Maybe a handful more quests out of the zone (the plan's Silvermoon and Undercity chains) to reach about 90.
 2. **Later, Kyle's call**: the Sunreach Conclave's island home.
 
 ## 1b. Deadwind Pass (vision and art prompts only, 17 Nov 2026)
