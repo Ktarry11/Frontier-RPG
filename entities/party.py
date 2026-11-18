@@ -155,6 +155,11 @@ class Party:
         # Shared overflow storage, for the same reason the purse is shared - see entities/bank.py.
         from entities.bank import Bank
         self.bank = Bank()
+        try:
+            from world.collection import apply_bank_bonus     # the Collection's Tome of the Deep Vault
+            apply_bank_bonus(self.bank)
+        except Exception:
+            pass
         # The auction house and the mail (world/market/market.py, world/mail.py). Made on first use by
         # world.market.market.market_of, so a party that never visits a mailbox carries nothing.
         self.mail = None
@@ -398,6 +403,11 @@ class Party:
         if "bank" in data:
             from entities.bank import Bank
             party.bank = Bank.from_dict(data["bank"])
+        try:
+            from world.collection import apply_bank_bonus     # the Collection's Tome of the Deep Vault
+            apply_bank_bonus(party.bank)
+        except Exception:
+            pass
 
         # Saves from before the auction house have neither; they're made on first use.
         if data.get("mail"):

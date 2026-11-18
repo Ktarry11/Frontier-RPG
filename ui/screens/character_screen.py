@@ -355,6 +355,19 @@ class CharacterCreationScreen(BaseScreen):
         # world block, which then loaded you into the default spawn.
         self.state_manager.player = char
         self.state_manager.party = None      # force a fresh Party for this character
+        # The Collection's Book of First Steps (world/collection.py): a bag and some gold for every new character.
+        try:
+            from world.collection import new_character_gifts
+            gifts = new_character_gifts()
+            if gifts["bag"]:
+                from entities.loot_generator import LootGenerator
+                bag = LootGenerator().generate_bag(bag_id="worn_leather_satchel")
+                if bag is not None:
+                    char.inventory.append(bag)
+            if gifts["copper"]:
+                self.state_manager.get_party().add_currency(gifts["copper"])
+        except Exception as exc:
+            print(f"Book of First Steps: {exc}")
 
         # THIS LINE USED TO BE `save_game()`, AND IT ATE PEOPLE'S CHARACTERS.
         # With no filename it wrote to state_manager.current_save_file, which

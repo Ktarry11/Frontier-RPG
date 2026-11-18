@@ -43,6 +43,10 @@ TAB_NAMES = [
     "Tusk's Own",
 ]
 
+#: The Collection's Tome of the Deep Vault (world/collection.py): a free tab past the bought ones, the same size.
+BONUS_TAB_NAMES = ["Collector's Shelf"]
+MAX_BONUS_TABS = len(BONUS_TAB_NAMES)
+
 
 def gold_str(copper):
     """'1000g' / '10g 50s'. entities/coins.py owns the split; this is the name the bank imports."""
@@ -59,11 +63,33 @@ class Bank:
         #: Sparse rather than append-only so an item keeps the slot the player put it in - a bank that
         #: reshuffles itself every time you withdraw something is a bank nobody organises.
         self.tabs = [[None] * SLOTS_PER_TAB for _ in range(self.tabs_owned)]
+        #: free tabs from the Collection, kept AFTER the bought ones in self.tabs (a bought tab is inserted
+        #: before them), so a bought tab's index never moves
+        self.bonus_tabs = 0
 
     # ---------------------------------------------------------------- capacity
     @property
     def capacity(self):
-        return self.tabs_owned * SLOTS_PER_TAB
+        return len(self.tabs) * SLOTS_PER_TAB
+
+    @property
+    def tab_count(self):
+        """Every tab you can open: the bought ones and the Collection's free ones."""
+        return len(self.tabs)
+
+    def tab_name(self, index):
+        if index < self.tabs_owned:
+            return TAB_NAMES[index]
+        k = index - self.tabs_owned
+        return BONUS_TAB_NAMES[k] if 0 <= k < len(BONUS_TAB_NAMES) else "Shelf"
+
+    def add_bonus_tab(self):
+        """One more free tab (the Collection's Tome of the Deep Vault). False if there's no more to give."""
+        if self.bonus_tabs >= MAX_BONUS_TABS:
+            return False
+        self.tabs.append([None] * SLOTS_PER_TAB)
+        self.bonus_tabs += 1
+        return True
 
     @property
     def used(self):
@@ -90,15 +116,15 @@ class Bank:
         if not party.remove_currency(price):
             return False, f"That tab costs {gold_str(price)}."
         self.tabs_owned += 1
-        self.tabs.append([None] * SLOTS_PER_TAB)
+        self.tabs.insert(self.tabs_owned - 1, [None] * SLOTS_PER_TAB)
         return True, f"Opened {TAB_NAMES[self.tabs_owned - 1]} for {gold_str(price)}."
 
     # ---------------------------------------------------------------- moving items
     def first_free(self, tab_index=None):
         """(tab, slot) of the first empty slot, searching one tab or all of them. None if full."""
-        search = [tab_index] if tab_index is not None else range(self.tabs_owned)
+        search = [tab_index] if tab_index is not None else range(len(self.tabs))
         for t in search:
-            if not 0 <= t < self.tabs_owned:
+            if not 0 <= t < len(self.tabs):
                 continue
             for i, slot in enumerate(self.tabs[t]):
                 if slot is None:
@@ -120,7 +146,7 @@ class Bank:
 
     def withdraw(self, tab_index, slot_index):
         """Take an item out and leave the slot empty. Returns the item, or None if the slot was."""
-        if not 0 <= tab_index < self.tabs_owned:
+        if not 0 <= tab_index < len(self.tabs):
             return None
         if not 0 <= slot_index < SLOTS_PER_TAB:
             return None
@@ -129,7 +155,7 @@ class Bank:
         return item
 
     def get(self, tab_index, slot_index):
-        if not 0 <= tab_index < self.tabs_owned:
+        if not 0 <= tab_index < len(self.tabs):
             return None
         if not 0 <= slot_index < SLOTS_PER_TAB:
             return None
@@ -139,6 +165,7 @@ class Bank:
     def to_dict(self):
         return {
             "tabs_owned": self.tabs_owned,
+            "bonus_tabs": self.bonus_tabs,
             # Sparse slots are preserved by storing index -> item rather than a list with nulls, which
             # keeps a mostly-empty 336-slot bank from writing 336 nulls into every save file.
             "tabs": [{str(i): s.to_dict() for i, s in enumerate(tab) if s is not None}
@@ -151,8 +178,10 @@ class Bank:
         from entities.loot_item import LootItem
 
         bank = cls(tabs_owned=(data or {}).get("tabs_owned", 1))
+        for _ in range(max(0, min(MAX_BONUS_TABS, int((data or {}).get("bonus_tabs", 0) or 0)))):
+            bank.add_bonus_tab()
         for t, stored in enumerate((data or {}).get("tabs", [])):
-            if t >= bank.tabs_owned:
+            if t >= len(bank.tabs):
                 break
             for key, raw in (stored or {}).items():
                 try:

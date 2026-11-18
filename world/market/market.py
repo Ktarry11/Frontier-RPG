@@ -86,6 +86,16 @@ RECRUIT_LIST_CHANCE = 0.15
 #: how briskly NPC listings sell to NPC buyers (the part of the market you're not in). Half the full rate keeps a
 #: listing around long enough to be browsed (about half the book turns over in a market day).
 NPC_TURNOVER = 0.5
+
+# ------------------------------------------------------------------ the Collection (docs/collection_design.md)
+#: Kyle, 18 Nov 2026: collectables are "randomly sold in the AH", "rare and rotating": a handful listed at once across
+#: both books (about three to six), each for about a market day, picked by rarity (world/collection.py's weights).
+COLLECTION_TARGET = {"horde": 3, "goblin": 2}
+#: chance an hour that a book short of its target gets one more, so they turn up through the day, not all at once
+COLLECTION_ARRIVAL = 0.3
+COLLECTION_HOURS = (18.0, 30.0)
+#: demand per hour: the odd collector buys one, so something you're watching can vanish
+COLLECTION_DEMAND = 0.01
 #: cash on delivery (Kyle's): buy at least 5 (consumables, gems) or 10 (common materials) of one thing inside
 #: COD_WINDOW market hours and a seller may offer more, at most once a market day per thing
 COD_WINDOW = 12.0
@@ -388,6 +398,8 @@ class Market:
 
     def ikey_of(self, good, mkey=None):
         mkey = mkey or G.market_key(good)
+        if good["data"].get("collection_id"):
+            return "col:" + good["data"]["collection_id"]
         if good["kind"] == G.GEAR and mkey not in C.entries():
             cat, sub = C.category_of(good)
             return f"gc:{cat}/{sub}:{G.rarity(good)}:{C.level_of(good) // 10}"
@@ -399,6 +411,9 @@ class Market:
         e = C.entries().get(mkey)
         if e is not None:
             return e.value
+        if good["data"].get("collection_id"):
+            from world.collection import get_entry
+            return int((get_entry(good["data"]["collection_id"]) or {}).get("price", 1000000))
         if mkey in self._vcache:
             return self._vcache[mkey]
         k = good["kind"]
@@ -430,6 +445,8 @@ class Market:
     def _demand(self, good, market, mkey):
         e = C.entries().get(mkey)
         k = good["kind"]
+        if good["data"].get("collection_id"):
+            return COLLECTION_DEMAND
         if e is not None:
             d = e.demand
         elif k == G.GEAR:
@@ -452,6 +469,8 @@ class Market:
         return d
 
     def sigma(self, good):
+        if good["data"].get("collection_id"):
+            return SIGMA["epic"]
         if good["kind"] == G.GEAR:
             return SIGMA["epic"] if G.rarity(good) == "epic" else SIGMA["gear"]
         return SIGMA["stack"]
@@ -779,6 +798,8 @@ class Market:
                 dur = self.rng.choice(DURATIONS)
                 self.spawn_npc_listing(market, posted_at=self.clock - self.rng.uniform(0, dur * 0.95),
                                        duration=dur)
+            for _ in range(COLLECTION_TARGET[market]):
+                self._collection_supply(market, 0, force=True)
 
     # ------------------------------------------------------------ the clock
     def advance(self, hours):
@@ -828,6 +849,7 @@ class Market:
             self._player_keys(market, dt)
             self._snipes(market, dt)
             self._news(market, dt)
+            self._collection_supply(market, dt)
             # the hour only tops the book up a little; the rest goes back a couple of listings a frame while you
             # play (_trickle), so working out an hour never stalls the game
             self._refill(market, cap=max(150, MARKETS[market]["target"] // 40))
@@ -1075,6 +1097,32 @@ class Market:
         self.news.append({"market": market, "text": text, "at": self.clock})
         self.news = self.news[-12:]
         self.stats["news"] += 1
+
+    def collection_listings(self, market):
+        return [a for a in self.books[market].values() if a.mkey.startswith("g:collectable_")]
+
+    def _collection_supply(self, market, dt, force=False):
+        """Keep a few collectables on the book (docs/collection_design.md): one more now and then while it's short
+        of COLLECTION_TARGET, picked by rarity from the ones not already listed in either house."""
+        if len(self.collection_listings(market)) >= COLLECTION_TARGET[market]:
+            return None
+        if not force and self.rng.random() >= 1.0 - (1.0 - COLLECTION_ARRIVAL) ** dt:
+            return None
+        from world import collection as CL
+        listed = {a.mkey for m in MARKETS for a in self.collection_listings(m)}
+        pool = [e for e in CL.entries() if f"g:collectable_{e['id']}" not in listed]
+        if not pool:
+            return None
+        weights = [CL.rarity_weight(e["rarity"]) for e in pool]
+        e = self.rng.choices(pool, weights=weights)[0]
+        item = CL.make_item(e["id"])
+        good = G.pack(item)
+        g = self.going(good)
+        unit = nice(g * self.rng.uniform(0.9, 1.25), self.rng)
+        seller = pick_trader(market, "collector", self.rng)
+        dur = self.rng.uniform(*COLLECTION_HOURS)
+        return self._new_auction(market, good, {"good": good}, seller.name, "n:" + seller.name, unit, dur,
+                                 posted_at=self.clock - (0 if not force else self.rng.uniform(0, dur * 0.6)))
 
     def _refill(self, market, cap=400):
         npc = sum(1 for a in self.books[market].values() if not a.mine)

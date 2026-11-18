@@ -125,7 +125,7 @@ def main():
     for i, it in enumerate([rings[0], None, weapons[0], armour[0], None, rings[1]]):
         g.slots[i] = it
     before = sorted(id(x) for x in g.slots if x is not None)
-    click(scr, scr.tab_rects[BS.GUILD_TAB].center)
+    click(scr, scr.tab_rects[BS.GUILD_RECT].center)
     scr.render(surf)
     click(scr, scr.sort_rect.center)
     gk = [gear_subtab(x) for x in g.slots if x is not None]

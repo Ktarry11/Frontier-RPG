@@ -52,6 +52,17 @@ class TravelManager:
         self.owned_mounts = []              # mount ids
         self.active_mount = None            # mount id the player prefers/summons
         self.mounted = False
+        # THE COLLECTION (world/collection.py, docs/collection_design.md): the second hearthstone's own bind and
+        # cooldown, each portable service's last use in market hours, and the form the leader walks in.
+        self.bind2 = None
+        self.hearth2_steps_left = 0
+        self.collection_used = {}
+        self.active_form = None
+        try:
+            from world.collection import apply_feathers
+            apply_feathers(self)
+        except Exception:
+            pass
 
     # ------------------------------------------------------------------ hearth
     def hearth_ready(self):
@@ -73,16 +84,52 @@ class TravelManager:
             return f"Your hearthstone is recharging ({self.hearth_steps_left} steps)."
         return None
 
+    def hearth_cooldown(self):
+        """Steps the hearth waits after use: halved by the Collection's Tome of the Swift Hearth."""
+        try:
+            from world.collection import hearth_cooldown_mult
+            mult = hearth_cooldown_mult()
+        except Exception:
+            mult = 1.0
+        return max(1, int(round(self.cooldown_steps * mult)))
+
     def use_hearth(self):
         """Spend the hearth: starts the cooldown, unmounts, returns the bind dict to teleport to."""
-        self.hearth_steps_left = self.cooldown_steps
+        self.hearth_steps_left = self.hearth_cooldown()
         self.mounted = False
         return dict(self.bind)
+
+    # the Collection's Hearthstone of the Second Home: its own bind (set at any innkeeper), its own cooldown
+    def has_second_hearth(self):
+        try:
+            from world.collection import has_second_hearth
+            return has_second_hearth()
+        except Exception:
+            return False
+
+    def set_bind2(self, zone_name, x, y, place_name):
+        self.bind2 = {"zone": zone_name, "x": int(x), "y": int(y), "name": place_name}
+
+    def second_hearth_block_reason(self):
+        if not self.has_second_hearth():
+            return "You haven't learned the Hearthstone of the Second Home."
+        if not self.bind2:
+            return "Your second hearthstone isn't bound yet. Ask any innkeeper."
+        if self.hearth2_steps_left > 0:
+            return f"Your second hearthstone is recharging ({self.hearth2_steps_left} steps)."
+        return None
+
+    def use_second_hearth(self):
+        self.hearth2_steps_left = self.hearth_cooldown()
+        self.mounted = False
+        return dict(self.bind2)
 
     def on_step(self):
         """Called once per successful overworld tile step."""
         if self.hearth_steps_left > 0:
             self.hearth_steps_left -= 1
+        if self.hearth2_steps_left > 0:
+            self.hearth2_steps_left -= 1
 
     # ------------------------------------------------------------------ riding / mounts
     @staticmethod
@@ -102,9 +149,22 @@ class TravelManager:
         rank, skill = nxt
         if level < skill["level"]:
             return False, f"{skill['name']} requires level {skill['level']}."
-        if copper < skill["price"]:
+        if copper < self.riding_price(rank):
             return False, f"{skill['name']} costs {format_copper(skill['price'])}."
         return True, ""
+
+    def riding_price(self, rank):
+        """A riding skill's price: free if the Collection's Tome of the Quick Study covers it."""
+        skill = self.riding_skill(rank)
+        if skill is None:
+            return 0
+        try:
+            from world.collection import free_riding_rank
+            if rank <= free_riding_rank():
+                return 0
+        except Exception:
+            pass
+        return skill["price"]
 
     def learn_riding(self):
         nxt = self.next_riding_skill()
@@ -121,7 +181,20 @@ class TravelManager:
         for m in travel_data()["mounts"]:
             if m["id"] == mount_id:
                 return m
-        return None
+        try:
+            from world.collection import mount_def
+            return mount_def(mount_id)
+        except Exception:
+            return None
+
+    def all_mounts(self):
+        """Mounts this character can ride: the ones they bought, and the Collection's (art permitting)."""
+        try:
+            from world.collection import collection_mount_ids
+            extra = [m for m in collection_mount_ids() if m not in self.owned_mounts]
+        except Exception:
+            extra = []
+        return list(self.owned_mounts) + extra
 
     def can_buy_mount(self, mount, copper):
         if mount["id"] in self.owned_mounts:
@@ -142,7 +215,7 @@ class TravelManager:
 
     def owned(self):
         """Every mount you've bought, best tier first (the mount picker's rows)."""
-        rows = [m for m in (self.get_mount(i) for i in self.owned_mounts) if m]
+        rows = [m for m in (self.get_mount(i) for i in self.all_mounts()) if m]
         return sorted(rows, key=lambda m: (-m["tier"], m["name"]))
 
     def choose_mount(self, mount_id, in_cave):
@@ -150,7 +223,7 @@ class TravelManager:
         the old mount with the new ones". Pick one you own to ride: it becomes the one R summons, and you're on it
         now if you can ride here. Returns (mounted_now, message)."""
         m = self.get_mount(mount_id)
-        if m is None or mount_id not in self.owned_mounts:
+        if m is None or mount_id not in self.all_mounts():
             return self.mounted, "You don't own that mount."
         self.active_mount = mount_id
         reason = self.mount_block_reason(in_cave)
@@ -166,7 +239,7 @@ class TravelManager:
     def mount_block_reason(self, in_cave):
         if self.riding_rank < 1:
             return "You haven't learned to ride yet. Find a riding trainer (level 20)."
-        if not self.owned_mounts:
+        if not self.all_mounts():
             return "You don't own a mount. Buy one from a mount vendor."
         if in_cave:
             return "You can't ride in a cave or dungeon."
@@ -258,6 +331,10 @@ class TravelManager:
             "owned_mounts": list(self.owned_mounts),
             "active_mount": self.active_mount,
             "mounted": self.mounted,
+            "bind2": dict(self.bind2) if self.bind2 else None,
+            "hearth2_steps_left": self.hearth2_steps_left,
+            "collection_used": dict(self.collection_used),
+            "active_form": self.active_form,
         }
 
     def load_from_dict(self, data):
@@ -279,6 +356,19 @@ class TravelManager:
         if self.active_mount is None and self.owned_mounts:
             self.active_mount = self.owned_mounts[-1]
         self.mounted = bool(data.get("mounted")) and self.riding_rank >= 1 and self.active_mount is not None
+        b2 = data.get("bind2")
+        self.bind2 = ({"zone": b2["zone"], "x": int(b2.get("x", 0)), "y": int(b2.get("y", 0)),
+                       "name": b2.get("name", b2["zone"])} if b2 and b2.get("zone") else None)
+        self.hearth2_steps_left = max(0, int(data.get("hearth2_steps_left", 0)))
+        self.collection_used = {k: float(v) for k, v in (data.get("collection_used") or {}).items()}
+        self.active_form = data.get("active_form")
+        try:
+            from world.collection import apply_feathers, form_ids
+            apply_feathers(self)
+            if self.active_form not in form_ids():
+                self.active_form = None
+        except Exception:
+            pass
 
 
 def services_for_npc(npc):

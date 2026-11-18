@@ -73,6 +73,8 @@ TREE = [
     ("Trade Goods", TRADE_SUBS),
     ("Item Enhancements", ENHANCE_SUBS),
     ("Recipes", RECIPE_SUBS),
+    # the Collection's account-wide unlocks (docs/collection_design.md)
+    ("Collection", ["Mounts", "Forms", "Travel", "Services", "Heirlooms"]),
     ("Miscellaneous", []),
 ]
 
@@ -480,6 +482,11 @@ def recipe_scroll_value(item):
 
 def gear_category(item):
     """(category, subcategory) for a piece of gear, a bag or a recipe scroll."""
+    cid = getattr(item, "collection_id", None)
+    if cid:
+        from world.collection import get_entry, TAB_OF, TABS
+        kind = (get_entry(cid) or {}).get("kind")
+        return "Collection", dict(TABS).get(TAB_OF.get(kind), "")
     if getattr(item, "recipe_id", None) or getattr(item, "slot", None) == "recipe":
         prof = str(getattr(item, "recipe_profession", "") or "").replace("_", " ").title()
         return "Recipes", prof if prof in RECIPE_SUBS else "Other"

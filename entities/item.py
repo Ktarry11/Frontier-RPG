@@ -224,6 +224,13 @@ class Item:
         self.recipe_id = recipe_id
         self.recipe_profession = recipe_profession
 
+        # THE COLLECTION (docs/collection_design.md). A collectable is a bag item with a collection_id, learned for
+        # every character with a right-click (entities/account_collection.py). An heirloom copy taken from the
+        # Collection carries heirloom_id instead: it's real gear, fitted to its wearer and re-fitted as they level
+        # (world/collection.py), bound to the account, so it can't be sold, mailed or auctioned.
+        self.collection_id = None
+        self.heirloom_id = None
+
     def get_dps(self):
         """Damage per second for weapons. Returns 0 for non-weapons/shields.
 
@@ -290,7 +297,16 @@ class Item:
         Equipment.equip had no "recipe" slot to put it in. Kyle, 10 Nov: "i can click on it...
         and it vanishes." Every pattern, plan, recipe and schematic in the game.
         """
-        return self.slot != "recipe" and not self.recipe_id
+        return self.slot not in ("recipe", "collection") and not self.recipe_id and not self.collection_id
+
+    @property
+    def is_sellable(self):
+        """An heirloom copy belongs to the account, not this character: no vendor, no auction, no letter."""
+        return not self.heirloom_id
+
+    @property
+    def market_locked(self):
+        return bool(self.heirloom_id)
 
     def to_dict(self):
         """Serialize for save system."""
@@ -328,6 +344,8 @@ class Item:
             "recipe_id": self.recipe_id,
             "recipe_profession": self.recipe_profession,
             "proc": self.proc,
+            "collection_id": self.collection_id,
+            "heirloom_id": self.heirloom_id,
             # which spell power and healing scale its numbers are on (entities/power_scale.py)
             "power_scale": 3,
         }
@@ -371,6 +389,8 @@ class Item:
             recipe_profession=data.get("recipe_profession"),
             proc=data.get("proc"),
         )
+        item.collection_id = data.get("collection_id")
+        item.heirloom_id = data.get("heirloom_id")
         item.socket_bonus = dict(data.get("socket_bonus") or {})
         _scale = data.get("power_scale", 1)
         if _scale < 3:

@@ -857,6 +857,19 @@ class TilemapRenderer:
                     sprite = get_walk_sprite(base_path, player_facing, frame, th) if frame else None
                     if sprite is None:
                         sprite = get_npc_sprite(base_path, player_facing, tile_height=th)
+            # A Collection form (world/collection.py): the leader walks the map as the creature. Map only.
+            try:
+                from world.travel_manager import get_travel_manager
+                _form = get_travel_manager().active_form
+                if _form and not get_travel_manager().mounted:
+                    from world.collection import form_sprite_path, art_ready
+                    if art_ready(_form):
+                        _fs = get_npc_sprite(form_sprite_path(_form), player_facing,
+                                             tile_height=int(self.tile_size * self.npc_sprite_scale))
+                        if _fs is not None:
+                            sprite = _fs
+            except Exception:
+                pass
             mount_art = None
             try:
                 from world.travel_manager import get_travel_manager

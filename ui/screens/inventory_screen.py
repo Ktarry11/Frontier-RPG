@@ -712,6 +712,15 @@ class InventoryScreen(BaseScreen):
                         return
 
                     if not getattr(item, "is_gear", True):
+                        # A collectable (docs/collection_design.md): learn it for every character.
+                        if getattr(item, "collection_id", None):
+                            from entities.account_collection import get_collection
+                            ok, msg = get_collection().learn_from_bag(
+                                item, bag.inventory, party=self.state_manager.get_party(),
+                                player=self.state_manager.player)
+                            self.equip_error = msg
+                            self.equip_error_timer = 3.0
+                            return
                         # Recipe scroll: right-click to learn the recipe it contains.
                         if getattr(item, "recipe_id", None):
                             self._use_recipe_scroll(subject, bag, item)
@@ -1547,6 +1556,21 @@ class InventoryScreen(BaseScreen):
 
     def _draw_item_tooltip(self, screen, item, mouse_pos, show_sell_price=False):
         if not getattr(item, "is_gear", True):
+            if getattr(item, "collection_id", None):
+                from ui.collection_tooltip import collection_lines
+                box_w = 300
+                lines = []
+                for text, colour in collection_lines(item):
+                    lines.extend((t, colour) for t in (self.renderer.wrap_text(text, box_w - 16) if text else [""]))
+                box_h = 20 * len(lines) + 16
+                x = min(mouse_pos[0] + 16, SCREEN_WIDTH - box_w - 10)
+                y = min(mouse_pos[1] + 16, SCREEN_HEIGHT - box_h - 10)
+                box_rect = pygame.Rect(x, y, box_w, box_h)
+                pygame.draw.rect(screen, (15, 15, 25), box_rect)
+                pygame.draw.rect(screen, lines[0][1] if lines else (120, 110, 70), box_rect, 1)
+                for i, (text, color) in enumerate(lines):
+                    self.renderer.draw_text(screen, text, (x + 8, y + 8 + i * 20), color=color)
+                return
             # Recipe scrolls get a richer tooltip showing profession, skill gate, and state.
             if getattr(item, "recipe_id", None):
                 self._draw_recipe_scroll_tooltip(screen, item, mouse_pos)

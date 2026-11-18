@@ -44,7 +44,7 @@ class OverworldScreen(BaseScreen):
         self.tab_column_x = SCREEN_WIDTH - 190
         self.tab_column_y = 20
         self.tab_w = 170
-        self.tab_h = 48
+        self.tab_h = 43              # 48 until the Collection tab joined the column (18 Nov 2026)
         self.tab_gap = 8
         self.tab_rects = {}  # action -> rect, built in render()
         
@@ -188,6 +188,11 @@ class OverworldScreen(BaseScreen):
             # The Soul (Runecrafting's runes go in it)
             if event.key == pygame.K_o:
                 self._open_soul()
+                return
+            # The Collection: everything the account has learned
+            if event.key == pygame.K_u:
+                self._release_movement_keys()
+                self.state_manager.transition_to(GameState.COLLECTION)
                 return
 
             # Quest Journal - was a dead placeholder tab ("L" advertised
@@ -504,6 +509,22 @@ class OverworldScreen(BaseScreen):
             self._notify("Your hearth bind no longer exists. Visit an innkeeper.", (240, 140, 140))
             return
         self._notify(f"You return to {bind['name']}.", (140, 220, 160))
+
+    def use_second_hearth(self):
+        """The Collection's Hearthstone of the Second Home: the same trip to its own bind. Returns (ok, message)."""
+        from world.travel_manager import get_travel_manager
+        travel = get_travel_manager()
+        reason = travel.second_hearth_block_reason()
+        if reason:
+            return False, reason
+        bind = travel.use_second_hearth()
+        from world.market.market import on_hearth
+        on_hearth(self.state_manager.get_party())
+        self._release_movement_keys()
+        if not self.zone_manager.transition_to_zone(bind["zone"], bind["x"], bind["y"], via_portal=False):
+            return False, "Your second home's bind no longer exists. Visit an innkeeper."
+        self._notify(f"You return to {bind['name']}.", (140, 220, 160))
+        return True, f"You return to {bind['name']}."
 
     # ---------------------------------------------------------------- eat / drink
     #
@@ -846,6 +867,9 @@ class OverworldScreen(BaseScreen):
                 self.state_manager.transition_to(GameState.PROFESSIONS)
             elif action == "soul":
                 self._open_soul()
+            elif action == "collection":
+                self._release_movement_keys()
+                self.state_manager.transition_to(GameState.COLLECTION)
             elif action == "menu":
                 self.state_manager.transition_to(GameState.MENU)
             elif action == "teleport":
@@ -877,6 +901,9 @@ class OverworldScreen(BaseScreen):
             # Kyle, 14 Nov 2026: "need some way to easily find our soul to apply runes" - it was only
             # reachable from a party member's buttons on the Party screen.
             ("soul", "Soul (O)"),
+            # the Collection (docs/collection_design.md). Kyle: "We should be able to see our stuff from
+            # character. So anywhere."
+            ("collection", "Collection (U)"),
         ]
 
         y = menu_rect.bottom + 14

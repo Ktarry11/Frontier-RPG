@@ -99,7 +99,7 @@ class TravelServiceScreen(BaseScreen):
                 rank, skill = nxt
                 ok, reason = travel.can_learn_riding(player.level, copper)
                 rows.append(dict(name=skill["name"], sub=f"Level {skill['level']}+  -  {skill['blurb']}",
-                                 price=skill["price"], label="Learn", enabled=ok, reason=reason,
+                                 price=travel.riding_price(rank), label="Learn", enabled=ok, reason=reason,
                                  action="learn", arg=rank))
         elif self.kind == "train_class":
             rows = self._train_rows(player, copper)
@@ -139,15 +139,22 @@ class TravelServiceScreen(BaseScreen):
         return rows
 
     def _trainer_class(self):
+        # the Collection's Book of the Wandering Master is a trainer for whatever class you are
+        if getattr(self.npc, "portable_class", None):
+            return self.npc.portable_class
         from world.training_manager import class_for_trainer
         return class_for_trainer(self._npc_id())
 
     def _trainer_profession(self):
+        if getattr(self.npc, "portable_professions", None):
+            return self.npc.portable_professions[0]
         from world.profession_manager import profession_for_trainer
         return profession_for_trainer(self._npc_id())
 
     def _trainer_professions(self):
         """Every profession this NPC teaches. Trainers are themed pairs, so this is usually 2-3."""
+        if getattr(self.npc, "portable_professions", None):
+            return list(self.npc.portable_professions)
         from world.profession_manager import professions_for_trainer
         return professions_for_trainer(self._npc_id())
 
@@ -287,8 +294,8 @@ class TravelServiceScreen(BaseScreen):
             ok, reason = travel.can_learn_riding(self.state_manager.player.level, self._copper())
             if not ok:
                 return self._say(reason, RED)
-            skill = travel.next_riding_skill()[1]
-            party.remove_currency(skill["price"])
+            rank, skill = travel.next_riding_skill()
+            party.remove_currency(travel.riding_price(rank))
             travel.learn_riding()
             self._say(f"You have learned {skill['name']}. Buy a mount to ride it!")
         elif action == "buy":

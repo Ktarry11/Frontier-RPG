@@ -19,13 +19,16 @@ import pygame
 from config import (SCREEN_WIDTH, SCREEN_HEIGHT, COLOR_WHITE, COLOR_GOLD, COLOR_GREEN,
                     COLOR_RED, COLOR_DARK_GRAY)
 from core.game_states import GameState
-from entities.bank import SLOTS_PER_TAB, TAB_NAMES, MAX_TABS, gold_str
+from entities.bank import SLOTS_PER_TAB, TAB_NAMES, MAX_TABS, MAX_BONUS_TABS, gold_str
 from entities.guild_bank import SLOTS as GUILD_SLOTS, get_guild_bank
 
 #: The guild bank rides on the end of the tab strip as one extra tab. It is a different STORE -
 #: account-wide, its own file, 24 slots, never bought - but it is the same gesture, so putting it
 #: anywhere else would mean a second screen that does what this one already does.
-GUILD_TAB = MAX_TABS
+#: active_tab is a bank tab's index, or this for the guild bank; GUILD_RECT is where its button sits on the strip,
+#: and the Collection's free tabs (Tome of the Deep Vault) come after it.
+GUILD_TAB = "guild"
+GUILD_RECT = MAX_TABS
 
 
 class _GuildAsTab:
@@ -39,7 +42,7 @@ class _GuildAsTab:
 
     def __init__(self, guild):
         self.guild = guild
-        self.tabs_owned = GUILD_TAB + 1        # so the tab strip treats it as owned, never for sale
+        self.tabs_owned = 1
 
     def get(self, _tab, i):
         return self.guild.get(i)
@@ -150,6 +153,10 @@ class BankScreen(BaseScreen):
                                       TAB_Y + (i // TAB_COLS) * (TAB_H + TAB_ROW_GAP),
                                       TAB_W, TAB_H)
                           for i in range(MAX_TABS + 1)]
+        # the Collection's free tabs stand to the right of the strip, in the gap before the backpack, so the
+        # strip keeps its two rows and the vault's header stays clear
+        self.tab_rects += [pygame.Rect(BANK_X + TAB_COLS * (TAB_W + 6), TAB_Y + k * (TAB_H + TAB_ROW_GAP),
+                                       TAB_W + 30, TAB_H) for k in range(MAX_BONUS_TABS)]
         self.close_rect = pygame.Rect(SCREEN_WIDTH - 150, 20, 120, 40)
         self.deposit_all_rect = pygame.Rect(PLAYER_X, PLAYER_Y - 44, 190, 34)
         # Kyle, 16 Nov 2026: Tusk sells the Craftsman Codex (world/craftsman_codex.py), one more profession slot
@@ -219,7 +226,7 @@ class BankScreen(BaseScreen):
         for i, r in enumerate(self.tab_rects):
             if not r.collidepoint(pos):
                 continue
-            if i == GUILD_TAB:
+            if i == GUILD_RECT:
                 # Always available and never bought - it is not the bank's to sell.
                 self.active_tab = GUILD_TAB
                 self.message = ""
@@ -227,6 +234,12 @@ class BankScreen(BaseScreen):
             if real is None:
                 return
             bank = real
+            if i > GUILD_RECT:
+                k = i - GUILD_RECT - 1
+                if k < getattr(bank, "bonus_tabs", 0):
+                    self.active_tab = bank.tabs_owned + k
+                    self.message = ""
+                return
             if i < bank.tabs_owned:
                 self.active_tab = i
                 self.message = ""
@@ -367,12 +380,19 @@ class BankScreen(BaseScreen):
         # --- tab strip
         real = self._real_bank()
         for i, r in enumerate(self.tab_rects):
-            if i == GUILD_TAB:
+            if i == GUILD_RECT:
                 # Always there, never for sale - it is not the bank's to sell.
                 col = (70, 90, 130) if self.active_tab == GUILD_TAB else (40, 50, 72)
                 self.renderer.draw_button(screen, r, "Guild Bank", color=col)
                 continue
             if real is None:
+                continue
+            if i > GUILD_RECT:
+                k = i - GUILD_RECT - 1
+                if k < getattr(real, "bonus_tabs", 0):
+                    idx = real.tabs_owned + k
+                    col = (110, 80, 140) if idx == self.active_tab else (60, 44, 80)
+                    self.renderer.draw_button(screen, r, real.tab_name(idx), color=col)
                 continue
             if i < real.tabs_owned:
                 col = (70, 110, 70) if i == self.active_tab else COLOR_DARK_GRAY
@@ -394,7 +414,7 @@ class BankScreen(BaseScreen):
                            "Shared by every character on this install.")
         else:
             used = sum(1 for s in bank.tabs[self.active_tab] if s is not None)
-            header, sub = f"{TAB_NAMES[self.active_tab]}  {used}/{SLOTS_PER_TAB}", None
+            header, sub = f"{bank.tab_name(self.active_tab)}  {used}/{SLOTS_PER_TAB}", None
         self.renderer.draw_text(screen, header, (BANK_X, BANK_Y - 30), color=COLOR_GOLD)
         if sub:
             self.renderer.draw_text(screen, sub, (BANK_X + 210, BANK_Y - 27),

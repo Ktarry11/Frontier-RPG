@@ -2059,6 +2059,14 @@ class Character(StatusEffectMixin):
         """
         from config import get_exp_needed_for_level
 
+        # The Collection's heirlooms (world/collection.py): +10% or +20% each while worn, +80% at most, none at 60.
+        try:
+            from world.collection import heirloom_xp_pct
+            pct = heirloom_xp_pct(self)
+        except Exception:
+            pct = 0
+        if pct and amount > 0:
+            amount = int(round(amount * (1 + pct / 100.0)))
         self.experience += amount
         levels_gained = 0
 
@@ -2112,6 +2120,14 @@ class Character(StatusEffectMixin):
         for pet in self.all_pets:
             if hasattr(pet, "sync_to_owner_level"):
                 pet.sync_to_owner_level()
+
+        # The Collection's heirlooms grow with whoever has them (world/collection.py).
+        try:
+            from world.collection import refit_worn_heirlooms
+            if refit_worn_heirlooms(self):
+                self._recalculate_derived_stats()
+        except Exception:
+            pass
 
         self.current_health = self.health
         self.current_mana = self.mana
@@ -4802,7 +4818,12 @@ class Character(StatusEffectMixin):
         currently-equipped bags rather than cached, so unequipping a bag
         immediately shrinks capacity - same "live off equipment" pattern
         as armor/stat totals elsewhere in this class."""
-        return BASE_INVENTORY_CAPACITY + self.equipment.get_bag_capacity()
+        try:
+            from world.collection import backpack_bonus      # the Collection's Tome of the Pack Mule
+            bonus = backpack_bonus()
+        except Exception:
+            bonus = 0
+        return BASE_INVENTORY_CAPACITY + bonus + self.equipment.get_bag_capacity()
 
     def add_to_inventory(self, item):
         """Add a looted/generated item to inventory. Returns True if it

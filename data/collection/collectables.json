@@ -1,0 +1,594 @@
+{
+  "_about": "Built by tools/build_collection.py; docs/collection_design.md",
+  "rarity_weight": {
+    "common": 10.0,
+    "uncommon": 5.0,
+    "rare": 2.0,
+    "epic": 0.7
+  },
+  "collectables": [
+    {
+      "id": "bone_white_kodo",
+      "name": "Reins of the Bone-White Kodo",
+      "kind": "mount",
+      "price": 3000000,
+      "rarity": "uncommon",
+      "blurb": "An elder's kodo from Thunder Bluff, pale as chalk and older than most towns.",
+      "effect": {
+        "mount_id": "bone_white_kodo"
+      },
+      "icon_id": "qi_trophy_cord",
+      "art": "col_bone_white_kodo",
+      "needs_art": true
+    },
+    {
+      "id": "steamwheedle_runabout",
+      "name": "Key to the Steamwheedle Runabout",
+      "kind": "mount",
+      "price": 3500000,
+      "rarity": "uncommon",
+      "blurb": "A goblin's brass strider with a leaky boiler and no brakes worth the name.",
+      "effect": {
+        "mount_id": "steamwheedle_runabout"
+      },
+      "icon_id": "qi_trophy_cord",
+      "art": "col_steamwheedle_runabout",
+      "needs_art": true
+    },
+    {
+      "id": "tidecaller_sea_turtle",
+      "name": "Tidecaller Sea Turtle",
+      "kind": "mount",
+      "price": 4500000,
+      "rarity": "rare",
+      "blurb": "A great turtle from the Tempest Isle shallows, slow to look at and quick under you.",
+      "effect": {
+        "mount_id": "tidecaller_sea_turtle"
+      },
+      "icon_id": "qi_trophy_cord",
+      "art": "col_tidecaller_sea_turtle",
+      "needs_art": true
+    },
+    {
+      "id": "dread_elk_of_felwood",
+      "name": "Reins of the Dread Elk",
+      "kind": "mount",
+      "price": 5000000,
+      "rarity": "rare",
+      "blurb": "A black elk with green fire in its antlers, from the edge of the corrupted woods.",
+      "effect": {
+        "mount_id": "dread_elk_of_felwood"
+      },
+      "icon_id": "qi_trophy_cord",
+      "art": "col_dread_elk_of_felwood",
+      "needs_art": true
+    },
+    {
+      "id": "sunreach_hawkstrider",
+      "name": "Sunreach Hawkstrider",
+      "kind": "mount",
+      "price": 6000000,
+      "rarity": "epic",
+      "blurb": "A tall gold and white strider bred by the Sunreach Conclave.",
+      "effect": {
+        "mount_id": "sunreach_hawkstrider"
+      },
+      "icon_id": "qi_trophy_cord",
+      "art": "col_sunreach_hawkstrider",
+      "needs_art": true
+    },
+    {
+      "id": "ashen_nightmare",
+      "name": "Reins of the Ashen Nightmare",
+      "kind": "mount",
+      "price": 7500000,
+      "rarity": "epic",
+      "blurb": "A black horse with an ember mane, ridden out of the Plaguelands' worst night.",
+      "effect": {
+        "mount_id": "ashen_nightmare"
+      },
+      "icon_id": "qi_trophy_cord",
+      "art": "col_ashen_nightmare",
+      "needs_art": true
+    },
+    {
+      "id": "murloc",
+      "name": "Charm of the Murloc",
+      "kind": "form",
+      "price": 1500000,
+      "rarity": "common",
+      "blurb": "Mrglglgl.",
+      "effect": {
+        "form_id": "murloc",
+        "form_name": "Murloc"
+      },
+      "icon_id": "qi_totem",
+      "art": "col_murloc",
+      "needs_art": true
+    },
+    {
+      "id": "kobold_miner",
+      "name": "Charm of the Kobold Miner",
+      "kind": "form",
+      "price": 1500000,
+      "rarity": "common",
+      "blurb": "Candle included. You no take it.",
+      "effect": {
+        "form_id": "kobold_miner",
+        "form_name": "Kobold Miner"
+      },
+      "icon_id": "qi_totem",
+      "art": "col_kobold_miner",
+      "needs_art": true
+    },
+    {
+      "id": "gnoll_brute",
+      "name": "Charm of the Gnoll Brute",
+      "kind": "form",
+      "price": 2000000,
+      "rarity": "uncommon",
+      "blurb": "Hunched, hungry and very pleased with itself.",
+      "effect": {
+        "form_id": "gnoll_brute",
+        "form_name": "Gnoll Brute"
+      },
+      "icon_id": "qi_totem",
+      "art": "col_gnoll_brute",
+      "needs_art": true
+    },
+    {
+      "id": "treant_sapling",
+      "name": "Charm of the Treant Sapling",
+      "kind": "form",
+      "price": 2500000,
+      "rarity": "uncommon",
+      "blurb": "A walking sprig of Ashenvale.",
+      "effect": {
+        "form_id": "treant_sapling",
+        "form_name": "Treant Sapling"
+      },
+      "icon_id": "qi_totem",
+      "art": "col_treant_sapling",
+      "needs_art": true
+    },
+    {
+      "id": "little_ooze",
+      "name": "Charm of the Little Ooze",
+      "kind": "form",
+      "price": 2500000,
+      "rarity": "uncommon",
+      "blurb": "It squelches. It's happy.",
+      "effect": {
+        "form_id": "little_ooze",
+        "form_name": "Little Ooze"
+      },
+      "icon_id": "qi_totem",
+      "art": "col_little_ooze",
+      "needs_art": true
+    },
+    {
+      "id": "carrion_crow",
+      "name": "Charm of the Carrion Crow",
+      "kind": "form",
+      "price": 3000000,
+      "rarity": "uncommon",
+      "blurb": "Hops more than it flies.",
+      "effect": {
+        "form_id": "carrion_crow",
+        "form_name": "Carrion Crow"
+      },
+      "icon_id": "qi_totem",
+      "art": "col_carrion_crow",
+      "needs_art": true
+    },
+    {
+      "id": "furbolg_elder",
+      "name": "Charm of the Furbolg Elder",
+      "kind": "form",
+      "price": 3500000,
+      "rarity": "rare",
+      "blurb": "A grey-muzzled furbolg with a walking stick.",
+      "effect": {
+        "form_id": "furbolg_elder",
+        "form_name": "Furbolg Elder"
+      },
+      "icon_id": "qi_totem",
+      "art": "col_furbolg_elder",
+      "needs_art": true
+    },
+    {
+      "id": "wandering_skeleton",
+      "name": "Charm of the Wandering Skeleton",
+      "kind": "form",
+      "price": 4000000,
+      "rarity": "rare",
+      "blurb": "The Forsaken find it in poor taste.",
+      "effect": {
+        "form_id": "wandering_skeleton",
+        "form_name": "Wandering Skeleton"
+      },
+      "icon_id": "qi_totem",
+      "art": "col_wandering_skeleton",
+      "needs_art": true
+    },
+    {
+      "id": "spirit_wolf",
+      "name": "Charm of the Spirit Wolf",
+      "kind": "form",
+      "price": 6000000,
+      "rarity": "epic",
+      "blurb": "A ghostly wolf that leaves no tracks.",
+      "effect": {
+        "form_id": "spirit_wolf",
+        "form_name": "Spirit Wolf"
+      },
+      "icon_id": "qi_totem",
+      "art": "col_spirit_wolf",
+      "needs_art": true
+    },
+    {
+      "id": "shade_of_the_drowned_court",
+      "name": "Charm of the Drowned Shade",
+      "kind": "form",
+      "price": 7000000,
+      "rarity": "epic",
+      "blurb": "A drowned courtier of the old queen, walking in a cold blue light.",
+      "effect": {
+        "form_id": "shade_of_the_drowned_court",
+        "form_name": "Shade of the Drowned Court"
+      },
+      "icon_id": "qi_totem",
+      "art": "col_shade_of_the_drowned_court",
+      "needs_art": true
+    },
+    {
+      "id": "feather_kalimdor",
+      "name": "Windrider Feather of Kalimdor",
+      "kind": "travel",
+      "price": 4000000,
+      "rarity": "rare",
+      "blurb": "Every flight path in Kalimdor is open to every character.",
+      "effect": {
+        "feather": "kalimdor"
+      },
+      "icon_id": "qi_pennant",
+      "art": "col_feather_kalimdor",
+      "needs_art": false
+    },
+    {
+      "id": "feather_eastern_kingdoms",
+      "name": "Windrider Feather of the Eastern Kingdoms",
+      "kind": "travel",
+      "price": 4000000,
+      "rarity": "rare",
+      "blurb": "Every flight path in the Eastern Kingdoms is open to every character.",
+      "effect": {
+        "feather": "eastern_kingdoms"
+      },
+      "icon_id": "qi_pennant",
+      "art": "col_feather_eastern_kingdoms",
+      "needs_art": false
+    },
+    {
+      "id": "tome_swift_hearth",
+      "name": "Tome of the Swift Hearth",
+      "kind": "travel",
+      "price": 3000000,
+      "rarity": "uncommon",
+      "blurb": "The hearthstone's cooldown is halved, for every character.",
+      "effect": {
+        "hearth_cooldown_mult": 0.5
+      },
+      "icon_id": "qi_journal",
+      "art": "col_tome_swift_hearth",
+      "needs_art": false
+    },
+    {
+      "id": "second_hearthstone",
+      "name": "Hearthstone of the Second Home",
+      "kind": "travel",
+      "price": 3000000,
+      "rarity": "rare",
+      "blurb": "A second hearthstone, with its own bind and its own cooldown.",
+      "effect": {
+        "second_hearth": true
+      },
+      "icon_id": "qi_heart_stone",
+      "art": "col_second_hearthstone",
+      "needs_art": false
+    },
+    {
+      "id": "travelling_bank",
+      "name": "Satchel of the Travelling Bank",
+      "kind": "service",
+      "price": 2500000,
+      "rarity": "uncommon",
+      "blurb": "Opens your bank anywhere. Once per market day.",
+      "effect": {
+        "service": "bank"
+      },
+      "icon_id": "qi_strongbox",
+      "art": "col_travelling_bank",
+      "needs_art": false
+    },
+    {
+      "id": "peddlers_bell",
+      "name": "Peddler's Bell",
+      "kind": "service",
+      "price": 1500000,
+      "rarity": "common",
+      "blurb": "Calls a pack-mule peddler who buys anything you're carrying. Once per market day.",
+      "effect": {
+        "service": "peddler"
+      },
+      "icon_id": "qi_lantern",
+      "art": "col_peddlers_bell",
+      "needs_art": false
+    },
+    {
+      "id": "couriers_horn",
+      "name": "Courier's Horn",
+      "kind": "service",
+      "price": 1500000,
+      "rarity": "common",
+      "blurb": "A courier brings your mail and takes your letters out. Once per market day.",
+      "effect": {
+        "service": "mail"
+      },
+      "icon_id": "qi_horn",
+      "art": "col_couriers_horn",
+      "needs_art": false
+    },
+    {
+      "id": "book_wandering_master",
+      "name": "Book of the Wandering Master",
+      "kind": "service",
+      "price": 2000000,
+      "rarity": "uncommon",
+      "blurb": "Opens your class trainer anywhere. Once per market day.",
+      "effect": {
+        "service": "class_trainer"
+      },
+      "icon_id": "qi_ledger",
+      "art": "col_book_wandering_master",
+      "needs_art": false
+    },
+    {
+      "id": "book_of_professions",
+      "name": "Book of Professions",
+      "kind": "service",
+      "price": 2000000,
+      "rarity": "uncommon",
+      "blurb": "Opens a profession trainer anywhere, for any profession. Once per market day.",
+      "effect": {
+        "service": "profession_trainer"
+      },
+      "icon_id": "qi_ledger",
+      "art": "col_book_of_professions",
+      "needs_art": false
+    },
+    {
+      "id": "alchemists_satchel",
+      "name": "Alchemist's Satchel",
+      "kind": "service",
+      "price": 2000000,
+      "rarity": "uncommon",
+      "blurb": "Opens a reagent seller anywhere. Once per market day.",
+      "effect": {
+        "service": "reagents"
+      },
+      "icon_id": "qi_coin_pouch",
+      "art": "col_alchemists_satchel",
+      "needs_art": false
+    },
+    {
+      "id": "tome_pack_mule",
+      "name": "Tome of the Pack Mule",
+      "kind": "tome",
+      "price": 3500000,
+      "rarity": "rare",
+      "blurb": "Every character's backpack holds 12 more.",
+      "effect": {
+        "backpack_bonus": 12
+      },
+      "icon_id": "qi_journal",
+      "art": "col_tome_pack_mule",
+      "needs_art": false
+    },
+    {
+      "id": "tome_deep_vault",
+      "name": "Tome of the Deep Vault",
+      "kind": "tome",
+      "price": 3000000,
+      "rarity": "rare",
+      "blurb": "Every character's bank gets one more tab, free: the Collector's Shelf.",
+      "effect": {
+        "bonus_bank_tabs": 1
+      },
+      "icon_id": "qi_journal",
+      "art": "col_tome_deep_vault",
+      "needs_art": false
+    },
+    {
+      "id": "tome_quick_study",
+      "name": "Tome of the Quick Study",
+      "kind": "tome",
+      "price": 2500000,
+      "rarity": "uncommon",
+      "blurb": "Apprentice Riding costs nothing at the riding trainer, for every character.",
+      "effect": {
+        "free_riding_rank": 1
+      },
+      "icon_id": "qi_journal",
+      "art": "col_tome_quick_study",
+      "needs_art": false
+    },
+    {
+      "id": "book_first_steps",
+      "name": "Book of First Steps",
+      "kind": "tome",
+      "price": 1000000,
+      "rarity": "common",
+      "blurb": "New characters start with a six-slot bag and 5 gold.",
+      "effect": {
+        "new_character": {
+          "copper": 50000,
+          "bag": true
+        }
+      },
+      "icon_id": "qi_journal",
+      "art": "col_book_first_steps",
+      "needs_art": false
+    },
+    {
+      "id": "heirloom_head",
+      "name": "Heirloom Helm",
+      "kind": "heirloom",
+      "price": 1500000,
+      "rarity": "common",
+      "blurb": "Fits whoever takes it, levels with them, and gives +10% experience while worn (until 60).",
+      "effect": {
+        "heirloom_slot": "head",
+        "xp_pct": 10
+      },
+      "icon_id": "qi_signet",
+      "art": "col_heirloom_head",
+      "needs_art": false
+    },
+    {
+      "id": "heirloom_shoulder",
+      "name": "Heirloom Shoulders",
+      "kind": "heirloom",
+      "price": 1500000,
+      "rarity": "common",
+      "blurb": "Fits whoever takes it, levels with them, and gives +10% experience while worn (until 60).",
+      "effect": {
+        "heirloom_slot": "shoulder",
+        "xp_pct": 10
+      },
+      "icon_id": "qi_signet",
+      "art": "col_heirloom_shoulder",
+      "needs_art": false
+    },
+    {
+      "id": "heirloom_chest",
+      "name": "Heirloom Chest",
+      "kind": "heirloom",
+      "price": 1800000,
+      "rarity": "uncommon",
+      "blurb": "Fits whoever takes it, levels with them, and gives +10% experience while worn (until 60).",
+      "effect": {
+        "heirloom_slot": "chest",
+        "xp_pct": 10
+      },
+      "icon_id": "qi_signet",
+      "art": "col_heirloom_chest",
+      "needs_art": false
+    },
+    {
+      "id": "heirloom_legs",
+      "name": "Heirloom Legs",
+      "kind": "heirloom",
+      "price": 1800000,
+      "rarity": "uncommon",
+      "blurb": "Fits whoever takes it, levels with them, and gives +10% experience while worn (until 60).",
+      "effect": {
+        "heirloom_slot": "legs",
+        "xp_pct": 10
+      },
+      "icon_id": "qi_signet",
+      "art": "col_heirloom_legs",
+      "needs_art": false
+    },
+    {
+      "id": "heirloom_back",
+      "name": "Heirloom Cloak",
+      "kind": "heirloom",
+      "price": 1200000,
+      "rarity": "common",
+      "blurb": "Fits whoever takes it, levels with them, and gives +10% experience while worn (until 60).",
+      "effect": {
+        "heirloom_slot": "back",
+        "xp_pct": 10
+      },
+      "icon_id": "qi_signet",
+      "art": "col_heirloom_back",
+      "needs_art": false
+    },
+    {
+      "id": "heirloom_trinket",
+      "name": "Heirloom Trinket",
+      "kind": "heirloom",
+      "price": 2000000,
+      "rarity": "uncommon",
+      "blurb": "Fits whoever takes it, levels with them, and gives +10% experience while worn (until 60).",
+      "effect": {
+        "heirloom_slot": "trinket",
+        "xp_pct": 10
+      },
+      "icon_id": "qi_signet",
+      "art": "col_heirloom_trinket",
+      "needs_art": false
+    },
+    {
+      "id": "heirloom_two_hand",
+      "name": "Heirloom Two-Hander",
+      "kind": "heirloom",
+      "price": 3000000,
+      "rarity": "rare",
+      "blurb": "Fits whoever takes it, levels with them, and gives +20% experience while worn (until 60).",
+      "effect": {
+        "heirloom_slot": "two_hand",
+        "xp_pct": 20
+      },
+      "icon_id": "qi_signet",
+      "art": "col_heirloom_two_hand",
+      "needs_art": false
+    },
+    {
+      "id": "heirloom_one_hand",
+      "name": "Heirloom One-Hander",
+      "kind": "heirloom",
+      "price": 1500000,
+      "rarity": "common",
+      "blurb": "Fits whoever takes it, levels with them, and gives +10% experience while worn (until 60).",
+      "effect": {
+        "heirloom_slot": "one_hand",
+        "xp_pct": 10
+      },
+      "icon_id": "qi_signet",
+      "art": "col_heirloom_one_hand",
+      "needs_art": false
+    },
+    {
+      "id": "heirloom_shield",
+      "name": "Heirloom Shield",
+      "kind": "heirloom",
+      "price": 1200000,
+      "rarity": "common",
+      "blurb": "Fits whoever takes it, levels with them, and gives +10% experience while worn (until 60).",
+      "effect": {
+        "heirloom_slot": "shield",
+        "xp_pct": 10
+      },
+      "icon_id": "qi_signet",
+      "art": "col_heirloom_shield",
+      "needs_art": false
+    },
+    {
+      "id": "heirloom_off_hand",
+      "name": "Heirloom Off-Hand",
+      "kind": "heirloom",
+      "price": 1200000,
+      "rarity": "common",
+      "blurb": "Fits whoever takes it, levels with them, and gives +10% experience while worn (until 60).",
+      "effect": {
+        "heirloom_slot": "off_hand",
+        "xp_pct": 10
+      },
+      "icon_id": "qi_signet",
+      "art": "col_heirloom_off_hand",
+      "needs_art": false
+    }
+  ]
+}
