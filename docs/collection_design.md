@@ -13,17 +13,21 @@ account-wide."
 | Question | Answer |
 |---|---|
 | What happens when you use one | **Learn once, every character has it**, old and new. A learned thing can't be resold. |
-| Prices | **50g to 750g** (I pushed back on 2000g: a level 55 quest pays about 1.5g, so 2000g was about 1,300 quests). |
-| How they show up | **Rare and rotating**: both auction houses list a handful at a time, each for about a market day; the rarest turn up once every few days. Prices wander with the market. |
+| Prices | First **50g to 750g** (I pushed back on 2000g: a level 55 quest pays about 1.5g, so 2000g was about 1,300 quests). Then, for the mass-made kinds: "Some are dirt cheap. Some are expensive." So **2g to 750g**. |
+| How they show up | "These are in the AH as people sell them. Not a set price. They can just appear! Under collection tab." Traders list them at their own prices; rare ones turn up rarely. |
+| How many | "I'd want 100s to 1000s of fun collection stuff", then "We don't need 1000s to start. We will build it." The AH's Collection section holds **dozens to about 100** at a time. |
 | Other sources | **The auction house only.** |
-| First wave | **Unique mounts, flight feathers, cosmetic forms, and training books** ("can train skills anywhere or train professions anywhere"). |
-| Extras | **Heirloom gear, QoL tomes, a portable bank and a portable vendor to sell trash**, all on long cooldowns. |
+| Mass-made kinds | **Creature forms, mount colours and titles.** |
+| Mount colours | "don't full colour shift mounts. **Hue shift them.** And I'll get art." |
+| First wave | **Unique mounts, flight feathers, cosmetic forms, and training books** ("a mobile class trainer or every profession trainer"). |
+| Extras | **Heirloom gear, QoL tomes, a portable bank and a portable vendor to sell trash**, all on long cooldowns. My ten extra suggestions: all approved. |
 | Portable cooldowns | **Once per market day** (the auction house's clock, so dungeons and the hearth move it on). |
-| Heirlooms | **Scale with the wearer, and give XP: +80% in all.** A two-hander is +20%; a one-hander, shield or off-hand is +10% each. The other 60% is **six armour pieces at +10%**: head, shoulders, chest, legs, cloak and a trinket. |
+| Heirlooms | **Scale with the wearer, and give XP: +80% in all.** A two-hander is +20%; a one-hander, shield or off-hand is +10% each. The other 60% is **six armour pieces at +10%**: head, shoulders, chest, legs, cloak and a trinket. **Ten pieces that fit whoever takes them.** |
 | Forms | **Map only.** The party leader walks the overworld as the creature; combat and portraits stay normal. |
 | Mounts | **Still need riding.** Learned for the account, ridden at the character's own riding speed. |
 | Feathers | **Two: Kalimdor and the Eastern Kingdoms.** Islands go with the continent their flights connect to. |
-| Later | Callboards and daily quests (a new daily-quest system, the biggest piece) come after the first wave. |
+| Where you see it | "We should be able to see our stuff from character. So anywhere. Not bank." |
+| Later | Callboards and daily quests (a new daily-quest system, the biggest piece) come after this. |
 
 ## How it works
 
@@ -36,20 +40,22 @@ bags.
 **The items.** Each collectable is a bag item (like a recipe scroll) with a `collection_id`. Right-click it to learn
 it. Until it's learned it's an ordinary item: you can mail it, bank it, or put it back on the auction house.
 
-**The tab.** A new **Collection** screen, opened from the game menu, with five tabs: **Mounts**, **Forms**,
-**Travel** (the feathers and the hearth tome), **Services** (the portable bank, vendor and trainers) and
-**Heirlooms**. Each shows what you have, what you're missing as a silhouette with its name, and what it does.
+**The tab.** The **Collection** screen opens from the overworld's tab column or with **U**, anywhere. It has six tabs
+(**Mounts**, **Forms**, **Titles**, **Travel** with the feathers, hearths and tomes, **Services** and
+**Heirlooms**), a filter (all, learned, missing) and a search you type into. Learned things come first in their
+rarity colour, each with a button that does it: ride, wear, use a title, take the second hearth, call a service, or
+take an heirloom copy. Missing ones are greyed with their name, so you can see what's still out there.
 
-**The auction house.** A new **Collection** category in both houses. The market keeps a handful of collectables
-listed across the two books at all times (about three to six), each listed by a trader for about a market day. When
-one ends or sells, another takes its place, picked by rarity: common ones come back often, and the rarest turn up
-once every few days. Prices are each item's base price times the market's own price index for it, so they drift up
-and down like everything else, and the traders list a little above or below that. NPC collectors buy one now and
-then, so something you're watching can vanish.
+**The auction house.** A **Collection** category in both houses, with the same six subcategories. Traders keep
+about 60 to 120 collectables listed across the two books (55 and 35 at full stock), each for about a market day.
+New listings arrive through the day as old ones sell or end, picked by rarity, so common ones are always around and
+the epic ones are a couple at a time at most. Each trader asks their own price around the market's going price for
+that item, which wanders like everything else, and NPC collectors buy one now and then, so something you're
+watching can vanish.
 
-**The portable services.** Each is used from the Services tab, never in combat, never in a dungeon fight, and then
-waits one market day (24 market hours) before it can be used again. The wait belongs to the character, since the
-market clock lives in each save.
+**The portable services.** Each is used from the Services tab, never in combat, and then waits one market day (24
+market hours) before it can be used again. The wait belongs to the character, since the market clock lives in each
+save.
 
 **Heirlooms.** Learning one adds it to the Heirlooms tab, and any character can take a copy from there (one copy of
 each at a time). A copy is bound to the account, can't be sold or auctioned, and is blue quality at the wearer's
@@ -57,105 +63,37 @@ level: it fits itself to the character when it's taken (the right armour type an
 right weapon type for their class) and re-fits itself every time they level. The XP bonus adds up across the pieces
 they're wearing, to +80% at most, and stops at level 60 because there's nothing left to earn.
 
-## The first wave (40 collectables)
+**Titles.** The leader wears one at a time; it shows under their name beside the map and on the character sheet.
 
-Prices are the base, before the market moves them. Rarity is how often they turn up.
+## What's in it (741, built by `tools/build_collection.py`)
 
-### Mounts (6, need riding; new art)
-
-| Mount | Price | Rarity | What it is |
+| Kind | Count | Price | Where it comes from |
 |---|---|---|---|
-| Bone-White Kodo | 300g | uncommon | An elder's kodo from Thunder Bluff, pale as chalk and older than most towns. |
-| Steamwheedle Runabout | 350g | uncommon | A goblin's brass strider with a leaky boiler and no brakes worth the name. |
-| Tidecaller Sea Turtle | 450g | rare | A great turtle from the Tempest Isle shallows, slow to look at and quick under you. |
-| Dread Elk of Felwood | 500g | rare | A black elk with green fire in its antlers, from the edge of the corrupted woods. |
-| Sunreach Hawkstrider | 600g | epic | A tall gold and white strider bred by the Sunreach Conclave. |
-| Ashen Nightmare | 750g | epic | A black horse with an ember mane, ridden out of the Plaguelands' worst night. |
+| Mounts | 90 | 25g to 750g | Six unique mounts (their art is still to come) and the twelve mounts in seven hue-shifted colourways: Rose, Dawn and Spring (uncommon), Jade, Tide and Dusk (rare), Twilight (epic). The colourways are made from the mount's own art when drawn (`world/collection_art.py`), until Kyle's art replaces them. |
+| Forms | 465 | 2g to 750g | Ten named in the design (Murloc, Kobold Miner, Gnoll Brute, Treant, Ooze, Carrion Vulture, Furbolg, Wandering Skeleton, Spirit Wolf, Shade of the Drowned Court), then one for every creature picture in the open world, named for the earliest ordinary creature that wears it. Level 1-10 creatures are a few gold; bosses are rare or epic. Nothing from a hidden place, nothing above 60. |
+| Titles | 162 | 2g to 750g | `tools/collection_titles.py`: 50 common, 50 uncommon, 44 rare, 18 epic. |
+| Travel | 4 | 300g to 400g | Windrider Feathers of Kalimdor and the Eastern Kingdoms, the Tome of the Swift Hearth (half the hearth's cooldown), the Hearthstone of the Second Home (its own bind at any innkeeper, its own cooldown). |
+| Services | 6 | 150g to 250g | Travelling Bank, Peddler's Bell (sells anything), Courier's Horn (mail), Book of the Wandering Master (your class trainer), Book of Professions (every profession trainer, so you can learn a new one too), Alchemist's Satchel (reagents). |
+| Tomes | 4 | 100g to 350g | Pack Mule (every backpack holds 12 more), Deep Vault (a free extra bank tab, the Collector's Shelf), Quick Study (Apprentice Riding costs nothing), First Steps (new characters start with a six-slot bag and 5g). |
+| Heirlooms | 10 | 120g to 300g | Helm, Shoulders, Chest, Legs, Cloak, Trinket, Two-Hander, One-Hander, Shield, Off-Hand. |
 
-### Forms (6, map only; new art)
+Two of the approved extras came out slightly different from how I first wrote them:
 
-| Form | Price | Rarity | |
-|---|---|---|---|
-| Murloc | 150g | common | Mrglglgl. |
-| Kobold Miner | 150g | common | Candle included. You no take it. |
-| Treant Sapling | 250g | uncommon | A walking sprig of Ashenvale. |
-| Carrion Crow | 300g | uncommon | Hops more than it flies. |
-| Wandering Skeleton | 400g | rare | The Forsaken find it in poor taste. |
-| Spirit Wolf | 600g | epic | A ghostly wolf that leaves no tracks. |
+- **Pack Mule:** it's 12 more backpack spaces, not a fifth bag slot. A fifth slot means reworking the bag row on every
+  bag screen. I'll make it a real slot if Kyle wants.
+- **Quick Study:** Apprentice Riding costs nothing at the riding trainer, rather than being handed out at 20.
 
-### Travel (3)
+## Art still to come (`docs/collection_art_prompts.md`)
 
-| Item | Price | Rarity | Effect |
-|---|---|---|---|
-| Windrider Feather of Kalimdor | 400g | rare | Every Kalimdor flight path is open to every character. |
-| Windrider Feather of the Eastern Kingdoms | 400g | rare | Every Eastern Kingdoms flight path is open to every character. |
-| Tome of the Swift Hearth | 300g | uncommon | The hearthstone's cooldown is halved. |
-
-### Services (5, once per market day each)
-
-| Item | Price | Rarity | Effect |
-|---|---|---|---|
-| Satchel of the Travelling Bank | 250g | uncommon | Opens your bank anywhere. |
-| Peddler's Bell | 150g | common | Calls a pack-mule peddler who buys anything you're carrying (and sells back what you sold him by mistake). |
-| Courier's Horn | 150g | common | A courier brings your mail and takes letters out. |
-| Book of the Wandering Master | 200g | uncommon | Opens your class trainer anywhere. |
-| Book of Professions | 200g | uncommon | Opens a profession trainer anywhere, for any of your professions. |
-
-### Heirlooms (10)
-
-| Heirloom | XP | Price | Rarity |
-|---|---|---|---|
-| Heirloom Helm | +10% | 150g | common |
-| Heirloom Shoulders | +10% | 150g | common |
-| Heirloom Chest | +10% | 180g | uncommon |
-| Heirloom Legs | +10% | 180g | uncommon |
-| Heirloom Cloak | +10% | 120g | common |
-| Heirloom Trinket | +10% | 200g | uncommon |
-| Heirloom Two-Hander | +20% | 300g | rare |
-| Heirloom One-Hander | +10% | 150g | common |
-| Heirloom Shield | +10% | 120g | common |
-| Heirloom Off-Hand | +10% | 120g | common |
-
-Ten heirlooms cover every class because each one fits itself to its wearer. A cloth caster taking the Shoulders gets
-cloth shoulders with spell power; a warrior gets plate with strength. They're named for that when taken (the
-Heirloom Shoulders become, say, "Heirloom Spaulders of the Wandering Blade").
-
-Full kit: weapons +20% (a two-hander, or a one-hander with a shield or off-hand), plus the six armour pieces at +60%,
-for +80%.
-
-### Ten to round it out (my suggestions: Kyle to veto any)
-
-Ten more so the market has something to say on most days, all of the kinds Kyle named. These are proposals, not
-answers:
-
-- **Mounts:** none more until the art is in.
-- **Travel:** a **Hearthstone of the Second Home** (300g, rare): a second hearthstone with its own bind and cooldown.
-- **Services:** an **Alchemist's Satchel** (200g, uncommon), which opens a reagent vendor anywhere.
-- **QoL tomes:**
-  - **Tome of the Pack Mule** (350g, rare): an extra bag slot for every character.
-  - **Tome of the Deep Vault** (300g, rare): an extra bank tab for every character, free.
-  - **Tome of the Quick Study** (250g, uncommon): characters start with Apprentice Riding at 20 for free.
-  - **Book of First Steps** (100g, common): new characters start with a bag and 5g.
-- **Forms:**
-  - **Gnoll Brute** (200g, uncommon)
-  - **Little Ooze** (250g, uncommon)
-  - **Furbolg Elder** (350g, rare)
-  - **Shade of the Drowned Court** (700g, epic)
-
-These four forms need their art in the same sheet as the six above.
-
-## Art (three sheets; prompts in `docs/collection_art_prompts.md`)
-
-1. **Mounts:** 6 mounts in 4 directions each, matching the existing mount sprites.
-2. **Forms:** 10 forms in 4 directions each.
-3. **Icons:** 40 item icons (each collectable's bag icon), with the Collection tab's own frame and tab art.
-
-Until the art lands, mounts and forms are sold and learned, but they can't be used yet and are marked "art coming".
-Everything else works the day it's built.
+1. **The six unique mounts**, in four directions each, matching the existing mount sprites. Until then they can be
+   bought and learned but not ridden, and say so.
+2. **Mount colourway art** if Kyle wants hand-made versions to replace the hue shifts ("I'll get art").
+3. **Icons:** the bag icons for each kind (reins, charms, title scrolls, feathers, tomes, the service items, the
+   heirlooms). Until then they use stand-ins from the quest-item set.
 
 ## Later
 
 - **Callboards and daily quests**: a board in each capital that offers a few daily quests, account-learned so every
   character sees it. This is the next wave, and it needs its own design (what dailies are, what they pay, where the
   boards stand).
-- More of everything, as Kyle thinks of it.
+- **More of everything**, as Kyle thinks of it: the builder makes the catalogue, so adding a kind is a section there.

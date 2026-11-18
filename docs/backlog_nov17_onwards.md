@@ -32,7 +32,14 @@ East road.
 in the game. The other eight are waiting for their maps: re-run `tools/build_sheet5_recruits.py --write` once Deadwind
 Pass (four), Moonglade (two) and Winterspring (two) exist, and it places them.
 
-## 1b. Deadwind Pass (vision and art prompts only, 17 Nov 2026)
+## 1a. The Collection (account-wide unlocks on the AH, 18 Nov 2026)
+- Built: `docs/collection_design.md`, 741 collectables, the Collection screen (U), the AH's Collection category.
+- **Art:** Sheet C (six unique mounts) and Sheet D (36 icons) in `docs/collection_art_prompts.md`. Kyle: "I'll get
+  art" for the mount colourways too.
+- **Next wave:** callboards and daily quests (needs its own design). More of everything as Kyle thinks of it.
+- **Pack Mule** is +12 backpack spaces, not a fifth bag slot; Kyle to say if he wants the real slot.
+
+## 1b. Deadwind Pass (vision and art prompts; Kyle's four picks settled 18 Nov, then on hold)
 - `docs/deadwind_brief.md` and `docs/deadwind_art_prompts.md` (8 sheets). Kyle: "I just want the vision and the
   prompts....then go back to happy Azshara!" Nothing to build until the art is in and Kyle says go. It holds the last T0
   token (the bracers), reached by a tunnel through Stranglethorn's north-east mountains.
