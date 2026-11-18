@@ -532,6 +532,12 @@ class PortalManager:
                 (4, 104): ("Ashenvale East", 215, 102),        # arrive (215,100), on the Azshara road
                 (120, 196): ("Orgrimmar", 134, 7),             # arrive (134,5), inside the north gate
                 (40, 150): ("Talrendis Landing", 30, 7),       # arrive (30,5), under the Landing's gate
+                (62, 4): ("Timbermaw Hold", 120, 196),         # arrive (120,194), inside the Hold's south gate
+            },
+            "Timbermaw Hold": {
+                # The Timbermaw's caldera city (tools/handbuilt_timbermaw_hold.py, 17 Nov 2026).
+                (120, 198): ("West Azshara", 62, 9),           # arrive (62,7), under the totem gate at the pass top
+                (1, 108): ("Timbermaw Tunnel", 174, 154),      # arrive (174,152), at the end of the East Passage
             },
             "Talrendis Landing": {
                 (30, 1): ("West Azshara", 40, 150),            # arrive (40,148), outside the Landing's gate
@@ -667,6 +673,7 @@ class PortalManager:
             "Timbermaw Tunnel": {
                 # The Timbermaw's tunnel above North Felwood (tools/handbuilt_timbermaw_tunnel.py, 17 Nov 2026).
                 (90, 196): ("North Felwood", 94, 9),                # arrive (94,7), at the foot of the tunnel
+                (177, 152): ("Timbermaw Hold", 4, 110),             # the East Passage: arrive (4,108), in the Hold
             },
             "Southshore": {
                 # Its own map since 17 Nov 2026 (tools/handbuilt_southshore.py); the gate on the trunk road.

@@ -60,6 +60,7 @@ TOWN_REGION = {
     "southshore": "Western Hillsbrad",
     "timbermaw_tunnel": "North Felwood",
     "talrendis_landing": "West Azshara",
+    "timbermaw_hold": "West Azshara",
     "lights_hope_chapel": "Eastern Plaguelands East",
     "undercity": "Undercity",
     "sepulcher": "Silverpine North",

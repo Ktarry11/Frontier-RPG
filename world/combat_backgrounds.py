@@ -205,6 +205,7 @@ ZONE_BACKGROUND = {
     "Southshore": "coast",                        # the Alliance harbour town, its own map
     "West Azshara": "fantasy_forest",             # Azshara's autumn forest (until its own background)
     "Talrendis Landing": "coast",                 # the salvage camp on the bay
+    "Timbermaw Hold": "mountain",                 # the Timbermaw's caldera
     "Eastern Kingdoms - Stranglethorn": "jungle",  # region label over the tropical zones
 
     # --- desert and salt ---------------------------------------------------

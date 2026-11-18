@@ -64,6 +64,7 @@ ZONES = {
     "timbermaw_tunnel": "tools.handbuilt_timbermaw_tunnel",
     "azshara_west": "tools.handbuilt_azshara_west",
     "talrendis_landing": "tools.handbuilt_talrendis_landing",
+    "timbermaw_hold": "tools.handbuilt_timbermaw_hold",
     "hillsbrad_west": "tools.handbuilt_hillsbrad_west",
     "booty_bay": "tools.handbuilt_booty_bay",
     "ratchet": "tools.handbuilt_ratchet",

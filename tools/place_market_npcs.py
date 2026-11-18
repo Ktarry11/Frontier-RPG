@@ -45,7 +45,9 @@ CULTURE = {"orc": ["mailbox_orc", "mailbox_orc_b"], "troll": ["mailbox_troll"],
 GOBLIN_TOWNS = {"booty_bay", "ratchet", "steamwheedle_port", "saltwheel", "fourth_peg"}
 #: towns whose zone default race isn't the people who run the inn (the default is "human" for most new zones)
 TOWN_CULTURE = {"sepulcher": "forsaken", "freewind_post": "tauren", "sun_rock_retreat": "tauren", "gromgol": "troll",
-                "splintertree_post": "orc", "hammerfall": "orc", "zoram_strand": "orc"}
+                "splintertree_post": "orc", "hammerfall": "orc", "zoram_strand": "orc",
+                # Azshara (17 Nov 2026): the salvage camp's orc mail; the Hold's wood and hide reads as tauren
+                "talrendis_landing": "orc", "timbermaw_hold": "tauren"}
 #: Per inn, where a zone holds more than one culture. The Plaguelands' human hubs (the Pale Flame, the Argent Dawn,
 #: Crown Guard) use the Forsaken box's grey iron until Kyle draws a human mailbox.
 INN_CULTURE = {"wpl_bulwark_innkeeper": "forsaken", "wpl_pf_innkeeper": "forsaken", "epl_cg_innkeeper": "forsaken",

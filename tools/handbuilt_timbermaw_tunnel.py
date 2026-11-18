@@ -18,13 +18,16 @@ Honey Galleries, which loops back to the Root Hall so the climb has two ways up 
       |  the switchbacks (and a dead end west to the Storeroom)
     THE LOWER GALLERIES: Pathfinder Grosk, watching the climb from Felwood
       |
-    THE WAYSTATION: the fire, the quartermaster, the provisioner, the featherkeeper
+    THE WAYSTATION: the fire, the provisioner, the featherkeeper (the quartermaster went home to the Hold)
       |------- west: the Long Gallery -> SELVA'S SPRING (the lake) -> the Moonglade passage (shut: the roof's down)
       |------- east: THE HONEY GALLERIES (Honeykeeper Tova) -> round and back up to the Root Hall
+      |              and on: THE EAST PASSAGE -> the door to Timbermaw Hold in Azshara (open since 17 Nov 2026)
       |
     THE ROOT HALL: the mountain's oldest roots, hanging through the roof
       |
-    THE ELDERS' REST: Elder Haldor Mossmane
+    THE ELDERS' REST: where the Elders sat while the tunnel was the only way out. Kyle, 17 Nov 2026: the leader and
+      the quartermaster "will be in timbermaw hold and not in the tunnel", so Elder Haldor and Bruna Honeyhide have
+      gone home up the East Passage; the tunnel's other seven stay
       |
     the Winterspring passage (shut: the roof's down), Warden Durn Rockpelt
 
@@ -32,6 +35,8 @@ Painted by tools/bake_ashenvale_dungeons.py timbermaw_tunnel (Moonwell Hollow's 
 
 HARD CONTRACTS (world/portal_manager.py)
   portal   (90,196) <-> North Felwood (94,4): you arrive at (90,194) coming in and (94,7) going out
+  portal   (177,152) <-> Timbermaw Hold (1,108), the end of the East Passage: you arrive at (174,152) coming in and
+           (4,108) going out
   later    the Winterspring passage's end (146,8) and the Moonglade passage's end (12,34) become doors when those zones
            exist; the rockfalls come out then
   NPC ids  tm_*, written by tools/build_timbermaw_hold.py from NPC_POSITIONS
@@ -45,6 +50,8 @@ KEY = "timbermaw_tunnel"
 BAKED = "assets/tiles/timbermaw_tunnel/baked"
 W, H = 180, 200
 PORTAL = (90, 196)
+#: the east passage's end (17 Nov 2026): the door through to Timbermaw Hold in Azshara
+EAST_PORTAL = (177, 152)
 START = (90, 192)
 #: where the two shut passages end; doors when Winterspring and Moonglade exist
 LATER_DOORS = {(146, 8): "Winterspring", (12, 34): "Moonglade"}
@@ -59,6 +66,8 @@ PATHS = {   # (points, width at start, width at end)
     # west: the Long Gallery to Selva's spring, and on toward Moonglade
     "gallery": ([(70, 106), (56, 100), (44, 92), (36, 82)], 5.5, 5.5),
     "moon":    ([(26, 66), (20, 54), (14, 42), (12, 34)], 5.0, 4.4),
+    # east, and on: the long East Passage out of the Honey Galleries, down and round to the door to Timbermaw Hold
+    "east":    ([(158, 100), (168, 114), (162, 128), (170, 142), (178, 152)], 5.0, 5.0),
     # east: round through the Honey Galleries and back up to the Root Hall
     "honey":   ([(110, 110), (128, 116), (142, 108)], 5.5, 5.5),
     "honeyup": ([(150, 86), (146, 74), (134, 68)], 5.0, 5.0),
@@ -79,6 +88,7 @@ ROOMS = {   # (cx, cy, rx, ry, rot, phase, name)
     "roots":      (122, 66, 16, 9, 0, 2.9, "The Root Hall"),
     "elders":     (122, 32, 17, 10, 0, 3.3, "The Elders' Rest"),
     "winter":     (146, 10, 8, 5, 0, 3.7, "The Winterspring Passage"),
+    "eastgate":   (171, 150, 7, 6, 0, 4.1, "The East Passage"),
 }
 #: Selva's spring, a lake in the mountain; and the drip pools in the Lower Galleries and the Root Hall
 POOLS = [(28, 74, 7.5, 4.6, 0.3), (64, 142, 3.0, 2.0, 0.6), (130, 66, 3.2, 2.2, 1.1)]
@@ -88,10 +98,8 @@ NPC_POSITIONS = {
     "tm_pathfinder":    (76, 138),    # Pathfinder Grosk, the Lower Galleries, watching the climb from Felwood
     "tm_provisioner":   (76, 104),    # Provisioner Orbo, the Waystation's west side
     "tm_featherkeeper": (86, 100),    # Featherkeeper Imna, by the fire
-    "tm_quartermaster": (104, 104),   # Quartermaster Bruna Honeyhide, the Waystation's east side
     "tm_honeykeeper":   (146, 102),   # Honeykeeper Tova, the Honey Galleries
     "tm_windtalker":    (38, 80),     # Windtalker Selva Brightpelt, on the spring's shore
-    "tm_elder":         (121, 37),    # Elder Haldor Mossmane, the Elders' Rest
     "tm_north_warden":  (143, 14),    # Warden Durn Rockpelt, at the Winterspring rockfall
 }
 
@@ -115,7 +123,7 @@ def build_tunnel():
     for pts in (((88, 118), (89, 112)), ((94, 98), (93, 95)), ((70, 106), (74, 106)), ((36, 82), (34, 80)),
                 ((26, 66), (28, 68)), ((110, 110), (106, 109)), ((142, 108), (145, 104)), ((150, 86), (149, 90)),
                 ((134, 68), (130, 67)), ((118, 70), (116, 68)), ((122, 58), (122, 60)), ((124, 40), (123, 38)),
-                ((132, 26), (128, 28)), ((72, 144), (71, 142)), ((46, 164), (48, 164))):
+                ((132, 26), (128, 28)), ((72, 144), (71, 142)), ((46, 164), (48, 164)), ((158, 100), (156, 100))):
         tube(b, list(pts), 5.0, 5.0)
     _apply_pools(zone, POOLS, shallow_only=True)
 
@@ -123,6 +131,10 @@ def build_tunnel():
     zone.collision_layer[py][px] = None
     zone.collision_layer[py - 1][px] = None
     L.mark("portal", px, py)
+    ex, ey = EAST_PORTAL
+    for dx in range(0, 4):
+        zone.collision_layer[ey][ex - dx] = None
+    L.mark("portal", ex, ey)
     for npc_id, (x, y) in NPC_POSITIONS.items():
         if not zone.is_walkable(x, y):
             raise AssertionError(f"{NAME}: {npc_id} at ({x},{y}) is not on walkable ground")
@@ -212,7 +224,7 @@ def dress(zone, L):
 
 
 def finish(zone, L):
-    return L.finish([PORTAL] + list(NPC_POSITIONS.values()))
+    return L.finish([PORTAL, EAST_PORTAL] + list(NPC_POSITIONS.values()))
 
 
 def build_tunnel_baked():

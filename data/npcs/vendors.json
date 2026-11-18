@@ -7182,9 +7182,9 @@
     {
       "vendor_id": "tm_quartermaster",
       "name": "Quartermaster Bruna Honeyhide",
-      "zone": "timbermaw_tunnel",
-      "x": 104,
-      "y": 104,
+      "zone": "timbermaw_hold",
+      "x": 134,
+      "y": 116,
       "tile_sprite": "npc",
       "buys_from_player": true,
       "faction": "neutral",
@@ -7194,7 +7194,7 @@
       "gender": "female",
       "appearance_variant": 2,
       "facing": "down",
-      "greeting": "The Hold trades with those who've stood with it. Show me you have, and I'll show you what the carvers sent down from the Hold for friends of the Timbermaw.",
+      "greeting": "The Hold trades with those who've stood with it. Show me you have, and I'll show you what the carvers made for friends of the Timbermaw.",
       "sells": [
         "healing_potion_masterwork",
         "mana_potion_masterwork",
@@ -7301,6 +7301,80 @@
         "vial_crystal",
         "parchment",
         "kit_field_repair"
+      ]
+    },
+    {
+      "vendor_id": "th_provisioner",
+      "name": "Provisioner Hunnla Thistlefur",
+      "zone": "timbermaw_hold",
+      "x": 158,
+      "y": 172,
+      "tile_sprite": "npc",
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 56,
+      "sells_gear": false,
+      "race": "furbolg",
+      "gender": "female",
+      "appearance_variant": 5,
+      "facing": "down",
+      "greeting": "Smoked fish from the spring, bread from the ovens and honey on all of it. The tunnel gets what's left after the Hold's eaten, so you've come to the right end.",
+      "sells": [
+        "meal_saltback_roast",
+        "drink_deepwell_cordial",
+        "hunters_brace_platter",
+        "cook_flour",
+        "cook_spice",
+        "cook_water",
+        "cook_mushroom",
+        "beast_lure"
+      ]
+    },
+    {
+      "vendor_id": "th_smith",
+      "name": "Smith Grumm Ironpaw",
+      "zone": "timbermaw_hold",
+      "x": 44,
+      "y": 166,
+      "tile_sprite": "npc",
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 56,
+      "sells_gear": true,
+      "race": "furbolg",
+      "gender": "male",
+      "appearance_variant": 2,
+      "facing": "down",
+      "greeting": "We don't make much iron up here, but what we make lasts. Bring me whatever you've broken and I'll have it right before the bellows cool.",
+      "sells": [
+        "kit_field_repair",
+        "whetstone",
+        "flux_strong",
+        "healing_potion_masterwork"
+      ]
+    },
+    {
+      "vendor_id": "th_honeymother",
+      "name": "Honeymother Ama Goldmane",
+      "zone": "timbermaw_hold",
+      "x": 178,
+      "y": 74,
+      "tile_sprite": "npc",
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 56,
+      "sells_gear": false,
+      "race": "furbolg",
+      "gender": "female",
+      "appearance_variant": 3,
+      "facing": "right",
+      "greeting": "Every hive on these terraces is older than me, and every jar in the store has a name on it. Buy what's on the shelf and don't touch what isn't.",
+      "sells": [
+        "drink_deepwell_cordial",
+        "hunters_brace_platter",
+        "cook_spice",
+        "cook_flour",
+        "beast_lure"
       ]
     }
   ]

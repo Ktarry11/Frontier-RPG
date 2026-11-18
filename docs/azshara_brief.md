@@ -135,5 +135,25 @@ evening, sliced the same night; `docs/azshara_art_prompts.md` has the slice tabl
   instead of down a street: a ring road round an excavated Highborne courtyard with the spire still in it, the orcs on
   the high ground, the Conclave on the lakeshore. Inn, Azshara's flight master (node `talrendis_landing`), nine people
   (`tools/build_talrendis_landing.py`); the Conclave's magister and quartermaster stay quest-free.
-- **Next:** Timbermaw Hold (the tm_ sheet is sliced), the tunnel's east passage, then Central and East.
+- **Timbermaw Hold** (`tools/handbuilt_timbermaw_hold.py`, 220x200), built as a CAPITAL (Kyle: "an actual capital
+  city and it will have the dungeon under it. This is similar to how org is"):
+  - **The shape:** a lobed caldera, not a ring. A basin in the middle has seven quarters cut into the wall round it
+    (the Elders' Terrace, the Long Hall, the Honey Terraces, the Carvers' Quarter, the Market, the Workshops and the
+    Tunnel Mouth). Four ramps come down to the basin and the rest of the rim is walked quarter to quarter. Each
+    quarter is filled with Timbermaw homes. The first two drafts (a dartboard of rings and spokes, then a hub of
+    eight spokes) were thrown out before Kyle saw them.
+  - **The gates:** the gate is on the south (from the top of West Azshara's Ursolan pass), and the Felwood tunnel's
+    new East Passage comes in on the west.
+  - **The deep gate:** sealed in the basin floor, chained, with wardens on it. It's the fel rot dungeon's door, the
+    way Ragefire opens in Orgrimmar.
+  - **The services:** the inn, then the bank, mail and auction house together in the Market (Kyle: "an auction house,
+    a bank, and a mailbox close together"), on the new tauren bank and AH (`docs/bank_auction_art_prompts.md`). There's
+    a class trainer, four profession trainers, MerchantTusk and a goblin auctioneer. No flight point.
+  - **The people:** 23 of the Hold's own, about 90% furbolg with an orc envoy, an Earth volunteer, a goblin and
+    MerchantTusk (Kyle: "furbolgs though like 90%....but some orcs, some humans, some goblins").
+  - **Moved up from the tunnel** (Kyle: "timbermaw rep vendor and the leader will be in timbermaw hold"): Elder Haldor
+    (the faction's leader, at the Great Lodge) and Quartermaster Bruna (the shelf). The faction's home is the Hold now.
+    "The Tunnel Opens" ends at the Elder in the Hold, and "The Shamans Who Turned" moved to Pathfinder Grosk in the
+    tunnel.
+- **Next:** Central Azshara, then East.
 

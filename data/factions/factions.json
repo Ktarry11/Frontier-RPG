@@ -2161,13 +2161,13 @@
     "timbermaw_hold": {
       "name": "Timbermaw Hold",
       "description": "The Timbermaw furbolgs of the hold above Felwood: the last of their people the fel didn't take, and they mean to take their cousins back.",
-      "home_zone": "timbermaw_tunnel",
-      "home_name": "Timbermaw Hold, in Azshara (its people in Felwood keep the Timbermaw Tunnel)",
+      "home_zone": "timbermaw_hold",
+      "home_name": "Timbermaw Hold, in Azshara (its people also keep the Timbermaw Tunnel above Felwood)",
       "leader": {
         "title": "Elder",
         "name": "Haldor Mossmane",
         "npc_id": "tm_elder",
-        "location": "The Elders' Rest, in the Timbermaw Tunnel",
+        "location": "The Elders' Great Lodge, in Timbermaw Hold",
         "line": "Every Deadwood in Felpaw was born in the Hold, or their mother was. We don't hate them. We can't afford to stop fighting them, either."
       },
       "_lore_note": "Kyle, 17 Nov 2026: 'add timbermaw hold ... and we can add the reputation'.",
@@ -2187,7 +2187,8 @@
           "tm_deadwood_feathers": 100
         },
         "zones": [
-          "timbermaw_tunnel"
+          "timbermaw_tunnel",
+          "timbermaw_hold"
         ],
         "also": [
           "fw_to_timbermaw_hold",

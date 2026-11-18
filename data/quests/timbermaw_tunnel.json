@@ -14,11 +14,11 @@
           "type": "deliver",
           "target": "tm_q_bramblecoat_token",
           "count": 1,
-          "label": "Bring Bramblecoat's token to Elder Haldor Mossmane at the Elders' Rest"
+          "label": "Bring Bramblecoat's token to Elder Haldor Mossmane at the Great Lodge in Timbermaw Hold"
         }
       ],
-      "accept_text": "Thornclaw said you'd be the first one up the hill, and he was right. Three years that mouth has been shut, and you're the first outsider through it.\n\nTake this token so the others know I let you in. Climb past the waystation and keep going up to the Elders' Rest at the top. Elder Haldor wants to see who Thornclaw's been talking about.",
-      "turn_in_text": "So you're Thornclaw's outsider. Welcome to the Timbermaw Tunnel.\n\nNot many outsiders have climbed this far, and the ones who did usually came to steal honey. Sit by the fire at the waystation for a while. I've got work for you if you want it.",
+      "accept_text": "Thornclaw said you'd be the first one up the hill, and he was right. Three years that mouth has been shut, and you're the first outsider through it.\n\nTake this token so the others know I let you in. Climb past the waystation and through the Honey Galleries, then keep on along the passage past them all the way to its end. That's the door to Timbermaw Hold, our home. Elder Haldor's at the Great Lodge at the top of the Hold, and he wants to see who Thornclaw's been talking about.",
+      "turn_in_text": "So you're Thornclaw's outsider. Welcome to Timbermaw Hold.\n\nNot many outsiders have come this far, and the ones who did usually came to steal honey. Look round as long as you like. When you want work, Pathfinder Grosk in the tunnel's Lower Galleries has been watching Felpaw for me, and he'll tell you what needs doing.",
       "next_quest_id": "tm_the_shamans_who_turned",
       "turn_in_npc_id": "tm_elder",
       "requires_quests": [
@@ -42,11 +42,11 @@
     {
       "quest_id": "tm_the_shamans_who_turned",
       "title": "The Shamans Who Turned",
-      "giver_npc_id": "tm_elder",
+      "giver_npc_id": "tm_pathfinder",
       "zone": "timbermaw_tunnel",
       "level_min": 54,
       "level_max": 54,
-      "description": "Kill the Deadwood Shamans of Felpaw Village for Elder Haldor Mossmane.",
+      "description": "Kill the Deadwood Shamans of Felpaw Village for Pathfinder Grosk.",
       "objectives": [
         {
           "type": "kill",
@@ -57,7 +57,7 @@
       ],
       "reward_exp": 3960,
       "reward_gold": 15600,
-      "accept_text": "The Deadwood were Timbermaw once, and some of them were born in the Hold. The fel got into them through the water, but it's their shamans who keep it in them. Every night they feed the fel to the rest, and every night the rest forget a little more of who they were.\n\nGo down the tunnel to North Felwood and south-east to Felpaw Village, and put the shamans down. I'm not asking you to enjoy it, because I don't.",
+      "accept_text": "The Elder sent you to me, so you've seen the Hold. The Deadwood were Timbermaw once, and some of them were born up there. The fel got into them through the water, but it's their shamans who keep it in them. Every night they feed the fel to the rest, and every night the rest forget a little more of who they were.\n\nGo down the tunnel to North Felwood and south-east to Felpaw Village, and put the shamans down. I'm not asking you to enjoy it, because I don't.",
       "turn_in_text": "The drums stopped last night. Selva heard it from the spring before the wardens did.\n\nWithout their shamans, some of the Deadwood might remember us. Not many, but I'll take some.",
       "next_quest_id": null,
       "unique_item_defs": [

@@ -335,6 +335,12 @@ _set("azshara_dungeons", 6, 6, "assets/creatures/_src/azshara", """
     vz_vault_door vz_artifact_pedestal vz_water_mirror vz_treasure_pile vz_ancient_well vz_queens_throne
     fr_boss_mossjaw fr_boss_sporeheart fr_boss_kazthul fr_boss_thornblight fr_boss_xavras fr_elite_guard
     vz_boss_ssiriss vz_boss_vashjren vz_boss_chamberlain vz_boss_elaria vz_boss_revenant vz_boss_echo_queen""")
+#: THE BANKS AND AUCTION HOUSES (docs/bank_auction_art_prompts.md, Kyle 17 Nov 2026): one grand bank (MerchantTusk's
+#: tusk-coin sign) and one grand auction house (the gavel and scales) in each of six styles.
+_set("bank_auction", 4, 3, "assets/buildings", """
+    bank_orc ah_orc bank_forsaken ah_forsaken
+    bank_tauren ah_tauren bank_blood_elf ah_blood_elf
+    bank_goblin ah_goblin bank_human ah_human""")
 _set("market_props", 6, 5, "assets/tiles/market/props", """
     mailbox_orc mailbox_orc_b mailbox_troll mailbox_forsaken mailbox_forsaken_b mailbox_tauren
     mailbox_tauren_b mailbox_goblin mail_tube_goblin parcel_cart mail_sacks notice_board

@@ -241,11 +241,28 @@ AZSHARA_SHEET = {
     "av_corrupt_ground": _az("az_cursed_soil"),
     "av_satyr_earth":    _az("az_cursed_soil"),
 }
+#: TIMBERMAW HOLD (tools/handbuilt_timbermaw_hold.py): the caldera floor. Gold mountain grass and leaf-strewn earth on
+#: the terraces, the Timbermaw's trodden paths and honey clay in the middle, lichen-grey rock for the walls and crags.
+TIMBERMAW_HOLD_SHEET = dict(AZSHARA_SHEET)
+TIMBERMAW_HOLD_SHEET.update({
+    "av_forest_floor":   _az("az_leaf_gold"),
+    "av_forest_grass":   _az("az_mountain_grass"),
+    "av_fern_floor":     _az("az_moss_shroom"),
+    "av_root_earth":     _az("az_grass_trod"),
+    "av_road_centre":    _az("az_furbolg_path"),
+    "av_road_edge":      _az("az_trail"),
+    "av_plaza_stone":    _az("az_honey_clay"),
+    "av_elven_paving":   _az("az_mossy_flag"),
+    "av_rocky_ground":   _az("az_scree"),
+    "av_cliff_a":        _az("az_lichen_stone"),
+    "av_cliff_b":        _az("az_scree"),           # the deep mountain: grey scree (rock_hill's orange grass read as mush)
+    "av_corrupt_ground": _az("az_felrot_soil"),
+})
 WPL_SHEET = _plague_sheet(east=False)
 EPL_SHEET = _plague_sheet(east=True)
 ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_SHEET, "epl_east": EPL_SHEET, "felwood_north": NORTH_SHEET, "stonetalon_east": STONETALON_SHEET,
                "stonetalon_west": STONETALON_WEST_SHEET, "sun_rock": SUN_ROCK_SHEET,
-               "azshara_west": AZSHARA_SHEET}
+               "azshara_west": AZSHARA_SHEET, "timbermaw_hold": TIMBERMAW_HOLD_SHEET}
 
 def _recolour(a, hue, sat, val):
     """a float 0..1 HxWx3 -> luminance-preserving tint."""

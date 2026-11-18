@@ -28,7 +28,8 @@ TOWNS = {"astranaar": "tools.handbuilt_astranaar", "splintertree": "tools.handbu
          "zoram": "tools.handbuilt_zoram", "emerald_sanctuary": "tools.handbuilt_emerald_sanctuary",
          "sun_rock_retreat": "tools.handbuilt_sun_rock_retreat", "bulwark": "tools.handbuilt_bulwark",
          "pale_watch": "tools.handbuilt_pale_watch", "lights_hope": "tools.handbuilt_lights_hope",
-         "talrendis_landing": "tools.handbuilt_talrendis_landing"}
+         "talrendis_landing": "tools.handbuilt_talrendis_landing",
+         "timbermaw_hold": "tools.handbuilt_timbermaw_hold"}
 
 MATS = dict(AV.MATERIALS)
 MATS.update({

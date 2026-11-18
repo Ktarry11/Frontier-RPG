@@ -24,8 +24,8 @@ paints the ground from sheet 1 (AZSHARA_SHEET), and the trees, ruins and salvage
 
 HARD CONTRACTS (world/portal_manager.py)
   portals  Ashenvale East (4,104) <-> its east road (215,102); Orgrimmar (120,196) <-> its north gate (134,1);
-           Talrendis Landing (40,150) <-> its gate (30,1). Later Timbermaw Hold (62,4), the satyr den (166,154) and
-           Central Azshara (196,96), in LATER_PORTALS until those maps exist
+           Talrendis Landing (40,150) <-> its gate (30,1); Timbermaw Hold (62,4) <-> its south gate (120,198). Later
+           the satyr den (166,154) and Central Azshara (196,96), in LATER_PORTALS until those maps exist
 """
 import numpy as np
 
@@ -35,10 +35,11 @@ BAKED_DIR = "assets/tiles/azshara/baked_west"
 AZP = "assets/tiles/azshara/props/"      # Kyle's Azshara props sheet (docs/azshara_art_prompts.md sheet 2)
 W, H = 200, 200
 
-PORTALS = {(4, 104): "Ashenvale East", (120, 196): "Orgrimmar", (40, 150): "Talrendis Landing"}
-ARRIVALS = [(6, 104), (120, 194), (40, 148)]
+PORTALS = {(4, 104): "Ashenvale East", (120, 196): "Orgrimmar", (40, 150): "Talrendis Landing",
+           (62, 4): "Timbermaw Hold"}
+ARRIVALS = [(6, 104), (120, 194), (40, 148), (62, 7)]
 #: the doors whose maps come next; their clearings, roads and gaps are already cut
-LATER_PORTALS = {(62, 4): "Timbermaw Hold", (166, 154): "Haldarr Den", (196, 96): "Central Azshara"}
+LATER_PORTALS = {(166, 154): "Haldarr Den", (196, 96): "Central Azshara"}
 START = (100, 106)     # the crossroads: everything must be reachable from here
 
 # ------------------------------------------------------------------ the plan

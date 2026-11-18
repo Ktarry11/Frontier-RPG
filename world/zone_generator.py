@@ -5626,6 +5626,7 @@ def create_all_zones():
     from tools import handbuilt_timbermaw_tunnel as dtmt
     from tools import handbuilt_azshara_west as daw
     from tools import handbuilt_talrendis_landing as dtl
+    from tools import handbuilt_timbermaw_hold as dth
     from tools import handbuilt_hammerfall as dhf
     from tools import handbuilt_saltspur_landing as dssl
     # ===== TEMPEST ISLE - the last content hole, 52-58, reached by boat from Saltspur =====
@@ -5787,6 +5788,7 @@ def create_all_zones():
         # ===== AZSHARA (52-59, docs/azshara_brief.md, 17 Nov 2026): Zin-Azshari is rising =====
         "West Azshara": daw.generate_azshara_west(),            # tools/handbuilt_azshara_west.py
         "Talrendis Landing": dtl.generate_talrendis_landing(),  # the Horde's salvage camp, its own map
+        "Timbermaw Hold": dth.generate_timbermaw_hold(),        # the Timbermaw's caldera city, off the Ursolan pass
         # HAMMERFALL IS ITS OWN ZONE as of 7 Nov. It was nine props on the open moor
         # inside Arathi Central with nineteen NPCs standing in a 34x31 box of it.
         "Hammerfall": dhf.generate_hammerfall(),  # hand-built stockade town (tools/handbuilt_hammerfall.py)
