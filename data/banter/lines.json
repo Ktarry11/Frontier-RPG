@@ -897,21 +897,21 @@
           "topic": "cities"
         },
         {
-          "text": "Tehran was louder than this and I could price every risk in it.",
+          "text": "Tehran was louder than this, and I could price every risk in it.",
           "kind": "open",
           "topic": "cities"
         }
       ],
       "boss_down": [
         {
-          "text": "Within tolerance. I had it at about one in nine against us.",
+          "text": "That was within tolerance. I had it at about one in nine against us.",
           "kind": "open",
           "topic": "measure"
         }
       ],
       "close_call": [
         {
-          "text": "That was outside my estimate. I'll revise it.",
+          "text": "That was outside my estimate, so I'll revise it.",
           "kind": "reply",
           "topic": "measure"
         }
@@ -1201,29 +1201,34 @@
       ]
     },
     "ziad_felsworn": {
-      "boss_down": [
+      "close_call": [
         {
-          "text": "I felt that one coming eight bars out. You learn it in a dark room.",
-          "kind": "open"
+          "text": "Don't follow me in next time, habibi. That isn't modesty, it's arithmetic.",
+          "kind": "reply"
         }
       ],
       "town_arrive": [
         {
-          "text": "Beirut at two in the morning, four nights a week. This is quieter and I'm not sure that's better.",
+          "text": "Beirut at two in the morning, four nights a week. This is quieter, and I'm not sure that's better.",
           "kind": "open",
           "topic": "night_work"
+        },
+        {
+          "text": "Beirut has the sea on one side and the mountains on the other, and the best coffee in the world in between.",
+          "kind": "open",
+          "topic": "cities"
         }
       ],
-      "close_call": [
+      "boss_down": [
         {
-          "text": "Do not follow me in next time. That isn't modesty.",
+          "text": "Count the wounded before anyone touches the loot, please.",
           "kind": "reply"
         }
       ],
       "dungeon_clear": [
         {
-          "text": "Good room for sound, that. Wasted on whatever was living in it.",
-          "kind": "reply"
+          "text": "Everybody out, everybody counted. Yalla, let's keep moving.",
+          "kind": "open"
         }
       ]
     },
@@ -1715,6 +1720,37 @@
       "close_call": [
         {
           "text": "Ha, too close! Have a drink, it helps, trust me.",
+          "kind": "reply"
+        }
+      ]
+    },
+    "hector_witchdoctor": {
+      "boss_down": [
+        {
+          "text": "And the winner, by a beautiful finish, is everybody! The crowd goes wild!",
+          "kind": "open"
+        }
+      ],
+      "town_arrive": [
+        {
+          "text": "Mexico City has twenty million people, and on Friday nights half of them were shouting my name. Well, my mask's name.",
+          "kind": "open",
+          "topic": "cities"
+        },
+        {
+          "text": "Look at all the children! Somebody tell them El Relámpago de Plata has arrived.",
+          "kind": "open"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "Ay, that was a close count, carnal! Get up before three, always before three.",
+          "kind": "open"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "What a show! Nobody saw it, but the spirits did, and they're very impressed.",
           "kind": "reply"
         }
       ]

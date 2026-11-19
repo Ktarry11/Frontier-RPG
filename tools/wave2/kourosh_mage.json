@@ -1,0 +1,75 @@
+{
+  "recruit_text": {
+    "greeting": "I'm going to stand back here and be extremely precise. You're welcome to be brave. Somebody in a group should be, and it was never going to be the actuary.",
+    "backstory": "Twelve years pricing mortality for an insurer in Tehran, the work of establishing, very carefully, how likely a thing is. He finds arcane magic restful by comparison, because for once the numbers hold still. He's calculated a figure he won't tell anybody. The refusal is cheerful rather than grim, and people find that worse.",
+    "before": "Tables, reserves, a good office with a bad view, and a mother, Shirin, he telephoned every Friday, who thought the job was beneath him.\n\nShe was right that he was capable of more. She was wrong about what more would have meant.",
+    "now": "The Crystalline Underdark, where the crystal lattice does something to arcane magic that nobody has characterised.\n\nHe's characterising it, longhand, in a case of notebooks he keeps dry. The case is nearly full.",
+    "forward": "No journal and no readership, and he's writing it anyway.\n\nHe's told two people what's in it. Both changed the subject. He recorded the date each time."
+  },
+  "bond": {
+    "home": "the Crystalline Underdark",
+    "dials": {"warmth": 0.8, "nerve": 1.1, "pride": 0.8, "restless": 0.8},
+    "likes": ["dungeon", "boss"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Kourosh, an arcane mage, and I'll stand at the back and be extremely precise. Before every fight I'll give you the odds, cheerfully. You're welcome to ignore them.",
+      "acquaintance": "I'm from Tehran. My father taught mathematics and died when I was a student, and my mother worked at a bank and had ambitions for me. I became an actuary, which means I spent twelve years pricing how likely people were to die. You'd be surprised how relaxing this world is by comparison. The numbers here stay still.",
+      "companion": "I was at my desk in the middle of a calculation when it happened, and I landed in the hills of Hillsbrad with this pencil in my hand. The first thing I did here was finish the sum. People call that brave. It wasn't, it was momentum, and I wish they'd stop. I never married. The numbers were never favourable, and I'm only half joking.",
+      "friend": "My mother is Shirin. I phoned her every Friday for twelve years, and she told me every Friday I was wasting myself. In my second year here I priced her odds of having survived, properly. Then I stopped looking. I've never told anyone the figure. And the lattice down here is changing. If my work's right, it'll soon be dangerous to everyone near it. I need your help to finish the measurements.",
+      "sworn": "It was right, and people left in time, and that's the first thing I've ever calculated that saved anybody. You asked for the figure, so here it is, thirty-one percent. That's the chance my mother survived. I've never checked, and I won't, because as long as I don't, the thirty-one percent is still alive. You can read the first volume of my notes. You're the first person I've let."
+    },
+    "moments": [
+      {"id": "the_odds", "stage": "acquaintance", "when": "talk",
+       "prompt": "Before a fight he cheerfully gives you the odds of losing.",
+       "options": [
+         {"text": "Thank him, and ask how to improve them.", "trust": 8,
+          "reply": "Oh, a practical question. Stand two steps to the left and they improve by a third."},
+         {"text": "I'd rather not know.", "trust": 0,
+          "reply": "Most people would rather not. That doesn't change the number, jan."}
+       ]},
+      {"id": "the_lattice", "stage": "friend", "when": "talk",
+       "prompt": "He's asked you to help him finish the measurements at the heart of the lattice.",
+       "options": [
+         {"text": "What are our odds?", "trust": 8,
+          "reply": "Better with you than without. That's not flattery, that's arithmetic."},
+         {"text": "Let's go and finish it.", "trust": 12,
+          "reply": "Khoda hafez to the quiet life, then. Bring something to write on."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've repeated the same task enough times that I can predict every outcome. Predictable is restful, but it's also boring.",
+      "leaving_good": "That was a very productive trip. I'm going back to the Underdark to write it up. You know where to find me.",
+      "leaving_bored": "I'm going back to the Underdark. The odds of anything interesting happening out here have dropped to nearly nothing.",
+      "after_wipe": "Well, that was the unlikely outcome. I'd like to revise my estimate before we try again.",
+      "wipe_warning": "We've died here several times now, which is well outside my estimate. I'll finish this run, then I need a break.",
+      "wipe_leave": "I've finished it with you. Now I'm going back to the Underdark to recalculate everything.",
+      "zone_warning": "I've done the sum. Our odds out here are very poor, and I'd rather not be the remainder.",
+      "zone_leave": "I'm stopping here. The odds were very poor. I'll be in the Crystalline Underdark.",
+      "gear_refuse": "I'd rather keep that, jan. We don't know each other well enough yet.",
+      "gear_taken": "Take it, then. I've adjusted my odds accordingly, downward.",
+      "gear_short": "I'm still missing that piece. It's costing us about four percent.",
+      "gear_upgrade": "That improves things considerably. Thank you, truly.",
+      "back": "I'm back, and I've filled another notebook. What are we doing, and what are the odds?",
+      "send_word": "Kourosh has sent word from the Crystalline Underdark. His notes are written up and he's ready to come out.",
+      "walkout_talk": "I left in anger, which I estimate is rare for me. Sit, and I'll explain precisely. Then I'll listen.",
+      "neglect": "You've been away a long time. I recorded the date you left, naturally.",
+      "asked_to_stay": "Very well, one more. The odds are acceptable.",
+      "on_break": "Kourosh is back in the Crystalline Underdark with his notebooks. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {"text": "I spent eight days in Alexandria once, auditing a shipping firm. I've thought about those eight days more than the twelve years around them.", "kind": "reply", "topic": "cities"},
+      {"text": "Tehran was louder than this, and I could price every risk in it.", "kind": "open", "topic": "cities"}
+    ],
+    "boss_down": [
+      {"text": "That was within tolerance. I had it at about one in nine against us.", "kind": "open", "topic": "measure"}
+    ],
+    "close_call": [
+      {"text": "That was outside my estimate, so I'll revise it.", "kind": "reply", "topic": "measure"}
+    ],
+    "zone_arrive": [
+      {"text": "I priced risk for twelve years. This place would have bankrupted me.", "kind": "open"}
+    ]
+  }
+}

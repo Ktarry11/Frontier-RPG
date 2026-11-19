@@ -2124,6 +2124,90 @@
         "on_break": "Haruto is back by the standing stones in Silverpine South. Come back after you've done a few more jobs."
       }
     },
+    "hector_witchdoctor": {
+      "home": "the Gurubashi Arena",
+      "dials": {
+        "warmth": 1.5,
+        "nerve": 1.4,
+        "pride": 1.2,
+        "restless": 1.0
+      },
+      "likes": [
+        "boss",
+        "full_party"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "¡Órale, a fan! You want a picture with El Relámpago de Plata? Of course you do. I'm a witch doctor now, carnal, but the Silver Lightning is forever.",
+        "acquaintance": "I'm from Mexico City, from Tepito, a tough neighbourhood. My father traded in the market. I started training lucha at fourteen and debuted at twenty, black mask, silver flames. Fifteen years at Arena México on Friday nights. Never the biggest star, but the crowd loved me, and I loved them more.",
+        "companion": "My wife is Rocío. She sewed every mask I ever wore, by hand, and she's the only one outside the family who knows my face. We've got two boys, Toño and Beto, who wore homemade masks to school and want to be luchadores. I'd retired with a bad knee, and I was teaching kids to fall at the gym when it happened.",
+        "friend": "I want to give my mask to my boys one day, carnal. That's how it's done. A luchador hands his mask to his son. I'm afraid I never will. The goblins here say I can have a real lucha night in the arena, rules and a ring and everything, if I can fill the stands. Help me fill them. I want posters with my face on them, well, my mask, everywhere.",
+        "sworn": "In the front row there were two boys in homemade masks, and a woman crying and laughing. Rocío saw a poster in Booty Bay and knew the mask, because she sewed it. After the match I took the boys into the ring, and I took off my mask in front of the whole arena for the first time in my life, and I put it on Toño. The crowd went crazy. I don't need the mask any more. I've got my name back."
+      },
+      "moments": [
+        {
+          "id": "the_poster",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to help him fill the arena for a lucha night.",
+          "options": [
+            {
+              "text": "Let's put your mask on every wall in Stranglethorn.",
+              "trust": 12,
+              "reply": "¡Ándale, carnal, that's the spirit, carnal. Every wall, every tree, every goblin."
+            },
+            {
+              "text": "Who are you hoping will see it?",
+              "trust": 8,
+              "reply": "You're sharper than you look, carnal. You know who, so let's go."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's lying flat on his back, laughing at the sky.",
+          "line": "Ay, that was a beautiful fall, everybody! Ten out of ten. Now we get up, because the crowd's still watching.",
+          "options": [
+            {
+              "text": "The crowd loves a comeback.",
+              "trust": 8,
+              "mood": 8,
+              "reply": "¡Exacto, carnal, now you're talking like a luchador, carnal."
+            },
+            {
+              "text": "There's no crowd, Héctor.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "There's always a crowd, carnal. Sometimes it's just the spirits."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Carnal, there's no crowd and no show out here, just the same thing again and again. Let's go somewhere people can see us!",
+        "leaving_good": "What a show, everybody, what a show! I'm going back to the arena to sign autographs. Come and see me.",
+        "leaving_bored": "I'm going back to the arena. This is no show at all, and my fans are waiting.",
+        "after_wipe": "A beautiful fall, everybody! Now we get up, because the crowd's still watching.",
+        "wipe_warning": "We keep falling in here, carnal, and not in the good way. I'll finish this match, then I need a rest.",
+        "wipe_leave": "The match is over, carnal. I'm going back to the arena for a while. Come and find me when you're ready for a rematch.",
+        "zone_warning": "This is a match we can't win, carnal. Even El Relámpago de Plata knows when to leave the ring.",
+        "zone_leave": "I'm stopping here. Some matches you don't take. I'll be at the Gurubashi Arena.",
+        "gear_refuse": "Ah, no, carnal, that's mine! Ask me again after a few more shows.",
+        "gear_taken": "Take it, take it! El Relámpago de Plata doesn't need armour, he needs a crowd.",
+        "gear_short": "I'm still missing that piece, carnal. I'm only saying it with love.",
+        "gear_upgrade": "¡Órale, look at that! Thank you, carnal, I'll wear it in the ring.",
+        "back": "El Relámpago de Plata is back, everybody! Where's the next show?",
+        "send_word": "Héctor has sent word from the Gurubashi Arena. He's signed every autograph and he's ready to come out.",
+        "walkout_talk": "I walked out angry, carnal, and that's not good for the show. Sit down and let's talk it through, man to man.",
+        "neglect": "Carnal, there you are! I thought you'd stopped being a fan.",
+        "asked_to_stay": "¡Ándale, one more match! Then the arena.",
+        "on_break": "Héctor is back at the Gurubashi Arena, signing autographs. Come back after you've done a few more jobs."
+      }
+    },
     "henrik_mage": {
       "home": "the Frostward Descent",
       "dials": {
@@ -2628,6 +2712,87 @@
         "asked_to_stay": "Okay, one more, hwaiting.",
         "on_break": "Jun-seo is back at the cargo hoist in Central Stranglethorn. Come back after you've done a few more jobs.",
         "quest_abandoned": "We said we'd do that and we didn't. I don't like leaving a job half done."
+      }
+    },
+    "kourosh_mage": {
+      "home": "the Crystalline Underdark",
+      "dials": {
+        "warmth": 0.8,
+        "nerve": 1.1,
+        "pride": 0.8,
+        "restless": 0.8
+      },
+      "likes": [
+        "dungeon",
+        "boss"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Kourosh, an arcane mage, and I'll stand at the back and be extremely precise. Before every fight I'll give you the odds, cheerfully. You're welcome to ignore them.",
+        "acquaintance": "I'm from Tehran. My father taught mathematics and died when I was a student, and my mother worked at a bank and had ambitions for me. I became an actuary, which means I spent twelve years pricing how likely people were to die. You'd be surprised how relaxing this world is by comparison. The numbers here stay still.",
+        "companion": "I was at my desk in the middle of a calculation when it happened, and I landed in the hills of Hillsbrad with this pencil in my hand. The first thing I did here was finish the sum. People call that brave. It wasn't, it was momentum, and I wish they'd stop. I never married. The numbers were never favourable, and I'm only half joking.",
+        "friend": "My mother is Shirin. I phoned her every Friday for twelve years, and she told me every Friday I was wasting myself. In my second year here I priced her odds of having survived, properly. Then I stopped looking. I've never told anyone the figure. And the lattice down here is changing. If my work's right, it'll soon be dangerous to everyone near it. I need your help to finish the measurements.",
+        "sworn": "It was right, and people left in time, and that's the first thing I've ever calculated that saved anybody. You asked for the figure, so here it is, thirty-one percent. That's the chance my mother survived. I've never checked, and I won't, because as long as I don't, the thirty-one percent is still alive. You can read the first volume of my notes. You're the first person I've let."
+      },
+      "moments": [
+        {
+          "id": "the_odds",
+          "stage": "acquaintance",
+          "when": "talk",
+          "prompt": "Before a fight he cheerfully gives you the odds of losing.",
+          "options": [
+            {
+              "text": "Thank him, and ask how to improve them.",
+              "trust": 8,
+              "reply": "Oh, a practical question. Stand two steps to the left and they improve by a third."
+            },
+            {
+              "text": "I'd rather not know.",
+              "trust": 0,
+              "reply": "Most people would rather not. That doesn't change the number, jan."
+            }
+          ]
+        },
+        {
+          "id": "the_lattice",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to help him finish the measurements at the heart of the lattice.",
+          "options": [
+            {
+              "text": "What are our odds?",
+              "trust": 8,
+              "reply": "Better with you than without. That's not flattery, that's arithmetic."
+            },
+            {
+              "text": "Let's go and finish it.",
+              "trust": 12,
+              "reply": "Khoda hafez to the quiet life, then. Bring something to write on."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've repeated the same task enough times that I can predict every outcome. Predictable is restful, but it's also boring.",
+        "leaving_good": "That was a very productive trip. I'm going back to the Underdark to write it up. You know where to find me.",
+        "leaving_bored": "I'm going back to the Underdark. The odds of anything interesting happening out here have dropped to nearly nothing.",
+        "after_wipe": "Well, that was the unlikely outcome. I'd like to revise my estimate before we try again.",
+        "wipe_warning": "We've died here several times now, which is well outside my estimate. I'll finish this run, then I need a break.",
+        "wipe_leave": "I've finished it with you. Now I'm going back to the Underdark to recalculate everything.",
+        "zone_warning": "I've done the sum. Our odds out here are very poor, and I'd rather not be the remainder.",
+        "zone_leave": "I'm stopping here. The odds were very poor. I'll be in the Crystalline Underdark.",
+        "gear_refuse": "I'd rather keep that, jan. We don't know each other well enough yet.",
+        "gear_taken": "Take it, then. I've adjusted my odds accordingly, downward.",
+        "gear_short": "I'm still missing that piece. It's costing us about four percent.",
+        "gear_upgrade": "That improves things considerably. Thank you, truly.",
+        "back": "I'm back, and I've filled another notebook. What are we doing, and what are the odds?",
+        "send_word": "Kourosh has sent word from the Crystalline Underdark. His notes are written up and he's ready to come out.",
+        "walkout_talk": "I left in anger, which I estimate is rare for me. Sit, and I'll explain precisely. Then I'll listen.",
+        "neglect": "You've been away a long time. I recorded the date you left, naturally.",
+        "asked_to_stay": "Very well, one more. The odds are acceptable.",
+        "on_break": "Kourosh is back in the Crystalline Underdark with his notebooks. Come back after you've done a few more jobs."
       }
     },
     "liam_suncleric": {
@@ -4796,6 +4961,87 @@
         "neglect": "There you are! I made extra every night in case you came. Terrible waste of beans.",
         "asked_to_stay": "Ajde, one more. Then I cook.",
         "on_break": "Vuk is back at the fire in Rocky Pass. Come back after you've done a few more jobs."
+      }
+    },
+    "ziad_felsworn": {
+      "home": "Booty Bay",
+      "dials": {
+        "warmth": 1.1,
+        "nerve": 1.4,
+        "pride": 0.9,
+        "restless": 1.4
+      },
+      "likes": [
+        "boss",
+        "quest"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Ziad, habibi, a felsworn, and a paramedic before that. Keep moving, and if you're hurt, tell me fast. And yes, the green in my eyes is new. We can argue about it later.",
+        "acquaintance": "I'm from Beirut, from Achrafieh. My dad's a pharmacist and my mum teaches, and my little sister Lina is the only person who can shut me up. I did six years in a Red Cross ambulance. A van with four spaces and five people dying, every week. You get very good at choosing, and choosing gets very heavy.",
+        "companion": "I was half asleep in the van between calls when it happened, with an earplug in, and I landed in Stranglethorn with it still in my ear. The fel came to me in a jungle full of wounded people, with an offer. Enough power to save every one of them, at a price. I took it. I'll argue that with anyone, out loud, any time.",
+        "friend": "I was there for the port explosion in Beirut. I won't tell you what I saw, habibi. I'll tell you I chose, all day, and I was right every time, and I've never stopped carrying it. Now a troll witch doctor says there's a shrine in the jungle that can cut the fel out of me. It'll take the power and it'll hurt. I want to be just a man again. Will you come?",
+        "sworn": "It worked, and for a week I was just a man. Then the Bloodsail hit a village, a dozen wounded, and without the fel I could save four. I chose, fast and correctly, and the fifth died in front of me. A week before, I'd have saved them. So I went back and asked for it again. The troll warned me it'll be harder to put down a second time. I know that. I've stopped arguing the arithmetic. I just work now."
+      },
+      "moments": [
+        {
+          "id": "the_arithmetic",
+          "stage": "companion",
+          "when": "talk",
+          "prompt": "He's daring you to argue with him about the fel.",
+          "options": [
+            {
+              "text": "Argue it with him, honestly.",
+              "trust": 10,
+              "reply": "Yalla, finally, somebody who'll actually argue. Okay, here's my side."
+            },
+            {
+              "text": "It's not my place to judge.",
+              "trust": 0,
+              "reply": "Everybody judges, habibi. You're just not saying it."
+            }
+          ]
+        },
+        {
+          "id": "the_shrine",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to come to the shrine with him.",
+          "options": [
+            {
+              "text": "I'll come. Whatever you decide after.",
+              "trust": 12,
+              "reply": "Khalas, then, thank you. That last part's the bit I needed."
+            },
+            {
+              "text": "Are you sure you want to give it up?",
+              "trust": 4,
+              "reply": "No, I'm not. That's why I need to do it before I talk myself out of it."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Habibi, we keep doing the same thing and nobody needs saving. I can't stand still like this, so let's move.",
+        "leaving_good": "That was a good run. I'm going back to Booty Bay, because the jungle never stops producing work. You know where I'll be.",
+        "leaving_bored": "I'm going back to Booty Bay. There are people bleeding there right now, and here we're just standing about.",
+        "after_wipe": "Okay, okay, count the wounded first, then we argue about whose fault it was.",
+        "wipe_warning": "We keep going down in here, habibi. I'll finish this run, but then I need some days.",
+        "wipe_leave": "I finished it, as I said. Now I'm going back to Booty Bay. Come and find me when you're ready.",
+        "zone_warning": "Habibi, I do the arithmetic, and out here it doesn't add up. We should go before it gets worse.",
+        "zone_leave": "I'm stopping here. The arithmetic doesn't work out there. I'll be around Booty Bay.",
+        "gear_refuse": "No, habibi, that's mine. Ask me again when we know each other.",
+        "gear_taken": "Take it, khalas. I'll manage, I always do.",
+        "gear_short": "I'm still missing that piece, habibi, and I'm counting.",
+        "gear_upgrade": "Oh, that's nice work. Merci beaucoup, habibi.",
+        "back": "I'm back, and I've slept, sort of. Where are we going? Come on, let's move.",
+        "send_word": "Ziad has sent word from Booty Bay. He's ready to come out again.",
+        "walkout_talk": "I walked out angry, habibi, and I'll tell you why, fast. Then you tell me, and we'll argue properly.",
+        "neglect": "There you are! I thought you'd found a paramedic with nicer eyes.",
+        "asked_to_stay": "Yalla, one more. Then Booty Bay.",
+        "on_break": "Ziad is back around Booty Bay, first on scene. Come back after you've done a few more jobs."
       }
     }
   },

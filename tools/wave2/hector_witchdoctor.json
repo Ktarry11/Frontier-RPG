@@ -1,0 +1,73 @@
+{
+  "recruit_text": {
+    "adjustment": "He landed with his mask in his bag, and the first troll who saw it bowed to him.\n\nA witch doctor at Grom'gol took him in, and he learned shadow and spirit the way he'd learned to fall, by doing it a thousand times.",
+    "forward": "A real show in the arena, with rules, a ring and a crowd that cheers instead of waiting for blood.\n\nAnd one day, his mask on his boys' faces. He's afraid he never will."
+  },
+  "bond": {
+    "home": "the Gurubashi Arena",
+    "dials": {"warmth": 1.5, "nerve": 1.4, "pride": 1.2, "restless": 1.0},
+    "likes": ["boss", "full_party"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "¡Órale, a fan! You want a picture with El Relámpago de Plata? Of course you do. I'm a witch doctor now, carnal, but the Silver Lightning is forever.",
+      "acquaintance": "I'm from Mexico City, from Tepito, a tough neighbourhood. My father traded in the market. I started training lucha at fourteen and debuted at twenty, black mask, silver flames. Fifteen years at Arena México on Friday nights. Never the biggest star, but the crowd loved me, and I loved them more.",
+      "companion": "My wife is Rocío. She sewed every mask I ever wore, by hand, and she's the only one outside the family who knows my face. We've got two boys, Toño and Beto, who wore homemade masks to school and want to be luchadores. I'd retired with a bad knee, and I was teaching kids to fall at the gym when it happened.",
+      "friend": "I want to give my mask to my boys one day, carnal. That's how it's done. A luchador hands his mask to his son. I'm afraid I never will. The goblins here say I can have a real lucha night in the arena, rules and a ring and everything, if I can fill the stands. Help me fill them. I want posters with my face on them, well, my mask, everywhere.",
+      "sworn": "In the front row there were two boys in homemade masks, and a woman crying and laughing. Rocío saw a poster in Booty Bay and knew the mask, because she sewed it. After the match I took the boys into the ring, and I took off my mask in front of the whole arena for the first time in my life, and I put it on Toño. The crowd went crazy. I don't need the mask any more. I've got my name back."
+    },
+    "moments": [
+      {"id": "the_poster", "stage": "friend", "when": "talk",
+       "prompt": "He's asked you to help him fill the arena for a lucha night.",
+       "options": [
+         {"text": "Let's put your mask on every wall in Stranglethorn.", "trust": 12,
+          "reply": "¡Ándale, carnal, that's the spirit, carnal. Every wall, every tree, every goblin."},
+         {"text": "Who are you hoping will see it?", "trust": 8,
+          "reply": "You're sharper than you look, carnal. You know who, so let's go."}
+       ]},
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe he's lying flat on his back, laughing at the sky.",
+       "line": "Ay, that was a beautiful fall, everybody! Ten out of ten. Now we get up, because the crowd's still watching.",
+       "options": [
+         {"text": "The crowd loves a comeback.", "trust": 8, "mood": 8,
+          "reply": "¡Exacto, carnal, now you're talking like a luchador, carnal."},
+         {"text": "There's no crowd, Héctor.", "trust": 0, "mood": -4,
+          "reply": "There's always a crowd, carnal. Sometimes it's just the spirits."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "Carnal, there's no crowd and no show out here, just the same thing again and again. Let's go somewhere people can see us!",
+      "leaving_good": "What a show, everybody, what a show! I'm going back to the arena to sign autographs. Come and see me.",
+      "leaving_bored": "I'm going back to the arena. This is no show at all, and my fans are waiting.",
+      "after_wipe": "A beautiful fall, everybody! Now we get up, because the crowd's still watching.",
+      "wipe_warning": "We keep falling in here, carnal, and not in the good way. I'll finish this match, then I need a rest.",
+      "wipe_leave": "The match is over, carnal. I'm going back to the arena for a while. Come and find me when you're ready for a rematch.",
+      "zone_warning": "This is a match we can't win, carnal. Even El Relámpago de Plata knows when to leave the ring.",
+      "zone_leave": "I'm stopping here. Some matches you don't take. I'll be at the Gurubashi Arena.",
+      "gear_refuse": "Ah, no, carnal, that's mine! Ask me again after a few more shows.",
+      "gear_taken": "Take it, take it! El Relámpago de Plata doesn't need armour, he needs a crowd.",
+      "gear_short": "I'm still missing that piece, carnal. I'm only saying it with love.",
+      "gear_upgrade": "¡Órale, look at that! Thank you, carnal, I'll wear it in the ring.",
+      "back": "El Relámpago de Plata is back, everybody! Where's the next show?",
+      "send_word": "Héctor has sent word from the Gurubashi Arena. He's signed every autograph and he's ready to come out.",
+      "walkout_talk": "I walked out angry, carnal, and that's not good for the show. Sit down and let's talk it through, man to man.",
+      "neglect": "Carnal, there you are! I thought you'd stopped being a fan.",
+      "asked_to_stay": "¡Ándale, one more match! Then the arena.",
+      "on_break": "Héctor is back at the Gurubashi Arena, signing autographs. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "boss_down": [
+      {"text": "And the winner, by a beautiful finish, is everybody! The crowd goes wild!", "kind": "open"}
+    ],
+    "town_arrive": [
+      {"text": "Mexico City has twenty million people, and on Friday nights half of them were shouting my name. Well, my mask's name.", "kind": "open", "topic": "cities"},
+      {"text": "Look at all the children! Somebody tell them El Relámpago de Plata has arrived.", "kind": "open"}
+    ],
+    "close_call": [
+      {"text": "Ay, that was a close count, carnal! Get up before three, always before three.", "kind": "open"}
+    ],
+    "dungeon_clear": [
+      {"text": "What a show! Nobody saw it, but the spirits did, and they're very impressed.", "kind": "reply"}
+    ]
+  }
+}
