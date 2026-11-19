@@ -273,6 +273,275 @@
         "asked_to_stay": "All right, one more trip. Then the wells.",
         "on_break": "Tarek is out checking his wells. Come back after you've been busy for a while."
       }
+    },
+    "ama_priest": {
+      "home": "Razor Hill",
+      "dials": {
+        "warmth": 0.7,
+        "nerve": 1.3,
+        "pride": 0.6,
+        "restless": 1.3
+      },
+      "likes": [
+        "quest",
+        "full_party"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Ama, and I'm a nurse. If you're hurt, you tell me straight away, not after you've finished being brave about it. I heal the worst first, and that might not be you, so don't take it personally.",
+        "acquaintance": "I'm from Peckham, in south London. I grew up above my dad's phone shop with my little brother Kofi. My mum was a nurse from Lagos, so I became one, and I did fourteen years of nights on a children's ward. Four cots to a bay and never enough of us. I was good at it. I was very good at it.",
+        "companion": "I landed in Durotar in my uniform, with this round my neck. The bear's so the little ones would let me listen. I run the infirmary at Razor Hill now, and I'm looking for somebody who can do it when I'm not there. I've been looking for two years. Shenra says I keep finding reasons to say no, and she's right, but don't tell her I said so.",
+        "friend": "The first year here I healed until I fell over, then I woke up and did it again. In London there was always a form or a reason you couldn't help someone. Here there was nothing to stop me, so I didn't stop. Shenra picked me up off the floor in the end. I was married once, to Kwame. He wanted a wife who was home at night and I gave my nights to other people's children. And there's a notebook. Every child I lost, by first name. Don't ask to read it.",
+        "sworn": "Grasha kept every one of them alive for two days while I was flat on my back, and she did it the way I would have. I told her she'll do. That's the best thing I know how to say to anyone. Then I slept for a day and a half, in daylight, and nobody woke me. I still don't know where my dad and Kofi are. But I can go out with you now and know the infirmary's in good hands."
+      },
+      "moments": [
+        {
+          "id": "hire",
+          "stage": "stranger",
+          "when": "hire",
+          "prompt": "She says she can't leave the infirmary with nobody in it.",
+          "options": [
+            {
+              "text": "I'll wait until somebody can cover for you.",
+              "trust": 6,
+              "joins": true,
+              "reply": "Shenra's back this afternoon. I'll get my bag."
+            },
+            {
+              "text": "They'll manage without you for a day.",
+              "trust": 0,
+              "joins": false,
+              "reply": "That's what everybody says right before they don't. Come back another day."
+            }
+          ]
+        },
+        {
+          "id": "the_notebook",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's just told you about the notebook.",
+          "options": [
+            {
+              "text": "You don't have to show me anything.",
+              "trust": 10,
+              "reply": "Good, because I wasn't going to. Thank you, love."
+            },
+            {
+              "text": "How many names are in it?",
+              "trust": 0,
+              "reply": "Enough of them, and that's all you're getting."
+            },
+            {
+              "text": "You can't save everyone.",
+              "trust": 0,
+              "reply": "I know that better than anyone you'll ever meet. I still write them down."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been doing the same thing over and over, and I've got an infirmary full of people who need me. Give me a reason to be out here or I'll go back to them.",
+        "leaving_good": "That was a good trip and nobody needed the notebook. I'm going back to Razor Hill before Shenra starts running the place her own way.",
+        "leaving_bored": "I'm going back to Razor Hill. I'm not spending my time hitting things for no reason when there's work there that matters.",
+        "after_wipe": "Everyone stay where you are while I count you. Then we'll talk about how that happened.",
+        "wipe_warning": "That's too many times. I'll see this run through, because I don't walk out on people, but then I'm going home for a while.",
+        "wipe_leave": "We're done here and I'm going back to Razor Hill. I've watched enough people go down today to last me a month.",
+        "zone_warning": "This place is too much for us. I can heal a lot, but I can't heal everyone all at once, and I won't pretend I can.",
+        "zone_leave": "I'm stopping here. I told you it was too dangerous and it still is. I'll be at Razor Hill.",
+        "gear_refuse": "No, love, that's mine. Ask me again when I know you better.",
+        "gear_taken": "Take it, then. I've managed with less on a ward with no staff, and I'll manage now.",
+        "gear_short": "I'm still missing that piece. I'm not complaining, I'm just telling you.",
+        "gear_upgrade": "That's lovely, thank you. Don't make a fuss about it.",
+        "back": "I'm back, and the infirmary's in hand, so who's hurt and who's been hiding it?",
+        "send_word": "Ama has sent word from Razor Hill. The infirmary's quiet for once and she's ready to come out.",
+        "walkout_talk": "I left angry. I'm not sorry I left, but I'm sorry about how. Sit down, I'll tell you why, and you'll listen.",
+        "neglect": "There you are. I thought you'd found a nurse who's nicer to you. You won't find one who's better.",
+        "asked_to_stay": "All right, one more trip, and then I'm going home to check on them.",
+        "on_break": "Ama is back at the Razor Hill infirmary. Come back after you've done a few more jobs.",
+        "quest_abandoned": "Somebody was relying on us for that and we've walked away. I don't like it."
+      }
+    },
+    "diego_tinker": {
+      "home": "Deathknell",
+      "dials": {
+        "warmth": 1.4,
+        "nerve": 1.1,
+        "pride": 0.5,
+        "restless": 1.0
+      },
+      "likes": [
+        "dungeon",
+        "full_party"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Diego, and I fix things, anything, and if it's broken I'll hear what's wrong with it before you finish telling me. I used to fix phones, but I'm not fussy, my friend. If it has a gear in it, give it to me.",
+        "acquaintance": "I'm from Maracaibo, in Venezuela. I started at a phone kiosk in a mall when I was fifteen, and the power went off twice a day there, so everybody learned to work in the dark. After a year people queued for me by name. I'm the youngest of five and the only boy, and my sisters all left the country, one by one, in different directions.",
+        "companion": "I was the one who stayed. My mother got sick and somebody had to look after her, so for four years it was the kiosk all day and her all night. She died when I was twenty-two, eight months before all this. So when I landed in Deathknell there was nobody left at home for me to lose. A goblin gave me a broken valve to see what I'd do, I fixed it, and I've been paid in parts ever since.",
+        "friend": "You've seen the beetle. Everybody's seen the beetle. When I was seven my mother bought me a tin one from a market stall and I took it apart the same day to see how it walked. I couldn't put it back together. She said I'd fix it when I was older. This one's that one, bigger, and it's been nearly done for a year because I can't make myself finish it. It needs a heart, a spring that won't wear out, and I think I know where to find the parts.",
+        "sworn": "It really walked. You saw it, across the table and back again. I cried about my mother for the first time since she died, a lot, and then I felt better than I've felt in years. The workshop's in Brill now, under the sign I wanted, crooked letters and all. And my sister Luisa saw my name on a trader's list. She's in Ratchet, and she's coming to see the sign."
+      },
+      "moments": [
+        {
+          "id": "the_beetle",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's just told you what the beetle is.",
+          "options": [
+            {
+              "text": "Then let's go and get it a heart.",
+              "trust": 10,
+              "reply": "Yes, okay, let's do it. I'll make a list, a long one, and you're going to hate it."
+            },
+            {
+              "text": "Maybe it's fine as it is.",
+              "trust": 0,
+              "reply": "It isn't fine, my friend. It's been waiting since I was seven."
+            },
+            {
+              "text": "Do you think about her a lot?",
+              "trust": 6,
+              "reply": "Every time I pick up a screwdriver. Let's talk about the spring instead, okay?"
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe, he's already picking up pieces of somebody's broken gear.",
+          "line": "Okay, that was bad, but look, this buckle's only bent. I can fix this before the next pull.",
+          "options": [
+            {
+              "text": "You're taking this very well.",
+              "trust": 4,
+              "mood": 4,
+              "reply": "What else am I going to do, cry? I'll cry later, maybe. Hold this for me."
+            },
+            {
+              "text": "Can you be serious for a minute?",
+              "trust": 0,
+              "mood": -4,
+              "reply": "I'm always serious about buckles. But sure, sure, I'll be quiet."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "My friend, we've hit the same things in the same field for a long time and nothing new has broken. Can we go somewhere with a door that doesn't open, or a machine, or anything?",
+        "leaving_good": "That was fun, really fun, and I've got a bag full of parts to sort. I'm going back to Deathknell to take some of them apart. Come and find me.",
+        "leaving_bored": "I'm going back to Deathknell. We keep doing the same thing and my hands are getting bored, and when my hands get bored I start taking your gear apart.",
+        "after_wipe": "Okay, everybody's in pieces, but pieces can go back together. That's my whole job.",
+        "wipe_warning": "I'm still smiling, look, but we keep dying in here. If it happens again I'll finish this one with you and then I need a few days with something that works.",
+        "wipe_leave": "I'll walk out with you, but I'm not coming back in here for a while. I'll be in Deathknell fixing something that doesn't try to kill me.",
+        "zone_warning": "Everything out here is much bigger than us, my friend. I like a challenge, but this is a machine I can't fix. Can we go somewhere closer to our size?",
+        "zone_leave": "I'm going to stop here. It's too much out there for me right now. I'll be in Deathknell when you want me.",
+        "gear_refuse": "Ah, no, I'd like to keep that, sorry. I don't know you well enough yet to give you my things.",
+        "gear_taken": "Sure, take it. I'll make something to go in there out of scrap. It won't be pretty but it'll work.",
+        "gear_short": "I'm still missing that piece. My scrap one's held together with wire, and the wire's getting tired.",
+        "gear_upgrade": "Oh, look at this, look at the work in it. Thank you, my friend. I'm going to take it apart later just to see how they did it, but I'll put it back.",
+        "back": "I'm back, and I've got new tools. Give me something broken.",
+        "send_word": "Diego has sent word from Deathknell. He's fixed everything in the place twice and he's ready to come out again.",
+        "walkout_talk": "I left angry, and I don't do that much, so I want to say sorry for how I went. But I also want you to hear why. Can we sit down and talk about it?",
+        "neglect": "My friend, there you are! I thought you'd found a tinker with better jokes. There's no such person, so I knew you'd come back.",
+        "asked_to_stay": "Sure, one more. I'm not finished with your boots anyway.",
+        "on_break": "Diego has gone back to Deathknell to sort his parts. Come back after you've done a few more jobs.",
+        "quest_abandoned": "We just left that half done. I hate that, my friend. Half done is worse than broken."
+      }
+    },
+    "freja_priest": {
+      "home": "Valley of Trials",
+      "dials": {
+        "warmth": 0.9,
+        "nerve": 1.5,
+        "pride": 0.9,
+        "restless": 1.1
+      },
+      "likes": [
+        "boss",
+        "quest"
+      ],
+      "dislikes": [
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "I'm Freja, and I'm a midwife, or I was. Here I'm whoever's nearest when somebody's bleeding. When I tell you to do something in a fight, do it, and we'll argue about it afterwards. I like arguing afterwards.",
+        "acquaintance": "I'm from Aarhus, in Denmark. I worked six years at the university hospital, mostly nights, and before that I played handball for twelve years on the pivot, which is where you take the most hits. My husband William is American. He fell off his bicycle outside the hospital on an icy morning and I strapped his wrist on the pavement. He asked me out before I'd finished the bandage.",
+        "companion": "I was finishing a night shift when it happened, and William was at work at the airport in Billund. I landed here in my hospital clothes and went straight to the infirmary and worked, because there were a lot of hurt people and work is something to hold on to. My parents were in Aarhus. I've checked the Danish lists at two hubs and none of them are on there, and William wouldn't be on a Danish list anyway. I write him a letter every week. I don't send them.",
+        "friend": "I'll tell you what I'm frightened of, and then we won't talk about it again. I'm frightened that one day I'll freeze at the wrong moment and somebody will die because of it. It's never happened. And I'm frightened I'll find William and he'll be different. There's a trader saying an American is fixing goblin flying machines on the Shimmering Flats and swearing at them. That sounds like my idiot. I want to go and look.",
+        "sworn": "He said I took my time. I hit him on the arm and then I didn't let go of him for about an hour. And I delivered a baby the same day, a goblin baby, early and in a hurry, and I didn't freeze. William's carving me a new horn. We were going to try for children the spring after all this happened. I haven't said that out loud before. We might try again."
+      },
+      "moments": [
+        {
+          "id": "the_flats",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's just told you about the American on the Shimmering Flats.",
+          "options": [
+            {
+              "text": "Then we're going. Today.",
+              "trust": 10,
+              "reply": "Good, I was going anyway, but it's nicer with you."
+            },
+            {
+              "text": "It might not be him.",
+              "trust": 2,
+              "reply": "I know that. I'm a midwife, I know how hope works. I'm still going."
+            },
+            {
+              "text": "What if he's different?",
+              "trust": 0,
+              "reply": "Then I'll find out, won't I. Don't ask me that one again."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe, she's on her knees checking everyone before anyone's said anything.",
+          "line": "Everybody stay down for a second while I look at you. Then you can tell me whose fault it was.",
+          "options": [
+            {
+              "text": "It was mine. I pulled too early.",
+              "trust": 6,
+              "mood": 5,
+              "reply": "Yes, it was. Thank you for saying it. Now drink something."
+            },
+            {
+              "text": "We're fine, let's go again.",
+              "trust": 0,
+              "mood": -5,
+              "reply": "You're fine when I say you're fine. Sit there until I do."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've killed a lot of the same thing and nobody's needed me in a while. I didn't come out here to stand at the back. Can we go and do something that matters?",
+        "leaving_good": "That was a good trip, and I won most of the arguments. I'm going back to the Valley to check on my women and the farms. You know where I'll be.",
+        "leaving_bored": "I'm going back to the Valley. There are people there who need a healer, and out here we're just hitting things for the sake of it.",
+        "after_wipe": "Right, nobody's dead for good. Next time we stop when I tell you to stop.",
+        "wipe_warning": "That's too many wipes. I'll finish this run with you because I don't leave in the middle of things, but after this I'm taking a break.",
+        "wipe_leave": "We're done, and I'm going home for a while. I've watched you all die too many times today and I'd like to watch some people live.",
+        "zone_warning": "This place is too big for us and you know it. I don't mind being brave, but I won't be stupid. We need to go somewhere we can handle.",
+        "zone_leave": "I'm stopping here. I told you it was too much and you kept going. I'll be in the Valley when you've come to your senses.",
+        "gear_refuse": "No, I don't know you well enough to give you my things, and I'm not going to pretend I do.",
+        "gear_taken": "Fine, take it. I'll tell you exactly how much worse I'm healing without it, every fight, until you replace it.",
+        "gear_short": "I'm still short that piece. I told you I'd mention it every fight, and I'm a woman of my word.",
+        "gear_upgrade": "Oh, that's good. Thank you. I'm going to tell everyone you finally did something sensible.",
+        "back": "I'm back, so who's hurt, and who's been doing something stupid while I was away?",
+        "send_word": "Freja has sent word from the Valley of Trials. The farms are quiet and she's ready to come back out and boss you around.",
+        "walkout_talk": "I walked out, and I meant it. Now sit down and listen to why, and then I'll listen to you, and then we'll see.",
+        "neglect": "You took your time. I nearly sent a search party, and then I remembered I'm the search party.",
+        "asked_to_stay": "Fine, one more. Then I'm going home, and I'm not arguing about it.",
+        "on_break": "Freja is back in the Valley of Trials, doing her rounds. Come back after you've done a few more jobs.",
+        "quest_abandoned": "We said we'd help them and we walked off. I hate that. Somebody's still waiting for us."
+      }
     }
   },
   "pairs": [

@@ -1,0 +1,78 @@
+{
+  "recruit_text": {
+    "forward": "Somebody has to be able to do this when she's out of the room. Not a student, a replacement. She's been looking for two years and turned four people down for reasons she can't put into words, and she knows that's the problem.\n\nThere's a notebook as well, and the handwriting is appalling on purpose.\n\nShe checks the lists for her father and her brother Kofi, and she doesn't talk about it. Her mother died in Lagos the February before it happened. She's described that once, as the only good timing in this whole business, and then changed the subject so hard the other person apologised."
+  },
+  "bond": {
+    "home": "Razor Hill",
+    "dials": {"warmth": 0.7, "nerve": 1.3, "pride": 0.6, "restless": 1.3},
+    "likes": ["quest", "full_party"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Ama, and I'm a nurse. If you're hurt, you tell me straight away, not after you've finished being brave about it. I heal the worst first, and that might not be you, so don't take it personally.",
+      "acquaintance": "I'm from Peckham, in south London. I grew up above my dad's phone shop with my little brother Kofi. My mum was a nurse from Lagos, so I became one, and I did fourteen years of nights on a children's ward. Four cots to a bay and never enough of us. I was good at it. I was very good at it.",
+      "companion": "I landed in Durotar in my uniform, with this round my neck. The bear's so the little ones would let me listen. I run the infirmary at Razor Hill now, and I'm looking for somebody who can do it when I'm not there. I've been looking for two years. Shenra says I keep finding reasons to say no, and she's right, but don't tell her I said so.",
+      "friend": "The first year here I healed until I fell over, then I woke up and did it again. In London there was always a form or a reason you couldn't help someone. Here there was nothing to stop me, so I didn't stop. Shenra picked me up off the floor in the end. I was married once, to Kwame. He wanted a wife who was home at night and I gave my nights to other people's children. And there's a notebook. Every child I lost, by first name. Don't ask to read it.",
+      "sworn": "Grasha kept every one of them alive for two days while I was flat on my back, and she did it the way I would have. I told her she'll do. That's the best thing I know how to say to anyone. Then I slept for a day and a half, in daylight, and nobody woke me. I still don't know where my dad and Kofi are. But I can go out with you now and know the infirmary's in good hands."
+    },
+    "moments": [
+      {"id": "hire", "stage": "stranger", "when": "hire",
+       "prompt": "She says she can't leave the infirmary with nobody in it.",
+       "options": [
+         {"text": "I'll wait until somebody can cover for you.", "trust": 6, "joins": true,
+          "reply": "Shenra's back this afternoon. I'll get my bag."},
+         {"text": "They'll manage without you for a day.", "trust": 0, "joins": false,
+          "reply": "That's what everybody says right before they don't. Come back another day."}
+       ]},
+      {"id": "the_notebook", "stage": "friend", "when": "talk",
+       "prompt": "She's just told you about the notebook.",
+       "options": [
+         {"text": "You don't have to show me anything.", "trust": 10,
+          "reply": "Good, because I wasn't going to. Thank you, love."},
+         {"text": "How many names are in it?", "trust": 0,
+          "reply": "Enough of them, and that's all you're getting."},
+         {"text": "You can't save everyone.", "trust": 0,
+          "reply": "I know that better than anyone you'll ever meet. I still write them down."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've been doing the same thing over and over, and I've got an infirmary full of people who need me. Give me a reason to be out here or I'll go back to them.",
+      "leaving_good": "That was a good trip and nobody needed the notebook. I'm going back to Razor Hill before Shenra starts running the place her own way.",
+      "leaving_bored": "I'm going back to Razor Hill. I'm not spending my time hitting things for no reason when there's work there that matters.",
+      "after_wipe": "Everyone stay where you are while I count you. Then we'll talk about how that happened.",
+      "wipe_warning": "That's too many times. I'll see this run through, because I don't walk out on people, but then I'm going home for a while.",
+      "wipe_leave": "We're done here and I'm going back to Razor Hill. I've watched enough people go down today to last me a month.",
+      "zone_warning": "This place is too much for us. I can heal a lot, but I can't heal everyone all at once, and I won't pretend I can.",
+      "zone_leave": "I'm stopping here. I told you it was too dangerous and it still is. I'll be at Razor Hill.",
+      "gear_refuse": "No, love, that's mine. Ask me again when I know you better.",
+      "gear_taken": "Take it, then. I've managed with less on a ward with no staff, and I'll manage now.",
+      "gear_short": "I'm still missing that piece. I'm not complaining, I'm just telling you.",
+      "gear_upgrade": "That's lovely, thank you. Don't make a fuss about it.",
+      "back": "I'm back, and the infirmary's in hand, so who's hurt and who's been hiding it?",
+      "send_word": "Ama has sent word from Razor Hill. The infirmary's quiet for once and she's ready to come out.",
+      "walkout_talk": "I left angry. I'm not sorry I left, but I'm sorry about how. Sit down, I'll tell you why, and you'll listen.",
+      "neglect": "There you are. I thought you'd found a nurse who's nicer to you. You won't find one who's better.",
+      "asked_to_stay": "All right, one more trip, and then I'm going home to check on them.",
+      "on_break": "Ama is back at the Razor Hill infirmary. Come back after you've done a few more jobs.",
+      "quest_abandoned": "Somebody was relying on us for that and we've walked away. I don't like it."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {"text": "There'll be sick people here. There always are, and nobody's looking after half of them.", "kind": "open"},
+      {"text": "I grew up above a phone shop in Peckham. You couldn't walk ten yards without somebody knowing your mum.", "kind": "open", "topic": "cities"}
+    ],
+    "close_call": [
+      {"text": "Sit down where you are, love, I'm not asking you twice.", "kind": "open"},
+      {"text": "Fourteen years of nights and I still don't like that colour on anybody. Let me look at you.", "kind": "reply", "topic": "night_work"}
+    ],
+    "dungeon_clear": [
+      {"text": "I've counted everyone and we're all here. That's what I wanted.", "kind": "reply"}
+    ],
+    "boss_down": [
+      {"text": "Anyone bleeding who hasn't said so? That's most of you, usually.", "kind": "reply"}
+    ],
+    "zone_arrive": [
+      {"text": "Somebody out here's been hurt and hasn't told anyone. Keep your eyes open.", "kind": "open"}
+    ]
+  }
+}

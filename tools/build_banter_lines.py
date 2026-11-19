@@ -345,6 +345,9 @@ LINES = {
 
 
 def main():
+    # Wave 2: a recruit's file in tools/wave2/ replaces whatever was above for them.
+    from tools.wave2_text import banter as wave2_banter
+    LINES.update(wave2_banter())
     names = {r["recruit_id"]: r["name"].split()[0]
              for r in json.loads((ROOT / "data/npcs/recruits.json").read_text(encoding="utf-8"))["recruits"]}
     unknown = set(LINES) - set(names)

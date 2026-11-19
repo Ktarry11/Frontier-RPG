@@ -1,0 +1,83 @@
+{
+  "recruit_text": {
+    "greeting": "You're bleeding and talking at the same time, and you can only do one of those well. Sit down and I'll tell you when you're allowed to start again.",
+    "backstory": "A midwife in Aarhus for six years, mostly nights. The job is being the calmest person in a room where something enormous is happening. She's blunt, and people find it a relief inside about a minute. She's also playful, competitive about everything, and she doesn't back down from anyone. The Light came to her easily and she treats it as a tool, the same as her hands, and she's careful to say so, because she's met two people here who decided they were chosen and she told both of them what she thought of that.",
+    "before": "Night shifts, a bicycle in every weather, and a flat with too many plants in it.\n\nAnd William, an American aircraft mechanic who came off his bicycle on the ice outside her hospital. She strapped his wrist on the pavement and told him Americans shouldn't be allowed bicycles. He said Danes shouldn't be allowed opinions. They married two years later and argued about everything, happily. She kept her own name.",
+    "forward": "To deliver a baby here. She's said so to three people and watched all three of them fail to understand why it matters to her.\n\nSix years of her life were about the first ninety seconds of somebody else's. She'd like to find out if that still works in a place with this much dying in it.\n\nAnd there's William. She writes him a letter every week and keeps them in a bundle, because there's nowhere to send them. He's going to read every one."
+  },
+  "bond": {
+    "home": "Valley of Trials",
+    "dials": {"warmth": 0.9, "nerve": 1.5, "pride": 0.9, "restless": 1.1},
+    "likes": ["boss", "quest"],
+    "dislikes": ["quest_abandoned"],
+    "stages": {
+      "stranger": "I'm Freja, and I'm a midwife, or I was. Here I'm whoever's nearest when somebody's bleeding. When I tell you to do something in a fight, do it, and we'll argue about it afterwards. I like arguing afterwards.",
+      "acquaintance": "I'm from Aarhus, in Denmark. I worked six years at the university hospital, mostly nights, and before that I played handball for twelve years on the pivot, which is where you take the most hits. My husband William is American. He fell off his bicycle outside the hospital on an icy morning and I strapped his wrist on the pavement. He asked me out before I'd finished the bandage.",
+      "companion": "I was finishing a night shift when it happened, and William was at work at the airport in Billund. I landed here in my hospital clothes and went straight to the infirmary and worked, because there were a lot of hurt people and work is something to hold on to. My parents were in Aarhus. I've checked the Danish lists at two hubs and none of them are on there, and William wouldn't be on a Danish list anyway. I write him a letter every week. I don't send them.",
+      "friend": "I'll tell you what I'm frightened of, and then we won't talk about it again. I'm frightened that one day I'll freeze at the wrong moment and somebody will die because of it. It's never happened. And I'm frightened I'll find William and he'll be different. There's a trader saying an American is fixing goblin flying machines on the Shimmering Flats and swearing at them. That sounds like my idiot. I want to go and look.",
+      "sworn": "He said I took my time. I hit him on the arm and then I didn't let go of him for about an hour. And I delivered a baby the same day, a goblin baby, early and in a hurry, and I didn't freeze. William's carving me a new horn. We were going to try for children the spring after all this happened. I haven't said that out loud before. We might try again."
+    },
+    "moments": [
+      {"id": "the_flats", "stage": "friend", "when": "talk",
+       "prompt": "She's just told you about the American on the Shimmering Flats.",
+       "options": [
+         {"text": "Then we're going. Today.", "trust": 10,
+          "reply": "Good, I was going anyway, but it's nicer with you."},
+         {"text": "It might not be him.", "trust": 2,
+          "reply": "I know that. I'm a midwife, I know how hope works. I'm still going."},
+         {"text": "What if he's different?", "trust": 0,
+          "reply": "Then I'll find out, won't I. Don't ask me that one again."}
+       ]},
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe, she's on her knees checking everyone before anyone's said anything.",
+       "line": "Everybody stay down for a second while I look at you. Then you can tell me whose fault it was.",
+       "options": [
+         {"text": "It was mine. I pulled too early.", "trust": 6, "mood": 5,
+          "reply": "Yes, it was. Thank you for saying it. Now drink something."},
+         {"text": "We're fine, let's go again.", "trust": 0, "mood": -5,
+          "reply": "You're fine when I say you're fine. Sit there until I do."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've killed a lot of the same thing and nobody's needed me in a while. I didn't come out here to stand at the back. Can we go and do something that matters?",
+      "leaving_good": "That was a good trip, and I won most of the arguments. I'm going back to the Valley to check on my women and the farms. You know where I'll be.",
+      "leaving_bored": "I'm going back to the Valley. There are people there who need a healer, and out here we're just hitting things for the sake of it.",
+      "after_wipe": "Right, nobody's dead for good. Next time we stop when I tell you to stop.",
+      "wipe_warning": "That's too many wipes. I'll finish this run with you because I don't leave in the middle of things, but after this I'm taking a break.",
+      "wipe_leave": "We're done, and I'm going home for a while. I've watched you all die too many times today and I'd like to watch some people live.",
+      "zone_warning": "This place is too big for us and you know it. I don't mind being brave, but I won't be stupid. We need to go somewhere we can handle.",
+      "zone_leave": "I'm stopping here. I told you it was too much and you kept going. I'll be in the Valley when you've come to your senses.",
+      "gear_refuse": "No, I don't know you well enough to give you my things, and I'm not going to pretend I do.",
+      "gear_taken": "Fine, take it. I'll tell you exactly how much worse I'm healing without it, every fight, until you replace it.",
+      "gear_short": "I'm still short that piece. I told you I'd mention it every fight, and I'm a woman of my word.",
+      "gear_upgrade": "Oh, that's good. Thank you. I'm going to tell everyone you finally did something sensible.",
+      "back": "I'm back, so who's hurt, and who's been doing something stupid while I was away?",
+      "send_word": "Freja has sent word from the Valley of Trials. The farms are quiet and she's ready to come back out and boss you around.",
+      "walkout_talk": "I walked out, and I meant it. Now sit down and listen to why, and then I'll listen to you, and then we'll see.",
+      "neglect": "You took your time. I nearly sent a search party, and then I remembered I'm the search party.",
+      "asked_to_stay": "Fine, one more. Then I'm going home, and I'm not arguing about it.",
+      "on_break": "Freja is back in the Valley of Trials, doing her rounds. Come back after you've done a few more jobs.",
+      "quest_abandoned": "We said we'd help them and we walked off. I hate that. Somebody's still waiting for us."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {"text": "I'll find whoever does the healing here and see if they're any good.", "kind": "open"},
+      {"text": "Aarhus had a harbour, a cathedral and about a million bicycles. I miss the bicycles.", "kind": "open", "topic": "cities"}
+    ],
+    "close_call": [
+      {"text": "Stay where you are and let me look at you. Then you can tell me you're fine.", "kind": "open"},
+      {"text": "Six years of nights on a labour ward and I've never seen a colour like yours. Drink something now.", "kind": "reply", "topic": "night_work"}
+    ],
+    "dungeon_clear": [
+      {"text": "Everybody walked out on their own feet. That's my favourite kind of day.", "kind": "open"},
+      {"text": "I've kept score, by the way, and I'm winning.", "kind": "reply"}
+    ],
+    "boss_down": [
+      {"text": "That's that one done. Who's bleeding and hasn't told me?", "kind": "reply"}
+    ],
+    "zone_arrive": [
+      {"text": "There'll be farms out here somewhere, and somebody pregnant who needs looking at.", "kind": "open"}
+    ]
+  }
+}

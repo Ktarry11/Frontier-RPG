@@ -200,7 +200,7 @@ BATCH = {
         "Out. He wants out of it, and he has looked into what that costs, and the figure is the "
         "reason he is still in.\n\n"
         "In the meantime he works. The people he pulls out of the Scar are alive either way, "
-        "and that is the whole of his defence and he knows how thin it is."),
+        "and that's his whole defence, and he knows how thin it is."),
     now=(
         "Desolace, around the Scar, where the gnolls and the satyr trade the ground back and "
         "forth and the casualties are constant.\n\n"

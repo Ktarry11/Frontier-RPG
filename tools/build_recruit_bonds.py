@@ -357,6 +357,14 @@ BONDS = {
     },
 }
 
+# Wave 2: everyone else, one file per recruit in tools/wave2/ (see tools/wave2_text.py). The pilot
+# three above stay hand-held here.
+from tools.wave2_text import bonds as _wave2_bonds    # noqa: E402
+for _rid, _b in _wave2_bonds().items():
+    if _rid in BONDS:
+        raise SystemExit(f"{_rid} has a bond here and in tools/wave2; keep one")
+    BONDS[_rid] = _b
+
 PAIRS = [
     {"a": "tarek_templar", "b": "adrian_templar", "feel": "like", "lines": [
         ("tarek_templar", "You know you could be a bit nicer when you explain the plan."),

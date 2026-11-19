@@ -59,6 +59,8 @@ BATCH_MODULES = [
     # Tarek. Kyle, 2026-10-31: "make it that Tarek is gay and fled from Egypt to avoid
     # persecution." Overlays only his sections.
     "tools.writing.recruits_batch8",
+    # Wave 2 (19 Nov 2026): what each recruit's Wave 1 profile changed. See tools/wave2_text.py.
+    "tools.writing.recruits_wave2",
 ]
 
 #: The tics the rewrite exists to kill. --check counts them and fails if any survive.

@@ -63,6 +63,27 @@ somebody they miss. It's never their story or their personality.
 
 Kept count here as we go: men gay or bisexual: Tarek (gay), Sondre (gay), Sebastián (bisexual), Haruto (gay), Tomas (bisexual, already in his recruit text), Orlando (gay), Iker (gay). Women: Carolina (lesbian), Rosa (bisexual), Camille (lesbian). That's the women done.
 
+## Wave 2: how they act (started 19 Nov 2026)
+
+Each recruit's profile becomes one file, `tools/wave2/<recruit_id>.json`, with three blocks:
+
+- **bond**: their friendship record in the system the pilot three already use. Personality dials
+  (warmth, nerve, pride, restless), likes and dislikes, what they tell you at each of the five
+  stages, the few moments where your reply matters, and the lines that name a cause (bored,
+  leaving, wipes, a zone too high, gear, coming back, the talk after a walkout, teasing after
+  neglect). What they won't talk about until a stage follows their profile's voice notes. Sworn is
+  their ending.
+- **banter**: what they say in the party when something happens. It never names another recruit,
+  because they start as strangers. Wave 3 is where they meet.
+- **recruit_text**: only the parts of their old game text that the profile changed, including
+  every "moved to match the game".
+
+`tools/wave2_text.py` checks every file (voice, no names, nothing missing, section length), and
+`tools/qa_recruit_bonds.py` fails if any file is wrong or doesn't load. Kesten, Adrián and Tarek
+stay in `tools/build_recruit_bonds.py` as the pilot. Asher is never touched.
+
+**Wave 2 done:** Diego, Freja, Ama.
+
 ## Order and progress
 
 The pilot three first, then everyone else from the lowest level up, unless Kyle picks someone (he picked Freja

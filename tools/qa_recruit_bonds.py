@@ -64,6 +64,14 @@ def main():
         from entities.character import Character
         from entities.party import Party
     check(r.returncode == 0, f"the pilot text fails its own checks: {r.stdout[-400:]}")
+    # Wave 2: every other recruit's file in tools/wave2/ is complete and in voice, and its bond
+    # record loads into the same manager the pilot uses.
+    from tools.wave2_text import problems as wave2_problems, bonds as wave2_bonds
+    w2 = wave2_problems()
+    check(not w2, f"Wave 2 files have {len(w2)} problems, first: {w2[:3]}")
+    loaded = set(get_bond_manager().bonds)
+    check(set(wave2_bonds()) <= loaded,
+          f"Wave 2 bonds not loaded: {sorted(set(wave2_bonds()) - loaded)}")
 
     def fresh(level=40):
         with contextlib.redirect_stdout(io.StringIO()):

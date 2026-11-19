@@ -40,23 +40,29 @@
     "ama_priest": {
       "town_arrive": [
         {
-          "text": "There'll be sick people here. There always are.",
+          "text": "There'll be sick people here. There always are, and nobody's looking after half of them.",
           "kind": "open"
+        },
+        {
+          "text": "I grew up above a phone shop in Peckham. You couldn't walk ten yards without somebody knowing your mum.",
+          "kind": "open",
+          "topic": "cities"
         }
       ],
       "close_call": [
         {
-          "text": "Sit. I'm not asking you.",
+          "text": "Sit down where you are, love, I'm not asking you twice.",
           "kind": "open"
         },
         {
-          "text": "You'll feel that tomorrow, and worse the day after. Sit down.",
-          "kind": "reply"
+          "text": "Fourteen years of nights and I still don't like that colour on anybody. Let me look at you.",
+          "kind": "reply",
+          "topic": "night_work"
         }
       ],
       "dungeon_clear": [
         {
-          "text": "I've stitched worse than that in a tent with no light.",
+          "text": "I've counted everyone and we're all here. That's what I wanted.",
           "kind": "reply"
         }
       ],
@@ -64,6 +70,12 @@
         {
           "text": "Anyone bleeding who hasn't said so? That's most of you, usually.",
           "kind": "reply"
+        }
+      ],
+      "zone_arrive": [
+        {
+          "text": "Somebody out here's been hurt and hasn't told anyone. Keep your eyes open.",
+          "kind": "open"
         }
       ]
     },
@@ -1223,6 +1235,93 @@
         {
           "text": "Somebody died in that room a long time ago and nobody marked it.",
           "kind": "reply"
+        }
+      ]
+    },
+    "diego_tinker": {
+      "town_arrive": [
+        {
+          "text": "Somebody here has a broken thing in a drawer, I promise you. Give me an hour.",
+          "kind": "open"
+        },
+        {
+          "text": "Maracaibo was hot, loud and the power went off twice a day, and I'd go back tomorrow.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Did you see the door mechanism on the way in? I want to go back and look at it.",
+          "kind": "open"
+        },
+        {
+          "text": "Everybody's still in one piece, more or less. I can fix the less.",
+          "kind": "reply"
+        }
+      ],
+      "boss_down": [
+        {
+          "text": "Big ones always have something good in them. Let me look before you sell it.",
+          "kind": "reply"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "Okay, that was too close, my friend. My heart's going like a bad engine.",
+          "kind": "open"
+        }
+      ],
+      "zone_arrive": [
+        {
+          "text": "New place, new junk, and I'm very happy about it.",
+          "kind": "open"
+        }
+      ]
+    },
+    "freja_priest": {
+      "town_arrive": [
+        {
+          "text": "I'll find whoever does the healing here and see if they're any good.",
+          "kind": "open"
+        },
+        {
+          "text": "Aarhus had a harbour, a cathedral and about a million bicycles. I miss the bicycles.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "Stay where you are and let me look at you. Then you can tell me you're fine.",
+          "kind": "open"
+        },
+        {
+          "text": "Six years of nights on a labour ward and I've never seen a colour like yours. Drink something now.",
+          "kind": "reply",
+          "topic": "night_work"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Everybody walked out on their own feet. That's my favourite kind of day.",
+          "kind": "open"
+        },
+        {
+          "text": "I've kept score, by the way, and I'm winning.",
+          "kind": "reply"
+        }
+      ],
+      "boss_down": [
+        {
+          "text": "That's that one done. Who's bleeding and hasn't told me?",
+          "kind": "reply"
+        }
+      ],
+      "zone_arrive": [
+        {
+          "text": "There'll be farms out here somewhere, and somebody pregnant who needs looking at.",
+          "kind": "open"
         }
       ]
     }
