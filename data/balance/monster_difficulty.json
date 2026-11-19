@@ -111,9 +111,9 @@
   },
   "early_rare": {
     "damage": 0.4,
-    "through_level": 19,
-    "full_level": 25,
-    "_why": "Kyle, 18 Nov 2026: 'Rares below lvl 20 are still a bit overtuned - theyre hitting for over 100 when i have 300 hp.' Measured the same evening (every open-world rare under 21, through the real combat engine, against a geared warrior and priest of its level): a rare's average hit was 30-50% of a warrior's health and 60-95% of a priest's, and its biggest hit often more than a priest had. At half damage a level 10 rare still hit a 308-health priest for about 100, which is the exact hit Kyle reported, so an open-world rare (a field_boss that isn't in a cave) deals 40% damage through level 19, climbing back to its full row by level 25 so there's no cliff at 20. Cave bosses and dungeon bosses are untouched, and health is untouched.",
+    "through_level": 35,
+    "full_level": 45,
+    "_why": "Kyle, 18 Nov 2026: 'Rares below lvl 20 are still a bit overtuned - theyre hitting for over 100 when i have 300 hp.' Measured the same evening (every open-world rare under 21, through the real combat engine, against a geared warrior and priest of its level): a rare's average hit was 30-50% of a warrior's health and 60-95% of a priest's, and its biggest hit often more than a priest had. At half damage a level 10 rare still hit a 308-health priest for about 100, which is the exact hit Kyle reported, so an open-world rare (a field_boss that isn't in a cave) deals 40% damage through level 19, climbing back to its full row by level 25 so there's no cliff at 20. Cave bosses and dungeon bosses are untouched, and health is untouched. Then, 18 Nov 2026: 'Adjust the rares so they only start to ramp back up past lvl 35.' So 40% through 35, back to the full row by 45.",
     "_measured": "After, at 0.4: a rare's average hit is about 12-20% of a geared warrior's health and 25-35% of a priest's, so a cloth player takes three to five hits and plate six to eight. Skull-zone rares keep their own row."
   }
 }

@@ -24,7 +24,7 @@ than in every kit, and it can be turned back by editing three pairs of numbers.
          loot_ilvl_bonus: what they drop sits that many item levels above them.
 
   early_rare  not a kind: a damage multiplier on an open-world rare (a field_boss outside a cave) at low level
-         (Kyle, 18 Nov 2026: "Rares below lvl 20 are still a bit overtuned"): 40% through 19, full again by 25.
+         (Kyle, 18 Nov 2026: "Rares below lvl 20 are still a bit overtuned"): 40% through 35, full again by 45 (Kyle: "only start to ramp back up past lvl 35").
 
   low_level  not a kind: a multiplier on top of whichever row applies, for every creature under
          level 10 (Kyle, 16 Nov 2026: 20% less damage, 15% less health).
@@ -133,7 +133,7 @@ def factor(monster, what):
     early = table().get("early_rare") or {}
     if what in early and kind_of(monster) == "field_boss" and getattr(monster, "location_type", None) != "cave":
         lv = getattr(monster, "level", 1) or 1
-        lo, hi = int(early.get("through_level", 19)), int(early.get("full_level", 25))
+        lo, hi = int(early.get("through_level", 35)), int(early.get("full_level", 45))
         k = min(1.0, max(0.0, (lv - lo) / max(1, hi - lo)))
         f *= float(early[what]) + (1.0 - float(early[what])) * k
     # LATE DUNGEON BOSSES HIT HARDER (Kyle, 16 Nov 2026: "i can 2 man dungeons without any issues"; "Both, a little

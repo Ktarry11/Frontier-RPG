@@ -59,17 +59,17 @@ def main():
     if checked < 8:
         bad.append(f"only {checked} spawns could be checked")
 
-    # EARLY RARES (Kyle, 18 Nov 2026: "Rares below lvl 20 are still a bit overtuned"): an open-world rare deals 40%
-    # through 19 and its full row from 25; the same creature in a cave is a cave boss and isn't touched.
+    # EARLY RARES (Kyle, 18 Nov 2026: "Rares below lvl 20 are still a bit overtuned", then "only start to ramp back up
+    # past lvl 35"): an open-world rare deals 40% through 35 and its full row from 45; the same creature in a cave is a cave boss and isn't touched.
     early = D.table().get("early_rare") or {}
-    if (early.get("damage"), early.get("through_level"), early.get("full_level")) != (0.4, 19, 25):
-        bad.append(f"the early_rare row is {early}, not 0.4 through 19 and full from 25")
+    if (early.get("damage"), early.get("through_level"), early.get("full_level")) != (0.4, 35, 45):
+        bad.append(f"the early_rare row is {early}, not 0.4 through 35 and full from 45")
     rare = "Rumblejaw"
     if rare not in cm.creatures or not cm.creatures[rare].get("is_boss"):
         bad.append(f"{rare} isn't a rare any more; pick another open-world rare under 20")
     else:
         row = float((D.table().get("field_boss") or {}).get("damage", 1.0)) * D.boss_damage(rare)
-        for level, want in ((12, 0.4), (19, 0.4), (22, 0.7), (25, 1.0), (30, 1.0)):
+        for level, want in ((12, 0.4), (30, 0.4), (35, 0.4), (40, 0.7), (45, 1.0), (50, 1.0)):
             with contextlib.redirect_stdout(io.StringIO()):
                 m = cm.spawn_creature(rare, level=level)
             got = m.damage_output_multiplier / row
@@ -86,7 +86,7 @@ def main():
         for b in bad:
             print("  -", b)
         return 1
-    print("PASS - under level 10 a creature deals 20% less and has 15% less health; an open-world rare deals 40% through 19, full from 25")
+    print("PASS - under level 10 a creature deals 20% less and has 15% less health; an open-world rare deals 40% through 35, full from 45")
     return 0
 
 
