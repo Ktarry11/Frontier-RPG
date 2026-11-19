@@ -1,0 +1,76 @@
+{
+  "recruit_text": {
+    "greeting": "Give me room. More than that. Honestly, more than that, I've burnt three people's eyebrows off being polite about it.",
+    "backstory": "Twenty-two years running the kiln at his family's Talavera workshop in Puebla. Glaze, temperature, timing: a trade where the whole year's work turns on four hours of heat going exactly right. He feels a fire the way other people feel a draught. Here fire answers him, and the first thing he did with that was make a cup, badly, and he keeps it on a shelf.",
+    "before": "A kiln, a wheel, and a workshop his grandfather fired for forty years before him.\n\nHis wife Lupe sold the workshop's blue and white pottery at the market, and she could sell anything to anybody. Their two sons went to Mexico City, and neither wanted the kiln.",
+    "adjustment": "It took ten weeks. He treated it as a new kiln with an unfamiliar character, and learned it the way he'd learned four others.\n\nLupe was at the market when it happened. He's said the word market perhaps twice in three years, and each time changed the subject so quickly that whoever he was talking to apologised.",
+    "now": "The jungle ruins of Central Stranglethorn, beside an old troll fire-pit where they once fired their idols. It's the hottest thing he's found, so it's the only place he wants to be.\n\nHe has a pot going in a crack in the rock that nobody's supposed to know about.",
+    "forward": "A kiln of his own, built right, with somebody to teach.\n\nHe has the clay and he has the site. He's been putting it off for two years, and the reason he gives is money, and the reason isn't money."
+  },
+  "bond": {
+    "home": "Central Stranglethorn",
+    "dials": {"warmth": 1.3, "nerve": 1.2, "pride": 0.7, "restless": 0.8},
+    "likes": ["dungeon", "boss"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Alonso, a pyromancer, and before that a potter. Give me room when I work, more than you think, mijo. Your eyebrows will thank you.",
+      "acquaintance": "I'm from Puebla, in Mexico, where Talavera pottery comes from, the blue and white. My grandfather fired our family kiln for forty years, and my father after him, and then me, twenty-two years. The whole year's work turns on four hours of heat going exactly right. That's the job. You learn to feel it.",
+      "companion": "My sons are Rodrigo and Fernando. They went to Mexico City and neither of them wanted the kiln. I minded more than I said. I was at the height of a firing when it happened, and I landed in the jungle with my kiln goggles round my neck. The first thing I made here was a cup, a bad one. I keep it on the shelf.",
+      "friend": "My wife is Lupe. She sold our pottery at the market, and she could sell anything to anybody. She was at the market when it happened. That's all I've ever said, because I don't know what comes after it. Now there's a woman from Puebla in Booty Bay who was at the same market that morning. I'd like to go and hear what she knows. Will you come with me, mijo?",
+      "sworn": "The market square came through into deep water, and almost nobody got out. She saw Lupe at her stall, right up until. We built the kiln after that, you and I, stone by stone, and I fired it for four hours, exactly right. The first thing out was a blue and white plate in the pattern Lupe sold best, and it's on the kiln wall. I've got a troll apprentice now. And I can say market, and tell you about her, and not change the subject."
+    },
+    "moments": [
+      {"id": "the_market", "stage": "friend", "when": "talk",
+       "prompt": "He's asked you to come to Booty Bay to meet the woman from the market.",
+       "options": [
+         {"text": "I'll come, and I'll stay with you after.", "trust": 12,
+          "reply": "Gracias, mijo, thank you. Whatever she says, I'm glad it won't be just me hearing it."},
+         {"text": "Are you sure you want to know?", "trust": 2,
+          "reply": "No, but I've been not knowing for three years, and it hasn't helped."}
+       ]},
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe he's checking everyone's eyebrows, mostly as a joke.",
+       "line": "Órale, everybody still has eyebrows, so that's something. Next time give me more room and let me work.",
+       "options": [
+         {"text": "More room it is.", "trust": 6, "mood": 6,
+          "reply": "Good, thank you. Fire's like a kiln, mijo, you can't rush it and you can't crowd it."},
+         {"text": "Just aim better.", "trust": 0, "mood": -6,
+          "reply": "I aim perfectly. People keep walking into it."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "Mijo, we've fired the same pot a hundred times. Let's go and find something worth the heat.",
+      "leaving_good": "That was a good firing, all of it. I'm going back to my ruins for a while, to check on my pot. Come and find me.",
+      "leaving_bored": "I'm going back to the ruins. This is the same thing again and again, and my clay's drying out.",
+      "after_wipe": "Órale, everybody still has eyebrows. Now let's look at where it cracked.",
+      "wipe_warning": "We keep cracking in here, mijo. I'll finish this run, but then I need some days by my fire-pit.",
+      "wipe_leave": "I finished it with you. Now I'm going back to Stranglethorn for a while. Come when you're ready.",
+      "zone_warning": "This place is too hot even for me, mijo. Something that strong will crack us all. Let's go back.",
+      "zone_leave": "I'm stopping here. It's too hot out there for us. I'll be in the ruins of Central Stranglethorn.",
+      "gear_refuse": "Ah, no, mijo, that's mine. Ask me again when we know each other.",
+      "gear_taken": "Take it, take it. I'll manage, and I'll complain in Spanish.",
+      "gear_short": "I'm still missing that piece, mijo. I'm only mentioning it.",
+      "gear_upgrade": "Qué padre, that's beautiful work. Thank you, really.",
+      "back": "I'm back, and my pot came out nearly right. Where are we going?",
+      "send_word": "Alonso has sent word from Central Stranglethorn. His pot's fired and he's ready to come out.",
+      "walkout_talk": "I walked out angry, mijo, and I'd like to explain. Sit by the fire and let's talk while it burns.",
+      "neglect": "There you are, mijo! I made you a cup while you were gone. It's terrible, it's yours.",
+      "asked_to_stay": "Ándale, one more. Then my pot.",
+      "on_break": "Alonso is back in the jungle ruins of Central Stranglethorn. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "boss_down": [
+      {"text": "Fire does what you ask if you ask properly. Twenty-two years and it hardly ever surprised me.", "kind": "open", "topic": "fire"}
+    ],
+    "close_call": [
+      {"text": "Burns I can do. Burns are the easy part, which nobody believes.", "kind": "reply"}
+    ],
+    "town_arrive": [
+      {"text": "Puebla's churches are covered in blue and white tiles, and my family made some of them.", "kind": "open", "topic": "cities"}
+    ],
+    "dungeon_clear": [
+      {"text": "Cold in there. I don't like a place with no fire in it.", "kind": "reply"}
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "recruit_text": {
+    "greeting": "You cooked this? It's terrible, honestly. Sit down, I'll show you. No, you sit, it's faster if I do it.",
+    "backstory": "He ran a kafana in Novi Sad that his uncle left him, and he's a far better cook than he is a fighter. He says so himself, with some bitterness. He's blunt to the point of rudeness about small things and completely reliable about large ones. He took to this world badly and is only now coming out of it, and the coming out looks like him feeding people and insulting them while he does it.",
+    "before": "A kitchen, a card table, and forty regulars who came for the beans and stayed because there was nowhere else.\n\nA daughter, Mila, who was nine, and an ex-wife, Jelena, he was on decent terms with. They had Mila on alternate weeks. It wasn't his week.",
+    "adjustment": "Two years that he describes in three words, and nobody presses him on them.\n\nWhat brought him back was being handed a cooking pot in a camp and being too irritated by how badly it was being used to leave it alone. He's cooked for whoever's nearby ever since, and he still says he isn't a cook any more.",
+    "forward": "He won't say. He's been asked, and he changes the subject every time, usually to food.\n\nWhat anyone can see is that he's started keeping a second bowl ready at every meal, without being able to say who he thinks it's for.",
+    "now": "Rocky Pass, the cleft up to the summit of the Aspen country, at the front with an axe, badly, and at the fire afterwards doing the thing he's actually good at.\n\nHe carries a domino from the kafana set, the double six, in his glove. He puts it on the table when he sits down to eat. He's never explained it, and nobody asks."
+  },
+  "bond": {
+    "home": "Rocky Pass",
+    "dials": {"warmth": 0.9, "nerve": 1.1, "pride": 1.0, "restless": 0.8},
+    "likes": ["full_party", "quest"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Vuk, and I fight badly and I cook very well, and I'll tell you your food's terrible, because it is. Sit down, eat, and then we'll go and hit something.",
+      "acquaintance": "I'm from Novi Sad, in Serbia, by the Danube. My father drank and left, and my uncle Dragan raised me in his kafana kitchen. When he died it was mine. A kitchen, a card table, forty regulars who came for the beans. Best beans in the city, bre. Maybe the world.",
+      "companion": "I married Jelena young. We divorced without much bitterness. I worked too much and drank a bit too much, like my father, and she wouldn't have it, and she was right. I stopped after. I was closing up the kafana when it happened. Then two years that I won't talk about, so don't ask. A cooking pot brought me back.",
+      "friend": "I've got a daughter, Mila. She was nine. We had her alternate weeks, and it wasn't my week, so she was with her mother on the other side of the city. On my weeks we played dominoes after closing, and she always wanted the double six. That's why the second bowl, and that's why the domino. People say there's word going round about the beans at the pass. Help me keep the pass safe.",
+      "sworn": "A caravan came over the pass, and after the fighting a girl climbed down from the last wagon and followed the smell of the beans. Mila, twelve now, with Jelena behind her. She sat down at my fire without asking, the way she used to sit at the card table. I filled the second bowl. Then she asked if I still had the double six, and I put it on the table and let her have it."
+    },
+    "moments": [
+      {"id": "first_meal", "stage": "stranger", "when": "hire",
+       "prompt": "He shoves a bowl of beans at you and watches you eat.",
+       "options": [
+         {"text": "Eat it all and ask for more.", "trust": 8, "joins": true,
+          "reply": "Ha, finally, somebody with taste. Ajde, I'll get my axe."},
+         {"text": "Say it's a bit salty.", "trust": 0, "joins": false,
+          "reply": "Salty, you say? Get out of my kitchen. Come back when your tongue works."}
+       ]},
+      {"id": "the_bowl", "stage": "friend", "when": "talk",
+       "prompt": "He's just told you who the second bowl is for.",
+       "options": [
+         {"text": "Then we'll keep the pass open for her.", "trust": 12,
+          "reply": "Ajde, yes, we will. Nobody comes through that pass hurt while I'm cooking."},
+         {"text": "She might not be looking for you.", "trust": 0,
+          "reply": "She'd look for the beans, bre, everybody does."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "Same field, same food, same everything. Even I can't make this interesting. Let's go somewhere new, bre.",
+      "leaving_good": "That was good, and you all ate properly for once. I'm going back to the pass to cook. Come and eat with me.",
+      "leaving_bored": "I'm going back to the pass. This is boring, and my beans are going cold.",
+      "after_wipe": "That was terrible, like your cooking. Everybody up, eat something, and we go again.",
+      "wipe_warning": "We keep dying in here, and I'm a cook, not a hero. I'll finish this run, then I need my kitchen.",
+      "wipe_leave": "I finished it with you. Now I'm going back to Rocky Pass to cook something that doesn't fight back.",
+      "zone_warning": "This place is too much for us, bre. I'm not brave, I'm a cook with an axe. Let's go back.",
+      "zone_leave": "I'm stopping here. Too much for a cook with an axe. I'll be at Rocky Pass.",
+      "gear_refuse": "No, that's mine. Eat my food for a few weeks and then ask me.",
+      "gear_taken": "Take it, then. I'll stand in front anyway, badly, like always.",
+      "gear_short": "I'm still missing that piece, bre. It's like a soup with no salt.",
+      "gear_upgrade": "That's good kit, better than your cooking. Thank you.",
+      "back": "I'm back, and I brought beans. Sit, eat, and then tell me where we're going.",
+      "send_word": "Vuk has sent word from Rocky Pass. The beans are on and he's ready to come out.",
+      "walkout_talk": "I walked out angry. Sit down, eat something, and I'll tell you why. Then you tell me yours.",
+      "neglect": "There you are! I made extra every night in case you came. Terrible waste of beans.",
+      "asked_to_stay": "Ajde, one more. Then I cook.",
+      "on_break": "Vuk is back at the fire in Rocky Pass. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {"text": "Let's find whoever cooks here and see how bad it is.", "kind": "open"},
+      {"text": "Novi Sad has a fortress on the Danube and a festival every summer, and my beans were famous there.", "kind": "open", "topic": "cities"}
+    ],
+    "dungeon_clear": [
+      {"text": "Everybody's alive, so everybody eats tonight, and nobody complains about it.", "kind": "open"}
+    ],
+    "boss_down": [
+      {"text": "Good, that's done. Who's hungry, then? Don't answer, I know you are.", "kind": "reply"}
+    ],
+    "close_call": [
+      {"text": "Too close, bre. Sit down and eat something before you fall down.", "kind": "reply"}
+    ]
+  }
+}

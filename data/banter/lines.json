@@ -1049,7 +1049,7 @@
     "alonso_pyromancer": {
       "boss_down": [
         {
-          "text": "Fire'll do what you ask if you ask properly. Twenty years and it never once surprised me.",
+          "text": "Fire does what you ask if you ask properly. Twenty-two years and it hardly ever surprised me.",
           "kind": "open",
           "topic": "fire"
         }
@@ -1062,7 +1062,7 @@
       ],
       "town_arrive": [
         {
-          "text": "Guadalajara. Three benches and a furnace we never let go out.",
+          "text": "Puebla's churches are covered in blue and white tiles, and my family made some of them.",
           "kind": "open",
           "topic": "cities"
         }
@@ -1688,6 +1688,37 @@
         }
       ]
     },
+    "gunnar_barbarian": {
+      "boss_down": [
+        {
+          "text": "Skál to whoever that was, and to us for still standing.",
+          "kind": "open"
+        }
+      ],
+      "town_arrive": [
+        {
+          "text": "Right, let's find the inn and see if they know how to brew anything.",
+          "kind": "open"
+        },
+        {
+          "text": "Akureyri's a little town by a fjord, with the northern lights over it all winter. You'd love it.",
+          "kind": "open",
+          "topic": "the_cold"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Everybody out alive! That calls for a song, and I'm going to sing it.",
+          "kind": "open"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "Ha, too close! Have a drink, it helps, trust me.",
+          "kind": "reply"
+        }
+      ]
+    },
     "iker_guardian": {
       "boss_down": [
         {
@@ -2052,6 +2083,37 @@
       "boss_down": [
         {
           "text": "Okay, that's done. Now, nobody carries anybody until I've checked them.",
+          "kind": "reply"
+        }
+      ]
+    },
+    "vuk_knight": {
+      "town_arrive": [
+        {
+          "text": "Let's find whoever cooks here and see how bad it is.",
+          "kind": "open"
+        },
+        {
+          "text": "Novi Sad has a fortress on the Danube and a festival every summer, and my beans were famous there.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Everybody's alive, so everybody eats tonight, and nobody complains about it.",
+          "kind": "open"
+        }
+      ],
+      "boss_down": [
+        {
+          "text": "Good, that's done. Who's hungry, then? Don't answer, I know you are.",
+          "kind": "reply"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "Too close, bre. Sit down and eat something before you fall down.",
           "kind": "reply"
         }
       ]

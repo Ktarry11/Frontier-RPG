@@ -274,6 +274,90 @@
         "on_break": "Tarek is out checking his wells. Come back after you've been busy for a while."
       }
     },
+    "alonso_pyromancer": {
+      "home": "Central Stranglethorn",
+      "dials": {
+        "warmth": 1.3,
+        "nerve": 1.2,
+        "pride": 0.7,
+        "restless": 0.8
+      },
+      "likes": [
+        "dungeon",
+        "boss"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Alonso, a pyromancer, and before that a potter. Give me room when I work, more than you think, mijo. Your eyebrows will thank you.",
+        "acquaintance": "I'm from Puebla, in Mexico, where Talavera pottery comes from, the blue and white. My grandfather fired our family kiln for forty years, and my father after him, and then me, twenty-two years. The whole year's work turns on four hours of heat going exactly right. That's the job. You learn to feel it.",
+        "companion": "My sons are Rodrigo and Fernando. They went to Mexico City and neither of them wanted the kiln. I minded more than I said. I was at the height of a firing when it happened, and I landed in the jungle with my kiln goggles round my neck. The first thing I made here was a cup, a bad one. I keep it on the shelf.",
+        "friend": "My wife is Lupe. She sold our pottery at the market, and she could sell anything to anybody. She was at the market when it happened. That's all I've ever said, because I don't know what comes after it. Now there's a woman from Puebla in Booty Bay who was at the same market that morning. I'd like to go and hear what she knows. Will you come with me, mijo?",
+        "sworn": "The market square came through into deep water, and almost nobody got out. She saw Lupe at her stall, right up until. We built the kiln after that, you and I, stone by stone, and I fired it for four hours, exactly right. The first thing out was a blue and white plate in the pattern Lupe sold best, and it's on the kiln wall. I've got a troll apprentice now. And I can say market, and tell you about her, and not change the subject."
+      },
+      "moments": [
+        {
+          "id": "the_market",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to come to Booty Bay to meet the woman from the market.",
+          "options": [
+            {
+              "text": "I'll come, and I'll stay with you after.",
+              "trust": 12,
+              "reply": "Gracias, mijo, thank you. Whatever she says, I'm glad it won't be just me hearing it."
+            },
+            {
+              "text": "Are you sure you want to know?",
+              "trust": 2,
+              "reply": "No, but I've been not knowing for three years, and it hasn't helped."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's checking everyone's eyebrows, mostly as a joke.",
+          "line": "Órale, everybody still has eyebrows, so that's something. Next time give me more room and let me work.",
+          "options": [
+            {
+              "text": "More room it is.",
+              "trust": 6,
+              "mood": 6,
+              "reply": "Good, thank you. Fire's like a kiln, mijo, you can't rush it and you can't crowd it."
+            },
+            {
+              "text": "Just aim better.",
+              "trust": 0,
+              "mood": -6,
+              "reply": "I aim perfectly. People keep walking into it."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Mijo, we've fired the same pot a hundred times. Let's go and find something worth the heat.",
+        "leaving_good": "That was a good firing, all of it. I'm going back to my ruins for a while, to check on my pot. Come and find me.",
+        "leaving_bored": "I'm going back to the ruins. This is the same thing again and again, and my clay's drying out.",
+        "after_wipe": "Órale, everybody still has eyebrows. Now let's look at where it cracked.",
+        "wipe_warning": "We keep cracking in here, mijo. I'll finish this run, but then I need some days by my fire-pit.",
+        "wipe_leave": "I finished it with you. Now I'm going back to Stranglethorn for a while. Come when you're ready.",
+        "zone_warning": "This place is too hot even for me, mijo. Something that strong will crack us all. Let's go back.",
+        "zone_leave": "I'm stopping here. It's too hot out there for us. I'll be in the ruins of Central Stranglethorn.",
+        "gear_refuse": "Ah, no, mijo, that's mine. Ask me again when we know each other.",
+        "gear_taken": "Take it, take it. I'll manage, and I'll complain in Spanish.",
+        "gear_short": "I'm still missing that piece, mijo. I'm only mentioning it.",
+        "gear_upgrade": "Qué padre, that's beautiful work. Thank you, really.",
+        "back": "I'm back, and my pot came out nearly right. Where are we going?",
+        "send_word": "Alonso has sent word from Central Stranglethorn. His pot's fired and he's ready to come out.",
+        "walkout_talk": "I walked out angry, mijo, and I'd like to explain. Sit by the fire and let's talk while it burns.",
+        "neglect": "There you are, mijo! I made you a cup while you were gone. It's terrible, it's yours.",
+        "asked_to_stay": "Ándale, one more. Then my pot.",
+        "on_break": "Alonso is back in the jungle ruins of Central Stranglethorn. Come back after you've done a few more jobs."
+      }
+    },
     "ama_priest": {
       "home": "Razor Hill",
       "dials": {
@@ -1782,6 +1866,89 @@
         "neglect": "You were gone a long time, a whole season. I waited, like the mountain does.",
         "asked_to_stay": "Kargi, one more walk. Then the mountain.",
         "on_break": "Giorgi is back in his hut on the high ground above Tarren Mill. Come back after you've done a few more jobs."
+      }
+    },
+    "gunnar_barbarian": {
+      "home": "Hammerfall",
+      "dials": {
+        "warmth": 1.6,
+        "nerve": 1.3,
+        "pride": 0.5,
+        "restless": 0.9
+      },
+      "likes": [
+        "boss",
+        "full_party"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Gunnar, hello! Sit down, you look like you've had a long road. Try this, it's mine. I'm a barbarian and a brewer, and I'm better at the second one.",
+        "acquaintance": "I'm from Akureyri, in the north of Iceland, a fishing town. I started brewing in a shed behind my uncle's garage, and it grew into a proper brewery with a queue out the door on Fridays. I've got a dog, Brúnó, and a sister, Sigrún, who thinks stout isn't food, and she's wrong. I played second row for a rugby club that lost almost every match, and we celebrated every one.",
+        "companion": "I was checking a batch with my hydrometer when it happened, and I landed in snow in the north with a keg on my back, which helped. A clan took me in after I fixed their mead. My mother's in Akureyri, and Sigrún, and Brúnó. I haven't found any of them. I toast them every night, quietly.",
+        "friend": "My father was a fisherman, and he sang in the town choir. His boat went down in a winter storm when I was twenty, and they never found him. I didn't cry at the funeral. I went home and started brewing. Then I heard the barbarians sing for their dead, and I cried for him, for the first time in seventeen years. There's wild barley on the moor. Help me get it, and I'll brew something worthy of a feast.",
+        "sworn": "At the feast they sang for their dead and asked me to name mine. I stood up and named my father and sang the first verse of his choir song, badly, and they joined in on the second without knowing the words. Then I passed the beer round. The orcs stopped pretending they don't like it. Grettha said it's better than hers, once, quietly, and I'll never let her forget it. Skál to that."
+      },
+      "moments": [
+        {
+          "id": "try_this",
+          "stage": "stranger",
+          "when": "hire",
+          "prompt": "He pours you something from his keg and waits to see your face.",
+          "options": [
+            {
+              "text": "Drink it and tell him it's good.",
+              "trust": 6,
+              "joins": true,
+              "reply": "Ha, skál to you! I knew I liked you. Let me get my axe."
+            },
+            {
+              "text": "Turn it down.",
+              "trust": 0,
+              "joins": true,
+              "reply": "More for me, then! I'll come anyway, but you're missing out."
+            }
+          ]
+        },
+        {
+          "id": "the_song",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's just told you about his father.",
+          "options": [
+            {
+              "text": "Let's get the barley, and you can sing for him.",
+              "trust": 12,
+              "reply": "Jæja, yes, let's do it. Let's go, before I get sentimental and cry into my keg."
+            },
+            {
+              "text": "You're allowed to grieve, you know.",
+              "trust": 8,
+              "reply": "I know, elskan. It took me seventeen years and a clan of barbarians to learn it."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Jæja, we've been doing the same thing for days and nobody's even sung. Let's go somewhere with a bit of life in it.",
+        "leaving_good": "That was a great trip, skál to all of you! I'm going back to Hammerfall to check on my brew. Come and have a drink.",
+        "leaving_bored": "I'm going back to Hammerfall. This is too dull even for me, and my brew needs me.",
+        "after_wipe": "Ha, well, that went badly! Everybody up, have a drink, and we'll try again.",
+        "wipe_warning": "We keep dying in here, and even I'm not laughing now. I'll finish this run, then I need a week at the inn.",
+        "wipe_leave": "I finished it with you. Now I'm going back to Hammerfall to drink something and sing. Come and find me later.",
+        "zone_warning": "This place is too much for us, elskan. I'm big, but I'm not stupid. Let's go somewhere we can handle.",
+        "zone_leave": "I'm stopping here. Too much out there for us. I'll be in Hammerfall, behind the inn.",
+        "gear_refuse": "Ah, no, that's mine! Have a few drinks with me first.",
+        "gear_taken": "Take it, take it! I'll manage, I'm enormous.",
+        "gear_short": "I'm still missing that piece. Not complaining, just mentioning it loudly.",
+        "gear_upgrade": "Oh, that's lovely! Skál, thank you!",
+        "back": "I'm back, and I've brewed something new! Try it, and then tell me where we're going.",
+        "send_word": "Gunnar has sent word from Hammerfall. His brew's ready and so is he.",
+        "walkout_talk": "I walked out angry, and that's not like me. Sit down, have a drink, and we'll sort it out properly.",
+        "neglect": "There you are! I saved you a drink. Several drinks, actually. I drank most of them.",
+        "asked_to_stay": "Jæja, one more! Then the inn.",
+        "on_break": "Gunnar is back in Hammerfall, behind the inn. Come back after you've done a few more jobs."
       }
     },
     "hana_shaman": {
@@ -4546,6 +4713,89 @@
         "neglect": "There you are! I'd started to think you'd fallen off something. I'd have caught you, though.",
         "asked_to_stay": "Okay, one more show, and then home.",
         "on_break": "Tomas is back on Fenris Isle, fixing scaffolding. Come back after you've done a few more jobs."
+      }
+    },
+    "vuk_knight": {
+      "home": "Rocky Pass",
+      "dials": {
+        "warmth": 0.9,
+        "nerve": 1.1,
+        "pride": 1.0,
+        "restless": 0.8
+      },
+      "likes": [
+        "full_party",
+        "quest"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Vuk, and I fight badly and I cook very well, and I'll tell you your food's terrible, because it is. Sit down, eat, and then we'll go and hit something.",
+        "acquaintance": "I'm from Novi Sad, in Serbia, by the Danube. My father drank and left, and my uncle Dragan raised me in his kafana kitchen. When he died it was mine. A kitchen, a card table, forty regulars who came for the beans. Best beans in the city, bre. Maybe the world.",
+        "companion": "I married Jelena young. We divorced without much bitterness. I worked too much and drank a bit too much, like my father, and she wouldn't have it, and she was right. I stopped after. I was closing up the kafana when it happened. Then two years that I won't talk about, so don't ask. A cooking pot brought me back.",
+        "friend": "I've got a daughter, Mila. She was nine. We had her alternate weeks, and it wasn't my week, so she was with her mother on the other side of the city. On my weeks we played dominoes after closing, and she always wanted the double six. That's why the second bowl, and that's why the domino. People say there's word going round about the beans at the pass. Help me keep the pass safe.",
+        "sworn": "A caravan came over the pass, and after the fighting a girl climbed down from the last wagon and followed the smell of the beans. Mila, twelve now, with Jelena behind her. She sat down at my fire without asking, the way she used to sit at the card table. I filled the second bowl. Then she asked if I still had the double six, and I put it on the table and let her have it."
+      },
+      "moments": [
+        {
+          "id": "first_meal",
+          "stage": "stranger",
+          "when": "hire",
+          "prompt": "He shoves a bowl of beans at you and watches you eat.",
+          "options": [
+            {
+              "text": "Eat it all and ask for more.",
+              "trust": 8,
+              "joins": true,
+              "reply": "Ha, finally, somebody with taste. Ajde, I'll get my axe."
+            },
+            {
+              "text": "Say it's a bit salty.",
+              "trust": 0,
+              "joins": false,
+              "reply": "Salty, you say? Get out of my kitchen. Come back when your tongue works."
+            }
+          ]
+        },
+        {
+          "id": "the_bowl",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's just told you who the second bowl is for.",
+          "options": [
+            {
+              "text": "Then we'll keep the pass open for her.",
+              "trust": 12,
+              "reply": "Ajde, yes, we will. Nobody comes through that pass hurt while I'm cooking."
+            },
+            {
+              "text": "She might not be looking for you.",
+              "trust": 0,
+              "reply": "She'd look for the beans, bre, everybody does."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Same field, same food, same everything. Even I can't make this interesting. Let's go somewhere new, bre.",
+        "leaving_good": "That was good, and you all ate properly for once. I'm going back to the pass to cook. Come and eat with me.",
+        "leaving_bored": "I'm going back to the pass. This is boring, and my beans are going cold.",
+        "after_wipe": "That was terrible, like your cooking. Everybody up, eat something, and we go again.",
+        "wipe_warning": "We keep dying in here, and I'm a cook, not a hero. I'll finish this run, then I need my kitchen.",
+        "wipe_leave": "I finished it with you. Now I'm going back to Rocky Pass to cook something that doesn't fight back.",
+        "zone_warning": "This place is too much for us, bre. I'm not brave, I'm a cook with an axe. Let's go back.",
+        "zone_leave": "I'm stopping here. Too much for a cook with an axe. I'll be at Rocky Pass.",
+        "gear_refuse": "No, that's mine. Eat my food for a few weeks and then ask me.",
+        "gear_taken": "Take it, then. I'll stand in front anyway, badly, like always.",
+        "gear_short": "I'm still missing that piece, bre. It's like a soup with no salt.",
+        "gear_upgrade": "That's good kit, better than your cooking. Thank you.",
+        "back": "I'm back, and I brought beans. Sit, eat, and then tell me where we're going.",
+        "send_word": "Vuk has sent word from Rocky Pass. The beans are on and he's ready to come out.",
+        "walkout_talk": "I walked out angry. Sit down, eat something, and I'll tell you why. Then you tell me yours.",
+        "neglect": "There you are! I made extra every night in case you came. Terrible waste of beans.",
+        "asked_to_stay": "Ajde, one more. Then I cook.",
+        "on_break": "Vuk is back at the fire in Rocky Pass. Come back after you've done a few more jobs."
       }
     }
   },

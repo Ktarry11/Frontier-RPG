@@ -1,0 +1,71 @@
+{
+  "recruit_text": {
+    "adjustment": "He landed in snow in the north, which helped. A clan took him in after he fixed their mead, and he's been fixing it since.\n\nHe cried once, the first time he heard their ancestor songs, and he doesn't mind who knows it."
+  },
+  "bond": {
+    "home": "Hammerfall",
+    "dials": {"warmth": 1.6, "nerve": 1.3, "pride": 0.5, "restless": 0.9},
+    "likes": ["boss", "full_party"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Gunnar, hello! Sit down, you look like you've had a long road. Try this, it's mine. I'm a barbarian and a brewer, and I'm better at the second one.",
+      "acquaintance": "I'm from Akureyri, in the north of Iceland, a fishing town. I started brewing in a shed behind my uncle's garage, and it grew into a proper brewery with a queue out the door on Fridays. I've got a dog, Brúnó, and a sister, Sigrún, who thinks stout isn't food, and she's wrong. I played second row for a rugby club that lost almost every match, and we celebrated every one.",
+      "companion": "I was checking a batch with my hydrometer when it happened, and I landed in snow in the north with a keg on my back, which helped. A clan took me in after I fixed their mead. My mother's in Akureyri, and Sigrún, and Brúnó. I haven't found any of them. I toast them every night, quietly.",
+      "friend": "My father was a fisherman, and he sang in the town choir. His boat went down in a winter storm when I was twenty, and they never found him. I didn't cry at the funeral. I went home and started brewing. Then I heard the barbarians sing for their dead, and I cried for him, for the first time in seventeen years. There's wild barley on the moor. Help me get it, and I'll brew something worthy of a feast.",
+      "sworn": "At the feast they sang for their dead and asked me to name mine. I stood up and named my father and sang the first verse of his choir song, badly, and they joined in on the second without knowing the words. Then I passed the beer round. The orcs stopped pretending they don't like it. Grettha said it's better than hers, once, quietly, and I'll never let her forget it. Skál to that."
+    },
+    "moments": [
+      {"id": "try_this", "stage": "stranger", "when": "hire",
+       "prompt": "He pours you something from his keg and waits to see your face.",
+       "options": [
+         {"text": "Drink it and tell him it's good.", "trust": 6, "joins": true,
+          "reply": "Ha, skál to you! I knew I liked you. Let me get my axe."},
+         {"text": "Turn it down.", "trust": 0, "joins": true,
+          "reply": "More for me, then! I'll come anyway, but you're missing out."}
+       ]},
+      {"id": "the_song", "stage": "friend", "when": "talk",
+       "prompt": "He's just told you about his father.",
+       "options": [
+         {"text": "Let's get the barley, and you can sing for him.", "trust": 12,
+          "reply": "Jæja, yes, let's do it. Let's go, before I get sentimental and cry into my keg."},
+         {"text": "You're allowed to grieve, you know.", "trust": 8,
+          "reply": "I know, elskan. It took me seventeen years and a clan of barbarians to learn it."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "Jæja, we've been doing the same thing for days and nobody's even sung. Let's go somewhere with a bit of life in it.",
+      "leaving_good": "That was a great trip, skál to all of you! I'm going back to Hammerfall to check on my brew. Come and have a drink.",
+      "leaving_bored": "I'm going back to Hammerfall. This is too dull even for me, and my brew needs me.",
+      "after_wipe": "Ha, well, that went badly! Everybody up, have a drink, and we'll try again.",
+      "wipe_warning": "We keep dying in here, and even I'm not laughing now. I'll finish this run, then I need a week at the inn.",
+      "wipe_leave": "I finished it with you. Now I'm going back to Hammerfall to drink something and sing. Come and find me later.",
+      "zone_warning": "This place is too much for us, elskan. I'm big, but I'm not stupid. Let's go somewhere we can handle.",
+      "zone_leave": "I'm stopping here. Too much out there for us. I'll be in Hammerfall, behind the inn.",
+      "gear_refuse": "Ah, no, that's mine! Have a few drinks with me first.",
+      "gear_taken": "Take it, take it! I'll manage, I'm enormous.",
+      "gear_short": "I'm still missing that piece. Not complaining, just mentioning it loudly.",
+      "gear_upgrade": "Oh, that's lovely! Skál, thank you!",
+      "back": "I'm back, and I've brewed something new! Try it, and then tell me where we're going.",
+      "send_word": "Gunnar has sent word from Hammerfall. His brew's ready and so is he.",
+      "walkout_talk": "I walked out angry, and that's not like me. Sit down, have a drink, and we'll sort it out properly.",
+      "neglect": "There you are! I saved you a drink. Several drinks, actually. I drank most of them.",
+      "asked_to_stay": "Jæja, one more! Then the inn.",
+      "on_break": "Gunnar is back in Hammerfall, behind the inn. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "boss_down": [
+      {"text": "Skál to whoever that was, and to us for still standing.", "kind": "open"}
+    ],
+    "town_arrive": [
+      {"text": "Right, let's find the inn and see if they know how to brew anything.", "kind": "open"},
+      {"text": "Akureyri's a little town by a fjord, with the northern lights over it all winter. You'd love it.", "kind": "open", "topic": "the_cold"}
+    ],
+    "dungeon_clear": [
+      {"text": "Everybody out alive! That calls for a song, and I'm going to sing it.", "kind": "open"}
+    ],
+    "close_call": [
+      {"text": "Ha, too close! Have a drink, it helps, trust me.", "kind": "reply"}
+    ]
+  }
+}
