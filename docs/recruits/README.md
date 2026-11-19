@@ -18,6 +18,10 @@ plans for it later. Built 19 Nov 2026 (`data/npcs/keepsakes.json`, `tools/qa_kee
 only, given the moment its recruit becomes Sworn, and an ungiven one shows only who it's from. Each needs its own icon
 (it shows a stand-in until then).
 
+Keepsakes can be Earth things (Kyle, 19 Nov 2026): "These people came through during integration and some of them
+came with things on them. That's fine to have earth themed keepsakes too when appropriate." Deadwind's wheel stays the
+only Earth object out in the world.
+
 ## Each profile has
 
 At a glance; who they are; before; the Integration and what it cost; now; hopes, dreams and fears; how they've
@@ -25,7 +29,7 @@ changed; their goal and personal quest with both endings; their keepsake; voice 
 it changes in what's already written; and the calls for Kyle.
 
 Rules that hold for every profile: Earth transplants only; factionless; nobody shares a past with another recruit;
-outcomes vary, some better off and some worse; no Earth objects (Deadwind's wheel is the only one); nothing that
+outcomes vary, some better off and some worse; nothing that
 hints the player made the wish; plain speech, contractions, no one- or two-word sentences, no dashes in their lines.
 
 ## How their stories end
@@ -49,8 +53,8 @@ The pilot three first, then everyone else from the lowest level up.
 | # | Recruit | Class | Where | Profile | Ending | Status |
 |---|---|---|---|---|---|---|
 | 1 | Kesten Ambrose | Runemaster 36 | Kael's Bastion | `kesten_ambrose.md` | Happy | Signed off 19 Nov 2026 |
-| 2 | Adrián Mendoza | Templar 24 | Astranaar | `adrian_mendoza.md` | Happy (pilot) | Draft 1, waiting on Kyle |
-| 3 | Tarek Mansour | Templar 26 | Ashenvale East |  | Sad (pilot) |  |
+| 2 | Adrián Mendoza | Templar 24 | Astranaar | `adrian_mendoza.md` | Happy | Signed off 19 Nov 2026 |
+| 3 | Tarek Mansour | Templar 26 | Ashenvale East | `tarek_mansour.md` | Sad (pilot) | Draft 1, waiting on Kyle |
 | 4 | Asher | Paladin 5 | Burning Blade Coven |  |  |  |
 | 5 | Diego Salazar | Tinker 5 | Deathknell |  |  |  |
 | 6 | Freja Lindqvist | Priest 6 | Valley of Trials |  |  |  |

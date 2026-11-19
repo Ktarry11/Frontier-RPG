@@ -15128,6 +15128,23 @@
       "needs_art": false,
       "found_only": true,
       "source": "sworn:adrian_templar"
+    },
+    {
+      "id": "keepsake_tarek_templar",
+      "name": "Omar's Red Pen",
+      "kind": "keepsake",
+      "price": 0,
+      "rarity": "epic",
+      "blurb": "The pen Omar gave Tarek as a joke the year they met, the one he marked Tarek's drawings with. It's nearly dry. Tarek says Omar's name is in the well now.",
+      "effect": {
+        "recruit_id": "tarek_templar",
+        "from": "Tarek Mansour"
+      },
+      "icon_id": "col_title_common",
+      "art": "col_keepsake_tarek",
+      "needs_art": false,
+      "found_only": true,
+      "source": "sworn:tarek_templar"
     }
   ]
 }

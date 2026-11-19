@@ -1,6 +1,6 @@
 # Adrián Mendoza
 
-Wave 1 profile, draft 1 (19 Nov 2026). Waiting on Kyle's sign-off. Built on the pilot, which Kyle signed off, and on
+Wave 1 profile. **Signed off by Kyle, 19 Nov 2026:** "He can be straight. Their keepsakes CAN be earth items bro." Built on the pilot, which Kyle signed off, and on
 his recruit entry. Waves 2, 3 and 4 build on this page.
 
 ## At a glance
@@ -176,12 +176,11 @@ you when he swears to you. He says he doesn't need to be the referee when he's w
   ability "He Still Has the Whistle" has him blowing it in a fight. The fix is to make the line say he only blows it
   in a fight, never for anything else.
 
-## For Kyle to decide
+## Kyle's calls (settled 19 Nov 2026)
 
-1. **Elena.** A fiancée who left. If you'd rather he was gay, she becomes a fiancé. Same story either way.
-2. **The keepsake is the whistle.** That's an Earth object, and Deadwind's wheel is meant to be the only one. It
-   already exists in his approved text and his kit, so I think it's fine as something he carried on him. If not, the
-   other choice is the ruling from his quest, signed by both sides.
+1. **Elena.** He's straight; Elena stays.
+2. **The keepsake is the whistle.** Kyle: "These people came through during integration and some of them came with
+   things on them. That's fine to have earth themed keepsakes too when appropriate."
 3. **His quest.** Jaime's things, the letter, and the fire.
 4. **The football dream.** It could turn into a side event later, a proper match in Astranaar. It's only a note for
    now.
