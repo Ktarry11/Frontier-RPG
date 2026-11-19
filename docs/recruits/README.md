@@ -158,9 +158,9 @@ fourth).
 | 86 | Zofia Nowak | Cultist 55 | Western Plaguelands North | `zofia_nowak.md` | Sad | Draft 1 |
 | 87 | Omar Saleh | Venomancer 55 | The Royal Hive | `omar_saleh.md` | Happy | Draft 1 |
 | 88 | Santiago Ríos | Runemaster 56 | The Ashen Reach | `santiago_rios.md` | Still unknown | Draft 1 |
-| 89 | Emiliano Vargas | Pyromancer 56 | Cinderwharf |  |  |  |
-| 90 | Mohammed Saleh | Chronomancer 56 | Talrendis Landing |  |  |  |
-| 91 | Tobias Keller | Paladin 56 | Light's Hope Chapel |  |  |  |
+| 89 | Emiliano Vargas | Pyromancer 56 | Cinderwharf | `emiliano_vargas.md` | Happy | Draft 1 |
+| 90 | Mohammed Saleh | Chronomancer 56 | Talrendis Landing | `mohammed_saleh.md` | Happy | Draft 1 |
+| 91 | Tobias Keller | Paladin 56 | Light's Hope Chapel | `tobias_keller.md` | Sad | Draft 1 |
 | 92 | Isla Fraser | Witch Hunter 57 | Light's Hope Chapel |  |  |  |
 | 93 | Taras Kovalenko | Witch Hunter 57 | Ariden's Watch |  |  |  |
 | 94 | Mariana Treviño | Priest 57 | Ariden's Watch |  |  |  |
