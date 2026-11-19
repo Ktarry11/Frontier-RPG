@@ -59,7 +59,7 @@ big difference."
 So about 7 or 8 of the 74 men, and 3 of the 25 women. It comes up the way anyone's partner comes up: a name, a past,
 somebody they miss. It's never their story or their personality.
 
-Kept count here as we go: men gay or bisexual: Tarek (gay), Sondre (gay), Sebastián (bisexual), Haruto (gay), Tomas (bisexual, already in his recruit text). Women: Carolina (lesbian), Rosa (bisexual).
+Kept count here as we go: men gay or bisexual: Tarek (gay), Sondre (gay), Sebastián (bisexual), Haruto (gay), Tomas (bisexual, already in his recruit text). Women: Carolina (lesbian), Rosa (bisexual), Camille (lesbian). That's the women done.
 
 ## Order and progress
 
@@ -102,11 +102,11 @@ fourth).
 | 32 | Cristóbal Muñoz | Knight of Xoroth 19 | Camp Taurajo | `cristobal_munoz.md` | Happy | Draft 1 |
 | 33 | Callum Reid | Venomancer 20 | Southern Barrens | `callum_reid.md` | Sad | Draft 1 |
 | 34 | Giorgi Beridze | Primalist 21 | Tarren Mill | `giorgi_beridze.md` | Still unknown | Draft 1 |
-| 35 | Camille Roussel | Ranger 22 | Wailing Caverns |  |  |  |
-| 36 | Liam Hartigan | Sun Cleric 23 | Ashenvale East |  |  |  |
+| 35 | Camille Roussel | Ranger 22 | Wailing Caverns | `camille_roussel.md` | Happy | Draft 1 |
+| 36 | Liam Hartigan | Sun Cleric 23 | Ashenvale East | `liam_hartigan.md` | Happy | Draft 1 |
 | 37 | Orlando Rivera | Witch Doctor 23 | Shadowpine Altar |  |  |  |
 | 38 | Owen Pryce | Cultist 24 | Azurelode Mine |  |  |  |
-| 39 | Anjali Nair | Druid 24 | Ashenvale West |  |  |  |
+| 39 | Anjali Nair | Druid 24 | Ashenvale West | `anjali_nair.md` | Happy | Draft 1 |
 | 40 | Emre Kaya | Rogue 25 | Eastern Hillsbrad |  |  |  |
 | 41 | Saoirse Ni Bhraonain | Starcaller 25 | Shadowfang Keep |  |  |  |
 | 42 | Pasang Lama | Primalist 27 | The Aspen Wilderness |  |  |  |
