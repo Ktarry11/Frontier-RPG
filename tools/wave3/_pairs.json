@@ -3128,5 +3128,467 @@
     ]
    }
   ]
+ },
+ {
+  "a": "adrian_templar",
+  "b": "kesten_the_catalogued",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": -1,
+    "lines": [
+     [
+      "kesten_the_catalogued",
+      "You said about thirty of them. There were twenty-six, I counted."
+     ],
+     [
+      "adrian_templar",
+      "Fair enough, but you might have let it pass, just this once."
+     ],
+     [
+      "kesten_the_catalogued",
+      "The real number deserves to be said. It isn't about scoring a point."
+     ],
+     [
+      "adrian_templar",
+      "And the referee in me agrees with you, which is annoying."
+     ]
+    ]
+   },
+   {
+    "when": "gap:6",
+    "affinity": 3,
+    "lines": [
+     [
+      "adrian_templar",
+      "They say you were in the Scourge's book, Kesten. I'd rather ask you properly than wonder about it."
+     ],
+     [
+      "kesten_the_catalogued",
+      "That's more courtesy than most people give it. I was a line in their book for a couple of years, and you can ask me what you like, once."
+     ],
+     [
+      "adrian_templar",
+      "Once is all I'll ask. Thank you for answering it straight."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "kesten_the_catalogued",
+      "You carry your whistle in your left pocket, and you've never blown it here, which I noticed."
+     ],
+     [
+      "adrian_templar",
+      "Twelve years of being the man everybody shouted at, and I find I don't miss it."
+     ],
+     [
+      "kesten_the_catalogued",
+      "I think you miss being the one who knew the rules."
+     ],
+     [
+      "adrian_templar",
+      "Fair enough, Kesten. That's annoyingly accurate."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 5,
+    "lines": [
+     [
+      "kesten_the_catalogued",
+      "I've noticed how you come to the fire, Adrián, as if you're asking permission. I won't wave you over. I'll just leave the space beside me, every night."
+     ],
+     [
+      "adrian_templar",
+      "That's a strange kindness."
+     ],
+     [
+      "kesten_the_catalogued",
+      "It's a precise one. You can decide for yourself when to use it."
+     ],
+     [
+      "adrian_templar",
+      "Thank you, Kesten, properly."
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "a": "kesten_the_catalogued",
+  "b": "stelios_necromancer",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 4,
+    "lines": [
+     [
+      "stelios_necromancer",
+      "You're the archivist from Tallinn. I keep a register of the dead in Glittervein, and I'd value your opinion of my filing."
+     ],
+     [
+      "kesten_the_catalogued",
+      "I'd be glad to give it. How do you index it?"
+     ],
+     [
+      "stelios_necromancer",
+      "By date, then by language, then by the name they'd have wanted to be called."
+     ],
+     [
+      "kesten_the_catalogued",
+      "That third column is the one most people forget. You've done this properly."
+     ]
+    ]
+   },
+   {
+    "when": "gap:6",
+    "affinity": 3,
+    "lines": [
+     [
+      "kesten_the_catalogued",
+      "Passenger lists tell you who got on a boat, and parish registers tell you who came home. I think your register is both."
+     ],
+     [
+      "stelios_necromancer",
+      "It's the last list anybody's on. I try to make sure it's spelled right."
+     ],
+     [
+      "kesten_the_catalogued",
+      "That's the whole job. The spelling is the person."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "stelios_necromancer",
+      "Do you ever read your own entry, Kesten? In their book?"
+     ],
+     [
+      "kesten_the_catalogued",
+      "More times than I'd like to say. I've never told anyone what it lists."
+     ],
+     [
+      "stelios_necromancer",
+      "Then don't tell me either. I'll just say I'm glad you were filed wrongly, in the end."
+     ],
+     [
+      "kesten_the_catalogued",
+      "So am I, Stelios. It's the only filing error I've ever been grateful for."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 5,
+    "lines": [
+     [
+      "stelios_necromancer",
+      "I'm afraid that one day the name I'm stamping will be my wife's, Kesten."
+     ],
+     [
+      "kesten_the_catalogued",
+      "Then when you're afraid of it, come and find me. I'll read the lists with you, carefully, every column."
+     ],
+     [
+      "stelios_necromancer",
+      "Every column, even the third?"
+     ],
+     [
+      "kesten_the_catalogued",
+      "Especially the third."
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "a": "kesten_the_catalogued",
+  "b": "sophia_mage",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 4,
+    "lines": [
+     [
+      "sophia_mage",
+      "You said twenty-six, not about thirty. I noticed, and I approve."
+     ],
+     [
+      "kesten_the_catalogued",
+      "And you corrected the innkeeper's tense this morning, quietly, so he wouldn't be embarrassed. I noticed that too."
+     ],
+     [
+      "sophia_mage",
+      "Then we're going to be very tiring company for everyone else."
+     ],
+     [
+      "kesten_the_catalogued",
+      "Very tiring, and very accurate."
+     ]
+    ]
+   },
+   {
+    "when": "gap:6",
+    "affinity": 3,
+    "lines": [
+     [
+      "kesten_the_catalogued",
+      "The elves let me read in Gallery Three, but they won't let me file anything or put it back."
+     ],
+     [
+      "sophia_mage",
+      "That would drive me to distraction. Do you put them back in your head?"
+     ],
+     [
+      "kesten_the_catalogued",
+      "Every one, in the right order. I always know which box everything should be in."
+     ],
+     [
+      "sophia_mage",
+      "I did the same with speeches. I'd fix the grammar in my head while I interpreted the bad version."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "sophia_mage",
+      "I keep notebooks on every surface of my room. Would you index them? Nobody else would know where to start."
+     ],
+     [
+      "kesten_the_catalogued",
+      "I'd be honoured. I'll need three days, and you'll need to stop moving them."
+     ],
+     [
+      "sophia_mage",
+      "I can manage two of those days."
+     ],
+     [
+      "kesten_the_catalogued",
+      "Two is a start, and I'll work around the third."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 5,
+    "lines": [
+     [
+      "kesten_the_catalogued",
+      "For fourteen years you were the invisible reason a room understood itself. That's a kind of archive, what you did."
+     ],
+     [
+      "sophia_mage",
+      "Nobody's ever put it like that. I always thought it was a way of disappearing."
+     ],
+     [
+      "kesten_the_catalogued",
+      "Disappearing so the words arrive intact is exactly what an archive does."
+     ],
+     [
+      "sophia_mage",
+      "Thank you, Kesten. I'll write that down, in one of the notebooks you're going to index."
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "a": "emre_rogue",
+  "b": "marco_paladin",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": -1,
+    "lines": [
+     [
+      "emre_rogue",
+      "Those hands have cut keys for thirty years. I'd know a locksmith's thumb anywhere."
+     ],
+     [
+      "marco_paladin",
+      "Thirty-one, in Naples. You're a locksmith too, I think, but you hold your picks like a thief."
+     ],
+     [
+      "emre_rogue",
+      "Never a thief, my friend. I'm the man you call when you've locked yourself out of your own livelihood."
+     ],
+     [
+      "marco_paladin",
+      "In Naples, that's what the thieves say too."
+     ]
+    ]
+   },
+   {
+    "when": "gap:5",
+    "affinity": 1,
+    "lines": [
+     [
+      "marco_paladin",
+      "You opened that chest in four seconds. In my shop we'd have done it properly, with the key."
+     ],
+     [
+      "emre_rogue",
+      "The key was at the bottom of a lake, Marco. Properly would have taken a week and a boat."
+     ],
+     [
+      "marco_paladin",
+      "Then a week and a boat is the price of doing it properly."
+     ],
+     [
+      "emre_rogue",
+      "Bir kapı kapanır, bir kapı açılır. One door closes and another opens, and I'd rather not wait a week."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "emre_rogue",
+      "Every lock's a short conversation with somebody who isn't in the room. I think about that a lot."
+     ],
+     [
+      "marco_paladin",
+      "In the Quartieri every lock was a conversation with somebody who was in the room, shouting at you to hurry."
+     ],
+     [
+      "emre_rogue",
+      "That's the Istanbul bazaar too, every single morning."
+     ],
+     [
+      "marco_paladin",
+      "Then we had the same customers, ragazzo, just in different languages."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 5,
+    "lines": [
+     [
+      "marco_paladin",
+      "I was going to retire that summer and give the shop to my apprentice. I never got to hand him the keys."
+     ],
+     [
+      "emre_rogue",
+      "My uncle left me his picks and his shop, and I never decided what to do with it. Then it was gone, and I was lighter. I don't say that to many people."
+     ],
+     [
+      "marco_paladin",
+      "You'll say it to me, and I won't judge it. A shop is a weight as well as a gift."
+     ],
+     [
+      "emre_rogue",
+      "That's the most Neapolitan thing anyone's ever said to me, and you're right."
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "a": "berat_tinker",
+  "b": "emre_rogue",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 2,
+    "lines": [
+     [
+      "berat_tinker",
+      "Abi, a Turk, at last! Don't tell me, let me guess, Istanbul and the bazaar, you've got the walk!"
+     ],
+     [
+      "emre_rogue",
+      "The old bazaar quarter, yes. And you're from Izmir, I'd guess, from the volume."
+     ],
+     [
+      "berat_tinker",
+      "It's Karşıyaka, abi! Three generations on four floors, all talking at once. You'd love them."
+     ],
+     [
+      "emre_rogue",
+      "I'm sure I would, for about an hour."
+     ]
+    ]
+   },
+   {
+    "when": "gap:5",
+    "affinity": 2,
+    "lines": [
+     [
+      "berat_tinker",
+      "Abi, I've introduced you to six people this week who used to work with locks. Did you like them?"
+     ],
+     [
+      "emre_rogue",
+      "I liked two of them. The other four wanted me to open things they shouldn't have."
+     ],
+     [
+      "berat_tinker",
+      "Two out of six is a good average! In dentistry that's a miracle."
+     ],
+     [
+      "emre_rogue",
+      "You're exhausting, Berat. I mean that with affection, mostly."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "emre_rogue",
+      "Your mother wanted you to marry a girl called Elif, I hear."
+     ],
+     [
+      "berat_tinker",
+      "Who told you that? It was supposed to be a secret between me and four hundred people."
+     ],
+     [
+      "emre_rogue",
+      "One of the four hundred, naturally."
+     ],
+     [
+      "berat_tinker",
+      "Then I'll forgive them, abi. It's a good story, and I tell it better."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 5,
+    "lines": [
+     [
+      "berat_tinker",
+      "I make people laugh so they forget to be frightened, abi. Sometimes the frightened one is me."
+     ],
+     [
+      "emre_rogue",
+      "I know you do. I've watched you do it to yourself."
+     ],
+     [
+      "berat_tinker",
+      "Don't tell anybody, it's bad for business."
+     ],
+     [
+      "emre_rogue",
+      "Your secret's safe. I'm a locksmith, and I keep things shut for a living."
+     ]
+    ]
+   }
+  ]
  }
 ]
