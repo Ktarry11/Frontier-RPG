@@ -939,14 +939,15 @@
       ],
       "boss_down": [
         {
-          "text": "Fine. Nobody under it when it dropped, which is the only bit I care about.",
+          "text": "Fine, nobody was under it when it dropped, which is the only bit I care about.",
           "kind": "reply"
         }
       ],
       "town_arrive": [
         {
-          "text": "Three weeks on, three weeks off. I never did learn what to do with a town.",
-          "kind": "open"
+          "text": "Aberdeen's all grey granite and sea wind and helicopters, and I'd give anything for a fish supper there.",
+          "kind": "open",
+          "topic": "cities"
         }
       ]
     },
@@ -1356,9 +1357,8 @@
     "ratih_ranger": {
       "zone_arrive": [
         {
-          "text": "That water was higher. Look at the line on the rock - that isn't this year.",
-          "kind": "open",
-          "topic": "water"
+          "text": "Something's been through here and tried to hide it. Look at the grass, it's been brushed.",
+          "kind": "open"
         }
       ],
       "boss_down": [
@@ -1367,24 +1367,16 @@
           "kind": "reply"
         }
       ],
-      "dungeon_clear": [
-        {
-          "text": "I walked catchments for fifteen years. Water keeps better records than people.",
-          "kind": "reply",
-          "topic": "water"
-        }
-      ],
-      "town_arrive": [
-        {
-          "text": "Nobody here has walked the whole catchment. I can tell.",
-          "kind": "open",
-          "topic": "measure"
-        }
-      ],
       "close_call": [
         {
           "text": "The ground told you that was bad footing. You weren't listening.",
           "kind": "reply"
+        }
+      ],
+      "town_arrive": [
+        {
+          "text": "Too much noise here. I'll be at the edge of town if you need me.",
+          "kind": "open"
         }
       ]
     },
@@ -1810,6 +1802,33 @@
           "text": "Cluj has a square where students play in the evenings, badly. I used to correct them from the café.",
           "kind": "open",
           "topic": "cities"
+        }
+      ]
+    },
+    "khalid_hunter": {
+      "zone_arrive": [
+        {
+          "text": "Good sky here, lots of birds. I like this place already.",
+          "kind": "open"
+        }
+      ],
+      "town_arrive": [
+        {
+          "text": "Al Ain is an oasis with date palms and old forts, and my family fly falcons out in the dunes every winter.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "That was satisfyingly boring. Well done, everybody.",
+          "kind": "open"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "That was exciting. I asked for boring. Next time, walk where I walk.",
+          "kind": "reply"
         }
       ]
     },

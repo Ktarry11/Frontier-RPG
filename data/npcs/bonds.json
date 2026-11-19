@@ -1694,6 +1694,88 @@
         "quest_abandoned": "We agreed to that and left it unfinished. That's regrettable, and somebody's paying for it."
       }
     },
+    "fiona_witchhunter": {
+      "home": "Booty Bay",
+      "dials": {
+        "warmth": 0.5,
+        "nerve": 1.4,
+        "pride": 1.2,
+        "restless": 0.9
+      },
+      "likes": [
+        "quest",
+        "dungeon"
+      ],
+      "dislikes": [
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "I'm Fiona, and I'm a witch hunter. I'll stand in front, and I'll question everything everybody tells us, including you. Don't take it personally, it's the job.",
+        "acquaintance": "Aberdeen, the oil city, born and raised. My dad worked the rigs and my mum was a school secretary. I did accountancy and then nine years investigating fraud for an energy company. Padded invoices, ghost contractors, cooked safety records. I flew out to rigs in a survival suit and interviewed men who didn't want to talk to me.",
+        "companion": "My brother Graeme went offshore like our dad. I found a cooked safety record on his rig once, and I reported it, and they shut it for a month. Half the crew never forgave me. Graeme did, eventually. I was on a helicopter out to a rig when this happened, and I landed on a beach here with my survival whistle still clipped on. I haven't found him or my mum.",
+        "friend": "Here's the thing I worked out in my second year, and it's not flattering. I'd been treating this war like a casework backlog, ticking things off. People aren't entries. And my catalogue's nearly done. It points at the cult's hiding place. I need the last evidence from the jungle, and then I need somebody in authority to finally act on it. Help me do it.",
+        "sworn": "They acted, fast and hard, too fast. They used my catalogue as a list and raided a village I'd marked pattern consistent, unconfirmed, and innocent fishermen died alongside the cult. My work, used without the care I put into it. I burned my copy on the beach. Then I started again from page one, slower, with every unconfirmed in red, and I go to every raid myself now. Being right was never the hard part."
+      },
+      "moments": [
+        {
+          "id": "check",
+          "stage": "acquaintance",
+          "when": "talk",
+          "prompt": "She hands you a quest giver's story and says one detail doesn't fit.",
+          "options": [
+            {
+              "text": "Check it with her.",
+              "trust": 10,
+              "reply": "Thank you. Nobody ever just checks. Right, here's the bit that bothers me."
+            },
+            {
+              "text": "It's probably nothing.",
+              "trust": 0,
+              "reply": "It's usually something. I'll need that in writing if you're sure."
+            }
+          ]
+        },
+        {
+          "id": "the_catalogue",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's asked you to help her finish the catalogue.",
+          "options": [
+            {
+              "text": "Let's get the last evidence.",
+              "trust": 12,
+              "reply": "Aye, that's good. Facts first, conclusions after, and we write everything down."
+            },
+            {
+              "text": "Are you sure they'll listen this time?",
+              "trust": 4,
+              "reply": "No, I'm not. That's why you're coming."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've done the same thing repeatedly and I've nothing new to write down. Find us something that needs investigating.",
+        "leaving_good": "That was useful, and I've got pages of notes. I'm going back to Booty Bay to file them. You know where I'll be.",
+        "leaving_bored": "I'm going back to Booty Bay. Nothing out here needs investigating, and my files do.",
+        "after_wipe": "Right, I'll need everybody's account of what happened. One at a time, facts first.",
+        "wipe_warning": "We keep dying in here and nobody's asking why. I'll finish this run, then I'm taking a break.",
+        "wipe_leave": "I've seen it through. Now I'm going back to Booty Bay. Come back when you've read my notes on that.",
+        "zone_warning": "I've assessed this place, and the evidence says we're outmatched. I'd like that noted before we go further.",
+        "zone_leave": "I'm stopping here. I noted that we were outmatched. I'll be in Booty Bay.",
+        "gear_refuse": "No, that's mine. I don't hand evidence over without a chain of custody.",
+        "gear_taken": "Take it, then. I've written down that you have it.",
+        "gear_short": "I'm still missing that piece. It's in my notes, in red.",
+        "gear_upgrade": "That's well made. Thank you. I'll note it.",
+        "back": "I'm back, and I've filed everything. Where are we going, and what do we know?",
+        "send_word": "Fiona has sent word from Booty Bay. Her files are in order and she's ready to come out.",
+        "walkout_talk": "I walked out, and I've written down why. Sit down and I'll read it to you. Then you can give me your account.",
+        "neglect": "You've been gone a while. I kept notes on how long, obviously.",
+        "asked_to_stay": "Fine, one more, but I'm taking notes.",
+        "on_break": "Fiona is back in Booty Bay with her files. Come back after you've done a few more jobs.",
+        "quest_abandoned": "We took that on and dropped it. Somebody will notice, and I'll have to write it down."
+      }
+    },
     "freja_priest": {
       "home": "Valley of Trials",
       "dials": {
@@ -2712,6 +2794,90 @@
         "asked_to_stay": "Okay, one more, hwaiting.",
         "on_break": "Jun-seo is back at the cargo hoist in Central Stranglethorn. Come back after you've done a few more jobs.",
         "quest_abandoned": "We said we'd do that and we didn't. I don't like leaving a job half done."
+      }
+    },
+    "khalid_hunter": {
+      "home": "Saltwheel",
+      "dials": {
+        "warmth": 0.9,
+        "nerve": 1.2,
+        "pride": 0.8,
+        "restless": 1.0
+      },
+      "likes": [
+        "new_ground",
+        "beast"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Khalid, a hunter. Walk where I walk and nothing exciting will happen, which is the whole idea. Boring is the aim, habibi.",
+        "acquaintance": "I'm from Al Ain, in the Emirates, the oasis city inland. My family's kept falcons longer than anybody wrote down, and my grandfather taught me to fly a bird at eight. I worked in logistics at the airport to pay for it. My mother had a list of suitable women, and I kept politely failing to meet any of them.",
+        "companion": "My falcon was Hurra. A saker, raised from a fledgling, eleven years together. She was at home in the mews when it happened, and I was at my desk at the airport with her hood in my pocket, because I'd been oiling the leather on my break. I don't know if she's alive. I won't get another hood that size.",
+        "friend": "I'll tell you something I don't say in company. I'm happier here than I've been in ten years. Open country, weather, birds, no airport. I feel guilty saying it, with my family out there somewhere. And there's a nest in the hills above the Flats with one chick in it, and raiders want to sell it in Saltwheel. I'd like your help to stop them, wallah.",
+        "sworn": "On her first real flight she went up over the Flats, higher than any falcon I ever flew, and she was gone a long time. I stood there with my glove up. Then she came back and landed on my arm, and chose me. I've named her Hurra, for the other one. It means free, and we both are. These have been the best three years of my life, and I'm not going to apologise for saying so."
+      },
+      "moments": [
+        {
+          "id": "the_chick",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to help protect the nest.",
+          "options": [
+            {
+              "text": "We'll keep the raiders off it.",
+              "trust": 12,
+              "reply": "Thank you, habibi. It'll be a long few days. Boring, if we're lucky."
+            },
+            {
+              "text": "You're allowed to be happy here.",
+              "trust": 8,
+              "reply": "I know, wallah. It's just strange to say it out loud."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he looks deeply unimpressed.",
+          "line": "That was the opposite of boring. Next time walk where I walk, and nobody dies.",
+          "options": [
+            {
+              "text": "Lead, and we'll follow.",
+              "trust": 8,
+              "mood": 6,
+              "reply": "Good, finally, someone sensible. It'll be so boring you'll forget we were in danger."
+            },
+            {
+              "text": "That was exciting, at least.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "Exciting is what people say just before they die, astaghfirullah."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "I like boring, habibi, but this is a different kind of boring. Let's go somewhere with birds in the sky.",
+        "leaving_good": "That was a very boring trip, thank you, which is the highest praise. I'm going back to Saltwheel for a while. Come and find me.",
+        "leaving_bored": "I'm going back to Saltwheel. This is pointless, and the nest in the hills needs me.",
+        "after_wipe": "That was the opposite of boring. Let's go back to boring, please.",
+        "wipe_warning": "We keep dying in here, which is very exciting and very bad. I'll finish this run, then I need a break.",
+        "wipe_leave": "I finished it with you. Now I'm going back to Saltwheel to be bored on purpose for a while.",
+        "zone_warning": "This place is the opposite of boring, and not in a good way. We should go somewhere we can handle.",
+        "zone_leave": "I'm stopping here. Far too exciting out there. I'll be in Saltwheel.",
+        "gear_refuse": "No, habibi, that's mine. Ask me again when you've watched me fly a bird.",
+        "gear_taken": "Take it, then. I'll manage, inshallah.",
+        "gear_short": "I'm still missing that piece, habibi. Just so you know.",
+        "gear_upgrade": "Mashallah, that's very good. Thank you, really.",
+        "back": "I'm back, and I've made coffee. Where are we going, and will it be boring?",
+        "send_word": "Khalid has sent word from Saltwheel. He's ready for another boring trip.",
+        "walkout_talk": "I left angry, habibi, which isn't boring at all. Sit, have some coffee, and I'll tell you why.",
+        "neglect": "There you are. I was starting to think something exciting had happened to you.",
+        "asked_to_stay": "Yalla, one more, but make it boring.",
+        "on_break": "Khalid is back in Saltwheel on the edge of the Shimmering Flats. Come back after you've done a few more jobs."
       }
     },
     "kourosh_mage": {
@@ -3934,6 +4100,87 @@
         "neglect": "Ah, there you are. I've drawn a lot of maps in the dirt while I waited. I'm glad you came.",
         "asked_to_stay": "All right, one more. Then I really must get back to my children.",
         "on_break": "Pavlo is back at the Sepulcher, teaching and holding the road. Come back after you've done a few more jobs."
+      }
+    },
+    "ratih_ranger": {
+      "home": "the Shimmering Flats",
+      "dials": {
+        "warmth": 0.6,
+        "nerve": 1.3,
+        "pride": 0.8,
+        "restless": 0.9
+      },
+      "likes": [
+        "new_ground",
+        "beast"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Ratih, a ranger. Walk quieter, please, and don't thank me for things. I'll tell you if I see something wrong. I usually do.",
+        "acquaintance": "I'm from Riau, in Sumatra, in Indonesia. My father tapped rubber at the edge of the forest. I was a forest ranger for fifteen years, mostly alone, looking for poachers and illegal loggers. The government paid for the uniform and almost nothing else. I was the only one who cared, and that was fine.",
+        "companion": "My sister Dewi married and moved to Medan. She has a boy, Arif, my nephew. I promised to visit them that summer, and I kept putting it off for one more patrol, and then there was no summer. I landed out here on the salt on a dawn patrol, the opposite of my forest. Nothing grows and nothing hides. I went to work anyway.",
+        "friend": "I've always been alone, and I never minded. What I find hard here is that people thank me, and that it makes me want something I've never wanted. I want to belong to something, properly, in a line. And I've found the one wrong thing that matters: tracks on the salt to a ring that traps creatures and sells them. Help me break it.",
+        "sworn": "I signed the report with my full name, for the first time, and took it to Freewind myself. The captain read it and offered me a place on the guard before I could ask. Rostered, briefed, part of the line. I said yes before he finished. I've got three young tauren to teach now. And I'm going to visit Dewi and Arif the first chance I get, wherever they are. I'm not putting it off for one more patrol."
+      },
+      "moments": [
+        {
+          "id": "thanks",
+          "stage": "acquaintance",
+          "when": "talk",
+          "prompt": "She's just spotted a trap that would have caught you, and she's walking on.",
+          "options": [
+            {
+              "text": "Say nothing, and walk quieter.",
+              "trust": 10,
+              "reply": "Good, you're learning. That's the best thanks there is."
+            },
+            {
+              "text": "Thank her.",
+              "trust": 0,
+              "reply": "Please don't thank me. Just watch where you put your feet."
+            }
+          ]
+        },
+        {
+          "id": "the_tracks",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's asked you to help her follow the tracks to the smuggling ring.",
+          "options": [
+            {
+              "text": "I'll follow, quietly.",
+              "trust": 12,
+              "reply": "Ayo, then, let's go. Step where I step, and say nothing."
+            },
+            {
+              "text": "Shouldn't we tell the guard first?",
+              "trust": 2,
+              "reply": "They'll be told, with proof. That's why we're going."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've walked the same ground so many times I know every stone. There's nothing wrong here to find. Let's go somewhere new.",
+        "leaving_good": "That was good. I'm going back to my patrol on the Flats for a while. You know where to find me, if you're quiet.",
+        "leaving_bored": "I'm going back to the Flats. There's nothing to find out here, and my route needs walking.",
+        "after_wipe": "We missed something. Let me look before anyone moves.",
+        "wipe_warning": "We keep dying in here, and it's because we're loud. I'll finish this run, then I'm going back to my patrol.",
+        "wipe_leave": "I've finished it with you. Now I'm going back to the Flats. Come back when you've learned to walk quietly.",
+        "zone_warning": "This place is too dangerous for us. I can see it everywhere I look. We should go back, sudah.",
+        "zone_leave": "I'm stopping here. It's too dangerous out there. I'll be on the Shimmering Flats.",
+        "gear_refuse": "No, I'll keep that. I don't know you well enough yet.",
+        "gear_taken": "Take it, then. I've patrolled with less.",
+        "gear_short": "I'm still missing that piece. I'm only telling you.",
+        "gear_upgrade": "That's good kit. Don't make a fuss about it, please.",
+        "back": "I'm back, and the Flats are clean for now. Where are we going?",
+        "send_word": "Ratih has sent word from the Shimmering Flats. Her patrol's done and she's ready to come out.",
+        "walkout_talk": "I left angry. I'm not good with words, so I'll be short. Then you talk, and I'll listen properly.",
+        "neglect": "You were gone a long time. I walked my route every day anyway.",
+        "asked_to_stay": "All right, one more. Hati-hati, be careful.",
+        "on_break": "Ratih is back on patrol on the Shimmering Flats. Come back after you've done a few more jobs."
       }
     },
     "rhys_ranger": {

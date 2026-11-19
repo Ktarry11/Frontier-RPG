@@ -1,0 +1,76 @@
+{
+  "recruit_text": {
+    "greeting": "Walk where I walk and we'll have a very boring day. That's the aim. Boring is the aim, I can't stress this enough.",
+    "backstory": "He kept falcons outside Al Ain, in a family that had done it for longer than anybody wrote down, and he worked in logistics at the airport to pay for it. The hunting is the part of his old life that transferred whole: the waiting, the reading of ground, and the particular relationship with an animal that's choosing to come back to you. He's dry, extremely funny once you know him, and more at home here than he ever admits in company.",
+    "before": "A mews, a glove, and a saker falcon called Hurra, eleven years old, who he'd flown since she was a fledgling.\n\nA large family, all nearby, all of whom thought the falcons were an expensive eccentricity, and all of whom came out to watch anyway.",
+    "adjustment": "Three months, and he has the grace to find that funny.\n\nHe landed in open country with weather and birds in it and no airport, and he says that if he's honest, the first year was the best he'd had in a decade. He says it quietly, and only to people he's decided won't misunderstand it.",
+    "forward": "A bird, properly trained, properly flown, not a summoned thing.\n\nHe's been working on a nest of something enormous in the hills above the Flats for two seasons, patiently and badly. It's taken food from his hand twice, and twice tried to remove the hand.",
+    "now": "Saltwheel, the goblin racing town on the edge of the Shimmering Flats. With a party he's out ahead, usually invisible, always exactly where he said he'd be.\n\nThe falconer's hood still hangs at his belt. It's sized for a bird that's been dead or alive for three years without him knowing which, and he won't be getting another one that size."
+  },
+  "bond": {
+    "home": "Saltwheel",
+    "dials": {"warmth": 0.9, "nerve": 1.2, "pride": 0.8, "restless": 1.0},
+    "likes": ["new_ground", "beast"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Khalid, a hunter. Walk where I walk and nothing exciting will happen, which is the whole idea. Boring is the aim, habibi.",
+      "acquaintance": "I'm from Al Ain, in the Emirates, the oasis city inland. My family's kept falcons longer than anybody wrote down, and my grandfather taught me to fly a bird at eight. I worked in logistics at the airport to pay for it. My mother had a list of suitable women, and I kept politely failing to meet any of them.",
+      "companion": "My falcon was Hurra. A saker, raised from a fledgling, eleven years together. She was at home in the mews when it happened, and I was at my desk at the airport with her hood in my pocket, because I'd been oiling the leather on my break. I don't know if she's alive. I won't get another hood that size.",
+      "friend": "I'll tell you something I don't say in company. I'm happier here than I've been in ten years. Open country, weather, birds, no airport. I feel guilty saying it, with my family out there somewhere. And there's a nest in the hills above the Flats with one chick in it, and raiders want to sell it in Saltwheel. I'd like your help to stop them, wallah.",
+      "sworn": "On her first real flight she went up over the Flats, higher than any falcon I ever flew, and she was gone a long time. I stood there with my glove up. Then she came back and landed on my arm, and chose me. I've named her Hurra, for the other one. It means free, and we both are. These have been the best three years of my life, and I'm not going to apologise for saying so."
+    },
+    "moments": [
+      {"id": "the_chick", "stage": "friend", "when": "talk",
+       "prompt": "He's asked you to help protect the nest.",
+       "options": [
+         {"text": "We'll keep the raiders off it.", "trust": 12,
+          "reply": "Thank you, habibi. It'll be a long few days. Boring, if we're lucky."},
+         {"text": "You're allowed to be happy here.", "trust": 8,
+          "reply": "I know, wallah. It's just strange to say it out loud."}
+       ]},
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe he looks deeply unimpressed.",
+       "line": "That was the opposite of boring. Next time walk where I walk, and nobody dies.",
+       "options": [
+         {"text": "Lead, and we'll follow.", "trust": 8, "mood": 6,
+          "reply": "Good, finally, someone sensible. It'll be so boring you'll forget we were in danger."},
+         {"text": "That was exciting, at least.", "trust": 0, "mood": -4,
+          "reply": "Exciting is what people say just before they die, astaghfirullah."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "I like boring, habibi, but this is a different kind of boring. Let's go somewhere with birds in the sky.",
+      "leaving_good": "That was a very boring trip, thank you, which is the highest praise. I'm going back to Saltwheel for a while. Come and find me.",
+      "leaving_bored": "I'm going back to Saltwheel. This is pointless, and the nest in the hills needs me.",
+      "after_wipe": "That was the opposite of boring. Let's go back to boring, please.",
+      "wipe_warning": "We keep dying in here, which is very exciting and very bad. I'll finish this run, then I need a break.",
+      "wipe_leave": "I finished it with you. Now I'm going back to Saltwheel to be bored on purpose for a while.",
+      "zone_warning": "This place is the opposite of boring, and not in a good way. We should go somewhere we can handle.",
+      "zone_leave": "I'm stopping here. Far too exciting out there. I'll be in Saltwheel.",
+      "gear_refuse": "No, habibi, that's mine. Ask me again when you've watched me fly a bird.",
+      "gear_taken": "Take it, then. I'll manage, inshallah.",
+      "gear_short": "I'm still missing that piece, habibi. Just so you know.",
+      "gear_upgrade": "Mashallah, that's very good. Thank you, really.",
+      "back": "I'm back, and I've made coffee. Where are we going, and will it be boring?",
+      "send_word": "Khalid has sent word from Saltwheel. He's ready for another boring trip.",
+      "walkout_talk": "I left angry, habibi, which isn't boring at all. Sit, have some coffee, and I'll tell you why.",
+      "neglect": "There you are. I was starting to think something exciting had happened to you.",
+      "asked_to_stay": "Yalla, one more, but make it boring.",
+      "on_break": "Khalid is back in Saltwheel on the edge of the Shimmering Flats. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "zone_arrive": [
+      {"text": "Good sky here, lots of birds. I like this place already.", "kind": "open"}
+    ],
+    "town_arrive": [
+      {"text": "Al Ain is an oasis with date palms and old forts, and my family fly falcons out in the dunes every winter.", "kind": "open", "topic": "cities"}
+    ],
+    "dungeon_clear": [
+      {"text": "That was satisfyingly boring. Well done, everybody.", "kind": "open"}
+    ],
+    "close_call": [
+      {"text": "That was exciting. I asked for boring. Next time, walk where I walk.", "kind": "reply"}
+    ]
+  }
+}
