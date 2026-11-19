@@ -77,9 +77,9 @@ fourth).
 | 11 | Marco Rossi | Paladin 10 | Undercity | `marco_rossi.md` | Happy | Draft 1 |
 | 12 | Sophia Dias | Mage 11 | Undercity | `sophia_dias.md` | Sad | Draft 1 |
 | 13 | Carolina Santos | Shaman 11 | Echo Isles | `carolina_santos.md` | Happy | Draft 1 |
-| 14 | Ryan Murphy | Warlock 12 | Echo Isles |  |  |  |
-| 15 | Hana Tamihana | Shaman 12 | Western Hillsbrad |  |  |  |
-| 16 | Esteban Ruiz | Bloodmage 12 | Orgrimmar |  |  |  |
+| 14 | Ryan Murphy | Warlock 12 | Echo Isles | `ryan_murphy.md` | Sad | Draft 1 |
+| 15 | Hana Tamihana | Shaman 12 | Western Hillsbrad | `hana_tamihana.md` | Still unknown | Draft 1 |
+| 16 | Esteban Ruiz | Bloodmage 12 | Orgrimmar | `esteban_ruiz.md` | Happy | Draft 1 |
 | 17 | Berat Yilmaz | Tinker 12 | Brill |  |  |  |
 | 18 | Dan Okafor | Warrior 13 | Orgrimmar |  |  |  |
 | 19 | Marisol Quintero | Priest 13 | Silverpine North |  |  |  |
