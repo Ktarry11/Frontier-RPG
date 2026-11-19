@@ -9,6 +9,11 @@ Kyle: "For 44-49 we can do feralas... Feralas can remain largely unchanged due t
 L shape." Reference: `docs/zone_refs/feralas_classic_map.jpg` (the classic map Kyle sent): the long green strip down the
 west coast with Feathermoon off it, and the arm running east past Dire Maul to Camp Mojache and New Thalanaar.
 
+**The Writhing Deep goes through to the Dry Deep.** Kyle: "We can also have the writhing deep in Feralas connect to the
+map under Abyssal Sands. Since the silithids are digging...." The silithid hive in Feralas's southeast (the Writhing
+Deep on the classic map) has dug a tunnel that comes out in the Dry Deep, the underground layer the Abyssal Sands'
+sinkholes drop into. So the two are one dig, and the Dry Deep gets a second way in: walk the tunnel from Feralas.
+
 ## The World Tree, 42 to 51 (home-brew)
 
 Kyle: "a new home brew off the coast of Northern Stranglethorn. Where the island is 42-44, then a massive tree ascends
@@ -33,3 +38,5 @@ tree is basically sunlight, clouds, etc....and another new faction."
 - How you get there from Northern Stranglethorn (boat, portal, flight master), and how you climb between tiers.
 - Feralas's towns and who holds them now, and what the Integration did change there.
 - Order: which comes first.
+- The tunnel: a walkable link (a long dug passage, its own small map, or straight through), its level, and whether
+  the silithids are the Writhing Deep's whole story or part of it.
