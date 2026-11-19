@@ -125,9 +125,9 @@ fourth).
 | 53 | Jun-seo Park | Reaper 34 | Central Stranglethorn | `junseo_park.md` | Still unknown | Draft 1 |
 | 54 | Skye Donnelly | Pyromancer 34 | The Drowning Floor | `skye_donnelly.md` | Happy | Draft 1 |
 | 55 | Enzo Marchetti | Cultist 34 | Scarlet Monastery Grounds | `enzo_marchetti.md` | Sad | Draft 1 |
-| 56 | Alonso Vega | Pyromancer 35 | Central Stranglethorn |  |  |  |
-| 57 | Vuk Jovanović | Knight of Xoroth 35 | Rocky Pass |  |  |  |
-| 58 | Gunnar Sigurðsson | Barbarian 35 | Hammerfall |  |  |  |
+| 56 | Alonso Vega | Pyromancer 35 | Central Stranglethorn | `alonso_vega.md` | Sad | Draft 1 |
+| 57 | Vuk Jovanović | Knight of Xoroth 35 | Rocky Pass | `vuk_jovanovic.md` | Happy | Draft 1 |
+| 58 | Gunnar Sigurðsson | Barbarian 35 | Hammerfall | `gunnar_sigurdsson.md` | Happy | Draft 1 |
 | 59 | Kourosh Behzadi | Mage 36 | The Crystalline Underdark |  |  |  |
 | 60 | Héctor Salinas | Witch Doctor 36 | Gurbashi Arena |  |  |  |
 | 61 | Ziad Haddad | Felsworn 38 | Southern Stranglethorn |  |  |  |
