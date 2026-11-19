@@ -1,0 +1,68 @@
+{
+ "_doc": "Wave 4 source: one Sworn skill per recruit, from the Wave 4 seed in their profile (docs/recruits/). Built into data/npcs/sworn_skills.json by tools/build_sworn_skills.py, which ranks anything that damages, heals or shields across 1, 15, 30, 45 and 60 at 1.15 times the character traits' rule.",
+ "kesten_the_catalogued": {
+  "from": "Wave 4: 'when an ally would die, he writes their name down properly and they hold on at 1 health instead. It fits \"a person isn't a number\".'",
+  "ability": {
+   "ability_id": "personal_sworn_kesten_written_down_properly",
+   "name": "Written Down Properly",
+   "engine": "live: death_prevent on every ally (hp 1, lethal hits only, one use each)",
+   "effect_type": "buff", "target_type": "party", "resource_type": "mana",
+   "cooldown": 15, "duration": 3, "is_instant": true, "stat_mods": {},
+   "description": "For 3 turns, the first blow that would kill each ally leaves them at 1 health instead.",
+   "ranks": [{"rank": 1, "level_req": 1, "cost": 40, "effect_value": 100}],
+   "death_prevent": {"hp": 1, "lethal_only": true, "uses": 1}
+  }
+ },
+ "adrian_templar": {
+  "from": "Wave 4: 'he stops holding the line and spreads it, so the whole party shares the damage he'd have taken. It's about letting other people carry some of it.'",
+  "ability": {
+   "ability_id": "personal_sworn_adrian_let_them_carry_it",
+   "name": "Let Them Carry Some of It",
+   "engine": "live: damage_share spread (new 19 Nov 2026) - a share of each hit on him is split across the party, cut on the way",
+   "effect_type": "buff", "target_type": "self", "resource_type": "combo",
+   "cooldown": 13, "duration": 4, "is_instant": true, "stat_mods": {},
+   "description": "For 4 turns, 60% of every hit on Adrián is split evenly across the rest of the party, and they take 30% less of it than he would have.",
+   "ranks": [{"rank": 1, "level_req": 1, "cost": 28, "effect_value": 100}],
+   "damage_share": {"spread": true, "pct": 60, "reduction_pct": 30}
+  }
+ },
+ "tarek_templar": {
+  "from": "Wave 4: 'He stops searching and lets Omar rest somewhere that lasts. ... something built to last, like a shield on the whole party that holds until it's broken instead of running out with time.'",
+  "ability": {
+   "ability_id": "personal_sworn_tarek_built_to_last",
+   "name": "Built to Last",
+   "engine": "live: party absorb with a fight-long duration, so only breaking it ends it",
+   "effect_type": "buff", "target_type": "party", "resource_type": "combo",
+   "cooldown": 15, "duration": 40, "is_instant": true, "stat_mods": {},
+   "description": "Shields every ally. The shield doesn't wear off with time: it lasts until it's broken or the fight ends.",
+   "ranks": [{"rank": 1, "level_req": 1, "cost": 30, "effect_value": 100}],
+   "absorb": 90
+  }
+ },
+ "diego_tinker": {
+  "from": "Wave 4: 'he puts a fallen ally's broken gear right and they get back up with a shield.'",
+  "ability": {
+   "ability_id": "personal_sworn_diego_put_it_right",
+   "name": "Put It Right",
+   "engine": "live: revive with a shield (new 19 Nov 2026): back at 40% health with a 3-turn absorb",
+   "effect_type": "revive", "target_type": "ally", "resource_type": "mana",
+   "cooldown": 15, "duration": 3, "is_instant": false, "stat_mods": {},
+   "description": "Brings a fallen ally back at 40% health, with a shield that holds for 3 turns.",
+   "ranks": [{"rank": 1, "level_req": 1, "cost": 45, "effect_value": 40}],
+   "absorb": 120
+  }
+ },
+ "freja_priest": {
+  "from": "Wave 4: 'when the whole party is close to falling, she gets one turn where every heal she casts lands twice. The calmest person in the room at the worst moment.'",
+  "ability": {
+   "ability_id": "personal_sworn_freja_calmest_in_the_room",
+   "name": "The Calmest Person in the Room",
+   "engine": "live: healing_done_pct on herself for 2 turns, instant so the heal comes the same turn",
+   "effect_type": "buff", "target_type": "self", "resource_type": "mana",
+   "cooldown": 14, "duration": 2, "is_instant": true,
+   "stat_mods": {"healing_done_pct": 100},
+   "description": "For 2 turns every heal Freja casts lands twice: her healing is doubled.",
+   "ranks": [{"rank": 1, "level_req": 1, "cost": 20, "effect_value": 100}]
+  }
+ }
+}

@@ -370,6 +370,11 @@ class StatusEffect:
         #: How many hits this can still move. None = every hit for the
         #: duration; 1 = Dan's "the NEXT attack aimed at any ally".
         self.damage_share_uses = None
+        #: SPREAD (Wave 4, Adrián's "the whole party shares the damage he'd have taken"): on the
+        #: holder's OWN effect, this PERCENT of every hit on them is split evenly across the rest
+        #: of damage_spread_party, each share cut by damage_share_reduction_pct. 0 = no spread.
+        self.damage_spread_pct = 0
+        self.damage_spread_party = None
 
         # ---- DEATH PREVENTION --------------------------------------------
         # "The first blow that would kill any ally leaves them at 15%
@@ -1337,6 +1342,25 @@ class StatusEffectMixin:
         if type(self)._sharing_damage:
             return actual
         moved_total = 0
+        # SPREAD first: a share of this hit goes across the rest of the holder's party, evenly
+        for effect in list(self._effects()):
+            pct = getattr(effect, "damage_spread_pct", 0) or 0
+            others = [a for a in (getattr(effect, "damage_spread_party", None) or [])
+                      if a is not self and getattr(a, "is_alive", lambda: True)()]
+            if pct <= 0 or not others:
+                continue
+            moved = actual * min(100.0, pct) / 100.0
+            reduction = getattr(effect, "damage_share_reduction_pct", 0) or 0
+            each = moved * max(0.0, 1.0 - min(100.0, reduction) / 100.0) / len(others)
+            type(self)._sharing_damage = True
+            try:
+                for ally in others:
+                    # never the blow that kills: a spread share leaves them at 1 at worst
+                    ally.current_health = max(1, ally.current_health - int(each))
+            finally:
+                type(self)._sharing_damage = False
+            moved_total += moved
+            break
         for effect in list(self._effects()):
             guardian = getattr(effect, "damage_share_to", None)
             pct = getattr(effect, "damage_share_pct", 0) or 0

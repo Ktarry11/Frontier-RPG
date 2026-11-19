@@ -4754,6 +4754,12 @@ class Ability:
                     effect.damage_share_heal_pct = self.damage_share.get(
                         "heal_pct", 0)
                     effect.damage_share_uses = self.damage_share.get("uses")
+                    if self.damage_share.get("spread"):
+                        # the holder spreads their own hits across the party instead
+                        effect.damage_share_to = None
+                        effect.damage_share_pct = 0
+                        effect.damage_spread_pct = self.damage_share.get("pct", 0)
+                        effect.damage_spread_party = list(party or [caster])
                 if self.death_prevent:
                     effect.death_prevent_pct = self.death_prevent.get("pct", 0)
                     effect.death_prevent_hp = self.death_prevent.get("hp", 0)
@@ -5137,6 +5143,16 @@ class Ability:
             # change, which is all it has the context to do correctly.
             target.current_health = revive_hp
             target._reviving_this_cast = True  # one-shot flag CombatEngine reads and clears right after use()
+            # A REVIVE THAT COMES WITH A SHIELD (Wave 4, Diego's "they get back up with a shield"):
+            # a rank's absorb, held for the ability's duration
+            shield = int(self.current_rank.get("absorb", self.absorb) or 0)
+            if shield > 0:
+                target.apply_status_effect(StatusEffect(
+                    absorb=shield, effect_id=f"{self.ability_id}_shield", name=self.name,
+                    effect_type=EffectType.BUFF, duration=max(1, self.duration or 3),
+                    stat_mods={}, source_name=caster.name, real_time_seconds=None))
+                return (f"{caster.name} revives {target.name}, restoring {revive_hp} health "
+                        f"and a {shield} shield!")
             return f"{caster.name} revives {target.name}, restoring {revive_hp} health!"
 
         elif self.effect_type == "reset_cooldowns":

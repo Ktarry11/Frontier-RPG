@@ -60,6 +60,21 @@ not do is the bespoke half.
 
 tools/qa_personal_kits.py reports how many sit in that state so the number is
 visible rather than discovered in a fight.
+
+=============================================================================
+SWORN SKILLS (Wave 4, 19 Nov 2026)
+=============================================================================
+
+    data/npcs/sworn_skills.json   one skill per recruit, built by tools/build_sworn_skills.py
+
+Swearing to the player unlocks one more skill, from what that recruit resolves in their
+personal quest. Kyle, 19 Nov 2026: "These character traits should be slightly stronger than
+the other ones. They still will get 5 ranks when appropriate (lvl 1,15,30,45, and 60)." The
+skill is a "personal_sworn_" ability, so everything that already knows where a personal
+ability belongs (Core tab, turn-count buffs, the support formula leaving it alone) treats it
+the same. A Sworn skill can also be a passive block, read through the same passive channels as
+a kit passive. Either way it exists only while that recruit's bond is Sworn: grant() adds it
+then, and the bond manager calls grant() the moment they swear and again after a save loads.
 """
 import json
 from pathlib import Path
@@ -103,6 +118,55 @@ def get_kit(recruit_id):
     if not recruit_id or recruit_id in EXCLUDED_RECRUIT_IDS:
         return None
     return kits().get(recruit_id)
+
+
+SWORN_PATH = ROOT / "data" / "npcs" / "sworn_skills.json"
+SWORN_PREFIX = "personal_sworn_"
+_sworn = None
+
+
+def sworn_skills():
+    global _sworn
+    if _sworn is None:
+        try:
+            data = json.loads(SWORN_PATH.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            data = {}
+        _sworn = {k: v for k, v in data.items() if not k.startswith("_")}
+    return _sworn
+
+
+def is_sworn(recruit_id):
+    """True once this recruit has sworn to the player (their bond's last stage)."""
+    if not recruit_id or recruit_id in EXCLUDED_RECRUIT_IDS:
+        return False
+    try:
+        from world.bond_manager import get_bond_manager
+        b = get_bond_manager().bonds.get(recruit_id)
+        return b is not None and b.stage_key == "sworn"
+    except Exception:
+        return False
+
+
+def get_sworn(recruit_id, sworn=None):
+    """This recruit's Sworn skill entry ({"ability": {...}} or {"passives": {...}}), or None
+    while they haven't sworn. `sworn` overrides the bond check (for tests and tooltips)."""
+    if not recruit_id or recruit_id in EXCLUDED_RECRUIT_IDS:
+        return None
+    entry = sworn_skills().get(recruit_id)
+    if entry is None:
+        return None
+    if sworn is None:
+        sworn = is_sworn(recruit_id)
+    return entry if sworn else None
+
+
+def _passive_blocks(character):
+    """Every passive block this character has: kit, Sworn (if sworn), racial."""
+    rid = getattr(character, "recruit_id", None)
+    return [((get_kit(rid) or {}).get("passives"), "Personal", "Personal Trait"),
+            ((get_sworn(rid) or {}).get("passives"), "Sworn", "Sworn"),
+            ((racial_of(character) or {}).get("passives"), "Racial", None)]
 
 
 def racial_of(character):
@@ -174,8 +238,7 @@ def combat_passives_for(character):
     """This character's kit and racial passives that combat reads by name, as fractions.
     Character.get_talent_effects adds these to what talents, stances and forms give."""
     total = {}
-    for block in ((get_kit(getattr(character, "recruit_id", None)) or {}).get("passives"),
-                  (racial_of(character) or {}).get("passives")):
+    for block, _, _ in _passive_blocks(character):
         if not isinstance(block, dict):
             continue
         for k, v in block.items():
@@ -220,10 +283,9 @@ def passive_entries_for(character):
     """
     from combat.status_effects import StatusEffectMixin
     out = []
-    for source, block, fallback in (
-            ("Personal", (get_kit(getattr(character, "recruit_id", None)) or {}).get("passives"), "Personal Trait"),
-            ("Racial", (racial_of(character) or {}).get("passives"),
-             f"{str(getattr(character, 'race', '') or '').replace('_', ' ').title()} Heritage")):
+    heritage = f"{str(getattr(character, 'race', '') or '').replace('_', ' ').title()} Heritage"
+    for block, source, fallback in _passive_blocks(character):
+        fallback = fallback or heritage
         if not isinstance(block, dict):
             continue
         lines = []
@@ -251,13 +313,8 @@ def passives_for(character):
     into `bonuses` with no translation.
     """
     total = {}
-    kit = get_kit(getattr(character, "recruit_id", None))
-    if kit:
-        for k, v in _scalars(kit.get("passives")).items():
-            total[k] = total.get(k, 0) + v
-    racial = racial_of(character)
-    if racial:
-        for k, v in _scalars(racial.get("passives")).items():
+    for block, _, _ in _passive_blocks(character):
+        for k, v in _scalars(block).items():
             total[k] = total.get(k, 0) + v
     return total
 
@@ -268,6 +325,9 @@ def ability_entries_for(character):
     kit = get_kit(getattr(character, "recruit_id", None))
     if kit:
         out.extend(a for a in (kit.get("abilities") or []) if isinstance(a, dict))
+    sworn = get_sworn(getattr(character, "recruit_id", None))
+    if sworn and isinstance(sworn.get("ability"), dict):
+        out.append(sworn["ability"])
     racial = racial_of(character)
     if racial:
         out.extend(a for a in (racial.get("abilities") or []) if isinstance(a, dict))
@@ -275,7 +335,7 @@ def ability_entries_for(character):
 
 
 def grant(character):
-    """Put this character's kit and racial abilities into their ability_book.
+    """Put this character's kit, Sworn and racial abilities into their ability_book.
 
     Idempotent - add_ability replaces by id, and the passive half is read
     fresh on every recalc rather than accumulated, so calling this twice
@@ -294,6 +354,11 @@ def grant(character):
     if getattr(character, "recruit_id", None):
         for ability_id in [a for a in list(book.abilities) if str(a).startswith("racial_")]:
             del book.abilities[ability_id]
+        # A Sworn skill is only theirs while they're Sworn (the friendship test panel can put
+        # everyone back to strangers, and a save can be older than the oath).
+        if get_sworn(character.recruit_id) is None:
+            for ability_id in [a for a in list(book.abilities) if str(a).startswith(SWORN_PREFIX)]:
+                del book.abilities[ability_id]
     for entry in ability_entries_for(character):
         try:
             ability = _ability_from_data(entry)

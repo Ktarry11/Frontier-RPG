@@ -387,6 +387,9 @@ class GameStateManager:
         recruit_data = data.get("recruits")
         if recruit_data:
             get_recruit_manager().load_state(recruit_data)
+            # Sworn skills depend on the bonds, which load after the party was rebuilt
+            from world.bond_manager import get_bond_manager
+            get_bond_manager().regrant_sworn(self.party)
 
         # SELF-REPAIR for saves already written with a poisoned recruit
         # block. A recruit flagged IN_PARTY who is not actually in the

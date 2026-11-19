@@ -151,6 +151,8 @@ class BondManager:
         return [m for m in getattr(party, "members", []) if getattr(m, "recruit_id", None) in self.bonds]
 
     def _in(self, party):
+        if party is not None:
+            self._seen_party = party      # where a Sworn skill goes, if they swear mid-deed
         out = []
         for m in self._members(party):
             b = self.bonds[m.recruit_id]
@@ -176,6 +178,45 @@ class BondManager:
             self.log.append((b.rid, f"[{self.name_of(b.rid)} is now a {STAGE_NAMES[b.stage_key]}.]"))
             if b.stage_key == "sworn":
                 self._give_keepsake(b)
+                self._give_sworn_skill(b)
+
+    def _give_sworn_skill(self, b):
+        """Wave 4: swearing unlocks their Sworn skill (data/npcs/sworn_skills.json). It goes into
+        their book now, if they're with you, and grant() puts it back on every load after."""
+        try:
+            from world import personal_kits as PK
+            entry = PK.get_sworn(b.rid, sworn=True)
+            if entry is None:
+                return
+            name = (entry.get("ability") or {}).get("name") or (entry.get("passives") or {}).get("_name")
+            for char in self._characters(b.rid):
+                PK.grant(char)
+                char._recalculate_derived_stats()
+            if name:
+                self.log.append((b.rid, f"[{self.name_of(b.rid)} has a new Sworn skill: {name}.]"))
+        except Exception:
+            pass
+
+    def _characters(self, rid):
+        """The live character for this recruit, if they're in the party or on its bench."""
+        party = self.party or getattr(self, "_seen_party", None)
+        out = []
+        for m in list(getattr(party, "members", []) or []) + list(getattr(party, "bench", []) or []):
+            if getattr(m, "recruit_id", None) == rid:
+                out.append(m)
+        return out
+
+    def regrant_sworn(self, party):
+        """After a save loads: the party was rebuilt before the bonds were, so every grant() then
+        saw nobody Sworn. Put each member's Sworn skill back (or take a stale one off)."""
+        try:
+            from world import personal_kits as PK
+            for m in list(getattr(party, "members", []) or []) + list(getattr(party, "bench", []) or []):
+                if getattr(m, "recruit_id", None) and hasattr(m, "ability_book"):
+                    PK.grant(m)
+                    m._recalculate_derived_stats()
+        except Exception:
+            pass
 
     def _give_keepsake(self, b):
         """Kyle, 19 Nov 2026: each Sworn member gives something personal, and it goes on the Collection's Keepsakes
