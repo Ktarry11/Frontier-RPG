@@ -48,16 +48,17 @@ The Ending column below keeps the count honest as we go.
 
 ## Order and progress
 
-The pilot three first, then everyone else from the lowest level up.
+The pilot three first, then everyone else from the lowest level up, unless Kyle picks someone (he picked Freja
+fourth).
 
 | # | Recruit | Class | Where | Profile | Ending | Status |
 |---|---|---|---|---|---|---|
 | 1 | Kesten Ambrose | Runemaster 36 | Kael's Bastion | `kesten_ambrose.md` | Happy | Signed off 19 Nov 2026 |
 | 2 | Adrián Mendoza | Templar 24 | Astranaar | `adrian_mendoza.md` | Happy | Signed off 19 Nov 2026 |
-| 3 | Tarek Mansour | Templar 26 | Ashenvale East | `tarek_mansour.md` | Sad (pilot) | Draft 1, waiting on Kyle |
+| 3 | Tarek Mansour | Templar 26 | Ashenvale East | `tarek_mansour.md` | Sad | Signed off 19 Nov 2026 |
 | 4 | Asher | Paladin 5 | Burning Blade Coven |  |  |  |
 | 5 | Diego Salazar | Tinker 5 | Deathknell |  |  |  |
-| 6 | Freja Lindqvist | Priest 6 | Valley of Trials |  |  |  |
+| 6 | Freja Lindqvist | Priest 6 | Valley of Trials | `freja_lindqvist.md` | Happy | Draft 1, waiting on Kyle (Kyle chose her next) |
 | 7 | Ama Boateng | Priest 7 | Razor Hill |  |  |  |
 | 8 | Marcus Okafor | Stormbringer 8 | Durotar |  |  |  |
 | 9 | Sondre Haugen | Stormbringer 8 | Scarlet Crypt |  |  |  |

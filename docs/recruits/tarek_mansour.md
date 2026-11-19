@@ -1,6 +1,6 @@
 # Tarek Mansour
 
-Wave 1 profile, draft 1 (19 Nov 2026). Waiting on Kyle's sign-off. Built on the pilot and his recruit entry. Waves 2,
+Wave 1 profile. **Signed off 19 Nov 2026** (Kyle moved on to the next recruit without changes). The sad ending is used. Built on the pilot and his recruit entry. Waves 2,
 3 and 4 build on this page.
 
 ## At a glance
@@ -169,7 +169,7 @@ is.
   years, the wedding, the phone call, leaving within a week, Berlin, three wells with one failed, the titles turned
   down, the Cairo lists in Astranaar, Splintertree, "Have you eaten?", the red pen marking his drawings.
 
-## For Kyle to decide
+## Kyle's calls (settled 19 Nov 2026: all as written)
 
 1. **The keepsake.** Omar's red pen.
 2. **The sad ending.** Keep it, since he's one of our 35% sad.
