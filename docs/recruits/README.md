@@ -93,9 +93,9 @@ fourth).
 | 23 | Amber Whitehorse | Druid 15 | Central Barrens | `amber_whitehorse.md` | Happy | Draft 1 |
 | 24 | Ivan Petrov | Warrior 15 | Ragefire Chasm | `ivan_petrov.md` | Happy | Draft 1 |
 | 25 | Haruto Nakamura | Runemaster 15 | Silverpine South | `haruto_nakamura.md` | Sad | Draft 1 |
-| 26 | Marta Kowalski | Tinker 15 | Boulder Lode Mine |  |  |  |
-| 27 | Lúcia Ferreira | Sun Cleric 15 | Crossroads |  |  |  |
-| 28 | Minh Tran | Chronomancer 16 | Northern Barrens |  |  |  |
+| 26 | Marta Kowalski | Tinker 15 | Boulder Lode Mine | `marta_kowalski.md` | Still unknown | Draft 1 |
+| 27 | Lúcia Ferreira | Sun Cleric 15 | Crossroads | `lucia_ferreira.md` | Happy | Draft 1 |
+| 28 | Minh Tran | Chronomancer 16 | Northern Barrens | `minh_tran.md` | Sad | Draft 1 |
 | 29 | Bakyt Asanov | Hunter 17 | Eastern Hillsbrad |  |  |  |
 | 30 | Matías Fuentes | Reaper 17 | Sunken Grotto of the Deep |  |  |  |
 | 31 | Tomas Havel | Warrior 18 | Fenris Isle |  |  |  |
