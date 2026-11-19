@@ -3,7 +3,8 @@
 docs/auction_house_design.md is the plan and explains every number here. The short version:
 
 * Two books, Horde (Orgrimmar, Undercity, Freewind Post) and Steamwheedle (the goblin ports), on one market clock
-  measured in market hours. The clock moves with play time (1 hour per 150 s), quests (+1), the last boss of a
+  measured in market hours. The clock moves with play time (1 hour per 150 s), flights (by distance, half an hour to
+  about six and a half: on_flight), quests (+1), the last boss of a
   dungeon (+6) and the hearthstone (+8). Kyle: "we need to ensure the inn isn't cheeseable... +8 when we HEARTH
   only. and +6 dungeon when LAST boss is killed."
 * Every key has a price index I, a mean-reverting random walk (an Ornstein-Uhlenbeck process in ln I) that is
@@ -1595,6 +1596,16 @@ def on_hearth(party):
         market_of(party).on_event("hearth")
     except Exception as exc:
         print(f"market: hearth tick failed: {exc}")
+
+
+def on_flight(party, hours):
+    """A windrider flight: the clock moves by the flight's own length (TravelManager.flight_hours), so letters to
+    recruits get answered on the way and anyone waiting where you land joins as you arrive."""
+    try:
+        if hours > 0:
+            market_of(party).advance(hours)
+    except Exception as exc:
+        print(f"market: flight tick failed: {exc}")
 
 
 def on_boss_down(party, enemies):

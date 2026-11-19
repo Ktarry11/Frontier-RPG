@@ -91,7 +91,9 @@ class TravelServiceScreen(BaseScreen):
                                      price=None, label="Locked", enabled=False, action="fly", arg=node_id))
                     continue
                 ok = copper >= cost
-                rows.append(dict(name=node["name"], sub=node["zone"], price=cost, label="Fly", enabled=ok,
+                span = _hours_text(travel.flight_hours(here, node_id)) if here else ""
+                rows.append(dict(name=node["name"], sub=f"{node['zone']}, {span} in the air" if span else node["zone"],
+                                 price=cost, label="Fly", enabled=ok,
                                  reason=None if ok else "Not enough gold", action="fly", arg=node_id))
         elif self.kind == "riding":
             nxt = travel.next_riding_skill()
@@ -318,6 +320,7 @@ class TravelServiceScreen(BaseScreen):
         if not travel.can_fly_between(here, node_id):
             return self._say("There is no flight path across the sea.", RED)
         cost = travel.flight_cost(here, node_id) if here else 0
+        hours = travel.flight_hours(here, node_id) if here else 0.0
         if self._copper() < cost:
             return self._say("Not enough gold.", RED)
         zm = self.state_manager._live_zone_manager()
@@ -333,10 +336,15 @@ class TravelServiceScreen(BaseScreen):
         travel.force_dismount()
         # via_portal=False: a flight path is a teleport, not a walk out of a cave mouth
         zm.transition_to_zone(node["zone"], master.x, master.y, via_portal=False)
+        # THE FLIGHT TAKES TIME, by distance: the market clock moves, so letters get answered in the air and
+        # anyone waiting where you land is there to meet you (world/recruit_mail.py).
+        from world.market.market import on_flight
+        on_flight(self._party(), hours)
         self.state_manager.transition_to(GameState.OVERWORLD)
         overworld = self.state_manager.states.get(GameState.OVERWORLD)
         if overworld is not None and hasattr(overworld, "_notify"):
-            overworld._notify(f"You fly to {node['name']}. ({format_copper(cost)})", GREEN)
+            span = _hours_text(hours)
+            overworld._notify(f"You fly to {node['name']}, {span} in the air. ({format_copper(cost)})", GREEN)
 
     # ------------------------------------------------------------------ events
     def handle_event(self, event):
@@ -465,3 +473,14 @@ class TravelServiceScreen(BaseScreen):
 
 
 GOLD_OK = (240, 210, 110)
+
+
+def _hours_text(hours):
+    """"half an hour", "an hour", "two and a half hours"... for a flight's length."""
+    words = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight"}
+    whole, half = int(hours), (hours - int(hours)) >= 0.5
+    if whole == 0:
+        return "half an hour"
+    if whole == 1:
+        return "an hour and a half" if half else "an hour"
+    return f"{words.get(whole, str(whole))}{' and a half' if half else ''} hours"

@@ -20,6 +20,9 @@ friends who come quickly though. But also getting them to meet at a location of 
   9. walking up and hiring them in person clears the letter
  10. the invite and the towns survive a save and load
  11. the Friends tab draws, with someone picked and a town offered
+ 12. a windrider flight takes time by distance (Kyle: "make wind riders pass time as it takes time to fly... to help
+     recruit people"): half an hour next door, longer the further you go, never a hearth's eight, and an answer due
+     in the air arrives, with the recruit joining as you land in their town
 """
 import contextlib
 import io
@@ -252,6 +255,36 @@ def main():
     bm2.load_state(saved)
     check(bm2.bonds[R].invite == inv, "the letter didn't survive a save")
     check(bm2.towns.get("orgrimmar") == "Orgrimmar", "the towns didn't survive a save")
+
+    # 12
+    from world.travel_manager import TravelManager, travel_data
+    nodes = travel_data()["flight_nodes"]
+    pairs = []
+    for a in nodes:
+        for b2 in nodes:
+            if a < b2 and TravelManager.can_fly_between(a, b2):
+                pa, pb = nodes[a]["pos"], nodes[b2]["pos"]
+                pairs.append((((pa[0] - pb[0]) ** 2 + (pa[1] - pb[1]) ** 2) ** 0.5, TravelManager.flight_hours(a, b2)))
+    pairs.sort()
+    hrs = [h for _d, h in pairs]
+    check(hrs == sorted(hrs), "a longer flight takes less time than a shorter one")
+    check(hrs[0] == 0.5 and hrs[-1] < 8.0, f"flights run {hrs[0]} to {hrs[-1]} hours, want half an hour up to under eight")
+    rm, bm, party = fresh()
+    ch = hire(rm, bm, party, R)
+    send_home(rm, bm, party, ch)
+    RM.note_town(bm, Z("Orgrimmar"))
+    b = bm.bonds[R]
+    b.stage = STAGES.index("sworn")
+    from world.market import market as MK
+    m = MK.market_of(party)
+
+    class ZM:
+        current_zone = Z("Orgrimmar")
+    MK._LIVE["zone_manager"] = ZM()
+    RM.invite(bm, b, "orgrimmar", m.clock, random.Random(6))
+    MK.on_flight(party, b.invite["due"] - m.clock + 0.01)
+    check(here(party, R), "a recruit whose answer came in the air didn't meet you as you landed")
+    MK._LIVE["zone_manager"] = None
 
     # 11
     shot = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--shot=")), None)

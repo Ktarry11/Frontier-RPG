@@ -20,6 +20,10 @@ from pathlib import Path
 _DATA = None
 
 
+#: Flight-map units flown in one market hour (see TravelManager.flight_hours).
+FLIGHT_UNITS_PER_HOUR = 50.0
+
+
 def travel_data():
     global _DATA
     if _DATA is None:
@@ -326,6 +330,20 @@ class TravelManager:
         """Flight networks are per-continent: Kalimdor and Eastern Kingdoms never connect
         (the Orgrimmar <-> Undercity zeppelin is the only way across)."""
         return from_node is not None and cls.continent_of(from_node) == cls.continent_of(to_node)
+
+    @staticmethod
+    def flight_hours(from_node, to_node):
+        """Market hours a flight takes (Kyle, 19 Nov 2026: "make wind riders pass time as it takes time to fly?
+        Maybe based on distance to help recruit people"). An hour per FLIGHT_UNITS_PER_HOUR map units, rounded to
+        the half hour, at least half an hour: a hop next door is half an hour, the median flight two and a half
+        hours, and coast to coast about six and a half, still under a hearth's eight. It costs gold by the same
+        distance, so flying back and forth to pass time is never free."""
+        nodes = travel_data()["flight_nodes"]
+        if from_node not in nodes or to_node not in nodes:
+            return 0.0
+        a, b = nodes[from_node]["pos"], nodes[to_node]["pos"]
+        dist = ((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2) ** 0.5
+        return max(0.5, round(dist / FLIGHT_UNITS_PER_HOUR * 2) / 2.0)
 
     @staticmethod
     def flight_cost(from_node, to_node):
