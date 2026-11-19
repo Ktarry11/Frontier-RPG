@@ -74,7 +74,7 @@ Each recruit's profile becomes one file, `tools/wave2/<recruit_id>.json`, with t
   neglect). What they won't talk about until a stage follows their profile's voice notes. Sworn is
   their ending.
 - **banter**: what they say in the party when something happens. It never names another recruit,
-  because they start as strangers. Wave 3 is where they meet.
+  because they start as strangers. Wave 3 is where they meet (below).
 - **recruit_text**: only the parts of their old game text that the profile changed, including
   every "moved to match the game".
 
@@ -89,6 +89,48 @@ Profiles corrected during Wave 2 (all mirrored to the project): `haruto_nakamura
 **Wave 2 complete, 19 Nov 2026:** all 95 recruits (98 profiles less the pilot three and Asher).
 
 **Realism pass (Kyle: "These are real people").** Read back to back, the first files shared skeletons that no single line showed: hometown banter written as postcards, "Everybody out, everybody counted", every goodbye opening "I'm going back to", every return opening "I'm back, and", and half the cast telling you where they landed with one sentence shape. All of it was rewritten line type by line type across the whole cast, so each person sounds like themselves. `tools/wave2_text.py` now also fails on stock phrases, the "it's not X, it's Y" line, any four words that three recruits' banter shares or eight recruits' bond lines share, and any line type where four recruits open with the same three words.
+
+## Wave 3: each other (done 19 Nov 2026)
+
+Kyle's calls: neighbours start on nodding terms; a recruit can use another's name once they're friendly; no romance
+between recruits; rivals never refuse to share a party. "I'd like more complex interactions that you can manage. Don't
+skimp out, this is very important."
+
+**How it works.** `world/relationship_manager.py` keeps one record per pair: affinity (-100 to 100), a state
+(strangers, nodding, friendly, close, grating, rivals, with hysteresis so nobody flickers between two), shared outings,
+wipes, saves, gifts and quarrels. Chemistry comes from who they are (humour, pace, manner and talk against each other's,
+likes and dislikes, shared tags, and a few named warm_to, wary_of and spar pairs from the profiles). Dislikes fade over
+fifty outings together, easy-going people fade them twice as fast, and liking lasts. Nobody drifts until they've been
+introduced, and a party is introduced in one beat on its first outing together.
+
+**What they say.** Each recruit has a pool of 49 line types plus one discovery line per tag they carry
+(`tools/wave3/<recruit_id>.json`): meeting, asking and answering about home and work, small talk, teasing aimed at
+what stands out about the other one and the three ways to take it, needling and the three ways to answer it, looking
+out for each other, confiding and listening, the wipe, the near miss, gear handed down, turning friendly or close or
+sour, making up, defending a friend, and missing one who's gone home. A pair never retells a chat inside about forty
+exchanges, so silence beats repetition.
+
+**Signature arcs.** Fifty pairs have their own hand-written arc (`tools/wave3/_pairs.json`): four or five scenes that
+play in order as they get to know each other, from finding out they're from the same city to the thing they'd only say
+to each other. Most are people the profiles already pointed at each other: Sophia and Stelios (Thessaloniki, and
+Despina's library), Elie and Ziad (Achrafieh), Marco and Enzo (the Quartieri), Marta and Zofia (Łódź), Sherif and
+Tarek (Cairo), Cristóbal and Esteban (Valparaíso), Faris and Yusuf (Basra), Taras, Wes and Mariana at Ariden's Watch,
+Sebastián and Vuk's cooking feud, the bird men arguing falcon against hawk against eagle, and so on. Nobody shares a
+past: the ones from the same place never met there, and find out how close they came.
+
+**Lines hold true either way.** Every line has to stay true before and after that recruit's own ending, so nothing
+claims somebody's still missing, a keepsake's still in their pocket, or a fear's still there when their ending changes
+it.
+
+**Seeing it.** Beats show in the banter panel one line at a time, each waiting until the one before it can be read;
+long conversations roll, keeping the newest three. The Friendship Test panel (party screen, F9) shows every pair in
+the party with their state, affinity, shared outings, chemistry and arc progress, and can run ten outings at a time.
+
+**Checks.** `tools/build_relationships.py` builds `data/npcs/relationships.json` and fails on voice problems, one- or
+two-word sentences, dashes, romance, other recruits' names, gendered address outside `{his|her}` tokens, stock
+phrases, and any opening or four-word run shared by too many recruits. `tools/qa_relationships.py` runs a long
+campaign and steady crews, checks chemistry, hysteresis, neighbours, rivals and saves, and `--pair=a,b` prints one
+pair's whole arc in order.
 
 ## Order and progress
 
