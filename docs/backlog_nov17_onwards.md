@@ -53,6 +53,9 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - The Cenarion Circle and the Wakened only reach Friendly on quests; the dungeons are the road past it.
 
 ## 1e. Filling 44 to 51: Feralas and the World Tree (Kyle, 19 Nov 2026)
+- **Feralas is first (Kyle, 19 Nov 2026), in progress.** Decisions in `docs/feralas_brief.md`; nine art sheets
+  written in `docs/feralas_art_prompts.md`, waiting on Kyle. The data side (creatures, tables, people, faction, quests)
+  is being built while the art comes.
 - `docs/feralas_worldtree_brief.md`: Feralas 44-49 (classic L shape, largely untouched by the Integration), and a
   home-brew World Tree off Northern Stranglethorn's coast: island 42-44, lived-on tiers 44-48, a town halfway up, two
   sky zones at the crown (46-49, 48-51), two new factions. Names and peoples still to settle.

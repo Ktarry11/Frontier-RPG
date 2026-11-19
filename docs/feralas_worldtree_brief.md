@@ -5,6 +5,9 @@ content thinning out from the mid 40s, and running dry at the top (every spec gr
 
 ## Feralas, 44 to 49
 
+**Settled 19 Nov 2026: see `docs/feralas_brief.md` (three maps, two towns, the Writhing Deep, the Feathermoon
+Sentinels) and `docs/feralas_art_prompts.md` (nine sheets).** The notes below are the first pass.
+
 Kyle: "For 44-49 we can do feralas... Feralas can remain largely unchanged due to the integration and follows the same
 L shape." Reference: `docs/zone_refs/feralas_classic_map.jpg` (the classic map Kyle sent): the long green strip down the
 west coast with Feathermoon off it, and the arm running east past Dire Maul to Camp Mojache and New Thalanaar.
