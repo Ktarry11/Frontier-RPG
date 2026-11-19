@@ -5,7 +5,7 @@ Talrendis Landing, by the inn door. His sister Layla keeps the inn now ("We neve
 hearth"). Until this art lands he's drawn as the generic human the Landing already used for him.
 
 Two prompts, the same as the sheet-4 recruits (`claude/recruit_art_prompts_sheet4.md`), so he matches them. Attach two
-or three sheet-4 sprites as the style reference (Santiago, Omar, Emiliano).
+or three sheet-4 sprites as the style reference (Santiago, Sherif, Emiliano).
 
 ## Sprite
 

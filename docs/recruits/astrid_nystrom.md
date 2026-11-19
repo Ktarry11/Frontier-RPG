@@ -1,8 +1,8 @@
-# Astrid Lindqvist
+# Astrid Nyström
 
 Wave 1 profile, draft 1 (19 Nov 2026). Built on her recruit entry. Waves 2, 3 and 4 build on this page.
 
-**Name to settle:** Freja Lindqvist has the same surname, and they're not related. My suggestion is **Astrid Nyström**. Nothing's renamed until you say.
+**Renamed (Kyle, 19 Nov 2026):** she was Astrid Nyström, the same surname as Freja, so she's Astrid Nyström now.
 
 ## At a glance
 

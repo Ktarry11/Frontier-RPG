@@ -84,7 +84,7 @@ stay in `tools/build_recruit_bonds.py` as the pilot. Asher is never touched.
 
 Profiles corrected during Wave 2 (all mirrored to the project): `haruto_nakamura.md` (Hrunn from Thousand Needles), `matias_fuentes.md` (brother Benjamín), `nicolas_arce.md` (partner Gladys Huamán), `driss_alaoui.md` (son Hamza), Sophia's Wouter and Hana's Ashenvale coast.
 
-**Wave 2 done:** Diego, Freja, Ama, Marcus, Sondre, Sebastián, Marco, Sophia, Carolina, Ryan, Hana, Esteban, Berat, Dan, Marisol, Silas, Rosa, Pavlo, Amber, Ivan, Haruto, Marta, Lúcia, Minh, Bakyt, Matías, Tomas, Cristóbal, Callum, Giorgi, Camille, Liam, Orlando, Owen, Anjali, Emre, Saoirse, Pasang, Nicolás, Iker, Mateo, Imelda, Ileana, Rhys, Henrik, Eino, Driss, Thiago, Jun-seo, Skye, Enzo, Alonso, Vuk, Gunnar, Kourosh, Héctor, Ziad, Ratih, Fiona, Khalid, Delroy, Karim, Osvaldo, Bashir, Pieter, Gianluca, Camila, Elias, Kiet, Rui, Stelios, Nizar, Yusuf, Réka, Ramiro, Graham, Elie, Bruno, Joaquín, Astrid, Luka, Zofia, Omar, Santiago, Emiliano, Mohammed, Tobias, Isla, Taras, Mariana, Dale, Wes, Neil, Valentina, Faris.
+**Wave 2 done:** Diego, Freja, Ama, Marcus, Sondre, Sebastián, Marco, Sophia, Carolina, Ryan, Hana, Esteban, Berat, Dan, Marisol, Silas, Rosa, Pavlo, Amber, Ivan, Haruto, Marta, Lúcia, Minh, Bakyt, Matías, Tomas, Cristóbal, Callum, Giorgi, Camille, Liam, Orlando, Owen, Anjali, Emre, Saoirse, Pasang, Nicolás, Iker, Mateo, Imelda, Ileana, Rhys, Henrik, Eino, Driss, Thiago, Jun-seo, Skye, Enzo, Alonso, Vuk, Gunnar, Kourosh, Héctor, Ziad, Ratih, Fiona, Khalid, Delroy, Karim, Osvaldo, Bashir, Pieter, Gianluca, Camila, Elias, Kiet, Rui, Stelios, Nizar, Yusuf, Réka, Ramiro, Graham, Elie, Bruno, Joaquín, Astrid, Luka, Zofia, Sherif, Santiago, Emiliano, Mohammed, Tobias, Isla, Taras, Mariana, Dale, Wes, Neil, Valentina, Faris.
 
 **Wave 2 complete, 19 Nov 2026:** all 95 recruits (98 profiles less the pilot three and Asher).
 
@@ -180,10 +180,10 @@ fourth).
 | 81 | Elie Khoury | Bloodmage 53 | Khaz Varun, the Black Hollow | `elie_khoury.md` | Still unknown | Draft 1 |
 | 82 | Bruno Teixeira | Templar 53 | The Bulwark | `bruno_teixeira.md` | Sad | Draft 1 |
 | 83 | Joaquín Duarte | Sun Cleric 54 | The Bulwark | `joaquin_duarte.md` | Sad | Draft 1 |
-| 84 | Astrid Lindqvist | Starcaller 54 | North Felwood | `astrid_lindqvist.md` | Happy | Draft 1 |
+| 84 | Astrid Nyström | Starcaller 54 | North Felwood | `astrid_nystrom.md` | Happy | Draft 1 |
 | 85 | Luka Perić | Stormbringer 54 | Tempest Shallows | `luka_peric.md` | Happy | Draft 1 |
 | 86 | Zofia Nowak | Cultist 55 | Western Plaguelands North | `zofia_nowak.md` | Sad | Draft 1 |
-| 87 | Omar Saleh | Venomancer 55 | The Royal Hive | `omar_saleh.md` | Happy | Draft 1 |
+| 87 | Sherif Gamal | Venomancer 55 | The Royal Hive | `sherif_gamal.md` | Happy | Draft 1 |
 | 88 | Santiago Ríos | Runemaster 56 | The Ashen Reach | `santiago_rios.md` | Still unknown | Draft 1 |
 | 89 | Emiliano Vargas | Pyromancer 56 | Cinderwharf | `emiliano_vargas.md` | Happy | Draft 1 |
 | 90 | Mohammed Saleh | Chronomancer 56 | Talrendis Landing | `mohammed_saleh.md` | Happy | Draft 1 |

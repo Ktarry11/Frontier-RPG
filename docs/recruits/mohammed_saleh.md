@@ -114,7 +114,6 @@ it in his head every night. He gives it to you after the Promenade. He says he's
   the inn at Talrendis Landing, the dreams of the white street into the sea with the queen's court, seeing a little way along time, twelve rooms over a dive
   shop, the rooftop and Sinai, Layla doing the books, the second glass of tea, keeping people fed, Farseer Thrag saying the dreams were true, walking the
   Drowned Promenade awake, Layla wanting help with the laundry, the inn door and the cold tea, and the brass key.
-- **Worth knowing:** he shares the surname Saleh with Omar Saleh, the Venomancer. It's common and they're not related.
 
 ## Ending
 

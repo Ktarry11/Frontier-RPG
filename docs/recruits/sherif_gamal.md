@@ -1,4 +1,4 @@
-# Omar Saleh
+# Sherif Gamal
 
 Wave 1 profile, draft 1 (19 Nov 2026). Built on his recruit entry. Waves 2, 3 and 4 build on this page.
 
@@ -16,7 +16,7 @@ Wave 1 profile, draft 1 (19 Nov 2026). Built on his recruit entry. Waves 2, 3 an
 
 ## Who he is
 
-Omar is unbothered. He's spent his whole working life very calm around things that sting, and he's the only person who walks into the Royal Hive without
+Sherif is unbothered. He's spent his whole working life very calm around things that sting, and he's the only person who walks into the Royal Hive without
 flinching.
 
 He's amused by almost everything. He says the bugs here are bigger, and otherwise it's the same job. He means it as a joke, and he also means it.
@@ -32,7 +32,7 @@ cart on his street, football on a Friday, Mariam's laugh, and the moment a frigh
 
 ## Before
 
-He grew up in Shubra, in Cairo, the eldest son of a man who started a pest control business in 1987 with one van. Omar joined at 23 and spent fifteen years
+He grew up in Shubra, in Cairo, the eldest son of a man who started a pest control business in 1987 with one van. Sherif joined at 23 and spent fifteen years
 fumigating apartment blocks, restaurants, and once, memorably, a storeroom of the Egyptian Museum, where he found a colony of beetles eating a crate
 labelled "do not open".
 
@@ -76,7 +76,7 @@ player gives him is somebody who sees that it has.
 **His goal:** to find Mariam.
 
 **The personal quest (opens at Friend):**
-1. A sickness from the Royal Hive's stings is spreading through the nearby camps, and nobody can treat it. Omar's catalogue has the answer, if he can get a
+1. A sickness from the Royal Hive's stings is spreading through the nearby camps, and nobody can treat it. Sherif's catalogue has the answer, if he can get a
    sample from the deepest chamber.
 2. You go deep into the hive with him, further than anyone's gone.
 3. You bring the sample out, and he makes the antidote, and a party of healers arrives from the south to collect it for the camps.
@@ -88,7 +88,7 @@ spring somewhere.
 
 ## His keepsake (the new Collection tab)
 
-**Omar's Fogging Nozzle.** The brass nozzle from his fumigation rig in Cairo, the only part that survived the landing, checked for blockages every day for
+**Sherif's Fogging Nozzle.** The brass nozzle from his fumigation rig in Cairo, the only part that survived the landing, checked for blockages every day for
 three years. He gives it to you after Mariam. He says he doesn't need to fog anything any more, and you should have the part that came through.
 
 ## Voice notes
@@ -115,9 +115,8 @@ three years. He gives it to you after Mariam. He says he doesn't need to fog any
   through with the fumigation rig, venom listening, unbothered and amused, the van and the fogging machine and the family business from 1987, engaged
   to a pharmacist called Mariam with the wedding set for spring, the bugs being bigger, studying the hive's poisons, asking every healer because she'd
   be near the sick, the first chambers, and the brass nozzle.
-- **For Kyle:** Tarek's lost love, the chemistry teacher who died in the Integration, is also called Omar and also from Cairo. Players could mix them up. If
-  you'd like, this Omar could be renamed, for example to Sherif Saleh. Mohammed Saleh, the Chronomancer, also shares his surname; it's a common
-  name and they're not related.
+- **Renamed (Kyle, 19 Nov 2026):** he was Sherif Gamal. Tarek's lost love is an Sherif from Cairo too, and Mohammed Saleh shares the
+  surname, so he's Sherif Gamal now.
 
 ## Ending
 

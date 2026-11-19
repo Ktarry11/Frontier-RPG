@@ -178,5 +178,5 @@ here, so she gives the old one to you. She says you've kept her alive long enoug
 1. **William's ending.** He's alive and they find each other. I think it's right for your friend.
 2. **William isn't a recruit** (Kyle: "No, he won't be a recruit").
 3. **The surname.** I've kept Lindqvist and said her grandfather came from Sweden. **Astrid Lindqvist**, the level 54
-   Starcaller, has the same surname, so one of them should change. I'd change Astrid's.
+   Starcaller, had the same surname, so she's Astrid Nyström now (Kyle, 19 Nov 2026).
 4. **The keepsake.** Her pinard horn.

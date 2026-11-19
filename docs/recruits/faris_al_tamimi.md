@@ -11,7 +11,7 @@ Wave 1 profile, draft 1 (19 Nov 2026). Built on his recruit entry. Waves 2, 3 an
 | Earth job | Date farmer on his family's ninety palms, where the Tigris and the Euphrates meet |
 | Here | Shaman (Restoration), level 58 |
 | Lives | Moonglade, by the lake |
-| Family | His mother and a big family who ate together every Friday. An older brother, Haidar, and Haidar's two boys, Ali and Mustafa. Never married. |
+| Family | His mother and a big family who ate together every Friday. An older brother, Haidar, and Haidar's two boys, Hussein and Ammar. Never married. |
 | First impression | Gentle, patient and quiet, with prayer beads round his wrist. He tells you to sit by the water for a while. |
 
 ## Who he is
@@ -38,7 +38,7 @@ every Friday. His grandfather Kadhim raised the palms for sixty years and taught
 When his grandfather died, Faris took over the palms. He never married. He says the palms kept him busy, and his brother Haidar had enough children for both
 of them.
 
-He took his nephews, Ali and Mustafa, out on the river in a flat boat and taught them the names of every bird: the kingfishers, the herons, and the little
+He took his nephews, Hussein and Ammar, out on the river in a flat boat and taught them the names of every bird: the kingfishers, the herons, and the little
 pied ones that sat on the boat.
 
 ## The Integration and what it cost
@@ -87,7 +87,7 @@ player gives him is somebody to sit with by the water.
 
 **Ending (happy):** the clean water reaches the lake, and three days later the date stone sprouts. The druids give him a patch of ground by the water for it,
 for as long as he wants it. A month later a letter comes from Astranaar, from Haidar: he and the boys came through together, and they've been looking for him
-for two years. They come to Moonglade. Faris builds a flat boat and takes Ali and Mustafa out on the lake, and teaches them the names of all the birds here,
+for two years. They come to Moonglade. Faris builds a flat boat and takes Hussein and Ammar out on the lake, and teaches them the names of all the birds here,
 which he's had two years to learn. He says the palm will fruit in about eight years, and the boys will be grown, and they'll eat the first dates together on
 a Friday.
 

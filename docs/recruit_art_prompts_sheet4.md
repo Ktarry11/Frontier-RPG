@@ -5,7 +5,7 @@ missing. We would need art for their sprites and their character portraits too. 
 stonetalon, tempeat Isle, and now plaguelands etc". The roster goes from 68 to 84.
 
 **12 men, 4 women.** Kyle, 16 Nov 2026: "Do 75% male and 25% female. Make the people attractive with the prompts!
-White, Latinos, and one or two middle eastern." So: white and Latino, with two Middle Eastern men (Elie and Omar);
+White, Latinos, and one or two middle eastern." So: white and Latino, with two Middle Eastern men (Elie and Sherif);
 the women a blonde, a redhead, a brunette and a chestnut; men about 25 to 45, women 25 to 40; every one of them
 genuinely attractive, the men handsome and the women beautiful, in a grounded, lived-in way.
 
@@ -41,10 +41,10 @@ talks about Rory and the Order, never about another recruit.
 | 6 | Elie Khoury | Lebanon | 33 | bloodmage_fleshweaver | healer | 53 | Khaz Varun |
 | 7 | Bruno Teixeira | Brazil | 34 | templar_zealot | melee | 53 | Sorrow Hill (Pale Flame) |
 | 8 | Joaquín Duarte | Argentina | 38 | sun_cleric_valkyrie | melee | 54 | Sorrow Hill (Pale Flame) |
-| 9 | Astrid Lindqvist | Sweden | 32 | starcaller_sentinel | ranged | 54 | North Felwood |
+| 9 | Astrid Nyström | Sweden | 32 | starcaller_sentinel | ranged | 54 | North Felwood |
 | 10 | Luka Perić | Croatia | 39 | stormbringer_maelstrom | ranged | 54 | Tempest Shallows |
 | 11 | Zofia Nowak | Poland | 29 | cultist_corruption | ranged | 55 | Andorhal (North WPL) |
-| 12 | Omar Saleh | Egypt | 35 | venomancer_venom | ranged | 55 | The Royal Hive |
+| 12 | Sherif Gamal | Egypt | 35 | venomancer_venom | ranged | 55 | The Royal Hive |
 | 13 | Santiago Ríos | Colombia | 28 | runemaster_engravement | melee | 56 | The Ashen Reach |
 | 14 | Emiliano Vargas | Mexico | 29 | pyromancer_draconic | ranged | 56 | Cinderwharf |
 | 15 | Isla Fraser | Scotland | 31 | witch_hunter_boltslinger | ranged | 57 | Crown Guard camp (Pale Flame) |
@@ -62,7 +62,7 @@ One-line hooks (full backgrounds get written with their records, in the recruit-
 - **Astrid**, an astrophotographer from Kiruna who used to chase the aurora and now hunts by starlight.
 - **Luka**, a ferry captain from Split who knows the sea well enough to be afraid of it.
 - **Zofia**, a call-centre worker from Łódź whom the Cult of the Damned recruited with a promise. She walked out of Andorhal.
-- **Omar**, a pest-control fumigator from Cairo, very calm around things that sting.
+- **Sherif**, a pest-control fumigator from Cairo, very calm around things that sting.
 - **Santiago**, a tattoo artist from Medellín. Engraving runes into a blade isn't that different from skin.
 - **Emiliano**, a fire-breather who worked traffic lights in Oaxaca and now breathes something hotter.
 - **Isla**, a deer stalker and biathlete from the Highlands who joined the Pale Flame after the Crusade years, never before.

@@ -293,7 +293,7 @@ BATCH = {
 "omar_venomancer": dict(
     greeting="Don't swat at them. Things that sting only get worse when you panic, and they can tell.",
     backstory=(
-        "Omar did pest control in Cairo, fumigating apartment blocks and restaurants and once, memorably, a "
+        "Sherif did pest control in Cairo, fumigating apartment blocks and restaurants and once, memorably, a "
         "museum storeroom. He's spent his whole working life very calm around things that sting, and the "
         "Royal Hive is full of them. He came through with his fumigation rig and found out venom listens to him "
         "here. He's unbothered, amused and the only person who walks into the hive without flinching."),
