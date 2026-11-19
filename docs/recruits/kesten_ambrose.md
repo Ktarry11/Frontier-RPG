@@ -136,7 +136,8 @@ it too.
 2. You get the ledger out. It's guarded by the Scourge's leftovers, which are mindless now and still doing their jobs.
 3. One name in the last volume is a woman called Mari Kask who's still alive. He wants to go and see her.
 
-**The two endings (Kyle picks one, like Tarek's):**
+**The two endings (Kyle picks one, like Tarek's). Proposed: she forgives him, so he counts as a happy one. Tarek's
+is sad, Adrián's is happy.**
 - **She forgives him.** Mari remembers the clerk. She tells him he was the only one who wrote her name properly, with the
   Estonian spelling, when everyone else used numbers, and she'd always wanted to know who he was. He gives her the page. He comes back and
   says his old name out loud for the first time, and then says he'd still like to be called Kesten.
@@ -197,5 +198,5 @@ in it. The last page has your name on it, written properly, with the date he swo
    his whole arc. I think it's the best thing about him.
 2. **Liis.** Died before the Integration, so the Scourge took his memory of her rather than her.
 3. **His names.** Andres Tamm, and Kesten from *kestma* and Ambrose from the archive cat.
-4. **The ending.** Mari forgives him, or won't see him.
+4. **The ending.** Mari forgives him (happy, my pick) or won't see him (sad).
 5. **The keepsake.** The First Volume.
