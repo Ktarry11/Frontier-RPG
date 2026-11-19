@@ -1,0 +1,78 @@
+{
+  "recruit_text": {
+    "greeting": "Everything here has a current, rivers, weather and people. Learn to feel it and you'll stop fighting things that were already carrying you.",
+    "backstory": "Twelve years a river pilot on the Amazon, which means twelve years of reading water that redraws itself every season. A channel that was deep in March will ground you in September. She learned to feel the bottom through the hull. Here the water spirits talk to her, and she describes it as the same conversation she always had with the river, in an accent she had to work at.",
+    "before": "A boat, a cargo, and a river two kilometres wide that her grandfather read before her.\n\nHe taught her to feel the bottom through the hull, to read the colour of the water and the way the birds sat on the banks. She was one of very few women piloting on the river, and the cargo captains trusted her after one season.",
+    "adjustment": "Three gentle years, and she's clear-eyed about why. She arrived already believing the water was somebody.\n\nHalf the people she meets from Earth had to take apart a whole way of seeing the world to cope here. She walked in and recognised the place.",
+    "now": "The Echo Isles, where the channels between the islands shift with every storm and the Darkspear boatmen lose canoes on the reefs every season.\n\nShe's been teaching two of them to read a bottom by feel. One of them is getting it, and watching that happen has done more for her than three years of being useful.",
+    "forward": "A river of her own on this world. A long one, with seasons, that she can learn for twenty years and still be surprised by.\n\nThere's one in Ashenvale, people say, long and wild, that nobody's ever piloted properly. She's been told a great many things about it."
+  },
+  "bond": {
+    "home": "the Echo Isles",
+    "dials": {"warmth": 1.2, "nerve": 1.3, "pride": 0.5, "restless": 1.1},
+    "likes": ["new_ground", "quest"],
+    "dislikes": ["dungeon"],
+    "stages": {
+      "stranger": "I'm Carolina, and I'm a shaman, and before that I was a river pilot. I'm happiest near water and I get grumpy underground, so now you know. Calma, we'll get on fine.",
+      "acquaintance": "I'm from Manaus, in Brazil, where the Rio Negro meets the Amazon and the two waters run side by side for miles without mixing. I piloted cargo boats for twelve years. The captains didn't trust a woman at first, and after the first season they did, because a channel that was deep in March would ground you in September and I always knew.",
+      "companion": "My grandfather, Seu Raimundo, taught me the river. I spent my whole childhood on his boats. He died when I was thirty and I scattered his ashes where the waters meet. This was his compass. I never used it on the river, I just carried it, and it was in my pocket when I landed here in the shallows. My mother and my little brother were in Manaus. I think about them on the water every morning, and then I let it go downstream.",
+      "friend": "I was married to Joana, a teacher, for five years. We split up because I was on the river three weeks in four, and we stayed friends. We had lunch every month. I miss those lunches more than I expected to. And I want something I've never wanted before, meu bem. I want to stay in one place, if it's the right place. There's a river in Ashenvale that nobody's ever run properly. I'd like you to come and see it with me.",
+      "sworn": "The river let me on. You saw it, the whole stretch nobody's ever run, and I laughed the entire way down. I've built a house on the bank, and the Darkspear boy from the Isles has come to be my apprentice, and he's getting it. I'll still be learning this river in twenty years. That's the best thing anyone's ever told me, and I'm the one who said it."
+    },
+    "moments": [
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe she sits down where she is and laughs, a bit shakily.",
+       "line": "Okay, everybody breathe. We went against the current in there, that's all. We'll find the right line next time.",
+       "options": [
+         {"text": "Show us the right line, then.", "trust": 8, "mood": 6,
+          "reply": "That's the spirit. Watch where I go, and go there too."},
+         {"text": "This isn't a river.", "trust": 0, "mood": -4,
+          "reply": "Nossa, everything's a river. You'll see it soon."}
+       ]},
+      {"id": "the_river", "stage": "friend", "when": "talk",
+       "prompt": "She's just told you about the river in Ashenvale.",
+       "options": [
+         {"text": "Let's go and meet it.", "trust": 10,
+          "reply": "Yes, let's go. It'll be angry, probably. Rivers usually are when you first meet them."},
+         {"text": "You'd really stay in one place?", "trust": 4,
+          "reply": "For the right river, I would. I'm as surprised as you are."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've been going round the same eddy for a long time, meu bem. Can we let the current take us somewhere new?",
+      "leaving_good": "That was lovely, but I need to feel some water for a while. I'm going back to the Isles. Come and find me there.",
+      "leaving_bored": "I'm going back to the Isles. We keep doing the same thing, and it's like rowing in a pond.",
+      "after_wipe": "Calma, everybody breathe. We'll find a better line next time.",
+      "wipe_warning": "We keep sinking in here, and I hate it underground anyway. I'll see this run through, but then I'm going back to the water for a while.",
+      "wipe_leave": "I'll walk out with you, but I'm not coming back down here. I'll be on the Echo Isles, with my feet in the sea.",
+      "zone_warning": "This place is white water and we're in a canoe. Let's get out before it takes us somewhere we can't come back from.",
+      "zone_leave": "I'm stopping here. That water's too fast for us right now. I'll be on the Echo Isles.",
+      "gear_refuse": "No, I'd like to keep that one. Ask me again when we know each other better.",
+      "gear_taken": "Take it, meu bem. I'll make do, I always do.",
+      "gear_short": "I'm still missing that piece, and I'm feeling it in the currents.",
+      "gear_upgrade": "Nossa, look at that! Thank you, it's beautiful.",
+      "back": "I'm back, and the sea's in a good mood, so I'm in one too. Where are we going?",
+      "send_word": "Carolina has sent word from the Echo Isles. The channels are calm and she's ready to come out again.",
+      "walkout_talk": "I left angry, and that's not like me. Come and sit by the water and let's talk it through, slowly.",
+      "neglect": "There you are! I thought the current had taken you somewhere else. It does that, I don't mind.",
+      "asked_to_stay": "All right, one more. Then I need my feet in the sea.",
+      "on_break": "Carolina is back on the Echo Isles, out on the water. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "zone_arrive": [
+      {"text": "The ground here's saying something, and it's not happy about it.", "kind": "open"},
+      {"text": "There's water somewhere close. I can feel it in my hands.", "kind": "open", "topic": "water"}
+    ],
+    "town_arrive": [
+      {"text": "They've taken the water upstream here. You can hear where it stops.", "kind": "reply"},
+      {"text": "Manaus is a city in the middle of a jungle, on the biggest river in the world, and it's loud and hot and I love it.", "kind": "open", "topic": "cities"}
+    ],
+    "dungeon_clear": [
+      {"text": "That place was sick a long time before anything moved into it. Can we go outside now?", "kind": "open"}
+    ],
+    "boss_down": [
+      {"text": "It wasn't evil, meu bem. It was hungry, and somebody put it here.", "kind": "reply"}
+    ]
+  }
+}

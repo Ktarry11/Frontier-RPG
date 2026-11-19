@@ -1,0 +1,82 @@
+{
+  "recruit_text": {
+    "greeting": "Let me think for a moment. You'll get a better answer, and I'll get less shouting.",
+    "backstory": "Fourteen years an interpreter at the European Parliament, simultaneous, in four languages. You hold a sentence in one language while it finishes in another, and you get the tone right as well as the words. Arcane work asks for exactly that kind of attention, held exactly that long. She was better prepared for this than almost anybody, and it took her two years to believe it.",
+    "before": "A booth, a headset, and a career of being the invisible reason a room understood itself.\n\nShe's from Thessaloniki and had been in Brussels for eleven years. Her parents were at home. Greece and Belgium came down on different sides of a mountain range, and she's worked out what that means more carefully than she's admitted to anyone.",
+    "adjustment": "Two quiet years of being competent and assuming she wasn't.\n\nWhat broke it was a goblin who asked her to interpret a contract dispute, paid her properly, and then came back.",
+    "now": "The Undercity, where Forsaken, orcs, trolls, goblins and people from Earth all trade in the same halls in half a dozen languages, and nobody's paid to make that work.\n\nShe makes it work, for money, and she's been in the room for three negotiations that would've gone badly without her.",
+    "forward": "A grammar of this world's arcane. She's convinced magic has a syntax, and that every mage here is speaking it by ear.\n\nShe's forty pages in. She's shown it to two people. One of them laughed and the other asked for a copy."
+  },
+  "bond": {
+    "home": "the Undercity",
+    "dials": {"warmth": 0.7, "nerve": 0.8, "pride": 0.8, "restless": 0.9},
+    "likes": ["dungeon", "new_ground"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Sophia, and I'm a mage, mostly fire, and before that I was an interpreter. If I'm quiet it's because I'm listening, and if I correct something you say, I'm sorry in advance. It's a habit.",
+      "acquaintance": "I grew up in Thessaloniki. My father's Portuguese, a ship's engineer who came for a job at the port and stayed for my mother, who taught Greek literature. So I had Greek at home, Portuguese with my father, and English and French at school. I spent fourteen years in a booth at the Parliament in Brussels, interpreting debates, and nobody knew my name. I liked that.",
+      "companion": "I was married to a Belgian lawyer, Wouter, for five years. He wanted me to talk more at dinner, which tells you most of it. We stayed friends. My parents are in Thessaloniki, or they were, and Greece came down on the far side of the mountains from here. I've worked out the distance more carefully than I've told anyone. I spent two years here thinking I wasn't good at this, and I was wrong.",
+      "friend": "My father has dementia. He was diagnosed two years before all this, and my mother looked after him, and I flew home every month. The last few times he still knew me, mostly. I'm frightened that if I cross those mountains he won't. A Greek trader says there's a settlement from Thessaloniki on the far side, and my mother's name is on its list. I'd like to go, and I don't want to go alone.",
+      "sworn": "My mother's alive, and thin, and she couldn't speak when she saw me. My father was sitting in the sun outside the house. He was polite to me, the way he's polite to any visitor. I stayed a week. On the last day he called me by my mother's name, and I've decided that's the best he can give me, and it's enough. I write to her every week now. My work is here, and so are you."
+    },
+    "moments": [
+      {"id": "her_father", "stage": "friend", "when": "talk",
+       "prompt": "She's just told you about her father.",
+       "options": [
+         {"text": "Then we'll cross the mountains together.", "trust": 12,
+          "reply": "Thank you. I'll write down everything we need. That's how I stop being frightened."},
+         {"text": "He might remember you.", "trust": 2,
+          "reply": "He might, yes. I'd rather not hope too hard, if you don't mind."},
+         {"text": "Maybe it's kinder not to go.", "trust": 0,
+          "reply": "Kinder to whom? I'm sorry, that was sharp. But I'm still going."}
+       ]},
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe she's very quiet, writing something down.",
+       "line": "I saw what it was going to do half a second before it did it, and I didn't say anything because I wasn't sure. I'm sorry about that.",
+       "options": [
+         {"text": "Next time, say it even if you're not sure.", "trust": 8, "mood": 6,
+          "reply": "All right, I will. Even if I'm wrong in front of everyone."},
+         {"text": "It's not your job to call it.", "trust": 0, "mood": -4,
+          "reply": "No, but I could have, and that's worse."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've been doing the same thing for a long time and I haven't learned a single new word. Could we go somewhere with something written on the walls?",
+      "leaving_good": "That was a good trip, and I've filled half a notebook. I'm going back to the Undercity to write it up properly. You know where I'll be.",
+      "leaving_bored": "I'm going back to the Undercity. We keep doing the same thing and I've got work there that I'm actually good at.",
+      "after_wipe": "Before anybody says anything, can we work out what happened? I'd like the facts first.",
+      "wipe_warning": "We keep dying in here, and I don't think we're learning from it. I'll finish this run with you, but I'll need a break afterwards.",
+      "wipe_leave": "I'm sorry, I can't go back in there. I'm going home to the Undercity for a while. Come and find me when you've thought about it.",
+      "zone_warning": "I'd like to say this carefully. This place is too dangerous for us, and I don't think it's brave to stay, I think it's careless.",
+      "zone_leave": "I'm stopping here. I said it carefully and I meant it. I'll be in the Undercity.",
+      "gear_refuse": "I'd rather keep that, if you don't mind. I don't know you well enough yet.",
+      "gear_taken": "All right, take it. I'll manage, but you'll notice the difference, I'm afraid.",
+      "gear_short": "I'm still missing that piece. I'm only mentioning it because it's accurate.",
+      "gear_upgrade": "Oh, that's very good. Thank you, I mean it.",
+      "back": "I'm back, with a new chapter written. Where are we going?",
+      "send_word": "Sophia has sent word from the Undercity. Her chapter's finished and she's ready to come out again.",
+      "walkout_talk": "I left angry, and I'd like to explain it properly rather than quickly. Will you sit down and let me find the right words?",
+      "neglect": "Hello again, it's been a while. I'd started to think you'd found somebody who talks less. I'm not sure that's possible.",
+      "asked_to_stay": "All right, one more trip, and then I really must get back to my grammar.",
+      "on_break": "Sophia is back in the Undercity, writing. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "dungeon_clear": [
+      {"text": "There was writing on the third wall in there. I copied it, and I'll tell you what it says once I know.", "kind": "open"}
+    ],
+    "boss_down": [
+      {"text": "It was saying something just before it fell. I'm fairly sure it was a name.", "kind": "open"}
+    ],
+    "zone_arrive": [
+      {"text": "Somebody here's speaking a language I don't know yet. I'm rather excited about that.", "kind": "open"}
+    ],
+    "town_arrive": [
+      {"text": "Thessaloniki has a sea wall where everyone walks in the evening, slowly, talking. I miss the talking.", "kind": "open", "topic": "cities"},
+      {"text": "Listen, four languages at that stall at once, and nobody's quite understanding anybody. I could fix that.", "kind": "reply"}
+    ],
+    "close_call": [
+      {"text": "That was too close, and I should have said something sooner, and I'm sorry.", "kind": "reply"}
+    ]
+  }
+}

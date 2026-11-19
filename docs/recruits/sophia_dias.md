@@ -44,7 +44,7 @@ She trained as an interpreter in Athens and Geneva and passed the European Parli
 Brussels at 30. For fourteen years she sat in a booth with a headset, interpreting debates in Greek, Portuguese, English
 and French, and nobody knew her name. She was proud of that.
 
-She married a Belgian lawyer, Pieter, at 32. It ended at 37. They wanted different things, and he wanted her to talk
+She married a Belgian lawyer, Wouter, at 32. It ended at 37. They wanted different things, and he wanted her to talk
 more at dinner. They're still friendly.
 
 Her father was diagnosed with dementia when she was 39. Her mother looked after him. Sophia flew home every month.
@@ -130,7 +130,7 @@ crossing. She says she doesn't need to prove who she is any more.
 
 ## What this changes in what's already written
 
-- **New:** her Portuguese father and Greek mother, the surname's origin, Pieter, her father's dementia, the Parliament
+- **New:** her Portuguese father and Greek mother, the surname's origin, Wouter, her father's dementia, the Parliament
   pass, the crossing and the Thessaloniki settlement.
 - **Kept:** fourteen years interpreting at the European Parliament, four languages, holding a sentence, getting the
   register right, two years of not believing in herself, Thessaloniki and eleven years in Brussels, Greece and Belgium

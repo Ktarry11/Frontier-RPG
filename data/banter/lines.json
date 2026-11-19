@@ -138,25 +138,36 @@
     "marco_paladin": {
       "town_arrive": [
         {
-          "text": "Who keeps order here? Somebody does. I like knowing who.",
+          "text": "Who keeps order here? Somebody does, and I like to know who.",
           "kind": "open"
+        },
+        {
+          "text": "In Naples the streets were so narrow you could hand bread from one balcony to the next. I miss that.",
+          "kind": "open",
+          "topic": "cities"
         }
       ],
       "boss_down": [
         {
-          "text": "Nobody's ever going to answer for what that thing did.",
+          "text": "Nobody's ever going to answer for what that thing did to people.",
           "kind": "open"
         }
       ],
       "close_call": [
         {
-          "text": "We went in without knowing the ground. That's twice.",
+          "text": "We went in without knowing the ground, ragazzo. Next time I go first.",
           "kind": "reply"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Everybody walked out behind me. That's how it should be.",
+          "kind": "open"
         }
       ],
       "zone_arrive": [
         {
-          "text": "Twelve years I was the one people looked for. Hard habit.",
+          "text": "Thirty years I was the man people looked for. It's a hard habit to lose.",
           "kind": "open"
         }
       ]
@@ -164,25 +175,36 @@
     "sophia_mage": {
       "dungeon_clear": [
         {
-          "text": "Pressure changed four times on the way down. Somebody built that.",
+          "text": "There was writing on the third wall in there. I copied it, and I'll tell you what it says once I know.",
           "kind": "open"
         }
       ],
       "boss_down": [
         {
-          "text": "It burned at the wrong temperature. I want to know why.",
+          "text": "It was saying something just before it fell. I'm fairly sure it was a name.",
           "kind": "open"
         }
       ],
       "zone_arrive": [
         {
-          "text": "Air's drier here. Everything of mine is going to behave differently.",
+          "text": "Somebody here's speaking a language I don't know yet. I'm rather excited about that.",
+          "kind": "open"
+        }
+      ],
+      "town_arrive": [
+        {
+          "text": "Thessaloniki has a sea wall where everyone walks in the evening, slowly, talking. I miss the talking.",
+          "kind": "open",
+          "topic": "cities"
+        },
+        {
+          "text": "Listen, four languages at that stall at once, and nobody's quite understanding anybody. I could fix that.",
           "kind": "reply"
         }
       ],
       "close_call": [
         {
-          "text": "That burned hotter than it should have. I want to know why.",
+          "text": "That was too close, and I should have said something sooner, and I'm sorry.",
           "kind": "reply"
         }
       ]
@@ -216,25 +238,35 @@
     "carolina_shaman": {
       "zone_arrive": [
         {
-          "text": "Ground here's saying something, and it's not happy.",
+          "text": "The ground here's saying something, and it's not happy about it.",
           "kind": "open"
+        },
+        {
+          "text": "There's water somewhere close. I can feel it in my hands.",
+          "kind": "open",
+          "topic": "water"
         }
       ],
       "town_arrive": [
         {
-          "text": "They've taken the water upstream. You can hear where it stops.",
+          "text": "They've taken the water upstream here. You can hear where it stops.",
           "kind": "reply"
+        },
+        {
+          "text": "Manaus is a city in the middle of a jungle, on the biggest river in the world, and it's loud and hot and I love it.",
+          "kind": "open",
+          "topic": "cities"
         }
       ],
       "dungeon_clear": [
         {
-          "text": "That place was sick long before anything moved into it.",
+          "text": "That place was sick a long time before anything moved into it. Can we go outside now?",
           "kind": "open"
         }
       ],
       "boss_down": [
         {
-          "text": "It wasn't evil. It was hungry and somebody put it here.",
+          "text": "It wasn't evil, meu bem. It was hungry, and somebody put it here.",
           "kind": "reply"
         }
       ]

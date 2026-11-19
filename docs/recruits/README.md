@@ -82,7 +82,7 @@ Each recruit's profile becomes one file, `tools/wave2/<recruit_id>.json`, with t
 `tools/qa_recruit_bonds.py` fails if any file is wrong or doesn't load. Kesten, Adrián and Tarek
 stay in `tools/build_recruit_bonds.py` as the pilot. Asher is never touched.
 
-**Wave 2 done:** Diego, Freja, Ama, Marcus, Sondre, Sebastián.
+**Wave 2 done:** Diego, Freja, Ama, Marcus, Sondre, Sebastián, Marco, Sophia, Carolina.
 
 ## Order and progress
 

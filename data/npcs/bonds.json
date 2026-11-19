@@ -363,6 +363,90 @@
         "quest_abandoned": "Somebody was relying on us for that and we've walked away. I don't like it."
       }
     },
+    "carolina_shaman": {
+      "home": "the Echo Isles",
+      "dials": {
+        "warmth": 1.2,
+        "nerve": 1.3,
+        "pride": 0.5,
+        "restless": 1.1
+      },
+      "likes": [
+        "new_ground",
+        "quest"
+      ],
+      "dislikes": [
+        "dungeon"
+      ],
+      "stages": {
+        "stranger": "I'm Carolina, and I'm a shaman, and before that I was a river pilot. I'm happiest near water and I get grumpy underground, so now you know. Calma, we'll get on fine.",
+        "acquaintance": "I'm from Manaus, in Brazil, where the Rio Negro meets the Amazon and the two waters run side by side for miles without mixing. I piloted cargo boats for twelve years. The captains didn't trust a woman at first, and after the first season they did, because a channel that was deep in March would ground you in September and I always knew.",
+        "companion": "My grandfather, Seu Raimundo, taught me the river. I spent my whole childhood on his boats. He died when I was thirty and I scattered his ashes where the waters meet. This was his compass. I never used it on the river, I just carried it, and it was in my pocket when I landed here in the shallows. My mother and my little brother were in Manaus. I think about them on the water every morning, and then I let it go downstream.",
+        "friend": "I was married to Joana, a teacher, for five years. We split up because I was on the river three weeks in four, and we stayed friends. We had lunch every month. I miss those lunches more than I expected to. And I want something I've never wanted before, meu bem. I want to stay in one place, if it's the right place. There's a river in Ashenvale that nobody's ever run properly. I'd like you to come and see it with me.",
+        "sworn": "The river let me on. You saw it, the whole stretch nobody's ever run, and I laughed the entire way down. I've built a house on the bank, and the Darkspear boy from the Isles has come to be my apprentice, and he's getting it. I'll still be learning this river in twenty years. That's the best thing anyone's ever told me, and I'm the one who said it."
+      },
+      "moments": [
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe she sits down where she is and laughs, a bit shakily.",
+          "line": "Okay, everybody breathe. We went against the current in there, that's all. We'll find the right line next time.",
+          "options": [
+            {
+              "text": "Show us the right line, then.",
+              "trust": 8,
+              "mood": 6,
+              "reply": "That's the spirit. Watch where I go, and go there too."
+            },
+            {
+              "text": "This isn't a river.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "Nossa, everything's a river. You'll see it soon."
+            }
+          ]
+        },
+        {
+          "id": "the_river",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's just told you about the river in Ashenvale.",
+          "options": [
+            {
+              "text": "Let's go and meet it.",
+              "trust": 10,
+              "reply": "Yes, let's go. It'll be angry, probably. Rivers usually are when you first meet them."
+            },
+            {
+              "text": "You'd really stay in one place?",
+              "trust": 4,
+              "reply": "For the right river, I would. I'm as surprised as you are."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been going round the same eddy for a long time, meu bem. Can we let the current take us somewhere new?",
+        "leaving_good": "That was lovely, but I need to feel some water for a while. I'm going back to the Isles. Come and find me there.",
+        "leaving_bored": "I'm going back to the Isles. We keep doing the same thing, and it's like rowing in a pond.",
+        "after_wipe": "Calma, everybody breathe. We'll find a better line next time.",
+        "wipe_warning": "We keep sinking in here, and I hate it underground anyway. I'll see this run through, but then I'm going back to the water for a while.",
+        "wipe_leave": "I'll walk out with you, but I'm not coming back down here. I'll be on the Echo Isles, with my feet in the sea.",
+        "zone_warning": "This place is white water and we're in a canoe. Let's get out before it takes us somewhere we can't come back from.",
+        "zone_leave": "I'm stopping here. That water's too fast for us right now. I'll be on the Echo Isles.",
+        "gear_refuse": "No, I'd like to keep that one. Ask me again when we know each other better.",
+        "gear_taken": "Take it, meu bem. I'll make do, I always do.",
+        "gear_short": "I'm still missing that piece, and I'm feeling it in the currents.",
+        "gear_upgrade": "Nossa, look at that! Thank you, it's beautiful.",
+        "back": "I'm back, and the sea's in a good mood, so I'm in one too. Where are we going?",
+        "send_word": "Carolina has sent word from the Echo Isles. The channels are calm and she's ready to come out again.",
+        "walkout_talk": "I left angry, and that's not like me. Come and sit by the water and let's talk it through, slowly.",
+        "neglect": "There you are! I thought the current had taken you somewhere else. It does that, I don't mind.",
+        "asked_to_stay": "All right, one more. Then I need my feet in the sea.",
+        "on_break": "Carolina is back on the Echo Isles, out on the water. Come back after you've done a few more jobs."
+      }
+    },
     "diego_tinker": {
       "home": "Deathknell",
       "dials": {
@@ -541,6 +625,75 @@
         "asked_to_stay": "Fine, one more. Then I'm going home, and I'm not arguing about it.",
         "on_break": "Freja is back in the Valley of Trials, doing her rounds. Come back after you've done a few more jobs.",
         "quest_abandoned": "We said we'd help them and we walked off. I hate that. Somebody's still waiting for us."
+      }
+    },
+    "marco_paladin": {
+      "home": "the Undercity",
+      "dials": {
+        "warmth": 1.0,
+        "nerve": 1.4,
+        "pride": 1.2,
+        "restless": 0.6
+      },
+      "likes": [
+        "quest",
+        "dungeon"
+      ],
+      "dislikes": [
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "My name's Marco. I'm a locksmith, and here I stand in front of people. You go where you need to go and I'll be in front of you. That's all you need to know for now, ragazzo.",
+        "acquaintance": "I'm from Naples, from the Quartieri Spagnoli, the narrow streets above Via Toledo. My father mended shoes. I was a locksmith for thirty-one years, with my own shop and a door that was always open. People sent for me when something was wrong, and not only with locks. I was going to retire that summer and give the shop to my apprentice.",
+        "companion": "My wife is Carmela. She had a haberdashery two streets from my shop and she laughed at me for being so serious. We have two girls, Giulia and Sara. Sara had a boy, Matteo, the February before all this. I held him four times. I was cutting a key when it happened, and I still have it. It doesn't open anything.",
+        "friend": "I haven't looked at the lists, not once in three years. I can give you reasons, good ones, and none of them are the real one. The real one is that while I don't look, they're all alive. I'm sixty-three and I've never been afraid of anything, and I'm afraid of a list. I'd like you to come with me to read it. I'd like it to be soon, before I find another reason.",
+        "sworn": "Sara was there, and Matteo, who's three now and hid behind her legs. He didn't know me. I knelt in the street and let him look at me for as long as he wanted. I held him a fifth time that evening, and a sixth, and then I stopped counting. Giulia and Carmela are still missing. Sara and the boy live in the Undercity with me now, and the Forsaken are very careful around him. I've finished the key, in my way."
+      },
+      "moments": [
+        {
+          "id": "the_lists",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to come with him to read the lists.",
+          "options": [
+            {
+              "text": "I'll come. We'll read it together.",
+              "trust": 12,
+              "reply": "Grazie, ragazzo, I'll go first, piano, piano. You stand next to me."
+            },
+            {
+              "text": "Are you sure you want to know?",
+              "trust": 2,
+              "reply": "No, I'm not, and that's why I'm asking you to come."
+            },
+            {
+              "text": "You could go on your own.",
+              "trust": 0,
+              "reply": "I could have, for three years, and I didn't."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been doing the same work for a long time and nobody's better off for it. Give me something that helps somebody, or I'll go back to my quarter.",
+        "leaving_good": "That was good work. Now I need to go back to the Undercity, because people there will have broken things and nobody to fix them. Come and find me.",
+        "leaving_bored": "I'm going back to the Undercity. There are locks there that need me more than this field does.",
+        "after_wipe": "Allora, we stand up and we look at what happened. Nobody shouts, please.",
+        "wipe_warning": "We keep falling in here. I'll finish this with you, because I don't leave a job half done, but then I need some days at home.",
+        "wipe_leave": "I've finished it with you, as I said. Now I'm going home for a while. Come and see me in the Undercity when you're ready.",
+        "zone_warning": "This place is too strong for us, ragazzo. I can stand in front of a lot, but I can't stand in front of all of it.",
+        "zone_leave": "I'm stopping here. I told you this place was too much and I meant it. I'll be in the Undercity.",
+        "gear_refuse": "No, I'll keep it. I don't give my things to people I've only just met.",
+        "gear_taken": "Take it, then. I'll stand in front of you without it, the same as before.",
+        "gear_short": "I'm still missing that piece. I don't complain, but I notice.",
+        "gear_upgrade": "This is well made. Thank you. I'll pay you back somehow, you'll see.",
+        "back": "I'm here again. My quarter's in order, so where do you want me to stand?",
+        "send_word": "Marco has sent word from the Undercity. His quarter's quiet and he's ready to stand in front of you again.",
+        "walkout_talk": "I left angry, and at my age I should know better. Sit down with me. I'll say my piece and then I'll listen to yours.",
+        "neglect": "There you are. I thought perhaps you'd forgotten an old man. It doesn't matter, you're here now.",
+        "asked_to_stay": "Va bene, one more. Then I go home and check my locks.",
+        "on_break": "Marco is back in his quarter in the Undercity. Come back after you've done a few more jobs.",
+        "quest_abandoned": "We promised them, and we walked away. In my quarter a promise was the only thing that mattered."
       }
     },
     "marcus_stormbringer": {
@@ -805,6 +958,95 @@
         "neglect": "Oh, hello, it's been a while. I made the fire every morning anyway, in case.",
         "asked_to_stay": "All right, one more trip. I'd like that, actually.",
         "on_break": "Sondre has gone back to the high ground by the Scarlet Crypt to practise. Come back after you've done a few more jobs."
+      }
+    },
+    "sophia_mage": {
+      "home": "the Undercity",
+      "dials": {
+        "warmth": 0.7,
+        "nerve": 0.8,
+        "pride": 0.8,
+        "restless": 0.9
+      },
+      "likes": [
+        "dungeon",
+        "new_ground"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Sophia, and I'm a mage, mostly fire, and before that I was an interpreter. If I'm quiet it's because I'm listening, and if I correct something you say, I'm sorry in advance. It's a habit.",
+        "acquaintance": "I grew up in Thessaloniki. My father's Portuguese, a ship's engineer who came for a job at the port and stayed for my mother, who taught Greek literature. So I had Greek at home, Portuguese with my father, and English and French at school. I spent fourteen years in a booth at the Parliament in Brussels, interpreting debates, and nobody knew my name. I liked that.",
+        "companion": "I was married to a Belgian lawyer, Wouter, for five years. He wanted me to talk more at dinner, which tells you most of it. We stayed friends. My parents are in Thessaloniki, or they were, and Greece came down on the far side of the mountains from here. I've worked out the distance more carefully than I've told anyone. I spent two years here thinking I wasn't good at this, and I was wrong.",
+        "friend": "My father has dementia. He was diagnosed two years before all this, and my mother looked after him, and I flew home every month. The last few times he still knew me, mostly. I'm frightened that if I cross those mountains he won't. A Greek trader says there's a settlement from Thessaloniki on the far side, and my mother's name is on its list. I'd like to go, and I don't want to go alone.",
+        "sworn": "My mother's alive, and thin, and she couldn't speak when she saw me. My father was sitting in the sun outside the house. He was polite to me, the way he's polite to any visitor. I stayed a week. On the last day he called me by my mother's name, and I've decided that's the best he can give me, and it's enough. I write to her every week now. My work is here, and so are you."
+      },
+      "moments": [
+        {
+          "id": "her_father",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's just told you about her father.",
+          "options": [
+            {
+              "text": "Then we'll cross the mountains together.",
+              "trust": 12,
+              "reply": "Thank you. I'll write down everything we need. That's how I stop being frightened."
+            },
+            {
+              "text": "He might remember you.",
+              "trust": 2,
+              "reply": "He might, yes. I'd rather not hope too hard, if you don't mind."
+            },
+            {
+              "text": "Maybe it's kinder not to go.",
+              "trust": 0,
+              "reply": "Kinder to whom? I'm sorry, that was sharp. But I'm still going."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe she's very quiet, writing something down.",
+          "line": "I saw what it was going to do half a second before it did it, and I didn't say anything because I wasn't sure. I'm sorry about that.",
+          "options": [
+            {
+              "text": "Next time, say it even if you're not sure.",
+              "trust": 8,
+              "mood": 6,
+              "reply": "All right, I will. Even if I'm wrong in front of everyone."
+            },
+            {
+              "text": "It's not your job to call it.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "No, but I could have, and that's worse."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been doing the same thing for a long time and I haven't learned a single new word. Could we go somewhere with something written on the walls?",
+        "leaving_good": "That was a good trip, and I've filled half a notebook. I'm going back to the Undercity to write it up properly. You know where I'll be.",
+        "leaving_bored": "I'm going back to the Undercity. We keep doing the same thing and I've got work there that I'm actually good at.",
+        "after_wipe": "Before anybody says anything, can we work out what happened? I'd like the facts first.",
+        "wipe_warning": "We keep dying in here, and I don't think we're learning from it. I'll finish this run with you, but I'll need a break afterwards.",
+        "wipe_leave": "I'm sorry, I can't go back in there. I'm going home to the Undercity for a while. Come and find me when you've thought about it.",
+        "zone_warning": "I'd like to say this carefully. This place is too dangerous for us, and I don't think it's brave to stay, I think it's careless.",
+        "zone_leave": "I'm stopping here. I said it carefully and I meant it. I'll be in the Undercity.",
+        "gear_refuse": "I'd rather keep that, if you don't mind. I don't know you well enough yet.",
+        "gear_taken": "All right, take it. I'll manage, but you'll notice the difference, I'm afraid.",
+        "gear_short": "I'm still missing that piece. I'm only mentioning it because it's accurate.",
+        "gear_upgrade": "Oh, that's very good. Thank you, I mean it.",
+        "back": "I'm back, with a new chapter written. Where are we going?",
+        "send_word": "Sophia has sent word from the Undercity. Her chapter's finished and she's ready to come out again.",
+        "walkout_talk": "I left angry, and I'd like to explain it properly rather than quickly. Will you sit down and let me find the right words?",
+        "neglect": "Hello again, it's been a while. I'd started to think you'd found somebody who talks less. I'm not sure that's possible.",
+        "asked_to_stay": "All right, one more trip, and then I really must get back to my grammar.",
+        "on_break": "Sophia is back in the Undercity, writing. Come back after you've done a few more jobs."
       }
     }
   },

@@ -1,0 +1,74 @@
+{
+  "recruit_text": {
+    "greeting": "I'll stand here, ragazzo. You do what you came to do.",
+    "backstory": "Thirty-one years a locksmith in Naples, and for twenty of those the man the neighbourhood sent for when something was wrong and the authorities were worse than the problem. He settled arguments because somebody had to, and because he was the only one everybody owed a favour. The Light found him already doing the work, and he thinks of the whole business as a formality that arrived late.",
+    "before": "A shop, a quarter, and a reputation he spent thirty years being careful with.\n\nA wife, Carmela, two daughters, and a grandson born in the February. He'd held him four times.",
+    "adjustment": "He landed in Tirisfal with a half-cut key still in his hand and walked to the Undercity because it had doors. He looked for people to be useful to and found them in a fortnight.\n\nEverything else he put off, and he's still putting it off, and at sixty-three he's decided that's a legitimate way to handle it.",
+    "now": "The Undercity, in two rooms off the Trade Quarter, where the Forsaken have quietly worked out who to fetch when something's wrong. Forsaken have a lot of locks.\n\nHe fixes locks. He also fixes other things, and nobody has ever asked him to.",
+    "forward": "A quarter again, a few streets where people know to come to him.\n\nHe has about half of one in the Undercity now, living and dead. He's counting the passages."
+  },
+  "bond": {
+    "home": "the Undercity",
+    "dials": {"warmth": 1.0, "nerve": 1.4, "pride": 1.2, "restless": 0.6},
+    "likes": ["quest", "dungeon"],
+    "dislikes": ["quest_abandoned"],
+    "stages": {
+      "stranger": "My name's Marco. I'm a locksmith, and here I stand in front of people. You go where you need to go and I'll be in front of you. That's all you need to know for now, ragazzo.",
+      "acquaintance": "I'm from Naples, from the Quartieri Spagnoli, the narrow streets above Via Toledo. My father mended shoes. I was a locksmith for thirty-one years, with my own shop and a door that was always open. People sent for me when something was wrong, and not only with locks. I was going to retire that summer and give the shop to my apprentice.",
+      "companion": "My wife is Carmela. She had a haberdashery two streets from my shop and she laughed at me for being so serious. We have two girls, Giulia and Sara. Sara had a boy, Matteo, the February before all this. I held him four times. I was cutting a key when it happened, and I still have it. It doesn't open anything.",
+      "friend": "I haven't looked at the lists, not once in three years. I can give you reasons, good ones, and none of them are the real one. The real one is that while I don't look, they're all alive. I'm sixty-three and I've never been afraid of anything, and I'm afraid of a list. I'd like you to come with me to read it. I'd like it to be soon, before I find another reason.",
+      "sworn": "Sara was there, and Matteo, who's three now and hid behind her legs. He didn't know me. I knelt in the street and let him look at me for as long as he wanted. I held him a fifth time that evening, and a sixth, and then I stopped counting. Giulia and Carmela are still missing. Sara and the boy live in the Undercity with me now, and the Forsaken are very careful around him. I've finished the key, in my way."
+    },
+    "moments": [
+      {"id": "the_lists", "stage": "friend", "when": "talk",
+       "prompt": "He's asked you to come with him to read the lists.",
+       "options": [
+         {"text": "I'll come. We'll read it together.", "trust": 12,
+          "reply": "Grazie, ragazzo, I'll go first, piano, piano. You stand next to me."},
+         {"text": "Are you sure you want to know?", "trust": 2,
+          "reply": "No, I'm not, and that's why I'm asking you to come."},
+         {"text": "You could go on your own.", "trust": 0,
+          "reply": "I could have, for three years, and I didn't."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've been doing the same work for a long time and nobody's better off for it. Give me something that helps somebody, or I'll go back to my quarter.",
+      "leaving_good": "That was good work. Now I need to go back to the Undercity, because people there will have broken things and nobody to fix them. Come and find me.",
+      "leaving_bored": "I'm going back to the Undercity. There are locks there that need me more than this field does.",
+      "after_wipe": "Allora, we stand up and we look at what happened. Nobody shouts, please.",
+      "wipe_warning": "We keep falling in here. I'll finish this with you, because I don't leave a job half done, but then I need some days at home.",
+      "wipe_leave": "I've finished it with you, as I said. Now I'm going home for a while. Come and see me in the Undercity when you're ready.",
+      "zone_warning": "This place is too strong for us, ragazzo. I can stand in front of a lot, but I can't stand in front of all of it.",
+      "zone_leave": "I'm stopping here. I told you this place was too much and I meant it. I'll be in the Undercity.",
+      "gear_refuse": "No, I'll keep it. I don't give my things to people I've only just met.",
+      "gear_taken": "Take it, then. I'll stand in front of you without it, the same as before.",
+      "gear_short": "I'm still missing that piece. I don't complain, but I notice.",
+      "gear_upgrade": "This is well made. Thank you. I'll pay you back somehow, you'll see.",
+      "back": "I'm here again. My quarter's in order, so where do you want me to stand?",
+      "send_word": "Marco has sent word from the Undercity. His quarter's quiet and he's ready to stand in front of you again.",
+      "walkout_talk": "I left angry, and at my age I should know better. Sit down with me. I'll say my piece and then I'll listen to yours.",
+      "neglect": "There you are. I thought perhaps you'd forgotten an old man. It doesn't matter, you're here now.",
+      "asked_to_stay": "Va bene, one more. Then I go home and check my locks.",
+      "on_break": "Marco is back in his quarter in the Undercity. Come back after you've done a few more jobs.",
+      "quest_abandoned": "We promised them, and we walked away. In my quarter a promise was the only thing that mattered."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {"text": "Who keeps order here? Somebody does, and I like to know who.", "kind": "open"},
+      {"text": "In Naples the streets were so narrow you could hand bread from one balcony to the next. I miss that.", "kind": "open", "topic": "cities"}
+    ],
+    "boss_down": [
+      {"text": "Nobody's ever going to answer for what that thing did to people.", "kind": "open"}
+    ],
+    "close_call": [
+      {"text": "We went in without knowing the ground, ragazzo. Next time I go first.", "kind": "reply"}
+    ],
+    "dungeon_clear": [
+      {"text": "Everybody walked out behind me. That's how it should be.", "kind": "open"}
+    ],
+    "zone_arrive": [
+      {"text": "Thirty years I was the man people looked for. It's a hard habit to lose.", "kind": "open"}
+    ]
+  }
+}
