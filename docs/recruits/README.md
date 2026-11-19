@@ -146,9 +146,9 @@ fourth).
 | 74 | Rui Almeida | Cultist 46 | The Lashings | `rui_almeida.md` | Happy | Draft 1 |
 | 75 | Stelios Dukas | Necromancer 48 | Glittervein | `stelios_dukas.md` | Still unknown | Draft 1 |
 | 76 | Nizar Haddad | Chronomancer 48 | The Crossing | `nizar_haddad.md` | Sad | Draft 1 |
-| 77 | Yusuf Al-Rawi | Venomancer 48 | The Bloodsail Anchorage |  |  |  |
-| 78 | Réka Farkas | Necromancer 51 | The Black Strand |  |  |  |
-| 79 | Ramiro Quispe | Primalist 51 | Onyxhollow |  |  |  |
+| 77 | Yusuf Al-Rawi | Venomancer 48 | The Bloodsail Anchorage | `yusuf_al_rawi.md` | Happy | Draft 1 |
+| 78 | Réka Farkas | Necromancer 51 | The Black Strand | `reka_farkas.md` | Happy | Draft 1 |
+| 79 | Ramiro Quispe | Primalist 51 | Onyxhollow | `ramiro_quispe.md` | Sad | Draft 1 |
 | 80 | Graham Ashworth | Warlock 52 | The Pale Watch |  |  |  |
 | 81 | Elie Khoury | Bloodmage 53 | Khaz Varun, the Black Hollow |  |  |  |
 | 82 | Bruno Teixeira | Templar 53 | The Bulwark |  |  |  |
