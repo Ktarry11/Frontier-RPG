@@ -56,6 +56,8 @@ class QuestManager:
                 print(f"ERROR: Failed to parse quest text overlay {path.name}: {e}")
                 continue
             for quest_id, fields in overlay.items():
+                if quest_id.startswith("_"):
+                    continue        # a note about the file ("_about"), not a quest
                 quest = self.quests.get(quest_id)
                 if quest is None:
                     print(f"WARNING: quest text overlay {path.name} names unknown quest {quest_id}")
