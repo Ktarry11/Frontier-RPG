@@ -518,6 +518,16 @@ class RelationshipManager:
         self.queue = self.queue[:3]
         for rid, t in step["lines"]:
             self.log.append((rid, t))
+        if r.sig_step == 0:
+            # an arc opens with the two of them finding out where each other's from and what they
+            # did, so the ordinary "where are you from" and "you speak Greek too" beats would only
+            # repeat it: count those as said
+            for x in (a, b):
+                for topic in ("home", "work"):
+                    if f"ask_{topic}:{x}" not in r.milestones:
+                        r.milestones.append(f"ask_{topic}:{x}")
+            shared = set(self._t(a).get("tags", [])) & set(self._t(b).get("tags", []))
+            r.tags_found += [g for g in sorted(shared) if g not in r.tags_found]
         r.sig_step += 1
         r.sig_at = r.outings
         if step.get("affinity"):
