@@ -269,7 +269,9 @@ class BondManager:
             return False
         if not quiet:
             self.say(b.rid, self.line(b.rid, key))
-        self.rel.on_left(b.rid, [m.recruit_id for m in self._members(self.party) if m.recruit_id != b.rid])
+        # only friends who are staying can say they'll miss him: two who leave together don't
+        self.rel.on_left(b.rid, [m.recruit_id for m in self._members(self.party)
+                                 if m.recruit_id != b.rid and self.bonds[m.recruit_id].in_party])
         b.in_party = False
         b.away = True
         b.angry = angry

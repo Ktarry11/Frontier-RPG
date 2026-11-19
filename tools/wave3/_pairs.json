@@ -1,0 +1,516 @@
+[
+ {
+  "a": "sophia_mage",
+  "b": "stelios_necromancer",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 4,
+    "lines": [
+     [
+      "stelios_necromancer",
+      "Your vowels are from Thessaloniki, Sophia. I'd stake my register on it, so tell me which part."
+     ],
+     [
+      "sophia_mage",
+      "Ano Poli, up by the walls. My mother taught literature at the school there."
+     ],
+     [
+      "stelios_necromancer",
+      "Then you walked past my father's funeral home every day of your childhood. I'd have nodded to you on the stairs."
+     ],
+     [
+      "sophia_mage",
+      "The one on the hill with the heavy door? I was terrified of that door until I was twelve."
+     ]
+    ]
+   },
+   {
+    "when": "gap:8",
+    "affinity": 3,
+    "lines": [
+     [
+      "sophia_mage",
+      "Stelios, your wife's name is Despina, isn't it? At the old library?"
+     ],
+     [
+      "stelios_necromancer",
+      "It is, and she stamped every book in that building herself."
+     ],
+     [
+      "sophia_mage",
+      "She stamped mine, every Saturday for six years. She let me take four when the rule was three."
+     ],
+     [
+      "stelios_necromancer",
+      "That sounds exactly like her. She always said the rules were for people who didn't read, and I'd like her to know you remember."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "stelios_necromancer",
+      "I keep the register in Greek as well as Common. Would you check my spelling? The dead deserve their accents in the right place."
+     ],
+     [
+      "sophia_mage",
+      "I'd be honoured. I'll also correct your handwriting, I'm afraid, it's a funeral director's scrawl."
+     ],
+     [
+      "stelios_necromancer",
+      "Funeral directors write beautifully, Sophia, we just do it in a hurry."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 5,
+    "lines": [
+     [
+      "sophia_mage",
+      "My father had started losing people, before all this. He still knew me, mostly, and I hold on to the mostly."
+     ],
+     [
+      "stelios_necromancer",
+      "I've sat with a great many families holding on to a mostly. It isn't a small thing to hold, and some days it's the whole of it."
+     ],
+     [
+      "sophia_mage",
+      "Thank you. You put that exactly right, and I've listened to the best speakers in Europe."
+     ],
+     [
+      "stelios_necromancer",
+      "Nineteen years of practice, and a city that taught us both to talk slowly."
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "a": "taras_witchhunter",
+  "b": "wes_warrior",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 3,
+    "lines": [
+     [
+      "wes_warrior",
+      "Suit check, Taras. I know you've done it, and I'm doing it anyway."
+     ],
+     [
+      "taras_witchhunter",
+      "Every morning, and you've never once found anything wrong."
+     ],
+     [
+      "wes_warrior",
+      "That's how you know it's working."
+     ],
+     [
+      "taras_witchhunter",
+      "Kashtan, sit, the man's doing his job. He'll check you next, and you'll like it."
+     ]
+    ]
+   },
+   {
+    "when": "gap:6",
+    "affinity": 3,
+    "lines": [
+     [
+      "taras_witchhunter",
+      "My tourists used to ask if Chernobyl could happen again, Wes. I'd tell them only if people stop being careful."
+     ],
+     [
+      "wes_warrior",
+      "Hanford had folks saying it'll be fine for fifty years. We spent twenty cleaning up after them."
+     ],
+     [
+      "taras_witchhunter",
+      "So it's the same job, you and me, from two ends. Somebody makes the mess, and we count the heads."
+     ],
+     [
+      "wes_warrior",
+      "Copy that, it's the same job."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "wes_warrior",
+      "The mule's started following Kashtan around when I'm on shift."
+     ],
+     [
+      "taras_witchhunter",
+      "Kashtan's very proud of it. He's never had a mule before."
+     ],
+     [
+      "wes_warrior",
+      "Me neither, to be fair. I didn't ask for this one."
+     ],
+     [
+      "taras_witchhunter",
+      "Nobody asks for the good things here, Wes. They just turn up and eat your apples."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 5,
+    "lines": [
+     [
+      "taras_witchhunter",
+      "My father was a liquidator in 1986. He went in so the rest of us wouldn't have to."
+     ],
+     [
+      "wes_warrior",
+      "My dad fitted pipe at Hanford his whole life. He never said much about what was in them."
+     ],
+     [
+      "taras_witchhunter",
+      "Then we both grew up next to something nobody would talk about. Maybe that's why we keep the fence."
+     ],
+     [
+      "wes_warrior",
+      "Could be, Taras. Somebody's got to stand at it who knows what's on the other side."
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "a": "sebastian_bloodmage",
+  "b": "vuk_knight",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 1,
+    "lines": [
+     [
+      "sebastian_bloodmage",
+      "You cook, my friend? I can smell it on you, onion and paprika."
+     ],
+     [
+      "vuk_knight",
+      "I don't cook, I make beans. And you smell like somebody who burns meat and calls it a skill."
+     ],
+     [
+      "sebastian_bloodmage",
+      "Burns, you say? Che, I ran a grill for twelve years."
+     ],
+     [
+      "vuk_knight",
+      "Then you've been burning things for twelve years, bre, and well done."
+     ]
+    ]
+   },
+   {
+    "when": "gap:5",
+    "affinity": 2,
+    "lines": [
+     [
+      "vuk_knight",
+      "I tried your asado last night, Argentine. It needed salt."
+     ],
+     [
+      "sebastian_bloodmage",
+      "It needed nothing! You put salt on everything, your tongue is broken."
+     ],
+     [
+      "vuk_knight",
+      "My tongue fed forty regulars every night in Novi Sad, and none of them complained."
+     ],
+     [
+      "sebastian_bloodmage",
+      "Because they were afraid of you, che! I've seen your face."
+     ]
+    ]
+   },
+   {
+    "when": "gap:8",
+    "affinity": 3,
+    "lines": [
+     [
+      "sebastian_bloodmage",
+      "Okay, I'll say it once, and if you tell anybody I'll deny it. Your beans are good, Vuk."
+     ],
+     [
+      "vuk_knight",
+      "Just good, is it? They're the best beans in Serbia."
+     ],
+     [
+      "sebastian_bloodmage",
+      "They're good, that's all. Mine would be better, if I made beans, which I don't, because I've got standards."
+     ],
+     [
+      "vuk_knight",
+      "Ha, so eat another bowl and say that again, bre."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "vuk_knight",
+      "Your meat and my beans, on the same night, at one fire. People would come from three zones."
+     ],
+     [
+      "sebastian_bloodmage",
+      "A cook-off, my friend? You'd lose, and you'd lose in front of everybody."
+     ],
+     [
+      "vuk_knight",
+      "Not a cook-off. One table, both of us at it, and nobody leaves hungry."
+     ],
+     [
+      "sebastian_bloodmage",
+      "Now that, che, I would come to. I might even sit down at it."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 5,
+    "lines": [
+     [
+      "sebastian_bloodmage",
+      "My grandmother always said people who argue about food are the only honest ones, Vuk."
+     ],
+     [
+      "vuk_knight",
+      "Uncle Dragan would have thrown you out of his kitchen for touching his pot, and then fed you."
+     ],
+     [
+      "sebastian_bloodmage",
+      "That's the same thing, my friend. That's exactly the same thing."
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "a": "gianluca_guardian",
+  "b": "osvaldo_warlock",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 2,
+    "lines": [
+     [
+      "gianluca_guardian",
+      "Allora, a Cuban! I had a Cuban regular once who drank mojitos at seven in the morning, and I never judged him."
+     ],
+     [
+      "osvaldo_warlock",
+      "I do fire, not conversation."
+     ],
+     [
+      "gianluca_guardian",
+      "Perfect, then I'll do the conversation for both of us, dai."
+     ],
+     [
+      "osvaldo_warlock",
+      "That's what I was afraid of."
+     ]
+    ]
+   },
+   {
+    "when": "gap:6",
+    "affinity": 1,
+    "lines": [
+     [
+      "gianluca_guardian",
+      "You know what you need, Osvaldo? A bar with a little stage, and a band on a Thursday."
+     ],
+     [
+      "osvaldo_warlock",
+      "No, I don't need that."
+     ],
+     [
+      "gianluca_guardian",
+      "Every bar needs music! I'd keep a corner for you, and I wouldn't talk through it, I promise."
+     ],
+     [
+      "osvaldo_warlock",
+      "You'd talk through it, asere. You'd talk through your own funeral."
+     ]
+    ]
+   },
+   {
+    "when": "gap:8",
+    "affinity": 3,
+    "lines": [
+     [
+      "osvaldo_warlock",
+      "You stopped talking for a whole minute in that fight, and I noticed."
+     ],
+     [
+      "gianluca_guardian",
+      "I was concentrating! It happens, rarely, but it happens."
+     ],
+     [
+      "osvaldo_warlock",
+      "Don't do it again. It was strange, and I didn't like it."
+     ],
+     [
+      "gianluca_guardian",
+      "Mamma mia, he likes my talking! I knew it, I always know."
+     ],
+     [
+      "osvaldo_warlock",
+      "I said I didn't like the quiet, asere, and that's different."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "gianluca_guardian",
+      "I rate everything out of ten, you know that. Your fire's a nine, Osvaldo."
+     ],
+     [
+      "osvaldo_warlock",
+      "Why only a nine?"
+     ],
+     [
+      "gianluca_guardian",
+      "Nobody gets a ten. Not my coffee, not my wife's cooking, not even me."
+     ],
+     [
+      "osvaldo_warlock",
+      "Then I'll take the nine. It's better than the hotel manager ever gave me."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 5,
+    "lines": [
+     [
+      "osvaldo_warlock",
+      "You talk so nobody hears what you don't say, Gianluca. I know, because I keep quiet for the same reason."
+     ],
+     [
+      "gianluca_guardian",
+      "You're a dangerous man, you know that? Sitting there quietly, noticing everything."
+     ],
+     [
+      "osvaldo_warlock",
+      "Sit with me a while. You don't have to say it, I just want you to know I heard it."
+     ],
+     [
+      "gianluca_guardian",
+      "Grazie, Osvaldo, davvero."
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "a": "elie_bloodmage",
+  "b": "ziad_felsworn",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 4,
+    "lines": [
+     [
+      "ziad_felsworn",
+      "Your accent's Achrafieh, habibi. Don't tell me, near the sea, below Sassine?"
+     ],
+     [
+      "elie_bloodmage",
+      "Two streets from the clinic on the hill, the one by the church. Ten years drawing blood there."
+     ],
+     [
+      "ziad_felsworn",
+      "I've driven up that hill a thousand times with the siren on! I probably brought you half your patients."
+     ],
+     [
+      "elie_bloodmage",
+      "Then you're the reason my Tuesdays were so busy. I always wondered who to blame."
+     ]
+    ]
+   },
+   {
+    "when": "gap:6",
+    "affinity": 2,
+    "lines": [
+     [
+      "elie_bloodmage",
+      "You heal with fel, Ziad, and I heal with blood. Our mothers would want a word with both of us."
+     ],
+     [
+      "ziad_felsworn",
+      "Mine would ask if it's working. It's working, so she'd make coffee and stop asking."
+     ],
+     [
+      "elie_bloodmage",
+      "Mine would make coffee too, and then ask anyway, all afternoon."
+     ],
+     [
+      "ziad_felsworn",
+      "That's an Achrafieh mother. They never stop asking, and they're always right."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "ziad_felsworn",
+      "You're slower than me and you're still always on time, Elie. How do you manage it?"
+     ],
+     [
+      "elie_bloodmage",
+      "I talk the whole way through. The patient forgets to panic, and when nobody panics, nothing goes wrong."
+     ],
+     [
+      "ziad_felsworn",
+      "I just run, faster than the panic, every time."
+     ],
+     [
+      "elie_bloodmage",
+      "And who catches you when you trip, habibi?"
+     ],
+     [
+      "ziad_felsworn",
+      "Apparently you do, now."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 6,
+    "lines": [
+     [
+      "elie_bloodmage",
+      "The port, Ziad. I was at the clinic that day, and people came in for hours, cut by the glass, and I kept thinking about whoever was out there choosing."
+     ],
+     [
+      "ziad_felsworn",
+      "That was us, me and three vans. I don't talk about it."
+     ],
+     [
+      "elie_bloodmage",
+      "You don't have to. I just wanted you to know somebody at the other end was catching them."
+     ],
+     [
+      "ziad_felsworn",
+      "Thank you, habibi. I always wondered if anyone was."
+     ]
+    ]
+   }
+  ]
+ }
+]

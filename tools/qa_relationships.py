@@ -190,6 +190,9 @@ def main(argv):
 
     if "--sample" in argv:
         sample(real)
+    for x in argv:
+        if x.startswith("--pair="):
+            pair_sample(real, *x.split("=", 1)[1].split(","))
 
     for x in bad:
         print("FAIL:", x)
@@ -232,6 +235,30 @@ def sample(real):
             if b.in_party:
                 bm.depart(b, "stint", quiet=True)
             b.away, b.break_left = False, 0
+
+
+def pair_sample(real, a, b, outings=90):
+    """Every beat between two recruits over a long shared stint, to read their signature arc in order."""
+    from world import bond_manager as BM
+    BM.reset_bond_manager()
+    bm = BM.get_bond_manager()
+    rm = bm.rel
+    rm.lines = real
+    random.seed(int(os.environ.get("SEED", "3")))
+    party = P([M(rid, bm.name_of(rid)) for rid in (a, b)])
+    bm.party = party
+    for rid in (a, b):
+        bm.bonds[rid].away = False
+        bm.on_joined(rid)
+    for n in range(outings):
+        bm.on_deed("dungeon", party)
+        if n % 7 == 6:
+            rm.on_rest({a, b})
+        while (lines := rm.pop_beat(99)):
+            r = rm.rel(a, b)
+            print(f"--- outing {r.outings} {r.state} {r.affinity:.0f} sig {r.sig_step}")
+            for rid, text in lines:
+                print(f"  {bm.name_of(rid).split()[0]}: {text}")
 
 
 if __name__ == "__main__":

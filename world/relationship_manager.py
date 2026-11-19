@@ -44,6 +44,7 @@ EFFECTS
 import json
 import random
 import re
+import zlib
 from pathlib import Path
 
 DATA = Path(__file__).resolve().parent.parent / "data" / "npcs" / "relationships.json"
@@ -101,6 +102,13 @@ FORMAL_JOKER = -1.0
 EASYGOING = 0.5
 #: an ordinary conversation won't reuse a line any of the party has said in the last few beats
 RECENT = 10
+#: how many line ids a pair remembers hearing (about 40 exchanges)
+HEARD = 80
+
+
+def _hid(rid, text):
+    """A short id for one line, for a pair's memory of what's been said (saves stay small)."""
+    return f"{rid}:{zlib.crc32(text.encode('utf-8')):08x}"
 
 
 def _pair(table, a, b):
@@ -338,12 +346,11 @@ class RelationshipManager:
             return None
         opts = t if isinstance(t, list) else [t]
         if r is not None:
-            fresh = [o for o in opts if f"{rid}:{o}" not in r.heard]
+            fresh = [o for o in opts if _hid(rid, o) not in r.heard]
             opts = fresh or opts
         text = random.choice(opts)
         if r is not None:
-            r.heard.append(f"{rid}:{text}")
-            r.heard = r.heard[-30:]
+            r.heard = (r.heard + [_hid(rid, text)])[-HEARD:]
         if "{name}" in text:
             text = text.replace("{name}", self.first(name_of) if name_of else "")
         return text
@@ -359,16 +366,19 @@ class RelationshipManager:
                 return False
             opts = t if isinstance(t, list) else [t]
             if r is not None:
-                opts = [o for o in opts if f"{rid}:{o}" not in r.heard] or opts
+                opts = [o for o in opts if _hid(rid, o) not in r.heard] or opts
             raw = random.choice(opts)
-            ids.append(f"{rid}:{raw}")
+            ids.append(_hid(rid, raw))
             to = who or (r.other(rid) if r is not None and rid in (r.a, r.b) else None)
             text = raw.replace("{name}", self.first(who)) if who else raw.replace("{name}", "")
             out.append((rid, self.address(text, to)))
         if r is not None:
-            if ids[0] in r.heard[-12:]:
+            # an ordinary chat is never told twice to the same person while they'd remember it;
+            # something that happens again (a wipe, a near miss) can be answered the same way
+            # once enough else has been said in between
+            if ids[0] in (r.heard if priority <= 1 else r.heard[-12:]):
                 return False
-            r.heard = (r.heard + ids)[-40:]
+            r.heard = (r.heard + ids)[-HEARD:]
         if priority <= 1:
             # the same question to three people in a row is a script, not a person
             if any(i in self.recent for i in ids):
