@@ -897,7 +897,7 @@ ZONES["The Ashen Orchard"] = dict(
     kind="skull", parent="Western Tirisfal", levels=(9, 12),
     creatures={
         "Orchard Ghoul": _creature("undead_basic", 10, False, "ghoul", DMG("Claw"), DOT("Plague Bite", 0.3, sch="physical")),
-        "Blighted Scarecrow": _creature("undead_warrior", 10, False, "scarecrow_golem", DMG("Scythe Arm"), DEB("Crow Swarm", sch="physical", agility=-8)),
+        "Orchard Scarecrow": _creature("undead_warrior", 10, False, "scarecrow_golem", DMG("Scythe Arm"), DEB("Crow Swarm", sch="physical", agility=-8)),
         "Rotfruit Bat": _creature("beast_fast", 9, False, "bat", DMG("Bite", 0.9), DEB("Shriek", intellect=-6)),
         "Plague Picker": _creature("undead_caster", 11, False, "zombie", DMG("Rotten Fruit", sch="magic"), DOT("Blight", 0.35), HEAL("Gnaw", 1.2)),
         "Old Bramley": _creature("undead_warrior", 12, True, "scarecrow_golem",
@@ -907,9 +907,9 @@ ZONES["The Ashen Orchard"] = dict(
     },
     encounters=_skull_table("The Ashen Orchard", {"Rotfruit Bat": 3, "Orchard Ghoul": 2}, {
         "The Orchard Gate": {"Rotfruit Bat": 3, "Orchard Ghoul": 2},
-        "The Grey Rows": {"Blighted Scarecrow": 3, "Orchard Ghoul": 2},
+        "The Grey Rows": {"Orchard Scarecrow": 3, "Orchard Ghoul": 2},
         "The Cider House": {"Plague Picker": 3, "Orchard Ghoul": 1, "The Cider-Wife": 0},
-        "The Old Tree": {"Blighted Scarecrow": 2, "Plague Picker": 2, "Old Bramley": 0}}),
+        "The Old Tree": {"Orchard Scarecrow": 2, "Plague Picker": 2, "Old Bramley": 0}}),
     weights={},
     loot={
         "Old Bramley": [
@@ -1098,7 +1098,7 @@ ZONES["The Coal Forest"] = dict(
                                      DOT("Bristle Venom", 0.4, sch="magic"), DMG("Leap From the Ferns", 1.5, 3)),
         "Coal-Mire Crawler": _creature("vermin_swarm", 32, False, "st_bark_beetle", DMG("Mandible", 0.95),
                                        DOT("Chewing", 0.35, sch="physical")),
-        "Peat Shambler": _creature("elemental_bruiser", 33, False, "elemental_earth_2", DMG("Peat Fist"),
+        "Half-Coal Shambler": _creature("elemental_bruiser", 33, False, "elemental_earth_2", DMG("Peat Fist"),
                                    DEB("Smother", intellect=-14, agility=-14), BUF("Pressed Down", armor=70)),
         "The Thousand-Leg": _creature("beast_large", 34, True, "st_beetle_mother",
             DMG("Coil and Crush"), DOT("Ten Thousand Feet", 0.55, sch="physical", d=4),
@@ -1117,8 +1117,8 @@ ZONES["The Coal Forest"] = dict(
         "The Scale-Tree Stand": {"Hunched Stalker": 3, "Scale-Tree Toad": 2},
         "The Black Water": {"Black-Water Gulper": 3, "Griffinfly": 2, "Gulpmaw": 0},
         "The Griffinfly Reach": {"Griffinfly": 3, "Hunched Stalker": 2},
-        "The Coal Seam": {"Coal-Mire Crawler": 3, "Peat Shambler": 2, "The Thousand-Leg": 0},
-        "The First Grove": {"Peat Shambler": 3, "Hunched Stalker": 1, "The Green Before": 0}}),
+        "The Coal Seam": {"Coal-Mire Crawler": 3, "Half-Coal Shambler": 2, "The Thousand-Leg": 0},
+        "The First Grove": {"Half-Coal Shambler": 3, "Hunched Stalker": 1, "The Green Before": 0}}),
     weights={},
     loot={
         "The Thousand-Leg": [
@@ -1198,7 +1198,7 @@ DROPS = {
     "Ink-Drowned Scholar": ("unwritten_page", "Unwritten Page", "A page that was written once and scraped clean. If you hold it to the light, the old words are still there.", 0.75),
     "Scaldling": ("spring_heart_bead", "Spring-Heart Bead", "A bead of glassy sinter set hard from the springs' water. It's too hot to hold for long.", 0.75),
     "Mudpot Shambler": ("spring_heart_bead", "Spring-Heart Bead", "A bead of glassy sinter set hard from the springs' water. It's too hot to hold for long.", 0.75),
-    "Peat Shambler": ("living_coal", "Living Coal", "Black, light and still a little soft. Coal before it finished becoming coal.", 0.75),
+    "Half-Coal Shambler": ("living_coal", "Living Coal", "Black, light and still a little soft. Coal before it finished becoming coal.", 0.75),
     "Mere Wraith": ("vial_of_mere_water", "Vial of Mere-Water", "Black water that doesn't settle. It moves a little when you aren't holding it still.", 0.75),
 }
 
@@ -1551,7 +1551,7 @@ def quests():
           elite=True),
         # ------------------------------------------------------------------ The Ashen Orchard
         Q("hz_orchard_rows", "The Grey Rows", "hz_orchard_marta", ao, 9,
-          [{"type": "kill", "target": "Blighted Scarecrow", "count": 6}, {"type": "kill", "target": "Orchard Ghoul", "count": 6}],
+          [{"type": "kill", "target": "Orchard Scarecrow", "count": 6}, {"type": "kill", "target": "Orchard Ghoul", "count": 6}],
           "I'm Marta. My family grew apples here before the plague. I died in that house over "
           "there, and when I woke up I walked straight back. Funny, that.\n\nThe scarecrows don't "
           "know me any more and the ghouls never did. Six of each, if you would.",
@@ -1573,7 +1573,7 @@ def quests():
             ("Orchard Walker's Boots", "feet", "of the Wolf", "leather", None, "Leather Boots (Agi/Spi)")),
           nxt="hz_orchard_bramley"),
         Q("hz_orchard_bramley", "Old Bramley", "hz_orchard_marta", ao, 11,
-          [{"type": "kill", "target": "Old Bramley", "count": 1}, {"type": "kill", "target": "Blighted Scarecrow", "count": 4}],
+          [{"type": "kill", "target": "Old Bramley", "count": 1}, {"type": "kill", "target": "Orchard Scarecrow", "count": 4}],
           "My father made the first scarecrow and named it Bramley after the apple. It stands under "
           "the old tree now with a scythe, and the plague's in it, and it doesn't stop.\n\nPlease "
           "put it down. Take friends. It was built to keep things away, and it's good at it.",
@@ -1792,7 +1792,7 @@ def quests():
         Q("hz_coal_seam", "Coal Before Coal", "hz_coal_vesna", cf, 33,
           [{"type": "fetch", "target": "living_coal", "count": 6}],
           "Every lump of coal on the other world started as a forest like this one, dead and pressed down "
-          "for longer than anyone can imagine. The peat shamblers are that halfway. They're forest "
+          "for longer than anyone can imagine. The half-coal shamblers are that halfway. They're forest "
           "that started becoming coal and got up again.\n\nThey carry living coal in them. Bring me "
           "what you can find. If I can date them, I'll know whether this forest is a memory or whether it's "
           "actually still happening down here.",
@@ -2328,8 +2328,19 @@ def sprite_rules():
     return {c: v[3] for z in ZONES.values() for c, v in z["creatures"].items()}
 
 
+def _check_names(creatures):
+    """A hidden creature may not share a name with an ordinary one. creatures.json is keyed by name, so a shared
+    name overwrites the ordinary creature's level and kit (19 Nov 2026: an open-world quest mob was turned into
+    its hidden namesake, ten to fifteen levels up). Ordinary creatures are the ones whose kit isn't hidden_*."""
+    have = json.loads((DATA / "creatures/creatures.json").read_text(encoding="utf-8"))["creatures"]
+    clash = sorted(n for n in creatures if n in have and not str(have[n].get("ability_kit", "")).startswith("hidden_"))
+    if clash:
+        raise SystemExit(f"hidden creatures share a name with ordinary ones, rename them: {clash}")
+
+
 def main():
     kits, creatures, loot, registry, enc = build()
+    _check_names(creatures)
     merge_json(DATA / "creatures/ability_kits.json", "kits", kits, "kits")
     merge_json(DATA / "creatures/creatures.json", "creatures", creatures, "creatures")
     (DATA / "creatures/encounters.json").write_text(json.dumps(enc, indent=2, ensure_ascii=False) + "\n",

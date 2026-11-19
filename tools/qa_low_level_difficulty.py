@@ -59,25 +59,32 @@ def main():
     if checked < 8:
         bad.append(f"only {checked} spawns could be checked")
 
-    # EARLY RARES (Kyle, 18 Nov 2026: "Rares below lvl 20 are still a bit overtuned", then "only start to ramp back up
-    # past lvl 35"): an open-world rare deals 40% through 35 and its full row from 45; the same creature in a cave is a cave boss and isn't touched.
-    early = D.table().get("early_rare") or {}
-    if (early.get("damage"), early.get("through_level"), early.get("full_level")) != (0.4, 35, 45):
-        bad.append(f"the early_rare row is {early}, not 0.4 through 35 and full from 45")
+    # OPEN-WORLD RARES ARE THEIR OWN KIND (Kyle, 19 Nov 2026: "split the rares from boss and tune the difficulty",
+    # "rares should be around 75-90% win rate"): a named creature in the open is the "rare" row (with its by_level
+    # steps), the same creature in a cave is still a field boss, and either way its own boss_damage factor applies.
+    # The old early_rare damper is gone: the rare row replaces it.
+    if "early_rare" in D.table():
+        bad.append("the early_rare row is back; the rare row replaced it")
+    rare_row = D.table().get("rare") or {}
+    if not rare_row.get("health") or not rare_row.get("damage"):
+        bad.append(f"no rare row: {rare_row}")
     rare = "Rumblejaw"
     if rare not in cm.creatures or not cm.creatures[rare].get("is_boss"):
         bad.append(f"{rare} isn't a rare any more; pick another open-world rare under 20")
     else:
-        row = float((D.table().get("field_boss") or {}).get("damage", 1.0)) * D.boss_damage(rare)
-        for level, want in ((12, 0.4), (30, 0.4), (35, 0.4), (40, 0.7), (45, 1.0), (50, 1.0)):
+        for level in (12, 30, 50, 58):
             with contextlib.redirect_stdout(io.StringIO()):
                 m = cm.spawn_creature(rare, level=level)
-            got = m.damage_output_multiplier / row
-            if abs(got - want) > 0.02:
-                bad.append(f"{rare} in the open at {level}: x{got:.2f} of its row, wanted x{want:.2f}")
+            m.location_type = "subzone"
+            if D.kind_of(m) != "rare":
+                bad.append(f"{rare} in the open at {level} is a {D.kind_of(m)}, not a rare")
+            want = float(rare_row["damage"]) * D.boss_damage(rare) * D._by_level(rare_row.get("by_level") or [[1, 1, 1]], level, 2)
+            if abs(m.damage_output_multiplier - want) > 0.02:
+                bad.append(f"{rare} in the open at {level}: damage x{m.damage_output_multiplier:.2f}, wanted x{want:.2f}")
             m.location_type = "cave"
-            if abs(m.damage_output_multiplier / row - 1.0) > 0.02:
-                bad.append(f"{rare} in a cave at {level} was softened too")
+            cave = float((D.table().get("field_boss") or {}).get("damage", 1.0)) * D.boss_damage(rare)
+            if D.kind_of(m) != "field_boss" or abs(m.damage_output_multiplier - cave) > 0.02:
+                bad.append(f"{rare} in a cave at {level}: {D.kind_of(m)} x{m.damage_output_multiplier:.2f}, wanted a field boss x{cave:.2f}")
         checked += 1
 
     print(f"{checked} creatures spawned at 5, 9, 10 and 12")
@@ -86,7 +93,7 @@ def main():
         for b in bad:
             print("  -", b)
         return 1
-    print("PASS - under level 10 a creature deals 20% less and has 15% less health; an open-world rare deals 40% through 35, full from 45")
+    print("PASS - under level 10 a creature deals 20% less and has 15% less health; an open-world rare is its own row, a cave one a field boss")
     return 0
 
 

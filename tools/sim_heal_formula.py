@@ -58,8 +58,9 @@ def boss_names(cm, level, spread=2):
     return sorted(out)
 
 
-def hits_on(tank, cm, names, level, actions=24):
-    """Average damage one monster action does to the tank, per monster name."""
+def hits_on(tank, cm, names, level, actions=24, location_type=None):
+    """Average damage one monster action does to the tank, per monster name. location_type: where it stands (an
+    open-world rare is measured as the field boss it would be in a cave, tools/calibrate_boss_damage.py)."""
     from combat.combat_engine import CombatEngine
     from entities.party import Party
     out = {}
@@ -71,6 +72,10 @@ def hits_on(tank, cm, names, level, actions=24):
                 continue
             if foe is None:
                 continue
+            if location_type:
+                from world.difficulty import apply_health
+                foe.location_type = location_type
+                apply_health(foe)
             engine = CombatEngine(tank, foe, party=Party(tank))
         taken = []
         for _ in range(actions):

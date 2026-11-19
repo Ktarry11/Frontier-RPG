@@ -103,15 +103,27 @@ def main():
         if probe is None:
             continue
         kind = D.kind_of(probe)
-        avg = F.hits_on(tanks[L], cm, [name], L, actions=args.actions).get(name)
+        if kind == "rare":
+            # AN OPEN-WORLD RARE (world/difficulty.kind_of, 19 Nov 2026) is measured as the field boss it is in a cave,
+            # so its factor sits on the same footing as every other field boss's; the rare row then scales the result.
+            probe.location_type = "cave"
+            D.apply_health(probe)
+            kind = "field_boss"
+        avg = F.hits_on(tanks[L], cm, [name], L, actions=args.actions,
+                        location_type=getattr(probe, "location_type", None) if kind == "field_boss" else None).get(name)
         if not avg:
             continue
         measured[name] = {"level": L, "kind": kind, "avg": round(avg, 1), "share": round(avg / HF.tank(L), 3)}
         if i % 50 == 0:
             print(f"  {i}/{len(bosses)} {name}: level {L} {kind} {avg:.0f} = {avg / HF.tank(L):.0%} of T")
+    # --only ADDS one boss and leaves every other factor exactly as it was: refitting them all would shift the
+    # neighbours' level medians and quietly retune bosses nobody asked to touch (found 19 Nov 2026, when 36 new
+    # rares moved 102 old factors, late dungeon bosses down 7%).
     old = json.loads(OUT.read_text(encoding="utf-8")) if (OUT.exists() and args.only) else {}
     measured = {**(old.get("measured") or {}), **measured}
     factors = fit(measured)
+    if args.only and old.get("bosses"):
+        factors = {**factors, **{k: v for k, v in old["bosses"].items() if k != args.only}}
     data = {
         "_about": "Per-boss damage factor putting a boss's average action at a share of T(L), the healing formula's "
                   "reference tank. Written by tools/calibrate_boss_damage.py; read by world/difficulty.factor.",

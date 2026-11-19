@@ -12,8 +12,7 @@ than in every kit, and it can be turned back by editing three pairs of numbers.
   open   anything met in the open world
   cave   trash in a cave or dungeon (cave_spawns tags it)
   boss   a boss of a real five-player dungeon (world/zone_classification.DUNGEONS)
-  field_boss  every other boss: the named one at the back of a small cave, a named rare in the
-         open. Kyle, 14 Nov, after a friend at level 17 met Tidelord Gharesh in the Echo Isles grotto
+  field_boss  every other boss: the named one at the back of a small cave. Kyle, 14 Nov, after a friend at level 17 met Tidelord Gharesh in the Echo Isles grotto
          with 5,700 health: "it shouldn't be that high." Then: "keep Dungeons around 3x health and
          3x damage... He did it with 2 people. So why the fuck not." Both kinds are 3x/3x today;
          they are separate keys so they can be split again.
@@ -23,8 +22,10 @@ than in every kit, and it can be turned back by editing three pairs of numbers.
          or a hidden open-world map (world/hidden_zones.py). These rows also carry
          loot_ilvl_bonus: what they drop sits that many item levels above them.
 
-  early_rare  not a kind: a damage multiplier on an open-world rare (a field_boss outside a cave) at low level
-         (Kyle, 18 Nov 2026: "Rares below lvl 20 are still a bit overtuned"): 40% through 35, full again by 45 (Kyle: "only start to ramp back up past lvl 35").
+  rare        a named creature in the open world, not in a cave (Kyle, 19 Nov 2026: "split the rares from boss and
+         tune the difficulty", "rares should be around 75-90% win rate"). Its own row, with by_level steps, tuned with
+         tools/sim_campaign.py's rare census. It replaced the early_rare damper, which softened field bosses outside
+         caves under 45 but left them on the dungeon-boss 3x row.
 
   low_level  not a kind: a multiplier on top of whichever row applies, for every creature under
          level 10 (Kyle, 16 Nov 2026: 20% less damage, 15% less health).
@@ -86,12 +87,17 @@ def kind_of(monster):
         name = getattr(monster, "name", None)
         if name in _tuned():
             return "tuned_boss"
-        return "boss" if name in dungeon_bosses() else "field_boss"
+        if name in dungeon_bosses():
+            return "boss"
+        # AN OPEN-WORLD RARE is its own kind (Kyle, 19 Nov 2026: "split the rares from boss and tune the difficulty",
+        # "rares should be around 75-90% win rate... Some rares would fucking clap you so hard.... but most were
+        # soloable"). The same creature standing in a cave is still a field boss.
+        return "field_boss" if getattr(monster, "location_type", None) == "cave" else "rare"
     return "cave" if getattr(monster, "location_type", None) == "cave" else "open"
 
 
 _BOSS_DAMAGE = None
-BOSS_DAMAGE_KINDS = ("boss", "tuned_boss", "field_boss")
+BOSS_DAMAGE_KINDS = ("boss", "tuned_boss", "field_boss", "rare")
 
 
 def boss_damage(name):
@@ -128,14 +134,12 @@ def factor(monster, what):
     low = table().get("low_level") or {}
     if (getattr(monster, "level", 99) or 99) < int(low.get("below_level", 0)):
         f *= float(low.get(what, 1.0))
-    # EARLY RARES HIT SOFTER (Kyle, 18 Nov 2026: "Rares below lvl 20 are still a bit overtuned"). An open-world rare
-    # is a field boss that isn't standing in a cave: 40% damage through through_level, back to full by full_level.
-    early = table().get("early_rare") or {}
-    if what in early and kind_of(monster) == "field_boss" and getattr(monster, "location_type", None) != "cave":
-        lv = getattr(monster, "level", 1) or 1
-        lo, hi = int(early.get("through_level", 35)), int(early.get("full_level", 45))
-        k = min(1.0, max(0.0, (lv - lo) / max(1, hi - lo)))
-        f *= float(early[what]) + (1.0 - float(early[what])) * k
+    # A ROW THAT CHANGES WITH LEVEL: "by_level" is [[level, health, damage], ...], read straight between its points
+    # and flat past either end, on top of the row's own numbers (the rare row, tuned with tools/sim_campaign.py's
+    # rare census so every level band lands in Kyle's 75-90%).
+    steps = (table().get(kind_of(monster)) or {}).get("by_level")
+    if steps:
+        f *= _by_level(steps, getattr(monster, "level", 1) or 1, 1 if what == "health" else 2)
     # LATE DUNGEON BOSSES HIT HARDER (Kyle, 16 Nov 2026: "i can 2 man dungeons without any issues"; "Both, a little
     # each"). On top of the boss row, a dungeon boss's damage climbs from its from_level to full_level, so the big
     # dungeons near 60 need the group they're built for and the early ones stay as they were.
@@ -147,6 +151,17 @@ def factor(monster, what):
         k = min(1.0, max(0.0, (lv - lo) / max(1, hi - lo)))
         f *= 1.0 + (float(late[what]) - 1.0) * k
     return f
+
+
+def _by_level(steps, level, col):
+    pts = sorted(steps)
+    if level <= pts[0][0]:
+        return float(pts[0][col])
+    for a, b in zip(pts, pts[1:]):
+        if level <= b[0]:
+            k = (level - a[0]) / max(1, b[0] - a[0])
+            return float(a[col]) + (float(b[col]) - float(a[col])) * k
+    return float(pts[-1][col])
 
 
 def apply_health(monster):

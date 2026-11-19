@@ -251,7 +251,7 @@ TEXT = {
         "You earned this. Take it, and tell people what you saw up here."),
     # ---------------------------------------------------------------- the Ashen Orchard (Marta)
     "hz_orchard_rows": (
-        "Put down the Blighted Scarecrows and Orchard Ghouls in the grey rows west of the gate.",
+        "Put down the Orchard Scarecrows and Orchard Ghouls in the grey rows west of the gate.",
         "My name's Marta. My family grew apples here before the plague. I died in that house over there, "
         "and when I woke up I walked straight back to it. It's funny how that works.\n\nThe Blighted "
         "Scarecrows don't know me any more, and the Orchard Ghouls never did. They're in the grey rows "
@@ -267,11 +267,11 @@ TEXT = {
         "No more cider. I never thought I'd be glad to say that.\n\nYou've stopped the plague spreading "
         "out of this orchard, and I won't forget it."),
     "hz_orchard_bramley": (
-        "Put down the Blighted Scarecrows under the old tree to the north, and destroy Old Bramley.",
+        "Put down the Orchard Scarecrows under the old tree to the north, and destroy Old Bramley.",
         "My father made the first scarecrow in this orchard and named it Bramley after the apple. It "
         "stands under the old tree to the north now with a scythe, and the plague's in it, and it won't "
         "stop.\n\nPlease put it down. Take friends, because it was built to keep things away, and it's "
-        "good at it. The Blighted Scarecrows round it will come at you first.",
+        "good at it. The Orchard Scarecrows round it will come at you first.",
         "He's finally down. Father would have hated what it turned into.\n\nThank you. Take something from the "
         "house, because I've got no use for any of it now."),
     # ---------------------------------------------------------------- the World-Root Hollow (Ash'ka)

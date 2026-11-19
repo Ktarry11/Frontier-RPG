@@ -75,10 +75,18 @@ class World:
         self.hidden_keys = {zone_key(z) for z in enc if is_hidden(z)}
         # creature -> [(zone, "open_zone"|"subzone", subzone)] wherever the open world has it
         self.where = collections.defaultdict(list)
+        # A DUNGEON'S OR A CAVE'S TABLE IS FILED UNDER ITS PARENT ZONE'S SUBZONES (Durnholde Keep under Eastern
+        # Hillsbrad, Jaedenar under North Felwood), but it's its own map: its named creatures are a dungeon's bosses
+        # (3x, built for five) or a cave's, never open-world rares. The first census counted two of them as rares.
+        from world.gathering_manager import CAVE_TO_PARENT_ZONE
+        from world.zone_classification import DUNGEONS
+        closed = set(DUNGEONS) | set(CAVE_TO_PARENT_ZONE)
         for z, t in self.enc.items():
             for n in (t.get("open_zone", {}).get("creatures") or {}):
                 self.where[n].append((z, "open_zone", None))
             for sz, st in (t.get("subzones") or {}).items():
+                if sz in closed:
+                    continue
                 for n in (st.get("creatures") or {}):
                     self.where[n].append((z, "subzone", sz))
         drops = json.loads((ROOT / "data/creatures/quest_drops.json").read_text(encoding="utf-8"))["drops"]
@@ -116,8 +124,10 @@ class World:
 
     def roll(self, zone, level):
         """One random encounter on the road in this zone: a subzone half the time (where rares live)."""
+        from world.gathering_manager import CAVE_TO_PARENT_ZONE
+        from world.zone_classification import DUNGEONS
         t = self.enc.get(zone) or {}
-        subs = list((t.get("subzones") or {}).keys())
+        subs = [s for s in (t.get("subzones") or {}) if s not in DUNGEONS and s not in CAVE_TO_PARENT_ZONE]
         with quiet():
             if subs and random.random() < 0.5:
                 sz = random.choice(subs)
