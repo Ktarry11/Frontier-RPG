@@ -1169,27 +1169,34 @@
     "eino_barbarian": {
       "zone_arrive": [
         {
-          "text": "This is warm. I'm not complaining. I'm noticing.",
+          "text": "This is warm. I'm not complaining, I'm noticing.",
           "kind": "open",
           "topic": "the_cold"
         }
       ],
       "boss_down": [
         {
-          "text": "It's dead. We can go.",
+          "text": "It's dead, so we can go now.",
           "kind": "reply"
         }
       ],
       "close_call": [
         {
-          "text": "You're fine. Walk it off or don't, but decide.",
+          "text": "You're fine, so walk it off or don't, but decide quickly.",
           "kind": "open"
         }
       ],
       "town_arrive": [
         {
-          "text": "I built a cabin badly on purpose so I could keep fixing it. I miss it.",
-          "kind": "open"
+          "text": "In Lapland the winter sun doesn't come up for weeks. I miss the dark, honestly.",
+          "kind": "open",
+          "topic": "the_cold"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "That was good work. Now I need a sauna.",
+          "kind": "reply"
         }
       ]
     },
@@ -1379,32 +1386,26 @@
     "driss_shaman": {
       "zone_arrive": [
         {
-          "text": "Wind's off. Not wrong - off. Sixteen years I listened to machines tell me that.",
-          "kind": "open",
-          "topic": "the_cold"
+          "text": "Check your water before anything else. This ground will take it from you without asking.",
+          "kind": "open"
         }
       ],
       "town_arrive": [
         {
-          "text": "Tangier, on a ridge where it didn't stop blowing from October to March.",
+          "text": "Zagora's the last town before the sand, with a sign that says it's fifty-two days to Timbuktu by camel. I've done it.",
           "kind": "open",
-          "topic": "cities"
-        },
-        {
-          "text": "Up on that ridge you could see the whole city and never have to be in it.",
-          "kind": "reply",
           "topic": "cities"
         }
       ],
       "boss_down": [
         {
-          "text": "It answered me. That part I'm still not used to.",
+          "text": "The land answered me just then. That part I'm still not used to.",
           "kind": "reply"
         }
       ],
       "dungeon_clear": [
         {
-          "text": "No air moving in there at all. I hated it.",
+          "text": "No air moving in there at all, and I hated it. Let's get under the sky.",
           "kind": "reply"
         }
       ]
@@ -1968,6 +1969,33 @@
       "boss_down": [
         {
           "text": "Is everyone all right? I'd like to hear it, please.",
+          "kind": "reply"
+        }
+      ]
+    },
+    "thiago_paladin": {
+      "close_call": [
+        {
+          "text": "Hey, hey, look at me. You're not dying today, I promise.",
+          "kind": "open"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Everybody walked out on their own legs. That's my favourite thing in the world.",
+          "kind": "open"
+        }
+      ],
+      "town_arrive": [
+        {
+          "text": "Belo Horizonte's all hills and bars and the best cheese bread in Brazil. You'd never leave.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ],
+      "boss_down": [
+        {
+          "text": "Okay, that's done. Now, nobody carries anybody until I've checked them.",
           "kind": "reply"
         }
       ]

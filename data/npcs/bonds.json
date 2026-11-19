@@ -1192,6 +1192,170 @@
         "quest_abandoned": "We just left that half done. I hate that, my friend. Half done is worse than broken."
       }
     },
+    "driss_shaman": {
+      "home": "Freewind Post",
+      "dials": {
+        "warmth": 1.2,
+        "nerve": 1.3,
+        "pride": 0.7,
+        "restless": 1.0
+      },
+      "likes": [
+        "new_ground",
+        "quest"
+      ],
+      "dislikes": [
+        "dungeon"
+      ],
+      "stages": {
+        "stranger": "I'm Driss, a shaman, and before that a desert guide. Drink some water first, please, and then we'll talk. I never let anybody in my care run short of water.",
+        "acquaintance": "I'm from Zagora, in Morocco, at the edge of the Sahara. My father and grandfather guided caravans across the desert, and I learned the routes on a camel before I could read. When the tourists came I guided them too, first on camels and later in two old Land Cruisers I kept running with my own hands, for twenty-eight years.",
+        "companion": "I was under a truck in the desert fixing an axle with this wrench when it happened, and I landed on the salt flats here with it still in my hand. I asked the land for permission in my own language, and something answered. My wife is Khadija. We have four children. Youssef, Amina and Hamza are grown. Nour was nine.",
+        "friend": "Nour came long after the others, and she was the light of our house. She'd be twelve now. I tell stories about her by the fire because if I stop telling them I'm afraid I'll forget her laugh. The last stretch of my summer route needs water, and there's none on any map. I think there's a spring under the salt. Will you help me find it, inshallah?",
+        "sworn": "On the second night of the first summer crossing, I heard a girl laughing at the back of the caravan, and I knew the laugh. It was Nour, twelve now, and Khadija with her. They'd been waiting in a Moroccan camp in Tanaris for two years, unable to cross the Flats in summer. My route brought them. I carried her the rest of the way on my shoulders, though she says she's too old. That night I made mint tea for everybody."
+      },
+      "moments": [
+        {
+          "id": "water",
+          "stage": "stranger",
+          "when": "hire",
+          "prompt": "He hands you a waterskin before anything else and waits.",
+          "options": [
+            {
+              "text": "Drink, and thank him.",
+              "trust": 6,
+              "joins": true,
+              "reply": "Good, now we can talk. Yallah, I'll come with you."
+            },
+            {
+              "text": "I'm not thirsty.",
+              "trust": 0,
+              "joins": false,
+              "reply": "Everybody's thirsty, they just don't know it yet. Come back when you've learned that."
+            }
+          ]
+        },
+        {
+          "id": "the_spring",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to help him find the spring under the salt.",
+          "options": [
+            {
+              "text": "Let's find your water.",
+              "trust": 12,
+              "reply": "Bismillah, let's go. We'll leave at dawn, before the heat, and we'll carry plenty."
+            },
+            {
+              "text": "Why does the route matter so much?",
+              "trust": 6,
+              "reply": "Because somebody's waiting on the other side of the Flats. Somebody always is."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We walk the same circle again and again, and the land has nothing new to tell us. Let's find a road we haven't walked.",
+        "leaving_good": "That was a good journey, and nobody went thirsty. I'm going back to Freewind Post for a while. Come and drink tea with me.",
+        "leaving_bored": "I'm going back to Freewind Post. There are caravans there that need a guide, and this isn't going anywhere.",
+        "after_wipe": "Sit, everybody, and drink something. Then we'll talk about where we went wrong.",
+        "wipe_warning": "We keep falling in here, under all this rock where no air moves. I'll finish this run, then I need open sky.",
+        "wipe_leave": "I've finished it with you. Now I'm going back to Freewind Post. The desert will teach us, inshallah.",
+        "zone_warning": "This place is like the deep desert in August. Brave people die there, and so do foolish ones. Let's go back.",
+        "zone_leave": "I'm stopping here. I said it was the deep desert in August. I'll be at Freewind Post.",
+        "gear_refuse": "I'd like to keep that, my friend. We haven't shared enough tea yet.",
+        "gear_taken": "Take it, then. I've crossed the Sahara with less.",
+        "gear_short": "I'm still missing that piece. I mention it only so you know.",
+        "gear_upgrade": "That's beautiful work. Shukran, thank you.",
+        "back": "I'm back, and the caravans are all home safe. Drink something, and then tell me where we're going.",
+        "send_word": "Driss has sent word from Freewind Post. His caravans are home safe and he's ready to come out.",
+        "walkout_talk": "I left angry, and that wasn't good of me. Sit, drink some tea, and I'll tell you why. Then you tell me.",
+        "neglect": "You've been gone a long time. I kept water for you anyway.",
+        "asked_to_stay": "Yallah, one more journey. Then the caravans.",
+        "on_break": "Driss is back at Freewind Post, guiding caravans. Come back after you've done a few more jobs."
+      }
+    },
+    "eino_barbarian": {
+      "home": "Northern Stranglethorn",
+      "dials": {
+        "warmth": 0.5,
+        "nerve": 1.5,
+        "pride": 1.0,
+        "restless": 0.7
+      },
+      "likes": [
+        "boss",
+        "dungeon"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Eino, and I hit things with an axe. I don't talk much. That's not because I don't like you, it's just how I am.",
+        "acquaintance": "I'm from Lapland, outside Kittilä, above the Arctic Circle. My family cut and planted the same forest for four generations. I felled timber for twenty-six years, chainsaw first, then a harvester. Six months of dark every winter. I liked it, very much.",
+        "companion": "I was in my harvester in a winter forest when it happened, and I landed here in the heat in my thermal gear. This tape on my arm marks trees that stay standing. I work for goblins now, cutting jungle down, and I know what that says about me. So I plant one for every one I cut, at night, where nobody sees.",
+        "friend": "My father left our forest to me and my brother Juha. Juha wanted to sell it to a company that would clear it. I said no. He sold his half anyway, and I watched it come down in one winter. We haven't spoken since. Now the goblins want to clear a huge stretch of old jungle, and I'm going to argue with the foreman. Come with me. I'm bad at arguing.",
+        "sworn": "The foreman was Juha. Two years running clear-cuts for the goblins, and I didn't know. Afterwards he said he was wrong, at home and here. I said I was too stubborn to listen. That's all either of us said. He's changed the plan to selective felling, the way our father did it. Then we sat in my sauna together for three hours without a word, and jumped in the river. Best conversation we've ever had."
+      },
+      "moments": [
+        {
+          "id": "the_sauna",
+          "stage": "acquaintance",
+          "when": "talk",
+          "prompt": "He's built a sauna at camp in the middle of the jungle, and he's looking at you.",
+          "options": [
+            {
+              "text": "Sit in it with him, in silence.",
+              "trust": 10,
+              "reply": "Good, that's how it's done, and you'll do."
+            },
+            {
+              "text": "Say something about the sauna.",
+              "trust": 0,
+              "reply": "Everybody says something. It's still a good sauna."
+            }
+          ]
+        },
+        {
+          "id": "the_foreman",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to come and argue with the goblin foreman.",
+          "options": [
+            {
+              "text": "I'll do the talking if you want.",
+              "trust": 8,
+              "reply": "Yes, please, you talk. I'll stand behind you and look big."
+            },
+            {
+              "text": "I'll come. You say what you need to.",
+              "trust": 12,
+              "reply": "No niin, okay. I'll try to use whole sentences."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Same field, same animals, again and again. Even a forest gets cut faster than this. Let's go somewhere new.",
+        "leaving_good": "That was good work. I'm going back to the camp in Stranglethorn now, and my sauna. Come when you need me.",
+        "leaving_bored": "I'm going back to the camp. This is boring, and I'd rather be cutting wood.",
+        "after_wipe": "We died, so now we get up. Then we try again, slower.",
+        "wipe_warning": "We keep dying in here. I'll finish this run, but then I'm going back to my sauna for a while.",
+        "wipe_leave": "I finished it with you. Now I'm going to sit in my sauna for a week. Come and find me later.",
+        "zone_warning": "This place is too strong for us. I'm stubborn, but I'm not stupid. We should go back.",
+        "zone_leave": "I'm stopping here. It's too strong for us out there. I'll be at the logging camp in Northern Stranglethorn.",
+        "gear_refuse": "No, that's mine. I don't know you well enough yet.",
+        "gear_taken": "Take it, then. I've worked in worse.",
+        "gear_short": "I'm still missing that piece. I'm saying it once.",
+        "gear_upgrade": "That's good work. Kiitos, thank you.",
+        "back": "I'm back, and I've had a sauna. Where are we going?",
+        "send_word": "Eino has sent word from the logging camp in Northern Stranglethorn. He's ready to come out again.",
+        "walkout_talk": "I left angry. I'm bad at talking, so give me time, and I'll tell you why. Then you talk.",
+        "neglect": "You were gone a long time. I cut a lot of wood while I waited.",
+        "asked_to_stay": "No niin, one more, then my sauna.",
+        "on_break": "Eino is back at the goblin logging camp in Northern Stranglethorn. Come back after you've done a few more jobs."
+      }
+    },
     "emre_rogue": {
       "home": "Durnholde",
       "dials": {
@@ -3958,6 +4122,91 @@
         "neglect": "Hello again, it's been a while. I'd started to think you'd found somebody who talks less. I'm not sure that's possible.",
         "asked_to_stay": "All right, one more trip, and then I really must get back to my grammar.",
         "on_break": "Sophia is back in the Undercity, writing. Come back after you've done a few more jobs."
+      }
+    },
+    "thiago_paladin": {
+      "home": "Grom'gol",
+      "dials": {
+        "warmth": 1.5,
+        "nerve": 1.3,
+        "pride": 0.4,
+        "restless": 1.1
+      },
+      "likes": [
+        "full_party",
+        "quest"
+      ],
+      "dislikes": [
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "I'm Thiago, meu irmão, and I'm a paladin, a healer. Hey, look at me. Nobody's dying today, and I promise you that, and I don't promise things lightly.",
+        "acquaintance": "I'm from Belo Horizonte, in Brazil, in Minas Gerais. My father's a mechanic, my mother cooks at a school, and my whole family lives on the same three streets, thirty of us at Sunday lunch. I was a physiotherapist for ten years, mostly people recovering badly from terrible things. I got them walking again, or got them to accept they wouldn't.",
+        "companion": "I was strapping a patient's knee with this blue tape when it happened, and I landed in Stranglethorn with the roll in my pocket. It's nearly finished now. I've used it on three people here and I know all their names. Eleven months ago I saw my cousin Júlio's name on a list in the south, and I've been walking south ever since. It's certain, I've decided.",
+        "friend": "I've never been alone in my life, irmão. Not one day, until all this. Thirty people at Sunday lunch, and then nobody. So I sit with everybody else who's alone, because I know what it is. That's the truth of it. I'm ready to make the last stage south, to Booty Bay, where Júlio's name was. Will you come with me?",
+        "sworn": "Júlio cried when he saw me. Then he told me the rest. Our three streets came through together and landed somewhere bad in the first winter, and he's the only one who made it. My parents, my sisters, my grandparents, all gone. I sat on the sand a long time, and you sat with me. Then I told Júlio he's not dying today, and that I promise. I taught every fisherman there to carry the injured. I'm lighter now, and heavier."
+      },
+      "moments": [
+        {
+          "id": "alone",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's told you he's never been alone before all this.",
+          "options": [
+            {
+              "text": "You're not alone now.",
+              "trust": 12,
+              "reply": "No, I'm not, uai. That means more than you know, meu irmão."
+            },
+            {
+              "text": "Let's go and find Júlio.",
+              "trust": 8,
+              "reply": "Yes, let's go. It's certain, I've decided."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's kneeling by each of you in turn, very gently.",
+          "line": "Hey, hey, look at me, everybody. Don't move until I've checked you, and don't let anybody carry you badly.",
+          "options": [
+            {
+              "text": "Take your time. We're not going anywhere.",
+              "trust": 8,
+              "mood": 6,
+              "reply": "Good, thank you. Breathe for me, nice and slow."
+            },
+            {
+              "text": "We're fine, let's go.",
+              "trust": 0,
+              "mood": -6,
+              "reply": "You're fine when I say so, irmão, so sit down."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Irmão, we've done the same thing for days and nobody's needed me. Let's go somewhere people need help.",
+        "leaving_good": "That was a wonderful trip, all of you. I'm going back to Grom'gol for a little while. Come and find me.",
+        "leaving_bored": "I'm going back to Grom'gol. Nothing's happening out here, and there are people there who need sitting with.",
+        "after_wipe": "Hey, hey, look at me, everybody. Nobody moves until I've checked you.",
+        "wipe_warning": "We keep falling in here, and I hate watching it. I'll finish this run, then I need some days.",
+        "wipe_leave": "I stayed until the end, like I promised. Now I'm going back to Grom'gol for a while.",
+        "zone_warning": "This place is too much for us, irmão. I can heal a lot, but I can't keep that promise out here.",
+        "zone_leave": "I'm stopping here. I couldn't keep my promise out there. I'll be at Grom'gol.",
+        "gear_refuse": "Ah, no, irmão, I'd like to keep that. Ask me again when we're friends.",
+        "gear_taken": "Take it, take it. I'll manage, I always do.",
+        "gear_short": "I'm still missing that piece, irmão. I'm saying it gently.",
+        "gear_upgrade": "Nossa, that's beautiful! Thank you, irmão.",
+        "back": "I'm back, irmão! Let me check everybody's knees, and then let's go.",
+        "send_word": "Thiago has sent word from Grom'gol. He's ready to come out and look after you all.",
+        "walkout_talk": "I left angry, and that's not me, irmão. Sit with me, and let's talk about it properly.",
+        "neglect": "There you are! I was starting to worry. Come here, let me look at you.",
+        "asked_to_stay": "Okay, one more, irmão, and then I rest.",
+        "on_break": "Thiago is back at Grom'gol in Stranglethorn. Come back after you've done a few more jobs.",
+        "quest_abandoned": "We left somebody waiting for help, irmão. I don't like that at all."
       }
     },
     "tomas_warrior": {

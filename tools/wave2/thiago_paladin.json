@@ -1,0 +1,77 @@
+{
+  "recruit_text": {
+    "greeting": "Hey, hey, look at me. You're not dying today. This I promise you, and I don't promise things.",
+    "backstory": "A physiotherapist in Belo Horizonte who worked mostly with people recovering badly from accidents and strokes. The work is being relentlessly encouraging to somebody who wants to give up and is entitled to. He's huge, gentle and very hard to discourage. The Light came to him in the second year, and the people who know him best say it didn't change him at all, and he agrees, and finds that funny.",
+    "before": "A clinic, a table, and a schedule of people he saw twice a week for months at a time.\n\nA huge family, all on three streets, all in and out of each other's houses. He talks about them constantly and in the present tense. Eleven months ago he saw a cousin's name, Júlio Macedo, on a list at a hub in the south, and he's been walking south in stages ever since, in no hurry, because he's decided it's certain.",
+    "adjustment": "Eight months, and he spent them being useful to people in a way nobody had asked for.\n\nHe was the man who sat with people from Earth in the bad weeks, before anybody organised anything. He still is. He doesn't call it a vocation, and he gets uncomfortable when other people do.",
+    "forward": "South, eventually, at his own pace, to Booty Bay where the list was.\n\nHe's also taught four people how to move an injured body without making it worse, because he watched somebody's back get broken twice: once by a boar and once by the people carrying him away from the boar.",
+    "now": "Grom'gol, in Stranglethorn, on his way south. In the party he stands in the middle, where he can reach either end of it.\n\nThe roll of blue tape is nearly finished. He rations it. He's strapped three people's knees with it, and he'll tell you their names."
+  },
+  "bond": {
+    "home": "Grom'gol",
+    "dials": {"warmth": 1.5, "nerve": 1.3, "pride": 0.4, "restless": 1.1},
+    "likes": ["full_party", "quest"],
+    "dislikes": ["quest_abandoned"],
+    "stages": {
+      "stranger": "I'm Thiago, meu irmão, and I'm a paladin, a healer. Hey, look at me. Nobody's dying today, and I promise you that, and I don't promise things lightly.",
+      "acquaintance": "I'm from Belo Horizonte, in Brazil, in Minas Gerais. My father's a mechanic, my mother cooks at a school, and my whole family lives on the same three streets, thirty of us at Sunday lunch. I was a physiotherapist for ten years, mostly people recovering badly from terrible things. I got them walking again, or got them to accept they wouldn't.",
+      "companion": "I was strapping a patient's knee with this blue tape when it happened, and I landed in Stranglethorn with the roll in my pocket. It's nearly finished now. I've used it on three people here and I know all their names. Eleven months ago I saw my cousin Júlio's name on a list in the south, and I've been walking south ever since. It's certain, I've decided.",
+      "friend": "I've never been alone in my life, irmão. Not one day, until all this. Thirty people at Sunday lunch, and then nobody. So I sit with everybody else who's alone, because I know what it is. That's the truth of it. I'm ready to make the last stage south, to Booty Bay, where Júlio's name was. Will you come with me?",
+      "sworn": "Júlio cried when he saw me. Then he told me the rest. Our three streets came through together and landed somewhere bad in the first winter, and he's the only one who made it. My parents, my sisters, my grandparents, all gone. I sat on the sand a long time, and you sat with me. Then I told Júlio he's not dying today, and that I promise. I taught every fisherman there to carry the injured. I'm lighter now, and heavier."
+    },
+    "moments": [
+      {"id": "alone", "stage": "friend", "when": "talk",
+       "prompt": "He's told you he's never been alone before all this.",
+       "options": [
+         {"text": "You're not alone now.", "trust": 12,
+          "reply": "No, I'm not, uai. That means more than you know, meu irmão."},
+         {"text": "Let's go and find Júlio.", "trust": 8,
+          "reply": "Yes, let's go. It's certain, I've decided."}
+       ]},
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe he's kneeling by each of you in turn, very gently.",
+       "line": "Hey, hey, look at me, everybody. Don't move until I've checked you, and don't let anybody carry you badly.",
+       "options": [
+         {"text": "Take your time. We're not going anywhere.", "trust": 8, "mood": 6,
+          "reply": "Good, thank you. Breathe for me, nice and slow."},
+         {"text": "We're fine, let's go.", "trust": 0, "mood": -6,
+          "reply": "You're fine when I say so, irmão, so sit down."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "Irmão, we've done the same thing for days and nobody's needed me. Let's go somewhere people need help.",
+      "leaving_good": "That was a wonderful trip, all of you. I'm going back to Grom'gol for a little while. Come and find me.",
+      "leaving_bored": "I'm going back to Grom'gol. Nothing's happening out here, and there are people there who need sitting with.",
+      "after_wipe": "Hey, hey, look at me, everybody. Nobody moves until I've checked you.",
+      "wipe_warning": "We keep falling in here, and I hate watching it. I'll finish this run, then I need some days.",
+      "wipe_leave": "I stayed until the end, like I promised. Now I'm going back to Grom'gol for a while.",
+      "zone_warning": "This place is too much for us, irmão. I can heal a lot, but I can't keep that promise out here.",
+      "zone_leave": "I'm stopping here. I couldn't keep my promise out there. I'll be at Grom'gol.",
+      "gear_refuse": "Ah, no, irmão, I'd like to keep that. Ask me again when we're friends.",
+      "gear_taken": "Take it, take it. I'll manage, I always do.",
+      "gear_short": "I'm still missing that piece, irmão. I'm saying it gently.",
+      "gear_upgrade": "Nossa, that's beautiful! Thank you, irmão.",
+      "back": "I'm back, irmão! Let me check everybody's knees, and then let's go.",
+      "send_word": "Thiago has sent word from Grom'gol. He's ready to come out and look after you all.",
+      "walkout_talk": "I left angry, and that's not me, irmão. Sit with me, and let's talk about it properly.",
+      "neglect": "There you are! I was starting to worry. Come here, let me look at you.",
+      "asked_to_stay": "Okay, one more, irmão, and then I rest.",
+      "on_break": "Thiago is back at Grom'gol in Stranglethorn. Come back after you've done a few more jobs.",
+      "quest_abandoned": "We left somebody waiting for help, irmão. I don't like that at all."
+    }
+  },
+  "banter": {
+    "close_call": [
+      {"text": "Hey, hey, look at me. You're not dying today, I promise.", "kind": "open"}
+    ],
+    "dungeon_clear": [
+      {"text": "Everybody walked out on their own legs. That's my favourite thing in the world.", "kind": "open"}
+    ],
+    "town_arrive": [
+      {"text": "Belo Horizonte's all hills and bars and the best cheese bread in Brazil. You'd never leave.", "kind": "open", "topic": "cities"}
+    ],
+    "boss_down": [
+      {"text": "Okay, that's done. Now, nobody carries anybody until I've checked them.", "kind": "reply"}
+    ]
+  }
+}

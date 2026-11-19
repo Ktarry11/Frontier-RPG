@@ -1,0 +1,78 @@
+{
+  "recruit_text": {
+    "greeting": "Cold doesn't bother me. Go on, say something about the sauna. Everybody does and I've stopped minding.",
+    "backstory": "Twenty-six years felling timber in Lapland. Six months of dark a year, machinery, and nobody to talk to for days at a stretch. The axe is the same axe. He talks about as much as the work requires. People read that as unfriendliness for the first month and then stop.",
+    "before": "Timber, a machine, and a stretch of forest the size of a county that his family cut and planted for four generations.\n\nHis brother Juha sold his half of it to a company that clear-cut it in one winter. They haven't spoken since.",
+    "adjustment": "Nothing to speak of. The trees here are bigger.\n\nThe heat is the only thing he's never got used to, and he's built himself a sauna anyway, which everyone thinks is insane.",
+    "now": "Northern Stranglethorn, at a goblin logging camp, cutting jungle timber the size of towers, in the one hut with a sauna.\n\nThe goblin crews hire him by the season and have given up trying to make conversation. He prefers the arrangement and thinks they do too.",
+    "forward": "The cold north of this world, one day, for no reason he can give. He's been told it's worse than Lapland, and that's done nothing to put him off.\n\nIn the meantime he plants a tree for every one he cuts, quietly, at night."
+  },
+  "bond": {
+    "home": "Northern Stranglethorn",
+    "dials": {"warmth": 0.5, "nerve": 1.5, "pride": 1.0, "restless": 0.7},
+    "likes": ["boss", "dungeon"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Eino, and I hit things with an axe. I don't talk much. That's not because I don't like you, it's just how I am.",
+      "acquaintance": "I'm from Lapland, outside Kittilä, above the Arctic Circle. My family cut and planted the same forest for four generations. I felled timber for twenty-six years, chainsaw first, then a harvester. Six months of dark every winter. I liked it, very much.",
+      "companion": "I was in my harvester in a winter forest when it happened, and I landed here in the heat in my thermal gear. This tape on my arm marks trees that stay standing. I work for goblins now, cutting jungle down, and I know what that says about me. So I plant one for every one I cut, at night, where nobody sees.",
+      "friend": "My father left our forest to me and my brother Juha. Juha wanted to sell it to a company that would clear it. I said no. He sold his half anyway, and I watched it come down in one winter. We haven't spoken since. Now the goblins want to clear a huge stretch of old jungle, and I'm going to argue with the foreman. Come with me. I'm bad at arguing.",
+      "sworn": "The foreman was Juha. Two years running clear-cuts for the goblins, and I didn't know. Afterwards he said he was wrong, at home and here. I said I was too stubborn to listen. That's all either of us said. He's changed the plan to selective felling, the way our father did it. Then we sat in my sauna together for three hours without a word, and jumped in the river. Best conversation we've ever had."
+    },
+    "moments": [
+      {"id": "the_sauna", "stage": "acquaintance", "when": "talk",
+       "prompt": "He's built a sauna at camp in the middle of the jungle, and he's looking at you.",
+       "options": [
+         {"text": "Sit in it with him, in silence.", "trust": 10,
+          "reply": "Good, that's how it's done, and you'll do."},
+         {"text": "Say something about the sauna.", "trust": 0,
+          "reply": "Everybody says something. It's still a good sauna."}
+       ]},
+      {"id": "the_foreman", "stage": "friend", "when": "talk",
+       "prompt": "He's asked you to come and argue with the goblin foreman.",
+       "options": [
+         {"text": "I'll do the talking if you want.", "trust": 8,
+          "reply": "Yes, please, you talk. I'll stand behind you and look big."},
+         {"text": "I'll come. You say what you need to.", "trust": 12,
+          "reply": "No niin, okay. I'll try to use whole sentences."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "Same field, same animals, again and again. Even a forest gets cut faster than this. Let's go somewhere new.",
+      "leaving_good": "That was good work. I'm going back to the camp in Stranglethorn now, and my sauna. Come when you need me.",
+      "leaving_bored": "I'm going back to the camp. This is boring, and I'd rather be cutting wood.",
+      "after_wipe": "We died, so now we get up. Then we try again, slower.",
+      "wipe_warning": "We keep dying in here. I'll finish this run, but then I'm going back to my sauna for a while.",
+      "wipe_leave": "I finished it with you. Now I'm going to sit in my sauna for a week. Come and find me later.",
+      "zone_warning": "This place is too strong for us. I'm stubborn, but I'm not stupid. We should go back.",
+      "zone_leave": "I'm stopping here. It's too strong for us out there. I'll be at the logging camp in Northern Stranglethorn.",
+      "gear_refuse": "No, that's mine. I don't know you well enough yet.",
+      "gear_taken": "Take it, then. I've worked in worse.",
+      "gear_short": "I'm still missing that piece. I'm saying it once.",
+      "gear_upgrade": "That's good work. Kiitos, thank you.",
+      "back": "I'm back, and I've had a sauna. Where are we going?",
+      "send_word": "Eino has sent word from the logging camp in Northern Stranglethorn. He's ready to come out again.",
+      "walkout_talk": "I left angry. I'm bad at talking, so give me time, and I'll tell you why. Then you talk.",
+      "neglect": "You were gone a long time. I cut a lot of wood while I waited.",
+      "asked_to_stay": "No niin, one more, then my sauna.",
+      "on_break": "Eino is back at the goblin logging camp in Northern Stranglethorn. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "zone_arrive": [
+      {"text": "This is warm. I'm not complaining, I'm noticing.", "kind": "open", "topic": "the_cold"}
+    ],
+    "boss_down": [
+      {"text": "It's dead, so we can go now.", "kind": "reply"}
+    ],
+    "close_call": [
+      {"text": "You're fine, so walk it off or don't, but decide quickly.", "kind": "open"}
+    ],
+    "town_arrive": [
+      {"text": "In Lapland the winter sun doesn't come up for weeks. I miss the dark, honestly.", "kind": "open", "topic": "the_cold"}
+    ],
+    "dungeon_clear": [
+      {"text": "That was good work. Now I need a sauna.", "kind": "reply"}
+    ]
+  }
+}

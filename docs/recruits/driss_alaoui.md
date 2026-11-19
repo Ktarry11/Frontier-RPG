@@ -38,7 +38,7 @@ He grew up in Zagora, the son and grandson of caravan guides. His father and gra
 desert, and Driss learned them on a camel before he could read. When the tourists came, he guided them too, first by camel and later
 in a pair of battered Land Cruisers he kept running with his own hands.
 
-He married Khadija at 22. They had four children. Three are grown: Youssef, an engineer in Casablanca, Amina, a teacher, and Karim,
+He married Khadija at 22. They had four children. Three are grown: Youssef, an engineer in Casablanca, Amina, a teacher, and Hamza,
 who drives the trucks. The fourth, Nour, was nine, born long after the others, and the light of the house.
 
 ## The Integration and what it cost
