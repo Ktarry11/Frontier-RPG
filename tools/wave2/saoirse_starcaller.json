@@ -1,0 +1,79 @@
+{
+  "recruit_text": {
+    "greeting": "Get behind me and stay there. I know, I know, you're very capable. Humour me and we'll both be alive to argue about it later.",
+    "backstory": "She played county camogie until her knee went at twenty-six, and then she coached it. The sport is running at people holding a stick and expecting to be run at in return. She's loud, funny and completely without self-pity, and she has an instinct for getting in front of things that predates any of this. Of all of them she's the one most people would want beside them, and she'd find that embarrassing and change the subject.",
+    "before": "A pitch in Kilkenny, a knee that clicked, and a minibus full of fifteen-year-olds she drove to matches at seven in the morning.\n\nNo partner, no children, two parents who died within a year of each other, and a brother in Australia she spoke to twice a year out of habit. The girls on the team are the ones she thinks about. She was driving eleven of them to an away match when it happened.",
+    "adjustment": "Easy, and she's a little ashamed of how easy.\n\nShe arrived in a world that wanted somebody to stand in front, and standing in front is the only thing she's ever been unambiguously good at. She's watched people far better than her fall apart while she got on with it, and she has no explanation and offers none.",
+    "forward": "To coach again, and not to fight.\n\nShe's started with four of the youngest at the Sepulcher, teenagers from Earth, on the grounds that somebody has to teach them to fall properly. She runs it at seven in the morning, because that's apparently who she is.",
+    "now": "The Sepulcher in Silverpine, and Shadowfang Keep wherever the line's thinnest, taking the hits with a cheerfulness other people find unsettling.\n\nThe sliotar is still on her belt. She throws it at people who are getting above themselves, underarm and accurately, and the party has learned to catch."
+  },
+  "bond": {
+    "home": "the Sepulcher",
+    "dials": {"warmth": 1.4, "nerve": 1.5, "pride": 0.6, "restless": 1.0},
+    "likes": ["boss", "full_party"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Saoirse, and I stand in front of things. Get behind me, keep your head up, and do what I shout. If you get notions, I'll throw this ball at you, and I don't miss.",
+      "acquaintance": "I'm from Kilkenny, so. My da farmed and my mam was a nurse. I had a camogie stick in my hand at five and played for the county from seventeen, until my knee went in a county final at twenty-six. That was the end of playing. I took up coaching the same year, under-sixteen girls, and I loved it more than I ever loved playing, if you can believe that.",
+      "companion": "I was driving the minibus to an away match at seven in the morning with eleven of my girls in the back when it happened. I landed in Silverpine on my own with this sliotar in my pocket. I don't know where they went. I've checked every list I can reach for eleven names. That's the bit I can't put down, honestly.",
+      "friend": "My parents died within a year of each other when I was twenty-nine, and my brother's in Australia, and we're not close. There was nobody whose being gone really rearranged me, and I've felt guilty about that for years. But those girls are mine. A trader in Tarren Mill says there's a group of Irish teenage girls living on a farm out there. I need to go now. Will you come?",
+      "sworn": "Seven of my eleven, older and taller, standing in front of each other with sticks in their hands, the way I taught them. I nearly cried, I'm not ashamed to say. The other four were never with them, and nobody knows where they are. I'll keep looking. But I've got a team now. Seven of mine and four from the Sepulcher, out on the training ground at seven every morning, complaining. Best day I've had in three years, that first one."
+    },
+    "moments": [
+      {"id": "the_farm", "stage": "friend", "when": "talk",
+       "prompt": "She's asked you to come to Tarren Mill with her.",
+       "options": [
+         {"text": "Let's go and get your girls.", "trust": 12,
+          "reply": "Grand, that's grand. Come on, before I lose my nerve."},
+         {"text": "What if it's not them?", "trust": 2,
+          "reply": "Then it's somebody's girls, and they'll need us anyway."}
+       ]},
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe she claps her hands, loudly, like it's half time.",
+       "line": "Right, team talk! We got beaten because we didn't stay in our lines. Up, and we go again, properly this time.",
+       "options": [
+         {"text": "Yes, coach.", "trust": 8, "mood": 8,
+          "reply": "Ha, that's the spirit! Lines, everybody, and talk to each other."},
+         {"text": "This isn't a match.", "trust": 0, "mood": -4,
+          "reply": "Everything's a match if you want to win it, so."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've been doing the same drill for days and nobody's getting any better at it. Let's find a proper game, will we?",
+      "leaving_good": "That was a great outing, so it was. I'm off back to the Sepulcher to train my lot. You know where I'll be.",
+      "leaving_bored": "I'm heading back to the Sepulcher. This is the same drill again and again, and my youngsters need me more.",
+      "after_wipe": "Right, team talk! Up you get, and we go again, properly this time.",
+      "wipe_warning": "We keep losing in here, and even I'm running out of team talks. I'll finish this one, then I need a break.",
+      "wipe_leave": "Final whistle, I'm off home. I'll be at the Sepulcher when you've sorted out your lines.",
+      "zone_warning": "This lot are a division above us, and there's no shame in that. Let's go and play at our own level for a bit.",
+      "zone_leave": "I'm stopping here. I said they were a division above us. I'll be at the Sepulcher.",
+      "gear_refuse": "Go way outta that, it's mine. Ask me again when you've earned it.",
+      "gear_taken": "Take it, so. I'll get in front of things without it, same as ever.",
+      "gear_short": "I'm still missing that piece, by the way. I'm only saying.",
+      "gear_upgrade": "Ah, that's grand, thank you! I'll look after it, I promise.",
+      "back": "I'm back, and my youngsters can fall properly now. Where are we off to?",
+      "send_word": "Saoirse has sent word from the Sepulcher. Her youngsters are trained and she's ready to come out.",
+      "walkout_talk": "I walked out, and I'm not proud of it. Sit down and let's have it out, fair and square, like a proper team.",
+      "neglect": "Well, look who it is! I'd nearly given you up for transferred to another team.",
+      "asked_to_stay": "Go on, one more game. Then I've training at seven.",
+      "on_break": "Saoirse is back at the Sepulcher, coaching her youngsters. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "dungeon_clear": [
+      {"text": "Everybody stayed in their lines that time. I'm proud of yiz, honestly.", "kind": "open"}
+    ],
+    "boss_down": [
+      {"text": "Get in, yes! That's what we've been drilling for, that is.", "kind": "open"}
+    ],
+    "town_arrive": [
+      {"text": "Kilkenny's got a castle, a lot of pubs and the best hurlers in Ireland. Don't argue, it's a fact.", "kind": "open", "topic": "cities"}
+    ],
+    "close_call": [
+      {"text": "Keep your head up and your feet moving, I've told you before. Next time, behind me.", "kind": "reply"}
+    ],
+    "zone_arrive": [
+      {"text": "Good flat ground out here. You could mark out a pitch on that.", "kind": "open"}
+    ]
+  }
+}

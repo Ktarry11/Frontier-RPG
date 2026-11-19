@@ -1,0 +1,76 @@
+{
+  "recruit_text": {
+    "greeting": "Stand behind me. If I go down, you run, and you don't drag me. Promise me that now, or find somebody else.",
+    "backstory": "Nine years a paramedic in Lima, mostly on motorbikes, because an ambulance can't get through that traffic and a bike can. The work is triage at speed with your hands in somebody's blood, and blood magic asked him for exactly that with the pretence removed. He's steady, unhurried and very hard to frighten, and the one thing that will shut him down completely is being told to leave somebody behind.",
+    "before": "A bike, a bag, and a city that produced more work than any crew could finish.\n\nHis partner on the bike for six years was Gladys Huamán. She trained him, she swore at him constantly, and she was two streets away when it happened. He's looked for her at every hub he's reached, and he keeps a list of the ones he hasn't reached yet.",
+    "adjustment": "He worked, and that's the entire answer, and he gives it in those words.\n\nThe second year was worse than the first, because by then he'd run out of places nearby to check and had to admit the looking was going to be a long project rather than a short one.",
+    "forward": "Gladys, obviously, first of all. He won't pretend otherwise and he won't make anybody else carry it.\n\nBeyond that he wants a crew. Two people on a fast thing, going toward what everybody else is going away from. He hasn't found the second person.",
+    "now": "Splintertree Post in Ashenvale East, and the front of whatever party he's in, soaking what's aimed at the people behind him.\n\nHe's the one who notices an hour before anybody else that somebody isn't right. He doesn't announce it. He just ends up walking beside them."
+  },
+  "bond": {
+    "home": "Splintertree Post",
+    "dials": {"warmth": 1.1, "nerve": 1.5, "pride": 0.5, "restless": 0.9},
+    "likes": ["dungeon", "full_party"],
+    "dislikes": ["quest_abandoned"],
+    "stages": {
+      "stranger": "I'm Nicolás, and I'm a tank, a bloodmage one. Stand behind me, and if I go down, you run and you don't drag me. Promise me now, pata.",
+      "acquaintance": "I'm from Comas, on the north side of Lima. My mum sold in the market and my dad drove a bus, and my two big sisters bossed me around my whole life. I was a paramedic on a motorbike for nine years, because an ambulance can't get through Lima's traffic and a bike can. Fast bike, big bag, a lot of blood on my boots.",
+      "companion": "My partner on the bike for six years was Gladys Huamán. Ten years older than me, a nurse before, with the dirtiest mouth and the fastest hands I've ever seen. She trained me from nothing and swore at me every single day, and I loved her like a big sister. I haven't found her, or my mum, or my sisters. I keep a list of every hub I haven't checked.",
+      "friend": "We were both racing to the same call that morning, two streets apart. She was two streets away, and then I was in Ashenvale, and she was nowhere. I think about those two streets all the time. And now there's a hub far to the east I haven't checked, and somebody says there's a note pinned up there with my name on it. Will you come, pata? I'd like a second person on the bike.",
+      "sworn": "It was her, greyer and swearing at everybody, pinned down with the wounded in the middle of an attack. When she saw me she swore at me for taking three years, and then she held my face in both her hands. We got them all out together, the way we used to. She's been looking for me at every hub too. We're a crew again. She says I was always the slow one, and she's right."
+    },
+    "moments": [
+      {"id": "promise", "stage": "stranger", "when": "hire",
+       "prompt": "He asks you to promise you won't drag him if he goes down.",
+       "options": [
+         {"text": "I promise.", "trust": 4, "joins": true,
+          "reply": "Good, that's chévere. Then I'll stand in front of you as long as you want."},
+         {"text": "I don't leave people behind.", "trust": 10, "joins": true,
+          "reply": "Neither do I, pata. That's exactly the problem. Okay, I'll come."}
+       ]},
+      {"id": "the_note", "stage": "friend", "when": "talk",
+       "prompt": "He's told you about the note with his name on it.",
+       "options": [
+         {"text": "Let's go and read it.", "trust": 12,
+          "reply": "Chévere, thank you, pata. Let's go fast."},
+         {"text": "It might be old.", "trust": 2,
+          "reply": "Then it's old, and it's still more than I've had in three years."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "Pata, we've been hitting the same things for days and nobody needed saving. Let's go somewhere that needs us.",
+      "leaving_good": "That was a good run. I'm going back to Splintertree for a while to check my list. You know where to find me.",
+      "leaving_bored": "I'm going back to Splintertree. This isn't helping anyone, and I've got hubs to check.",
+      "after_wipe": "Everyone stay down while I check you. Nobody drags anybody, I'll come to you.",
+      "wipe_warning": "We keep going down in here, pata. I'll finish this run, but then I need a break.",
+      "wipe_leave": "I finished it with you. Now I'm going back to Splintertree for a while. Come and get me when you're ready.",
+      "zone_warning": "This place is too much for us, pata. I can soak a lot, but not everything at once.",
+      "zone_leave": "I'm stopping here. It's too dangerous for us out there. I'll be at Splintertree Post.",
+      "gear_refuse": "No, that's mine, pata. Ask me again when we know each other.",
+      "gear_taken": "Take it, no problem. I'll stand in front without it.",
+      "gear_short": "I'm still missing that piece, pata. Just letting you know.",
+      "gear_upgrade": "Chévere, that's good kit. Thanks a lot, pata.",
+      "back": "I'm back, and I've crossed two more hubs off my list. Where are we going?",
+      "send_word": "Nicolás has sent word from Splintertree Post. He's ready to stand in front again.",
+      "walkout_talk": "I walked out, and I'd like to tell you why, calmly. Then you tell me yours, and we go back to work.",
+      "neglect": "Oe, there you are! I thought you'd found a better tank. There's no such thing, pata.",
+      "asked_to_stay": "Okay, pata, one more. Then my list.",
+      "on_break": "Nicolás is back at Splintertree Post in Ashenvale. Come back after you've done a few more jobs.",
+      "quest_abandoned": "We left somebody waiting, pata. I don't leave people behind, ever."
+    }
+  },
+  "banter": {
+    "close_call": [
+      {"text": "Your colour's wrong. Sit down, pata, and don't argue with a paramedic.", "kind": "open"}
+    ],
+    "dungeon_clear": [
+      {"text": "Everybody out, nobody left behind. That's the only rule I care about.", "kind": "open"}
+    ],
+    "town_arrive": [
+      {"text": "Lima traffic is the worst in the world, and I'd give anything for a bike and a free road through it.", "kind": "open", "topic": "cities"}
+    ],
+    "boss_down": [
+      {"text": "Good, it's down. Now, who's bleeding? Somebody always is.", "kind": "reply"}
+    ]
+  }
+}

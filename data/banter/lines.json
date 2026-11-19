@@ -492,25 +492,30 @@
     "pasang_primalist": {
       "zone_arrive": [
         {
-          "text": "Slow. The ground will still be there.",
+          "text": "Go slowly, the ground will still be there tomorrow.",
           "kind": "open"
         }
       ],
       "dungeon_clear": [
         {
-          "text": "Down is easier than up. That is when people get hurt.",
+          "text": "Down is easier than up, and that's when people get hurt.",
           "kind": "open"
         }
       ],
       "close_call": [
         {
-          "text": "You were tired an hour before that. I saw it, I said nothing. My fault.",
+          "text": "You were tired an hour before that. I saw it and said nothing, so that's my fault.",
           "kind": "reply"
+        },
+        {
+          "text": "At home the cold kills you while you sleep. Here it's polite enough to bring teeth.",
+          "kind": "open",
+          "topic": "the_cold"
         }
       ],
       "town_arrive": [
         {
-          "text": "Beds. Good. Nobody climbs well tired.",
+          "text": "Beds, that's good. Nobody climbs well when they're tired.",
           "kind": "open"
         }
       ]
@@ -1695,6 +1700,33 @@
         }
       ]
     },
+    "nicolas_bloodmage": {
+      "close_call": [
+        {
+          "text": "Your colour's wrong. Sit down, pata, and don't argue with a paramedic.",
+          "kind": "open"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Everybody out, nobody left behind. That's the only rule I care about.",
+          "kind": "open"
+        }
+      ],
+      "town_arrive": [
+        {
+          "text": "Lima traffic is the worst in the world, and I'd give anything for a bike and a free road through it.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ],
+      "boss_down": [
+        {
+          "text": "Good, it's down. Now, who's bleeding? Somebody always is.",
+          "kind": "reply"
+        }
+      ]
+    },
     "orlando_witchdoctor": {
       "town_arrive": [
         {
@@ -1722,6 +1754,39 @@
       "close_call": [
         {
           "text": "Ay bendito, come here, sit down, let me look at you. Keep talking to me.",
+          "kind": "open"
+        }
+      ]
+    },
+    "saoirse_starcaller": {
+      "dungeon_clear": [
+        {
+          "text": "Everybody stayed in their lines that time. I'm proud of yiz, honestly.",
+          "kind": "open"
+        }
+      ],
+      "boss_down": [
+        {
+          "text": "Get in, yes! That's what we've been drilling for, that is.",
+          "kind": "open"
+        }
+      ],
+      "town_arrive": [
+        {
+          "text": "Kilkenny's got a castle, a lot of pubs and the best hurlers in Ireland. Don't argue, it's a fact.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "Keep your head up and your feet moving, I've told you before. Next time, behind me.",
+          "kind": "reply"
+        }
+      ],
+      "zone_arrive": [
+        {
+          "text": "Good flat ground out here. You could mark out a pitch on that.",
           "kind": "open"
         }
       ]

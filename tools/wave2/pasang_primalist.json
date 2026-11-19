@@ -1,0 +1,77 @@
+{
+  "recruit_text": {
+    "greeting": "You need to go slowly. The altitude here is nothing, but your pace is still wrong.",
+    "backstory": "Nineteen expeditions above eight thousand metres as a climbing guide out of the Solukhumbu. He carried loads for people who went home famous. He's seen what high ground does to a body and to a personality, and he judges strangers by how they behave on day four. The spirits of stone and cold talk to him, and he treats it as a work arrangement rather than a mystery.",
+    "before": "A load, a rope, and nineteen seasons of other people's ambition.\n\nFour of his cousins did the same work, and two of them died on it. He has the names and he keeps them to himself.",
+    "adjustment": "He said very little for the first year. He worked, ate, slept and watched.\n\nIn the second year he began to speak, and people discovered he'd formed complete opinions about all of them.",
+    "now": "High in the Aspen Wilderness, with thin air, golden snow, bad weather and routes that were never written down.\n\nHe's written four of them down. He's shown them to one person.",
+    "forward": "A summit nobody's stood on. The highest peak in the Aspen country has never been climbed, and he's heard a great deal of talk from people who've been halfway.\n\nHe'd like to go alone. He knows that's exactly what he spent nineteen years telling clients to stop wanting."
+  },
+  "bond": {
+    "home": "the Aspen Wilderness",
+    "dials": {"warmth": 0.7, "nerve": 1.5, "pride": 0.8, "restless": 0.9},
+    "likes": ["new_ground", "boss"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Pasang, a mountain guide, and a primalist here. I set the pace, and the pace is slow. You'll hate it on day one and thank me on day four.",
+      "acquaintance": "I'm from Khumjung, in the Solukhumbu, in Nepal. Almost every family there works on the big mountains. My father carried loads before me. I was a porter at seventeen and a climbing guide at twenty-three, and I did nineteen seasons above eight thousand metres, carrying for people who went home famous. I've got a lot of stories about how they behaved on day four.",
+      "companion": "My wife is Dolma. She moved to Kathmandu so our son Tenzing could go to a good school. I wanted him to do anything except guide. I was at home in Khumjung between seasons, fixing a roof, when all this happened. Kathmandu is a long way from Khumjung. I don't know which of us came through, and I haven't found them.",
+      "friend": "Four of my cousins did the same work as me. Nima died in an avalanche on the Everest icefall. Lhakpa fell on Makalu. Dawa was the youngest, and I don't know where he is. There's a peak here nobody has stood on, the highest in the Aspen country. I wanted to go alone. I've decided I'd rather go with you, roped. That's not a small thing for me to say.",
+      "sworn": "It was Dawa in that tent on the ledge. He came through, and he tried the mountain alone, and he died a day from the top. I sat with him for an hour. Then we finished it, you and I, and stood where nobody had stood. I left his prayer flag up there, and Nima's name and Lhakpa's. I'll never climb alone again, and I'll never let anyone else do it either. I'm teaching the young ones in the high camps to guide, properly, slowly."
+    },
+    "moments": [
+      {"id": "the_peak", "stage": "friend", "when": "talk",
+       "prompt": "He's asked you to rope up with him for the summit.",
+       "options": [
+         {"text": "I'll rope up with you.", "trust": 12,
+          "reply": "Good, bistarai, slowly. We leave when the weather tells us, not before."},
+         {"text": "You'd be faster alone.", "trust": 0,
+          "reply": "Faster, yes, and more likely to die. I've seen it many times."}
+       ]},
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe he sits down and drinks some tea before he says anything.",
+       "line": "We went too fast, again. Everybody sit, breathe, drink something, and then we go slowly.",
+       "options": [
+         {"text": "You set the pace from now on.", "trust": 8, "mood": 6,
+          "reply": "Good, then nobody falls off the mountain."},
+         {"text": "We haven't got time to go slowly.", "trust": 0, "mood": -6,
+          "reply": "You have time to die, though, which is interesting."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We walk the same path again and again. Even porters get bored of that. Let's go somewhere with a summit.",
+      "leaving_good": "That was a good climb. I'll go back up to my hut in the Aspen country for a while. Come when the weather's good.",
+      "leaving_bored": "I'm going back up to the Aspen country. This is all flat ground, in every sense.",
+      "after_wipe": "We went too fast. Sit, breathe, drink something, and then we go slowly.",
+      "wipe_warning": "We keep falling here. I'll finish this climb with you, but then I'm going back up the mountain for a while.",
+      "wipe_leave": "I've finished it with you. Now I go home to the high country. Come when you've learned to go slowly.",
+      "zone_warning": "This is the death zone for us, and I know what that looks like. We should turn back now, while we can.",
+      "zone_leave": "I'm stopping here. I said it was the death zone. I'll be in the Aspen Wilderness.",
+      "gear_refuse": "No, that's mine. Gear is life on a mountain, and I don't know you well enough yet.",
+      "gear_taken": "Take it, then. I've climbed with worse.",
+      "gear_short": "I'm still missing that piece. On a mountain that matters.",
+      "gear_upgrade": "That's good kit. Thank you, really.",
+      "back": "I'm back, and the weather's good. Where are we climbing?",
+      "send_word": "Pasang has sent word from the Aspen Wilderness. The weather's good and he's ready to come down.",
+      "walkout_talk": "I left angry. I'll tell you why, slowly, and then you tell me. That's how a rope team works.",
+      "neglect": "You've been gone many seasons. The mountain didn't mind, and neither did I, mostly.",
+      "asked_to_stay": "All right, one more, bistarai, slowly.",
+      "on_break": "Pasang is back in his hut in the Aspen Wilderness. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "zone_arrive": [
+      {"text": "Go slowly, the ground will still be there tomorrow.", "kind": "open"}
+    ],
+    "dungeon_clear": [
+      {"text": "Down is easier than up, and that's when people get hurt.", "kind": "open"}
+    ],
+    "close_call": [
+      {"text": "You were tired an hour before that. I saw it and said nothing, so that's my fault.", "kind": "reply"},
+      {"text": "At home the cold kills you while you sleep. Here it's polite enough to bring teeth.", "kind": "open", "topic": "the_cold"}
+    ],
+    "town_arrive": [
+      {"text": "Beds, that's good. Nobody climbs well when they're tired.", "kind": "open"}
+    ]
+  }
+}

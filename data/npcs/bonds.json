@@ -2466,6 +2466,90 @@
         "quest_abandoned": "We accepted that and then left it. Somebody's still waiting for us, and that bothers me."
       }
     },
+    "nicolas_bloodmage": {
+      "home": "Splintertree Post",
+      "dials": {
+        "warmth": 1.1,
+        "nerve": 1.5,
+        "pride": 0.5,
+        "restless": 0.9
+      },
+      "likes": [
+        "dungeon",
+        "full_party"
+      ],
+      "dislikes": [
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "I'm Nicolás, and I'm a tank, a bloodmage one. Stand behind me, and if I go down, you run and you don't drag me. Promise me now, pata.",
+        "acquaintance": "I'm from Comas, on the north side of Lima. My mum sold in the market and my dad drove a bus, and my two big sisters bossed me around my whole life. I was a paramedic on a motorbike for nine years, because an ambulance can't get through Lima's traffic and a bike can. Fast bike, big bag, a lot of blood on my boots.",
+        "companion": "My partner on the bike for six years was Gladys Huamán. Ten years older than me, a nurse before, with the dirtiest mouth and the fastest hands I've ever seen. She trained me from nothing and swore at me every single day, and I loved her like a big sister. I haven't found her, or my mum, or my sisters. I keep a list of every hub I haven't checked.",
+        "friend": "We were both racing to the same call that morning, two streets apart. She was two streets away, and then I was in Ashenvale, and she was nowhere. I think about those two streets all the time. And now there's a hub far to the east I haven't checked, and somebody says there's a note pinned up there with my name on it. Will you come, pata? I'd like a second person on the bike.",
+        "sworn": "It was her, greyer and swearing at everybody, pinned down with the wounded in the middle of an attack. When she saw me she swore at me for taking three years, and then she held my face in both her hands. We got them all out together, the way we used to. She's been looking for me at every hub too. We're a crew again. She says I was always the slow one, and she's right."
+      },
+      "moments": [
+        {
+          "id": "promise",
+          "stage": "stranger",
+          "when": "hire",
+          "prompt": "He asks you to promise you won't drag him if he goes down.",
+          "options": [
+            {
+              "text": "I promise.",
+              "trust": 4,
+              "joins": true,
+              "reply": "Good, that's chévere. Then I'll stand in front of you as long as you want."
+            },
+            {
+              "text": "I don't leave people behind.",
+              "trust": 10,
+              "joins": true,
+              "reply": "Neither do I, pata. That's exactly the problem. Okay, I'll come."
+            }
+          ]
+        },
+        {
+          "id": "the_note",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's told you about the note with his name on it.",
+          "options": [
+            {
+              "text": "Let's go and read it.",
+              "trust": 12,
+              "reply": "Chévere, thank you, pata. Let's go fast."
+            },
+            {
+              "text": "It might be old.",
+              "trust": 2,
+              "reply": "Then it's old, and it's still more than I've had in three years."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Pata, we've been hitting the same things for days and nobody needed saving. Let's go somewhere that needs us.",
+        "leaving_good": "That was a good run. I'm going back to Splintertree for a while to check my list. You know where to find me.",
+        "leaving_bored": "I'm going back to Splintertree. This isn't helping anyone, and I've got hubs to check.",
+        "after_wipe": "Everyone stay down while I check you. Nobody drags anybody, I'll come to you.",
+        "wipe_warning": "We keep going down in here, pata. I'll finish this run, but then I need a break.",
+        "wipe_leave": "I finished it with you. Now I'm going back to Splintertree for a while. Come and get me when you're ready.",
+        "zone_warning": "This place is too much for us, pata. I can soak a lot, but not everything at once.",
+        "zone_leave": "I'm stopping here. It's too dangerous for us out there. I'll be at Splintertree Post.",
+        "gear_refuse": "No, that's mine, pata. Ask me again when we know each other.",
+        "gear_taken": "Take it, no problem. I'll stand in front without it.",
+        "gear_short": "I'm still missing that piece, pata. Just letting you know.",
+        "gear_upgrade": "Chévere, that's good kit. Thanks a lot, pata.",
+        "back": "I'm back, and I've crossed two more hubs off my list. Where are we going?",
+        "send_word": "Nicolás has sent word from Splintertree Post. He's ready to stand in front again.",
+        "walkout_talk": "I walked out, and I'd like to tell you why, calmly. Then you tell me yours, and we go back to work.",
+        "neglect": "Oe, there you are! I thought you'd found a better tank. There's no such thing, pata.",
+        "asked_to_stay": "Okay, pata, one more. Then my list.",
+        "on_break": "Nicolás is back at Splintertree Post in Ashenvale. Come back after you've done a few more jobs.",
+        "quest_abandoned": "We left somebody waiting, pata. I don't leave people behind, ever."
+      }
+    },
     "orlando_witchdoctor": {
       "home": "the Shadowpine Altar",
       "dials": {
@@ -2616,6 +2700,90 @@
         "neglect": "There you are. It's been quiet without you, and I don't do well with quiet.",
         "asked_to_stay": "Go on, then, one more. I'd like that.",
         "on_break": "Owen is back down the Azurelode Mine. Come back after you've done a few more jobs."
+      }
+    },
+    "pasang_primalist": {
+      "home": "the Aspen Wilderness",
+      "dials": {
+        "warmth": 0.7,
+        "nerve": 1.5,
+        "pride": 0.8,
+        "restless": 0.9
+      },
+      "likes": [
+        "new_ground",
+        "boss"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Pasang, a mountain guide, and a primalist here. I set the pace, and the pace is slow. You'll hate it on day one and thank me on day four.",
+        "acquaintance": "I'm from Khumjung, in the Solukhumbu, in Nepal. Almost every family there works on the big mountains. My father carried loads before me. I was a porter at seventeen and a climbing guide at twenty-three, and I did nineteen seasons above eight thousand metres, carrying for people who went home famous. I've got a lot of stories about how they behaved on day four.",
+        "companion": "My wife is Dolma. She moved to Kathmandu so our son Tenzing could go to a good school. I wanted him to do anything except guide. I was at home in Khumjung between seasons, fixing a roof, when all this happened. Kathmandu is a long way from Khumjung. I don't know which of us came through, and I haven't found them.",
+        "friend": "Four of my cousins did the same work as me. Nima died in an avalanche on the Everest icefall. Lhakpa fell on Makalu. Dawa was the youngest, and I don't know where he is. There's a peak here nobody has stood on, the highest in the Aspen country. I wanted to go alone. I've decided I'd rather go with you, roped. That's not a small thing for me to say.",
+        "sworn": "It was Dawa in that tent on the ledge. He came through, and he tried the mountain alone, and he died a day from the top. I sat with him for an hour. Then we finished it, you and I, and stood where nobody had stood. I left his prayer flag up there, and Nima's name and Lhakpa's. I'll never climb alone again, and I'll never let anyone else do it either. I'm teaching the young ones in the high camps to guide, properly, slowly."
+      },
+      "moments": [
+        {
+          "id": "the_peak",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to rope up with him for the summit.",
+          "options": [
+            {
+              "text": "I'll rope up with you.",
+              "trust": 12,
+              "reply": "Good, bistarai, slowly. We leave when the weather tells us, not before."
+            },
+            {
+              "text": "You'd be faster alone.",
+              "trust": 0,
+              "reply": "Faster, yes, and more likely to die. I've seen it many times."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he sits down and drinks some tea before he says anything.",
+          "line": "We went too fast, again. Everybody sit, breathe, drink something, and then we go slowly.",
+          "options": [
+            {
+              "text": "You set the pace from now on.",
+              "trust": 8,
+              "mood": 6,
+              "reply": "Good, then nobody falls off the mountain."
+            },
+            {
+              "text": "We haven't got time to go slowly.",
+              "trust": 0,
+              "mood": -6,
+              "reply": "You have time to die, though, which is interesting."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We walk the same path again and again. Even porters get bored of that. Let's go somewhere with a summit.",
+        "leaving_good": "That was a good climb. I'll go back up to my hut in the Aspen country for a while. Come when the weather's good.",
+        "leaving_bored": "I'm going back up to the Aspen country. This is all flat ground, in every sense.",
+        "after_wipe": "We went too fast. Sit, breathe, drink something, and then we go slowly.",
+        "wipe_warning": "We keep falling here. I'll finish this climb with you, but then I'm going back up the mountain for a while.",
+        "wipe_leave": "I've finished it with you. Now I go home to the high country. Come when you've learned to go slowly.",
+        "zone_warning": "This is the death zone for us, and I know what that looks like. We should turn back now, while we can.",
+        "zone_leave": "I'm stopping here. I said it was the death zone. I'll be in the Aspen Wilderness.",
+        "gear_refuse": "No, that's mine. Gear is life on a mountain, and I don't know you well enough yet.",
+        "gear_taken": "Take it, then. I've climbed with worse.",
+        "gear_short": "I'm still missing that piece. On a mountain that matters.",
+        "gear_upgrade": "That's good kit. Thank you, really.",
+        "back": "I'm back, and the weather's good. Where are we climbing?",
+        "send_word": "Pasang has sent word from the Aspen Wilderness. The weather's good and he's ready to come down.",
+        "walkout_talk": "I left angry. I'll tell you why, slowly, and then you tell me. That's how a rope team works.",
+        "neglect": "You've been gone many seasons. The mountain didn't mind, and neither did I, mostly.",
+        "asked_to_stay": "All right, one more, bistarai, slowly.",
+        "on_break": "Pasang is back in his hut in the Aspen Wilderness. Come back after you've done a few more jobs."
       }
     },
     "pavlo_knight": {
@@ -2857,6 +3025,90 @@
         "asked_to_stay": "Fine, one more. Consider it a goodwill gesture.",
         "on_break": "Ryan is back on the Echo Isles with his contracts. Come back after you've done a few more jobs.",
         "quest_abandoned": "We agreed to that and walked off. I keep my contracts, and I'd like it if we did too."
+      }
+    },
+    "saoirse_starcaller": {
+      "home": "the Sepulcher",
+      "dials": {
+        "warmth": 1.4,
+        "nerve": 1.5,
+        "pride": 0.6,
+        "restless": 1.0
+      },
+      "likes": [
+        "boss",
+        "full_party"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Saoirse, and I stand in front of things. Get behind me, keep your head up, and do what I shout. If you get notions, I'll throw this ball at you, and I don't miss.",
+        "acquaintance": "I'm from Kilkenny, so. My da farmed and my mam was a nurse. I had a camogie stick in my hand at five and played for the county from seventeen, until my knee went in a county final at twenty-six. That was the end of playing. I took up coaching the same year, under-sixteen girls, and I loved it more than I ever loved playing, if you can believe that.",
+        "companion": "I was driving the minibus to an away match at seven in the morning with eleven of my girls in the back when it happened. I landed in Silverpine on my own with this sliotar in my pocket. I don't know where they went. I've checked every list I can reach for eleven names. That's the bit I can't put down, honestly.",
+        "friend": "My parents died within a year of each other when I was twenty-nine, and my brother's in Australia, and we're not close. There was nobody whose being gone really rearranged me, and I've felt guilty about that for years. But those girls are mine. A trader in Tarren Mill says there's a group of Irish teenage girls living on a farm out there. I need to go now. Will you come?",
+        "sworn": "Seven of my eleven, older and taller, standing in front of each other with sticks in their hands, the way I taught them. I nearly cried, I'm not ashamed to say. The other four were never with them, and nobody knows where they are. I'll keep looking. But I've got a team now. Seven of mine and four from the Sepulcher, out on the training ground at seven every morning, complaining. Best day I've had in three years, that first one."
+      },
+      "moments": [
+        {
+          "id": "the_farm",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's asked you to come to Tarren Mill with her.",
+          "options": [
+            {
+              "text": "Let's go and get your girls.",
+              "trust": 12,
+              "reply": "Grand, that's grand. Come on, before I lose my nerve."
+            },
+            {
+              "text": "What if it's not them?",
+              "trust": 2,
+              "reply": "Then it's somebody's girls, and they'll need us anyway."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe she claps her hands, loudly, like it's half time.",
+          "line": "Right, team talk! We got beaten because we didn't stay in our lines. Up, and we go again, properly this time.",
+          "options": [
+            {
+              "text": "Yes, coach.",
+              "trust": 8,
+              "mood": 8,
+              "reply": "Ha, that's the spirit! Lines, everybody, and talk to each other."
+            },
+            {
+              "text": "This isn't a match.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "Everything's a match if you want to win it, so."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been doing the same drill for days and nobody's getting any better at it. Let's find a proper game, will we?",
+        "leaving_good": "That was a great outing, so it was. I'm off back to the Sepulcher to train my lot. You know where I'll be.",
+        "leaving_bored": "I'm heading back to the Sepulcher. This is the same drill again and again, and my youngsters need me more.",
+        "after_wipe": "Right, team talk! Up you get, and we go again, properly this time.",
+        "wipe_warning": "We keep losing in here, and even I'm running out of team talks. I'll finish this one, then I need a break.",
+        "wipe_leave": "Final whistle, I'm off home. I'll be at the Sepulcher when you've sorted out your lines.",
+        "zone_warning": "This lot are a division above us, and there's no shame in that. Let's go and play at our own level for a bit.",
+        "zone_leave": "I'm stopping here. I said they were a division above us. I'll be at the Sepulcher.",
+        "gear_refuse": "Go way outta that, it's mine. Ask me again when you've earned it.",
+        "gear_taken": "Take it, so. I'll get in front of things without it, same as ever.",
+        "gear_short": "I'm still missing that piece, by the way. I'm only saying.",
+        "gear_upgrade": "Ah, that's grand, thank you! I'll look after it, I promise.",
+        "back": "I'm back, and my youngsters can fall properly now. Where are we off to?",
+        "send_word": "Saoirse has sent word from the Sepulcher. Her youngsters are trained and she's ready to come out.",
+        "walkout_talk": "I walked out, and I'm not proud of it. Sit down and let's have it out, fair and square, like a proper team.",
+        "neglect": "Well, look who it is! I'd nearly given you up for transferred to another team.",
+        "asked_to_stay": "Go on, one more game. Then I've training at seven.",
+        "on_break": "Saoirse is back at the Sepulcher, coaching her youngsters. Come back after you've done a few more jobs."
       }
     },
     "sebastian_bloodmage": {

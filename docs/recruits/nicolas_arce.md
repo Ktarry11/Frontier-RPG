@@ -11,7 +11,7 @@ Wave 1 profile, draft 1 (19 Nov 2026). Built on his recruit entry. Waves 2, 3 an
 | Earth job | Motorbike paramedic for nine years, because an ambulance can't get through Lima's traffic and a bike can |
 | Here | Bloodmage (Eternal), level 27, a tank |
 | Lives | Splintertree Post, in Ashenvale East |
-| Family | His mother and two sisters in Lima. His partner on the bike for six years, Rosa Quispe. |
+| Family | His mother and two sisters in Lima. His partner on the bike for six years, Gladys Huamán. |
 | First impression | Steady, quiet and solid. He makes you promise not to drag him if he goes down. |
 
 ## Who he is
@@ -24,7 +24,7 @@ He's loyal past reason. The one thing that will shut him down completely is bein
 
 He's quiet and kind, with a slow, warm humour.
 
-He's searching. His partner on the bike, Rosa Quispe, trained him, swore at him constantly, and was two streets away when it
+He's searching. His partner on the bike, Gladys Huamán, trained him, swore at him constantly, and was two streets away when it
 happened. He's looked for her at every hub he's reached and keeps a list of the ones he hasn't reached yet.
 
 What annoys him: people who leave others behind, people who freeze in traffic, and anyone who says "there's nothing we can do".
@@ -36,36 +36,36 @@ He grew up in Comas, in Lima, the son of a market vendor and a bus driver, with 
 paramedic at 22 and joined the motorbike unit at 24, because the city's traffic killed more people than it should and a bike could
 get through.
 
-For six years his partner was Rosa Quispe, ten years older, a former nurse with a filthy mouth and the fastest hands he's ever
+For six years his partner was Gladys Huamán, ten years older, a former nurse with a filthy mouth and the fastest hands he's ever
 seen. She trained him from nothing. She swore at him every day and he loved her like an older sister.
 
 He had girlfriends, none of whom liked the hours or the blood on his boots.
 
 ## The Integration and what it cost
 
-He was on the bike, two streets from Rosa, racing to the same call, when it happened. He landed in Ashenvale with the folding
+He was on the bike, two streets from Gladys, racing to the same call, when it happened. He landed in Ashenvale with the folding
 tourniquet windlass from his kit still clipped to his jacket.
 
 He worked. That's the entire answer and he gives it in those words. The second year was worse than the first, because by then
 he'd run out of places nearby to check, and he had to admit the looking was going to be a long project.
 
-He hasn't found Rosa, his mother or his sisters.
+He hasn't found Gladys, his mother or his sisters.
 
 ## Now
 
 He's at Splintertree Post in Ashenvale East, and at the front of whatever party he's in, soaking what's aimed at the people
 behind him.
 
-He wants Rosa, obviously. He won't pretend otherwise and he won't make anybody else carry it. Beyond that he wants a crew: two
+He wants Gladys, obviously. He won't pretend otherwise and he won't make anybody else carry it. Beyond that he wants a crew: two
 people on a fast thing, going toward what everybody else is going away from.
 
 ## Hopes, dreams and fears
 
-- **Hope:** to find Rosa.
+- **Hope:** to find Gladys.
 - **Hope:** a crew of two again.
 - **Dream:** a Sunday lunch with his mother and sisters, all of them talking at once.
 - **Fear:** leaving someone behind.
-- **Fear:** that Rosa needed him and he wasn't there.
+- **Fear:** that Gladys needed him and he wasn't there.
 - **Fear:** running out of hubs to check.
 
 ## How he's changed
@@ -77,7 +77,7 @@ is a second person on the bike.
 
 ## What he wants next (his goal and personal quest)
 
-**His goal:** to find Rosa Quispe.
+**His goal:** to find Gladys Huamán.
 
 **The personal quest (opens at Friend):**
 1. He reaches a hub he hasn't checked, far to the east, and finds a note pinned up years ago: "Arce. Comas. Ask for the woman who
@@ -85,14 +85,14 @@ is a second person on the bike.
 2. The trail leads to a war camp where a healer matching her description is pinned down with the wounded during an attack.
 3. You and Nicolás go in, toward what everyone else is running from.
 
-**Ending (happy):** it's Rosa, older and greyer and swearing at everyone. When she sees him she swears at him for taking three
+**Ending (happy):** it's Gladys, older and greyer and swearing at everyone. When she sees him she swears at him for taking three
 years, then holds his face in both hands. They get the wounded out together, the way they used to. She says she's been looking
 for him at every hub too, and she's left a note at every one. They're a crew again. She tells you he was always the slow one.
 
 ## His keepsake (the new Collection tab)
 
 **Nicolás's Tourniquet Windlass.** The folding windlass from a paramedic's tourniquet, clipped to his jacket on the bike in Lima
-and every day since. He gives it to you after he finds Rosa. He says Rosa's going to make him get a new kit anyway, and she'd want
+and every day since. He gives it to you after he finds Gladys. He says Gladys's going to make him get a new kit anyway, and she'd want
 you to have something that's stopped a lot of bleeding.
 
 ## Voice notes
@@ -100,8 +100,8 @@ you to have something that's stopped a lot of bleeding.
 - Calm, slow and kind. Contractions, short sentences in a crisis, and quiet jokes.
 - His English is good, with a Lima accent and Peruvian slang: "pata" (mate), "causa", "chévere", "oe".
 - He makes everyone promise not to drag him.
-- He swears in Spanish mildly, picked up from Rosa.
-- **He won't talk about** Rosa until Companion, or the two streets until Friend.
+- He swears in Spanish mildly, picked up from Gladys.
+- **He won't talk about** Gladys until Companion, or the two streets until Friend.
 - **Habits:** walks beside anyone who's struggling, checks everyone's colour, touches the windlass, and keeps the list of hubs.
 
 ## Seeds for the next waves (not decided, just where this points)
@@ -115,9 +115,9 @@ you to have something that's stopped a lot of bleeding.
 
 ## What this changes in what's already written
 
-- **New:** Comas, his parents and sisters, Rosa's background, the note at the eastern hub, and the war camp.
+- **New:** Comas, his parents and sisters, Gladys's background, the note at the eastern hub, and the war camp.
 - **Kept:** nine years a motorbike paramedic in Lima, triage at speed, blood magic without the pretence, steady and hard to
-  frighten, shutting down at leaving someone behind, the bike and the bag, Rosa Quispe for six years, training him and swearing,
+  frighten, shutting down at leaving someone behind, the bike and the bag, Gladys Huamán for six years, training him and swearing,
   two streets away, the list of hubs, working, the second year worse, a crew of two, soaking the hits, noticing an hour before
   anyone else, and the tourniquet windlass.
 
