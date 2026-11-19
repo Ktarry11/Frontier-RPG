@@ -1232,30 +1232,30 @@
       ]
     },
     "pieter_guardian": {
-      "boss_down": [
-        {
-          "text": "Lovely. Who's next?",
-          "kind": "open"
-        }
-      ],
       "zone_arrive": [
         {
-          "text": "Look at that ground. Flat, drained, nobody cutting it. Criminal.",
-          "kind": "open"
-        }
-      ],
-      "dungeon_clear": [
-        {
-          "text": "Twenty-two years I watched other people run onto a field I made. Not any more.",
-          "kind": "reply",
-          "topic": "cities"
+          "text": "Look at that drop. Nobody goes near the edge without telling me first.",
+          "kind": "open",
+          "topic": "measure"
         }
       ],
       "town_arrive": [
         {
-          "text": "Twenty-two years cutting a field nobody thanked me for. I'd do it again.",
+          "text": "Rotterdam's all cranes and containers and wind off the North Sea, and I loved every safety notice in it.",
           "kind": "open",
           "topic": "cities"
+        }
+      ],
+      "boss_down": [
+        {
+          "text": "Good, nobody was under it when it fell. That's the bit I care about.",
+          "kind": "reply"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Everybody out, everybody counted. That's a good shift, ja.",
+          "kind": "open"
         }
       ]
     },
@@ -1434,6 +1434,33 @@
         {
           "text": "Somebody died in that room a long time ago and nobody marked it.",
           "kind": "reply"
+        }
+      ]
+    },
+    "bashir_witchhunter": {
+      "dungeon_clear": [
+        {
+          "text": "That wall at the back was cut by a mason who knew his work. The rest was rubbish.",
+          "kind": "open"
+        }
+      ],
+      "town_arrive": [
+        {
+          "text": "Nablus is old stone in a valley between two mountains, and my family cut some of it.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ],
+      "boss_down": [
+        {
+          "text": "It's done now. I'll report what I saw, all of it, when we stop.",
+          "kind": "reply"
+        }
+      ],
+      "zone_arrive": [
+        {
+          "text": "The corruption runs along the ground like a crack in stone. Follow it slowly.",
+          "kind": "open"
         }
       ]
     },
@@ -1649,6 +1676,37 @@
         {
           "text": "There'll be farms out here somewhere, and somebody pregnant who needs looking at.",
           "kind": "open"
+        }
+      ]
+    },
+    "gianluca_guardian": {
+      "town_arrive": [
+        {
+          "text": "Let's see if anyone here knows how to make a coffee. I'm expecting a three, at best.",
+          "kind": "open"
+        },
+        {
+          "text": "Bologna has miles of arcades, the best food in Italy and a bar on every corner. One of them was mine.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ],
+      "boss_down": [
+        {
+          "text": "I'd give that fight a seven. Good footwork, terrible smell.",
+          "kind": "open"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Everybody out alive, that's a nine! Drinks are on me, when I've got drinks.",
+          "kind": "open"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "Too close, much too close. Stand behind me next time, I'm wider.",
+          "kind": "reply"
         }
       ]
     },

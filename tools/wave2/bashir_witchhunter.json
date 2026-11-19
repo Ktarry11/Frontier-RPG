@@ -1,0 +1,77 @@
+{
+  "recruit_text": {
+    "greeting": "I'll tell you what I find, all of it, including the parts you'd rather I kept to myself. If that's a problem, say so now.",
+    "backstory": "A stonemason in Nablus for twenty-two years, in a trade of taking something apart correctly before you rebuild it. He's severe, literal and entirely without small talk, and people read that as coldness for about a week. He hunts corrupted things the way he cut stone: slowly, along the grain, with no interest at all in how long it takes.",
+    "before": "A yard, a chisel, and walls his grandfather worked on before him.\n\nA daughter, Rana, nineteen, who'd just started at the university in Birzeit and told him the week before that she meant to study engineering instead of anything he'd suggested. He'd been pleased, and he hadn't said so yet.",
+    "adjustment": "He went looking for her immediately and didn't stop for eleven months.\n\nHe walked to four hubs in that time, on foot, through country that kills people. He found nothing. He came back, said nothing about it to anybody, and started doing the work he does now.",
+    "forward": "He's never said. The closest anybody's got is that he keeps a list of the places he hasn't searched, and the list is getting shorter, and he's begun to look at what's at the end of it.\n\nHe's told one person that he means to be useful until then. That's the plan.",
+    "now": "The Drowned Shrine, off Southern Stranglethorn, out at the edge of the corruption with a lantern, where the work is slow and almost nobody volunteers.\n\nHe snaps the chalk line before he goes in anywhere. He's done it at every doorway for three years, and he does it without seeming to notice."
+  },
+  "bond": {
+    "home": "the Drowned Shrine",
+    "dials": {"warmth": 0.5, "nerve": 1.5, "pride": 0.9, "restless": 0.7},
+    "likes": ["dungeon", "undead"],
+    "dislikes": ["quest_abandoned"],
+    "stages": {
+      "stranger": "My name's Bashir, and I hunt corruption. I'll tell you everything I find, plainly. I work slowly, and I won't be hurried. If you can accept that, we'll get on.",
+      "acquaintance": "I'm from Nablus. My grandfather and my father cut stone in the same yard, and I learned it at twelve. Twenty-two years of walls, old and new. You snap a chalk line across the block before you cut, so the cut runs true. I still do it, at every door. I know I do it.",
+      "companion": "I've got a daughter, Rana. She was nineteen, at university in Birzeit. When all this happened I went looking for her at once, and I didn't stop for eleven months. Four hubs, on foot, through country that kills people, and I found nothing. I came back and started this work. I keep a list of places I haven't searched. It's getting shorter.",
+      "friend": "My wife was Samira. She died bearing our second child, and the child died too, when Rana was three. I raised Rana alone, strictly, and I wanted her to be a doctor or a teacher. There are three places left on my list, the hardest, through corrupted country. I'd like you to come with me to the end of it.",
+      "sworn": "There was no sign of her, not at any of the three. At the last, a camp of engineers building a bridge, the foreman had never heard of her. So I said it out loud to you, at last. I was pleased she chose engineering, and proud, and she'd be good at it. Then I helped them build the bridge, stone by stone, correctly. I've started a new list. Every bridge being built, anywhere. If she's alive, she's building one."
+    },
+    "moments": [
+      {"id": "the_list", "stage": "friend", "when": "talk",
+       "prompt": "He's asked you to come with him to the last places on his list.",
+       "options": [
+         {"text": "To the end of the list, together.", "trust": 12,
+          "reply": "Thank you. We'll go slowly, and correctly, and we'll look properly."},
+         {"text": "What happens when the list runs out?", "trust": 4,
+          "reply": "I don't know. That's why I've been walking slowly."}
+       ]},
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe he reports, flatly, what went wrong.",
+       "line": "We went against the grain. This isn't how it's done. We'll start again from the first stone.",
+       "options": [
+         {"text": "Show us the grain.", "trust": 8, "mood": 6,
+          "reply": "Good, slowly, then, and you'll see it."},
+         {"text": "We haven't got time for slow.", "trust": 0, "mood": -6,
+          "reply": "Then you'll spend it on wipes instead."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We repeat the same work without purpose. I don't mind slow, but I mind pointless. Let's go somewhere that needs us.",
+      "leaving_good": "That was good work, done correctly. I'm going back to the Shrine now. You know where I'll be.",
+      "leaving_bored": "I'm going back to the Drowned Shrine. This isn't useful, and the corruption doesn't wait.",
+      "after_wipe": "We went against the grain. We'll start again, slowly.",
+      "wipe_warning": "We've failed here too often. I'll finish this run with you, and then I need some days at the Shrine.",
+      "wipe_leave": "I've finished it with you. Now I'm going back to the Shrine. Come when you're ready to work properly.",
+      "zone_warning": "I'll tell you plainly, this place is too much for us. This isn't how it's done.",
+      "zone_leave": "I'm stopping here. I told you plainly. I'll be at the Drowned Shrine.",
+      "gear_refuse": "No, that's mine. I don't know you well enough yet.",
+      "gear_taken": "Take it, then. I'll work without it, slowly.",
+      "gear_short": "I'm still missing that piece. I'm reporting it.",
+      "gear_upgrade": "That's well made. Thank you.",
+      "back": "I'm back, and the Shrine is holding. Where are we going?",
+      "send_word": "Bashir has sent word from the Drowned Shrine. He's ready to come out again.",
+      "walkout_talk": "I left angry. I'll tell you exactly why, all of it. Then you'll tell me, and we'll start again.",
+      "neglect": "You've been gone a long time. I worked, as I always do.",
+      "asked_to_stay": "Very well, one more, yalla.",
+      "on_break": "Bashir is back at the Drowned Shrine, at the edge of the corruption. Come back after you've done a few more jobs.",
+      "quest_abandoned": "We said we'd do it, and we've left it. This isn't how it's done."
+    }
+  },
+  "banter": {
+    "dungeon_clear": [
+      {"text": "That wall at the back was cut by a mason who knew his work. The rest was rubbish.", "kind": "open"}
+    ],
+    "town_arrive": [
+      {"text": "Nablus is old stone in a valley between two mountains, and my family cut some of it.", "kind": "open", "topic": "cities"}
+    ],
+    "boss_down": [
+      {"text": "It's done now. I'll report what I saw, all of it, when we stop.", "kind": "reply"}
+    ],
+    "zone_arrive": [
+      {"text": "The corruption runs along the ground like a crack in stone. Follow it slowly.", "kind": "open"}
+    ]
+  }
+}

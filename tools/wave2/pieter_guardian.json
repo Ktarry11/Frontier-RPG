@@ -1,0 +1,73 @@
+{
+  "recruit_text": {
+    "adjustment": "Instant, and he's slightly ashamed of how instant. His entire profession turned out to apply directly to a world with monsters in it, and his colleagues in Rotterdam would have found that hilarious.",
+    "now": "The goblin dig sites of Northern Tanaris, where men and goblins work deep pits and high scaffolds with no harness, and the Cartel's position is that they chose the job.\n\nPieter has pulled nine men out in three years. He keeps the number because somebody should.",
+    "forward": "Rules that outlive him. He's written a set for the dig sites, and the Cartel foreman has ignored all of them.\n\nHe submits them again every season. Four seasons now."
+  },
+  "bond": {
+    "home": "Northern Tanaris",
+    "dials": {"warmth": 0.8, "nerve": 1.5, "pride": 0.8, "restless": 0.8},
+    "likes": ["dungeon", "quest"],
+    "dislikes": ["quest_abandoned"],
+    "stages": {
+      "stranger": "I'm Pieter, and I'll take the hits. That's not courage, it's arithmetic. I'm wearing the armour. Now check your straps before we go anywhere.",
+      "acquaintance": "Pretoria, born and raised. My father was a safety officer at the mines, and I went into the same line. At twenty-three I met a Dutch nurse on a working holiday and followed her back to Rotterdam. Twenty-eight years of port safety there. Clipboard, hard hat, and the most tedious man on the dock, ja.",
+      "companion": "My wife is Anneke. We've got two girls, Lotte and Sanne, grown now, in Rotterdam. I was checking a crane harness when it happened, and I landed in Tanaris with my father's knife on my belt. I took to this place straight away, and I'm a bit ashamed of that. A world with monsters in it needs a safety man more than a port does.",
+      "friend": "I've pulled nine men out of those pits in three years. I don't talk about the ones I didn't, in Rotterdam or here. And now the Cartel's digging a deep new pit, fast, no shoring, no harnesses, and I've told them it'll come down. They won't listen. When it goes, I'm going in. I'd like you with me.",
+      "sworn": "We got nine out. The tenth was a young goblin called Fizzik who used to bring me tea, and he died before we reached him. I stayed at the collapse till morning. Then I put my rules on the foreman's desk for the fifth time, and this time he signed them. That's always how it goes, ja. They listen after the tenth. Fizzik's name is at the top of the rules now, and every new worker reads it first."
+    },
+    "moments": [
+      {"id": "straps", "stage": "stranger", "when": "hire",
+       "prompt": "He won't come along until he's checked your gear.",
+       "options": [
+         {"text": "Let him check everything.", "trust": 6, "joins": true,
+          "reply": "Lekker, that's sensible. Two buckles loose, now fixed, so let's go."},
+         {"text": "My gear's fine.", "trust": 0, "joins": false,
+          "reply": "Everybody says that before they fall. Come back when you'll let me look."}
+       ]},
+      {"id": "the_pit", "stage": "friend", "when": "talk",
+       "prompt": "He's told you he'll go in when the new pit collapses.",
+       "options": [
+         {"text": "Then I'm going in with you.", "trust": 12,
+          "reply": "Ja, that's good. Harness on, two points of contact, and you do what I say."},
+         {"text": "Maybe they'll listen this time.", "trust": 2,
+          "reply": "Nee, they never do. Not until after."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've been doing the same thing over and over, and nobody's at risk. That's lovely, but it's not useful. Let's go where we're needed.",
+      "leaving_good": "That was a good trip, and nobody fell off anything. I'm going back to the dig sites to check on my men. You know where I'll be.",
+      "leaving_bored": "I'm going back to Tanaris. This isn't useful, and there are pits with no harnesses there.",
+      "after_wipe": "Right, everybody stop. Count heads, check straps, and then we talk about what went wrong.",
+      "wipe_warning": "We keep dying in here, and that's a safety failure. I'll finish this run, then I'm going back to my clipboard for a while.",
+      "wipe_leave": "I've seen it through. Now I'm going back to Northern Tanaris. Come back when you've got a proper plan.",
+      "zone_warning": "I've done the arithmetic and it doesn't work, ja. This place costs more than we can pay, so let's go.",
+      "zone_leave": "I'm stopping here. The arithmetic doesn't work out there. I'll be at the dig sites in Northern Tanaris.",
+      "gear_refuse": "Nee, that's mine. You don't take a man's safety gear off him.",
+      "gear_taken": "Take it, then. I've written it down, and I'll want it replaced.",
+      "gear_short": "I'm still missing that piece, and that's a safety issue, ja.",
+      "gear_upgrade": "Lekker, that's proper kit. Thank you.",
+      "back": "I'm back, and nobody's died at the dig sites. Check your straps, and then tell me where we're going.",
+      "send_word": "Pieter has sent word from Northern Tanaris. The dig sites are safe for now and he's ready to come out.",
+      "walkout_talk": "I walked out, and I'll tell you why, step by step. Then you give me your side.",
+      "neglect": "There you are. I counted you missing for quite a while.",
+      "asked_to_stay": "Ja, all right, one more, straps first.",
+      "on_break": "Pieter is back at the dig sites in Northern Tanaris. Come back after you've done a few more jobs.",
+      "quest_abandoned": "We left those people at risk. That's not how I work, ja."
+    }
+  },
+  "banter": {
+    "zone_arrive": [
+      {"text": "Look at that drop. Nobody goes near the edge without telling me first.", "kind": "open", "topic": "measure"}
+    ],
+    "town_arrive": [
+      {"text": "Rotterdam's all cranes and containers and wind off the North Sea, and I loved every safety notice in it.", "kind": "open", "topic": "cities"}
+    ],
+    "boss_down": [
+      {"text": "Good, nobody was under it when it fell. That's the bit I care about.", "kind": "reply"}
+    ],
+    "dungeon_clear": [
+      {"text": "Everybody out, everybody counted. That's a good shift, ja.", "kind": "open"}
+    ]
+  }
+}

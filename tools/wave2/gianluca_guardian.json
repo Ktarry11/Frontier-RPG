@@ -1,0 +1,75 @@
+{
+  "recruit_text": {
+    "greeting": "You want to go in there? Fine, fine, but we go slowly, you let me go first, and afterwards you buy me something hot. That's the arrangement.",
+    "backstory": "He ran a bar in Bologna that his parents ran before him, opening at six for the people going to work and closing late for the people avoiding going home. Thirty years of standing behind a counter reading a room. He talks without stopping, he remembers what everybody drinks, and he's defused more fights with a joke than most soldiers have with a weapon. Behind a shield he's immovable, and nobody expected that from the man who won't shut up.",
+    "adjustment": "He built a bar. Not a real one, just a spot by a fire where he stood and people came to him, and he turned that into a job inside four months.\n\nHe's said he didn't know what else to do with himself, and that what he actually missed was being the person everyone passes in the morning.",
+    "forward": "A real bar, with a room, a door and a machine. He describes it constantly and in enormous detail, and he's done nothing about it in three years.\n\nHe walks to the hubs every few months. He reads the Bologna list and the Milan list, in that order, and he reads the Milan list twice.",
+    "now": "Steamwheedle Port, by a fire where the goblins and sailors and caravan guards come to him. In a party he's at the front with a shield, keeping up a running commentary the enemy finds as unsettling as everyone else does.\n\nThe brass tamper hangs at his belt. He has no coffee and no machine. He's tried a dozen local substitutes and rated every one out of ten, unkindly."
+  },
+  "bond": {
+    "home": "Steamwheedle Port",
+    "dials": {"warmth": 1.5, "nerve": 1.4, "pride": 0.8, "restless": 0.8},
+    "likes": ["full_party", "dungeon"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "Ciao, I'm Gianluca, and I'm a guardian, which means I stand in front and talk. You'll get used to the talking. Everybody does, eventually, or they leave.",
+      "acquaintance": "I'm from Bologna. My parents ran a bar near the university, and I took it over at twenty-two and ran it thirty years. Open at six, close late, and an espresso machine I rebuilt with my own hands twice. The six o'clock crowd never ordered, because I already knew. That's the best feeling in the world, allora.",
+      "companion": "My boys are Luca and Davide, both grown, both moved to Milan, which I took personally. They rang every Sunday. I was tamping a shot at six in the morning when it happened, and I landed in Tanaris with this tamper in my hand. I read the Milan list twice every time I go to a hub. Don't tell anyone that.",
+      "friend": "My wife is Ornella. She ran the kitchen and the money and, honestly, most of me. I talk all the time so nobody notices I don't say her name. A goblin trader swears he's found a bean in the far jungle that'll make coffee I'll rate ten out of ten. I don't believe him. I want to go anyway. Come with me, dai.",
+      "sworn": "It's an eight, and I was thrilled! I opened at six the first morning, and the first customer through the door was a woman who'd heard about an Italian at Steamwheedle who rates everything out of ten, and it was Ornella. She'd been running a kitchen in a camp in Tanaris for two years. She tasted my coffee and said it's a six, and she's wrong. We argued for an hour, and then she went into the kitchen without being asked. I still read the Milan list twice."
+    },
+    "moments": [
+      {"id": "rate_it", "stage": "acquaintance", "when": "talk",
+       "prompt": "He's rating tonight's meal out of ten, loudly, and asks for your score.",
+       "options": [
+         {"text": "Give it an honest score.", "trust": 8,
+          "reply": "Ha, a five? You're harsh, I like that. A man who rates honestly is a friend."},
+         {"text": "Say it's a ten.", "trust": 0,
+          "reply": "A ten, really? Mamma mia, you've never had real food. We'll fix that."}
+       ]},
+      {"id": "the_bean", "stage": "friend", "when": "talk",
+       "prompt": "He's asked you to come and find the goblin's coffee bean.",
+       "options": [
+         {"text": "Let's find you a ten.", "trust": 12,
+          "reply": "Dai, let's go! It won't be a ten, nothing's a ten, but let's go."},
+         {"text": "What if it's terrible?", "trust": 4,
+          "reply": "Then I'll rate it a two and complain the whole way home, allora."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've done the same thing every day, and the food's a three, and the company's lovely but bored. Let's go somewhere new, dai.",
+      "leaving_good": "That was a wonderful trip, a solid eight. I'm going back to Steamwheedle to my fire. Come and see me, I'll pour you something.",
+      "leaving_bored": "I'm going back to Steamwheedle. This trip's a four, and I've got regulars waiting.",
+      "after_wipe": "Allora, that was a two out of ten. Everybody up, and we try for a six.",
+      "wipe_warning": "We keep dying in here, and even I've stopped joking. I'll finish this run, then I need some days by my fire.",
+      "wipe_leave": "I've finished it with you. Now I'm going back to Steamwheedle Port. Come and find me when you've got a better plan.",
+      "zone_warning": "Mamma mia, this place is a zero. Everything out here wants to kill us. Let's go somewhere we can handle.",
+      "zone_leave": "I'm stopping here. That place is a zero out of ten. I'll be at Steamwheedle Port.",
+      "gear_refuse": "Ah, no, that's mine. Become a regular first, then we'll see.",
+      "gear_taken": "Take it, take it. I'll stand in front anyway, talking.",
+      "gear_short": "I'm still missing that piece. I'd rate my armour a five without it.",
+      "gear_upgrade": "Oh, that's a nine at least! Grazie, grazie mille.",
+      "back": "I'm back, and my fire's in good hands. Where are we going? I'll talk the whole way, I promise.",
+      "send_word": "Gianluca has sent word from Steamwheedle Port. His regulars are looked after and he's ready to come out.",
+      "walkout_talk": "I walked out angry, and that's not like me. Sit down, I'll pour you something, and we'll talk it through.",
+      "neglect": "There you are! I kept your seat by the fire. Nobody else was allowed it.",
+      "asked_to_stay": "Dai, one more, and then my fire.",
+      "on_break": "Gianluca is back by his fire at Steamwheedle Port. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {"text": "Let's see if anyone here knows how to make a coffee. I'm expecting a three, at best.", "kind": "open"},
+      {"text": "Bologna has miles of arcades, the best food in Italy and a bar on every corner. One of them was mine.", "kind": "open", "topic": "cities"}
+    ],
+    "boss_down": [
+      {"text": "I'd give that fight a seven. Good footwork, terrible smell.", "kind": "open"}
+    ],
+    "dungeon_clear": [
+      {"text": "Everybody out alive, that's a nine! Drinks are on me, when I've got drinks.", "kind": "open"}
+    ],
+    "close_call": [
+      {"text": "Too close, much too close. Stand behind me next time, I'm wider.", "kind": "reply"}
+    ]
+  }
+}

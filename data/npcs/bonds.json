@@ -674,6 +674,91 @@
         "on_break": "Bakyt is back on the high pasture in Eastern Hillsbrad. Come back after you've done a few more jobs."
       }
     },
+    "bashir_witchhunter": {
+      "home": "the Drowned Shrine",
+      "dials": {
+        "warmth": 0.5,
+        "nerve": 1.5,
+        "pride": 0.9,
+        "restless": 0.7
+      },
+      "likes": [
+        "dungeon",
+        "undead"
+      ],
+      "dislikes": [
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "My name's Bashir, and I hunt corruption. I'll tell you everything I find, plainly. I work slowly, and I won't be hurried. If you can accept that, we'll get on.",
+        "acquaintance": "I'm from Nablus. My grandfather and my father cut stone in the same yard, and I learned it at twelve. Twenty-two years of walls, old and new. You snap a chalk line across the block before you cut, so the cut runs true. I still do it, at every door. I know I do it.",
+        "companion": "I've got a daughter, Rana. She was nineteen, at university in Birzeit. When all this happened I went looking for her at once, and I didn't stop for eleven months. Four hubs, on foot, through country that kills people, and I found nothing. I came back and started this work. I keep a list of places I haven't searched. It's getting shorter.",
+        "friend": "My wife was Samira. She died bearing our second child, and the child died too, when Rana was three. I raised Rana alone, strictly, and I wanted her to be a doctor or a teacher. There are three places left on my list, the hardest, through corrupted country. I'd like you to come with me to the end of it.",
+        "sworn": "There was no sign of her, not at any of the three. At the last, a camp of engineers building a bridge, the foreman had never heard of her. So I said it out loud to you, at last. I was pleased she chose engineering, and proud, and she'd be good at it. Then I helped them build the bridge, stone by stone, correctly. I've started a new list. Every bridge being built, anywhere. If she's alive, she's building one."
+      },
+      "moments": [
+        {
+          "id": "the_list",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to come with him to the last places on his list.",
+          "options": [
+            {
+              "text": "To the end of the list, together.",
+              "trust": 12,
+              "reply": "Thank you. We'll go slowly, and correctly, and we'll look properly."
+            },
+            {
+              "text": "What happens when the list runs out?",
+              "trust": 4,
+              "reply": "I don't know. That's why I've been walking slowly."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he reports, flatly, what went wrong.",
+          "line": "We went against the grain. This isn't how it's done. We'll start again from the first stone.",
+          "options": [
+            {
+              "text": "Show us the grain.",
+              "trust": 8,
+              "mood": 6,
+              "reply": "Good, slowly, then, and you'll see it."
+            },
+            {
+              "text": "We haven't got time for slow.",
+              "trust": 0,
+              "mood": -6,
+              "reply": "Then you'll spend it on wipes instead."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We repeat the same work without purpose. I don't mind slow, but I mind pointless. Let's go somewhere that needs us.",
+        "leaving_good": "That was good work, done correctly. I'm going back to the Shrine now. You know where I'll be.",
+        "leaving_bored": "I'm going back to the Drowned Shrine. This isn't useful, and the corruption doesn't wait.",
+        "after_wipe": "We went against the grain. We'll start again, slowly.",
+        "wipe_warning": "We've failed here too often. I'll finish this run with you, and then I need some days at the Shrine.",
+        "wipe_leave": "I've finished it with you. Now I'm going back to the Shrine. Come when you're ready to work properly.",
+        "zone_warning": "I'll tell you plainly, this place is too much for us. This isn't how it's done.",
+        "zone_leave": "I'm stopping here. I told you plainly. I'll be at the Drowned Shrine.",
+        "gear_refuse": "No, that's mine. I don't know you well enough yet.",
+        "gear_taken": "Take it, then. I'll work without it, slowly.",
+        "gear_short": "I'm still missing that piece. I'm reporting it.",
+        "gear_upgrade": "That's well made. Thank you.",
+        "back": "I'm back, and the Shrine is holding. Where are we going?",
+        "send_word": "Bashir has sent word from the Drowned Shrine. He's ready to come out again.",
+        "walkout_talk": "I left angry. I'll tell you exactly why, all of it. Then you'll tell me, and we'll start again.",
+        "neglect": "You've been gone a long time. I worked, as I always do.",
+        "asked_to_stay": "Very well, one more, yalla.",
+        "on_break": "Bashir is back at the Drowned Shrine, at the edge of the corruption. Come back after you've done a few more jobs.",
+        "quest_abandoned": "We said we'd do it, and we've left it. This isn't how it's done."
+      }
+    },
     "berat_tinker": {
       "home": "Brill",
       "dials": {
@@ -1945,6 +2030,87 @@
         "asked_to_stay": "Fine, one more. Then I'm going home, and I'm not arguing about it.",
         "on_break": "Freja is back in the Valley of Trials, doing her rounds. Come back after you've done a few more jobs.",
         "quest_abandoned": "We said we'd help them and we walked off. I hate that. Somebody's still waiting for us."
+      }
+    },
+    "gianluca_guardian": {
+      "home": "Steamwheedle Port",
+      "dials": {
+        "warmth": 1.5,
+        "nerve": 1.4,
+        "pride": 0.8,
+        "restless": 0.8
+      },
+      "likes": [
+        "full_party",
+        "dungeon"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "Ciao, I'm Gianluca, and I'm a guardian, which means I stand in front and talk. You'll get used to the talking. Everybody does, eventually, or they leave.",
+        "acquaintance": "I'm from Bologna. My parents ran a bar near the university, and I took it over at twenty-two and ran it thirty years. Open at six, close late, and an espresso machine I rebuilt with my own hands twice. The six o'clock crowd never ordered, because I already knew. That's the best feeling in the world, allora.",
+        "companion": "My boys are Luca and Davide, both grown, both moved to Milan, which I took personally. They rang every Sunday. I was tamping a shot at six in the morning when it happened, and I landed in Tanaris with this tamper in my hand. I read the Milan list twice every time I go to a hub. Don't tell anyone that.",
+        "friend": "My wife is Ornella. She ran the kitchen and the money and, honestly, most of me. I talk all the time so nobody notices I don't say her name. A goblin trader swears he's found a bean in the far jungle that'll make coffee I'll rate ten out of ten. I don't believe him. I want to go anyway. Come with me, dai.",
+        "sworn": "It's an eight, and I was thrilled! I opened at six the first morning, and the first customer through the door was a woman who'd heard about an Italian at Steamwheedle who rates everything out of ten, and it was Ornella. She'd been running a kitchen in a camp in Tanaris for two years. She tasted my coffee and said it's a six, and she's wrong. We argued for an hour, and then she went into the kitchen without being asked. I still read the Milan list twice."
+      },
+      "moments": [
+        {
+          "id": "rate_it",
+          "stage": "acquaintance",
+          "when": "talk",
+          "prompt": "He's rating tonight's meal out of ten, loudly, and asks for your score.",
+          "options": [
+            {
+              "text": "Give it an honest score.",
+              "trust": 8,
+              "reply": "Ha, a five? You're harsh, I like that. A man who rates honestly is a friend."
+            },
+            {
+              "text": "Say it's a ten.",
+              "trust": 0,
+              "reply": "A ten, really? Mamma mia, you've never had real food. We'll fix that."
+            }
+          ]
+        },
+        {
+          "id": "the_bean",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to come and find the goblin's coffee bean.",
+          "options": [
+            {
+              "text": "Let's find you a ten.",
+              "trust": 12,
+              "reply": "Dai, let's go! It won't be a ten, nothing's a ten, but let's go."
+            },
+            {
+              "text": "What if it's terrible?",
+              "trust": 4,
+              "reply": "Then I'll rate it a two and complain the whole way home, allora."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've done the same thing every day, and the food's a three, and the company's lovely but bored. Let's go somewhere new, dai.",
+        "leaving_good": "That was a wonderful trip, a solid eight. I'm going back to Steamwheedle to my fire. Come and see me, I'll pour you something.",
+        "leaving_bored": "I'm going back to Steamwheedle. This trip's a four, and I've got regulars waiting.",
+        "after_wipe": "Allora, that was a two out of ten. Everybody up, and we try for a six.",
+        "wipe_warning": "We keep dying in here, and even I've stopped joking. I'll finish this run, then I need some days by my fire.",
+        "wipe_leave": "I've finished it with you. Now I'm going back to Steamwheedle Port. Come and find me when you've got a better plan.",
+        "zone_warning": "Mamma mia, this place is a zero. Everything out here wants to kill us. Let's go somewhere we can handle.",
+        "zone_leave": "I'm stopping here. That place is a zero out of ten. I'll be at Steamwheedle Port.",
+        "gear_refuse": "Ah, no, that's mine. Become a regular first, then we'll see.",
+        "gear_taken": "Take it, take it. I'll stand in front anyway, talking.",
+        "gear_short": "I'm still missing that piece. I'd rate my armour a five without it.",
+        "gear_upgrade": "Oh, that's a nine at least! Grazie, grazie mille.",
+        "back": "I'm back, and my fire's in good hands. Where are we going? I'll talk the whole way, I promise.",
+        "send_word": "Gianluca has sent word from Steamwheedle Port. His regulars are looked after and he's ready to come out.",
+        "walkout_talk": "I walked out angry, and that's not like me. Sit down, I'll pour you something, and we'll talk it through.",
+        "neglect": "There you are! I kept your seat by the fire. Nobody else was allowed it.",
+        "asked_to_stay": "Dai, one more, and then my fire.",
+        "on_break": "Gianluca is back by his fire at Steamwheedle Port. Come back after you've done a few more jobs."
       }
     },
     "giorgi_primalist": {
@@ -4343,6 +4509,90 @@
         "neglect": "Ah, there you are. I've drawn a lot of maps in the dirt while I waited. I'm glad you came.",
         "asked_to_stay": "All right, one more. Then I really must get back to my children.",
         "on_break": "Pavlo is back at the Sepulcher, teaching and holding the road. Come back after you've done a few more jobs."
+      }
+    },
+    "pieter_guardian": {
+      "home": "Northern Tanaris",
+      "dials": {
+        "warmth": 0.8,
+        "nerve": 1.5,
+        "pride": 0.8,
+        "restless": 0.8
+      },
+      "likes": [
+        "dungeon",
+        "quest"
+      ],
+      "dislikes": [
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "I'm Pieter, and I'll take the hits. That's not courage, it's arithmetic. I'm wearing the armour. Now check your straps before we go anywhere.",
+        "acquaintance": "Pretoria, born and raised. My father was a safety officer at the mines, and I went into the same line. At twenty-three I met a Dutch nurse on a working holiday and followed her back to Rotterdam. Twenty-eight years of port safety there. Clipboard, hard hat, and the most tedious man on the dock, ja.",
+        "companion": "My wife is Anneke. We've got two girls, Lotte and Sanne, grown now, in Rotterdam. I was checking a crane harness when it happened, and I landed in Tanaris with my father's knife on my belt. I took to this place straight away, and I'm a bit ashamed of that. A world with monsters in it needs a safety man more than a port does.",
+        "friend": "I've pulled nine men out of those pits in three years. I don't talk about the ones I didn't, in Rotterdam or here. And now the Cartel's digging a deep new pit, fast, no shoring, no harnesses, and I've told them it'll come down. They won't listen. When it goes, I'm going in. I'd like you with me.",
+        "sworn": "We got nine out. The tenth was a young goblin called Fizzik who used to bring me tea, and he died before we reached him. I stayed at the collapse till morning. Then I put my rules on the foreman's desk for the fifth time, and this time he signed them. That's always how it goes, ja. They listen after the tenth. Fizzik's name is at the top of the rules now, and every new worker reads it first."
+      },
+      "moments": [
+        {
+          "id": "straps",
+          "stage": "stranger",
+          "when": "hire",
+          "prompt": "He won't come along until he's checked your gear.",
+          "options": [
+            {
+              "text": "Let him check everything.",
+              "trust": 6,
+              "joins": true,
+              "reply": "Lekker, that's sensible. Two buckles loose, now fixed, so let's go."
+            },
+            {
+              "text": "My gear's fine.",
+              "trust": 0,
+              "joins": false,
+              "reply": "Everybody says that before they fall. Come back when you'll let me look."
+            }
+          ]
+        },
+        {
+          "id": "the_pit",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's told you he'll go in when the new pit collapses.",
+          "options": [
+            {
+              "text": "Then I'm going in with you.",
+              "trust": 12,
+              "reply": "Ja, that's good. Harness on, two points of contact, and you do what I say."
+            },
+            {
+              "text": "Maybe they'll listen this time.",
+              "trust": 2,
+              "reply": "Nee, they never do. Not until after."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been doing the same thing over and over, and nobody's at risk. That's lovely, but it's not useful. Let's go where we're needed.",
+        "leaving_good": "That was a good trip, and nobody fell off anything. I'm going back to the dig sites to check on my men. You know where I'll be.",
+        "leaving_bored": "I'm going back to Tanaris. This isn't useful, and there are pits with no harnesses there.",
+        "after_wipe": "Right, everybody stop. Count heads, check straps, and then we talk about what went wrong.",
+        "wipe_warning": "We keep dying in here, and that's a safety failure. I'll finish this run, then I'm going back to my clipboard for a while.",
+        "wipe_leave": "I've seen it through. Now I'm going back to Northern Tanaris. Come back when you've got a proper plan.",
+        "zone_warning": "I've done the arithmetic and it doesn't work, ja. This place costs more than we can pay, so let's go.",
+        "zone_leave": "I'm stopping here. The arithmetic doesn't work out there. I'll be at the dig sites in Northern Tanaris.",
+        "gear_refuse": "Nee, that's mine. You don't take a man's safety gear off him.",
+        "gear_taken": "Take it, then. I've written it down, and I'll want it replaced.",
+        "gear_short": "I'm still missing that piece, and that's a safety issue, ja.",
+        "gear_upgrade": "Lekker, that's proper kit. Thank you.",
+        "back": "I'm back, and nobody's died at the dig sites. Check your straps, and then tell me where we're going.",
+        "send_word": "Pieter has sent word from Northern Tanaris. The dig sites are safe for now and he's ready to come out.",
+        "walkout_talk": "I walked out, and I'll tell you why, step by step. Then you give me your side.",
+        "neglect": "There you are. I counted you missing for quite a while.",
+        "asked_to_stay": "Ja, all right, one more, straps first.",
+        "on_break": "Pieter is back at the dig sites in Northern Tanaris. Come back after you've done a few more jobs.",
+        "quest_abandoned": "We left those people at risk. That's not how I work, ja."
       }
     },
     "ratih_ranger": {
