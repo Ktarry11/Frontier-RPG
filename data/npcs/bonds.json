@@ -591,6 +591,87 @@
         "on_break": "Anjali is back in Ashenvale West with her specimens. Come back after you've done a few more jobs."
       }
     },
+    "astrid_starcaller": {
+      "home": "North Felwood",
+      "dials": {
+        "warmth": 0.7,
+        "nerve": 1.3,
+        "pride": 0.9,
+        "restless": 0.8
+      },
+      "likes": [
+        "new_ground",
+        "beast"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Astrid, a starcaller. I'll be at the back with a bow, and I'll wait for the right moment, so don't rush me. The stars are wrong here, but they're very bright.",
+        "acquaintance": "I'm from Luleå, in the north of Sweden. At twenty-two I moved to Kiruna to photograph the aurora, and I stayed twelve years. A cabin with no road to it in winter, and a camera worth more than my car. I took tourists out into the snow at night and sold the good shots to magazines. Mostly I lay in the snow and waited.",
+        "companion": "I was out on a clear night, photographing the lights, when it all changed, and I came round in Felwood with the camera still round my neck. It died within the week. This lens cap is all that's left of it. I've got a brother, Erik, in Stockholm. He called every Sunday to ask if I was still alive, and I always said barely, and he always laughed. I haven't found him, or our parents.",
+        "friend": "Every Sunday evening I stop what I'm doing, at the time Erik used to call. I know it's pointless, and I do it anyway. And my map's shown me something. One night this winter the stars over Felwood line up into a pattern I've never seen, and I think the sky's going to do something. The fel things come out in force on dark nights. Will you guard me on the ridge while I watch?",
+        "sworn": "At midnight the whole sky over Felwood lit up in green and violet curtains, an aurora, the first anyone's seen here. I cried, which I never do, and I drew it as fast as my hand would go. The next morning a Swedish trader heard me talking about it and said his cousin Erik, in a camp up north, has a sister who chased the northern lights. I wrote that day. Erik wrote back, are you still alive? I wrote barely. Now we write every Sunday. You have the lens cap. I didn't need a camera for that one."
+      },
+      "moments": [
+        {
+          "id": "lie_down",
+          "stage": "acquaintance",
+          "when": "talk",
+          "prompt": "On a clear night, Astrid lies down flat in the grass and looks straight up.",
+          "options": [
+            {
+              "text": "Lie down next to her.",
+              "trust": 10,
+              "reply": "Ja, that's good. Now don't talk for a while, and watch the north."
+            },
+            {
+              "text": "Keep watch instead.",
+              "trust": 3,
+              "reply": "That's the sensible choice. Wake me if anything with teeth comes."
+            }
+          ]
+        },
+        {
+          "id": "the_ridge",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's asked you to guard her on the ridge on the night of the pattern.",
+          "options": [
+            {
+              "text": "I'll watch your back all night.",
+              "trust": 12,
+              "reply": "Tack, thank you. Bring coffee in a thermos, and don't bring a torch."
+            },
+            {
+              "text": "What if nothing happens?",
+              "trust": 3,
+              "reply": "Then it'll be a long, cold night, and I'll still have looked."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Same sky, same ground, same everything. I need something to wait for, and this isn't it.",
+        "leaving_good": "Lagom, that trip, just enough. I'll be in North Felwood near Talonbranch, mapping.",
+        "leaving_bored": "I'm going back to Felwood, where at least the sky changes. Out here there's nothing worth watching.",
+        "after_wipe": "Everybody lie still for a moment. Breathe out, look up, and then we'll start again.",
+        "wipe_warning": "Too many deaths, all of them rushed. I'll finish this run, but then I want a few dark nights alone.",
+        "wipe_leave": "That's enough for me. I'm going back to Felwood to sit in the dark until I feel like myself.",
+        "zone_warning": "We're overexposed out here. Everything's too strong and there's nowhere to hide, so pull back.",
+        "zone_leave": "I won't stand out there like that. I'll be near Talonbranch, in North Felwood.",
+        "gear_refuse": "That stays with me for now. Maybe after a few more nights out.",
+        "gear_taken": "I'll shoot without it, so go on.",
+        "gear_short": "I notice the missing piece every time I draw. Just so you know.",
+        "gear_upgrade": "Tack, that's really good work.",
+        "back": "I've slept, I've had my coffee, and the sky's clouded over anyway, so let's go.",
+        "send_word": "Astrid has sent word from North Felwood. The nights are cloudy, so she's free.",
+        "walkout_talk": "I don't like scenes, and I made one. Sit, and I'll explain, briefly, and then you can.",
+        "neglect": "So you're back. I kept a thermos warm for you every night, more or less.",
+        "asked_to_stay": "Ja, one more. The sky can wait.",
+        "on_break": "Astrid is back in North Felwood, mapping the stars. Come back after you've done a few more jobs."
+      }
+    },
     "bakyt_hunter": {
       "home": "Eastern Hillsbrad",
       "dials": {
@@ -3369,6 +3450,88 @@
         "quest_abandoned": "We said we'd do that and now we don't. That's a missed stop, and I hate missed stops."
       }
     },
+    "joaquin_suncleric": {
+      "home": "the Bulwark",
+      "dials": {
+        "warmth": 1.1,
+        "nerve": 1.3,
+        "pride": 0.4,
+        "restless": 0.7
+      },
+      "likes": [
+        "quest",
+        "full_party"
+      ],
+      "dislikes": [
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "I'm Joaquín, and I heal, and I fight with my hands when I've got to. If you've got something heavy to put down, the Order's a good place to do it, che.",
+        "acquaintance": "I'm from Rosario, in Argentina. My father worked the railways and my mother ran the library. I taught history to fifteen-year-olds for fourteen years, with a mate gourd on my desk and a novel in the drawer I never finished. I liked the difficult kids best. You listen to them properly and they'll tell you everything.",
+        "companion": "I was married once, to Laura, another teacher. She wanted Buenos Aires and I wouldn't leave my students, so we let each other go, kindly enough. I was halfway through a lesson on the French Revolution when the world went, and I ended up in the Plaguelands with this gourd in my satchel. I joined the Crusade that first winter, like a lot of people did. I'll tell you what I did there when I can say it properly.",
+        "friend": "In the Crusade they made me an interrogator, because I was patient and I listened. I told myself I was saving lives. I was breaking people, and I was good at it. Now I'm finding the ones who lived, to say sorry to their faces. Four so far, and two of them hit me, and they were right to. The last name on my list is a boy called Nahuel, seventeen. I questioned him for two days and I don't know what happened after. His records are in Scarlet country. Will you come?",
+        "sworn": "Nahuel died in the cells, a week after I'd finished with him. His mother's alive, in a camp near the Bulwark, and I went and told her everything. Who I was, what I did, and that her son died because of the Crusade and because of me. She didn't hit me, and she didn't forgive me. She asked me what he said in those two days, every word, because nobody else could tell her. So I did, for hours. Then she asked me never to come back, and I won't. I crossed his name off, and I don't feel any lighter, and that's right. Keep the gourd, che. It's the one thing from before I'm not ashamed of."
+      },
+      "moments": [
+        {
+          "id": "the_mate",
+          "stage": "acquaintance",
+          "when": "talk",
+          "prompt": "Joaquín holds out his mate gourd to you, the way you'd offer a friend a cigarette.",
+          "options": [
+            {
+              "text": "Drink from it.",
+              "trust": 8,
+              "reply": "Eso, that's it. Bitter, I know. You get used to it, and then you need it."
+            },
+            {
+              "text": "No, thanks.",
+              "trust": 2,
+              "reply": "That's fine, che. It's an acquired taste, like history."
+            }
+          ]
+        },
+        {
+          "id": "nahuel",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to come into Scarlet country to find Nahuel's records.",
+          "options": [
+            {
+              "text": "Let's find out what happened to him.",
+              "trust": 12,
+              "reply": "Gracias, che, really. Whatever we find, I'll go and tell his family myself."
+            },
+            {
+              "text": "Are you sure you want to know?",
+              "trust": 4,
+              "reply": "No, and that's exactly why I've got to."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We keep going round in circles, che, and I've got a list of names that isn't getting shorter.",
+        "leaving_good": "Gracias, that was good for me. I'll be at the Bulwark with the Order, if you need a pair of hands.",
+        "leaving_bored": "This isn't helping anybody, and somebody at the Bulwark probably needs patching, so I'll go.",
+        "after_wipe": "Breathe, all of you. I'll get to everybody, one at a time, and nobody's going anywhere.",
+        "wipe_warning": "Too many times now, che. I'll see this one through, and then I need some quiet at the Bulwark.",
+        "wipe_leave": "That's the end of it for me. I'll be at the Bulwark, writing and thinking.",
+        "zone_warning": "I spent a winter learning what people look like when they've been pushed too far. That's us, right now, out here.",
+        "zone_leave": "I won't push us past what we can carry. I'll be with the Order at the Bulwark.",
+        "gear_refuse": "I'd rather not, che. Not until you know me better, and you might not want to.",
+        "gear_taken": "Bueno, take it. I don't need much.",
+        "gear_short": "I'm short a piece of kit since you took it, che. Just so you know.",
+        "gear_upgrade": "Gracias, that's generous. More than I'm owed.",
+        "back": "Mate's drunk, the notebook's in my pocket, and I'm ready, che, so vamos.",
+        "send_word": "Joaquín has sent word from the Bulwark. He's ready to come out again.",
+        "walkout_talk": "Leaving like that was cowardly, and I won't dress it up. Sit down, che, and I'll tell you what was going through my head.",
+        "neglect": "You came back, che. I wasn't sure you would, and I wouldn't have blamed you.",
+        "asked_to_stay": "Bueno, I'll stay. The list will wait one more trip.",
+        "on_break": "Joaquín is back at the Bulwark with the Order. Come back after you've done a few more jobs.",
+        "quest_abandoned": "Somebody needed us for that, and we walked away. I've done enough of that for one lifetime."
+      }
+    },
     "junseo_reaper": {
       "home": "Central Stranglethorn",
       "dials": {
@@ -3945,6 +4108,87 @@
         "neglect": "There you are! I lit a candle for you every Sunday, you know. Look, it worked.",
         "asked_to_stay": "For you, querido, I'll stay. But tonight everybody's getting their hair done.",
         "on_break": "Lúcia is back at the Crossroads, cutting hair by the inn. Come back after you've done a few more jobs."
+      }
+    },
+    "luka_stormbringer": {
+      "home": "the Tempest Shallows",
+      "dials": {
+        "warmth": 1.1,
+        "nerve": 1.4,
+        "pride": 0.8,
+        "restless": 0.8
+      },
+      "likes": [
+        "quest",
+        "new_ground"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "Call me Luka. I used to captain a ferry, and now I call storms, carefully. If a squall comes in, stand behind me and you'll be fine.",
+        "acquaintance": "I'm from Split, in Croatia, the son of a fisherman. I went to sea at eighteen and worked my way up the ferries, and I captained the Marjan for fifteen years. A car ferry, a crew of eight, and the run out to the islands in every weather. You learn the sea well enough to be properly afraid of it, and you never let the passengers see.",
+        "companion": "My wife is Ivana. Her family runs a konoba on Brač, a little tavern by the harbour. I met her on a crossing in a bura, and she was the only passenger who wasn't sick over the rail. Our boy Marko plays water polo, very badly, and I never missed a match. They were on Brač that morning, and I was on the water in between. I woke on a beach with the Marjan's whistle in my hand and no Marjan.",
+        "friend": "I had two hundred passengers aboard that morning, and I don't know what happened to one of them. I blow this whistle every evening at the time the last ferry used to leave Split, for them as much as anybody. Now the Ashclaim say they'll give me a boat of my own if I can get a supply run through the storm that's had their ships pinned for weeks. I'll need a crew. Will you sail with me?",
+        "sworn": "There was a merchant ship sinking on the far side of that storm, and I got us alongside and took her crew off. The last one up the side was a tall clumsy lad who swam like a bad water polo player, and it was Marko. He's been crewing merchant ships for two years, looking for me on every coast, because his mother told him that if I was alive I'd be near the sea. Ivana runs a konoba in a Croatian camp on the coast, and she kept a table by the window for me. I sailed my boat there. You have the whistle. I don't need to call the last ferry home any more."
+      },
+      "moments": [
+        {
+          "id": "the_wind",
+          "stage": "acquaintance",
+          "when": "talk",
+          "prompt": "Luka has stopped dead in the road and he's sniffing the wind.",
+          "options": [
+            {
+              "text": "Ask him what he smells.",
+              "trust": 8,
+              "reply": "Rain in two hours, and a bura behind it. Polako, we've got time."
+            },
+            {
+              "text": "Keep walking.",
+              "trust": 0,
+              "reply": "Ajme, you'd have made a terrible deckhand."
+            }
+          ]
+        },
+        {
+          "id": "the_storm_run",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to crew his boat through the storm.",
+          "options": [
+            {
+              "text": "Aye, captain.",
+              "trust": 12,
+              "reply": "Ha, that's my crew. Hold on to something, and don't look at the waves, look at me."
+            },
+            {
+              "text": "Can you really steer through that?",
+              "trust": 3,
+              "reply": "I've done it in a car ferry with forty lorries aboard. This'll be easy."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We're going round in circles like a ferry with a broken rudder. Point us somewhere new.",
+        "leaving_good": "Good crossing, that. I'll be on the Tempest Shallows by the landing, watching the sky.",
+        "leaving_bored": "Flat calm and boredom, that's all this is. I'm going back to the Shallows.",
+        "after_wipe": "Ajme, everybody up. We hit the rocks, that's all, and we'll chart round them next time.",
+        "wipe_warning": "This place keeps sinking us, and I'm not a man who likes going down with anything. After this run, I'm going ashore for a while.",
+        "wipe_leave": "That's me ashore for a while. You'll find me on the Tempest Shallows, near the landing.",
+        "zone_warning": "There's a bura coming off this place, and we're in a rowing boat. Turn back while we can.",
+        "zone_leave": "A good captain knows when to stay in harbour, and this is one of those days. I'll be on the Tempest Shallows.",
+        "gear_refuse": "That's mine, prijatelju. Crew with me a while before you start taking my things.",
+        "gear_taken": "Have it, I've sailed with less.",
+        "gear_short": "I'm sailing with a hole in my hull, prijatelju. Fix it when you can.",
+        "gear_upgrade": "Ajme, that's well made. Hvala, thank you.",
+        "back": "The crews can read a sky now, more or less. Polako, where are we headed?",
+        "send_word": "Luka has sent word from the Tempest Shallows. The weather's settled and so is he.",
+        "walkout_talk": "I left in a bad wind, and I'm sorry for it. Sit down and I'll tell you what blew up in me.",
+        "neglect": "There's a face I hoped to see on the horizon. Sit, I'll pour you something.",
+        "asked_to_stay": "Polako, I'll stay for one more crossing.",
+        "on_break": "Luka is back on the Tempest Shallows, near the landing. Come back after you've done a few more jobs."
       }
     },
     "marco_paladin": {

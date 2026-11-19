@@ -1,0 +1,114 @@
+{
+  "recruit_text": {
+    "backstory": "Luka captained a car ferry between Split and the islands for fifteen years, and he knows the sea well enough to be properly afraid of it. The storm found him on the crossing, and it's been following him since. He calls it up now on the Tempest Shallows, carefully, the way he used to read the weather off the Adriatic. He's wry, weathered and the steadiest person in any room."
+  },
+  "bond": {
+    "home": "the Tempest Shallows",
+    "dials": {
+      "warmth": 1.1,
+      "nerve": 1.4,
+      "pride": 0.8,
+      "restless": 0.8
+    },
+    "likes": [
+      "quest",
+      "new_ground"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
+    "stages": {
+      "stranger": "Call me Luka. I used to captain a ferry, and now I call storms, carefully. If a squall comes in, stand behind me and you'll be fine.",
+      "acquaintance": "I'm from Split, in Croatia, the son of a fisherman. I went to sea at eighteen and worked my way up the ferries, and I captained the Marjan for fifteen years. A car ferry, a crew of eight, and the run out to the islands in every weather. You learn the sea well enough to be properly afraid of it, and you never let the passengers see.",
+      "companion": "My wife is Ivana. Her family runs a konoba on Brač, a little tavern by the harbour. I met her on a crossing in a bura, and she was the only passenger who wasn't sick over the rail. Our boy Marko plays water polo, very badly, and I never missed a match. They were on Brač that morning, and I was on the water in between. I woke on a beach with the Marjan's whistle in my hand and no Marjan.",
+      "friend": "I had two hundred passengers aboard that morning, and I don't know what happened to one of them. I blow this whistle every evening at the time the last ferry used to leave Split, for them as much as anybody. Now the Ashclaim say they'll give me a boat of my own if I can get a supply run through the storm that's had their ships pinned for weeks. I'll need a crew. Will you sail with me?",
+      "sworn": "There was a merchant ship sinking on the far side of that storm, and I got us alongside and took her crew off. The last one up the side was a tall clumsy lad who swam like a bad water polo player, and it was Marko. He's been crewing merchant ships for two years, looking for me on every coast, because his mother told him that if I was alive I'd be near the sea. Ivana runs a konoba in a Croatian camp on the coast, and she kept a table by the window for me. I sailed my boat there. You have the whistle. I don't need to call the last ferry home any more."
+    },
+    "moments": [
+      {
+        "id": "the_wind",
+        "stage": "acquaintance",
+        "when": "talk",
+        "prompt": "Luka has stopped dead in the road and he's sniffing the wind.",
+        "options": [
+          {
+            "text": "Ask him what he smells.",
+            "trust": 8,
+            "reply": "Rain in two hours, and a bura behind it. Polako, we've got time."
+          },
+          {
+            "text": "Keep walking.",
+            "trust": 0,
+            "reply": "Ajme, you'd have made a terrible deckhand."
+          }
+        ]
+      },
+      {
+        "id": "the_storm_run",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to crew his boat through the storm.",
+        "options": [
+          {
+            "text": "Aye, captain.",
+            "trust": 12,
+            "reply": "Ha, that's my crew. Hold on to something, and don't look at the waves, look at me."
+          },
+          {
+            "text": "Can you really steer through that?",
+            "trust": 3,
+            "reply": "I've done it in a car ferry with forty lorries aboard. This'll be easy."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "We're going round in circles like a ferry with a broken rudder. Point us somewhere new.",
+      "leaving_good": "Good crossing, that. I'll be on the Tempest Shallows by the landing, watching the sky.",
+      "leaving_bored": "Flat calm and boredom, that's all this is. I'm going back to the Shallows.",
+      "after_wipe": "Ajme, everybody up. We hit the rocks, that's all, and we'll chart round them next time.",
+      "wipe_warning": "This place keeps sinking us, and I'm not a man who likes going down with anything. After this run, I'm going ashore for a while.",
+      "wipe_leave": "That's me ashore for a while. You'll find me on the Tempest Shallows, near the landing.",
+      "zone_warning": "There's a bura coming off this place, and we're in a rowing boat. Turn back while we can.",
+      "zone_leave": "A good captain knows when to stay in harbour, and this is one of those days. I'll be on the Tempest Shallows.",
+      "gear_refuse": "That's mine, prijatelju. Crew with me a while before you start taking my things.",
+      "gear_taken": "Have it, I've sailed with less.",
+      "gear_short": "I'm sailing with a hole in my hull, prijatelju. Fix it when you can.",
+      "gear_upgrade": "Ajme, that's well made. Hvala, thank you.",
+      "back": "The crews can read a sky now, more or less. Polako, where are we headed?",
+      "send_word": "Luka has sent word from the Tempest Shallows. The weather's settled and so is he.",
+      "walkout_talk": "I left in a bad wind, and I'm sorry for it. Sit down and I'll tell you what blew up in me.",
+      "neglect": "There's a face I hoped to see on the horizon. Sit, I'll pour you something.",
+      "asked_to_stay": "Polako, I'll stay for one more crossing.",
+      "on_break": "Luka is back on the Tempest Shallows, near the landing. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "My son once scored an own goal at water polo and celebrated before he realised. I cheered anyway, louder than anyone.",
+        "kind": "open",
+        "topic": "water"
+      }
+    ],
+    "zone_arrive": [
+      {
+        "text": "I can smell salt. Somewhere past those hills there's open water, and I'd bet a boat on it.",
+        "kind": "open",
+        "topic": "water"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "Polako, polako, slow down! Never turn your back on a wave, or on whatever that was.",
+        "kind": "open"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "Everyone's back on deck, and the hull's still in one piece. Hvala, all of you.",
+        "kind": "reply"
+      }
+    ]
+  }
+}

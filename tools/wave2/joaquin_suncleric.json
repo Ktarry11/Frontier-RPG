@@ -1,0 +1,114 @@
+{
+  "recruit_text": {
+    "now": "At the Bulwark with the Order, healing the hurt that come in from the Plaguelands.\n\nThe mate gourd at his hip is the one from his classroom desk, and he still drinks from it every morning."
+  },
+  "bond": {
+    "home": "the Bulwark",
+    "dials": {
+      "warmth": 1.1,
+      "nerve": 1.3,
+      "pride": 0.4,
+      "restless": 0.7
+    },
+    "likes": [
+      "quest",
+      "full_party"
+    ],
+    "dislikes": [
+      "quest_abandoned"
+    ],
+    "stages": {
+      "stranger": "I'm Joaquín, and I heal, and I fight with my hands when I've got to. If you've got something heavy to put down, the Order's a good place to do it, che.",
+      "acquaintance": "I'm from Rosario, in Argentina. My father worked the railways and my mother ran the library. I taught history to fifteen-year-olds for fourteen years, with a mate gourd on my desk and a novel in the drawer I never finished. I liked the difficult kids best. You listen to them properly and they'll tell you everything.",
+      "companion": "I was married once, to Laura, another teacher. She wanted Buenos Aires and I wouldn't leave my students, so we let each other go, kindly enough. I was halfway through a lesson on the French Revolution when the world went, and I ended up in the Plaguelands with this gourd in my satchel. I joined the Crusade that first winter, like a lot of people did. I'll tell you what I did there when I can say it properly.",
+      "friend": "In the Crusade they made me an interrogator, because I was patient and I listened. I told myself I was saving lives. I was breaking people, and I was good at it. Now I'm finding the ones who lived, to say sorry to their faces. Four so far, and two of them hit me, and they were right to. The last name on my list is a boy called Nahuel, seventeen. I questioned him for two days and I don't know what happened after. His records are in Scarlet country. Will you come?",
+      "sworn": "Nahuel died in the cells, a week after I'd finished with him. His mother's alive, in a camp near the Bulwark, and I went and told her everything. Who I was, what I did, and that her son died because of the Crusade and because of me. She didn't hit me, and she didn't forgive me. She asked me what he said in those two days, every word, because nobody else could tell her. So I did, for hours. Then she asked me never to come back, and I won't. I crossed his name off, and I don't feel any lighter, and that's right. Keep the gourd, che. It's the one thing from before I'm not ashamed of."
+    },
+    "moments": [
+      {
+        "id": "the_mate",
+        "stage": "acquaintance",
+        "when": "talk",
+        "prompt": "Joaquín holds out his mate gourd to you, the way you'd offer a friend a cigarette.",
+        "options": [
+          {
+            "text": "Drink from it.",
+            "trust": 8,
+            "reply": "Eso, that's it. Bitter, I know. You get used to it, and then you need it."
+          },
+          {
+            "text": "No, thanks.",
+            "trust": 2,
+            "reply": "That's fine, che. It's an acquired taste, like history."
+          }
+        ]
+      },
+      {
+        "id": "nahuel",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to come into Scarlet country to find Nahuel's records.",
+        "options": [
+          {
+            "text": "Let's find out what happened to him.",
+            "trust": 12,
+            "reply": "Gracias, che, really. Whatever we find, I'll go and tell his family myself."
+          },
+          {
+            "text": "Are you sure you want to know?",
+            "trust": 4,
+            "reply": "No, and that's exactly why I've got to."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "We keep going round in circles, che, and I've got a list of names that isn't getting shorter.",
+      "leaving_good": "Gracias, that was good for me. I'll be at the Bulwark with the Order, if you need a pair of hands.",
+      "leaving_bored": "This isn't helping anybody, and somebody at the Bulwark probably needs patching, so I'll go.",
+      "after_wipe": "Breathe, all of you. I'll get to everybody, one at a time, and nobody's going anywhere.",
+      "wipe_warning": "Too many times now, che. I'll see this one through, and then I need some quiet at the Bulwark.",
+      "wipe_leave": "That's the end of it for me. I'll be at the Bulwark, writing and thinking.",
+      "zone_warning": "I spent a winter learning what people look like when they've been pushed too far. That's us, right now, out here.",
+      "zone_leave": "I won't push us past what we can carry. I'll be with the Order at the Bulwark.",
+      "gear_refuse": "I'd rather not, che. Not until you know me better, and you might not want to.",
+      "gear_taken": "Bueno, take it. I don't need much.",
+      "gear_short": "I'm short a piece of kit since you took it, che. Just so you know.",
+      "gear_upgrade": "Gracias, that's generous. More than I'm owed.",
+      "back": "Mate's drunk, the notebook's in my pocket, and I'm ready, che, so vamos.",
+      "send_word": "Joaquín has sent word from the Bulwark. He's ready to come out again.",
+      "walkout_talk": "Leaving like that was cowardly, and I won't dress it up. Sit down, che, and I'll tell you what was going through my head.",
+      "neglect": "You came back, che. I wasn't sure you would, and I wouldn't have blamed you.",
+      "asked_to_stay": "Bueno, I'll stay. The list will wait one more trip.",
+      "on_break": "Joaquín is back at the Bulwark with the Order. Come back after you've done a few more jobs.",
+      "quest_abandoned": "Somebody needed us for that, and we walked away. I've done enough of that for one lifetime."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "In Rosario we drank mate on the riverbank on Sundays, one gourd passed round the whole family. You never drink alone there, and here I nearly always do.",
+        "kind": "open",
+        "topic": "cities"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "Easy, easy, I've got you. Show me your hands, and look at me while I fix this.",
+        "kind": "open"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "We're out, all of us, and nobody's carrying anything they shouldn't.",
+        "kind": "open"
+      }
+    ],
+    "boss_down": [
+      {
+        "text": "Somebody built that place to keep secrets. I'd like to know whose.",
+        "kind": "reply"
+      }
+    ]
+  }
+}
