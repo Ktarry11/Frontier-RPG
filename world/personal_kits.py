@@ -225,6 +225,7 @@ COMBAT_KEYS = {
     "healing_done", "crit_damage_physical", "crit_damage_spell", "pet_damage", "pet_health",
     "stun_duration_reduction_pct", "threat_generation_pct", "healing_received_pct",
     "gold_find_pct", "heal_wounded_target_pct", "heal_healthy_target_pct", "hot_tick_growth_pct",
+    "heal_leaves_hot_pct",
 }
 
 
@@ -274,6 +275,7 @@ PASSIVE_LABELS = {
     "heal_wounded_target_pct": "Healing on Allies Below Half Health",
     "heal_healthy_target_pct": "Healing on Allies Above 80% Health",
     "hot_tick_growth_pct": "Heals Over Time Grow Each Turn",
+    "heal_leaves_hot_pct": "Heals Leave a Slow Growth",
 }
 
 
@@ -304,6 +306,8 @@ def passive_entries_for(character):
                 label = key[:-4].replace("_", " ").title() if key.endswith("_pct") else key.replace("_", " ").title()
             label = label.replace(" %", "").replace(" Pct", "").strip()     # "+10% Max Health", not "+10% Max Health %"
             lines.append(f"{'+' if value > 0 else ''}{value:g}{'%' if pct else ''} {label}")
+        if not lines and block.get("_text"):
+            lines = [block["_text"]]       # a passive that is a mechanic, not a number (Orlando's opening)
         if lines:
             out.append((block.get("_name") or fallback, source, lines))
     return out

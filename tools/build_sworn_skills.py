@@ -77,7 +77,7 @@ def passive_keys():
     except Exception:
         pass
     from world.personal_kits import COMBAT_KEYS
-    return keys | set(COMBAT_KEYS) | {"_name", "_text", "_from"}
+    return keys | set(COMBAT_KEYS) | {"_name", "_text", "_from", "_opening"}
 
 
 def ranks_for(a, kits):
@@ -114,7 +114,7 @@ def ranks_for(a, kits):
 
 #: The keys the engine reads inside the dict-valued fields (a misspelt one is silently ignored).
 NESTED = {
-    "damage_share": {"pct", "reduction_pct", "heal_pct", "uses", "spread", "even"},
+    "damage_share": {"pct", "reduction_pct", "heal_pct", "uses", "spread", "even", "schools"},
     "death_prevent": {"pct", "hp", "lethal_only", "uses"},
     "cleanses": {"types", "count"},
     "immediate": {"action", "turns", "resource", "cost_pct", "mult", "mode", "amount"},

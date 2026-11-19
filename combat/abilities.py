@@ -3315,6 +3315,24 @@ class Ability:
             from config import TURN_THRESHOLD as _TT
             caster.turn_meter = getattr(caster, "turn_meter", 0.0) + _TT
             message = f"{message} {caster.name} is already moving again."
+        # A HEAL THAT KEEPS GROWING (Wave 4, Anjali's Sworn passive): every direct heal she
+        # casts leaves a slow heal over time on whoever it landed on, a share of the heal a turn.
+        grow = caster.get_talent_effect("heal_leaves_hot_pct", 0.0) if hasattr(caster, "get_talent_effect") else 0.0
+        if grow and healed > 0 and self.effect_type == "heal":
+            # a heal's events name nobody, so the healing is shared out over who it was aimed at
+            aimed = [single] if single is not None else (
+                [m for m in (target if isinstance(target, (list, tuple)) else allies) if m is not None])
+            aimed = [m for m in aimed if m.is_alive() and not getattr(m, "is_monster", False)]
+            before = getattr(self, "_target_health_before", None)
+            for who in aimed:
+                amount = healed / len(aimed)
+                if single is not None and before is not None:
+                    amount = max(0, single.current_health - before)     # what landed, not the overheal
+                if amount <= 0:
+                    continue
+                who.apply_status_effect(StatusEffect(
+                    f"{self.ability_id}_growth", "Slow Growth", EffectType.HOT, 4,
+                    potency=max(1, int(amount * grow)), source_name=caster.name, real_time_seconds=None))
         if self.self_damage_pct_of_heal and healed > 0:
             price = int(healed * self.self_damage_pct_of_heal / 100.0)
             if price > 0:
@@ -3338,6 +3356,18 @@ class Ability:
                     message = f"{message} The {spare} {single.name} did not need is shared out."
         if self.party_resource_pct:
             for m in allies:
+                # THE ALLY'S OWN RESOURCE: mana for a caster, rage or energy for the rest. It read mana
+                # alone, so Iker's Whistle ("gives back 20% of their resource") gave a Warrior nothing.
+                kind = None
+                try:
+                    kind = get_class_resource(m.char_class, m)
+                except Exception:
+                    pass
+                if kind is not None and kind != ResourceType.MANA and hasattr(m, "gain_resource"):
+                    top = m.get_resource_max(kind) or 0
+                    if top:
+                        m.gain_resource(kind, int(top * self.party_resource_pct / 100.0))
+                    continue
                 top = getattr(m, "mana", 0) or 0
                 if top and hasattr(m, "current_mana"):
                     m.current_mana = min(top, m.current_mana + int(top * self.party_resource_pct / 100.0))
@@ -4845,6 +4875,10 @@ class Ability:
                         effect.damage_share_pct = 0
                         effect.damage_spread_pct = self.damage_share.get("pct", 0)
                         effect.damage_spread_party = list(party or [caster])
+                        # "even": the holder keeps an equal share, so one hit is split across all of them
+                        effect.damage_spread_even = bool(self.damage_share.get("even"))
+                    if self.damage_share.get("schools"):
+                        effect.damage_share_schools = tuple(self.damage_share["schools"])
                 if self.death_prevent:
                     effect.death_prevent_pct = self.death_prevent.get("pct", 0)
                     effect.death_prevent_hp = self.death_prevent.get("hp", 0)

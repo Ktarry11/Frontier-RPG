@@ -375,6 +375,8 @@ class StatusEffect:
         #: of damage_spread_party, each share cut by damage_share_reduction_pct. 0 = no spread.
         self.damage_spread_pct = 0
         self.damage_spread_party = None
+        self.damage_spread_even = False     # the holder keeps an equal share (Pasang's rope)
+        self.damage_share_schools = None    # only hits of these schools are shared (Owen)
 
         # ---- DEATH PREVENTION --------------------------------------------
         # "The first blow that would kill any ally leaves them at 15%
@@ -1349,6 +1351,8 @@ class StatusEffectMixin:
                       if a is not self and getattr(a, "is_alive", lambda: True)()]
             if pct <= 0 or not others:
                 continue
+            if getattr(effect, "damage_spread_even", False):
+                pct = 100.0 * len(others) / (len(others) + 1)
             moved = actual * min(100.0, pct) / 100.0
             reduction = getattr(effect, "damage_share_reduction_pct", 0) or 0
             each = moved * max(0.0, 1.0 - min(100.0, reduction) / 100.0) / len(others)
@@ -1365,6 +1369,9 @@ class StatusEffectMixin:
             guardian = getattr(effect, "damage_share_to", None)
             pct = getattr(effect, "damage_share_pct", 0) or 0
             if guardian is None or pct <= 0 or guardian is self:
+                continue
+            schools = getattr(effect, "damage_share_schools", None)
+            if schools and damage_type not in schools:
                 continue
             if not getattr(guardian, "is_alive", lambda: True)():
                 continue

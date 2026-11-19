@@ -48,6 +48,14 @@
    "hot_tick_growth_pct": 15
   }
  },
+ "anjali_druid": {
+  "from": "Wave 4: 'what she resolves is the fear of her work being lost. ... a passive where her heals leave a slow, lasting growth on the target that keeps healing.'",
+  "passives": {
+   "_name": "Nothing She Plants Is Lost",
+   "_text": "Every direct heal Anjali casts leaves a slow growth on whoever it lands on, healing them for a further 10% of that heal each turn for 4 turns.",
+   "heal_leaves_hot_pct": 10
+  }
+ },
  "bakyt_hunter": {
   "from": "Wave 4: 'what he resolves is the end of six generations. ... his eagle marks every enemy's weak point, and the party's attacks on them hit harder.'",
   "ability": {
@@ -358,6 +366,33 @@
    "absorb": 120
   }
  },
+ "emre_rogue": {
+  "from": "Wave 4: 'what he resolves is the question, and the guilt of feeling light. ... he finds the weak point in an enemy's defence, and every ally ignores its armour for a turn.'",
+  "ability": {
+   "ability_id": "personal_sworn_emre_the_door_was_open",
+   "name": "The Door Was Always Open",
+   "engine": "live: debuff armor_pct -100 and physical damage taken +15 for 2 turns",
+   "effect_type": "debuff",
+   "target_type": "enemy",
+   "resource_type": "energy",
+   "cooldown": 13,
+   "duration": 2,
+   "is_instant": true,
+   "stat_mods": {
+    "armor_pct": -100,
+    "physical_damage_taken_pct": 15
+   },
+   "description": "Emre finds the gap in an enemy's defence. For 2 turns it has no armour at all, and takes 15% more physical damage from everyone.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
+    }
+   ]
+  }
+ },
  "esteban_bloodmage": {
   "from": "Wave 4: 'with the party's agreement, he takes some of everyone's health and uses it to save the one who's dying.'",
   "ability": {
@@ -561,6 +596,106 @@
      "effect_value": 731
     }
    ]
+  }
+ },
+ "iker_guardian": {
+  "from": "Wave 4: 'what he resolves is the ninety kids he couldn't find. ... he shouts the party back up, and every ally regains health and resource.'",
+  "ability": {
+   "ability_id": "personal_sworn_iker_everybody_up",
+   "name": "Everybody Up",
+   "engine": "live: party heal plus heals_party_pct_max 10 and party_resource_pct 30 (each ally's own resource)",
+   "effect_type": "heal",
+   "target_type": "party",
+   "resource_type": "energy",
+   "cooldown": 14,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Iker shouts the whole party back up. Every ally is healed, and for a tenth of their maximum on top, and gets back 30% of their mana, rage or energy.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 40,
+     "effect_value": 110
+    },
+    {
+     "rank": 2,
+     "level_req": 15,
+     "cost": 40,
+     "effect_value": 246
+    },
+    {
+     "rank": 3,
+     "level_req": 30,
+     "cost": 40,
+     "effect_value": 383
+    },
+    {
+     "rank": 4,
+     "level_req": 45,
+     "cost": 40,
+     "effect_value": 520
+    },
+    {
+     "rank": 5,
+     "level_req": 60,
+     "cost": 40,
+     "effect_value": 656
+    }
+   ],
+   "heals_party_pct_max": 10,
+   "party_resource_pct": 30
+  }
+ },
+ "imelda_primalist": {
+  "from": "Wave 4: 'what she resolves is never being seen by her mother. ... a combination of strikes where every hit heals the most wounded ally.'",
+  "ability": {
+   "ability_id": "personal_sworn_imelda_whole_combination",
+   "name": "The Whole Combination",
+   "engine": "live: one heavy strike that cannot miss, heals_lowest_ally_pct 100",
+   "effect_type": "damage",
+   "target_type": "enemy",
+   "resource_type": "rage",
+   "cooldown": 13,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Imelda throws the whole combination at one enemy, and it can't miss. The most wounded ally is healed for all of the damage it deals.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 150
+    },
+    {
+     "rank": 2,
+     "level_req": 15,
+     "cost": 30,
+     "effect_value": 295
+    },
+    {
+     "rank": 3,
+     "level_req": 30,
+     "cost": 30,
+     "effect_value": 440
+    },
+    {
+     "rank": 4,
+     "level_req": 45,
+     "cost": 30,
+     "effect_value": 586
+    },
+    {
+     "rank": 5,
+     "level_req": 60,
+     "cost": 30,
+     "effect_value": 731
+    }
+   ],
+   "cannot_miss": true,
+   "heals_lowest_ally_pct": 100
   }
  },
  "ivan_warrior": {
@@ -855,6 +990,56 @@
    ]
   }
  },
+ "mateo_starcaller": {
+  "from": "Wave 4: 'what he resolves is choosing the sky over his family. ... he calls down starlight, which damages enemies and heals allies at the same time.'",
+  "ability": {
+   "ability_id": "personal_sworn_mateo_starlight_for_both",
+   "name": "Starlight for Both",
+   "engine": "live: arcane spell damage on every enemy, plus heals_party_pct_max 12",
+   "effect_type": "spell_damage",
+   "target_type": "all_enemies",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Mateo calls the starlight down on both at once. It strikes every enemy with arcane damage, and heals every ally for 12% of their maximum health.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 45,
+     "effect_value": 140
+    },
+    {
+     "rank": 2,
+     "level_req": 15,
+     "cost": 63,
+     "effect_value": 226
+    },
+    {
+     "rank": 3,
+     "level_req": 30,
+     "cost": 81,
+     "effect_value": 312
+    },
+    {
+     "rank": 4,
+     "level_req": 45,
+     "cost": 99,
+     "effect_value": 397
+    },
+    {
+     "rank": 5,
+     "level_req": 60,
+     "cost": 117,
+     "effect_value": 483
+    }
+   ],
+   "damage_school": "arcane",
+   "heals_party_pct_max": 12
+  }
+ },
  "matias_reaper": {
   "from": "Wave 4: 'what he resolves is the silence, and the argument with his father. ... he stands in front and takes every hit aimed at the party's weakest member.'",
   "ability": {
@@ -909,6 +1094,116 @@
    "immediate": {
     "action": "rewind",
     "turns": 2
+   }
+  }
+ },
+ "nicolas_bloodmage": {
+  "from": "Wave 4: 'what he resolves is the two streets he wasn't there for. ... he bleeds for the whole party, taking a share of every hit they take for a few turns.'",
+  "ability": {
+   "ability_id": "personal_sworn_nicolas_there_this_time",
+   "name": "There This Time",
+   "engine": "live: party damage_share 50% to Nicolás, and he heals back 30% of what he pays, 4 turns",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "rage",
+   "cooldown": 14,
+   "duration": 4,
+   "is_instant": true,
+   "stat_mods": {},
+   "description": "Nicolás bleeds for all of them. For 4 turns he takes half of every hit on an ally, and heals back 30% of what he pays.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
+    }
+   ],
+   "damage_share": {
+    "pct": 50,
+    "heal_pct": 30
+   }
+  }
+ },
+ "orlando_witchdoctor": {
+  "from": "Wave 4: 'what he resolves is not being able to go home. ... a passive where allies near him at the start of a fight are steadier and harder to frighten.'",
+  "passives": {
+   "_name": "Everyone Sits Down First",
+   "_text": "Orlando steadies the room before anything starts. For the first 3 turns of every fight, no ally can be stunned, feared or charmed, and every ally takes 10% less damage.",
+   "_opening": {
+    "turns": 3,
+    "mods": {
+     "cc_immune": 1,
+     "physical_damage_taken_pct": -10,
+     "magic_damage_taken_pct": -10
+    }
+   }
+  }
+ },
+ "owen_cultist": {
+  "from": "Wave 4: 'what he resolves is the voice, and saying no to it. ... he takes the darkness that would hit the party into himself and holds it.'",
+  "ability": {
+   "ability_id": "personal_sworn_owen_holds_it",
+   "name": "Holds It, and Says No",
+   "engine": "live: party damage_share 100% of magic hits only (schools), 40% reduced, 3 turns",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 3,
+   "is_instant": true,
+   "stat_mods": {},
+   "description": "Owen takes the dark into himself and holds it. For 3 turns every spell that hits an ally lands on him instead, 40% lighter. Steel and claws still land where they're aimed.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 35,
+     "effect_value": 100
+    }
+   ],
+   "damage_share": {
+    "pct": 100,
+    "reduction_pct": 40,
+    "schools": [
+     "shadow",
+     "arcane",
+     "fire",
+     "frost",
+     "nature",
+     "holy",
+     "magic"
+    ]
+   }
+  }
+ },
+ "pasang_primalist": {
+  "from": "Wave 4: 'what he resolves is the fear of dying alone on the mountain. ... he ropes the party together, so damage to any one of them is shared among all.'",
+  "ability": {
+   "ability_id": "personal_sworn_pasang_roped_together",
+   "name": "Roped Together",
+   "engine": "live: party damage spread, even (the one hit keeps an equal share), 25% reduced, 4 turns",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "rage",
+   "cooldown": 15,
+   "duration": 4,
+   "is_instant": true,
+   "stat_mods": {},
+   "description": "Pasang ropes the party together. For 4 turns a hit on any ally is split evenly across all of them, and the shares carried by the others are 25% lighter.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
+    }
+   ],
+   "damage_share": {
+    "spread": true,
+    "even": true,
+    "pct": 100,
+    "reduction_pct": 25
    }
   }
  },
@@ -988,6 +1283,34 @@
     "damage_dealt_pct": 40
    },
    "description": "For 3 turns half of every hit on an ally goes to Ryan instead, 30% lighter, and his demon deals 40% more damage.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 35,
+     "effect_value": 100
+    }
+   ]
+  }
+ },
+ "saoirse_starcaller": {
+  "from": "Wave 4: 'what she resolves is the girls she couldn't stand in front of. ... she shouts a call, and every ally fights harder for a few turns.'",
+  "ability": {
+   "ability_id": "personal_sworn_saoirse_the_call",
+   "name": "The Call From the Back Line",
+   "engine": "live: party damage +30% and crit chance +10 (physical and spell) for 3 turns",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 15,
+   "duration": 3,
+   "is_instant": true,
+   "stat_mods": {
+    "damage_dealt_pct": 30,
+    "crit_chance_physical": 10,
+    "crit_chance_spell": 10
+   },
+   "description": "Saoirse shouts the call, the way she should have. For 3 turns every ally deals 30% more damage and has 10% more chance to land a critical hit.",
    "ranks": [
     {
      "rank": 1,

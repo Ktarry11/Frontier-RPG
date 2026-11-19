@@ -5,6 +5,7 @@ Handles Character (player) vs Monster (enemy) - two DIFFERENT class systems.
 import random
 from enum import Enum
 from combat.turn_meter import TurnMeter
+from combat.status_effects import StatusEffect, EffectType
 from entities.loot_generator import LootGenerator
 from entities.boss_loot import get_fixed_boss_loot_all, shares_hoard
 
@@ -118,6 +119,7 @@ class CombatEngine:
             _ally._damage_tally = 0
             _ally._next_cast_sure = False
             _ally._fight_party = self.party.members     # the fallen included
+        self._sworn_openings()
         #: Abilities paid for and not yet landed: see queue_delayed.
         self._delayed = []
         self.copper_earned = 0     # coin dropped this fight (humanoids only), for the victory screen
@@ -931,6 +933,28 @@ class CombatEngine:
         self.current_actor = None
         return True, f"{name} flees from combat!"
     
+    def _sworn_openings(self):
+        """A Sworn passive that steadies the whole party as a fight opens (Wave 4, Orlando):
+        its "_opening" block, {"turns": n, "mods": {...}}, goes on every living ally."""
+        try:
+            from world import personal_kits as _PK
+        except Exception:
+            return
+        members = [m for m in self.party.members if m is not None]
+        for holder in members:
+            rid = getattr(holder, "recruit_id", None)
+            block = ((_PK.get_sworn(rid) or {}).get("passives") or {}) if rid else {}
+            opening = block.get("_opening")
+            if not isinstance(opening, dict) or not holder.is_alive():
+                continue
+            for m in members:
+                if m.is_alive() and hasattr(m, "apply_status_effect"):
+                    m.apply_status_effect(StatusEffect(
+                        f"sworn_opening_{rid}", block.get("_name", "Sworn"), EffectType.BUFF,
+                        int(opening.get("turns", 3)), stat_mods=dict(opening.get("mods") or {}),
+                        source_name=holder.name, real_time_seconds=None))
+            self.combat_log.append(f"{holder.name}: {block.get('_name', 'Sworn')}.")
+
     def _end_turn(self, actor):
         """Shared turn-end logic: consume turn, decrement cooldowns, restore resources."""
         speed = getattr(actor, "_cast_speed", 1.0) or 1.0

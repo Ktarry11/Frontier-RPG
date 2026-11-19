@@ -101,7 +101,8 @@ def fight(rm, bm, rid, friends=2):
         c._recalculate_derived_stats()
         c.current_health = c.health
         c.dodge = c.parry = 0.0
-    ab = ch.ability_book.get_ability(PK.sworn_skills()[rid]["ability"]["ability_id"])
+    entry = PK.sworn_skills()[rid].get("ability")
+    ab = ch.ability_book.get_ability(entry["ability_id"]) if entry else None
     if ab is not None:
         ab.is_learned = True
     return ch, ab, others, mobs, eng
@@ -590,6 +591,221 @@ def c_liam(rm, bm, rid):
               f"{ab.name}: {c.name} healed {c.current_health - before[c.name]} of {c.health}")
 
 
+
+def _control(a, mob, amount=3000, school="shadow"):
+    """What a plain hit takes off this ally, health put back after."""
+    before = a.current_health
+    a.take_damage(amount, school, attacker=mob, attacker_level=60)
+    lost = before - a.current_health
+    a.current_health = before
+    return lost
+
+
+def c_orlando(rm, bm, rid):
+    c_passive(rm, bm, rid)
+    swear(bm, rid, False)
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    # fight() swears again; build a second engine so the opening is read with him Sworn
+    from combat.combat_engine import CombatEngine
+    eng = CombatEngine(ch, mobs[0], party=bm.party, enemies=mobs)
+    for c in [ch] + others:
+        check(has_effect(c, f"sworn_opening_{rid}"), f"Orlando: {c.name} isn't steadied as the fight opens")
+        check(c.get_status_stat_mod("cc_immune") > 0, f"Orlando: {c.name} can still be frightened")
+    swear(bm, rid, False)
+    for c in [ch] + others:
+        c._effects()[:] = [e for e in c._effects() if e.effect_id != f"sworn_opening_{rid}"]
+    CombatEngine(ch, mobs[0], party=bm.party, enemies=mobs)
+    check(not any(has_effect(c, f"sworn_opening_{rid}") for c in [ch] + others), "Orlando: the opening works without the bond")
+
+
+def c_owen(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    a = others[1]
+    raw = _control(a, mobs[1])
+    phys = _control(a, mobs[0], 3000, "physical")
+    check(raw > 0 and phys > 0, "rig: the ally takes nothing from a plain hit")
+    cast(ch, ab, [ch] + others, eng)
+    before, ob = a.current_health, ch.current_health
+    a.take_damage(3000, "shadow", attacker=mobs[1], attacker_level=60)
+    check(a.current_health == before, f"{ab.name}: the ally still took {before - a.current_health} of a spell")
+    check(0 < ob - ch.current_health <= raw * 0.6 + 1, f"{ab.name}: Owen took {ob - ch.current_health} of {raw}")
+    before = a.current_health
+    a.take_damage(3000, "physical", attacker=mobs[0], attacker_level=60)
+    check(before - a.current_health > 0, f"{ab.name}: a physical hit was taken off the ally too")
+
+
+def c_anjali(rm, bm, rid):
+    ch = c_passive(rm, bm, rid)
+    heal = next((x for x in ch.ability_book.get_all_abilities() if x.effect_type == "heal" and x.is_learned), None)
+    if not check(heal is not None, "Anjali: no heal to measure"):
+        return
+    from entities.character import Character
+    a = Character("Friend", "Warrior", 60)
+    a.current_health = a.health // 4
+    ch._recalculate_derived_stats()
+    fill(ch, heal)
+    before = a.current_health
+    heal.use(ch, a, party=[ch, a], free=True)
+    got = a.current_health - before
+    eff = next((e for e in a._effects() if e.effect_id.endswith("_growth")), None)
+    if check(eff is not None and got > 0, f"Anjali: {heal.name} healed {got} and left no growth"):
+        check(abs(eff.potency - got * 0.10) <= 1, f"Anjali: growth heals {eff.potency} a turn, wants {got * 0.1:.0f}")
+        a.current_health = a.health // 4
+        b = a.current_health
+        a.tick_status_effects()
+        check(a.current_health > b, "Anjali: the growth healed nothing on its tick")
+
+
+def c_pasang(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    a = others[1]
+    raw = _control(a, mobs[1], 6000)
+    cast(ch, ab, [ch] + others, eng)
+    party = [ch] + others
+    hp = {c.name: c.current_health for c in party}
+    a.take_damage(6000, "shadow", attacker=mobs[1], attacker_level=60)
+    lost = {c.name: hp[c.name] - c.current_health for c in party}
+    n = len(party)
+    check(abs(lost[a.name] - raw / n) <= raw * 0.02 + 1, f"{ab.name}: the hit ally lost {lost[a.name]} of {raw}, wants {raw / n:.0f}")
+    for c in party:
+        if c is not a:
+            check(abs(lost[c.name] - raw / n * 0.75) <= raw * 0.02 + 1, f"{ab.name}: {c.name} carried {lost[c.name]}, wants {raw / n * 0.75:.0f}")
+
+
+def c_nicolas(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    a = others[1]
+    raw = _control(a, mobs[1])
+    cast(ch, ab, [ch] + others, eng)
+    before = a.current_health
+    a.take_damage(3000, "shadow", attacker=mobs[1], attacker_level=60)
+    check(abs((before - a.current_health) - raw / 2) <= raw * 0.02 + 1, f"{ab.name}: the ally lost {before - a.current_health} of {raw}, wants half")
+
+
+def c_iker(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    from combat.abilities import get_class_resource
+    party = [ch] + others
+    for c in party:
+        c.current_health = c.health // 4
+        c.set_resource(get_class_resource(c.char_class, c), 0)
+    hp = {c.name: c.current_health for c in party}
+    cast(ch, ab, party, eng)
+    for c in party:
+        kind = get_class_resource(c.char_class, c)
+        check(c.current_health - hp[c.name] >= c.health * 0.1, f"{ab.name}: {c.name} healed {c.current_health - hp[c.name]}")
+        if c is not ch:
+            check(c.get_resource(kind) >= c.get_resource_max(kind) * 0.29,
+                  f"{ab.name}: {c.name} has {c.get_resource(kind)} {getattr(kind, 'value', kind)} of {c.get_resource_max(kind)}")
+
+
+def c_mateo(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    party = [ch] + others
+    for c in party:
+        c.current_health = c.health // 4
+    hp = {c.name: c.current_health for c in party}
+    foes = [m.current_health for m in mobs]
+    cast(ch, ab, mobs, eng)
+    check(any(m.current_health < f for m, f in zip(mobs, foes)), f"{ab.name}: no enemy was hit")
+    for c in party:
+        check(c.current_health - hp[c.name] >= c.health * 0.12 - 1, f"{ab.name}: {c.name} healed {c.current_health - hp[c.name]}")
+
+
+def c_imelda(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    low = others[1]
+    low.current_health = low.health // 10
+    before, mb = low.current_health, mobs[0].current_health
+    cast(ch, ab, mobs[0], eng)
+    dealt = mb - mobs[0].current_health
+    check(dealt > 0, f"{ab.name}: dealt nothing")
+    check(low.current_health - before >= min(dealt, low.health - before) * 0.9,
+          f"{ab.name}: dealt {dealt} and the most wounded ally got {low.current_health - before}")
+
+
+
+def c_ileana(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    cast(ch, ab, mobs, eng)
+    for m in mobs:
+        check(m.is_stunned, f"{ab.name}: {m.name} isn't frozen")
+
+
+def c_rhys(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    for i, m in enumerate(mobs):
+        m.turn_meter = 10.0 * i
+    nxt = mobs[2]
+    hp = [m.current_health for m in mobs]
+    cast(ch, ab, mobs[0], eng)
+    check(nxt.current_health < hp[2] and mobs[0].current_health == hp[0],
+          f"{ab.name}: hit {[h - m.current_health for m, h in zip(mobs, hp)]}, wants only the one about to act")
+    check(nxt.is_stunned, f"{ab.name}: the enemy about to act isn't stopped")
+
+
+def c_eino(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    mobs[1].max_health = mobs[1].current_health = 2 * 10 ** 7
+    hp = [m.current_health for m in mobs]
+    cast(ch, ab, mobs[0], eng)
+    check(mobs[1].current_health < hp[1] and mobs[0].current_health == hp[0], f"{ab.name}: didn't fell the biggest enemy")
+    for key, value in ab.target_mods.items():
+        check(mobs[1].get_status_stat_mod(key) == value, f"{ab.name}: {key} {mobs[1].get_status_stat_mod(key)}, wants {value}")
+
+
+def c_driss(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    cast(ch, ab, [ch] + others, eng)
+    for m in mobs:
+        check(m.get_status_stat_mod("miss_chance_pct") == 30, f"{ab.name}: {m.name} isn't blinded")
+    random.seed(3)
+    a = others[1]
+    misses = 0
+    for _ in range(400):
+        before = a.current_health
+        a.take_damage(100, "shadow", attacker=mobs[1], attacker_level=60)
+        misses += a.current_health == before
+        a.current_health = a.health
+    check(90 <= misses <= 150, f"{ab.name}: {misses} of 400 spells missed, wants about 120")
+
+
+def c_thiago(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    a = others[1]
+    cast(ch, ab, a, eng)
+    for _ in range(3):
+        a.take_damage(a.health * 50, "shadow", attacker=mobs[1], attacker_level=60)
+    check(a.is_alive(), f"{ab.name}: three killing blows killed them")
+
+
+def c_enzo(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    m = mobs[1]
+    cast(ch, ab, ch, eng)
+    before, mb = ch.current_health, m.current_health
+    ch.take_damage(4000, "shadow", attacker=m, attacker_level=60)
+    check(ch.current_health == before, f"{ab.name}: Enzo still took {before - ch.current_health}")
+    check(mb - m.current_health == 6000, f"{ab.name}: the attacker took {mb - m.current_health}, wants 6000")
+    before = ch.current_health
+    ch.take_damage(4000, "shadow", attacker=m, attacker_level=60)
+    check(ch.current_health < before, f"{ab.name}: the second hit was turned back too")
+
+
+def c_alonso(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    m = mobs[0]
+    def hit(school):
+        b = m.current_health
+        m.take_damage(10000, school, attacker=ch, attacker_level=60)
+        return b - m.current_health
+    fire, frost = hit("fire"), hit("frost")
+    cast(ch, ab, mobs, eng)
+    f2, i2 = hit("fire"), hit("frost")
+    check(abs(f2 - fire * 1.4) <= fire * 0.02 + 1, f"{ab.name}: fire {fire} -> {f2}, wants x1.4")
+    check(i2 == frost, f"{ab.name}: frost changed too ({frost} -> {i2})")
+
+
 CHECKS = {
     "personal_sworn_kesten_written_down_properly": c_kesten,
     "personal_sworn_adrian_let_them_carry_it": c_adrian,
@@ -618,9 +834,23 @@ CHECKS = {
     "personal_sworn_giorgi_rings_the_bell": c_giorgi,
     "personal_sworn_camille_takes_the_shift": c_camille,
     "personal_sworn_liam_calls_the_crew_in": c_liam,
+    "personal_sworn_owen_holds_it": c_owen,
+    "personal_sworn_pasang_roped_together": c_pasang,
+    "personal_sworn_nicolas_there_this_time": c_nicolas,
+    "personal_sworn_iker_everybody_up": c_iker,
+    "personal_sworn_mateo_starlight_for_both": c_mateo,
+    "personal_sworn_imelda_whole_combination": c_imelda,
+    "personal_sworn_ileana_hold_the_line": c_ileana,
+    "personal_sworn_rhys_tegan_stoops": c_rhys,
+    "personal_sworn_eino_felling_blow": c_eino,
+    "personal_sworn_driss_the_sandstorm": c_driss,
+    "personal_sworn_thiago_not_today": c_thiago,
+    "personal_sworn_enzo_the_perfect_riposte": c_enzo,
+    "personal_sworn_alonso_firing_heat": c_alonso,
 }
 #: passives with a check of their own (every other passive gets c_passive)
-PASSIVE_CHECKS = {"ama_priest": c_ama, "amber_druid": c_amber}
+PASSIVE_CHECKS = {"ama_priest": c_ama, "amber_druid": c_amber, "orlando_witchdoctor": c_orlando,
+                  "anjali_druid": c_anjali}
 
 
 def by_kind(rm, bm, rid):
