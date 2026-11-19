@@ -10741,6 +10741,514 @@
      ]
     }
    ]
+  },
+  {
+   "a": "bakyt_hunter",
+   "b": "giorgi_primalist",
+   "steps": [
+    {
+     "when": "met",
+     "affinity": 5,
+     "lines": [
+      [
+       "giorgi_primalist",
+       "You walk like a man who's gone up a mountain every spring of his life."
+      ],
+      [
+       "bakyt_hunter",
+       "Six generations, the same route, up to the high pasture and down again. You too, I think."
+      ],
+      [
+       "giorgi_primalist",
+       "Kazbegi, in Georgia. Sheep, a dog and a wooden hut, six months with no road."
+      ],
+      [
+       "bakyt_hunter",
+       "Then we don't need to talk much, and that's good."
+      ],
+      [
+       "giorgi_primalist",
+       "That's very good."
+      ]
+     ]
+    },
+    {
+     "when": "gap:6",
+     "affinity": 3,
+     "lines": [
+      [
+       "bakyt_hunter",
+       "We sat by the fire for an hour last night and said nothing at all."
+      ],
+      [
+       "giorgi_primalist",
+       "Somebody asked me afterwards if we'd argued."
+      ],
+      [
+       "bakyt_hunter",
+       "People down here worry when you're quiet. On the pasture, the quiet is the conversation."
+      ],
+      [
+       "giorgi_primalist",
+       "Yes, and last night's was a good one."
+      ]
+     ]
+    },
+    {
+     "when": "friendly",
+     "affinity": 3,
+     "lines": [
+      [
+       "giorgi_primalist",
+       "Your eagle watches the hills the way my dog watched the flock."
+      ],
+      [
+       "bakyt_hunter",
+       "Jeldyz would hunt your sheep, I'm afraid, if you let her. Eagles have no manners."
+      ],
+      [
+       "giorgi_primalist",
+       "My dog would have had something to say about that."
+      ],
+      [
+       "bakyt_hunter",
+       "Then we'd keep them apart, and sit in the middle, and say nothing. Jakshy, that's good."
+      ]
+     ]
+    },
+    {
+     "when": "close",
+     "affinity": 5,
+     "lines": [
+      [
+       "bakyt_hunter",
+       "My sons didn't want the route. I understood, and it was still the end of six generations."
+      ],
+      [
+       "giorgi_primalist",
+       "My wife thought the mountain was something I'd grow out of. I never did."
+      ],
+      [
+       "bakyt_hunter",
+       "The mountain keeps the ones who listen to it. The rest go to the city, and that's all right."
+      ],
+      [
+       "giorgi_primalist",
+       "It's all right. But it's good to sit with somebody it kept."
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "a": "khalid_hunter",
+   "b": "rhys_ranger",
+   "steps": [
+    {
+     "when": "met",
+     "affinity": -1,
+     "lines": [
+      [
+       "khalid_hunter",
+       "A Harris's hawk. A good bird, for a hawk."
+      ],
+      [
+       "rhys_ranger",
+       "For a hawk, is it? Tegan, did you hear that? He's a falcon man."
+      ],
+      [
+       "khalid_hunter",
+       "Sakers, in Al Ain, for longer than anyone wrote down. Falcons hunt the open sky, and hawks hunt the bushes."
+      ],
+      [
+       "rhys_ranger",
+       "And Tegan's caught more in these woods than any falcon would, mind, because a falcon can't fly in trees."
+      ]
+     ]
+    },
+    {
+     "when": "gap:5",
+     "affinity": 1,
+     "lines": [
+      [
+       "rhys_ranger",
+       "Tegan took a rabbit out from under a bramble this morning. I'd like to see a saker do that."
+      ],
+      [
+       "khalid_hunter",
+       "A saker wouldn't bother with a rabbit under a bramble. It would wait for something worth the stoop."
+      ],
+      [
+       "rhys_ranger",
+       "Waiting's very noble, Khalid, but Tegan's had her breakfast."
+      ],
+      [
+       "khalid_hunter",
+       "I'll give you breakfast, Rhys. I won't give you elegance."
+      ]
+     ]
+    },
+    {
+     "when": "gap:8",
+     "affinity": 4,
+     "lines": [
+      [
+       "khalid_hunter",
+       "How long has she been with you?"
+      ],
+      [
+       "rhys_ranger",
+       "Seven years, and she's chosen me again every single morning. Anyone who's flown a bird knows that's the whole thing."
+      ],
+      [
+       "khalid_hunter",
+       "Mine was eleven years. I had her hood in my pocket when it happened, because I'd been oiling the leather on my break."
+      ],
+      [
+       "rhys_ranger",
+       "Duw, Khalid, I'm sorry. I didn't know."
+      ],
+      [
+       "khalid_hunter",
+       "There's no reason you would. Your bird's a good bird, Rhys, and this time I'll say it properly."
+      ]
+     ]
+    },
+    {
+     "when": "friendly",
+     "affinity": 3,
+     "lines": [
+      [
+       "rhys_ranger",
+       "You handle a bird like nobody I've ever seen, Khalid, and I'll admit it, so long as Tegan isn't listening."
+      ],
+      [
+       "khalid_hunter",
+       "And your hawk is the best-mannered bird in this party, which is a low bar, but she clears it easily."
+      ],
+      [
+       "rhys_ranger",
+       "We'll call it a draw, then."
+      ],
+      [
+       "khalid_hunter",
+       "A draw, for today. Tomorrow we argue again, wallah."
+      ]
+     ]
+    },
+    {
+     "when": "close",
+     "affinity": 5,
+     "lines": [
+      [
+       "khalid_hunter",
+       "I'm happier here than I've been in ten years, Rhys. I don't say that in company, and I'm saying it to you."
+      ],
+      [
+       "rhys_ranger",
+       "Open country, weather and birds, so of course you're happy. So am I, and I've felt guilty about it too."
+      ],
+      [
+       "khalid_hunter",
+       "Then we'll be guilty together, quietly, on a ridge somewhere."
+      ],
+      [
+       "rhys_ranger",
+       "That's tidy, Khalid. Tegan will keep watch."
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "a": "bakyt_hunter",
+   "b": "khalid_hunter",
+   "steps": [
+    {
+     "when": "met",
+     "affinity": -1,
+     "lines": [
+      [
+       "bakyt_hunter",
+       "So you're a falconer. My eagle would eat your falcon, I think."
+      ],
+      [
+       "khalid_hunter",
+       "Your eagle would have to catch it first, and she's far too heavy."
+      ],
+      [
+       "bakyt_hunter",
+       "Jeldyz takes foxes in the snow. What does a falcon take, a pigeon?"
+      ],
+      [
+       "khalid_hunter",
+       "A houbara, at a speed your eagle has never seen, from a sky she can't reach."
+      ]
+     ]
+    },
+    {
+     "when": "gap:6",
+     "affinity": 3,
+     "lines": [
+      [
+       "khalid_hunter",
+       "I watched Jeldyz take that fox yesterday. It was very good work, and I wanted to say so."
+      ],
+      [
+       "bakyt_hunter",
+       "Thank you. A falcon would have been halfway to the next zone before the fox moved."
+      ],
+      [
+       "khalid_hunter",
+       "That's the nicest insult I've ever had."
+      ],
+      [
+       "bakyt_hunter",
+       "It wasn't an insult, mostly."
+      ]
+     ]
+    },
+    {
+     "when": "friendly",
+     "affinity": 3,
+     "lines": [
+      [
+       "bakyt_hunter",
+       "My father taught me the eagle before I could ride. Who taught you?"
+      ],
+      [
+       "khalid_hunter",
+       "My grandfather, when I was eight, in the desert outside Al Ain. He corrected my glove for a year."
+      ],
+      [
+       "bakyt_hunter",
+       "Only a year? My father corrected mine for ten."
+      ],
+      [
+       "khalid_hunter",
+       "Then you needed it more, my friend."
+      ],
+      [
+       "bakyt_hunter",
+       "Ha, maybe I did."
+      ]
+     ]
+    },
+    {
+     "when": "close",
+     "affinity": 5,
+     "lines": [
+      [
+       "khalid_hunter",
+       "None of your sons wanted the eagle?"
+      ],
+      [
+       "bakyt_hunter",
+       "None of them. They went to Bishkek, and that's the city's gain. I've accepted it, mostly."
+      ],
+      [
+       "khalid_hunter",
+       "My mother had a list of suitable women, and I kept politely failing to meet any of them. I don't think there'll be sons to teach."
+      ],
+      [
+       "bakyt_hunter",
+       "Then we'll teach somebody else's, Khalid. A bird doesn't care whose son is holding the glove."
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "a": "dan_warrior",
+   "b": "ivan_warrior",
+   "steps": [
+    {
+     "when": "met",
+     "affinity": 4,
+     "lines": [
+      [
+       "dan_warrior",
+       "You look like you've done shift work, mate. It's the way you stand when you're tired."
+      ],
+      [
+       "ivan_warrior",
+       "Eleven years driving a tram, Route 13, in Novosibirsk. Dark mornings, every one of them."
+      ],
+      [
+       "dan_warrior",
+       "Steel, me, twenty-two years in Sheffield. Night shifts and a four-man crew."
+      ],
+      [
+       "ivan_warrior",
+       "Then you know. Nobody else understands what it's like at that hour."
+      ]
+     ]
+    },
+    {
+     "when": "gap:6",
+     "affinity": 3,
+     "lines": [
+      [
+       "ivan_warrior",
+       "In eleven years I never had an accident, not once. Other men are proud of their cars."
+      ],
+      [
+       "dan_warrior",
+       "Nine years of Fridays, the four of us, and we never missed a pint. That's my record."
+      ],
+      [
+       "ivan_warrior",
+       "That's a good record. Mine is about not hitting children, which is a sadder one."
+      ],
+      [
+       "dan_warrior",
+       "They're both good records, mate. Yours matters more, I'll give you that."
+      ]
+     ]
+    },
+    {
+     "when": "friendly",
+     "affinity": 3,
+     "lines": [
+      [
+       "dan_warrior",
+       "We need a crew, Ivan. Four of us, Fridays, a round each."
+      ],
+      [
+       "ivan_warrior",
+       "In Novosibirsk we drank vodka, not beer. I'm telling you now, I'll win."
+      ],
+      [
+       "dan_warrior",
+       "You've never met Little Mick. Nobody beats Little Mick, and he's not even here."
+      ],
+      [
+       "ivan_warrior",
+       "Then I'll beat him in his absence. That's still winning."
+      ]
+     ]
+    },
+    {
+     "when": "close",
+     "affinity": 5,
+     "lines": [
+      [
+       "ivan_warrior",
+       "Every day on the tram I was afraid a child would step off the kerb without looking. I still dream about it."
+      ],
+      [
+       "dan_warrior",
+       "When the plant shut I spent four years on the sofa. My daughter came every Sunday and made me eat."
+      ],
+      [
+       "ivan_warrior",
+       "You never told her that she saved you?"
+      ],
+      [
+       "dan_warrior",
+       "Never told her, no. I'm telling you, and that's a start."
+      ],
+      [
+       "ivan_warrior",
+       "It's a good start, Dan. I'll hold it for you till you can say it to her."
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "a": "amber_druid",
+   "b": "anjali_druid",
+   "steps": [
+    {
+     "when": "met",
+     "affinity": 4,
+     "lines": [
+      [
+       "anjali_druid",
+       "You're the wetland woman. I saw you planting sedge by hand when you could have grown it in an afternoon."
+      ],
+      [
+       "amber_druid",
+       "I could have, and it'd have died in a month, because the ground wasn't ready. Slow and right beats fast and dead."
+      ],
+      [
+       "anjali_druid",
+       "Carex, I assume, from the leaf. And you're quite correct, which is very rare in a druid."
+      ],
+      [
+       "amber_druid",
+       "You're the botany professor who corrects people's Latin. I've heard about you."
+      ],
+      [
+       "anjali_druid",
+       "Everything you've heard is true, and most of it was meant kindly."
+      ]
+     ]
+    },
+    {
+     "when": "gap:6",
+     "affinity": 3,
+     "lines": [
+      [
+       "amber_druid",
+       "Twenty-three years, and I never once finished a basin. The grant money always ran out three years into a thirty-year job."
+      ],
+      [
+       "anjali_druid",
+       "Thirty-one years, and I never once got a student to wait a whole season without asking about Friday."
+      ],
+      [
+       "amber_druid",
+       "So we both spent our lives being early to slow things."
+      ],
+      [
+       "anjali_druid",
+       "And now we have time, and nobody's counting the money. It's almost indecent, isn't it?"
+      ]
+     ]
+    },
+    {
+     "when": "friendly",
+     "affinity": 3,
+     "lines": [
+      [
+       "anjali_druid",
+       "Would you let me press a specimen from your oasis? Properly labelled, in my hand."
+      ],
+      [
+       "amber_druid",
+       "Only if you write down that it took years. People always forget the slow part."
+      ],
+      [
+       "anjali_druid",
+       "I'll write it on the label, Amber, in ink, and nobody will forget."
+      ]
+     ]
+    },
+    {
+     "when": "close",
+     "affinity": 5,
+     "lines": [
+      [
+       "amber_druid",
+       "I've had the easiest years of my life here, Anjali. It makes me bad company for most people."
+      ],
+      [
+       "anjali_druid",
+       "I lost my husband the year before all this, and I came through it, and then the world ended. I'm not frightened of easy years."
+      ],
+      [
+       "amber_druid",
+       "Then I can stop apologising for mine?"
+      ],
+      [
+       "anjali_druid",
+       "Around me, you can. Grief and peace grow in the same soil, and you just have to be patient with both."
+      ]
+     ]
+    }
+   ]
   }
  ]
 }
