@@ -99,9 +99,9 @@ fourth).
 | 29 | Bakyt Asanov | Hunter 17 | Eastern Hillsbrad | `bakyt_asanov.md` | Happy | Draft 1 |
 | 30 | Matías Fuentes | Reaper 17 | Sunken Grotto of the Deep | `matias_fuentes.md` | Sad | Draft 1 |
 | 31 | Tomas Havel | Warrior 18 | Fenris Isle | `tomas_havel.md` | Happy | Draft 1 |
-| 32 | Cristóbal Muñoz | Knight of Xoroth 19 | Camp Taurajo |  |  |  |
-| 33 | Callum Reid | Venomancer 20 | Southern Barrens |  |  |  |
-| 34 | Giorgi Beridze | Primalist 21 | Tarren Mill |  |  |  |
+| 32 | Cristóbal Muñoz | Knight of Xoroth 19 | Camp Taurajo | `cristobal_munoz.md` | Happy | Draft 1 |
+| 33 | Callum Reid | Venomancer 20 | Southern Barrens | `callum_reid.md` | Sad | Draft 1 |
+| 34 | Giorgi Beridze | Primalist 21 | Tarren Mill | `giorgi_beridze.md` | Still unknown | Draft 1 |
 | 35 | Camille Roussel | Ranger 22 | Wailing Caverns |  |  |  |
 | 36 | Liam Hartigan | Sun Cleric 23 | Ashenvale East |  |  |  |
 | 37 | Orlando Rivera | Witch Doctor 23 | Shadowpine Altar |  |  |  |
