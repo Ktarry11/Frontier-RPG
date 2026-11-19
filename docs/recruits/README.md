@@ -122,9 +122,9 @@ fourth).
 | 50 | Eino Virtanen | Barbarian 32 | Northern Stranglethorn | `eino_virtanen.md` | Happy | Draft 1 |
 | 51 | Driss Alaoui | Shaman 32 | Freewind Post | `driss_alaoui.md` | Happy | Draft 1 |
 | 52 | Thiago Macedo | Paladin 33 | Grom'gol | `thiago_macedo.md` | Sad | Draft 1 |
-| 53 | Jun-seo Park | Reaper 34 | Central Stranglethorn |  |  |  |
-| 54 | Skye Donnelly | Pyromancer 34 | The Drowning Floor |  |  |  |
-| 55 | Enzo Marchetti | Cultist 34 | Scarlet Monastery Grounds |  |  |  |
+| 53 | Jun-seo Park | Reaper 34 | Central Stranglethorn | `junseo_park.md` | Still unknown | Draft 1 |
+| 54 | Skye Donnelly | Pyromancer 34 | The Drowning Floor | `skye_donnelly.md` | Happy | Draft 1 |
+| 55 | Enzo Marchetti | Cultist 34 | Scarlet Monastery Grounds | `enzo_marchetti.md` | Sad | Draft 1 |
 | 56 | Alonso Vega | Pyromancer 35 | Central Stranglethorn |  |  |  |
 | 57 | Vuk Jovanović | Knight of Xoroth 35 | Rocky Pass |  |  |  |
 | 58 | Gunnar Sigurðsson | Barbarian 35 | Hammerfall |  |  |  |
