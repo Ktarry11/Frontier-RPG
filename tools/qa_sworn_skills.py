@@ -1101,6 +1101,54 @@ def c_luka(rm, bm, rid):
         check(rows.row_of(m) == rows.FRONT_ROW, f"{ab.name}: {m.name} is in row {rows.row_of(m)}")
 
 
+
+def c_sherif(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    cast(ch, ab, mobs, eng)
+    for m in mobs:
+        check(has_effect(m, ab.ability_id), f"{ab.name}: {m.name} isn't poisoned")
+        check(m.get_status_stat_mod("damage_dealt_pct") == -20, f"{ab.name}: {m.name} isn't weakened")
+
+
+def c_mohammed(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    for i, m in enumerate(mobs):
+        m.turn_meter = 10.0 * i
+    cast(ch, ab, mobs[0], eng)
+    nxt = mobs[2]
+    check(has_effect(nxt, ab.ability_id) and not has_effect(mobs[0], ab.ability_id), f"{ab.name}: not on the enemy about to act")
+    a = others[1]
+    for _ in range(5):
+        before = a.current_health
+        a.take_damage(3000, "shadow", attacker=nxt, attacker_level=60)
+        check(a.current_health == before, f"{ab.name}: its attack still landed for {before - a.current_health}")
+
+
+def c_tobias(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    cast(ch, ab, [ch] + others, eng)
+    hp = {c.name: c.current_health for c in [ch] + others}
+    mb = mobs[0].current_health
+    for _ in range(3):
+        for c in [ch] + others:
+            c.take_damage(5000, "physical", attacker=mobs[0], attacker_level=60)
+    for c in [ch] + others:
+        check(c.current_health == hp[c.name], f"{ab.name}: {c.name} lost {hp[c.name] - c.current_health}")
+    check(mobs[0].current_health == mb, f"{ab.name}: the wall hurt the attacker ({mb - mobs[0].current_health})")
+
+
+def c_taras(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    cast(ch, ab, [ch] + others, eng)
+    a = others[1]
+    lost = []
+    for _ in range(2):
+        before = a.current_health
+        a.take_damage(3000, "shadow", attacker=mobs[1], attacker_level=60)
+        lost.append(before - a.current_health)
+    check(lost[0] == 0 and lost[1] > 0, f"{ab.name}: the ally lost {lost}, wants the first avoided and the second landing")
+
+
 CHECKS = {
     "personal_sworn_kesten_written_down_properly": c_kesten,
     "personal_sworn_adrian_let_them_carry_it": c_adrian,
@@ -1166,6 +1214,10 @@ CHECKS = {
     "personal_sworn_bruno_the_whole_round": c_bruno,
     "personal_sworn_joaquin_carried_together": c_joaquin,
     "personal_sworn_luka_into_the_storm": c_luka,
+    "personal_sworn_sherif_the_cloud": c_sherif,
+    "personal_sworn_mohammed_one_moment_ahead": c_mohammed,
+    "personal_sworn_tobias_the_whole_crew": c_tobias,
+    "personal_sworn_taras_kashtan_knows": c_taras,
 }
 #: passives with a check of their own (every other passive gets c_passive)
 PASSIVE_CHECKS = {"ama_priest": c_ama, "amber_druid": c_amber, "orlando_witchdoctor": c_orlando,

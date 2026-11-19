@@ -3693,13 +3693,18 @@ class Character(StatusEffectMixin):
             for _eff in self._effects():
                 if (getattr(_eff, "riposte_uses", 0) or 0) > 0:
                     _eff.riposte_uses -= 1
-                    back = int(amount * (getattr(_eff, "riposte_pct", 100.0) or 100.0) / 100.0)
-                    attacker.current_health = max(0, attacker.current_health - back)
+                    pct = getattr(_eff, "riposte_pct", 100.0)
+                    back = int(amount * (100.0 if pct is None else pct) / 100.0)
                     pending = getattr(self, "_pending_proc_messages", None)
                     if pending is None:
                         pending = []
                         self._pending_proc_messages = pending
-                    pending.append(f"{self.name} turns it back on {attacker.name} for {back}!")
+                    if back > 0:
+                        attacker.current_health = max(0, attacker.current_health - back)
+                        pending.append(f"{self.name} turns it back on {attacker.name} for {back}!")
+                    else:
+                        # pct 0: the hit is simply stopped (Tobias's wall, Kashtan's warning)
+                        pending.append(f"{attacker.name}'s attack never reaches {self.name}!")
                     return 0
 
 

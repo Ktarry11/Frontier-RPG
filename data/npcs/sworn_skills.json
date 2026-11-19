@@ -772,6 +772,58 @@
    }
   }
  },
+ "emiliano_pyromancer": {
+  "from": "Wave 4: 'what he resolves is feeling like just a street act. ... a dragon's breath of fire that sweeps across every enemy.'",
+  "ability": {
+   "ability_id": "personal_sworn_emiliano_not_a_street_act",
+   "name": "Not a Street Act",
+   "engine": "live: fire spell damage on every enemy, and enemy_mods fire_damage_taken_pct +15 for 3 turns (scorched)",
+   "effect_type": "spell_damage",
+   "target_type": "all_enemies",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 3,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Emiliano breathes out a real dragon's fire across every enemy. It leaves them all scorched, taking 15% more fire damage for 3 turns.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 45,
+     "effect_value": 150
+    },
+    {
+     "rank": 2,
+     "level_req": 15,
+     "cost": 63,
+     "effect_value": 242
+    },
+    {
+     "rank": 3,
+     "level_req": 30,
+     "cost": 81,
+     "effect_value": 334
+    },
+    {
+     "rank": 4,
+     "level_req": 45,
+     "cost": 99,
+     "effect_value": 426
+    },
+    {
+     "rank": 5,
+     "level_req": 60,
+     "cost": 117,
+     "effect_value": 518
+    }
+   ],
+   "damage_school": "fire",
+   "enemy_mods": {
+    "fire_damage_taken_pct": 15
+   }
+  }
+ },
  "emre_rogue": {
   "from": "Wave 4: 'what he resolves is the question, and the guilt of feeling light. ... he finds the weak point in an enemy's defence, and every ally ignores its armour for a turn.'",
   "ability": {
@@ -1422,6 +1474,56 @@
    ],
    "cannot_miss": true,
    "heals_lowest_ally_pct": 100
+  }
+ },
+ "isla_witchhunter": {
+  "from": "Wave 4: 'what she resolves is the dad she couldn't save. ... one perfectly still shot that can't miss and pierces through every enemy in a line.'",
+  "ability": {
+   "ability_id": "personal_sworn_isla_perfectly_still",
+   "name": "Perfectly Still",
+   "engine": "live: a bolt through one enemy row that cannot miss and ignores 50% of armour",
+   "effect_type": "ranged_damage",
+   "target_type": "enemy_aoe",
+   "resource_type": "focus",
+   "cooldown": 14,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Isla goes perfectly still and takes one shot. It can't miss, ignores half of each target's armour, and goes through every enemy in the row.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 150
+    },
+    {
+     "rank": 2,
+     "level_req": 15,
+     "cost": 30,
+     "effect_value": 242
+    },
+    {
+     "rank": 3,
+     "level_req": 30,
+     "cost": 30,
+     "effect_value": 334
+    },
+    {
+     "rank": 4,
+     "level_req": 45,
+     "cost": 30,
+     "effect_value": 426
+    },
+    {
+     "rank": 5,
+     "level_req": 60,
+     "cost": 30,
+     "effect_value": 518
+    }
+   ],
+   "cannot_miss": true,
+   "armor_ignore_pct": 50
   }
  },
  "ivan_warrior": {
@@ -2125,6 +2227,34 @@
    }
   }
  },
+ "mohammed_chronomancer": {
+  "from": "Wave 4: 'he glimpses the next moment and the party dodges the enemy's next big attack.'",
+  "ability": {
+   "ability_id": "personal_sworn_mohammed_one_moment_ahead",
+   "name": "One Moment Ahead",
+   "engine": "live: debuff on whichever enemy acts next (auto_enemy next): miss_chance_pct 100 for 1 turn, and reveals_intent all",
+   "effect_type": "debuff",
+   "target_type": "enemy",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 1,
+   "is_instant": true,
+   "stat_mods": {
+    "miss_chance_pct": 100
+   },
+   "description": "Mohammed sees the next moment before it comes. The enemy about to act misses with everything it throws for 1 turn, and the party sees what every enemy will do.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 35,
+     "effect_value": 100
+    }
+   ],
+   "auto_enemy": "next",
+   "reveals_intent": "all"
+  }
+ },
  "nicolas_bloodmage": {
   "from": "Wave 4: 'what he resolves is the two streets he wasn't there for. ... he bleeds for the whole party, taking a share of every hit they take for a few turns.'",
   "ability": {
@@ -2177,6 +2307,58 @@
      "effect_value": 100
     }
    ]
+  }
+ },
+ "omar_venomancer": {
+  "from": "Wave 4: 'what he resolves is pretending nothing's changed. ... a venom cloud that poisons every enemy and slowly weakens them.'",
+  "ability": {
+   "ability_id": "personal_sworn_sherif_the_cloud",
+   "name": "Everything Has Changed",
+   "engine": "live: nature DoT on every enemy for 5 turns, and enemy_mods damage dealt -20 for as long",
+   "effect_type": "spell_dot",
+   "target_type": "all_enemies",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 5,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Sherif stops pretending and lets the cloud go. Every enemy is poisoned for 5 turns, and deals 20% less damage while it works on them.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 40,
+     "effect_value": 50
+    },
+    {
+     "rank": 2,
+     "level_req": 15,
+     "cost": 56,
+     "effect_value": 180
+    },
+    {
+     "rank": 3,
+     "level_req": 30,
+     "cost": 72,
+     "effect_value": 311
+    },
+    {
+     "rank": 4,
+     "level_req": 45,
+     "cost": 88,
+     "effect_value": 442
+    },
+    {
+     "rank": 5,
+     "level_req": 60,
+     "cost": 104,
+     "effect_value": 572
+    }
+   ],
+   "damage_school": "nature",
+   "enemy_mods": {
+    "damage_dealt_pct": -20
+   }
   }
  },
  "orlando_witchdoctor": {
@@ -2634,6 +2816,56 @@
    ]
   }
  },
+ "santiago_runemaster": {
+  "from": "Wave 4: 'what he resolves is the brother he can't reach. ... he flares every rune on his arms at once, burning everything around him.'",
+  "ability": {
+   "ability_id": "personal_sworn_santiago_every_rune_at_once",
+   "name": "Every Rune at Once",
+   "engine": "live: arcane damage on every enemy that cannot miss",
+   "effect_type": "spell_damage",
+   "target_type": "all_enemies",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Santiago lights every rune on his arms at once. The flare burns every enemy in the fight, and nothing can step out of it.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 45,
+     "effect_value": 150
+    },
+    {
+     "rank": 2,
+     "level_req": 15,
+     "cost": 63,
+     "effect_value": 242
+    },
+    {
+     "rank": 3,
+     "level_req": 30,
+     "cost": 81,
+     "effect_value": 334
+    },
+    {
+     "rank": 4,
+     "level_req": 45,
+     "cost": 99,
+     "effect_value": 426
+    },
+    {
+     "rank": 5,
+     "level_req": 60,
+     "cost": 117,
+     "effect_value": 518
+    }
+   ],
+   "damage_school": "arcane",
+   "cannot_miss": true
+  }
+ },
  "saoirse_starcaller": {
   "from": "Wave 4: 'what she resolves is the girls she couldn't stand in front of. ... she shouts a call, and every ally fights harder for a few turns.'",
   "ability": {
@@ -2878,6 +3110,35 @@
    "pet_lifespan": 5
   }
  },
+ "taras_witchhunter": {
+  "from": "Wave 4: 'what he resolves is needing to know why. ... Kashtan sniffs out every hidden danger, and the party avoids the enemy's next attack.'",
+  "ability": {
+   "ability_id": "personal_sworn_taras_kashtan_knows",
+   "name": "Kashtan Knows Why",
+   "engine": "live: party riposte at 0% with 1 use each for 3 turns (each ally's next enemy hit is avoided), and reveals_intent all",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "focus",
+   "cooldown": 13,
+   "duration": 3,
+   "is_instant": true,
+   "stat_mods": {},
+   "description": "Kashtan sniffs out every danger before it comes. The party sees what every enemy will do, and each ally steps clear of the next attack aimed at them in the next 3 turns.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
+    }
+   ],
+   "riposte": {
+    "uses": 1,
+    "pct": 0
+   },
+   "reveals_intent": "all"
+  }
+ },
  "tarek_templar": {
   "from": "Wave 4: 'He stops searching and lets Omar rest somewhere that lasts. ... something built to last, like a shield on the whole party that holds until it's broken instead of running out with time.'",
   "ability": {
@@ -2961,6 +3222,34 @@
     "lethal_only": true,
     "uses": 99,
     "holds": true
+   }
+  }
+ },
+ "tobias_paladin": {
+  "from": "Wave 4: 'what he resolves is his crew. ... he raises a wall of light that blocks every attack on the party for a turn.'",
+  "ability": {
+   "ability_id": "personal_sworn_tobias_the_whole_crew",
+   "name": "The Whole Crew Behind It",
+   "engine": "live: party riposte at 0% with 99 uses for 2 turns: every enemy attack on an ally is stopped dead",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 15,
+   "duration": 2,
+   "is_instant": true,
+   "stat_mods": {},
+   "description": "Tobias raises a wall of light in front of his crew. Until the enemies have all had their turn, 2 turns at most, no enemy attack reaches any ally.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 45,
+     "effect_value": 100
+    }
+   ],
+   "riposte": {
+    "uses": 99,
+    "pct": 0
    }
   }
  },
