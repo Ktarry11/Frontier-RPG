@@ -1,0 +1,77 @@
+{
+  "recruit_text": {
+    "greeting": "You walk too fast for the ground, so go slowly. The mountain will wait, and so will you, if you listen.",
+    "backstory": "Twenty years of high summer pasture above Kazbegi, moving sheep up and down a mountain on a calendar his family never wrote down because nobody needed to. He's physically enormous and completely unhurried. His English has grown in three years and he still spends it like money, every word deliberate, and what comes out is often better than what a fluent man would say, because he's got no spare words to hide behind.",
+    "before": "A dog, a herd, a wooden hut, and six months a year without a road.\n\nA wife, Nino, and two daughters in the village below, who he came down to every autumn, and who thought the mountain was an eccentricity he'd grow out of.",
+    "adjustment": "Two seasons, and he counts in seasons.\n\nThe land here needed reading, and he reads land. What took longer was people. On the mountain he spoke to nobody for weeks and that was normal, and here being alone is something other people worry about on your behalf. He finds that exhausting and touching at the same time.",
+    "forward": "A herd of his own. He's serious, and nobody takes him seriously, and it irritates him more than he lets on.\n\nHe's found grazing he says is as good as anything at home, and a tauren herder who argues with him about it. He enjoys that enormously.",
+    "now": "The high ground above Tarren Mill, where the air is right and the ground tells the truth.\n\nEvery autumn, on roughly the right day, he walks down to lower ground for no reason anyone can see. He's never explained it. He's bringing the herd down, and there's no herd."
+  },
+  "bond": {
+    "home": "the high ground above Tarren Mill",
+    "dials": {"warmth": 0.6, "nerve": 1.3, "pride": 1.0, "restless": 0.7},
+    "likes": ["new_ground", "beast"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Giorgi, and I'm a primalist. I'm slow, and I don't talk much. You walk too fast, so slow down and the ground will tell you things.",
+      "acquaintance": "I'm from Kazbegi, in the mountains of Georgia. My family kept sheep there longer than anyone wrote down. Every summer I took the flock up to high pasture with a dog and a wooden hut, six months with no road. I spoke to nobody for weeks. It was good. Here people worry when you're alone, and that's strange to me.",
+      "companion": "My wife is Nino. She was a schoolteacher in the village below the pasture. We have two girls, Ana and Mariam. Nino thought the mountain was a thing I'd grow out of, and I never did. I was on the high pasture in late summer when it happened. The village was below me, and I don't know if it came through.",
+      "friend": "Every autumn I walk down to lower ground. You've seen me, and you didn't ask, and I liked that. I'm bringing the herd down to Nino, like always. There's no herd, and I know it, and I go anyway. The bell from my lead ewe is tied silent on my belt. Tarren Mill's sheep keep being taken from the hills. If we clear the hills, they'll give me the flock for the summer.",
+      "sworn": "In autumn, on the right day, I brought the flock down with the bell untied and ringing. Nobody was waiting at the bottom. Nino and the girls aren't on any list, and nobody knows if Kazbegi came through. I stood there a long time. So every autumn I'll bring the flock down and ring the bell, so if they're anywhere near, they'll hear it. Tarren Mill lets me keep the flock. I'm still listening."
+    },
+    "moments": [
+      {"id": "the_walk", "stage": "friend", "when": "talk",
+       "prompt": "He's just told you why he walks down every autumn.",
+       "options": [
+         {"text": "Then let's find you a herd to bring down.", "trust": 12,
+          "reply": "Kargi, that's good. We start with the hills, slowly."},
+         {"text": "Does it help?", "trust": 4,
+          "reply": "No, it doesn't. But stopping would hurt more, so I keep walking."}
+       ]},
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe he sits down heavily and says nothing for a long moment.",
+       "line": "We ran too fast. The ground told us to wait, and we ran anyway. Next time we listen to it.",
+       "options": [
+         {"text": "You set the pace next time.", "trust": 8, "mood": 6,
+          "reply": "Kargi, that's good. It'll be slow, and we'll all walk out."},
+         {"text": "We can't always go slowly.", "trust": 0, "mood": -6,
+          "reply": "Then we'll keep falling down, and getting up, and falling down again."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We walk the same circle and eat the same grass. A flock doesn't stay on one hillside forever, so let's move on.",
+      "leaving_good": "That was a good walk. I'll go back up to my hut above Tarren Mill now, for a while. Come when you want me.",
+      "leaving_bored": "I'm going back up to my hut. We're grazing this field to dirt, and I don't do that.",
+      "after_wipe": "We ran too fast. Sit, breathe, and then we go slowly.",
+      "wipe_warning": "We fall here too often. I'll finish this run with you, then I go back to the mountain for a while.",
+      "wipe_leave": "I've finished it with you. Now I'm going up to my hut. Come when you've learned to walk slowly.",
+      "zone_warning": "The ground here is too steep for us. Even a goat wouldn't go here. We should go back down.",
+      "zone_leave": "I'm stopping here. I said the ground was too steep. I'll be in my hut above Tarren Mill.",
+      "gear_refuse": "No, that's mine. We haven't walked far enough together yet.",
+      "gear_taken": "Take it, then. I'm big enough without it.",
+      "gear_short": "I'm still missing that piece. I'm saying it once, slowly.",
+      "gear_upgrade": "This is good work. Gaumarjos, thank you.",
+      "back": "I'm back, and the mountain is quiet. Where do we walk?",
+      "send_word": "Giorgi has sent word from the high ground above Tarren Mill. He's ready to walk with you again.",
+      "walkout_talk": "I left angry. Sit, and I'll tell you why, slowly. Then you tell me yours.",
+      "neglect": "You were gone a long time, a whole season. I waited, like the mountain does.",
+      "asked_to_stay": "Kargi, one more walk. Then the mountain.",
+      "on_break": "Giorgi is back in his hut on the high ground above Tarren Mill. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "zone_arrive": [
+      {"text": "This grass is good, very good. I could keep sheep here.", "kind": "open"}
+    ],
+    "town_arrive": [
+      {"text": "Too many people, too close together. I'll be outside the wall if you need me.", "kind": "open"},
+      {"text": "Kazbegi has a church on a mountain and snow on top all year. I miss the quiet.", "kind": "open", "topic": "the_cold"}
+    ],
+    "dungeon_clear": [
+      {"text": "Good, we're back under the sky. I don't like a roof made of rock.", "kind": "reply"}
+    ],
+    "close_call": [
+      {"text": "You ran too fast, and the ground punished you. Walk slowly and it won't.", "kind": "reply"}
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "recruit_text": {
+    "greeting": "Don't worry about the scorpion, mate, honestly. It's the least dangerous thing on me.",
+    "adjustment": "Eighteen months of poisoning himself on purpose, alone, documented badly.\n\nWhat he got out of it was a working relationship with things that kill people. It's the same relationship he had before, with better participants.",
+    "forward": "To be bitten by whatever's at the bottom of the Caverns and survive it, and he knows exactly how that sentence sounds.\n\nHis position, and he'll defend it, is that the thing that bites back is the thing that trusts you. He's yet to meet the animal that wasn't worth the conversation."
+  },
+  "bond": {
+    "home": "the Southern Barrens",
+    "dials": {"warmth": 1.0, "nerve": 1.5, "pride": 0.5, "restless": 1.0},
+    "likes": ["beast", "dungeon"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Callum, mate, and I'm a venomancer, so I've been bitten by most things and I'm fine. I'll stand in front and take the bites for you. Don't worry about the scorpion, she's friendly.",
+      "acquaintance": "I'm from Brisbane. Dad was an electrician, Mum ran a childcare centre, and I spent my whole childhood catching lizards in the backyard. Then sixteen years at a reptile sanctuary up in the hinterland. Taipans, death adders, crocs, and school groups who all asked the same question about the same snake.",
+      "companion": "I've been bitten a lot, but there was one taipan, about ten years ago, that nearly did me. Three days in hospital. I went straight back to work after, and my sister Kirsty still hasn't forgiven me. She went into law and can't believe what I do for a living. I was mid-feed in the snake house when it happened, and I landed in the Barrens with my hook in my hand.",
+      "friend": "I had a dog, a blue heeler called Biscuit. Best mate I ever had, honestly, and I had to leave her behind. I miss her more than I miss most people, and I know how that sounds. I've been further into the Wailing Caverns than nearly anyone. I want to go all the way down, mate, right to the bottom, and meet whatever lives there. Will you come?",
+      "sworn": "It was old, mate, and enormous, and the dream-sickness had got right into it. It couldn't be fixed. It was suffering, and it'd have killed everyone who came down. So you held it, and I did it quickly, the way I'd do it for an animal at the sanctuary that couldn't be saved. I sat with it for an hour after and talked to it. Most interesting thing I've ever met, and I'm the one who had to kill it."
+    },
+    "moments": [
+      {"id": "the_bottom", "stage": "friend", "when": "talk",
+       "prompt": "He's asked you to come to the bottom of the Wailing Caverns with him.",
+       "options": [
+         {"text": "I'm in. Let's go and meet it.", "trust": 12,
+          "reply": "You're a legend. Bring some antivenom. Actually, don't bother, I'm the antivenom."},
+         {"text": "Why do you want to get bitten so badly?", "trust": 4,
+          "reply": "It's not the bite, mate. It's the meeting. The bite's just how they say hello."}
+       ]},
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe he's gone quiet and quick, which is how you know he's worried.",
+       "line": "Right, that's not a no worries situation. Everyone stay still while I look at you.",
+       "options": [
+         {"text": "Do what you need to.", "trust": 6, "mood": 6,
+          "reply": "Good on you. I'll have you patched up in a minute, mate."},
+         {"text": "It's fine, we'll just go again.", "trust": 0, "mood": -4,
+          "reply": "It's not fine, mate. Sit down for a sec."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "Mate, we've been killing the same boring stuff for ages. Nothing venomous, nothing interesting. Can we go somewhere with teeth?",
+      "leaving_good": "That was a ripper of a trip. I'm heading back to the Southern Barrens to check on my jars. Come and find me, mate.",
+      "leaving_bored": "I'm going back to my hut. Nothing out here's worth the bother, and my scorpions need feeding.",
+      "after_wipe": "Okay, that's not a no worries situation. Everyone stay still and let me look at you.",
+      "wipe_warning": "We keep going down in here, mate, and I'm not liking it. I'll finish this run, but then I need a break.",
+      "wipe_leave": "I stuck it out, but I'm heading home now. I'll be in the Southern Barrens with my jars.",
+      "zone_warning": "Mate, everything out here is bigger and meaner than us, and it's not even venomous. Let's go somewhere we can handle.",
+      "zone_leave": "I'm stopping here. Too much out there for now. I'll be in the Southern Barrens.",
+      "gear_refuse": "Nah, that's mine, mate. Ask me again when we know each other.",
+      "gear_taken": "No worries, take it. I've got thick skin, literally.",
+      "gear_short": "Still missing that piece, mate. Not complaining, just saying.",
+      "gear_upgrade": "Oh, that's beautiful, mate. Cheers, I owe you one.",
+      "back": "I'm back, and the scorpions say hi. Where are we off to?",
+      "send_word": "Callum has sent word from the Southern Barrens. His jars are full and he's ready to come out.",
+      "walkout_talk": "I walked out, mate, and I don't do that much. Sit down, let me tell you why, and then you have a go.",
+      "neglect": "There you are, mate! I thought something finally bit you that you couldn't handle.",
+      "asked_to_stay": "Yeah, no worries, one more. Then I've got scorpions to feed.",
+      "on_break": "Callum is back in his hut in the Southern Barrens, with his jars. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "boss_down": [
+      {"text": "Poor thing was terrified the whole time. They always are, and it doesn't help anyone.", "kind": "open"}
+    ],
+    "zone_arrive": [
+      {"text": "Something venomous lives here. I'll have found it by tomorrow.", "kind": "open"}
+    ],
+    "close_call": [
+      {"text": "That's a clean puncture. If you start sweating, you tell me, and you don't walk anywhere.", "kind": "reply"}
+    ],
+    "dungeon_clear": [
+      {"text": "Nothing in there was venomous. Bit disappointing, honestly.", "kind": "reply"}
+    ],
+    "town_arrive": [
+      {"text": "Brisbane's hot and sticky and there's a snake in somebody's pool every week. I loved it.", "kind": "open", "topic": "cities"}
+    ]
+  }
+}

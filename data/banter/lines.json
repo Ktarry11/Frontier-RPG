@@ -601,7 +601,7 @@
     "callum_venomancer": {
       "boss_down": [
         {
-          "text": "Poor thing was terrified the whole time. They always are. Doesn't help anyone.",
+          "text": "Poor thing was terrified the whole time. They always are, and it doesn't help anyone.",
           "kind": "open"
         }
       ],
@@ -613,7 +613,7 @@
       ],
       "close_call": [
         {
-          "text": "That's a clean puncture. You start sweating, you tell me, and you don't walk.",
+          "text": "That's a clean puncture. If you start sweating, you tell me, and you don't walk anywhere.",
           "kind": "reply"
         }
       ],
@@ -621,6 +621,13 @@
         {
           "text": "Nothing in there was venomous. Bit disappointing, honestly.",
           "kind": "reply"
+        }
+      ],
+      "town_arrive": [
+        {
+          "text": "Brisbane's hot and sticky and there's a snake in somebody's pool every week. I loved it.",
+          "kind": "open",
+          "topic": "cities"
         }
       ]
     },
@@ -1417,6 +1424,39 @@
         }
       ]
     },
+    "cristobal_knight": {
+      "town_arrive": [
+        {
+          "text": "Look at those roofs, hermano. One spark and the whole street goes. Somebody needs a firebreak.",
+          "kind": "open",
+          "topic": "fire"
+        },
+        {
+          "text": "Valparaíso's all hills and colour and stairs, and every house looks at the sea. You'd love it.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "Too close, hermano! I'm going back in for you next time, don't argue.",
+          "kind": "open"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Everybody out, everybody alive, that's a good shift, hermano!",
+          "kind": "open"
+        }
+      ],
+      "zone_arrive": [
+        {
+          "text": "Can you smell that? It's dry grass. If this place goes up, it goes up fast.",
+          "kind": "open",
+          "topic": "fire"
+        }
+      ]
+    },
     "diego_tinker": {
       "town_arrive": [
         {
@@ -1501,6 +1541,37 @@
         {
           "text": "There'll be farms out here somewhere, and somebody pregnant who needs looking at.",
           "kind": "open"
+        }
+      ]
+    },
+    "giorgi_primalist": {
+      "zone_arrive": [
+        {
+          "text": "This grass is good, very good. I could keep sheep here.",
+          "kind": "open"
+        }
+      ],
+      "town_arrive": [
+        {
+          "text": "Too many people, too close together. I'll be outside the wall if you need me.",
+          "kind": "open"
+        },
+        {
+          "text": "Kazbegi has a church on a mountain and snow on top all year. I miss the quiet.",
+          "kind": "open",
+          "topic": "the_cold"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Good, we're back under the sky. I don't like a roof made of rock.",
+          "kind": "reply"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "You ran too fast, and the ground punished you. Walk slowly and it won't.",
+          "kind": "reply"
         }
       ]
     },

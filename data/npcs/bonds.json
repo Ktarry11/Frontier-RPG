@@ -593,6 +593,90 @@
         "on_break": "Berat is back in Brill, on whichever road is busiest. Come back after you've done a few more jobs."
       }
     },
+    "callum_venomancer": {
+      "home": "the Southern Barrens",
+      "dials": {
+        "warmth": 1.0,
+        "nerve": 1.5,
+        "pride": 0.5,
+        "restless": 1.0
+      },
+      "likes": [
+        "beast",
+        "dungeon"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Callum, mate, and I'm a venomancer, so I've been bitten by most things and I'm fine. I'll stand in front and take the bites for you. Don't worry about the scorpion, she's friendly.",
+        "acquaintance": "I'm from Brisbane. Dad was an electrician, Mum ran a childcare centre, and I spent my whole childhood catching lizards in the backyard. Then sixteen years at a reptile sanctuary up in the hinterland. Taipans, death adders, crocs, and school groups who all asked the same question about the same snake.",
+        "companion": "I've been bitten a lot, but there was one taipan, about ten years ago, that nearly did me. Three days in hospital. I went straight back to work after, and my sister Kirsty still hasn't forgiven me. She went into law and can't believe what I do for a living. I was mid-feed in the snake house when it happened, and I landed in the Barrens with my hook in my hand.",
+        "friend": "I had a dog, a blue heeler called Biscuit. Best mate I ever had, honestly, and I had to leave her behind. I miss her more than I miss most people, and I know how that sounds. I've been further into the Wailing Caverns than nearly anyone. I want to go all the way down, mate, right to the bottom, and meet whatever lives there. Will you come?",
+        "sworn": "It was old, mate, and enormous, and the dream-sickness had got right into it. It couldn't be fixed. It was suffering, and it'd have killed everyone who came down. So you held it, and I did it quickly, the way I'd do it for an animal at the sanctuary that couldn't be saved. I sat with it for an hour after and talked to it. Most interesting thing I've ever met, and I'm the one who had to kill it."
+      },
+      "moments": [
+        {
+          "id": "the_bottom",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to come to the bottom of the Wailing Caverns with him.",
+          "options": [
+            {
+              "text": "I'm in. Let's go and meet it.",
+              "trust": 12,
+              "reply": "You're a legend. Bring some antivenom. Actually, don't bother, I'm the antivenom."
+            },
+            {
+              "text": "Why do you want to get bitten so badly?",
+              "trust": 4,
+              "reply": "It's not the bite, mate. It's the meeting. The bite's just how they say hello."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's gone quiet and quick, which is how you know he's worried.",
+          "line": "Right, that's not a no worries situation. Everyone stay still while I look at you.",
+          "options": [
+            {
+              "text": "Do what you need to.",
+              "trust": 6,
+              "mood": 6,
+              "reply": "Good on you. I'll have you patched up in a minute, mate."
+            },
+            {
+              "text": "It's fine, we'll just go again.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "It's not fine, mate. Sit down for a sec."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Mate, we've been killing the same boring stuff for ages. Nothing venomous, nothing interesting. Can we go somewhere with teeth?",
+        "leaving_good": "That was a ripper of a trip. I'm heading back to the Southern Barrens to check on my jars. Come and find me, mate.",
+        "leaving_bored": "I'm going back to my hut. Nothing out here's worth the bother, and my scorpions need feeding.",
+        "after_wipe": "Okay, that's not a no worries situation. Everyone stay still and let me look at you.",
+        "wipe_warning": "We keep going down in here, mate, and I'm not liking it. I'll finish this run, but then I need a break.",
+        "wipe_leave": "I stuck it out, but I'm heading home now. I'll be in the Southern Barrens with my jars.",
+        "zone_warning": "Mate, everything out here is bigger and meaner than us, and it's not even venomous. Let's go somewhere we can handle.",
+        "zone_leave": "I'm stopping here. Too much out there for now. I'll be in the Southern Barrens.",
+        "gear_refuse": "Nah, that's mine, mate. Ask me again when we know each other.",
+        "gear_taken": "No worries, take it. I've got thick skin, literally.",
+        "gear_short": "Still missing that piece, mate. Not complaining, just saying.",
+        "gear_upgrade": "Oh, that's beautiful, mate. Cheers, I owe you one.",
+        "back": "I'm back, and the scorpions say hi. Where are we off to?",
+        "send_word": "Callum has sent word from the Southern Barrens. His jars are full and he's ready to come out.",
+        "walkout_talk": "I walked out, mate, and I don't do that much. Sit down, let me tell you why, and then you have a go.",
+        "neglect": "There you are, mate! I thought something finally bit you that you couldn't handle.",
+        "asked_to_stay": "Yeah, no worries, one more. Then I've got scorpions to feed.",
+        "on_break": "Callum is back in his hut in the Southern Barrens, with his jars. Come back after you've done a few more jobs."
+      }
+    },
     "carolina_shaman": {
       "home": "the Echo Isles",
       "dials": {
@@ -675,6 +759,91 @@
         "neglect": "There you are! I thought the current had taken you somewhere else. It does that, I don't mind.",
         "asked_to_stay": "All right, one more. Then I need my feet in the sea.",
         "on_break": "Carolina is back on the Echo Isles, out on the water. Come back after you've done a few more jobs."
+      }
+    },
+    "cristobal_knight": {
+      "home": "Camp Taurajo",
+      "dials": {
+        "warmth": 1.5,
+        "nerve": 1.5,
+        "pride": 0.5,
+        "restless": 1.0
+      },
+      "likes": [
+        "boss",
+        "full_party"
+      ],
+      "dislikes": [
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "Hermano, I'm Cristóbal! I'm a firefighter, or I was, and now the fire lives inside me, which is very funny if you think about it. I go in first and I come out last, that's the rule.",
+        "acquaintance": "I'm from Valparaíso, from the hills above the port, hermano. My father left when I was four, and my mother cleaned offices and raised me alone, and sent me off every morning with empanadas. I joined the forest fire brigade at twenty-three. Twelve years in the hills, on a motorbike that broke down every week, and I danced cueca very badly at every fiesta.",
+        "companion": "In 2024 the hills above my mother's house burned, and I spent four days on the line while the city burned below us. Her house was still standing when I came down. I'll never forget that. My mother is Inés. I haven't found her, so I write her a letter every week and I keep them all, in a sack, cachai.",
+        "friend": "On my first day here I landed in the middle of a grass fire in the Barrens. There were other people in it, people from Earth, and I was the only one who walked out. I've never stopped thinking about them. That's why I train the young tauren to cut breaks. The dry season's coming early this year, hermano, and something big is going to come at Taurajo. I need you with me on the line.",
+        "sworn": "The line held, and the kids held it without me for the last hour while I was pulling people out. They did it, not me. And then a letter came from across the sea. My mother's alive! She heard there's a crazy Chilean fighting fires in the Barrens and she knew it was me, and she told me to be careful. I sent her all the letters at once, three years of them, in a sack. She's going to be reading for a month."
+      },
+      "moments": [
+        {
+          "id": "the_grass_fire",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's just told you about the grass fire on his first day.",
+          "options": [
+            {
+              "text": "You couldn't have saved them all.",
+              "trust": 4,
+              "reply": "I know, hermano. My head knows. The rest of me is still in that grass."
+            },
+            {
+              "text": "Then let's make sure it never happens at Taurajo.",
+              "trust": 12,
+              "reply": "Yes, hermano, that's it, exactly that. Let's go and cut some breaks."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's laughing, too loudly, checking everyone over.",
+          "line": "Okay, okay, everybody's breathing, that's the main thing! We go back in, but smarter, hermano.",
+          "options": [
+            {
+              "text": "You're allowed to be shaken, you know.",
+              "trust": 10,
+              "mood": 4,
+              "reply": "Ah, you noticed. Okay, give me a minute, then we go."
+            },
+            {
+              "text": "Back in, then!",
+              "trust": 2,
+              "mood": 4,
+              "reply": "That's the spirit, hermano! Follow me in."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Hermano, we've been burning the same field for days. Even fire gets bored. Let's go somewhere with a bit of excitement.",
+        "leaving_good": "That was a great trip, hermano! I'm going back to Taurajo to check on my brigade. Come and find me when you need someone to go in first.",
+        "leaving_bored": "I'm going back to Taurajo. Nothing's happening out here, and my kids need drilling.",
+        "after_wipe": "Okay, everybody's breathing! That's what matters. Now we go back in, but smarter.",
+        "wipe_warning": "We keep dying in here, hermano, and even I'm not laughing now. One more run, then I need a break.",
+        "wipe_leave": "I stayed until it was done. Now I'm going back to Taurajo for a while. Come and get me when you've got a better plan, cachai?",
+        "zone_warning": "Hermano, this place is a wildfire with the wind behind it. You don't fight that, you get out of its way.",
+        "zone_leave": "I'm stopping here. I told you it was a wildfire. I'll be at Camp Taurajo.",
+        "gear_refuse": "Ah, no, hermano, that one's mine. Ask me again when we've had a fiesta together.",
+        "gear_taken": "Take it, take it, I'm fireproof anyway, mostly.",
+        "gear_short": "I'm still missing that piece, hermano. I'm not complaining, just singing about it.",
+        "gear_upgrade": "Hermano, this is beautiful! Thank you! I'm going to dance in it tonight.",
+        "back": "I'm back, hermano! The brigade's drilled, the breaks are cut, and I'm ready. Where's the fire?",
+        "send_word": "Cristóbal has sent word from Camp Taurajo. His brigade's ready and so is he.",
+        "walkout_talk": "I left angry, hermano, and that's not me. Sit down, let me tell you why, and then you tell me, and then we eat.",
+        "neglect": "Hermano, there you are! I thought you'd forgotten me. I danced at three fiestas without you.",
+        "asked_to_stay": "Okay, one more, hermano! Then I check my brigade.",
+        "on_break": "Cristóbal is back at Camp Taurajo, drilling his fire brigade. Come back after you've done a few more jobs.",
+        "quest_abandoned": "We left those people waiting, hermano. In my job you never leave anyone behind."
       }
     },
     "dan_warrior": {
@@ -1031,6 +1200,90 @@
         "asked_to_stay": "Fine, one more. Then I'm going home, and I'm not arguing about it.",
         "on_break": "Freja is back in the Valley of Trials, doing her rounds. Come back after you've done a few more jobs.",
         "quest_abandoned": "We said we'd help them and we walked off. I hate that. Somebody's still waiting for us."
+      }
+    },
+    "giorgi_primalist": {
+      "home": "the high ground above Tarren Mill",
+      "dials": {
+        "warmth": 0.6,
+        "nerve": 1.3,
+        "pride": 1.0,
+        "restless": 0.7
+      },
+      "likes": [
+        "new_ground",
+        "beast"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Giorgi, and I'm a primalist. I'm slow, and I don't talk much. You walk too fast, so slow down and the ground will tell you things.",
+        "acquaintance": "I'm from Kazbegi, in the mountains of Georgia. My family kept sheep there longer than anyone wrote down. Every summer I took the flock up to high pasture with a dog and a wooden hut, six months with no road. I spoke to nobody for weeks. It was good. Here people worry when you're alone, and that's strange to me.",
+        "companion": "My wife is Nino. She was a schoolteacher in the village below the pasture. We have two girls, Ana and Mariam. Nino thought the mountain was a thing I'd grow out of, and I never did. I was on the high pasture in late summer when it happened. The village was below me, and I don't know if it came through.",
+        "friend": "Every autumn I walk down to lower ground. You've seen me, and you didn't ask, and I liked that. I'm bringing the herd down to Nino, like always. There's no herd, and I know it, and I go anyway. The bell from my lead ewe is tied silent on my belt. Tarren Mill's sheep keep being taken from the hills. If we clear the hills, they'll give me the flock for the summer.",
+        "sworn": "In autumn, on the right day, I brought the flock down with the bell untied and ringing. Nobody was waiting at the bottom. Nino and the girls aren't on any list, and nobody knows if Kazbegi came through. I stood there a long time. So every autumn I'll bring the flock down and ring the bell, so if they're anywhere near, they'll hear it. Tarren Mill lets me keep the flock. I'm still listening."
+      },
+      "moments": [
+        {
+          "id": "the_walk",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's just told you why he walks down every autumn.",
+          "options": [
+            {
+              "text": "Then let's find you a herd to bring down.",
+              "trust": 12,
+              "reply": "Kargi, that's good. We start with the hills, slowly."
+            },
+            {
+              "text": "Does it help?",
+              "trust": 4,
+              "reply": "No, it doesn't. But stopping would hurt more, so I keep walking."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he sits down heavily and says nothing for a long moment.",
+          "line": "We ran too fast. The ground told us to wait, and we ran anyway. Next time we listen to it.",
+          "options": [
+            {
+              "text": "You set the pace next time.",
+              "trust": 8,
+              "mood": 6,
+              "reply": "Kargi, that's good. It'll be slow, and we'll all walk out."
+            },
+            {
+              "text": "We can't always go slowly.",
+              "trust": 0,
+              "mood": -6,
+              "reply": "Then we'll keep falling down, and getting up, and falling down again."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We walk the same circle and eat the same grass. A flock doesn't stay on one hillside forever, so let's move on.",
+        "leaving_good": "That was a good walk. I'll go back up to my hut above Tarren Mill now, for a while. Come when you want me.",
+        "leaving_bored": "I'm going back up to my hut. We're grazing this field to dirt, and I don't do that.",
+        "after_wipe": "We ran too fast. Sit, breathe, and then we go slowly.",
+        "wipe_warning": "We fall here too often. I'll finish this run with you, then I go back to the mountain for a while.",
+        "wipe_leave": "I've finished it with you. Now I'm going up to my hut. Come when you've learned to walk slowly.",
+        "zone_warning": "The ground here is too steep for us. Even a goat wouldn't go here. We should go back down.",
+        "zone_leave": "I'm stopping here. I said the ground was too steep. I'll be in my hut above Tarren Mill.",
+        "gear_refuse": "No, that's mine. We haven't walked far enough together yet.",
+        "gear_taken": "Take it, then. I'm big enough without it.",
+        "gear_short": "I'm still missing that piece. I'm saying it once, slowly.",
+        "gear_upgrade": "This is good work. Gaumarjos, thank you.",
+        "back": "I'm back, and the mountain is quiet. Where do we walk?",
+        "send_word": "Giorgi has sent word from the high ground above Tarren Mill. He's ready to walk with you again.",
+        "walkout_talk": "I left angry. Sit, and I'll tell you why, slowly. Then you tell me yours.",
+        "neglect": "You were gone a long time, a whole season. I waited, like the mountain does.",
+        "asked_to_stay": "Kargi, one more walk. Then the mountain.",
+        "on_break": "Giorgi is back in his hut on the high ground above Tarren Mill. Come back after you've done a few more jobs."
       }
     },
     "hana_shaman": {
