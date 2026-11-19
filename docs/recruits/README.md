@@ -155,9 +155,9 @@ fourth).
 | 83 | Joaquín Duarte | Sun Cleric 54 | The Bulwark | `joaquin_duarte.md` | Sad | Draft 1 |
 | 84 | Astrid Lindqvist | Starcaller 54 | North Felwood | `astrid_lindqvist.md` | Happy | Draft 1 |
 | 85 | Luka Perić | Stormbringer 54 | Tempest Shallows | `luka_peric.md` | Happy | Draft 1 |
-| 86 | Zofia Nowak | Cultist 55 | Western Plaguelands North |  |  |  |
-| 87 | Omar Saleh | Venomancer 55 | The Royal Hive |  |  |  |
-| 88 | Santiago Ríos | Runemaster 56 | The Ashen Reach |  |  |  |
+| 86 | Zofia Nowak | Cultist 55 | Western Plaguelands North | `zofia_nowak.md` | Sad | Draft 1 |
+| 87 | Omar Saleh | Venomancer 55 | The Royal Hive | `omar_saleh.md` | Happy | Draft 1 |
+| 88 | Santiago Ríos | Runemaster 56 | The Ashen Reach | `santiago_rios.md` | Still unknown | Draft 1 |
 | 89 | Emiliano Vargas | Pyromancer 56 | Cinderwharf |  |  |  |
 | 90 | Mohammed Saleh | Chronomancer 56 | Talrendis Landing |  |  |  |
 | 91 | Tobias Keller | Paladin 56 | Light's Hope Chapel |  |  |  |
