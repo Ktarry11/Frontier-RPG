@@ -1,0 +1,114 @@
+{
+  "recruit_text": {
+    "backstory": "Réka made stop-motion films in Budapest, moving puppets one frame at a time until they looked alive. She'd done it for twelve years when the worlds joined, and it turned out to be the best training for necromancy anyone's ever had. She's sly, funny and very precise, and she treats the dead the way she treated her puppets, with patience and a lot of small adjustments.",
+    "forward": "To make something move that's never moved before, and she's careful not to say what.\n\nShe's also looking for a good camera. She knows there isn't one, and she keeps looking anyway."
+  },
+  "bond": {
+    "home": "the Black Strand",
+    "dials": {
+      "warmth": 1.0,
+      "nerve": 1.3,
+      "pride": 0.9,
+      "restless": 1.0
+    },
+    "likes": [
+      "undead",
+      "dungeon"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
+    "stages": {
+      "stranger": "I'm Réka, a necromancer, and that's my crow. Don't stare at it, it's shy. It was shy before it died, too.",
+      "acquaintance": "I'm from Pécs, in Hungary, but I lived in Budapest, in the eighth district, in a studio above a bakery. I made stop-motion films for twelve years, moving puppets a millimetre at a time. One of them won a prize at Annecy. Necromancy's much the same, honestly. It's all weight and timing and follow-through.",
+      "companion": "I was moving a puppet's arm when it happened, and I landed in the Dry Deep with this little wooden mannequin in my hand. I had a cat, Kocka, who hated every puppet I ever made. I miss her more than I'd admit to anyone. And my mother's a teacher in Pécs. I haven't found her.",
+      "friend": "My father was a puppeteer. He ran a little puppet theatre, and I grew up backstage watching him bring wooden things to life. He died when I was nineteen, and I started making films because it was the closest thing to what he did. Here's my secret, na. I want to make a moving picture for the children on the Black Strand. There's no camera. I'll need your help.",
+      "sworn": "I showed it on the Black Strand, by lantern, to every child I could find. The little puppet flapped its wings and flew, and they screamed. It's the first thing I've made move here without anything dying first. I cried, which was embarrassing, and they made me show it forty times. I'm drawing a longer one now. I gave the mannequin its wire back. My father would have liked it."
+    },
+    "moments": [
+      {
+        "id": "the_crow",
+        "stage": "stranger",
+        "when": "talk",
+        "prompt": "Her skeletal crow hops onto your shoulder and stares at you.",
+        "options": [
+          {
+            "text": "Hold very still and let it.",
+            "trust": 8,
+            "reply": "Ha, it likes you, and that's rare. Most people scream."
+          },
+          {
+            "text": "Shoo it off.",
+            "trust": 0,
+            "reply": "Hey, that's rude. It took me a week to teach it to hop like that."
+          }
+        ]
+      },
+      {
+        "id": "the_film",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "She's asked you to help her build a zoetrope for the children.",
+        "options": [
+          {
+            "text": "Let's make something fly.",
+            "trust": 12,
+            "reply": "Jó, that's good. I'll need glass, a gear and black lacquer, and all of them are somewhere horrible."
+          },
+          {
+            "text": "Why not just raise something?",
+            "trust": 0,
+            "reply": "Because that's the point. I want it to move without dying first."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "We've been doing the same thing over and over, and I'm bored stiff. Can we go somewhere new?",
+      "leaving_good": "That was a lovely trip. I'm going back to the Black Strand to draw some of it. Come and find me.",
+      "leaving_bored": "I'm going back to the Black Strand. We keep doing the same thing and I can't stand it.",
+      "after_wipe": "Well, that went badly for everybody. Let's get up and try it again.",
+      "wipe_warning": "We keep dying in here. I'll finish this run, then I need a break.",
+      "wipe_leave": "I finished it with you. Now I'm going back to the Black Strand for a while.",
+      "zone_warning": "This place is beyond us. Even my crow's nervous, and it's already dead. Let's go back.",
+      "zone_leave": "I'm stopping here. Even my crow said no. I'll be on the Black Strand.",
+      "gear_refuse": "Na, that's mine. Ask me again when we know each other better.",
+      "gear_taken": "Take it, then. I'll be fine without it.",
+      "gear_short": "I'm still missing that piece, and it's starting to annoy me.",
+      "gear_upgrade": "Oh, that's lovely. Thank you, really.",
+      "back": "I'm back, and my crow's learned a new hop. Where are we going?",
+      "send_word": "Réka has sent word from the Black Strand. Her crow's restless and so is she.",
+      "walkout_talk": "I left angry, and I'd like to explain properly. Then you can tell me your side.",
+      "neglect": "There you are! My crow kept looking for you, and so did I.",
+      "asked_to_stay": "Jó, one more. Then I sketch.",
+      "on_break": "Réka is back on the Black Strand with her crow. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "boss_down": [
+      {
+        "text": "Did you see how it fell? I'd love to draw that.",
+        "kind": "open"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "My feet hurt and there's spider web in my hair. Can we eat now?",
+        "kind": "reply"
+      }
+    ],
+    "town_arrive": [
+      {
+        "text": "Budapest has a river through the middle and baths everywhere, and the eighth district smells of fresh bread at dawn.",
+        "kind": "open",
+        "topic": "cities"
+      }
+    ],
+    "zone_arrive": [
+      {
+        "text": "Plenty of bones out here. My crow wants friends.",
+        "kind": "open"
+      }
+    ]
+  }
+}

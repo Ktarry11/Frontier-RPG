@@ -4925,6 +4925,87 @@
         "quest_abandoned": "We left those people at risk. That's not how I work, ja."
       }
     },
+    "ramiro_primalist": {
+      "home": "Onyxhollow",
+      "dials": {
+        "warmth": 0.8,
+        "nerve": 1.4,
+        "pride": 1.0,
+        "restless": 0.7
+      },
+      "likes": [
+        "dungeon",
+        "boss"
+      ],
+      "dislikes": [
+        "new_ground"
+      ],
+      "stages": {
+        "stranger": "I'm Ramiro, a primalist. I listen to the rock. If I tell you to stop and listen, stop. The mountain always talks before it moves.",
+        "acquaintance": "I'm from Potosí, in Bolivia, under the Cerro Rico, the silver mountain. My father and grandfather mined it, and so did I, twenty years, from nineteen. Twelve-hour shifts, a cooperative that never paid on time, and every Friday an offering to El Tío, the spirit of the mine. You don't forget him, compadre.",
+        "companion": "My wife is Rosario. She ran a juice stall in the market. We've got two girls, Maribel and Sonia. Maribel wanted to be a geologist, and I was saving so she'd study the mountain instead of dying in it. I was deep in a shift when it happened, and I landed underground, with this lamp on my belt. My family were in the city above.",
+        "friend": "My whole shift was in the mine with me that day. Men I worked beside for twenty years. I was in a different drift, and I found my way out, and I don't know what happened to them. Now the Dark Iron have broken into old tunnels below Onyxhollow, timbered the way my father timbered, with a miners' shrine. I need to go down. Will you come?",
+        "sworn": "They didn't make it out. The tunnels came through sealed, and my shift died down there in the first weeks, waiting for a rescue that couldn't come. We brought them up one by one, with the Dark Iron, and buried them in good stone with an offering to El Tío. Their names are carved over the tunnel mouth. My family were in the city, and I still don't know where the city went. Tupananchiskama, compadres, until we meet again."
+      },
+      "moments": [
+        {
+          "id": "listen",
+          "stage": "acquaintance",
+          "when": "talk",
+          "prompt": "In a cave, he suddenly holds up a hand and tells everyone to listen.",
+          "options": [
+            {
+              "text": "Stop, and listen with him.",
+              "trust": 10,
+              "reply": "Ya, you hear that? It's settling, not moving. We're all fine, and you've got good ears."
+            },
+            {
+              "text": "Keep walking.",
+              "trust": 0,
+              "reply": "Compadre, when I say listen, you listen. That's how miners stay alive."
+            }
+          ]
+        },
+        {
+          "id": "the_tunnels",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to come down into the old tunnels with him.",
+          "options": [
+            {
+              "text": "I'll come down with you.",
+              "trust": 12,
+              "reply": "Gracias, compadre, stay close, and listen when I say."
+            },
+            {
+              "text": "What do you expect to find?",
+              "trust": 4,
+              "reply": "I expect to find my shift. I already know how they died, mostly. I need to bring them up."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We dig the same hole again and again, compadre. Let's go somewhere with new rock.",
+        "leaving_good": "That was good work. I'm going back to Onyxhollow, to the mining quarter. Come and find me underground.",
+        "leaving_bored": "I'm going back to Onyxhollow. Nothing up here's worth listening to.",
+        "after_wipe": "Okay, we didn't listen. Next time we stop and listen first.",
+        "wipe_warning": "We keep dying in here, compadre. I'll finish this run, then I need some days in Onyxhollow.",
+        "wipe_leave": "I finished it with you. Now I'm going back to Onyxhollow for a while.",
+        "zone_warning": "Too much open sky and too much danger out here, compadre. I don't like either. Let's go back.",
+        "zone_leave": "I'm stopping here. Too dangerous out there. I'll be in Onyxhollow, in the mining quarter.",
+        "gear_refuse": "No, compadre, that's mine. Ask me again later.",
+        "gear_taken": "Take it, pues, and I'll manage.",
+        "gear_short": "I'm still missing that piece. Keep an eye out for me, compadre.",
+        "gear_upgrade": "That's good work, and I thank you for it, compadre.",
+        "back": "I'm back, and the mining quarter's quiet. Where are we going?",
+        "send_word": "Ramiro has sent word from Onyxhollow. He's ready to come out again.",
+        "walkout_talk": "I left angry, compadre. Sit down, and I'll tell you why, slowly. Then you tell me.",
+        "neglect": "There you are, compadre. I wondered if you'd gone down a hole somewhere.",
+        "asked_to_stay": "Ya, one more, then the quarter.",
+        "on_break": "Ramiro is back in the mining quarter of Onyxhollow. Come back after you've done a few more jobs."
+      }
+    },
     "ratih_ranger": {
       "home": "the Shimmering Flats",
       "dials": {
@@ -5004,6 +5085,87 @@
         "neglect": "You were gone a long time. I walked my route every day anyway.",
         "asked_to_stay": "All right, one more. Hati-hati, be careful.",
         "on_break": "Ratih is back on patrol on the Shimmering Flats. Come back after you've done a few more jobs."
+      }
+    },
+    "reka_necromancer": {
+      "home": "the Black Strand",
+      "dials": {
+        "warmth": 1.0,
+        "nerve": 1.3,
+        "pride": 0.9,
+        "restless": 1.0
+      },
+      "likes": [
+        "undead",
+        "dungeon"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Réka, a necromancer, and that's my crow. Don't stare at it, it's shy. It was shy before it died, too.",
+        "acquaintance": "I'm from Pécs, in Hungary, but I lived in Budapest, in the eighth district, in a studio above a bakery. I made stop-motion films for twelve years, moving puppets a millimetre at a time. One of them won a prize at Annecy. Necromancy's much the same, honestly. It's all weight and timing and follow-through.",
+        "companion": "I was moving a puppet's arm when it happened, and I landed in the Dry Deep with this little wooden mannequin in my hand. I had a cat, Kocka, who hated every puppet I ever made. I miss her more than I'd admit to anyone. And my mother's a teacher in Pécs. I haven't found her.",
+        "friend": "My father was a puppeteer. He ran a little puppet theatre, and I grew up backstage watching him bring wooden things to life. He died when I was nineteen, and I started making films because it was the closest thing to what he did. Here's my secret, na. I want to make a moving picture for the children on the Black Strand. There's no camera. I'll need your help.",
+        "sworn": "I showed it on the Black Strand, by lantern, to every child I could find. The little puppet flapped its wings and flew, and they screamed. It's the first thing I've made move here without anything dying first. I cried, which was embarrassing, and they made me show it forty times. I'm drawing a longer one now. I gave the mannequin its wire back. My father would have liked it."
+      },
+      "moments": [
+        {
+          "id": "the_crow",
+          "stage": "stranger",
+          "when": "talk",
+          "prompt": "Her skeletal crow hops onto your shoulder and stares at you.",
+          "options": [
+            {
+              "text": "Hold very still and let it.",
+              "trust": 8,
+              "reply": "Ha, it likes you, and that's rare. Most people scream."
+            },
+            {
+              "text": "Shoo it off.",
+              "trust": 0,
+              "reply": "Hey, that's rude. It took me a week to teach it to hop like that."
+            }
+          ]
+        },
+        {
+          "id": "the_film",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's asked you to help her build a zoetrope for the children.",
+          "options": [
+            {
+              "text": "Let's make something fly.",
+              "trust": 12,
+              "reply": "Jó, that's good. I'll need glass, a gear and black lacquer, and all of them are somewhere horrible."
+            },
+            {
+              "text": "Why not just raise something?",
+              "trust": 0,
+              "reply": "Because that's the point. I want it to move without dying first."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been doing the same thing over and over, and I'm bored stiff. Can we go somewhere new?",
+        "leaving_good": "That was a lovely trip. I'm going back to the Black Strand to draw some of it. Come and find me.",
+        "leaving_bored": "I'm going back to the Black Strand. We keep doing the same thing and I can't stand it.",
+        "after_wipe": "Well, that went badly for everybody. Let's get up and try it again.",
+        "wipe_warning": "We keep dying in here. I'll finish this run, then I need a break.",
+        "wipe_leave": "I finished it with you. Now I'm going back to the Black Strand for a while.",
+        "zone_warning": "This place is beyond us. Even my crow's nervous, and it's already dead. Let's go back.",
+        "zone_leave": "I'm stopping here. Even my crow said no. I'll be on the Black Strand.",
+        "gear_refuse": "Na, that's mine. Ask me again when we know each other better.",
+        "gear_taken": "Take it, then. I'll be fine without it.",
+        "gear_short": "I'm still missing that piece, and it's starting to annoy me.",
+        "gear_upgrade": "Oh, that's lovely. Thank you, really.",
+        "back": "I'm back, and my crow's learned a new hop. Where are we going?",
+        "send_word": "Réka has sent word from the Black Strand. Her crow's restless and so is she.",
+        "walkout_talk": "I left angry, and I'd like to explain properly. Then you can tell me your side.",
+        "neglect": "There you are! My crow kept looking for you, and so did I.",
+        "asked_to_stay": "Jó, one more. Then I sketch.",
+        "on_break": "Réka is back on the Black Strand with her crow. Come back after you've done a few more jobs."
       }
     },
     "rhys_ranger": {
@@ -6194,6 +6356,88 @@
         "neglect": "There you are! I made extra every night in case you came. Terrible waste of beans.",
         "asked_to_stay": "Ajde, one more. Then I cook.",
         "on_break": "Vuk is back at the fire in Rocky Pass. Come back after you've done a few more jobs."
+      }
+    },
+    "yusuf_venomancer": {
+      "home": "the Bloodsail Anchorage",
+      "dials": {
+        "warmth": 1.4,
+        "nerve": 1.4,
+        "pride": 0.7,
+        "restless": 0.8
+      },
+      "likes": [
+        "quest",
+        "full_party"
+      ],
+      "dislikes": [
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "I'm Yusuf, habibi, a venomancer, and a pharmacist. Now sit down. If you're hurt I'll tell you exactly how bad it is, and then I'll fix it.",
+        "acquaintance": "I'm from Basra. My father sold dates. I studied pharmacy in Amman, worked a few years in Damascus, and then I came home and opened my own shop at twenty-eight. Nineteen years behind that counter. Half of it was medicine and the other half was listening, wallah.",
+        "companion": "My wife is Suhad, a teacher. We have three boys, Ali, Hassan and Mustafa, and a girl, Zainab, the youngest. Zainab wanted to be a pharmacist like me. She sat behind the counter every afternoon doing her homework and counting pills on this tray. I was counting on it myself when it happened. I'll see them again, inshallah. I'm certain of it.",
+        "friend": "You've never laughed when I say I'm certain. Thank you for that. Now there's a pressed sailor here, an Iraqi boy, who says he crewed a ship that carried a family from Basra to a camp on the far coast. A wife, three boys and a girl. The Bloodsail won't let him go. Help me get him out, and the ship's log.",
+        "sworn": "All of them, habibi. Suhad, the boys, taller and thinner, and Zainab, seventeen now, running the camp's medicine tent with labels in her own hand, exactly like mine. She'd been keeping a dispensary for two years, waiting for me to come and check her doses. I checked them, and every single one was right. I told everyone I was certain. Suhad says I'm always like this and it drives her mad."
+      },
+      "moments": [
+        {
+          "id": "sit_down",
+          "stage": "stranger",
+          "when": "talk",
+          "prompt": "He's told you to sit down, even though you're barely scratched.",
+          "options": [
+            {
+              "text": "Sit down.",
+              "trust": 8,
+              "reply": "That's good, habibi. See, that was easy. Now drink this."
+            },
+            {
+              "text": "I'm fine, really.",
+              "trust": 0,
+              "reply": "You're fine when I say you're fine. Now sit down."
+            }
+          ]
+        },
+        {
+          "id": "the_sailor",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to help free the Iraqi sailor.",
+          "options": [
+            {
+              "text": "We'll get him out, and the log.",
+              "trust": 12,
+              "reply": "Wallah, thank you. I'll dose the guards something gentle first."
+            },
+            {
+              "text": "What if it's another family?",
+              "trust": 2,
+              "reply": "Then it's a family, and they'll need a pharmacist. Either way we go."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Habibi, we're doing the same thing again and again, and nobody's sick. Let's go somewhere I can be useful.",
+        "leaving_good": "That was a good trip, and everybody took their medicine. I'm going back to the Anchorage now. Come and see me, I'll make tea.",
+        "leaving_bored": "I'm going back to the Anchorage. Nobody needs me out here, and there are sick men there.",
+        "after_wipe": "Sit, everybody, sit. Nobody's dying, I can see that from here. Let me dose you.",
+        "wipe_warning": "We keep dying in here, and even my vials are running low. I'll finish this run, then I need some days.",
+        "wipe_leave": "I finished it with you, habibi. Now I'm going back to the Anchorage for a while.",
+        "zone_warning": "I'll be honest with you, habibi. This place is too much for us, and we should leave.",
+        "zone_leave": "I'm stopping here. Too much out there for us. I'll be at the Bloodsail Anchorage.",
+        "gear_refuse": "No, habibi, that's mine. Ask me again when we've had more tea together.",
+        "gear_taken": "Take it, take it. I'll manage, inshallah.",
+        "gear_short": "I'm still missing that piece. Keep an eye out for me, habibi.",
+        "gear_upgrade": "That's very fine work. Thank you, habibi.",
+        "back": "I'm back, and my vials are full. Sit down, and then tell me where we're going.",
+        "send_word": "Yusuf has sent word from the Bloodsail Anchorage. His vials are full and he's ready to come out.",
+        "walkout_talk": "I left angry, habibi, and that's not like me. Sit, have some tea, and I'll tell you why.",
+        "neglect": "There you are! Sit down, you look thin. I'll feed you.",
+        "asked_to_stay": "Of course, one more. Then the Anchorage.",
+        "on_break": "Yusuf is back at the Bloodsail Anchorage, dosing the sick. Come back after you've done a few more jobs.",
+        "quest_abandoned": "We left that undone, habibi. Somebody's still waiting, like a patient with no medicine."
       }
     },
     "ziad_felsworn": {

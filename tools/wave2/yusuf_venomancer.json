@@ -1,0 +1,120 @@
+{
+  "recruit_text": {
+    "greeting": "Sit, sit, please. You're not dying, I can see that from here. But you'll sit anyway, because I'm older than you.",
+    "backstory": "A pharmacist in Basra for nineteen years, in a shop where half the job was medicine and the other half was listening to people with no money for a doctor. He knows doses and he knows poisons. He's very warm, and he won't sugarcoat anything for you.",
+    "before": "A counter, a wall of drawers, and a queue that was also a social occasion.\n\nA wife, Suhad, three sons and a daughter, and a house with too many people in it and a flat roof they all slept on in the summer. He talks about them easily and often, in the present tense, and nobody's heard him guess at where they are.",
+    "adjustment": "He was calm about it. He found the work and did it, the way he'd found work in two other countries already.\n\nHe's one of the very few here who says plainly that he expects to see his family again, and he says it so calmly that people believe him.",
+    "forward": "A proper dispensary, with shelves, drawers and labels, and somebody trained to run it when he's out.\n\nHe's teaching two people to read the labels he writes, so the place can keep going without him.",
+    "now": "The Bloodsail Anchorage, where the pressed crews and prisoners are sick and nobody else will treat them. The pirates put up with him because he treats them too.\n\nIn a party he's at the back with a bandolier of vials, dosing by eye and not by guess. The brass counting tray is strapped flat on his back, and his numbers are always right."
+  },
+  "bond": {
+    "home": "the Bloodsail Anchorage",
+    "dials": {
+      "warmth": 1.4,
+      "nerve": 1.4,
+      "pride": 0.7,
+      "restless": 0.8
+    },
+    "likes": [
+      "quest",
+      "full_party"
+    ],
+    "dislikes": [
+      "quest_abandoned"
+    ],
+    "stages": {
+      "stranger": "I'm Yusuf, habibi, a venomancer, and a pharmacist. Now sit down. If you're hurt I'll tell you exactly how bad it is, and then I'll fix it.",
+      "acquaintance": "I'm from Basra. My father sold dates. I studied pharmacy in Amman, worked a few years in Damascus, and then I came home and opened my own shop at twenty-eight. Nineteen years behind that counter. Half of it was medicine and the other half was listening, wallah.",
+      "companion": "My wife is Suhad, a teacher. We have three boys, Ali, Hassan and Mustafa, and a girl, Zainab, the youngest. Zainab wanted to be a pharmacist like me. She sat behind the counter every afternoon doing her homework and counting pills on this tray. I was counting on it myself when it happened. I'll see them again, inshallah. I'm certain of it.",
+      "friend": "You've never laughed when I say I'm certain. Thank you for that. Now there's a pressed sailor here, an Iraqi boy, who says he crewed a ship that carried a family from Basra to a camp on the far coast. A wife, three boys and a girl. The Bloodsail won't let him go. Help me get him out, and the ship's log.",
+      "sworn": "All of them, habibi. Suhad, the boys, taller and thinner, and Zainab, seventeen now, running the camp's medicine tent with labels in her own hand, exactly like mine. She'd been keeping a dispensary for two years, waiting for me to come and check her doses. I checked them, and every single one was right. I told everyone I was certain. Suhad says I'm always like this and it drives her mad."
+    },
+    "moments": [
+      {
+        "id": "sit_down",
+        "stage": "stranger",
+        "when": "talk",
+        "prompt": "He's told you to sit down, even though you're barely scratched.",
+        "options": [
+          {
+            "text": "Sit down.",
+            "trust": 8,
+            "reply": "That's good, habibi. See, that was easy. Now drink this."
+          },
+          {
+            "text": "I'm fine, really.",
+            "trust": 0,
+            "reply": "You're fine when I say you're fine. Now sit down."
+          }
+        ]
+      },
+      {
+        "id": "the_sailor",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to help free the Iraqi sailor.",
+        "options": [
+          {
+            "text": "We'll get him out, and the log.",
+            "trust": 12,
+            "reply": "Wallah, thank you. I'll dose the guards something gentle first."
+          },
+          {
+            "text": "What if it's another family?",
+            "trust": 2,
+            "reply": "Then it's a family, and they'll need a pharmacist. Either way we go."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "Habibi, we're doing the same thing again and again, and nobody's sick. Let's go somewhere I can be useful.",
+      "leaving_good": "That was a good trip, and everybody took their medicine. I'm going back to the Anchorage now. Come and see me, I'll make tea.",
+      "leaving_bored": "I'm going back to the Anchorage. Nobody needs me out here, and there are sick men there.",
+      "after_wipe": "Sit, everybody, sit. Nobody's dying, I can see that from here. Let me dose you.",
+      "wipe_warning": "We keep dying in here, and even my vials are running low. I'll finish this run, then I need some days.",
+      "wipe_leave": "I finished it with you, habibi. Now I'm going back to the Anchorage for a while.",
+      "zone_warning": "I'll be honest with you, habibi. This place is too much for us, and we should leave.",
+      "zone_leave": "I'm stopping here. Too much out there for us. I'll be at the Bloodsail Anchorage.",
+      "gear_refuse": "No, habibi, that's mine. Ask me again when we've had more tea together.",
+      "gear_taken": "Take it, take it. I'll manage, inshallah.",
+      "gear_short": "I'm still missing that piece. Keep an eye out for me, habibi.",
+      "gear_upgrade": "That's very fine work. Thank you, habibi.",
+      "back": "I'm back, and my vials are full. Sit down, and then tell me where we're going.",
+      "send_word": "Yusuf has sent word from the Bloodsail Anchorage. His vials are full and he's ready to come out.",
+      "walkout_talk": "I left angry, habibi, and that's not like me. Sit, have some tea, and I'll tell you why.",
+      "neglect": "There you are! Sit down, you look thin. I'll feed you.",
+      "asked_to_stay": "Of course, one more. Then the Anchorage.",
+      "on_break": "Yusuf is back at the Bloodsail Anchorage, dosing the sick. Come back after you've done a few more jobs.",
+      "quest_abandoned": "We left that undone, habibi. Somebody's still waiting, like a patient with no medicine."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "Basra has palm groves along the river, and in summer we all slept on the roof under the stars.",
+        "kind": "open",
+        "topic": "cities"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "Sit down, please. You're not dying, and I'll tell you if you are.",
+        "kind": "open"
+      }
+    ],
+    "boss_down": [
+      {
+        "text": "Good, now everybody sit down while I count my vials.",
+        "kind": "reply",
+        "topic": "measure"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "Everybody out and everybody dosed. That's a good day, wallah.",
+        "kind": "open"
+      }
+    ]
+  }
+}
