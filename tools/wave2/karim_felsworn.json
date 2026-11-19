@@ -1,0 +1,75 @@
+{
+  "recruit_text": {
+    "greeting": "You're looking at the eyes. Everybody looks at the eyes. Ask the question or stop looking, either's better than this.",
+    "backstory": "A land surveyor out of Amman, fifteen years of standing in empty country deciding where the lines went, mostly alone and entirely content with it. He took the fel deliberately, after consideration, as the fastest route to being useful in a fight, and he'll defend that choice in detail to anybody who raises it. He's cold on first meeting and very dry once he decides you're staying.",
+    "before": "A tripod, a plumb bob, and weeks at a time in country with nobody in it.\n\nNo wife, no children, by preference. His parents are both dead, and his brother Sami moved to Canada in 2011, and they slowly stopped calling. He'll tell you this flatly, because he's noticed people want to be sad on his behalf, and he finds it tiring.",
+    "adjustment": "He treated it as a survey, a new country, unmapped, and a man whose whole trade is deciding where things are.\n\nHe was functioning inside a month, and he's said more than once that having nobody to grieve made it easy, that he knows how that sounds, and that it's still true.",
+    "forward": "A map, the real one, properly surveyed, of where the transit hubs came down and which places on Earth they took people from, because the hubs make no sense and nobody competent has looked.\n\nHe's four years into a job that needs twenty, and he says so without minding.",
+    "now": "The Undercrust, beneath the Shimmering Flats, and the front of any party, where the green light makes the people behind him uncomfortable and he's stopped apologising for it.\n\nThe plumb bob still hangs at his hip. He uses it. The party has learned that when he stops and lets it swing, something ahead is wrong."
+  },
+  "bond": {
+    "home": "the Undercrust",
+    "dials": {"warmth": 0.5, "nerve": 1.5, "pride": 1.1, "restless": 0.9},
+    "likes": ["new_ground", "demon"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Karim, a felsworn, and a tank. Yes, the eyes are green, and yes, it was a choice. Ask me about it or don't, but please stop staring.",
+      "acquaintance": "I'm from Amman. My father was an engineer and my mother taught school. I surveyed land for fifteen years, mostly in the desert east of the city, weeks at a time with nobody around. I loved it. I never married, and that was a preference, not a circumstance, before you ask.",
+      "companion": "I chose the fel the way I'd choose a survey method. It was the fastest way to be useful in a fight, and I considered it carefully. I don't regret it, and I don't apologise for the light any more. I landed on the Shimmering Flats with my plumb bob in my hand, and I thought it was the most beautiful empty country I'd ever seen.",
+      "friend": "I've a brother, Sami. He moved to Toronto in 2011. We called every week, then every month, then on birthdays, then not at all. I never decided to stop. And I've worked out roughly where the hub that took people from Amman came down. It's dangerous, empty country, and I need to survey it. Will you come, yalla?",
+      "sworn": "Sami was on the list, among the dead. He'd moved back to Amman the year before all this, and I never knew, because we'd stopped calling. He was in my city and I didn't know. It turns out I did have somebody to grieve. I finished the survey of that hub carefully, and I marked it on the map with his name. I don't pretend it was easy any more."
+    },
+    "moments": [
+      {"id": "the_eyes", "stage": "stranger", "when": "talk",
+       "prompt": "He catches you looking at his eyes.",
+       "options": [
+         {"text": "Ask him about them.", "trust": 8,
+          "reply": "Thank you. That's better than staring. It was a choice, and here's why."},
+         {"text": "Look away.", "trust": 0,
+          "reply": "That's worse, honestly, but fine."}
+       ]},
+      {"id": "the_hub", "stage": "friend", "when": "talk",
+       "prompt": "He's asked you to come and survey the Amman hub with him.",
+       "options": [
+         {"text": "I'll come. For completeness.", "trust": 12,
+          "reply": "Good, for completeness. We'll leave at dawn, and we'll be thorough."},
+         {"text": "Is this about Sami?", "trust": 4,
+          "reply": "It's about the survey. Ask me again when we get there."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've covered the same ground repeatedly. There's nothing left to map here. I'd like to go somewhere unsurveyed.",
+      "leaving_good": "That was useful work. I'm going back to the Undercrust to add it to the map. You know where to find me.",
+      "leaving_bored": "I'm going back to the Undercrust. There's nothing to survey out here, and my map is waiting.",
+      "after_wipe": "We misread the ground. Let me look before anyone moves.",
+      "wipe_warning": "We keep failing here in the same way. I'll finish this run, then I'm going back to my map for a while.",
+      "wipe_leave": "I've finished it with you. Now I'm going back to the Undercrust. Come when you've thought about it.",
+      "zone_warning": "The plumb bob's been swinging since we arrived. This place is too much for us, and we should leave.",
+      "zone_leave": "I'm stopping here. The plumb bob doesn't lie. I'll be in the Undercrust.",
+      "gear_refuse": "No, that's mine. We haven't worked together long enough.",
+      "gear_taken": "Take it, then, I'll manage.",
+      "gear_short": "I'm still missing that piece. I've noted it on the map.",
+      "gear_upgrade": "That's well made. Thank you.",
+      "back": "I'm back, and the map's grown. Where are we going?",
+      "send_word": "Karim has sent word from the Undercrust. His map's updated and he's ready to come out.",
+      "walkout_talk": "I left angry. I'll explain plainly, and then I'd like to hear your account, in full.",
+      "neglect": "You've been away a long time. I surveyed a great deal while you were gone.",
+      "asked_to_stay": "Very well, one more. Khalas, then home.",
+      "on_break": "Karim is back in the Undercrust, working on his map. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "zone_arrive": [
+      {"text": "This country's never been surveyed. I'll have a rough map by tonight.", "kind": "open", "topic": "measure"}
+    ],
+    "town_arrive": [
+      {"text": "Amman's built on hills, all white stone, and it goes gold at sunset. I didn't notice it enough.", "kind": "open", "topic": "cities"}
+    ],
+    "dungeon_clear": [
+      {"text": "I've mapped every room in there. It's smaller than it feels.", "kind": "open"}
+    ],
+    "close_call": [
+      {"text": "The plumb bob swung before that. I'll say so louder next time.", "kind": "reply"}
+    ]
+  }
+}

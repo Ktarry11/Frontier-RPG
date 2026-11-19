@@ -1078,27 +1078,25 @@
     "delroy_witchdoctor": {
       "town_arrive": [
         {
-          "text": "Somebody here's up at four making bread. There always is. I'll find them.",
+          "text": "Somebody here's up at four making bread. There always is, and I'll find them.",
           "kind": "open",
           "topic": "night_work"
+        },
+        {
+          "text": "Kingston at four in the morning smells of bread and sea and somebody's radio. I miss it every night.",
+          "kind": "open",
+          "topic": "cities"
         }
       ],
       "dungeon_clear": [
         {
-          "text": "Everybody gets something and nobody waits long. Same as any morning.",
+          "text": "Everybody gets something and nobody waits long, same as any morning.",
           "kind": "reply"
-        }
-      ],
-      "zone_arrive": [
-        {
-          "text": "Thirty-one years I was awake when my city wasn't. I never saw it in daylight.",
-          "kind": "reply",
-          "topic": "night_work"
         }
       ],
       "close_call": [
         {
-          "text": "Sit down and drink it. No, I'm not telling you what is in it.",
+          "text": "Sit down and drink it. No, I'm not telling you what's in it.",
           "kind": "open"
         }
       ],
@@ -1805,6 +1803,34 @@
         }
       ]
     },
+    "karim_felsworn": {
+      "zone_arrive": [
+        {
+          "text": "This country's never been surveyed. I'll have a rough map by tonight.",
+          "kind": "open",
+          "topic": "measure"
+        }
+      ],
+      "town_arrive": [
+        {
+          "text": "Amman's built on hills, all white stone, and it goes gold at sunset. I didn't notice it enough.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "I've mapped every room in there. It's smaller than it feels.",
+          "kind": "open"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "The plumb bob swung before that. I'll say so louder next time.",
+          "kind": "reply"
+        }
+      ]
+    },
     "khalid_hunter": {
       "zone_arrive": [
         {
@@ -1945,6 +1971,33 @@
         {
           "text": "Ay bendito, come here, sit down, let me look at you. Keep talking to me.",
           "kind": "open"
+        }
+      ]
+    },
+    "osvaldo_warlock": {
+      "boss_down": [
+        {
+          "text": "Good, it's burned. Now nobody talk for a minute, please.",
+          "kind": "open"
+        }
+      ],
+      "town_arrive": [
+        {
+          "text": "Havana has music on every corner and nobody listening to any of it. I miss that noise.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Quiet in there, after. I liked the quiet.",
+          "kind": "reply"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "Coño, that was close. Stay behind me next time, asere.",
+          "kind": "reply"
         }
       ]
     },

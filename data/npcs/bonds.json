@@ -1186,6 +1186,87 @@
         "on_break": "Dan is back by the forges in Orgrimmar. Come back after you've done a few more jobs."
       }
     },
+    "delroy_witchdoctor": {
+      "home": "Booty Bay",
+      "dials": {
+        "warmth": 1.2,
+        "nerve": 1.3,
+        "pride": 0.6,
+        "restless": 0.8
+      },
+      "likes": [
+        "quest",
+        "full_party"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Delroy, and I brew. Sit down, drink this, and don't ask what's in it. You wouldn't thank me, and you'll feel better in a minute.",
+        "acquaintance": "I'm from Kingston, near Spanish Town Road. My mother sold in the market and my father worked the docks. I went into a bakery at twenty-two and stayed thirty-one years, nights, in at eleven and out at seven. I fed a whole city its breakfast, and not one of them ever asked what was in the bread.",
+        "companion": "My wife was Marcia. The cancer took her when I was forty-six. I kept working nights after, because the nights were when I missed her least. I was pulling the first loaves at four in the morning when all this happened, which is the only reason I wasn't asleep. My son Andre's a sailor, on cargo ships. If anyone landed near water, it's him.",
+        "friend": "My daughter Shanice is a nurse, and she's got a likkle girl, Kezia, who was five and called me Grandy. I ask every ship that ties up for three names, Andre, Shanice and Kezia Beckford, and in three years I've had one maybe. A sailor said a Jamaican called Beckford was crewing a ship out of Ratchet. Help me find that ship, nuh?",
+        "sworn": "Andre was in the hold, pressed by the Bloodsail, and he lifted me clean off the deck. Then he told me Shanice and Kezia are alive, in a camp of Jamaicans near Ratchet. Kezia's eight now. She looked at me a long time, and then she said Grandy and ran at me. I've built an oven near the camp, and she's my apprentice, though she's mostly interested in the eating. Mi soon come, they say, and I came."
+      },
+      "moments": [
+        {
+          "id": "the_brew",
+          "stage": "stranger",
+          "when": "talk",
+          "prompt": "He hands you a cup of something steaming and won't say what it is.",
+          "options": [
+            {
+              "text": "Drink it without asking.",
+              "trust": 8,
+              "reply": "Good, yuh have sense. Nobody asked about the bread either."
+            },
+            {
+              "text": "What's in it?",
+              "trust": 0,
+              "reply": "You wouldn't thank me for telling yuh, so drink."
+            }
+          ]
+        },
+        {
+          "id": "the_ship",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to help him find the ship out of Ratchet.",
+          "options": [
+            {
+              "text": "Let's find your son.",
+              "trust": 12,
+              "reply": "Bless yuh, thank you. I'll pack a brew for the road, and some bread."
+            },
+            {
+              "text": "It might not be him.",
+              "trust": 2,
+              "reply": "Then it's somebody's son, and they'll need getting off that ship anyway."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been doing the same thing over and over, like dough that won't prove. Let's go somewhere with a bit of rise in it.",
+        "leaving_good": "That was a good trip, and everybody took their brew. I'm going back to the gallery in Booty Bay. Come and see me, at night.",
+        "leaving_bored": "I'm going back to Booty Bay. Nothing's happening out here, and there are ships I haven't asked yet.",
+        "after_wipe": "Sit down, everybody, and drink this. You'll argue, and then you'll do it.",
+        "wipe_warning": "We keep dying in here, and I'm running out of brew. I'll see this one through, then I need a rest.",
+        "wipe_leave": "I've finished it with you. Now I'm going back to Booty Bay for a while. Come and find me at night.",
+        "zone_warning": "This place is half-baked and so are we for coming here. Let's go back before we burn.",
+        "zone_leave": "I'm stopping here. Too much out there for us. I'll be on the lower gallery in Booty Bay.",
+        "gear_refuse": "No, that's mine. Ask me again when we've shared a few more brews.",
+        "gear_taken": "Take it, then. I'll manage, I always do.",
+        "gear_short": "I'm still missing that piece. I'm only mentioning it, slowly.",
+        "gear_upgrade": "That's well made. Bless yuh, thank you.",
+        "back": "I'm back, and I've brewed a new batch. Drink up, and tell me where we're going.",
+        "send_word": "Delroy has sent word from Booty Bay. His brews are ready and so is he.",
+        "walkout_talk": "I left angry, and I'd like to explain, slowly, the way I do everything. Sit down, drink something, and listen.",
+        "neglect": "There you are. I asked every ship about you too, you know, out of habit.",
+        "asked_to_stay": "Mi soon come, one more. Then the gallery.",
+        "on_break": "Delroy is back on the lower gallery in Booty Bay, working nights. Come back after you've done a few more jobs."
+      }
+    },
     "diego_tinker": {
       "home": "Deathknell",
       "dials": {
@@ -2796,6 +2877,87 @@
         "quest_abandoned": "We said we'd do that and we didn't. I don't like leaving a job half done."
       }
     },
+    "karim_felsworn": {
+      "home": "the Undercrust",
+      "dials": {
+        "warmth": 0.5,
+        "nerve": 1.5,
+        "pride": 1.1,
+        "restless": 0.9
+      },
+      "likes": [
+        "new_ground",
+        "demon"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Karim, a felsworn, and a tank. Yes, the eyes are green, and yes, it was a choice. Ask me about it or don't, but please stop staring.",
+        "acquaintance": "I'm from Amman. My father was an engineer and my mother taught school. I surveyed land for fifteen years, mostly in the desert east of the city, weeks at a time with nobody around. I loved it. I never married, and that was a preference, not a circumstance, before you ask.",
+        "companion": "I chose the fel the way I'd choose a survey method. It was the fastest way to be useful in a fight, and I considered it carefully. I don't regret it, and I don't apologise for the light any more. I landed on the Shimmering Flats with my plumb bob in my hand, and I thought it was the most beautiful empty country I'd ever seen.",
+        "friend": "I've a brother, Sami. He moved to Toronto in 2011. We called every week, then every month, then on birthdays, then not at all. I never decided to stop. And I've worked out roughly where the hub that took people from Amman came down. It's dangerous, empty country, and I need to survey it. Will you come, yalla?",
+        "sworn": "Sami was on the list, among the dead. He'd moved back to Amman the year before all this, and I never knew, because we'd stopped calling. He was in my city and I didn't know. It turns out I did have somebody to grieve. I finished the survey of that hub carefully, and I marked it on the map with his name. I don't pretend it was easy any more."
+      },
+      "moments": [
+        {
+          "id": "the_eyes",
+          "stage": "stranger",
+          "when": "talk",
+          "prompt": "He catches you looking at his eyes.",
+          "options": [
+            {
+              "text": "Ask him about them.",
+              "trust": 8,
+              "reply": "Thank you. That's better than staring. It was a choice, and here's why."
+            },
+            {
+              "text": "Look away.",
+              "trust": 0,
+              "reply": "That's worse, honestly, but fine."
+            }
+          ]
+        },
+        {
+          "id": "the_hub",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to come and survey the Amman hub with him.",
+          "options": [
+            {
+              "text": "I'll come. For completeness.",
+              "trust": 12,
+              "reply": "Good, for completeness. We'll leave at dawn, and we'll be thorough."
+            },
+            {
+              "text": "Is this about Sami?",
+              "trust": 4,
+              "reply": "It's about the survey. Ask me again when we get there."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've covered the same ground repeatedly. There's nothing left to map here. I'd like to go somewhere unsurveyed.",
+        "leaving_good": "That was useful work. I'm going back to the Undercrust to add it to the map. You know where to find me.",
+        "leaving_bored": "I'm going back to the Undercrust. There's nothing to survey out here, and my map is waiting.",
+        "after_wipe": "We misread the ground. Let me look before anyone moves.",
+        "wipe_warning": "We keep failing here in the same way. I'll finish this run, then I'm going back to my map for a while.",
+        "wipe_leave": "I've finished it with you. Now I'm going back to the Undercrust. Come when you've thought about it.",
+        "zone_warning": "The plumb bob's been swinging since we arrived. This place is too much for us, and we should leave.",
+        "zone_leave": "I'm stopping here. The plumb bob doesn't lie. I'll be in the Undercrust.",
+        "gear_refuse": "No, that's mine. We haven't worked together long enough.",
+        "gear_taken": "Take it, then, I'll manage.",
+        "gear_short": "I'm still missing that piece. I've noted it on the map.",
+        "gear_upgrade": "That's well made. Thank you.",
+        "back": "I'm back, and the map's grown. Where are we going?",
+        "send_word": "Karim has sent word from the Undercrust. His map's updated and he's ready to come out.",
+        "walkout_talk": "I left angry. I'll explain plainly, and then I'd like to hear your account, in full.",
+        "neglect": "You've been away a long time. I surveyed a great deal while you were gone.",
+        "asked_to_stay": "Very well, one more. Khalas, then home.",
+        "on_break": "Karim is back in the Undercrust, working on his map. Come back after you've done a few more jobs."
+      }
+    },
     "khalid_hunter": {
       "home": "Saltwheel",
       "dials": {
@@ -3880,6 +4042,87 @@
         "neglect": "There you are! I thought you'd found another barber. That's the worst betrayal there is, you know.",
         "asked_to_stay": "Okay, okay, one more, but I'm doing everyone's hair tonight.",
         "on_break": "Orlando is back at the Shadowpine Altar, cutting hair by the fire. Come back after you've done a few more jobs."
+      }
+    },
+    "osvaldo_warlock": {
+      "home": "the Bloodsail Raider",
+      "dials": {
+        "warmth": 0.5,
+        "nerve": 1.3,
+        "pride": 1.1,
+        "restless": 1.0
+      },
+      "likes": [
+        "boss",
+        "dungeon"
+      ],
+      "dislikes": [
+        "full_party"
+      ],
+      "stages": {
+        "stranger": "I'm Osvaldo, and I do fire, not conversation. You get me off this ship, I burn what you point at. That's the deal, asere.",
+        "acquaintance": "I'm from Havana, from Centro. My father worked the docks, my mother sang in church and taught us music. My brother Rubén got the piano. I took trumpet so I'd have something he didn't. Sixteen years in a hotel band, six nights a week, tourists talking through every song. Rubén on piano, better than me. We fought every night and played every night.",
+        "companion": "I was mid-solo when it happened. I landed on a beach with my mouthpiece in my fist, and no trumpet. I stopped playing. There was nothing to play. Then the fire came, and the Bloodsail paid me to burn ships, and I didn't care whose. My mother was ninety-one, so I know. That's all I'm saying about her.",
+        "friend": "I'll say it once, asere. I miss my brother. I miss playing with him so much I can't hum without stopping. There's a piano in a tavern in Booty Bay, and somebody's playing it the way only one man I ever knew plays it. The Bloodsail captain who owns that place is the man I used to burn for. I need to go. I need you there.",
+        "sworn": "Rubén looked up from the piano and said I'm late, and I'm flat, and I laughed. You heard me, nobody's heard that before. He told me our mother died the first winter, in a camp, peacefully, with him holding her hand, and she asked for me at the end. It hurt, and it wasn't the worst news, and we both knew. Then he found me a goblin trumpet, and I fitted my mouthpiece to it, and we played. Nobody talked through it."
+      },
+      "moments": [
+        {
+          "id": "sit_up",
+          "stage": "companion",
+          "when": "talk",
+          "prompt": "It's late, and you can't sleep. He's sitting by the fire, saying nothing.",
+          "options": [
+            {
+              "text": "Sit with him, in silence.",
+              "trust": 10,
+              "reply": "Good, you don't talk. I like that."
+            },
+            {
+              "text": "Ask him why he's awake.",
+              "trust": 0,
+              "reply": "Same as you, asere. Sit or don't."
+            }
+          ]
+        },
+        {
+          "id": "the_piano",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to come to the tavern in Booty Bay.",
+          "options": [
+            {
+              "text": "Let's go and get your brother.",
+              "trust": 12,
+              "reply": "Chévere, thank you. Don't tell anyone I said that."
+            },
+            {
+              "text": "The captain will recognise you.",
+              "trust": 4,
+              "reply": "Good, let him recognise me."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Same thing, again and again. Even the tourists had more variety. Find me something worth burning, asere.",
+        "leaving_good": "That was a good trip. I'm going back to Booty Bay for a while. Don't make a fuss.",
+        "leaving_bored": "I'm going now. This is boring, and boring makes me burn things I shouldn't.",
+        "after_wipe": "Coño, that was ugly. Get up, we go again.",
+        "wipe_warning": "We keep dying in here. I'll finish this, then I'm done for a while.",
+        "wipe_leave": "I finished it. Now I'm going. Find me when you've got a plan.",
+        "zone_warning": "This place is too much for us, asere. Fire's good, but it's not this good.",
+        "zone_leave": "I'm stopping here. Too much out there. I'll be in Booty Bay, off the ship.",
+        "gear_refuse": "No, that's mine. We're not friends yet.",
+        "gear_taken": "Take it, then. I'll burn things without it.",
+        "gear_short": "I'm still missing that piece. I'm saying it once.",
+        "gear_upgrade": "That's good kit, thanks, asere. Don't make it a thing.",
+        "back": "I'm back now. Where's the fire?",
+        "send_word": "Osvaldo has sent word. He's ready to come out and burn things again.",
+        "walkout_talk": "I walked out angry. Sit down, and I'll tell you why, short, then you tell me.",
+        "neglect": "So you're back. I didn't notice you were gone. That's a lie.",
+        "asked_to_stay": "Fine, one more, but don't talk at me.",
+        "on_break": "Osvaldo has gone off on his own for a while. Come back after you've done a few more jobs."
       }
     },
     "owen_cultist": {

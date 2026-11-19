@@ -1,0 +1,75 @@
+{
+  "recruit_text": {
+    "greeting": "You want fire, I give you fire. You want conversation, I'm the wrong man.",
+    "backstory": "He played trumpet in a Havana hotel band for sixteen years, six nights a week, for tourists who talked through all of it. He's enormously talented at a thing nobody here has any use for, and that's most of what's wrong with him. His English is better than he lets on, and he still uses as little of it as he can, and he's blunt to the point of rude and has never been unkind about anything that mattered.",
+    "before": "A bandstand, a residency, and a brother on piano, Rubén, who was better than him and knew it.\n\nHis mother was ninety-one and lived three streets from the hotel. He went every afternoon before the set. He's said one sentence about her in three years.",
+    "adjustment": "He stopped playing. There was nothing to play and nobody to play with, and he put it down, and it stayed down.\n\nThe fire came after that, and he'll tell you the order matters. He was already empty when he went looking, and he thinks that's the only reason it took.",
+    "forward": "Nothing he'll admit to.\n\nWhat anyone can see is that he's twice stayed up all night with people who were in a bad way, saying almost nothing, just sitting there. Both of them told somebody about it. He's denied it both times.",
+    "now": "Aboard the Bloodsail Raider, the pirates' hired fire, burning ships for people he doesn't care about, and tired of it.\n\nThe mouthpiece hangs at his throat. Nobody's seen him use it. Somebody heard him humming once, badly, and had the sense to say nothing."
+  },
+  "bond": {
+    "home": "the Bloodsail Raider",
+    "dials": {"warmth": 0.5, "nerve": 1.3, "pride": 1.1, "restless": 1.0},
+    "likes": ["boss", "dungeon"],
+    "dislikes": ["full_party"],
+    "stages": {
+      "stranger": "I'm Osvaldo, and I do fire, not conversation. You get me off this ship, I burn what you point at. That's the deal, asere.",
+      "acquaintance": "I'm from Havana, from Centro. My father worked the docks, my mother sang in church and taught us music. My brother Rubén got the piano. I took trumpet so I'd have something he didn't. Sixteen years in a hotel band, six nights a week, tourists talking through every song. Rubén on piano, better than me. We fought every night and played every night.",
+      "companion": "I was mid-solo when it happened. I landed on a beach with my mouthpiece in my fist, and no trumpet. I stopped playing. There was nothing to play. Then the fire came, and the Bloodsail paid me to burn ships, and I didn't care whose. My mother was ninety-one, so I know. That's all I'm saying about her.",
+      "friend": "I'll say it once, asere. I miss my brother. I miss playing with him so much I can't hum without stopping. There's a piano in a tavern in Booty Bay, and somebody's playing it the way only one man I ever knew plays it. The Bloodsail captain who owns that place is the man I used to burn for. I need to go. I need you there.",
+      "sworn": "Rubén looked up from the piano and said I'm late, and I'm flat, and I laughed. You heard me, nobody's heard that before. He told me our mother died the first winter, in a camp, peacefully, with him holding her hand, and she asked for me at the end. It hurt, and it wasn't the worst news, and we both knew. Then he found me a goblin trumpet, and I fitted my mouthpiece to it, and we played. Nobody talked through it."
+    },
+    "moments": [
+      {"id": "sit_up", "stage": "companion", "when": "talk",
+       "prompt": "It's late, and you can't sleep. He's sitting by the fire, saying nothing.",
+       "options": [
+         {"text": "Sit with him, in silence.", "trust": 10,
+          "reply": "Good, you don't talk. I like that."},
+         {"text": "Ask him why he's awake.", "trust": 0,
+          "reply": "Same as you, asere. Sit or don't."}
+       ]},
+      {"id": "the_piano", "stage": "friend", "when": "talk",
+       "prompt": "He's asked you to come to the tavern in Booty Bay.",
+       "options": [
+         {"text": "Let's go and get your brother.", "trust": 12,
+          "reply": "Chévere, thank you. Don't tell anyone I said that."},
+         {"text": "The captain will recognise you.", "trust": 4,
+          "reply": "Good, let him recognise me."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "Same thing, again and again. Even the tourists had more variety. Find me something worth burning, asere.",
+      "leaving_good": "That was a good trip. I'm going back to Booty Bay for a while. Don't make a fuss.",
+      "leaving_bored": "I'm going now. This is boring, and boring makes me burn things I shouldn't.",
+      "after_wipe": "Coño, that was ugly. Get up, we go again.",
+      "wipe_warning": "We keep dying in here. I'll finish this, then I'm done for a while.",
+      "wipe_leave": "I finished it. Now I'm going. Find me when you've got a plan.",
+      "zone_warning": "This place is too much for us, asere. Fire's good, but it's not this good.",
+      "zone_leave": "I'm stopping here. Too much out there. I'll be in Booty Bay, off the ship.",
+      "gear_refuse": "No, that's mine. We're not friends yet.",
+      "gear_taken": "Take it, then. I'll burn things without it.",
+      "gear_short": "I'm still missing that piece. I'm saying it once.",
+      "gear_upgrade": "That's good kit, thanks, asere. Don't make it a thing.",
+      "back": "I'm back now. Where's the fire?",
+      "send_word": "Osvaldo has sent word. He's ready to come out and burn things again.",
+      "walkout_talk": "I walked out angry. Sit down, and I'll tell you why, short, then you tell me.",
+      "neglect": "So you're back. I didn't notice you were gone. That's a lie.",
+      "asked_to_stay": "Fine, one more, but don't talk at me.",
+      "on_break": "Osvaldo has gone off on his own for a while. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "boss_down": [
+      {"text": "Good, it's burned. Now nobody talk for a minute, please.", "kind": "open"}
+    ],
+    "town_arrive": [
+      {"text": "Havana has music on every corner and nobody listening to any of it. I miss that noise.", "kind": "open", "topic": "cities"}
+    ],
+    "dungeon_clear": [
+      {"text": "Quiet in there, after. I liked the quiet.", "kind": "reply"}
+    ],
+    "close_call": [
+      {"text": "Coño, that was close. Stay behind me next time, asere.", "kind": "reply"}
+    ]
+  }
+}
