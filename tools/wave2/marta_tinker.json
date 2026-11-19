@@ -1,0 +1,76 @@
+{
+  "recruit_text": {
+    "greeting": "Give it here. No, give it here. You've been hitting it, haven't you? People always hit it.",
+    "backstory": "Nineteen years of industrial sewing machines in a Łódź plant, which means nineteen years of being the only person in the building who could tell what was wrong from the sound. Management called her whenever a line stopped, and only ever by her first name. Goblin engineering is the same noise with more smoke, and she loves it in a way she'd be embarrassed to have written down.",
+    "before": "Forty machines, one toolkit, and a plant floor she could diagnose from the doorway.\n\nHer husband Tomasz worked the other shift for fifteen years so one of them was always home with the boys. They kissed in the doorway twice a day. The boys are grown now, and Tomasz was on his way to work.",
+    "now": "The Boulder Lode Mine in the Northern Barrens, where everything's broken and the goblins charge for the privilege of fixing it.\n\nShe undercuts them by a third and fixes it properly. The goblin foreman has threatened her twice and sent her work three times.",
+    "forward": "Her own bench, her own sign, and nobody above her on a floor plan.\n\nShe's been quoted a price for a corner of the workshop by the pumps. She can afford it. She's found four reasons to wait, and she knows all four are the same reason."
+  },
+  "bond": {
+    "home": "the Boulder Lode Mine",
+    "dials": {"warmth": 0.7, "nerve": 1.4, "pride": 1.2, "restless": 0.9},
+    "likes": ["dungeon", "boss"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Marta, and I fix things and blow things up, and I'm good at both. Give me your gear when we stop and I'll tell you everything you've done wrong to it.",
+      "acquaintance": "I'm from Łódź, in Poland, a textile city. My mother sewed shirts for thirty years and my father drove a bus. I started on the sewing line at nineteen and went into maintenance at thirty-two, because I kept fixing the machines myself and somebody finally noticed. Forty machines, nineteen years, and I could hear what was wrong with any of them from the door.",
+      "companion": "My husband is Tomasz, an electrician. For fifteen years he worked the other shift, so we saw each other in the doorway twice a day, a kiss and a list of what the boys needed. It worked for us. He sings in the kitchen every morning, badly, and I pretend I hate it. We'd only just started working the same shift. He was on his way to work when it happened.",
+      "friend": "I've got two boys, grown. Kuba went to Gdańsk and Piotr to Berlin. I've checked the Polish lists every season for three years and found none of them, not one. And I've been waiting. Not saying so, but waiting, like I'm stood at the door for the next shift change. The mine's main pump is dying deep down and the goblins have given up. Help me fix it, and then help me do the lists one more time.",
+      "sworn": "Nothing on any list. Not Tomasz, not Kuba, not Piotr. I stood at that last hub a long time. Then I thought, he sang in our kitchen every morning, so he'll be singing in some kitchen now, wherever he is. So I've stopped waiting at the door. I took the workshop, and the sign says M. Kowalska, Mechanic, my full name. There's a note at every hub saying where I am. I still listen for singing."
+    },
+    "moments": [
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe she's already elbow deep in somebody's broken gear, swearing in Polish.",
+       "line": "Kurwa, look at this. Somebody hit it again. Nobody move until I've checked everything.",
+       "options": [
+         {"text": "Check away. We'll wait.", "trust": 6, "mood": 6,
+          "reply": "Good, finally somebody who understands maintenance."},
+         {"text": "We need to keep moving.", "trust": 0, "mood": -6,
+          "reply": "And you'll move faster with gear that works, so sit down."}
+       ]},
+      {"id": "the_door", "stage": "friend", "when": "talk",
+       "prompt": "She's just told you she's been waiting for three years.",
+       "options": [
+         {"text": "You can stop waiting without giving up.", "trust": 12,
+          "reply": "Maybe I can. Let's fix the pump first, and I'll think about it."},
+         {"text": "They'll turn up.", "trust": 0,
+          "reply": "You don't know that. Nobody knows that. Don't say it."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We're doing the same thing over and over and nothing's even breaking. Find me something interesting or I'm going back to the mine.",
+      "leaving_good": "That was a good trip, and your gear's in better shape than when we started, no thanks to you. I'm going back to the mine. You know where.",
+      "leaving_bored": "I'm going back to the mine. At least the pumps break in interesting ways.",
+      "after_wipe": "Right, that's broken, and that's broken, and you're broken. Give me a minute.",
+      "wipe_warning": "We keep blowing up in here, and not the good way. I'll finish this run, but then I'm going back to the mine for a while.",
+      "wipe_leave": "Done, and I'm off. I'll be at the Boulder Lode, fixing things that don't die every five minutes.",
+      "zone_warning": "This place is built wrong for us. Everything here is too big and too strong, and I can't fix that with a spanner.",
+      "zone_leave": "I'm stopping here. I said it was too much. I'll be in the Boulder Lode Mine.",
+      "gear_refuse": "No, that's mine, and I maintain it. You don't touch it.",
+      "gear_taken": "Go on, take it. If you hit it, I'll know.",
+      "gear_short": "I'm still missing that piece, and I'm keeping count.",
+      "gear_upgrade": "That's decent work, actually. Thank you. I'll still tune it.",
+      "back": "I'm back, and the pumps are running sweet. Give me your gear first, then tell me where we're going.",
+      "send_word": "Marta has sent word from the Boulder Lode Mine. The pumps are running and she's ready to come out.",
+      "walkout_talk": "I walked out and I'd do it again. But sit down, I'll tell you why straight, and then you can tell me I'm wrong.",
+      "neglect": "Oh, so you're alive. I oiled every hinge in the mine waiting for you.",
+      "asked_to_stay": "Fine, one more, but I'm fixing everyone's boots tonight.",
+      "on_break": "Marta is back in the Boulder Lode Mine, keeping the pumps going. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "dungeon_clear": [
+      {"text": "That tunnel was cut by somebody in a hurry. It'll be down inside five years.", "kind": "open"}
+    ],
+    "boss_down": [
+      {"text": "Loud, but I've heard louder, and I made most of it myself.", "kind": "open"}
+    ],
+    "close_call": [
+      {"text": "You were surprised. Don't be surprised. Surprised means somebody didn't check.", "kind": "reply"}
+    ],
+    "town_arrive": [
+      {"text": "Every gate in this place squeaks. Give me ten minutes and some oil.", "kind": "open"},
+      {"text": "Łódź was all red brick mills and the noise of sewing machines, and I could sleep through all of it.", "kind": "open", "topic": "cities"}
+    ]
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "recruit_text": {
+    "greeting": "A moment, please. I'd like to establish the sequence of events before we add to it.",
+    "backstory": "Twenty-three years of air traffic control at Tân Sơn Nhất. The job is holding forty futures in your head at once and choosing the one where nobody dies. Time magic asked him for exactly that, and nothing he hadn't already done for twenty years on three hours' sleep. He's the calmest person in most rooms, and it's professional conditioning, not temperament.",
+    "before": "A dark room, a scope, and the discipline of never letting your voice carry what your pulse is doing.\n\nHis daughter Linh was studying music in Melbourne. Two hubs, two continents, and a survivable set of assumptions. He's permitted himself the survivable set.",
+    "adjustment": "He was on shift, in the middle of a handover, and he's said that the handover was the hardest part. People assume he means the Integration.\n\nHe means the handover. He'd just said you have control, and then he was gone, and he'll never know what happened to those forty aircraft.",
+    "now": "A stone watch hut on a ridge in the Northern Barrens, over a dry riverbed where time slips. Now and then the water runs for an hour from years ago, or a caravan arrives before it set out.\n\nAlmost nobody understands how dangerous that is. He's appointed himself to it. Nobody asked him to. He's made a rota of one.",
+    "forward": "One hour in which nothing is his responsibility. He hasn't had one since 2003, and he's beginning to suspect the problem isn't the schedule.\n\nIn the meantime he keeps watch on the riverbed, because nobody else will, which is exactly the reasoning that got him here."
+  },
+  "bond": {
+    "home": "the Northern Barrens",
+    "dials": {"warmth": 0.8, "nerve": 1.3, "pride": 0.6, "restless": 0.8},
+    "likes": ["dungeon", "boss"],
+    "dislikes": ["quest_abandoned"],
+    "stages": {
+      "stranger": "My name's Minh, and I'm a chronomancer. In a fight I'll tell you what's going to happen and in what order. Please listen the first time, because I won't have time to say it twice.",
+      "acquaintance": "I'm from Ho Chi Minh City. My father was a mechanic and my mother taught school. I was an air traffic controller at Tân Sơn Nhất for twenty-three years, mostly nights, in a dark room with a scope. The job is holding forty aircraft in your head and choosing the future where none of them meet. It's very good training for this.",
+      "companion": "I was married to Hoa. It ended when our daughter was fourteen, because I was never home, and when I was home I was still in the radar room. Our daughter is Linh. She plays the violin, and I took her to every lesson I could. She went to Melbourne to study music. She gave me this tuning fork when she left, tuned to A, so I'd have her note with me.",
+      "friend": "I was in the middle of a handover when it happened. I'd just said you have control to my colleague, and then I was here. I'll never know what happened to those forty aircraft. And a trader has brought a list from a camp of Australians, with people from Melbourne on it. I've had it for a day and I haven't opened it. I'd like you with me when I do.",
+      "sworn": "Linh was on the list, among the people who didn't survive the first winter. I struck the fork and listened until the note was gone. Then I gave the watch on the ridge to the two young shamans I've been training, and I left it in their hands for a whole day. My first day off in more than twenty years. Nothing went wrong. That's the worst part, and it's also the best part. You have control, I told them, and they did."
+    },
+    "moments": [
+      {"id": "the_list", "stage": "friend", "when": "talk",
+       "prompt": "He's holding the list from Melbourne, unopened.",
+       "options": [
+         {"text": "Open it when you're ready. I'm not going anywhere.", "trust": 12,
+          "reply": "Thank you, copy that. I'll open it when the riverbed's quiet."},
+         {"text": "Open it now and get it over with.", "trust": 0,
+          "reply": "I'd rather choose the sequence, if you don't mind. I always have."},
+         {"text": "What do you think it says?", "trust": 4,
+          "reply": "I've modelled every outcome. I'd still rather read it than guess."}
+       ]},
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe he's very calm, which is how you know it's bad.",
+       "line": "I'd like to go through the sequence. First the adds, then the healer went down, then everything else. We can fix the first one.",
+       "options": [
+         {"text": "Talk us through it.", "trust": 8, "mood": 6,
+          "reply": "Copy that, step one is nobody pulls until I've called it."},
+         {"text": "Let's just try again.", "trust": 0, "mood": -6,
+          "reply": "Say again, please? Trying the same sequence will give the same result."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've repeated the same sequence many times without any change. I'd like to do something with a purpose, or I'd like to go back to my riverbed.",
+      "leaving_good": "That was a good trip, thank you. I'm going back to the ridge now, because the riverbed doesn't watch itself. You know where I'll be.",
+      "leaving_bored": "I'm going back to the Northern Barrens. Nothing here needs me, and something there does.",
+      "after_wipe": "Before anyone moves, I'd like to establish what happened, in order.",
+      "wipe_warning": "We've failed here several times in the same way. I'll complete this run with you, but afterwards I'll need a few days.",
+      "wipe_leave": "I've completed it with you, as I said. Now I'm going back to the ridge. Come and find me when you'd like to try a different sequence.",
+      "zone_warning": "I've looked at every future I can see from here, and very few of them have us walking out. I'd like to leave.",
+      "zone_leave": "I'm stopping here. I said very few futures had us walking out. I'll be on the ridge in the Northern Barrens.",
+      "gear_refuse": "I'd rather keep that. I don't know you well enough yet.",
+      "gear_taken": "Copy that, I'll work without it, but I'll be slower, and I'll tell you how much.",
+      "gear_short": "I'm still missing that piece. I'm only reporting it.",
+      "gear_upgrade": "That's very good, thank you. I'll look after it carefully.",
+      "back": "I'm back, and the riverbed's quiet for now. Where are we going, and in what order?",
+      "send_word": "Minh has sent word from the Northern Barrens. The riverbed's quiet and he's ready to come out.",
+      "walkout_talk": "I left angry, which isn't how I like to do anything. May I go through what happened, in order? Then you can do the same.",
+      "neglect": "It's been a long time, and I counted. I'm glad you came back.",
+      "asked_to_stay": "Copy that, one more. Then I really must check the riverbed.",
+      "on_break": "Minh is back on his ridge in the Northern Barrens, keeping watch. Come back after you've done a few more jobs.",
+      "quest_abandoned": "We accepted that and then left it. Somebody's still waiting for us, and that bothers me."
+    }
+  },
+  "banter": {
+    "close_call": [
+      {"text": "You were going down half a second before you knew it. I saw it coming. Next time I'll call it sooner.", "kind": "open"}
+    ],
+    "town_arrive": [
+      {"text": "Ho Chi Minh City has more motorbikes than you'd believe, and somehow nobody crashes. I always admired that.", "kind": "open", "topic": "cities"}
+    ],
+    "boss_down": [
+      {"text": "A fraction early is the whole job. A fraction late is a funeral.", "kind": "reply", "topic": "measure"}
+    ],
+    "zone_arrive": [
+      {"text": "Time runs a little unevenly here. I'll keep an eye on it so you don't have to.", "kind": "open"}
+    ],
+    "dungeon_clear": [
+      {"text": "Everybody accounted for, in order. Thank you.", "kind": "reply"}
+    ]
+  }
+}

@@ -576,20 +576,25 @@
       ],
       "boss_down": [
         {
-          "text": "Loud. I've heard louder, and I measured that one too.",
+          "text": "Loud, but I've heard louder, and I made most of it myself.",
           "kind": "open"
         }
       ],
       "close_call": [
         {
-          "text": "You were surprised. Don't be surprised. Surprised means somebody measured wrong.",
+          "text": "You were surprised. Don't be surprised. Surprised means somebody didn't check.",
           "kind": "reply"
         }
       ],
       "town_arrive": [
         {
-          "text": "Nineteen years of blasting. I've never once jumped. People find that rude.",
+          "text": "Every gate in this place squeaks. Give me ten minutes and some oil.",
           "kind": "open"
+        },
+        {
+          "text": "Łódź was all red brick mills and the noise of sewing machines, and I could sleep through all of it.",
+          "kind": "open",
+          "topic": "cities"
         }
       ]
     },
@@ -944,28 +949,34 @@
     "minh_chronomancer": {
       "close_call": [
         {
-          "text": "You were going down a half-second before you knew it. I heard it.",
+          "text": "You were going down half a second before you knew it. I saw it coming. Next time I'll call it sooner.",
           "kind": "open"
         }
       ],
       "town_arrive": [
         {
-          "text": "Listen. That gate hinge is a whole tone flat and there's nobody here but me can hear it.",
+          "text": "Ho Chi Minh City has more motorbikes than you'd believe, and somehow nobody crashes. I always admired that.",
           "kind": "open",
-          "topic": "measure"
+          "topic": "cities"
         }
       ],
       "boss_down": [
         {
-          "text": "A fraction early is the entire trade. A fraction late is a funeral.",
+          "text": "A fraction early is the whole job. A fraction late is a funeral.",
           "kind": "reply",
           "topic": "measure"
         }
       ],
       "zone_arrive": [
         {
-          "text": "Everything here is slightly out of tune and I'm the only one it bothers.",
+          "text": "Time runs a little unevenly here. I'll keep an eye on it so you don't have to.",
           "kind": "open"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Everybody accounted for, in order. Thank you.",
+          "kind": "reply"
         }
       ]
     },
@@ -1481,6 +1492,37 @@
         {
           "text": "There'll be farms out here somewhere, and somebody pregnant who needs looking at.",
           "kind": "open"
+        }
+      ]
+    },
+    "lucia_suncleric": {
+      "town_arrive": [
+        {
+          "text": "Look at all these people. I want to know every one of their stories.",
+          "kind": "open"
+        },
+        {
+          "text": "Goiânia's in the middle of Brazil, hot and flat and full of music, and every street knows your business.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ],
+      "boss_down": [
+        {
+          "text": "Graças a Deus. Now let me look at everybody, one at a time.",
+          "kind": "open"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "Meu Deus, I prayed so hard just then. Come here, let me see.",
+          "kind": "open"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Out in the sun again, thank God. I don't like it where the light can't reach.",
+          "kind": "reply"
         }
       ]
     },

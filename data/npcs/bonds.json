@@ -1208,6 +1208,87 @@
         "quest_abandoned": "We said we'd do that and now we don't. That's a missed stop, and I hate missed stops."
       }
     },
+    "lucia_suncleric": {
+      "home": "the Crossroads",
+      "dials": {
+        "warmth": 1.5,
+        "nerve": 0.9,
+        "pride": 0.6,
+        "restless": 1.0
+      },
+      "likes": [
+        "full_party",
+        "quest"
+      ],
+      "dislikes": [
+        "undead"
+      ],
+      "stages": {
+        "stranger": "I'm Lúcia, querido, and you've got half the Barrens in your hair. I'll heal you and I'll pray for you, and I'll fix that hair while we walk. Tell me everything about yourself.",
+        "acquaintance": "I'm from Goiânia, in the middle of Brazil. I had my own salon, pink tiles and two chairs, a radio that only got one station, and a cat called Dona Flor asleep in the window. Saturdays there was a queue down the street. I had a boyfriend, Marcelo, for four years, but he wanted São Paulo and I didn't. We split up kindly.",
+        "companion": "My mother phoned me every day at noon, and I'd put her on speaker so the whole salon could join in. That's why I stop for a moment at noon, every day. I haven't found her. I was cutting a customer's hair when it happened, and I landed in the Barrens with my scissors and my grandmother's candle list in my purse.",
+        "friend": "My grandmother, Dona Zuleide, raised me while my mother worked. Every Sunday she lit a candle for everybody on our street, by name, and I kept the list. She died when I was twenty-five and I took over the candles. What I miss most here, meu Deus, is singing in church with other people. A tauren guard says they sing to the sun at Camp Taurajo every dawn. I want to hear it. Will you take me?",
+        "sworn": "It wasn't my church and it wasn't my language, and it didn't matter at all. They sang to the sun and I sang with them in Portuguese, and the sun answered both of us. An old tauren woman told me to come back every dawn I can. I've got a little shelter at the Crossroads now with a real door and a real mirror, and a candle wall. Every Sunday I light one for everybody on my grandmother's list, and for the tauren they've told me about."
+      },
+      "moments": [
+        {
+          "id": "noon",
+          "stage": "companion",
+          "when": "talk",
+          "prompt": "It's noon, and she's gone quiet for a moment.",
+          "options": [
+            {
+              "text": "Take as long as you need.",
+              "trust": 10,
+              "reply": "Thank you, querido. She'd have liked you, she likes everybody who waits."
+            },
+            {
+              "text": "Are you all right?",
+              "trust": 4,
+              "reply": "Yes, I'm fine. It's just noon, that's all."
+            }
+          ]
+        },
+        {
+          "id": "the_song",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's asked you to take her to Camp Taurajo.",
+          "options": [
+            {
+              "text": "Let's go and hear them sing.",
+              "trust": 12,
+              "reply": "Nossa, do you mean it? I'm going to cry the whole way there, I warn you."
+            },
+            {
+              "text": "They might not want an outsider.",
+              "trust": 2,
+              "reply": "Then I'll earn it. I've won over worse customers than a tauren."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Querido, we've been doing the same thing for days and I haven't met a single new person. Can we go somewhere with people in it?",
+        "leaving_good": "That was wonderful, and I've got so much gossip I'm not going to tell anybody. I'm going back to the Crossroads now. Come and get a haircut.",
+        "leaving_bored": "I'm going back to the Crossroads. Nothing's happening out here, and I've got a queue waiting.",
+        "after_wipe": "Meu Deus, everybody come here and let me look at you. I'm going to pray for all of you, and you're going to let me.",
+        "wipe_warning": "We keep dying in here and my heart can't take it. I'll stay to the end of this one, but then I need some days at home.",
+        "wipe_leave": "I stayed until it was done, like I said. Now I'm going back to the Crossroads to sit in the sun for a while.",
+        "zone_warning": "Querido, this place is too much for us. I can pray very hard, but I'm not sure the sun can keep up with this.",
+        "zone_leave": "I'm stopping here. It's too dangerous out there for me. I'll be at the Crossroads, by the inn.",
+        "gear_refuse": "Ah, no, I'd like to keep that, querido. Ask me again when we're friends.",
+        "gear_taken": "Take it, take it. I'll pray a bit harder to make up for it.",
+        "gear_short": "I'm still missing that piece, querido. I'm only mentioning it in my prayers, mostly.",
+        "gear_upgrade": "Oh, it's beautiful, thank you! Graças a Deus for you.",
+        "back": "I'm back, and I've brought my scissors! Who needs a trim? You do, look at you.",
+        "send_word": "Lúcia has sent word from the Crossroads. Her queue's done and she's ready to come out.",
+        "walkout_talk": "I walked out angry, and that's not me, querido. Sit down, let me fix your hair while I tell you why, and then you can tell me.",
+        "neglect": "There you are! I lit a candle for you every Sunday, you know. Look, it worked.",
+        "asked_to_stay": "All right, one more. But I'm fixing everybody's hair tonight.",
+        "on_break": "Lúcia is back at the Crossroads, cutting hair by the inn. Come back after you've done a few more jobs."
+      }
+    },
     "marco_paladin": {
       "home": "the Undercity",
       "dials": {
@@ -1449,6 +1530,180 @@
         "asked_to_stay": "All right, one more, and then the road needs me.",
         "on_break": "Marisol is back on the forest road out of the Sepulcher. Come back after you've done a few more jobs.",
         "quest_abandoned": "Somebody's waiting for us to come back, and we're not going to. I don't like that at all."
+      }
+    },
+    "marta_tinker": {
+      "home": "the Boulder Lode Mine",
+      "dials": {
+        "warmth": 0.7,
+        "nerve": 1.4,
+        "pride": 1.2,
+        "restless": 0.9
+      },
+      "likes": [
+        "dungeon",
+        "boss"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Marta, and I fix things and blow things up, and I'm good at both. Give me your gear when we stop and I'll tell you everything you've done wrong to it.",
+        "acquaintance": "I'm from Łódź, in Poland, a textile city. My mother sewed shirts for thirty years and my father drove a bus. I started on the sewing line at nineteen and went into maintenance at thirty-two, because I kept fixing the machines myself and somebody finally noticed. Forty machines, nineteen years, and I could hear what was wrong with any of them from the door.",
+        "companion": "My husband is Tomasz, an electrician. For fifteen years he worked the other shift, so we saw each other in the doorway twice a day, a kiss and a list of what the boys needed. It worked for us. He sings in the kitchen every morning, badly, and I pretend I hate it. We'd only just started working the same shift. He was on his way to work when it happened.",
+        "friend": "I've got two boys, grown. Kuba went to Gdańsk and Piotr to Berlin. I've checked the Polish lists every season for three years and found none of them, not one. And I've been waiting. Not saying so, but waiting, like I'm stood at the door for the next shift change. The mine's main pump is dying deep down and the goblins have given up. Help me fix it, and then help me do the lists one more time.",
+        "sworn": "Nothing on any list. Not Tomasz, not Kuba, not Piotr. I stood at that last hub a long time. Then I thought, he sang in our kitchen every morning, so he'll be singing in some kitchen now, wherever he is. So I've stopped waiting at the door. I took the workshop, and the sign says M. Kowalska, Mechanic, my full name. There's a note at every hub saying where I am. I still listen for singing."
+      },
+      "moments": [
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe she's already elbow deep in somebody's broken gear, swearing in Polish.",
+          "line": "Kurwa, look at this. Somebody hit it again. Nobody move until I've checked everything.",
+          "options": [
+            {
+              "text": "Check away. We'll wait.",
+              "trust": 6,
+              "mood": 6,
+              "reply": "Good, finally somebody who understands maintenance."
+            },
+            {
+              "text": "We need to keep moving.",
+              "trust": 0,
+              "mood": -6,
+              "reply": "And you'll move faster with gear that works, so sit down."
+            }
+          ]
+        },
+        {
+          "id": "the_door",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's just told you she's been waiting for three years.",
+          "options": [
+            {
+              "text": "You can stop waiting without giving up.",
+              "trust": 12,
+              "reply": "Maybe I can. Let's fix the pump first, and I'll think about it."
+            },
+            {
+              "text": "They'll turn up.",
+              "trust": 0,
+              "reply": "You don't know that. Nobody knows that. Don't say it."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We're doing the same thing over and over and nothing's even breaking. Find me something interesting or I'm going back to the mine.",
+        "leaving_good": "That was a good trip, and your gear's in better shape than when we started, no thanks to you. I'm going back to the mine. You know where.",
+        "leaving_bored": "I'm going back to the mine. At least the pumps break in interesting ways.",
+        "after_wipe": "Right, that's broken, and that's broken, and you're broken. Give me a minute.",
+        "wipe_warning": "We keep blowing up in here, and not the good way. I'll finish this run, but then I'm going back to the mine for a while.",
+        "wipe_leave": "Done, and I'm off. I'll be at the Boulder Lode, fixing things that don't die every five minutes.",
+        "zone_warning": "This place is built wrong for us. Everything here is too big and too strong, and I can't fix that with a spanner.",
+        "zone_leave": "I'm stopping here. I said it was too much. I'll be in the Boulder Lode Mine.",
+        "gear_refuse": "No, that's mine, and I maintain it. You don't touch it.",
+        "gear_taken": "Go on, take it. If you hit it, I'll know.",
+        "gear_short": "I'm still missing that piece, and I'm keeping count.",
+        "gear_upgrade": "That's decent work, actually. Thank you. I'll still tune it.",
+        "back": "I'm back, and the pumps are running sweet. Give me your gear first, then tell me where we're going.",
+        "send_word": "Marta has sent word from the Boulder Lode Mine. The pumps are running and she's ready to come out.",
+        "walkout_talk": "I walked out and I'd do it again. But sit down, I'll tell you why straight, and then you can tell me I'm wrong.",
+        "neglect": "Oh, so you're alive. I oiled every hinge in the mine waiting for you.",
+        "asked_to_stay": "Fine, one more, but I'm fixing everyone's boots tonight.",
+        "on_break": "Marta is back in the Boulder Lode Mine, keeping the pumps going. Come back after you've done a few more jobs."
+      }
+    },
+    "minh_chronomancer": {
+      "home": "the Northern Barrens",
+      "dials": {
+        "warmth": 0.8,
+        "nerve": 1.3,
+        "pride": 0.6,
+        "restless": 0.8
+      },
+      "likes": [
+        "dungeon",
+        "boss"
+      ],
+      "dislikes": [
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "My name's Minh, and I'm a chronomancer. In a fight I'll tell you what's going to happen and in what order. Please listen the first time, because I won't have time to say it twice.",
+        "acquaintance": "I'm from Ho Chi Minh City. My father was a mechanic and my mother taught school. I was an air traffic controller at Tân Sơn Nhất for twenty-three years, mostly nights, in a dark room with a scope. The job is holding forty aircraft in your head and choosing the future where none of them meet. It's very good training for this.",
+        "companion": "I was married to Hoa. It ended when our daughter was fourteen, because I was never home, and when I was home I was still in the radar room. Our daughter is Linh. She plays the violin, and I took her to every lesson I could. She went to Melbourne to study music. She gave me this tuning fork when she left, tuned to A, so I'd have her note with me.",
+        "friend": "I was in the middle of a handover when it happened. I'd just said you have control to my colleague, and then I was here. I'll never know what happened to those forty aircraft. And a trader has brought a list from a camp of Australians, with people from Melbourne on it. I've had it for a day and I haven't opened it. I'd like you with me when I do.",
+        "sworn": "Linh was on the list, among the people who didn't survive the first winter. I struck the fork and listened until the note was gone. Then I gave the watch on the ridge to the two young shamans I've been training, and I left it in their hands for a whole day. My first day off in more than twenty years. Nothing went wrong. That's the worst part, and it's also the best part. You have control, I told them, and they did."
+      },
+      "moments": [
+        {
+          "id": "the_list",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's holding the list from Melbourne, unopened.",
+          "options": [
+            {
+              "text": "Open it when you're ready. I'm not going anywhere.",
+              "trust": 12,
+              "reply": "Thank you, copy that. I'll open it when the riverbed's quiet."
+            },
+            {
+              "text": "Open it now and get it over with.",
+              "trust": 0,
+              "reply": "I'd rather choose the sequence, if you don't mind. I always have."
+            },
+            {
+              "text": "What do you think it says?",
+              "trust": 4,
+              "reply": "I've modelled every outcome. I'd still rather read it than guess."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's very calm, which is how you know it's bad.",
+          "line": "I'd like to go through the sequence. First the adds, then the healer went down, then everything else. We can fix the first one.",
+          "options": [
+            {
+              "text": "Talk us through it.",
+              "trust": 8,
+              "mood": 6,
+              "reply": "Copy that, step one is nobody pulls until I've called it."
+            },
+            {
+              "text": "Let's just try again.",
+              "trust": 0,
+              "mood": -6,
+              "reply": "Say again, please? Trying the same sequence will give the same result."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've repeated the same sequence many times without any change. I'd like to do something with a purpose, or I'd like to go back to my riverbed.",
+        "leaving_good": "That was a good trip, thank you. I'm going back to the ridge now, because the riverbed doesn't watch itself. You know where I'll be.",
+        "leaving_bored": "I'm going back to the Northern Barrens. Nothing here needs me, and something there does.",
+        "after_wipe": "Before anyone moves, I'd like to establish what happened, in order.",
+        "wipe_warning": "We've failed here several times in the same way. I'll complete this run with you, but afterwards I'll need a few days.",
+        "wipe_leave": "I've completed it with you, as I said. Now I'm going back to the ridge. Come and find me when you'd like to try a different sequence.",
+        "zone_warning": "I've looked at every future I can see from here, and very few of them have us walking out. I'd like to leave.",
+        "zone_leave": "I'm stopping here. I said very few futures had us walking out. I'll be on the ridge in the Northern Barrens.",
+        "gear_refuse": "I'd rather keep that. I don't know you well enough yet.",
+        "gear_taken": "Copy that, I'll work without it, but I'll be slower, and I'll tell you how much.",
+        "gear_short": "I'm still missing that piece. I'm only reporting it.",
+        "gear_upgrade": "That's very good, thank you. I'll look after it carefully.",
+        "back": "I'm back, and the riverbed's quiet for now. Where are we going, and in what order?",
+        "send_word": "Minh has sent word from the Northern Barrens. The riverbed's quiet and he's ready to come out.",
+        "walkout_talk": "I left angry, which isn't how I like to do anything. May I go through what happened, in order? Then you can do the same.",
+        "neglect": "It's been a long time, and I counted. I'm glad you came back.",
+        "asked_to_stay": "Copy that, one more. Then I really must check the riverbed.",
+        "on_break": "Minh is back on his ridge in the Northern Barrens, keeping watch. Come back after you've done a few more jobs.",
+        "quest_abandoned": "We accepted that and then left it. Somebody's still waiting for us, and that bothers me."
       }
     },
     "pavlo_knight": {

@@ -1,0 +1,72 @@
+{
+  "recruit_text": {
+    "adjustment": "She landed with her scissors in her apron pocket. The first thing she did on this world was cut a grunt's hair, and he tipped her a copper.\n\nShe started praying at the Crossroads because she didn't know what else to do, and the light came down on the second day.",
+    "forward": "A proper salon with a door that shuts and a mirror that isn't a bucket of water.\n\nAnd a church, any church, where someone will sing with her."
+  },
+  "bond": {
+    "home": "the Crossroads",
+    "dials": {"warmth": 1.5, "nerve": 0.9, "pride": 0.6, "restless": 1.0},
+    "likes": ["full_party", "quest"],
+    "dislikes": ["undead"],
+    "stages": {
+      "stranger": "I'm Lúcia, querido, and you've got half the Barrens in your hair. I'll heal you and I'll pray for you, and I'll fix that hair while we walk. Tell me everything about yourself.",
+      "acquaintance": "I'm from Goiânia, in the middle of Brazil. I had my own salon, pink tiles and two chairs, a radio that only got one station, and a cat called Dona Flor asleep in the window. Saturdays there was a queue down the street. I had a boyfriend, Marcelo, for four years, but he wanted São Paulo and I didn't. We split up kindly.",
+      "companion": "My mother phoned me every day at noon, and I'd put her on speaker so the whole salon could join in. That's why I stop for a moment at noon, every day. I haven't found her. I was cutting a customer's hair when it happened, and I landed in the Barrens with my scissors and my grandmother's candle list in my purse.",
+      "friend": "My grandmother, Dona Zuleide, raised me while my mother worked. Every Sunday she lit a candle for everybody on our street, by name, and I kept the list. She died when I was twenty-five and I took over the candles. What I miss most here, meu Deus, is singing in church with other people. A tauren guard says they sing to the sun at Camp Taurajo every dawn. I want to hear it. Will you take me?",
+      "sworn": "It wasn't my church and it wasn't my language, and it didn't matter at all. They sang to the sun and I sang with them in Portuguese, and the sun answered both of us. An old tauren woman told me to come back every dawn I can. I've got a little shelter at the Crossroads now with a real door and a real mirror, and a candle wall. Every Sunday I light one for everybody on my grandmother's list, and for the tauren they've told me about."
+    },
+    "moments": [
+      {"id": "noon", "stage": "companion", "when": "talk",
+       "prompt": "It's noon, and she's gone quiet for a moment.",
+       "options": [
+         {"text": "Take as long as you need.", "trust": 10,
+          "reply": "Thank you, querido. She'd have liked you, she likes everybody who waits."},
+         {"text": "Are you all right?", "trust": 4,
+          "reply": "Yes, I'm fine. It's just noon, that's all."}
+       ]},
+      {"id": "the_song", "stage": "friend", "when": "talk",
+       "prompt": "She's asked you to take her to Camp Taurajo.",
+       "options": [
+         {"text": "Let's go and hear them sing.", "trust": 12,
+          "reply": "Nossa, do you mean it? I'm going to cry the whole way there, I warn you."},
+         {"text": "They might not want an outsider.", "trust": 2,
+          "reply": "Then I'll earn it. I've won over worse customers than a tauren."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "Querido, we've been doing the same thing for days and I haven't met a single new person. Can we go somewhere with people in it?",
+      "leaving_good": "That was wonderful, and I've got so much gossip I'm not going to tell anybody. I'm going back to the Crossroads now. Come and get a haircut.",
+      "leaving_bored": "I'm going back to the Crossroads. Nothing's happening out here, and I've got a queue waiting.",
+      "after_wipe": "Meu Deus, everybody come here and let me look at you. I'm going to pray for all of you, and you're going to let me.",
+      "wipe_warning": "We keep dying in here and my heart can't take it. I'll stay to the end of this one, but then I need some days at home.",
+      "wipe_leave": "I stayed until it was done, like I said. Now I'm going back to the Crossroads to sit in the sun for a while.",
+      "zone_warning": "Querido, this place is too much for us. I can pray very hard, but I'm not sure the sun can keep up with this.",
+      "zone_leave": "I'm stopping here. It's too dangerous out there for me. I'll be at the Crossroads, by the inn.",
+      "gear_refuse": "Ah, no, I'd like to keep that, querido. Ask me again when we're friends.",
+      "gear_taken": "Take it, take it. I'll pray a bit harder to make up for it.",
+      "gear_short": "I'm still missing that piece, querido. I'm only mentioning it in my prayers, mostly.",
+      "gear_upgrade": "Oh, it's beautiful, thank you! Graças a Deus for you.",
+      "back": "I'm back, and I've brought my scissors! Who needs a trim? You do, look at you.",
+      "send_word": "Lúcia has sent word from the Crossroads. Her queue's done and she's ready to come out.",
+      "walkout_talk": "I walked out angry, and that's not me, querido. Sit down, let me fix your hair while I tell you why, and then you can tell me.",
+      "neglect": "There you are! I lit a candle for you every Sunday, you know. Look, it worked.",
+      "asked_to_stay": "All right, one more. But I'm fixing everybody's hair tonight.",
+      "on_break": "Lúcia is back at the Crossroads, cutting hair by the inn. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {"text": "Look at all these people. I want to know every one of their stories.", "kind": "open"},
+      {"text": "Goiânia's in the middle of Brazil, hot and flat and full of music, and every street knows your business.", "kind": "open", "topic": "cities"}
+    ],
+    "boss_down": [
+      {"text": "Graças a Deus. Now let me look at everybody, one at a time.", "kind": "open"}
+    ],
+    "close_call": [
+      {"text": "Meu Deus, I prayed so hard just then. Come here, let me see.", "kind": "open"}
+    ],
+    "dungeon_clear": [
+      {"text": "Out in the sun again, thank God. I don't like it where the light can't reach.", "kind": "reply"}
+    ]
+  }
+}
