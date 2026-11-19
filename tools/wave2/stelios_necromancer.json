@@ -1,0 +1,75 @@
+{
+  "recruit_text": {
+    "backstory": "Nineteen years a funeral director in Thessaloniki. The trade is composure, paperwork, and being the steadiest person in the worst room of somebody's life. He's unshockable in a way that has nothing to do with callousness, and his profession prepared him for this world considerably better than anybody's did who arrived with a weapon.",
+    "before": "Arrangements, families, and the particular courtesy of a man who's told four thousand people the worst thing they'll hear that year.\n\nThe business was his father's. He's said that inheriting it wasn't a choice, and that he'd have chosen it, and that both of those are true, and that people find the combination difficult.",
+    "adjustment": "He was calm throughout, and he's tired of being praised for it. Composure was his job for nineteen years. You might as well praise a baker for being awake.",
+    "now": "Glittervein, past the Abyssal Sands, where there are many dead and nobody else to keep records of them.\n\nHe does the paperwork. He's extremely good at it, and he's used it four times now to find out who a body was before it stopped being anyone.",
+    "forward": "Rites, proper ones, for the people from Earth who die here with nobody who knows their language.\n\nHe's conducted one hundred and forty. He keeps a register, and he's written to every hub he can reach asking that the names be posted, and three have replied."
+  },
+  "bond": {
+    "home": "Glittervein",
+    "dials": {"warmth": 0.9, "nerve": 1.5, "pride": 0.8, "restless": 0.7},
+    "likes": ["undead", "quest"],
+    "dislikes": ["quest_abandoned"],
+    "stages": {
+      "stranger": "My name's Stelios, and I'm a necromancer. I was a funeral director for nineteen years, so very little shocks me. The dead occasionally have something to add now, which I find rather interesting.",
+      "acquaintance": "I'm from Thessaloniki. I grew up above my father's funeral home, and I inherited it at thirty-four. It wasn't a choice, and I'd have chosen it anyway. Nineteen years of arrangements, families, and finding exactly the right thing to say to people on the worst day of their year. I'm good at it. I'd rather not be praised for it.",
+      "companion": "My wife is Despina, a librarian. She ran the old library in Thessaloniki, and she gave me this date stamp as a joke when I took over the business, so I could stamp the register. I've stamped every name since. We have a son, Nikos, an architect in Athens. I was at a graveside, in the middle of a funeral, when it happened. I haven't found either of them.",
+      "friend": "I'll tell you what frightens me, since you've asked. I'm afraid that one day I'll be stamping my register and the name will be hers. I've done a hundred and forty rites here. And there's a camp in the Sands where dozens died of a sickness, and now they're rising and wandering, and nobody knows who they were. I'd like to give them names. Will you help me, ela?",
+      "sworn": "They posted the register, finally. Families come to Glittervein now to find their dead, and I meet every one of them, gently, the way I always did. One woman thanked me for giving her brother a name, and I had to step outside for a while. But Despina hasn't come, and she's on no list I've seen. There's a blank page at the back of my register with her name at the top. I'll stamp it if I ever learn a date. I hope I never have to."
+    },
+    "moments": [
+      {"id": "the_register", "stage": "companion", "when": "talk",
+       "prompt": "He's reading the names in his register aloud, quietly.",
+       "options": [
+         {"text": "Listen to every name.", "trust": 10,
+          "reply": "Thank you. Most people don't. They each deserve to be heard once."},
+         {"text": "Ask why he bothers.", "trust": 0,
+          "reply": "Because nobody else will, and somebody should. That will have to do."}
+       ]},
+      {"id": "the_camp", "stage": "friend", "when": "talk",
+       "prompt": "He's asked you to help name the dead at the camp.",
+       "options": [
+         {"text": "Let's give them their names back.", "trust": 12,
+          "reply": "Ela, come, then. Bring patience, and a strong stomach. I'll bring the stamp."},
+         {"text": "Why does it matter, if they're gone?", "trust": 2,
+          "reply": "Because somebody, somewhere, is still waiting to find out."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've done the same thing for some time, and nobody's needed burying. A rare pleasure, but I'd like something useful to do.",
+      "leaving_good": "That was a good journey, and nobody needed my professional services. I'm going back to Glittervein for a while. You know where to find me.",
+      "leaving_bored": "I'm going back to Glittervein. There are names there that need writing down, and nothing here does.",
+      "after_wipe": "Well, everybody's dead, briefly. I've seen worse. Let's get up and do it properly.",
+      "wipe_warning": "We've died here rather a lot. I'll finish this run with you, but afterwards I'll need some days with my register.",
+      "wipe_leave": "I've finished it with you. Now I'm going back to Glittervein. Come when you've had time to reflect.",
+      "zone_warning": "I'll be plain. If we stay here, I'll be filling in paperwork for all of us, and I'd rather not.",
+      "zone_leave": "I'm stopping here. I'd rather not do all our paperwork. I'll be in Glittervein.",
+      "gear_refuse": "I'd prefer to keep that. We don't know each other well enough yet.",
+      "gear_taken": "Very well, take it. I'll manage with dignity.",
+      "gear_short": "I'm still missing that piece. I mention it for the record.",
+      "gear_upgrade": "That's very fine work. Thank you.",
+      "back": "I'm back, and the register's up to date. Where are we going?",
+      "send_word": "Stelios has sent word from Glittervein. His register's in order and he's ready to come out.",
+      "walkout_talk": "I left angry, which isn't like me at all. Sit, and I'll explain courteously. Then I'd like to hear you.",
+      "neglect": "Ah, there you are. I'm pleased I won't need to stamp a page for you.",
+      "asked_to_stay": "Very well, one more. Then my register.",
+      "on_break": "Stelios is back in Glittervein with his register. Come back after you've done a few more jobs.",
+      "quest_abandoned": "We promised them, and we've left it undone. That won't do at all."
+    }
+  },
+  "banter": {
+    "boss_down": [
+      {"text": "It's only angry about being forgotten. Most of them are.", "kind": "reply"}
+    ],
+    "dungeon_clear": [
+      {"text": "Nobody wrote down who any of those were. I'll make a note, for whoever comes looking.", "kind": "open"}
+    ],
+    "town_arrive": [
+      {"text": "Thessaloniki has a white tower on the sea front, and everyone walks past it in the evening. I miss the evenings.", "kind": "open", "topic": "cities"}
+    ],
+    "zone_arrive": [
+      {"text": "Many dead out here, and nobody keeping records. A scandal, and I'm the only one scandalised.", "kind": "open"}
+    ]
+  }
+}

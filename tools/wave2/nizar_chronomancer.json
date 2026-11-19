@@ -1,0 +1,76 @@
+{
+  "recruit_text": {
+    "greeting": "A moment, if you'd permit me. I should like to understand the sequence before we add ourselves to it.",
+    "backstory": "He taught secondary-school mathematics in Homs for eleven years, then in Beirut for six, then in Hamburg, in a language he was still learning, for four more. He's rebuilt his life three times, and this is simply the fourth, a fact he states without self-pity, and it makes most people from Earth go quiet. His English is careful and faintly old-fashioned, learned from books and the BBC, and he's more precise in it than almost anybody born to it.",
+    "before": "A blackboard, forty students, and the particular patience of a man explaining the same proof for the ninth time without letting it show.\n\nHis wife Lamia died in 2016, before any of the rest of it. His daughter Hala was twenty-two and studying in Amman, and they spoke every single day, and he can tell you the time of the last call.",
+    "adjustment": "Better than almost anyone, because he'd done it before and knew the shape of it.\n\nHe's said that the first time you lose everything it destroys you, the second time it's merely very hard, and the third time you find you have a method. He doesn't offer this as wisdom. He offers it as information, to people who look like they need it.",
+    "forward": "To find his daughter. He's systematic about it in a way that's painful to watch: hub by hub, list by list, in a notebook, with dates.\n\nHe's also started teaching again, four children in a trade post at Booty Bay, mathematics, in the evenings, for nothing. He says it's to keep his hand in.",
+    "now": "Aboard the Crossing, the ship between Booty Bay and the other continent, because from it he can reach the most hubs. In a party he's at the back, holding the order of things together while the front rank works.\n\nHis father's watch runs backwards on its chain. He's never had it mended. He winds it every morning regardless, and he hasn't explained that to anybody."
+  },
+  "bond": {
+    "home": "the Crossing",
+    "dials": {"warmth": 1.0, "nerve": 1.4, "pride": 0.7, "restless": 0.9},
+    "likes": ["quest", "new_ground"],
+    "dislikes": ["quest_abandoned"],
+    "stages": {
+      "stranger": "My name's Nizar, and I'm a chronomancer. If you'd permit me, I'll call out the order of things in a fight. It helps, I find, if somebody's keeping the sequence.",
+      "acquaintance": "I'm from Homs, in Syria. My father was a pharmacist. I taught mathematics in Homs for eleven years, until the war made it impossible, then in Beirut, then in Hamburg, where I learned German in fifty-hour weeks and taught in it. This is simply the fourth time I've started again.",
+      "companion": "My wife was Lamia. She taught English, and she died of cancer in Hamburg in 2016, before all this. I raised our daughter Hala the rest of the way myself. She went to Amman to study medicine. My father's watch came with me through every move, and the crystal cracked on the boat from Beirut. When I landed here it started running backwards. I wind it every morning.",
+      "friend": "Hala and I spoke every single day. The last call was at fourteen minutes past nine, the night before. I keep a notebook of every hub and every list, with dates, and she isn't in it yet. A Jordanian traveller says a young Syrian doctor worked the camps near where the Amman hub came down. I should like to go and see. Would you come with me?",
+      "sworn": "Hala survived the landing. She spent two years as that camp's doctor, and every spare day looking for me, hub by hub, list by list, with dates, the way I taught her. She died of a fever last winter, treating others. My name is on every page of her notebook. We used the same method and kept missing each other. I stopped winding the watch, and let it run down. Then I went back and taught my four children the next morning, because she would have."
+    },
+    "moments": [
+      {"id": "the_method", "stage": "companion", "when": "talk",
+       "prompt": "He notices you're struggling with something, and asks if he may tell you about his method for loss.",
+       "options": [
+         {"text": "Please do.", "trust": 10,
+          "reply": "The first time destroys you. The second is merely very hard. By the third, you have a method. It's information, not wisdom."},
+         {"text": "I'm fine, thank you.", "trust": 2,
+          "reply": "Of course you are. The offer stands, whenever you'd like it."}
+       ]},
+      {"id": "the_camp", "stage": "friend", "when": "talk",
+       "prompt": "He's asked you to come with him to the camp near the Amman hub.",
+       "options": [
+         {"text": "I'll come. Whatever we find.", "trust": 12,
+          "reply": "Thank you. I should like that very much. We'll go carefully, in order."},
+         {"text": "It might not be her.", "trust": 2,
+          "reply": "It might not. I've a column in my notebook for that. I've used it a great deal."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've repeated the same sequence many times without new information. I should like to go somewhere we might learn something.",
+      "leaving_good": "That was a good journey, thank you. I'll go back to the Crossing now, there's a hub I haven't checked. You'll find me aboard.",
+      "leaving_bored": "I'm going back to the Crossing. We're not learning anything, and my notebook needs me.",
+      "after_wipe": "If you'd permit me, let's establish what happened, in order, before we try again.",
+      "wipe_warning": "We've failed here repeatedly. I'll complete this run with you, but afterwards I'll need a few days.",
+      "wipe_leave": "I've completed it with you. Now I'll go back to the Crossing. Come when you've reconsidered the sequence.",
+      "zone_warning": "I should like to be clear. Everything here exceeds us, and staying isn't rigorous. Let's go back.",
+      "zone_leave": "I'm stopping here. It wasn't rigorous to stay. I'll be aboard the Crossing.",
+      "gear_refuse": "I should prefer to keep that, if you'd permit me. We don't know each other well enough yet.",
+      "gear_taken": "Very well, take it, and I'll adjust.",
+      "gear_short": "I'm still missing that piece. I note it for completeness.",
+      "gear_upgrade": "That's very fine. Thank you, sincerely.",
+      "back": "I'm back, and I've checked two more hubs. Where are we going?",
+      "send_word": "Nizar has sent word from the Crossing. He's checked his hubs and he's ready to come out.",
+      "walkout_talk": "I left angry, which wasn't rigorous of me. If you'd permit me, I'll explain in order, and then I'll listen.",
+      "neglect": "Ah, there you are. I'd noted your absence in my notebook, with a date.",
+      "asked_to_stay": "Very well, one more. Then the Crossing.",
+      "on_break": "Nizar is back aboard the Crossing, checking hubs. Come back after you've done a few more jobs.",
+      "quest_abandoned": "We undertook that and left it unfinished. That isn't rigorous, and somebody is still waiting."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {"text": "Homs had an old souk with a roof of stone, and my father's pharmacy was at the end of it. I think of it often.", "kind": "open", "topic": "cities"}
+    ],
+    "boss_down": [
+      {"text": "First its guard, then its strength, then it fell. A tidy proof.", "kind": "open", "topic": "measure"}
+    ],
+    "dungeon_clear": [
+      {"text": "Everybody accounted for. Thank you, all of you.", "kind": "reply"}
+    ],
+    "close_call": [
+      {"text": "That was out of sequence. If you'd permit me, I'll call it sooner next time.", "kind": "reply"}
+    ]
+  }
+}

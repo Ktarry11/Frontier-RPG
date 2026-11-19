@@ -1,0 +1,75 @@
+{
+  "recruit_text": {
+    "greeting": "Please don't ask me what it is. I'll tell you what it does, and that has to be enough, because the rest I can't say out loud.",
+    "backstory": "He crewed a sardine boat out of Peniche from the age of sixteen, in a family trade that was collapsing under him the whole time he was in it. He's soft-spoken, apologetic and almost unbearably gentle, and he carries something that frightens him badly. He took it in his first year when the alternative was dying, and he's been paying for it since, and he's never tried to make it sound like a good decision.",
+    "before": "Nights out and mornings in, a hold full of fish, and a co-operative that went from forty boats to nine in his working life.\n\nHis mother and his two sisters are in Peniche, and he was the one who sent money. He thinks about the money more than he thinks about them, and he knows that's a strange thing to be ashamed of, and he's ashamed of it anyway.",
+    "adjustment": "It was catastrophic. He landed alone on the Tanaris coast with a broken leg, and something offered.\n\nHe said yes. He hasn't defended that choice to anybody in three years. When people assume the worst about him he lets them, because arguing would mean explaining, and explaining is the part he can't do.",
+    "forward": "Out, quietly, without anybody making a fuss about it.\n\nHe's asked three priests and two shamans, carefully and in general terms, and nobody's given him an answer he believes. He keeps asking. It's the only thing he's stubborn about.",
+    "now": "The Lashings, on the coast of Northern Tanaris, as close to the sea as he can get. In a party he's behind everyone, extremely effective and visibly uncomfortable about it.\n\nHe sleeps nearest the fire. He's never said why, and nobody's worked out that it isn't the cold."
+  },
+  "bond": {
+    "home": "the Lashings",
+    "dials": {"warmth": 0.9, "nerve": 0.8, "pride": 0.3, "restless": 0.9},
+    "likes": ["quest", "full_party"],
+    "dislikes": ["demon"],
+    "stages": {
+      "stranger": "I'm Rui, and I'm sorry, I heal people, but please don't ask me how. I'll tell you what it does. The rest I can't say. Desculpa, I know that's strange.",
+      "acquaintance": "I'm from Peniche, a fishing town on the Portuguese coast. My father fished, and he drowned when I was fourteen. At sixteen I went to sea myself, to send money home. Twenty years on the sardine boats, nights out and mornings in, and the co-operative went from forty boats to nine. I mended nets in the evenings with this needle. He carved it.",
+      "companion": "I landed on the rocks on the Tanaris coast, alone, with my leg broken, in the dark. Something offered to help me, and I said yes, and it's been with me ever since. It mended my leg. It heals you now. It frightens me every day. I sleep by the fire because in the dark it's louder. I'm sorry, I shouldn't have said that much.",
+      "friend": "My mother and my sisters, Inês and Sofia, are in Peniche, or they were. I sent money every week for twenty years. I think about the money more than I think about them, and I'm ashamed of that. And I want out of this thing, more than anything. A Darkspear sea-witch says there's an old rite. You row out into a storm and give it to the sea. Will you help me build a boat?",
+      "sworn": "I gave it to the sea, and the sea took it, and then the sea gave me back. I can't heal the way I could, and I don't care, honestly. I slept away from the fire last night, in the dark, for the first time in three years. So I can tell you what it was now, because it's gone. It was hungry, and it was patient, and it was always very polite. Obrigado, thank you for standing on the shore."
+    },
+    "moments": [
+      {"id": "dont_ask", "stage": "stranger", "when": "talk",
+       "prompt": "He's just healed you, and he's waiting to see if you'll ask how.",
+       "options": [
+         {"text": "Thank him, and don't ask.", "trust": 10,
+          "reply": "Obrigado, thank you. You don't know how much that means."},
+         {"text": "Ask what it is.", "trust": 0,
+          "reply": "I'm sorry, I can't tell you. Please don't ask me again."}
+       ]},
+      {"id": "the_boat", "stage": "friend", "when": "talk",
+       "prompt": "He's asked you to help build the boat for the rite.",
+       "options": [
+         {"text": "We'll build it the Peniche way.", "trust": 12,
+          "reply": "Pois, yes, the old way. My father would have liked that."},
+         {"text": "What if the sea takes you too?", "trust": 4,
+          "reply": "Then it takes me. I'd still rather go out there than keep this."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "Sorry, but we've done the same thing for days and I don't think anyone needs me. Could we go somewhere useful? Only if you want.",
+      "leaving_good": "That was a good trip, thank you. I'm going back to the coast for a while, to be near the sea. You know where to find me.",
+      "leaving_bored": "I'm sorry, I'm going back to the Lashings. I don't think I'm helping out here.",
+      "after_wipe": "I'm sorry, I'm sorry. Let me heal everyone. Please hold still.",
+      "wipe_warning": "We keep dying in here, and it gets louder when we do. I'll finish this run, but then I need to be by the sea.",
+      "wipe_leave": "I finished it with you. Now I'm going back to the coast. I'm sorry, I need to.",
+      "zone_warning": "I'm sorry, but this place is too much for us. I'm frightened, and I think we should go back.",
+      "zone_leave": "I'm stopping here, I'm sorry. I'll be at the Lashings, on the coast.",
+      "gear_refuse": "I'm sorry, I'd like to keep that. I hope that's all right.",
+      "gear_taken": "Of course, take it. I'll manage, desculpa.",
+      "gear_short": "I'm sorry to mention it, but I'm still missing that piece.",
+      "gear_upgrade": "Oh, that's very kind. Obrigado, I mean it.",
+      "back": "I'm back, and I've been by the sea. Where are we going? Sorry, I'm ready.",
+      "send_word": "Rui has sent word from the Lashings. He's ready to come out again, if you'll have him.",
+      "walkout_talk": "I'm sorry I left like that. I'd like to explain, if you'll let me. Then you can tell me what I did wrong.",
+      "neglect": "Oh, you came back. I'm sorry, I thought perhaps you'd heard something about me.",
+      "asked_to_stay": "Of course, one more. Thank you for asking.",
+      "on_break": "Rui is back at the Lashings, as close to the sea as he can get. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {"text": "Peniche is all fishing boats and wind, and the smell of sardines on the grill in summer. Saudade, we call it.", "kind": "open", "topic": "water"}
+    ],
+    "close_call": [
+      {"text": "I'm sorry, hold still. I'll fix it. Please don't watch how.", "kind": "open"}
+    ],
+    "dungeon_clear": [
+      {"text": "Can we go outside now? I'd like to see the sky, sorry.", "kind": "reply"}
+    ],
+    "zone_arrive": [
+      {"text": "I can hear the sea from here, I think. It always makes me feel better.", "kind": "open", "topic": "water"}
+    ]
+  }
+}

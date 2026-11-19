@@ -4374,6 +4374,88 @@
         "quest_abandoned": "We left somebody waiting, pata. I don't leave people behind, ever."
       }
     },
+    "nizar_chronomancer": {
+      "home": "the Crossing",
+      "dials": {
+        "warmth": 1.0,
+        "nerve": 1.4,
+        "pride": 0.7,
+        "restless": 0.9
+      },
+      "likes": [
+        "quest",
+        "new_ground"
+      ],
+      "dislikes": [
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "My name's Nizar, and I'm a chronomancer. If you'd permit me, I'll call out the order of things in a fight. It helps, I find, if somebody's keeping the sequence.",
+        "acquaintance": "I'm from Homs, in Syria. My father was a pharmacist. I taught mathematics in Homs for eleven years, until the war made it impossible, then in Beirut, then in Hamburg, where I learned German in fifty-hour weeks and taught in it. This is simply the fourth time I've started again.",
+        "companion": "My wife was Lamia. She taught English, and she died of cancer in Hamburg in 2016, before all this. I raised our daughter Hala the rest of the way myself. She went to Amman to study medicine. My father's watch came with me through every move, and the crystal cracked on the boat from Beirut. When I landed here it started running backwards. I wind it every morning.",
+        "friend": "Hala and I spoke every single day. The last call was at fourteen minutes past nine, the night before. I keep a notebook of every hub and every list, with dates, and she isn't in it yet. A Jordanian traveller says a young Syrian doctor worked the camps near where the Amman hub came down. I should like to go and see. Would you come with me?",
+        "sworn": "Hala survived the landing. She spent two years as that camp's doctor, and every spare day looking for me, hub by hub, list by list, with dates, the way I taught her. She died of a fever last winter, treating others. My name is on every page of her notebook. We used the same method and kept missing each other. I stopped winding the watch, and let it run down. Then I went back and taught my four children the next morning, because she would have."
+      },
+      "moments": [
+        {
+          "id": "the_method",
+          "stage": "companion",
+          "when": "talk",
+          "prompt": "He notices you're struggling with something, and asks if he may tell you about his method for loss.",
+          "options": [
+            {
+              "text": "Please do.",
+              "trust": 10,
+              "reply": "The first time destroys you. The second is merely very hard. By the third, you have a method. It's information, not wisdom."
+            },
+            {
+              "text": "I'm fine, thank you.",
+              "trust": 2,
+              "reply": "Of course you are. The offer stands, whenever you'd like it."
+            }
+          ]
+        },
+        {
+          "id": "the_camp",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to come with him to the camp near the Amman hub.",
+          "options": [
+            {
+              "text": "I'll come. Whatever we find.",
+              "trust": 12,
+              "reply": "Thank you. I should like that very much. We'll go carefully, in order."
+            },
+            {
+              "text": "It might not be her.",
+              "trust": 2,
+              "reply": "It might not. I've a column in my notebook for that. I've used it a great deal."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've repeated the same sequence many times without new information. I should like to go somewhere we might learn something.",
+        "leaving_good": "That was a good journey, thank you. I'll go back to the Crossing now, there's a hub I haven't checked. You'll find me aboard.",
+        "leaving_bored": "I'm going back to the Crossing. We're not learning anything, and my notebook needs me.",
+        "after_wipe": "If you'd permit me, let's establish what happened, in order, before we try again.",
+        "wipe_warning": "We've failed here repeatedly. I'll complete this run with you, but afterwards I'll need a few days.",
+        "wipe_leave": "I've completed it with you. Now I'll go back to the Crossing. Come when you've reconsidered the sequence.",
+        "zone_warning": "I should like to be clear. Everything here exceeds us, and staying isn't rigorous. Let's go back.",
+        "zone_leave": "I'm stopping here. It wasn't rigorous to stay. I'll be aboard the Crossing.",
+        "gear_refuse": "I should prefer to keep that, if you'd permit me. We don't know each other well enough yet.",
+        "gear_taken": "Very well, take it, and I'll adjust.",
+        "gear_short": "I'm still missing that piece. I note it for completeness.",
+        "gear_upgrade": "That's very fine. Thank you, sincerely.",
+        "back": "I'm back, and I've checked two more hubs. Where are we going?",
+        "send_word": "Nizar has sent word from the Crossing. He's checked his hubs and he's ready to come out.",
+        "walkout_talk": "I left angry, which wasn't rigorous of me. If you'd permit me, I'll explain in order, and then I'll listen.",
+        "neglect": "Ah, there you are. I'd noted your absence in my notebook, with a date.",
+        "asked_to_stay": "Very well, one more. Then the Crossing.",
+        "on_break": "Nizar is back aboard the Crossing, checking hubs. Come back after you've done a few more jobs.",
+        "quest_abandoned": "We undertook that and left it unfinished. That isn't rigorous, and somebody is still waiting."
+      }
+    },
     "orlando_witchdoctor": {
       "home": "the Shadowpine Altar",
       "dials": {
@@ -5091,6 +5173,87 @@
         "on_break": "Rosa is back on the Crossroads road in the Central Barrens. Come back after you've done a few more jobs."
       }
     },
+    "rui_cultist": {
+      "home": "the Lashings",
+      "dials": {
+        "warmth": 0.9,
+        "nerve": 0.8,
+        "pride": 0.3,
+        "restless": 0.9
+      },
+      "likes": [
+        "quest",
+        "full_party"
+      ],
+      "dislikes": [
+        "demon"
+      ],
+      "stages": {
+        "stranger": "I'm Rui, and I'm sorry, I heal people, but please don't ask me how. I'll tell you what it does. The rest I can't say. Desculpa, I know that's strange.",
+        "acquaintance": "I'm from Peniche, a fishing town on the Portuguese coast. My father fished, and he drowned when I was fourteen. At sixteen I went to sea myself, to send money home. Twenty years on the sardine boats, nights out and mornings in, and the co-operative went from forty boats to nine. I mended nets in the evenings with this needle. He carved it.",
+        "companion": "I landed on the rocks on the Tanaris coast, alone, with my leg broken, in the dark. Something offered to help me, and I said yes, and it's been with me ever since. It mended my leg. It heals you now. It frightens me every day. I sleep by the fire because in the dark it's louder. I'm sorry, I shouldn't have said that much.",
+        "friend": "My mother and my sisters, Inês and Sofia, are in Peniche, or they were. I sent money every week for twenty years. I think about the money more than I think about them, and I'm ashamed of that. And I want out of this thing, more than anything. A Darkspear sea-witch says there's an old rite. You row out into a storm and give it to the sea. Will you help me build a boat?",
+        "sworn": "I gave it to the sea, and the sea took it, and then the sea gave me back. I can't heal the way I could, and I don't care, honestly. I slept away from the fire last night, in the dark, for the first time in three years. So I can tell you what it was now, because it's gone. It was hungry, and it was patient, and it was always very polite. Obrigado, thank you for standing on the shore."
+      },
+      "moments": [
+        {
+          "id": "dont_ask",
+          "stage": "stranger",
+          "when": "talk",
+          "prompt": "He's just healed you, and he's waiting to see if you'll ask how.",
+          "options": [
+            {
+              "text": "Thank him, and don't ask.",
+              "trust": 10,
+              "reply": "Obrigado, thank you. You don't know how much that means."
+            },
+            {
+              "text": "Ask what it is.",
+              "trust": 0,
+              "reply": "I'm sorry, I can't tell you. Please don't ask me again."
+            }
+          ]
+        },
+        {
+          "id": "the_boat",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to help build the boat for the rite.",
+          "options": [
+            {
+              "text": "We'll build it the Peniche way.",
+              "trust": 12,
+              "reply": "Pois, yes, the old way. My father would have liked that."
+            },
+            {
+              "text": "What if the sea takes you too?",
+              "trust": 4,
+              "reply": "Then it takes me. I'd still rather go out there than keep this."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Sorry, but we've done the same thing for days and I don't think anyone needs me. Could we go somewhere useful? Only if you want.",
+        "leaving_good": "That was a good trip, thank you. I'm going back to the coast for a while, to be near the sea. You know where to find me.",
+        "leaving_bored": "I'm sorry, I'm going back to the Lashings. I don't think I'm helping out here.",
+        "after_wipe": "I'm sorry, I'm sorry. Let me heal everyone. Please hold still.",
+        "wipe_warning": "We keep dying in here, and it gets louder when we do. I'll finish this run, but then I need to be by the sea.",
+        "wipe_leave": "I finished it with you. Now I'm going back to the coast. I'm sorry, I need to.",
+        "zone_warning": "I'm sorry, but this place is too much for us. I'm frightened, and I think we should go back.",
+        "zone_leave": "I'm stopping here, I'm sorry. I'll be at the Lashings, on the coast.",
+        "gear_refuse": "I'm sorry, I'd like to keep that. I hope that's all right.",
+        "gear_taken": "Of course, take it. I'll manage, desculpa.",
+        "gear_short": "I'm sorry to mention it, but I'm still missing that piece.",
+        "gear_upgrade": "Oh, that's very kind. Obrigado, I mean it.",
+        "back": "I'm back, and I've been by the sea. Where are we going? Sorry, I'm ready.",
+        "send_word": "Rui has sent word from the Lashings. He's ready to come out again, if you'll have him.",
+        "walkout_talk": "I'm sorry I left like that. I'd like to explain, if you'll let me. Then you can tell me what I did wrong.",
+        "neglect": "Oh, you came back. I'm sorry, I thought perhaps you'd heard something about me.",
+        "asked_to_stay": "Of course, one more. Thank you for asking.",
+        "on_break": "Rui is back at the Lashings, as close to the sea as he can get. Come back after you've done a few more jobs."
+      }
+    },
     "ryan_warlock": {
       "home": "the Echo Isles",
       "dials": {
@@ -5696,6 +5859,88 @@
         "neglect": "Hello again, it's been a while. I'd started to think you'd found somebody who talks less. I'm not sure that's possible.",
         "asked_to_stay": "All right, one more trip, and then I really must get back to my grammar.",
         "on_break": "Sophia is back in the Undercity, writing. Come back after you've done a few more jobs."
+      }
+    },
+    "stelios_necromancer": {
+      "home": "Glittervein",
+      "dials": {
+        "warmth": 0.9,
+        "nerve": 1.5,
+        "pride": 0.8,
+        "restless": 0.7
+      },
+      "likes": [
+        "undead",
+        "quest"
+      ],
+      "dislikes": [
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "My name's Stelios, and I'm a necromancer. I was a funeral director for nineteen years, so very little shocks me. The dead occasionally have something to add now, which I find rather interesting.",
+        "acquaintance": "I'm from Thessaloniki. I grew up above my father's funeral home, and I inherited it at thirty-four. It wasn't a choice, and I'd have chosen it anyway. Nineteen years of arrangements, families, and finding exactly the right thing to say to people on the worst day of their year. I'm good at it. I'd rather not be praised for it.",
+        "companion": "My wife is Despina, a librarian. She ran the old library in Thessaloniki, and she gave me this date stamp as a joke when I took over the business, so I could stamp the register. I've stamped every name since. We have a son, Nikos, an architect in Athens. I was at a graveside, in the middle of a funeral, when it happened. I haven't found either of them.",
+        "friend": "I'll tell you what frightens me, since you've asked. I'm afraid that one day I'll be stamping my register and the name will be hers. I've done a hundred and forty rites here. And there's a camp in the Sands where dozens died of a sickness, and now they're rising and wandering, and nobody knows who they were. I'd like to give them names. Will you help me, ela?",
+        "sworn": "They posted the register, finally. Families come to Glittervein now to find their dead, and I meet every one of them, gently, the way I always did. One woman thanked me for giving her brother a name, and I had to step outside for a while. But Despina hasn't come, and she's on no list I've seen. There's a blank page at the back of my register with her name at the top. I'll stamp it if I ever learn a date. I hope I never have to."
+      },
+      "moments": [
+        {
+          "id": "the_register",
+          "stage": "companion",
+          "when": "talk",
+          "prompt": "He's reading the names in his register aloud, quietly.",
+          "options": [
+            {
+              "text": "Listen to every name.",
+              "trust": 10,
+              "reply": "Thank you. Most people don't. They each deserve to be heard once."
+            },
+            {
+              "text": "Ask why he bothers.",
+              "trust": 0,
+              "reply": "Because nobody else will, and somebody should. That will have to do."
+            }
+          ]
+        },
+        {
+          "id": "the_camp",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to help name the dead at the camp.",
+          "options": [
+            {
+              "text": "Let's give them their names back.",
+              "trust": 12,
+              "reply": "Ela, come, then. Bring patience, and a strong stomach. I'll bring the stamp."
+            },
+            {
+              "text": "Why does it matter, if they're gone?",
+              "trust": 2,
+              "reply": "Because somebody, somewhere, is still waiting to find out."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've done the same thing for some time, and nobody's needed burying. A rare pleasure, but I'd like something useful to do.",
+        "leaving_good": "That was a good journey, and nobody needed my professional services. I'm going back to Glittervein for a while. You know where to find me.",
+        "leaving_bored": "I'm going back to Glittervein. There are names there that need writing down, and nothing here does.",
+        "after_wipe": "Well, everybody's dead, briefly. I've seen worse. Let's get up and do it properly.",
+        "wipe_warning": "We've died here rather a lot. I'll finish this run with you, but afterwards I'll need some days with my register.",
+        "wipe_leave": "I've finished it with you. Now I'm going back to Glittervein. Come when you've had time to reflect.",
+        "zone_warning": "I'll be plain. If we stay here, I'll be filling in paperwork for all of us, and I'd rather not.",
+        "zone_leave": "I'm stopping here. I'd rather not do all our paperwork. I'll be in Glittervein.",
+        "gear_refuse": "I'd prefer to keep that. We don't know each other well enough yet.",
+        "gear_taken": "Very well, take it. I'll manage with dignity.",
+        "gear_short": "I'm still missing that piece. I mention it for the record.",
+        "gear_upgrade": "That's very fine work. Thank you.",
+        "back": "I'm back, and the register's up to date. Where are we going?",
+        "send_word": "Stelios has sent word from Glittervein. His register's in order and he's ready to come out.",
+        "walkout_talk": "I left angry, which isn't like me at all. Sit, and I'll explain courteously. Then I'd like to hear you.",
+        "neglect": "Ah, there you are. I'm pleased I won't need to stamp a page for you.",
+        "asked_to_stay": "Very well, one more. Then my register.",
+        "on_break": "Stelios is back in Glittervein with his register. Come back after you've done a few more jobs.",
+        "quest_abandoned": "We promised them, and we've left it undone. That won't do at all."
       }
     },
     "thiago_paladin": {

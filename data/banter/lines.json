@@ -1330,29 +1330,28 @@
       ]
     },
     "stelios_necromancer": {
-      "dungeon_clear": [
-        {
-          "text": "Nobody wrote any of that down. Four hundred men in my library and every one of them had a record.",
-          "kind": "open",
-          "topic": "night_work"
-        }
-      ],
-      "town_arrive": [
-        {
-          "text": "Corinth. A prison, a card catalogue, and four hundred readers who weren't supposed to matter.",
-          "kind": "open",
-          "topic": "cities"
-        }
-      ],
       "boss_down": [
         {
           "text": "It's only angry about being forgotten. Most of them are.",
           "kind": "reply"
         }
       ],
+      "dungeon_clear": [
+        {
+          "text": "Nobody wrote down who any of those were. I'll make a note, for whoever comes looking.",
+          "kind": "open"
+        }
+      ],
+      "town_arrive": [
+        {
+          "text": "Thessaloniki has a white tower on the sea front, and everyone walks past it in the evening. I miss the evenings.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ],
       "zone_arrive": [
         {
-          "text": "Nobody has catalogued any of this. It's a scandal and I'm the only one scandalised.",
+          "text": "Many dead out here, and nobody keeping records. A scandal, and I'm the only one scandalised.",
           "kind": "open"
         }
       ]
@@ -2060,6 +2059,34 @@
         }
       ]
     },
+    "nizar_chronomancer": {
+      "town_arrive": [
+        {
+          "text": "Homs had an old souk with a roof of stone, and my father's pharmacy was at the end of it. I think of it often.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ],
+      "boss_down": [
+        {
+          "text": "First its guard, then its strength, then it fell. A tidy proof.",
+          "kind": "open",
+          "topic": "measure"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Everybody accounted for. Thank you, all of you.",
+          "kind": "reply"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "That was out of sequence. If you'd permit me, I'll call it sooner next time.",
+          "kind": "reply"
+        }
+      ]
+    },
     "orlando_witchdoctor": {
       "town_arrive": [
         {
@@ -2142,6 +2169,34 @@
         {
           "text": "Out in the air again, thank goodness. She hates a roof over her head.",
           "kind": "reply"
+        }
+      ]
+    },
+    "rui_cultist": {
+      "town_arrive": [
+        {
+          "text": "Peniche is all fishing boats and wind, and the smell of sardines on the grill in summer. Saudade, we call it.",
+          "kind": "open",
+          "topic": "water"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "I'm sorry, hold still. I'll fix it. Please don't watch how.",
+          "kind": "open"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Can we go outside now? I'd like to see the sky, sorry.",
+          "kind": "reply"
+        }
+      ],
+      "zone_arrive": [
+        {
+          "text": "I can hear the sea from here, I think. It always makes me feel better.",
+          "kind": "open",
+          "topic": "water"
         }
       ]
     },
