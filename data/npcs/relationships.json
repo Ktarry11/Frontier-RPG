@@ -11711,6 +11711,484 @@
      ]
     }
    ]
+  },
+  {
+   "a": "haruto_runemaster",
+   "b": "sophia_mage",
+   "steps": [
+    {
+     "when": "met",
+     "affinity": 4,
+     "lines": [
+      [
+       "sophia_mage",
+       "You copy the old stones. I watched you yesterday, and you didn't speak for four hours."
+      ],
+      [
+       "haruto_runemaster",
+       "Neither did you. You were reading over my shoulder."
+      ],
+      [
+       "sophia_mage",
+       "I was trying to work out their grammar. I think they have one."
+      ],
+      [
+       "haruto_runemaster",
+       "They do have one. Hrunn taught me most of it, and I've had to guess the rest."
+      ]
+     ]
+    },
+    {
+     "when": "gap:6",
+     "affinity": 3,
+     "lines": [
+      [
+       "haruto_runemaster",
+       "You pause before you answer anything. Why is that?"
+      ],
+      [
+       "sophia_mage",
+       "Fourteen years of interpreting. If I start a sentence before I know the end, it goes wrong in two languages at once."
+      ],
+      [
+       "haruto_runemaster",
+       "A brush is the same. The stroke is finished in the mind before it touches the paper."
+      ],
+      [
+       "sophia_mage",
+       "Then we're both slow for the same reason, and quick when it counts."
+      ]
+     ]
+    },
+    {
+     "when": "friendly",
+     "affinity": 3,
+     "lines": [
+      [
+       "sophia_mage",
+       "Would you teach me one stroke? Just one, properly."
+      ],
+      [
+       "haruto_runemaster",
+       "One stroke takes about eleven years, properly."
+      ],
+      [
+       "sophia_mage",
+       "Then I'd better start this evening."
+      ],
+      [
+       "haruto_runemaster",
+       "Bring your own ink. I'll correct you, and I won't praise you, and you'll be grateful later."
+      ]
+     ]
+    },
+    {
+     "when": "close",
+     "affinity": 5,
+     "lines": [
+      [
+       "haruto_runemaster",
+       "I know exactly where my notes on these stones are incomplete. It troubles me more than I say."
+      ],
+      [
+       "sophia_mage",
+       "For fourteen years I knew exactly where my translations fell short. Nobody else ever noticed."
+      ],
+      [
+       "haruto_runemaster",
+       "That doesn't help."
+      ],
+      [
+       "sophia_mage",
+       "No, it doesn't. But it's good to say it to someone who also knows the gap is there."
+      ],
+      [
+       "haruto_runemaster",
+       "Yes, it's good. Thank you, Sophia."
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "a": "reka_necromancer",
+   "b": "santiago_runemaster",
+   "steps": [
+    {
+     "when": "met",
+     "affinity": 4,
+     "lines": [
+      [
+       "reka_necromancer",
+       "You're the tattooist. Na, show me your hands, I want to see how you hold a needle."
+      ],
+      [
+       "santiago_runemaster",
+       "Like a pencil, parce, but heavier. And you're the one who makes dead things walk nicely."
+      ],
+      [
+       "reka_necromancer",
+       "Nicely is the whole trick. Most necromancers forget the follow-through, so everything lurches."
+      ],
+      [
+       "santiago_runemaster",
+       "Bacano, you talk about it like animation."
+      ],
+      [
+       "reka_necromancer",
+       "Because that's exactly what it is. Twelve years of stop-motion, a millimetre at a time."
+      ]
+     ]
+    },
+    {
+     "when": "gap:6",
+     "affinity": 3,
+     "lines": [
+      [
+       "santiago_runemaster",
+       "I drew your crow yesterday, Réka, the dead one. I hope you don't mind."
+      ],
+      [
+       "reka_necromancer",
+       "Why would I mind? Na, I'm flattered. Did you get the left wing? It never sits right."
+      ],
+      [
+       "santiago_runemaster",
+       "I got it, and I made it sit right, in the drawing. Don't tell the crow."
+      ],
+      [
+       "reka_necromancer",
+       "He'll know, though. He's very vain for something without a pulse."
+      ]
+     ]
+    },
+    {
+     "when": "friendly",
+     "affinity": 3,
+     "lines": [
+      [
+       "reka_necromancer",
+       "My father ran a puppet theatre. I grew up backstage watching him bring wooden things to life."
+      ],
+      [
+       "santiago_runemaster",
+       "And now you do it for real, parce. He'd be proud, or terrified, or both."
+      ],
+      [
+       "reka_necromancer",
+       "Both, I think. Mostly proud, he was a show-off."
+      ],
+      [
+       "santiago_runemaster",
+       "Then I'd have liked him. Show-offs make the best art."
+      ]
+     ]
+    },
+    {
+     "when": "close",
+     "affinity": 5,
+     "lines": [
+      [
+       "santiago_runemaster",
+       "You make dead things move, Réka, and I make lines nobody can take back. We're both in the forever business, parce."
+      ],
+      [
+       "reka_necromancer",
+       "That's the most cheerful way anyone's ever put it."
+      ],
+      [
+       "santiago_runemaster",
+       "I'm a cheerful person. Somebody has to be, around you lot."
+      ],
+      [
+       "reka_necromancer",
+       "Then stay cheerful, and stay near me. I like having something alive to talk to."
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "a": "reka_necromancer",
+   "b": "stelios_necromancer",
+   "steps": [
+    {
+     "when": "met",
+     "affinity": 4,
+     "lines": [
+      [
+       "stelios_necromancer",
+       "I've watched you raise the dead, Réka. You tidy up after them, which I respect enormously."
+      ],
+      [
+       "reka_necromancer",
+       "Somebody has to. You can't leave a corpse lying about like a dropped puppet."
+      ],
+      [
+       "stelios_necromancer",
+       "Nineteen years as a funeral director, and I've never heard it put more practically."
+      ],
+      [
+       "reka_necromancer",
+       "Na, I'll take that as a compliment from a professional."
+      ]
+     ]
+    },
+    {
+     "when": "gap:6",
+     "affinity": 3,
+     "lines": [
+      [
+       "reka_necromancer",
+       "Do you ever feel strange, Stelios? You bury them, and then I get them up again."
+      ],
+      [
+       "stelios_necromancer",
+       "I'd feel strange if you were careless with them. You're not, so I don't."
+      ],
+      [
+       "reka_necromancer",
+       "I treat every one like a puppet I've spent a month on. Small adjustments, and I never let them fall over in public."
+      ],
+      [
+       "stelios_necromancer",
+       "Then they're in good hands, and that's all any family ever asked of me."
+      ]
+     ]
+    },
+    {
+     "when": "friendly",
+     "affinity": 3,
+     "lines": [
+      [
+       "stelios_necromancer",
+       "Your crow is the best-kept dead thing I've ever seen, and I've seen a great many."
+      ],
+      [
+       "reka_necromancer",
+       "He's had a lot of small adjustments. The elbow took me a week."
+      ],
+      [
+       "stelios_necromancer",
+       "Birds don't have elbows, technically."
+      ],
+      [
+       "reka_necromancer",
+       "Which is exactly why it took a week."
+      ]
+     ]
+    },
+    {
+     "when": "close",
+     "affinity": 5,
+     "lines": [
+      [
+       "reka_necromancer",
+       "My father died when I was nineteen. Somebody like you did his funeral, and I never thanked them."
+      ],
+      [
+       "stelios_necromancer",
+       "You don't need to. We know, and the ones who can't say it are the ones we remember most."
+      ],
+      [
+       "reka_necromancer",
+       "Then I'll say it to you instead, for him. Thank you, Stelios."
+      ],
+      [
+       "stelios_necromancer",
+       "You're welcome, Réka, on behalf of all of us."
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "a": "ileana_necromancer",
+   "b": "reka_necromancer",
+   "steps": [
+    {
+     "when": "met",
+     "affinity": 4,
+     "lines": [
+      [
+       "ileana_necromancer",
+       "You raise them with timing. I watched, and you count beats like a musician."
+      ],
+      [
+       "reka_necromancer",
+       "Like an animator, but close enough. Twelve frames a second, and every one matters."
+      ],
+      [
+       "ileana_necromancer",
+       "Second violin, eleven years. Every beat mattered, and nobody noticed when I got them right."
+      ],
+      [
+       "reka_necromancer",
+       "Same with frames. The only time anyone notices is when you get one wrong."
+      ]
+     ]
+    },
+    {
+     "when": "gap:6",
+     "affinity": 1,
+     "lines": [
+      [
+       "reka_necromancer",
+       "You've been scathing about my left hand all week, Ileana. Go on, say it."
+      ],
+      [
+       "ileana_necromancer",
+       "Your left hand lags a quarter of a beat behind your right, every time, and it's maddening."
+      ],
+      [
+       "reka_necromancer",
+       "It drove my teachers mad too. You're the first one to put a number on it, though."
+      ],
+      [
+       "ileana_necromancer",
+       "Then you'll fix it, because now you know, and you're not careless."
+      ]
+     ]
+    },
+    {
+     "when": "friendly",
+     "affinity": 3,
+     "lines": [
+      [
+       "ileana_necromancer",
+       "I want an ensemble, Réka. Three or four people who can hold a line."
+      ],
+      [
+       "reka_necromancer",
+       "I can't play anything, na. I can make a skeleton keep time, though."
+      ],
+      [
+       "ileana_necromancer",
+       "That's more than most of the musicians I've worked with."
+      ],
+      [
+       "reka_necromancer",
+       "I'll take that, and I won't tell the skeleton."
+      ]
+     ]
+    },
+    {
+     "when": "close",
+     "affinity": 5,
+     "lines": [
+      [
+       "reka_necromancer",
+       "You said you were unbearable for two years here. I made a dead crow and talked to it for a year. We all had our ways."
+      ],
+      [
+       "ileana_necromancer",
+       "Yours was kinder than mine."
+      ],
+      [
+       "reka_necromancer",
+       "Only to the crow. Everyone else got the jokes."
+      ],
+      [
+       "ileana_necromancer",
+       "The jokes were kind too. I see that now, and I'm sorry it took me so long."
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "a": "emiliano_pyromancer",
+   "b": "hector_witchdoctor",
+   "steps": [
+    {
+     "when": "met",
+     "affinity": 5,
+     "lines": [
+      [
+       "emiliano_pyromancer",
+       "¡Qué onda, carnal! El Relámpago de Plata, the Silver Lightning himself! I watched you on Friday nights!"
+      ],
+      [
+       "hector_witchdoctor",
+       "¡Órale, a fan! And you're the fire-breather from the zócalo, I can smell the lamp oil from here!"
+      ],
+      [
+       "emiliano_pyromancer",
+       "Eleven years, two minutes a red light, and not one burn. Look at my hands."
+      ],
+      [
+       "hector_witchdoctor",
+       "Fifteen years in the ring, carnal, and I never once lost a crowd."
+      ]
+     ]
+    },
+    {
+     "when": "gap:5",
+     "affinity": 3,
+     "lines": [
+      [
+       "hector_witchdoctor",
+       "Last night you breathed fire for those goblins, and they cheered. Then I lifted the ogre, and they cheered louder."
+      ],
+      [
+       "emiliano_pyromancer",
+       "They cheered louder because the ogre screamed, carnal, and that's cheating."
+      ],
+      [
+       "hector_witchdoctor",
+       "In lucha, that's called selling it. You should learn."
+      ],
+      [
+       "emiliano_pyromancer",
+       "Teach me, then, and I'll teach you how to win a crowd in two minutes, before the light changes."
+      ]
+     ]
+    },
+    {
+     "when": "friendly",
+     "affinity": 3,
+     "lines": [
+      [
+       "emiliano_pyromancer",
+       "I paid for two of my sisters to finish school. I'm prouder of that than of any trick."
+      ],
+      [
+       "hector_witchdoctor",
+       "My boys wore homemade masks to school every day, and got sent home for it twice."
+      ],
+      [
+       "emiliano_pyromancer",
+       "Only twice, carnal? They need to try harder."
+      ],
+      [
+       "hector_witchdoctor",
+       "That's what I said! Their mother didn't agree."
+      ]
+     ]
+    },
+    {
+     "when": "close",
+     "affinity": 5,
+     "lines": [
+      [
+       "hector_witchdoctor",
+       "The crowd's the best thing in the world, carnal, but the best moment is after, when a kid asks you to sign something."
+      ],
+      [
+       "emiliano_pyromancer",
+       "For me it was a kid at the window of a car, with his mouth open, forgetting to hand me the coin."
+      ],
+      [
+       "hector_witchdoctor",
+       "That's the one. That's why we do it."
+      ],
+      [
+       "emiliano_pyromancer",
+       "Órale, Héctor, here's to the kids with their mouths open."
+      ]
+     ]
+    }
+   ]
   }
  ]
 }
