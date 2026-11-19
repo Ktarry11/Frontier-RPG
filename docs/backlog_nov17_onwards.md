@@ -59,6 +59,19 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - The Writhing Deep (Feralas's silithid hive) tunnels through to the Dry Deep under the Abyssal Sands (Kyle: "the
   silithids are digging").
 
+## 1f. The forward base: an endless descent into the uncharted (idea, Kyle, 19 Nov 2026; after Feralas)
+- Kyle: "give players the option to actually embody the 'Frontier' aspect and build a forward base into the uncharted?
+  Like an unlimited procedure generated dungeon that keeps going until you die?" Saved as an idea; Feralas comes first.
+- What exists to build on: `world/zone_generator.py` already makes terrain procedurally, dungeons run on packs of 3-4
+  with a boss (`world/dungeon_packs.py`), `world/difficulty.py` and the sim tools (`tools/sim_viability.py`,
+  `tools/sim_campaign.py`) can tune depth before anyone plays it.
+- The base is a small built-up camp: crafting stations, a mailbox, the bench, a hearth point, upgraded over time.
+- Calls to make first (Rafa's pushback): scaling past 60 so depth means something (Mythic+/rift style); loot that
+  doesn't outrun raid and hidden-boss gear (depth pays materials and base upgrades, gear capped under raid tier); what
+  death costs (the run's loot at risk, recruits kept safe given the bond system); the lore hook (the Integration keeps
+  pushing out new ground). It's a home-brew exception to "every dungeon is hand-crafted", so that's Kyle's call too.
+- First cut if wanted: a level 60 only descent from one base camp, one tileset, sim-tuned, then expand.
+
 ## 2. Banks, auction houses and mail (Kyle, 17 Nov 2026)
 - **Every bank, auction house and mailbox stands together** (Kyle: "generally we will want an auction house, a bank,
   and a mailbox close together"), using the new grand buildings (`docs/bank_auction_art_prompts.md`, sliced to
