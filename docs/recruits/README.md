@@ -59,7 +59,7 @@ big difference."
 So about 7 or 8 of the 74 men, and 3 of the 25 women. It comes up the way anyone's partner comes up: a name, a past,
 somebody they miss. It's never their story or their personality.
 
-Kept count here as we go: men gay or bisexual: Tarek (gay), Sondre (gay), Sebastián (bisexual), Haruto (gay). Women: Carolina (lesbian), Rosa (bisexual).
+Kept count here as we go: men gay or bisexual: Tarek (gay), Sondre (gay), Sebastián (bisexual), Haruto (gay), Tomas (bisexual, already in his recruit text). Women: Carolina (lesbian), Rosa (bisexual).
 
 ## Order and progress
 
@@ -96,9 +96,9 @@ fourth).
 | 26 | Marta Kowalski | Tinker 15 | Boulder Lode Mine | `marta_kowalski.md` | Still unknown | Draft 1 |
 | 27 | Lúcia Ferreira | Sun Cleric 15 | Crossroads | `lucia_ferreira.md` | Happy | Draft 1 |
 | 28 | Minh Tran | Chronomancer 16 | Northern Barrens | `minh_tran.md` | Sad | Draft 1 |
-| 29 | Bakyt Asanov | Hunter 17 | Eastern Hillsbrad |  |  |  |
-| 30 | Matías Fuentes | Reaper 17 | Sunken Grotto of the Deep |  |  |  |
-| 31 | Tomas Havel | Warrior 18 | Fenris Isle |  |  |  |
+| 29 | Bakyt Asanov | Hunter 17 | Eastern Hillsbrad | `bakyt_asanov.md` | Happy | Draft 1 |
+| 30 | Matías Fuentes | Reaper 17 | Sunken Grotto of the Deep | `matias_fuentes.md` | Sad | Draft 1 |
+| 31 | Tomas Havel | Warrior 18 | Fenris Isle | `tomas_havel.md` | Happy | Draft 1 |
 | 32 | Cristóbal Muñoz | Knight of Xoroth 19 | Camp Taurajo |  |  |  |
 | 33 | Callum Reid | Venomancer 20 | Southern Barrens |  |  |  |
 | 34 | Giorgi Beridze | Primalist 21 | Tarren Mill |  |  |  |

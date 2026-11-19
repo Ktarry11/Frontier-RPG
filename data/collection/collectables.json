@@ -15471,11 +15471,11 @@
     },
     {
       "id": "keepsake_ivan_warrior",
-      "name": "Ivan's Ticket Punch",
+      "name": "Ivan's Cab Key",
       "kind": "keepsake",
       "price": 0,
       "rarity": "epic",
-      "blurb": "A small steel ticket punch from Ivan's tram in Novosibirsk. He punched a ticket for every run here out of habit. He has a proper route now.",
+      "blurb": "The heavy brass key to the driver's cab of Ivan's tram on Route 13 in Novosibirsk. He has a proper route now and doesn't need to pretend.",
       "effect": {
         "recruit_id": "ivan_warrior",
         "from": "Ivan Petrov"
@@ -15553,6 +15553,57 @@
       "needs_art": false,
       "found_only": true,
       "source": "sworn:minh_chronomancer"
+    },
+    {
+      "id": "keepsake_bakyt_hunter",
+      "name": "Ak-Kanat's Glove",
+      "kind": "keepsake",
+      "price": 0,
+      "rarity": "epic",
+      "blurb": "Bakyt's thick leather eagle-hunting glove, worn shiny, which carried his first eagle for twenty-two years in the Tian Shan. It should go to someone who knows what it carried.",
+      "effect": {
+        "recruit_id": "bakyt_hunter",
+        "from": "Bakyt Asanov"
+      },
+      "icon_id": "col_charm_bird",
+      "art": "col_keepsake_bakyt",
+      "needs_art": false,
+      "found_only": true,
+      "source": "sworn:bakyt_hunter"
+    },
+    {
+      "id": "keepsake_matias_reaper",
+      "name": "His Father's Ticket Punch",
+      "kind": "keepsake",
+      "price": 0,
+      "rarity": "epic",
+      "blurb": "A brass bus conductor's ticket punch, Matías's father's, clicked twice before every fight for three years. He doesn't need to start a shift any more.",
+      "effect": {
+        "recruit_id": "matias_reaper",
+        "from": "Matías Fuentes"
+      },
+      "icon_id": "col_satchel_bank",
+      "art": "col_keepsake_matias",
+      "needs_art": false,
+      "found_only": true,
+      "source": "sworn:matias_reaper"
+    },
+    {
+      "id": "keepsake_tomas_warrior",
+      "name": "Tomas's Carabiner",
+      "kind": "keepsake",
+      "price": 0,
+      "rarity": "epic",
+      "blurb": "A steel climbing carabiner scratched to bare metal, clipped to Tomas's belt through eighteen years of rigging and the night he fell forty feet into this world.",
+      "effect": {
+        "recruit_id": "tomas_warrior",
+        "from": "Tomas Havel"
+      },
+      "icon_id": "col_satchel_reagents",
+      "art": "col_keepsake_tomas",
+      "needs_art": false,
+      "found_only": true,
+      "source": "sworn:tomas_warrior"
     }
   ]
 }

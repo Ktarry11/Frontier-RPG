@@ -49,7 +49,7 @@ he could be home for dinner. On Sundays he took the girls skating.
 ## The Integration and what it cost
 
 He was on the morning route, between the third and fourth stops, when it happened. He landed in Durotar in his driver's
-jacket, with his tram ticket punch still in his pocket.
+jacket, with the key to his tram cab still in his pocket.
 
 He expected to be useless, a tram driver in a world of warriors. What he found was that nobody here knows how to commit
 to a movement and then stop it, and it's apparently a rare skill.
@@ -100,9 +100,9 @@ and the orcs call it Ivan's road. He runs it every week, and he's never late.
 
 ## His keepsake (the new Collection tab)
 
-**Ivan's Ticket Punch.** A small steel ticket punch from his tram in Novosibirsk, still in his pocket when he landed. He
-punched a ticket for every run of his route here, out of habit. He gives it to you after the girls come home. He says
-he's got a proper route now and he doesn't need to pretend.
+**Ivan's Cab Key.** The heavy brass key to the driver's cab of his tram on Route 13, still in his pocket when he landed.
+He turned it in an imaginary lock before every run of his route here. He gives it to you after the girls come home. He
+says he's got a proper route now and he doesn't need to pretend.
 
 ## Voice notes
 
@@ -112,8 +112,8 @@ he's got a proper route now and he doesn't need to pretend.
 - He talks about his family in the present tense.
 - He swears in Russian, often and with great feeling.
 - **He won't talk about** the fear of hitting someone until Companion, or the girls' birthdays until Friend.
-- **Habits:** checks the time by the sun, stands where he can see everyone, counts the party before moving, and punches an
-  imaginary ticket after every fight.
+- **Habits:** checks the time by the sun, stands where he can see everyone, counts the party before moving, and turns an
+  imaginary key before every fight.
 
 ## Seeds for the next waves (not decided, just where this points)
 
@@ -126,7 +126,7 @@ he's got a proper route now and he doesn't need to pretend.
 
 ## What this changes in what's already written
 
-- **New:** his parents, military service, Route 13, Natasha, Sonya and Katya, the skating, the ticket punch, Ragefire
+- **New:** his parents, military service, Route 13, Natasha, Sonya and Katya, the skating, the cab key, Ragefire
   Chasm, and Ivan's road.
 - **Kept:** eleven years a Novosibirsk tram driver, a heavy thing on rails, never hit one, slow start and committed middle,
   the same four stops in the dark, expecting to be useless, very low standards, directing Orgrimmar's traffic unasked, and
