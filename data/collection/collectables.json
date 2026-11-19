@@ -15182,11 +15182,11 @@
     },
     {
       "id": "keepsake_ama_priest",
-      "name": "Ama's Nurse's Watch",
+      "name": "Ama's Stethoscope",
       "kind": "keepsake",
       "price": 0,
       "rarity": "epic",
-      "blurb": "The fob watch Ama wore pinned upside down on her uniform for fourteen years of nights. It still keeps time. She says somebody should keep track of when you last slept.",
+      "blurb": "A children's stethoscope from a London ward, with a scuffed plastic bear clipped to the tubing so frightened little ones would let Ama listen.",
       "effect": {
         "recruit_id": "ama_priest",
         "from": "Ama Boateng"
@@ -16420,6 +16420,57 @@
       "needs_art": false,
       "found_only": true,
       "source": "sworn:ramiro_primalist"
+    },
+    {
+      "id": "keepsake_graham_warlock",
+      "name": "Graham's Fob Watch",
+      "kind": "keepsake",
+      "price": 0,
+      "rarity": "epic",
+      "blurb": "The nurse's fob watch Graham's husband gave him the year they married, pinned upside down through nineteen years of hospice nights. It kept time while he waited.",
+      "effect": {
+        "recruit_id": "graham_warlock",
+        "from": "Graham Ashworth"
+      },
+      "icon_id": "col_hearthstone_2",
+      "art": "col_keepsake_graham",
+      "needs_art": false,
+      "found_only": true,
+      "source": "sworn:graham_warlock"
+    },
+    {
+      "id": "keepsake_elie_bloodmage",
+      "name": "Elie's Needle Cap",
+      "kind": "keepsake",
+      "price": 0,
+      "rarity": "epic",
+      "blurb": "The small blue cap from the butterfly needle Elie used on his last blood draw in Beirut, clipped to his sleeve for three years. He doesn't need a needle any more.",
+      "effect": {
+        "recruit_id": "elie_bloodmage",
+        "from": "Elie Khoury"
+      },
+      "icon_id": "col_satchel_reagents",
+      "art": "col_keepsake_elie",
+      "needs_art": false,
+      "found_only": true,
+      "source": "sworn:elie_bloodmage"
+    },
+    {
+      "id": "keepsake_bruno_templar",
+      "name": "Bruno's Hand-Wrap",
+      "kind": "keepsake",
+      "price": 0,
+      "rarity": "epic",
+      "blurb": "A roll of black fighter's hand-wrap from Bruno's last fight in Curitiba, which he won. He fights for the Order now.",
+      "effect": {
+        "recruit_id": "bruno_templar",
+        "from": "Bruno Teixeira"
+      },
+      "icon_id": "col_charm_humanoid",
+      "art": "col_keepsake_bruno",
+      "needs_art": false,
+      "found_only": true,
+      "source": "sworn:bruno_templar"
     }
   ]
 }

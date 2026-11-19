@@ -57,8 +57,8 @@ read it. That's deliberate.
 
 ## The Integration and what it cost
 
-She was at work when it happened. She landed in Durotar in her uniform, with her nurse's watch still pinned to her top,
-upside down so she could read it while taking a pulse.
+She was at work when it happened. She landed in Durotar in her uniform, with her stethoscope round her neck: a small
+children's one, with a plastic bear clipped to the tubing so the little ones would let her listen.
 
 The first two years aren't a subject. Nobody in Razor Hill asks.
 
@@ -117,9 +117,9 @@ and Kofi are still unknown.
 
 ## Her keepsake (the new Collection tab)
 
-**Ama's Nurse's Watch.** The fob watch she wore pinned upside down on her uniform for fourteen years of nights. It
-still keeps time. She gives it to you once Grasha has her own. She says somebody should keep track of when you last
-slept.
+**Ama's Stethoscope.** Her children's stethoscope from the ward in London, with a scuffed plastic bear clipped to the
+tubing so frightened little ones would let her listen. She wore it for fourteen years of nights. She gives it to you
+once Grasha has her own. She says it's listened to a lot of small hearts, and she'd like it to listen to yours.
 
 ## Voice notes
 
@@ -130,7 +130,7 @@ slept.
 - She doesn't swear in front of children. Away from them, mild London swearing when something stupid happens.
 - **She won't talk about** the first two years, the notebook, or Kwame, until Friend. Her mother never, except that one
   line.
-- **Habits:** checks her watch, counts everyone after a fight, shuffles cards when she's thinking, and always has a
+- **Habits:** listens to everyone's chest after a fight, counts everyone after a fight, shuffles cards when she's thinking, and always has a
   biscuit in her pocket for a child.
 
 ## Seeds for the next waves (not decided, just where this points)

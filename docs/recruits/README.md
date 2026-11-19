@@ -149,9 +149,9 @@ fourth).
 | 77 | Yusuf Al-Rawi | Venomancer 48 | The Bloodsail Anchorage | `yusuf_al_rawi.md` | Happy | Draft 1 |
 | 78 | Réka Farkas | Necromancer 51 | The Black Strand | `reka_farkas.md` | Happy | Draft 1 |
 | 79 | Ramiro Quispe | Primalist 51 | Onyxhollow | `ramiro_quispe.md` | Sad | Draft 1 |
-| 80 | Graham Ashworth | Warlock 52 | The Pale Watch |  |  |  |
-| 81 | Elie Khoury | Bloodmage 53 | Khaz Varun, the Black Hollow |  |  |  |
-| 82 | Bruno Teixeira | Templar 53 | The Bulwark |  |  |  |
+| 80 | Graham Ashworth | Warlock 52 | The Pale Watch | `graham_ashworth.md` | Happy | Draft 1 |
+| 81 | Elie Khoury | Bloodmage 53 | Khaz Varun, the Black Hollow | `elie_khoury.md` | Still unknown | Draft 1 |
+| 82 | Bruno Teixeira | Templar 53 | The Bulwark | `bruno_teixeira.md` | Sad | Draft 1 |
 | 83 | Joaquín Duarte | Sun Cleric 54 | The Bulwark |  |  |  |
 | 84 | Astrid Lindqvist | Starcaller 54 | North Felwood |  |  |  |
 | 85 | Luka Perić | Stormbringer 54 | Tempest Shallows |  |  |  |
