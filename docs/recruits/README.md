@@ -164,8 +164,8 @@ fourth).
 | 92 | Isla Fraser | Witch Hunter 57 | Light's Hope Chapel | `isla_fraser.md` | Sad | Draft 1 |
 | 93 | Taras Kovalenko | Witch Hunter 57 | Ariden's Watch | `taras_kovalenko.md` | Still unknown | Draft 1 |
 | 94 | Mariana Treviño | Priest 57 | Ariden's Watch | `mariana_trevino.md` | Happy | Draft 1 |
-| 95 | Dale Brekke | Reaper 58 | Eastern Plaguelands East |  |  |  |
-| 96 | Wes Dahlberg | Warrior 58 | Ariden's Watch |  |  |  |
-| 97 | Neil Hartley | Felsworn 58 | Ariden's Watch |  |  |  |
-| 98 | Valentina Soto | Starcaller 58 | Moonglade |  |  |  |
-| 99 | Faris Al-Tamimi | Shaman 58 | Moonglade |  |  |  |
+| 95 | Dale Brekke | Reaper 58 | Eastern Plaguelands East | `dale_brekke.md` | Happy | Draft 1 |
+| 96 | Wes Dahlberg | Warrior 58 | Ariden's Watch | `wes_dahlberg.md` | Sad | Draft 1 |
+| 97 | Neil Hartley | Felsworn 58 | Ariden's Watch | `neil_hartley.md` | Sad | Draft 1 |
+| 98 | Valentina Soto | Starcaller 58 | Moonglade | `valentina_soto.md` | Sad | Draft 1 |
+| 99 | Faris Al-Tamimi | Shaman 58 | Moonglade | `faris_al_tamimi.md` | Happy | Draft 1 |
