@@ -9,9 +9,19 @@
   },
   "bond": {
     "home": "the Shimmering Flats",
-    "dials": {"warmth": 0.6, "nerve": 1.3, "pride": 0.8, "restless": 0.9},
-    "likes": ["new_ground", "beast"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 0.6,
+      "nerve": 1.3,
+      "pride": 0.8,
+      "restless": 0.9
+    },
+    "likes": [
+      "new_ground",
+      "beast"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Ratih, a ranger. Walk quieter, please, and don't thank me for things. I'll tell you if I see something wrong. I usually do.",
       "acquaintance": "I'm from Riau, in Sumatra, in Indonesia. My father tapped rubber at the edge of the forest. I was a forest ranger for fifteen years, mostly alone, looking for poachers and illegal loggers. The government paid for the uniform and almost nothing else. I was the only one who cared, and that was fine.",
@@ -20,56 +30,88 @@
       "sworn": "I signed the report with my full name, for the first time, and took it to Freewind myself. The captain read it and offered me a place on the guard before I could ask. Rostered, briefed, part of the line. I said yes before he finished. I've got three young tauren to teach now. And I'm going to visit Dewi and Arif the first chance I get, wherever they are. I'm not putting it off for one more patrol."
     },
     "moments": [
-      {"id": "thanks", "stage": "acquaintance", "when": "talk",
-       "prompt": "She's just spotted a trap that would have caught you, and she's walking on.",
-       "options": [
-         {"text": "Say nothing, and walk quieter.", "trust": 10,
-          "reply": "Good, you're learning. That's the best thanks there is."},
-         {"text": "Thank her.", "trust": 0,
-          "reply": "Please don't thank me. Just watch where you put your feet."}
-       ]},
-      {"id": "the_tracks", "stage": "friend", "when": "talk",
-       "prompt": "She's asked you to help her follow the tracks to the smuggling ring.",
-       "options": [
-         {"text": "I'll follow, quietly.", "trust": 12,
-          "reply": "Ayo, then, let's go. Step where I step, and say nothing."},
-         {"text": "Shouldn't we tell the guard first?", "trust": 2,
-          "reply": "They'll be told, with proof. That's why we're going."}
-       ]}
+      {
+        "id": "thanks",
+        "stage": "acquaintance",
+        "when": "talk",
+        "prompt": "She's just spotted a trap that would have caught you, and she's walking on.",
+        "options": [
+          {
+            "text": "Say nothing, and walk quieter.",
+            "trust": 10,
+            "reply": "Good, you're learning. That's the best thanks there is."
+          },
+          {
+            "text": "Thank her.",
+            "trust": 0,
+            "reply": "Please don't thank me. Just watch where you put your feet."
+          }
+        ]
+      },
+      {
+        "id": "the_tracks",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "She's asked you to help her follow the tracks to the smuggling ring.",
+        "options": [
+          {
+            "text": "I'll follow, quietly.",
+            "trust": 12,
+            "reply": "Ayo, then, let's go. Step where I step, and say nothing."
+          },
+          {
+            "text": "Shouldn't we tell the guard first?",
+            "trust": 2,
+            "reply": "They'll be told, with proof. That's why we're going."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We've walked the same ground so many times I know every stone. There's nothing wrong here to find. Let's go somewhere new.",
-      "leaving_good": "That was good. I'm going back to my patrol on the Flats for a while. You know where to find me, if you're quiet.",
-      "leaving_bored": "I'm going back to the Flats. There's nothing to find out here, and my route needs walking.",
-      "after_wipe": "We missed something. Let me look before anyone moves.",
-      "wipe_warning": "We keep dying in here, and it's because we're loud. I'll finish this run, then I'm going back to my patrol.",
-      "wipe_leave": "I've finished it with you. Now I'm going back to the Flats. Come back when you've learned to walk quietly.",
-      "zone_warning": "This place is too dangerous for us. I can see it everywhere I look. We should go back, sudah.",
-      "zone_leave": "I'm stopping here. It's too dangerous out there. I'll be on the Shimmering Flats.",
-      "gear_refuse": "No, I'll keep that. I don't know you well enough yet.",
+      "leaving_good": "That was good. I'll be on my patrol route on the Flats, and you can find me if you're quiet.",
+      "leaving_bored": "There's nothing to find out here, and my route needs walking. I'm going back to the Flats.",
+      "after_wipe": "We missed something. Stay where you are and let me read the ground.",
+      "wipe_warning": "We die in here because we're loud. One more run, and then I'm back on patrol.",
+      "wipe_leave": "We're finished here, and I'm going back to the Flats. Come back when you've learned to walk quietly.",
+      "zone_warning": "Everywhere I look there's danger. We should go back, sudah.",
+      "zone_leave": "I won't walk into that. I'll be on the Shimmering Flats.",
+      "gear_refuse": "No, I'll keep that until I trust you more.",
       "gear_taken": "Take it, then. I've patrolled with less.",
-      "gear_short": "I'm still missing that piece. I'm only telling you.",
-      "gear_upgrade": "That's good kit. Don't make a fuss about it, please.",
-      "back": "I'm back, and the Flats are clean for now. Where are we going?",
+      "gear_short": "There's a piece missing from my kit. I'm telling you once, quietly.",
+      "gear_upgrade": "That's good kit. Terima kasih, and that's all I'll say.",
+      "back": "I'm back, and the Flats are clean for now. Which way are we heading?",
       "send_word": "Ratih has sent word from the Shimmering Flats. Her patrol's done and she's ready to come out.",
       "walkout_talk": "I left angry. I'm not good with words, so I'll be short. Then you talk, and I'll listen properly.",
       "neglect": "You were gone a long time. I walked my route every day anyway.",
-      "asked_to_stay": "All right, one more. Hati-hati, be careful.",
+      "asked_to_stay": "I'll walk with you one more time. Hati-hati, be careful.",
       "on_break": "Ratih is back on patrol on the Shimmering Flats. Come back after you've done a few more jobs."
     }
   },
   "banter": {
     "zone_arrive": [
-      {"text": "Something's been through here and tried to hide it. Look at the grass, it's been brushed.", "kind": "open"}
+      {
+        "text": "Something's been through here and tried to hide it. Look at the grass, it's been brushed.",
+        "kind": "open"
+      }
     ],
     "boss_down": [
-      {"text": "I shot from where the ground told me to stand. It usually does.", "kind": "reply"}
+      {
+        "text": "I shot from where the ground told me to stand. It usually does.",
+        "kind": "reply"
+      }
     ],
     "close_call": [
-      {"text": "The ground told you that was bad footing. You weren't listening.", "kind": "reply"}
+      {
+        "text": "The ground told you that was bad footing. You weren't listening.",
+        "kind": "reply"
+      }
     ],
     "town_arrive": [
-      {"text": "Too much noise here. I'll be at the edge of town if you need me.", "kind": "open"}
+      {
+        "text": "Too much noise here. I'll be at the edge of town if you need me.",
+        "kind": "open"
+      }
     ]
   }
 }

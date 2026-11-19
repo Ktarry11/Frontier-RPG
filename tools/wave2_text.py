@@ -102,6 +102,7 @@ TICS = [
     (r"\bcan we go outside\b", "repeat"),
     (r"\b(that's|that is|it's|isn't) not \w+, it's\b|\bisn't \w+, it's\b", "not X, it's Y zinger"),
     (r"\bdifferent things\b", "zinger"),
+    (r"\b(that's|it's) not (a |an |the )?\w+, (that's|it's)\b", "not X, it's Y zinger"),
     (r"\bwho's (bleeding|hurt)\b|\bbleeding (and|who)\b", "who's bleeding"),
     (r"\bthat's a (good|perfect) (shift|day|night)\b|\bin my book\b", "good shift"),
     (r"\b(bit|rule|thing) i care about\b", "repeat"),
@@ -114,10 +115,18 @@ NARRATOR = {"send_word", "on_break"}
 SHORT_ONLY = {"postcard list", "postcard closer", "everybody out", "who's bleeding", "good shift"}
 
 
+#: Words that don't make a phrase recognisable on their own. A four word run made only of these
+#: ("i'll be at the") is ordinary English, not a tic.
+STOP = set("""i i'm i'll i'd i've me my we we're we've us you you're your it it's that that's this
+there there's here a an the and but so or then to of in on at for with from by as if be is was
+are were been do don't did not no yes just now when what where who how all some""".split())
+
+
 def tic_problems(data=None):
-    """Stock phrases, and any four word run shared by three recruits' banter or five recruits' bond lines."""
+    """Stock phrases; any four word run shared by three recruits' banter or six recruits' bond
+    lines; and any bond line whose first three words open the same line for four recruits."""
     data = load() if data is None else data
-    bad, seen = [], {}
+    bad, seen, openers = [], {}, {}
     for rid, d in data.items():
         for where, t in _texts(rid, d):
             if where.split()[-1] in NARRATOR:
@@ -128,15 +137,22 @@ def tic_problems(data=None):
                     continue
                 if re.search(rx, t, re.I):
                     bad.append(f"{rid} {where}: {why}: {t!r}")
-            if where.startswith(("banter", "line")):
+            if spoken_short:
                 w = re.findall(r"[\w']+", t.lower())
                 kind = where.split()[0]
                 for g in {" ".join(w[i:i + 4]) for i in range(len(w) - 3)}:
+                    if kind == "line" and sum(x not in STOP for x in g.split()) < 2:
+                        continue
                     seen.setdefault((kind, g), set()).add(rid)
+                if kind == "line":
+                    openers.setdefault((where, " ".join(w[:3])), set()).add(rid)
     for (kind, g), rids in sorted(seen.items()):
         # the bond lines all do the same few jobs, so they get a little more room than banter
-        if len(rids) >= (3 if kind == "banter" else 5):
+        if len(rids) >= (3 if kind == "banter" else 6):
             bad.append(f"{kind} shared by {len(rids)} recruits: {g!r} ({', '.join(sorted(rids))})")
+    for (where, g), rids in sorted(openers.items()):
+        if len(rids) >= 4:
+            bad.append(f"{where} opens the same way for {len(rids)} recruits: {g!r} ({', '.join(sorted(rids))})")
     return bad
 
 
