@@ -134,9 +134,9 @@ fourth).
 | 62 | Ratih Pranoto | Ranger 38 | The Shimmering Flats | `ratih_pranoto.md` | Happy | Draft 1 |
 | 63 | Fiona Strachan | Witch Hunter 39 | Southern Stranglethorn | `fiona_strachan.md` | Sad | Draft 1 |
 | 64 | Khalid Al Suwaidi | Hunter 39 | Saltwheel | `khalid_al_suwaidi.md` | Happy | Draft 1 |
-| 65 | Delroy Beckford | Witch Doctor 40 | Booty Bay |  |  |  |
-| 66 | Karim Haddad | Felsworn 40 | The Undercrust |  |  |  |
-| 67 | Osvaldo Beltrán | Warlock 40 | The Bloodsail Raider |  |  |  |
+| 65 | Delroy Beckford | Witch Doctor 40 | Booty Bay | `delroy_beckford.md` | Happy | Draft 1 |
+| 66 | Karim Haddad | Felsworn 40 | The Undercrust | `karim_haddad.md` | Sad | Draft 1 |
+| 67 | Osvaldo Beltrán | Warlock 40 | The Bloodsail Raider | `osvaldo_beltran.md` | Happy | Draft 1 |
 | 68 | Bashir Khalidi | Witch Hunter 41 | The Drowned Shrine |  |  |  |
 | 69 | Pieter Malan | Guardian 42 | Northern Tanaris |  |  |  |
 | 70 | Gianluca Ferri | Guardian 42 | Steamwheedle Port |  |  |  |
