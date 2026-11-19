@@ -544,7 +544,7 @@
     "liam_suncleric": {
       "close_call": [
         {
-          "text": "Look at me. Talk. Keep talking, I don't care what about.",
+          "text": "Look at me and keep talking, I don't care what about.",
           "kind": "open"
         }
       ],
@@ -556,14 +556,26 @@
       ],
       "town_arrive": [
         {
-          "text": "Where'd they take a burn case here? Worth knowing before we need it.",
+          "text": "Where'd they take a burn case here? It's worth knowing before we need it.",
           "kind": "reply"
+        },
+        {
+          "text": "Katoomba's all cliffs and fog and gum trees, and the whole valley smells like eucalyptus after rain.",
+          "kind": "open",
+          "topic": "cities"
         }
       ],
       "boss_down": [
         {
-          "text": "Right - who's hurt and lying about it? Someone always is.",
+          "text": "Right, who's hurt and lying about it? Someone always is.",
           "kind": "reply"
+        }
+      ],
+      "zone_arrive": [
+        {
+          "text": "Dry out here. If this goes up, we go that way, quick smart.",
+          "kind": "open",
+          "topic": "fire"
         }
       ]
     },
@@ -1424,6 +1436,37 @@
         }
       ]
     },
+    "camille_ranger": {
+      "zone_arrive": [
+        {
+          "text": "New roads, nobody's mapped them properly. Give me a day and I'll have done it.",
+          "kind": "open"
+        }
+      ],
+      "town_arrive": [
+        {
+          "text": "Lyon has two rivers and a hill so steep you need good legs, and I had the best legs in the city.",
+          "kind": "open",
+          "topic": "cities"
+        },
+        {
+          "text": "There's a notice board over there and I'm going to read every single thing on it.",
+          "kind": "open"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "I've drawn the whole place. Next time we'll be twice as fast, yes?",
+          "kind": "open"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "Too slow, you were too slow. Move, next time, don't think about it.",
+          "kind": "reply"
+        }
+      ]
+    },
     "cristobal_knight": {
       "town_arrive": [
         {
@@ -1630,6 +1673,37 @@
           "text": "At home the buses were full at six in the morning, everybody half asleep, and I knew all their faces.",
           "kind": "open",
           "topic": "cities"
+        }
+      ]
+    },
+    "orlando_witchdoctor": {
+      "town_arrive": [
+        {
+          "text": "Look at this place, everybody needs a haircut. I'm going to make so many friends.",
+          "kind": "open"
+        },
+        {
+          "text": "Santurce is all music and murals and somebody's grandmother on every porch. You'd love it.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ],
+      "boss_down": [
+        {
+          "text": "Wepa, the spirits liked that one. They're very loud right now.",
+          "kind": "open"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "That place was so lonely. Nobody's talked down there in years.",
+          "kind": "reply"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "Ay bendito, come here, sit down, let me look at you. Keep talking to me.",
+          "kind": "open"
         }
       ]
     },

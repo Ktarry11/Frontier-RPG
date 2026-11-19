@@ -1,0 +1,79 @@
+{
+  "recruit_text": {
+    "greeting": "You want me to come, fine. But I don't do the thing where we all talk about our feelings at the fire, yes? Good, then we understand each other.",
+    "backstory": "She was a bike courier in Lyon for nine years and the company's bicycle mechanic for all of them. The job is knowing exactly how much space you have and taking all of it. She's abrasive on purpose, fast, and extremely funny when she decides to be, and almost nobody gets past the first layer. The ones who do find out she's loyal to a degree she'd deny under torture.",
+    "before": "A fixed-gear frame she built twice, a radio in one ear, and a city she could cross in twenty-two minutes.\n\nHer brother Théo rode for the same company. He was on the Part-Dieu road that morning and she wasn't, because she'd swapped a shift so she could sleep in. She's said this out loud twice and regretted it both times.",
+    "adjustment": "She made herself useful immediately and let nobody near her for two years.\n\nIt worked, in the sense that she survived it. She knows it wasn't the only option. She says the other options were for people with more patience than her.",
+    "forward": "She's been mapping the roads between the camps, every one of them, by hand, by riding them, and lately the tunnels of the Wailing Caverns too.\n\nAsk why and she says somebody should. The real answer is that it's the only thing here that feels like the job did, and the job was the last part of her life that worked.",
+    "now": "On the roads, carrying things between places faster than they've any right to arrive, and in the Wailing Caverns, mapping tunnels nobody else has mapped.\n\nShe won't take a message she hasn't read. She found that out the hard way in her second month and has been insufferable about it ever since."
+  },
+  "bond": {
+    "home": "the Wailing Caverns",
+    "dials": {"warmth": 0.5, "nerve": 1.3, "pride": 1.2, "restless": 1.4},
+    "likes": ["new_ground", "dungeon"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Camille, and I'm fast, and I map things. I go first, I don't wait for slow people, and I don't talk about feelings, yes? If that's a problem, find another ranger.",
+      "acquaintance": "Lyon, from Villeurbanne just outside. Papa was a postman and Maman cleaned at a hospital. I was a bike courier for nine years, and I fixed everybody's bikes because nobody else could do it properly. I could cross the whole city in twenty-two minutes. I'm still faster than anyone here, by the way.",
+      "companion": "There was Margaux, a pastry chef, for three years. Her mornings started when my shifts ended, and it went badly at the end, mostly because I wouldn't talk about anything. I know that now. I was in bed when all this happened, and I landed in the Barrens in my pyjamas with this wrench on my keyring. Don't laugh, everybody laughs.",
+      "friend": "My little brother Théo rode for the same company. That morning he was on the Part-Dieu road, and it should have been me, because I swapped the shift so I could sleep in. I think he's dead, on my road. I've never looked on the lists, because I don't want to see it written down. Now a goblin's complaining about a French courier who reads every message before he takes it. Come with me, yes? Don't say anything.",
+      "sworn": "It was Théo, alive, older, and just as annoying as before. He's been reading every message for three years for exactly the same reason I do. I told him about the swapped shift, and he laughed at me and said he'd always have taken Part-Dieu because it's the best road. We argued about the fastest route to the Crossroads the whole way back. If you tell anyone I was smiling, I'll deny it."
+    },
+    "moments": [
+      {"id": "first_goodbye", "stage": "stranger", "when": "first_stint_end",
+       "prompt": "At the end of her first trip with you, she's already got her bag on.",
+       "line": "Right, that was fine, I'm off. I've got roads to map, yes?",
+       "options": [
+         {"text": "Stay. We're faster with you.", "trust": 12, "stays": true, "flag": "asked_to_stay",
+          "reply": "Obviously you're faster with me. Fine, I'll stay, but I'm still going first."},
+         {"text": "See you around, then.", "trust": 0,
+          "reply": "Yes, see you. Try not to get lost without me."}
+       ]},
+      {"id": "the_shift", "stage": "friend", "when": "talk",
+       "prompt": "She's just told you about the swapped shift.",
+       "options": [
+         {"text": "Say nothing, and walk next to her.", "trust": 12,
+          "reply": "Merci, that's exactly right. Allez, let's go."},
+         {"text": "It wasn't your fault.", "trust": 0,
+          "reply": "I said don't say anything, yes? That included that."}
+       ]}
+    ],
+    "first_stint_short": true,
+    "lines": {
+      "bored_warning": "We've been in this same boring field for days, yes? I'm going to die of slowness. Let's go somewhere I haven't mapped.",
+      "leaving_good": "That was good, actually. I'm going back to the Caverns to finish a map. You know where I'll be, if you can find it.",
+      "leaving_bored": "I'm off now. This is the same loop again and again, and I don't do loops.",
+      "after_wipe": "Putain, that was slow. Next time, faster, and somebody watch the left side.",
+      "wipe_warning": "We keep dying in here, and it's boring, which is worse. I'll finish this run, then I'm taking a break.",
+      "wipe_leave": "I finished it, like I said. Now I'm going back to my maps. Come and find me when you've learned to move.",
+      "zone_warning": "This place is too much for us, yes? Even I can't outrun all of it. Let's go somewhere sensible.",
+      "zone_leave": "I'm stopping here. I said it was too much. I'll be at the Wailing Caverns.",
+      "gear_refuse": "Non, that's mine. Ask me again in about a year.",
+      "gear_taken": "Fine, take it, but I'm going to complain about it the whole way.",
+      "gear_short": "I'm still missing that piece, yes? I'm mentioning it so you can feel bad.",
+      "gear_upgrade": "That's well made, merci. Don't make it weird.",
+      "back": "I'm back, and I've mapped three more tunnels. Allez, where are we going?",
+      "send_word": "Camille has sent word from the Wailing Caverns. Her maps are done for now and she's ready to come out.",
+      "walkout_talk": "I left angry and I'm not sorry, but I'll tell you why, quickly, yes? Then you talk, and then we go.",
+      "neglect": "Oh, there you are. I'd assumed you'd got lost. You should have a map, I've got lots.",
+      "asked_to_stay": "Fine, one more, but I'm going first.",
+      "on_break": "Camille is back at the Wailing Caverns, mapping. Come back after you've done a few more jobs.",
+      "quest_abandoned": "We left somebody waiting, yes? I hate that. In my job you deliver, always."
+    }
+  },
+  "banter": {
+    "zone_arrive": [
+      {"text": "New roads, nobody's mapped them properly. Give me a day and I'll have done it.", "kind": "open"}
+    ],
+    "town_arrive": [
+      {"text": "Lyon has two rivers and a hill so steep you need good legs, and I had the best legs in the city.", "kind": "open", "topic": "cities"},
+      {"text": "There's a notice board over there and I'm going to read every single thing on it.", "kind": "open"}
+    ],
+    "dungeon_clear": [
+      {"text": "I've drawn the whole place. Next time we'll be twice as fast, yes?", "kind": "open"}
+    ],
+    "close_call": [
+      {"text": "Too slow, you were too slow. Move, next time, don't think about it.", "kind": "reply"}
+    ]
+  }
+}

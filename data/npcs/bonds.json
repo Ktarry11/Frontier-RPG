@@ -677,6 +677,92 @@
         "on_break": "Callum is back in his hut in the Southern Barrens, with his jars. Come back after you've done a few more jobs."
       }
     },
+    "camille_ranger": {
+      "home": "the Wailing Caverns",
+      "dials": {
+        "warmth": 0.5,
+        "nerve": 1.3,
+        "pride": 1.2,
+        "restless": 1.4
+      },
+      "likes": [
+        "new_ground",
+        "dungeon"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Camille, and I'm fast, and I map things. I go first, I don't wait for slow people, and I don't talk about feelings, yes? If that's a problem, find another ranger.",
+        "acquaintance": "Lyon, from Villeurbanne just outside. Papa was a postman and Maman cleaned at a hospital. I was a bike courier for nine years, and I fixed everybody's bikes because nobody else could do it properly. I could cross the whole city in twenty-two minutes. I'm still faster than anyone here, by the way.",
+        "companion": "There was Margaux, a pastry chef, for three years. Her mornings started when my shifts ended, and it went badly at the end, mostly because I wouldn't talk about anything. I know that now. I was in bed when all this happened, and I landed in the Barrens in my pyjamas with this wrench on my keyring. Don't laugh, everybody laughs.",
+        "friend": "My little brother Théo rode for the same company. That morning he was on the Part-Dieu road, and it should have been me, because I swapped the shift so I could sleep in. I think he's dead, on my road. I've never looked on the lists, because I don't want to see it written down. Now a goblin's complaining about a French courier who reads every message before he takes it. Come with me, yes? Don't say anything.",
+        "sworn": "It was Théo, alive, older, and just as annoying as before. He's been reading every message for three years for exactly the same reason I do. I told him about the swapped shift, and he laughed at me and said he'd always have taken Part-Dieu because it's the best road. We argued about the fastest route to the Crossroads the whole way back. If you tell anyone I was smiling, I'll deny it."
+      },
+      "moments": [
+        {
+          "id": "first_goodbye",
+          "stage": "stranger",
+          "when": "first_stint_end",
+          "prompt": "At the end of her first trip with you, she's already got her bag on.",
+          "line": "Right, that was fine, I'm off. I've got roads to map, yes?",
+          "options": [
+            {
+              "text": "Stay. We're faster with you.",
+              "trust": 12,
+              "stays": true,
+              "flag": "asked_to_stay",
+              "reply": "Obviously you're faster with me. Fine, I'll stay, but I'm still going first."
+            },
+            {
+              "text": "See you around, then.",
+              "trust": 0,
+              "reply": "Yes, see you. Try not to get lost without me."
+            }
+          ]
+        },
+        {
+          "id": "the_shift",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's just told you about the swapped shift.",
+          "options": [
+            {
+              "text": "Say nothing, and walk next to her.",
+              "trust": 12,
+              "reply": "Merci, that's exactly right. Allez, let's go."
+            },
+            {
+              "text": "It wasn't your fault.",
+              "trust": 0,
+              "reply": "I said don't say anything, yes? That included that."
+            }
+          ]
+        }
+      ],
+      "first_stint_short": true,
+      "lines": {
+        "bored_warning": "We've been in this same boring field for days, yes? I'm going to die of slowness. Let's go somewhere I haven't mapped.",
+        "leaving_good": "That was good, actually. I'm going back to the Caverns to finish a map. You know where I'll be, if you can find it.",
+        "leaving_bored": "I'm off now. This is the same loop again and again, and I don't do loops.",
+        "after_wipe": "Putain, that was slow. Next time, faster, and somebody watch the left side.",
+        "wipe_warning": "We keep dying in here, and it's boring, which is worse. I'll finish this run, then I'm taking a break.",
+        "wipe_leave": "I finished it, like I said. Now I'm going back to my maps. Come and find me when you've learned to move.",
+        "zone_warning": "This place is too much for us, yes? Even I can't outrun all of it. Let's go somewhere sensible.",
+        "zone_leave": "I'm stopping here. I said it was too much. I'll be at the Wailing Caverns.",
+        "gear_refuse": "Non, that's mine. Ask me again in about a year.",
+        "gear_taken": "Fine, take it, but I'm going to complain about it the whole way.",
+        "gear_short": "I'm still missing that piece, yes? I'm mentioning it so you can feel bad.",
+        "gear_upgrade": "That's well made, merci. Don't make it weird.",
+        "back": "I'm back, and I've mapped three more tunnels. Allez, where are we going?",
+        "send_word": "Camille has sent word from the Wailing Caverns. Her maps are done for now and she's ready to come out.",
+        "walkout_talk": "I left angry and I'm not sorry, but I'll tell you why, quickly, yes? Then you talk, and then we go.",
+        "neglect": "Oh, there you are. I'd assumed you'd got lost. You should have a map, I've got lots.",
+        "asked_to_stay": "Fine, one more, but I'm going first.",
+        "on_break": "Camille is back at the Wailing Caverns, mapping. Come back after you've done a few more jobs.",
+        "quest_abandoned": "We left somebody waiting, yes? I hate that. In my job you deliver, always."
+      }
+    },
     "carolina_shaman": {
       "home": "the Echo Isles",
       "dials": {
@@ -1544,6 +1630,90 @@
         "quest_abandoned": "We said we'd do that and now we don't. That's a missed stop, and I hate missed stops."
       }
     },
+    "liam_suncleric": {
+      "home": "Grom's Rest",
+      "dials": {
+        "warmth": 1.4,
+        "nerve": 1.5,
+        "pride": 0.5,
+        "restless": 0.9
+      },
+      "likes": [
+        "boss",
+        "quest"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "G'day, I'm Liam. Firefighter and paramedic back home, healer here. If it all goes bad, stay behind me and breathe out loud so I can hear you. No worries, we'll be right.",
+        "acquaintance": "I'm from Katoomba, up in the Blue Mountains outside Sydney. Dad was a builder and Mum was a nurse. I joined the rural fire service at twenty and trained as a paramedic at twenty-six, because there was no ambulance for an hour in either direction. Seventeen years doing both, because the roster never cared which badge you had on at three in the morning.",
+        "companion": "I was married to Jess for seven years. She left because I was never home, and when I was home I never talked. Fair enough, really. I don't blame her a bit. I was on a night shift in the ambulance when it happened, and I landed in Ashenvale with these shears in my belt pouch. First year here was the easiest of my life, mate. The second nearly finished me.",
+        "friend": "The summer of 2019 the fires came through the mountains. I was on the line for weeks. I lost two of my crew and half my street, and I went straight back to work. I haven't slept properly since. And there's a wave of corruption coming at Grom's Rest worse than anything yet, and I can't do it alone. That's the first time I've ever said that out loud. Will you help me?",
+        "sworn": "We brought them back, mate, both of them. The crew we trained handled the whole village without me. That night the little girl fell asleep against my arm, and I sat there till morning without moving, and I slept. First proper night in three years. The village asked me to take the kids in, and I said yes before they'd finished asking. The protocol's five lines now. Line five says don't go in alone."
+      },
+      "moments": [
+        {
+          "id": "asking",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's just asked you for help, for the first time.",
+          "options": [
+            {
+              "text": "Of course. You're not going in alone this time.",
+              "trust": 12,
+              "reply": "Too right, and thanks, mate. That's harder to hear than you'd think."
+            },
+            {
+              "text": "You've done fine on your own so far.",
+              "trust": 0,
+              "reply": "Have I, though? Ask anyone who's watched me."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's moving between everybody, low and steady.",
+          "line": "Everyone breathe for me, out loud, that's good. Now, who went in on their own? It's usually me.",
+          "options": [
+            {
+              "text": "It was you, Liam.",
+              "trust": 8,
+              "mood": 4,
+              "reply": "Yeah, I reckon it was. Thanks for saying it, mate."
+            },
+            {
+              "text": "Nobody, it was just bad luck.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "There's no such thing as bad luck, mate, only bad plans."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Mate, nothing's happening, and I'm no good when nothing's happening. Let's find somewhere that needs us.",
+        "leaving_good": "That was a good run, mate. I'm heading back to Grom's Rest to check on the village. You know where I'll be.",
+        "leaving_bored": "I'm going back to Grom's Rest. We're not doing anything out here, and there are people there who need me.",
+        "after_wipe": "Everyone breathe for me, out loud. Good, now let's work out what happened.",
+        "wipe_warning": "We keep going down in here, mate, and I'm worried. I'll see this run through, but then I need a break.",
+        "wipe_leave": "Job's done, so I'm off for a bit. I'll be at Grom's Rest when you're ready.",
+        "zone_warning": "This place is a firestorm and we're in shorts, mate. Let's get somewhere we can actually handle.",
+        "zone_leave": "I'm stopping here. Too hot out there for us. I'll be at Grom's Rest in Ashenvale.",
+        "gear_refuse": "Nah, mate, that's mine. Ask me again when we know each other.",
+        "gear_taken": "No worries, take it. I'll manage, I always do.",
+        "gear_short": "I'm still missing that piece, mate. Just so you know.",
+        "gear_upgrade": "That's a beauty, mate. Cheers, I mean it.",
+        "back": "I'm back, mate, and the village is quiet. Where are we off to?",
+        "send_word": "Liam has sent word from Grom's Rest. The village is quiet and he's ready to come out.",
+        "walkout_talk": "I walked out, mate, and I'd like to tell you why properly. Sit down, I'll put the kettle on.",
+        "neglect": "There you are, mate! I was about to come looking for you.",
+        "asked_to_stay": "Too right, one more. Then I check on the village.",
+        "on_break": "Liam is back at Grom's Rest in Ashenvale. Come back after you've done a few more jobs."
+      }
+    },
     "lucia_suncleric": {
       "home": "the Crossroads",
       "dials": {
@@ -2130,6 +2300,90 @@
         "asked_to_stay": "Copy that, one more. Then I really must check the riverbed.",
         "on_break": "Minh is back on his ridge in the Northern Barrens, keeping watch. Come back after you've done a few more jobs.",
         "quest_abandoned": "We accepted that and then left it. Somebody's still waiting for us, and that bothers me."
+      }
+    },
+    "orlando_witchdoctor": {
+      "home": "the Shadowpine Altar",
+      "dials": {
+        "warmth": 1.6,
+        "nerve": 1.0,
+        "pride": 0.5,
+        "restless": 0.9
+      },
+      "likes": [
+        "full_party",
+        "quest"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Orlando, mi amor, and I'm a witch doctor, and a barber, which is basically the same job. Sit down, tell me everything, and let me fix that hair while you talk. With love, it needs fixing.",
+        "acquaintance": "I'm from Santurce, in San Juan, Puerto Rico. My papi fixed buses and my mami cooked at a school, and our house was full of aunts and cousins all the time. I swept up at a barbershop at fourteen and had my own shop at twenty-two. Two chairs, the radio always on. Everybody told me everything, and I never repeated one word.",
+        "companion": "My whole family was on the island, nene. Mami, Papi, my little sister Yari, who's my best friend, and about forty aunts and cousins. A Puerto Rican trader told me once that the island came through whole, somewhere across the sea. I know it's a thin thing to hold on to. I hold on to it anyway, and everybody lets me.",
+        "friend": "There was a man, Gabriel, a nurse. We'd been together a year and it was going really well. He'd started leaving a toothbrush at my place, you know what that means. I've had three offers of a building for a real shop and I said no to all three, and my hands shook on the last one. I think I know why now. That trader's in Booty Bay. I want to ask him more. Come with me, mi amor.",
+        "sworn": "The island's there, whole, my family and all, and no ship can reach it. The sea turned us back and nearly sank us, you were there. So they're probably alive, all of them, and I can't ever get to them. I stood at the rail a long time. Then I came home and took the next building, and my hands didn't shake. It's called Casa Rivera, after Mami's house. There's an empty chair for Don Beni. Everybody in that chair is family now."
+      },
+      "moments": [
+        {
+          "id": "the_trader",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to come to Booty Bay to find the trader.",
+          "options": [
+            {
+              "text": "Let's go and hear what he knows.",
+              "trust": 12,
+              "reply": "Wepa, let's go! Okay, okay, I'm nervous, so I'm going to talk the whole way. Sorry, with love."
+            },
+            {
+              "text": "What if it's bad news?",
+              "trust": 4,
+              "reply": "Then at least it's news, nene. I've lived on nothing for three years."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe, for once he's completely silent.",
+          "line": "Ay bendito, that was horrible. I need everybody to say something, anything, because I can't stand the quiet.",
+          "options": [
+            {
+              "text": "Talk us through it, then.",
+              "trust": 8,
+              "mood": 6,
+              "reply": "Okay, okay, that's better. So first, the spirits were telling me left, and nobody went left."
+            },
+            {
+              "text": "Give it a minute.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "A minute of quiet is a very long time for me, my friend."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Mi amor, we've been doing the same thing for days and nobody's even talking. Let's go somewhere with people, please, I'm dying here.",
+        "leaving_good": "That was wonderful, all of you, with love. I'm going back to the Shadowpine Altar to see my trolls. Come and get a haircut.",
+        "leaving_bored": "I'm going back to Fenris. Nothing's happening, and I've got a chair by the fire that's lonely.",
+        "after_wipe": "Ay bendito, everybody come here. I'm going to fix you and talk the whole time, and you're going to let me.",
+        "wipe_warning": "We keep dying in here, nene, and it's breaking my heart. One more run, then I need some days by my fire.",
+        "wipe_leave": "I stayed till the end, with love. Now I'm going home to Fenris for a while. Come and find me.",
+        "zone_warning": "Mi amor, everything out here wants to kill us, and not in a fun way. Let's go somewhere we can handle.",
+        "zone_leave": "I'm stopping here. It's too much out there. I'll be at the Shadowpine Altar.",
+        "gear_refuse": "Ay, no, that's mine, mi amor. Ask me again when you're a regular.",
+        "gear_taken": "Take it, take it, I'll look fabulous without it.",
+        "gear_short": "I'm still missing that piece, nene. I'm saying it with love, but I'm saying it.",
+        "gear_upgrade": "Wepa, it's gorgeous, thank you. You have excellent taste, I always said so.",
+        "back": "I'm back, and I brought my razor! Sit down, everybody, you all look terrible, with love.",
+        "send_word": "Orlando has sent word from the Shadowpine Altar. His chair's empty and he's ready to come out.",
+        "walkout_talk": "I left angry, mi amor, and you know I'm never angry. Sit, let me do your hair, and I'll tell you why while I work.",
+        "neglect": "There you are! I thought you'd found another barber. That's the worst betrayal there is, you know.",
+        "asked_to_stay": "Okay, okay, one more, but I'm doing everyone's hair tonight.",
+        "on_break": "Orlando is back at the Shadowpine Altar, cutting hair by the fire. Come back after you've done a few more jobs."
       }
     },
     "pavlo_knight": {
