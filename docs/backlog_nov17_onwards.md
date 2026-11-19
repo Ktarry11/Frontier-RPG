@@ -67,9 +67,9 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
   from its last boss.
 - **Stage 3:** one heroic-only trick per boss; now and then a heroic-only boss ("for spice").
 - **Master crafting, more of it** (built 18 Nov 2026, `docs/master_crafting.md`): the 71 showpieces wait for the raid's
-  materials; epic cloaks, belts and bracers; Alchemy and Enchanting at Master. **Art:** some Master epics wear a
-  recoloured stand-in icon and about 40 Master blues share one (the installed art for rings, necks, shields, guns, goggles
-  and some plate ran out; Kyle's WoW pack isn't in this workspace).
+  materials; epic cloaks, belts and bracers; Alchemy and Enchanting at Master. **Art:** sheets M1 and M3 of `docs/master_crafting_icon_prompts.md` landed 18 Nov (56 icons); M2 (36: the
+  Manticore-Scale mail, Chimera epics, Mending/Tidemail/Wildstalker/Brute pieces, the jewellery, Dreamsilk) is still
+  to paste. Until then those pieces wear a shared or recoloured stand-in.
 - **Later:** the skull zone (68) and frontier zone (69) heroics; tuning the elite multipliers (health x1.3, damage
   x1.15) once played.
 - **The level-60 gear ladder** (Kyle, 18 Nov 2026), item levels: normal 60 dungeons 60-63, Honored rep 62, Revered
