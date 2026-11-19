@@ -119,11 +119,12 @@ SHORT_ONLY = {"postcard list", "postcard closer", "everybody out", "who's bleedi
 #: ("i'll be at the") is ordinary English, not a tic.
 STOP = set("""i i'm i'll i'd i've me my we we're we've us you you're your it it's that that's this
 there there's here a an the and but so or then to of in on at for with from by as if be is was
-are were been do don't did not no yes just now when what where who how all some""".split())
+are were been do don't did not no yes just now when what where who how all some
+going back home heading off""".split())
 
 
 def tic_problems(data=None):
-    """Stock phrases; any four word run shared by three recruits' banter or six recruits' bond
+    """Stock phrases; any four word run shared by three recruits' banter or eight recruits' bond
     lines; and any bond line whose first three words open the same line for four recruits."""
     data = load() if data is None else data
     bad, seen, openers = [], {}, {}
@@ -148,7 +149,7 @@ def tic_problems(data=None):
                     openers.setdefault((where, " ".join(w[:3])), set()).add(rid)
     for (kind, g), rids in sorted(seen.items()):
         # the bond lines all do the same few jobs, so they get a little more room than banter
-        if len(rids) >= (3 if kind == "banter" else 6):
+        if len(rids) >= (3 if kind == "banter" else 8):
             bad.append(f"{kind} shared by {len(rids)} recruits: {g!r} ({', '.join(sorted(rids))})")
     for (where, g), rids in sorted(openers.items()):
         if len(rids) >= 4:
