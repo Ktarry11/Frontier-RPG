@@ -1,0 +1,115 @@
+{
+  "recruit_text": {
+    "backstory": "Emiliano breathed fire at traffic lights in Oaxaca, two minutes a red light, for coins from the windows. He was good at it and very good at talking, and he arrived with a bottle of lamp oil on his belt. The fire here took to him at once. Now it comes out of him the colour of a dragon's breath, and he's cocky about it, and he's earned some of that.",
+    "before": "A corner by the zócalo, four younger sisters, and a dream of a circus that would take him on.\n\nIn eleven years he didn't burn himself once, and he'll show you his hands to prove it."
+  },
+  "bond": {
+    "home": "Cinderwharf",
+    "dials": {
+      "warmth": 1.3,
+      "nerve": 1.3,
+      "pride": 1.4,
+      "restless": 1.2
+    },
+    "likes": [
+      "boss",
+      "full_party"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
+    "stages": {
+      "stranger": "Qué onda, carnal, I'm Emiliano, pyromancer and showman. Want to see a trick? I used to do this for coins at a red light, and now I do it for the Ashclaim.",
+      "acquaintance": "I'm from Oaxaca. I breathed fire at the traffic lights by the zócalo for eleven years, two minutes a red light, coins through the car windows. An old man taught me, who'd worked the same corner for thirty years. You learn to hold a crowd in the time it takes a light to change. Look at my hands, carnal. Eleven years and not one burn.",
+      "companion": "My father left when I was small, and I was the eldest of five, so at fourteen I was working. My mother, Doña Elvira, sold tamales in the market, and between us we raised my four sisters. I paid for two of them to finish school, and I'm prouder of that than of any trick. I was mid-breath at a red light when the world changed, and I came round in the Ashen Reach with this bottle of lamp oil still on my belt. I send money home on every ship out of Cinderwharf, in case one finds them.",
+      "friend": "Every year a travelling circus came through Oaxaca, a real one with a tent, and every year I auditioned. Every year they said next year. Now a goblin circus has come to Cinderwharf, and the ringmaster says I can have the main slot if I bring her something nobody's ever seen. I want to breathe a dragon's fire, carnal, the real thing, and I need to see a dragonkin's flame up close. Will you help me?",
+      "sworn": "I walked out into the ring and breathed a dragon in gold and scarlet, and the whole tent screamed. In the front row there was a woman and four young women, cheering louder than anybody. One of my sisters saw a poster with my name on it in a camp down the coast and dragged the whole family there. My mother said I should have been careful, and I told her I was. I've joined the circus, and they ride in the wagon behind me. Keep the lamp oil. I breathe my own fire now."
+    },
+    "moments": [
+      {
+        "id": "the_trick",
+        "stage": "stranger",
+        "when": "talk",
+        "prompt": "Emiliano is juggling three small flames and grinning at you.",
+        "options": [
+          {
+            "text": "Clap.",
+            "trust": 8,
+            "reply": "Gracias, thank you, thank you! See, that's all I ask for, a little appreciation."
+          },
+          {
+            "text": "Tell him to be careful.",
+            "trust": 0,
+            "reply": "You want me to be careful? Carnal, look at my hands. Eleven years and not a single burn."
+          }
+        ]
+      },
+      {
+        "id": "dragon_fire",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to help him study a dragonkin's flame.",
+        "options": [
+          {
+            "text": "Let's go and steal some fire.",
+            "trust": 12,
+            "reply": "Órale, that's the spirit! Stay behind me and look impressed."
+          },
+          {
+            "text": "That sounds like a good way to die.",
+            "trust": 3,
+            "reply": "Probably, but it's also a good way to get top billing."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "Carnal, there's no audience out here, and I'm wasting my best material on rocks.",
+      "leaving_good": "Great trip, great audience, very chido. I'll be in Cinderwharf by the forges, showing off to anyone who'll watch.",
+      "leaving_bored": "No crowd, no applause, nothing. I'm going back to Cinderwharf, where people at least watch.",
+      "after_wipe": "Okay, okay, that trick didn't land. Everybody up, and we do it again with more style.",
+      "wipe_warning": "We keep bombing in here, carnal, and I hate bombing. After this run I need a few nights off the stage.",
+      "wipe_leave": "The show's cancelled for a while. I'll be by the forges in Cinderwharf, practising.",
+      "zone_warning": "Carnal, even I know a crowd I can't win. Everything out here wants us dead, so let's leave.",
+      "zone_leave": "I'm not dying in front of an audience of monsters. I'll be in Cinderwharf.",
+      "gear_refuse": "Ey, no, that's part of the act. Ask me after you've clapped a few more times.",
+      "gear_taken": "Órale, take it. I'll make it look like I meant to lose it.",
+      "gear_short": "My costume's missing a piece, carnal, and the crowd will notice before you do.",
+      "gear_upgrade": "Qué chido, that's going to look incredible under a spotlight.",
+      "back": "I've got a new trick, carnal, and you're going to love it. Where's tonight's stage?",
+      "send_word": "Emiliano has sent word from Cinderwharf. He's got a new trick and he's ready.",
+      "walkout_talk": "I walked off stage in the middle of the act, and that's unprofessional. Sit down, carnal, and I'll tell you why.",
+      "neglect": "My favourite audience is back! I saved you a front-row seat.",
+      "asked_to_stay": "One more show? Carnal, for you, always.",
+      "on_break": "Emiliano is back in Cinderwharf, by the forges. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "My mother sold tamales in the Oaxaca market, and she could spot a pickpocket from forty stalls away. I learned everything about crowds from her.",
+        "kind": "open",
+        "topic": "cities"
+      }
+    ],
+    "boss_down": [
+      {
+        "text": "Somebody clap, please, I worked very hard on that one.",
+        "kind": "open",
+        "topic": "fire"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "Ooh, that one gets a gasp from the crowd, but I'd rather not do it twice.",
+        "kind": "open"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "Not a single burn on my hands, look. I'll show anyone who asks.",
+        "kind": "reply"
+      }
+    ]
+  }
+}

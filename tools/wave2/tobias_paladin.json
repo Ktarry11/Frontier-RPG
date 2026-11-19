@@ -1,0 +1,113 @@
+{
+  "recruit_text": {
+    "adjustment": "He landed in the Plaguelands, which was very bad luck. The Argent Dawn took him in because he could fix a wall, and he's been fixing their walls since.\n\nHe found the Light on a scaffold, and he still prays best with a trowel in his hand."
+  },
+  "bond": {
+    "home": "Light's Hope Chapel",
+    "dials": {
+      "warmth": 0.8,
+      "nerve": 1.5,
+      "pride": 0.9,
+      "restless": 0.6
+    },
+    "likes": [
+      "undead",
+      "quest"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
+    "stages": {
+      "stranger": "I'm Tobias, a paladin, and a stonemason. Mind the scaffold, please, and don't lean on that wall yet. I'll stand in front.",
+      "acquaintance": "I'm from Bonn. My father was a carpenter, and I apprenticed as a stonemason at seventeen. At twenty-four I joined the works crew at Cologne Cathedral, and I stayed sixteen years. It's been under repair for seven hundred years and it'll never be finished. I replaced stones carved by men who died in the middle ages. Na ja, that's the best job there is.",
+      "companion": "There were twelve of us on the crew. We ate lunch together on the roof every day, and they were my family more than anybody. I never married. I was up on the roof with them, setting a stone, when it happened, and I came down alone in the Plaguelands with my chisel in my apron. The Argent Dawn took me in because I could fix a wall.",
+      "friend": "I'll show you something, if you keep it quiet. I carve a little face into every stone I set, somewhere nobody looks, the back of a pinnacle or behind an ear. My crew knew and never told. There's one on the chapel wall already. Now the Scourge are massing to hit Light's Hope, and the eastern wall won't hold. I can make it hold with the right stone, from a quarry in Scourge country. Will you help me haul it?",
+      "sworn": "The wall held. Among the dead that broke against it were things that had been men, and one of them wore a mason's apron with the Cologne works crest on it. I found three more after. My crew crossed over together, into the Plaguelands, and the Scourge took them. I laid them to rest in the chapel yard, and I carved twelve little faces into the cornerstone of the wall they couldn't break. That wall will stand a thousand years, and now I know why. Take the chisel. I've one more face to carve, my own, and I'll do it with a new one."
+    },
+    "moments": [
+      {
+        "id": "the_wall",
+        "stage": "acquaintance",
+        "when": "talk",
+        "prompt": "Tobias runs his hand along a wall, stops, and taps one stone twice.",
+        "options": [
+          {
+            "text": "Ask him what's wrong with it.",
+            "trust": 8,
+            "reply": "It's hollow behind. Somebody rushed this, and I'd like a word with them."
+          },
+          {
+            "text": "Tell him to keep up.",
+            "trust": 0,
+            "reply": "Na ja, the wall can wait, I suppose. It's waited this long."
+          }
+        ]
+      },
+      {
+        "id": "the_quarry",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to help him haul stone from the quarry.",
+        "options": [
+          {
+            "text": "I'll carry my share.",
+            "trust": 12,
+            "reply": "Genau, that's right. Lift with your legs, not your back."
+          },
+          {
+            "text": "Can't any stone do?",
+            "trust": 3,
+            "reply": "It can't, I'm afraid. The wrong stone's worse than no wall, because you trust it."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "This is the same job over and over, and none of it's building anything. I'd like something that lasts.",
+      "leaving_good": "Good work, all of it, and it'll hold. I'll be on the scaffold at Light's Hope.",
+      "leaving_bored": "There's no work for a mason out here. I'll be repointing the chapel wall at Light's Hope.",
+      "after_wipe": "Stand up slowly, everyone. Check what's cracked before you put weight on it.",
+      "wipe_warning": "This place keeps knocking us down like a wall with no footings. After this run, I'm back on the scaffold for a few days.",
+      "wipe_leave": "That's enough for now. I'll be at Light's Hope Chapel, where at least the walls stay up.",
+      "zone_warning": "We've no footings out here, and everything's pressing on us at once. We should go back before something gives.",
+      "zone_leave": "I don't build on bad ground. I'll be at Light's Hope Chapel.",
+      "gear_refuse": "That's mine, and I look after my own tools, so maybe later.",
+      "gear_taken": "Genau, take it. I'll manage with my apron.",
+      "gear_short": "There's a stone missing from my wall, so to speak. Find me something solid when you can.",
+      "gear_upgrade": "Danke, that's good honest work.",
+      "back": "The mortar's set and the choir's practising without me. Where do you need a wall?",
+      "send_word": "Tobias has sent word from Light's Hope Chapel. The mortar's set, and he's ready.",
+      "walkout_talk": "I walked off with my temper up, and that's not how I work. Sit, and I'll explain, slowly.",
+      "neglect": "You're back, good. I set eleven stones while you were away.",
+      "asked_to_stay": "Na ja, one more. The wall can wait a day.",
+      "on_break": "Tobias is back on the scaffold at Light's Hope Chapel. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "On Sundays I sang bass in a church choir in the Südstadt, and afterwards we drank Kölsch until somebody's wife came to fetch them.",
+        "kind": "open",
+        "topic": "cities"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "Whoever built that place cut their stone well. I'd have liked to meet them.",
+        "kind": "open"
+      }
+    ],
+    "boss_down": [
+      {
+        "text": "Mind the rubble. Something that size brings half the ceiling down with it.",
+        "kind": "reply"
+      }
+    ],
+    "zone_arrive": [
+      {
+        "text": "Look at that ruin. The walls are still standing after all this time, and that's good masonry.",
+        "kind": "open"
+      }
+    ]
+  }
+}

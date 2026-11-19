@@ -1,0 +1,111 @@
+{
+  "bond": {
+    "home": "Talrendis Landing",
+    "dials": {
+      "warmth": 1.6,
+      "nerve": 1.0,
+      "pride": 0.5,
+      "restless": 0.7
+    },
+    "likes": [
+      "quest",
+      "full_party"
+    ],
+    "dislikes": [
+      "quest_abandoned"
+    ],
+    "stages": {
+      "stranger": "Ahlan wa sahlan, I'm Mohammed. Sit down, you look tired. Tea first, and then you can tell me where we're going.",
+      "acquaintance": "I'm from Aqaba, on the Red Sea. My sister Layla and I opened a guesthouse at twenty-nine, twelve rooms over a dive shop, with a rooftop where the guests ate breakfast looking across the water at Sinai. I made the tea every morning and remembered every diver who ever stayed. Layla did the books, because I'm hopeless with numbers. She still does.",
+      "companion": "Our father fished and our mother cooked, and they both died some years ago, close together, the way old couples do. Layla's all the family I've got, and she came across with me, which makes me luckier than almost anyone. We were on the roof laying out breakfast when it happened, and we landed together in Azshara with the front door key round my neck. I still lock up with it every night, in my head.",
+      "friend": "Since we arrived, I dream of the same white street running into the sea, every night. Farseer Thrag says the dreams are true, and they've made me curious more than frightened, mostly. But now there's a group of travellers walking that street in the dream, and they don't come back. I'm sure it's going to happen. I want to go to the Drowned Promenade awake, for the first time, and find them. Will you come?",
+      "sworn": "The Promenade looked exactly the way it does at night, every stone of it. We found the travellers trapped where I knew they'd be, and we got them out. They're a family of Jordanian divers who stayed at my guesthouse four years ago, and they remembered my tea. Layla put them up, and I made them breakfast. That night I dreamed of the white street, and it was empty and quiet, and I slept until morning for the first time in two years. Here, take the key. I've got an inn with its own door now, and you're welcome at it any time."
+    },
+    "moments": [
+      {
+        "id": "the_tea",
+        "stage": "stranger",
+        "when": "talk",
+        "prompt": "Mohammed has put a glass of sweet tea in your hand before you've even sat down.",
+        "options": [
+          {
+            "text": "Drink it.",
+            "trust": 8,
+            "reply": "There, that's better. Sage and sugar, the way my mother made it."
+          },
+          {
+            "text": "I'm not thirsty.",
+            "trust": 0,
+            "reply": "Ayb, nobody refuses tea in my house. Hold it, at least."
+          }
+        ]
+      },
+      {
+        "id": "the_promenade",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to come to the Drowned Promenade with him, awake.",
+        "options": [
+          {
+            "text": "I'll walk it with you.",
+            "trust": 12,
+            "reply": "Tfaddal, then, after you. No, after me, I know the way."
+          },
+          {
+            "text": "What if the dream's wrong?",
+            "trust": 3,
+            "reply": "Then we'll have had a walk by the sea, and I'll make tea for nobody."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "Habibi, we've done this so many times I could tell it as a story, and it would be a boring one.",
+      "leaving_good": "Thank you, that was a lovely trip. I'll be at the inn at Talrendis Landing, and I'll remember how you take your tea.",
+      "leaving_bored": "Layla's probably doing the laundry without me, and I'd rather help her than do this. I'll be at Talrendis Landing.",
+      "after_wipe": "Everyone sit down, please, and I'll make tea. Then we'll talk about what happened.",
+      "wipe_warning": "I didn't dream this part, and I don't like it. After this run, I want a few quiet nights at the inn.",
+      "wipe_leave": "That's enough excitement for an innkeeper. I'll be at Talrendis Landing, napping.",
+      "zone_warning": "Habibi, I've had dreams that ended like this, and I woke up sweating. Let's not find out how it ends awake.",
+      "zone_leave": "I've dreamed how that ends, and I'm not going to watch it. I'll be at the inn at Talrendis Landing.",
+      "gear_refuse": "Ah, not that, habibi. You're a guest, and guests don't take the furniture.",
+      "gear_taken": "Tfaddal, take it. A good host doesn't argue.",
+      "gear_short": "I'm missing something, habibi, like a guest who left without saying goodbye.",
+      "gear_upgrade": "Mashallah, look at that! Thank you, habibi.",
+      "back": "Layla says I can go, as long as I'm back for the laundry. Tea first, then we go.",
+      "send_word": "Mohammed has sent word from Talrendis Landing. Layla's let him out and he's ready.",
+      "walkout_talk": "Ayb, I left without saying goodbye, and that's the rudest thing a host can do. Sit, have tea, and I'll explain.",
+      "neglect": "You came back, habibi! I remembered how you take your tea the whole time you were gone.",
+      "asked_to_stay": "One more, of course. Layla can manage the laundry a little longer.",
+      "on_break": "Mohammed is back at the inn at Talrendis Landing, with Layla. Come back after you've done a few more jobs.",
+      "quest_abandoned": "Leaving that undone is like leaving a guest at the door. I don't like it."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "A diver once stayed with us in Aqaba for a week and never got in the water, because he liked my breakfasts too much. He came back every year.",
+        "kind": "open",
+        "topic": "cities"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "I dreamed something like that once, and it ended worse. Sit down and drink something.",
+        "kind": "open"
+      }
+    ],
+    "zone_arrive": [
+      {
+        "text": "Have we been here before? I think I've dreamed this hill.",
+        "kind": "open"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "Is everybody hungry? I'm making breakfast, whatever time it is.",
+        "kind": "reply"
+      }
+    ]
+  }
+}
