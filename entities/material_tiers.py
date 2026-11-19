@@ -94,7 +94,8 @@ HIGH_TIER = HIGH_TIER_CLOTH | HIGH_TIER_LEATHER
 #:     cloth    Dreamsilk (310), Chronoweave (320)        monsters in heroics
 #:     leather  Manticore (310), Chimera (320)            skinning in heroics
 #:     ore      Frostforged Silver (310), Sylvanite (310) heroic bosses and chests
-#:     wood     Emberwood (310), Voidwood (310)           heroic bosses and chests
+#:     wood     Voidwood (310), Dreamwillow (320)         heroic bosses and chests (Emberwood, Frostheart and
+#:              Ebonthorn moved below the line on 18 Nov, tools/fix_pre60_woods.py)
 #:     gem      Glacier Sapphire (310), Sylvan Emerald (310)  heroic bosses and chests
 #: and, when they're built, the level-60 zones' nodes and drops (Kyle: "Heroic bosses, chests and eventually the lvl 60
 #: zones"). Everything above these two on each ladder is held back for higher content. docs/heroic_design.md.

@@ -56,7 +56,7 @@ built yet. Until they are, the hidden places stay as they are and are never hero
   | cloth | **Dreamsilk** (310), **Chronoweave** (320) | humanoids in heroics |
   | leather | **Manticore** (310), **Chimera** (320) | skinning beasts in heroics |
   | ore | **Frostforged Silver** (310), **Sylvanite** (310) | heroic bosses (2-4), heroic side chests |
-  | wood | **Emberwood** (310), **Voidwood** (310) | heroic bosses (2-4), heroic side chests |
+  | wood | **Voidwood** (310), **Dreamwillow** (320) | heroic bosses (2-4), heroic side chests |
   | gem | **Glacier Sapphire** (310), **Sylvan Emerald** (310) | heroic bosses (1), heroic side chests |
 
   These are the same ten the level-60 zones will use when they're built ("Heroic bosses, chests and eventually the
@@ -81,10 +81,12 @@ QA: `tools/qa_heroic.py`, `tools/qa_tabards_and_dungeon_cap.py`.
 
 ## Crafting stays competitive (Kyle, 18 Nov 2026: "I'll ALWAYS want crafting to be competitive to raiding/Dungeons")
 
-Measured on 18 Nov: almost nothing crafts from the first top tiers yet. Only woodworking uses them (Emberwood,
-Frostheart and Ebonthorn staves and codices), and it makes item level 51-61, below a normal level-60 dungeon. The
-only crafted gear at the heroic or raid level is the 32 Exalted rep patterns (68). So a crafting tier made from the
-ten materials above, at the heroic and raid levels, is its own job (backlog).
+Measured on 18 Nov: almost nothing crafts from the first top tiers yet. The only crafted gear at the heroic or raid
+level is the 32 Exalted rep patterns (68). Woodworking's level 50-56 tier turned out to be built on three level-60
+woods that grew nowhere. Those woods were moved below the line the same day (Kyle: "Nothing sub 60 should use lvl 60
+materials"; `tools/fix_pre60_woods.py`, guarded by `tools/qa_no_level60_materials_below_60.py`). So the ten
+materials above still need a crafting tier of their own, gear for each profession (Kyle: "Then we can add crafting
+for new gear for each profession"), at the heroic and raid levels.
 
 ## Later
 
