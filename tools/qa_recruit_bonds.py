@@ -272,7 +272,9 @@ def main():
             from ui.screens.bond_test_screen import BondTestScreen
             p = BondTestScreen(gsm)
             p.render(screen)
-            check(len(p.rects) >= 7 + 3 * 6, "the test panel is missing buttons")
+            # seven events, 10 outings and Next beat, the picker's three, and five per recruit with you
+            here = len(p._with_you()[:5])
+            check(here >= 1 and len(p.rects) >= 9 + 3 + 5 * here, "the test panel is missing buttons")
             from ui.screens.party_screen import PartyScreen
             ps = PartyScreen(gsm)
             ps.selected = next(m for m in party.members if getattr(m, "recruit_id", None) == K)
