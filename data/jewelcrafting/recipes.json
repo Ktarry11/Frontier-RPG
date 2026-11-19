@@ -5880,18 +5880,18 @@
     "rep_cc_pendant_of_the_hanging_light": {
       "name": "Pendant of the Hanging Light",
       "inputs": {
-        "setting_necklace_thorium": 1,
-        "bar_thorium": 2,
-        "gem_azure_diamond": 4
+        "bar_sylvanite": 3,
+        "gem_sylvan_emerald": 2,
+        "gem_glacier_sapphire": 1
       },
-      "skill_required": 300,
+      "skill_required": 320,
       "output": {
         "kind": "armor",
         "slot": "neck",
         "stat_template": "spi_healer",
         "item_level": 68,
         "rarity": "epic",
-        "material_tier": "thorium",
+        "material_tier": "sylvanite",
         "identity": "healer",
         "flavor": "A shard of crystal that points, always, at the light in the Underdark.",
         "fixed_item_level": true,
@@ -5921,14 +5921,13 @@
         }
       },
       "skill_range": [
-        300,
-        305,
-        310,
-        315
+        323,
+        328,
+        333,
+        338
       ],
       "source": "vendor",
       "faction": "crimson_codex",
-      "_rare_ingredients_todo": true,
       "tool": "jewelers_kit"
     },
     "secret_hz_glass_vessa_jc_ring_copper_spi_healer": {
@@ -6516,18 +6515,18 @@
     "rep_sc_band_of_the_rising_sea": {
       "name": "Band of the Rising Sea",
       "inputs": {
-        "setting_necklace_thorium": 1,
-        "bar_thorium": 2,
-        "gem_azure_diamond": 4
+        "bar_sylvanite": 3,
+        "gem_sylvan_emerald": 2,
+        "gem_glacier_sapphire": 1
       },
-      "skill_required": 300,
+      "skill_required": 320,
       "output": {
         "kind": "armor",
         "slot": "ring",
         "stat_template": "int_caster",
         "item_level": 68,
         "rarity": "epic",
-        "material_tier": "thorium",
+        "material_tier": "sylvanite",
         "identity": "arcane_crit",
         "flavor": "A gold band set with a pearl the dig found in Zin-Azshari's silt.",
         "fixed_item_level": true,
@@ -6557,14 +6556,309 @@
         }
       },
       "skill_range": [
-        300,
-        305,
-        310,
-        315
+        323,
+        328,
+        333,
+        338
       ],
       "source": "vendor",
       "faction": "sunreach_conclave",
-      "_rare_ingredients_todo": true
+      "tool": "jewelers_kit"
+    },
+    "m60_glacier_ring": {
+      "name": "Glacier Sapphire Ring",
+      "inputs": {
+        "bar_frostforged_silver": 2,
+        "gem_glacier_sapphire": 2
+      },
+      "skill_required": 300,
+      "skill_range": [
+        303,
+        308,
+        313,
+        318
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "int_caster",
+        "material_tier": "frostforged_silver",
+        "fixed_item_level": true,
+        "armor_type": null,
+        "item": {
+          "name": "Glacier Sapphire Ring",
+          "slot": "ring",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "spell_power": 30
+          },
+          "armor_value": 0,
+          "required_level": 60,
+          "sell_price": 13709,
+          "flavor_text": "The sapphire is cold enough to fog the glass it's kept under.",
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_ring_18"
+        }
+      },
+      "tool": "jewelers_kit"
+    },
+    "m60_glacier_pendant": {
+      "name": "Glacier Sapphire Pendant",
+      "inputs": {
+        "bar_frostforged_silver": 2,
+        "gem_glacier_sapphire": 2
+      },
+      "skill_required": 302,
+      "skill_range": [
+        305,
+        310,
+        315,
+        320
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "armor",
+        "slot": "neck",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "spi_healer",
+        "material_tier": "frostforged_silver",
+        "fixed_item_level": true,
+        "armor_type": null,
+        "item": {
+          "name": "Glacier Sapphire Pendant",
+          "slot": "neck",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 33
+          },
+          "armor_value": 0,
+          "required_level": 60,
+          "sell_price": 13709,
+          "flavor_text": "Worn against the heart, it keeps it steady.",
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_amulet_05"
+        }
+      },
+      "tool": "jewelers_kit"
+    },
+    "m60_frostforged_band": {
+      "name": "Frostforged Band",
+      "inputs": {
+        "bar_frostforged_silver": 2,
+        "gem_glacier_sapphire": 2
+      },
+      "skill_required": 304,
+      "skill_range": [
+        307,
+        312,
+        317,
+        322
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "agi_physical",
+        "material_tier": "frostforged_silver",
+        "fixed_item_level": true,
+        "armor_type": null,
+        "item": {
+          "name": "Frostforged Band",
+          "slot": "ring",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 11,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 0,
+          "required_level": 60,
+          "sell_price": 13709,
+          "flavor_text": "Plain silver, perfectly round, and very sharp at one edge.",
+          "identity": "agility",
+          "icon_id": "gear_inv_jewelry_ring_28"
+        }
+      },
+      "tool": "jewelers_kit"
+    },
+    "m60_frostforged_choker": {
+      "name": "Frostforged Choker",
+      "inputs": {
+        "bar_frostforged_silver": 2,
+        "gem_glacier_sapphire": 2
+      },
+      "skill_required": 306,
+      "skill_range": [
+        309,
+        314,
+        319,
+        324
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "armor",
+        "slot": "neck",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "str_physical",
+        "material_tier": "frostforged_silver",
+        "fixed_item_level": true,
+        "armor_type": null,
+        "item": {
+          "name": "Frostforged Choker",
+          "slot": "neck",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 0,
+          "required_level": 60,
+          "sell_price": 13709,
+          "flavor_text": "A soldier's necklace: no stones to catch, nothing to grab.",
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_amulet_07"
+        }
+      },
+      "tool": "jewelers_kit"
+    },
+    "m60_signet_of_frost": {
+      "name": "Sylvanite Signet of Frost",
+      "inputs": {
+        "bar_sylvanite": 3,
+        "gem_sylvan_emerald": 2,
+        "gem_glacier_sapphire": 1
+      },
+      "skill_required": 320,
+      "skill_range": [
+        323,
+        328,
+        333,
+        338
+      ],
+      "source": "heroic",
+      "output": {
+        "kind": "armor",
+        "slot": "ring",
+        "item_level": 68,
+        "rarity": "epic",
+        "required_level": 60,
+        "stat_template": "int_caster",
+        "material_tier": "sylvanite",
+        "fixed_item_level": true,
+        "armor_type": null,
+        "item": {
+          "name": "Sylvanite Signet of Frost",
+          "slot": "ring",
+          "item_level": 68,
+          "rarity": "epic",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 36,
+            "crit_chance_spell": 14
+          },
+          "armor_value": 0,
+          "required_level": 60,
+          "sell_price": 25300,
+          "flavor_text": "A sapphire set in sylvanite. Breathe on it and it frosts.",
+          "identity": "caster_crit",
+          "icon_id": "gear_m60_sylvanite_signet_of_frost"
+        }
+      },
+      "tool": "jewelers_kit"
+    },
+    "m60_sylvan_torc": {
+      "name": "Sylvan Emerald Torc",
+      "inputs": {
+        "bar_sylvanite": 3,
+        "gem_sylvan_emerald": 2,
+        "gem_glacier_sapphire": 1
+      },
+      "skill_required": 322,
+      "skill_range": [
+        325,
+        330,
+        335,
+        340
+      ],
+      "source": "heroic",
+      "output": {
+        "kind": "armor",
+        "slot": "neck",
+        "item_level": 68,
+        "rarity": "epic",
+        "required_level": 60,
+        "stat_template": "str_physical",
+        "material_tier": "sylvanite",
+        "fixed_item_level": true,
+        "armor_type": null,
+        "item": {
+          "name": "Sylvan Emerald Torc",
+          "slot": "neck",
+          "item_level": 68,
+          "rarity": "epic",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 27,
+            "strength": 10
+          },
+          "secondary_stats": {
+            "defense_rating": 21
+          },
+          "armor_value": 0,
+          "required_level": 60,
+          "sell_price": 25300,
+          "flavor_text": "Three emeralds, three oaths, one neck to keep them on.",
+          "identity": "tank",
+          "icon_id": "gear_m60_sylvan_emerald_torc"
+        }
+      },
+      "tool": "jewelers_kit"
     }
   }
 }

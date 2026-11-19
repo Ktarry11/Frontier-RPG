@@ -1277,6 +1277,8 @@ class OverworldScreen(BaseScreen):
             self._notify(f"Gathered {material.name}. ({label} is at its cap - visit your trainer to advance.)", (220, 190, 120))
         elif skilled_up:
             cap = TIER_SKILL_CAPS.get(material.tier)
+            if ((getattr(material, "skill_range", None) or [0])[0] or 0) > 300:
+                cap = None          # a level-60 node: the trade's own cap (Master, 325) is the limit
             player.gain_profession_skill(material.profession, 1, cap=cap)
             self._notify(f"Gathered {material.name}. ({material.profession.title()} skill up!)", (140, 220, 160))
         else:

@@ -10610,18 +10610,19 @@
     "rep_og_korkron_warplate": {
       "name": "Kor'kron Warplate",
       "inputs": {
-        "bar_elementium": 12,
+        "bar_sylvanite": 12,
+        "bar_frostforged_silver": 4,
         "flux_strong": 2,
-        "whetstone": 2
+        "gem_sylvan_emerald": 1
       },
-      "skill_required": 300,
+      "skill_required": 320,
       "output": {
         "kind": "armor",
         "slot": "chest",
         "stat_template": "str_physical",
         "item_level": 68,
         "rarity": "epic",
-        "material_tier": "elementium",
+        "material_tier": "sylvanite",
         "identity": "strength_crit",
         "flavor": "Black iron and red leather, the plate the Warchief's guard wears to war.",
         "fixed_item_level": true,
@@ -10651,30 +10652,30 @@
         }
       },
       "skill_range": [
-        300,
-        305,
-        310,
-        315
+        323,
+        328,
+        333,
+        338
       ],
       "source": "vendor",
-      "faction": "orgrimmar",
-      "_rare_ingredients_todo": true
+      "faction": "orgrimmar"
     },
     "rep_bb_harbour_guard_greathelm": {
       "name": "Harbour Guard's Greathelm",
       "inputs": {
-        "bar_elementium": 12,
+        "bar_sylvanite": 10,
+        "bar_frostforged_silver": 3,
         "flux_strong": 2,
-        "whetstone": 2
+        "gem_sylvan_emerald": 1
       },
-      "skill_required": 300,
+      "skill_required": 320,
       "output": {
         "kind": "armor",
         "slot": "head",
         "stat_template": "str_physical",
         "item_level": 68,
         "rarity": "epic",
-        "material_tier": "elementium",
+        "material_tier": "sylvanite",
         "identity": "tank",
         "flavor": "The Port Authority's crest on the brow. Pirates know it on sight, and that's the point.",
         "fixed_item_level": true,
@@ -10704,30 +10705,30 @@
         }
       },
       "skill_range": [
-        300,
-        305,
-        310,
-        315
+        323,
+        328,
+        333,
+        338
       ],
       "source": "vendor",
-      "faction": "booty_bay_authority",
-      "_rare_ingredients_todo": true
+      "faction": "booty_bay_authority"
     },
     "rep_ac_claimants_warplate": {
       "name": "Ashhold Claimant's Warplate",
       "inputs": {
-        "bar_elementium": 12,
+        "bar_sylvanite": 12,
+        "bar_frostforged_silver": 4,
         "flux_strong": 2,
-        "whetstone": 2
+        "gem_sylvan_emerald": 1
       },
-      "skill_required": 300,
+      "skill_required": 320,
       "output": {
         "kind": "armor",
         "slot": "chest",
         "stat_template": "str_physical",
         "item_level": 68,
         "rarity": "epic",
-        "material_tier": "elementium",
+        "material_tier": "sylvanite",
         "identity": "strength_crit",
         "flavor": "Forged for the thane's champion: whoever wears it walks into Khaz Varun first.",
         "fixed_item_level": true,
@@ -10757,30 +10758,30 @@
         }
       },
       "skill_range": [
-        300,
-        305,
-        310,
-        315
+        323,
+        328,
+        333,
+        338
       ],
       "source": "vendor",
-      "faction": "the_ashclaim",
-      "_rare_ingredients_todo": true
+      "faction": "the_ashclaim"
     },
     "rep_pf_pale_warplate": {
       "name": "Pale Flame Warplate",
       "inputs": {
-        "bar_elementium": 12,
+        "bar_sylvanite": 12,
+        "bar_frostforged_silver": 4,
         "flux_strong": 2,
-        "whetstone": 2
+        "gem_sylvan_emerald": 1
       },
-      "skill_required": 300,
+      "skill_required": 320,
       "output": {
         "kind": "armor",
         "slot": "chest",
         "stat_template": "str_physical",
         "item_level": 68,
         "rarity": "epic",
-        "material_tier": "elementium",
+        "material_tier": "sylvanite",
         "identity": "tank",
         "flavor": "The Order's own warplate, grey steel with the flame left white.",
         "fixed_item_level": true,
@@ -10810,30 +10811,30 @@
         }
       },
       "skill_range": [
-        300,
-        305,
-        310,
-        315
+        323,
+        328,
+        333,
+        338
       ],
       "source": "vendor",
-      "faction": "pale_flame",
-      "_rare_ingredients_todo": true
+      "faction": "pale_flame"
     },
     "rep_ad_lightguard_greaves": {
       "name": "Argent Lightguard Greaves",
       "inputs": {
-        "bar_elementium": 12,
+        "bar_sylvanite": 12,
+        "bar_frostforged_silver": 4,
         "flux_strong": 2,
-        "whetstone": 2
+        "gem_sylvan_emerald": 1
       },
-      "skill_required": 300,
+      "skill_required": 320,
       "output": {
         "kind": "armor",
         "slot": "legs",
         "stat_template": "spi_healer",
         "item_level": 68,
         "rarity": "epic",
-        "material_tier": "elementium",
+        "material_tier": "sylvanite",
         "identity": "plate_healer",
         "flavor": "Silvered greaves for the Dawn's paladins, who heal from the front of the wall.",
         "fixed_item_level": true,
@@ -10863,14 +10864,13 @@
         }
       },
       "skill_range": [
-        300,
-        305,
-        310,
-        315
+        323,
+        328,
+        333,
+        338
       ],
       "source": "vendor",
-      "faction": "argent_dawn",
-      "_rare_ingredients_todo": true
+      "faction": "argent_dawn"
     },
     "secret_hz_glass_vessa_bs_plains_scale_vest": {
       "name": "Glassmouth's Plains Scale Vest",
@@ -11809,18 +11809,19 @@
     "rep_wk_night_watch_breastplate": {
       "name": "Night Watch Breastplate",
       "inputs": {
-        "bar_elementium": 12,
+        "bar_sylvanite": 12,
+        "bar_frostforged_silver": 4,
         "flux_strong": 2,
-        "whetstone": 2
+        "gem_sylvan_emerald": 1
       },
-      "skill_required": 300,
+      "skill_required": 320,
       "output": {
         "kind": "armor",
         "slot": "chest",
         "stat_template": "str_physical",
         "item_level": 68,
         "rarity": "epic",
-        "material_tier": "elementium",
+        "material_tier": "sylvanite",
         "identity": "tank",
         "flavor": "The Wakened's smiths learned on this one. They say if you can make it, you can make anything.",
         "fixed_item_level": true,
@@ -11850,30 +11851,28 @@
         }
       },
       "skill_range": [
-        300,
-        305,
-        310,
-        315
+        323,
+        328,
+        333,
+        338
       ],
       "source": "vendor",
-      "faction": "the_wakened",
-      "_rare_ingredients_todo": true
+      "faction": "the_wakened"
     },
     "rep_wk_longhouse_bracers": {
       "name": "Longhouse Bracers",
       "inputs": {
-        "bar_elementium": 12,
-        "flux_strong": 2,
-        "whetstone": 2
+        "bar_frostforged_silver": 4,
+        "flux_strong": 1
       },
-      "skill_required": 300,
+      "skill_required": 305,
       "output": {
         "kind": "armor",
         "slot": "wrist",
         "stat_template": "str_physical",
         "item_level": 66,
         "rarity": "rare",
-        "material_tier": "elementium",
+        "material_tier": "frostforged_silver",
         "identity": "strength",
         "flavor": "Plain iron bands from the Wakened's forge, the first thing every new smith there learns to make.",
         "fixed_item_level": true,
@@ -11903,14 +11902,811 @@
         }
       },
       "skill_range": [
-        300,
-        305,
-        310,
-        315
+        308,
+        313,
+        318,
+        323
       ],
       "source": "vendor",
-      "faction": "the_wakened",
-      "_rare_ingredients_todo": true
+      "faction": "the_wakened"
+    },
+    "m60_frostforged_helm": {
+      "name": "Frostforged Helm",
+      "inputs": {
+        "bar_frostforged_silver": 8,
+        "flux_strong": 2
+      },
+      "skill_required": 300,
+      "skill_range": [
+        303,
+        308,
+        313,
+        318
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "str_physical",
+        "material_tier": "frostforged_silver",
+        "fixed_item_level": true,
+        "armor_type": "plate",
+        "item": {
+          "name": "Frostforged Helm",
+          "slot": "head",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 26,
+            "strength": 11
+          },
+          "secondary_stats": {
+            "defense_rating": 20
+          },
+          "armor_value": 439,
+          "required_level": 60,
+          "sell_price": 18279,
+          "flavor_text": "Frostforged silver keeps its edge in the cold and its shape in the fire.",
+          "identity": "tank",
+          "icon_id": "gear_inv_helmet_57"
+        }
+      }
+    },
+    "m60_frostforged_pauldrons": {
+      "name": "Frostforged Pauldrons",
+      "inputs": {
+        "bar_frostforged_silver": 7,
+        "flux_strong": 1
+      },
+      "skill_required": 302,
+      "skill_range": [
+        305,
+        310,
+        315,
+        320
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "armor",
+        "slot": "shoulder",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "str_physical",
+        "material_tier": "frostforged_silver",
+        "fixed_item_level": true,
+        "armor_type": "plate",
+        "item": {
+          "name": "Frostforged Pauldrons",
+          "slot": "shoulder",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 15,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "attack_power": 39
+          },
+          "armor_value": 439,
+          "required_level": 60,
+          "sell_price": 18279,
+          "flavor_text": "Rimed at the edges whatever the weather.",
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_02"
+        }
+      }
+    },
+    "m60_frostforged_breastplate": {
+      "name": "Frostforged Breastplate",
+      "inputs": {
+        "bar_frostforged_silver": 10,
+        "flux_strong": 2
+      },
+      "skill_required": 304,
+      "skill_range": [
+        307,
+        312,
+        317,
+        322
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "str_physical",
+        "material_tier": "frostforged_silver",
+        "fixed_item_level": true,
+        "armor_type": "plate",
+        "item": {
+          "name": "Frostforged Breastplate",
+          "slot": "chest",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 31,
+            "strength": 13
+          },
+          "secondary_stats": {
+            "defense_rating": 24
+          },
+          "armor_value": 519,
+          "required_level": 60,
+          "sell_price": 22849,
+          "flavor_text": "Quenched in snowmelt three times. The smith swears by it.",
+          "identity": "tank",
+          "icon_id": "gear_inv_chest_plate09"
+        }
+      }
+    },
+    "m60_frostforged_bracers": {
+      "name": "Frostforged Bracers",
+      "inputs": {
+        "bar_frostforged_silver": 4,
+        "flux_strong": 1
+      },
+      "skill_required": 306,
+      "skill_range": [
+        309,
+        314,
+        319,
+        324
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "str_physical",
+        "material_tier": "frostforged_silver",
+        "fixed_item_level": true,
+        "armor_type": "plate",
+        "item": {
+          "name": "Frostforged Bracers",
+          "slot": "wrist",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10
+          },
+          "secondary_stats": {
+            "attack_power": 27,
+            "crit_chance_physical": 10
+          },
+          "armor_value": 359,
+          "required_level": 60,
+          "sell_price": 11424,
+          "flavor_text": "Cold to put on. Colder to be hit by.",
+          "identity": "strength_crit",
+          "icon_id": "gear_inv_bracer_16"
+        }
+      }
+    },
+    "m60_frostforged_gauntlets": {
+      "name": "Frostforged Gauntlets",
+      "inputs": {
+        "bar_frostforged_silver": 6,
+        "flux_strong": 1
+      },
+      "skill_required": 308,
+      "skill_range": [
+        311,
+        316,
+        321,
+        326
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "str_physical",
+        "material_tier": "frostforged_silver",
+        "fixed_item_level": true,
+        "armor_type": "plate",
+        "item": {
+          "name": "Frostforged Gauntlets",
+          "slot": "hands",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10
+          },
+          "secondary_stats": {
+            "attack_power": 27,
+            "hit_rating": 10
+          },
+          "armor_value": 359,
+          "required_level": 60,
+          "sell_price": 14852,
+          "flavor_text": "Your grip never slips. Your opponents' do.",
+          "identity": "strength_hit",
+          "icon_id": "gear_inv_gauntlets_02"
+        }
+      }
+    },
+    "m60_frostforged_girdle": {
+      "name": "Frostforged Girdle",
+      "inputs": {
+        "bar_frostforged_silver": 5,
+        "flux_strong": 1
+      },
+      "skill_required": 310,
+      "skill_range": [
+        313,
+        318,
+        323,
+        328
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "armor",
+        "slot": "waist",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "spi_healer",
+        "material_tier": "frostforged_silver",
+        "fixed_item_level": true,
+        "armor_type": "plate",
+        "item": {
+          "name": "Frostforged Girdle",
+          "slot": "waist",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "healing_power": 41
+          },
+          "armor_value": 373,
+          "required_level": 60,
+          "sell_price": 12567,
+          "flavor_text": "A paladin's belt, buckled with a silver sun.",
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_belt_31"
+        }
+      }
+    },
+    "m60_frostforged_legplates": {
+      "name": "Frostforged Legplates",
+      "inputs": {
+        "bar_frostforged_silver": 10,
+        "flux_strong": 2
+      },
+      "skill_required": 312,
+      "skill_range": [
+        315,
+        320,
+        325,
+        330
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "str_physical",
+        "material_tier": "frostforged_silver",
+        "fixed_item_level": true,
+        "armor_type": "plate",
+        "item": {
+          "name": "Frostforged Legplates",
+          "slot": "legs",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 31,
+            "strength": 13
+          },
+          "secondary_stats": {
+            "defense_rating": 24
+          },
+          "armor_value": 519,
+          "required_level": 60,
+          "sell_price": 22849,
+          "flavor_text": "Built to stand in a doorway and not move.",
+          "identity": "tank",
+          "icon_id": "gear_inv_pants_13"
+        }
+      }
+    },
+    "m60_frostforged_sabatons": {
+      "name": "Frostforged Sabatons",
+      "inputs": {
+        "bar_frostforged_silver": 6,
+        "flux_strong": 1
+      },
+      "skill_required": 314,
+      "skill_range": [
+        317,
+        322,
+        327,
+        332
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "str_physical",
+        "material_tier": "frostforged_silver",
+        "fixed_item_level": true,
+        "armor_type": "plate",
+        "item": {
+          "name": "Frostforged Sabatons",
+          "slot": "feet",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 32
+          },
+          "armor_value": 550,
+          "required_level": 60,
+          "sell_price": 14852,
+          "flavor_text": "Every step leaves a little frost behind.",
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_plate_05"
+        }
+      }
+    },
+    "m60_frostforged_greatsword": {
+      "name": "Frostforged Greatsword",
+      "inputs": {
+        "bar_frostforged_silver": 10,
+        "flux_strong": 2
+      },
+      "skill_required": 316,
+      "skill_range": [
+        319,
+        324,
+        329,
+        334
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "str_physical",
+        "material_tier": "frostforged_silver",
+        "fixed_item_level": true,
+        "weapon_type": "sword_2h",
+        "item": {
+          "name": "Frostforged Greatsword",
+          "slot": "main_hand",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 34,
+            "stamina": 20
+          },
+          "secondary_stats": {
+            "attack_power": 87
+          },
+          "armor_value": 0,
+          "required_level": 60,
+          "sell_price": 28561,
+          "flavor_text": "A blade as long as a dwarf, and twice as stubborn.",
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_29",
+          "weapon_damage_min": 154,
+          "weapon_damage_max": 208,
+          "attack_speed": 3.4,
+          "block_value": 0
+        }
+      }
+    },
+    "m60_frostforged_longsword": {
+      "name": "Frostforged Longsword",
+      "inputs": {
+        "bar_frostforged_silver": 10,
+        "flux_strong": 2
+      },
+      "skill_required": 318,
+      "skill_range": [
+        321,
+        326,
+        331,
+        336
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "str_physical",
+        "material_tier": "frostforged_silver",
+        "fixed_item_level": true,
+        "weapon_type": "sword_1h",
+        "item": {
+          "name": "Frostforged Longsword",
+          "slot": "main_hand",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "sword_1h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12
+          },
+          "secondary_stats": {
+            "attack_power": 33,
+            "crit_chance_physical": 12
+          },
+          "armor_value": 0,
+          "required_level": 60,
+          "sell_price": 21706,
+          "flavor_text": "Balanced on a single finger, and fond of throats.",
+          "identity": "strength_crit",
+          "icon_id": "gear_inv_sword_40",
+          "weapon_damage_min": 114,
+          "weapon_damage_max": 154,
+          "attack_speed": 2.4,
+          "block_value": 0
+        }
+      }
+    },
+    "m60_frostforged_bulwark": {
+      "name": "Frostforged Bulwark",
+      "inputs": {
+        "bar_frostforged_silver": 7,
+        "flux_strong": 1
+      },
+      "skill_required": 318,
+      "skill_range": [
+        321,
+        326,
+        331,
+        336
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "weapon",
+        "slot": "off_hand",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "str_physical",
+        "material_tier": "frostforged_silver",
+        "fixed_item_level": true,
+        "weapon_type": "shield",
+        "item": {
+          "name": "Frostforged Bulwark",
+          "slot": "off_hand",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 15,
+            "strength": 6
+          },
+          "secondary_stats": {
+            "block_value": 14
+          },
+          "armor_value": 673,
+          "required_level": 60,
+          "sell_price": 18279,
+          "flavor_text": "Frost creeps across its face when something hits it.",
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_19",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 78
+        }
+      }
+    },
+    "m60_frostforged_hammer": {
+      "name": "Frostforged Hammer",
+      "inputs": {
+        "bar_frostforged_silver": 10,
+        "flux_strong": 2
+      },
+      "skill_required": 318,
+      "skill_range": [
+        321,
+        326,
+        331,
+        336
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "spi_healer",
+        "material_tier": "frostforged_silver",
+        "fixed_item_level": true,
+        "weapon_type": "mace_1h",
+        "item": {
+          "name": "Frostforged Hammer",
+          "slot": "main_hand",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "healing_power": 50
+          },
+          "armor_value": 0,
+          "required_level": 60,
+          "sell_price": 21706,
+          "flavor_text": "A healer's hammer. It still breaks things.",
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_mace_07",
+          "weapon_damage_min": 114,
+          "weapon_damage_max": 154,
+          "attack_speed": 2.6,
+          "block_value": 0
+        }
+      }
+    },
+    "m60_sylvanite_warhelm": {
+      "name": "Sylvanite Warhelm",
+      "inputs": {
+        "bar_sylvanite": 10,
+        "bar_frostforged_silver": 3,
+        "flux_strong": 2,
+        "gem_sylvan_emerald": 1
+      },
+      "skill_required": 320,
+      "skill_range": [
+        323,
+        328,
+        333,
+        338
+      ],
+      "source": "heroic",
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "item_level": 68,
+        "rarity": "epic",
+        "required_level": 60,
+        "stat_template": "str_physical",
+        "material_tier": "sylvanite",
+        "fixed_item_level": true,
+        "armor_type": "plate",
+        "item": {
+          "name": "Sylvanite Warhelm",
+          "slot": "head",
+          "item_level": 68,
+          "rarity": "epic",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 36,
+            "strength": 15
+          },
+          "secondary_stats": {
+            "defense_rating": 29
+          },
+          "armor_value": 603,
+          "required_level": 60,
+          "sell_price": 33733,
+          "flavor_text": "Sylvanite rings like a bell when it's struck, so you always know who's hitting you.",
+          "identity": "tank",
+          "icon_id": "gear_m60_sylvanite_warhelm"
+        }
+      }
+    },
+    "m60_sylvanite_breastplate": {
+      "name": "Sylvanite Breastplate",
+      "inputs": {
+        "bar_sylvanite": 12,
+        "bar_frostforged_silver": 4,
+        "flux_strong": 2,
+        "gem_sylvan_emerald": 1
+      },
+      "skill_required": 322,
+      "skill_range": [
+        325,
+        330,
+        335,
+        340
+      ],
+      "source": "heroic",
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "item_level": 68,
+        "rarity": "epic",
+        "required_level": 60,
+        "stat_template": "str_physical",
+        "material_tier": "sylvanite",
+        "fixed_item_level": true,
+        "armor_type": "plate",
+        "item": {
+          "name": "Sylvanite Breastplate",
+          "slot": "chest",
+          "item_level": 68,
+          "rarity": "epic",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 25,
+            "stamina": 15
+          },
+          "secondary_stats": {
+            "attack_power": 65
+          },
+          "armor_value": 693,
+          "required_level": 60,
+          "sell_price": 42167,
+          "flavor_text": "Green-silver, light as oak, harder than the anvil it was made on.",
+          "identity": "strength",
+          "icon_id": "gear_m60_sylvanite_breastplate"
+        }
+      }
+    },
+    "m60_sylvanite_greataxe": {
+      "name": "Sylvanite Greataxe",
+      "inputs": {
+        "bar_sylvanite": 12,
+        "bar_frostforged_silver": 4,
+        "flux_strong": 2,
+        "gem_sylvan_emerald": 1
+      },
+      "skill_required": 324,
+      "skill_range": [
+        327,
+        332,
+        337,
+        342
+      ],
+      "source": "heroic",
+      "output": {
+        "kind": "weapon",
+        "slot": "main_hand",
+        "item_level": 68,
+        "rarity": "epic",
+        "required_level": 60,
+        "stat_template": "str_physical",
+        "material_tier": "sylvanite",
+        "fixed_item_level": true,
+        "weapon_type": "axe_2h",
+        "item": {
+          "name": "Sylvanite Greataxe",
+          "slot": "main_hand",
+          "item_level": 68,
+          "rarity": "epic",
+          "armor_type": null,
+          "weapon_type": "axe_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 39
+          },
+          "secondary_stats": {
+            "attack_power": 99,
+            "crit_chance_physical": 39
+          },
+          "armor_value": 0,
+          "required_level": 60,
+          "sell_price": 52708,
+          "flavor_text": "It chops through the first thing and keeps going out of politeness.",
+          "identity": "strength_crit",
+          "icon_id": "gear_inv_axe_11",
+          "weapon_damage_min": 204,
+          "weapon_damage_max": 277,
+          "attack_speed": 3.6,
+          "block_value": 0
+        }
+      }
+    },
+    "m60_sylvanite_aegis": {
+      "name": "Sylvanite Aegis",
+      "inputs": {
+        "bar_sylvanite": 8,
+        "bar_frostforged_silver": 3,
+        "flux_strong": 1,
+        "gem_sylvan_emerald": 1
+      },
+      "skill_required": 325,
+      "skill_range": [
+        328,
+        333,
+        338,
+        343
+      ],
+      "source": "heroic",
+      "output": {
+        "kind": "weapon",
+        "slot": "off_hand",
+        "item_level": 68,
+        "rarity": "epic",
+        "required_level": 60,
+        "stat_template": "str_physical",
+        "material_tier": "sylvanite",
+        "fixed_item_level": true,
+        "weapon_type": "shield",
+        "item": {
+          "name": "Sylvanite Aegis",
+          "slot": "off_hand",
+          "item_level": 68,
+          "rarity": "epic",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 21,
+            "strength": 8
+          },
+          "secondary_stats": {
+            "block_value": 19
+          },
+          "armor_value": 897,
+          "required_level": 60,
+          "sell_price": 33733,
+          "flavor_text": "Engraved with every name it's protected. There's room for more.",
+          "identity": "shield_tank",
+          "icon_id": "gear_m60_sylvanite_aegis",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 104
+        }
+      }
     }
   }
 }

@@ -4977,7 +4977,9 @@ class Character(StatusEffectMixin):
         return True
 
     #: Skill cap by trained tier: Apprentice 75, Journeyman 150, Expert 225, Artisan 300.
-    PROFESSION_TIER_CAPS = (75, 150, 225, 300)
+    #: Apprentice, Journeyman, Expert, Artisan, and Master (325, Kyle 18 Nov 2026: the first two level-60 tiers;
+    #: data/professions/professions.json)
+    PROFESSION_TIER_CAPS = (75, 150, 225, 300, 325)
     MAX_PRIMARY_PROFESSIONS = 3
 
     def knows_profession(self, profession):

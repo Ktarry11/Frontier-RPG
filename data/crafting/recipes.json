@@ -11676,17 +11676,19 @@
         "rep_cc_duskwaking_archivist_robe": {
           "name": "Duskwaking Archivist's Robe",
           "inputs": {
-            "bolt_voidweave": 16,
-            "thread_silken": 2
+            "bolt_chronoweave": 10,
+            "bolt_dreamsilk": 4,
+            "thread_silken": 2,
+            "gem_glacier_sapphire": 1
           },
-          "skill_required": 300,
+          "skill_required": 320,
           "output": {
             "kind": "armor",
             "slot": "chest",
             "stat_template": "int_caster",
             "item_level": 68,
             "rarity": "epic",
-            "material_tier": "voidweave",
+            "material_tier": "chronoweave",
             "identity": "caster_crit",
             "flavor": "The robe Codex-Master Duskwaking wears to the lowest shelves. Copies are permitted.",
             "fixed_item_level": true,
@@ -11716,29 +11718,30 @@
             }
           },
           "skill_range": [
-            300,
-            305,
-            310,
-            315
+            323,
+            328,
+            333,
+            338
           ],
           "source": "vendor",
-          "faction": "crimson_codex",
-          "_rare_ingredients_todo": true
+          "faction": "crimson_codex"
         },
         "rep_ds_hexweavers_robe": {
           "name": "Hexweaver's Robe",
           "inputs": {
-            "bolt_voidweave": 16,
-            "thread_silken": 2
+            "bolt_chronoweave": 10,
+            "bolt_dreamsilk": 4,
+            "thread_silken": 2,
+            "gem_glacier_sapphire": 1
           },
-          "skill_required": 300,
+          "skill_required": 320,
           "output": {
             "kind": "armor",
             "slot": "chest",
             "stat_template": "int_caster",
             "item_level": 68,
             "rarity": "epic",
-            "material_tier": "voidweave",
+            "material_tier": "chronoweave",
             "identity": "precise_caster",
             "flavor": "Woven on Echo Isles cloth before the tribe left, finished on the mainland after.",
             "fixed_item_level": true,
@@ -11768,29 +11771,30 @@
             }
           },
           "skill_range": [
-            300,
-            305,
-            310,
-            315
+            323,
+            328,
+            333,
+            338
           ],
           "source": "vendor",
-          "faction": "darkspear_tribe",
-          "_rare_ingredients_todo": true
+          "faction": "darkspear_tribe"
         },
         "rep_fs_deathwhisper_cowl": {
           "name": "Deathwhisper Cowl",
           "inputs": {
-            "bolt_voidweave": 16,
-            "thread_silken": 2
+            "bolt_chronoweave": 8,
+            "bolt_dreamsilk": 3,
+            "thread_silken": 2,
+            "gem_glacier_sapphire": 1
           },
-          "skill_required": 300,
+          "skill_required": 320,
           "output": {
             "kind": "armor",
             "slot": "head",
             "stat_template": "int_caster",
             "item_level": 68,
             "rarity": "epic",
-            "material_tier": "voidweave",
+            "material_tier": "chronoweave",
             "identity": "caster",
             "flavor": "The hood muffles every voice but the one you're listening for.",
             "fixed_item_level": true,
@@ -11819,29 +11823,30 @@
             }
           },
           "skill_range": [
-            300,
-            305,
-            310,
-            315
+            323,
+            328,
+            333,
+            338
           ],
           "source": "vendor",
-          "faction": "the_forsaken",
-          "_rare_ingredients_todo": true
+          "faction": "the_forsaken"
         },
         "rep_bb_navigators_silk_mantle": {
           "name": "Navigator's Silk Mantle",
           "inputs": {
-            "bolt_voidweave": 16,
-            "thread_silken": 2
+            "bolt_chronoweave": 7,
+            "bolt_dreamsilk": 3,
+            "thread_silken": 1,
+            "gem_glacier_sapphire": 1
           },
-          "skill_required": 300,
+          "skill_required": 320,
           "output": {
             "kind": "armor",
             "slot": "shoulder",
             "stat_template": "int_caster",
             "item_level": 68,
             "rarity": "epic",
-            "material_tier": "voidweave",
+            "material_tier": "chronoweave",
             "identity": "caster_crit",
             "flavor": "Sea-silk on the shoulders, stitched with the deep-water chart of the bay.",
             "fixed_item_level": true,
@@ -11871,29 +11876,30 @@
             }
           },
           "skill_range": [
-            300,
-            305,
-            310,
-            315
+            323,
+            328,
+            333,
+            338
           ],
           "source": "vendor",
-          "faction": "booty_bay_authority",
-          "_rare_ingredients_todo": true
+          "faction": "booty_bay_authority"
         },
         "rep_pf_mantle_of_the_walkout": {
           "name": "Mantle of the Walkout",
           "inputs": {
-            "bolt_voidweave": 16,
-            "thread_silken": 2
+            "bolt_chronoweave": 7,
+            "bolt_dreamsilk": 3,
+            "thread_silken": 1,
+            "gem_glacier_sapphire": 1
           },
-          "skill_required": 300,
+          "skill_required": 320,
           "output": {
             "kind": "armor",
             "slot": "shoulder",
             "stat_template": "int_caster",
             "item_level": 68,
             "rarity": "epic",
-            "material_tier": "voidweave",
+            "material_tier": "chronoweave",
             "identity": "caster_crit",
             "flavor": "Grey silk with a white flame on each shoulder, for the casters who walked out with Rory.",
             "fixed_item_level": true,
@@ -11922,14 +11928,13 @@
             }
           },
           "skill_range": [
-            300,
-            305,
-            310,
-            315
+            323,
+            328,
+            333,
+            338
           ],
           "source": "vendor",
-          "faction": "pale_flame",
-          "_rare_ingredients_todo": true
+          "faction": "pale_flame"
         },
         "secret_hz_vault_scribe_p300_ta_starweave_chest": {
           "name": "Scribe's Starweave Robe",
@@ -12743,17 +12748,19 @@
         "rep_sc_sunreach_regalia": {
           "name": "Sunreach Regalia",
           "inputs": {
-            "bolt_voidweave": 16,
-            "thread_silken": 2
+            "bolt_chronoweave": 10,
+            "bolt_dreamsilk": 4,
+            "thread_silken": 2,
+            "gem_glacier_sapphire": 1
           },
-          "skill_required": 300,
+          "skill_required": 320,
           "output": {
             "kind": "armor",
             "slot": "chest",
             "stat_template": "spi_healer",
             "item_level": 68,
             "rarity": "epic",
-            "material_tier": "voidweave",
+            "material_tier": "chronoweave",
             "identity": "spirit_healer",
             "flavor": "The Conclave's formal robes, cut the way the Highborne court cut them before the Sundering.",
             "fixed_item_level": true,
@@ -12783,29 +12790,30 @@
             }
           },
           "skill_range": [
-            300,
-            305,
-            310,
-            315
+            323,
+            328,
+            333,
+            338
           ],
           "source": "vendor",
-          "faction": "sunreach_conclave",
-          "_rare_ingredients_todo": true
+          "faction": "sunreach_conclave"
         },
         "rep_liq_hazard_suit": {
           "name": "Liquidator's Hazard Suit",
           "inputs": {
-            "bolt_voidweave": 16,
-            "thread_silken": 2
+            "bolt_chronoweave": 10,
+            "bolt_dreamsilk": 4,
+            "thread_silken": 2,
+            "gem_glacier_sapphire": 1
           },
-          "skill_required": 300,
+          "skill_required": 320,
           "output": {
             "kind": "armor",
             "slot": "chest",
             "stat_template": "spi_healer",
             "item_level": 68,
             "rarity": "epic",
-            "material_tier": "voidweave",
+            "material_tier": "chronoweave",
             "identity": "spirit_healer",
             "flavor": "The full suit, hood to boots, the way the Watch's seamstresses cut it after the first year's losses.",
             "fixed_item_level": true,
@@ -12835,20 +12843,19 @@
             }
           },
           "skill_range": [
-            300,
-            305,
-            310,
-            315
+            323,
+            328,
+            333,
+            338
           ],
           "source": "vendor",
-          "faction": "the_liquidators",
-          "_rare_ingredients_todo": true
+          "faction": "the_liquidators"
         },
         "rep_liq_quarantine_wraps": {
           "name": "Quarantine Wraps",
           "inputs": {
-            "bolt_voidweave": 16,
-            "thread_silken": 2
+            "bolt_voidweave": 6,
+            "thread_silken": 1
           },
           "skill_required": 300,
           "output": {
@@ -12893,23 +12900,24 @@
             315
           ],
           "source": "vendor",
-          "faction": "the_liquidators",
-          "_rare_ingredients_todo": true
+          "faction": "the_liquidators"
         },
         "rep_wk_dreamwoven_robe": {
           "name": "Dreamwoven Robe",
           "inputs": {
-            "bolt_voidweave": 16,
-            "thread_silken": 2
+            "bolt_chronoweave": 10,
+            "bolt_dreamsilk": 4,
+            "thread_silken": 2,
+            "gem_glacier_sapphire": 1
           },
-          "skill_required": 300,
+          "skill_required": 320,
           "output": {
             "kind": "armor",
             "slot": "chest",
             "stat_template": "spi_healer",
             "item_level": 68,
             "rarity": "epic",
-            "material_tier": "voidweave",
+            "material_tier": "chronoweave",
             "identity": "spirit_healer",
             "flavor": "Woven on the Wakened's first loom from linen the druids grew for them. The pattern came to Mei-Lin in a dream.",
             "fixed_item_level": true,
@@ -12939,20 +12947,19 @@
             }
           },
           "skill_range": [
-            300,
-            305,
-            310,
-            315
+            323,
+            328,
+            333,
+            338
           ],
           "source": "vendor",
-          "faction": "the_wakened",
-          "_rare_ingredients_todo": true
+          "faction": "the_wakened"
         },
         "rep_wk_sleepers_handwraps": {
           "name": "Sleeper's Handwraps",
           "inputs": {
-            "bolt_voidweave": 16,
-            "thread_silken": 2
+            "bolt_voidweave": 10,
+            "thread_silken": 1
           },
           "skill_required": 300,
           "output": {
@@ -12996,8 +13003,672 @@
             315
           ],
           "source": "vendor",
-          "faction": "the_wakened",
-          "_rare_ingredients_todo": true
+          "faction": "the_wakened"
+        },
+        "m60_dreamsilk_hood": {
+          "name": "Dreamsilk Hood",
+          "inputs": {
+            "bolt_dreamsilk": 6,
+            "thread_silken": 2
+          },
+          "skill_required": 300,
+          "skill_range": [
+            303,
+            308,
+            313,
+            318
+          ],
+          "source": "trainer",
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "item_level": 66,
+            "rarity": "rare",
+            "required_level": 60,
+            "stat_template": "int_caster",
+            "material_tier": "dreamsilk",
+            "fixed_item_level": true,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Dreamsilk Hood",
+              "slot": "head",
+              "item_level": 66,
+              "rarity": "rare",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 10
+              },
+              "secondary_stats": {
+                "spell_power": 35,
+                "crit_chance_spell": 14
+              },
+              "armor_value": 109,
+              "required_level": 60,
+              "sell_price": 18279,
+              "flavor_text": "Dreamsilk is spun from what drifts out of the Dream at night. It remembers being a thought.",
+              "identity": "caster_crit",
+              "icon_id": "gear_inv_helmet_24"
+            }
+          }
+        },
+        "m60_dreamsilk_mantle": {
+          "name": "Dreamsilk Mantle",
+          "inputs": {
+            "bolt_dreamsilk": 6,
+            "thread_silken": 1
+          },
+          "skill_required": 302,
+          "skill_range": [
+            305,
+            310,
+            315,
+            320
+          ],
+          "source": "trainer",
+          "output": {
+            "kind": "armor",
+            "slot": "shoulder",
+            "item_level": 66,
+            "rarity": "rare",
+            "required_level": 60,
+            "stat_template": "spi_healer",
+            "material_tier": "dreamsilk",
+            "fixed_item_level": true,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Dreamsilk Mantle",
+              "slot": "shoulder",
+              "item_level": 66,
+              "rarity": "rare",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "intellect": 10,
+                "spirit": 9
+              },
+              "secondary_stats": {
+                "healing_power": 46
+              },
+              "armor_value": 109,
+              "required_level": 60,
+              "sell_price": 18279,
+              "flavor_text": "Light on the shoulders, like a hand that means well.",
+              "identity": "high_healer",
+              "icon_id": "gear_inv_shoulder_19"
+            }
+          }
+        },
+        "m60_dreamsilk_robe": {
+          "name": "Dreamsilk Robe",
+          "inputs": {
+            "bolt_dreamsilk": 8,
+            "thread_silken": 2
+          },
+          "skill_required": 304,
+          "skill_range": [
+            307,
+            312,
+            317,
+            322
+          ],
+          "source": "trainer",
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "item_level": 66,
+            "rarity": "rare",
+            "required_level": 60,
+            "stat_template": "int_caster",
+            "material_tier": "dreamsilk",
+            "fixed_item_level": true,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Dreamsilk Robe",
+              "slot": "chest",
+              "item_level": 66,
+              "rarity": "rare",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 21
+              },
+              "secondary_stats": {
+                "spell_power": 49
+              },
+              "armor_value": 384,
+              "required_level": 60,
+              "sell_price": 22849,
+              "flavor_text": "It moves a moment after you do, as if it's still deciding.",
+              "identity": "caster",
+              "icon_id": "gear_inv_chest_cloth_30"
+            }
+          }
+        },
+        "m60_dreamsilk_cuffs": {
+          "name": "Dreamsilk Cuffs",
+          "inputs": {
+            "bolt_dreamsilk": 3,
+            "thread_silken": 1
+          },
+          "skill_required": 306,
+          "skill_range": [
+            309,
+            314,
+            319,
+            324
+          ],
+          "source": "trainer",
+          "output": {
+            "kind": "armor",
+            "slot": "wrist",
+            "item_level": 66,
+            "rarity": "rare",
+            "required_level": 60,
+            "stat_template": "int_caster",
+            "material_tier": "dreamsilk",
+            "fixed_item_level": true,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Dreamsilk Cuffs",
+              "slot": "wrist",
+              "item_level": 66,
+              "rarity": "rare",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 12
+              },
+              "secondary_stats": {
+                "spell_power": 36,
+                "haste": 10
+              },
+              "armor_value": 74,
+              "required_level": 60,
+              "sell_price": 11424,
+              "flavor_text": "Quick hands make quick spells. These help with the hands.",
+              "identity": "haste_caster",
+              "icon_id": "gear_inv_bracer_08"
+            }
+          }
+        },
+        "m60_dreamsilk_gloves": {
+          "name": "Dreamsilk Gloves",
+          "inputs": {
+            "bolt_dreamsilk": 5,
+            "thread_silken": 1
+          },
+          "skill_required": 308,
+          "skill_range": [
+            311,
+            316,
+            321,
+            326
+          ],
+          "source": "trainer",
+          "output": {
+            "kind": "armor",
+            "slot": "hands",
+            "item_level": 66,
+            "rarity": "rare",
+            "required_level": 60,
+            "stat_template": "spi_healer",
+            "material_tier": "dreamsilk",
+            "fixed_item_level": true,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Dreamsilk Gloves",
+              "slot": "hands",
+              "item_level": 66,
+              "rarity": "rare",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 9,
+                "intellect": 7
+              },
+              "secondary_stats": {
+                "healing_power": 38
+              },
+              "armor_value": 74,
+              "required_level": 60,
+              "sell_price": 14852,
+              "flavor_text": "Every stitch was a wish for someone else's health.",
+              "identity": "healer",
+              "icon_id": "gear_inv_gauntlets_25"
+            }
+          }
+        },
+        "m60_dreamsilk_sash": {
+          "name": "Dreamsilk Sash",
+          "inputs": {
+            "bolt_dreamsilk": 4,
+            "thread_silken": 1
+          },
+          "skill_required": 310,
+          "skill_range": [
+            313,
+            318,
+            323,
+            328
+          ],
+          "source": "trainer",
+          "output": {
+            "kind": "armor",
+            "slot": "waist",
+            "item_level": 66,
+            "rarity": "rare",
+            "required_level": 60,
+            "stat_template": "int_caster",
+            "material_tier": "dreamsilk",
+            "fixed_item_level": true,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Dreamsilk Sash",
+              "slot": "waist",
+              "item_level": 66,
+              "rarity": "rare",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 8
+              },
+              "secondary_stats": {
+                "spell_power": 29,
+                "spell_hit_rating": 11
+              },
+              "armor_value": 88,
+              "required_level": 60,
+              "sell_price": 12567,
+              "flavor_text": "Tied once, and it never comes loose.",
+              "identity": "precise_caster",
+              "icon_id": "gear_inv_belt_35"
+            }
+          }
+        },
+        "m60_dreamsilk_leggings": {
+          "name": "Dreamsilk Leggings",
+          "inputs": {
+            "bolt_dreamsilk": 8,
+            "thread_silken": 2
+          },
+          "skill_required": 312,
+          "skill_range": [
+            315,
+            320,
+            325,
+            330
+          ],
+          "source": "trainer",
+          "output": {
+            "kind": "armor",
+            "slot": "legs",
+            "item_level": 66,
+            "rarity": "rare",
+            "required_level": 60,
+            "stat_template": "spi_healer",
+            "material_tier": "dreamsilk",
+            "fixed_item_level": true,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Dreamsilk Leggings",
+              "slot": "legs",
+              "item_level": 66,
+              "rarity": "rare",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 17,
+                "intellect": 17
+              },
+              "secondary_stats": {
+                "healing_power": 45
+              },
+              "armor_value": 108,
+              "required_level": 60,
+              "sell_price": 22849,
+              "flavor_text": "Soft enough to sleep in, which is rather the point.",
+              "identity": "spirit_healer",
+              "icon_id": "gear_inv_pants_01"
+            }
+          }
+        },
+        "m60_dreamsilk_slippers": {
+          "name": "Dreamsilk Slippers",
+          "inputs": {
+            "bolt_dreamsilk": 5,
+            "thread_silken": 1
+          },
+          "skill_required": 314,
+          "skill_range": [
+            317,
+            322,
+            327,
+            332
+          ],
+          "source": "trainer",
+          "output": {
+            "kind": "armor",
+            "slot": "feet",
+            "item_level": 66,
+            "rarity": "rare",
+            "required_level": 60,
+            "stat_template": "int_caster",
+            "material_tier": "dreamsilk",
+            "fixed_item_level": true,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Dreamsilk Slippers",
+              "slot": "feet",
+              "item_level": 66,
+              "rarity": "rare",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 15
+              },
+              "secondary_stats": {
+                "arcane_spell_power": 41
+              },
+              "armor_value": 74,
+              "required_level": 60,
+              "sell_price": 14852,
+              "flavor_text": "You can't hear them on stone. You can barely hear them on glass.",
+              "identity": "arcane",
+              "icon_id": "gear_inv_boots_plate_04"
+            }
+          }
+        },
+        "m60_dreamsilk_cloak": {
+          "name": "Dreamsilk Cloak",
+          "inputs": {
+            "bolt_dreamsilk": 5,
+            "thread_silken": 1
+          },
+          "skill_required": 316,
+          "skill_range": [
+            319,
+            324,
+            329,
+            334
+          ],
+          "source": "trainer",
+          "output": {
+            "kind": "armor",
+            "slot": "back",
+            "item_level": 66,
+            "rarity": "rare",
+            "required_level": 60,
+            "stat_template": "int_caster",
+            "material_tier": "dreamsilk",
+            "fixed_item_level": true,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Dreamsilk Cloak",
+              "slot": "back",
+              "item_level": 66,
+              "rarity": "rare",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 7
+              },
+              "secondary_stats": {
+                "spell_power": 25,
+                "crit_chance_spell": 10
+              },
+              "armor_value": 79,
+              "required_level": 60,
+              "sell_price": 12567,
+              "flavor_text": "It's never quite the same colour twice.",
+              "identity": "caster_crit",
+              "icon_id": "gear_inv_misc_cape_17"
+            }
+          }
+        },
+        "m60_chronoweave_cowl": {
+          "name": "Chronoweave Cowl",
+          "inputs": {
+            "bolt_chronoweave": 8,
+            "bolt_dreamsilk": 3,
+            "thread_silken": 2,
+            "gem_glacier_sapphire": 1
+          },
+          "skill_required": 320,
+          "skill_range": [
+            323,
+            328,
+            333,
+            338
+          ],
+          "source": "heroic",
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "item_level": 68,
+            "rarity": "epic",
+            "required_level": 60,
+            "stat_template": "int_caster",
+            "material_tier": "chronoweave",
+            "fixed_item_level": true,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Chronoweave Cowl",
+              "slot": "head",
+              "item_level": 68,
+              "rarity": "epic",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 13
+              },
+              "secondary_stats": {
+                "arcane_spell_power": 59,
+                "crit_chance_spell": 20
+              },
+              "armor_value": 139,
+              "required_level": 60,
+              "sell_price": 33733,
+              "flavor_text": "Chronoweave is spun from cloth that was in two places at once. The cowl still is, slightly.",
+              "identity": "arcane_crit",
+              "icon_id": "gear_inv_helmet_36"
+            }
+          }
+        },
+        "m60_chronoweave_vestments": {
+          "name": "Chronoweave Vestments",
+          "inputs": {
+            "bolt_chronoweave": 10,
+            "bolt_dreamsilk": 4,
+            "thread_silken": 2,
+            "gem_glacier_sapphire": 1
+          },
+          "skill_required": 322,
+          "skill_range": [
+            325,
+            330,
+            335,
+            340
+          ],
+          "source": "heroic",
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "item_level": 68,
+            "rarity": "epic",
+            "required_level": 60,
+            "stat_template": "spi_healer",
+            "material_tier": "chronoweave",
+            "fixed_item_level": true,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Chronoweave Vestments",
+              "slot": "chest",
+              "item_level": 68,
+              "rarity": "epic",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "intellect": 17,
+                "spirit": 14
+              },
+              "secondary_stats": {
+                "healing_power": 77
+              },
+              "armor_value": 144,
+              "required_level": 60,
+              "sell_price": 42167,
+              "flavor_text": "Every wound it sees, it remembers how it looked before.",
+              "identity": "high_healer",
+              "icon_id": "gear_inv_chest_cloth_46"
+            }
+          }
+        },
+        "m60_chronoweave_trousers": {
+          "name": "Chronoweave Trousers",
+          "inputs": {
+            "bolt_chronoweave": 10,
+            "bolt_dreamsilk": 4,
+            "thread_silken": 2,
+            "gem_glacier_sapphire": 1
+          },
+          "skill_required": 324,
+          "skill_range": [
+            327,
+            332,
+            337,
+            342
+          ],
+          "source": "heroic",
+          "output": {
+            "kind": "armor",
+            "slot": "legs",
+            "item_level": 68,
+            "rarity": "epic",
+            "required_level": 60,
+            "stat_template": "int_caster",
+            "material_tier": "chronoweave",
+            "fixed_item_level": true,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Chronoweave Trousers",
+              "slot": "legs",
+              "item_level": 68,
+              "rarity": "epic",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 24
+              },
+              "secondary_stats": {
+                "spell_power": 73,
+                "haste": 20
+              },
+              "armor_value": 164,
+              "required_level": 60,
+              "sell_price": 42167,
+              "flavor_text": "You arrive a heartbeat before you meant to.",
+              "identity": "haste_caster",
+              "icon_id": "gear_m60_chronoweave_trousers"
+            }
+          }
+        },
+        "m60_cloak_of_hours": {
+          "name": "Chronoweave Cloak of Hours",
+          "inputs": {
+            "bolt_chronoweave": 6,
+            "bolt_dreamsilk": 2,
+            "thread_silken": 1,
+            "gem_glacier_sapphire": 1
+          },
+          "skill_required": 325,
+          "skill_range": [
+            328,
+            333,
+            338,
+            343
+          ],
+          "source": "heroic",
+          "output": {
+            "kind": "armor",
+            "slot": "back",
+            "item_level": 68,
+            "rarity": "epic",
+            "required_level": 60,
+            "stat_template": "int_caster",
+            "material_tier": "chronoweave",
+            "fixed_item_level": true,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Chronoweave Cloak of Hours",
+              "slot": "back",
+              "item_level": 68,
+              "rarity": "epic",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 19
+              },
+              "secondary_stats": {
+                "spell_power": 42
+              },
+              "armor_value": 100,
+              "required_level": 60,
+              "sell_price": 23192,
+              "flavor_text": "Twelve folds, one for every hour. The thirteenth is for emergencies.",
+              "identity": "caster",
+              "icon_id": "gear_inv_misc_cape_06"
+            }
+          }
+        },
+        "m60_tail_bolt_dreamsilk": {
+          "name": "Bolt of Dreamsilk",
+          "inputs": {
+            "cloth_dreamsilk": 3
+          },
+          "skill_required": 300,
+          "skill_range": [
+            305,
+            312,
+            318,
+            325
+          ],
+          "source": "trainer",
+          "output": {
+            "kind": "material",
+            "material_id": "bolt_dreamsilk"
+          }
+        },
+        "m60_tail_bolt_chronoweave": {
+          "name": "Bolt of Chronoweave",
+          "inputs": {
+            "cloth_chronoweave": 3
+          },
+          "skill_required": 310,
+          "skill_range": [
+            312,
+            318,
+            322,
+            328
+          ],
+          "source": "trainer",
+          "output": {
+            "kind": "material",
+            "material_id": "bolt_chronoweave"
+          }
         }
       }
     },
@@ -26065,19 +26736,20 @@
         "rep_tb_totem_of_the_four_spires": {
           "name": "Totem of the Four Spires",
           "inputs": {
-            "plank_sunheart": 14,
-            "fiber_warded": 4,
-            "stick_ironbound": 2,
-            "resin": 2
+            "plank_dreamwillow": 8,
+            "plank_voidwood": 3,
+            "fiber_warded": 1,
+            "resin": 1,
+            "gem_glacier_sapphire": 1
           },
-          "skill_required": 300,
+          "skill_required": 320,
           "output": {
             "kind": "weapon",
             "slot": "ranged",
             "stat_template": "spi_healer",
             "item_level": 68,
             "rarity": "epic",
-            "material_tier": "sunheart",
+            "material_tier": "dreamwillow",
             "identity": "tide_healer",
             "flavor": "Four spires carved in the round, and in the base a hollow where the fourth fell in.",
             "fixed_item_level": true,
@@ -26110,31 +26782,31 @@
             }
           },
           "skill_range": [
-            300,
-            305,
-            310,
-            315
+            323,
+            328,
+            333,
+            338
           ],
           "source": "vendor",
-          "faction": "thunder_bluff",
-          "_rare_ingredients_todo": true
+          "faction": "thunder_bluff"
         },
         "rep_er_reclaimers_living_staff": {
           "name": "Reclaimer's Living Staff",
           "inputs": {
-            "plank_sunheart": 14,
-            "fiber_warded": 4,
-            "stick_ironbound": 2,
-            "resin": 2
+            "plank_dreamwillow": 12,
+            "plank_voidwood": 4,
+            "fiber_warded": 2,
+            "resin": 2,
+            "gem_glacier_sapphire": 1
           },
-          "skill_required": 300,
+          "skill_required": 320,
           "output": {
             "kind": "weapon",
             "slot": "main_hand",
             "stat_template": "spi_healer",
             "item_level": 68,
             "rarity": "epic",
-            "material_tier": "sunheart",
+            "material_tier": "dreamwillow",
             "identity": "high_healer",
             "flavor": "Still growing. The druids say it'll flower the year Felwood's clean.",
             "fixed_item_level": true,
@@ -26168,14 +26840,13 @@
             }
           },
           "skill_range": [
-            300,
-            305,
-            310,
-            315
+            323,
+            328,
+            333,
+            338
           ],
           "source": "vendor",
-          "faction": "emerald_reclamation",
-          "_rare_ingredients_todo": true
+          "faction": "emerald_reclamation"
         },
         "secret_taurajo_brannoch_wwx_ironbark_warpike": {
           "name": "Brannoch's Ironbark Warpike",
@@ -26508,19 +27179,20 @@
         "rep_tm_honeywood_longbow": {
           "name": "Honeywood Longbow",
           "inputs": {
-            "plank_sunheart": 14,
-            "fiber_warded": 4,
-            "stick_ironbound": 2,
-            "resin": 2
+            "plank_dreamwillow": 8,
+            "plank_voidwood": 3,
+            "fiber_warded": 1,
+            "resin": 1,
+            "gem_glacier_sapphire": 1
           },
-          "skill_required": 300,
+          "skill_required": 320,
           "output": {
             "kind": "weapon",
             "slot": "ranged",
             "stat_template": "agi_physical",
             "item_level": 68,
             "rarity": "epic",
-            "material_tier": "sunheart",
+            "material_tier": "dreamwillow",
             "identity": "hunter_crit",
             "flavor": "Honeywood from the mountain's top, strung with gut and waxed with the Hold's own honey.",
             "fixed_item_level": true,
@@ -26554,31 +27226,31 @@
             }
           },
           "skill_range": [
-            300,
-            305,
-            310,
-            315
+            323,
+            328,
+            333,
+            338
           ],
           "source": "vendor",
-          "faction": "timbermaw_hold",
-          "_rare_ingredients_todo": true
+          "faction": "timbermaw_hold"
         },
         "rep_cc_moonbough_longbow": {
           "name": "Greatbough Longbow",
           "inputs": {
-            "plank_sunheart": 14,
-            "fiber_warded": 4,
-            "stick_ironbound": 2,
-            "resin": 2
+            "plank_dreamwillow": 8,
+            "plank_voidwood": 3,
+            "fiber_warded": 1,
+            "resin": 1,
+            "gem_glacier_sapphire": 1
           },
-          "skill_required": 300,
+          "skill_required": 320,
           "output": {
             "kind": "weapon",
             "slot": "ranged",
             "stat_template": "agi_physical",
             "item_level": 68,
             "rarity": "epic",
-            "material_tier": "sunheart",
+            "material_tier": "dreamwillow",
             "identity": "hunter_crit",
             "flavor": "Shaped from a fallen bough of the great tree and cured in the moonwell for a full year.",
             "fixed_item_level": true,
@@ -26612,14 +27284,392 @@
             }
           },
           "skill_range": [
-            300,
-            305,
-            310,
-            315
+            323,
+            328,
+            333,
+            338
           ],
           "source": "vendor",
-          "faction": "cenarion_circle",
-          "_rare_ingredients_todo": true
+          "faction": "cenarion_circle"
+        },
+        "m60_voidwood_staff": {
+          "name": "Voidwood Staff",
+          "inputs": {
+            "plank_voidwood": 10,
+            "fiber_warded": 2,
+            "stick_ironbound": 1,
+            "resin": 1
+          },
+          "skill_required": 300,
+          "skill_range": [
+            303,
+            308,
+            313,
+            318
+          ],
+          "source": "trainer",
+          "output": {
+            "kind": "weapon",
+            "slot": "main_hand",
+            "item_level": 66,
+            "rarity": "rare",
+            "required_level": 60,
+            "stat_template": "int_caster",
+            "material_tier": "voidwood",
+            "fixed_item_level": true,
+            "weapon_type": "staff",
+            "item": {
+              "name": "Voidwood Staff",
+              "slot": "main_hand",
+              "item_level": 66,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 41
+              },
+              "secondary_stats": {
+                "spell_power": 92
+              },
+              "armor_value": 0,
+              "required_level": 60,
+              "sell_price": 28561,
+              "flavor_text": "Voidwood grows towards the dark. A caster can feel it pulling.",
+              "identity": "caster",
+              "icon_id": "gear_inv_staff_27",
+              "weapon_damage_min": 62,
+              "weapon_damage_max": 84,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
+          }
+        },
+        "m60_voidwood_longbow": {
+          "name": "Voidwood Longbow",
+          "inputs": {
+            "plank_voidwood": 7,
+            "fiber_warded": 1,
+            "stick_ironbound": 1,
+            "resin": 1
+          },
+          "skill_required": 302,
+          "skill_range": [
+            305,
+            310,
+            315,
+            320
+          ],
+          "source": "trainer",
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "item_level": 66,
+            "rarity": "rare",
+            "required_level": 60,
+            "stat_template": "agi_int_hybrid",
+            "material_tier": "voidwood",
+            "fixed_item_level": true,
+            "weapon_type": "bow",
+            "item": {
+              "name": "Voidwood Longbow",
+              "slot": "ranged",
+              "item_level": 66,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 10,
+                "intellect": 8
+              },
+              "secondary_stats": {
+                "attack_power": 28
+              },
+              "armor_value": 0,
+              "required_level": 60,
+              "sell_price": 18279,
+              "flavor_text": "Silent on the draw. Silent on the shot.",
+              "identity": "hunter",
+              "icon_id": "gear_inv_weapon_bow_07",
+              "weapon_damage_min": 97,
+              "weapon_damage_max": 131,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
+          }
+        },
+        "m60_voidwood_codex": {
+          "name": "Voidwood Codex",
+          "inputs": {
+            "plank_voidwood": 7,
+            "fiber_warded": 1,
+            "stick_ironbound": 1,
+            "resin": 1
+          },
+          "skill_required": 304,
+          "skill_range": [
+            307,
+            312,
+            317,
+            322
+          ],
+          "source": "trainer",
+          "output": {
+            "kind": "weapon",
+            "slot": "off_hand",
+            "item_level": 66,
+            "rarity": "rare",
+            "required_level": 60,
+            "stat_template": "spi_healer",
+            "material_tier": "voidwood",
+            "fixed_item_level": true,
+            "weapon_type": "tome",
+            "item": {
+              "name": "Voidwood Codex",
+              "slot": "off_hand",
+              "item_level": 66,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "tome",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 9,
+                "intellect": 8
+              },
+              "secondary_stats": {
+                "healing_power": 42
+              },
+              "armor_value": 0,
+              "required_level": 60,
+              "sell_price": 13709,
+              "flavor_text": "Its pages are the colour of a moonless night, and the words glow.",
+              "identity": "healer",
+              "icon_id": "gear_inv_tome_1",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 0
+            }
+          }
+        },
+        "m60_voidwood_wand": {
+          "name": "Voidwood Wand",
+          "inputs": {
+            "plank_voidwood": 7,
+            "fiber_warded": 1,
+            "stick_ironbound": 1,
+            "resin": 1
+          },
+          "skill_required": 306,
+          "skill_range": [
+            309,
+            314,
+            319,
+            324
+          ],
+          "source": "trainer",
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "item_level": 66,
+            "rarity": "rare",
+            "required_level": 60,
+            "stat_template": "int_caster",
+            "material_tier": "voidwood",
+            "fixed_item_level": true,
+            "weapon_type": "wand",
+            "item": {
+              "name": "Voidwood Wand",
+              "slot": "ranged",
+              "item_level": 66,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "wand",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 7
+              },
+              "secondary_stats": {
+                "spell_power": 25,
+                "crit_chance_spell": 10
+              },
+              "armor_value": 0,
+              "required_level": 60,
+              "sell_price": 18279,
+              "flavor_text": "Point it at something you dislike.",
+              "identity": "caster_crit",
+              "icon_id": "gear_inv_wand_07",
+              "weapon_damage_min": 97,
+              "weapon_damage_max": 131,
+              "attack_speed": 1.9,
+              "block_value": 0
+            }
+          }
+        },
+        "m60_voidwood_totem": {
+          "name": "Voidwood Totem",
+          "inputs": {
+            "plank_voidwood": 7,
+            "fiber_warded": 1,
+            "stick_ironbound": 1,
+            "resin": 1
+          },
+          "skill_required": 308,
+          "skill_range": [
+            311,
+            316,
+            321,
+            326
+          ],
+          "source": "trainer",
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "item_level": 66,
+            "rarity": "rare",
+            "required_level": 60,
+            "stat_template": "int_caster",
+            "material_tier": "voidwood",
+            "fixed_item_level": true,
+            "weapon_type": "totem",
+            "item": {
+              "name": "Voidwood Totem",
+              "slot": "ranged",
+              "item_level": 66,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "totem",
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 13
+              },
+              "secondary_stats": {
+                "nature_spell_power": 35,
+                "haste": 13
+              },
+              "armor_value": 0,
+              "required_level": 60,
+              "sell_price": 18279,
+              "flavor_text": "Carved with four faces. The fifth carved itself.",
+              "identity": "storm",
+              "icon_id": "gear_inv_wand_01",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 0
+            }
+          }
+        },
+        "m60_dreamwillow_greatstaff": {
+          "name": "Dreamwillow Greatstaff",
+          "inputs": {
+            "plank_dreamwillow": 12,
+            "plank_voidwood": 4,
+            "fiber_warded": 2,
+            "resin": 2,
+            "gem_glacier_sapphire": 1
+          },
+          "skill_required": 320,
+          "skill_range": [
+            323,
+            328,
+            333,
+            338
+          ],
+          "source": "heroic",
+          "output": {
+            "kind": "weapon",
+            "slot": "main_hand",
+            "item_level": 68,
+            "rarity": "epic",
+            "required_level": 60,
+            "stat_template": "spi_healer",
+            "material_tier": "dreamwillow",
+            "fixed_item_level": true,
+            "weapon_type": "staff",
+            "item": {
+              "name": "Dreamwillow Greatstaff",
+              "slot": "main_hand",
+              "item_level": 68,
+              "rarity": "epic",
+              "armor_type": null,
+              "weapon_type": "staff",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "intellect": 33,
+                "spirit": 26
+              },
+              "secondary_stats": {
+                "healing_power": 146
+              },
+              "armor_value": 0,
+              "required_level": 60,
+              "sell_price": 52708,
+              "flavor_text": "Dreamwillow only grows where someone once slept well. It wants to help.",
+              "identity": "high_healer",
+              "icon_id": "gear_inv_staff_05",
+              "weapon_damage_min": 83,
+              "weapon_damage_max": 112,
+              "attack_speed": 3.2,
+              "block_value": 0
+            }
+          }
+        },
+        "m60_dreamwillow_warbow": {
+          "name": "Dreamwillow Warbow",
+          "inputs": {
+            "plank_dreamwillow": 8,
+            "plank_voidwood": 3,
+            "fiber_warded": 1,
+            "resin": 1,
+            "gem_glacier_sapphire": 1
+          },
+          "skill_required": 322,
+          "skill_range": [
+            325,
+            330,
+            335,
+            340
+          ],
+          "source": "heroic",
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "item_level": 68,
+            "rarity": "epic",
+            "required_level": 60,
+            "stat_template": "agi_physical",
+            "material_tier": "dreamwillow",
+            "fixed_item_level": true,
+            "weapon_type": "bow",
+            "item": {
+              "name": "Dreamwillow Warbow",
+              "slot": "ranged",
+              "item_level": 68,
+              "rarity": "epic",
+              "armor_type": null,
+              "weapon_type": "bow",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 12
+              },
+              "secondary_stats": {
+                "attack_power": 33,
+                "crit_chance_physical": 12
+              },
+              "armor_value": 0,
+              "required_level": 60,
+              "sell_price": 33733,
+              "flavor_text": "The string hums a lullaby. The target never hears the end of it.",
+              "identity": "hunter_crit",
+              "icon_id": "gear_m60_dreamwillow_warbow",
+              "weapon_damage_min": 129,
+              "weapon_damage_max": 174,
+              "attack_speed": 2.8,
+              "block_value": 0
+            }
+          }
         }
       }
     },
@@ -29983,18 +31033,19 @@
         "rep_sc_arbitrators_goggles": {
           "name": "Cartel Arbitrator's Goggles",
           "inputs": {
-            "bar_elementium": 10,
-            "bar_arcanite": 4,
-            "part_gear_assembly": 4
+            "bar_sylvanite": 8,
+            "bar_frostforged_silver": 3,
+            "part_gear_assembly": 2,
+            "gem_glacier_sapphire": 1
           },
-          "skill_required": 300,
+          "skill_required": 320,
           "output": {
             "kind": "armor",
             "slot": "head",
             "stat_template": "agi_physical",
             "item_level": 68,
             "rarity": "epic",
-            "material_tier": "elementium",
+            "material_tier": "sylvanite",
             "identity": "hunter_crit",
             "flavor": "Twelve lenses, a ledger readout and a little brass shutter for the bad news.",
             "fixed_item_level": true,
@@ -30024,30 +31075,30 @@
             }
           },
           "skill_range": [
-            300,
-            305,
-            310,
-            315
+            323,
+            328,
+            333,
+            338
           ],
           "source": "vendor",
-          "faction": "steamwheedle_cartel",
-          "_rare_ingredients_todo": true
+          "faction": "steamwheedle_cartel"
         },
         "rep_sc_steamwheedle_hand_cannon": {
           "name": "Steamwheedle Hand Cannon",
           "inputs": {
-            "bar_elementium": 10,
-            "bar_arcanite": 4,
-            "part_gear_assembly": 4
+            "bar_sylvanite": 7,
+            "bar_frostforged_silver": 3,
+            "part_gear_assembly": 2,
+            "gem_glacier_sapphire": 1
           },
-          "skill_required": 300,
+          "skill_required": 320,
           "output": {
             "kind": "weapon",
             "slot": "ranged",
             "stat_template": "agi_physical",
             "item_level": 68,
             "rarity": "epic",
-            "material_tier": "elementium",
+            "material_tier": "sylvanite",
             "identity": "hunter_precise",
             "flavor": "Too big for a goblin, which is exactly why the goblins sell it.",
             "fixed_item_level": true,
@@ -30081,30 +31132,30 @@
             }
           },
           "skill_range": [
-            300,
-            305,
-            310,
-            315
+            323,
+            328,
+            333,
+            338
           ],
           "source": "vendor",
-          "faction": "steamwheedle_cartel",
-          "_rare_ingredients_todo": true
+          "faction": "steamwheedle_cartel"
         },
         "rep_ac_khaz_varun_siege_rifle": {
           "name": "Khaz Varun Siege Rifle",
           "inputs": {
-            "bar_elementium": 10,
-            "bar_arcanite": 4,
-            "part_gear_assembly": 4
+            "bar_sylvanite": 7,
+            "bar_frostforged_silver": 3,
+            "part_gear_assembly": 2,
+            "gem_glacier_sapphire": 1
           },
-          "skill_required": 300,
+          "skill_required": 320,
           "output": {
             "kind": "weapon",
             "slot": "ranged",
             "stat_template": "agi_physical",
             "item_level": 68,
             "rarity": "epic",
-            "material_tier": "elementium",
+            "material_tier": "sylvanite",
             "identity": "hunter_crit",
             "flavor": "Built from a Dark Iron siege piece cut down to something a person can carry. Barely.",
             "fixed_item_level": true,
@@ -30138,14 +31189,13 @@
             }
           },
           "skill_range": [
-            300,
-            305,
-            310,
-            315
+            323,
+            328,
+            333,
+            338
           ],
           "source": "vendor",
-          "faction": "the_ashclaim",
-          "_rare_ingredients_todo": true
+          "faction": "the_ashclaim"
         },
         "secret_hz_caravan_amun_eng300_voidglass_targeting_scope": {
           "name": "Amun-Who-Stayed's Voidglass Targeting Scope",
@@ -34157,6 +35207,258 @@
             }
           },
           "source": "drop"
+        },
+        "m60_frostforged_rifle": {
+          "name": "Frostforged Rifle",
+          "inputs": {
+            "bar_frostforged_silver": 6,
+            "part_gear_assembly": 1
+          },
+          "skill_required": 300,
+          "skill_range": [
+            303,
+            308,
+            313,
+            318
+          ],
+          "source": "trainer",
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "item_level": 66,
+            "rarity": "rare",
+            "required_level": 60,
+            "stat_template": "agi_int_hybrid",
+            "material_tier": "frostforged_silver",
+            "fixed_item_level": true,
+            "weapon_type": "gun",
+            "item": {
+              "name": "Frostforged Rifle",
+              "slot": "ranged",
+              "item_level": 66,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "gun",
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 10,
+                "intellect": 8
+              },
+              "secondary_stats": {
+                "attack_power": 28
+              },
+              "armor_value": 0,
+              "required_level": 60,
+              "sell_price": 18279,
+              "flavor_text": "Cold barrel, hot shot. The goblins call it balance.",
+              "identity": "hunter",
+              "icon_id": "gear_inv_weapon_rifle_06",
+              "weapon_damage_min": 97,
+              "weapon_damage_max": 131,
+              "attack_speed": 2.6,
+              "block_value": 0
+            }
+          }
+        },
+        "m60_spellsight_goggles": {
+          "name": "Frostforged Spellsight Goggles",
+          "inputs": {
+            "bar_frostforged_silver": 6,
+            "part_gear_assembly": 2
+          },
+          "skill_required": 302,
+          "skill_range": [
+            305,
+            310,
+            315,
+            320
+          ],
+          "source": "trainer",
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "item_level": 66,
+            "rarity": "rare",
+            "required_level": 60,
+            "stat_template": "int_caster",
+            "material_tier": "frostforged_silver",
+            "fixed_item_level": true,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Frostforged Spellsight Goggles",
+              "slot": "head",
+              "item_level": 66,
+              "rarity": "rare",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 10
+              },
+              "secondary_stats": {
+                "spell_power": 35,
+                "crit_chance_spell": 14
+              },
+              "armor_value": 91,
+              "required_level": 60,
+              "sell_price": 18279,
+              "flavor_text": "See the weave of a spell, and where to pull it.",
+              "identity": "caster_crit",
+              "icon_id": "gear_inv_helmet_06"
+            }
+          }
+        },
+        "m60_scout_goggles": {
+          "name": "Frostforged Scout Goggles",
+          "inputs": {
+            "bar_frostforged_silver": 6,
+            "part_gear_assembly": 2
+          },
+          "skill_required": 304,
+          "skill_range": [
+            307,
+            312,
+            317,
+            322
+          ],
+          "source": "trainer",
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "item_level": 66,
+            "rarity": "rare",
+            "required_level": 60,
+            "stat_template": "agi_int_hybrid",
+            "material_tier": "frostforged_silver",
+            "fixed_item_level": true,
+            "armor_type": "leather",
+            "item": {
+              "name": "Frostforged Scout Goggles",
+              "slot": "head",
+              "item_level": 66,
+              "rarity": "rare",
+              "armor_type": "leather",
+              "weapon_type": null,
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 13,
+                "intellect": 11
+              },
+              "secondary_stats": {
+                "attack_power": 40
+              },
+              "armor_value": 183,
+              "required_level": 60,
+              "sell_price": 18279,
+              "flavor_text": "Twelve lenses, one of which is pointing the right way.",
+              "identity": "hunter",
+              "icon_id": "gear_inv_helmet_61"
+            }
+          }
+        },
+        "m60_sylvanite_hand_cannon": {
+          "name": "Sylvanite Hand Cannon",
+          "inputs": {
+            "bar_sylvanite": 7,
+            "bar_frostforged_silver": 3,
+            "part_gear_assembly": 2,
+            "gem_glacier_sapphire": 1
+          },
+          "skill_required": 320,
+          "skill_range": [
+            323,
+            328,
+            333,
+            338
+          ],
+          "source": "heroic",
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "item_level": 68,
+            "rarity": "epic",
+            "required_level": 60,
+            "stat_template": "agi_physical",
+            "material_tier": "sylvanite",
+            "fixed_item_level": true,
+            "weapon_type": "gun",
+            "item": {
+              "name": "Sylvanite Hand Cannon",
+              "slot": "ranged",
+              "item_level": 68,
+              "rarity": "epic",
+              "armor_type": null,
+              "weapon_type": "gun",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 12
+              },
+              "secondary_stats": {
+                "attack_power": 33,
+                "crit_chance_physical": 12
+              },
+              "armor_value": 0,
+              "required_level": 60,
+              "sell_price": 33733,
+              "flavor_text": "Technically handheld. Technically a cannon. Technically legal.",
+              "identity": "hunter_crit",
+              "icon_id": "gear_m60_sylvanite_hand_cannon",
+              "weapon_damage_min": 129,
+              "weapon_damage_max": 174,
+              "attack_speed": 2.6,
+              "block_value": 0
+            }
+          }
+        },
+        "m60_gyro_goggles": {
+          "name": "Sylvanite Gyro-Goggles",
+          "inputs": {
+            "bar_sylvanite": 8,
+            "bar_frostforged_silver": 3,
+            "part_gear_assembly": 2,
+            "gem_glacier_sapphire": 1
+          },
+          "skill_required": 322,
+          "skill_range": [
+            325,
+            330,
+            335,
+            340
+          ],
+          "source": "heroic",
+          "output": {
+            "kind": "armor",
+            "slot": "head",
+            "item_level": 68,
+            "rarity": "epic",
+            "required_level": 60,
+            "stat_template": "agi_int_hybrid",
+            "material_tier": "sylvanite",
+            "fixed_item_level": true,
+            "armor_type": "mail",
+            "item": {
+              "name": "Sylvanite Gyro-Goggles",
+              "slot": "head",
+              "item_level": 68,
+              "rarity": "epic",
+              "armor_type": "mail",
+              "weapon_type": null,
+              "stat_template": "agi_int_hybrid",
+              "primary_stats": {
+                "agility": 19,
+                "intellect": 16
+              },
+              "secondary_stats": {
+                "attack_power": 54
+              },
+              "armor_value": 390,
+              "required_level": 60,
+              "sell_price": 33733,
+              "flavor_text": "The lenses spin on their own. Don't ask what they're looking for.",
+              "identity": "hunter",
+              "icon_id": "gear_m60_sylvanite_gyro_goggles"
+            }
+          }
         }
       }
     },

@@ -23,6 +23,12 @@ from core.game_states import GameState
 from ui.screens.base_screen import BaseScreen
 from ui.sprite_loader import get_tile_sprite, get_icon_sprite
 from world.gathering_manager import TIER_SKILL_CAPS, MATERIAL_TYPE_FOLDERS, get_gathering_node_manager
+
+
+def _top_cap():
+    """The highest skill cap a trainer sells (Master, 325, since 18 Nov 2026)."""
+    from entities.character import Character
+    return Character.PROFESSION_TIER_CAPS[-1]
 from world.smelting_manager import get_smelting_manager
 from world.blacksmithing_manager import get_blacksmithing_manager
 from world.crafting_manager import get_crafting_manager
@@ -686,7 +692,7 @@ class ProfessionsScreen(BaseScreen):
             else:
                 self.renderer.draw_text(screen, "You are not at a Sawmill. Find one to saw planks.", (PANEL_X, y), color=(220, 160, 120))
             y += 30
-        elif skill >= cap and cap < 300:
+        elif skill >= cap and cap < _top_cap():
             self.renderer.draw_text(screen, f"Skill cap reached - visit a {label} trainer to advance.", (PANEL_X, y), color=(220, 190, 120))
             y += 30
         if profession == "jewelcrafting" and player.get_material_quantity("jewelers_kit") < 1:

@@ -58,7 +58,10 @@ def main():
     top_level = max((max(c.get("level_range") or [1]) for c in creatures.values()), default=1)
     droppable = set(eligible(top_level))
 
-    fails, routes = [], {"trainer": 0, "vendor": 0, "drop": 0, "quest": 0}
+    fails, routes = [], {"trainer": 0, "vendor": 0, "drop": 0, "quest": 0, "heroic": 0}
+    # a Master epic pattern drops from heroic bosses (world/heroic.roll_pattern, tools/build_master_crafting.py)
+    from world.recipe_manager import all_recipes_by_source
+    heroic = set(all_recipes_by_source("heroic"))
     for rid, (prof, r) in sorted(recipes.items()):
         source = r.get("source", "trainer")
         got = []
@@ -70,6 +73,8 @@ def main():
             got.append("drop")
         if rid in quest_rewards:
             got.append("quest")
+        if rid in heroic:
+            got.append("heroic")
         if not got:
             fails.append(f"{rid} ({prof}, source={source}, skill "
                          f"{r.get('skill_required', 0)}) has no route to a player")

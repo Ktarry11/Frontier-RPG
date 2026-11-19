@@ -1163,8 +1163,15 @@ class CombatEngine:
             if self.heroic and getattr(enemy, "is_boss", False):
                 # and the first top-tier ore, wood or gem (world/heroic.roll_materials, Kyle 18 Nov 2026)
                 try:
-                    from world.heroic import roll_materials
+                    from world.heroic import roll_materials, roll_pattern
                     from world.gathering_manager import get_gathering_node_manager
+                    # a Master epic pattern, now and then (tools/build_master_crafting.py)
+                    pid = roll_pattern()
+                    if pid:
+                        from world.recipe_manager import make_recipe_scroll
+                        scroll = make_recipe_scroll(pid)
+                        if scroll is not None:
+                            drops.append(scroll)
                     for mid, qty in roll_materials():
                         mat = get_gathering_node_manager().make_material_instance(mid)
                         if mat is not None:

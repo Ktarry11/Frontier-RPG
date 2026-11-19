@@ -132,6 +132,21 @@ def roll_materials(rng=None):
     return [(mid, rng.randint(lo, hi))]
 
 
+#: a heroic boss drops one of the Master epic patterns this often (tools/build_master_crafting.py, source "heroic")
+PATTERN_CHANCE = 0.15
+
+
+def roll_pattern(rng=None):
+    """A Master epic pattern's recipe id for a heroic boss to drop, or None."""
+    import random as _r
+    rng = rng or _r
+    if rng.random() >= PATTERN_CHANCE:
+        return None
+    from world.recipe_manager import all_recipes_by_source
+    pool = sorted(all_recipes_by_source("heroic"))
+    return rng.choice(pool) if pool else None
+
+
 # ---------------------------------------------------------------------------------------------------------- loot
 def _weapon_hit(level):
     """The generator's average weapon hit for an item level (entities/loot_generator: item_level * 1.1 + 6.4)."""

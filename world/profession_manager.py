@@ -2,7 +2,8 @@
 Profession training (Oct 2026): learn a profession from its trainer, then train up through the tiers.
 
   * A character can know MAX_PRIMARY (3) professions.  Learning one costs the Apprentice price (skill cap 75).
-  * When the skill reaches the tier cap, the trainer sells the next tier (Journeyman 150, Expert 225, Artisan 300) - needs a
+  * When the skill reaches the tier cap, the trainer sells the next tier (Journeyman 150, Expert 225, Artisan 300, and
+    Master 325 at level 60, added 18 Nov 2026 for the first two level-60 material tiers) - needs a
     minimum character level and gold.
   * Unlearning forgets the profession and resets its skill to 0 (so re-learning starts over).
   * Gathering without the profession still picks things up, but never skills up; crafting needs the profession.
