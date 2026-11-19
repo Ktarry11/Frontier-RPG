@@ -1,0 +1,77 @@
+{
+  "recruit_text": {
+    "greeting": "Gently, gently, now. Whatever is wrong here, shouting at it will make it worse. I've got thirty years of evidence.",
+    "backstory": "Thirty-one years teaching botany in Pune. Three decades of patience with slow things, and with students who wanted results by Friday. A plant will tell you what it needs if you're willing to wait several seasons for the sentence to finish. Druidry asked her for the same patience and gave her, for the first time in her life, the ability to answer back.",
+    "before": "A department, a herbarium, and four decades of pressed specimens she labelled in her own hand.\n\nHer husband Suresh retired in 2018 and spent two years teaching himself to cook. She had one year of that. She calls it the best year of their marriage, in a voice that invites no follow-up.",
+    "adjustment": "Slowly, which suited her. She treated the whole first year as a field season and kept a notebook the way she'd kept forty of them.\n\nThat notebook is now the only careful record of Ashenvale's understory in any language, and she thinks of it as a draft.",
+    "now": "Ashenvale West, where the forest is sick in a patterned way, and the night elves know it in their bones without ever having written it down.\n\nShe's writing it down. The Sentinels were suspicious for two years and now bring her specimens.",
+    "forward": "To be read in two hundred years. She says it cheerfully and she's entirely serious.\n\nThat means a copy somewhere safe, in a language that'll survive, and a student who cares. She has the notebook. She's working on the rest."
+  },
+  "bond": {
+    "home": "Ashenvale West",
+    "dials": {"warmth": 0.9, "nerve": 1.1, "pride": 0.8, "restless": 0.8},
+    "likes": ["new_ground", "quest"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "My name is Anjali, and I'm a druid and a botanist. Slow down, please, you're walking past a great deal. If you'd like to know the name of anything we pass, ask me, and I'll tell you in Latin as well.",
+      "acquaintance": "I'm from Pune, though my family are Malayali, from Kerala. My mother kept a garden full of plants from home, and I grew up in it. I taught botany at a university in Pune for thirty-one years. My students were frightened of me, and they loved me, and both were correct.",
+      "companion": "My husband was Suresh, an accountant. He retired in 2018 and spent two years teaching himself to cook, and I had one year of that before his heart gave out. It was the best year of our marriage. I was pressing a specimen in the herbarium when all this happened, and I landed in Ashenvale with my hand lens round my neck. I treated the first year as a field season.",
+      "friend": "My son Arjun is in Bangalore with his wife, and their daughter Meera was four when it happened. I think of her when I press a leaf, because she used to help me, badly and with great enthusiasm. I haven't found them. My notebook needs specimens from the very worst of the sickness, and then a copy kept somewhere it will survive. I'd like your help with both, gently.",
+      "sworn": "The elves at Kael's Bastion have taken a copy for their gallery, and they've promised to keep it. And Ilyara has agreed to be my student. On her first day she corrected my spelling of a night elf plant name, and I was delighted. I'll be read in two hundred years now, and Ilyara will still be alive to check my work. Arjun and Meera are still out there, I hope. I press a leaf for Meera every week."
+    },
+    "moments": [
+      {"id": "what_notice", "stage": "acquaintance", "when": "talk",
+       "prompt": "She crouches by a plant and asks you what you notice about it.",
+       "options": [
+         {"text": "Look closely, and tell her something true about it.", "trust": 8,
+          "reply": "Yes, that's it exactly. You'd have been one of my good students."},
+         {"text": "It's a plant.", "trust": 0,
+          "reply": "It is, and that's a beginning. We'll do better next time."}
+       ]},
+      {"id": "the_copy", "stage": "friend", "when": "talk",
+       "prompt": "She's asked you to help her finish the notebook and keep it safe.",
+       "options": [
+         {"text": "We'll finish it together.", "trust": 12,
+          "reply": "Thank you. We'll go gently, and we'll go thoroughly."},
+         {"text": "Who'll even read it?", "trust": 0,
+          "reply": "Somebody in two hundred years. That's who I'm writing for."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've walked the same ground so many times I've catalogued every weed in it. I'd like to see something new, please.",
+      "leaving_good": "That was a lovely trip, and I've pressed twelve new specimens. I'm going back to Ashenvale to label them. Come and see me.",
+      "leaving_bored": "I'm going back to Ashenvale. There's nothing new for me out here, and my notebook is waiting.",
+      "after_wipe": "Gently, now, everyone stay still, and we'll see what can be mended.",
+      "wipe_warning": "We've fallen here too often. I'll finish this run with you, but then I'll need some days with my specimens.",
+      "wipe_leave": "I've stayed to the end, as I said. Now I'm going back to Ashenvale. Come and find me when you're ready to go slowly.",
+      "zone_warning": "This place is beyond us, and it wasn't well done to bring us here. Let's go somewhere we can manage.",
+      "zone_leave": "I'm stopping here. I said it was beyond us. I'll be in Ashenvale West.",
+      "gear_refuse": "I'd rather keep that, thank you. We don't know each other well enough yet.",
+      "gear_taken": "Take it, if you must. I'll manage, carefully.",
+      "gear_short": "I'm still missing that piece. I mention it only for the record.",
+      "gear_upgrade": "That's very well made. Thank you, that's kind.",
+      "back": "I'm back, and my labels are all up to date. Where are we going?",
+      "send_word": "Anjali has sent word from Ashenvale West. Her specimens are labelled and she's ready to come out.",
+      "walkout_talk": "I left angry, which wasn't well done of me. Sit, and I'll explain, slowly, and then I'd like to hear you.",
+      "neglect": "There you are. I've pressed a great many leaves while I waited.",
+      "asked_to_stay": "Very well, one more trip, and then my notebook.",
+      "on_break": "Anjali is back in Ashenvale West with her specimens. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "zone_arrive": [
+      {"text": "This soil's been asked for too much for too long.", "kind": "reply"},
+      {"text": "Oh, look at that fern. I've never seen one like it. Wait for me, please.", "kind": "open"}
+    ],
+    "town_arrive": [
+      {"text": "Their grain's stored wrong. One wet month and they'll lose the lot.", "kind": "open"},
+      {"text": "Pune in the monsoon smells of wet earth and filter coffee, and I'd give a great deal for both.", "kind": "open", "topic": "cities"}
+    ],
+    "dungeon_clear": [
+      {"text": "There were mosses down there that grow without light. I'd like to know how.", "kind": "open"}
+    ],
+    "close_call": [
+      {"text": "You pushed past where you had anything left. A field does that once and then it's gone.", "kind": "reply"}
+    ]
+  }
+}

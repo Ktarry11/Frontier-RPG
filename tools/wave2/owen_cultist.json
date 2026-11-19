@@ -1,0 +1,70 @@
+{
+  "recruit_text": {
+    "greeting": "You hear that? No, of course you don't. Stay close anyway.",
+    "backstory": "Eight years a long-haul driver out of Cardiff, alone in a cab through the small hours, with the radio for company. He talked to himself for a living. Then he got here and something in the dark answered him, and the terrible part is that he was glad. He knows how that sounds. He says it anyway, early, so nobody can say he hid it later.",
+    "before": "Motorways, laybys, and a flat in Cardiff he barely lived in.\n\nHis mother was in a home in Barry, and he visited every second Sunday for six years. She'd forgotten who he was by the end. He says that makes this easier, and the people who hear it understand that it doesn't.",
+    "adjustment": "He fell straight in. There was no moment of resistance, and he's looked at that honestly and found it worse than the falling.\n\nWhat he'll say, when pressed, is that eight years of talking to nobody is good preparation for talking to something.",
+    "now": "Deep in the Azurelode Mine in Western Hillsbrad, where the air is heavy and most people get headaches and leave.\n\nHe gets sentences, so he stays.",
+    "forward": "To know what it wants, properly. He's been given hints for three years and he's tired of hints.\n\nHe writes down everything he hears, on the grounds that if he ever goes wrong, somebody will want a record of the route."
+  },
+  "bond": {
+    "home": "the Azurelode Mine",
+    "dials": {"warmth": 1.0, "nerve": 1.1, "pride": 0.4, "restless": 0.8},
+    "likes": ["dungeon", "full_party"],
+    "dislikes": ["demon"],
+    "stages": {
+      "stranger": "I'm Owen, and I should tell you now, something in the dark talks to me. I'd rather you heard it from me first. I'm a tank, I'll stand in front, and I'm glad of the company, honestly.",
+      "acquaintance": "I'm from Barry, down the coast from Cardiff. My dad left when I was three, and my mam worked in a bakery and sang in the chapel choir, and she sang to me every night. I drove buses, then vans, then lorries, long-haul out of Cardiff, mostly nights. Eight years of motorways and laybys and talking to the radio.",
+      "companion": "My mam went into a home in Barry with dementia when I was forty-one. I went every second Sunday for six years, and by the end she didn't know who I was. I was on the M4 at three in the morning when it happened, and I landed with my CB handset still in my hand. That first week I went into the mine for shelter, and something answered me when I talked to myself.",
+      "friend": "I'll tell you what it says, then, since you've asked and you're the first who has. It knows things about me. It knows about Mam's singing. Now it wants me to go down to the deepest part of the mine and open something that's been shut a long time. It's never asked for anything that big before. I want to know what it is. I'd like you there, mind, in case I need stopping.",
+      "sworn": "I didn't open it. It offered me Mam, singing, knowing me again, and I said no, out loud, and we made the seal stronger. It went quiet after that, for good. I'm on my own in my head for the first time in three years, and it's the loneliest I've ever been. I'll miss it. I'm ashamed of that, and I'm telling you anyway, because I promised myself I'd always say the worst thing first."
+    },
+    "moments": [
+      {"id": "the_voice", "stage": "friend", "when": "talk",
+       "prompt": "He's told you what the voice wants him to open.",
+       "options": [
+         {"text": "I'll come, and I'll stop you if I have to.", "trust": 12,
+          "reply": "Diolch, thank you. That's exactly what I needed somebody to say."},
+         {"text": "Why not just ignore it?", "trust": 2,
+          "reply": "I've tried, now. It's like ignoring the radio in a cab at three in the morning."},
+         {"text": "Maybe you should open it and see.", "trust": 0,
+          "reply": "That's what it says, word for word. I'd rather you didn't sound like it."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've been doing the same thing a long time now, and it's getting very quiet in my head. I'd rather we did something useful, if it's all the same to you.",
+      "leaving_good": "That was a good trip, thank you. I'm going back down the Azurelode for a while. You know where to find me, mind.",
+      "leaving_bored": "I'm going back to the mine. This isn't going anywhere, and down there at least something's talking.",
+      "after_wipe": "Now then, is everyone all right? Let's take a minute before we go again.",
+      "wipe_warning": "We keep dying in here, and I don't like what I hear in the dark when we do. I'll finish this run, then I need a break.",
+      "wipe_leave": "I've finished it with you, like I said. Now I'm going home to the mine for a bit.",
+      "zone_warning": "This place is too much for us. I'm a big lad, but I can't hold all of that. Let's go somewhere tidy.",
+      "zone_leave": "I'm stopping here. It's too dangerous out there for me. I'll be in the Azurelode Mine.",
+      "gear_refuse": "I'd rather keep that, if you don't mind. We've not known each other long.",
+      "gear_taken": "Take it, it's fine, I'll manage.",
+      "gear_short": "I'm still missing that piece. Not complaining, mind, just saying.",
+      "gear_upgrade": "Duw, that's lovely. Thank you, really.",
+      "back": "I'm back, and I've written it all down. Where are we going?",
+      "send_word": "Owen has sent word from the Azurelode Mine. He's ready to come out again.",
+      "walkout_talk": "I left angry, and I'll tell you the worst bit first, like I always do. Then you tell me yours.",
+      "neglect": "There you are. It's been quiet without you, and I don't do well with quiet.",
+      "asked_to_stay": "Go on, then, one more. I'd like that.",
+      "on_break": "Owen is back down the Azurelode Mine. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "dungeon_clear": [
+      {"text": "Count again, please. I'm not moving till somebody counts again.", "kind": "open"}
+    ],
+    "zone_arrive": [
+      {"text": "There's old workings under this. You can feel it through your boots.", "kind": "open"}
+    ],
+    "close_call": [
+      {"text": "That roof was talking for ten seconds before it went. Learn that sound.", "kind": "reply"},
+      {"text": "Eight years of night driving and I still go cold when something comes out of the dark at you.", "kind": "open", "topic": "night_work"}
+    ],
+    "boss_down": [
+      {"text": "Listen to the roof a minute before anybody celebrates.", "kind": "open"}
+    ]
+  }
+}

@@ -435,7 +435,7 @@
     "owen_cultist": {
       "dungeon_clear": [
         {
-          "text": "Count again. I'm not moving till somebody counts again.",
+          "text": "Count again, please. I'm not moving till somebody counts again.",
           "kind": "open"
         }
       ],
@@ -449,6 +449,11 @@
         {
           "text": "That roof was talking for ten seconds before it went. Learn that sound.",
           "kind": "reply"
+        },
+        {
+          "text": "Eight years of night driving and I still go cold when something comes out of the dark at you.",
+          "kind": "open",
+          "topic": "night_work"
         }
       ],
       "boss_down": [
@@ -646,13 +651,18 @@
     "emre_rogue": {
       "town_arrive": [
         {
-          "text": "Every shutter on this street locks from the inside. They've had trouble.",
+          "text": "Every shutter on this street locks from the inside. They've had trouble here.",
           "kind": "open"
+        },
+        {
+          "text": "The Grand Bazaar has four thousand shops, and I'd opened the locks on about half of them.",
+          "kind": "open",
+          "topic": "cities"
         }
       ],
       "dungeon_clear": [
         {
-          "text": "Four doors down there, and not one of them built to keep anything out.",
+          "text": "Four doors down there, and not one of them was built to keep anything out.",
           "kind": "open"
         }
       ],
@@ -664,7 +674,7 @@
       ],
       "zone_arrive": [
         {
-          "text": "Thirty doors a week in the bazaar. None of them stayed shut either.",
+          "text": "Somebody here built their doors carefully. I'd like to meet them, or their locks.",
           "kind": "open"
         }
       ]
@@ -727,21 +737,30 @@
       ]
     },
     "anjali_druid": {
-      "town_arrive": [
-        {
-          "text": "Their grain's stored wrong. One wet month and they lose the lot.",
-          "kind": "open"
-        }
-      ],
       "zone_arrive": [
         {
           "text": "This soil's been asked for too much for too long.",
           "kind": "reply"
+        },
+        {
+          "text": "Oh, look at that fern. I've never seen one like it. Wait for me, please.",
+          "kind": "open"
+        }
+      ],
+      "town_arrive": [
+        {
+          "text": "Their grain's stored wrong. One wet month and they'll lose the lot.",
+          "kind": "open"
+        },
+        {
+          "text": "Pune in the monsoon smells of wet earth and filter coffee, and I'd give a great deal for both.",
+          "kind": "open",
+          "topic": "cities"
         }
       ],
       "dungeon_clear": [
         {
-          "text": "Patience, mostly. That's all that was. It usually is.",
+          "text": "There were mosses down there that grow without light. I'd like to know how.",
           "kind": "open"
         }
       ],

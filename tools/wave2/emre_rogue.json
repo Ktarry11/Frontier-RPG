@@ -1,0 +1,72 @@
+{
+  "recruit_text": {
+    "adjustment": "None worth the name. A bigger bazaar with worse customers, and three contented years, which makes him odd company in any room of people from Earth.\n\nThe uncomfortable part, which he'll admit to somebody he likes, is that he's content partly because the shop is gone, and so is everybody who'd have wanted it kept open a certain way. He didn't lose a family. He lost an obligation. He's been lighter since, and he keeps that to himself.",
+    "now": "Eastern Hillsbrad, in the country around Durnholde Keep, a keep full of doors built by people who were serious about them.\n\nHe isn't looting it. He's reading it. Which lock came first, which were added after somebody got in, and so where somebody got in."
+  },
+  "bond": {
+    "home": "Durnholde",
+    "dials": {"warmth": 0.8, "nerve": 1.2, "pride": 1.0, "restless": 1.0},
+    "likes": ["dungeon", "quest"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Emre, and I open doors. When we reach a locked one, please let me do the talking, and please don't interrupt. Everybody interrupts, and then it takes twice as long.",
+      "acquaintance": "I grew up above my uncle's lock shop in the old bazaar quarter of Istanbul. At nine he sent me to fetch a stuck deadbolt, and I found out I could open it. Thirty doors a week for most of my life after that. He left me his picks and the shop, and I watched four old trades die in our quarter while I ran it. Coppersmiths, bookbinders, felt makers, clockmakers.",
+      "companion": "My mother lived with me above the shop. Bir kapı kapanır, bir kapı açılır, she used to say. One door closes, another opens. I thought it was about God until I was thirty, and then I decided it was about me. She died the year before all this, and I hadn't decided what to do with the shop. I was opening a jeweller's safe when it happened.",
+      "friend": "I'll tell you something I don't say. I'm content here, and part of the reason is that the shop is gone, and so is everyone who wanted the shop kept a certain way. I didn't lose a family, my friend. I lost an obligation, and I've been lighter ever since. And there's a door at the bottom of Durnholde older than the keep, that nobody's ever opened. I'd like you there while I try.",
+      "sworn": "It beat me. A whole night, and near dawn I stopped, because this one beats me, and I laughed like a fool. I told you what the thing behind that first door asked me, three years ago. It asked who I was opening doors for. Now I know. I'm opening them for whoever comes after me. Her name's Mae, a sharp young Forsaken who picked my pockets for a month, and I'm teaching her on that door."
+    },
+    "moments": [
+      {"id": "quiet_please", "stage": "stranger", "when": "hire",
+       "prompt": "Before he agrees to come, he asks if you can stay quiet while he works a lock.",
+       "options": [
+         {"text": "Not a word, I promise.", "trust": 6, "joins": true,
+          "reply": "Tamam, then we'll get on very well, my friend."},
+         {"text": "No promises.", "trust": 0, "joins": false,
+          "reply": "Then I'll stay here with my doors. Come back when you've learned to be quiet."}
+       ]},
+      {"id": "the_door", "stage": "friend", "when": "talk",
+       "prompt": "He's asked you to sit with him at the oldest door in Durnholde.",
+       "options": [
+         {"text": "I'll sit with you, and I won't say a word.", "trust": 12,
+          "reply": "That's exactly what I wanted. We'll go tonight."},
+         {"text": "What if it's dangerous behind it?", "trust": 2,
+          "reply": "It probably is, my friend. That's half the conversation."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've done the same thing for days, my friend, and I haven't met a single interesting door. Let's go somewhere with locks.",
+      "leaving_good": "That was a good trip, and I opened some lovely things. I'm going back to Durnholde to read some more doors. You know where.",
+      "leaving_bored": "I'm going back to Durnholde. There's nothing here worth opening, and I get restless.",
+      "after_wipe": "Well, that was a badly made plan. Let's take it apart and see where it stuck.",
+      "wipe_warning": "We keep dying in here, my friend, and I don't like the pattern. I'll finish this run, then I'm taking a break.",
+      "wipe_leave": "I finished it with you. Now I'm going back to Durnholde for a while. Come when you've got a better plan.",
+      "zone_warning": "This place is a lock we can't open, my friend. There's no shame in walking away from one of those.",
+      "zone_leave": "I'm stopping here. I said it was a lock we couldn't open. I'll be at Durnholde in Eastern Hillsbrad.",
+      "gear_refuse": "No, I keep that. We haven't had enough coffee together yet.",
+      "gear_taken": "Take it, tamam. I'll manage without it.",
+      "gear_short": "I'm still missing that piece, my friend. I notice these things.",
+      "gear_upgrade": "That's beautifully made. Thank you, sincerely.",
+      "back": "I'm back, and I've read every door in the keep twice. Where are we going?",
+      "send_word": "Emre has sent word from Durnholde. He's read every door in the keep and he's ready to come out.",
+      "walkout_talk": "I walked out, my friend, and I'd like to explain without being interrupted. Then you speak, and I'll listen.",
+      "neglect": "Ah, there you are. I opened a great many doors waiting for you.",
+      "asked_to_stay": "Tamam, one more. Then my doors.",
+      "on_break": "Emre is back at Durnholde, reading its doors. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {"text": "Every shutter on this street locks from the inside. They've had trouble here.", "kind": "open"},
+      {"text": "The Grand Bazaar has four thousand shops, and I'd opened the locks on about half of them.", "kind": "open", "topic": "cities"}
+    ],
+    "dungeon_clear": [
+      {"text": "Four doors down there, and not one of them was built to keep anything out.", "kind": "open"}
+    ],
+    "boss_down": [
+      {"text": "It was guarding an empty room. Somebody cleared that out a long time ago.", "kind": "reply"}
+    ],
+    "zone_arrive": [
+      {"text": "Somebody here built their doors carefully. I'd like to meet them, or their locks.", "kind": "open"}
+    ]
+  }
+}

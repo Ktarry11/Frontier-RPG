@@ -426,6 +426,87 @@
         "on_break": "Amber is back at the oases in the Central Barrens. Come back after you've done a few more jobs."
       }
     },
+    "anjali_druid": {
+      "home": "Ashenvale West",
+      "dials": {
+        "warmth": 0.9,
+        "nerve": 1.1,
+        "pride": 0.8,
+        "restless": 0.8
+      },
+      "likes": [
+        "new_ground",
+        "quest"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "My name is Anjali, and I'm a druid and a botanist. Slow down, please, you're walking past a great deal. If you'd like to know the name of anything we pass, ask me, and I'll tell you in Latin as well.",
+        "acquaintance": "I'm from Pune, though my family are Malayali, from Kerala. My mother kept a garden full of plants from home, and I grew up in it. I taught botany at a university in Pune for thirty-one years. My students were frightened of me, and they loved me, and both were correct.",
+        "companion": "My husband was Suresh, an accountant. He retired in 2018 and spent two years teaching himself to cook, and I had one year of that before his heart gave out. It was the best year of our marriage. I was pressing a specimen in the herbarium when all this happened, and I landed in Ashenvale with my hand lens round my neck. I treated the first year as a field season.",
+        "friend": "My son Arjun is in Bangalore with his wife, and their daughter Meera was four when it happened. I think of her when I press a leaf, because she used to help me, badly and with great enthusiasm. I haven't found them. My notebook needs specimens from the very worst of the sickness, and then a copy kept somewhere it will survive. I'd like your help with both, gently.",
+        "sworn": "The elves at Kael's Bastion have taken a copy for their gallery, and they've promised to keep it. And Ilyara has agreed to be my student. On her first day she corrected my spelling of a night elf plant name, and I was delighted. I'll be read in two hundred years now, and Ilyara will still be alive to check my work. Arjun and Meera are still out there, I hope. I press a leaf for Meera every week."
+      },
+      "moments": [
+        {
+          "id": "what_notice",
+          "stage": "acquaintance",
+          "when": "talk",
+          "prompt": "She crouches by a plant and asks you what you notice about it.",
+          "options": [
+            {
+              "text": "Look closely, and tell her something true about it.",
+              "trust": 8,
+              "reply": "Yes, that's it exactly. You'd have been one of my good students."
+            },
+            {
+              "text": "It's a plant.",
+              "trust": 0,
+              "reply": "It is, and that's a beginning. We'll do better next time."
+            }
+          ]
+        },
+        {
+          "id": "the_copy",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's asked you to help her finish the notebook and keep it safe.",
+          "options": [
+            {
+              "text": "We'll finish it together.",
+              "trust": 12,
+              "reply": "Thank you. We'll go gently, and we'll go thoroughly."
+            },
+            {
+              "text": "Who'll even read it?",
+              "trust": 0,
+              "reply": "Somebody in two hundred years. That's who I'm writing for."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've walked the same ground so many times I've catalogued every weed in it. I'd like to see something new, please.",
+        "leaving_good": "That was a lovely trip, and I've pressed twelve new specimens. I'm going back to Ashenvale to label them. Come and see me.",
+        "leaving_bored": "I'm going back to Ashenvale. There's nothing new for me out here, and my notebook is waiting.",
+        "after_wipe": "Gently, now, everyone stay still, and we'll see what can be mended.",
+        "wipe_warning": "We've fallen here too often. I'll finish this run with you, but then I'll need some days with my specimens.",
+        "wipe_leave": "I've stayed to the end, as I said. Now I'm going back to Ashenvale. Come and find me when you're ready to go slowly.",
+        "zone_warning": "This place is beyond us, and it wasn't well done to bring us here. Let's go somewhere we can manage.",
+        "zone_leave": "I'm stopping here. I said it was beyond us. I'll be in Ashenvale West.",
+        "gear_refuse": "I'd rather keep that, thank you. We don't know each other well enough yet.",
+        "gear_taken": "Take it, if you must. I'll manage, carefully.",
+        "gear_short": "I'm still missing that piece. I mention it only for the record.",
+        "gear_upgrade": "That's very well made. Thank you, that's kind.",
+        "back": "I'm back, and my labels are all up to date. Where are we going?",
+        "send_word": "Anjali has sent word from Ashenvale West. Her specimens are labelled and she's ready to come out.",
+        "walkout_talk": "I left angry, which wasn't well done of me. Sit, and I'll explain, slowly, and then I'd like to hear you.",
+        "neglect": "There you are. I've pressed a great many leaves while I waited.",
+        "asked_to_stay": "Very well, one more trip, and then my notebook.",
+        "on_break": "Anjali is back in Ashenvale West with her specimens. Come back after you've done a few more jobs."
+      }
+    },
     "bakyt_hunter": {
       "home": "Eastern Hillsbrad",
       "dials": {
@@ -1109,6 +1190,89 @@
         "asked_to_stay": "Sure, one more. I'm not finished with your boots anyway.",
         "on_break": "Diego has gone back to Deathknell to sort his parts. Come back after you've done a few more jobs.",
         "quest_abandoned": "We just left that half done. I hate that, my friend. Half done is worse than broken."
+      }
+    },
+    "emre_rogue": {
+      "home": "Durnholde",
+      "dials": {
+        "warmth": 0.8,
+        "nerve": 1.2,
+        "pride": 1.0,
+        "restless": 1.0
+      },
+      "likes": [
+        "dungeon",
+        "quest"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Emre, and I open doors. When we reach a locked one, please let me do the talking, and please don't interrupt. Everybody interrupts, and then it takes twice as long.",
+        "acquaintance": "I grew up above my uncle's lock shop in the old bazaar quarter of Istanbul. At nine he sent me to fetch a stuck deadbolt, and I found out I could open it. Thirty doors a week for most of my life after that. He left me his picks and the shop, and I watched four old trades die in our quarter while I ran it. Coppersmiths, bookbinders, felt makers, clockmakers.",
+        "companion": "My mother lived with me above the shop. Bir kapı kapanır, bir kapı açılır, she used to say. One door closes, another opens. I thought it was about God until I was thirty, and then I decided it was about me. She died the year before all this, and I hadn't decided what to do with the shop. I was opening a jeweller's safe when it happened.",
+        "friend": "I'll tell you something I don't say. I'm content here, and part of the reason is that the shop is gone, and so is everyone who wanted the shop kept a certain way. I didn't lose a family, my friend. I lost an obligation, and I've been lighter ever since. And there's a door at the bottom of Durnholde older than the keep, that nobody's ever opened. I'd like you there while I try.",
+        "sworn": "It beat me. A whole night, and near dawn I stopped, because this one beats me, and I laughed like a fool. I told you what the thing behind that first door asked me, three years ago. It asked who I was opening doors for. Now I know. I'm opening them for whoever comes after me. Her name's Mae, a sharp young Forsaken who picked my pockets for a month, and I'm teaching her on that door."
+      },
+      "moments": [
+        {
+          "id": "quiet_please",
+          "stage": "stranger",
+          "when": "hire",
+          "prompt": "Before he agrees to come, he asks if you can stay quiet while he works a lock.",
+          "options": [
+            {
+              "text": "Not a word, I promise.",
+              "trust": 6,
+              "joins": true,
+              "reply": "Tamam, then we'll get on very well, my friend."
+            },
+            {
+              "text": "No promises.",
+              "trust": 0,
+              "joins": false,
+              "reply": "Then I'll stay here with my doors. Come back when you've learned to be quiet."
+            }
+          ]
+        },
+        {
+          "id": "the_door",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to sit with him at the oldest door in Durnholde.",
+          "options": [
+            {
+              "text": "I'll sit with you, and I won't say a word.",
+              "trust": 12,
+              "reply": "That's exactly what I wanted. We'll go tonight."
+            },
+            {
+              "text": "What if it's dangerous behind it?",
+              "trust": 2,
+              "reply": "It probably is, my friend. That's half the conversation."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've done the same thing for days, my friend, and I haven't met a single interesting door. Let's go somewhere with locks.",
+        "leaving_good": "That was a good trip, and I opened some lovely things. I'm going back to Durnholde to read some more doors. You know where.",
+        "leaving_bored": "I'm going back to Durnholde. There's nothing here worth opening, and I get restless.",
+        "after_wipe": "Well, that was a badly made plan. Let's take it apart and see where it stuck.",
+        "wipe_warning": "We keep dying in here, my friend, and I don't like the pattern. I'll finish this run, then I'm taking a break.",
+        "wipe_leave": "I finished it with you. Now I'm going back to Durnholde for a while. Come when you've got a better plan.",
+        "zone_warning": "This place is a lock we can't open, my friend. There's no shame in walking away from one of those.",
+        "zone_leave": "I'm stopping here. I said it was a lock we couldn't open. I'll be at Durnholde in Eastern Hillsbrad.",
+        "gear_refuse": "No, I keep that. We haven't had enough coffee together yet.",
+        "gear_taken": "Take it, tamam. I'll manage without it.",
+        "gear_short": "I'm still missing that piece, my friend. I notice these things.",
+        "gear_upgrade": "That's beautifully made. Thank you, sincerely.",
+        "back": "I'm back, and I've read every door in the keep twice. Where are we going?",
+        "send_word": "Emre has sent word from Durnholde. He's read every door in the keep and he's ready to come out.",
+        "walkout_talk": "I walked out, my friend, and I'd like to explain without being interrupted. Then you speak, and I'll listen.",
+        "neglect": "Ah, there you are. I opened a great many doors waiting for you.",
+        "asked_to_stay": "Tamam, one more. Then my doors.",
+        "on_break": "Emre is back at Durnholde, reading its doors. Come back after you've done a few more jobs."
       }
     },
     "esteban_bloodmage": {
@@ -2384,6 +2548,74 @@
         "neglect": "There you are! I thought you'd found another barber. That's the worst betrayal there is, you know.",
         "asked_to_stay": "Okay, okay, one more, but I'm doing everyone's hair tonight.",
         "on_break": "Orlando is back at the Shadowpine Altar, cutting hair by the fire. Come back after you've done a few more jobs."
+      }
+    },
+    "owen_cultist": {
+      "home": "the Azurelode Mine",
+      "dials": {
+        "warmth": 1.0,
+        "nerve": 1.1,
+        "pride": 0.4,
+        "restless": 0.8
+      },
+      "likes": [
+        "dungeon",
+        "full_party"
+      ],
+      "dislikes": [
+        "demon"
+      ],
+      "stages": {
+        "stranger": "I'm Owen, and I should tell you now, something in the dark talks to me. I'd rather you heard it from me first. I'm a tank, I'll stand in front, and I'm glad of the company, honestly.",
+        "acquaintance": "I'm from Barry, down the coast from Cardiff. My dad left when I was three, and my mam worked in a bakery and sang in the chapel choir, and she sang to me every night. I drove buses, then vans, then lorries, long-haul out of Cardiff, mostly nights. Eight years of motorways and laybys and talking to the radio.",
+        "companion": "My mam went into a home in Barry with dementia when I was forty-one. I went every second Sunday for six years, and by the end she didn't know who I was. I was on the M4 at three in the morning when it happened, and I landed with my CB handset still in my hand. That first week I went into the mine for shelter, and something answered me when I talked to myself.",
+        "friend": "I'll tell you what it says, then, since you've asked and you're the first who has. It knows things about me. It knows about Mam's singing. Now it wants me to go down to the deepest part of the mine and open something that's been shut a long time. It's never asked for anything that big before. I want to know what it is. I'd like you there, mind, in case I need stopping.",
+        "sworn": "I didn't open it. It offered me Mam, singing, knowing me again, and I said no, out loud, and we made the seal stronger. It went quiet after that, for good. I'm on my own in my head for the first time in three years, and it's the loneliest I've ever been. I'll miss it. I'm ashamed of that, and I'm telling you anyway, because I promised myself I'd always say the worst thing first."
+      },
+      "moments": [
+        {
+          "id": "the_voice",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's told you what the voice wants him to open.",
+          "options": [
+            {
+              "text": "I'll come, and I'll stop you if I have to.",
+              "trust": 12,
+              "reply": "Diolch, thank you. That's exactly what I needed somebody to say."
+            },
+            {
+              "text": "Why not just ignore it?",
+              "trust": 2,
+              "reply": "I've tried, now. It's like ignoring the radio in a cab at three in the morning."
+            },
+            {
+              "text": "Maybe you should open it and see.",
+              "trust": 0,
+              "reply": "That's what it says, word for word. I'd rather you didn't sound like it."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been doing the same thing a long time now, and it's getting very quiet in my head. I'd rather we did something useful, if it's all the same to you.",
+        "leaving_good": "That was a good trip, thank you. I'm going back down the Azurelode for a while. You know where to find me, mind.",
+        "leaving_bored": "I'm going back to the mine. This isn't going anywhere, and down there at least something's talking.",
+        "after_wipe": "Now then, is everyone all right? Let's take a minute before we go again.",
+        "wipe_warning": "We keep dying in here, and I don't like what I hear in the dark when we do. I'll finish this run, then I need a break.",
+        "wipe_leave": "I've finished it with you, like I said. Now I'm going home to the mine for a bit.",
+        "zone_warning": "This place is too much for us. I'm a big lad, but I can't hold all of that. Let's go somewhere tidy.",
+        "zone_leave": "I'm stopping here. It's too dangerous out there for me. I'll be in the Azurelode Mine.",
+        "gear_refuse": "I'd rather keep that, if you don't mind. We've not known each other long.",
+        "gear_taken": "Take it, it's fine, I'll manage.",
+        "gear_short": "I'm still missing that piece. Not complaining, mind, just saying.",
+        "gear_upgrade": "Duw, that's lovely. Thank you, really.",
+        "back": "I'm back, and I've written it all down. Where are we going?",
+        "send_word": "Owen has sent word from the Azurelode Mine. He's ready to come out again.",
+        "walkout_talk": "I left angry, and I'll tell you the worst bit first, like I always do. Then you tell me yours.",
+        "neglect": "There you are. It's been quiet without you, and I don't do well with quiet.",
+        "asked_to_stay": "Go on, then, one more. I'd like that.",
+        "on_break": "Owen is back down the Azurelode Mine. Come back after you've done a few more jobs."
       }
     },
     "pavlo_knight": {
