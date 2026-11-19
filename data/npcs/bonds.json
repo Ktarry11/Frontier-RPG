@@ -363,6 +363,69 @@
         "quest_abandoned": "Somebody was relying on us for that and we've walked away. I don't like it."
       }
     },
+    "amber_druid": {
+      "home": "the Central Barrens",
+      "dials": {
+        "warmth": 0.8,
+        "nerve": 1.2,
+        "pride": 0.6,
+        "restless": 0.8
+      },
+      "likes": [
+        "quest",
+        "new_ground"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Amber, and I'm a druid, and I fix land, slowly. If you want something done by Tuesday I'm the wrong person. If you want it done right, give it a season.",
+        "acquaintance": "I'm from Astoria, on the Oregon coast, where the Columbia meets the Pacific. My dad ran a charter boat and my mom taught school, and I grew up in waders. I spent twenty-three years restoring wetland, and I never once got to finish a basin, because the grant money always ran out three years into a thirty-year job.",
+        "companion": "I was married to Doug, a forester. We split in 2016 without much fuss, because he wanted to move inland and I wouldn't leave the coast. I lived alone with two dogs after that and liked it more than I expected. I was on the tide flats at low tide when it happened, and I landed in the driest place I'd ever seen, still in my waders.",
+        "friend": "My little sister Beth was in Portland. I think about her a lot and I don't let it take over, because that's how I'm built. But I'll tell you what I want, and it's selfish. I want one oasis, the worst one, the one everybody's given up on, brought all the way back. Something underground keeps feeding the rot. Will you come and find it with me, and then wait a whole season while I do the slow part?",
+        "sworn": "Reeds first, then the lilies, then the birds. You waited, and so did I, and it came back. My student did half the work without being told, slowly and right. The tauren came to look, and one of their elders asked me to do the next one. I said I'd need a few years, and she said that was fine. Nobody's ever said that to me before. Beth's still out there somewhere. I'll keep the seed bank going for her."
+      },
+      "moments": [
+        {
+          "id": "the_season",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's asked you to wait a whole season with her.",
+          "options": [
+            {
+              "text": "I'll wait. However long it takes.",
+              "trust": 12,
+              "reply": "Good, that's the answer I never got from a single grant committee."
+            },
+            {
+              "text": "Can't you just make it grow faster?",
+              "trust": 0,
+              "reply": "I could do that. Then it'd rot again by spring. Wait and see."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We're stripping the same ground over and over. That's how you lose topsoil. Let's move on before we wreck the place.",
+        "leaving_good": "That was a good trip, but my oases won't wait forever. I'm going back to the Barrens. You know where I'll be.",
+        "leaving_bored": "I'm going back to the Barrens. We're just churning the same patch, and I've got real work there.",
+        "after_wipe": "Well, that was a shortcut that didn't work. Let's go slower next time.",
+        "wipe_warning": "We keep dying in here because we keep rushing. I'll finish this run with you, but then I'm going back to my oases for a while.",
+        "wipe_leave": "I stayed till it was done. Now I'm going back to the Barrens to do something that actually grows.",
+        "zone_warning": "This place is beyond us, and pretending otherwise is a five-year mistake. Let's go somewhere we can handle.",
+        "zone_leave": "I'm stopping here. I told you it was too much. I'll be at the oases in the Barrens.",
+        "gear_refuse": "No, I'll keep that. I don't know you well enough yet.",
+        "gear_taken": "Go on, take it. I'll manage, I usually do.",
+        "gear_short": "I'm still missing that piece. I'm patient, but I've noticed.",
+        "gear_upgrade": "That's good work. Thank you, I'll make it last.",
+        "back": "I'm back, and the oasis is holding. Where are we going?",
+        "send_word": "Amber has sent word from the Central Barrens. Her oases are holding and she's ready to come out.",
+        "walkout_talk": "I walked out, and I've had a season to think about why. Sit down and I'll tell you, slowly.",
+        "neglect": "There you are. I'd started measuring how long you'd been gone in seasons.",
+        "asked_to_stay": "All right, one more, and then I'm going back to my mud.",
+        "on_break": "Amber is back at the oases in the Central Barrens. Come back after you've done a few more jobs."
+      }
+    },
     "berat_tinker": {
       "home": "Brill",
       "dials": {
@@ -969,6 +1032,180 @@
         "neglect": "Oi, there you are! I thought you'd drowned. Lucky I'm a lifeguard.",
         "asked_to_stay": "Yeah, all right, one more. But I'm picking the next place.",
         "on_break": "Hana is back on the Hillsbrad coast, out in the water. Come back after you've done a few more jobs."
+      }
+    },
+    "haruto_runemaster": {
+      "home": "Silverpine South",
+      "dials": {
+        "warmth": 0.5,
+        "nerve": 1.2,
+        "pride": 1.3,
+        "restless": 0.8
+      },
+      "likes": [
+        "dungeon",
+        "undead"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Haruto, and I cut runes. You're holding that weapon too tightly, so loosen your grip. I'll say very little, and what I say I'll mean.",
+        "acquaintance": "I'm from Kanazawa, in Japan. My father laid gold leaf. At twenty-two I went to study calligraphy under Master Fujita, who corrected me for eleven years before he praised me once. When he died I kept his studio and took four students. I did that for thirty-one years in all.",
+        "companion": "I landed in the mountains, at the camp of an old tauren rune-carver called Hrunn, with my brushes inside my jacket. I asked him to teach me, and he did, for a year. He'd come north out of Thousand Needles badly hurt, and the wounds killed him. I finished his lessons from my notes. I know exactly where they're incomplete. Now I copy the stones here before they fade.",
+        "friend": "My right hand has started to shake. Only a little, and only when I'm tired. I haven't told my students. The last stones, the oldest ones, are deep in the south near the keep, and they must be copied before they're gone. I'd like you to take me there, and I'd like you not to mention my hand to anyone.",
+        "sworn": "Edrin cut the last rune. My hand shook and my stroke went wrong, and he did it while I watched, and he did it well. I praised him, which I'd never done. The shake will get worse, so the reference is theirs to finish. And I'll tell you about Kenji now, all of it, because I've decided not to waste any more time. He was a potter, across the river. For twenty years we ate together most nights. He was at a fair in Kyoto that day."
+      },
+      "moments": [
+        {
+          "id": "the_hand",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's just told you about his hand.",
+          "options": [
+            {
+              "text": "I won't tell anyone. Let's go to the stones.",
+              "trust": 12,
+              "reply": "Thank you. We'll leave at first light, after the ink."
+            },
+            {
+              "text": "You should tell your students.",
+              "trust": 0,
+              "reply": "That's my decision to make, not yours."
+            },
+            {
+              "text": "How long have you known?",
+              "trust": 4,
+              "reply": "For three months, which is long enough to stop pretending it was the cold."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he speaks quietly to the whole party.",
+          "line": "That was careless, all of it, mine included. We'll do it again, and this time we'll do it properly.",
+          "options": [
+            {
+              "text": "Show us what properly looks like.",
+              "trust": 8,
+              "mood": 6,
+              "reply": "Watch my feet, then. Not my blade, my feet."
+            },
+            {
+              "text": "It wasn't that bad.",
+              "trust": 0,
+              "mood": -6,
+              "reply": "It was exactly that bad. That's why it failed."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We repeat the same motion without improving it. That isn't practice, it's habit. I'd like to do something that teaches me something.",
+        "leaving_good": "That was good work. I'll go back to Silverpine now, to the stones, before more of them fade. You know where I'll be.",
+        "leaving_bored": "I'm going back to the stones in Silverpine. What we're doing here has no form to it.",
+        "after_wipe": "That was careless. We'll stand, and we'll do it again, properly.",
+        "wipe_warning": "We fail here again and again. I'll finish this run with you, but then I'll need some days with my brushes.",
+        "wipe_leave": "I've finished it with you. Now I'm going back to Silverpine. Come and find me when you're ready to be precise.",
+        "zone_warning": "This place is beyond our skill. There's no shame in knowing that, only in ignoring it.",
+        "zone_leave": "I'm stopping here. I said it was beyond us. I'll be by the stones in Silverpine.",
+        "gear_refuse": "No, I'll keep that. Trust takes longer than this.",
+        "gear_taken": "Take it, then. I'll work without it, carefully.",
+        "gear_short": "I'm still missing that piece. I mention it once, and I won't mention it again.",
+        "gear_upgrade": "That's well made. Thank you, sincerely.",
+        "back": "I'm back, and the stones are copied for now. Where are we going?",
+        "send_word": "Haruto has sent word from Silverpine South. His copying is done for now and he's ready to come out.",
+        "walkout_talk": "I left in anger, which was careless of me. Please sit with me. I'll tell you why, and then I'll listen.",
+        "neglect": "You've been away a long time. I ground a great deal of ink while I waited.",
+        "asked_to_stay": "Very well, one more. Then the stones.",
+        "on_break": "Haruto is back by the standing stones in Silverpine South. Come back after you've done a few more jobs."
+      }
+    },
+    "ivan_warrior": {
+      "home": "Orgrimmar",
+      "dials": {
+        "warmth": 0.9,
+        "nerve": 1.3,
+        "pride": 0.9,
+        "restless": 0.9
+      },
+      "likes": [
+        "dungeon",
+        "boss"
+      ],
+      "dislikes": [
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "I'm Ivan, and I'm a warrior. Stand where I can see you, go when I say go, and we'll be fine. I don't like surprises, and I don't like lateness.",
+        "acquaintance": "I'm from Novosibirsk. I drove a tram for eleven years, Route 13, through the dark mornings. I knew every stop, every regular and every pothole, and I never had an accident. Not once in eleven years. Other men are proud of their cars. I was proud of that.",
+        "companion": "I'll tell you what frightened me every day on that tram. A child stepping off the kerb without looking. You can't stop a tram quickly, so you learn to see it coming. I never hit one, and I still dream about it. My wife is Natasha, a pharmacist. We have two girls, Sonya and Katya. They're in Novosibirsk, or they are somewhere, and I talk about them like they're in the next room.",
+        "friend": "Sonya's birthday is in March and Katya's is in October. I've missed three of each now. I keep them in my head like stops on a route. Here is my idea, and you can laugh like the caravan masters did. I want to run a fixed route, Orgrimmar to the Crossroads, on time, for a whole month. A bet with a caravan master. Will you help me keep the road clear?",
+        "sworn": "On the last run, at the Crossroads stop, there they were. Natasha and both girls. They'd heard about a big Russian running the Orgrimmar road on time and came to see. The girls are taller. I stopped exactly at the marker, and I got down, and for a long time I said nothing at all. They live in Orgrimmar with me now. The orcs call it Ivan's road, and I'm never late."
+      },
+      "moments": [
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's standing very still, counting heads.",
+          "line": "Somebody was behind me who should not be behind me. Next time, everybody where I can see you.",
+          "options": [
+            {
+              "text": "You're right. Where do you want us?",
+              "trust": 8,
+              "mood": 6,
+              "reply": "Good, now we have a timetable. You there, you there, and you behind the healer."
+            },
+            {
+              "text": "We were just trying to help.",
+              "trust": 0,
+              "mood": -6,
+              "reply": "Help from where I can see you, please. This isn't complicated."
+            }
+          ]
+        },
+        {
+          "id": "the_route",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's told you he wants to run a fixed route for a month.",
+          "options": [
+            {
+              "text": "I'm not laughing. Let's do it.",
+              "trust": 12,
+              "reply": "Good, first run is at dawn. Don't be late."
+            },
+            {
+              "text": "Nobody here keeps a schedule.",
+              "trust": 0,
+              "reply": "Exactly right, and that's the problem I'm solving."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been going round in circles for days with no stops and no timetable. Give me a route with a point to it, or I go home.",
+        "leaving_good": "Good run, normal, on time. I'm going back to Orgrimmar to fix the traffic, because nobody else will. You know where.",
+        "leaving_bored": "I'm going back to Orgrimmar. This is going nowhere, and I don't like going nowhere.",
+        "after_wipe": "Okay, everybody up. Now we count, and then we do it properly.",
+        "wipe_warning": "We keep dying here and it's very bad driving. I'll finish this run, but then I need some days at home.",
+        "wipe_leave": "I finished it, like I said. Now I go home. Find me in Orgrimmar when you've learned to stand still.",
+        "zone_warning": "This place is a tram with no brakes going downhill. We should get off before the bottom.",
+        "zone_leave": "I'm stopping here. I told you, no brakes. I'll be in Orgrimmar.",
+        "gear_refuse": "No, that's mine. I don't know you well enough.",
+        "gear_taken": "Take it, fine. I'll complain about it every single day, but take it.",
+        "gear_short": "I'm still missing that piece. I say this every day now, so get used to it.",
+        "gear_upgrade": "That's good, very good. Thank you, and I don't say that often.",
+        "back": "I'm back, and the traffic's under control. Where are we going, and when?",
+        "send_word": "Ivan has sent word from Orgrimmar. The traffic's in order and he's ready to come out.",
+        "walkout_talk": "I left angry, and I'll tell you why, in order. Then you tell me yours. Then we decide.",
+        "neglect": "You're late, very late. But you're here, so it's normal.",
+        "asked_to_stay": "Okay, one more run. Then home, on time.",
+        "on_break": "Ivan is back in Orgrimmar, directing the traffic. Come back after you've done a few more jobs.",
+        "quest_abandoned": "We said we'd do that and now we don't. That's a missed stop, and I hate missed stops."
       }
     },
     "marco_paladin": {

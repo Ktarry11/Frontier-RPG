@@ -1,0 +1,79 @@
+{
+  "recruit_text": {
+    "greeting": "Stand where I can see you. If you're behind me I'll assume you're the enemy, and I move faster than I apologise.",
+    "backstory": "Eleven years a tram driver in Novosibirsk. It's nobody's idea of a story and it's the whole reason he's good at this. Eleven years of a heavy thing on rails with other people's children stepping off the kerb, and he never hit one. He uses a two-handed axe the same way: slow start, committed middle, and knowing exactly how long it takes to stop.",
+    "before": "A cab, a route, and the same four stops in the dark every winter morning for eleven years.\n\nHis wife Natasha and their two girls, Sonya and Katya. He drove the morning route so he'd be home for dinner, and on Sundays he took the girls skating. He talks about them in the present tense, every day.",
+    "now": "Orgrimmar, where the traffic's worse than anything Novosibirsk managed and nobody's in charge of it. He's started directing it at the worst hour, unasked, and the orcs do what he says.\n\nWhen the cultists in Ragefire Chasm drag somebody off the streets above, he goes down after them."
+  },
+  "bond": {
+    "home": "Orgrimmar",
+    "dials": {"warmth": 0.9, "nerve": 1.3, "pride": 0.9, "restless": 0.9},
+    "likes": ["dungeon", "boss"],
+    "dislikes": ["quest_abandoned"],
+    "stages": {
+      "stranger": "I'm Ivan, and I'm a warrior. Stand where I can see you, go when I say go, and we'll be fine. I don't like surprises, and I don't like lateness.",
+      "acquaintance": "I'm from Novosibirsk. I drove a tram for eleven years, Route 13, through the dark mornings. I knew every stop, every regular and every pothole, and I never had an accident. Not once in eleven years. Other men are proud of their cars. I was proud of that.",
+      "companion": "I'll tell you what frightened me every day on that tram. A child stepping off the kerb without looking. You can't stop a tram quickly, so you learn to see it coming. I never hit one, and I still dream about it. My wife is Natasha, a pharmacist. We have two girls, Sonya and Katya. They're in Novosibirsk, or they are somewhere, and I talk about them like they're in the next room.",
+      "friend": "Sonya's birthday is in March and Katya's is in October. I've missed three of each now. I keep them in my head like stops on a route. Here is my idea, and you can laugh like the caravan masters did. I want to run a fixed route, Orgrimmar to the Crossroads, on time, for a whole month. A bet with a caravan master. Will you help me keep the road clear?",
+      "sworn": "On the last run, at the Crossroads stop, there they were. Natasha and both girls. They'd heard about a big Russian running the Orgrimmar road on time and came to see. The girls are taller. I stopped exactly at the marker, and I got down, and for a long time I said nothing at all. They live in Orgrimmar with me now. The orcs call it Ivan's road, and I'm never late."
+    },
+    "moments": [
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe he's standing very still, counting heads.",
+       "line": "Somebody was behind me who should not be behind me. Next time, everybody where I can see you.",
+       "options": [
+         {"text": "You're right. Where do you want us?", "trust": 8, "mood": 6,
+          "reply": "Good, now we have a timetable. You there, you there, and you behind the healer."},
+         {"text": "We were just trying to help.", "trust": 0, "mood": -6,
+          "reply": "Help from where I can see you, please. This isn't complicated."}
+       ]},
+      {"id": "the_route", "stage": "friend", "when": "talk",
+       "prompt": "He's told you he wants to run a fixed route for a month.",
+       "options": [
+         {"text": "I'm not laughing. Let's do it.", "trust": 12,
+          "reply": "Good, first run is at dawn. Don't be late."},
+         {"text": "Nobody here keeps a schedule.", "trust": 0,
+          "reply": "Exactly right, and that's the problem I'm solving."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've been going round in circles for days with no stops and no timetable. Give me a route with a point to it, or I go home.",
+      "leaving_good": "Good run, normal, on time. I'm going back to Orgrimmar to fix the traffic, because nobody else will. You know where.",
+      "leaving_bored": "I'm going back to Orgrimmar. This is going nowhere, and I don't like going nowhere.",
+      "after_wipe": "Okay, everybody up. Now we count, and then we do it properly.",
+      "wipe_warning": "We keep dying here and it's very bad driving. I'll finish this run, but then I need some days at home.",
+      "wipe_leave": "I finished it, like I said. Now I go home. Find me in Orgrimmar when you've learned to stand still.",
+      "zone_warning": "This place is a tram with no brakes going downhill. We should get off before the bottom.",
+      "zone_leave": "I'm stopping here. I told you, no brakes. I'll be in Orgrimmar.",
+      "gear_refuse": "No, that's mine. I don't know you well enough.",
+      "gear_taken": "Take it, fine. I'll complain about it every single day, but take it.",
+      "gear_short": "I'm still missing that piece. I say this every day now, so get used to it.",
+      "gear_upgrade": "That's good, very good. Thank you, and I don't say that often.",
+      "back": "I'm back, and the traffic's under control. Where are we going, and when?",
+      "send_word": "Ivan has sent word from Orgrimmar. The traffic's in order and he's ready to come out.",
+      "walkout_talk": "I left angry, and I'll tell you why, in order. Then you tell me yours. Then we decide.",
+      "neglect": "You're late, very late. But you're here, so it's normal.",
+      "asked_to_stay": "Okay, one more run. Then home, on time.",
+      "on_break": "Ivan is back in Orgrimmar, directing the traffic. Come back after you've done a few more jobs.",
+      "quest_abandoned": "We said we'd do that and now we don't. That's a missed stop, and I hate missed stops."
+    }
+  },
+  "banter": {
+    "boss_down": [
+      {"text": "Good, that one was worth the walk.", "kind": "open"}
+    ],
+    "close_call": [
+      {"text": "You're still standing, so it doesn't count. Next time stop before the kerb.", "kind": "open"}
+    ],
+    "town_arrive": [
+      {"text": "Somewhere here sells food. That's all I want from a town.", "kind": "open"},
+      {"text": "Novosibirsk is minus thirty in January and the trams still run on time. Here nothing runs on time.", "kind": "open", "topic": "the_cold"}
+    ],
+    "dungeon_clear": [
+      {"text": "Everybody out, everybody counted, on time, and that's normal.", "kind": "reply"}
+    ],
+    "zone_arrive": [
+      {"text": "No roads, no signs, no timetable. This world has very low standards.", "kind": "open"}
+    ]
+  }
+}

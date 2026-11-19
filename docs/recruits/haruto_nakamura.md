@@ -51,7 +51,7 @@ He was in his studio, grinding ink, when it happened. He landed in the mountains
 had made his camp. He had his brush roll tucked inside his jacket.
 
 He asked to be taught. That was the whole of it, and it worked, and he knows almost no transplant tried it. The tauren,
-an old carver called Hrunn, taught him for a year. Hrunn had come out of Mulgore, badly hurt, and the wounds killed him.
+an old carver called Hrunn, taught him for a year. Hrunn had come north out of Thousand Needles, badly hurt, and the wounds killed him.
 Haruto finished the curriculum alone, from notes, and thinks the result is incomplete in ways he can specify.
 
 He hasn't looked for Kenji on the lists, because Kyoto is a long way from Kanazawa, and Kenji could be anywhere.

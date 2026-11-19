@@ -1,0 +1,79 @@
+{
+  "recruit_text": {
+    "greeting": "The form matters, and not for ceremony. A rune cut carelessly fails carelessly, and it fails on whoever's standing closest.",
+    "backstory": "Thirty-one years of calligraphy in Kanazawa. The discipline is a single stroke, studied until the hand no longer needs the mind. He trained under a man who corrected him for eleven years before praising him once. Runework here answers to exactly that discipline, and he was the only person who already had it. He calls that luck, and nobody who's watched him work believes him.",
+    "before": "Ink, paper, a master who died in 2017, and a studio with four students in it.\n\nHe never married. He's said the work was a full occupation, and he's said it in a tone that closes the subject.",
+    "adjustment": "He asked to be taught. That was the whole of it, and it worked, and he knows almost nobody from Earth tried it.\n\nThe old tauren carver who taught him is dead now. Haruto finished the lessons alone, from notes, and he thinks the result is incomplete in ways he can list.",
+    "now": "Silverpine South, near the old standing stones, where the dark magic seeping out of the keep has put something into the runes that nobody can read.\n\nHe's copying them before they finish fading. It's slow and unrewarded, and his copies will be the only record there is.",
+    "forward": "He wants more students, and four would be right. He has two and isn't inclined to lower the standard to reach four.\n\nHe's also putting together a reference of every rune form he's ever recorded, in the hope that the discipline outlasts the shortage of teachers. The hope is thin and he keeps working."
+  },
+  "bond": {
+    "home": "Silverpine South",
+    "dials": {"warmth": 0.5, "nerve": 1.2, "pride": 1.3, "restless": 0.8},
+    "likes": ["dungeon", "undead"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Haruto, and I cut runes. You're holding that weapon too tightly, so loosen your grip. I'll say very little, and what I say I'll mean.",
+      "acquaintance": "I'm from Kanazawa, in Japan. My father laid gold leaf. At twenty-two I went to study calligraphy under Master Fujita, who corrected me for eleven years before he praised me once. When he died I kept his studio and took four students. I did that for thirty-one years in all.",
+      "companion": "I landed in the mountains, at the camp of an old tauren rune-carver called Hrunn, with my brushes inside my jacket. I asked him to teach me, and he did, for a year. He'd come north out of Thousand Needles badly hurt, and the wounds killed him. I finished his lessons from my notes. I know exactly where they're incomplete. Now I copy the stones here before they fade.",
+      "friend": "My right hand has started to shake. Only a little, and only when I'm tired. I haven't told my students. The last stones, the oldest ones, are deep in the south near the keep, and they must be copied before they're gone. I'd like you to take me there, and I'd like you not to mention my hand to anyone.",
+      "sworn": "Edrin cut the last rune. My hand shook and my stroke went wrong, and he did it while I watched, and he did it well. I praised him, which I'd never done. The shake will get worse, so the reference is theirs to finish. And I'll tell you about Kenji now, all of it, because I've decided not to waste any more time. He was a potter, across the river. For twenty years we ate together most nights. He was at a fair in Kyoto that day."
+    },
+    "moments": [
+      {"id": "the_hand", "stage": "friend", "when": "talk",
+       "prompt": "He's just told you about his hand.",
+       "options": [
+         {"text": "I won't tell anyone. Let's go to the stones.", "trust": 12,
+          "reply": "Thank you. We'll leave at first light, after the ink."},
+         {"text": "You should tell your students.", "trust": 0,
+          "reply": "That's my decision to make, not yours."},
+         {"text": "How long have you known?", "trust": 4,
+          "reply": "For three months, which is long enough to stop pretending it was the cold."}
+       ]},
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe he speaks quietly to the whole party.",
+       "line": "That was careless, all of it, mine included. We'll do it again, and this time we'll do it properly.",
+       "options": [
+         {"text": "Show us what properly looks like.", "trust": 8, "mood": 6,
+          "reply": "Watch my feet, then. Not my blade, my feet."},
+         {"text": "It wasn't that bad.", "trust": 0, "mood": -6,
+          "reply": "It was exactly that bad. That's why it failed."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We repeat the same motion without improving it. That isn't practice, it's habit. I'd like to do something that teaches me something.",
+      "leaving_good": "That was good work. I'll go back to Silverpine now, to the stones, before more of them fade. You know where I'll be.",
+      "leaving_bored": "I'm going back to the stones in Silverpine. What we're doing here has no form to it.",
+      "after_wipe": "That was careless. We'll stand, and we'll do it again, properly.",
+      "wipe_warning": "We fail here again and again. I'll finish this run with you, but then I'll need some days with my brushes.",
+      "wipe_leave": "I've finished it with you. Now I'm going back to Silverpine. Come and find me when you're ready to be precise.",
+      "zone_warning": "This place is beyond our skill. There's no shame in knowing that, only in ignoring it.",
+      "zone_leave": "I'm stopping here. I said it was beyond us. I'll be by the stones in Silverpine.",
+      "gear_refuse": "No, I'll keep that. Trust takes longer than this.",
+      "gear_taken": "Take it, then. I'll work without it, carefully.",
+      "gear_short": "I'm still missing that piece. I mention it once, and I won't mention it again.",
+      "gear_upgrade": "That's well made. Thank you, sincerely.",
+      "back": "I'm back, and the stones are copied for now. Where are we going?",
+      "send_word": "Haruto has sent word from Silverpine South. His copying is done for now and he's ready to come out.",
+      "walkout_talk": "I left in anger, which was careless of me. Please sit with me. I'll tell you why, and then I'll listen.",
+      "neglect": "You've been away a long time. I ground a great deal of ink while I waited.",
+      "asked_to_stay": "Very well, one more. Then the stones.",
+      "on_break": "Haruto is back by the standing stones in Silverpine South. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "dungeon_clear": [
+      {"text": "Those marks on the pillars were cut, not grown. It was a bad hand, in a hurry.", "kind": "open"}
+    ],
+    "boss_down": [
+      {"text": "Whatever was written on that, it didn't wash off. It never does.", "kind": "open"}
+    ],
+    "town_arrive": [
+      {"text": "Their letters lean left here. Somebody taught this whole town to write.", "kind": "reply"},
+      {"text": "Kanazawa has a garden that changes with every season, and I walked it every morning for thirty years.", "kind": "open", "topic": "cities"}
+    ],
+    "zone_arrive": [
+      {"text": "The marks change out here, but the same hand did them. You can see it.", "kind": "open"}
+    ]
+  }
+}

@@ -300,7 +300,7 @@
     "amber_druid": {
       "zone_arrive": [
         {
-          "text": "Overgrazed. Two more seasons and the topsoil's gone.",
+          "text": "Overgrazed, and badly. Two more seasons and the topsoil's gone.",
           "kind": "open"
         }
       ],
@@ -308,11 +308,16 @@
         {
           "text": "They're cutting faster than it grows. Somebody should tell them.",
           "kind": "reply"
+        },
+        {
+          "text": "Astoria's all fog and fishing boats and old houses on the hill. I miss the fog.",
+          "kind": "open",
+          "topic": "cities"
         }
       ],
       "dungeon_clear": [
         {
-          "text": "Things were growing down there. In the dark. On what?",
+          "text": "Things were growing down there in the dark. I'd love to know what on.",
           "kind": "open"
         }
       ],
@@ -367,25 +372,36 @@
     "ivan_warrior": {
       "boss_down": [
         {
-          "text": "Good. That one was worth the walk.",
+          "text": "Good, that one was worth the walk.",
           "kind": "open"
         }
       ],
       "close_call": [
         {
-          "text": "You are standing. Then it does not count.",
+          "text": "You're still standing, so it doesn't count. Next time stop before the kerb.",
           "kind": "open"
-        }
-      ],
-      "dungeon_clear": [
-        {
-          "text": "Too cold out here. Find me another hole.",
-          "kind": "reply"
         }
       ],
       "town_arrive": [
         {
           "text": "Somewhere here sells food. That's all I want from a town.",
+          "kind": "open"
+        },
+        {
+          "text": "Novosibirsk is minus thirty in January and the trams still run on time. Here nothing runs on time.",
+          "kind": "open",
+          "topic": "the_cold"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Everybody out, everybody counted, on time, and that's normal.",
+          "kind": "reply"
+        }
+      ],
+      "zone_arrive": [
+        {
+          "text": "No roads, no signs, no timetable. This world has very low standards.",
           "kind": "open"
         }
       ]
@@ -497,7 +513,7 @@
     "haruto_runemaster": {
       "dungeon_clear": [
         {
-          "text": "Those marks on the pillars were cut, not grown. Bad hand. In a hurry.",
+          "text": "Those marks on the pillars were cut, not grown. It was a bad hand, in a hurry.",
           "kind": "open"
         }
       ],
@@ -511,11 +527,16 @@
         {
           "text": "Their letters lean left here. Somebody taught this whole town to write.",
           "kind": "reply"
+        },
+        {
+          "text": "Kanazawa has a garden that changes with every season, and I walked it every morning for thirty years.",
+          "kind": "open",
+          "topic": "cities"
         }
       ],
       "zone_arrive": [
         {
-          "text": "The marks change out here. Same hand did them, though. You can see it.",
+          "text": "The marks change out here, but the same hand did them. You can see it.",
           "kind": "open"
         }
       ]

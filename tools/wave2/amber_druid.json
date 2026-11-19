@@ -1,0 +1,66 @@
+{
+  "recruit_text": {
+    "backstory": "Twenty-three years restoring wetland on the Oregon coast. It's a job of doing something slow and correct and having nothing to show anybody for ten years. She planted sedge and waited. She pulled invasive grass for nine years in one basin. Druidry gave her the power to make a thing grow in an afternoon, and the first year she used it constantly, and the second year she mostly stopped.",
+    "adjustment": "Eight months, and she calls them the easiest of her life, and she knows that makes her poor company among people from Earth.\n\nHer whole career had been patience without authority. Here she has both.",
+    "now": "The Central Barrens, by the oases, where a sickness has crept out of the caves and into the water and the plants are turning into something else.\n\nShe works the rot slowly, one oasis at a time. The tauren and the druids have watched her for two years, and she knows that watching is how they decide.",
+    "forward": "One oasis, brought all the way back by her own hand, start to finish. She never got to finish one basin on Earth. Three years in, she's further along than twenty-three years of grant cycles took her.\n\nShe's also trying to teach restraint to people who can make a tree in an afternoon. So far she has one student and a lot of opinions."
+  },
+  "bond": {
+    "home": "the Central Barrens",
+    "dials": {"warmth": 0.8, "nerve": 1.2, "pride": 0.6, "restless": 0.8},
+    "likes": ["quest", "new_ground"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Amber, and I'm a druid, and I fix land, slowly. If you want something done by Tuesday I'm the wrong person. If you want it done right, give it a season.",
+      "acquaintance": "I'm from Astoria, on the Oregon coast, where the Columbia meets the Pacific. My dad ran a charter boat and my mom taught school, and I grew up in waders. I spent twenty-three years restoring wetland, and I never once got to finish a basin, because the grant money always ran out three years into a thirty-year job.",
+      "companion": "I was married to Doug, a forester. We split in 2016 without much fuss, because he wanted to move inland and I wouldn't leave the coast. I lived alone with two dogs after that and liked it more than I expected. I was on the tide flats at low tide when it happened, and I landed in the driest place I'd ever seen, still in my waders.",
+      "friend": "My little sister Beth was in Portland. I think about her a lot and I don't let it take over, because that's how I'm built. But I'll tell you what I want, and it's selfish. I want one oasis, the worst one, the one everybody's given up on, brought all the way back. Something underground keeps feeding the rot. Will you come and find it with me, and then wait a whole season while I do the slow part?",
+      "sworn": "Reeds first, then the lilies, then the birds. You waited, and so did I, and it came back. My student did half the work without being told, slowly and right. The tauren came to look, and one of their elders asked me to do the next one. I said I'd need a few years, and she said that was fine. Nobody's ever said that to me before. Beth's still out there somewhere. I'll keep the seed bank going for her."
+    },
+    "moments": [
+      {"id": "the_season", "stage": "friend", "when": "talk",
+       "prompt": "She's asked you to wait a whole season with her.",
+       "options": [
+         {"text": "I'll wait. However long it takes.", "trust": 12,
+          "reply": "Good, that's the answer I never got from a single grant committee."},
+         {"text": "Can't you just make it grow faster?", "trust": 0,
+          "reply": "I could do that. Then it'd rot again by spring. Wait and see."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We're stripping the same ground over and over. That's how you lose topsoil. Let's move on before we wreck the place.",
+      "leaving_good": "That was a good trip, but my oases won't wait forever. I'm going back to the Barrens. You know where I'll be.",
+      "leaving_bored": "I'm going back to the Barrens. We're just churning the same patch, and I've got real work there.",
+      "after_wipe": "Well, that was a shortcut that didn't work. Let's go slower next time.",
+      "wipe_warning": "We keep dying in here because we keep rushing. I'll finish this run with you, but then I'm going back to my oases for a while.",
+      "wipe_leave": "I stayed till it was done. Now I'm going back to the Barrens to do something that actually grows.",
+      "zone_warning": "This place is beyond us, and pretending otherwise is a five-year mistake. Let's go somewhere we can handle.",
+      "zone_leave": "I'm stopping here. I told you it was too much. I'll be at the oases in the Barrens.",
+      "gear_refuse": "No, I'll keep that. I don't know you well enough yet.",
+      "gear_taken": "Go on, take it. I'll manage, I usually do.",
+      "gear_short": "I'm still missing that piece. I'm patient, but I've noticed.",
+      "gear_upgrade": "That's good work. Thank you, I'll make it last.",
+      "back": "I'm back, and the oasis is holding. Where are we going?",
+      "send_word": "Amber has sent word from the Central Barrens. Her oases are holding and she's ready to come out.",
+      "walkout_talk": "I walked out, and I've had a season to think about why. Sit down and I'll tell you, slowly.",
+      "neglect": "There you are. I'd started measuring how long you'd been gone in seasons.",
+      "asked_to_stay": "All right, one more, and then I'm going back to my mud.",
+      "on_break": "Amber is back at the oases in the Central Barrens. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "zone_arrive": [
+      {"text": "Overgrazed, and badly. Two more seasons and the topsoil's gone.", "kind": "open"}
+    ],
+    "town_arrive": [
+      {"text": "They're cutting faster than it grows. Somebody should tell them.", "kind": "reply"},
+      {"text": "Astoria's all fog and fishing boats and old houses on the hill. I miss the fog.", "kind": "open", "topic": "cities"}
+    ],
+    "dungeon_clear": [
+      {"text": "Things were growing down there in the dark. I'd love to know what on.", "kind": "open"}
+    ],
+    "close_call": [
+      {"text": "Sit down before you fall down. I've watched people walk off worse and not get up.", "kind": "reply"}
+    ]
+  }
+}
