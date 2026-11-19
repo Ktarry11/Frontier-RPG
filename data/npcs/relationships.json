@@ -8633,6 +8633,574 @@
      ]
     }
    ]
+  },
+  {
+   "a": "enzo_cultist",
+   "b": "marco_paladin",
+   "steps": [
+    {
+     "when": "met",
+     "affinity": 4,
+     "lines": [
+      [
+       "marco_paladin",
+       "You walk like the Quartieri, ragazzo. Which street was yours?"
+      ],
+      [
+       "enzo_cultist",
+       "Two streets above Via Toledo, over my mother's tabaccheria."
+      ],
+      [
+       "marco_paladin",
+       "The tabaccheria was Rosaria's? I changed her lock twice, and she argued about the price both times."
+      ],
+      [
+       "enzo_cultist",
+       "That sounds like her. So you're the locksmith with the door that was always open, the one every mother sent for."
+      ]
+     ]
+    },
+    {
+     "when": "gap:6",
+     "affinity": -2,
+     "lines": [
+      [
+       "marco_paladin",
+       "The thing in your arm, Enzo. I don't like it, and I'll say so once, because I knew your mother."
+      ],
+      [
+       "enzo_cultist",
+       "It didn't lie about the price, Marco. That's more than the Scarlets ever did."
+      ],
+      [
+       "marco_paladin",
+       "A thing that tells you the price honestly is still selling you something."
+      ],
+      [
+       "enzo_cultist",
+       "Then I bought it, and I'll pay for it. And don't worry about my mother, she'd have shouted at it too."
+      ]
+     ]
+    },
+    {
+     "when": "gap:8",
+     "affinity": 3,
+     "lines": [
+      [
+       "enzo_cultist",
+       "You hold the line the way the old men held the bus stop on Via Toledo. Nobody gets past you."
+      ],
+      [
+       "marco_paladin",
+       "Thirty years of standing in doorways, ragazzo. It's the same thing."
+      ],
+      [
+       "enzo_cultist",
+       "My coach used to say the feet tell you everything, and yours never move."
+      ],
+      [
+       "marco_paladin",
+       "They move when they need to. Most of the time, they don't need to."
+      ]
+     ]
+    },
+    {
+     "when": "friendly",
+     "affinity": 4,
+     "lines": [
+      [
+       "marco_paladin",
+       "You coached the little ones on Saturdays. Your mother told me while I was fixing her lock, and she was prouder of that than of the medals."
+      ],
+      [
+       "enzo_cultist",
+       "She never said that to me. She shouted at the referees, mostly."
+      ],
+      [
+       "marco_paladin",
+       "Mothers in the Quartieri tell the locksmith, Enzo, never the son. That's how it works."
+      ],
+      [
+       "enzo_cultist",
+       "Then thank you for telling me. I'd have gone my whole life not knowing."
+      ]
+     ]
+    },
+    {
+     "when": "close",
+     "affinity": 5,
+     "lines": [
+      [
+       "enzo_cultist",
+       "Fourth, twice, Marco. Do you know what it is, being nearly good enough?"
+      ],
+      [
+       "marco_paladin",
+       "I know how it feels to be sixty-three and frightened of a piece of paper. Maybe that's worse, or maybe it's the same."
+      ],
+      [
+       "enzo_cultist",
+       "You, frightened of something? I don't believe it."
+      ],
+      [
+       "marco_paladin",
+       "Believe it, ragazzo. Nobody carries a thing like that well alone, so let's not."
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "a": "marta_tinker",
+   "b": "zofia_cultist",
+   "steps": [
+    {
+     "when": "met",
+     "affinity": 4,
+     "lines": [
+      [
+       "marta_tinker",
+       "That accent's Łódź, girl. I'd know it anywhere."
+      ],
+      [
+       "zofia_cultist",
+       "Widzew, by the stadium. And you're from the old factory side of town, I can hear the looms in it."
+      ],
+      [
+       "marta_tinker",
+       "Nineteen years at a clothing plant, fixing forty sewing machines."
+      ],
+      [
+       "zofia_cultist",
+       "And I spent eight years answering phones for an insurer two tram stops away. We probably rode the same tram for a decade."
+      ],
+      [
+       "marta_tinker",
+       "The six o'clock tram, with everybody asleep standing up. I'd have been the one with grease on her sleeve."
+      ]
+     ]
+    },
+    {
+     "when": "gap:6",
+     "affinity": 4,
+     "lines": [
+      [
+       "zofia_cultist",
+       "Did they ever call you by your surname at the plant, Marta?"
+      ],
+      [
+       "marta_tinker",
+       "Never once, in nineteen years. It was just Marta, come quickly, line four's stopped."
+      ],
+      [
+       "zofia_cultist",
+       "Same at the call centre. First name on the badge, so the callers could shout it properly."
+      ],
+      [
+       "marta_tinker",
+       "Then we'll use each other's surnames here, Nowak, and see how it feels."
+      ],
+      [
+       "zofia_cultist",
+       "It feels very strange, Kowalska. I think I like it."
+      ]
+     ]
+    },
+    {
+     "when": "friendly",
+     "affinity": 3,
+     "lines": [
+      [
+       "marta_tinker",
+       "You tore the symbols off those robes yourself, didn't you? You did it badly, so give them here, and I'll stitch the holes."
+      ],
+      [
+       "zofia_cultist",
+       "You can sew as well?"
+      ],
+      [
+       "marta_tinker",
+       "My mother sewed shirts for thirty years, and I started on the line at nineteen. Of course I can sew."
+      ],
+      [
+       "zofia_cultist",
+       "Then stitch them so nobody can tell what was there. I'd be grateful, and I don't say that often."
+      ]
+     ]
+    },
+    {
+     "when": "close",
+     "affinity": 5,
+     "lines": [
+      [
+       "zofia_cultist",
+       "I said yes to the Cult for my grandmother as well as for me, Marta. We were starving, and she was sick."
+      ],
+      [
+       "marta_tinker",
+       "In the first winter, people did what they had to. I'm not going to stand here and judge a woman from Łódź for keeping her babcia fed."
+      ],
+      [
+       "zofia_cultist",
+       "Most people do judge, though."
+      ],
+      [
+       "marta_tinker",
+       "Most people never fixed a machine at dawn with a manager screaming at them. We both know how it feels to do the job in front of you."
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "a": "omar_venomancer",
+   "b": "tarek_templar",
+   "steps": [
+    {
+     "when": "met",
+     "affinity": 4,
+     "lines": [
+      [
+       "omar_venomancer",
+       "Heliopolis, ya basha? I can hear it in your vowels."
+      ],
+      [
+       "tarek_templar",
+       "Heliopolis, yes, a flat I could still draw from memory. And you're Shubra, I'd bet a well on it."
+      ],
+      [
+       "omar_venomancer",
+       "Shubra, born and raised, and my father's van was in every street of it. Gamal Pest Control, since 1987."
+      ],
+      [
+       "tarek_templar",
+       "The van with the big painted cockroach? Everybody in Cairo knew that van."
+      ],
+      [
+       "omar_venomancer",
+       "My father painted it himself, and he was very proud of it, and the cockroach was very ugly."
+      ]
+     ]
+    },
+    {
+     "when": "gap:6",
+     "affinity": 3,
+     "lines": [
+      [
+       "tarek_templar",
+       "Have you eaten, Sherif? You look like a man who forgets, down in that hive."
+      ],
+      [
+       "omar_venomancer",
+       "I eat koshari in my head every day, ya basha. It doesn't fill you, but it helps."
+      ],
+      [
+       "tarek_templar",
+       "Then come to the spring at Splintertree, and I'll make the real thing, or as near as the orcs' lentils allow."
+      ],
+      [
+       "omar_venomancer",
+       "Durotar lentils in a koshari? My mother would cry. I'll be there tomorrow."
+      ]
+     ]
+    },
+    {
+     "when": "friendly",
+     "affinity": 3,
+     "lines": [
+      [
+       "omar_venomancer",
+       "Your water's the cleanest I've had since I got here, Tarek. I catalogued it, and it's a very boring sample."
+      ],
+      [
+       "tarek_templar",
+       "Boring is the best thing anyone's ever said about my water."
+      ],
+      [
+       "omar_venomancer",
+       "In my trade, boring means nothing's living in it. I think it's the same in yours."
+      ],
+      [
+       "tarek_templar",
+       "It's exactly the same. You'd have made a good engineer."
+      ],
+      [
+       "omar_venomancer",
+       "And you'd have made a terrible pest controller, you'd want to fix the cockroaches."
+      ]
+     ]
+    },
+    {
+     "when": "close",
+     "affinity": 6,
+     "lines": [
+      [
+       "tarek_templar",
+       "I'll tell you plainly, Sherif, because you're from home and I want somebody from home to know. I left Cairo inside a week because of a man I loved."
+      ],
+      [
+       "omar_venomancer",
+       "Ya Tarek, my friend. And you've carried that by yourself all this time?"
+      ],
+      [
+       "tarek_templar",
+       "Here nobody asks me questions I'd have to lie about. But I wanted to say it in our accent, once."
+      ],
+      [
+       "omar_venomancer",
+       "Then you've said it, and I've heard it, and you're still my friend from home. Next time, you eat at mine."
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "a": "astrid_starcaller",
+   "b": "valentina_starcaller",
+   "steps": [
+    {
+     "when": "met",
+     "affinity": -2,
+     "lines": [
+      [
+       "valentina_starcaller",
+       "You're mapping the sky too! I've seen your charts at the Moonglade post, the northern ones."
+      ],
+      [
+       "astrid_starcaller",
+       "Then you've also seen that yours have the eastern cluster in the wrong place."
+      ],
+      [
+       "valentina_starcaller",
+       "Wrong, you say? Ay, no, I checked it eleven nights in a row!"
+      ],
+      [
+       "astrid_starcaller",
+       "From a lake. I checked it from a ridge in Felwood, lying in the snow, for a month."
+      ]
+     ]
+    },
+    {
+     "when": "gap:6",
+     "affinity": 2,
+     "lines": [
+      [
+       "valentina_starcaller",
+       "I went back and checked your cluster, Astrid. You were wrong, and I was a little bit wrong too."
+      ],
+      [
+       "astrid_starcaller",
+       "A little bit wrong is still wrong. But I'll accept a little bit."
+      ],
+      [
+       "valentina_starcaller",
+       "Then we split it, po. My lake and your ridge, and we'd have the whole thing."
+      ],
+      [
+       "astrid_starcaller",
+       "I work alone. I've always worked alone."
+      ],
+      [
+       "valentina_starcaller",
+       "So did I, until a minibus full of tourists. You get used to company, I promise."
+      ]
+     ]
+    },
+    {
+     "when": "gap:8",
+     "affinity": 3,
+     "lines": [
+      [
+       "astrid_starcaller",
+       "Where you're from, which way did you look first, every night?"
+      ],
+      [
+       "valentina_starcaller",
+       "South, always south, for the Cross. I found it first for every tour, every single time."
+      ],
+      [
+       "astrid_starcaller",
+       "I looked north, for the lights. It seems we spent our whole lives with our backs to each other."
+      ],
+      [
+       "valentina_starcaller",
+       "And then we both had to learn this sky from nothing. That's funny, Astrid, you have to admit."
+      ],
+      [
+       "astrid_starcaller",
+       "It's a little funny. I'll admit a little."
+      ]
+     ]
+    },
+    {
+     "when": "friendly",
+     "affinity": 3,
+     "lines": [
+      [
+       "valentina_starcaller",
+       "I laid your charts and mine side by side last night, and they fit, Astrid. They actually fit."
+      ],
+      [
+       "astrid_starcaller",
+       "I know they do. I did the same thing on Tuesday and didn't tell you."
+      ],
+      [
+       "valentina_starcaller",
+       "Why wouldn't you tell me?"
+      ],
+      [
+       "astrid_starcaller",
+       "Because you'd do exactly this, and I wanted one more quiet day first."
+      ]
+     ]
+    },
+    {
+     "when": "close",
+     "affinity": 5,
+     "lines": [
+      [
+       "astrid_starcaller",
+       "You cry when people see the stars for the first time. I almost never cry, and I've always envied people who can."
+      ],
+      [
+       "valentina_starcaller",
+       "It's not a weakness, it's just what my face does when something's too big."
+      ],
+      [
+       "astrid_starcaller",
+       "Then come up to my ridge one clear night. I'll lie in the snow, and you can do the crying for both of us."
+      ],
+      [
+       "valentina_starcaller",
+       "Deal, but you're bringing the blanket. Chileans aren't made for snow."
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "a": "haruto_runemaster",
+   "b": "santiago_runemaster",
+   "steps": [
+    {
+     "when": "met",
+     "affinity": -1,
+     "lines": [
+      [
+       "santiago_runemaster",
+       "You cut runes too, maestro! Qué más, show me your line work."
+      ],
+      [
+       "haruto_runemaster",
+       "I don't cut them to be looked at. I cut them so they hold."
+      ],
+      [
+       "santiago_runemaster",
+       "Every line's there to be looked at, parce, that's half of why it holds."
+      ],
+      [
+       "haruto_runemaster",
+       "That's a tattooist's opinion. It isn't wrong, but it's loud."
+      ]
+     ]
+    },
+    {
+     "when": "gap:6",
+     "affinity": 1,
+     "lines": [
+      [
+       "haruto_runemaster",
+       "Your rune on the gate yesterday. The third stroke was hurried."
+      ],
+      [
+       "santiago_runemaster",
+       "It glowed, though! Bright as a sign in Laureles."
+      ],
+      [
+       "haruto_runemaster",
+       "It glowed, and it will fail in a month, and someone will be standing next to it when it does."
+      ],
+      [
+       "santiago_runemaster",
+       "Ay, okay, okay. Show me how you'd do it, then, and slowly, I'm watching."
+      ]
+     ]
+    },
+    {
+     "when": "gap:8",
+     "affinity": 3,
+     "lines": [
+      [
+       "santiago_runemaster",
+       "Eleven years before your master praised you once? Parce, I'd have quit in a week."
+      ],
+      [
+       "haruto_runemaster",
+       "You'd have quit in a day. Then you'd have come back, because the work mattered more than your pride."
+      ],
+      [
+       "santiago_runemaster",
+       "How can you possibly know that?"
+      ],
+      [
+       "haruto_runemaster",
+       "Because you came back to the gate this morning and cut the rune again. I saw you."
+      ],
+      [
+       "santiago_runemaster",
+       "You were watching? Qué pena, it was six in the morning."
+      ],
+      [
+       "haruto_runemaster",
+       "So was I."
+      ]
+     ]
+    },
+    {
+     "when": "friendly",
+     "affinity": 3,
+     "lines": [
+      [
+       "haruto_runemaster",
+       "Your new rune on the gate will hold."
+      ],
+      [
+       "santiago_runemaster",
+       "Wait, maestro, was that praise? That sounded like praise!"
+      ],
+      [
+       "haruto_runemaster",
+       "It was an observation. Please don't tattoo it on anything."
+      ],
+      [
+       "santiago_runemaster",
+       "Too late, parce, it's going on my arm."
+      ]
+     ]
+    },
+    {
+     "when": "close",
+     "affinity": 5,
+     "lines": [
+      [
+       "santiago_runemaster",
+       "Maestro, my little brother. I paid for his school, and I never once told him I was proud of him."
+      ],
+      [
+       "haruto_runemaster",
+       "My master never told me either, not for eleven years. I learned it from how he corrected me."
+      ],
+      [
+       "santiago_runemaster",
+       "So you think Julián knows?"
+      ],
+      [
+       "haruto_runemaster",
+       "I think a brother who paid for the school said it every month, in the only way that counted."
+      ]
+     ]
+    }
+   ]
   }
  ]
 }
