@@ -1,0 +1,111 @@
+{
+  "bond": {
+    "home": "Ariden's Watch",
+    "dials": {
+      "warmth": 1.2,
+      "nerve": 1.5,
+      "pride": 0.7,
+      "restless": 0.8
+    },
+    "likes": [
+      "quest",
+      "full_party"
+    ],
+    "dislikes": [
+      "quest_abandoned"
+    ],
+    "stages": {
+      "stranger": "I'm Mariana, a priest, and a radiation therapist before that. Sit down, please. I'll tell you what I'm going to do before I do it, so nothing's a surprise.",
+      "acquaintance": "I'm from Monterrey. For ten years I lined up radiation beams on the same treatment floor of a cancer centre, to the millimetre, so they hit the tumour and nothing else. I heal with the Light now, and I aim it the same way. The priests in Orgrimmar said I prayed like an accountant, and I took it as a compliment.",
+      "companion": "My father worked in the steelworks and my mother taught school. My big brother Beto ran a taco stand by the stadium, and on match days he fed half the city. I was on the treatment floor lining up a beam when the world changed, and I landed in the Barrens with my hospital badge still round my neck. I haven't found any of them.",
+      "friend": "At the cancer centre we had a little brass bell by the door. On a patient's last day of treatment, they rang it, and the whole floor clapped. I lost patients too, and I remember every one of them, but I remember the bell more. There's a young liquidator here, Danylo, with the fallout sickness badly. My log says it can be treated with three weeks of the Light aimed exactly. I need medicine from the worst ground in the Zone. Will you help me?",
+      "sworn": "On the last day he was clear. I'd had a goblin make me a little brass bell, and Danylo rang it at the infirmary door, and the whole camp cheered. It's the first time anybody's beaten the fallout sickness, and I've written it all down so anyone can do it. A month later a letter came from a Mexican camp in the Barrens. Beto's got a taco stand there, and he's heard about a healer in Deadwind who rings bells, and he's saving me a table. I went running the next morning, on the road out of Deadwind, where nothing glows. Take my badge. I've got my own infirmary now."
+    },
+    "moments": [
+      {
+        "id": "the_cut",
+        "stage": "stranger",
+        "when": "talk",
+        "prompt": "Mariana wants to look at a cut on your arm, and she's explaining exactly what she'll do first.",
+        "options": [
+          {
+            "text": "Let her explain, then do it.",
+            "trust": 8,
+            "reply": "A ver, that's good. Two seconds of warmth, and then it's closed. There, it's done."
+          },
+          {
+            "text": "Just do it.",
+            "trust": 2,
+            "reply": "I always explain first, mija. That's not negotiable, but I'll be quick."
+          }
+        ]
+      },
+      {
+        "id": "danylo",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "She's asked you to help fetch the medicine for Danylo.",
+        "options": [
+          {
+            "text": "Let's go and get it.",
+            "trust": 12,
+            "reply": "Ándale, let's go. I'll write down every step, so the next healer can do it without us."
+          },
+          {
+            "text": "Are you sure it'll work?",
+            "trust": 3,
+            "reply": "No, but I've got the numbers, and the numbers say it's worth trying."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "Nobody's needed a dose in days. I'd rather be in the infirmary, where my notes are.",
+      "leaving_good": "Thank you, and nobody needed more than a little Light. I'll be in the infirmary at Ariden's Watch.",
+      "leaving_bored": "My patients at Ariden's Watch need me more than this does. I'll be in the infirmary.",
+      "after_wipe": "Everyone stay where you are. I'm going to come to each of you, and I'll tell you what I'm doing as I go.",
+      "wipe_warning": "My notes say we've died here too many times, and my notes are never wrong. Once this run's done, I'm back to the infirmary for a while.",
+      "wipe_leave": "I've done all I can for today. I'll be at Ariden's Watch, catching up on my charts.",
+      "zone_warning": "A ver, let me be precise. The dose of danger out here is far more than we can take, and I won't guess at it.",
+      "zone_leave": "I don't guess at doses, and I won't guess at this. I'll be in the infirmary at Ariden's Watch.",
+      "gear_refuse": "Not that one, mija, sorry. Give me a few more trips to get to know you.",
+      "gear_taken": "Órale, take it. I've worked with worse equipment, and I'll note it in the log.",
+      "gear_short": "I've logged a missing piece of kit, mija. Please fix it when you can.",
+      "gear_upgrade": "Ay, that's beautiful work, gracias, mija.",
+      "back": "My charts are up to date and my patients are stable. A ver, where are we going?",
+      "send_word": "Mariana has sent word from Ariden's Watch. Her charts are up to date and she's ready.",
+      "walkout_talk": "I left without explaining, and I always explain. Sit down, mija, and let me do it properly now.",
+      "neglect": "So you came back! I put a note in my log every day you were away.",
+      "asked_to_stay": "Ándale, one more. My charts can wait.",
+      "on_break": "Mariana is back in the infirmary at Ariden's Watch. Come back after you've done a few more jobs.",
+      "quest_abandoned": "We didn't finish that, and somebody's still waiting on the result. I don't like an open chart."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "My brother's taco stand in Monterrey drew a queue round the block on match days, and he made me take the money while he cooked. I still dream about those tacos.",
+        "kind": "open",
+        "topic": "cities"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "Hold still, mija. Two seconds of warmth, and I'll explain after.",
+        "kind": "open"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "I've logged every hit we took in there. Nobody's in any danger, so breathe.",
+        "kind": "open"
+      }
+    ],
+    "boss_down": [
+      {
+        "text": "Exactly on target. That's how I like it.",
+        "kind": "reply"
+      }
+    ]
+  }
+}

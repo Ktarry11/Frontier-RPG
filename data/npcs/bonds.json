@@ -2000,7 +2000,7 @@
         "leaving_good": "Nobody needed me much, which is the best kind of trip for a healer. I'll be in the upper halls of Khaz Varun.",
         "leaving_bored": "My trainees in Khaz Varun need me more than this does. Yalla, I'm going.",
         "after_wipe": "Stay down, everyone, and breathe. I'll come to each of you, and it won't hurt.",
-        "wipe_warning": "I can patch you all up again, but I'd rather not have to. After this run, I'm resting in the halls.",
+        "wipe_warning": "I can patch you all up again, but I'd rather not have to. Once we're out, I'm resting in the halls.",
         "wipe_leave": "Khalas, that's enough for me. I'll be in Khaz Varun, teaching people not to do what we just did.",
         "zone_warning": "Habibi, I can't bring back blood that's already left the body, and this place would make me try.",
         "zone_leave": "I won't be the healer at the back of that. Find me in the upper halls of Khaz Varun.",
@@ -2081,7 +2081,7 @@
         "leaving_good": "Great trip, great audience, very chido. I'll be in Cinderwharf by the forges, showing off to anyone who'll watch.",
         "leaving_bored": "No crowd, no applause, nothing. I'm going back to Cinderwharf, where people at least watch.",
         "after_wipe": "Okay, okay, that trick didn't land. Everybody up, and we do it again with more style.",
-        "wipe_warning": "We keep bombing in here, carnal, and I hate bombing. After this run I need a few nights off the stage.",
+        "wipe_warning": "We keep bombing in here, carnal, and I hate bombing. After this run I'm taking a few nights off the stage.",
         "wipe_leave": "The show's cancelled for a while. I'll be by the forges in Cinderwharf, practising.",
         "zone_warning": "Carnal, even I know a crowd I can't win. Everything out here wants us dead, so let's leave.",
         "zone_leave": "I'm not dying in front of an audience of monsters. I'll be in Cinderwharf.",
@@ -2091,7 +2091,7 @@
         "gear_upgrade": "Qué chido, that's going to look incredible under a spotlight.",
         "back": "I've got a new trick, carnal, and you're going to love it. Where's tonight's stage?",
         "send_word": "Emiliano has sent word from Cinderwharf. He's got a new trick and he's ready.",
-        "walkout_talk": "I walked off stage in the middle of the act, and that's unprofessional. Sit down, carnal, and I'll tell you why.",
+        "walkout_talk": "Walking off stage in the middle of the act is unprofessional, and I did it. Sit down, carnal, and let me explain.",
         "neglect": "My favourite audience is back! I saved you a front-row seat.",
         "asked_to_stay": "One more show? Carnal, for you, always.",
         "on_break": "Emiliano is back in Cinderwharf, by the forges. Come back after you've done a few more jobs."
@@ -3446,6 +3446,87 @@
         "on_break": "Imelda is back at Freewind Post in Thousand Needles. Come back after you've done a few more jobs."
       }
     },
+    "isla_witchhunter": {
+      "home": "Light's Hope Chapel",
+      "dials": {
+        "warmth": 0.7,
+        "nerve": 1.5,
+        "pride": 1.0,
+        "restless": 0.8
+      },
+      "likes": [
+        "undead",
+        "boss"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Isla, a witch hunter. I don't miss, and I'd rather not have to prove it today. Stay out of my line and we'll get on fine.",
+        "acquaintance": "I grew up above Glen Affric, in the Highlands. I stalked deer on the estate, and I shot biathlon for Scotland, skiing and shooting. Both come down to the same thing, a slow heart and a steady breath. I qualified for the World Cup the month before all this.",
+        "companion": "My dad's called Alasdair. He was the estate's gamekeeper, and he raised me on his own in a cottage above the glen. He gave me a rifle at fourteen and taught me to wait. He'd booked the time off to come and watch me at the World Cup, and he'd never been abroad in his life. I was on the hill at dawn after a stag when it happened, and I landed in the Plaguelands with the sling over my shoulder and no rifle on it. This buckle's off that sling. He bought it for me.",
+        "friend": "My mum died when I was twelve, and after that it was the two of us. He tells the worst jokes you've ever heard, and I'd love to hear him laugh at one again. There's a camp of Scottish folk far to the east, past Stratholme, and somebody says there's an old gamekeeper there who tells terrible jokes. The road goes through the worst of the Scourge. Will you come with me, shot by shot?",
+        "sworn": "He was alive, and old, and very ill, and he'd been holding on. He saw me and laughed, the big laugh, and said he knew I'd come, because I never miss. I stayed nine days, and he told me terrible jokes the whole time. On the tenth morning he died, peacefully, with me holding his hand. I buried him on a hill above the camp that looks a wee bit like the glen. Sometimes I laugh at one of his jokes, out loud, on my own. Take the buckle. He'd want it carried by somebody who doesn't miss."
+      },
+      "moments": [
+        {
+          "id": "go_still",
+          "stage": "acquaintance",
+          "when": "talk",
+          "prompt": "Isla has gone completely still, watching something on the far ridge.",
+          "options": [
+            {
+              "text": "Go still with her.",
+              "trust": 10,
+              "reply": "Aye, that's it. Slow breath out. It's only a stag, but you did that well."
+            },
+            {
+              "text": "Ask what she's looking at.",
+              "trust": 0,
+              "reply": "Och, it's gone now. Next time, dinnae talk."
+            }
+          ]
+        },
+        {
+          "id": "the_road_east",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's asked you to clear the road past Stratholme with her.",
+          "options": [
+            {
+              "text": "Shot by shot, then.",
+              "trust": 12,
+              "reply": "Aye, shot by shot. Breathe out before you loose, every time."
+            },
+            {
+              "text": "That's the worst road there is.",
+              "trust": 3,
+              "reply": "It is, and he's at the end of it. That's all I need to know."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We're wasting shots on things that don't matter. I'd rather be watching the eastern road.",
+        "leaving_good": "Clean work, the lot of it. I'll be at Light's Hope with the Order, watching the road.",
+        "leaving_bored": "There's nothing out here worth the arrow. I'll be at Light's Hope.",
+        "after_wipe": "Breathe, everyone, slow and low. Then we go again, and we don't rush it.",
+        "wipe_warning": "We keep rushing and paying for it. After this run, I want a few quiet dawns on the wall.",
+        "wipe_leave": "That's me done for a wee while. I'll be on the wall at Light's Hope.",
+        "zone_warning": "I can't shoot fast enough to cover all of that, and I'm not about to try. We should back off.",
+        "zone_leave": "I'll not waste us on a fight we can't win. I'll be with the Order at Light's Hope.",
+        "gear_refuse": "That stays on me. Ask again when I've seen you shoot.",
+        "gear_taken": "Aye, take it. I've hunted with less.",
+        "gear_short": "There's a wee gap in my kit, and it throws my breathing off.",
+        "gear_upgrade": "That's a fine bit of work. Thank you.",
+        "back": "A few still dawns on the wall did me good, and I'm ready. Where do you want me looking?",
+        "send_word": "Isla has sent word from Light's Hope Chapel. She's ready to come out again.",
+        "walkout_talk": "Och, I walked off in a temper, and that's a wasted shot if ever there was one. Sit, and you'll hear why.",
+        "neglect": "I'd been watching the road for you, and here you are.",
+        "asked_to_stay": "Aye, one more. Dinnae make a habit of it.",
+        "on_break": "Isla is back at Light's Hope Chapel with the Order, watching the eastern road. Come back after you've done a few more jobs."
+      }
+    },
     "ivan_warrior": {
       "home": "Orgrimmar",
       "dials": {
@@ -4256,7 +4337,7 @@
         "leaving_good": "Good crossing, that. I'll be on the Tempest Shallows by the landing, watching the sky.",
         "leaving_bored": "Flat calm and boredom, that's all this is. I'm going back to the Shallows.",
         "after_wipe": "Ajme, everybody up. We hit the rocks, that's all, and we'll chart round them next time.",
-        "wipe_warning": "This place keeps sinking us, and I'm not a man who likes going down with anything. After this run, I'm going ashore for a while.",
+        "wipe_warning": "This place keeps sinking us, and I'm not a man who likes going down with anything. I'll see this run out, then I'm going ashore for a while.",
         "wipe_leave": "That's me ashore for a while. You'll find me on the Tempest Shallows, near the landing.",
         "zone_warning": "There's a bura coming off this place, and we're in a rowing boat. Turn back while we can.",
         "zone_leave": "A good captain knows when to stay in harbour, and this is one of those days. I'll be on the Tempest Shallows.",
@@ -4428,6 +4509,88 @@
         "neglect": "Oh, hello again. The weather's been dull without you, and I've had nobody to tell about it.",
         "asked_to_stay": "Sure, I can stay for one more trip, then I really need to check my instruments.",
         "on_break": "Marcus is back on his ridge in Durotar, writing up his notes. Come back after you've done a few more jobs."
+      }
+    },
+    "mariana_priest": {
+      "home": "Ariden's Watch",
+      "dials": {
+        "warmth": 1.2,
+        "nerve": 1.5,
+        "pride": 0.7,
+        "restless": 0.8
+      },
+      "likes": [
+        "quest",
+        "full_party"
+      ],
+      "dislikes": [
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "I'm Mariana, a priest, and a radiation therapist before that. Sit down, please. I'll tell you what I'm going to do before I do it, so nothing's a surprise.",
+        "acquaintance": "I'm from Monterrey. For ten years I lined up radiation beams on the same treatment floor of a cancer centre, to the millimetre, so they hit the tumour and nothing else. I heal with the Light now, and I aim it the same way. The priests in Orgrimmar said I prayed like an accountant, and I took it as a compliment.",
+        "companion": "My father worked in the steelworks and my mother taught school. My big brother Beto ran a taco stand by the stadium, and on match days he fed half the city. I was on the treatment floor lining up a beam when the world changed, and I landed in the Barrens with my hospital badge still round my neck. I haven't found any of them.",
+        "friend": "At the cancer centre we had a little brass bell by the door. On a patient's last day of treatment, they rang it, and the whole floor clapped. I lost patients too, and I remember every one of them, but I remember the bell more. There's a young liquidator here, Danylo, with the fallout sickness badly. My log says it can be treated with three weeks of the Light aimed exactly. I need medicine from the worst ground in the Zone. Will you help me?",
+        "sworn": "On the last day he was clear. I'd had a goblin make me a little brass bell, and Danylo rang it at the infirmary door, and the whole camp cheered. It's the first time anybody's beaten the fallout sickness, and I've written it all down so anyone can do it. A month later a letter came from a Mexican camp in the Barrens. Beto's got a taco stand there, and he's heard about a healer in Deadwind who rings bells, and he's saving me a table. I went running the next morning, on the road out of Deadwind, where nothing glows. Take my badge. I've got my own infirmary now."
+      },
+      "moments": [
+        {
+          "id": "the_cut",
+          "stage": "stranger",
+          "when": "talk",
+          "prompt": "Mariana wants to look at a cut on your arm, and she's explaining exactly what she'll do first.",
+          "options": [
+            {
+              "text": "Let her explain, then do it.",
+              "trust": 8,
+              "reply": "A ver, that's good. Two seconds of warmth, and then it's closed. There, it's done."
+            },
+            {
+              "text": "Just do it.",
+              "trust": 2,
+              "reply": "I always explain first, mija. That's not negotiable, but I'll be quick."
+            }
+          ]
+        },
+        {
+          "id": "danylo",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's asked you to help fetch the medicine for Danylo.",
+          "options": [
+            {
+              "text": "Let's go and get it.",
+              "trust": 12,
+              "reply": "Ándale, let's go. I'll write down every step, so the next healer can do it without us."
+            },
+            {
+              "text": "Are you sure it'll work?",
+              "trust": 3,
+              "reply": "No, but I've got the numbers, and the numbers say it's worth trying."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Nobody's needed a dose in days. I'd rather be in the infirmary, where my notes are.",
+        "leaving_good": "Thank you, and nobody needed more than a little Light. I'll be in the infirmary at Ariden's Watch.",
+        "leaving_bored": "My patients at Ariden's Watch need me more than this does. I'll be in the infirmary.",
+        "after_wipe": "Everyone stay where you are. I'm going to come to each of you, and I'll tell you what I'm doing as I go.",
+        "wipe_warning": "My notes say we've died here too many times, and my notes are never wrong. Once this run's done, I'm back to the infirmary for a while.",
+        "wipe_leave": "I've done all I can for today. I'll be at Ariden's Watch, catching up on my charts.",
+        "zone_warning": "A ver, let me be precise. The dose of danger out here is far more than we can take, and I won't guess at it.",
+        "zone_leave": "I don't guess at doses, and I won't guess at this. I'll be in the infirmary at Ariden's Watch.",
+        "gear_refuse": "Not that one, mija, sorry. Give me a few more trips to get to know you.",
+        "gear_taken": "Órale, take it. I've worked with worse equipment, and I'll note it in the log.",
+        "gear_short": "I've logged a missing piece of kit, mija. Please fix it when you can.",
+        "gear_upgrade": "Ay, that's beautiful work, gracias, mija.",
+        "back": "My charts are up to date and my patients are stable. A ver, where are we going?",
+        "send_word": "Mariana has sent word from Ariden's Watch. Her charts are up to date and she's ready.",
+        "walkout_talk": "I left without explaining, and I always explain. Sit down, mija, and let me do it properly now.",
+        "neglect": "So you came back! I put a note in my log every day you were away.",
+        "asked_to_stay": "Ándale, one more. My charts can wait.",
+        "on_break": "Mariana is back in the infirmary at Ariden's Watch. Come back after you've done a few more jobs.",
+        "quest_abandoned": "We didn't finish that, and somebody's still waiting on the result. I don't like an open chart."
       }
     },
     "marisol_priest": {
@@ -6303,7 +6466,7 @@
         "leaving_good": "Bacano, that was a good trip. I'll be on the Ashen Reach near the works, sketching.",
         "leaving_bored": "I'd rather be cutting runes than doing this again. You'll find me on the Ashen Reach.",
         "after_wipe": "Okay, okay, that went sideways. Breathe, all of you, and let's redraw it from the start.",
-        "wipe_warning": "We keep getting cut up in here, and not in the nice way. After this run I'm going back to the works for a bit.",
+        "wipe_warning": "We keep getting cut up in here, and not in the nice way. I'll finish this run, and then I'm back at the works for a bit.",
         "wipe_leave": "That's enough blood for one day, parce. I'll be on the Ashen Reach near the works.",
         "zone_warning": "We're out of our depth out here, parce, and I'd rather walk away than ruin something I can't fix.",
         "zone_leave": "I don't cut lines I can't finish. I'll be on the Ashen Reach.",
@@ -6919,6 +7082,87 @@
         "quest_abandoned": "We promised them, and we've left it undone. That won't do at all."
       }
     },
+    "taras_witchhunter": {
+      "home": "Ariden's Watch",
+      "dials": {
+        "warmth": 1.0,
+        "nerve": 1.3,
+        "pride": 0.6,
+        "restless": 0.8
+      },
+      "likes": [
+        "beast",
+        "new_ground"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Taras, and this is Kashtan. Stay on the path, please, and don't touch anything that glows. I've said that to a lot of tourists, and I've never meant it more.",
+        "acquaintance": "I'm from Kyiv. For nine years I took tourists into the Chernobyl Exclusion Zone in a minibus that smelled of instant coffee. Past the school, past the swimming pool, and every tour ended under the yellow Ferris wheel in Pripyat. It was built for a May Day fair that never happened, and it's never turned for anyone. Kashtan met my bus at the checkpoint every morning for sausage.",
+        "companion": "My mother, Halyna, grows tomatoes on her balcony in Kyiv, more than any balcony should hold. I haven't found her. I was at the checkpoint feeding Kashtan when it happened, and we crossed over together, so at least I'm not alone. I had this dosimeter clipped to my collar, the yellow and black one I wore on every tour. Then the wheel turned up in Deadwind, and I was the first to volunteer, because I know it by heart.",
+        "friend": "My father was a liquidator. He worked the cleanup in 1986, and it killed him slowly when I was a teenager. I became a guide partly to understand what happened to him. Now the wheel's here, and nothing else from Pripyat is. I want to stand under it one more time, where I stood at the end of every tour, and work out why. The ground on the way is the worst in Deadwind. Will you walk it with me, bud laska?",
+        "sworn": "Nothing happened at all. No answer, no sign, no reason, only the wheel, rusting, the way it always was. I stood there a long time. In nine years of tours, the one question every tourist asked me was why, and I never had an answer then either. So I took a picture in my head, the way I used to for them, and walked back out counting heads. I'm staying on at the gate. Somebody who knows the wheel by heart should be the one keeping people away from it. Take the dosimeter. You should have something that tells you when to turn back."
+      },
+      "moments": [
+        {
+          "id": "kashtan",
+          "stage": "stranger",
+          "when": "talk",
+          "prompt": "Kashtan is sniffing your pockets very hopefully.",
+          "options": [
+            {
+              "text": "Give the dog something.",
+              "trust": 8,
+              "reply": "Dobre, now you're friends for life. He never forgets a pocket."
+            },
+            {
+              "text": "Push him away.",
+              "trust": 0,
+              "reply": "Bozhe, he's a good boy. Be nicer to him next time, please."
+            }
+          ]
+        },
+        {
+          "id": "the_wheel",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to walk the Zone with him to the wheel.",
+          "options": [
+            {
+              "text": "Lead the way, and I'll stay on the path.",
+              "trust": 12,
+              "reply": "Dobre, that's right. Follow Kashtan, not me, he's got the better nose."
+            },
+            {
+              "text": "What do you think you'll find?",
+              "trust": 3,
+              "reply": "Probably nothing, and I still need to look."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've walked this same loop so often I could give the tour. Let's go somewhere I haven't memorised.",
+        "leaving_good": "Kashtan's happy, and so am I. I'll be at the gate at Ariden's Watch, counting people through.",
+        "leaving_bored": "Kashtan's bored, and when he's bored he digs. We're going back to Ariden's Watch.",
+        "after_wipe": "Head count, please, everybody. Good, all here, more or less.",
+        "wipe_warning": "This is the kind of place where tourists stop coming back. After this run, Kashtan and I are resting at the gate.",
+        "wipe_leave": "That's the tour over for today. We'll be at the gate at Ariden's Watch, Kashtan and me.",
+        "zone_warning": "Kashtan won't go any further, and I trust his nose more than my eyes. We turn back here.",
+        "zone_leave": "Some places you don't take the tour into. You'll find us at the gate at Ariden's Watch.",
+        "gear_refuse": "That stays with me. Ask me again when Kashtan likes you.",
+        "gear_taken": "Take it, bud laska. I've walked the Zone in worse.",
+        "gear_short": "One piece is missing, and in the Zone that's how people get sick, so it matters.",
+        "gear_upgrade": "Dobre, that's proper protection, dyakuyu.",
+        "back": "Kashtan's rested and fed, and so am I. Stay on the path, everyone, and let's go.",
+        "send_word": "Taras has sent word from Ariden's Watch. Kashtan's restless, and so is he.",
+        "walkout_talk": "Kashtan gave me a look the whole way when I walked off, so I know I was wrong. Sit, and I'll explain.",
+        "neglect": "Kashtan smelled you coming a mile off. He's missed your pockets.",
+        "asked_to_stay": "Kashtan says one more, so one more.",
+        "on_break": "Taras is back at the gate at Ariden's Watch with Kashtan. Come back after you've done a few more jobs."
+      }
+    },
     "thiago_paladin": {
       "home": "Grom'gol",
       "dials": {
@@ -7069,8 +7313,8 @@
         "leaving_good": "Good work, all of it, and it'll hold. I'll be on the scaffold at Light's Hope.",
         "leaving_bored": "There's no work for a mason out here. I'll be repointing the chapel wall at Light's Hope.",
         "after_wipe": "Stand up slowly, everyone. Check what's cracked before you put weight on it.",
-        "wipe_warning": "This place keeps knocking us down like a wall with no footings. After this run, I'm back on the scaffold for a few days.",
-        "wipe_leave": "That's enough for now. I'll be at Light's Hope Chapel, where at least the walls stay up.",
+        "wipe_warning": "This place keeps knocking us down like a wall with no footings. When this run's finished, I'm back on the scaffold for a few days.",
+        "wipe_leave": "No more for now. I'll be at Light's Hope Chapel, where at least the walls stay up.",
         "zone_warning": "We've no footings out here, and everything's pressing on us at once. We should go back before something gives.",
         "zone_leave": "I don't build on bad ground. I'll be at Light's Hope Chapel.",
         "gear_refuse": "That's mine, and I look after my own tools, so maybe later.",
@@ -7481,7 +7725,7 @@
         "leaving_good": "That was useful, I'll give you that. I'll be in the north of the Western Plaguelands, doing sums.",
         "leaving_bored": "I'm not wasting my evenings on this. I'll be in the Western Plaguelands, where there's real work.",
         "after_wipe": "Kurwa, that was a mess. Get up, everyone, and this time watch the flanks.",
-        "wipe_warning": "I'm keeping a tally of how often we've died in here, and it doesn't balance. After this run, I'm taking a few days.",
+        "wipe_warning": "I'm keeping a tally of how often we've died in here, and it doesn't balance. Once this run's done, I'm taking a few days.",
         "wipe_leave": "The books don't balance on this place. I'm going north to the Plaguelands for a while.",
         "zone_warning": "Run the numbers on this place and we come out at nothing. We should turn round.",
         "zone_leave": "I don't take bad bargains any more. I'll be in the Western Plaguelands, up north.",

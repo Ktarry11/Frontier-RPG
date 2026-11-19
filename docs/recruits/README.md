@@ -84,7 +84,7 @@ stay in `tools/build_recruit_bonds.py` as the pilot. Asher is never touched.
 
 Profiles corrected during Wave 2, still to re-mirror to the project: `haruto_nakamura.md` (Hrunn from Thousand Needles), `matias_fuentes.md` (brother Benjamín), `nicolas_arce.md` (partner Gladys Huamán), `driss_alaoui.md` (son Hamza). Sophia's Wouter and Hana's Ashenvale coast are mirrored.
 
-**Wave 2 done:** Diego, Freja, Ama, Marcus, Sondre, Sebastián, Marco, Sophia, Carolina, Ryan, Hana, Esteban, Berat, Dan, Marisol, Silas, Rosa, Pavlo, Amber, Ivan, Haruto, Marta, Lúcia, Minh, Bakyt, Matías, Tomas, Cristóbal, Callum, Giorgi, Camille, Liam, Orlando, Owen, Anjali, Emre, Saoirse, Pasang, Nicolás, Iker, Mateo, Imelda, Ileana, Rhys, Henrik, Eino, Driss, Thiago, Jun-seo, Skye, Enzo, Alonso, Vuk, Gunnar, Kourosh, Héctor, Ziad, Ratih, Fiona, Khalid, Delroy, Karim, Osvaldo, Bashir, Pieter, Gianluca, Camila, Elias, Kiet, Rui, Stelios, Nizar, Yusuf, Réka, Ramiro, Graham, Elie, Bruno, Joaquín, Astrid, Luka, Zofia, Omar, Santiago, Emiliano, Mohammed, Tobias.
+**Wave 2 done:** Diego, Freja, Ama, Marcus, Sondre, Sebastián, Marco, Sophia, Carolina, Ryan, Hana, Esteban, Berat, Dan, Marisol, Silas, Rosa, Pavlo, Amber, Ivan, Haruto, Marta, Lúcia, Minh, Bakyt, Matías, Tomas, Cristóbal, Callum, Giorgi, Camille, Liam, Orlando, Owen, Anjali, Emre, Saoirse, Pasang, Nicolás, Iker, Mateo, Imelda, Ileana, Rhys, Henrik, Eino, Driss, Thiago, Jun-seo, Skye, Enzo, Alonso, Vuk, Gunnar, Kourosh, Héctor, Ziad, Ratih, Fiona, Khalid, Delroy, Karim, Osvaldo, Bashir, Pieter, Gianluca, Camila, Elias, Kiet, Rui, Stelios, Nizar, Yusuf, Réka, Ramiro, Graham, Elie, Bruno, Joaquín, Astrid, Luka, Zofia, Omar, Santiago, Emiliano, Mohammed, Tobias, Isla, Taras, Mariana.
 
 ## Order and progress
 

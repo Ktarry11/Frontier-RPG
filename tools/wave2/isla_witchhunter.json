@@ -1,0 +1,110 @@
+{
+  "bond": {
+    "home": "Light's Hope Chapel",
+    "dials": {
+      "warmth": 0.7,
+      "nerve": 1.5,
+      "pride": 1.0,
+      "restless": 0.8
+    },
+    "likes": [
+      "undead",
+      "boss"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
+    "stages": {
+      "stranger": "I'm Isla, a witch hunter. I don't miss, and I'd rather not have to prove it today. Stay out of my line and we'll get on fine.",
+      "acquaintance": "I grew up above Glen Affric, in the Highlands. I stalked deer on the estate, and I shot biathlon for Scotland, skiing and shooting. Both come down to the same thing, a slow heart and a steady breath. I qualified for the World Cup the month before all this.",
+      "companion": "My dad's called Alasdair. He was the estate's gamekeeper, and he raised me on his own in a cottage above the glen. He gave me a rifle at fourteen and taught me to wait. He'd booked the time off to come and watch me at the World Cup, and he'd never been abroad in his life. I was on the hill at dawn after a stag when it happened, and I landed in the Plaguelands with the sling over my shoulder and no rifle on it. This buckle's off that sling. He bought it for me.",
+      "friend": "My mum died when I was twelve, and after that it was the two of us. He tells the worst jokes you've ever heard, and I'd love to hear him laugh at one again. There's a camp of Scottish folk far to the east, past Stratholme, and somebody says there's an old gamekeeper there who tells terrible jokes. The road goes through the worst of the Scourge. Will you come with me, shot by shot?",
+      "sworn": "He was alive, and old, and very ill, and he'd been holding on. He saw me and laughed, the big laugh, and said he knew I'd come, because I never miss. I stayed nine days, and he told me terrible jokes the whole time. On the tenth morning he died, peacefully, with me holding his hand. I buried him on a hill above the camp that looks a wee bit like the glen. Sometimes I laugh at one of his jokes, out loud, on my own. Take the buckle. He'd want it carried by somebody who doesn't miss."
+    },
+    "moments": [
+      {
+        "id": "go_still",
+        "stage": "acquaintance",
+        "when": "talk",
+        "prompt": "Isla has gone completely still, watching something on the far ridge.",
+        "options": [
+          {
+            "text": "Go still with her.",
+            "trust": 10,
+            "reply": "Aye, that's it. Slow breath out. It's only a stag, but you did that well."
+          },
+          {
+            "text": "Ask what she's looking at.",
+            "trust": 0,
+            "reply": "Och, it's gone now. Next time, dinnae talk."
+          }
+        ]
+      },
+      {
+        "id": "the_road_east",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "She's asked you to clear the road past Stratholme with her.",
+        "options": [
+          {
+            "text": "Shot by shot, then.",
+            "trust": 12,
+            "reply": "Aye, shot by shot. Breathe out before you loose, every time."
+          },
+          {
+            "text": "That's the worst road there is.",
+            "trust": 3,
+            "reply": "It is, and he's at the end of it. That's all I need to know."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "We're wasting shots on things that don't matter. I'd rather be watching the eastern road.",
+      "leaving_good": "Clean work, the lot of it. I'll be at Light's Hope with the Order, watching the road.",
+      "leaving_bored": "There's nothing out here worth the arrow. I'll be at Light's Hope.",
+      "after_wipe": "Breathe, everyone, slow and low. Then we go again, and we don't rush it.",
+      "wipe_warning": "We keep rushing and paying for it. After this run, I want a few quiet dawns on the wall.",
+      "wipe_leave": "That's me done for a wee while. I'll be on the wall at Light's Hope.",
+      "zone_warning": "I can't shoot fast enough to cover all of that, and I'm not about to try. We should back off.",
+      "zone_leave": "I'll not waste us on a fight we can't win. I'll be with the Order at Light's Hope.",
+      "gear_refuse": "That stays on me. Ask again when I've seen you shoot.",
+      "gear_taken": "Aye, take it. I've hunted with less.",
+      "gear_short": "There's a wee gap in my kit, and it throws my breathing off.",
+      "gear_upgrade": "That's a fine bit of work. Thank you.",
+      "back": "A few still dawns on the wall did me good, and I'm ready. Where do you want me looking?",
+      "send_word": "Isla has sent word from Light's Hope Chapel. She's ready to come out again.",
+      "walkout_talk": "Och, I walked off in a temper, and that's a wasted shot if ever there was one. Sit, and you'll hear why.",
+      "neglect": "I'd been watching the road for you, and here you are.",
+      "asked_to_stay": "Aye, one more. Dinnae make a habit of it.",
+      "on_break": "Isla is back at Light's Hope Chapel with the Order, watching the eastern road. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "My dad told the same joke about a sheep and a minister at every ceilidh for twenty years, and folk still laughed.",
+        "kind": "open",
+        "topic": "cities"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "You breathed in when you should've breathed out, so slow down.",
+        "kind": "open"
+      }
+    ],
+    "boss_down": [
+      {
+        "text": "It's down, and I didn't waste a single bolt on it.",
+        "kind": "open"
+      }
+    ],
+    "zone_arrive": [
+      {
+        "text": "Quiet out here. I like a place where you can hear things coming.",
+        "kind": "reply"
+      }
+    ]
+  }
+}

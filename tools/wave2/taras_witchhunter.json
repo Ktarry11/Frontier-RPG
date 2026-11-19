@@ -1,0 +1,113 @@
+{
+  "recruit_text": {
+    "backstory": "Taras took tourists into the Chernobyl Exclusion Zone for nine years. He walked them through Pripyat, past the school and the swimming pool, and every tour ended under the yellow Ferris wheel that had stood still since 1986. He's dry, morbid and very gentle with animals, and he crossed over with Kashtan, a Zone stray he'd been feeding at the checkpoint for years. When the wheel turned up in Deadwind, he was the first to volunteer, because he's the one person on this world who knows it by heart."
+  },
+  "bond": {
+    "home": "Ariden's Watch",
+    "dials": {
+      "warmth": 1.0,
+      "nerve": 1.3,
+      "pride": 0.6,
+      "restless": 0.8
+    },
+    "likes": [
+      "beast",
+      "new_ground"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
+    "stages": {
+      "stranger": "I'm Taras, and this is Kashtan. Stay on the path, please, and don't touch anything that glows. I've said that to a lot of tourists, and I've never meant it more.",
+      "acquaintance": "I'm from Kyiv. For nine years I took tourists into the Chernobyl Exclusion Zone in a minibus that smelled of instant coffee. Past the school, past the swimming pool, and every tour ended under the yellow Ferris wheel in Pripyat. It was built for a May Day fair that never happened, and it's never turned for anyone. Kashtan met my bus at the checkpoint every morning for sausage.",
+      "companion": "My mother, Halyna, grows tomatoes on her balcony in Kyiv, more than any balcony should hold. I haven't found her. I was at the checkpoint feeding Kashtan when it happened, and we crossed over together, so at least I'm not alone. I had this dosimeter clipped to my collar, the yellow and black one I wore on every tour. Then the wheel turned up in Deadwind, and I was the first to volunteer, because I know it by heart.",
+      "friend": "My father was a liquidator. He worked the cleanup in 1986, and it killed him slowly when I was a teenager. I became a guide partly to understand what happened to him. Now the wheel's here, and nothing else from Pripyat is. I want to stand under it one more time, where I stood at the end of every tour, and work out why. The ground on the way is the worst in Deadwind. Will you walk it with me, bud laska?",
+      "sworn": "Nothing happened at all. No answer, no sign, no reason, only the wheel, rusting, the way it always was. I stood there a long time. In nine years of tours, the one question every tourist asked me was why, and I never had an answer then either. So I took a picture in my head, the way I used to for them, and walked back out counting heads. I'm staying on at the gate. Somebody who knows the wheel by heart should be the one keeping people away from it. Take the dosimeter. You should have something that tells you when to turn back."
+    },
+    "moments": [
+      {
+        "id": "kashtan",
+        "stage": "stranger",
+        "when": "talk",
+        "prompt": "Kashtan is sniffing your pockets very hopefully.",
+        "options": [
+          {
+            "text": "Give the dog something.",
+            "trust": 8,
+            "reply": "Dobre, now you're friends for life. He never forgets a pocket."
+          },
+          {
+            "text": "Push him away.",
+            "trust": 0,
+            "reply": "Bozhe, he's a good boy. Be nicer to him next time, please."
+          }
+        ]
+      },
+      {
+        "id": "the_wheel",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to walk the Zone with him to the wheel.",
+        "options": [
+          {
+            "text": "Lead the way, and I'll stay on the path.",
+            "trust": 12,
+            "reply": "Dobre, that's right. Follow Kashtan, not me, he's got the better nose."
+          },
+          {
+            "text": "What do you think you'll find?",
+            "trust": 3,
+            "reply": "Probably nothing, and I still need to look."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "We've walked this same loop so often I could give the tour. Let's go somewhere I haven't memorised.",
+      "leaving_good": "Kashtan's happy, and so am I. I'll be at the gate at Ariden's Watch, counting people through.",
+      "leaving_bored": "Kashtan's bored, and when he's bored he digs. We're going back to Ariden's Watch.",
+      "after_wipe": "Head count, please, everybody. Good, all here, more or less.",
+      "wipe_warning": "This is the kind of place where tourists stop coming back. After this run, Kashtan and I are resting at the gate.",
+      "wipe_leave": "That's the tour over for today. We'll be at the gate at Ariden's Watch, Kashtan and me.",
+      "zone_warning": "Kashtan won't go any further, and I trust his nose more than my eyes. We turn back here.",
+      "zone_leave": "Some places you don't take the tour into. You'll find us at the gate at Ariden's Watch.",
+      "gear_refuse": "That stays with me. Ask me again when Kashtan likes you.",
+      "gear_taken": "Take it, bud laska. I've walked the Zone in worse.",
+      "gear_short": "One piece is missing, and in the Zone that's how people get sick, so it matters.",
+      "gear_upgrade": "Dobre, that's proper protection, dyakuyu.",
+      "back": "Kashtan's rested and fed, and so am I. Stay on the path, everyone, and let's go.",
+      "send_word": "Taras has sent word from Ariden's Watch. Kashtan's restless, and so is he.",
+      "walkout_talk": "Kashtan gave me a look the whole way when I walked off, so I know I was wrong. Sit, and I'll explain.",
+      "neglect": "Kashtan smelled you coming a mile off. He's missed your pockets.",
+      "asked_to_stay": "Kashtan says one more, so one more.",
+      "on_break": "Taras is back at the gate at Ariden's Watch with Kashtan. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "My mother's balcony in Kyiv had so many tomatoes the neighbours below complained about the drips. She gave them tomatoes, and they stopped.",
+        "kind": "open",
+        "topic": "cities"
+      }
+    ],
+    "zone_arrive": [
+      {
+        "text": "Stay on the path, please. Kashtan's nose is twitching, and that's never good.",
+        "kind": "open"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "Kashtan, good boy, you found the way out again. Somebody give him a sausage.",
+        "kind": "open"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "That's what happens when you touch things. Don't touch things.",
+        "kind": "reply"
+      }
+    ]
+  }
+}
