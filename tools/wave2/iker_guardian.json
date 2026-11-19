@@ -1,0 +1,75 @@
+{
+  "recruit_text": {
+    "greeting": "Up, up, up! You can rest when you're dead, and you don't look dead to me.",
+    "backstory": "Iker taught PE and coached pelota in Lekeitio, a Basque fishing town, at a school with a fronton wall older than the church. He's never met anyone he couldn't shout into running one more lap, and he's never been tired in his life. He's loud, upbeat and competitive about absolutely everything. Here the shouting turned into something real, and when Iker tells a fighter they can keep going, they really can.",
+    "before": "A school of ninety kids, a fronton wall, a mother who made the best burnt cheesecake in the province, and an old bicycle he rode everywhere.\n\nHe lived above the bakery with Unai, a fisherman, for six years. Unai left at four in the morning and came back at noon, and Iker had the coffee ready.",
+    "forward": "A fronton wall in Arathi, and somebody here who plays properly.\n\nAnd ninety names, written on a sheet in his pocket. The whole school was in session that day, and he doesn't know where any of them landed."
+  },
+  "bond": {
+    "home": "Arathi West",
+    "dials": {"warmth": 1.5, "nerve": 1.4, "pride": 0.7, "restless": 1.1},
+    "likes": ["boss", "full_party"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "Kaixo, I'm Iker! I'm a guardian, which means I shout at you until you keep going, and it works, I promise. Come on, one more fight, and then one more after that!",
+      "acquaintance": "I'm from Lekeitio, a fishing town on the Basque coast. My father fished and my mother Miren ran the bakery, the best burnt cheesecake in the whole province. I taught PE at the town school and coached pelota against a fronton wall older than the church. We won the regional schools final twice, and the second time was the best day of my life, so far.",
+      "companion": "My partner is Unai, a fisherman on my father's old boat. Six years we lived above the bakery. He left at four in the morning and came back at noon, and I always had the coffee ready. I was in the middle of a PE lesson with thirty kids when all this happened, and I landed in the rain in Arathi on my own, with my grandfather's txapela on my head.",
+      "friend": "The whole school was in session that day, ninety kids, and I don't know where a single one of them landed. I've got every name written down, here, in my pocket. I don't talk about it, because if I start I'll stop shouting, and if I stop shouting I don't know what I am. A farmer says she saw Basque children once, on a road to Stromgarde. Will you come with me?",
+      "sworn": "Nothing, not one of the ninety, not Unai, not my mother. I stood in those ruins and I was quiet for a long time, which you know isn't like me. Then I came back and built the fronton against a barn, stone by stone, and now I teach the farmers' kids pelota. Some of my ninety are out there being coached by somebody. I hope that somebody's loud. The names are still in my pocket."
+    },
+    "moments": [
+      {"id": "the_names", "stage": "friend", "when": "talk",
+       "prompt": "He's just shown you the list of ninety names.",
+       "options": [
+         {"text": "We'll check every hub together.", "trust": 12,
+          "reply": "Aupa, that's it! Come on, then, ninety names, we'll go through every one."},
+         {"text": "That's a lot of children to carry.", "trust": 6,
+          "reply": "It is a lot. I carry them anyway, every day. They're light, they're kids."}
+       ]},
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe he's already on his feet, clapping, too loud.",
+       "line": "Come on, come on, up! That was one round, not the match. We've got this, venga!",
+       "options": [
+         {"text": "Give us a second, Iker.", "trust": 8, "mood": 4,
+          "reply": "Okay, okay, one second. I'm counting, though."},
+         {"text": "Right behind you, coach!", "trust": 4, "mood": 6,
+          "reply": "That's the spirit! Aupa, everybody up!"}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "Come on, we've done this same drill a hundred times and I'm the only one keeping score. Let's go and find a real game!",
+      "leaving_good": "Great session, everybody, I'm proud of you! I'm going back to Arathi to work the farmhands. Come and find me.",
+      "leaving_bored": "I'm going back to Arathi. This is the same drill over and over, and even I'm bored, which never happens.",
+      "after_wipe": "Up, up, everybody! That was one round, not the match, so again, venga!",
+      "wipe_warning": "We keep losing in here, and I'm running out of shouting. One more run, then I need a rest, and I never need a rest.",
+      "wipe_leave": "That's the final whistle. I'm going home to Arathi for a while. Come back when you've trained a bit more!",
+      "zone_warning": "This team's way out of our league. I love a challenge, but this is a hiding. Let's go and play somebody our size.",
+      "zone_leave": "I'm stopping here. They're out of our league. I'll be in Arathi West.",
+      "gear_refuse": "No, no, that's mine! Earn it first, champion.",
+      "gear_taken": "Take it, take it, I'll just run faster without it.",
+      "gear_short": "I'm still missing that piece, and I'm keeping score.",
+      "gear_upgrade": "Aupa, look at that! Thank you, champion.",
+      "back": "I'm back, and the farmhands are fitter than ever! Where's the next game?",
+      "send_word": "Iker has sent word from Arathi West. The farmhands are worn out and he's ready to come out.",
+      "walkout_talk": "I walked out, and I'm sorry, because a coach shouldn't walk out on the team. Sit down and let's talk it through.",
+      "neglect": "There you are! I thought you'd retired. Nobody retires on my team.",
+      "asked_to_stay": "Venga, one more game, and then home.",
+      "on_break": "Iker is back in Arathi West, running the farmhands ragged. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "boss_down": [
+      {"text": "That's one more for us, and I'm counting, aupa!", "kind": "open"}
+    ],
+    "close_call": [
+      {"text": "Come on, you're still up, so you're still in it, keep going!", "kind": "open"}
+    ],
+    "dungeon_clear": [
+      {"text": "Everybody out, great teamwork, I'm putting that on the scoreboard.", "kind": "reply"}
+    ],
+    "town_arrive": [
+      {"text": "Lekeitio's got a harbour, an island you can walk to at low tide, and the best cheesecake in the world.", "kind": "open", "topic": "cities"},
+      {"text": "Is there a wall in this town I could hit a ball against? I'm asking for a friend, it's me.", "kind": "open"}
+    ]
+  }
+}

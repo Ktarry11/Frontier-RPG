@@ -466,25 +466,36 @@
     "mateo_starcaller": {
       "zone_arrive": [
         {
-          "text": "Clear sky tonight. I'll be up. Don't wait on me in the morning.",
+          "text": "Clear sky tonight, so I'll be up late. Don't wait for me in the morning.",
           "kind": "open"
         }
       ],
       "town_arrive": [
         {
-          "text": "Too many lamps. I can't see anything that matters.",
+          "text": "Too many lamps here. I can't see anything that matters.",
           "kind": "reply"
+        },
+        {
+          "text": "La Serena has a lighthouse on the beach and the clearest skies in the world just up the valley.",
+          "kind": "open",
+          "topic": "cities"
         }
       ],
       "boss_down": [
         {
-          "text": "It went quiet the same moment the moon cleared the ridge. I noticed. I write these down.",
+          "text": "It went quiet the moment the moon cleared the ridge. I noticed, and I'm writing it down.",
           "kind": "open"
         }
       ],
       "close_call": [
         {
-          "text": "Fourteen years I watched a sky that never answered. Now it answers and it's rude.",
+          "text": "Seventeen years I watched a sky that never answered. Now it answers, and it's rude about it.",
+          "kind": "reply"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Good, we're out from under all that rock. Look up, everybody, there's the sky.",
           "kind": "reply"
         }
       ]
@@ -1093,26 +1104,26 @@
     "imelda_primalist": {
       "close_call": [
         {
-          "text": "Hands up. Not for show - up, where they do something.",
+          "text": "Hands up, and not for show. Up where they actually do something.",
           "kind": "open"
         }
       ],
       "boss_down": [
         {
-          "text": "I know how it looks. I hit it and you felt better. I can't explain it either.",
+          "text": "I know how it looks. I hit it and you felt better, and I can't explain it either.",
           "kind": "reply"
         }
       ],
       "zone_arrive": [
         {
-          "text": "The quay at five in the morning was louder than this.",
+          "text": "The quay at five in the morning was louder than this, and it smelled worse.",
           "kind": "open",
           "topic": "night_work"
         }
       ],
       "town_arrive": [
         {
-          "text": "Somebody here fights for money. There always is. I'll find them.",
+          "text": "Somebody here fights for money. There always is, and I'll find them.",
           "kind": "open"
         }
       ]
@@ -1639,6 +1650,37 @@
         {
           "text": "You ran too fast, and the ground punished you. Walk slowly and it won't.",
           "kind": "reply"
+        }
+      ]
+    },
+    "iker_guardian": {
+      "boss_down": [
+        {
+          "text": "That's one more for us, and I'm counting, aupa!",
+          "kind": "open"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "Come on, you're still up, so you're still in it, keep going!",
+          "kind": "open"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Everybody out, great teamwork, I'm putting that on the scoreboard.",
+          "kind": "reply"
+        }
+      ],
+      "town_arrive": [
+        {
+          "text": "Lekeitio's got a harbour, an island you can walk to at low tide, and the best cheesecake in the world.",
+          "kind": "open",
+          "topic": "cities"
+        },
+        {
+          "text": "Is there a wall in this town I could hit a ball against? I'm asking for a friend, it's me.",
+          "kind": "open"
         }
       ]
     },

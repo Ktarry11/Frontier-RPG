@@ -1,0 +1,72 @@
+{
+  "recruit_text": {
+    "greeting": "I know how it looks. Stay behind me and watch. When I land one you'll feel it. I could never explain this in my own language either, so don't ask.",
+    "backstory": "Fish on a Navotas quay from five in the morning, boxing in the evenings, the same six streets her whole life. Ten fights a year, and she won more than she lost. Her healing isn't gentle and doesn't look like healing. She hits things and her people get better. Freewind Post took about a week to stop asking and most of a year to stop watching her sideways while it worked."
+  },
+  "bond": {
+    "home": "Freewind Post",
+    "dials": {"warmth": 0.8, "nerve": 1.4, "pride": 1.1, "restless": 0.9},
+    "likes": ["boss", "dungeon"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Imelda, and I heal by hitting things, and yes, I know how that looks. Stay behind me and watch. You'll feel it when I land one.",
+      "acquaintance": "I'm from Navotas, in Manila, a fishing district. I sold fish on the quay from five in the morning with my mother, and in the evenings I boxed, at a gym above a tyre shop. Nineteen years, about ten fights a year, and I won more than I lost. I never made money from it. I didn't want money, I wanted to do it properly.",
+      "companion": "My father drowned when I was six. He was a fisherman. My mother raised me on the quay after that, selling fish, and I was beside her by ten. Two summers ago she turned up here at Freewind on a goblin barge, having asked after me in four languages the whole way down the coast. She lives in the Post now. She still calls the boxing a phase.",
+      "friend": "My mother came to exactly one of my fights in nineteen years, and I lost it. She didn't say anything on the way home. I've wanted to fight properly in front of her ever since, with rules and a count and somebody keeping time. Now the Gurubashi Arena says it'll hold a real bout if there's a fighter worth it. I want it, and I want her in the front row.",
+      "sworn": "I won in the ninth. She stood up and shouted, the only time I've ever heard my mother shout. Afterwards she wrapped my hands for me, the first time, and said it was never a phase. That winter she died in her sleep, back at Freewind. She was old and tired from the journey, and she'd seen what she came to see. I wrap my hands the way she did now, too loose. I won't fix it."
+    },
+    "moments": [
+      {"id": "the_bout", "stage": "friend", "when": "talk",
+       "prompt": "She's asked you to help her train for the bout at the arena.",
+       "options": [
+         {"text": "I'll hold the pads. Let's train.", "trust": 12,
+          "reply": "Sige, okay, let's go. Hold them up properly, I hit hard."},
+         {"text": "Your mother might not come.", "trust": 2,
+          "reply": "Then I'll fight anyway. But I'll ask her, and she'll come."}
+       ]},
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe she's shadowboxing in a corner, counting under her breath.",
+       "line": "We dropped our guard in the third round. Again, hands up this time, everybody.",
+       "options": [
+         {"text": "Show us how to keep our guard up.", "trust": 8, "mood": 6,
+          "reply": "Hands up, chin down, and don't stand still. That's it, that's boxing."},
+         {"text": "This isn't a boxing match.", "trust": 0, "mood": -4,
+          "reply": "Everything's a boxing match. You just don't know the rules yet."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We're hitting the same bags over and over. That's training, not fighting. Let's go and find a real opponent.",
+      "leaving_good": "That was a good trip. I'm going back to Freewind for a while, to see my mother and wrap my hands. Come and find me.",
+      "leaving_bored": "I'm going back to Freewind. This is just hitting things for nothing, and I don't do that.",
+      "after_wipe": "We dropped our guard, that's all. Hands up and we go again.",
+      "wipe_warning": "We keep getting knocked down in here. I'll finish this run, but then I need some rest.",
+      "wipe_leave": "Final bell, I'm going home. I'll be at Freewind Post when you've learned to keep your hands up.",
+      "zone_warning": "This is a fight above our weight, and that's how people get hurt. Let's go and fight in our own division.",
+      "zone_leave": "I'm stopping here. That's a fight above our weight. I'll be at Freewind Post.",
+      "gear_refuse": "No, that's mine. I don't hand my gear to people I don't know.",
+      "gear_taken": "Take it, then. I'll fight without it, I've done that before.",
+      "gear_short": "I'm still missing that piece. I'm counting, the way I count rounds.",
+      "gear_upgrade": "That's good kit. Salamat, thank you.",
+      "back": "I'm back, and my hands are wrapped. Where's the fight?",
+      "send_word": "Imelda has sent word from Freewind Post. Her hands are wrapped and she's ready to come out.",
+      "walkout_talk": "I walked out, and I'll tell you why straight. Then you tell me yours, and it's a fair fight.",
+      "neglect": "There you are. I shadowboxed a lot while you were gone, and I'm faster now.",
+      "asked_to_stay": "Sige, one more round, and then home.",
+      "on_break": "Imelda is back at Freewind Post in Thousand Needles. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "close_call": [
+      {"text": "Hands up, and not for show. Up where they actually do something.", "kind": "open"}
+    ],
+    "boss_down": [
+      {"text": "I know how it looks. I hit it and you felt better, and I can't explain it either.", "kind": "reply"}
+    ],
+    "zone_arrive": [
+      {"text": "The quay at five in the morning was louder than this, and it smelled worse.", "kind": "open", "topic": "night_work"}
+    ],
+    "town_arrive": [
+      {"text": "Somebody here fights for money. There always is, and I'll find them.", "kind": "open"}
+    ]
+  }
+}

@@ -1709,6 +1709,174 @@
         "on_break": "Haruto is back by the standing stones in Silverpine South. Come back after you've done a few more jobs."
       }
     },
+    "iker_guardian": {
+      "home": "Arathi West",
+      "dials": {
+        "warmth": 1.5,
+        "nerve": 1.4,
+        "pride": 0.7,
+        "restless": 1.1
+      },
+      "likes": [
+        "boss",
+        "full_party"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "Kaixo, I'm Iker! I'm a guardian, which means I shout at you until you keep going, and it works, I promise. Come on, one more fight, and then one more after that!",
+        "acquaintance": "I'm from Lekeitio, a fishing town on the Basque coast. My father fished and my mother Miren ran the bakery, the best burnt cheesecake in the whole province. I taught PE at the town school and coached pelota against a fronton wall older than the church. We won the regional schools final twice, and the second time was the best day of my life, so far.",
+        "companion": "My partner is Unai, a fisherman on my father's old boat. Six years we lived above the bakery. He left at four in the morning and came back at noon, and I always had the coffee ready. I was in the middle of a PE lesson with thirty kids when all this happened, and I landed in the rain in Arathi on my own, with my grandfather's txapela on my head.",
+        "friend": "The whole school was in session that day, ninety kids, and I don't know where a single one of them landed. I've got every name written down, here, in my pocket. I don't talk about it, because if I start I'll stop shouting, and if I stop shouting I don't know what I am. A farmer says she saw Basque children once, on a road to Stromgarde. Will you come with me?",
+        "sworn": "Nothing, not one of the ninety, not Unai, not my mother. I stood in those ruins and I was quiet for a long time, which you know isn't like me. Then I came back and built the fronton against a barn, stone by stone, and now I teach the farmers' kids pelota. Some of my ninety are out there being coached by somebody. I hope that somebody's loud. The names are still in my pocket."
+      },
+      "moments": [
+        {
+          "id": "the_names",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's just shown you the list of ninety names.",
+          "options": [
+            {
+              "text": "We'll check every hub together.",
+              "trust": 12,
+              "reply": "Aupa, that's it! Come on, then, ninety names, we'll go through every one."
+            },
+            {
+              "text": "That's a lot of children to carry.",
+              "trust": 6,
+              "reply": "It is a lot. I carry them anyway, every day. They're light, they're kids."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's already on his feet, clapping, too loud.",
+          "line": "Come on, come on, up! That was one round, not the match. We've got this, venga!",
+          "options": [
+            {
+              "text": "Give us a second, Iker.",
+              "trust": 8,
+              "mood": 4,
+              "reply": "Okay, okay, one second. I'm counting, though."
+            },
+            {
+              "text": "Right behind you, coach!",
+              "trust": 4,
+              "mood": 6,
+              "reply": "That's the spirit! Aupa, everybody up!"
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Come on, we've done this same drill a hundred times and I'm the only one keeping score. Let's go and find a real game!",
+        "leaving_good": "Great session, everybody, I'm proud of you! I'm going back to Arathi to work the farmhands. Come and find me.",
+        "leaving_bored": "I'm going back to Arathi. This is the same drill over and over, and even I'm bored, which never happens.",
+        "after_wipe": "Up, up, everybody! That was one round, not the match, so again, venga!",
+        "wipe_warning": "We keep losing in here, and I'm running out of shouting. One more run, then I need a rest, and I never need a rest.",
+        "wipe_leave": "That's the final whistle. I'm going home to Arathi for a while. Come back when you've trained a bit more!",
+        "zone_warning": "This team's way out of our league. I love a challenge, but this is a hiding. Let's go and play somebody our size.",
+        "zone_leave": "I'm stopping here. They're out of our league. I'll be in Arathi West.",
+        "gear_refuse": "No, no, that's mine! Earn it first, champion.",
+        "gear_taken": "Take it, take it, I'll just run faster without it.",
+        "gear_short": "I'm still missing that piece, and I'm keeping score.",
+        "gear_upgrade": "Aupa, look at that! Thank you, champion.",
+        "back": "I'm back, and the farmhands are fitter than ever! Where's the next game?",
+        "send_word": "Iker has sent word from Arathi West. The farmhands are worn out and he's ready to come out.",
+        "walkout_talk": "I walked out, and I'm sorry, because a coach shouldn't walk out on the team. Sit down and let's talk it through.",
+        "neglect": "There you are! I thought you'd retired. Nobody retires on my team.",
+        "asked_to_stay": "Venga, one more game, and then home.",
+        "on_break": "Iker is back in Arathi West, running the farmhands ragged. Come back after you've done a few more jobs."
+      }
+    },
+    "imelda_primalist": {
+      "home": "Freewind Post",
+      "dials": {
+        "warmth": 0.8,
+        "nerve": 1.4,
+        "pride": 1.1,
+        "restless": 0.9
+      },
+      "likes": [
+        "boss",
+        "dungeon"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Imelda, and I heal by hitting things, and yes, I know how that looks. Stay behind me and watch. You'll feel it when I land one.",
+        "acquaintance": "I'm from Navotas, in Manila, a fishing district. I sold fish on the quay from five in the morning with my mother, and in the evenings I boxed, at a gym above a tyre shop. Nineteen years, about ten fights a year, and I won more than I lost. I never made money from it. I didn't want money, I wanted to do it properly.",
+        "companion": "My father drowned when I was six. He was a fisherman. My mother raised me on the quay after that, selling fish, and I was beside her by ten. Two summers ago she turned up here at Freewind on a goblin barge, having asked after me in four languages the whole way down the coast. She lives in the Post now. She still calls the boxing a phase.",
+        "friend": "My mother came to exactly one of my fights in nineteen years, and I lost it. She didn't say anything on the way home. I've wanted to fight properly in front of her ever since, with rules and a count and somebody keeping time. Now the Gurubashi Arena says it'll hold a real bout if there's a fighter worth it. I want it, and I want her in the front row.",
+        "sworn": "I won in the ninth. She stood up and shouted, the only time I've ever heard my mother shout. Afterwards she wrapped my hands for me, the first time, and said it was never a phase. That winter she died in her sleep, back at Freewind. She was old and tired from the journey, and she'd seen what she came to see. I wrap my hands the way she did now, too loose. I won't fix it."
+      },
+      "moments": [
+        {
+          "id": "the_bout",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's asked you to help her train for the bout at the arena.",
+          "options": [
+            {
+              "text": "I'll hold the pads. Let's train.",
+              "trust": 12,
+              "reply": "Sige, okay, let's go. Hold them up properly, I hit hard."
+            },
+            {
+              "text": "Your mother might not come.",
+              "trust": 2,
+              "reply": "Then I'll fight anyway. But I'll ask her, and she'll come."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe she's shadowboxing in a corner, counting under her breath.",
+          "line": "We dropped our guard in the third round. Again, hands up this time, everybody.",
+          "options": [
+            {
+              "text": "Show us how to keep our guard up.",
+              "trust": 8,
+              "mood": 6,
+              "reply": "Hands up, chin down, and don't stand still. That's it, that's boxing."
+            },
+            {
+              "text": "This isn't a boxing match.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "Everything's a boxing match. You just don't know the rules yet."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We're hitting the same bags over and over. That's training, not fighting. Let's go and find a real opponent.",
+        "leaving_good": "That was a good trip. I'm going back to Freewind for a while, to see my mother and wrap my hands. Come and find me.",
+        "leaving_bored": "I'm going back to Freewind. This is just hitting things for nothing, and I don't do that.",
+        "after_wipe": "We dropped our guard, that's all. Hands up and we go again.",
+        "wipe_warning": "We keep getting knocked down in here. I'll finish this run, but then I need some rest.",
+        "wipe_leave": "Final bell, I'm going home. I'll be at Freewind Post when you've learned to keep your hands up.",
+        "zone_warning": "This is a fight above our weight, and that's how people get hurt. Let's go and fight in our own division.",
+        "zone_leave": "I'm stopping here. That's a fight above our weight. I'll be at Freewind Post.",
+        "gear_refuse": "No, that's mine. I don't hand my gear to people I don't know.",
+        "gear_taken": "Take it, then. I'll fight without it, I've done that before.",
+        "gear_short": "I'm still missing that piece. I'm counting, the way I count rounds.",
+        "gear_upgrade": "That's good kit. Salamat, thank you.",
+        "back": "I'm back, and my hands are wrapped. Where's the fight?",
+        "send_word": "Imelda has sent word from Freewind Post. Her hands are wrapped and she's ready to come out.",
+        "walkout_talk": "I walked out, and I'll tell you why straight. Then you tell me yours, and it's a fair fight.",
+        "neglect": "There you are. I shadowboxed a lot while you were gone, and I'm faster now.",
+        "asked_to_stay": "Sige, one more round, and then home.",
+        "on_break": "Imelda is back at Freewind Post in Thousand Needles. Come back after you've done a few more jobs."
+      }
+    },
     "ivan_warrior": {
       "home": "Orgrimmar",
       "dials": {
@@ -2284,6 +2452,87 @@
         "neglect": "Oh, so you're alive. I oiled every hinge in the mine waiting for you.",
         "asked_to_stay": "Fine, one more, but I'm fixing everyone's boots tonight.",
         "on_break": "Marta is back in the Boulder Lode Mine, keeping the pumps going. Come back after you've done a few more jobs."
+      }
+    },
+    "mateo_starcaller": {
+      "home": "Southern Thousand Needles",
+      "dials": {
+        "warmth": 1.3,
+        "nerve": 0.9,
+        "pride": 0.6,
+        "restless": 1.0
+      },
+      "likes": [
+        "new_ground",
+        "quest"
+      ],
+      "dislikes": [
+        "dungeon"
+      ],
+      "stages": {
+        "stranger": "I'm Mateo, and I'm a starcaller, and before that I was a technician at an observatory. Technician, not astronomer, people always get that wrong. Look up tonight, will you? The sky here's wonderful.",
+        "acquaintance": "I'm from La Serena, in Chile, on the coast. My dad was a fisherman. I studied electronics and worked seventeen years at an observatory on a mountain above the Elqui valley. Cold domes, cable runs, and four hours before dawn when the astronomers slept and the whole mountain was mine. The sky there's so clear it stops being scenery, po.",
+        "companion": "My wife is Paula, a nurse. We have two girls, Antonia and Josefa. They thought the mountain was boring, and they were right, honestly. I was in the dome at four in the morning fixing a cable when it happened, and I landed here at night under a sky full of stars I didn't know. I walk to Freewind Post twice a year with their names in my pocket.",
+        "friend": "Every month, for seventeen years, I went up the mountain for two weeks, and Paula held everything together while I was gone. I loved the sky more easily than I loved being home, and I knew it, and I went anyway. I'm not proud of that. But the star map's finished, and I think it can guide caravans across the desert at night, the way the old navigators did. Help me try it.",
+        "sworn": "In the back of that caravan was a Chilean woman with two teenage girls. Paula, Antonia and Josefa. They'd been following my star map to Freewind without knowing it was mine. The girls told me the stars here are actually quite good, which is the nicest thing they've ever said about my job. I took them up the goblin tower that night and made them look up. Neither of them was bored."
+      },
+      "moments": [
+        {
+          "id": "look_up",
+          "stage": "acquaintance",
+          "when": "talk",
+          "prompt": "At camp, he asks you to look up and tell him what you see.",
+          "options": [
+            {
+              "text": "Lie back in the grass and look properly.",
+              "trust": 10,
+              "reply": "Ya, you see it? That's it exactly. That one's mine, I named it after my girls."
+            },
+            {
+              "text": "It's just stars.",
+              "trust": 0,
+              "reply": "Just stars, he says. Seventeen years and people still say that to me."
+            }
+          ]
+        },
+        {
+          "id": "the_map",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to help him test the star map with a caravan.",
+          "options": [
+            {
+              "text": "Let's take it out tonight.",
+              "trust": 12,
+              "reply": "Yes, tonight, it's clear! I'll bring the charts and a lot of coffee."
+            },
+            {
+              "text": "Do you miss them?",
+              "trust": 6,
+              "reply": "Every night, cachai. That's when I miss them most, when I'm looking up."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been doing the same thing in the same place for days, and I haven't seen a new star in ages. Can we go somewhere with a better sky?",
+        "leaving_good": "That was a great trip, po. I'm going back to my mesa, because there's a meteor shower coming. Come and watch it with me.",
+        "leaving_bored": "I'm going back to my mesa. Nothing's happening down here, and the sky's always doing something.",
+        "after_wipe": "Okay, we're all still here, I counted, like counting stars. Let's look at what happened.",
+        "wipe_warning": "We keep dying in here, and I can't even see the sky. I'll finish this run, but then I need some nights on my mesa.",
+        "wipe_leave": "I finished it with you, and now I need some sky. I'll be on my mesa in Thousand Needles.",
+        "zone_warning": "This place is too much for us. I'd like to live long enough to finish my map, if that's all right.",
+        "zone_leave": "I'm stopping here. It's too dangerous out there. I'll be on my mesa in Southern Thousand Needles.",
+        "gear_refuse": "Ah, I'd like to keep that, sorry. Ask me again when we've watched a sky together.",
+        "gear_taken": "Okay, take it. I'll manage with what I've got.",
+        "gear_short": "I'm still missing that piece, by the way. I noticed, I notice everything.",
+        "gear_upgrade": "Oh, that's lovely. Thank you, really.",
+        "back": "I'm back, and the map's got three new constellations. Where are we going?",
+        "send_word": "Mateo has sent word from Southern Thousand Needles. The sky's been clear and he's ready to come out.",
+        "walkout_talk": "I left angry, and that's not like me. Let's sit somewhere we can see the sky and talk about it, ya?",
+        "neglect": "There you are! I named a star after you while you were away. It's very faint.",
+        "asked_to_stay": "Okay, one more. Then the meteor shower.",
+        "on_break": "Mateo is back on his mesa in Southern Thousand Needles, mapping the sky. Come back after you've done a few more jobs."
       }
     },
     "matias_reaper": {

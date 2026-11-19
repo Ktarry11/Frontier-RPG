@@ -1,0 +1,79 @@
+{
+  "recruit_text": {
+    "greeting": "Look up at it. Go on, look up. Three years and I still have to make people look up.",
+    "backstory": "Seventeen years keeping the lights on at a mountaintop observatory above the Elqui valley. Technician, not astronomer, and he'll correct you on that immediately and then talk for an hour anyway. Up there the sky is so clear it stops being scenery and becomes a place. He arrived on a world with the wrong stars in it and spent his first winter learning them from scratch, alone, on his back in the grass, happier than he'd been in a decade.",
+    "before": "Cold domes, cable runs, and the four hours before dawn when the astronomers slept and the mountain belonged to him.\n\nHe had a wife, Paula, in La Serena, and two girls who thought the mountain was boring. He agreed with them. He went anyway, every month, for seventeen years.",
+    "adjustment": "He found the sky first and everything else second, and for a long while that worked.\n\nThe reckoning came in the second winter, when he'd finished naming the constellations and had to come back down and be a person.",
+    "now": "On top of a mesa in Southern Thousand Needles, where the air is dry and the nights go on forever.\n\nThe goblins of the flats think he's harmless and let him climb their towers. From the top of one he can see most of the sky at once, and he's begun to suspect it's the finest observing site on this world.",
+    "forward": "A map of this sky, drawn properly, by somebody who understands that a sky is also a calendar and a clock and a promise. He's eleven months in.\n\nHe walks to Freewind Post twice a year with two names folded in his pocket, reads the whole list, and walks back. He talks about the stars on the way out and says very little on the way home."
+  },
+  "bond": {
+    "home": "Southern Thousand Needles",
+    "dials": {"warmth": 1.3, "nerve": 0.9, "pride": 0.6, "restless": 1.0},
+    "likes": ["new_ground", "quest"],
+    "dislikes": ["dungeon"],
+    "stages": {
+      "stranger": "I'm Mateo, and I'm a starcaller, and before that I was a technician at an observatory. Technician, not astronomer, people always get that wrong. Look up tonight, will you? The sky here's wonderful.",
+      "acquaintance": "I'm from La Serena, in Chile, on the coast. My dad was a fisherman. I studied electronics and worked seventeen years at an observatory on a mountain above the Elqui valley. Cold domes, cable runs, and four hours before dawn when the astronomers slept and the whole mountain was mine. The sky there's so clear it stops being scenery, po.",
+      "companion": "My wife is Paula, a nurse. We have two girls, Antonia and Josefa. They thought the mountain was boring, and they were right, honestly. I was in the dome at four in the morning fixing a cable when it happened, and I landed here at night under a sky full of stars I didn't know. I walk to Freewind Post twice a year with their names in my pocket.",
+      "friend": "Every month, for seventeen years, I went up the mountain for two weeks, and Paula held everything together while I was gone. I loved the sky more easily than I loved being home, and I knew it, and I went anyway. I'm not proud of that. But the star map's finished, and I think it can guide caravans across the desert at night, the way the old navigators did. Help me try it.",
+      "sworn": "In the back of that caravan was a Chilean woman with two teenage girls. Paula, Antonia and Josefa. They'd been following my star map to Freewind without knowing it was mine. The girls told me the stars here are actually quite good, which is the nicest thing they've ever said about my job. I took them up the goblin tower that night and made them look up. Neither of them was bored."
+    },
+    "moments": [
+      {"id": "look_up", "stage": "acquaintance", "when": "talk",
+       "prompt": "At camp, he asks you to look up and tell him what you see.",
+       "options": [
+         {"text": "Lie back in the grass and look properly.", "trust": 10,
+          "reply": "Ya, you see it? That's it exactly. That one's mine, I named it after my girls."},
+         {"text": "It's just stars.", "trust": 0,
+          "reply": "Just stars, he says. Seventeen years and people still say that to me."}
+       ]},
+      {"id": "the_map", "stage": "friend", "when": "talk",
+       "prompt": "He's asked you to help him test the star map with a caravan.",
+       "options": [
+         {"text": "Let's take it out tonight.", "trust": 12,
+          "reply": "Yes, tonight, it's clear! I'll bring the charts and a lot of coffee."},
+         {"text": "Do you miss them?", "trust": 6,
+          "reply": "Every night, cachai. That's when I miss them most, when I'm looking up."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've been doing the same thing in the same place for days, and I haven't seen a new star in ages. Can we go somewhere with a better sky?",
+      "leaving_good": "That was a great trip, po. I'm going back to my mesa, because there's a meteor shower coming. Come and watch it with me.",
+      "leaving_bored": "I'm going back to my mesa. Nothing's happening down here, and the sky's always doing something.",
+      "after_wipe": "Okay, we're all still here, I counted, like counting stars. Let's look at what happened.",
+      "wipe_warning": "We keep dying in here, and I can't even see the sky. I'll finish this run, but then I need some nights on my mesa.",
+      "wipe_leave": "I finished it with you, and now I need some sky. I'll be on my mesa in Thousand Needles.",
+      "zone_warning": "This place is too much for us. I'd like to live long enough to finish my map, if that's all right.",
+      "zone_leave": "I'm stopping here. It's too dangerous out there. I'll be on my mesa in Southern Thousand Needles.",
+      "gear_refuse": "Ah, I'd like to keep that, sorry. Ask me again when we've watched a sky together.",
+      "gear_taken": "Okay, take it. I'll manage with what I've got.",
+      "gear_short": "I'm still missing that piece, by the way. I noticed, I notice everything.",
+      "gear_upgrade": "Oh, that's lovely. Thank you, really.",
+      "back": "I'm back, and the map's got three new constellations. Where are we going?",
+      "send_word": "Mateo has sent word from Southern Thousand Needles. The sky's been clear and he's ready to come out.",
+      "walkout_talk": "I left angry, and that's not like me. Let's sit somewhere we can see the sky and talk about it, ya?",
+      "neglect": "There you are! I named a star after you while you were away. It's very faint.",
+      "asked_to_stay": "Okay, one more. Then the meteor shower.",
+      "on_break": "Mateo is back on his mesa in Southern Thousand Needles, mapping the sky. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "zone_arrive": [
+      {"text": "Clear sky tonight, so I'll be up late. Don't wait for me in the morning.", "kind": "open"}
+    ],
+    "town_arrive": [
+      {"text": "Too many lamps here. I can't see anything that matters.", "kind": "reply"},
+      {"text": "La Serena has a lighthouse on the beach and the clearest skies in the world just up the valley.", "kind": "open", "topic": "cities"}
+    ],
+    "boss_down": [
+      {"text": "It went quiet the moment the moon cleared the ridge. I noticed, and I'm writing it down.", "kind": "open"}
+    ],
+    "close_call": [
+      {"text": "Seventeen years I watched a sky that never answered. Now it answers, and it's rude about it.", "kind": "reply"}
+    ],
+    "dungeon_clear": [
+      {"text": "Good, we're out from under all that rock. Look up, everybody, there's the sky.", "kind": "reply"}
+    ]
+  }
+}
