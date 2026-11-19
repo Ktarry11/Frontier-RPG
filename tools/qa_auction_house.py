@@ -17,6 +17,7 @@ CLAIMS
  10. Fat fingers happen, are rare, and die young; cash-on-delivery offers come after bulk buying.
  11. The world has it: a mailbox by every inn, auctioneers with the service, every screen tab renders.
  12. The letters: eight personalities, each with lines for every moment, short and plainly written.
+ 13. Hovering a recipe says what it needs, what it makes and what that does, and its materials.
 """
 import copy
 import math
@@ -365,6 +366,21 @@ def main():
             import traceback
             traceback.print_exc()
             check(False, f"mail {tab} tab crashed: {exc}")
+
+    # 13. A RECIPE SAYS WHAT IT MAKES (Kyle, 19 Nov 2026: "When hovering over recipes in the AH we should be able
+    # to see what it does"): the trade and skill, what it teaches, what that does, and the materials, for every
+    # recipe NPCs can list.
+    from ui.market_widgets import good_lines
+    recipes = [e for e in C.entries().values() if e.kind == G.GEAR and (e.template or {}).get("recipe_id")]
+    check(len(recipes) > 50, f"only {len(recipes)} recipes in the catalog")
+    thin = []
+    for e in recipes:
+        texts = [str(t) for t, _c in good_lines(e.make())]
+        if not (any(t.startswith("Requires ") and "(" in t for t in texts)
+                and any(t.startswith("Teaches you to make") for t in texts) and "Materials:" in texts
+                and len(texts) >= 6):
+            thin.append(e.name)
+    check(not thin, f"{len(thin)} recipes don't say what they make or need, e.g. {thin[:4]}")
 
     print(f"{sum(len(b) for b in m.books.values())} listings, {len(C.entries())} things NPCs can list, "
           f"{len(boxes)} mailboxes, stats {m.stats}")

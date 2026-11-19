@@ -849,7 +849,7 @@ class AuctionScreen(BaseScreen):
             good = G.pack(x)
             going, _v, _i = m.going_for(x, self.market_id)
             extra = [(f"__price__Going price each|{int(going)}", theme.ACCENT)]
-            draw_tooltip(self.renderer, screen, good_lines(good), pos, extra=extra)
+            draw_tooltip(self.renderer, screen, good_lines(good, self.player), pos, extra=extra)
             return
         good = m.good_of(x)
         if good is None:
@@ -864,4 +864,4 @@ class AuctionScreen(BaseScreen):
             extra.append(("You're the high bidder.", theme.OK))
         if (x.seller_id or "").startswith("recruit:"):
             extra.append((f"{x.seller} is selling this. They're in your party.", theme.OK))
-        draw_tooltip(self.renderer, screen, good_lines(good), pos, extra=extra)
+        draw_tooltip(self.renderer, screen, good_lines(good, self.player), pos, extra=extra)

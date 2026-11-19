@@ -322,7 +322,7 @@ class MailScreen(BaseScreen):
                         center=True)
         self.to.draw_open(r, screen) if self.tab == "send" else None
         if self._hover:
-            draw_tooltip(r, screen, good_lines(self._hover), pygame.mouse.get_pos())
+            draw_tooltip(r, screen, good_lines(self._hover, self.player), pygame.mouse.get_pos())
 
     def _render_inbox(self, screen):
         r = self.renderer

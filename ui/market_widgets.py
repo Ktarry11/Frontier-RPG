@@ -319,8 +319,9 @@ def draw_icon(screen, icon_helper, icon, rect, rarity="common"):
     pygame.draw.rect(screen, RARITY_COLOUR.get(rarity, theme.FRAME_INNER), rect, 1)
 
 
-def good_lines(good):
-    """Tooltip lines for a good: [(text, colour)]."""
+def good_lines(good, subject=None):
+    """Tooltip lines for a good: [(text, colour)]. subject: who's looking (the player), so a recipe can say whether
+    they can learn it and whether they already know it."""
     from world.market import catalog as C
     from world.market import goods as G
     obj = G.unpack(good)
@@ -330,7 +331,14 @@ def good_lines(good):
     k = good["kind"]
     if k == G.GEAR:
         if getattr(obj, "recipe_id", None):
-            out.append((str(getattr(obj, "flavor_text", "") or ""), theme.TEXT))
+            # THE SAME CARD AS THE BAGS AND THE VENDORS (ui/recipe_tooltip.py). Kyle, 19 Nov 2026: "When hovering over
+            # recipes in the AH we should be able to see what it does". It showed only the scroll's flavour line:
+            # now the trade and skill it needs, what it makes and what that does, and the materials.
+            from ui.recipe_tooltip import recipe_lines
+            out.extend((t, c) for t, c in recipe_lines(obj, subject) if t is not None)
+            sell = G.sell_price(good)
+            if sell:
+                out.append((f"__coins__{sell * G.quantity(good)}", theme.TEXT_DIM))
             return out
         from ui.item_kind import item_kind
         if getattr(obj, "bag_capacity", 0):
