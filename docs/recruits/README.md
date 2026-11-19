@@ -59,7 +59,7 @@ big difference."
 So about 7 or 8 of the 74 men, and 3 of the 25 women. It comes up the way anyone's partner comes up: a name, a past,
 somebody they miss. It's never their story or their personality.
 
-Kept count here as we go: men gay or bisexual: Tarek (gay), Sondre (gay), Sebastián (bisexual), Haruto (gay), Tomas (bisexual, already in his recruit text), Orlando (gay). Women: Carolina (lesbian), Rosa (bisexual), Camille (lesbian). That's the women done.
+Kept count here as we go: men gay or bisexual: Tarek (gay), Sondre (gay), Sebastián (bisexual), Haruto (gay), Tomas (bisexual, already in his recruit text), Orlando (gay), Iker (gay). Women: Carolina (lesbian), Rosa (bisexual), Camille (lesbian). That's the women done.
 
 ## Order and progress
 
@@ -111,9 +111,9 @@ fourth).
 | 41 | Saoirse Ni Bhraonain | Starcaller 25 | Shadowfang Keep | `saoirse_ni_bhraonain.md` | Happy | Draft 1 |
 | 42 | Pasang Lama | Primalist 27 | The Aspen Wilderness | `pasang_lama.md` | Sad | Draft 1 |
 | 43 | Nicolás Arce | Bloodmage 27 | Splintertree Post | `nicolas_arce.md` | Happy | Draft 1 |
-| 44 | Iker Etxeberria | Guardian 30 | Arathi West |  |  |  |
-| 45 | Mateo Rojas | Starcaller 31 | Southern Thousand Needles |  |  |  |
-| 46 | Imelda Salonga | Primalist 31 | Freewind Post |  |  |  |
+| 44 | Iker Etxeberria | Guardian 30 | Arathi West | `iker_etxeberria.md` | Still unknown | Draft 1 |
+| 45 | Mateo Rojas | Starcaller 31 | Southern Thousand Needles | `mateo_rojas.md` | Happy | Draft 1 |
+| 46 | Imelda Salonga | Primalist 31 | Freewind Post | `imelda_salonga.md` | Sad | Draft 1 |
 | 47 | Ileana Dragomir | Necromancer 31 | Plague Depths |  |  |  |
 | 48 | Rhys Morgan | Ranger 31 | Stonetalon West |  |  |  |
 | 49 | Henrik Dahl | Mage 32 | The Frostward Descent |  |  |  |
