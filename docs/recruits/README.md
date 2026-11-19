@@ -143,9 +143,9 @@ fourth).
 | 71 | Camila Ortega | Venomancer 43 | Northern Tanaris | `camila_ortega.md` | Happy | Draft 1 |
 | 72 | Elias Peralta | Sun Cleric 44 | The Drownbell | `elias_peralta.md` | Sad | Draft 1 |
 | 73 | Kiet Somsak | Rogue 46 | The Abyssal Sands | `kiet_somsak.md` | Happy | Draft 1 |
-| 74 | Rui Almeida | Cultist 46 | The Lashings |  |  |  |
-| 75 | Stelios Dukas | Necromancer 48 | Glittervein |  |  |  |
-| 76 | Nizar Haddad | Chronomancer 48 | The Crossing |  |  |  |
+| 74 | Rui Almeida | Cultist 46 | The Lashings | `rui_almeida.md` | Happy | Draft 1 |
+| 75 | Stelios Dukas | Necromancer 48 | Glittervein | `stelios_dukas.md` | Still unknown | Draft 1 |
+| 76 | Nizar Haddad | Chronomancer 48 | The Crossing | `nizar_haddad.md` | Sad | Draft 1 |
 | 77 | Yusuf Al-Rawi | Venomancer 48 | The Bloodsail Anchorage |  |  |  |
 | 78 | Réka Farkas | Necromancer 51 | The Black Strand |  |  |  |
 | 79 | Ramiro Quispe | Primalist 51 | Onyxhollow |  |  |  |
