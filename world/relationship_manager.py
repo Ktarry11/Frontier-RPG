@@ -303,13 +303,24 @@ class RelationshipManager:
         return text
 
     def _beat(self, parts, r=None, priority=1):
-        """parts: [(rid, key, name_of)]. Queues the beat if every line exists."""
-        out = []
+        """parts: [(rid, key, name_of)]. Queues the beat if every line exists, and if this pair
+        hasn't just had the same exchange: the player shouldn't hear the same two lines twice in a
+        row from the same two people, even when the same thing has happened twice."""
+        out, ids = [], []
         for rid, key, who in parts:
-            text = self.line(rid, key, r, who)
-            if text is None:
+            t = (self.lines.get(rid) or {}).get(key)
+            if not t:
                 return False
-            out.append((rid, text))
+            opts = t if isinstance(t, list) else [t]
+            if r is not None:
+                opts = [o for o in opts if f"{rid}:{o}" not in r.heard] or opts
+            raw = random.choice(opts)
+            ids.append(f"{rid}:{raw}")
+            out.append((rid, raw.replace("{name}", self.first(who)) if who else raw.replace("{name}", "")))
+        if r is not None:
+            if ids[0] in r.heard[-12:]:
+                return False
+            r.heard = (r.heard + ids)[-40:]
         self.queue.append((priority, self._deeds(), out))
         self.queue.sort(key=lambda q: -q[0])
         self.queue = self.queue[:3]
@@ -357,24 +368,49 @@ class RelationshipManager:
         """An outing finished with these recruits along. Returns {rid: mood change}."""
         ids = [i for i in ids if i in self.traits]
         mood = {i: 0.0 for i in ids}
-        meet_done = False
+        self._introductions(ids)
         for a, b in self.pairs_in(ids):
             r = self.rel(a, b)
             r.outings += 1
+            if not r.met_said:
+                continue                # they get to know each other once they've been introduced
             delta = (self.chem(a, b) * PULL + familiarity(r.outings)) * talk_speed(self._t(a), self._t(b))
             if kind in ("dungeon", "boss") and r.state in BAD:
                 delta += 0.5            # a hard job done together earns a grudging nod
-            if not r.met_said and not meet_done:
-                key = "meet_neighbour" if self._neighbours(a, b) else "meet"
-                x, y = self._by_talk(a, b)
-                if self._beat([(x, key, None), (y, key, None)], r, priority=2):
-                    r.met_said = meet_done = True
             self._milestone(r, self._move(r, delta))
             for me, other in ((a, b), (b, a)):
                 mood[me] += {"close": 5, "friendly": 3, "grating": -2, "rivals": -4}.get(r.state, 0)
         if len(ids) >= 2:
             self._sig_or_ambient(ids, AMBIENT_CHANCE)
         return {i: max(-6.0, min(6.0, v)) for i, v in mood.items()}
+
+    def _introductions(self, ids):
+        """Whoever has the most people here they haven't met says who they are, and up to two of
+        the others answer. Everybody present hears it, so one beat introduces the whole party.
+        A pair who've never been introduced (their lines aren't written yet) meet quietly."""
+        unmet = [(a, b) for a, b in self.pairs_in(ids) if not self.rel(a, b).met_said]
+        if not unmet:
+            return
+        count = {}
+        for a, b in unmet:
+            count[a] = count.get(a, 0) + 1
+            count[b] = count.get(b, 0) + 1
+        new = max(sorted(count), key=lambda x: (count[x], random.random()))
+        others = [x for x in ids if x != new and not self.rel(new, x).met_said]
+        random.shuffle(others)
+        others.sort(key=lambda x: -self._speaker_weight(x))
+        parts = [(new, "meet", None)]
+        for x in others[:2]:
+            parts.append((x, "meet_neighbour" if self._neighbours(new, x) else "meet", None))
+        spoken = [p for p in parts if (self.lines.get(p[0]) or {}).get(p[1])]
+        heard = set()
+        if len(spoken) >= 2 and spoken[0][0] == new:
+            if self._beat(spoken, self.rel(new, spoken[1][0]), priority=2):
+                heard = {p[0] for p in spoken}
+        has = lambda x: bool((self.lines.get(x) or {}).get("meet"))
+        for a, b in unmet:
+            if a in heard or b in heard or not has(a) or not has(b):
+                self.rel(a, b).met_said = True
 
     def on_rest(self, ids):
         """Arriving in a town: sometimes they talk while they settle in."""
