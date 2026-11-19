@@ -1,0 +1,111 @@
+{
+  "bond": {
+    "home": "Khaz Varun, the Black Hollow",
+    "dials": {
+      "warmth": 1.3,
+      "nerve": 1.4,
+      "pride": 0.6,
+      "restless": 0.9
+    },
+    "likes": [
+      "dungeon",
+      "full_party"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
+    "stages": {
+      "stranger": "I'm Elie, and I'm a healer, of a sort. Give me your arm, habibi. I promise this is the least frightening thing you'll see down here.",
+      "acquaintance": "I'm from Beirut, from Achrafieh, near the sea. I drew blood at a clinic there for ten years, and I was the one the nervous patients asked for, because I talk the whole time and they forget to be scared. Every evening I rode an old motorbike along the Corniche at sunset. It ran on spare parts and prayers.",
+      "companion": "My father died when I was nine. My mother, Mireille, raised three of us on a seamstress's wage, and every Sunday she cooked for twenty. I was in the middle of a draw at the clinic when everything went, and I woke up in the dark under Khaz Varun with a tourniquet in my pocket and this blue cap clipped to my sleeve. It's from the last needle I used at home. I haven't found her, or my sisters.",
+      "friend": "I was saving for medical school in Montpellier. Six years of saving, and every time I nearly had enough, something happened. The crash, the port, my sister's wedding. Now I'm a healer anyway, without the school. The Ashclaim want me to teach six of their healers my way, and I said yes. But I need to see the sea first, habibi. I'm starting to forget what it sounds like. Will you take me?",
+      "sworn": "It wasn't the Mediterranean, and it was enough. I stood in the surf at the Tempest Shallows until it got dark, and it sounded like the Corniche, almost. I asked at every hub on the way back, and nobody had heard of my mother or my sisters. I don't know if Beirut crossed over, or the sea with it. I teach my six now, and on Sundays I cook for them, the way she did. You keep the needle cap. I don't need needles any more."
+    },
+    "moments": [
+      {
+        "id": "your_arm",
+        "stage": "stranger",
+        "when": "talk",
+        "prompt": "Elie is holding out his hand for your arm.",
+        "options": [
+          {
+            "text": "Give him your arm.",
+            "trust": 8,
+            "reply": "Look at the wall, not at me. There, it's done, and you didn't even notice."
+          },
+          {
+            "text": "I'd rather not.",
+            "trust": 0,
+            "reply": "Ça va, that's fine. I'll be right here when you change your mind."
+          }
+        ]
+      },
+      {
+        "id": "the_sea",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to take him all the way to the coast.",
+        "options": [
+          {
+            "text": "Let's go and find you the sea.",
+            "trust": 12,
+            "reply": "Yalla, habibi, let's go. I'll heal everyone we meet on the way. I can't help it."
+          },
+          {
+            "text": "Is the sea worth the danger?",
+            "trust": 2,
+            "reply": "For me, yes. I can't teach six people to heal if I've forgotten what home sounds like."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "Habibi, nobody's bled in days. Lovely for them, but I'm bored out of my mind.",
+      "leaving_good": "Nobody needed me much, which is the best kind of trip for a healer. I'll be in the upper halls of Khaz Varun.",
+      "leaving_bored": "My trainees in Khaz Varun need me more than this does. Yalla, I'm going.",
+      "after_wipe": "Stay down, everyone, and breathe. I'll come to each of you, and it won't hurt.",
+      "wipe_warning": "I can patch you all up again, but I'd rather not have to. After this run, I'm resting in the halls.",
+      "wipe_leave": "Khalas, that's enough for me. I'll be in Khaz Varun, teaching people not to do what we just did.",
+      "zone_warning": "Habibi, I can't bring back blood that's already left the body, and this place would make me try.",
+      "zone_leave": "I won't be the healer at the back of that. Find me in the upper halls of Khaz Varun.",
+      "gear_refuse": "Not that one, habibi, sorry. Ask me when we've had a Sunday lunch together.",
+      "gear_taken": "Ça va, take it. I worked ten years with a needle and a smile.",
+      "gear_short": "I'm missing a piece of kit, habibi. I'll heal around it, but I'd rather not.",
+      "gear_upgrade": "Merci, habibi, that's beautiful. You've spoiled me.",
+      "back": "The halls are quiet and my trainees can manage a day. Give me your arm, and let's go.",
+      "send_word": "Elie has sent word from Khaz Varun. His trainees can spare him, and he's ready.",
+      "walkout_talk": "Habibi, that wasn't the way to leave, and I know it. Sit, give me your arm, and I'll explain while I check you.",
+      "neglect": "Ah, habibi, finally! I've been telling my trainees about you, and they think I made you up.",
+      "asked_to_stay": "Yalla, one more. My trainees will survive without me.",
+      "on_break": "Elie is back in the upper halls of Khaz Varun, training healers. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "My mother cooked for twenty every Sunday, and if you were late you got the burnt bits. I was always late.",
+        "kind": "open",
+        "topic": "cities"
+      }
+    ],
+    "zone_arrive": [
+      {
+        "text": "Every new place, I listen for the sea first. Nothing yet, habibi.",
+        "kind": "open",
+        "topic": "water"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "Arm, please, quickly. There, you're fine, and you barely felt it.",
+        "kind": "open"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "Everyone's colour is good. I've been checking, don't worry.",
+        "kind": "reply"
+      }
+    ]
+  }
+}

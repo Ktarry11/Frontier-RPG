@@ -843,6 +843,88 @@
         "on_break": "Berat is back in Brill, on whichever road is busiest. Come back after you've done a few more jobs."
       }
     },
+    "bruno_templar": {
+      "home": "the Bulwark",
+      "dials": {
+        "warmth": 1.5,
+        "nerve": 1.5,
+        "pride": 0.6,
+        "restless": 1.0
+      },
+      "likes": [
+        "boss",
+        "full_party"
+      ],
+      "dislikes": [
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "Bruno, meu irmão, nice to meet you! I'm a templar, and I box, and I smile more than a templar should. Rory says so, and I tell him somebody in the Order has to.",
+        "acquaintance": "I'm from Curitiba, in the south of Brazil. My father left when I was small, and my mother, Dona Graça, raised me. At fifteen I walked into a gym above a tyre shop and met Seu Valdir, who made me a fighter. Twenty-three fights, eighteen wins, all in little halls full of noise. I was better than the record, tá bom?",
+        "companion": "My mother came to every fight and covered her eyes for all of them. I always found her in the crowd before the bell, hands over her face. I was wrapping my hands at the gym when the world changed, and I came to in the Plaguelands with this roll of hand-wrap in my pocket. It's from my last fight. I won it. I haven't found her.",
+        "friend": "I joined the Scarlet Crusade, at the start. They were winning, and they wanted big men who could fight, and they taught me the Light. I kept that part. Now there's a Scarlet unit getting ready to purge a transplant settlement, and Kleber's leading it, a Brazilian boy I taught to box in their camp. I want to ask him to walk away, like I did. Bora, will you come?",
+        "sworn": "He wouldn't walk away. We fought the way I taught him, and I won, and he died, and the settlement's safe. I sat with him a long time. I taught Kleber to fight and the Crusade taught him the rest, and I should have gone back for him. Last night I told Rory everything about the camp, without waiting for him to start, and it took until morning. Forty Scarlets came over to us this winter because of Kleber, and I train every one. Keep the wrap, meu irmão. I don't fight for wins any more."
+      },
+      "moments": [
+        {
+          "id": "the_jab",
+          "stage": "acquaintance",
+          "when": "talk",
+          "prompt": "Bruno has squared up in front of you and he's offering to teach you a jab.",
+          "options": [
+            {
+              "text": "Put your hands up.",
+              "trust": 8,
+              "reply": "Isso, chin down, elbow in! Valeu, you're a natural."
+            },
+            {
+              "text": "Maybe later.",
+              "trust": 0,
+              "reply": "Tá bom, but I'm asking again tomorrow, and the day after that."
+            }
+          ]
+        },
+        {
+          "id": "kleber",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to come and face Kleber with him.",
+          "options": [
+            {
+              "text": "I'll stand right behind you.",
+              "trust": 12,
+              "reply": "Valeu, meu irmão. Let me talk to him first, please, before anything else happens."
+            },
+            {
+              "text": "What if he won't listen?",
+              "trust": 3,
+              "reply": "Then I do what I've got to. But I ask him first, always."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Meu irmão, we're shadowboxing out here. I want a real opponent.",
+        "leaving_good": "Bora, that was a great trip! I'm off to the Bulwark to see how my recruits are getting on without me.",
+        "leaving_bored": "My recruits at the Bulwark need me more than this does. Back to the gym for me.",
+        "after_wipe": "Up, up, meu irmão! A knockdown isn't a knockout, and we're getting up.",
+        "wipe_warning": "My corner would've thrown the towel in by now, meu irmão. Last round, and then the Bulwark for a while.",
+        "wipe_leave": "That's the fight over for me, tá bom? I'll be at the Bulwark, icing everything.",
+        "zone_warning": "Meu irmão, we're giving away fifty pounds to everything out here. Seu Valdir would never let me take this fight.",
+        "zone_leave": "Seu Valdir never let me take a fight I couldn't win, and he was right. I'll be in the Order's quarter at the Bulwark.",
+        "gear_refuse": "Ah, no, meu irmão, that's mine. Train with me a while first.",
+        "gear_taken": "Pode pegar, take it. I've fought in less.",
+        "gear_short": "My guard's a bit open without that piece, meu irmão. Find me something, bora?",
+        "gear_upgrade": "Valeu, that's beautiful! I'll fight even better now, if that's possible.",
+        "back": "The recruits can all throw a jab now, more or less! Bora, where are we going?",
+        "send_word": "Bruno has sent word from the Bulwark. He's wrapped his hands and he's ready.",
+        "walkout_talk": "Meu irmão, walking off like that was a cheap shot, and I hate cheap shots. Sit down and let me explain.",
+        "neglect": "Ei, there's my favourite! I've been shadowboxing your ghost for weeks.",
+        "asked_to_stay": "Bora, one more round! I love one more round.",
+        "on_break": "Bruno is back in the Order's quarter at the Bulwark, training recruits. Come back after you've done a few more jobs.",
+        "quest_abandoned": "We quit in the first round on that one, meu irmão. I hate quitting."
+      }
+    },
     "callum_venomancer": {
       "home": "the Southern Barrens",
       "dials": {
@@ -1772,6 +1854,87 @@
         "quest_abandoned": "We left those people waiting, hermano. I don't feel good about that."
       }
     },
+    "elie_bloodmage": {
+      "home": "Khaz Varun, the Black Hollow",
+      "dials": {
+        "warmth": 1.3,
+        "nerve": 1.4,
+        "pride": 0.6,
+        "restless": 0.9
+      },
+      "likes": [
+        "dungeon",
+        "full_party"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Elie, and I'm a healer, of a sort. Give me your arm, habibi. I promise this is the least frightening thing you'll see down here.",
+        "acquaintance": "I'm from Beirut, from Achrafieh, near the sea. I drew blood at a clinic there for ten years, and I was the one the nervous patients asked for, because I talk the whole time and they forget to be scared. Every evening I rode an old motorbike along the Corniche at sunset. It ran on spare parts and prayers.",
+        "companion": "My father died when I was nine. My mother, Mireille, raised three of us on a seamstress's wage, and every Sunday she cooked for twenty. I was in the middle of a draw at the clinic when everything went, and I woke up in the dark under Khaz Varun with a tourniquet in my pocket and this blue cap clipped to my sleeve. It's from the last needle I used at home. I haven't found her, or my sisters.",
+        "friend": "I was saving for medical school in Montpellier. Six years of saving, and every time I nearly had enough, something happened. The crash, the port, my sister's wedding. Now I'm a healer anyway, without the school. The Ashclaim want me to teach six of their healers my way, and I said yes. But I need to see the sea first, habibi. I'm starting to forget what it sounds like. Will you take me?",
+        "sworn": "It wasn't the Mediterranean, and it was enough. I stood in the surf at the Tempest Shallows until it got dark, and it sounded like the Corniche, almost. I asked at every hub on the way back, and nobody had heard of my mother or my sisters. I don't know if Beirut crossed over, or the sea with it. I teach my six now, and on Sundays I cook for them, the way she did. You keep the needle cap. I don't need needles any more."
+      },
+      "moments": [
+        {
+          "id": "your_arm",
+          "stage": "stranger",
+          "when": "talk",
+          "prompt": "Elie is holding out his hand for your arm.",
+          "options": [
+            {
+              "text": "Give him your arm.",
+              "trust": 8,
+              "reply": "Look at the wall, not at me. There, it's done, and you didn't even notice."
+            },
+            {
+              "text": "I'd rather not.",
+              "trust": 0,
+              "reply": "Ça va, that's fine. I'll be right here when you change your mind."
+            }
+          ]
+        },
+        {
+          "id": "the_sea",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to take him all the way to the coast.",
+          "options": [
+            {
+              "text": "Let's go and find you the sea.",
+              "trust": 12,
+              "reply": "Yalla, habibi, let's go. I'll heal everyone we meet on the way. I can't help it."
+            },
+            {
+              "text": "Is the sea worth the danger?",
+              "trust": 2,
+              "reply": "For me, yes. I can't teach six people to heal if I've forgotten what home sounds like."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Habibi, nobody's bled in days. Lovely for them, but I'm bored out of my mind.",
+        "leaving_good": "Nobody needed me much, which is the best kind of trip for a healer. I'll be in the upper halls of Khaz Varun.",
+        "leaving_bored": "My trainees in Khaz Varun need me more than this does. Yalla, I'm going.",
+        "after_wipe": "Stay down, everyone, and breathe. I'll come to each of you, and it won't hurt.",
+        "wipe_warning": "I can patch you all up again, but I'd rather not have to. After this run, I'm resting in the halls.",
+        "wipe_leave": "Khalas, that's enough for me. I'll be in Khaz Varun, teaching people not to do what we just did.",
+        "zone_warning": "Habibi, I can't bring back blood that's already left the body, and this place would make me try.",
+        "zone_leave": "I won't be the healer at the back of that. Find me in the upper halls of Khaz Varun.",
+        "gear_refuse": "Not that one, habibi, sorry. Ask me when we've had a Sunday lunch together.",
+        "gear_taken": "Ça va, take it. I worked ten years with a needle and a smile.",
+        "gear_short": "I'm missing a piece of kit, habibi. I'll heal around it, but I'd rather not.",
+        "gear_upgrade": "Merci, habibi, that's beautiful. You've spoiled me.",
+        "back": "The halls are quiet and my trainees can manage a day. Give me your arm, and let's go.",
+        "send_word": "Elie has sent word from Khaz Varun. His trainees can spare him, and he's ready.",
+        "walkout_talk": "Habibi, that wasn't the way to leave, and I know it. Sit, give me your arm, and I'll explain while I check you.",
+        "neglect": "Ah, habibi, finally! I've been telling my trainees about you, and they think I made you up.",
+        "asked_to_stay": "Yalla, one more. My trainees will survive without me.",
+        "on_break": "Elie is back in the upper halls of Khaz Varun, training healers. Come back after you've done a few more jobs."
+      }
+    },
     "emre_rogue": {
       "home": "Durnholde",
       "dials": {
@@ -2361,6 +2524,88 @@
         "neglect": "A whole season you were gone. I waited, like the mountain does.",
         "asked_to_stay": "Kargi, one more walk. Then the mountain.",
         "on_break": "Giorgi is back in his hut on the high ground above Tarren Mill. Come back after you've done a few more jobs."
+      }
+    },
+    "graham_warlock": {
+      "home": "the Pale Watch",
+      "dials": {
+        "warmth": 1.4,
+        "nerve": 1.3,
+        "pride": 0.5,
+        "restless": 0.7
+      },
+      "likes": [
+        "quest",
+        "undead"
+      ],
+      "dislikes": [
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "I'm Graham, love. I'm a warlock now, affliction, and before that I was a nurse, nights mostly. Sit down a minute if you need to. I'll be at the back, and I'll be slow, and slow's the point.",
+        "acquaintance": "I'm from Blackpool, love. Dad drove the buses and Mum ran a café on the front, and I grew up smelling of chips and sea air. I trained as a nurse at twenty-two and went straight into hospice work outside Preston. Nineteen years of nights, families in corridors, and the long quiet hours when somebody's going. You learn to sit still.",
+        "companion": "My husband's called Tom. He teaches music at a primary school, and he sings in the car whether you like it or not, very loudly and very badly. We met at a karaoke night. He gave me this watch the year we married. Nurses pin them upside down so you can read them while you take a pulse. The thing I'm frightened of is the magic, pet. Affliction came to me as easy as anything, and I worry what that says about nineteen years at the bedside.",
+        "friend": "I lost a lot of people at the hospice. That's the job. I remember the ones who were frightened, and I remember the moment each of them stopped being frightened, and that's what I kept going back for. Now there's a traveller at the Pale Watch who says there's a choir at the Bulwark, transplant soldiers, led by an Englishman who sings terribly and makes everyone join in. The road there's all plague country. Will you come with me?",
+        "sworn": "We heard it from outside the chapel, love, some poor hymn being murdered at full volume, and I knew. Tom stopped in the middle of a verse when he saw me at the back. Then he finished it, because the choir needed him, and walked down the aisle. I couldn't say a word. He said, you took your time, love. We're planting the garden at the Pale Watch now, and he sings to the seedlings. He's given me a new watch, so you have the old one. It kept time while I waited."
+      },
+      "moments": [
+        {
+          "id": "pulse",
+          "stage": "acquaintance",
+          "when": "talk",
+          "prompt": "Without seeming to notice, Graham has two fingers on your wrist and he's looking at his watch.",
+          "options": [
+            {
+              "text": "Let him finish.",
+              "trust": 8,
+              "reply": "Steady as a rock, pet. Sorry, it's habit, nineteen years of it."
+            },
+            {
+              "text": "Pull your wrist back.",
+              "trust": 0,
+              "reply": "Sorry, love, I didn't even know I was doing it. I'll ask first next time."
+            }
+          ]
+        },
+        {
+          "id": "the_patrol",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "On the road to the Bulwark, a patrol is dying slowly of something nobody can treat. Graham wants to stay with them.",
+          "options": [
+            {
+              "text": "Stay with them. I'll keep watch.",
+              "trust": 12,
+              "reply": "Thank you, love. It won't be long, and nobody should be on their own for it."
+            },
+            {
+              "text": "We can't stop here.",
+              "trust": 2,
+              "reply": "We can, and we will. Nobody dies alone if I've got any say in it."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been at this a while and nobody's needed me, pet. I'd rather be sat with somebody who does.",
+        "leaving_good": "A good few days, love, and thank you. I'm off to the Pale Watch to make a proper brew and stare at my bit of ground.",
+        "leaving_bored": "Nowt's happening out here that needs a nurse. I'll be at the Pale Watch.",
+        "after_wipe": "Right, nobody panic. Breathe slow, look at me, and we'll sort the rest in a minute.",
+        "wipe_warning": "That's a lot of dying for one day, even by my standards. I'll see this through, but then I want a quiet night or two.",
+        "wipe_leave": "I'm done in, love, properly. I'll be at the Pale Watch, sleeping it off.",
+        "zone_warning": "Listen, pet, I've sat with enough people at the end to know what it looks like coming. It looks like this place.",
+        "zone_leave": "I won't walk you into that, and I won't walk myself into it either. I'll be at the Pale Watch.",
+        "gear_refuse": "Not just yet, love. Give it a few more trips.",
+        "gear_taken": "Go on, then. I've worked nights with less.",
+        "gear_short": "I'm a bit draughty without that piece, love. Just so it's on your list.",
+        "gear_upgrade": "Ooh, look at that. Thank you, love, that's very thoughtful.",
+        "back": "Watch is wound, tea's drunk, and I'm ready. Where are we off?",
+        "send_word": "Graham has sent word from the Pale Watch. He's had his tea and he's ready.",
+        "walkout_talk": "That was me at the end of a long shift, and you didn't deserve it. Sit with me a minute and I'll tell you what got to me.",
+        "neglect": "Hello there, stranger. I kept a chair by the fire for you, and a cup, and they both went cold.",
+        "asked_to_stay": "Go on, I've got another one in me.",
+        "on_break": "Graham is back at the Pale Watch, sitting with the sick. Come back after you've done a few more jobs.",
+        "quest_abandoned": "Somebody's still waiting on us for that, love. I don't like leaving folk waiting."
       }
     },
     "gunnar_barbarian": {

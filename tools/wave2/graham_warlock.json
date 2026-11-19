@@ -1,0 +1,111 @@
+{
+  "bond": {
+    "home": "the Pale Watch",
+    "dials": {
+      "warmth": 1.4,
+      "nerve": 1.3,
+      "pride": 0.5,
+      "restless": 0.7
+    },
+    "likes": [
+      "quest",
+      "undead"
+    ],
+    "dislikes": [
+      "quest_abandoned"
+    ],
+    "stages": {
+      "stranger": "I'm Graham, love. I'm a warlock now, affliction, and before that I was a nurse, nights mostly. Sit down a minute if you need to. I'll be at the back, and I'll be slow, and slow's the point.",
+      "acquaintance": "I'm from Blackpool, love. Dad drove the buses and Mum ran a café on the front, and I grew up smelling of chips and sea air. I trained as a nurse at twenty-two and went straight into hospice work outside Preston. Nineteen years of nights, families in corridors, and the long quiet hours when somebody's going. You learn to sit still.",
+      "companion": "My husband's called Tom. He teaches music at a primary school, and he sings in the car whether you like it or not, very loudly and very badly. We met at a karaoke night. He gave me this watch the year we married. Nurses pin them upside down so you can read them while you take a pulse. The thing I'm frightened of is the magic, pet. Affliction came to me as easy as anything, and I worry what that says about nineteen years at the bedside.",
+      "friend": "I lost a lot of people at the hospice. That's the job. I remember the ones who were frightened, and I remember the moment each of them stopped being frightened, and that's what I kept going back for. Now there's a traveller at the Pale Watch who says there's a choir at the Bulwark, transplant soldiers, led by an Englishman who sings terribly and makes everyone join in. The road there's all plague country. Will you come with me?",
+      "sworn": "We heard it from outside the chapel, love, some poor hymn being murdered at full volume, and I knew. Tom stopped in the middle of a verse when he saw me at the back. Then he finished it, because the choir needed him, and walked down the aisle. I couldn't say a word. He said, you took your time, love. We're planting the garden at the Pale Watch now, and he sings to the seedlings. He's given me a new watch, so you have the old one. It kept time while I waited."
+    },
+    "moments": [
+      {
+        "id": "pulse",
+        "stage": "acquaintance",
+        "when": "talk",
+        "prompt": "Without seeming to notice, Graham has two fingers on your wrist and he's looking at his watch.",
+        "options": [
+          {
+            "text": "Let him finish.",
+            "trust": 8,
+            "reply": "Steady as a rock, pet. Sorry, it's habit, nineteen years of it."
+          },
+          {
+            "text": "Pull your wrist back.",
+            "trust": 0,
+            "reply": "Sorry, love, I didn't even know I was doing it. I'll ask first next time."
+          }
+        ]
+      },
+      {
+        "id": "the_patrol",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "On the road to the Bulwark, a patrol is dying slowly of something nobody can treat. Graham wants to stay with them.",
+        "options": [
+          {
+            "text": "Stay with them. I'll keep watch.",
+            "trust": 12,
+            "reply": "Thank you, love. It won't be long, and nobody should be on their own for it."
+          },
+          {
+            "text": "We can't stop here.",
+            "trust": 2,
+            "reply": "We can, and we will. Nobody dies alone if I've got any say in it."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "We've been at this a while and nobody's needed me, pet. I'd rather be sat with somebody who does.",
+      "leaving_good": "A good few days, love, and thank you. I'm off to the Pale Watch to make a proper brew and stare at my bit of ground.",
+      "leaving_bored": "Nowt's happening out here that needs a nurse. I'll be at the Pale Watch.",
+      "after_wipe": "Right, nobody panic. Breathe slow, look at me, and we'll sort the rest in a minute.",
+      "wipe_warning": "That's a lot of dying for one day, even by my standards. I'll see this through, but then I want a quiet night or two.",
+      "wipe_leave": "I'm done in, love, properly. I'll be at the Pale Watch, sleeping it off.",
+      "zone_warning": "Listen, pet, I've sat with enough people at the end to know what it looks like coming. It looks like this place.",
+      "zone_leave": "I won't walk you into that, and I won't walk myself into it either. I'll be at the Pale Watch.",
+      "gear_refuse": "Not just yet, love. Give it a few more trips.",
+      "gear_taken": "Go on, then. I've worked nights with less.",
+      "gear_short": "I'm a bit draughty without that piece, love. Just so it's on your list.",
+      "gear_upgrade": "Ooh, look at that. Thank you, love, that's very thoughtful.",
+      "back": "Watch is wound, tea's drunk, and I'm ready. Where are we off?",
+      "send_word": "Graham has sent word from the Pale Watch. He's had his tea and he's ready.",
+      "walkout_talk": "That was me at the end of a long shift, and you didn't deserve it. Sit with me a minute and I'll tell you what got to me.",
+      "neglect": "Hello there, stranger. I kept a chair by the fire for you, and a cup, and they both went cold.",
+      "asked_to_stay": "Go on, I've got another one in me.",
+      "on_break": "Graham is back at the Pale Watch, sitting with the sick. Come back after you've done a few more jobs.",
+      "quest_abandoned": "Somebody's still waiting on us for that, love. I don't like leaving folk waiting."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "My dad drove the buses along the front in Blackpool for twenty years. I still want to wave at anything with wheels.",
+        "kind": "open",
+        "topic": "cities"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "Slow breaths, pet, in through the nose. There, that's better.",
+        "kind": "open"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "That was a long one. Let's have a sit and a brew before anyone does owt else.",
+        "kind": "open"
+      }
+    ],
+    "boss_down": [
+      {
+        "text": "It took its time going. I don't hold that against anything.",
+        "kind": "reply"
+      }
+    ]
+  }
+}

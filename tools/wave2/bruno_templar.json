@@ -1,0 +1,111 @@
+{
+  "bond": {
+    "home": "the Bulwark",
+    "dials": {
+      "warmth": 1.5,
+      "nerve": 1.5,
+      "pride": 0.6,
+      "restless": 1.0
+    },
+    "likes": [
+      "boss",
+      "full_party"
+    ],
+    "dislikes": [
+      "quest_abandoned"
+    ],
+    "stages": {
+      "stranger": "Bruno, meu irmão, nice to meet you! I'm a templar, and I box, and I smile more than a templar should. Rory says so, and I tell him somebody in the Order has to.",
+      "acquaintance": "I'm from Curitiba, in the south of Brazil. My father left when I was small, and my mother, Dona Graça, raised me. At fifteen I walked into a gym above a tyre shop and met Seu Valdir, who made me a fighter. Twenty-three fights, eighteen wins, all in little halls full of noise. I was better than the record, tá bom?",
+      "companion": "My mother came to every fight and covered her eyes for all of them. I always found her in the crowd before the bell, hands over her face. I was wrapping my hands at the gym when the world changed, and I came to in the Plaguelands with this roll of hand-wrap in my pocket. It's from my last fight. I won it. I haven't found her.",
+      "friend": "I joined the Scarlet Crusade, at the start. They were winning, and they wanted big men who could fight, and they taught me the Light. I kept that part. Now there's a Scarlet unit getting ready to purge a transplant settlement, and Kleber's leading it, a Brazilian boy I taught to box in their camp. I want to ask him to walk away, like I did. Bora, will you come?",
+      "sworn": "He wouldn't walk away. We fought the way I taught him, and I won, and he died, and the settlement's safe. I sat with him a long time. I taught Kleber to fight and the Crusade taught him the rest, and I should have gone back for him. Last night I told Rory everything about the camp, without waiting for him to start, and it took until morning. Forty Scarlets came over to us this winter because of Kleber, and I train every one. Keep the wrap, meu irmão. I don't fight for wins any more."
+    },
+    "moments": [
+      {
+        "id": "the_jab",
+        "stage": "acquaintance",
+        "when": "talk",
+        "prompt": "Bruno has squared up in front of you and he's offering to teach you a jab.",
+        "options": [
+          {
+            "text": "Put your hands up.",
+            "trust": 8,
+            "reply": "Isso, chin down, elbow in! Valeu, you're a natural."
+          },
+          {
+            "text": "Maybe later.",
+            "trust": 0,
+            "reply": "Tá bom, but I'm asking again tomorrow, and the day after that."
+          }
+        ]
+      },
+      {
+        "id": "kleber",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to come and face Kleber with him.",
+        "options": [
+          {
+            "text": "I'll stand right behind you.",
+            "trust": 12,
+            "reply": "Valeu, meu irmão. Let me talk to him first, please, before anything else happens."
+          },
+          {
+            "text": "What if he won't listen?",
+            "trust": 3,
+            "reply": "Then I do what I've got to. But I ask him first, always."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "Meu irmão, we're shadowboxing out here. I want a real opponent.",
+      "leaving_good": "Bora, that was a great trip! I'm off to the Bulwark to see how my recruits are getting on without me.",
+      "leaving_bored": "My recruits at the Bulwark need me more than this does. Back to the gym for me.",
+      "after_wipe": "Up, up, meu irmão! A knockdown isn't a knockout, and we're getting up.",
+      "wipe_warning": "My corner would've thrown the towel in by now, meu irmão. Last round, and then the Bulwark for a while.",
+      "wipe_leave": "That's the fight over for me, tá bom? I'll be at the Bulwark, icing everything.",
+      "zone_warning": "Meu irmão, we're giving away fifty pounds to everything out here. Seu Valdir would never let me take this fight.",
+      "zone_leave": "Seu Valdir never let me take a fight I couldn't win, and he was right. I'll be in the Order's quarter at the Bulwark.",
+      "gear_refuse": "Ah, no, meu irmão, that's mine. Train with me a while first.",
+      "gear_taken": "Pode pegar, take it. I've fought in less.",
+      "gear_short": "My guard's a bit open without that piece, meu irmão. Find me something, bora?",
+      "gear_upgrade": "Valeu, that's beautiful! I'll fight even better now, if that's possible.",
+      "back": "The recruits can all throw a jab now, more or less! Bora, where are we going?",
+      "send_word": "Bruno has sent word from the Bulwark. He's wrapped his hands and he's ready.",
+      "walkout_talk": "Meu irmão, walking off like that was a cheap shot, and I hate cheap shots. Sit down and let me explain.",
+      "neglect": "Ei, there's my favourite! I've been shadowboxing your ghost for weeks.",
+      "asked_to_stay": "Bora, one more round! I love one more round.",
+      "on_break": "Bruno is back in the Order's quarter at the Bulwark, training recruits. Come back after you've done a few more jobs.",
+      "quest_abandoned": "We quit in the first round on that one, meu irmão. I hate quitting."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "My mother made feijoada every Saturday, and the whole street knew it by the smell. I'd eat a whole pot of it right now.",
+        "kind": "open",
+        "topic": "cities"
+      }
+    ],
+    "boss_down": [
+      {
+        "text": "Down and out! Good work, everybody, now shake your hands out.",
+        "kind": "open"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "Chin down, meu irmão! You walked straight into that one.",
+        "kind": "open"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "Good rounds in there, all of you. Seu Valdir would have liked this team.",
+        "kind": "reply"
+      }
+    ]
+  }
+}
