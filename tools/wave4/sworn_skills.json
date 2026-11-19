@@ -1469,5 +1469,289 @@
     }
    ]
   }
+ },
+ "vuk_knight": {
+  "from": "Wave 4: 'what he resolves is the week that wasn't his. ... he stands over the most wounded ally and takes every hit aimed at them.'",
+  "ability": {
+   "ability_id": "personal_sworn_vuk_stands_over_them",
+   "name": "Stands Over Them",
+   "engine": "live: damage_share 100% to Vuk on the lowest-health ally (auto_lowest_ally), and he heals back 30% of what he pays, 4 turns",
+   "effect_type": "buff",
+   "target_type": "ally",
+   "resource_type": "rage",
+   "cooldown": 14,
+   "duration": 4,
+   "is_instant": true,
+   "stat_mods": {},
+   "description": "Vuk stands over the most wounded ally. For 4 turns every hit aimed at them lands on him, and he heals back 30% of what he takes.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
+    }
+   ],
+   "auto_lowest_ally": true,
+   "damage_share": {
+    "pct": 100,
+    "heal_pct": 30
+   }
+  }
+ },
+ "gunnar_barbarian": {
+  "from": "Wave 4: 'what he resolves is the grief he buried. ... he calls on the ancestors with a song, and every ally fights harder while it lasts.'",
+  "ability": {
+   "ability_id": "personal_sworn_gunnar_the_old_song",
+   "name": "The Old Song",
+   "engine": "live: party heal over time for 4 turns that carries damage dealt +20 while it runs",
+   "effect_type": "hot",
+   "target_type": "party",
+   "resource_type": "energy",
+   "cooldown": 14,
+   "duration": 4,
+   "is_instant": true,
+   "stat_mods": {
+    "damage_dealt_pct": 20
+   },
+   "description": "Gunnar sings the old song for the ones who came before. For 4 turns every ally heals a little each turn and deals 20% more damage.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 35,
+     "effect_value": 40
+    }
+   ]
+  }
+ },
+ "kourosh_mage": {
+  "from": "Wave 4: 'what he resolves is living inside the figure. ... he calculates the enemy's next move exactly, and the party takes far less from it.'",
+  "ability": {
+   "ability_id": "personal_sworn_kourosh_worked_out_exactly",
+   "name": "Worked Out Exactly",
+   "engine": "live: debuff on whichever enemy acts next (auto_enemy next): damage dealt -70 for 2 turns, and reveals_intent all",
+   "effect_type": "debuff",
+   "target_type": "enemy",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 2,
+   "is_instant": true,
+   "stat_mods": {
+    "damage_dealt_pct": -70
+   },
+   "description": "Kourosh works out the next move exactly. The enemy about to act deals 70% less damage for 2 turns, and the party sees what every enemy will do.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 35,
+     "effect_value": 100
+    }
+   ],
+   "auto_enemy": "next",
+   "reveals_intent": "all"
+  }
+ },
+ "hector_witchdoctor": {
+  "from": "Wave 4: 'what he resolves is the fear of losing his name. ... a huge finishing move that slams the enemy and stuns everything near it.'",
+  "ability": {
+   "ability_id": "personal_sworn_hector_the_finisher",
+   "name": "The Finisher",
+   "engine": "live: shadow spell damage on one enemy row, stunning everything in it for 1 turn",
+   "effect_type": "spell_damage",
+   "target_type": "enemy_aoe",
+   "resource_type": "mana",
+   "cooldown": 15,
+   "duration": 1,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Héctor goes to the top rope for the finisher. It slams one enemy row with shadow damage, and everything in that row is stunned for 1 turn.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 45,
+     "effect_value": 140
+    }
+   ],
+   "damage_school": "shadow",
+   "is_stun": true
+  }
+ },
+ "ziad_felsworn": {
+  "from": "Wave 4: 'what he resolves is the arithmetic. ... he spends his own health to heal the party, and the fel pays him back with damage.'",
+  "ability": {
+   "ability_id": "personal_sworn_ziad_the_fel_pays_back",
+   "name": "The Fel Pays It Back",
+   "engine": "live: party heal costing 15% of Ziad's maximum health, then self_buff damage dealt +40 for 3 turns",
+   "effect_type": "heal",
+   "target_type": "party",
+   "resource_type": "felfury",
+   "cooldown": 14,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Ziad spends 15% of his own health to heal the whole party. The fel pays him back: for 3 turns he deals 40% more damage.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 110
+    }
+   ],
+   "health_cost_pct": 15,
+   "self_buff": {
+    "turns": 3,
+    "mods": {
+     "damage_dealt_pct": 40
+    }
+   }
+  }
+ },
+ "ratih_ranger": {
+  "from": "Wave 4: 'what she resolves is always being alone. ... she marks the one wrong thing in a fight, and every ally's attacks on it can't miss.'",
+  "ability": {
+   "ability_id": "personal_sworn_ratih_the_one_wrong_thing",
+   "name": "The One Wrong Thing in the Wood",
+   "engine": "live: debuff sure_target (the party's attacks on it cannot miss) and damage taken +20, 4 turns",
+   "effect_type": "debuff",
+   "target_type": "enemy",
+   "resource_type": "archery_points",
+   "cooldown": 13,
+   "duration": 4,
+   "is_instant": true,
+   "stat_mods": {
+    "physical_damage_taken_pct": 20,
+    "magic_damage_taken_pct": 20
+   },
+   "description": "Ratih marks the one thing in the fight that's wrong. For 4 turns nobody's attacks on it can miss, and it takes 20% more damage.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
+    }
+   ],
+   "sure_target": true
+  }
+ },
+ "fiona_witchhunter": {
+  "from": "Wave 4: 'what she resolves is evidence used without care. ... she exposes an enemy, stripping its protections, and the party's damage against it is much higher.'",
+  "ability": {
+   "ability_id": "personal_sworn_fiona_entered_properly",
+   "name": "Entered Properly This Time",
+   "engine": "live: debuff that strips every magic buff (cleanses on a hostile target), armour -40% and damage taken +25, 4 turns",
+   "effect_type": "debuff",
+   "target_type": "enemy",
+   "resource_type": "focus",
+   "cooldown": 14,
+   "duration": 4,
+   "is_instant": true,
+   "stat_mods": {
+    "armor_pct": -40,
+    "physical_damage_taken_pct": 25,
+    "magic_damage_taken_pct": 25
+   },
+   "description": "Fiona lays it all out properly. The enemy loses every magic protection it has, and for 4 turns it has 40% less armour and takes 25% more damage.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
+    }
+   ],
+   "cleanses": {
+    "types": [
+     "magic"
+    ],
+    "count": 9
+   }
+  }
+ },
+ "khalid_hunter": {
+  "from": "Wave 4: 'what he resolves is the bird he left behind. ... his bird stoops on the most dangerous enemy, striking hard and blinding it.'",
+  "ability": {
+   "ability_id": "personal_sworn_khalid_the_falcon_comes_back",
+   "name": "The Falcon Comes Back",
+   "engine": "live: ranged hit that cannot miss on the most dangerous enemy (auto_enemy dangerous), target_mods miss_chance_pct 50 for 3 turns",
+   "effect_type": "ranged_damage",
+   "target_type": "enemy",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 3,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "The falcon comes back, and stoops on the most dangerous enemy in the fight. It strikes hard, and for 3 turns that enemy misses half its attacks.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 120
+    }
+   ],
+   "auto_enemy": "dangerous",
+   "cannot_miss": true,
+   "target_mods": {
+    "miss_chance_pct": 50
+   }
+  }
+ },
+ "delroy_witchdoctor": {
+  "from": "Wave 4: 'what he resolves is the waiting by the piers. ... he hands out a brew that heals the whole party and keeps healing them for a few turns.'",
+  "ability": {
+   "ability_id": "personal_sworn_delroy_one_for_everyone",
+   "name": "One for Everyone on the Pier",
+   "engine": "live: party heal over time for 4 turns, plus heals_party_pct_max 15 at once",
+   "effect_type": "hot",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 13,
+   "duration": 4,
+   "is_instant": true,
+   "stat_mods": {},
+   "description": "Delroy hands a brew to everyone. Every ally is healed for 15% of their maximum at once, and keeps healing each turn for 4 turns.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 40,
+     "effect_value": 45
+    }
+   ],
+   "heals_party_pct_max": 15
+  }
+ },
+ "karim_felsworn": {
+  "from": "Wave 4: 'what he resolves is \"nobody to grieve\". ... he plants himself, and every enemy is pulled to him while his armour holds.'",
+  "ability": {
+   "ability_id": "personal_sworn_karim_plants_himself",
+   "name": "Plants Himself",
+   "engine": "live: self absorb, armour +40% and taunts_all for 4 turns",
+   "effect_type": "buff",
+   "target_type": "self",
+   "resource_type": "felfury",
+   "cooldown": 14,
+   "duration": 4,
+   "is_instant": true,
+   "stat_mods": {
+    "armor_pct": 40
+   },
+   "description": "Karim plants himself. For 4 turns every enemy comes for him and nobody else. He is shielded, and has 40% more armour.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
+    }
+   ],
+   "taunts_all": true,
+   "absorb": 120
+  }
  }
 }

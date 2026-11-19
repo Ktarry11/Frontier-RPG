@@ -806,6 +806,94 @@ def c_alonso(rm, bm, rid):
     check(i2 == frost, f"{ab.name}: frost changed too ({frost} -> {i2})")
 
 
+
+def c_vuk(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    low = others[1]
+    low.current_health = low.health // 4
+    cast(ch, ab, others[0], eng)
+    check(has_effect(low, ab.ability_id) and not has_effect(others[0], ab.ability_id), f"{ab.name}: not on the lowest ally")
+    lb = low.current_health
+    low.take_damage(3000, "shadow", attacker=mobs[1], attacker_level=60)
+    check(low.current_health == lb, f"{ab.name}: the lowest ally still lost {lb - low.current_health}")
+
+
+def c_kourosh(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    for i, m in enumerate(mobs):
+        m.turn_meter = 10.0 * i
+    cast(ch, ab, mobs[0], eng)
+    check(has_effect(mobs[2], ab.ability_id) and not has_effect(mobs[0], ab.ability_id), f"{ab.name}: not on the enemy about to act")
+    check(abs(mobs[2].damage_output_multiplier / max(1e-9, mobs[1].damage_output_multiplier) - 0.3) < 0.01,
+          f"{ab.name}: its damage is x{mobs[2].damage_output_multiplier / mobs[1].damage_output_multiplier:.2f}, wants x0.30")
+
+
+def c_hector(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    hp = [m.current_health for m in mobs]
+    cast(ch, ab, mobs, eng)
+    hit = [m for m, h in zip(mobs, hp) if m.current_health < h]
+    check(bool(hit), f"{ab.name}: hit nothing")
+    for m in hit:
+        check(m.is_stunned, f"{ab.name}: {m.name} was hit and isn't stunned")
+
+
+def c_ziad(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    for c in others:
+        c.current_health = c.health // 4
+    before = {c.name: c.current_health for c in others}
+    mine = ch.current_health
+    cast(ch, ab, [ch] + others, eng)
+    check(all(c.current_health > before[c.name] for c in others), f"{ab.name}: healed nobody")
+    check(mine - ch.current_health >= int(ch.health * 0.15) - 1 - ch.health * 0.01 or ch.current_health < mine,
+          f"{ab.name}: Ziad paid nothing")
+    check(ch.get_status_stat_mod("damage_dealt_pct") == 40, f"{ab.name}: no fel payback ({ch.get_status_stat_mod('damage_dealt_pct')})")
+
+
+def c_fiona(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    from combat.status_effects import StatusEffect, EffectType
+    m = mobs[0]
+    for i in range(2):
+        m.apply_status_effect(StatusEffect(f"qa_ward{i}", f"Ward {i}", EffectType.BUFF, 9, stat_mods={"armor_pct": 20},
+                                           source_name=m.name, real_time_seconds=None, dispel_type="magic"))
+    cast(ch, ab, m, eng)
+    check(not any(e.effect_id.startswith("qa_ward") for e in m._effects()), f"{ab.name}: a protection is still on")
+    for key, value in ab.stat_mods.items():
+        check(m.get_status_stat_mod(key) == value, f"{ab.name}: {key} {m.get_status_stat_mod(key)}, wants {value}")
+
+
+def c_khalid(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    mobs[2].level = 63
+    hp = [m.current_health for m in mobs]
+    cast(ch, ab, mobs[0], eng)
+    check(mobs[2].current_health < hp[2] and mobs[0].current_health == hp[0], f"{ab.name}: didn't stoop on the most dangerous enemy")
+    check(mobs[2].get_status_stat_mod("miss_chance_pct") == 50, f"{ab.name}: it isn't blinded")
+
+
+def c_delroy(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    party = [ch] + others
+    for c in party:
+        c.current_health = c.health // 4
+    before = {c.name: c.current_health for c in party}
+    cast(ch, ab, party, eng)
+    for c in party:
+        check(c.current_health - before[c.name] >= c.health * 0.15 - 1, f"{ab.name}: {c.name} got {c.current_health - before[c.name]} at once")
+        check(has_effect(c, ab.ability_id), f"{ab.name}: {c.name} isn't still healing")
+
+
+def c_karim(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    cast(ch, ab, ch, eng)
+    check(ch.get_status_stat_mod("armor_pct") >= 40, f"{ab.name}: armour {ch.get_status_stat_mod('armor_pct')}")
+    before = ch.current_health
+    ch.take_damage(200, "shadow", attacker=mobs[1], attacker_level=60)
+    check(ch.current_health == before, f"{ab.name}: the shield let {before - ch.current_health} through")
+
+
 CHECKS = {
     "personal_sworn_kesten_written_down_properly": c_kesten,
     "personal_sworn_adrian_let_them_carry_it": c_adrian,
@@ -847,6 +935,14 @@ CHECKS = {
     "personal_sworn_thiago_not_today": c_thiago,
     "personal_sworn_enzo_the_perfect_riposte": c_enzo,
     "personal_sworn_alonso_firing_heat": c_alonso,
+    "personal_sworn_vuk_stands_over_them": c_vuk,
+    "personal_sworn_kourosh_worked_out_exactly": c_kourosh,
+    "personal_sworn_hector_the_finisher": c_hector,
+    "personal_sworn_ziad_the_fel_pays_back": c_ziad,
+    "personal_sworn_fiona_entered_properly": c_fiona,
+    "personal_sworn_khalid_the_falcon_comes_back": c_khalid,
+    "personal_sworn_delroy_one_for_everyone": c_delroy,
+    "personal_sworn_karim_plants_himself": c_karim,
 }
 #: passives with a check of their own (every other passive gets c_passive)
 PASSIVE_CHECKS = {"ama_priest": c_ama, "amber_druid": c_amber, "orlando_witchdoctor": c_orlando,
