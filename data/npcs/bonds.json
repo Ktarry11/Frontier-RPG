@@ -927,6 +927,87 @@
         "on_break": "Callum is back in his hut in the Southern Barrens, with his jars. Come back after you've done a few more jobs."
       }
     },
+    "camila_venomancer": {
+      "home": "Northern Tanaris",
+      "dials": {
+        "warmth": 0.8,
+        "nerve": 1.5,
+        "pride": 0.6,
+        "restless": 0.8
+      },
+      "likes": [
+        "beast",
+        "quest"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Camila, a venomancer. Stand still, please, there's a scorpid by your boot. If anyone gets poisoned, tell me straight away. I'm good at that part.",
+        "acquaintance": "I'm from Durango, in Mexico, where scorpions come into the houses every summer and every kid shakes out their shoes. My dad drove a truck and my mum had a little shop. I worked seven years in an antivenom lab, milking scorpions with tweezers. Ten thousand of them, and the venom turned into antivenom that saved kids all over the country.",
+        "companion": "My little sister Daniela called me every night to complain about boys, and I listened to every word. She's six years younger, and loud where I'm quiet. I was milking a scorpion in the lab when it happened, and I landed in Tanaris with my safety glasses in my hair. I haven't found her or my parents. Ni modo, I keep looking.",
+        "friend": "Once the hospital next door brought in a boy, six years old, stung by a bark scorpion. I ran over with a batch I'd made that week, and he lived. I still see his face. That's why I do this. And now there's a new giant scorpid out of the deep sand whose sting kills in an hour, and there's no antivenom. I need one alive. That's much harder than dead.",
+        "sworn": "At the camp there was a young woman nursing the stung and shouting at everybody and organising everything, and it was Daniela. She's been nursing in the Tanaris camps for two years and looking for me on every list. She took one look at the antivenom and said, of course it's you. We saved everyone. That night she complained about a goblin she's seeing for two hours, and I listened to every word."
+      },
+      "moments": [
+        {
+          "id": "stand_still",
+          "stage": "stranger",
+          "when": "talk",
+          "prompt": "She tells you, very calmly, that there's a scorpid on your arm.",
+          "options": [
+            {
+              "text": "Stand completely still.",
+              "trust": 10,
+              "reply": "Good, very good. There, she's gone. You'd have made a decent lab tech."
+            },
+            {
+              "text": "Brush it off.",
+              "trust": 0,
+              "reply": "Órale, don't do that. She was just passing through."
+            }
+          ]
+        },
+        {
+          "id": "the_scorpid",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's asked you to help her bring the giant scorpid back alive.",
+          "options": [
+            {
+              "text": "Alive it is. Show me how.",
+              "trust": 12,
+              "reply": "Neta, you'll help? Okay, then, stand where I tell you, and don't move when it looks at you."
+            },
+            {
+              "text": "Wouldn't dead be easier?",
+              "trust": 0,
+              "reply": "Dead doesn't make venom. Alive saves the camp."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've done the same thing for days and I haven't seen a single new scorpid. Can we go somewhere with something interesting in the sand?",
+        "leaving_good": "That was good. I'm going back to my rock in Tanaris to sort my antivenoms. Come and find me, and stand still when you do.",
+        "leaving_bored": "I'm going back to Tanaris. Nothing out here needs me, and my antivenoms need sorting.",
+        "after_wipe": "Okay, nobody move until I check if anyone's been poisoned.",
+        "wipe_warning": "We keep dying in here, and I don't like it. I'll finish this run, then I need some quiet on my rock.",
+        "wipe_leave": "I finished it with you. Now I'm going back to Tanaris for a while.",
+        "zone_warning": "This place is too dangerous, and I can't make antivenom for all of it. Let's go somewhere we can handle.",
+        "zone_leave": "I'm stopping here. Too dangerous out there. I'll be on my rock in Northern Tanaris.",
+        "gear_refuse": "No, I'd like to keep that. I don't know you well enough yet.",
+        "gear_taken": "Take it, ni modo, I'll manage.",
+        "gear_short": "I'm still missing that piece. I'm only mentioning it.",
+        "gear_upgrade": "That's good work. Thank you, really.",
+        "back": "I'm back, and I've got seven antivenoms now. Where are we going?",
+        "send_word": "Camila has sent word from Northern Tanaris. Her antivenoms are sorted and she's ready to come out.",
+        "walkout_talk": "I left angry, and I'd like to explain, quietly. Then you can tell me yours.",
+        "neglect": "There you are. I sat very still the whole time you were gone.",
+        "asked_to_stay": "Okay, one more, then my rock.",
+        "on_break": "Camila is back on her rock in Northern Tanaris, watching the sand. Come back after you've done a few more jobs."
+      }
+    },
     "camille_ranger": {
       "home": "the Wailing Caverns",
       "dials": {
@@ -1604,6 +1685,91 @@
         "neglect": "You were gone a long time. I cut a lot of wood while I waited.",
         "asked_to_stay": "No niin, one more, then my sauna.",
         "on_break": "Eino is back at the goblin logging camp in Northern Stranglethorn. Come back after you've done a few more jobs."
+      }
+    },
+    "elias_suncleric": {
+      "home": "the Drownbell",
+      "dials": {
+        "warmth": 1.3,
+        "nerve": 1.5,
+        "pride": 0.4,
+        "restless": 0.8
+      },
+      "likes": [
+        "dungeon",
+        "full_party"
+      ],
+      "dislikes": [
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "I'm Elias, a sun cleric, and I stand in front. Take your time, hermano, I've got this side. Sorry if I'm in your way, I'm a big man.",
+        "acquaintance": "I'm from Santo Domingo. I fixed motorbikes for twelve years with my cousin Junior, in a workshop with a tin roof and four bikes in pieces at any time. We argued about the radio every single day. Best years of my life, mi pana. The Light showed up here in my second year, while I was fixing a cart. Nothing special, it just showed up.",
+        "companion": "My grandmother raised me, mostly, and took me to church every Sunday. When she couldn't ask any more, I kept going, because I liked the singing. I was under a bike when all this happened, and I landed in Tanaris with this little mirror in my hand. I use it to check on the people behind me without turning round. It's an old habit.",
+        "friend": "I'll tell you who the shelter's for, since you asked. It's for Yamila. My girlfriend, two years, and I never told my mother about her, and I'd bought a ring. It's still in a drawer in a workshop that isn't there. I built the shelter in my head so if she ever comes along this coast in a storm, there'll be somewhere. Help me build it for real, hermano.",
+        "sworn": "She came in out of the storm the night we finished it, with a little boy, and it was Yamila. She's married to a fisherman, and the boy is theirs. She thought I was dead, and she looked for a year, and then she stopped, and that's fair. She held my hands and said she's happy. I said I'm glad, and I meant it, and it broke my heart. I gave her the ring for the boy. Then I finally got to it, all of it, three years of it, and you sat with me."
+      },
+      "moments": [
+        {
+          "id": "who_for",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's shown you the drawing of the shelter.",
+          "options": [
+            {
+              "text": "Who's it for, Elias?",
+              "trust": 12,
+              "reply": "Nobody's ever asked. Okay, tranquilo, I'll tell you."
+            },
+            {
+              "text": "It's a good drawing.",
+              "trust": 2,
+              "reply": "Thanks, hermano, it's a good shelter. That's not the question, though, is it?"
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's apologising, as if he'd been in the way.",
+          "line": "Sorry, hermano, something got past me. That's my side, and it won't happen again.",
+          "options": [
+            {
+              "text": "You held more than anyone could.",
+              "trust": 8,
+              "mood": 6,
+              "reply": "Tranquilo, thank you. I'll hold more next time."
+            },
+            {
+              "text": "You need to hold better.",
+              "trust": 0,
+              "mood": -6,
+              "reply": "Yeah, I know. I'm already trying, hermano."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Hermano, we keep doing the same thing, and nothing's even broken. Let's go somewhere I can be useful.",
+        "leaving_good": "That was good, mi pana. I'm going back to the Drownbell for a while. Come and find me, I'll be fixing something.",
+        "leaving_bored": "I'm going back to the coast. Nothing out here needs fixing, and the shelter does.",
+        "after_wipe": "Sorry, everybody, something got past me. Let's check everybody, then go again.",
+        "wipe_warning": "We keep going down in here, hermano. I'll finish this run, but then I need a few days.",
+        "wipe_leave": "I finished it with you. Now I'm going back to the Drownbell for a while. Tranquilo, come when you're ready.",
+        "zone_warning": "This place is too much for us, hermano. I can stand in front, but not in front of all of that.",
+        "zone_leave": "I'm stopping here. Too much out there. I'll be at the Drownbell, on the coast.",
+        "gear_refuse": "Ah, no, hermano, I'd like to keep that. Ask me again when we know each other.",
+        "gear_taken": "Take it, take it. I'll manage, tranquilo.",
+        "gear_short": "I'm still missing that piece, hermano. No rush, just letting you know.",
+        "gear_upgrade": "That's beautiful, thank you, mi pana.",
+        "back": "I'm back, hermano, and I fixed every cart on the coast. Where are we going?",
+        "send_word": "Elias has sent word from the Drownbell. He's ready to stand in front again.",
+        "walkout_talk": "I walked out angry, and that's not like me, hermano. Sit, let's talk about it calmly.",
+        "neglect": "There you are, hermano! I checked behind me with my mirror every day, just in case.",
+        "asked_to_stay": "Tranquilo, one more. Then the coast.",
+        "on_break": "Elias is back at the Drownbell on the coast. Come back after you've done a few more jobs.",
+        "quest_abandoned": "We left those people waiting, hermano. I don't feel good about that."
       }
     },
     "emre_rogue": {
@@ -3206,6 +3372,88 @@
         "neglect": "There you are. I was starting to think something exciting had happened to you.",
         "asked_to_stay": "Yalla, one more, but make it boring.",
         "on_break": "Khalid is back in Saltwheel on the edge of the Shimmering Flats. Come back after you've done a few more jobs."
+      }
+    },
+    "kiet_rogue": {
+      "home": "the Abyssal Sands",
+      "dials": {
+        "warmth": 0.7,
+        "nerve": 1.1,
+        "pride": 0.6,
+        "restless": 1.3
+      },
+      "likes": [
+        "new_ground",
+        "quest"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Kiet, a rogue, and a courier. Keep your voice down near people, please. You'd be amazed what they say when they think nobody's listening.",
+        "acquaintance": "I'm from Bangkok, from Khlong Toei, by the port. I was a motorcycle courier for eleven years. The fastest in my company, and the one nobody remembered. I went into a hundred offices a day and heard everything. Mai pen rai, it's a useful skill.",
+        "companion": "My grandmother raised me, Yai Boonsri. She sold sweets from a cart and told me stories every night. At the end she was eighty-four and couldn't manage the stairs to our flat, so I carried her up and down every day. She called me her legs. I was on my bike in traffic when it happened. The quiet here still frightens me a little.",
+        "friend": "This key's cut for nothing. I meant to get it cut for a new door downstairs, so Yai wouldn't need the stairs. I never got round to it. I know she couldn't have managed, after. I don't let myself think about how. And I've overheard something bad. One of the people who wants to pay me plans to rob and burn a caravan of refugees on the Sands. I won't sell it. Help me stop it.",
+        "sworn": "The caravan's leader was an old Thai woman with a sweet cart, and she thanked me by name, and I couldn't speak. She's from Khlong Toei. She knew Yai. She told me Yai died in her sleep the night before all this, in her own bed, and never had to manage the stairs or the worlds joining. That's the best news I could ever have had. Her caravan pays me now, politely. I'm starting to like the quiet, a little, by her fire."
+      },
+      "moments": [
+        {
+          "id": "quiet",
+          "stage": "acquaintance",
+          "when": "talk",
+          "prompt": "Camp's gone very quiet, and he's flinching at it.",
+          "options": [
+            {
+              "text": "Hum something, so it isn't quiet.",
+              "trust": 10,
+              "reply": "Ha, thank you, that's better. Keep going, please, ja."
+            },
+            {
+              "text": "Enjoy the peace.",
+              "trust": 0,
+              "reply": "This isn't peace for me. It's just very loud nothing."
+            }
+          ]
+        },
+        {
+          "id": "the_caravan",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to help stop the raid on the caravan.",
+          "options": [
+            {
+              "text": "We'll beat them there by your routes.",
+              "trust": 12,
+              "reply": "Yes, ja, my routes. Nobody knows them like me. Come on, fast."
+            },
+            {
+              "text": "You could sell it and walk away.",
+              "trust": 0,
+              "reply": "I could, and I won't. Those are people, not information."
+            }
+          ]
+        }
+      ],
+      "first_stint_short": false,
+      "lines": {
+        "bored_warning": "We've been doing the same thing, and it's so quiet out here, and nobody's saying anything worth hearing. Let's go somewhere with people.",
+        "leaving_good": "That was good. I'm going back to the Sands for a while, I've got deliveries. You'll find me if you're quick.",
+        "leaving_bored": "I'm going back to the Sands. Nothing's happening out here, and nobody's talking.",
+        "after_wipe": "Okay, that went bad. Let's work out what we missed, quietly.",
+        "wipe_warning": "We keep dying in here, ja. I'll finish this run, then I'm going back to my routes for a bit.",
+        "wipe_leave": "I finished it with you. Now I'm going back to the Sands. Come and find me when you've got a better plan.",
+        "zone_warning": "This place is too dangerous for us. Even I can't sneak past all of that. Let's go back.",
+        "zone_leave": "I'm stopping here. Too dangerous out there. I'll be on the Abyssal Sands.",
+        "gear_refuse": "No, khrap, I'd like to keep that. We don't know each other well enough.",
+        "gear_taken": "Take it, mai pen rai, I'll manage.",
+        "gear_short": "I'm still missing that piece. I'm only mentioning it quietly.",
+        "gear_upgrade": "That's good, thank you, khrap.",
+        "back": "I'm back, and I've heard some very interesting things. Where are we going?",
+        "send_word": "Kiet has sent word from the Abyssal Sands. He's done his deliveries and he's ready to come out.",
+        "walkout_talk": "I left angry, ja, and I'd like to explain, softly. Then you tell me yours.",
+        "neglect": "There you are. I heard about you from three different people while you were gone.",
+        "asked_to_stay": "Okay, ja, one more. Then the Sands.",
+        "on_break": "Kiet is back on the Abyssal Sands, running deliveries. Come back after you've done a few more jobs."
       }
     },
     "kourosh_mage": {

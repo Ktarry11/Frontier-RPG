@@ -1301,19 +1301,24 @@
     "kiet_rogue": {
       "town_arrive": [
         {
-          "text": "Nine of the locks on this street are bad and two of them are insulting.",
+          "text": "Keep your voice down here. Somebody in this crowd is listening, and it's usually me.",
           "kind": "open"
+        },
+        {
+          "text": "Bangkok traffic is the loudest place in the world, and I miss every horn in it.",
+          "kind": "open",
+          "topic": "cities"
         }
       ],
       "dungeon_clear": [
         {
-          "text": "There was a socket in that wall meant to take something. It isn't there now.",
+          "text": "Too quiet in there. I hated it. Somebody say something, please.",
           "kind": "reply"
         }
       ],
       "zone_arrive": [
         {
-          "text": "I'm quiet and I'm not brave. Different things.",
+          "text": "I'm quiet and I'm not brave. Those are different things.",
           "kind": "open"
         }
       ],
@@ -1501,6 +1506,33 @@
         }
       ]
     },
+    "camila_venomancer": {
+      "zone_arrive": [
+        {
+          "text": "Stand still a moment. Something under the sand is deciding whether we're food.",
+          "kind": "open"
+        }
+      ],
+      "town_arrive": [
+        {
+          "text": "Durango's dry and hot with mountains all around, and the best gorditas in Mexico, from a stand by my old lab.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "Let me see that sting. Okay, it's not the bad kind. You'll live, I promise.",
+          "kind": "open"
+        }
+      ],
+      "boss_down": [
+        {
+          "text": "Did anyone get stung? Tell me now, not in an hour.",
+          "kind": "reply"
+        }
+      ]
+    },
     "camille_ranger": {
       "zone_arrive": [
         {
@@ -1603,6 +1635,33 @@
         {
           "text": "New place, new junk, and I'm very happy about it.",
           "kind": "open"
+        }
+      ]
+    },
+    "elias_suncleric": {
+      "town_arrive": [
+        {
+          "text": "Santo Domingo's loud and hot and there's bachata coming out of every window. I miss the noise.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Everybody out, nobody hurt. Tranquilo, that's how it should be.",
+          "kind": "open"
+        }
+      ],
+      "boss_down": [
+        {
+          "text": "Okay, that's done. Let me check everybody with my mirror.",
+          "kind": "reply"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "Sorry, hermano, that one got past me. I'll stand closer next time.",
+          "kind": "reply"
         }
       ]
     },

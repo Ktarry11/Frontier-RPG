@@ -1,0 +1,76 @@
+{
+  "recruit_text": {
+    "backstory": "A motorcycle mechanic in Santo Domingo who went to church on Sundays because his grandmother expected it, and stayed in the habit after she stopped being able to ask. He's the calmest person in most rooms. The Light arrived in his second year, during nothing in particular, while he was fixing a cart, and he's never presented it as a sign. He treats it as a tool that showed up, and he's been learning its tolerances ever since.",
+    "before": "A workshop with a tin roof, four bikes in pieces at any time, and a radio he and his cousin Junior argued over.\n\nAn enormous family in the capital, and a girlfriend, Yamila, he'd been seeing for two years and hadn't told his mother about, for reasons that seemed important at the time.",
+    "adjustment": "Slow and undramatic. He fixed things for about eighteen months and let everything else wait.\n\nHe'll tell you he coped well, and the people around him agree. He's also said, once, that he thinks he simply hasn't got to it yet, and that it's still sitting somewhere waiting for him.",
+    "forward": "Something that'll outlast him, and he means a building, not a legacy.\n\nHe's drawn up a shelter for a crossing on the coast where travellers get caught out by storms: four walls, a roof and a stove. He's shown the drawing to nobody, because he knows the first question will be who it's for.",
+    "now": "The Drownbell, on the coast of Northern Tanaris, and the front of any party, taking what's aimed at other people with an air of mild apology.\n\nThe inspection mirror lives in his gauntlet. He uses it to see round corners and, more often, to check on the people behind him without turning round."
+  },
+  "bond": {
+    "home": "the Drownbell",
+    "dials": {"warmth": 1.3, "nerve": 1.5, "pride": 0.4, "restless": 0.8},
+    "likes": ["dungeon", "full_party"],
+    "dislikes": ["quest_abandoned"],
+    "stages": {
+      "stranger": "I'm Elias, a sun cleric, and I stand in front. Take your time, hermano, I've got this side. Sorry if I'm in your way, I'm a big man.",
+      "acquaintance": "I'm from Santo Domingo. I fixed motorbikes for twelve years with my cousin Junior, in a workshop with a tin roof and four bikes in pieces at any time. We argued about the radio every single day. Best years of my life, mi pana. The Light showed up here in my second year, while I was fixing a cart. Nothing special, it just showed up.",
+      "companion": "My grandmother raised me, mostly, and took me to church every Sunday. When she couldn't ask any more, I kept going, because I liked the singing. I was under a bike when all this happened, and I landed in Tanaris with this little mirror in my hand. I use it to check on the people behind me without turning round. It's an old habit.",
+      "friend": "I'll tell you who the shelter's for, since you asked. It's for Yamila. My girlfriend, two years, and I never told my mother about her, and I'd bought a ring. It's still in a drawer in a workshop that isn't there. I built the shelter in my head so if she ever comes along this coast in a storm, there'll be somewhere. Help me build it for real, hermano.",
+      "sworn": "She came in out of the storm the night we finished it, with a little boy, and it was Yamila. She's married to a fisherman, and the boy is theirs. She thought I was dead, and she looked for a year, and then she stopped, and that's fair. She held my hands and said she's happy. I said I'm glad, and I meant it, and it broke my heart. I gave her the ring for the boy. Then I finally got to it, all of it, three years of it, and you sat with me."
+    },
+    "moments": [
+      {"id": "who_for", "stage": "friend", "when": "talk",
+       "prompt": "He's shown you the drawing of the shelter.",
+       "options": [
+         {"text": "Who's it for, Elias?", "trust": 12,
+          "reply": "Nobody's ever asked. Okay, tranquilo, I'll tell you."},
+         {"text": "It's a good drawing.", "trust": 2,
+          "reply": "Thanks, hermano, it's a good shelter. That's not the question, though, is it?"}
+       ]},
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe he's apologising, as if he'd been in the way.",
+       "line": "Sorry, hermano, something got past me. That's my side, and it won't happen again.",
+       "options": [
+         {"text": "You held more than anyone could.", "trust": 8, "mood": 6,
+          "reply": "Tranquilo, thank you. I'll hold more next time."},
+         {"text": "You need to hold better.", "trust": 0, "mood": -6,
+          "reply": "Yeah, I know. I'm already trying, hermano."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "Hermano, we keep doing the same thing, and nothing's even broken. Let's go somewhere I can be useful.",
+      "leaving_good": "That was good, mi pana. I'm going back to the Drownbell for a while. Come and find me, I'll be fixing something.",
+      "leaving_bored": "I'm going back to the coast. Nothing out here needs fixing, and the shelter does.",
+      "after_wipe": "Sorry, everybody, something got past me. Let's check everybody, then go again.",
+      "wipe_warning": "We keep going down in here, hermano. I'll finish this run, but then I need a few days.",
+      "wipe_leave": "I finished it with you. Now I'm going back to the Drownbell for a while. Tranquilo, come when you're ready.",
+      "zone_warning": "This place is too much for us, hermano. I can stand in front, but not in front of all of that.",
+      "zone_leave": "I'm stopping here. Too much out there. I'll be at the Drownbell, on the coast.",
+      "gear_refuse": "Ah, no, hermano, I'd like to keep that. Ask me again when we know each other.",
+      "gear_taken": "Take it, take it. I'll manage, tranquilo.",
+      "gear_short": "I'm still missing that piece, hermano. No rush, just letting you know.",
+      "gear_upgrade": "That's beautiful, thank you, mi pana.",
+      "back": "I'm back, hermano, and I fixed every cart on the coast. Where are we going?",
+      "send_word": "Elias has sent word from the Drownbell. He's ready to stand in front again.",
+      "walkout_talk": "I walked out angry, and that's not like me, hermano. Sit, let's talk about it calmly.",
+      "neglect": "There you are, hermano! I checked behind me with my mirror every day, just in case.",
+      "asked_to_stay": "Tranquilo, one more. Then the coast.",
+      "on_break": "Elias is back at the Drownbell on the coast. Come back after you've done a few more jobs.",
+      "quest_abandoned": "We left those people waiting, hermano. I don't feel good about that."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {"text": "Santo Domingo's loud and hot and there's bachata coming out of every window. I miss the noise.", "kind": "open", "topic": "cities"}
+    ],
+    "dungeon_clear": [
+      {"text": "Everybody out, nobody hurt. Tranquilo, that's how it should be.", "kind": "open"}
+    ],
+    "boss_down": [
+      {"text": "Okay, that's done. Let me check everybody with my mirror.", "kind": "reply"}
+    ],
+    "close_call": [
+      {"text": "Sorry, hermano, that one got past me. I'll stand closer next time.", "kind": "reply"}
+    ]
+  }
+}

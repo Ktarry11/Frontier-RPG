@@ -1,0 +1,70 @@
+{
+  "recruit_text": {
+    "forward": "An antivenom for every sting in Tanaris. She's already got six.\n\nAnd news of her little sister, Daniela, and what she's doing now. Camila hopes it's something with boys."
+  },
+  "bond": {
+    "home": "Northern Tanaris",
+    "dials": {"warmth": 0.8, "nerve": 1.5, "pride": 0.6, "restless": 0.8},
+    "likes": ["beast", "quest"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Camila, a venomancer. Stand still, please, there's a scorpid by your boot. If anyone gets poisoned, tell me straight away. I'm good at that part.",
+      "acquaintance": "I'm from Durango, in Mexico, where scorpions come into the houses every summer and every kid shakes out their shoes. My dad drove a truck and my mum had a little shop. I worked seven years in an antivenom lab, milking scorpions with tweezers. Ten thousand of them, and the venom turned into antivenom that saved kids all over the country.",
+      "companion": "My little sister Daniela called me every night to complain about boys, and I listened to every word. She's six years younger, and loud where I'm quiet. I was milking a scorpion in the lab when it happened, and I landed in Tanaris with my safety glasses in my hair. I haven't found her or my parents. Ni modo, I keep looking.",
+      "friend": "Once the hospital next door brought in a boy, six years old, stung by a bark scorpion. I ran over with a batch I'd made that week, and he lived. I still see his face. That's why I do this. And now there's a new giant scorpid out of the deep sand whose sting kills in an hour, and there's no antivenom. I need one alive. That's much harder than dead.",
+      "sworn": "At the camp there was a young woman nursing the stung and shouting at everybody and organising everything, and it was Daniela. She's been nursing in the Tanaris camps for two years and looking for me on every list. She took one look at the antivenom and said, of course it's you. We saved everyone. That night she complained about a goblin she's seeing for two hours, and I listened to every word."
+    },
+    "moments": [
+      {"id": "stand_still", "stage": "stranger", "when": "talk",
+       "prompt": "She tells you, very calmly, that there's a scorpid on your arm.",
+       "options": [
+         {"text": "Stand completely still.", "trust": 10,
+          "reply": "Good, very good. There, she's gone. You'd have made a decent lab tech."},
+         {"text": "Brush it off.", "trust": 0,
+          "reply": "Órale, don't do that. She was just passing through."}
+       ]},
+      {"id": "the_scorpid", "stage": "friend", "when": "talk",
+       "prompt": "She's asked you to help her bring the giant scorpid back alive.",
+       "options": [
+         {"text": "Alive it is. Show me how.", "trust": 12,
+          "reply": "Neta, you'll help? Okay, then, stand where I tell you, and don't move when it looks at you."},
+         {"text": "Wouldn't dead be easier?", "trust": 0,
+          "reply": "Dead doesn't make venom. Alive saves the camp."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've done the same thing for days and I haven't seen a single new scorpid. Can we go somewhere with something interesting in the sand?",
+      "leaving_good": "That was good. I'm going back to my rock in Tanaris to sort my antivenoms. Come and find me, and stand still when you do.",
+      "leaving_bored": "I'm going back to Tanaris. Nothing out here needs me, and my antivenoms need sorting.",
+      "after_wipe": "Okay, nobody move until I check if anyone's been poisoned.",
+      "wipe_warning": "We keep dying in here, and I don't like it. I'll finish this run, then I need some quiet on my rock.",
+      "wipe_leave": "I finished it with you. Now I'm going back to Tanaris for a while.",
+      "zone_warning": "This place is too dangerous, and I can't make antivenom for all of it. Let's go somewhere we can handle.",
+      "zone_leave": "I'm stopping here. Too dangerous out there. I'll be on my rock in Northern Tanaris.",
+      "gear_refuse": "No, I'd like to keep that. I don't know you well enough yet.",
+      "gear_taken": "Take it, ni modo, I'll manage.",
+      "gear_short": "I'm still missing that piece. I'm only mentioning it.",
+      "gear_upgrade": "That's good work. Thank you, really.",
+      "back": "I'm back, and I've got seven antivenoms now. Where are we going?",
+      "send_word": "Camila has sent word from Northern Tanaris. Her antivenoms are sorted and she's ready to come out.",
+      "walkout_talk": "I left angry, and I'd like to explain, quietly. Then you can tell me yours.",
+      "neglect": "There you are. I sat very still the whole time you were gone.",
+      "asked_to_stay": "Okay, one more, then my rock.",
+      "on_break": "Camila is back on her rock in Northern Tanaris, watching the sand. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "zone_arrive": [
+      {"text": "Stand still a moment. Something under the sand is deciding whether we're food.", "kind": "open"}
+    ],
+    "town_arrive": [
+      {"text": "Durango's dry and hot with mountains all around, and the best gorditas in Mexico, from a stand by my old lab.", "kind": "open", "topic": "cities"}
+    ],
+    "close_call": [
+      {"text": "Let me see that sting. Okay, it's not the bad kind. You'll live, I promise.", "kind": "open"}
+    ],
+    "boss_down": [
+      {"text": "Did anyone get stung? Tell me now, not in an hour.", "kind": "reply"}
+    ]
+  }
+}
