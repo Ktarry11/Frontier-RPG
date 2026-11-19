@@ -108,9 +108,9 @@ fourth).
 | 38 | Owen Pryce | Cultist 24 | Azurelode Mine | `owen_pryce.md` | Sad | Draft 1 |
 | 39 | Anjali Nair | Druid 24 | Ashenvale West | `anjali_nair.md` | Happy | Draft 1 |
 | 40 | Emre Kaya | Rogue 25 | Eastern Hillsbrad | `emre_kaya.md` | Still unknown | Draft 1 |
-| 41 | Saoirse Ni Bhraonain | Starcaller 25 | Shadowfang Keep |  |  |  |
-| 42 | Pasang Lama | Primalist 27 | The Aspen Wilderness |  |  |  |
-| 43 | Nicolás Arce | Bloodmage 27 | Splintertree Post |  |  |  |
+| 41 | Saoirse Ni Bhraonain | Starcaller 25 | Shadowfang Keep | `saoirse_ni_bhraonain.md` | Happy | Draft 1 |
+| 42 | Pasang Lama | Primalist 27 | The Aspen Wilderness | `pasang_lama.md` | Sad | Draft 1 |
+| 43 | Nicolás Arce | Bloodmage 27 | Splintertree Post | `nicolas_arce.md` | Happy | Draft 1 |
 | 44 | Iker Etxeberria | Guardian 30 | Arathi West |  |  |  |
 | 45 | Mateo Rojas | Starcaller 31 | Southern Thousand Needles |  |  |  |
 | 46 | Imelda Salonga | Primalist 31 | Freewind Post |  |  |  |
