@@ -114,9 +114,9 @@ fourth).
 | 44 | Iker Etxeberria | Guardian 30 | Arathi West | `iker_etxeberria.md` | Still unknown | Draft 1 |
 | 45 | Mateo Rojas | Starcaller 31 | Southern Thousand Needles | `mateo_rojas.md` | Happy | Draft 1 |
 | 46 | Imelda Salonga | Primalist 31 | Freewind Post | `imelda_salonga.md` | Sad | Draft 1 |
-| 47 | Ileana Dragomir | Necromancer 31 | Plague Depths |  |  |  |
-| 48 | Rhys Morgan | Ranger 31 | Stonetalon West |  |  |  |
-| 49 | Henrik Dahl | Mage 32 | The Frostward Descent |  |  |  |
+| 47 | Ileana Dragomir | Necromancer 31 | Plague Depths | `ileana_dragomir.md` | Happy | Draft 1 |
+| 48 | Rhys Morgan | Ranger 31 | Stonetalon West | `rhys_morgan.md` | Still unknown | Draft 1 |
+| 49 | Henrik Dahl | Mage 32 | The Frostward Descent | `henrik_dahl.md` | Sad | Draft 1 |
 | 50 | Eino Virtanen | Barbarian 32 | Northern Stranglethorn |  |  |  |
 | 51 | Driss Alaoui | Shaman 32 | Freewind Post |  |  |  |
 | 52 | Thiago Macedo | Paladin 33 | Grom'gol |  |  |  |
