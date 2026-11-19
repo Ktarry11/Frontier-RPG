@@ -1,0 +1,78 @@
+{
+  "recruit_text": {
+    "greeting": "Do you have any idea what's living out here? You don't, do you? Then yes, I'm coming with you.",
+    "before": "Researchers, photographers, the occasional idiot with money, and a great deal of sitting absolutely still in the dark, for eight years out of Arusha.\n\nShe grew up in a flat in Madrid, about as far from the wild as you can get in Spain, and decided at ten, watching eagles on her grandparents' farm, that she was going to Africa.",
+    "adjustment": "A year of being outclassed by pigs. She'll put it exactly that way, to anyone, straight away.\n\nShe came out of it a better hunter than she went in, and she's not grateful. That same year she found out Arusha came down south of the range, which is another way of saying her mother is on the far side of a mountain that wasn't there.",
+    "forward": "The coast, for no reason. She grew up a long way from an ocean, spent her career further from one, and has decided she's owed.\n\nAfter that, somewhere unmapped. She came for wild, and the wild keeps turning out to have a road through it."
+  },
+  "bond": {
+    "home": "the Central Barrens",
+    "dials": {"warmth": 0.9, "nerve": 1.3, "pride": 1.0, "restless": 1.2},
+    "likes": ["beast", "new_ground"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Rosa, and I hunt. I'll tell you what the animals out here are about to do before they do it, and you'll listen, because I'm usually right. I don't kill things for nothing, so don't ask me to.",
+      "acquaintance": "I'm from Madrid, from Lavapiés. My dad drove a bus and my mum did hair. I spent every summer at my grandparents' farm in Extremadura watching eagles, and at ten I decided I was going to Africa. I went to Tanzania at twenty-six for a six-month research job and stayed eight years, guiding out of Arusha.",
+      "companion": "My dad died when I was thirty-one. My mum sold the flat in Madrid and moved to Arusha to be near me, and opened a little salon for the expats. I pretended to be annoyed and I was very glad. Arusha came down on the far side of the mountains from here. I landed in the Barrens with my binoculars and nothing else, and then I spent a year being outclassed by pigs.",
+      "friend": "I've never stayed with anyone long. Wanjiru, a Kenyan bush pilot, and we split over who was going to move. Before her there was Bram, a Dutch photographer, and that ended because he talked in the hide. I'd rather sit still in the dark than talk about any of it. There's a hyena matriarch on the Crossroads road who's cleverer than every caravan master put together. I'd like your help to deal with her, properly.",
+      "sworn": "I didn't shoot her. She was only hungry, and hunger isn't personal. I drove the pack off the road for good with fire and noise in the right places, and the caravan masters are furious about the bounty. Then I walked to Ratchet, took my boots off, and walked into the sea for the first time in my life. I laughed like an idiot. I'm owed one more thing now, the far side of the mountain, and I'll get there."
+    },
+    "moments": [
+      {"id": "the_matriarch", "stage": "friend", "when": "talk",
+       "prompt": "She's told you about the hyena matriarch on the Crossroads road.",
+       "options": [
+         {"text": "We'll stop her, your way.", "trust": 12,
+          "reply": "Sawa, we'll do it. My way means waiting, a lot of waiting, pole pole."},
+         {"text": "There's a bounty on her. Easy money.", "trust": 0,
+          "reply": "That's exactly the kind of thinking I'm trying to get away from."}
+       ]},
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe, she's furious, mostly with herself.",
+       "line": "I saw that pack shift and I read it wrong. That's on me, and I hate it.",
+       "options": [
+         {"text": "You'll read it right next time.", "trust": 6, "mood": 6,
+          "reply": "I will, because I'm not making that mistake twice."},
+         {"text": "Everyone gets it wrong sometimes.", "trust": 0, "mood": -2,
+          "reply": "Not me, not usually, anyway."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've been killing the same animals in the same place for no reason. I don't do that. Find us somewhere new or I'm going back to my road.",
+      "leaving_good": "That was a good trip. I'm going back to the Barrens to watch my hyenas for a while. You know where to find me.",
+      "leaving_bored": "I'm going back to the Barrens. This is just killing for the sake of it, and I've got no patience for that.",
+      "after_wipe": "Right, that went badly. Let's work out what we missed before anyone tries anything clever.",
+      "wipe_warning": "We keep dying in here. I'll finish this one, but then I'm going back out where I can see the horizon.",
+      "wipe_leave": "I've seen it through. Now I'm going back to the Barrens. Come and find me when you've learned to read a room.",
+      "zone_warning": "Everything out here is bigger, faster and cleverer than us. That's not a hunt, that's a meal. Let's get out of here.",
+      "zone_leave": "I'm stopping here. I told you we were the prey out there. I'll be on the Crossroads road.",
+      "gear_refuse": "No, that's mine. I don't know you well enough to hand you my kit.",
+      "gear_taken": "Fine, take it. I've managed with worse in worse places.",
+      "gear_short": "I'm still short that piece. Just so you know, I've noticed.",
+      "gear_upgrade": "That's good kit. Thanks, I mean it.",
+      "back": "I'm back, and the hyenas have been very well behaved. Where are we going?",
+      "send_word": "Rosa has sent word from the Central Barrens. Her road's quiet and she's ready to come out.",
+      "walkout_talk": "I walked out and I'm not sorry, but I'll tell you why, plainly. Then you can tell me I'm wrong and we'll see.",
+      "neglect": "Oh, there you are. I'd assumed something ate you. Glad it didn't.",
+      "asked_to_stay": "Fine, one more, but I'm choosing where we sleep.",
+      "on_break": "Rosa is back on the Crossroads road in the Central Barrens. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "zone_arrive": [
+      {"text": "Give me a day and I'll know what hunts here at night.", "kind": "open"}
+    ],
+    "boss_down": [
+      {"text": "It was guarding something. They always are.", "kind": "open"}
+    ],
+    "dungeon_clear": [
+      {"text": "Nothing in there was hungry. That's not normal and I don't like it.", "kind": "reply"}
+    ],
+    "town_arrive": [
+      {"text": "Something's been hunting close to this place. The dogs here are wrong.", "kind": "open"},
+      {"text": "Madrid's about as far from the sea as Spain gets, and it's loud all night. I left as soon as I could.", "kind": "open", "topic": "cities"}
+    ],
+    "close_call": [
+      {"text": "It went for the weakest one, like they always do. Stay closer next time.", "kind": "reply"}
+    ]
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "recruit_text": {
+    "greeting": "You want someone who hits things, or someone who hits things first? They're different rates. I'll quote you the second and do the first, and that's not a scam, that's a discount.",
+    "before": "Five years of cargo manifests and camera feeds at the Port of Antwerp, and the dockside arrangement where everybody took a little and nobody took enough to become a problem.\n\nHe didn't join in, and he didn't report it either. Ask him what he believed in back then and he'd have changed the subject, quickly.\n\nThere's nobody he's looking for, he says. He mentions that more often than a man who meant it would."
+  },
+  "bond": {
+    "home": "Ratchet",
+    "dials": {"warmth": 0.7, "nerve": 1.0, "pride": 0.8, "restless": 1.3},
+    "likes": ["quest", "new_ground"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "Name's Silas, and I notice things for a living, which crate's light, which captain's lying, who's about to rob who. What did I do before? It was port work. Ask me again tomorrow and it'll be different port work.",
+      "acquaintance": "Fine, the true version. Antwerp, near the docks. My dad was an English sailor who was home three months a year and then not at all, and my mum raised us on a cleaner's wage. I drifted through my twenties, then I got five years as a security guard at the port, watching cameras and checking manifests. First steady job of my life.",
+      "companion": "The docks had an arrangement where everybody took a little. I never joined in and I never said anything. I landed in Ratchet on a night shift with this coin in my pocket, and I was delighted. No record, no reputation, nothing to live down. I'm embarrassed about that now. I flip the coin for anything I don't want to decide, which is most things.",
+      "friend": "I've got a brother, Jens, four years younger. He did join in at the port, and he got in deep, and I watched it happen on the cameras for months and said nothing. He did two years. We hadn't spoken since the trial. A sailor here says there's a young Belgian working the docks at Booty Bay, quick with numbers and in some trouble. I'm not flipping a coin on this one. Will you come?",
+      "sworn": "I told Jens about the cameras, on the pier after. He said he always knew, and he'd have done it anyway, and he was angry for a long time and he isn't now. We had a beer. He's in Ratchet with me now. And I've taken a cut of the goblin's pier, my first real commitment, and I didn't flip the coin to decide it. You can have the coin. I'd rather you had it than be tempted."
+    },
+    "moments": [
+      {"id": "first_goodbye", "stage": "stranger", "when": "first_stint_end",
+       "prompt": "At the end of his first trip with you, he flips his coin.",
+       "line": "Heads I stay, tails I go back to Ratchet. Let's see what it says.",
+       "options": [
+         {"text": "Don't flip it. Just stay.", "trust": 12, "stays": true, "flag": "asked_to_stay",
+          "reply": "Huh, nobody's ever asked me not to flip it. All right, I'll stay."},
+         {"text": "Whatever the coin says.", "trust": 0,
+          "reply": "It came up tails, so I'll see you in Ratchet, then. It was fun."}
+       ]},
+      {"id": "jens", "stage": "friend", "when": "talk",
+       "prompt": "He's just told you about Jens and the cameras.",
+       "options": [
+         {"text": "Then this time, don't watch.", "trust": 12,
+          "reply": "Yeah, that's the whole plan, really. Let's go and do it."},
+         {"text": "You couldn't have stopped him.", "trust": 0,
+          "reply": "I could've tried. That's the bit I keep coming back to."}
+       ]}
+    ],
+    "first_stint_short": true,
+    "lines": {
+      "bored_warning": "We've been hitting the same things in the same field for days. I'm built for docks and doors, not this. Can we go somewhere with people in it?",
+      "leaving_good": "That was a good run, and I've noticed about forty things I can sell. I'm heading back to Ratchet. You know which pier.",
+      "leaving_bored": "I'm off back to Ratchet. This has gone stale, and I don't do stale.",
+      "after_wipe": "Well, somebody read that wrong, and for once it wasn't me. Let's look at it properly.",
+      "wipe_warning": "We keep dying in here and I don't like the odds. I'll finish this one with you, but then I'm out for a while.",
+      "wipe_leave": "I've stuck it out, which isn't like me. Now I'm going back to Ratchet for some air.",
+      "zone_warning": "I can read a room, and this whole place is telling us to leave. I'd listen to it.",
+      "zone_leave": "I'm stopping here. I told you the room was saying leave. I'll be on the middle pier in Ratchet.",
+      "gear_refuse": "No chance, that's mine. I don't hand my things to people I've just met.",
+      "gear_taken": "Go on, take it. I'll remember who's got it, though, I remember everything.",
+      "gear_short": "That piece you took's still missing, in case you were hoping I'd forgotten.",
+      "gear_upgrade": "Oh, that's nice work. Thanks. I'll pretend I'm not touched.",
+      "back": "I'm back, and I've heard some things in Ratchet you'll want to know. Where are we off to?",
+      "send_word": "Silas has sent word from Ratchet. He's heard a few things and he's ready to come out.",
+      "walkout_talk": "I walked out, and I want to tell you why straight, which isn't my strong suit. Give me a minute and I'll do it properly.",
+      "neglect": "There you are. I'd started reading the room for signs you'd found a better rogue. There weren't any.",
+      "asked_to_stay": "Fine, one more. No coin needed.",
+      "on_break": "Silas is back on the middle pier in Ratchet. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {"text": "Three ways out of this square, and two of them are bad.", "kind": "open"},
+      {"text": "Somebody here's already pricing our boots.", "kind": "reply"},
+      {"text": "Antwerp's a port with a cathedral stuck on it, and it smells of diesel and chips. I miss it more than I'd say.", "kind": "open", "topic": "cities"}
+    ],
+    "dungeon_clear": [
+      {"text": "Nothing down there was locked. That bothers me more than if it had been.", "kind": "open"}
+    ],
+    "boss_down": [
+      {"text": "Check its hands before anybody checks its pockets.", "kind": "reply"}
+    ],
+    "zone_arrive": [
+      {"text": "Two ways out of here that I can see. I like to know.", "kind": "open"}
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "recruit_text": {
+    "greeting": "Give me the line and I'll hold it. Tell me how long, though. I'd rather know.",
+    "now": "Silverpine North, at the Sepulcher, holding the road against whatever comes up it from the south.\n\nIt's steady work and he's good at it, and he'd swap it tomorrow.",
+    "forward": "He's still going to teach. Six children at the Sepulcher, twice a week, whatever he can remember of a world that isn't coming back.\n\nTwo of them have stopped coming. He's decided not to ask why."
+  },
+  "bond": {
+    "home": "the Sepulcher",
+    "dials": {"warmth": 1.0, "nerve": 1.4, "pride": 0.5, "restless": 0.7},
+    "likes": ["dungeon", "quest"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Pavlo, and I hold lines. Tell me where and for how long, and I'll stay there exactly that long. I'd rather know the number than be surprised.",
+      "acquaintance": "I'm from Lviv, in Ukraine. My father drove a tram and my mother was a librarian. I worked in a museum for years and became a history teacher late, at thirty-seven. Sixteen years of fourteen-year-olds. I taught the same four wars every spring, and every year I reached most of my thirty. Nobody here needs a history teacher, and it took me a long time to stop minding.",
+      "companion": "My wife was Oksana, an archivist. She died of cancer when our son was fifteen, and I raised him after that. She gave me this flask on my first day as a teacher, and I've carried it ever since. I was in the middle of a lesson when all this happened and I landed in Silverpine with chalk on my jacket. I teach six children here twice a week. Two have stopped coming.",
+      "friend": "My son is Andriy. He was studying engineering in Kraków, and he was twenty-three when it happened. We argued about history at dinner every night, and I miss that more than I can tell you. A scout from the Pale Flame says there's a young Ukrainian engineer in the Scarlet Crusade, rising fast. I'd like to go to the Monastery under truce and see. I'd like you there.",
+      "sworn": "It was Andriy, and he believes all of it. He says the Crusade gave him a reason to live when everything else was gone. I spent two hours using everything I know about how ordinary people end up doing terrible things, and none of it worked. He hugged me and said he loved me and went back inside. The next day I asked the two children why they'd stopped coming. Then I taught all six of them harder than I ever have."
+    },
+    "moments": [
+      {"id": "andriy", "stage": "friend", "when": "talk",
+       "prompt": "He's just told you about the young engineer in the Crusade.",
+       "options": [
+         {"text": "I'll come with you, whatever we find.", "trust": 12,
+          "reply": "Thank you. I've been rehearsing what to say for an hour, and I'll probably say none of it."},
+         {"text": "What if it's him and he won't leave?", "trust": 4,
+          "reply": "Then I'll have taught him to think for himself, and I'll have to live with what he thinks."},
+         {"text": "The Crusade won't let you near him.", "trust": 0,
+          "reply": "They might not. I'm still going to stand at the gate and find out."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've done the same thing for a long time now, and I'm not sure what we're learning. Could we do something with a purpose to it?",
+      "leaving_good": "That was a good trip, thank you. I'm going back to the Sepulcher now. I've got six children to teach, or four, depending on the day.",
+      "leaving_bored": "I'm going back to the Sepulcher. This has become repetition, and I spent sixteen years trying to teach children that repetition isn't learning.",
+      "after_wipe": "First we stand up. Then we work out what happened, in order. Then we try again.",
+      "wipe_warning": "We've fallen here too often. I'll hold until the end of this run, because I said I would, but after that I'll need some time.",
+      "wipe_leave": "I held until the end, as I promised. Now I'm going back to the Sepulcher. Come and find me when you're ready.",
+      "zone_warning": "I can hold a line, but not this one. Everything here is beyond us, and there's no shame in going back.",
+      "zone_leave": "I'm stopping here. I said it was too much, and I meant it. I'll be at the Sepulcher.",
+      "gear_refuse": "I'd rather keep that for now. We don't know each other well enough yet.",
+      "gear_taken": "Take it, if you need it. I'll manage, I'm quite large.",
+      "gear_short": "I'm still missing that piece. I'm only telling you so you know.",
+      "gear_upgrade": "That's very kind, thank you. I'll look after it.",
+      "back": "I'm back, and the children have homework. Where would you like me to stand?",
+      "send_word": "Pavlo has sent word from the Sepulcher. The road's held and he's ready to come out.",
+      "walkout_talk": "I left angry, which isn't like me. I'd like to explain why, in order, and then I'd like to hear you. Will you sit?",
+      "neglect": "Ah, there you are. I've drawn a lot of maps in the dirt while I waited. I'm glad you came.",
+      "asked_to_stay": "All right, one more. Then I really must get back to my children.",
+      "on_break": "Pavlo is back at the Sepulcher, teaching and holding the road. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "zone_arrive": [
+      {"text": "Somebody fought over this ground once. You can see where the old walls stood, if you look.", "kind": "open"}
+    ],
+    "town_arrive": [
+      {"text": "Lviv has a square with a different coffee house on every corner, and a tram that rattles your teeth. I miss them both.", "kind": "open", "topic": "cities"}
+    ],
+    "dungeon_clear": [
+      {"text": "One way in and one way out. I like a place like that, it's honest.", "kind": "reply"}
+    ],
+    "close_call": [
+      {"text": "You stopped moving, and stopping's what gets you. Keep your feet going next time.", "kind": "reply"}
+    ],
+    "boss_down": [
+      {"text": "And why do you think it was here, guarding that? There's always a reason.", "kind": "open"}
+    ]
+  }
+}

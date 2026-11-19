@@ -87,12 +87,17 @@
     "silas_rogue": {
       "town_arrive": [
         {
-          "text": "Three ways out of this square. Two of them are bad.",
+          "text": "Three ways out of this square, and two of them are bad.",
           "kind": "open"
         },
         {
           "text": "Somebody here's already pricing our boots.",
           "kind": "reply"
+        },
+        {
+          "text": "Antwerp's a port with a cathedral stuck on it, and it smells of diesel and chips. I miss it more than I'd say.",
+          "kind": "open",
+          "topic": "cities"
         }
       ],
       "dungeon_clear": [
@@ -117,7 +122,7 @@
     "rosa_hunter": {
       "zone_arrive": [
         {
-          "text": "Give me a day. I'll know what hunts here at night.",
+          "text": "Give me a day and I'll know what hunts here at night.",
           "kind": "open"
         }
       ],
@@ -137,6 +142,17 @@
         {
           "text": "Something's been hunting close to this place. The dogs here are wrong.",
           "kind": "open"
+        },
+        {
+          "text": "Madrid's about as far from the sea as Spain gets, and it's loud all night. I left as soon as I could.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "It went for the weakest one, like they always do. Stay closer next time.",
+          "kind": "reply"
         }
       ]
     },
@@ -845,27 +861,33 @@
     "pavlo_knight": {
       "zone_arrive": [
         {
-          "text": "Long road. Good. I'm worse when we stop.",
+          "text": "Somebody fought over this ground once. You can see where the old walls stood, if you look.",
           "kind": "open"
         }
       ],
       "town_arrive": [
         {
-          "text": "Lviv, when I was home, which was sixty nights a year. I wasn't good at being home.",
+          "text": "Lviv has a square with a different coffee house on every corner, and a tram that rattles your teeth. I miss them both.",
           "kind": "open",
           "topic": "cities"
         }
       ],
       "dungeon_clear": [
         {
-          "text": "One way in. One way out. I like a place like that.",
+          "text": "One way in and one way out. I like a place like that, it's honest.",
           "kind": "reply"
         }
       ],
       "close_call": [
         {
-          "text": "You stopped. Don't stop. Stopping is what gets you.",
+          "text": "You stopped moving, and stopping's what gets you. Keep your feet going next time.",
           "kind": "reply"
+        }
+      ],
+      "boss_down": [
+        {
+          "text": "And why do you think it was here, guarding that? There's always a reason.",
+          "kind": "open"
         }
       ]
     },

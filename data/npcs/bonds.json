@@ -1214,6 +1214,158 @@
         "quest_abandoned": "Somebody's waiting for us to come back, and we're not going to. I don't like that at all."
       }
     },
+    "pavlo_knight": {
+      "home": "the Sepulcher",
+      "dials": {
+        "warmth": 1.0,
+        "nerve": 1.4,
+        "pride": 0.5,
+        "restless": 0.7
+      },
+      "likes": [
+        "dungeon",
+        "quest"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Pavlo, and I hold lines. Tell me where and for how long, and I'll stay there exactly that long. I'd rather know the number than be surprised.",
+        "acquaintance": "I'm from Lviv, in Ukraine. My father drove a tram and my mother was a librarian. I worked in a museum for years and became a history teacher late, at thirty-seven. Sixteen years of fourteen-year-olds. I taught the same four wars every spring, and every year I reached most of my thirty. Nobody here needs a history teacher, and it took me a long time to stop minding.",
+        "companion": "My wife was Oksana, an archivist. She died of cancer when our son was fifteen, and I raised him after that. She gave me this flask on my first day as a teacher, and I've carried it ever since. I was in the middle of a lesson when all this happened and I landed in Silverpine with chalk on my jacket. I teach six children here twice a week. Two have stopped coming.",
+        "friend": "My son is Andriy. He was studying engineering in Kraków, and he was twenty-three when it happened. We argued about history at dinner every night, and I miss that more than I can tell you. A scout from the Pale Flame says there's a young Ukrainian engineer in the Scarlet Crusade, rising fast. I'd like to go to the Monastery under truce and see. I'd like you there.",
+        "sworn": "It was Andriy, and he believes all of it. He says the Crusade gave him a reason to live when everything else was gone. I spent two hours using everything I know about how ordinary people end up doing terrible things, and none of it worked. He hugged me and said he loved me and went back inside. The next day I asked the two children why they'd stopped coming. Then I taught all six of them harder than I ever have."
+      },
+      "moments": [
+        {
+          "id": "andriy",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's just told you about the young engineer in the Crusade.",
+          "options": [
+            {
+              "text": "I'll come with you, whatever we find.",
+              "trust": 12,
+              "reply": "Thank you. I've been rehearsing what to say for an hour, and I'll probably say none of it."
+            },
+            {
+              "text": "What if it's him and he won't leave?",
+              "trust": 4,
+              "reply": "Then I'll have taught him to think for himself, and I'll have to live with what he thinks."
+            },
+            {
+              "text": "The Crusade won't let you near him.",
+              "trust": 0,
+              "reply": "They might not. I'm still going to stand at the gate and find out."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've done the same thing for a long time now, and I'm not sure what we're learning. Could we do something with a purpose to it?",
+        "leaving_good": "That was a good trip, thank you. I'm going back to the Sepulcher now. I've got six children to teach, or four, depending on the day.",
+        "leaving_bored": "I'm going back to the Sepulcher. This has become repetition, and I spent sixteen years trying to teach children that repetition isn't learning.",
+        "after_wipe": "First we stand up. Then we work out what happened, in order. Then we try again.",
+        "wipe_warning": "We've fallen here too often. I'll hold until the end of this run, because I said I would, but after that I'll need some time.",
+        "wipe_leave": "I held until the end, as I promised. Now I'm going back to the Sepulcher. Come and find me when you're ready.",
+        "zone_warning": "I can hold a line, but not this one. Everything here is beyond us, and there's no shame in going back.",
+        "zone_leave": "I'm stopping here. I said it was too much, and I meant it. I'll be at the Sepulcher.",
+        "gear_refuse": "I'd rather keep that for now. We don't know each other well enough yet.",
+        "gear_taken": "Take it, if you need it. I'll manage, I'm quite large.",
+        "gear_short": "I'm still missing that piece. I'm only telling you so you know.",
+        "gear_upgrade": "That's very kind, thank you. I'll look after it.",
+        "back": "I'm back, and the children have homework. Where would you like me to stand?",
+        "send_word": "Pavlo has sent word from the Sepulcher. The road's held and he's ready to come out.",
+        "walkout_talk": "I left angry, which isn't like me. I'd like to explain why, in order, and then I'd like to hear you. Will you sit?",
+        "neglect": "Ah, there you are. I've drawn a lot of maps in the dirt while I waited. I'm glad you came.",
+        "asked_to_stay": "All right, one more. Then I really must get back to my children.",
+        "on_break": "Pavlo is back at the Sepulcher, teaching and holding the road. Come back after you've done a few more jobs."
+      }
+    },
+    "rosa_hunter": {
+      "home": "the Central Barrens",
+      "dials": {
+        "warmth": 0.9,
+        "nerve": 1.3,
+        "pride": 1.0,
+        "restless": 1.2
+      },
+      "likes": [
+        "beast",
+        "new_ground"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Rosa, and I hunt. I'll tell you what the animals out here are about to do before they do it, and you'll listen, because I'm usually right. I don't kill things for nothing, so don't ask me to.",
+        "acquaintance": "I'm from Madrid, from Lavapiés. My dad drove a bus and my mum did hair. I spent every summer at my grandparents' farm in Extremadura watching eagles, and at ten I decided I was going to Africa. I went to Tanzania at twenty-six for a six-month research job and stayed eight years, guiding out of Arusha.",
+        "companion": "My dad died when I was thirty-one. My mum sold the flat in Madrid and moved to Arusha to be near me, and opened a little salon for the expats. I pretended to be annoyed and I was very glad. Arusha came down on the far side of the mountains from here. I landed in the Barrens with my binoculars and nothing else, and then I spent a year being outclassed by pigs.",
+        "friend": "I've never stayed with anyone long. Wanjiru, a Kenyan bush pilot, and we split over who was going to move. Before her there was Bram, a Dutch photographer, and that ended because he talked in the hide. I'd rather sit still in the dark than talk about any of it. There's a hyena matriarch on the Crossroads road who's cleverer than every caravan master put together. I'd like your help to deal with her, properly.",
+        "sworn": "I didn't shoot her. She was only hungry, and hunger isn't personal. I drove the pack off the road for good with fire and noise in the right places, and the caravan masters are furious about the bounty. Then I walked to Ratchet, took my boots off, and walked into the sea for the first time in my life. I laughed like an idiot. I'm owed one more thing now, the far side of the mountain, and I'll get there."
+      },
+      "moments": [
+        {
+          "id": "the_matriarch",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's told you about the hyena matriarch on the Crossroads road.",
+          "options": [
+            {
+              "text": "We'll stop her, your way.",
+              "trust": 12,
+              "reply": "Sawa, we'll do it. My way means waiting, a lot of waiting, pole pole."
+            },
+            {
+              "text": "There's a bounty on her. Easy money.",
+              "trust": 0,
+              "reply": "That's exactly the kind of thinking I'm trying to get away from."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe, she's furious, mostly with herself.",
+          "line": "I saw that pack shift and I read it wrong. That's on me, and I hate it.",
+          "options": [
+            {
+              "text": "You'll read it right next time.",
+              "trust": 6,
+              "mood": 6,
+              "reply": "I will, because I'm not making that mistake twice."
+            },
+            {
+              "text": "Everyone gets it wrong sometimes.",
+              "trust": 0,
+              "mood": -2,
+              "reply": "Not me, not usually, anyway."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been killing the same animals in the same place for no reason. I don't do that. Find us somewhere new or I'm going back to my road.",
+        "leaving_good": "That was a good trip. I'm going back to the Barrens to watch my hyenas for a while. You know where to find me.",
+        "leaving_bored": "I'm going back to the Barrens. This is just killing for the sake of it, and I've got no patience for that.",
+        "after_wipe": "Right, that went badly. Let's work out what we missed before anyone tries anything clever.",
+        "wipe_warning": "We keep dying in here. I'll finish this one, but then I'm going back out where I can see the horizon.",
+        "wipe_leave": "I've seen it through. Now I'm going back to the Barrens. Come and find me when you've learned to read a room.",
+        "zone_warning": "Everything out here is bigger, faster and cleverer than us. That's not a hunt, that's a meal. Let's get out of here.",
+        "zone_leave": "I'm stopping here. I told you we were the prey out there. I'll be on the Crossroads road.",
+        "gear_refuse": "No, that's mine. I don't know you well enough to hand you my kit.",
+        "gear_taken": "Fine, take it. I've managed with worse in worse places.",
+        "gear_short": "I'm still short that piece. Just so you know, I've noticed.",
+        "gear_upgrade": "That's good kit. Thanks, I mean it.",
+        "back": "I'm back, and the hyenas have been very well behaved. Where are we going?",
+        "send_word": "Rosa has sent word from the Central Barrens. Her road's quiet and she's ready to come out.",
+        "walkout_talk": "I walked out and I'm not sorry, but I'll tell you why, plainly. Then you can tell me I'm wrong and we'll see.",
+        "neglect": "Oh, there you are. I'd assumed something ate you. Glad it didn't.",
+        "asked_to_stay": "Fine, one more, but I'm choosing where we sleep.",
+        "on_break": "Rosa is back on the Crossroads road in the Central Barrens. Come back after you've done a few more jobs."
+      }
+    },
     "ryan_warlock": {
       "home": "the Echo Isles",
       "dials": {
@@ -1390,6 +1542,91 @@
         "asked_to_stay": "Bueno, one more trip. But you're eating properly this time.",
         "on_break": "Sebastián is back at his fire pit in Western Tirisfal. Come back after you've done a few more jobs.",
         "quest_abandoned": "We just walked away from that, and somebody's still waiting. That's like leaving a steak on the grill, my friend."
+      }
+    },
+    "silas_rogue": {
+      "home": "Ratchet",
+      "dials": {
+        "warmth": 0.7,
+        "nerve": 1.0,
+        "pride": 0.8,
+        "restless": 1.3
+      },
+      "likes": [
+        "quest",
+        "new_ground"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "Name's Silas, and I notice things for a living, which crate's light, which captain's lying, who's about to rob who. What did I do before? It was port work. Ask me again tomorrow and it'll be different port work.",
+        "acquaintance": "Fine, the true version. Antwerp, near the docks. My dad was an English sailor who was home three months a year and then not at all, and my mum raised us on a cleaner's wage. I drifted through my twenties, then I got five years as a security guard at the port, watching cameras and checking manifests. First steady job of my life.",
+        "companion": "The docks had an arrangement where everybody took a little. I never joined in and I never said anything. I landed in Ratchet on a night shift with this coin in my pocket, and I was delighted. No record, no reputation, nothing to live down. I'm embarrassed about that now. I flip the coin for anything I don't want to decide, which is most things.",
+        "friend": "I've got a brother, Jens, four years younger. He did join in at the port, and he got in deep, and I watched it happen on the cameras for months and said nothing. He did two years. We hadn't spoken since the trial. A sailor here says there's a young Belgian working the docks at Booty Bay, quick with numbers and in some trouble. I'm not flipping a coin on this one. Will you come?",
+        "sworn": "I told Jens about the cameras, on the pier after. He said he always knew, and he'd have done it anyway, and he was angry for a long time and he isn't now. We had a beer. He's in Ratchet with me now. And I've taken a cut of the goblin's pier, my first real commitment, and I didn't flip the coin to decide it. You can have the coin. I'd rather you had it than be tempted."
+      },
+      "moments": [
+        {
+          "id": "first_goodbye",
+          "stage": "stranger",
+          "when": "first_stint_end",
+          "prompt": "At the end of his first trip with you, he flips his coin.",
+          "line": "Heads I stay, tails I go back to Ratchet. Let's see what it says.",
+          "options": [
+            {
+              "text": "Don't flip it. Just stay.",
+              "trust": 12,
+              "stays": true,
+              "flag": "asked_to_stay",
+              "reply": "Huh, nobody's ever asked me not to flip it. All right, I'll stay."
+            },
+            {
+              "text": "Whatever the coin says.",
+              "trust": 0,
+              "reply": "It came up tails, so I'll see you in Ratchet, then. It was fun."
+            }
+          ]
+        },
+        {
+          "id": "jens",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's just told you about Jens and the cameras.",
+          "options": [
+            {
+              "text": "Then this time, don't watch.",
+              "trust": 12,
+              "reply": "Yeah, that's the whole plan, really. Let's go and do it."
+            },
+            {
+              "text": "You couldn't have stopped him.",
+              "trust": 0,
+              "reply": "I could've tried. That's the bit I keep coming back to."
+            }
+          ]
+        }
+      ],
+      "first_stint_short": true,
+      "lines": {
+        "bored_warning": "We've been hitting the same things in the same field for days. I'm built for docks and doors, not this. Can we go somewhere with people in it?",
+        "leaving_good": "That was a good run, and I've noticed about forty things I can sell. I'm heading back to Ratchet. You know which pier.",
+        "leaving_bored": "I'm off back to Ratchet. This has gone stale, and I don't do stale.",
+        "after_wipe": "Well, somebody read that wrong, and for once it wasn't me. Let's look at it properly.",
+        "wipe_warning": "We keep dying in here and I don't like the odds. I'll finish this one with you, but then I'm out for a while.",
+        "wipe_leave": "I've stuck it out, which isn't like me. Now I'm going back to Ratchet for some air.",
+        "zone_warning": "I can read a room, and this whole place is telling us to leave. I'd listen to it.",
+        "zone_leave": "I'm stopping here. I told you the room was saying leave. I'll be on the middle pier in Ratchet.",
+        "gear_refuse": "No chance, that's mine. I don't hand my things to people I've just met.",
+        "gear_taken": "Go on, take it. I'll remember who's got it, though, I remember everything.",
+        "gear_short": "That piece you took's still missing, in case you were hoping I'd forgotten.",
+        "gear_upgrade": "Oh, that's nice work. Thanks. I'll pretend I'm not touched.",
+        "back": "I'm back, and I've heard some things in Ratchet you'll want to know. Where are we off to?",
+        "send_word": "Silas has sent word from Ratchet. He's heard a few things and he's ready to come out.",
+        "walkout_talk": "I walked out, and I want to tell you why straight, which isn't my strong suit. Give me a minute and I'll do it properly.",
+        "neglect": "There you are. I'd started reading the room for signs you'd found a better rogue. There weren't any.",
+        "asked_to_stay": "Fine, one more. No coin needed.",
+        "on_break": "Silas is back on the middle pier in Ratchet. Come back after you've done a few more jobs."
       }
     },
     "sondre_stormbringer": {
