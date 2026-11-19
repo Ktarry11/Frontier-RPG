@@ -1,0 +1,78 @@
+{
+  "recruit_text": {
+    "greeting": "Talk to me while I work, about anything. I do better with a voice in the room, and so do you.",
+    "backstory": "Nine years in a Bogotá emergency department, three of them on nights, all of them short-staffed. She learned to keep a frightened person talking while her hands did something they'd rather not watch. The Light and the shadow both move through her easily, and she treats them as instruments on a tray. The habit of narrating came with her, and half the party finds it steadying and half find it maddening.",
+    "before": "Trolleys in a corridor, a triage board, and a city that produced a steady supply.\n\nHer brother Andrés was a motorcycle courier in the same city. She patched him up twice. The second time she shouted at him in the corridor for ten minutes, and she'd give anything to have that back.",
+    "adjustment": "Eighteen months of working flat out, and she'll tell you honestly that she did it to stay out of her own head.\n\nIt worked, and she'd do it again. She knows what it was.",
+    "now": "Silverpine North, out of the Sepulcher, working the forest road where the wolves and worse take travellers and the Forsaken garrison gets to them slowly.\n\nShe reaches them faster. The garrison has noticed, and the quartermaster, apparently, hasn't.",
+    "forward": "A ward, with four beds, a roof, and somewhere an injured person can lie down for a week instead of being patched up in a field.\n\nThere's an empty building at the Sepulcher, and she's been negotiating for it for eleven months with a Forsaken quartermaster who keeps asking whose authority she's under."
+  },
+  "bond": {
+    "home": "the Sepulcher",
+    "dials": {"warmth": 0.7, "nerve": 1.5, "pride": 0.6, "restless": 0.9},
+    "likes": ["quest", "undead"],
+    "dislikes": ["quest_abandoned"],
+    "stages": {
+      "stranger": "I'm Marisol, and I'm a nurse, and a priest, and I talk while I work. I'm going to tell you everything I'm doing as I do it, and you can tell me anything you like back. It helps both of us.",
+      "acquaintance": "I'm from Bogotá, from Chapinero. My father drove a taxi and my mother cleaned houses. I worked in a pharmacy for years and trained as a nurse late, at thirty, and then I went into emergency care and stayed nine years. Three of them on nights. Trolleys in a corridor and a triage board that never emptied.",
+      "companion": "My parents died within a few years of each other, and after that I was the closest thing my little brother Andrés had to a parent. He was a motorcycle courier, fast and careless and charming. He's eight years younger than me. I was on a night shift when it happened and I landed in Silverpine in my scrubs. I haven't found him on any list.",
+      "friend": "I patched Andrés up twice in my department. The second time I shouted at him in the corridor for ten minutes, in front of everyone. That's the last time I saw him. I worked eighteen months without stopping here so I wouldn't think about it. Now a Forsaken courier on the road says a man told him to look out for a nurse called Marisol. I'd like you to come with me.",
+      "sworn": "It was Andrés. He died when the worlds joined and he was raised, and he's been carrying messages on this road for three years. He remembers me. He remembers the corridor, and he says he deserved it. I can't patch him up any more, mijo. There's nothing left to patch. He comes to see me now and then, and each time there's a little less of him. He asked the quartermaster to give me the building. I've got four beds now."
+    },
+    "moments": [
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe she's already kneeling by the nearest body, talking in the same level voice.",
+       "line": "I'm going to look at you now, one at a time. Nobody gets up until I've said so, tranquilo.",
+       "options": [
+         {"text": "Do what you need to. We'll wait.", "trust": 8, "mood": 6,
+          "reply": "Thank you. I'll be quick, and I'll tell you everything I'm doing."},
+         {"text": "We're fine, let's keep moving.", "trust": 0, "mood": -6,
+          "reply": "You're fine when I say you're fine. Sit down for me."}
+       ]},
+      {"id": "the_corridor", "stage": "friend", "when": "talk",
+       "prompt": "She's just told you about the corridor.",
+       "options": [
+         {"text": "You shouted because you were frightened for him.", "trust": 10,
+          "reply": "Yes, I was. He knew that, I think. I'd like to ask him."},
+         {"text": "He probably doesn't remember it.", "trust": 0,
+          "reply": "I remember it, and that's the part I can't put down."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've been doing the same thing for a long time, and nobody's needed patching for days. There are people on my road who need me more than this field does.",
+      "leaving_good": "That was a good trip. I'm going back to the Sepulcher now, because the road doesn't stop just because I'm away. You know where I'll be.",
+      "leaving_bored": "I'm going back to the Sepulcher. We're not doing anything useful out here, and somebody on my road is bleeding right now.",
+      "after_wipe": "I'm going to check everyone now. I'll start with whoever's quietest.",
+      "wipe_warning": "We keep dying in here. I'll finish this run, because I don't walk away from patients, but then I'm going back to my road for a while.",
+      "wipe_leave": "I've stayed until the end, as I said. Now I'm going back to the Sepulcher. Come and find me when you're ready to be careful.",
+      "zone_warning": "I'm going to say this plainly. Everything out here is beyond us, and I can't heal fast enough to keep up with it.",
+      "zone_leave": "I'm stopping here. I said it plainly and you heard me. I'll be at the Sepulcher.",
+      "gear_refuse": "No, I'll keep that. I don't know you well enough yet.",
+      "gear_taken": "You can take it. I've worked a night shift with half the equipment I needed, and I'll manage.",
+      "gear_short": "I'm still missing that piece. I'm noting it, the same as I note everything.",
+      "gear_upgrade": "That's well made. Thank you. I'll look after it.",
+      "back": "I'm back, and the road's quiet for once. Tell me what's been happening while I get my things.",
+      "send_word": "Marisol has sent word from the Sepulcher. The road's quiet and she's ready to come out.",
+      "walkout_talk": "I left angry. I'm going to tell you why, calmly, and then I'm going to listen while you tell me your side. Please sit down.",
+      "neglect": "It's been a long time. I kept working, as you'd expect. I'm glad you came back.",
+      "asked_to_stay": "All right, one more, and then the road needs me.",
+      "on_break": "Marisol is back on the forest road out of the Sepulcher. Come back after you've done a few more jobs.",
+      "quest_abandoned": "Somebody's waiting for us to come back, and we're not going to. I don't like that at all."
+    }
+  },
+  "banter": {
+    "boss_down": [
+      {"text": "Somebody should say something over it. Nobody will, so I might.", "kind": "open"}
+    ],
+    "close_call": [
+      {"text": "I'm going to look at that cut now, and it's going to sting, and then it's going to be fine.", "kind": "open"},
+      {"text": "Nine years of night shifts and I still count heads after every bad one. Everyone's here, tranquilo.", "kind": "reply", "topic": "night_work"}
+    ],
+    "town_arrive": [
+      {"text": "Bogotá sits up in the mountains, cold and grey and full of traffic, and I'd give a lot for a coffee there.", "kind": "open", "topic": "cities"}
+    ],
+    "dungeon_clear": [
+      {"text": "Somebody died in that room a long time ago and nobody marked it.", "kind": "reply"}
+    ]
+  }
+}

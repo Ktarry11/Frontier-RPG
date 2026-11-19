@@ -1,0 +1,78 @@
+{
+  "recruit_text": {
+    "now": "Orgrimmar, near the forges, in a bunk he keeps very tidy. The heat and the hammering feel like home.\n\nHe takes the front of whatever goes out, and he's not asked to be paid differently for it in three years."
+  },
+  "bond": {
+    "home": "Orgrimmar",
+    "dials": {"warmth": 0.8, "nerve": 1.4, "pride": 0.7, "restless": 0.8},
+    "likes": ["dungeon", "full_party"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Dan, and I go first and I stand in front, and you lot get on with it behind me. Don't thank me, it's the job and somebody has to have it.",
+      "acquaintance": "I'm from Sheffield, Attercliffe. My dad came over from Enugu in the sixties and worked the steel for thirty years, and my mum was a dinner lady from Rotherham. I went on the floor at eighteen, same plant as him. Twenty-two years on a four-man crew. Me, Gaz, Little Mick and Pete. We went for a pint every Friday for nine years straight.",
+      "companion": "I've got a daughter, Jade. She's twenty-eight, a paramedic, in Leeds. Married a lad called Craig Dawson the year before all this, so she's a Dawson on the lists now. I've been through the D's at the hub about forty times. I'd just started driving a forklift in a warehouse when it happened, so I landed in Durotar in a hi-vis vest, like a right lemon.",
+      "friend": "The plant shut in 2019. I was out of work four years after. Stopped going out, stopped answering the phone, spent most of it on the sofa. Jade came round every Sunday and made me eat. She's the reason I got through it and I've never told her. So I want to find her and tell her. Will you come with me round the lists? Every hub we can get to.",
+      "sworn": "The trail ran out at that empty camp in the Barrens, and that's all there is. She's a paramedic, she's tough, and she's out there doing the job somewhere. That'll have to do. I've left a note at every hub, under both names. I've stopped trying to build a crew out of whoever's in the tavern, because I've got one. It's this lot. I still check the D's, mind."
+    },
+    "moments": [
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe he's already on his feet, checking everyone's straps.",
+       "line": "Somebody pulled before I was in. I'm not having a go, but I go first. That's the arrangement.",
+       "options": [
+         {"text": "Fair enough. You go first from now on.", "trust": 8, "mood": 6,
+          "reply": "Right, good, let's go again, then."},
+         {"text": "We were trying to speed things up.", "trust": 0, "mood": -6,
+          "reply": "Aye, and now we're slower. Funny how that works."}
+       ]},
+      {"id": "the_sofa", "stage": "friend", "when": "talk",
+       "prompt": "He's just told you about the four years out of work.",
+       "options": [
+         {"text": "Then let's find her so you can tell her.", "trust": 12,
+          "reply": "Aye, thanks, love. That's all I wanted to hear."},
+         {"text": "That sounds like it was hard.", "trust": 4,
+          "reply": "It was hard. I'm not going on about it, mind."},
+         {"text": "You should've told her.", "trust": 0,
+          "reply": "I know that, ta. That's why I'm going to find her."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've been at this same patch for ages and it's going nowhere. Give me a proper job or I'll head back to the forges.",
+      "leaving_good": "That was a good shift, that. I'm going back to Orgrimmar for a bit. Give us a shout when you need someone at the front.",
+      "leaving_bored": "I'm heading back to Orgrimmar. This is daft, we're just hitting things for nowt.",
+      "after_wipe": "Right, everyone up. Check your straps and we'll have another go.",
+      "wipe_warning": "We're dying too much in here. I'll see it through because I don't leave a job half done, but then I'm having a break.",
+      "wipe_leave": "Job's done, so I'm off for a bit. I'll be by the forges in Orgrimmar when you've sorted yourselves out.",
+      "zone_warning": "This lot's well above us. I'll stand in front of owt, but I'm not daft. Let's go somewhere we can handle.",
+      "zone_leave": "I'm stopping here. I said it was too much and it still is. I'll be in Orgrimmar.",
+      "gear_refuse": "No, that's mine. I don't know you well enough yet.",
+      "gear_taken": "Take it, then. I'll manage, I've worked with worse kit than this.",
+      "gear_short": "I'm still missing that piece. Not moaning, just telling you.",
+      "gear_upgrade": "That's proper kit, that. Ta very much.",
+      "back": "I'm back, then. Where do you want me?",
+      "send_word": "Dan has sent word from Orgrimmar. He's rested and he's ready to go first again.",
+      "walkout_talk": "I walked out and I'm not proud of it. Sit yourself down. I'll say my piece, you say yours, and then we'll get back to work.",
+      "neglect": "Oh, you're alive, then. I'd started to think you'd found another lad to stand in front.",
+      "asked_to_stay": "Go on, then, one more shift.",
+      "on_break": "Dan is back by the forges in Orgrimmar. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {"text": "Walls, a gate, somebody watching it. I'll sleep tonight.", "kind": "open"},
+      {"text": "Sheffield's seven hills and a lot of rain, and the best pint in England, so don't argue.", "kind": "open", "topic": "cities"}
+    ],
+    "dungeon_clear": [
+      {"text": "Everybody walked out. That's the job, that's all the job ever is.", "kind": "open"},
+      {"text": "Nobody got hurt being clever. I'll take that.", "kind": "reply"}
+    ],
+    "close_call": [
+      {"text": "That's on me. I was a step too far left.", "kind": "open"}
+    ],
+    "boss_down": [
+      {"text": "Right, check your straps before we move.", "kind": "reply"}
+    ],
+    "zone_arrive": [
+      {"text": "Ground's soft on the left. Walk the right side.", "kind": "open"}
+    ]
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "recruit_text": {
+    "greeting": "Open your mouth. No, no, I'm joking, I'm joking! It's an old habit. Sit down and let me see the arm.",
+    "backstory": "A dentist in Izmir, newly qualified, still paying for the chair when the world changed under him. The job is small careful work inside a space the size of a fist, on somebody who'd rather be anywhere else. That turns out to be most of what field medicine asks for. He's wonderful company and he knows it and he uses it, because a frightened patient is a patient who moves.",
+    "before": "A surgery with his name on the door for eleven months, and a loan with thirty years left on it.\n\nAn enormous family, all of them in Izmir, all of them loud. He says he'll find them. He says it the way you say a thing you've decided to believe, and he still says it three years on.",
+    "adjustment": "Two months, and most of that was the language.\n\nHe arrived with better hands than almost anybody and no idea what to do with the rest of himself, so he started asking everyone he met what they used to be. He knows the old jobs of about four hundred people from Earth now, and he'll introduce any two of them who ought to meet.",
+    "forward": "A proper surgery again, with a door and his name on it, and an apprentice who's frightened of nothing.\n\nHe's also keeping a list of everyone from Earth with medical training, because he noticed early that nobody else was, and it's now the only list like it that exists.",
+    "now": "Wherever the road is busiest, because that's where the broken arms are. Brill, when he sleeps at all.\n\nHe still carries the mouth mirror behind his ear. He's used it twice for its real purpose and about forty times to see round a corner."
+  },
+  "bond": {
+    "home": "Brill",
+    "dials": {"warmth": 1.5, "nerve": 1.0, "pride": 0.5, "restless": 1.1},
+    "likes": ["full_party", "quest"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Berat, and I'm a dentist, so I'm the best healer you'll ever meet for small careful work. Before we go anywhere, tell me what you did before all this. I ask everybody. I'll remember, I promise.",
+      "acquaintance": "I'm from Izmir, from Karşıyaka on the north side of the bay. Three generations of Yilmazes in one building on four floors, and every one of them talking at the same time. My father sold carpets, my mother ran everything, and I've got three older brothers, all louder than me. I was the first to go to university. My grandmother told the whole street.",
+      "companion": "I had my own surgery for eleven months, abi. My name on the door and a loan with thirty years left. I was in the middle of a filling when it happened and I landed near Brill with this mirror behind my ear. My whole family was in Izmir, all of them. I haven't found one. I say I will. I say it every day, because if I stop saying it I don't know what happens.",
+      "friend": "There was a girl, Elif. My mother very much wanted me to marry her, and I was getting used to the idea. I think about how she laughed at my jokes even when they were bad, which was always. And I've got this list, every medic from Earth I've ever met. If anything bad ever happens somewhere, I can send for help that nobody else knows exists. I think one day it'll matter.",
+      "sworn": "They were at the Crossroads the whole time, canım. A carpet stall and a tea house, and the noise when I walked in brought the orc guards running. My mother slapped me for taking so long and then wouldn't let go. My grandmother told the entire market I'm a doctor. One of my brothers didn't make it, and my father's older. But I've got a surgery at the Crossroads with my name on the door, and every Sunday they all come and eat there."
+    },
+    "moments": [
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe he's grinning, but his hands are shaking a little.",
+       "line": "Okay, okay, good news, everyone still has all their teeth. Bad news is everything else. Let me look at you.",
+       "options": [
+         {"text": "You can stop joking for a minute, you know.", "trust": 10, "mood": 4,
+          "reply": "Can I really? Okay then, that was frightening, abi. Give me a second."},
+         {"text": "Good one. Let's go again.", "trust": 2, "mood": 2,
+          "reply": "That's the spirit! I'll think of a better joke for next time."}
+       ]},
+      {"id": "the_list", "stage": "friend", "when": "talk",
+       "prompt": "He's just shown you his list of medics.",
+       "options": [
+         {"text": "Nobody else would have thought of this.", "trust": 8,
+          "reply": "Somebody had to, and I'm very nosy. It's the same thing."},
+         {"text": "Is your family's doctor on it?", "trust": 4,
+          "reply": "I check, every time I add a name. Not yet, abi."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "Abi, we've seen the same faces for days and none of them were people. Can we go somewhere with someone new to talk to?",
+      "leaving_good": "That was wonderful, and I've got six new names for my list. I'm going back to Brill to write them up. Come and find me, I'll tell you a joke.",
+      "leaving_bored": "I'm going back to Brill. Out here it's the same thing every day, and I'd rather be fixing arms on a busy road.",
+      "after_wipe": "Everybody still has all their teeth, so that's something. Come here, let me look at you all.",
+      "wipe_warning": "We keep dying in here, and I'm running out of jokes, which has never happened before. One more run, then I need a rest.",
+      "wipe_leave": "I'll walk out with you, but I'm going back to Brill for a while. I need to be somewhere loud and safe.",
+      "zone_warning": "Abi, everything out here is bigger than us. I can fix a lot, but I can't fix being eaten.",
+      "zone_leave": "I'm stopping here. It's too dangerous out there for me right now. I'll be in Brill, above the inn.",
+      "gear_refuse": "Ah, no, I'd like to keep that one. Ask me again when you know how I take my tea.",
+      "gear_taken": "Take it, take it. I'll be fine, and I'll complain about it in a funny way.",
+      "gear_short": "I'm still missing that piece, abi. My arm's noticed even if you haven't.",
+      "gear_upgrade": "Oh, this is beautiful! Thank you, canım. Now I owe you a free check-up.",
+      "back": "I'm back, with four new names on my list! Where are we going?",
+      "send_word": "Berat has sent word from Brill. He's got new names for his list and he's ready to come out.",
+      "walkout_talk": "I left angry, abi, and I'm never angry, so you know it was bad. Sit down, I'll tell you why without any jokes, I promise.",
+      "neglect": "There you are! I thought you'd found a funnier healer. Impossible, but I was worried.",
+      "asked_to_stay": "All right, one more, but I'm telling the jokes.",
+      "on_break": "Berat is back in Brill, on whichever road is busiest. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {"text": "I'm going to ask everyone here what they used to be. Don't wait for me.", "kind": "open"},
+      {"text": "Izmir's got a long bay, a thousand tea houses, and my whole family talking at once.", "kind": "open", "topic": "cities"}
+    ],
+    "close_call": [
+      {"text": "That was close, abi. Show me your hands, they're shaking. Mine too, look.", "kind": "open"}
+    ],
+    "dungeon_clear": [
+      {"text": "Everybody's out and everybody's teeth are fine, because I checked.", "kind": "reply"}
+    ],
+    "boss_down": [
+      {"text": "Wonderful, that was wonderful. Now, who's bleeding and pretending they aren't?", "kind": "reply"}
+    ],
+    "zone_arrive": [
+      {"text": "New place, new people, new stories. I'm very happy about this.", "kind": "open"}
+    ]
+  }
+}

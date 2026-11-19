@@ -6,6 +6,11 @@
         {
           "text": "Walls, a gate, somebody watching it. I'll sleep tonight.",
           "kind": "open"
+        },
+        {
+          "text": "Sheffield's seven hills and a lot of rain, and the best pint in England, so don't argue.",
+          "kind": "open",
+          "topic": "cities"
         }
       ],
       "dungeon_clear": [
@@ -14,7 +19,7 @@
           "kind": "open"
         },
         {
-          "text": "Nobody got hurt being clever. I'll take it.",
+          "text": "Nobody got hurt being clever. I'll take that.",
           "kind": "reply"
         }
       ],
@@ -26,7 +31,7 @@
       ],
       "boss_down": [
         {
-          "text": "Right. Check your straps before we move.",
+          "text": "Right, check your straps before we move.",
           "kind": "reply"
         }
       ],
@@ -1283,19 +1288,24 @@
     "marisol_priest": {
       "boss_down": [
         {
-          "text": "Somebody should say something over it. Nobody will. I might.",
+          "text": "Somebody should say something over it. Nobody will, so I might.",
           "kind": "open"
         }
       ],
       "close_call": [
         {
-          "text": "I've sat with more dead people than everyone here together. You're not one of them.",
-          "kind": "reply"
+          "text": "I'm going to look at that cut now, and it's going to sting, and then it's going to be fine.",
+          "kind": "open"
+        },
+        {
+          "text": "Nine years of night shifts and I still count heads after every bad one. Everyone's here, tranquilo.",
+          "kind": "reply",
+          "topic": "night_work"
         }
       ],
       "town_arrive": [
         {
-          "text": "Medellin. Twenty-four years, and a decade in the middle I don't discuss.",
+          "text": "Bogotá sits up in the mountains, cold and grey and full of traffic, and I'd give a lot for a coffee there.",
           "kind": "open",
           "topic": "cities"
         }
@@ -1304,6 +1314,43 @@
         {
           "text": "Somebody died in that room a long time ago and nobody marked it.",
           "kind": "reply"
+        }
+      ]
+    },
+    "berat_tinker": {
+      "town_arrive": [
+        {
+          "text": "I'm going to ask everyone here what they used to be. Don't wait for me.",
+          "kind": "open"
+        },
+        {
+          "text": "Izmir's got a long bay, a thousand tea houses, and my whole family talking at once.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "That was close, abi. Show me your hands, they're shaking. Mine too, look.",
+          "kind": "open"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Everybody's out and everybody's teeth are fine, because I checked.",
+          "kind": "reply"
+        }
+      ],
+      "boss_down": [
+        {
+          "text": "Wonderful, that was wonderful. Now, who's bleeding and pretending they aren't?",
+          "kind": "reply"
+        }
+      ],
+      "zone_arrive": [
+        {
+          "text": "New place, new people, new stories. I'm very happy about this.",
+          "kind": "open"
         }
       ]
     },

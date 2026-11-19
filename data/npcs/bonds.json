@@ -363,6 +363,90 @@
         "quest_abandoned": "Somebody was relying on us for that and we've walked away. I don't like it."
       }
     },
+    "berat_tinker": {
+      "home": "Brill",
+      "dials": {
+        "warmth": 1.5,
+        "nerve": 1.0,
+        "pride": 0.5,
+        "restless": 1.1
+      },
+      "likes": [
+        "full_party",
+        "quest"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Berat, and I'm a dentist, so I'm the best healer you'll ever meet for small careful work. Before we go anywhere, tell me what you did before all this. I ask everybody. I'll remember, I promise.",
+        "acquaintance": "I'm from Izmir, from Karşıyaka on the north side of the bay. Three generations of Yilmazes in one building on four floors, and every one of them talking at the same time. My father sold carpets, my mother ran everything, and I've got three older brothers, all louder than me. I was the first to go to university. My grandmother told the whole street.",
+        "companion": "I had my own surgery for eleven months, abi. My name on the door and a loan with thirty years left. I was in the middle of a filling when it happened and I landed near Brill with this mirror behind my ear. My whole family was in Izmir, all of them. I haven't found one. I say I will. I say it every day, because if I stop saying it I don't know what happens.",
+        "friend": "There was a girl, Elif. My mother very much wanted me to marry her, and I was getting used to the idea. I think about how she laughed at my jokes even when they were bad, which was always. And I've got this list, every medic from Earth I've ever met. If anything bad ever happens somewhere, I can send for help that nobody else knows exists. I think one day it'll matter.",
+        "sworn": "They were at the Crossroads the whole time, canım. A carpet stall and a tea house, and the noise when I walked in brought the orc guards running. My mother slapped me for taking so long and then wouldn't let go. My grandmother told the entire market I'm a doctor. One of my brothers didn't make it, and my father's older. But I've got a surgery at the Crossroads with my name on the door, and every Sunday they all come and eat there."
+      },
+      "moments": [
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's grinning, but his hands are shaking a little.",
+          "line": "Okay, okay, good news, everyone still has all their teeth. Bad news is everything else. Let me look at you.",
+          "options": [
+            {
+              "text": "You can stop joking for a minute, you know.",
+              "trust": 10,
+              "mood": 4,
+              "reply": "Can I really? Okay then, that was frightening, abi. Give me a second."
+            },
+            {
+              "text": "Good one. Let's go again.",
+              "trust": 2,
+              "mood": 2,
+              "reply": "That's the spirit! I'll think of a better joke for next time."
+            }
+          ]
+        },
+        {
+          "id": "the_list",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's just shown you his list of medics.",
+          "options": [
+            {
+              "text": "Nobody else would have thought of this.",
+              "trust": 8,
+              "reply": "Somebody had to, and I'm very nosy. It's the same thing."
+            },
+            {
+              "text": "Is your family's doctor on it?",
+              "trust": 4,
+              "reply": "I check, every time I add a name. Not yet, abi."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Abi, we've seen the same faces for days and none of them were people. Can we go somewhere with someone new to talk to?",
+        "leaving_good": "That was wonderful, and I've got six new names for my list. I'm going back to Brill to write them up. Come and find me, I'll tell you a joke.",
+        "leaving_bored": "I'm going back to Brill. Out here it's the same thing every day, and I'd rather be fixing arms on a busy road.",
+        "after_wipe": "Everybody still has all their teeth, so that's something. Come here, let me look at you all.",
+        "wipe_warning": "We keep dying in here, and I'm running out of jokes, which has never happened before. One more run, then I need a rest.",
+        "wipe_leave": "I'll walk out with you, but I'm going back to Brill for a while. I need to be somewhere loud and safe.",
+        "zone_warning": "Abi, everything out here is bigger than us. I can fix a lot, but I can't fix being eaten.",
+        "zone_leave": "I'm stopping here. It's too dangerous out there for me right now. I'll be in Brill, above the inn.",
+        "gear_refuse": "Ah, no, I'd like to keep that one. Ask me again when you know how I take my tea.",
+        "gear_taken": "Take it, take it. I'll be fine, and I'll complain about it in a funny way.",
+        "gear_short": "I'm still missing that piece, abi. My arm's noticed even if you haven't.",
+        "gear_upgrade": "Oh, this is beautiful! Thank you, canım. Now I owe you a free check-up.",
+        "back": "I'm back, with four new names on my list! Where are we going?",
+        "send_word": "Berat has sent word from Brill. He's got new names for his list and he's ready to come out.",
+        "walkout_talk": "I left angry, abi, and I'm never angry, so you know it was bad. Sit down, I'll tell you why without any jokes, I promise.",
+        "neglect": "There you are! I thought you'd found a funnier healer. Impossible, but I was worried.",
+        "asked_to_stay": "All right, one more, but I'm telling the jokes.",
+        "on_break": "Berat is back in Brill, on whichever road is busiest. Come back after you've done a few more jobs."
+      }
+    },
     "carolina_shaman": {
       "home": "the Echo Isles",
       "dials": {
@@ -445,6 +529,95 @@
         "neglect": "There you are! I thought the current had taken you somewhere else. It does that, I don't mind.",
         "asked_to_stay": "All right, one more. Then I need my feet in the sea.",
         "on_break": "Carolina is back on the Echo Isles, out on the water. Come back after you've done a few more jobs."
+      }
+    },
+    "dan_warrior": {
+      "home": "Orgrimmar",
+      "dials": {
+        "warmth": 0.8,
+        "nerve": 1.4,
+        "pride": 0.7,
+        "restless": 0.8
+      },
+      "likes": [
+        "dungeon",
+        "full_party"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Dan, and I go first and I stand in front, and you lot get on with it behind me. Don't thank me, it's the job and somebody has to have it.",
+        "acquaintance": "I'm from Sheffield, Attercliffe. My dad came over from Enugu in the sixties and worked the steel for thirty years, and my mum was a dinner lady from Rotherham. I went on the floor at eighteen, same plant as him. Twenty-two years on a four-man crew. Me, Gaz, Little Mick and Pete. We went for a pint every Friday for nine years straight.",
+        "companion": "I've got a daughter, Jade. She's twenty-eight, a paramedic, in Leeds. Married a lad called Craig Dawson the year before all this, so she's a Dawson on the lists now. I've been through the D's at the hub about forty times. I'd just started driving a forklift in a warehouse when it happened, so I landed in Durotar in a hi-vis vest, like a right lemon.",
+        "friend": "The plant shut in 2019. I was out of work four years after. Stopped going out, stopped answering the phone, spent most of it on the sofa. Jade came round every Sunday and made me eat. She's the reason I got through it and I've never told her. So I want to find her and tell her. Will you come with me round the lists? Every hub we can get to.",
+        "sworn": "The trail ran out at that empty camp in the Barrens, and that's all there is. She's a paramedic, she's tough, and she's out there doing the job somewhere. That'll have to do. I've left a note at every hub, under both names. I've stopped trying to build a crew out of whoever's in the tavern, because I've got one. It's this lot. I still check the D's, mind."
+      },
+      "moments": [
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's already on his feet, checking everyone's straps.",
+          "line": "Somebody pulled before I was in. I'm not having a go, but I go first. That's the arrangement.",
+          "options": [
+            {
+              "text": "Fair enough. You go first from now on.",
+              "trust": 8,
+              "mood": 6,
+              "reply": "Right, good, let's go again, then."
+            },
+            {
+              "text": "We were trying to speed things up.",
+              "trust": 0,
+              "mood": -6,
+              "reply": "Aye, and now we're slower. Funny how that works."
+            }
+          ]
+        },
+        {
+          "id": "the_sofa",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's just told you about the four years out of work.",
+          "options": [
+            {
+              "text": "Then let's find her so you can tell her.",
+              "trust": 12,
+              "reply": "Aye, thanks, love. That's all I wanted to hear."
+            },
+            {
+              "text": "That sounds like it was hard.",
+              "trust": 4,
+              "reply": "It was hard. I'm not going on about it, mind."
+            },
+            {
+              "text": "You should've told her.",
+              "trust": 0,
+              "reply": "I know that, ta. That's why I'm going to find her."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been at this same patch for ages and it's going nowhere. Give me a proper job or I'll head back to the forges.",
+        "leaving_good": "That was a good shift, that. I'm going back to Orgrimmar for a bit. Give us a shout when you need someone at the front.",
+        "leaving_bored": "I'm heading back to Orgrimmar. This is daft, we're just hitting things for nowt.",
+        "after_wipe": "Right, everyone up. Check your straps and we'll have another go.",
+        "wipe_warning": "We're dying too much in here. I'll see it through because I don't leave a job half done, but then I'm having a break.",
+        "wipe_leave": "Job's done, so I'm off for a bit. I'll be by the forges in Orgrimmar when you've sorted yourselves out.",
+        "zone_warning": "This lot's well above us. I'll stand in front of owt, but I'm not daft. Let's go somewhere we can handle.",
+        "zone_leave": "I'm stopping here. I said it was too much and it still is. I'll be in Orgrimmar.",
+        "gear_refuse": "No, that's mine. I don't know you well enough yet.",
+        "gear_taken": "Take it, then. I'll manage, I've worked with worse kit than this.",
+        "gear_short": "I'm still missing that piece. Not moaning, just telling you.",
+        "gear_upgrade": "That's proper kit, that. Ta very much.",
+        "back": "I'm back, then. Where do you want me?",
+        "send_word": "Dan has sent word from Orgrimmar. He's rested and he's ready to go first again.",
+        "walkout_talk": "I walked out and I'm not proud of it. Sit yourself down. I'll say my piece, you say yours, and then we'll get back to work.",
+        "neglect": "Oh, you're alive, then. I'd started to think you'd found another lad to stand in front.",
+        "asked_to_stay": "Go on, then, one more shift.",
+        "on_break": "Dan is back by the forges in Orgrimmar. Come back after you've done a few more jobs."
       }
     },
     "diego_tinker": {
@@ -954,6 +1127,91 @@
         "neglect": "There you are. I was starting to think you'd found somebody with a better forecast. You haven't, by the way.",
         "asked_to_stay": "All right, one more trip, then I really need to check my instruments.",
         "on_break": "Marcus is back on his ridge in Durotar, writing up his notes. Come back after you've done a few more jobs."
+      }
+    },
+    "marisol_priest": {
+      "home": "the Sepulcher",
+      "dials": {
+        "warmth": 0.7,
+        "nerve": 1.5,
+        "pride": 0.6,
+        "restless": 0.9
+      },
+      "likes": [
+        "quest",
+        "undead"
+      ],
+      "dislikes": [
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "I'm Marisol, and I'm a nurse, and a priest, and I talk while I work. I'm going to tell you everything I'm doing as I do it, and you can tell me anything you like back. It helps both of us.",
+        "acquaintance": "I'm from Bogotá, from Chapinero. My father drove a taxi and my mother cleaned houses. I worked in a pharmacy for years and trained as a nurse late, at thirty, and then I went into emergency care and stayed nine years. Three of them on nights. Trolleys in a corridor and a triage board that never emptied.",
+        "companion": "My parents died within a few years of each other, and after that I was the closest thing my little brother Andrés had to a parent. He was a motorcycle courier, fast and careless and charming. He's eight years younger than me. I was on a night shift when it happened and I landed in Silverpine in my scrubs. I haven't found him on any list.",
+        "friend": "I patched Andrés up twice in my department. The second time I shouted at him in the corridor for ten minutes, in front of everyone. That's the last time I saw him. I worked eighteen months without stopping here so I wouldn't think about it. Now a Forsaken courier on the road says a man told him to look out for a nurse called Marisol. I'd like you to come with me.",
+        "sworn": "It was Andrés. He died when the worlds joined and he was raised, and he's been carrying messages on this road for three years. He remembers me. He remembers the corridor, and he says he deserved it. I can't patch him up any more, mijo. There's nothing left to patch. He comes to see me now and then, and each time there's a little less of him. He asked the quartermaster to give me the building. I've got four beds now."
+      },
+      "moments": [
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe she's already kneeling by the nearest body, talking in the same level voice.",
+          "line": "I'm going to look at you now, one at a time. Nobody gets up until I've said so, tranquilo.",
+          "options": [
+            {
+              "text": "Do what you need to. We'll wait.",
+              "trust": 8,
+              "mood": 6,
+              "reply": "Thank you. I'll be quick, and I'll tell you everything I'm doing."
+            },
+            {
+              "text": "We're fine, let's keep moving.",
+              "trust": 0,
+              "mood": -6,
+              "reply": "You're fine when I say you're fine. Sit down for me."
+            }
+          ]
+        },
+        {
+          "id": "the_corridor",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's just told you about the corridor.",
+          "options": [
+            {
+              "text": "You shouted because you were frightened for him.",
+              "trust": 10,
+              "reply": "Yes, I was. He knew that, I think. I'd like to ask him."
+            },
+            {
+              "text": "He probably doesn't remember it.",
+              "trust": 0,
+              "reply": "I remember it, and that's the part I can't put down."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been doing the same thing for a long time, and nobody's needed patching for days. There are people on my road who need me more than this field does.",
+        "leaving_good": "That was a good trip. I'm going back to the Sepulcher now, because the road doesn't stop just because I'm away. You know where I'll be.",
+        "leaving_bored": "I'm going back to the Sepulcher. We're not doing anything useful out here, and somebody on my road is bleeding right now.",
+        "after_wipe": "I'm going to check everyone now. I'll start with whoever's quietest.",
+        "wipe_warning": "We keep dying in here. I'll finish this run, because I don't walk away from patients, but then I'm going back to my road for a while.",
+        "wipe_leave": "I've stayed until the end, as I said. Now I'm going back to the Sepulcher. Come and find me when you're ready to be careful.",
+        "zone_warning": "I'm going to say this plainly. Everything out here is beyond us, and I can't heal fast enough to keep up with it.",
+        "zone_leave": "I'm stopping here. I said it plainly and you heard me. I'll be at the Sepulcher.",
+        "gear_refuse": "No, I'll keep that. I don't know you well enough yet.",
+        "gear_taken": "You can take it. I've worked a night shift with half the equipment I needed, and I'll manage.",
+        "gear_short": "I'm still missing that piece. I'm noting it, the same as I note everything.",
+        "gear_upgrade": "That's well made. Thank you. I'll look after it.",
+        "back": "I'm back, and the road's quiet for once. Tell me what's been happening while I get my things.",
+        "send_word": "Marisol has sent word from the Sepulcher. The road's quiet and she's ready to come out.",
+        "walkout_talk": "I left angry. I'm going to tell you why, calmly, and then I'm going to listen while you tell me your side. Please sit down.",
+        "neglect": "It's been a long time. I kept working, as you'd expect. I'm glad you came back.",
+        "asked_to_stay": "All right, one more, and then the road needs me.",
+        "on_break": "Marisol is back on the forest road out of the Sepulcher. Come back after you've done a few more jobs.",
+        "quest_abandoned": "Somebody's waiting for us to come back, and we're not going to. I don't like that at all."
       }
     },
     "ryan_warlock": {
