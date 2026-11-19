@@ -97,17 +97,22 @@ def main():
         m.level = ally.level
         eng = engine_for(c, ally, m)
         ab.use(c, ally, party=[c, ally], free=True)
-        ally.current_health = ally.health
-        c.current_health = int(c.health * 0.3)
-        before, foe = c.current_health, m.current_health
         attack = [a for a in ally.ability_book.get_all_abilities()
                   if a.effect_type == "damage" and a.target_type == "enemy"][0]
-        attack.is_learned, attack.turns_remaining = True, 0
-        for attr in ("current_mana", "current_energy", "current_rage", "current_focus"):
-            if hasattr(ally, attr):
-                setattr(ally, attr, 10 ** 5)
-        eng.execute_ability(ally, attack.ability_id, m)
-        dealt, healed = foe - m.current_health, c.current_health - before
+        # Even level to level a swing can still miss, be dodged or parried (about one in twelve), and a
+        # miss heals nobody, so swing until one lands and measure that one.
+        for _try in range(12):
+            ally.current_health = ally.health
+            c.current_health = int(c.health * 0.3)
+            before, foe = c.current_health, m.current_health
+            attack.is_learned, attack.turns_remaining = True, 0
+            for attr in ("current_mana", "current_energy", "current_rage", "current_focus"):
+                if hasattr(ally, attr):
+                    setattr(ally, attr, 10 ** 5)
+            eng.execute_ability(ally, attack.ability_id, m)
+            dealt, healed = foe - m.current_health, c.current_health - before
+            if dealt > 0:
+                break
         check(dealt > 0 and abs(healed - dealt * 0.2) <= 2,
               f"She Taught Four Women: Dan dealt {dealt}, the worst-hurt was healed {healed}, expected 20%")
         ally.clear_combat_effects()

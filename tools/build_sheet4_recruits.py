@@ -144,7 +144,7 @@ KITS = {
                          healing_done=10, max_health_pct=5), [
         A("elie_bloodmage", "Find the Vein", "'blood listens to him now'",
           "live: heals_pct_max and requires_target_below_pct", "heal", "ally", 12, 0, 50,
-          "Heals an ally below 25% health for 50% of their maximum health.",
+          "Heals an ally below 25% health for at least 50% of their maximum health, more as Elie grows.",
           heals_pct_max=50, requires_target_below_pct=25),
         A("elie_bloodmage", "A Clean Draw", "'He heals with it'",
           "live: dispel and returns_dispelled_damage", "dispel", "ally", 12, 0, 0,

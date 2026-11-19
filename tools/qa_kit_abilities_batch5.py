@@ -18,7 +18,7 @@ Already live, note corrected:
 Given the mechanic they describe:
   Dan Okafor      Shift Change                  Dan and the ally trade rows for the fight
   Sondre Haugen   Something He Had Not Asked For  Sondre is stunned for his next turn
-  Hana Tamihana   She's Pulled a Lot of People Out  only under 25%, and heals exactly 60% of maximum
+  Hana Tamihana   She's Pulled a Lot of People Out  only under 25%, and heals at least 60% of maximum
   Diego Salazar   Everybody Learned to Keep Working in the Dark  cannot be controlled, costs -30%
 
 Text corrected to what happens: Marco *A Formality, Arrived Late*, Berat *Small Careful Work*.
@@ -233,7 +233,7 @@ def main():
         check(c.get_status_stat_mod("all_ability_cost_pct") in (0.3, 30), "Working in the Dark: no cost reduction")
         c.clear_combat_effects()
 
-    # --- Hana: only under a quarter, and exactly 60% --------------------------------------------------
+    # --- Hana: only under a quarter, and at least 60% (it has five ranks, so it grows past it) --------------------------------------------------
     c, ab = kit("Hana Tamihana", "She's Pulled a Lot of People Out")
     if ab and ally:
         ally.current_health = int(ally.health * 0.6)
@@ -244,8 +244,8 @@ def main():
         ab.turns_remaining = 0
         ok, msg = ab.use(c, ally, party=[c, ally], free=True)
         check(ok, f"She's Pulled a Lot of People Out refused a dying ally ({msg})")
-        check(abs((ally.current_health - start) - ally.health * 0.6) <= 2,
-              f"She's Pulled a Lot of People Out healed {ally.current_health - start}; 60% of {ally.health} is {ally.health * 0.6:.0f}")
+        check(ally.current_health - start >= ally.health * 0.6 - 2,
+              f"She's Pulled a Lot of People Out healed {ally.current_health - start}; at least 60% of {ally.health} is {ally.health * 0.6:.0f}")
         ally.current_health = ally.health
 
     # --- the bug this batch found: a buff that says "for N turns" lasts N turns ------------
