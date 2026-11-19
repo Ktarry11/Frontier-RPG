@@ -52,6 +52,11 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
   Dream), under the lake (the island's stair). What's waking gets decided with the first of them.
 - The Cenarion Circle and the Wakened only reach Friendly on quests; the dungeons are the road past it.
 
+## 1e. Filling 44 to 51: Feralas and the World Tree (Kyle, 19 Nov 2026)
+- `docs/feralas_worldtree_brief.md`: Feralas 44-49 (classic L shape, largely untouched by the Integration), and a
+  home-brew World Tree off Northern Stranglethorn's coast: island 42-44, lived-on tiers 44-48, a town halfway up, two
+  sky zones at the crown (46-49, 48-51), two new factions. Names and peoples still to settle.
+
 ## 2. Banks, auction houses and mail (Kyle, 17 Nov 2026)
 - **Every bank, auction house and mailbox stands together** (Kyle: "generally we will want an auction house, a bank,
   and a mailbox close together"), using the new grand buildings (`docs/bank_auction_art_prompts.md`, sliced to
