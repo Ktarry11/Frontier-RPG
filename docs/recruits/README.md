@@ -84,9 +84,9 @@ fourth).
 | 14 | Ryan Murphy | Warlock 12 | Echo Isles | `ryan_murphy.md` | Sad | Draft 1 |
 | 15 | Hana Tamihana | Shaman 12 | Western Hillsbrad | `hana_tamihana.md` | Still unknown | Draft 1 |
 | 16 | Esteban Ruiz | Bloodmage 12 | Orgrimmar | `esteban_ruiz.md` | Happy | Draft 1 |
-| 17 | Berat Yilmaz | Tinker 12 | Brill |  |  |  |
-| 18 | Dan Okafor | Warrior 13 | Orgrimmar |  |  |  |
-| 19 | Marisol Quintero | Priest 13 | Silverpine North |  |  |  |
+| 17 | Berat Yilmaz | Tinker 12 | Brill | `berat_yilmaz.md` | Happy | Draft 1 |
+| 18 | Dan Okafor | Warrior 13 | Orgrimmar | `dan_okafor.md` | Still unknown | Draft 1 |
+| 19 | Marisol Quintero | Priest 13 | Silverpine North | `marisol_quintero.md` | Sad | Draft 1 |
 | 20 | Silas Vance | Rogue 14 | Ratchet |  |  |  |
 | 21 | Rosa Delgado | Hunter 14 | Central Barrens |  |  |  |
 | 22 | Pavlo Hryn | Knight of Xoroth 14 | Silverpine North |  |  |  |
