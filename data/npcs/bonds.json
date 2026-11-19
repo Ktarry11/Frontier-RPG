@@ -542,6 +542,270 @@
         "on_break": "Freja is back in the Valley of Trials, doing her rounds. Come back after you've done a few more jobs.",
         "quest_abandoned": "We said we'd help them and we walked off. I hate that. Somebody's still waiting for us."
       }
+    },
+    "marcus_stormbringer": {
+      "home": "Durotar",
+      "dials": {
+        "warmth": 1.2,
+        "nerve": 1.1,
+        "pride": 0.6,
+        "restless": 0.9
+      },
+      "likes": [
+        "new_ground",
+        "quest"
+      ],
+      "dislikes": [
+        "dungeon"
+      ],
+      "stages": {
+        "stranger": "I'm Marcus, and I'm a meteorologist, which here means I'm the man who tells you it's going to rain about ten minutes before it does. Sorry in advance. I'll tell you what the sky's doing whether you ask or not, and you can tell me to stop.",
+        "acquaintance": "I'm from Toronto, from Scarborough in the east end. My dad drove a city bus and my mum worked in a bank, and they both wanted a doctor. Then I watched an ice storm black out half the city when I was twelve and that was that. I chased tornadoes across the prairies in a Corolla as a student, then I spent fifteen years forecasting from a building with a window.",
+        "companion": "I landed on this coast in the middle of a dry lightning storm and the first thing I noticed was that I could feel the pressure dropping on my skin. I treated it all as fieldwork, and honestly that got me through. On Earth I could see a storm coming days out and never touch it. Here it answers when I call. I'm fine with that. I'm mostly fine with that. My sister Grace and her boys aren't on any list I've found.",
+        "friend": "My job was writing warnings, and somebody in an office deciding the warning was inconvenient. Twice it went badly. Once a flood took a trailer park my warning had named, and people died who didn't need to. I've never said that to anybody here. And now my notes say the big storm's coming to this coast in days, not weeks, and it'll hit the coast road and Razor Hill. I need the orcs to believe me, and I don't know how to make them.",
+        "sworn": "Razor Hill held, because it was ready. The camps on the coast road didn't listen, and people died there that I'd named. I got one boy out of the water, so that's one. The old shaman's got my notes now, so the next lot will know the pattern. My mum told me every Christmas my job was a waste of a good degree, the last one included. I think she was wrong. I was right early again, and this time it changed some things, and I'm learning to live with some."
+      },
+      "moments": [
+        {
+          "id": "the_trailer_park",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's just told you about the trailer park, and the storm that's coming.",
+          "options": [
+            {
+              "text": "I believe you. Tell me what you need.",
+              "trust": 12,
+              "reply": "You've no idea how long I've waited for somebody to say that first. Okay, here's the list."
+            },
+            {
+              "text": "That wasn't your fault.",
+              "trust": 2,
+              "reply": "I know that. I wrote it properly. It still feels like mine, sorry."
+            },
+            {
+              "text": "Are you sure about the storm?",
+              "trust": 0,
+              "reply": "I'm always sure. That's never been the problem."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's very calm, which is how you find out he's angry.",
+          "line": "I said that one was coming, about a minute before it came. I'm not trying to score a point, I'd just like it to help next time.",
+          "options": [
+            {
+              "text": "You did. Next time I'll listen.",
+              "trust": 8,
+              "mood": 6,
+              "reply": "Thank you. That's honestly all I ever wanted from anybody."
+            },
+            {
+              "text": "We couldn't have stopped it anyway.",
+              "trust": 0,
+              "mood": -6,
+              "reply": "We could have. Sorry, but we could have."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Sorry, but we've been doing the same thing in the same field for a while and I haven't seen a new sky in days. Can we go somewhere with a horizon I don't know?",
+        "leaving_good": "That was a great trip, and I've got a stack of new readings to write up. I'm going back to my hut in Durotar for a while. You know where to find me, just look for the weather.",
+        "leaving_bored": "I'm going home to Durotar. We keep doing the same thing, and I'd rather be watching the coast than watching the same field.",
+        "after_wipe": "Okay, that's a wipe. Let's look at what happened before we try it again, please.",
+        "wipe_warning": "We keep going down in here, and I don't like being underground at the best of times. I'll finish this run with you, but then I need some sky.",
+        "wipe_leave": "I'll walk out with you, but I'm going home after this. I need a few days on my ridge where the worst thing that happens is rain.",
+        "zone_warning": "Sorry, but everything out here is well above us. I've seen this forecast before and it ends badly. Can we go somewhere we can handle?",
+        "zone_leave": "I'm going to stop here. I warned you about that place and we kept going. I'll be in Durotar when you want me.",
+        "gear_refuse": "Sorry, I'd like to hang on to that. I don't know you well enough yet.",
+        "gear_taken": "That's fine, take it. I'll mention it when the wind picks up, though, because I'll feel it.",
+        "gear_short": "I'm still missing that piece, sorry. It's colder without it than you'd think.",
+        "gear_upgrade": "Oh, that's very good, thank you. I'll write down where it came from, I write down everything.",
+        "back": "I'm back, and the front's cleared on the coast, so I'm all yours. What's the plan?",
+        "send_word": "Marcus has sent word from Durotar. The coast is calm for now and he's ready to come out.",
+        "walkout_talk": "I left because I was angry, and I don't get angry much, so I'd like you to hear why. Can we sit down? I'll be calm, I promise.",
+        "neglect": "There you are. I was starting to think you'd found somebody with a better forecast. You haven't, by the way.",
+        "asked_to_stay": "All right, one more trip, then I really need to check my instruments.",
+        "on_break": "Marcus is back on his ridge in Durotar, writing up his notes. Come back after you've done a few more jobs."
+      }
+    },
+    "sebastian_bloodmage": {
+      "home": "Western Tirisfal",
+      "dials": {
+        "warmth": 1.5,
+        "nerve": 1.2,
+        "pride": 0.5,
+        "restless": 0.8
+      },
+      "likes": [
+        "full_party",
+        "beast"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Sebastián, and you look hungry, my friend. I cook, and I fight, and I'm happy to do either. Sit down, eat something, and then we'll talk about where we're going.",
+        "acquaintance": "I'm from Palermo, in Buenos Aires. My grandmother Nélida ran the grill at our steakhouse for thirty years, and when I was twenty-two she gave me the tongs. Twelve years, forty tables and a wood fire. Every Sunday I cooked asado for the whole family, twenty of us, more. And I support River Plate, like my father and his father, so don't say anything about Boca.",
+        "companion": "I was lighting the grill for Saturday lunch when it happened, and I landed in Tirisfal with my grandmother's recipe in my wallet. The Forsaken don't eat much. That was the hardest thing. There was a man, Tomás, a sommelier. He left for a job in Mendoza a year before all this, and I said it was the wine region's fault. I still think about him sometimes, and it doesn't make me sad any more.",
+        "friend": "Twenty people, my friend, and I haven't found one of them on a list. Not my parents, not my brothers, not my sister, not my grandmother. I don't talk about it, I talk about food. But somebody said there's a camp of Argentines out in the Tanaris desert, and a family from Buenos Aires runs a grill there. I think it's somebody I know. I'd like you to come.",
+        "sworn": "They were strangers. Nice people, from Buenos Aires, but they'd never heard of us, and they'd seen the lists from three other camps. So I stopped waiting. The grill's open in Brill now, and on the first Sunday I cooked for twenty, the party and some farmers and three Forsaken who come every week. And then I sat down at my own table, for the first time in my life. I keep a chair empty for my family, every Sunday."
+      },
+      "moments": [
+        {
+          "id": "hire",
+          "stage": "stranger",
+          "when": "hire",
+          "prompt": "He won't come anywhere until you've eaten something from his grill.",
+          "options": [
+            {
+              "text": "All right, give me a plate.",
+              "trust": 6,
+              "joins": true,
+              "reply": "Bueno, sit down and eat, and then I'll get my things. Take your time."
+            },
+            {
+              "text": "We haven't really got time to eat.",
+              "trust": 0,
+              "joins": false,
+              "reply": "Nobody leaves my fire hungry, my friend. Come back when you've got time to eat."
+            }
+          ]
+        },
+        {
+          "id": "the_lists",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's just told you he hasn't found any of his family.",
+          "options": [
+            {
+              "text": "Then let's go to Tanaris and look.",
+              "trust": 10,
+              "reply": "Yes, my friend. I'll pack food for the road, a lot of food."
+            },
+            {
+              "text": "Twenty people is a lot to lose.",
+              "trust": 6,
+              "reply": "It is a lot. Let's not talk about it while the meat's on, okay?"
+            },
+            {
+              "text": "Maybe it's better not to know.",
+              "trust": 0,
+              "reply": "No, it's worse not to know. I just cook so I don't feel it."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "My friend, we've eaten the same thing for days because we keep killing the same thing. Can we go somewhere with new food in it, please?",
+        "leaving_good": "That was a wonderful trip and you all ate properly. I'm going back to my fire in Tirisfal for a while. Come and see me, I'll feed you.",
+        "leaving_bored": "I'm going back to my fire. We keep doing the same thing, and I'm cooking the same thing, and I'm bored of both.",
+        "after_wipe": "Okay, nobody's hurt for good. Come on, everybody eat something before we go again.",
+        "wipe_warning": "We keep dying in here, che, and I'm running out of food to cheer you all up with. One more run and then I need a break.",
+        "wipe_leave": "I'll walk out with you, but I'm going home to my fire for a while. Come and eat with me when you've stopped dying.",
+        "zone_warning": "My friend, everything out here wants to eat us, and that's backwards. Can we go somewhere we can handle?",
+        "zone_leave": "I'm stopping here. It's too much out there for now. I'll be at my fire in Western Tirisfal, and I'll keep a plate warm.",
+        "gear_refuse": "Ah, no, that's mine, my friend. Ask me again when we've eaten together a few more times.",
+        "gear_taken": "Take it, take it. You need it more than me, and I've got an apron.",
+        "gear_short": "I'm still missing that piece, my friend. I'm not complaining. Well, I'm complaining a little.",
+        "gear_upgrade": "Oh, look at this! Thank you, my friend. Tonight I'm cooking you something special.",
+        "back": "I'm back, and I've brought food. Who's hungry, then? Of course everybody's hungry.",
+        "send_word": "Sebastián has sent word from Western Tirisfal. The fire's lit, the farmer's calmer, and he's ready to come out.",
+        "walkout_talk": "I left angry, and that's not me, so I want to talk about it properly. Sit down, I'll make you something, and we'll talk while it cooks.",
+        "neglect": "There you are! I thought you'd found somebody who cooks better. Nobody cooks better, so I knew you'd come back.",
+        "asked_to_stay": "Bueno, one more trip. But you're eating properly this time.",
+        "on_break": "Sebastián is back at his fire pit in Western Tirisfal. Come back after you've done a few more jobs.",
+        "quest_abandoned": "We just walked away from that, and somebody's still waiting. That's like leaving a steak on the grill, my friend."
+      }
+    },
+    "sondre_stormbringer": {
+      "home": "the high ground by the Scarlet Crypt",
+      "dials": {
+        "warmth": 0.8,
+        "nerve": 0.7,
+        "pride": 0.4,
+        "restless": 1.0
+      },
+      "likes": [
+        "new_ground",
+        "quest"
+      ],
+      "dislikes": [
+        "full_party"
+      ],
+      "stages": {
+        "stranger": "I'm Sondre, and I'm a Stormbringer, which you'll see, and I'd ask you to stand a little way away from me when I'm working. If I say get down, please get down first and ask me why afterwards.",
+        "acquaintance": "I'm from Bergen, in Norway, where it rains most days and nobody minds. My father's a ferry captain and my mother's a dentist, and my little sister Ingrid is braver than me. I taught sailing to teenagers on the Hardangerfjord every summer and studied marine biology in the winters. They listened to me because I never shouted and I was never frightened.",
+        "companion": "There was a barn, in the second year. The wind did something I didn't ask it to and the barn went over with people in it. Nobody was killed. A girl of about fifteen broke her leg and I carried her out myself. I keep my distance from people because of it, and I practise alone where there's nothing to break. I know that's not the best way to handle it.",
+        "friend": "There was a boy that last summer, Jonas, from the café by the boathouse. It wasn't serious yet. We'd talked about him coming to Bergen in the autumn. I don't know where he is. A trader's told me there's a settlement of Norwegians on a cold coast up north, and some of them are from Bergen. I'd like to go, and I'd like you to come, because I don't trust myself on that road alone.",
+        "sworn": "They keep a book up there, of everyone from Bergen, and the ones who didn't make it are in the back. My parents and Ingrid are in the back. They landed together, somewhere bad, in the first week. I can say they were, now, and not they are. But I held a storm off a whole caravan with you standing right beside me, and nobody got hurt. I'm not frightened of the wind any more. I think I can manage a barn."
+      },
+      "moments": [
+        {
+          "id": "hire",
+          "stage": "stranger",
+          "when": "hire",
+          "prompt": "He asks if you'll do what he says when he tells you to get down.",
+          "options": [
+            {
+              "text": "If you say get down, I'll get down.",
+              "trust": 6,
+              "joins": true,
+              "reply": "Thank you. Then I'll come, and I'll try not to need to say it."
+            },
+            {
+              "text": "We'll see when it happens.",
+              "trust": 0,
+              "joins": false,
+              "reply": "Then I'd better stay here. It's safer for everybody. Come back another day."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's gone very quiet and he won't come near anyone.",
+          "line": "Was that me? Please tell me honestly if any of that was me.",
+          "options": [
+            {
+              "text": "It wasn't you. Come and sit with us.",
+              "trust": 10,
+              "mood": 6,
+              "reply": "All right, I'll sit, thank you."
+            },
+            {
+              "text": "Just be more careful.",
+              "trust": 0,
+              "mood": -8,
+              "reply": "I'm always careful. That's the whole problem, really."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been out here doing the same thing for a long time, and I'm not learning anything. I'd like to go somewhere new, or I'd like to go home and practise.",
+        "leaving_good": "That was good, and I didn't hurt anybody. I'm going back up to the high ground for a while to practise. Come and find me when you want me.",
+        "leaving_bored": "I'm going back to the high ground. We're not doing anything out here that needs me, and I'd rather practise where it's empty.",
+        "after_wipe": "Is everybody all right? I'd like to hear everybody say it, please.",
+        "wipe_warning": "We keep dying in here, and I can't stand watching it. I'll finish this run with you, but I'm leaving at the door after that.",
+        "wipe_leave": "I'm sorry, I can't go back in there. I'm going up to the high ground. I'll be there when I'm ready.",
+        "zone_warning": "This place is too big for us. I'm frightened of what I'll do if I've got to use everything I've got to keep us alive out here. Can we go back?",
+        "zone_leave": "I'm going to stop here. I'm sorry, it's too dangerous, and I'm more dangerous when I'm frightened. I'll be on the high ground by the Crypt.",
+        "gear_refuse": "I'd like to keep that, if it's all right. I don't know you well enough yet.",
+        "gear_taken": "That's fine, you can have it. I'll manage, I'm used to the cold.",
+        "gear_short": "I'm still missing that piece. I don't want to make a fuss, but I thought you should know.",
+        "gear_upgrade": "Oh, thank you. That's very kind, and it's very good work.",
+        "back": "I'm back, and I've been practising, and I think it's going better. Where are we going?",
+        "send_word": "Sondre has sent word from the high ground by the Scarlet Crypt. He's ready to come out again.",
+        "walkout_talk": "I left, and I'm sorry for how I did it. I was frightened, and I'm not good at saying that. Can I tell you what happened from where I was standing?",
+        "neglect": "Oh, hello, it's been a while. I made the fire every morning anyway, in case.",
+        "asked_to_stay": "All right, one more trip. I'd like that, actually.",
+        "on_break": "Sondre has gone back to the high ground by the Scarlet Crypt to practise. Come back after you've done a few more jobs."
+      }
     }
   },
   "pairs": [

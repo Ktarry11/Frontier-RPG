@@ -1,0 +1,80 @@
+{
+  "recruit_text": {
+    "backstory": "Sebastián ran the grill at a steakhouse in Palermo, in Buenos Aires, for twelve years, the one his grandmother ran before him. He knows meat, blood and fire better than anyone, and he's cheerful about all three. He's sociable, a born host and completely unbothered by gore, and he'll feed anybody who sits down. He landed in Tirisfal, among the Forsaken, and they find his blood magic deeply unsettling, mostly because he's so happy about it.",
+    "before": "A parrilla with forty tables, a football club he'd die for and a grandmother who ran the kitchen before him.\n\nEvery Sunday he cooked asado for his whole family, twenty people, and he didn't sit down at his own table once. He's never noticed.",
+    "forward": "A grill in Brill that the living and the dead will both come to.\n\nHe's working on a recipe the Forsaken can actually taste, and he thinks he's close."
+  },
+  "bond": {
+    "home": "Western Tirisfal",
+    "dials": {"warmth": 1.5, "nerve": 1.2, "pride": 0.5, "restless": 0.8},
+    "likes": ["full_party", "beast"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Sebastián, and you look hungry, my friend. I cook, and I fight, and I'm happy to do either. Sit down, eat something, and then we'll talk about where we're going.",
+      "acquaintance": "I'm from Palermo, in Buenos Aires. My grandmother Nélida ran the grill at our steakhouse for thirty years, and when I was twenty-two she gave me the tongs. Twelve years, forty tables and a wood fire. Every Sunday I cooked asado for the whole family, twenty of us, more. And I support River Plate, like my father and his father, so don't say anything about Boca.",
+      "companion": "I was lighting the grill for Saturday lunch when it happened, and I landed in Tirisfal with my grandmother's recipe in my wallet. The Forsaken don't eat much. That was the hardest thing. There was a man, Tomás, a sommelier. He left for a job in Mendoza a year before all this, and I said it was the wine region's fault. I still think about him sometimes, and it doesn't make me sad any more.",
+      "friend": "Twenty people, my friend, and I haven't found one of them on a list. Not my parents, not my brothers, not my sister, not my grandmother. I don't talk about it, I talk about food. But somebody said there's a camp of Argentines out in the Tanaris desert, and a family from Buenos Aires runs a grill there. I think it's somebody I know. I'd like you to come.",
+      "sworn": "They were strangers. Nice people, from Buenos Aires, but they'd never heard of us, and they'd seen the lists from three other camps. So I stopped waiting. The grill's open in Brill now, and on the first Sunday I cooked for twenty, the party and some farmers and three Forsaken who come every week. And then I sat down at my own table, for the first time in my life. I keep a chair empty for my family, every Sunday."
+    },
+    "moments": [
+      {"id": "hire", "stage": "stranger", "when": "hire",
+       "prompt": "He won't come anywhere until you've eaten something from his grill.",
+       "options": [
+         {"text": "All right, give me a plate.", "trust": 6, "joins": true,
+          "reply": "Bueno, sit down and eat, and then I'll get my things. Take your time."},
+         {"text": "We haven't really got time to eat.", "trust": 0, "joins": false,
+          "reply": "Nobody leaves my fire hungry, my friend. Come back when you've got time to eat."}
+       ]},
+      {"id": "the_lists", "stage": "friend", "when": "talk",
+       "prompt": "He's just told you he hasn't found any of his family.",
+       "options": [
+         {"text": "Then let's go to Tanaris and look.", "trust": 10,
+          "reply": "Yes, my friend. I'll pack food for the road, a lot of food."},
+         {"text": "Twenty people is a lot to lose.", "trust": 6,
+          "reply": "It is a lot. Let's not talk about it while the meat's on, okay?"},
+         {"text": "Maybe it's better not to know.", "trust": 0,
+          "reply": "No, it's worse not to know. I just cook so I don't feel it."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "My friend, we've eaten the same thing for days because we keep killing the same thing. Can we go somewhere with new food in it, please?",
+      "leaving_good": "That was a wonderful trip and you all ate properly. I'm going back to my fire in Tirisfal for a while. Come and see me, I'll feed you.",
+      "leaving_bored": "I'm going back to my fire. We keep doing the same thing, and I'm cooking the same thing, and I'm bored of both.",
+      "after_wipe": "Okay, nobody's hurt for good. Come on, everybody eat something before we go again.",
+      "wipe_warning": "We keep dying in here, che, and I'm running out of food to cheer you all up with. One more run and then I need a break.",
+      "wipe_leave": "I'll walk out with you, but I'm going home to my fire for a while. Come and eat with me when you've stopped dying.",
+      "zone_warning": "My friend, everything out here wants to eat us, and that's backwards. Can we go somewhere we can handle?",
+      "zone_leave": "I'm stopping here. It's too much out there for now. I'll be at my fire in Western Tirisfal, and I'll keep a plate warm.",
+      "gear_refuse": "Ah, no, that's mine, my friend. Ask me again when we've eaten together a few more times.",
+      "gear_taken": "Take it, take it. You need it more than me, and I've got an apron.",
+      "gear_short": "I'm still missing that piece, my friend. I'm not complaining. Well, I'm complaining a little.",
+      "gear_upgrade": "Oh, look at this! Thank you, my friend. Tonight I'm cooking you something special.",
+      "back": "I'm back, and I've brought food. Who's hungry, then? Of course everybody's hungry.",
+      "send_word": "Sebastián has sent word from Western Tirisfal. The fire's lit, the farmer's calmer, and he's ready to come out.",
+      "walkout_talk": "I left angry, and that's not me, so I want to talk about it properly. Sit down, I'll make you something, and we'll talk while it cooks.",
+      "neglect": "There you are! I thought you'd found somebody who cooks better. Nobody cooks better, so I knew you'd come back.",
+      "asked_to_stay": "Bueno, one more trip. But you're eating properly this time.",
+      "on_break": "Sebastián is back at his fire pit in Western Tirisfal. Come back after you've done a few more jobs.",
+      "quest_abandoned": "We just walked away from that, and somebody's still waiting. That's like leaving a steak on the grill, my friend."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {"text": "Let's find whoever cooks here and see what they're doing wrong.", "kind": "open"},
+      {"text": "Buenos Aires eats dinner at ten at night and argues about football till two. You'd love it.", "kind": "open", "topic": "cities"}
+    ],
+    "boss_down": [
+      {"text": "That was a big one. Is any of it edible? I'm only asking, my friend.", "kind": "reply"}
+    ],
+    "dungeon_clear": [
+      {"text": "Everybody out, everybody alive, everybody eats tonight, and I'm cooking.", "kind": "open"},
+      {"text": "That place smelled terrible and I loved it a little bit.", "kind": "reply"}
+    ],
+    "close_call": [
+      {"text": "Too close, my friend, too close. You need to eat something and sit down.", "kind": "open"}
+    ],
+    "zone_arrive": [
+      {"text": "New place, new animals, new food. I'm already thinking about a marinade.", "kind": "open"}
+    ]
+  }
+}

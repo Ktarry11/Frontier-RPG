@@ -268,7 +268,11 @@
     "marcus_stormbringer": {
       "zone_arrive": [
         {
-          "text": "Pressure's dropping. Give it two hours.",
+          "text": "Pressure's dropping out here. Give it two hours and you'll want a hood.",
+          "kind": "open"
+        },
+        {
+          "text": "Big sky here. I'm going to be up half the night looking at it.",
           "kind": "open"
         }
       ],
@@ -276,6 +280,11 @@
         {
           "text": "Every roof here's pitched the same way. That tells you where the wind comes from.",
           "kind": "reply"
+        },
+        {
+          "text": "Toronto has winters that'd kill you and summers that'd melt you, and I miss both, honestly.",
+          "kind": "open",
+          "topic": "cities"
         }
       ],
       "boss_down": [
@@ -286,8 +295,14 @@
       ],
       "dungeon_clear": [
         {
-          "text": "Pressure dropped in there. I felt it in my teeth.",
+          "text": "Pressure dropped in there and I felt it in my teeth. Can we go outside now, please?",
           "kind": "reply"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "Sorry, I saw that coming and said it too quietly. I'll say it louder next time.",
+          "kind": "open"
         }
       ]
     },
@@ -1322,6 +1337,84 @@
         {
           "text": "There'll be farms out here somewhere, and somebody pregnant who needs looking at.",
           "kind": "open"
+        }
+      ]
+    },
+    "sebastian_bloodmage": {
+      "town_arrive": [
+        {
+          "text": "Let's find whoever cooks here and see what they're doing wrong.",
+          "kind": "open"
+        },
+        {
+          "text": "Buenos Aires eats dinner at ten at night and argues about football till two. You'd love it.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ],
+      "boss_down": [
+        {
+          "text": "That was a big one. Is any of it edible? I'm only asking, my friend.",
+          "kind": "reply"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Everybody out, everybody alive, everybody eats tonight, and I'm cooking.",
+          "kind": "open"
+        },
+        {
+          "text": "That place smelled terrible and I loved it a little bit.",
+          "kind": "reply"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "Too close, my friend, too close. You need to eat something and sit down.",
+          "kind": "open"
+        }
+      ],
+      "zone_arrive": [
+        {
+          "text": "New place, new animals, new food. I'm already thinking about a marinade.",
+          "kind": "open"
+        }
+      ]
+    },
+    "sondre_stormbringer": {
+      "zone_arrive": [
+        {
+          "text": "Weather's coming in from the west, about an hour out. We've got time, but not much.",
+          "kind": "open"
+        },
+        {
+          "text": "Good open ground here. I can breathe out here.",
+          "kind": "open"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "Please stand further from me next time. I nearly couldn't stop it.",
+          "kind": "open"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "I held back the whole way in there. Small rooms frighten me more than the things in them.",
+          "kind": "reply"
+        }
+      ],
+      "town_arrive": [
+        {
+          "text": "Bergen's got seven hills, a fish market and it rains every day. My family's there, I think.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ],
+      "boss_down": [
+        {
+          "text": "Is everyone all right? I'd like to hear it, please.",
+          "kind": "reply"
         }
       ]
     }

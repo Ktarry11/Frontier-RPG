@@ -1,0 +1,75 @@
+{
+  "bond": {
+    "home": "Durotar",
+    "dials": {"warmth": 1.2, "nerve": 1.1, "pride": 0.6, "restless": 0.9},
+    "likes": ["new_ground", "quest"],
+    "dislikes": ["dungeon"],
+    "stages": {
+      "stranger": "I'm Marcus, and I'm a meteorologist, which here means I'm the man who tells you it's going to rain about ten minutes before it does. Sorry in advance. I'll tell you what the sky's doing whether you ask or not, and you can tell me to stop.",
+      "acquaintance": "I'm from Toronto, from Scarborough in the east end. My dad drove a city bus and my mum worked in a bank, and they both wanted a doctor. Then I watched an ice storm black out half the city when I was twelve and that was that. I chased tornadoes across the prairies in a Corolla as a student, then I spent fifteen years forecasting from a building with a window.",
+      "companion": "I landed on this coast in the middle of a dry lightning storm and the first thing I noticed was that I could feel the pressure dropping on my skin. I treated it all as fieldwork, and honestly that got me through. On Earth I could see a storm coming days out and never touch it. Here it answers when I call. I'm fine with that. I'm mostly fine with that. My sister Grace and her boys aren't on any list I've found.",
+      "friend": "My job was writing warnings, and somebody in an office deciding the warning was inconvenient. Twice it went badly. Once a flood took a trailer park my warning had named, and people died who didn't need to. I've never said that to anybody here. And now my notes say the big storm's coming to this coast in days, not weeks, and it'll hit the coast road and Razor Hill. I need the orcs to believe me, and I don't know how to make them.",
+      "sworn": "Razor Hill held, because it was ready. The camps on the coast road didn't listen, and people died there that I'd named. I got one boy out of the water, so that's one. The old shaman's got my notes now, so the next lot will know the pattern. My mum told me every Christmas my job was a waste of a good degree, the last one included. I think she was wrong. I was right early again, and this time it changed some things, and I'm learning to live with some."
+    },
+    "moments": [
+      {"id": "the_trailer_park", "stage": "friend", "when": "talk",
+       "prompt": "He's just told you about the trailer park, and the storm that's coming.",
+       "options": [
+         {"text": "I believe you. Tell me what you need.", "trust": 12,
+          "reply": "You've no idea how long I've waited for somebody to say that first. Okay, here's the list."},
+         {"text": "That wasn't your fault.", "trust": 2,
+          "reply": "I know that. I wrote it properly. It still feels like mine, sorry."},
+         {"text": "Are you sure about the storm?", "trust": 0,
+          "reply": "I'm always sure. That's never been the problem."}
+       ]},
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe he's very calm, which is how you find out he's angry.",
+       "line": "I said that one was coming, about a minute before it came. I'm not trying to score a point, I'd just like it to help next time.",
+       "options": [
+         {"text": "You did. Next time I'll listen.", "trust": 8, "mood": 6,
+          "reply": "Thank you. That's honestly all I ever wanted from anybody."},
+         {"text": "We couldn't have stopped it anyway.", "trust": 0, "mood": -6,
+          "reply": "We could have. Sorry, but we could have."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "Sorry, but we've been doing the same thing in the same field for a while and I haven't seen a new sky in days. Can we go somewhere with a horizon I don't know?",
+      "leaving_good": "That was a great trip, and I've got a stack of new readings to write up. I'm going back to my hut in Durotar for a while. You know where to find me, just look for the weather.",
+      "leaving_bored": "I'm going home to Durotar. We keep doing the same thing, and I'd rather be watching the coast than watching the same field.",
+      "after_wipe": "Okay, that's a wipe. Let's look at what happened before we try it again, please.",
+      "wipe_warning": "We keep going down in here, and I don't like being underground at the best of times. I'll finish this run with you, but then I need some sky.",
+      "wipe_leave": "I'll walk out with you, but I'm going home after this. I need a few days on my ridge where the worst thing that happens is rain.",
+      "zone_warning": "Sorry, but everything out here is well above us. I've seen this forecast before and it ends badly. Can we go somewhere we can handle?",
+      "zone_leave": "I'm going to stop here. I warned you about that place and we kept going. I'll be in Durotar when you want me.",
+      "gear_refuse": "Sorry, I'd like to hang on to that. I don't know you well enough yet.",
+      "gear_taken": "That's fine, take it. I'll mention it when the wind picks up, though, because I'll feel it.",
+      "gear_short": "I'm still missing that piece, sorry. It's colder without it than you'd think.",
+      "gear_upgrade": "Oh, that's very good, thank you. I'll write down where it came from, I write down everything.",
+      "back": "I'm back, and the front's cleared on the coast, so I'm all yours. What's the plan?",
+      "send_word": "Marcus has sent word from Durotar. The coast is calm for now and he's ready to come out.",
+      "walkout_talk": "I left because I was angry, and I don't get angry much, so I'd like you to hear why. Can we sit down? I'll be calm, I promise.",
+      "neglect": "There you are. I was starting to think you'd found somebody with a better forecast. You haven't, by the way.",
+      "asked_to_stay": "All right, one more trip, then I really need to check my instruments.",
+      "on_break": "Marcus is back on his ridge in Durotar, writing up his notes. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "zone_arrive": [
+      {"text": "Pressure's dropping out here. Give it two hours and you'll want a hood.", "kind": "open"},
+      {"text": "Big sky here. I'm going to be up half the night looking at it.", "kind": "open"}
+    ],
+    "town_arrive": [
+      {"text": "Every roof here's pitched the same way. That tells you where the wind comes from.", "kind": "reply"},
+      {"text": "Toronto has winters that'd kill you and summers that'd melt you, and I miss both, honestly.", "kind": "open", "topic": "cities"}
+    ],
+    "boss_down": [
+      {"text": "Did you feel the air go dead right before it dropped? I want that written down.", "kind": "open"}
+    ],
+    "dungeon_clear": [
+      {"text": "Pressure dropped in there and I felt it in my teeth. Can we go outside now, please?", "kind": "reply"}
+    ],
+    "close_call": [
+      {"text": "Sorry, I saw that coming and said it too quietly. I'll say it louder next time.", "kind": "open"}
+    ]
+  }
+}

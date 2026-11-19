@@ -1,0 +1,80 @@
+{
+  "recruit_text": {
+    "greeting": "If I say get down, you get down and you ask me why afterwards. The asking is the part that kills people, and I've seen it happen.",
+    "backstory": "He taught sailing to teenagers on the Hardangerfjord for four summers and expected to do a fifth. He's good with weather and good with boats, and he was twenty-four and had never had anything bad happen to him. Then the sky here started answering when he spoke to it, and the first time it went wrong it went very wrong, and he's been frightened of himself ever since. He's polite about it, but you can still see it.",
+    "before": "A dinghy, a whistle, a clipboard, and a season that ended in August.\n\nHis parents and his sister Ingrid are in Bergen, and he has no idea if that means anything now. He talks about them in the present tense, every time, on purpose, like a man holding a door open with his foot.",
+    "adjustment": "He'll tell you the first year was fine. Anybody who was there will tell you it wasn't.\n\nOne afternoon in the second year the wind did something he hadn't asked for, and a barn went over with people inside. Nobody was killed. A girl of about fifteen broke her leg, and he carried her out himself. He hasn't been the same since, and he can't explain why, when nobody died.",
+    "forward": "Control, and not power. He's got plenty of power, and that's the whole problem.\n\nHe's started going out alone to practise where there's nothing to break. The people who care about him think that's the worst possible way to handle it, and they're probably right.",
+    "now": "The high open ground near the Scarlet Crypt, where he can see weather coming for an hour before it arrives.\n\nHe sleeps badly. He's first awake every morning and he's made the fire before anybody else is up, and he offers that as proof he's fine."
+  },
+  "bond": {
+    "home": "the high ground by the Scarlet Crypt",
+    "dials": {"warmth": 0.8, "nerve": 0.7, "pride": 0.4, "restless": 1.0},
+    "likes": ["new_ground", "quest"],
+    "dislikes": ["full_party"],
+    "stages": {
+      "stranger": "I'm Sondre, and I'm a Stormbringer, which you'll see, and I'd ask you to stand a little way away from me when I'm working. If I say get down, please get down first and ask me why afterwards.",
+      "acquaintance": "I'm from Bergen, in Norway, where it rains most days and nobody minds. My father's a ferry captain and my mother's a dentist, and my little sister Ingrid is braver than me. I taught sailing to teenagers on the Hardangerfjord every summer and studied marine biology in the winters. They listened to me because I never shouted and I was never frightened.",
+      "companion": "There was a barn, in the second year. The wind did something I didn't ask it to and the barn went over with people in it. Nobody was killed. A girl of about fifteen broke her leg and I carried her out myself. I keep my distance from people because of it, and I practise alone where there's nothing to break. I know that's not the best way to handle it.",
+      "friend": "There was a boy that last summer, Jonas, from the café by the boathouse. It wasn't serious yet. We'd talked about him coming to Bergen in the autumn. I don't know where he is. A trader's told me there's a settlement of Norwegians on a cold coast up north, and some of them are from Bergen. I'd like to go, and I'd like you to come, because I don't trust myself on that road alone.",
+      "sworn": "They keep a book up there, of everyone from Bergen, and the ones who didn't make it are in the back. My parents and Ingrid are in the back. They landed together, somewhere bad, in the first week. I can say they were, now, and not they are. But I held a storm off a whole caravan with you standing right beside me, and nobody got hurt. I'm not frightened of the wind any more. I think I can manage a barn."
+    },
+    "moments": [
+      {"id": "hire", "stage": "stranger", "when": "hire",
+       "prompt": "He asks if you'll do what he says when he tells you to get down.",
+       "options": [
+         {"text": "If you say get down, I'll get down.", "trust": 6, "joins": true,
+          "reply": "Thank you. Then I'll come, and I'll try not to need to say it."},
+         {"text": "We'll see when it happens.", "trust": 0, "joins": false,
+          "reply": "Then I'd better stay here. It's safer for everybody. Come back another day."}
+       ]},
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe he's gone very quiet and he won't come near anyone.",
+       "line": "Was that me? Please tell me honestly if any of that was me.",
+       "options": [
+         {"text": "It wasn't you. Come and sit with us.", "trust": 10, "mood": 6,
+          "reply": "All right, I'll sit, thank you."},
+         {"text": "Just be more careful.", "trust": 0, "mood": -8,
+          "reply": "I'm always careful. That's the whole problem, really."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've been out here doing the same thing for a long time, and I'm not learning anything. I'd like to go somewhere new, or I'd like to go home and practise.",
+      "leaving_good": "That was good, and I didn't hurt anybody. I'm going back up to the high ground for a while to practise. Come and find me when you want me.",
+      "leaving_bored": "I'm going back to the high ground. We're not doing anything out here that needs me, and I'd rather practise where it's empty.",
+      "after_wipe": "Is everybody all right? I'd like to hear everybody say it, please.",
+      "wipe_warning": "We keep dying in here, and I can't stand watching it. I'll finish this run with you, but I'm leaving at the door after that.",
+      "wipe_leave": "I'm sorry, I can't go back in there. I'm going up to the high ground. I'll be there when I'm ready.",
+      "zone_warning": "This place is too big for us. I'm frightened of what I'll do if I've got to use everything I've got to keep us alive out here. Can we go back?",
+      "zone_leave": "I'm going to stop here. I'm sorry, it's too dangerous, and I'm more dangerous when I'm frightened. I'll be on the high ground by the Crypt.",
+      "gear_refuse": "I'd like to keep that, if it's all right. I don't know you well enough yet.",
+      "gear_taken": "That's fine, you can have it. I'll manage, I'm used to the cold.",
+      "gear_short": "I'm still missing that piece. I don't want to make a fuss, but I thought you should know.",
+      "gear_upgrade": "Oh, thank you. That's very kind, and it's very good work.",
+      "back": "I'm back, and I've been practising, and I think it's going better. Where are we going?",
+      "send_word": "Sondre has sent word from the high ground by the Scarlet Crypt. He's ready to come out again.",
+      "walkout_talk": "I left, and I'm sorry for how I did it. I was frightened, and I'm not good at saying that. Can I tell you what happened from where I was standing?",
+      "neglect": "Oh, hello, it's been a while. I made the fire every morning anyway, in case.",
+      "asked_to_stay": "All right, one more trip. I'd like that, actually.",
+      "on_break": "Sondre has gone back to the high ground by the Scarlet Crypt to practise. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "zone_arrive": [
+      {"text": "Weather's coming in from the west, about an hour out. We've got time, but not much.", "kind": "open"},
+      {"text": "Good open ground here. I can breathe out here.", "kind": "open"}
+    ],
+    "close_call": [
+      {"text": "Please stand further from me next time. I nearly couldn't stop it.", "kind": "open"}
+    ],
+    "dungeon_clear": [
+      {"text": "I held back the whole way in there. Small rooms frighten me more than the things in them.", "kind": "reply"}
+    ],
+    "town_arrive": [
+      {"text": "Bergen's got seven hills, a fish market and it rains every day. My family's there, I think.", "kind": "open", "topic": "cities"}
+    ],
+    "boss_down": [
+      {"text": "Is everyone all right? I'd like to hear it, please.", "kind": "reply"}
+    ]
+  }
+}
