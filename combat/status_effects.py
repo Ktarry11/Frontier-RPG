@@ -1983,6 +1983,13 @@ class StatusEffectMixin:
                         messages.append(f"{effect.name} fades from {self.name}.")
                     continue
                 dealt = self.take_damage(effect.tick_potency(), effect.damage_school)
+                # A CURSE THAT TENDS THE PARTY (Wave 4, Graham): each tick heals the caster's side.
+                heal_pct = getattr(effect, "party_heal_pct", 0) or 0
+                healer = getattr(effect, "source_caster", None)
+                if heal_pct and dealt > 0 and healer is not None:
+                    for ally in [m for m in (getattr(healer, "_fight_party", None) or [healer]) if m is not None]:
+                        if ally.is_alive():
+                            ally.heal(dealt * heal_pct / 100.0)
                 messages.append(f"{self.name} suffers {dealt} damage from {effect.name}.")
                 # THE TICK FEEDS ITS CASTER'S DRAINS. A DoT used to know nobody, so Siphon Life ("Corruption
                 # heals you") and Vampiric Embrace on Shadow Word: Pain could never fire. Only procs that drain

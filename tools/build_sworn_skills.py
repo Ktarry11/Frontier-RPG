@@ -94,6 +94,10 @@ def ranks_for(a, kits):
     mult = min(R.HIGH * SWORN, max(R.LOW * SWORN, R.TRUMP * SWORN * share))
     start = R.base_size(a)
     end = int(round(max(start * 3 * SWORN, ref * mult)))
+    hits = int(a.get("repeat_hits") or 1)
+    if hits > 1:
+        # a flurry: all of its hits together land about a tenth over one ordinary trump-sized hit
+        end = max(start, int(round(end * 1.1 / hits)))
     out = []
     mana = a.get("resource_type") == "mana"
     for i, lvl in enumerate(R.LEVELS):
@@ -120,7 +124,7 @@ NESTED = {
     "riposte": {"uses", "pct"},
     "self_buff": {"turns", "mods"},
     "creature_bonus": {"types", "pct"},
-    "immediate": {"action", "turns", "resource", "cost_pct", "mult", "mode", "amount"},
+    "immediate": {"action", "turns", "resource", "cost_pct", "mult", "mode", "amount", "bonus"},
     "delayed": {"turns", "mult", "mode"},
 }
 

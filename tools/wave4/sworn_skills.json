@@ -2031,5 +2031,274 @@
     }
    ]
   }
+ },
+ "yusuf_venomancer": {
+  "from": "Wave 4: 'what he resolves is the fear behind the certainty. ... an exact dose for every ally, healing each by just what they need.'",
+  "ability": {
+   "ability_id": "personal_sworn_yusuf_the_exact_dose",
+   "name": "The Exact Dose",
+   "engine": "live: party heal of 0 base plus heals_party_pct_max 45: each ally gets back what they're missing, up to 45% of their maximum",
+   "effect_type": "heal",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Yusuf measures a dose for every ally. Each one is healed for exactly what they're missing, up to 45% of their maximum health.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 45,
+     "effect_value": 0
+    }
+   ],
+   "heals_party_pct_max": 45
+  }
+ },
+ "reka_necromancer": {
+  "from": "Wave 4: 'what she resolves is fearing she only makes things walk. ... she raises a swarm of crows that strikes every enemy and then scatters harmlessly.'",
+  "ability": {
+   "ability_id": "personal_sworn_reka_the_crows_go_up",
+   "name": "The Crows Go Up",
+   "engine": "live: shadow spell damage on every enemy, and enemy_mods miss_chance_pct 20 for 2 turns while the crows harry them",
+   "effect_type": "spell_damage",
+   "target_type": "all_enemies",
+   "resource_type": "life_force",
+   "cooldown": 14,
+   "duration": 2,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Réka raises a swarm of crows. They strike every enemy, harry them so they miss 20% of their attacks for 2 turns, and then scatter.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 40,
+     "effect_value": 130
+    }
+   ],
+   "damage_school": "shadow",
+   "enemy_mods": {
+    "miss_chance_pct": 20
+   }
+  }
+ },
+ "ramiro_primalist": {
+  "from": "Wave 4: 'what he resolves is the shift he left underneath. ... he raises stone walls around the party that absorb damage until they crumble.'",
+  "ability": {
+   "ability_id": "personal_sworn_ramiro_nobody_left_underneath",
+   "name": "Nobody Left Underneath",
+   "engine": "live: party absorb for 5 turns, with armour +25% while it stands",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 15,
+   "duration": 5,
+   "is_instant": true,
+   "stat_mods": {
+    "armor_pct": 25
+   },
+   "description": "Ramiro raises stone walls around every ally. For 5 turns they are shielded until the stone crumbles, and have 25% more armour.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 45,
+     "effect_value": 100
+    }
+   ],
+   "absorb": 100
+  }
+ },
+ "graham_warlock": {
+  "from": "Wave 4: 'what he resolves is fearing his gift is cruel. ... his slow curses on every enemy also heal the party a little each turn.'",
+  "ability": {
+   "ability_id": "personal_sworn_graham_a_kind_ending",
+   "name": "A Kind Ending",
+   "engine": "live: shadow DoT on every enemy for 5 turns; each tick heals the party for 30% of it (dot_heals_party_pct)",
+   "effect_type": "spell_dot",
+   "target_type": "all_enemies",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 5,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Graham lays a slow curse on every enemy for 5 turns, and every turn it hurts them, it heals each ally for 30% of the damage.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 40,
+     "effect_value": 50
+    }
+   ],
+   "damage_school": "shadow",
+   "dot_heals_party_pct": 30
+  }
+ },
+ "elie_bloodmage": {
+  "from": "Wave 4: 'what he resolves is always saving and never arriving. ... he shares the party's health out evenly, healing the wounded from the healthy.'",
+  "ability": {
+   "ability_id": "personal_sworn_elie_arrives_this_time",
+   "name": "Arrives This Time",
+   "engine": "live: immediate even_out: every living ally to the party's average share of health, then +10% of maximum each",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "rage",
+   "cooldown": 14,
+   "duration": 0,
+   "is_instant": true,
+   "stat_mods": {},
+   "description": "Elie shares the party's health out evenly, healing the wounded from the healthy, then gives every ally 10% of their maximum on top.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
+    }
+   ],
+   "immediate": {
+    "action": "even_out",
+    "bonus": 10
+   }
+  }
+ },
+ "bruno_templar": {
+  "from": "Wave 4: 'what he resolves is the night of the camp. ... a flurry of holy punches that strikes one enemy several times and heals the party with each hit.'",
+  "ability": {
+   "ability_id": "personal_sworn_bruno_the_whole_round",
+   "name": "The Whole Round",
+   "engine": "live: four strikes on one enemy (repeat_hits 4), holy; each heals every ally for 15% of it (heals_party_pct_of_damage)",
+   "effect_type": "damage",
+   "target_type": "enemy",
+   "resource_type": "combo",
+   "cooldown": 14,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Bruno throws a flurry of four holy punches at one enemy. Every punch heals each ally for 15% of the damage it did.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 60
+    }
+   ],
+   "damage_school": "holy",
+   "repeat_hits": 4,
+   "heals_party_pct_of_damage": 15
+  }
+ },
+ "joaquin_suncleric": {
+  "from": "Wave 4: 'what he resolves is carrying it alone. ... he takes a share of every ally's pain into himself, healing them and taking some of the damage.'",
+  "ability": {
+   "ability_id": "personal_sworn_joaquin_carried_together",
+   "name": "Carried Together",
+   "engine": "live: party damage_share 40% to Joaquín for 4 turns, and heals_party_pct_max 15 at once",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 4,
+   "is_instant": true,
+   "stat_mods": {},
+   "description": "Joaquín takes some of it into himself. Every ally is healed for 15% of their maximum, and for 4 turns he takes 40% of every hit they take.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 35,
+     "effect_value": 100
+    }
+   ],
+   "damage_share": {
+    "pct": 40
+   },
+   "heals_party_pct_max": 15
+  }
+ },
+ "astrid_starcaller": {
+  "from": "Wave 4: 'what she resolves is fearing the sky will never surprise her. ... she calls down an aurora that dazzles every enemy and makes them easier to hit.'",
+  "ability": {
+   "ability_id": "personal_sworn_astrid_the_aurora",
+   "name": "The Sky Surprises Her",
+   "engine": "live: all_enemies debuff sure_target (the party can't miss them) and miss_chance_pct 20, 3 turns",
+   "effect_type": "debuff",
+   "target_type": "all_enemies",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 3,
+   "is_instant": true,
+   "stat_mods": {
+    "miss_chance_pct": 20
+   },
+   "description": "Astrid calls down an aurora. For 3 turns every enemy is dazzled: they miss 20% of their attacks, and nobody's attacks on them can miss.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 40,
+     "effect_value": 100
+    }
+   ],
+   "sure_target": true
+  }
+ },
+ "luka_stormbringer": {
+  "from": "Wave 4: 'what he resolves is fearing the storm. ... a maelstrom that pulls every enemy together and batters them.'",
+  "ability": {
+   "ability_id": "personal_sworn_luka_into_the_storm",
+   "name": "Into the Storm, Not Away",
+   "engine": "live: nature spell damage on every enemy, and enemy_mods forced_front for 2 turns (pulled into the front row)",
+   "effect_type": "spell_damage",
+   "target_type": "all_enemies",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 2,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Luka steers into the storm. A maelstrom batters every enemy and drags them all into the front row for 2 turns, where anyone can reach them.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 45,
+     "effect_value": 150
+    }
+   ],
+   "damage_school": "nature",
+   "enemy_mods": {
+    "forced_front": 1
+   }
+  }
+ },
+ "zofia_cultist": {
+  "from": "Wave 4: 'what she resolves is the bargain she made for her grandmother. ... she turns the Cult's corruption back on an enemy, and it spreads to everything near it.'",
+  "ability": {
+   "ability_id": "personal_sworn_zofia_back_where_it_came_from",
+   "name": "Back Where It Came From",
+   "engine": "live: shadow DoT on one enemy row for 5 turns",
+   "effect_type": "spell_dot",
+   "target_type": "enemy_aoe",
+   "resource_type": "mana",
+   "cooldown": 13,
+   "duration": 5,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Zofia turns the Cult's own corruption back on an enemy, and it spreads to everything in that row, eating at them for 5 turns.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 40,
+     "effect_value": 70
+    }
+   ],
+   "damage_school": "shadow"
+  }
  }
 }

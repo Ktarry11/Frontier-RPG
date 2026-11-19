@@ -1000,6 +1000,107 @@ def c_stelios(rm, bm, rid):
         check(not pet.is_alive(), f"{ab.name}: still standing after 5 turns")
 
 
+
+def c_ratih(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    m = mobs[0]
+    m.level = 75
+    friend = others[0]
+    atk = next((x for x in friend.ability_book.get_all_abilities()
+                if x.effect_type in ("damage", "spell_damage") and x.target_type == "enemy" and x.is_learned), None)
+    if not check(atk is not None, "rig: the ally has no single-target attack"):
+        return
+    cast(ch, ab, m, eng)
+    landed = 0
+    for i in range(12):
+        fill(friend, atk)
+        b = m.current_health
+        random.seed(100 + i)
+        atk.use(friend, m, party=eng.living_allies(), engine=eng, free=True)
+        landed += m.current_health < b
+    check(landed == 12, f"{ab.name}: an ally's attacks on the mark landed {landed} of 12, wants every one")
+
+
+def c_yusuf(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    party = [ch] + others
+    others[0].current_health = others[0].health // 4
+    others[1].current_health = int(others[1].health * 0.9)
+    before = {c.name: c.current_health for c in party}
+    cast(ch, ab, party, eng)
+    a, b = others
+    check(a.current_health - before[a.name] >= a.health * 0.44, f"{ab.name}: a badly hurt ally got {a.current_health - before[a.name]}")
+    check(b.current_health == b.health, f"{ab.name}: a lightly hurt ally isn't topped up ({b.current_health} of {b.health})")
+
+
+def c_ramiro(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    cast(ch, ab, [ch] + others, eng)
+    for c in [ch] + others:
+        _shield_holds(ab, c, mobs[1])
+        check(c.get_status_stat_mod("armor_pct") >= 25, f"{ab.name}: {c.name} armour {c.get_status_stat_mod('armor_pct')}")
+
+
+def c_graham(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    cast(ch, ab, mobs, eng)
+    cursed = [m for m in mobs if has_effect(m, ab.ability_id)]
+    if not check(bool(cursed), f"{ab.name}: no enemy cursed"):
+        return
+    for c in [ch] + others:
+        c.current_health = c.health // 3
+    before = {c.name: c.current_health for c in [ch] + others}
+    cursed[0].tick_status_effects()
+    for c in [ch] + others:
+        check(c.current_health > before[c.name], f"{ab.name}: a tick didn't heal {c.name}")
+
+
+def c_elie(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    party = [ch] + others
+    for c, f in zip(party, (0.9, 0.2, 0.5)):
+        c.current_health = int(c.health * f)
+    share = sum(c.current_health for c in party) / sum(c.health for c in party)
+    cast(ch, ab, party, eng)
+    for c in party:
+        check(abs(c.current_health / c.health - (share + 0.10)) < 0.01, f"{ab.name}: {c.name} at {c.current_health / c.health:.2f}, wants {share + 0.1:.2f}")
+
+
+def c_bruno(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    party = [ch] + others
+    for c in party:
+        c.current_health = c.health // 3
+    before = {c.name: c.current_health for c in party}
+    mb = mobs[0].current_health
+    ok, msg = cast(ch, ab, mobs[0], eng)
+    dealt = mb - mobs[0].current_health
+    check(msg.count(ab.name) >= 4 or msg.count(" damage") >= 4, f"{ab.name}: didn't land four times ({msg!r})")
+    for c in party:
+        check(c.current_health - before[c.name] >= dealt * 0.15 * 0.9, f"{ab.name}: {c.name} healed {c.current_health - before[c.name]} of {dealt} dealt")
+
+
+def c_joaquin(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    a = others[1]
+    raw = _control(a, mobs[1])
+    a.current_health = a.health // 2
+    before = a.current_health
+    cast(ch, ab, [ch] + others, eng)
+    check(a.current_health - before >= a.health * 0.15 - 1, f"{ab.name}: healed {a.current_health - before}")
+    b = a.current_health
+    a.take_damage(3000, "shadow", attacker=mobs[1], attacker_level=60)
+    check(abs((b - a.current_health) - raw * 0.6) <= raw * 0.02 + 1, f"{ab.name}: the ally lost {b - a.current_health} of {raw}, wants 60%")
+
+
+def c_luka(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    from combat import rows
+    cast(ch, ab, mobs, eng)
+    for m in mobs:
+        check(rows.row_of(m) == rows.FRONT_ROW, f"{ab.name}: {m.name} is in row {rows.row_of(m)}")
+
+
 CHECKS = {
     "personal_sworn_kesten_written_down_properly": c_kesten,
     "personal_sworn_adrian_let_them_carry_it": c_adrian,
@@ -1057,6 +1158,14 @@ CHECKS = {
     "personal_sworn_elias_not_putting_it_off": c_elias,
     "personal_sworn_kiet_out_of_nowhere": c_kiet,
     "personal_sworn_stelios_borrowed_properly": c_stelios,
+    "personal_sworn_ratih_the_one_wrong_thing": c_ratih,
+    "personal_sworn_yusuf_the_exact_dose": c_yusuf,
+    "personal_sworn_ramiro_nobody_left_underneath": c_ramiro,
+    "personal_sworn_graham_a_kind_ending": c_graham,
+    "personal_sworn_elie_arrives_this_time": c_elie,
+    "personal_sworn_bruno_the_whole_round": c_bruno,
+    "personal_sworn_joaquin_carried_together": c_joaquin,
+    "personal_sworn_luka_into_the_storm": c_luka,
 }
 #: passives with a check of their own (every other passive gets c_passive)
 PASSIVE_CHECKS = {"ama_priest": c_ama, "amber_druid": c_amber, "orlando_witchdoctor": c_orlando,
@@ -1132,8 +1241,9 @@ def main():
         mine = a["ranks"][-1]
         for k in R.grows(plain) & {"effect_value", "absorb"}:
             if trait.get(k):
-                check(mine.get(k, 0) >= trait[k] * 1.1,
-                      f"{rid}: last rank {k} {mine.get(k)} isn't clearly above a trait's {trait[k]}")
+                hits = int(a.get("repeat_hits") or 1)      # a flurry is measured by all its hits together
+                check(mine.get(k, 0) * hits >= trait[k] * 1.1,
+                      f"{rid}: last rank {k} {mine.get(k)} x{hits} isn't clearly above a trait's {trait[k]}")
 
     rm, bm = rig()
     recs = {r.recruit_id: r for r in rm.recruits.values()}

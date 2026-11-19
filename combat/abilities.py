@@ -1918,6 +1918,17 @@ class Ability:
                 return f"{caster.name} uses {self.name}, but nothing is running."
             return (f"{caster.name} uses {self.name}, extending {total} effect"
                     f"{'s' if total != 1 else ''} by {turns} turns!")
+        if action == "even_out":
+            # SHARED OUT EVENLY (Wave 4, Elie): every living ally ends at the party's average share of
+            # health, then everyone gets `bonus` percent of their maximum on top.
+            living = [m for m in (getattr(party, "members", party) or []) if m is not None and m.is_alive()]
+            if not living:
+                return f"{caster.name} uses {self.name}, but nobody is standing."
+            share = sum(m.current_health for m in living) / max(1, sum(m.health for m in living))
+            bonus = float(spec.get("bonus", 0)) / 100.0
+            for m in living:
+                m.current_health = max(1, min(m.health, int(m.health * (share + bonus))))
+            return f"{caster.name} uses {self.name}: the party's health is shared out evenly."
         if action == "rewind":
             everyone = self._recipients(caster, target if target is not None else party)
             turns = int(spec.get("turns", 2))
@@ -2639,6 +2650,18 @@ class Ability:
             try:
                 result_msg = self._apply_effect(caster, target, cost=cost, party=party,
                                                 engine=engine)
+                # A FLURRY (Wave 4, Bruno): the same strike lands again on the same target, free.
+                hits = int(self.repeat_hits or 1)
+                if hits > 1 and not getattr(self, "_refunded", False) \
+                        and target is not None and not isinstance(target, (list, tuple)):
+                    events, lines = list(self._last_threat_events), [result_msg]
+                    for _ in range(hits - 1):
+                        if not target.is_alive():
+                            break
+                        lines.append(self._apply_effect(caster, target, cost=0, party=party, engine=engine))
+                        events += self._last_threat_events
+                    self._last_threat_events = events
+                    result_msg = " ".join(lines)
             finally:
                 undo()
             # A CAST THAT WAS REFUNDED DID NOTHING, so it is not a success: Judgement with no Seal and Swiftmend
@@ -3016,6 +3039,9 @@ class Ability:
     creature_bonus = None              # {"types": [...], "pct": n}: more against those kinds (Bashir)
     requires_fallen_enemy = False      # usable only once an enemy is down (Stelios)
     pet_lifespan = 0                   # a summoned pet is laid to rest after this many of its turns
+    repeat_hits = 0                    # the strike lands this many times on its one target (Bruno)
+    heals_party_pct_of_damage = 0.0    # every living ally is healed this share of what the cast dealt
+    dot_heals_party_pct = 0.0          # each tick of this DoT heals the caster's party this share of it (Graham)
     #: Caster and target trade rows for the rest of the fight (Dan Okafor, "Shift Change").
     swaps_rows = False
     #: A dispel that deals what was LEFT of the effect it removed to whoever put it there
@@ -3140,8 +3166,10 @@ class Ability:
             self._repeat_run = (getattr(self, "_repeat_run", 0) + 1
                                 if getattr(caster, "_last_ability_id", None) == self.ability_id else 1)
         sure = self.cannot_miss
-        if single is not None and any(getattr(e, "sure_hit_by", "") == getattr(caster, "name", None)
-                                      for e in (getattr(single, "active_effects", None) or [])):
+        # THE PARTY'S ATTACKS, not only the marker's: Rhys's and Ratih's marks say "nobody's attacks on it
+        # can miss", and this matched the marker's own name only. Anyone on the marker's side counts.
+        if single is not None and not getattr(caster, "is_monster", False) and any(
+                getattr(e, "sure_hit_by", "") for e in (getattr(single, "active_effects", None) or [])):
             sure = True
         if getattr(caster, "_next_cast_sure", False) and self.effect_type in (
                 "spell_damage", "spell_dot", "debuff", "dot", "damage"):
@@ -3273,6 +3301,13 @@ class Ability:
                     source_name=caster.name, real_time_seconds=None))
             if foes:
                 message = f"{message} Every enemy feels it."
+        # EVERY HIT HEALS THE PARTY (Wave 4, Bruno's flurry): a share of all this cast dealt.
+        if self.heals_party_pct_of_damage:
+            dealt = sum(ev[1] for ev in (getattr(self, "_last_threat_events", None) or [])
+                        if len(ev) >= 3 and ev[2] and ev[0] is not None and ev[1])
+            if dealt > 0:
+                for m in [m for m in (getattr(party, "members", party) or []) if m is not None and m.is_alive()]:
+                    m.heal(dealt * self.heals_party_pct_of_damage / 100.0)
         # LEFT ON THE ONE IT HIT (Wave 4, Eino's felling blow): stat mods on the single enemy
         # a hostile cast landed on, as a debuff for the ability's duration.
         if self.target_mods and single is not None and getattr(single, "is_monster", False) and single.is_alive():
@@ -4680,6 +4715,7 @@ class Ability:
                     effect.source_caster = caster
                     effect.source_ability_id = self.ability_id
                     effect.source_engine = engine
+                    effect.party_heal_pct = self.dot_heals_party_pct
                     t.apply_status_effect(effect)
                     hit_names.append(t.name)
 
@@ -5860,6 +5896,11 @@ def _ability_from_data(entry):
         ability.pet_mods = dict(entry["pet_mods"])
     if entry.get("auto_enemy"):
         ability.auto_enemy = str(entry["auto_enemy"])
+    if entry.get("repeat_hits"):
+        ability.repeat_hits = int(entry["repeat_hits"])
+    for key in ("heals_party_pct_of_damage", "dot_heals_party_pct"):
+        if entry.get(key):
+            setattr(ability, key, float(entry[key]))
     if entry.get("pet_lifespan"):
         ability.pet_lifespan = int(entry["pet_lifespan"])
     if entry.get("requires_fallen_enemy"):
