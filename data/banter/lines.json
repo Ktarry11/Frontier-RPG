@@ -993,7 +993,7 @@
       ],
       "boss_down": [
         {
-          "text": "Good. Check your straps, check the ground, then we move.",
+          "text": "Good, it's down. Check your straps, check the ground, then we move.",
           "kind": "reply"
         }
       ],
@@ -1006,7 +1006,7 @@
       ],
       "town_arrive": [
         {
-          "text": "Ulsan was a shipyard and a city pretending it wasn't. This is honest, at least.",
+          "text": "Busan is shipyards and fish markets and mountains right behind the sea. This is honest, at least.",
           "kind": "open",
           "topic": "cities"
         }
@@ -1584,6 +1584,33 @@
         }
       ]
     },
+    "enzo_cultist": {
+      "boss_down": [
+        {
+          "text": "Did you see the footwork on that last exchange? Beautiful, if I say so myself.",
+          "kind": "open"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "Your weight was on your heels. That's why it caught you. Forward, always forward.",
+          "kind": "reply"
+        }
+      ],
+      "town_arrive": [
+        {
+          "text": "Naples has the best coffee, the best pizza and the worst traffic in the world, and I miss every bit of it.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Not bad, everybody. Your feet are improving. Some of you.",
+          "kind": "reply"
+        }
+      ]
+    },
     "freja_priest": {
       "town_arrive": [
         {
@@ -1932,6 +1959,35 @@
       "zone_arrive": [
         {
           "text": "New place, new animals, new food. I'm already thinking about a marinade.",
+          "kind": "open"
+        }
+      ]
+    },
+    "skye_pyromancer": {
+      "zone_arrive": [
+        {
+          "text": "Can you smell that? That's dry scrub, and it's waiting for an excuse.",
+          "kind": "open",
+          "topic": "fire"
+        }
+      ],
+      "town_arrive": [
+        {
+          "text": "Ballarat's an old gold town with big old buildings and freezing winters, and the best pies in Victoria.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ],
+      "boss_down": [
+        {
+          "text": "That one's out. Nobody touch anything still smoking, please.",
+          "kind": "reply",
+          "topic": "fire"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Everybody out and nothing's on fire. That's a perfect day in my book.",
           "kind": "open"
         }
       ]

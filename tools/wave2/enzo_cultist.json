@@ -1,0 +1,72 @@
+{
+  "recruit_text": {
+    "adjustment": "He landed with his fencing glove in his kit bag and nothing else. The Scarlets found him first, and then he found out what they were, and walked away.\n\nThe voice that offered him more didn't lie to him about the price, and he respects it for that.",
+    "forward": "To beat the best blade on this world, fairly, in front of witnesses.\n\nThen he'd like to know if he could've done it without the voice. He's afraid he already knows."
+  },
+  "bond": {
+    "home": "the Scarlet Monastery Grounds",
+    "dials": {"warmth": 1.0, "nerve": 1.3, "pride": 1.4, "restless": 1.1},
+    "likes": ["boss", "dungeon"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Enzo, uagliò, and I'm the best swordsman you'll ever meet. You're watching my feet, good, that's where you should look. Stay out of my distance and we'll get on beautifully.",
+      "acquaintance": "I'm from Naples, the Spanish Quarter. My mother Rosaria ran a tobacconist's and came to every bout and shouted at the referees. I walked into the fencing salle at eight and never walked out. I fenced sabre, and I was fourth at the Olympic trials at twenty-six, and fourth again at thirty. Fourth is the worst place there is, believe me.",
+      "companion": "My father was a mechanic. He died when I was twelve, and my mother kept the shop and kept me fencing. On Saturdays I coached the little ones, and I was kinder to them than I ever was to myself. I was warming up in the salle when it happened. The Scarlets wanted my blade. Then I saw what they do to people, and I walked away.",
+      "friend": "That night, something in the dark offered me more. It didn't lie about the price, and I took it, and now I'm the best I've ever been. But I'll never know if it's me holding the sword. The Scarlets' champion has accepted my challenge, a formal duel, witnesses from both sides. I'd like you to stand as my second, uagliò. Will you do it?",
+      "sworn": "I beat their champion with the voice in my arm, and it wasn't close. Then I fought the boy I'd been training with only my own arm. He beat me, fairly. I came fourth again, in my head, and this time I know exactly why. I told him he'll be better than I ever was. Then I picked the voice back up, because I've got people to protect and I can't afford to be fourth. It isn't peace, it's just knowing."
+    },
+    "moments": [
+      {"id": "the_second", "stage": "friend", "when": "talk",
+       "prompt": "He's asked you to stand as his second in the duel.",
+       "options": [
+         {"text": "I'll stand as your second.", "trust": 12,
+          "reply": "Jamme, let's go, then. Watch his feet, not his blade, and tell me afterwards what you saw."},
+         {"text": "Why does it matter whose arm it is?", "trust": 4,
+          "reply": "Because fourth was mine. Whatever this is, I'm not sure it's mine."}
+       ]},
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe he's furious, mostly about everybody's footwork.",
+       "line": "Mannaggia, everyone's feet were wrong. You can't win a bout with your weight on your heels.",
+       "options": [
+         {"text": "Show us how to stand, then.", "trust": 8, "mood": 6,
+          "reply": "Weight forward, knees soft, and never cross your feet. There, you're already better."},
+         {"text": "This isn't fencing.", "trust": 0, "mood": -6,
+          "reply": "Everything's fencing, uagliò. You're just losing at it."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "Uagliò, we keep fighting the same clumsy things. There's no art in it. Find me an opponent worth the effort.",
+      "leaving_good": "That was beautiful, all of it. I'm going back to the Monastery Grounds to watch the Scarlets drill. Come and find me.",
+      "leaving_bored": "I'm going back to the Monastery. This is clumsy and boring, and I'd rather watch the Scarlets make mistakes.",
+      "after_wipe": "Mannaggia, everybody's feet were wrong. Up, and stand properly this time.",
+      "wipe_warning": "We keep losing in here, and it's ugly. I'll finish this run, then I need a break.",
+      "wipe_leave": "I finished it, as I said. Now I'm going back to the Monastery Grounds for a while.",
+      "zone_warning": "We're out of our weight class here, uagliò. Pride is one thing, being stupid is another.",
+      "zone_leave": "I'm stopping here. We're out of our weight class. I'll be on the Scarlet Monastery Grounds.",
+      "gear_refuse": "No, uagliò, that's mine. A fencer doesn't give up his kit to strangers.",
+      "gear_taken": "Take it, then. I'm good enough without it, unfortunately for everyone else.",
+      "gear_short": "I'm still missing that piece. It's affecting my balance, and I notice my balance.",
+      "gear_upgrade": "Bellissimo, look at that. Thank you, truly.",
+      "back": "I'm back, and I've found three new holes in the Scarlet drills. Where are we going?",
+      "send_word": "Enzo has sent word from the Scarlet Monastery Grounds. He's ready to come out and show off.",
+      "walkout_talk": "I left angry, and I'll tell you why, honestly. Then you tell me, and we'll call it a draw.",
+      "neglect": "There you are! I'd started to think you'd found a better swordsman. There isn't one.",
+      "asked_to_stay": "Jamme, one more bout. Then I rest.",
+      "on_break": "Enzo is back on the Scarlet Monastery Grounds. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "boss_down": [
+      {"text": "Did you see the footwork on that last exchange? Beautiful, if I say so myself.", "kind": "open"}
+    ],
+    "close_call": [
+      {"text": "Your weight was on your heels. That's why it caught you. Forward, always forward.", "kind": "reply"}
+    ],
+    "town_arrive": [
+      {"text": "Naples has the best coffee, the best pizza and the worst traffic in the world, and I miss every bit of it.", "kind": "open", "topic": "cities"}
+    ],
+    "dungeon_clear": [
+      {"text": "Not bad, everybody. Your feet are improving. Some of you.", "kind": "reply"}
+    ]
+  }
+}

@@ -1439,6 +1439,90 @@
         "on_break": "Emre is back at Durnholde, reading its doors. Come back after you've done a few more jobs."
       }
     },
+    "enzo_cultist": {
+      "home": "the Scarlet Monastery Grounds",
+      "dials": {
+        "warmth": 1.0,
+        "nerve": 1.3,
+        "pride": 1.4,
+        "restless": 1.1
+      },
+      "likes": [
+        "boss",
+        "dungeon"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Enzo, uagliò, and I'm the best swordsman you'll ever meet. You're watching my feet, good, that's where you should look. Stay out of my distance and we'll get on beautifully.",
+        "acquaintance": "I'm from Naples, the Spanish Quarter. My mother Rosaria ran a tobacconist's and came to every bout and shouted at the referees. I walked into the fencing salle at eight and never walked out. I fenced sabre, and I was fourth at the Olympic trials at twenty-six, and fourth again at thirty. Fourth is the worst place there is, believe me.",
+        "companion": "My father was a mechanic. He died when I was twelve, and my mother kept the shop and kept me fencing. On Saturdays I coached the little ones, and I was kinder to them than I ever was to myself. I was warming up in the salle when it happened. The Scarlets wanted my blade. Then I saw what they do to people, and I walked away.",
+        "friend": "That night, something in the dark offered me more. It didn't lie about the price, and I took it, and now I'm the best I've ever been. But I'll never know if it's me holding the sword. The Scarlets' champion has accepted my challenge, a formal duel, witnesses from both sides. I'd like you to stand as my second, uagliò. Will you do it?",
+        "sworn": "I beat their champion with the voice in my arm, and it wasn't close. Then I fought the boy I'd been training with only my own arm. He beat me, fairly. I came fourth again, in my head, and this time I know exactly why. I told him he'll be better than I ever was. Then I picked the voice back up, because I've got people to protect and I can't afford to be fourth. It isn't peace, it's just knowing."
+      },
+      "moments": [
+        {
+          "id": "the_second",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to stand as his second in the duel.",
+          "options": [
+            {
+              "text": "I'll stand as your second.",
+              "trust": 12,
+              "reply": "Jamme, let's go, then. Watch his feet, not his blade, and tell me afterwards what you saw."
+            },
+            {
+              "text": "Why does it matter whose arm it is?",
+              "trust": 4,
+              "reply": "Because fourth was mine. Whatever this is, I'm not sure it's mine."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's furious, mostly about everybody's footwork.",
+          "line": "Mannaggia, everyone's feet were wrong. You can't win a bout with your weight on your heels.",
+          "options": [
+            {
+              "text": "Show us how to stand, then.",
+              "trust": 8,
+              "mood": 6,
+              "reply": "Weight forward, knees soft, and never cross your feet. There, you're already better."
+            },
+            {
+              "text": "This isn't fencing.",
+              "trust": 0,
+              "mood": -6,
+              "reply": "Everything's fencing, uagliò. You're just losing at it."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Uagliò, we keep fighting the same clumsy things. There's no art in it. Find me an opponent worth the effort.",
+        "leaving_good": "That was beautiful, all of it. I'm going back to the Monastery Grounds to watch the Scarlets drill. Come and find me.",
+        "leaving_bored": "I'm going back to the Monastery. This is clumsy and boring, and I'd rather watch the Scarlets make mistakes.",
+        "after_wipe": "Mannaggia, everybody's feet were wrong. Up, and stand properly this time.",
+        "wipe_warning": "We keep losing in here, and it's ugly. I'll finish this run, then I need a break.",
+        "wipe_leave": "I finished it, as I said. Now I'm going back to the Monastery Grounds for a while.",
+        "zone_warning": "We're out of our weight class here, uagliò. Pride is one thing, being stupid is another.",
+        "zone_leave": "I'm stopping here. We're out of our weight class. I'll be on the Scarlet Monastery Grounds.",
+        "gear_refuse": "No, uagliò, that's mine. A fencer doesn't give up his kit to strangers.",
+        "gear_taken": "Take it, then. I'm good enough without it, unfortunately for everyone else.",
+        "gear_short": "I'm still missing that piece. It's affecting my balance, and I notice my balance.",
+        "gear_upgrade": "Bellissimo, look at that. Thank you, truly.",
+        "back": "I'm back, and I've found three new holes in the Scarlet drills. Where are we going?",
+        "send_word": "Enzo has sent word from the Scarlet Monastery Grounds. He's ready to come out and show off.",
+        "walkout_talk": "I left angry, and I'll tell you why, honestly. Then you tell me, and we'll call it a draw.",
+        "neglect": "There you are! I'd started to think you'd found a better swordsman. There isn't one.",
+        "asked_to_stay": "Jamme, one more bout. Then I rest.",
+        "on_break": "Enzo is back on the Scarlet Monastery Grounds. Come back after you've done a few more jobs."
+      }
+    },
     "esteban_bloodmage": {
       "home": "Orgrimmar",
       "dials": {
@@ -2292,6 +2376,91 @@
         "asked_to_stay": "Okay, one more run. Then home, on time.",
         "on_break": "Ivan is back in Orgrimmar, directing the traffic. Come back after you've done a few more jobs.",
         "quest_abandoned": "We said we'd do that and now we don't. That's a missed stop, and I hate missed stops."
+      }
+    },
+    "junseo_reaper": {
+      "home": "Central Stranglethorn",
+      "dials": {
+        "warmth": 0.7,
+        "nerve": 1.3,
+        "pride": 0.4,
+        "restless": 0.8
+      },
+      "likes": [
+        "dungeon",
+        "boss"
+      ],
+      "dislikes": [
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "I'm Jun-seo, a reaper. I'm fast, and I don't talk much. Whatever we do, it's easier than the factory, so don't worry about me.",
+        "acquaintance": "I'm from Busan, near the shipyards. My father carried fish at the market and my mother sewed. I wasn't good at school, so at twenty I went into the yards, and later I was on the welding line, nine years, nights mostly. The same two motions, ten thousand times a night. My body still remembers them.",
+        "companion": "I sent money home to my parents every month for nine years, without fail. I never married. I told myself I'd start living when they were looked after. I was flipping up my welding shade at the end of a night shift when it happened. The hub for Busan came down far in the north, past the ice. I don't do that sum out loud.",
+        "friend": "Here's what frightens me. In a fight my body moves before I decide. It's fast, and it keeps us alive, and I didn't choose any of it. That's why I carve. Wood can't be hurried, and I'm terrible at it, and I choose every cut. I want to go north, as far as the road goes, toward the Busan lists. Will you come?",
+        "sworn": "We couldn't cross the ice. Nobody can, not yet. I stood at the edge for a long time. Then I sat down and carved, right there, slowly, on purpose, for an hour. A small, lumpy bird. It's for my mother, for whenever I can get it to her. I'm back at the hoist now, and I carve every evening, slower and slower. I'm getting a little less bad at it. Gwaenchana, it's okay."
+      },
+      "moments": [
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's sitting very still, looking at his hands.",
+          "line": "My body did something before I told it to. It wasn't enough, and I'm sorry.",
+          "options": [
+            {
+              "text": "You kept us alive longer than anyone.",
+              "trust": 10,
+              "mood": 6,
+              "reply": "Maybe so, yes. I still didn't choose it, but thank you."
+            },
+            {
+              "text": "Be faster next time.",
+              "trust": 0,
+              "mood": -6,
+              "reply": "I'm already too fast. That's the problem."
+            }
+          ]
+        },
+        {
+          "id": "the_north",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to come north with him, as far as the road goes.",
+          "options": [
+            {
+              "text": "As far as the road goes.",
+              "trust": 12,
+              "reply": "Thank you. We'll go slowly. I'm practising slowly."
+            },
+            {
+              "text": "What will you do if you can't cross?",
+              "trust": 4,
+              "reply": "I don't know yet. Something slow, probably."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We do the same motion again and again, like the factory. I left the factory. Let's go somewhere new.",
+        "leaving_good": "That was good. I'm going back to the hoist for a while, and my carving. Come and find me.",
+        "leaving_bored": "I'm going back to the hoist. This is the same two motions, and at least the hoist pays.",
+        "after_wipe": "We fell down, so now we get up, and we go slower.",
+        "wipe_warning": "We keep dying in here. I'll finish this run with you, but then I need some days.",
+        "wipe_leave": "I've finished it with you. Now I'm going back to Stranglethorn for a while.",
+        "zone_warning": "This place is too strong for us. Even the factory had safety rules. We should go.",
+        "zone_leave": "I'm stopping here. It's too strong for us. I'll be at the hoist in Central Stranglethorn.",
+        "gear_refuse": "No, I'd like to keep that. I don't know you well enough yet.",
+        "gear_taken": "That's okay, take it. It's still easier than the factory.",
+        "gear_short": "I'm still missing that piece. I'm only saying it once.",
+        "gear_upgrade": "That's good kit. Thank you, really.",
+        "back": "I'm back, and I carved a fish, sort of. Where are we going?",
+        "send_word": "Jun-seo has sent word from Central Stranglethorn. He's ready to come out again.",
+        "walkout_talk": "I left angry, and I'd like to explain slowly. Then you can tell me yours.",
+        "neglect": "You were gone a long time. I carved a lot of bad birds.",
+        "asked_to_stay": "Okay, one more, hwaiting.",
+        "on_break": "Jun-seo is back at the cargo hoist in Central Stranglethorn. Come back after you've done a few more jobs.",
+        "quest_abandoned": "We said we'd do that and we didn't. I don't like leaving a job half done."
       }
     },
     "liam_suncleric": {
@@ -3947,6 +4116,91 @@
         "neglect": "There you are. I'd started reading the room for signs you'd found a better rogue. There weren't any.",
         "asked_to_stay": "Fine, one more. No coin needed.",
         "on_break": "Silas is back on the middle pier in Ratchet. Come back after you've done a few more jobs."
+      }
+    },
+    "skye_pyromancer": {
+      "home": "the Drowning Floor",
+      "dials": {
+        "warmth": 1.3,
+        "nerve": 1.4,
+        "pride": 0.5,
+        "restless": 1.0
+      },
+      "likes": [
+        "boss",
+        "full_party"
+      ],
+      "dislikes": [
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "G'day, I'm Skye, I'm a pyromancer. Stand upwind, don't touch anything glowing, and if I say move, move. That's the whole briefing, mate.",
+        "acquaintance": "I'm from Ballarat, in Victoria. Dad was a postie and Mum taught primary school. I was a vet nurse to pay the bills, and for eleven seasons I was a volunteer firefighter with the CFA. Tanker, pager, and a shed with a kettle where the crew sat out the quiet nights. Best people I ever knew.",
+        "companion": "I was married to Dave, a mechanic, for four years. We split at twenty-nine, no hard feelings, mostly because the brigade ate every summer. I'd do it again, honestly. I was cleaning the tanker when it happened, and I landed in Thousand Needles with this torch on my belt. It's been dead two and a half years. I still click it, so don't laugh.",
+        "friend": "I'll tell you my rule, then, since you're the first who's asked. I never start a fire I couldn't put out myself. Never, not once. Because I know exactly what fire does when it gets away from you. Now the fires under the water in the Drowning Floor are getting worse, and if the flood carries burning oil into the canyons, it's a disaster. I'll need you down there.",
+        "sworn": "I had to start one I wasn't sure I could put out. You held the line above with four of my volunteers, the way I trained them, and the fire went exactly where I meant and died when I said. I sat on a wet rock after, shaking and swearing and laughing. All six of my brigade turned up to the next training day. Best turnout in the history of firefighting, and I'm not joking."
+      },
+      "moments": [
+        {
+          "id": "the_rule",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's just told you her rule about fire.",
+          "options": [
+            {
+              "text": "That's a good rule. Keep it.",
+              "trust": 8,
+              "reply": "I will, mate, as long as I can. That's the bit that frightens me."
+            },
+            {
+              "text": "Then let's go down there together.",
+              "trust": 12,
+              "reply": "She'll be right with you there. Grab your coat, it's wet down there."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe she's swearing creatively, and then she goes very quiet and precise.",
+          "line": "Okay, that went sideways. Everyone upwind of me, now, and we work out where it got away from us.",
+          "options": [
+            {
+              "text": "You call it, we'll follow.",
+              "trust": 8,
+              "mood": 6,
+              "reply": "Good, that's a crew. Right, here's the plan, and it's one sentence long."
+            },
+            {
+              "text": "Let's just go again.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "Mate, you don't go back into a fire without a plan, ever."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Mate, we've been doing the same thing for days and nothing's even caught fire. Let's go somewhere with a bit of action.",
+        "leaving_good": "That was a ripper, thanks. I'm off back to the Drowning Floor to check on my brigade. Come and find me.",
+        "leaving_bored": "I'm heading back. Nothing's happening out here, and my volunteers need training.",
+        "after_wipe": "Okay, that went sideways. Everyone upwind, and let's sort out where it got away from us.",
+        "wipe_warning": "We keep going down in here, mate. I'll finish this run, but then I need a cuppa and a lie down.",
+        "wipe_leave": "Job's done, so I'm off for a bit. I'll be at the Drowning Floor when you've got a better plan.",
+        "zone_warning": "This is a crown fire and we're on foot, mate. You don't fight that, you get out of its road.",
+        "zone_leave": "I'm stopping here. I told you, crown fire. I'll be at the Drowning Floor.",
+        "gear_refuse": "Nah, mate, that's mine. Ask me again when we know each other.",
+        "gear_taken": "No worries, take it. She'll be right.",
+        "gear_short": "I'm still missing that piece, mate. Just flagging it.",
+        "gear_upgrade": "Oh, that's beautiful, mate. Cheers, you legend.",
+        "back": "I'm back, and four of my six turned up to training, which is excellent. Where are we going?",
+        "send_word": "Skye has sent word from the Drowning Floor. Her brigade's trained and she's ready to come out.",
+        "walkout_talk": "I walked out, mate, and I'll tell you why straight. Put the kettle on and let's have it out.",
+        "neglect": "There you are, mate! I thought you'd gone up in smoke.",
+        "asked_to_stay": "Yeah, go on, one more. Then my brigade.",
+        "on_break": "Skye is back at the Drowning Floor with her brigade. Come back after you've done a few more jobs.",
+        "quest_abandoned": "We left those people hanging, mate. In the brigade you don't walk off a job."
       }
     },
     "sondre_stormbringer": {
