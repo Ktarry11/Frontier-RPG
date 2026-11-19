@@ -161,9 +161,9 @@ fourth).
 | 89 | Emiliano Vargas | Pyromancer 56 | Cinderwharf | `emiliano_vargas.md` | Happy | Draft 1 |
 | 90 | Mohammed Saleh | Chronomancer 56 | Talrendis Landing | `mohammed_saleh.md` | Happy | Draft 1 |
 | 91 | Tobias Keller | Paladin 56 | Light's Hope Chapel | `tobias_keller.md` | Sad | Draft 1 |
-| 92 | Isla Fraser | Witch Hunter 57 | Light's Hope Chapel |  |  |  |
-| 93 | Taras Kovalenko | Witch Hunter 57 | Ariden's Watch |  |  |  |
-| 94 | Mariana Treviño | Priest 57 | Ariden's Watch |  |  |  |
+| 92 | Isla Fraser | Witch Hunter 57 | Light's Hope Chapel | `isla_fraser.md` | Sad | Draft 1 |
+| 93 | Taras Kovalenko | Witch Hunter 57 | Ariden's Watch | `taras_kovalenko.md` | Still unknown | Draft 1 |
+| 94 | Mariana Treviño | Priest 57 | Ariden's Watch | `mariana_trevino.md` | Happy | Draft 1 |
 | 95 | Dale Brekke | Reaper 58 | Eastern Plaguelands East |  |  |  |
 | 96 | Wes Dahlberg | Warrior 58 | Ariden's Watch |  |  |  |
 | 97 | Neil Hartley | Felsworn 58 | Ariden's Watch |  |  |  |
