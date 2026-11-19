@@ -59,7 +59,7 @@ big difference."
 So about 7 or 8 of the 74 men, and 3 of the 25 women. It comes up the way anyone's partner comes up: a name, a past,
 somebody they miss. It's never their story or their personality.
 
-Kept count here as we go: men gay or bisexual: Tarek (gay), Sondre (gay), Sebastián (bisexual). Women: Carolina (lesbian).
+Kept count here as we go: men gay or bisexual: Tarek (gay), Sondre (gay), Sebastián (bisexual). Women: Carolina (lesbian), Rosa (bisexual).
 
 ## Order and progress
 
@@ -87,9 +87,9 @@ fourth).
 | 17 | Berat Yilmaz | Tinker 12 | Brill | `berat_yilmaz.md` | Happy | Draft 1 |
 | 18 | Dan Okafor | Warrior 13 | Orgrimmar | `dan_okafor.md` | Still unknown | Draft 1 |
 | 19 | Marisol Quintero | Priest 13 | Silverpine North | `marisol_quintero.md` | Sad | Draft 1 |
-| 20 | Silas Vance | Rogue 14 | Ratchet |  |  |  |
-| 21 | Rosa Delgado | Hunter 14 | Central Barrens |  |  |  |
-| 22 | Pavlo Hryn | Knight of Xoroth 14 | Silverpine North |  |  |  |
+| 20 | Silas Vance | Rogue 14 | Ratchet | `silas_vance.md` | Happy | Draft 1 |
+| 21 | Rosa Delgado | Hunter 14 | Central Barrens | `rosa_delgado.md` | Happy | Draft 1 |
+| 22 | Pavlo Hryn | Knight of Xoroth 14 | Silverpine North | `pavlo_hryn.md` | Sad | Draft 1 |
 | 23 | Amber Whitehorse | Druid 15 | Central Barrens |  |  |  |
 | 24 | Ivan Petrov | Warrior 15 | Ragefire Chasm |  |  |  |
 | 25 | Haruto Nakamura | Runemaster 15 | Silverpine South |  |  |  |

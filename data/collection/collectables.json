@@ -15400,6 +15400,57 @@
       "needs_art": false,
       "found_only": true,
       "source": "sworn:marisol_priest"
+    },
+    {
+      "id": "keepsake_silas_rogue",
+      "name": "Silas's Two-Euro Coin",
+      "kind": "keepsake",
+      "price": 0,
+      "rarity": "epic",
+      "blurb": "A Belgian two-euro coin worn smooth from three years of being flipped for every decision Silas didn't want to make. He makes his own now.",
+      "effect": {
+        "recruit_id": "silas_rogue",
+        "from": "Silas Vance"
+      },
+      "icon_id": "col_satchel_bank",
+      "art": "col_keepsake_silas",
+      "needs_art": false,
+      "found_only": true,
+      "source": "sworn:silas_rogue"
+    },
+    {
+      "id": "keepsake_rosa_hunter",
+      "name": "Rosa's Binoculars",
+      "kind": "keepsake",
+      "price": 0,
+      "rarity": "epic",
+      "blurb": "Battered field binoculars from eight years in the Tanzanian bush, the strap mended three times. Rosa's learned to see what's coming without them.",
+      "effect": {
+        "recruit_id": "rosa_hunter",
+        "from": "Rosa Delgado"
+      },
+      "icon_id": "col_feather_kalimdor",
+      "art": "col_keepsake_rosa",
+      "needs_art": false,
+      "found_only": true,
+      "source": "sworn:rosa_hunter"
+    },
+    {
+      "id": "keepsake_pavlo_knight",
+      "name": "Pavlo's Tea Flask",
+      "kind": "keepsake",
+      "price": 0,
+      "rarity": "epic",
+      "blurb": "A dented steel flask with no lid, given to Pavlo by his wife on his first day as a teacher. He'd like it to go somewhere that isn't a wall.",
+      "effect": {
+        "recruit_id": "pavlo_knight",
+        "from": "Pavlo Hryn"
+      },
+      "icon_id": "col_satchel_reagents",
+      "art": "col_keepsake_pavlo",
+      "needs_art": false,
+      "found_only": true,
+      "source": "sworn:pavlo_knight"
     }
   ]
 }
