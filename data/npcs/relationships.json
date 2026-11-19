@@ -12693,6 +12693,506 @@
      ]
     }
    ]
+  },
+  {
+   "a": "gunnar_barbarian",
+   "b": "sebastian_bloodmage",
+   "steps": [
+    {
+     "when": "met",
+     "affinity": 5,
+     "lines": [
+      [
+       "gunnar_barbarian",
+       "You're the one with the fire pit and the meat! Skál, I've brought the beer."
+      ],
+      [
+       "sebastian_bloodmage",
+       "My friend, that's the best sentence anyone's said to me this year. Sit, sit, eat."
+      ],
+      [
+       "gunnar_barbarian",
+       "I'll sit if you drink. Stout, from moor barley, and it's food, whatever my sister says."
+      ],
+      [
+       "sebastian_bloodmage",
+       "Che, in Argentina we'd call that a starter, so pour it."
+      ]
+     ]
+    },
+    {
+     "when": "gap:6",
+     "affinity": 3,
+     "lines": [
+      [
+       "sebastian_bloodmage",
+       "Your stout with my asado, Gunnar. I tried it last night and nearly cried."
+      ],
+      [
+       "gunnar_barbarian",
+       "Ha, I knew it! Smoke and malt belong together, everybody knows that."
+      ],
+      [
+       "sebastian_bloodmage",
+       "Next Sunday you bring a keg and I'll light the fire, and we'll feed everybody in the zone."
+      ],
+      [
+       "gunnar_barbarian",
+       "And then we'll sing, and the orcs will pretend they don't like it."
+      ]
+     ]
+    },
+    {
+     "when": "friendly",
+     "affinity": 3,
+     "lines": [
+      [
+       "gunnar_barbarian",
+       "I toast my family every night, quietly. My mother, my sister, and my dog, Brúnó."
+      ],
+      [
+       "sebastian_bloodmage",
+       "I lay the table for twenty in my head every Sunday. I think it's the same thing."
+      ],
+      [
+       "gunnar_barbarian",
+       "It's the same thing, my friend. Next time, we'll toast and lay the table together."
+      ],
+      [
+       "sebastian_bloodmage",
+       "Twenty-one places, then, with your dog, and he's welcome."
+      ]
+     ]
+    },
+    {
+     "when": "close",
+     "affinity": 5,
+     "lines": [
+      [
+       "gunnar_barbarian",
+       "My father's boat went down when I was twenty. I didn't cry at the funeral. I went home and started brewing."
+      ],
+      [
+       "sebastian_bloodmage",
+       "I cook so I never have to sit down and notice who's missing. I only worked that out here."
+      ],
+      [
+       "gunnar_barbarian",
+       "Then we're two men who feed people so we don't have to feel things, and we're very good at it."
+      ],
+      [
+       "sebastian_bloodmage",
+       "The best there is, my friend. Pour me one more, and I'll sit down for this one."
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "a": "esteban_bloodmage",
+   "b": "matias_reaper",
+   "steps": [
+    {
+     "when": "met",
+     "affinity": 2,
+     "lines": [
+      [
+       "matias_reaper",
+       "You're from Chile. But you speak like the people in the nice cars."
+      ],
+      [
+       "esteban_bloodmage",
+       "Valparaíso, and my father worked the docks. The nice voice came with nineteen years of surgery, I'm afraid."
+      ],
+      [
+       "matias_reaper",
+       "Then I'm sorry, I thought you were posh."
+      ],
+      [
+       "esteban_bloodmage",
+       "Everyone thinks so. I've stopped correcting them, but I'm glad you said it out loud."
+      ]
+     ]
+    },
+    {
+     "when": "gap:6",
+     "affinity": 3,
+     "lines": [
+      [
+       "esteban_bloodmage",
+       "You were a conductor on the buses, in the capital?"
+      ],
+      [
+       "matias_reaper",
+       "Puente Alto, ten years, the same forty faces every morning. My father did the job before me."
+      ],
+      [
+       "esteban_bloodmage",
+       "I took the micro to the hospital every day for nineteen years. I always liked the conductors who knew everyone's stop."
+      ],
+      [
+       "matias_reaper",
+       "That was me. I knew who got off where, and who was having a bad week."
+      ]
+     ]
+    },
+    {
+     "when": "friendly",
+     "affinity": 3,
+     "lines": [
+      [
+       "matias_reaper",
+       "I'm learning to read here, slowly. A woman at the trade post corrects everything."
+      ],
+      [
+       "esteban_bloodmage",
+       "Would you let me help? I'm patient, and I won't correct everything, only the things that matter."
+      ],
+      [
+       "matias_reaper",
+       "Yes, thank you. I'm writing a letter, and I want it to be right."
+      ],
+      [
+       "esteban_bloodmage",
+       "Then we'll get every word right, carefully, however long it takes."
+      ]
+     ]
+    },
+    {
+     "when": "close",
+     "affinity": 5,
+     "lines": [
+      [
+       "matias_reaper",
+       "My father and I didn't speak for two years, and then he died. The letter is for him."
+      ],
+      [
+       "esteban_bloodmage",
+       "I never married, and my sister's children were the closest I came to my own. I know something about letters with nowhere to go."
+      ],
+      [
+       "matias_reaper",
+       "Will you read it, when it's done?"
+      ],
+      [
+       "esteban_bloodmage",
+       "I'd be honoured, Matías. I'll read it twice, and the second time slowly."
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "a": "faris_shaman",
+   "b": "valentina_starcaller",
+   "steps": [
+    {
+     "when": "met",
+     "affinity": 5,
+     "lines": [
+      [
+       "valentina_starcaller",
+       "You pray by the lake at dusk! I've seen you from my spot, I'm the one with the charts."
+      ],
+      [
+       "faris_shaman",
+       "And I've seen you lying on your back, talking to the sky. I talk to the water, so we're neighbours in two ways."
+      ],
+      [
+       "valentina_starcaller",
+       "Ay, that's lovely. Does the water answer?"
+      ],
+      [
+       "faris_shaman",
+       "Always, if you're patient. Does the sky?"
+      ],
+      [
+       "valentina_starcaller",
+       "Every night, but you have to look up."
+      ]
+     ]
+    },
+    {
+     "when": "gap:6",
+     "affinity": 3,
+     "lines": [
+      [
+       "faris_shaman",
+       "In Basra the city lights hid the stars. I only saw them properly in the palm groves, late at night."
+      ],
+      [
+       "valentina_starcaller",
+       "In the Atacama there's no light at all. I'd have taken you out past the salt flats, and you'd have cried."
+      ],
+      [
+       "faris_shaman",
+       "Maybe I would. I cry at the right things, inshallah."
+      ],
+      [
+       "valentina_starcaller",
+       "Me too, every single tour! Nobody else understands."
+      ]
+     ]
+    },
+    {
+     "when": "friendly",
+     "affinity": 3,
+     "lines": [
+      [
+       "valentina_starcaller",
+       "I've named a little cluster over the lake after you, Faris, in pencil. It's called the Palm."
+      ],
+      [
+       "faris_shaman",
+       "A palm in the sky. My grandfather would have laughed for a week."
+      ],
+      [
+       "valentina_starcaller",
+       "Is that good?"
+      ],
+      [
+       "faris_shaman",
+       "It's the best thing that could happen to a name."
+      ]
+     ]
+    },
+    {
+     "when": "close",
+     "affinity": 5,
+     "lines": [
+      [
+       "faris_shaman",
+       "Some days I can feel the river in my arms, Valentina, and the heat on the back of my neck."
+      ],
+      [
+       "valentina_starcaller",
+       "Some nights I look up and miss the old stars so much I can't breathe."
+      ],
+      [
+       "faris_shaman",
+       "Then we'll sit here, by the water and under the sky, and miss home together."
+      ],
+      [
+       "valentina_starcaller",
+       "And then we'll sleep, and get up, and keep working. That's the trick, isn't it?"
+      ],
+      [
+       "faris_shaman",
+       "That's the whole trick, my friend."
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "a": "iker_guardian",
+   "b": "imelda_primalist",
+   "steps": [
+    {
+     "when": "met",
+     "affinity": 4,
+     "lines": [
+      [
+       "iker_guardian",
+       "You're a boxer! I can see it in your feet. Who trained you?"
+      ],
+      [
+       "imelda_primalist",
+       "Myself, mostly, at a gym above a tyre shop in Navotas."
+      ],
+      [
+       "iker_guardian",
+       "Above a tyre shop! The best gyms are always above a tyre shop!"
+      ],
+      [
+       "imelda_primalist",
+       "It's always a tyre shop. The smell of rubber keeps the soft ones away."
+      ]
+     ]
+    },
+    {
+     "when": "gap:5",
+     "affinity": 2,
+     "lines": [
+      [
+       "iker_guardian",
+       "Spar with me tomorrow at six, and I'll count for you."
+      ],
+      [
+       "imelda_primalist",
+       "You'll talk the whole time."
+      ],
+      [
+       "iker_guardian",
+       "I'll coach the whole time, it's different!"
+      ],
+      [
+       "imelda_primalist",
+       "It's just louder."
+      ]
+     ]
+    },
+    {
+     "when": "gap:8",
+     "affinity": 3,
+     "lines": [
+      [
+       "imelda_primalist",
+       "Your jab's lazy. You drop your right hand when you talk."
+      ],
+      [
+       "iker_guardian",
+       "I drop my right hand when I talk? I talk all the time!"
+      ],
+      [
+       "imelda_primalist",
+       "So you drop it all the time, and you'd better fix it."
+      ],
+      [
+       "iker_guardian",
+       "Nobody's coached me in twenty years. This is wonderful!"
+      ]
+     ]
+    },
+    {
+     "when": "friendly",
+     "affinity": 3,
+     "lines": [
+      [
+       "imelda_primalist",
+       "Nineteen years of fighting, and somebody I loved came to watch exactly once."
+      ],
+      [
+       "iker_guardian",
+       "Then I'll come to every one from now on, and I'll shout so loud the referee complains."
+      ],
+      [
+       "imelda_primalist",
+       "You'd get thrown out."
+      ],
+      [
+       "iker_guardian",
+       "Then I'll shout from outside!"
+      ]
+     ]
+    },
+    {
+     "when": "close",
+     "affinity": 5,
+     "lines": [
+      [
+       "iker_guardian",
+       "I've got ninety names in my pocket, Imelda. I don't talk about it."
+      ],
+      [
+       "imelda_primalist",
+       "Then don't talk. Spar with me instead. Hitting things helps when talking doesn't."
+      ],
+      [
+       "iker_guardian",
+       "You really think so?"
+      ],
+      [
+       "imelda_primalist",
+       "I know so. Six o'clock, and keep your right hand up."
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "a": "carolina_shaman",
+   "b": "hana_shaman",
+   "steps": [
+    {
+     "when": "met",
+     "affinity": 5,
+     "lines": [
+      [
+       "hana_shaman",
+       "Kia ora, mate! You're the river pilot, eh? You read water like I do."
+      ],
+      [
+       "carolina_shaman",
+       "Twelve years on the Amazon. And you're the lifeguard who swims out when everybody else swims in."
+      ],
+      [
+       "hana_shaman",
+       "Since I was five. Port Waikato, where the river hits the sea, with a rip that takes somebody every few years."
+      ],
+      [
+       "carolina_shaman",
+       "Then you know water's alive, meu bem. It changes its mind every season."
+      ]
+     ]
+    },
+    {
+     "when": "gap:6",
+     "affinity": 3,
+     "lines": [
+      [
+       "carolina_shaman",
+       "Where I'm from, two rivers run side by side for miles without mixing, the black one and the brown one."
+      ],
+      [
+       "hana_shaman",
+       "Where I'm from, the river hits the sea and they fight about it all day. Heavy water, black sand."
+      ],
+      [
+       "carolina_shaman",
+       "I'd love to see that, Hana."
+      ],
+      [
+       "hana_shaman",
+       "I'd love to see yours. One day, eh, if there's a one day."
+      ]
+     ]
+    },
+    {
+     "when": "friendly",
+     "affinity": 3,
+     "lines": [
+      [
+       "hana_shaman",
+       "Will you teach me to read a river, Carolina? I only know the sea."
+      ],
+      [
+       "carolina_shaman",
+       "Only if you teach me to swim properly. I've been on boats my whole life and I swim like a capybara."
+      ],
+      [
+       "hana_shaman",
+       "Sweet as, deal. You'll be swimming like an eel in a month."
+      ],
+      [
+       "carolina_shaman",
+       "And you'll be reading channels like my grandfather."
+      ]
+     ]
+    },
+    {
+     "when": "close",
+     "affinity": 5,
+     "lines": [
+      [
+       "hana_shaman",
+       "I remember the two I didn't get out, Carolina. An old man, and a boy of fourteen."
+      ],
+      [
+       "carolina_shaman",
+       "My grandfather used to say the river keeps what it keeps, and you don't get to argue."
+      ],
+      [
+       "hana_shaman",
+       "That doesn't make it better."
+      ],
+      [
+       "carolina_shaman",
+       "No, it doesn't, meu bem. But it means it was never yours to keep. Let it go downstream, a little at a time."
+      ]
+     ]
+    }
+   ]
   }
  ]
 }
