@@ -170,6 +170,21 @@ class BondManager:
         while b.stage < top and b.trust >= THRESHOLDS[b.stage + 1]:
             b.stage += 1
             self.log.append((b.rid, f"[{self.name_of(b.rid)} is now a {STAGE_NAMES[b.stage_key]}.]"))
+            if b.stage_key == "sworn":
+                self._give_keepsake(b)
+
+    def _give_keepsake(self, b):
+        """Kyle, 19 Nov 2026: each Sworn member gives something personal, and it goes on the Collection's Keepsakes
+        tab (data/npcs/keepsakes.json)."""
+        try:
+            from world import collection as C
+            cid = C.keepsake_of(b.rid)
+            e = C.get_entry(cid)
+            if e is not None and C.grant(cid):
+                self.log.append((b.rid, f"[{self.name_of(b.rid)} gives you {e['name']}. It's on the Keepsakes "
+                                        f"tab of your Collection.]"))
+        except Exception:
+            pass
 
     def _mood(self, b, amount):
         b.mood = max(0, min(100, b.mood + amount))

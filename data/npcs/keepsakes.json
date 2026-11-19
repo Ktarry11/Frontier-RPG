@@ -1,0 +1,18 @@
+{
+  "_about": "One keepsake per recruit, given when they become Sworn (Kyle, 19 Nov 2026: 'Each sworn member will give something that goes there. it's personal to them and i have plans for it later'). Written from each recruit's Wave 1 profile in docs/recruits/. tools/build_collection.py turns each into a found-only Collection entry on the Keepsakes tab; world/bond_manager grants it on reaching Sworn. `icon` is the keepsake's own icon once its art lands; until then it shows `stand_in`.",
+  "keepsakes": {
+    "kesten_the_catalogued": {
+      "name": "Kesten's First Volume",
+      "blurb": "The first bound volume of Kesten's record of the Scourge, in pencil. The last page has your name on it, written properly, with the day he swore to you.",
+      "icon": "col_keepsake_kesten",
+      "stand_in": "col_book_master"
+    },
+    "adrian_templar": {
+      "name": "Adrián's Whistle",
+      "blurb": "The referee's whistle Adrián carried in his left pocket from the day he landed. He says he doesn't need to be the referee when he's with you.",
+      "icon": "col_keepsake_adrian",
+      "stand_in": "col_peddler_bell",
+      "_draft": "waiting on Kyle's sign-off of docs/recruits/adrian_mendoza.md"
+    }
+  }
+}

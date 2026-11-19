@@ -26,10 +26,10 @@ XP_CAP_LEVEL = 60
 XP_CAP_PCT = 80
 
 TABS = (("mount", "Mounts"), ("form", "Forms"), ("title", "Titles"), ("travel", "Travel"), ("service", "Services"),
-        ("heirloom", "Heirlooms"))
+        ("heirloom", "Heirlooms"), ("keepsake", "Keepsakes"))
 #: tomes sit on the Travel tab with the feathers and the hearths
 TAB_OF = {"mount": "mount", "form": "form", "title": "title", "travel": "travel", "tome": "travel",
-          "service": "service", "heirloom": "heirloom"}
+          "service": "service", "heirloom": "heirloom", "keepsake": "keepsake"}
 
 FORM_DIR = ROOT / "assets" / "collection" / "forms"
 MOUNT_DIR = ROOT / "assets" / "mounts"
@@ -207,6 +207,11 @@ def grant(cid, commit=True):
         return bool(col.transact(go))
     go()
     return bool(col.save())
+
+
+def keepsake_of(recruit_id):
+    """The Collection id of the keepsake a recruit gives when they become Sworn (data/npcs/keepsakes.json)."""
+    return f"keepsake_{recruit_id}"
 
 
 def exalted_line(faction_id):

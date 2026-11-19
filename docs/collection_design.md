@@ -108,3 +108,11 @@ Two of the approved extras came out slightly different from how I first wrote th
 **The experience rate switch** (`world/xp_rate.py`), under the leader's bars beside the map. Kyle: "0.5x, 1x, 1.5x,
 2x, 2.5x, or 3x EXP which will be for quests and kills. So people can pick their own level of fun." It's kept with the
 save and applied last to every quest and kill reward, so the quest card shows what you'll actually get.
+
+## Keepsakes (19 Nov 2026)
+
+Kyle: "a new collection tab. Each sworn member will give something that goes there. it's personal to them and i have
+plans for it later." The seventh tab. One keepsake per recruit, written from their Wave 1 profile
+(`docs/recruits/`, `data/npcs/keepsakes.json`). It's given the moment they become Sworn (`world/bond_manager`), never
+sold, and has no price. A keepsake you haven't been given shows only who it's from, and search won't find it. Each
+gets its own icon (`col_keepsake_<name>`) and shows a stand-in until the art lands. QA: `tools/qa_keepsakes.py`.

@@ -85,7 +85,8 @@ class CollectionScreen(BaseScreen):
             rows = [e for e in rows if not C.learned(e["id"])]
         if self.search:
             q = self.search.lower()
-            rows = [e for e in rows if q in e["name"].lower() or q in e["blurb"].lower()]
+            rows = [e for e in rows if (q in e["name"].lower() or q in e["blurb"].lower())
+                    and not (e["kind"] == "keepsake" and not C.learned(e["id"]))]     # an ungiven keepsake stays hidden
         # learned first, then by rarity (the rarest last), then by name
         order = {"common": 0, "uncommon": 1, "rare": 2, "epic": 3}
         return sorted(rows, key=lambda e: (not C.learned(e["id"]), order.get(e["rarity"], 0), e["name"]))
@@ -95,6 +96,11 @@ class CollectionScreen(BaseScreen):
         """(line, colour, [(label, action)]) for one card."""
         from world import collection as C
         cid, kind = e["id"], e["kind"]
+        if kind == "keepsake":
+            who = e["effect"]["from"].split()[0]
+            if not C.learned(cid):
+                return f"Something personal. {who} gives it to you when they swear to you.", DIM, []
+            return f"Given to you by {e['effect']['from']}.", GREEN, []
         if not C.learned(cid):
             return "Not learned. Look for it on the auction house.", DIM, []
         tm = self._travel()
@@ -331,14 +337,15 @@ class CollectionScreen(BaseScreen):
 
         self.tab_rects = []
         x = LEFT
+        tab_w = min(186, (SCREEN_WIDTH - 2 * LEFT) // len(C.TABS) - 6)
         for tab, label in C.TABS:
             rows = C.by_tab(tab)
             n = sum(1 for e in rows if C.learned(e["id"]))
-            rect = pygame.Rect(x, 98, 186, 38)
+            rect = pygame.Rect(x, 98, tab_w, 38)
             self.renderer.draw_button(screen, rect, f"{label} {n}/{len(rows)}",
                                       color=(70, 90, 130) if tab == self.tab else (36, 40, 56))
             self.tab_rects.append((rect, tab))
-            x += 192
+            x += tab_w + 6
 
         rows = self._rows()
         per_page = ((SCREEN_HEIGHT - 60 - TOP) // (CARD_H + CARD_GAP)) * COLS
@@ -384,9 +391,12 @@ class CollectionScreen(BaseScreen):
             self.buttons.append((b, e["id"], action))
             bw += w + 8
         width = rect.right - tx - 16 - bw
-        self.renderer.draw_text(screen, self.renderer.truncate(e["name"], width), (tx, rect.y + 6),
+        name, blurb = e["name"], e["blurb"]
+        if e["kind"] == "keepsake" and not known:
+            name, blurb = f"A keepsake from {e['effect']['from']}", "You'll find out what it is when it's yours."
+        self.renderer.draw_text(screen, self.renderer.truncate(name, width), (tx, rect.y + 6),
                                 color=RARITY.get(e["rarity"], COLOR_WHITE) if known else DIM)
-        self.renderer.draw_text(screen, self.renderer.truncate(e["blurb"], width, font_size=14), (tx, rect.y + 31),
+        self.renderer.draw_text(screen, self.renderer.truncate(blurb, width, font_size=14), (tx, rect.y + 31),
                                 font_size=14, color=GREY if known else DIM)
         self.renderer.draw_text(screen, self.renderer.truncate(line, width, font_size=14), (tx, rect.y + 53),
                                 font_size=14, color=colour)

@@ -11,7 +11,7 @@ portable service, a quality-of-life tome or an heirloom.
 FIELDS
     id          collection id; the bag item carries it as `collection_id`
     name        the bag item's name, which is also what the Collection tab shows
-    kind        mount | form | travel | service | tome | heirloom (the tab it's on: tomes sit on Travel)
+    kind        mount | form | travel | service | tome | heirloom | keepsake (the tab it's on: tomes sit on Travel)
     price       base price in copper, before the market's own price index moves it. Kyle: "50-750g", then for the
                 mass-made kinds "Some are dirt cheap. Some are expensive", so 2g to 750g
     rarity      common | uncommon | rare | epic: how often it turns up on the auction house, and its name colour
@@ -430,6 +430,19 @@ for _fid, _fmt in EXALTED_TITLES.items():
         {"title": _fmt}, "col_title_rare")
     ITEMS[-1].update(found_only=True, source=f"exalted:{_fid}")
 
+# ---------------------------------------------------------------- keepsakes
+# Kyle, 19 Nov 2026: "a new collection tab. Each sworn member will give something that goes there. it's personal to
+# them and i have plans for it later." One per recruit, from data/npcs/keepsakes.json (written from each Wave 1
+# profile in docs/recruits/). Given the moment they become Sworn (world/bond_manager), never sold: FOUND ONLY.
+_KEEP = json.loads((ROOT / "data/npcs/keepsakes.json").read_text(encoding="utf-8"))["keepsakes"]
+_RECRUITS = json.loads((ROOT / "data/npcs/recruits.json").read_text(encoding="utf-8"))
+_RECRUITS = {r["recruit_id"]: r for r in (_RECRUITS if isinstance(_RECRUITS, list) else _RECRUITS.get("recruits", []))}
+for _rid, _k in _KEEP.items():
+    add(f"keepsake_{_rid}", _k["name"], "keepsake", 0, "epic", _k["blurb"],
+        {"recruit_id": _rid, "from": _RECRUITS[_rid]["name"]},
+        _k["icon"] if (ROOT / "assets/icons/collection" / f"{_k['icon']}.png").exists() else _k["stand_in"])
+    ITEMS[-1].update(found_only=True, source=f"sworn:{_rid}", art=_k["icon"])
+
 # ---------------------------------------------------------------- the icons (Sheet D, delivered 18 Nov 2026)
 UNIQUE_REINS = {"bone_white_kodo": "kodo", "steamwheedle_runabout": "runabout", "tidecaller_sea_turtle": "turtle",
                 "dread_elk_of_felwood": "elk", "sunreach_hawkstrider": "hawkstrider", "ashen_nightmare": "nightmare",
@@ -524,7 +537,7 @@ def problems():
     if len(names) != len(set(names)):
         out.append("duplicate names")
     for i in ITEMS:
-        if not 2 * G <= i["price"] <= 750 * G:
+        if i["kind"] != "keepsake" and not 2 * G <= i["price"] <= 750 * G:     # a keepsake is given, never priced
             out.append(f"{i['id']}: price {i['price'] // G}g is outside 2-750g (Kyle: \"Some are dirt cheap. Some "
                        f"are expensive\", up to 750g)")
         if i["kind"] == "form" and i["effect"].get("facings"):

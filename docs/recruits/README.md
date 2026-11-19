@@ -14,7 +14,9 @@ so their background and themselves FIRST." And: "this needs to be done in steps 
    wanting to be better. A trump card on a cooldown, or a passive.
 
 Plus a new **Collection tab** for keepsakes: each Sworn member gives one personal item, and it goes there. Kyle has
-plans for it later. It gets built once the first keepsake is signed off, so it holds something real from day one.
+plans for it later. Built 19 Nov 2026 (`data/npcs/keepsakes.json`, `tools/qa_keepsakes.py`): a keepsake is found
+only, given the moment its recruit becomes Sworn, and an ungiven one shows only who it's from. Each needs its own icon
+(it shows a stand-in until then).
 
 ## Each profile has
 
@@ -46,8 +48,8 @@ The pilot three first, then everyone else from the lowest level up.
 
 | # | Recruit | Class | Where | Profile | Ending | Status |
 |---|---|---|---|---|---|---|
-| 1 | Kesten Ambrose | Runemaster 36 | Kael's Bastion | `kesten_ambrose.md` | Happy (proposed) | Draft 1, waiting on Kyle |
-| 2 | Adrián Mendoza | Templar 24 | Astranaar |  | Happy (pilot) |  |
+| 1 | Kesten Ambrose | Runemaster 36 | Kael's Bastion | `kesten_ambrose.md` | Happy | Signed off 19 Nov 2026 |
+| 2 | Adrián Mendoza | Templar 24 | Astranaar | `adrian_mendoza.md` | Happy (pilot) | Draft 1, waiting on Kyle |
 | 3 | Tarek Mansour | Templar 26 | Ashenvale East |  | Sad (pilot) |  |
 | 4 | Asher | Paladin 5 | Burning Blade Coven |  |  |  |
 | 5 | Diego Salazar | Tinker 5 | Deathknell |  |  |  |

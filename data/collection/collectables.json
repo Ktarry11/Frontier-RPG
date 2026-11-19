@@ -15094,6 +15094,40 @@
       "needs_art": false,
       "found_only": true,
       "source": "exalted:the_unnamed"
+    },
+    {
+      "id": "keepsake_kesten_the_catalogued",
+      "name": "Kesten's First Volume",
+      "kind": "keepsake",
+      "price": 0,
+      "rarity": "epic",
+      "blurb": "The first bound volume of Kesten's record of the Scourge, in pencil. The last page has your name on it, written properly, with the day he swore to you.",
+      "effect": {
+        "recruit_id": "kesten_the_catalogued",
+        "from": "Kesten Ambrose"
+      },
+      "icon_id": "col_book_master",
+      "art": "col_keepsake_kesten",
+      "needs_art": false,
+      "found_only": true,
+      "source": "sworn:kesten_the_catalogued"
+    },
+    {
+      "id": "keepsake_adrian_templar",
+      "name": "Adrián's Whistle",
+      "kind": "keepsake",
+      "price": 0,
+      "rarity": "epic",
+      "blurb": "The referee's whistle Adrián carried in his left pocket from the day he landed. He says he doesn't need to be the referee when he's with you.",
+      "effect": {
+        "recruit_id": "adrian_templar",
+        "from": "Adrián Mendoza"
+      },
+      "icon_id": "col_peddler_bell",
+      "art": "col_keepsake_adrian",
+      "needs_art": false,
+      "found_only": true,
+      "source": "sworn:adrian_templar"
     }
   ]
 }

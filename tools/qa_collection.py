@@ -50,7 +50,7 @@ def main():
         if len(es) < 500:
             bad.append(f"only {len(es)} collectables; Kyle wants hundreds")
         for e in es:
-            if not 2 * 10000 <= e["price"] <= 750 * 10000:
+            if e["kind"] != "keepsake" and not 2 * 10000 <= e["price"] <= 750 * 10000:   # keepsakes are given
                 bad.append(f"{e['id']} costs {e['price'] // 10000}g, outside 2-750g")
         import creature_sprites as CS
         from world.hidden_zones import creature_kinds

@@ -1,9 +1,9 @@
 # Kesten Ambrose
 
-Wave 1 profile, draft 1 (19 Nov 2026). Waiting on Kyle's sign-off. This is who he is. How he behaves in groups,
+Wave 1 profile. **Signed off by Kyle, 19 Nov 2026:** "Yes he was the scourge's clerk. everything else is good." The ending is Mari forgiving him (happy). This is who he is. How he behaves in groups,
 who he gets on with, and his Sworn skill come in Waves 2, 3 and 4, and all of them are built on this page.
 
-Nothing in the game changes until this is signed off. The pilot's stage lines in `data/npcs/bonds.json` get rewritten
+The pilot's stage lines in `data/npcs/bonds.json` get rewritten
 from this in Wave 2. The section at the bottom lists what this draft adds to, or changes in, what's already in the game.
 
 ## At a glance
@@ -192,11 +192,10 @@ in it. The last page has your name on it, written properly, with the date he swo
 - His Stranger to Sworn lines and his two reply moments get rewritten in Wave 2 to reveal this in order. The current
   ones still fit as a rough shape.
 
-## For Kyle to decide
+## Kyle's calls (settled 19 Nov 2026)
 
-1. **The handwriting.** Was he the Scourge's clerk under the hold? It's the biggest call on this page and it changes
-   his whole arc. I think it's the best thing about him.
+1. **The handwriting.** Yes, he was the Scourge's clerk under the hold.
 2. **Liis.** Died before the Integration, so the Scourge took his memory of her rather than her.
 3. **His names.** Andres Tamm, and Kesten from *kestma* and Ambrose from the archive cat.
-4. **The ending.** Mari forgives him (happy, my pick) or won't see him (sad).
+4. **The ending.** Mari forgives him (happy).
 5. **The keepsake.** The First Volume.
