@@ -2124,5 +2124,501 @@
     ]
    }
   ]
+ },
+ {
+  "a": "faris_shaman",
+  "b": "yusuf_venomancer",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 5,
+    "lines": [
+     [
+      "yusuf_venomancer",
+      "Your Arabic's from the Shatt, habibi. I'd know it with my eyes shut."
+     ],
+     [
+      "faris_shaman",
+      "Outside Basra, where the two rivers meet. My family's ninety palms."
+     ],
+     [
+      "yusuf_venomancer",
+      "My shop was in the city for nineteen years. Half the farmers on the Shatt came to me for their blood pressure."
+     ],
+     [
+      "faris_shaman",
+      "Then you probably sold my grandfather his pills, and he never took a single one."
+     ],
+     [
+      "yusuf_venomancer",
+      "Of course he didn't. Farmers never do, wallah, and they outlive the pharmacists."
+     ]
+    ]
+   },
+   {
+    "when": "gap:6",
+    "affinity": 3,
+    "lines": [
+     [
+      "faris_shaman",
+      "Do you remember the smell of the river in summer, Yusuf? I can feel it in my arms some days."
+     ],
+     [
+      "yusuf_venomancer",
+      "Mud and dates and diesel from the boats. I remember it exactly."
+     ],
+     [
+      "faris_shaman",
+      "My grandfather said look after the water first, and the palms look after themselves."
+     ],
+     [
+      "yusuf_venomancer",
+      "A good rule. In my shop it was, get the dose right first, and the patient looks after himself."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "yusuf_venomancer",
+      "You pray by the water every evening, Faris. I've seen you, and I've been meaning to join you."
+     ],
+     [
+      "faris_shaman",
+      "Come tomorrow, then. The lake doesn't mind company, and neither do I."
+     ],
+     [
+      "yusuf_venomancer",
+      "I'll bring tea, with too much sugar, the Basra way."
+     ],
+     [
+      "faris_shaman",
+      "There's no other way to make it, inshallah."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 5,
+    "lines": [
+     [
+      "faris_shaman",
+      "I used to take my brother's boys out on the river and teach them the names of the birds."
+     ],
+     [
+      "yusuf_venomancer",
+      "And I had my daughter at the counter every afternoon, counting pills on my tray. We were both teaching, habibi."
+     ],
+     [
+      "faris_shaman",
+      "You're always so certain about your family, Yusuf, and I believe you while you're in the room."
+     ],
+     [
+      "yusuf_venomancer",
+      "Then I'll stay in the room a little longer. Pass me the sugar."
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "a": "camila_venomancer",
+  "b": "yusuf_venomancer",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 4,
+    "lines": [
+     [
+      "camila_venomancer",
+      "You're the pharmacist. I made antivenom in Durango for seven years, from scorpions."
+     ],
+     [
+      "yusuf_venomancer",
+      "Then you're the reason half the children in Mexico are alive, and you say it like you're telling me the weather."
+     ],
+     [
+      "camila_venomancer",
+      "Ni modo, it's just the job. Ten thousand scorpions and a pair of tweezers."
+     ],
+     [
+      "yusuf_venomancer",
+      "Ten thousand, ya binti. I'd have hired you on the spot."
+     ]
+    ]
+   },
+   {
+    "when": "gap:6",
+    "affinity": 3,
+    "lines": [
+     [
+      "yusuf_venomancer",
+      "Your dosing yesterday was right to the drop, Camila. I checked, because I always check."
+     ],
+     [
+      "camila_venomancer",
+      "I know you did, I watched you do it."
+     ],
+     [
+      "yusuf_venomancer",
+      "And you didn't mind?"
+     ],
+     [
+      "camila_venomancer",
+      "Everybody who's any good checks. The ones who don't are the ones I worry about."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "camila_venomancer",
+      "My little sister called me every night to complain about boys. I listened to every word."
+     ],
+     [
+      "yusuf_venomancer",
+      "My daughter does the same with her mother, and I pretend not to listen from the next room."
+     ],
+     [
+      "camila_venomancer",
+      "You listen to every word, don't you?"
+     ],
+     [
+      "yusuf_venomancer",
+      "Every word, habibti, and I've got opinions about every one of those boys."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 5,
+    "lines": [
+     [
+      "camila_venomancer",
+      "Once I ran next door with a batch I'd made that week, and a boy who'd been stung lived. I still see his face."
+     ],
+     [
+      "yusuf_venomancer",
+      "Every pharmacist has one face. Mine was an old man with no money who came back a month later and paid me in dates."
+     ],
+     [
+      "camila_venomancer",
+      "Did you take the dates?"
+     ],
+     [
+      "yusuf_venomancer",
+      "Of course I took the dates, and I cried into them. Don't tell anybody that."
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "a": "liam_suncleric",
+  "b": "skye_pyromancer",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 5,
+    "lines": [
+     [
+      "liam_suncleric",
+      "CFA, by the look of you. I can always tell a volunteer, you check the wind before you say hello."
+     ],
+     [
+      "skye_pyromancer",
+      "Eleven seasons out of Ballarat. You're RFS, New South Wales, I'd put money on it."
+     ],
+     [
+      "liam_suncleric",
+      "Blue Mountains, seventeen years. Fire and ambulance, whichever badge the roster wanted."
+     ],
+     [
+      "skye_pyromancer",
+      "Both at once? Mate, you're mad, and I mean that as a compliment."
+     ]
+    ]
+   },
+   {
+    "when": "gap:6",
+    "affinity": 4,
+    "lines": [
+     [
+      "skye_pyromancer",
+      "Were you on the line in the summer of 2019?"
+     ],
+     [
+      "liam_suncleric",
+      "I was there for weeks. We lost two of the crew and half my street."
+     ],
+     [
+      "skye_pyromancer",
+      "We were down south, the same summer. Nobody who was there talks about it, really."
+     ],
+     [
+      "liam_suncleric",
+      "No, we don't. But it's good to stand next to somebody who knows without saying."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "skye_pyromancer",
+      "I'll tell you my rule, Liam, because you'll get it. I never start a fire I couldn't put out myself."
+     ],
+     [
+      "liam_suncleric",
+      "That's a good rule. Mine's simpler, don't go in alone."
+     ],
+     [
+      "skye_pyromancer",
+      "You go in alone all the time, I've watched you."
+     ],
+     [
+      "liam_suncleric",
+      "I know, and that's why I need somebody yelling it at me."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 6,
+    "lines": [
+     [
+      "liam_suncleric",
+      "When it goes quiet here, I don't know what I'm for. The first quiet season nearly finished me."
+     ],
+     [
+      "skye_pyromancer",
+      "Then you come and sit in my shed when it's quiet. Kettle's on, and nobody asks you anything."
+     ],
+     [
+      "liam_suncleric",
+      "No questions at all?"
+     ],
+     [
+      "skye_pyromancer",
+      "Only whether you take sugar. Everything else can wait till you're ready."
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "a": "cristobal_knight",
+  "b": "pieter_guardian",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 1,
+    "lines": [
+     [
+      "cristobal_knight",
+      "Hermano, you've got a clipboard! On a world full of monsters, you brought a clipboard?"
+     ],
+     [
+      "pieter_guardian",
+      "I brought a knife and found a clipboard. A precaution costs less than the thing it prevents, ja."
+     ],
+     [
+      "cristobal_knight",
+      "Ha, I like you already, and I'm going to drive you crazy."
+     ],
+     [
+      "pieter_guardian",
+      "Everybody tries, man. I've outlasted thousands of men in a hurry."
+     ]
+    ]
+   },
+   {
+    "when": "gap:5",
+    "affinity": -2,
+    "lines": [
+     [
+      "pieter_guardian",
+      "You went back in again, Cristóbal. No line, and you didn't tell anybody."
+     ],
+     [
+      "cristobal_knight",
+      "There was somebody in there, hermano! What was I supposed to do, fill in a form?"
+     ],
+     [
+      "pieter_guardian",
+      "You were supposed to shout, so the next man knows where you are. That's the whole form."
+     ],
+     [
+      "cristobal_knight",
+      "Okay, okay, next time I'll shout. I'm very good at shouting."
+     ]
+    ]
+   },
+   {
+    "when": "gap:8",
+    "affinity": 3,
+    "lines": [
+     [
+      "cristobal_knight",
+      "You've pulled more people out than I have, Pieter. I watched you, and you never once ran."
+     ],
+     [
+      "pieter_guardian",
+      "I walk in with a harness, and I walk out with them. Running is how you end up with one more to carry."
+     ],
+     [
+      "cristobal_knight",
+      "That's the most boring way to be a hero I've ever seen."
+     ],
+     [
+      "pieter_guardian",
+      "Ja, and they all go home. Boring is the point."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 4,
+    "lines": [
+     [
+      "pieter_guardian",
+      "I made you something. A harness, your size, with your name stitched on the strap."
+     ],
+     [
+      "cristobal_knight",
+      "Ay, hermano, look at this! It's the ugliest thing anybody's ever given me, and I'll wear it every day."
+     ],
+     [
+      "pieter_guardian",
+      "Wear it every time you go back in. That's all I ask."
+     ],
+     [
+      "cristobal_knight",
+      "Every time, I promise, and I'll shout too, so you know where I am."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 5,
+    "lines": [
+     [
+      "cristobal_knight",
+      "My first day here I walked out of a grass fire, and I was the only one who did. That's why I go back in, Pieter."
+     ],
+     [
+      "pieter_guardian",
+      "I know why, man. I don't talk about the ones I didn't pull out either, in Rotterdam or here."
+     ],
+     [
+      "cristobal_knight",
+      "Then let's make a deal. I go back in, and you're on the other end of the rope."
+     ],
+     [
+      "pieter_guardian",
+      "That's the first sensible thing you've ever said, ja, and it's a deal."
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "a": "cristobal_knight",
+  "b": "esteban_bloodmage",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 5,
+    "lines": [
+     [
+      "cristobal_knight",
+      "You're from Valparaíso, hermano? Tell me which hill, and don't say Cerro Alegre, everybody says Cerro Alegre."
+     ],
+     [
+      "esteban_bloodmage",
+      "Cerro Barón, above the old lift. Nineteen years at the city hospital, in trauma."
+     ],
+     [
+      "cristobal_knight",
+      "Trauma, you say? Then in 2024, with the fires, you were the one at the other end."
+     ],
+     [
+      "esteban_bloodmage",
+      "I was there, yes. Your brigade brought them down the hill, and we did what we could with the burns."
+     ]
+    ]
+   },
+   {
+    "when": "gap:6",
+    "affinity": 1,
+    "lines": [
+     [
+      "esteban_bloodmage",
+      "You go back in without a plan, Cristóbal. I've stitched up a great many men like you."
+     ],
+     [
+      "cristobal_knight",
+      "And they all lived, hermano, because you're good. So it works out!"
+     ],
+     [
+      "esteban_bloodmage",
+      "That's not how risk works, and you know it."
+     ],
+     [
+      "cristobal_knight",
+      "I know, I know. But my mother says I was born running toward smoke, and she's never wrong."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "cristobal_knight",
+      "My mother's house on the hill was still standing when I came down after four days. I'll never forget that."
+     ],
+     [
+      "esteban_bloodmage",
+      "My sister's children thought I was the best uncle in Chile, because I'd explain exactly how bones heal."
+     ],
+     [
+      "cristobal_knight",
+      "Ha, of course you did. Kids love a gruesome uncle."
+     ],
+     [
+      "esteban_bloodmage",
+      "They really do. Gruesome and accurate is the perfect combination."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 5,
+    "lines": [
+     [
+      "esteban_bloodmage",
+      "I ask permission before every spell now because once I didn't. You should know that about me, Cristóbal."
+     ],
+     [
+      "cristobal_knight",
+      "And I go back in because once I walked out alone. We're both paying for something, hermano."
+     ],
+     [
+      "esteban_bloodmage",
+      "Then let's pay it together, carefully. I'll patch you up, and you'll stop making it so difficult."
+     ],
+     [
+      "cristobal_knight",
+      "That's a deal, mostly."
+     ]
+    ]
+   }
+  ]
  }
 ]
