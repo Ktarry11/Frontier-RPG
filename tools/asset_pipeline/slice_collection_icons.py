@@ -49,20 +49,22 @@ def main():
         # "-" skips a cell. Without it, Sheet D's own ids.
         if a.startswith("--ids="):
             IDS = [x.strip() for x in a.split("=", 1)[1].split(",")]
-    n = int(round(len(IDS) ** 0.5))
-    if n * n != len(IDS):
-        raise SystemExit(f"{len(IDS)} ids given: a square sheet needs 16, 25 or 36")
+    cols = next((int(a.split("=", 1)[1]) for a in sys.argv[1:] if a.startswith("--cols=")), None)
+    n = cols or int(round(len(IDS) ** 0.5))
+    if len(IDS) % n:
+        raise SystemExit(f"{len(IDS)} ids given for {n} columns: a sheet needs a full grid")
+    rows = len(IDS) // n
     rgb = np.asarray(Image.open(args[0]).convert("RGB")).astype(np.int32)
     r, g, b = rgb[..., 0], rgb[..., 1], rgb[..., 2]
     solid = (np.minimum(r, b) - g) < 80
     H, W = solid.shape
-    xs, ys = cuts(solid.sum(axis=0), n, W), cuts(solid.sum(axis=1), n, H)
+    xs, ys = cuts(solid.sum(axis=0), n, W), cuts(solid.sum(axis=1), rows, H)
     inner = ndimage.binary_erosion(solid, iterations=1)
     ring = inner & ~ndimage.binary_erosion(inner, iterations=2)
     rgb8 = rgb.astype(np.uint8)
     os.makedirs(OUT, exist_ok=True)
     k = 0
-    for j in range(n):
+    for j in range(rows):
         for i in range(n):
             cell = np.zeros_like(inner)
             cell[ys[j]:ys[j + 1], xs[i]:xs[i + 1]] = True
