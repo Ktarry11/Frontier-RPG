@@ -43,7 +43,7 @@ hints the player made the wish; plain speech, contractions, no one- or two-word 
 Kyle, 19 Nov 2026: "So we can have ixture of sad and happy for some. aim for a good 50% happy, 35% sad, 15% still
 unknown."
 
-Across the 99, the personal quests land roughly **50 happy, 35 sad, 14 still unknown**. Any single ending can still
+Wave 1 is drafted: across the 98 profiles (Asher untouched), the personal quests land **49 happy, 34 sad, 15 still unknown**. Any single ending can still
 be bittersweet: a happy one can cost something, and a sad one can leave them better off.
 - **Happy:** they get what they were after, or something close enough to live with.
 - **Sad:** they find out, and it's bad.
