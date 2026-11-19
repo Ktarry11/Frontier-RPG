@@ -34,8 +34,9 @@ At a glance; who they are; before; the Integration and what it cost; now; hopes,
 changed; their goal and personal quest with both endings; their keepsake; voice notes; seeds for Waves 2 to 4; what
 it changes in what's already written; and the calls for Kyle.
 
-Rules that hold for every profile: Earth transplants only; factionless; nobody shares a past with another recruit;
-outcomes vary, some better off and some worse; nothing that
+Rules that hold for every profile: Earth transplants only; factionless; no two recruits knew each other before the
+Integration, though their pasts can overlap (Kyle, 19 Nov 2026: "Pasts can be somewhat overlapped"), so two from the
+same city can have crossed paths without meeting; outcomes vary, some better off and some worse; nothing that
 hints the player made the wish; plain speech, contractions, no one- or two-word sentences, no dashes in their lines.
 
 ## How their stories end
@@ -115,8 +116,9 @@ play in order as they get to know each other, from finding out they're from the 
 to each other. Most are people the profiles already pointed at each other: Sophia and Stelios (Thessaloniki, and
 Despina's library), Elie and Ziad (Achrafieh), Marco and Enzo (the Quartieri), Marta and Zofia (Łódź), Sherif and
 Tarek (Cairo), Cristóbal and Esteban (Valparaíso), Faris and Yusuf (Basra), Taras, Wes and Mariana at Ariden's Watch,
-Sebastián and Vuk's cooking feud, the bird men arguing falcon against hawk against eagle, and so on. Nobody shares a
-past: the ones from the same place never met there, and find out how close they came.
+Sebastián and Vuk's cooking feud, the bird men arguing falcon against hawk against eagle, and so on. Their pasts can
+overlap but they never met: the ones from the same place find out how close they came. Marco once changed the lock on
+Enzo's mother's shop, Despina stamped Sophia's library books, and Ziad's ambulance brought patients to Elie's clinic.
 
 **Lines hold true either way.** Every line has to stay true before and after that recruit's own ending, so nothing
 claims somebody's still missing, a keepsake's still in their pocket, or a fear's still there when their ending changes
