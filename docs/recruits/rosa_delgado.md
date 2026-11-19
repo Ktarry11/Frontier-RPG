@@ -121,7 +121,7 @@ she's learned to see what's coming without them.
 - **Wave 3, with others:** gets on with blunt, competent people, and with Tarek, who also hates needless killing.
   Clashes with sentimental people. Respects anyone who admits they're bad at something.
 - **Wave 4, her Sworn skill:** what she resolves is the year she was outclassed and the pride it cost. A skill idea to
-  look at then: once a fight, she reads the enemy's next three moves, and the party's attacks can't miss for those turns.
+  look at then: on a cooldown of 10 to 15 turns, she reads the enemy's next three moves, and the party's attacks can't miss for those turns.
 
 ## What this changes in what's already written
 

@@ -113,7 +113,7 @@ his route's done, and you've got further to go than he has.
   with lightning in a fight. Furious at waste.
 - **Wave 3, with others:** gets on with patient, hospitable people, and with Bakyt and Giorgi, other men of open country. Fatherly to
   the young. Clashes with greedy people.
-- **Wave 4, his Sworn skill:** what he resolves is the years away from Nour. A skill idea to look at then: once a fight, he calls a
+- **Wave 4, his Sworn skill:** what he resolves is the years away from Nour. A skill idea to look at then: on a 10 to 15 turn cooldown, he calls a
   sandstorm that blinds the enemies and hides the party.
 
 ## What this changes in what's already written

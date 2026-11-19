@@ -175,9 +175,9 @@ in it. The last page has your name on it, written properly, with the date he swo
 - **Wave 3, with others:** gets on with patient, curious, careful people. Finds loud jokers tiring but doesn't dislike
   them. Grates with people who are careless with names, then warms up if they try.
 - **Wave 4, his Sworn skill:** what he resolves is the pages. He stops treating the record as a punishment and starts
-  treating it as the one thing he can do for those people. A skill idea to look at then: once a fight, when an ally
+  treating it as the one thing he can do for those people. A skill idea to look at then: on a 10 to 15 turn cooldown, when an ally
   would die, he writes their name down properly and they hold on at 1 health instead. It fits "a person isn't a
-  number". It would be a trump card on a cooldown.
+  number". It would be a trump card on a long cooldown, around 15 turns.
 
 ## What this changes in what's already written
 

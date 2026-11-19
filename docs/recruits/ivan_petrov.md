@@ -121,7 +121,7 @@ says he's got a proper route now and he doesn't need to pretend.
   tram and stops exactly when he means to. Hates lateness and loves a fixed plan. Complains constantly and never quits.
 - **Wave 3, with others:** gets on with practical, punctual people, and with fathers. Clashes with chaotic, careless people.
   A natural grumpy friend for Dan.
-- **Wave 4, his Sworn skill:** what he resolves is the fear of hitting someone. A skill idea to look at then: once a fight,
+- **Wave 4, his Sworn skill:** what he resolves is the fear of hitting someone. A skill idea to look at then: on a 10 to 15 turn cooldown,
   a huge two-handed strike that can't hit an ally even in a crowd, and that stops dead on the enemy.
 
 ## What this changes in what's already written

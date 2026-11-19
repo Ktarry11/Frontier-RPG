@@ -117,7 +117,7 @@ a hundred times, and he'd like it to catch you.
   timing. Checks every bridge, ladder and rope in a dungeon. Brags about the forty feet once per trip.
 - **Wave 3, with others:** gets on with practical, easy-going people, and with makers like Marta and Diego. Clashes with
   shouters and with careless people. Fond of anyone who makes him laugh.
-- **Wave 4, his Sworn skill:** what he resolves is never staying anywhere. A skill idea to look at then: once a fight, he
+- **Wave 4, his Sworn skill:** what he resolves is never staying anywhere. A skill idea to look at then: on a 10 to 15 turn cooldown, he
   braces the party, so for two turns nothing can knock them down, stun them or push them back.
 
 ## What this changes in what's already written

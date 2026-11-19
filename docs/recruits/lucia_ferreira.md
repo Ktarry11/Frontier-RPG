@@ -122,7 +122,7 @@ candle wall. She says they're written somewhere safe now.
   gossip at every camp. Gets upset by cruelty and loudly says so.
 - **Wave 3, with others:** gets on with warm, sociable people and makes friends with the shy ones by force. Bonds with the
   other faithful. Clashes with cynics, then keeps trying.
-- **Wave 4, her Sworn skill:** what she resolves is praying alone. A skill idea to look at then: once a fight, she prays
+- **Wave 4, her Sworn skill:** what she resolves is praying alone. A skill idea to look at then: on a 10 to 15 turn cooldown, she prays
   out loud and every ally's healing is stronger for a few turns.
 
 ## What this changes in what's already written

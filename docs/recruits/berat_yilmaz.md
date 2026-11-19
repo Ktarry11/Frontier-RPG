@@ -119,7 +119,7 @@ real one in his new surgery.
   lives. Knows someone everywhere.
 - **Wave 3, with others:** gets on with nearly everyone and introduces them to each other. Bonds fast with other healers,
   especially Ama and Freja. Can wear out quiet people, who usually forgive him.
-- **Wave 4, his Sworn skill:** what he resolves is never stopping to feel it. A skill idea to look at then: once a fight,
+- **Wave 4, his Sworn skill:** what he resolves is never stopping to feel it. A skill idea to look at then: on a 10 to 15 turn cooldown,
   he gets everyone talking and laughing so the whole party shakes off fear and stuns.
 
 ## What this changes in what's already written

@@ -116,7 +116,7 @@ have something that reminds you to check before you stand on it.
   reckless casters. Calm in a wipe.
 - **Wave 3, with others:** gets on with careful, precise people, especially Kesten, Haruto and Sophia. Fond of Freja, his
   countrywoman, who teases him. Clashes with gamblers and show-offs.
-- **Wave 4, his Sworn skill:** what he resolves is the unfinished calculation. A skill idea to look at then: once a fight, he
+- **Wave 4, his Sworn skill:** what he resolves is the unfinished calculation. A skill idea to look at then: on a 10 to 15 turn cooldown, he
   works right at his limit, and his next spells hit far harder.
 
 ## What this changes in what's already written

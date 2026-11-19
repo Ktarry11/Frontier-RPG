@@ -117,7 +117,7 @@ home. He says he's got a crew with their own shears now, and two kids who'll wan
   happening. Very good with civilians in quests.
 - **Wave 3, with others:** gets on with steady people, and with Cristóbal and Ama, fellow front-line rescuers. Protective of
   the young. Clashes with panicky people, then helps them.
-- **Wave 4, his Sworn skill:** what he resolves is going in alone. A skill idea to look at then: once a fight, he calls the
+- **Wave 4, his Sworn skill:** what he resolves is going in alone. A skill idea to look at then: on a 10 to 15 turn cooldown, he calls the
   crew in, and every ally gets a burst of healing at once.
 
 ## What this changes in what's already written

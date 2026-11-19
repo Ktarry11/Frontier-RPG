@@ -115,7 +115,7 @@ would want someone careful to have it.
 - **Wave 3, with others:** gets on with everybody, especially loud, brave people, and with Matías and Esteban, the other
   Chileans. Teases serious people until they laugh. Very protective of the young.
 - **Wave 4, his Sworn skill:** what he resolves is the grass fire, and the people he couldn't bring out. A skill idea to look
-  at then: once a fight, he walks into the worst of it and pulls the lowest-health ally out, shielding them.
+  at then: on a cooldown of 10 to 15 turns, he walks into the worst of it and pulls the lowest-health ally out, shielding them.
 
 ## What this changes in what's already written
 

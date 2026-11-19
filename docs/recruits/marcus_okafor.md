@@ -139,7 +139,7 @@ and says he doesn't need it to know what the sky's doing any more.
 - **Wave 3, with others:** gets on with curious people and anybody who listens. Grates with people who brush him off,
   and especially with people who are always sure. A natural friend for anybody else who studied something on Earth.
 - **Wave 4, his Sworn skill:** what he resolves is being ignored, and his anger at the old life. A skill idea to look at
-  then: once a fight, when the party is about to take a big hit, he calls it in time and they take far less.
+  then: on a cooldown of 10 to 15 turns, when the party is about to take a big hit, he calls it in time and they take far less.
 
 ## What this changes in what's already written
 

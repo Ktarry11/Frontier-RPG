@@ -113,7 +113,7 @@ into the dark any more, and he'd rather talk to you.
   dark magic in quests. Very kind to lonely quest givers.
 - **Wave 3, with others:** gets on with gentle, honest people, and with other night workers like Ama and Minh. Distrusted by
   some, which he accepts. Clashes with people who mock the lonely.
-- **Wave 4, his Sworn skill:** what he resolves is the voice, and saying no to it. A skill idea to look at then: once a fight,
+- **Wave 4, his Sworn skill:** what he resolves is the voice, and saying no to it. A skill idea to look at then: on a 10 to 15 turn cooldown,
   he takes the darkness that would hit the party into himself and holds it.
 
 ## What this changes in what's already written

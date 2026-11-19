@@ -117,7 +117,7 @@ strike it to hear it any more.
   every watch at camp unless stopped. Very quiet after any death.
 - **Wave 3, with others:** gets on with calm, careful people, and with Marcus, who also watches the sky. Clashes with
   reckless people. Quietly fatherly toward the youngest recruits, which he doesn't notice he's doing.
-- **Wave 4, his Sworn skill:** what he resolves is never handing over control. A skill idea to look at then: once a fight,
+- **Wave 4, his Sworn skill:** what he resolves is never handing over control. A skill idea to look at then: on a 10 to 15 turn cooldown,
   he rewinds the last turn for the whole party, undoing the damage they took.
 
 ## What this changes in what's already written

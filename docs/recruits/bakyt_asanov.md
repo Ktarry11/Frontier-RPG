@@ -117,7 +117,7 @@ a new glove, and the old one should go to someone who knows what it carried.
   hates needless killing. Loves open country and high places, dislikes caves.
 - **Wave 3, with others:** gets on with patient, outdoor people, and especially with Giorgi, another mountain herder.
   Fatherly to the young ones. Quiet with loud people.
-- **Wave 4, his Sworn skill:** what he resolves is the end of six generations. A skill idea to look at then: once a fight,
+- **Wave 4, his Sworn skill:** what he resolves is the end of six generations. A skill idea to look at then: on a 10 to 15 turn cooldown,
   his eagle marks every enemy's weak point, and the party's attacks on them hit harder.
 
 ## What this changes in what's already written

@@ -125,7 +125,7 @@ opens. She says she's got four beds to look after now, and she doesn't need to r
 - **Wave 3, with others:** gets on with steady people and the other healers. Annoys impatient people with her talking.
   Treats the Forsaken with more care than most living people do.
 - **Wave 4, her Sworn skill:** what she resolves is the corridor, and the brother she can't patch. A skill idea to look
-  at then: once a fight, she talks an ally through it, and they can't fall below a sliver of health for two turns.
+  at then: on a cooldown of 10 to 15 turns, she talks an ally through it, and they can't fall below a sliver of health for two turns.
 
 ## What this changes in what's already written
 

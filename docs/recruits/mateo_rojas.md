@@ -111,7 +111,7 @@ caravan. He says he's got his family to look up with now, and you should look up
   underground, where there's no sky.
 - **Wave 3, with others:** gets on with curious, dreamy people, and with Marcus and Minh, who also watch the sky. Gentle with the
   young. Bores impatient people.
-- **Wave 4, his Sworn skill:** what he resolves is choosing the sky over his family. A skill idea to look at then: once a fight,
+- **Wave 4, his Sworn skill:** what he resolves is choosing the sky over his family. A skill idea to look at then: on a 10 to 15 turn cooldown,
   he calls down starlight, which damages enemies and heals allies at the same time.
 
 ## What this changes in what's already written

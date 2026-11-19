@@ -160,7 +160,7 @@ here, so she gives the old one to you. She says you've kept her alive long enoug
 - **Wave 3, with others:** gets on fast with sarcastic people, competitive people and anyone who argues back. Clashes
   with pompous people and anyone who thinks they're chosen. Very protective of the young ones and the scared ones.
 - **Wave 4, her Sworn skill:** what she resolves is the fear of freezing, and the long months of not knowing. A skill
-  idea to look at then: once a fight, when the whole party is close to falling, she gets one turn where every heal she
+  idea to look at then: on a cooldown of 10 to 15 turns, when the whole party is close to falling, she gets one turn where every heal she
   casts lands twice. The calmest person in the room at the worst moment.
 
 ## What this changes in what's already written

@@ -128,7 +128,7 @@ the business now, and a man who's out doesn't need to know what time the markets
 - **Wave 3, with others:** gets on with honest, blunt people and anyone else who knows they're no saint. Clashes with
   self-righteous people, and with naive ones until they surprise him. Has a lot in common with Esteban, who also names
   the price first.
-- **Wave 4, his Sworn skill:** what he resolves is hiding from what he did. A skill idea to look at then: once a fight,
+- **Wave 4, his Sworn skill:** what he resolves is hiding from what he did. A skill idea to look at then: on a 10 to 15 turn cooldown,
   he pays the price himself, taking the damage meant for the party and turning it into power for his demon.
 
 ## What this changes in what's already written

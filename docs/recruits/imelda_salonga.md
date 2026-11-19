@@ -109,7 +109,7 @@ wrapped. She says these ones were tight enough, and you should keep them.
   Calm and focused in a long fight.
 - **Wave 3, with others:** gets on with disciplined fighters and blunt people, and with Iker, who'd train with her for hours.
   Clashes with show-offs and cheats. Quietly kind to mothers and old women.
-- **Wave 4, her Sworn skill:** what she resolves is never being seen by her mother. A skill idea to look at then: once a fight,
+- **Wave 4, her Sworn skill:** what she resolves is never being seen by her mother. A skill idea to look at then: on a 10 to 15 turn cooldown,
   a combination of strikes where every hit heals the most wounded ally.
 
 ## What this changes in what's already written

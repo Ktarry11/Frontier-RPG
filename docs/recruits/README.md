@@ -11,7 +11,9 @@ so their background and themselves FIRST." And: "this needs to be done in steps 
 3. **Each other.** Relationships form from personality: two sarcastic people become friends fast, two introverts
    barely talk.
 4. **Sworn.** Swearing to the player unlocks a new skill that comes from resolving their trauma, their issues, or just
-   wanting to be better. A trump card on a cooldown, or a passive.
+   wanting to be better. A trump card on a cooldown, or a passive. Kyle, 19 Nov 2026: "no character traits will ever be
+   'once per fight' they'll usually have 10-15 turn cooldowns depending on how strong they are". The stronger the
+   trait, the longer the cooldown.
 
 Plus a new **Collection tab** for keepsakes: each Sworn member gives one personal item, and it goes there. Kyle has
 plans for it later. Built 19 Nov 2026 (`data/npcs/keepsakes.json`, `tools/qa_keepsakes.py`): a keepsake is found

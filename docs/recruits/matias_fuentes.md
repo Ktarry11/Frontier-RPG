@@ -123,7 +123,7 @@ shift any more. He's finished.
 - **Wave 3, with others:** gets on with quiet, patient people, and with the other Chileans, Cristóbal and Esteban, whose
   Spanish he's glad of. Shuts down around people who talk down to him. Opens up slowly to people who wait.
 - **Wave 4, his Sworn skill:** what he resolves is the silence, and the argument with his father. A skill idea to look at
-  then: once a fight, he stands in front and takes every hit aimed at the party's weakest member.
+  then: on a cooldown of 10 to 15 turns, he stands in front and takes every hit aimed at the party's weakest member.
 
 ## What this changes in what's already written
 

@@ -120,7 +120,7 @@ something for you.
 - **Wave 3, with others:** gets on with patient, clever people, and with Marco, the other locksmith, whom he'd argue with about
   everything. Finds Berat, his countryman, exhausting and loves him for it. Bored by brutes.
 - **Wave 4, his Sworn skill:** what he resolves is the question, and the guilt of feeling light. A skill idea to look at then:
-  once a fight, he finds the weak point in an enemy's defence, and every ally ignores its armour for a turn.
+  on a 10 to 15 turn cooldown, he finds the weak point in an enemy's defence, and every ally ignores its armour for a turn.
 
 ## What this changes in what's already written
 

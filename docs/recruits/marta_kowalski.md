@@ -117,7 +117,7 @@ she's got a whole workshop of oil now.
   Listens to dungeon machinery. Blunt in a wipe.
 - **Wave 3, with others:** gets on with practical people and other makers, especially Diego and Berat. Clashes with posh
   people and anyone who talks down to her. Respects anyone who works with their hands.
-- **Wave 4, her Sworn skill:** what she resolves is waiting at the door. A skill idea to look at then: once a fight, a
+- **Wave 4, her Sworn skill:** what she resolves is waiting at the door. A skill idea to look at then: on a 10 to 15 turn cooldown, a
   charge she sets and leaves, and it goes off later exactly when it'll do the most.
 
 ## What this changes in what's already written

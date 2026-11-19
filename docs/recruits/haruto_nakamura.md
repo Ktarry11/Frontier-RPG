@@ -119,7 +119,7 @@ rather they were kept by someone who saw why they mattered.
 - **Wave 3, with others:** gets on with disciplined, quiet people: Kesten, Sophia, Pavlo. Clashes with sloppy, loud ones,
   but warms to people who try to improve. A strict teacher to young recruits who ask.
 - **Wave 4, his Sworn skill:** what he resolves is the twenty years of silence, and losing his hand. A skill idea to look
-  at then: once a fight, a single perfect rune strike that can't miss, be dodged or be resisted.
+  at then: on a cooldown of 10 to 15 turns, a single perfect rune strike that can't miss, be dodged or be resisted.
 
 ## What this changes in what's already written
 

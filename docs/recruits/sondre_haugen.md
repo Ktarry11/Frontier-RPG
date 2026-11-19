@@ -129,7 +129,7 @@ when he finds a boat.
   else. First up every morning.
 - **Wave 3, with others:** gets on with calm, outdoorsy and kind people. Feels protective of anyone younger. Uneasy
   around reckless casters. Quiet people suit him and he doesn't mind silence.
-- **Wave 4, his Sworn skill:** what he resolves is the fear of his own power. A skill idea to look at then: once a fight,
+- **Wave 4, his Sworn skill:** what he resolves is the fear of his own power. A skill idea to look at then: on a 10 to 15 turn cooldown,
   he throws everything at the enemies without holding back, and none of it can touch the party.
 
 ## What this changes in what's already written

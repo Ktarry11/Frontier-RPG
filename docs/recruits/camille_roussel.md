@@ -120,7 +120,7 @@ which is the most sentimental thing she's ever said, and she tells you never to 
   Furious if anyone gets left behind, while pretending she isn't.
 - **Wave 3, with others:** gets on fast with sarcastic, quick people, and clashes with slow, sentimental or preachy ones.
   Secretly very fond of anyone loyal.
-- **Wave 4, her Sworn skill:** what she resolves is the swapped shift. A skill idea to look at then: once a fight, she
+- **Wave 4, her Sworn skill:** what she resolves is the swapped shift. A skill idea to look at then: on a 10 to 15 turn cooldown, she
   moves so fast she acts twice, and takes an ally's next hit for them.
 
 ## What this changes in what's already written

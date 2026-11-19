@@ -126,7 +126,7 @@ crossing. She says she doesn't need to prove who she is any more.
 - **Wave 3, with others:** gets on with clever, quiet people and anyone who loves words. Tires quickly of loud people.
   A natural friend for Kesten, who also likes things written down properly.
 - **Wave 4, her Sworn skill:** what she resolves is doubting herself, and losing her father. A skill idea to look at
-  then: once a fight, she reads the enemy's next spell and turns it back on them.
+  then: on a cooldown of 10 to 15 turns, she reads the enemy's next spell and turns it back on them.
 
 ## What this changes in what's already written
 

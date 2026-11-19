@@ -105,7 +105,7 @@ gives it to you after the empty camp. He says she has new jesses now, and her ol
   fight.
 - **Wave 3, with others:** gets on with quiet, gentle people, and with Owen, his countryman, and Bakyt, the other bird man.
   Uneasy with loud people, who scare Tegan. Tegan likes some people more than others, and he takes her word for it.
-- **Wave 4, his Sworn skill:** what he resolves is not knowing. A skill idea to look at then: once a fight, Tegan dives on the
+- **Wave 4, his Sworn skill:** what he resolves is not knowing. A skill idea to look at then: on a 10 to 15 turn cooldown, Tegan dives on the
   enemy about to act and stops it.
 
 ## What this changes in what's already written

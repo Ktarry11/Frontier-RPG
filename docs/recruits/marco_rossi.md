@@ -125,7 +125,7 @@ open anything. He gives it to you after Sara and Matteo come to the Undercity. H
   and quietly helps. Hates cruelty to the weak in any quest. Patient in a wipe.
 - **Wave 3, with others:** a natural father to the younger recruits, which some like and some don't. Gets on with steady
   people. Quietly disapproves of show-offs and loud talkers.
-- **Wave 4, his Sworn skill:** what he resolves is putting things off. A skill idea to look at then: once a fight, he
+- **Wave 4, his Sworn skill:** what he resolves is putting things off. A skill idea to look at then: on a 10 to 15 turn cooldown, he
   takes every hit aimed at the party for a turn, and the hits that land on him are much weaker.
 
 ## What this changes in what's already written

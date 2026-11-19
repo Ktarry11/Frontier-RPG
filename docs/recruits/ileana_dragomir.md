@@ -118,7 +118,7 @@ waited long enough.
 - **Wave 3, with others:** gets on with precise, disciplined people, especially Haruto and Kesten. Clashes with loud, careless
   ones. Has a hidden soft spot for anyone who apologises properly.
 - **Wave 4, her Sworn skill:** what she resolves is the unfinished conversation, and the years of being cold. A skill idea to
-  look at then: once a fight, she holds the line for the whole ensemble, freezing every enemy's next action.
+  look at then: on a cooldown of 10 to 15 turns, she holds the line for the whole ensemble, freezing every enemy's next action.
 
 ## What this changes in what's already written
 

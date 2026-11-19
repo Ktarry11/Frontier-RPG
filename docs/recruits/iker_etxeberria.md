@@ -115,7 +115,7 @@ does.
   back up. Competitive with other melee. Very protective of children in quests.
 - **Wave 3, with others:** gets on with loud, sporty, competitive people, and with Saoirse and Adrián, the other coaches and
   referees. Exhausts quiet people. Can't help trying to coach everyone.
-- **Wave 4, his Sworn skill:** what he resolves is the ninety kids he couldn't find. A skill idea to look at then: once a fight,
+- **Wave 4, his Sworn skill:** what he resolves is the ninety kids he couldn't find. A skill idea to look at then: on a 10 to 15 turn cooldown,
   he shouts the party back up, and every ally regains health and resource.
 
 ## What this changes in what's already written

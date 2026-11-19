@@ -120,7 +120,7 @@ Monastery. He says he'd like it to go somewhere that isn't a wall.
 - **Wave 3, with others:** gets on with curious, thoughtful people, especially Kesten and Sophia. A gentle father figure
   to young recruits. Clashes with fanatics and people who are sure without reason.
 - **Wave 4, his Sworn skill:** what he resolves is believing nothing he taught mattered. A skill idea to look at then:
-  once a fight, he holds the line so completely that the party takes no damage for a turn.
+  on a 10 to 15 turn cooldown, he holds the line so completely that the party takes no damage for a turn.
 
 ## What this changes in what's already written
 

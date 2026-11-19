@@ -130,7 +130,7 @@ adopted. He says it counted the dose for years, and now the clauses do.
 - **Wave 3, with others:** respects careful, honest people. Has a lot in common with Ryan, who also names the price
   first. Clashes with reckless people and other bloodmages who don't ask. Gentle with frightened people.
 - **Wave 4, his Sworn skill:** what he resolves is not trusting himself without the hospital. A skill idea to look at
-  then: once a fight, with the party's agreement, he takes some of everyone's health and uses it to save the one who's
+  then: on a cooldown of 10 to 15 turns, with the party's agreement, he takes some of everyone's health and uses it to save the one who's
   dying.
 
 ## What this changes in what's already written

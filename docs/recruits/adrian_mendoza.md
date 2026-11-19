@@ -160,7 +160,7 @@ you when he swears to you. He says he doesn't need to be the referee when he's w
   likes them if they try. Takes a while to see that teasing can be affection, but once he does he gives as good as he
   gets. Likes people who look after others, because that's what he does too.
 - **Wave 4, his Sworn skill:** what he resolves is the waiting. He stops having to earn his place by holding
-  everything up himself. A skill idea to look at then: once a fight, he stops holding the line and spreads it, so the
+  everything up himself. A skill idea to look at then: on a 10 to 15 turn cooldown, he stops holding the line and spreads it, so the
   whole party shares the damage he'd have taken. It's about letting other people carry some of it.
 
 ## What this changes in what's already written

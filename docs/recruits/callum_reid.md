@@ -117,7 +117,7 @@ he'd rather you had something for keeping your distance.
 - **Wave 3, with others:** gets on with easy-going people, and with Rosa and Bakyt, who also know animals. Lovely with
   people who are scared of things, because he's used to calming frightened creatures. Awkward with people who expect
   manners.
-- **Wave 4, his Sworn skill:** what he resolves is the serpent he had to kill. A skill idea to look at then: once a fight,
+- **Wave 4, his Sworn skill:** what he resolves is the serpent he had to kill. A skill idea to look at then: on a 10 to 15 turn cooldown,
   he takes every poison on the party into himself and shrugs it off.
 
 ## What this changes in what's already written

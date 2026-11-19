@@ -116,7 +116,7 @@ says it's for the fourth.
   with civilians. Never gives up in a wipe.
 - **Wave 3, with others:** gets on with nearly everyone, especially other healers, like Ama, Freja and Liam. A natural friend to
   lonely people. Clashes only with people who give up on others.
-- **Wave 4, his Sworn skill:** what he resolves is the family he couldn't reach. A skill idea to look at then: once a fight, he
+- **Wave 4, his Sworn skill:** what he resolves is the family he couldn't reach. A skill idea to look at then: on a 10 to 15 turn cooldown, he
   promises an ally they won't die today, and that ally can't fall for a few turns.
 
 ## What this changes in what's already written

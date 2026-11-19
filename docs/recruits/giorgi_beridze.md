@@ -116,7 +116,7 @@ He's untied the old one, so it can ring now.
   with anything that preys on them. Quiet for long stretches.
 - **Wave 3, with others:** gets on with patient, outdoor people, especially Bakyt, another mountain herder. A big gentle
   presence for nervous people. Bored by chatterers.
-- **Wave 4, his Sworn skill:** what he resolves is walking down to nobody. A skill idea to look at then: once a fight, he
+- **Wave 4, his Sworn skill:** what he resolves is walking down to nobody. A skill idea to look at then: on a 10 to 15 turn cooldown, he
   rings the bell, and every ally who hears it shakes off fear and slows the enemy around them.
 
 ## What this changes in what's already written

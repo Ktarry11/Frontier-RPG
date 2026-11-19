@@ -115,7 +115,7 @@ standing.
   needless destruction of forests. Carries everybody's heavy kit.
 - **Wave 3, with others:** gets on with quiet people, and with Giorgi and Bakyt, who also don't need to talk. Exhausted by
   chatterers but too polite to say so, mostly. Unexpectedly fond of children.
-- **Wave 4, his Sworn skill:** what he resolves is his stubbornness, and his brother. A skill idea to look at then: once a fight, a
+- **Wave 4, his Sworn skill:** what he resolves is his stubbornness, and his brother. A skill idea to look at then: on a 10 to 15 turn cooldown, a
   huge felling blow that drops the biggest enemy's guard for the whole party.
 
 ## What this changes in what's already written
