@@ -140,9 +140,9 @@ fourth).
 | 68 | Bashir Khalidi | Witch Hunter 41 | The Drowned Shrine | `bashir_khalidi.md` | Still unknown | Draft 1 |
 | 69 | Pieter Malan | Guardian 42 | Northern Tanaris | `pieter_malan.md` | Sad | Draft 1 |
 | 70 | Gianluca Ferri | Guardian 42 | Steamwheedle Port | `gianluca_ferri.md` | Happy | Draft 1 |
-| 71 | Camila Ortega | Venomancer 43 | Northern Tanaris |  |  |  |
-| 72 | Elias Peralta | Sun Cleric 44 | The Drownbell |  |  |  |
-| 73 | Kiet Somsak | Rogue 46 | The Abyssal Sands |  |  |  |
+| 71 | Camila Ortega | Venomancer 43 | Northern Tanaris | `camila_ortega.md` | Happy | Draft 1 |
+| 72 | Elias Peralta | Sun Cleric 44 | The Drownbell | `elias_peralta.md` | Sad | Draft 1 |
+| 73 | Kiet Somsak | Rogue 46 | The Abyssal Sands | `kiet_somsak.md` | Happy | Draft 1 |
 | 74 | Rui Almeida | Cultist 46 | The Lashings |  |  |  |
 | 75 | Stelios Dukas | Necromancer 48 | Glittervein |  |  |  |
 | 76 | Nizar Haddad | Chronomancer 48 | The Crossing |  |  |  |
