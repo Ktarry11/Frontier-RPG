@@ -1,0 +1,76 @@
+{
+  "recruit_text": {
+    "greeting": "Walk behind me and step where I step. The ground lies. It lied at home too, and I've got forty years of practice.",
+    "backstory": "Forty years of high pasture in the Tian Shan, moving a herd up in spring and down in autumn along a route his family has walked for six generations. He reads weather in a sky other people call clear and finds water where there apparently isn't any. The eagle he hunts with here isn't the eagle he hunted with there, and he'll tell you the difference is less than you'd think, and that he grieved the first one properly.",
+    "before": "A yurt, a herd, a route, and a father who taught him the route before he could ride.\n\nThree sons, all of whom went to Bishkek for work. He understood why. It was still the end of six generations, and both of those things sat in him at once for twenty years.",
+    "adjustment": "He had the easiest first year of anyone and the quietest grief underneath it.\n\nNomads adjust, he says, and that's the whole profession. What he had to absorb was that this world has pasture his family will never walk, and he put a year of long evenings into getting comfortable with that.",
+    "now": "The high pasture of Eastern Hillsbrad, grass and wind and a long way between people.\n\nThe herders out of Tarren Mill move their goats and sheep on a cycle he recognised in about a week. They've started asking his opinion on it, which is the only honour he's ever visibly cared about.",
+    "forward": "A route of his own, mapped and seasonal and walked often enough that somebody else could follow it after him.\n\nHe has two legs of it. He's fifty-eight and he's started to think about who gets it, and the thought has made him friendlier to strangers than he used to be."
+  },
+  "bond": {
+    "home": "Eastern Hillsbrad",
+    "dials": {"warmth": 0.9, "nerve": 1.3, "pride": 0.9, "restless": 0.8},
+    "likes": ["new_ground", "beast"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Bakyt, sit down, there's tea. I hunt with an eagle, and I walk first, because I read the ground. Step where I step and you'll be fine.",
+      "acquaintance": "I'm from the Tian Shan, in Kyrgyzstan, near Naryn. My family walked the same route for six generations, up to the high pasture in spring and down in autumn. My father taught me before I could ride. I hunted with golden eagles like my father and grandfather. My first eagle, Ak-Kanat, lived with me twenty-two years.",
+      "companion": "My wife was Aigul. We married when I was twenty-two. She died of a stroke six years before all this, and I kept walking the route alone after that. I was bringing the herd up for summer when it happened, and I landed in these hills with my glove on my hand. Ak-Kanat had died the year before, so the glove was empty. Now I've got Jeldyz. It means star, and she's good.",
+      "friend": "I've got three sons, in Bishkek, and five grandchildren. None of them wanted the route, and I understood, and it was still the end of six generations. I pray for them every evening, facing the mountains. Here I've got two legs of a route. The third crosses high ground where something's been taking the herders' animals. I'd like you to help me clear it, so I can walk the whole route once.",
+      "sworn": "The route is whole now, three legs, spring and autumn. The orphan boy from Tarren Mill, Wil, walked it with me, and he's learned it, and I'm teaching him the eagle. I gave it to him the way my father gave it to me, by walking it together until he could do it blind. It isn't the seventh generation of my family. It's the seventh generation of the route, and that's what matters. Jakshy, that's good."
+    },
+    "moments": [
+      {"id": "tea", "stage": "stranger", "when": "hire",
+       "prompt": "He won't talk about anything until you've had tea with him.",
+       "options": [
+         {"text": "Thank you. I'll sit.", "trust": 6, "joins": true,
+          "reply": "Jakshy, that's good. Drink, and then we'll walk."},
+         {"text": "We're in a hurry.", "trust": 0, "joins": false,
+          "reply": "Then you're not ready to walk with me. Come back when you can sit."}
+       ]},
+      {"id": "the_route", "stage": "friend", "when": "talk",
+       "prompt": "He's asked you to help him clear the third leg of his route.",
+       "options": [
+         {"text": "I'll walk it with you.", "trust": 12,
+          "reply": "Good, we leave at first light, and you step where I step."},
+         {"text": "Why does the route matter so much?", "trust": 4,
+          "reply": "Because a route is how the dead walk with you. My father is on every step of mine."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We walk the same circle and kill the same things. A herder doesn't graze one field to dirt. Let's move on.",
+      "leaving_good": "That was good walking. I'll go back to the pasture now, Jeldyz misses the wind. Come and drink tea when you want me.",
+      "leaving_bored": "I'm going back to the pasture. This is grazing one field to dirt, and I won't do it.",
+      "after_wipe": "Sit down, everybody, and breathe. Then we look at where the ground lied to us.",
+      "wipe_warning": "We fall here too often. I'll finish this with you, but then I go back to the mountains for a while.",
+      "wipe_leave": "I've finished it with you. Now I go home to the pasture. Come when you've learned to read this place.",
+      "zone_warning": "This ground is too high for us. Even the eagle wouldn't fly here. We should go back down.",
+      "zone_leave": "I'm stopping here. I said the ground was too high. I'll be on the pasture in Eastern Hillsbrad.",
+      "gear_refuse": "No, I keep my things. We haven't shared enough tea yet.",
+      "gear_taken": "You can take it. I've walked the mountains with less.",
+      "gear_short": "I'm still missing that piece. The wind knows it, and so do I.",
+      "gear_upgrade": "This is good work. Thank you, truly.",
+      "back": "I'm back, and Jeldyz is fat and happy. Where do we walk?",
+      "send_word": "Bakyt has sent word from Eastern Hillsbrad. The herds are settled and he's ready to walk with you again.",
+      "walkout_talk": "I left angry, and that's not how my father taught me. Sit, drink tea, and I'll tell you why. Then you tell me.",
+      "neglect": "You've been gone many seasons. I kept tea warm anyway, so sit.",
+      "asked_to_stay": "Jakshy, one more walk. Then the pasture.",
+      "on_break": "Bakyt is back on the high pasture in Eastern Hillsbrad. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "zone_arrive": [
+      {"text": "That's a good ridge. You could work a bird off that.", "kind": "open"}
+    ],
+    "town_arrive": [
+      {"text": "No birds over this town. It's worth asking why.", "kind": "reply"}
+    ],
+    "dungeon_clear": [
+      {"text": "Nothing with wings went down there. There's always a reason.", "kind": "open"}
+    ],
+    "close_call": [
+      {"text": "You went too far from the rest. A bird that does that doesn't come back.", "kind": "reply"},
+      {"text": "In the Tian Shan the winter kills you quietly. Here everything is noisy about it.", "kind": "open", "topic": "the_cold"}
+    ]
+  }
+}

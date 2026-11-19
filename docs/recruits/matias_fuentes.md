@@ -11,7 +11,7 @@ Wave 1 profile, draft 1 (19 Nov 2026). Built on his recruit entry. Waves 2, 3 an
 | Earth job | Bus conductor on a Santiago route from the age of 19, the job his father had before him |
 | Here | Reaper (Soul), level 17 |
 | Lives | Durotar. You find him in the Sunken Grotto of the Deep, at the front of whoever's going in. |
-| Family | His father died in 2019; they hadn't spoken for two years. His mother and younger brother, Nicolás, were in Santiago. |
+| Family | His father died in 2019; they hadn't spoken for two years. His mother and younger brother, Benjamín, were in Santiago. |
 | First impression | Quiet, watchful and hard to read. People take his careful English for stupidity about twice, then stop. |
 
 ## Who he is
@@ -35,7 +35,7 @@ safely.
 
 ## Before
 
-He grew up in Puente Alto, in a small house with his parents and his brother Nicolás, five years younger. His father was a
+He grew up in Puente Alto, in a small house with his parents and his brother Benjamín, five years younger. His father was a
 bus conductor, then a driver, and thought the job was beneath his sons. Matías took it anyway at 19, on the same route,
 because he needed the money and liked it.
 
@@ -56,7 +56,7 @@ belt.
 It was bad. Very bad, and he'll say so plainly if asked directly. Almost nobody asks. He stopped speaking for most of the
 first year. He ran out of things worth the effort of translating.
 
-He hasn't found his mother or Nicolás.
+He hasn't found his mother or Benjamín.
 
 ## Now
 
@@ -70,7 +70,7 @@ nowhere to send it, and he wants to write it anyway.
 
 ## Hopes, dreams and fears
 
-- **Hope:** to find his mother and Nicolás.
+- **Hope:** to find his mother and Benjamín.
 - **Hope:** to finish the letter.
 - **Dream:** a Sunday lunch at his mother's, with football on and his brother talking too much.
 - **Fear:** that his father died thinking Matías hated him.
@@ -94,7 +94,7 @@ gives him is someone who waits for him to finish a sentence.
 2. He hears of a camp of Chileans across the sea. He goes, with you.
 3. At the camp there's a list of everyone from Santiago, those who came and those who didn't survive the first winter.
 
-**Ending (sad):** his mother and Nicolás are on the second list. They came through together and died together in the first
+**Ending (sad):** his mother and Benjamín are on the second list. They came through together and died together in the first
 winter. Matías sits outside the camp for a whole night. In the morning he adds a page to his father's letter, for all
 three of them, and burns it, because there's nowhere to send it and that's the only way he knows to send it anyway. He
 talks more after that. He says there's nobody left to save the words for.
@@ -127,7 +127,7 @@ shift any more. He's finished.
 
 ## What this changes in what's already written
 
-- **New:** Puente Alto, Nicolás by name, the argument, his father's heart attack, the ticket punch being his father's, the
+- **New:** Puente Alto, Benjamín by name, the argument, his father's heart attack, the ticket punch being his father's, the
   trade post woman being in Durotar, the Chilean camp, and the burned letter.
 - **Kept:** the Santiago buses from 19, punching tickets on a route, his father's job thought beneath him, standing still
   in a crowd and watching everyone, careful English mistaken for stupidity, the same forty faces, his father dying in 2019

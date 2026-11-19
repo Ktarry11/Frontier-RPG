@@ -426,6 +426,89 @@
         "on_break": "Amber is back at the oases in the Central Barrens. Come back after you've done a few more jobs."
       }
     },
+    "bakyt_hunter": {
+      "home": "Eastern Hillsbrad",
+      "dials": {
+        "warmth": 0.9,
+        "nerve": 1.3,
+        "pride": 0.9,
+        "restless": 0.8
+      },
+      "likes": [
+        "new_ground",
+        "beast"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Bakyt, sit down, there's tea. I hunt with an eagle, and I walk first, because I read the ground. Step where I step and you'll be fine.",
+        "acquaintance": "I'm from the Tian Shan, in Kyrgyzstan, near Naryn. My family walked the same route for six generations, up to the high pasture in spring and down in autumn. My father taught me before I could ride. I hunted with golden eagles like my father and grandfather. My first eagle, Ak-Kanat, lived with me twenty-two years.",
+        "companion": "My wife was Aigul. We married when I was twenty-two. She died of a stroke six years before all this, and I kept walking the route alone after that. I was bringing the herd up for summer when it happened, and I landed in these hills with my glove on my hand. Ak-Kanat had died the year before, so the glove was empty. Now I've got Jeldyz. It means star, and she's good.",
+        "friend": "I've got three sons, in Bishkek, and five grandchildren. None of them wanted the route, and I understood, and it was still the end of six generations. I pray for them every evening, facing the mountains. Here I've got two legs of a route. The third crosses high ground where something's been taking the herders' animals. I'd like you to help me clear it, so I can walk the whole route once.",
+        "sworn": "The route is whole now, three legs, spring and autumn. The orphan boy from Tarren Mill, Wil, walked it with me, and he's learned it, and I'm teaching him the eagle. I gave it to him the way my father gave it to me, by walking it together until he could do it blind. It isn't the seventh generation of my family. It's the seventh generation of the route, and that's what matters. Jakshy, that's good."
+      },
+      "moments": [
+        {
+          "id": "tea",
+          "stage": "stranger",
+          "when": "hire",
+          "prompt": "He won't talk about anything until you've had tea with him.",
+          "options": [
+            {
+              "text": "Thank you. I'll sit.",
+              "trust": 6,
+              "joins": true,
+              "reply": "Jakshy, that's good. Drink, and then we'll walk."
+            },
+            {
+              "text": "We're in a hurry.",
+              "trust": 0,
+              "joins": false,
+              "reply": "Then you're not ready to walk with me. Come back when you can sit."
+            }
+          ]
+        },
+        {
+          "id": "the_route",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to help him clear the third leg of his route.",
+          "options": [
+            {
+              "text": "I'll walk it with you.",
+              "trust": 12,
+              "reply": "Good, we leave at first light, and you step where I step."
+            },
+            {
+              "text": "Why does the route matter so much?",
+              "trust": 4,
+              "reply": "Because a route is how the dead walk with you. My father is on every step of mine."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We walk the same circle and kill the same things. A herder doesn't graze one field to dirt. Let's move on.",
+        "leaving_good": "That was good walking. I'll go back to the pasture now, Jeldyz misses the wind. Come and drink tea when you want me.",
+        "leaving_bored": "I'm going back to the pasture. This is grazing one field to dirt, and I won't do it.",
+        "after_wipe": "Sit down, everybody, and breathe. Then we look at where the ground lied to us.",
+        "wipe_warning": "We fall here too often. I'll finish this with you, but then I go back to the mountains for a while.",
+        "wipe_leave": "I've finished it with you. Now I go home to the pasture. Come when you've learned to read this place.",
+        "zone_warning": "This ground is too high for us. Even the eagle wouldn't fly here. We should go back down.",
+        "zone_leave": "I'm stopping here. I said the ground was too high. I'll be on the pasture in Eastern Hillsbrad.",
+        "gear_refuse": "No, I keep my things. We haven't shared enough tea yet.",
+        "gear_taken": "You can take it. I've walked the mountains with less.",
+        "gear_short": "I'm still missing that piece. The wind knows it, and so do I.",
+        "gear_upgrade": "This is good work. Thank you, truly.",
+        "back": "I'm back, and Jeldyz is fat and happy. Where do we walk?",
+        "send_word": "Bakyt has sent word from Eastern Hillsbrad. The herds are settled and he's ready to walk with you again.",
+        "walkout_talk": "I left angry, and that's not how my father taught me. Sit, drink tea, and I'll tell you why. Then you tell me.",
+        "neglect": "You've been gone many seasons. I kept tea warm anyway, so sit.",
+        "asked_to_stay": "Jakshy, one more walk. Then the pasture.",
+        "on_break": "Bakyt is back on the high pasture in Eastern Hillsbrad. Come back after you've done a few more jobs."
+      }
+    },
     "berat_tinker": {
       "home": "Brill",
       "dials": {
@@ -1616,6 +1699,96 @@
         "on_break": "Marta is back in the Boulder Lode Mine, keeping the pumps going. Come back after you've done a few more jobs."
       }
     },
+    "matias_reaper": {
+      "home": "Durotar",
+      "dials": {
+        "warmth": 0.6,
+        "nerve": 1.3,
+        "pride": 0.6,
+        "restless": 0.9
+      },
+      "likes": [
+        "dungeon",
+        "full_party"
+      ],
+      "dislikes": [
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "I'm Matías, and I go in front. I don't talk much, it's not because I don't understand. If I say something in a fight, it's useful.",
+        "acquaintance": "I'm from Puente Alto, on the south edge of the capital, in Chile. I was a bus conductor for ten years, from nineteen. Same route, same forty faces every morning. I knew who got off where and who was having a bad week. My father did the same job before me, and he thought it was beneath me.",
+        "companion": "I landed in Durotar on the morning route. The first year was very bad. I stopped speaking almost completely, because nothing seemed worth the work of translating. My mother and my little brother Benjamín were at home. I haven't found them. Now I'm learning to read here, slowly, from a woman at a trade post who corrects everything.",
+        "friend": "When I was twenty-four my father and I had a terrible argument. He said I was wasting my life on the buses, and I said he was ashamed of his own life. We didn't speak for two years, and then he died, of his heart. My mother told me on the phone at the end of a shift. This punch was his. I'm learning the script so I can write him a letter. I'd like you to read it. And there's a camp of Chileans across the sea. I'd like to go.",
+        "sworn": "My mother and Benjamín were on the second list. They came through together and they died together in the first winter. I sat outside the camp all night. In the morning I wrote another page in my father's letter, for all three of them, and I burned it, because there's nowhere to send it and that's how I can send it anyway. I talk more now. There's nobody left to save the words for, so I give them to you."
+      },
+      "moments": [
+        {
+          "id": "the_letter",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's handed you the letter to his father and asked you to read it.",
+          "options": [
+            {
+              "text": "Read it carefully, and give it back without a word.",
+              "trust": 12,
+              "reply": "Thank you. That's the right answer. I don't know how you knew."
+            },
+            {
+              "text": "Tell him it's beautiful.",
+              "trust": 2,
+              "reply": "It isn't beautiful, it's true, and that's enough."
+            },
+            {
+              "text": "Ask him if he's sure.",
+              "trust": 0,
+              "reply": "I learned a whole new language to write it, so I'm sure."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's quiet, and then he speaks more than usual.",
+          "line": "I saw the left side going wrong, and I didn't say. Next time I'll say, even if my words come out wrong.",
+          "options": [
+            {
+              "text": "Say it however it comes out. We'll understand.",
+              "trust": 10,
+              "mood": 6,
+              "reply": "Ya, okay, I'll shout it, then."
+            },
+            {
+              "text": "Just focus on your job.",
+              "trust": 0,
+              "mood": -6,
+              "reply": "Watching is my job. That's what I'm telling you."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We do the same route over and over, but with no passengers. Can we go somewhere we're needed?",
+        "leaving_good": "That was a good shift. I'm going back to Durotar now, to my lessons. You know where to find me.",
+        "leaving_bored": "I'm going back to Durotar. This isn't going anywhere, and I've got letters to learn.",
+        "after_wipe": "Is everybody here? I'm counting you. Good, now we try again, carefully.",
+        "wipe_warning": "We die here too much. I'll finish this one, but then I need some days.",
+        "wipe_leave": "I finished it with you. Now I go to Durotar for a while. Come back for me later.",
+        "zone_warning": "This place is too strong for us. I've watched every face here and they're all bigger than ours. We should go.",
+        "zone_leave": "I'm stopping here. I said it was too strong. I'll be in Durotar.",
+        "gear_refuse": "No, I'll keep this. I don't know you yet.",
+        "gear_taken": "Okay, take it. I'll be careful without it.",
+        "gear_short": "I'm still missing that piece. I'm only saying it once.",
+        "gear_upgrade": "This is good. Thank you, really.",
+        "back": "I'm back, and I've learned more words. Where are we going?",
+        "send_word": "Matías has sent word from Durotar. He's finished his lessons for now and he's ready to come out.",
+        "walkout_talk": "I left angry, and I'd like to explain, slowly, because my words are slow. Will you wait while I find them?",
+        "neglect": "It's been a long time. I learned a lot of words while I waited.",
+        "asked_to_stay": "Ya, okay, one more shift.",
+        "on_break": "Matías is back in Durotar, learning to read. Come back after you've done a few more jobs.",
+        "quest_abandoned": "We said yes to that person and then we left. I don't like leaving people at the stop."
+      }
+    },
     "minh_chronomancer": {
       "home": "the Northern Barrens",
       "dials": {
@@ -2294,6 +2467,91 @@
         "neglect": "Hello again, it's been a while. I'd started to think you'd found somebody who talks less. I'm not sure that's possible.",
         "asked_to_stay": "All right, one more trip, and then I really must get back to my grammar.",
         "on_break": "Sophia is back in the Undercity, writing. Come back after you've done a few more jobs."
+      }
+    },
+    "tomas_warrior": {
+      "home": "Fenris Isle",
+      "dials": {
+        "warmth": 1.2,
+        "nerve": 1.2,
+        "pride": 0.8,
+        "restless": 1.3
+      },
+      "likes": [
+        "dungeon",
+        "boss"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Tomas, and I hit things with a very big sword. Tell me where to stand before we start, and please don't shout at me during. Plan first, then work, that's my whole philosophy.",
+        "acquaintance": "I'm Czech, from Brno, but I lived in Prague. I was a rigger for eighteen years, up in the grid of theatres and arenas, rock tours, opera, all of it, hanging lights and speakers over people's heads at four in the morning. Never once the reason something fell. I'll tell you the story of how I got here, but I warn you, it sounds like bragging.",
+        "companion": "I was up in the grid of a concert hall in Prague when it happened, and I arrived forty feet up over Fenris Isle and landed in a tree. I had this carabiner on my belt. My parents are in Brno, my dad's a welder and my mum's a nurse, and I haven't found them. I've stayed on this island three years, which is the longest I've ever been anywhere.",
+        "friend": "There was Dominik, a lighting tech, who asked me first and had a yes inside the week. Two years on the road, and then he wanted a house and I wanted the next tour. And there was Klára, a stage manager, who I hadn't asked yet. I've started saying both their names in the past tense. Anyway, that's that. The island needs a proper bridge to the shore, and the old ones keep falling down. Help me build one that won't.",
+        "sworn": "It held up. You saw it, the storm hit it the first night, and in the morning people walked across without looking down. That's the best thing anyone can say about a rigger's work. It's the first thing I've ever built that'll still be there when I leave. Except I'm not leaving. I heard myself say it, and I meant it. Fenris Isle is home."
+      },
+      "moments": [
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's rubbing his bad shoulder and looking very calm.",
+          "line": "Okay, so somebody shouted during, and it all came down. Let's set positions now, before, and try again.",
+          "options": [
+            {
+              "text": "You set them. We'll listen.",
+              "trust": 8,
+              "mood": 6,
+              "reply": "Lovely, a crew that listens. You there, you there, and nobody moves till I nod."
+            },
+            {
+              "text": "Things go wrong in a fight.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "Sure, and that's why you plan before. Every rigger knows that."
+            }
+          ]
+        },
+        {
+          "id": "the_bridge",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to help him build the bridge.",
+          "options": [
+            {
+              "text": "Let's build something that stays up.",
+              "trust": 12,
+              "reply": "Yes, let's build it! First the timber, then the iron, then a lot of swearing in Czech."
+            },
+            {
+              "text": "You're not leaving the island?",
+              "trust": 4,
+              "reply": "I don't know yet. Let's see if the bridge holds and ask me again."
+            }
+          ]
+        }
+      ],
+      "first_stint_short": true,
+      "lines": {
+        "bored_warning": "We've done the same thing for days, and nothing's even been worth rigging. Let's go somewhere new before I start fixing your armour straps for fun.",
+        "leaving_good": "Great trip, and nothing fell on anybody. I'm going back to Fenris for a while to check my scaffolding. You know where I'll be.",
+        "leaving_bored": "I'm going back to Fenris. This is the same show every night with no audience.",
+        "after_wipe": "Okay, everybody down, and nobody shouting. Let's look at what came loose.",
+        "wipe_warning": "We keep dropping in here, and I hate things dropping. I'll finish this run, but then I need a break.",
+        "wipe_leave": "Show's over, and I'm going home to Fenris. Come and find me when you've got a better plan.",
+        "zone_warning": "This place is a truss with no safety line. Everything here's too heavy for us. Let's get down.",
+        "zone_leave": "I'm stopping here. No safety line, I told you. I'll be on Fenris Isle.",
+        "gear_refuse": "No, sorry, that's mine. Ask me again in a few tours.",
+        "gear_taken": "Sure, take it. I'll rig something up instead.",
+        "gear_short": "I'm still missing that piece. My shoulder's complaining about it, and so am I.",
+        "gear_upgrade": "Oh, that's lovely work. Thank you, really.",
+        "back": "I'm back, and everything on Fenris is still standing. Where do you want me?",
+        "send_word": "Tomas has sent word from Fenris Isle. His scaffolding's holding and he's ready to come out.",
+        "walkout_talk": "I walked out, and I don't usually, so let's talk properly. Before, not during, like I always say.",
+        "neglect": "There you are! I'd started to think you'd fallen off something. I'd have caught you, though.",
+        "asked_to_stay": "Okay, one more show, and then home.",
+        "on_break": "Tomas is back on Fenris Isle, fixing scaffolding. Come back after you've done a few more jobs."
       }
     }
   },

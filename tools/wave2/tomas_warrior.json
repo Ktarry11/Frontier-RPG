@@ -1,0 +1,78 @@
+{
+  "recruit_text": {
+    "greeting": "Big sword, lots of room. Tell me where you want me standing before it starts, not during. I've worked with people who shout during, and I didn't enjoy any of them.",
+    "backstory": "Eighteen years up in the grid in Prague, on tour and in theatres, at four in the morning, hanging weight over the heads of people who'd never look up. The job was leverage, timing, and never being the reason something fell. He swings a two-hander like a man who's spent his life moving heavy things through small gaps.",
+    "before": "A bad shoulder from a truss in 2014 that he worked through because the show was that night. It still tells him when the weather's turning, and he still works through it.\n\nThere was a woman in Prague, Klára, he hadn't asked yet, and before her a lighting tech called Dominik who asked him first and had a yes inside the week. The crew ran a book on which way he'd go. He refused to settle it, mostly because he liked watching the money change hands.",
+    "adjustment": "He arrived forty feet up, in the air over Fenris Isle, and landed in a tree. That should have killed him, and he can't tell the story without it coming out as a brag. He's given up fixing the delivery and gets it over with early.\n\nThree years is long enough that he's started talking about Dominik and Klára in the past tense without noticing. His friends here have noticed.",
+    "now": "Fenris Isle and whatever scaffolding he can reach, because people here build fast and tie off badly and he physically can't walk past it.\n\nHe's paid in food and the occasional argument.",
+    "forward": "Something that stays up.\n\nHe's been looking at the way people here hold their roofs on with an expression they find difficult to read, and they've decided not to ask about it."
+  },
+  "bond": {
+    "home": "Fenris Isle",
+    "dials": {"warmth": 1.2, "nerve": 1.2, "pride": 0.8, "restless": 1.3},
+    "likes": ["dungeon", "boss"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Tomas, and I hit things with a very big sword. Tell me where to stand before we start, and please don't shout at me during. Plan first, then work, that's my whole philosophy.",
+      "acquaintance": "I'm Czech, from Brno, but I lived in Prague. I was a rigger for eighteen years, up in the grid of theatres and arenas, rock tours, opera, all of it, hanging lights and speakers over people's heads at four in the morning. Never once the reason something fell. I'll tell you the story of how I got here, but I warn you, it sounds like bragging.",
+      "companion": "I was up in the grid of a concert hall in Prague when it happened, and I arrived forty feet up over Fenris Isle and landed in a tree. I had this carabiner on my belt. My parents are in Brno, my dad's a welder and my mum's a nurse, and I haven't found them. I've stayed on this island three years, which is the longest I've ever been anywhere.",
+      "friend": "There was Dominik, a lighting tech, who asked me first and had a yes inside the week. Two years on the road, and then he wanted a house and I wanted the next tour. And there was Klára, a stage manager, who I hadn't asked yet. I've started saying both their names in the past tense. Anyway, that's that. The island needs a proper bridge to the shore, and the old ones keep falling down. Help me build one that won't.",
+      "sworn": "It held up. You saw it, the storm hit it the first night, and in the morning people walked across without looking down. That's the best thing anyone can say about a rigger's work. It's the first thing I've ever built that'll still be there when I leave. Except I'm not leaving. I heard myself say it, and I meant it. Fenris Isle is home."
+    },
+    "moments": [
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe he's rubbing his bad shoulder and looking very calm.",
+       "line": "Okay, so somebody shouted during, and it all came down. Let's set positions now, before, and try again.",
+       "options": [
+         {"text": "You set them. We'll listen.", "trust": 8, "mood": 6,
+          "reply": "Lovely, a crew that listens. You there, you there, and nobody moves till I nod."},
+         {"text": "Things go wrong in a fight.", "trust": 0, "mood": -4,
+          "reply": "Sure, and that's why you plan before. Every rigger knows that."}
+       ]},
+      {"id": "the_bridge", "stage": "friend", "when": "talk",
+       "prompt": "He's asked you to help him build the bridge.",
+       "options": [
+         {"text": "Let's build something that stays up.", "trust": 12,
+          "reply": "Yes, let's build it! First the timber, then the iron, then a lot of swearing in Czech."},
+         {"text": "You're not leaving the island?", "trust": 4,
+          "reply": "I don't know yet. Let's see if the bridge holds and ask me again."}
+       ]}
+    ],
+    "first_stint_short": true,
+    "lines": {
+      "bored_warning": "We've done the same thing for days, and nothing's even been worth rigging. Let's go somewhere new before I start fixing your armour straps for fun.",
+      "leaving_good": "Great trip, and nothing fell on anybody. I'm going back to Fenris for a while to check my scaffolding. You know where I'll be.",
+      "leaving_bored": "I'm going back to Fenris. This is the same show every night with no audience.",
+      "after_wipe": "Okay, everybody down, and nobody shouting. Let's look at what came loose.",
+      "wipe_warning": "We keep dropping in here, and I hate things dropping. I'll finish this run, but then I need a break.",
+      "wipe_leave": "Show's over, and I'm going home to Fenris. Come and find me when you've got a better plan.",
+      "zone_warning": "This place is a truss with no safety line. Everything here's too heavy for us. Let's get down.",
+      "zone_leave": "I'm stopping here. No safety line, I told you. I'll be on Fenris Isle.",
+      "gear_refuse": "No, sorry, that's mine. Ask me again in a few tours.",
+      "gear_taken": "Sure, take it. I'll rig something up instead.",
+      "gear_short": "I'm still missing that piece. My shoulder's complaining about it, and so am I.",
+      "gear_upgrade": "Oh, that's lovely work. Thank you, really.",
+      "back": "I'm back, and everything on Fenris is still standing. Where do you want me?",
+      "send_word": "Tomas has sent word from Fenris Isle. His scaffolding's holding and he's ready to come out.",
+      "walkout_talk": "I walked out, and I don't usually, so let's talk properly. Before, not during, like I always say.",
+      "neglect": "There you are! I'd started to think you'd fallen off something. I'd have caught you, though.",
+      "asked_to_stay": "Okay, one more show, and then home.",
+      "on_break": "Tomas is back on Fenris Isle, fixing scaffolding. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "zone_arrive": [
+      {"text": "Tell me where you want me before it starts. Not during, never during.", "kind": "open"}
+    ],
+    "dungeon_clear": [
+      {"text": "Nothing fell on anybody. That's a good day by my old standards.", "kind": "reply"}
+    ],
+    "town_arrive": [
+      {"text": "Prague had better scaffolding than this, and I say that with love.", "kind": "open", "topic": "cities"},
+      {"text": "Look at that roof. Who tied that off? I need to go and fix it.", "kind": "open"}
+    ],
+    "boss_down": [
+      {"text": "Check above you before you check the body. Always check above you.", "kind": "reply"}
+    ]
+  }
+}

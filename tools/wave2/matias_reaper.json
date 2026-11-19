@@ -1,0 +1,79 @@
+{
+  "recruit_text": {
+    "greeting": "I go in front, it's better that way. You can talk to me after, if you want. Now isn't the time for talking.",
+    "backstory": "He worked the buses in Chile's capital from nineteen, punching tickets on a route he could have driven blindfolded, in a job his father had before him and thought was beneath his sons. What he's good at is standing still in a crowd of strangers for nine hours and watching all of them at once. He speaks carefully and not much, in English he's built from nothing in three years, and people mistake that for stupidity about twice before they stop.",
+    "before": "A route, a fare box, and the same forty faces every morning.\n\nHis father died in 2019 and they hadn't spoken in two years. His mother and his little brother were at home. He doesn't talk about any of it, and he's told exactly one person, at night, on watch.",
+    "adjustment": "Bad, very bad, and he'll say so plainly if asked directly. Almost nobody asks.\n\nHe stopped speaking for most of the first year. He didn't mean to. He ran out of things worth the effort of translating, and the quiet got comfortable, and then it got hard to leave.",
+    "forward": "He's learning to read this world's script, slowly, from a woman at a trade post in Durotar who charges him nothing and corrects him constantly.\n\nHe hasn't told anybody why. He wants to write a letter, and he knows there's nowhere to send it, and he wants to write it anyway.",
+    "now": "At the front, in the Sunken Grotto of the Deep or wherever else is dark, because that's where you can see everybody.\n\nHe clicks the ticket punch twice before a fight, every time. Somebody asked him once if it was for luck. He said no and didn't explain."
+  },
+  "bond": {
+    "home": "Durotar",
+    "dials": {"warmth": 0.6, "nerve": 1.3, "pride": 0.6, "restless": 0.9},
+    "likes": ["dungeon", "full_party"],
+    "dislikes": ["quest_abandoned"],
+    "stages": {
+      "stranger": "I'm Matías, and I go in front. I don't talk much, it's not because I don't understand. If I say something in a fight, it's useful.",
+      "acquaintance": "I'm from Puente Alto, on the south edge of the capital, in Chile. I was a bus conductor for ten years, from nineteen. Same route, same forty faces every morning. I knew who got off where and who was having a bad week. My father did the same job before me, and he thought it was beneath me.",
+      "companion": "I landed in Durotar on the morning route. The first year was very bad. I stopped speaking almost completely, because nothing seemed worth the work of translating. My mother and my little brother Benjamín were at home. I haven't found them. Now I'm learning to read here, slowly, from a woman at a trade post who corrects everything.",
+      "friend": "When I was twenty-four my father and I had a terrible argument. He said I was wasting my life on the buses, and I said he was ashamed of his own life. We didn't speak for two years, and then he died, of his heart. My mother told me on the phone at the end of a shift. This punch was his. I'm learning the script so I can write him a letter. I'd like you to read it. And there's a camp of Chileans across the sea. I'd like to go.",
+      "sworn": "My mother and Benjamín were on the second list. They came through together and they died together in the first winter. I sat outside the camp all night. In the morning I wrote another page in my father's letter, for all three of them, and I burned it, because there's nowhere to send it and that's how I can send it anyway. I talk more now. There's nobody left to save the words for, so I give them to you."
+    },
+    "moments": [
+      {"id": "the_letter", "stage": "friend", "when": "talk",
+       "prompt": "He's handed you the letter to his father and asked you to read it.",
+       "options": [
+         {"text": "Read it carefully, and give it back without a word.", "trust": 12,
+          "reply": "Thank you. That's the right answer. I don't know how you knew."},
+         {"text": "Tell him it's beautiful.", "trust": 2,
+          "reply": "It isn't beautiful, it's true, and that's enough."},
+         {"text": "Ask him if he's sure.", "trust": 0,
+          "reply": "I learned a whole new language to write it, so I'm sure."}
+       ]},
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe he's quiet, and then he speaks more than usual.",
+       "line": "I saw the left side going wrong, and I didn't say. Next time I'll say, even if my words come out wrong.",
+       "options": [
+         {"text": "Say it however it comes out. We'll understand.", "trust": 10, "mood": 6,
+          "reply": "Ya, okay, I'll shout it, then."},
+         {"text": "Just focus on your job.", "trust": 0, "mood": -6,
+          "reply": "Watching is my job. That's what I'm telling you."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We do the same route over and over, but with no passengers. Can we go somewhere we're needed?",
+      "leaving_good": "That was a good shift. I'm going back to Durotar now, to my lessons. You know where to find me.",
+      "leaving_bored": "I'm going back to Durotar. This isn't going anywhere, and I've got letters to learn.",
+      "after_wipe": "Is everybody here? I'm counting you. Good, now we try again, carefully.",
+      "wipe_warning": "We die here too much. I'll finish this one, but then I need some days.",
+      "wipe_leave": "I finished it with you. Now I go to Durotar for a while. Come back for me later.",
+      "zone_warning": "This place is too strong for us. I've watched every face here and they're all bigger than ours. We should go.",
+      "zone_leave": "I'm stopping here. I said it was too strong. I'll be in Durotar.",
+      "gear_refuse": "No, I'll keep this. I don't know you yet.",
+      "gear_taken": "Okay, take it. I'll be careful without it.",
+      "gear_short": "I'm still missing that piece. I'm only saying it once.",
+      "gear_upgrade": "This is good. Thank you, really.",
+      "back": "I'm back, and I've learned more words. Where are we going?",
+      "send_word": "Matías has sent word from Durotar. He's finished his lessons for now and he's ready to come out.",
+      "walkout_talk": "I left angry, and I'd like to explain, slowly, because my words are slow. Will you wait while I find them?",
+      "neglect": "It's been a long time. I learned a lot of words while I waited.",
+      "asked_to_stay": "Ya, okay, one more shift.",
+      "on_break": "Matías is back in Durotar, learning to read. Come back after you've done a few more jobs.",
+      "quest_abandoned": "We said yes to that person and then we left. I don't like leaving people at the stop."
+    }
+  },
+  "banter": {
+    "zone_arrive": [
+      {"text": "Lots of faces out here, not all of them friendly, so I'm watching.", "kind": "open"}
+    ],
+    "dungeon_clear": [
+      {"text": "Everybody got where they were going. That's a good shift.", "kind": "reply"}
+    ],
+    "close_call": [
+      {"text": "I saw it coming and I said it too late. Next time I say it sooner.", "kind": "open"}
+    ],
+    "town_arrive": [
+      {"text": "At home the buses were full at six in the morning, everybody half asleep, and I knew all their faces.", "kind": "open", "topic": "cities"}
+    ]
+  }
+}

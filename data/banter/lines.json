@@ -653,19 +653,19 @@
     "bakyt_hunter": {
       "zone_arrive": [
         {
-          "text": "Good ridge. You could work a bird off that.",
+          "text": "That's a good ridge. You could work a bird off that.",
           "kind": "open"
         }
       ],
       "town_arrive": [
         {
-          "text": "No birds over this town. Worth asking why.",
+          "text": "No birds over this town. It's worth asking why.",
           "kind": "reply"
         }
       ],
       "dungeon_clear": [
         {
-          "text": "Nothing with wings went down there. There is a reason.",
+          "text": "Nothing with wings went down there. There's always a reason.",
           "kind": "open"
         }
       ],
@@ -673,6 +673,11 @@
         {
           "text": "You went too far from the rest. A bird that does that doesn't come back.",
           "kind": "reply"
+        },
+        {
+          "text": "In the Tian Shan the winter kills you quietly. Here everything is noisy about it.",
+          "kind": "open",
+          "topic": "the_cold"
         }
       ]
     },
@@ -1072,7 +1077,7 @@
     "tomas_warrior": {
       "zone_arrive": [
         {
-          "text": "Tell me where you want me before it starts. Not during. Never during.",
+          "text": "Tell me where you want me before it starts. Not during, never during.",
           "kind": "open"
         }
       ],
@@ -1084,14 +1089,18 @@
       ],
       "town_arrive": [
         {
-          "text": "Prague had better scaffolding than this and I say that with love.",
+          "text": "Prague had better scaffolding than this, and I say that with love.",
           "kind": "open",
           "topic": "cities"
+        },
+        {
+          "text": "Look at that roof. Who tied that off? I need to go and fix it.",
+          "kind": "open"
         }
       ],
       "boss_down": [
         {
-          "text": "Check above you before you check the body. Always above you.",
+          "text": "Check above you before you check the body. Always check above you.",
           "kind": "reply"
         }
       ]
@@ -1523,6 +1532,33 @@
         {
           "text": "Out in the sun again, thank God. I don't like it where the light can't reach.",
           "kind": "reply"
+        }
+      ]
+    },
+    "matias_reaper": {
+      "zone_arrive": [
+        {
+          "text": "Lots of faces out here, not all of them friendly, so I'm watching.",
+          "kind": "open"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Everybody got where they were going. That's a good shift.",
+          "kind": "reply"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "I saw it coming and I said it too late. Next time I say it sooner.",
+          "kind": "open"
+        }
+      ],
+      "town_arrive": [
+        {
+          "text": "At home the buses were full at six in the morning, everybody half asleep, and I knew all their faces.",
+          "kind": "open",
+          "topic": "cities"
         }
       ]
     },
