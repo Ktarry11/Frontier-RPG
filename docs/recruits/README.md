@@ -137,9 +137,9 @@ fourth).
 | 65 | Delroy Beckford | Witch Doctor 40 | Booty Bay | `delroy_beckford.md` | Happy | Draft 1 |
 | 66 | Karim Haddad | Felsworn 40 | The Undercrust | `karim_haddad.md` | Sad | Draft 1 |
 | 67 | Osvaldo Beltrán | Warlock 40 | The Bloodsail Raider | `osvaldo_beltran.md` | Happy | Draft 1 |
-| 68 | Bashir Khalidi | Witch Hunter 41 | The Drowned Shrine |  |  |  |
-| 69 | Pieter Malan | Guardian 42 | Northern Tanaris |  |  |  |
-| 70 | Gianluca Ferri | Guardian 42 | Steamwheedle Port |  |  |  |
+| 68 | Bashir Khalidi | Witch Hunter 41 | The Drowned Shrine | `bashir_khalidi.md` | Still unknown | Draft 1 |
+| 69 | Pieter Malan | Guardian 42 | Northern Tanaris | `pieter_malan.md` | Sad | Draft 1 |
+| 70 | Gianluca Ferri | Guardian 42 | Steamwheedle Port | `gianluca_ferri.md` | Happy | Draft 1 |
 | 71 | Camila Ortega | Venomancer 43 | Northern Tanaris |  |  |  |
 | 72 | Elias Peralta | Sun Cleric 44 | The Drownbell |  |  |  |
 | 73 | Kiet Somsak | Rogue 46 | The Abyssal Sands |  |  |  |
