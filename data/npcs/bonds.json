@@ -1709,6 +1709,90 @@
         "on_break": "Haruto is back by the standing stones in Silverpine South. Come back after you've done a few more jobs."
       }
     },
+    "henrik_mage": {
+      "home": "the Frostward Descent",
+      "dials": {
+        "warmth": 0.7,
+        "nerve": 0.9,
+        "pride": 0.9,
+        "restless": 0.8
+      },
+      "likes": [
+        "dungeon",
+        "quest"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Henrik, a frost mage. Before we go anywhere, I'd like to know the objective, precisely. I'll stay inside my tolerances, and I'd ask you to stay inside yours.",
+        "acquaintance": "I'm from Copenhagen. My father was a ship's engineer and my mother a librarian. I spent twenty-one years designing the structures inside buildings and bridges, which mostly meant telling architects that their beautiful idea would fall down. They didn't thank me. The buildings stayed up.",
+        "companion": "My wife is Mette, a physicist at the university. We argued about everything, happily, for twenty-five years. We have two sons, Søren and Mikkel, in Aarhus and London, and they rang on Sundays. I was checking a steel frame on a building site at ten past nine when it happened, and I landed in these cold hills with this scale rule in my pocket.",
+        "friend": "Mette had a nine o'clock lecture that morning. It happened at ten past. So she'd have been in a lecture theatre. I've done that calculation more times than I can count, and I stop it there, every time, because I know what comes next and I won't write it down. I need one last set of measurements from the very bottom of the Descent. I'd like you there. I'll be working at the limit.",
+        "sworn": "Her name was on the Copenhagen list, among those who didn't survive. The lecture theatre came down. I read it twice, and then I finished the calculation out loud to you, all the way to the end, for the first time in three years. The standard's published now. It's dedicated to her, by name, on the first page. She'd have found three errors in it, and I wish she could."
+      },
+      "moments": [
+        {
+          "id": "the_limit",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to stand by while he works at his limit.",
+          "options": [
+            {
+              "text": "I'll be right beside you.",
+              "trust": 12,
+              "reply": "Thank you. If I go past tolerance, pull me back. I'll tell you exactly when."
+            },
+            {
+              "text": "Is it safe?",
+              "trust": 2,
+              "reply": "No, it's outside tolerance. That's why I'm asking you to come."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's already writing something down, very calmly.",
+          "line": "That was outside tolerance. Before we try again, I'd like us to agree on the objective, and the limit.",
+          "options": [
+            {
+              "text": "Tell us the limit, and we'll stay inside it.",
+              "trust": 8,
+              "mood": 6,
+              "reply": "Good, three pulls, no more, and we rest when I say."
+            },
+            {
+              "text": "We'll just push harder next time.",
+              "trust": 0,
+              "mood": -6,
+              "reply": "That's exactly how bridges fall down."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've repeated the same task many times without gaining any new data. I'd like to do something with a measurable objective.",
+        "leaving_good": "That was a productive trip, thank you. I'm going back to the Frostward Descent to write it up. You know where I'll be.",
+        "leaving_bored": "I'm going back to the Descent. We're not learning anything out here, and I've got measurements waiting.",
+        "after_wipe": "That was outside tolerance. Let's agree on the objective before we try again.",
+        "wipe_warning": "We've failed here repeatedly, in the same way. I'll complete this run, but afterwards I'll need a few days.",
+        "wipe_leave": "I've completed it with you. Now I'm going back to the Descent. Come when you've revised the plan.",
+        "zone_warning": "I'd like to be precise. Everything here exceeds our tolerances, and staying is a structural failure waiting to happen.",
+        "zone_leave": "I'm stopping here. It's outside tolerance. I'll be in the Frostward Descent.",
+        "gear_refuse": "I'd rather keep that. We don't know each other well enough yet.",
+        "gear_taken": "Very well, take it. I'll recalculate my limits without it.",
+        "gear_short": "I'm still missing that piece. My margins are narrower without it.",
+        "gear_upgrade": "That's well made, and it widens my margins. Thank you.",
+        "back": "I'm back, and the eleventh book is finished. What's the objective?",
+        "send_word": "Henrik has sent word from the Frostward Descent. His notes are written up and he's ready to come out.",
+        "walkout_talk": "I left in anger, which was outside my own tolerance. I'd like to explain precisely, and then hear your account.",
+        "neglect": "You've been away some time. I measured it, naturally. I'm glad you came back.",
+        "asked_to_stay": "Very well, one more trip, within tolerance.",
+        "on_break": "Henrik is back in the Frostward Descent, measuring. Come back after you've done a few more jobs."
+      }
+    },
     "iker_guardian": {
       "home": "Arathi West",
       "dials": {
@@ -1791,6 +1875,90 @@
         "neglect": "There you are! I thought you'd retired. Nobody retires on my team.",
         "asked_to_stay": "Venga, one more game, and then home.",
         "on_break": "Iker is back in Arathi West, running the farmhands ragged. Come back after you've done a few more jobs."
+      }
+    },
+    "ileana_necromancer": {
+      "home": "the Undercity",
+      "dials": {
+        "warmth": 0.5,
+        "nerve": 1.3,
+        "pride": 1.3,
+        "restless": 0.9
+      },
+      "likes": [
+        "undead",
+        "dungeon"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Ileana, a necromancer. I stand at the back, I don't miss, and I'll tell you every time you do something sloppy. Don't take it personally, it's how I give advice.",
+        "acquaintance": "I'm from Sibiu, in Romania. My mother taught school and my father played the organ in church, and I had a violin under my chin at four. I played second violin in the Cluj philharmonic for eleven years. Second violin is being very good at something with four hundred people better than you. I'm still bitter about that, and I'm still right to be.",
+        "companion": "I was in rehearsal, in the middle of a Bartók quartet, when it happened. I landed in Tirisfal without my violin. Only the shoulder rest came with me, strapped to my back for the walk home. Then I was unbearable for two years. I drove people off and I knew I was doing it. I've apologised to four of them since, and they all accepted, which still surprises me.",
+        "friend": "My husband is Andrei. He taught composition at the conservatory. The year before all this, he had an affair with a student, briefly, and we nearly separated, and we were coming out the other side of it. We left our last conversation unfinished. And there's a Forsaken luthier in the Undercity who made violins when he was alive. He says he'll make me one, if we bring him the wood. Help me, please.",
+        "sworn": "It's a bad violin. It's the only one. I played it in Brill, out of practice, and a man stood up in the corner halfway through the Bartók. It was Andrei. He's been teaching music to Forsaken children who can't sleep, and he knew there was only one person on this world who'd play it that sharply. I finished the piece first. Then I finished the conversation, and this time I could say it twice."
+      },
+      "moments": [
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe she's first to the fallen, saying nothing kind at all.",
+          "line": "That entry was late, and the next one was later. Get up, I've got you, so stop wriggling.",
+          "options": [
+            {
+              "text": "You were first to us. Thank you.",
+              "trust": 10,
+              "mood": 4,
+              "reply": "Don't make it a thing. Fix your footwork and we're even."
+            },
+            {
+              "text": "Less criticism, more healing.",
+              "trust": 0,
+              "mood": -6,
+              "reply": "I can do both at once, and can you?"
+            }
+          ]
+        },
+        {
+          "id": "the_violin",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's asked you to help gather what the luthier needs.",
+          "options": [
+            {
+              "text": "Let's get you a violin.",
+              "trust": 12,
+              "reply": "Good, and if you're sloppy about the wood I'll know."
+            },
+            {
+              "text": "Do you still love him?",
+              "trust": 4,
+              "reply": "That's the unfinished conversation. I'm not having it with you first."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've played the same passage a hundred times and nobody's improved. That's not rehearsal, it's noise. Find us something worth doing.",
+        "leaving_good": "That was acceptable, which from me is high praise. I'm going back to the Undercity for a while. You know where I'll be.",
+        "leaving_bored": "I'm going back to the Undercity. This has become sloppy and repetitive, and I won't play in a bad ensemble.",
+        "after_wipe": "That entry was late. Everybody up, and this time count properly.",
+        "wipe_warning": "We keep falling apart in here, and it's the same mistake every time. I'll finish this run, then I'm taking a break.",
+        "wipe_leave": "I've finished it with you. Now I'm going home to the Undercity. Come back when you've practised.",
+        "zone_warning": "This place is beyond us, and pretending otherwise is careless. We should go somewhere we can actually play.",
+        "zone_leave": "I'm stopping here. I said it was beyond us. I'll be in the Undercity.",
+        "gear_refuse": "No, that's mine. We haven't played together long enough for that.",
+        "gear_taken": "Take it, then. I'll manage, and I'll mention it.",
+        "gear_short": "I'm still missing that piece, and I'm noting it, the way I note everything.",
+        "gear_upgrade": "That's well made. Thank you. Don't expect me to say it twice.",
+        "back": "I'm back, and I'm rested, which means I'll be even more critical. Where are we going?",
+        "send_word": "Ileana has sent word from the Undercity. She's ready to come out and tell you what you're doing wrong.",
+        "walkout_talk": "I left angry, and I was right to, mostly. Sit down, I'll explain precisely, and then you can try to argue.",
+        "neglect": "There you are. I'd assumed you'd found a less critical necromancer. They'd be worse at it.",
+        "asked_to_stay": "Fine, one more piece. Then I rest.",
+        "on_break": "Ileana is back in the Undercity. Come back after you've done a few more jobs."
       }
     },
     "imelda_primalist": {
@@ -3101,6 +3269,89 @@
         "neglect": "Ah, there you are. I've drawn a lot of maps in the dirt while I waited. I'm glad you came.",
         "asked_to_stay": "All right, one more. Then I really must get back to my children.",
         "on_break": "Pavlo is back at the Sepulcher, teaching and holding the road. Come back after you've done a few more jobs."
+      }
+    },
+    "rhys_ranger": {
+      "home": "Stonetalon West",
+      "dials": {
+        "warmth": 1.1,
+        "nerve": 1.0,
+        "pride": 0.5,
+        "restless": 0.8
+      },
+      "likes": [
+        "new_ground",
+        "beast"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "I'm Rhys, and this is Tegan. Keep your voice down near the trees, would you? She hunts better when nobody's chattering, and she's watching you, so be nice.",
+        "acquaintance": "I'm from Brecon, in the Beacons, in Wales. I was a falconer at a centre outside town, weddings in summer and school visits in winter, mostly keeping a bird calm in front of two hundred people in hats. Tegan's a Harris's hawk. She's been mine seven years, and she was on my glove the evening it all happened, so she came with me.",
+        "companion": "My dad farmed, and he died when I was eleven. My mam took a job running the café at the falconry centre so we'd manage, and I spent every day after school with the birds. I was flying hawks by fourteen. Everything good I've got came out of that. Tegan found her first hare here inside a week, and I thought, well, if she can, I can.",
+        "friend": "My mam's name is Gwen. She called every bird at the centre by the wrong name on purpose, and she called Tegan the chicken. I don't know if Brecon came through at all, cariad. A Welsh trader says there's a camp of people from the Beacons across the mountains. I'd like to go, and Tegan likes you, so I'd like you to come.",
+        "sworn": "The camp was empty, a long time empty, no list and no names. But by the gate somebody had carved a hawk into a post, rough, and the word Gwen. I don't know if it was my mam, or someone with the same name. I've decided it was her, and she's somewhere, and she'd want me to keep flying. I carved a hawk and my name under it. The Sun Rock boy's my apprentice now."
+      },
+      "moments": [
+        {
+          "id": "tegan",
+          "stage": "stranger",
+          "when": "hire",
+          "prompt": "Tegan looks you over from his glove before he'll say yes.",
+          "options": [
+            {
+              "text": "Stand still and let her look.",
+              "trust": 6,
+              "joins": true,
+              "reply": "There, she likes you. Tidy, I'll get my things."
+            },
+            {
+              "text": "Reach out to touch her.",
+              "trust": 0,
+              "joins": false,
+              "reply": "Duw, no, she's had enough of you for today. Come back tomorrow, slower."
+            }
+          ]
+        },
+        {
+          "id": "the_camp",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to come to the camp from the Beacons.",
+          "options": [
+            {
+              "text": "Let's go and see.",
+              "trust": 12,
+              "reply": "Diolch, thank you. Tegan will scout ahead, she loves a long walk."
+            },
+            {
+              "text": "What if it's empty?",
+              "trust": 2,
+              "reply": "Then it's empty, and I'll know. Not knowing is heavier, mind."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been round this same patch for days and Tegan's bored, and when she's bored she sulks. Can we go somewhere new?",
+        "leaving_good": "That was lovely, thank you. I'm going back to Stonetalon for a bit, Tegan wants the ridges. Come and find us.",
+        "leaving_bored": "I'm going back to Stonetalon. There's nothing out here for her to hunt but the same old things.",
+        "after_wipe": "Is everybody all right? Tegan's fine, she went up a tree, the clever girl.",
+        "wipe_warning": "We keep dying in here, and Tegan doesn't like the dark. I'll finish this run, then we need some sky.",
+        "wipe_leave": "I've stuck it out, but I'm going back to Stonetalon now. Tegan needs open air, and so do I.",
+        "zone_warning": "This place is too much for us, and Tegan knows it, look at her feathers. Let's go somewhere we can manage.",
+        "zone_leave": "I'm stopping here. Even Tegan wouldn't hunt out there. We'll be on the western ridges in Stonetalon.",
+        "gear_refuse": "I'd rather keep that, if it's all the same. Tegan doesn't know you well enough yet either.",
+        "gear_taken": "That's fine, take it, I'll manage.",
+        "gear_short": "I'm still missing that piece, mind. Not a big thing, just letting you know.",
+        "gear_upgrade": "Oh, that's tidy, that is. Thank you, really.",
+        "back": "We're back, me and Tegan, and she's caught a lot of hares. Where are we going?",
+        "send_word": "Rhys has sent word from Stonetalon West. He and Tegan are ready to come out again.",
+        "walkout_talk": "I left angry, and I'm not proud of it. Sit down, quietly, Tegan's watching, and I'll tell you why.",
+        "neglect": "There you are. Tegan kept looking for you on the road. So did I, a bit.",
+        "asked_to_stay": "Go on, then, one more, Tegan's game.",
+        "on_break": "Rhys is back on the western ridges of Stonetalon with Tegan. Come back after you've done a few more jobs."
       }
     },
     "rosa_hunter": {

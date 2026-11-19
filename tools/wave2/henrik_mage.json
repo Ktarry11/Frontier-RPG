@@ -1,0 +1,77 @@
+{
+  "recruit_text": {
+    "greeting": "Before we begin, what's the actual objective? I've found that parties rarely agree on it, and they find that out halfway through.",
+    "backstory": "Twenty-one years a structural engineer in Copenhagen. The discipline is being certain that a thing will hold before anybody stands on it. Arcane magic rewards that temperament more than boldness, which he thinks is the most underappreciated thing about this world. He's precise in conversation to a degree people find either restful or maddening, and he's never managed to predict which.",
+    "before": "Load calculations, tolerances, and a career of being the person who said no to architects.\n\nHis wife Mette taught physics at the university. She had a nine o'clock lecture, and the Integration arrived at ten past. He's worked out, with some care, that she'd have been in a lecture theatre, and he stops the calculation precisely there, every time.",
+    "adjustment": "Twenty months, documented. He treated himself as a structure under an unfamiliar load and tested accordingly.\n\nThe notes are the most useful record of arcane tolerance anyone has produced here, and he thinks of them as preliminary, and he'll argue the point.",
+    "now": "The Frostward Descent, off Eastern Hillsbrad, as deep into the frozen workings as he can safely go, where the arcane behaves in ways you couldn't reproduce anywhere else.\n\nHe measures, and he's filled eleven books, and he'll tell you the eleventh is the only one worth reading.",
+    "forward": "A proper standard. Not a spell or a discovery, but a published figure other casters can work to, so the next person doesn't have to find the limit with their own body.\n\nHe's calculated his own limits to four significant figures and he doesn't approach them, which is the whole of his method and the reason he's still alive."
+  },
+  "bond": {
+    "home": "the Frostward Descent",
+    "dials": {"warmth": 0.7, "nerve": 0.9, "pride": 0.9, "restless": 0.8},
+    "likes": ["dungeon", "quest"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "I'm Henrik, a frost mage. Before we go anywhere, I'd like to know the objective, precisely. I'll stay inside my tolerances, and I'd ask you to stay inside yours.",
+      "acquaintance": "I'm from Copenhagen. My father was a ship's engineer and my mother a librarian. I spent twenty-one years designing the structures inside buildings and bridges, which mostly meant telling architects that their beautiful idea would fall down. They didn't thank me. The buildings stayed up.",
+      "companion": "My wife is Mette, a physicist at the university. We argued about everything, happily, for twenty-five years. We have two sons, Søren and Mikkel, in Aarhus and London, and they rang on Sundays. I was checking a steel frame on a building site at ten past nine when it happened, and I landed in these cold hills with this scale rule in my pocket.",
+      "friend": "Mette had a nine o'clock lecture that morning. It happened at ten past. So she'd have been in a lecture theatre. I've done that calculation more times than I can count, and I stop it there, every time, because I know what comes next and I won't write it down. I need one last set of measurements from the very bottom of the Descent. I'd like you there. I'll be working at the limit.",
+      "sworn": "Her name was on the Copenhagen list, among those who didn't survive. The lecture theatre came down. I read it twice, and then I finished the calculation out loud to you, all the way to the end, for the first time in three years. The standard's published now. It's dedicated to her, by name, on the first page. She'd have found three errors in it, and I wish she could."
+    },
+    "moments": [
+      {"id": "the_limit", "stage": "friend", "when": "talk",
+       "prompt": "He's asked you to stand by while he works at his limit.",
+       "options": [
+         {"text": "I'll be right beside you.", "trust": 12,
+          "reply": "Thank you. If I go past tolerance, pull me back. I'll tell you exactly when."},
+         {"text": "Is it safe?", "trust": 2,
+          "reply": "No, it's outside tolerance. That's why I'm asking you to come."}
+       ]},
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe he's already writing something down, very calmly.",
+       "line": "That was outside tolerance. Before we try again, I'd like us to agree on the objective, and the limit.",
+       "options": [
+         {"text": "Tell us the limit, and we'll stay inside it.", "trust": 8, "mood": 6,
+          "reply": "Good, three pulls, no more, and we rest when I say."},
+         {"text": "We'll just push harder next time.", "trust": 0, "mood": -6,
+          "reply": "That's exactly how bridges fall down."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've repeated the same task many times without gaining any new data. I'd like to do something with a measurable objective.",
+      "leaving_good": "That was a productive trip, thank you. I'm going back to the Frostward Descent to write it up. You know where I'll be.",
+      "leaving_bored": "I'm going back to the Descent. We're not learning anything out here, and I've got measurements waiting.",
+      "after_wipe": "That was outside tolerance. Let's agree on the objective before we try again.",
+      "wipe_warning": "We've failed here repeatedly, in the same way. I'll complete this run, but afterwards I'll need a few days.",
+      "wipe_leave": "I've completed it with you. Now I'm going back to the Descent. Come when you've revised the plan.",
+      "zone_warning": "I'd like to be precise. Everything here exceeds our tolerances, and staying is a structural failure waiting to happen.",
+      "zone_leave": "I'm stopping here. It's outside tolerance. I'll be in the Frostward Descent.",
+      "gear_refuse": "I'd rather keep that. We don't know each other well enough yet.",
+      "gear_taken": "Very well, take it. I'll recalculate my limits without it.",
+      "gear_short": "I'm still missing that piece. My margins are narrower without it.",
+      "gear_upgrade": "That's well made, and it widens my margins. Thank you.",
+      "back": "I'm back, and the eleventh book is finished. What's the objective?",
+      "send_word": "Henrik has sent word from the Frostward Descent. His notes are written up and he's ready to come out.",
+      "walkout_talk": "I left in anger, which was outside my own tolerance. I'd like to explain precisely, and then hear your account.",
+      "neglect": "You've been away some time. I measured it, naturally. I'm glad you came back.",
+      "asked_to_stay": "Very well, one more trip, within tolerance.",
+      "on_break": "Henrik is back in the Frostward Descent, measuring. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "zone_arrive": [
+      {"text": "Before anyone crosses that bridge, let me look at it. I don't trust the joints.", "kind": "open", "topic": "measure"}
+    ],
+    "dungeon_clear": [
+      {"text": "The ice at the back of that was older than the stone around it. That shouldn't be possible.", "kind": "open"}
+    ],
+    "boss_down": [
+      {"text": "I'd like to go back and measure it before it thaws.", "kind": "reply"}
+    ],
+    "town_arrive": [
+      {"text": "Copenhagen is flat, tidy and full of bicycles, and every building in it was checked by somebody like me.", "kind": "open", "topic": "cities"},
+      {"text": "Every beam in that roof is undersized. I'd sleep outside, honestly.", "kind": "reply", "topic": "measure"}
+    ]
+  }
+}

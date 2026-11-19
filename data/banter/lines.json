@@ -729,13 +729,14 @@
     "henrik_mage": {
       "zone_arrive": [
         {
-          "text": "Forty below and clear, that's a good day. This is neither.",
-          "kind": "open"
+          "text": "Before anyone crosses that bridge, let me look at it. I don't trust the joints.",
+          "kind": "open",
+          "topic": "measure"
         }
       ],
       "dungeon_clear": [
         {
-          "text": "Ice at the back of that was older than the stone around it. Shouldn't be possible.",
+          "text": "The ice at the back of that was older than the stone around it. That shouldn't be possible.",
           "kind": "open"
         }
       ],
@@ -747,8 +748,14 @@
       ],
       "town_arrive": [
         {
-          "text": "Warm here. I spent twenty years at forty below and I still don't trust warm.",
-          "kind": "open"
+          "text": "Copenhagen is flat, tidy and full of bicycles, and every building in it was checked by somebody like me.",
+          "kind": "open",
+          "topic": "cities"
+        },
+        {
+          "text": "Every beam in that roof is undersized. I'd sleep outside, honestly.",
+          "kind": "reply",
+          "topic": "measure"
         }
       ]
     },
@@ -1684,6 +1691,33 @@
         }
       ]
     },
+    "ileana_necromancer": {
+      "boss_down": [
+        {
+          "text": "That was acceptable. The timing at the end was nearly right, for once.",
+          "kind": "open"
+        }
+      ],
+      "close_call": [
+        {
+          "text": "Get up, I've got you. Now stop doing that, it was sloppy.",
+          "kind": "open"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Nobody missed an entry in there, which I'll remember, because it won't happen again.",
+          "kind": "reply"
+        }
+      ],
+      "town_arrive": [
+        {
+          "text": "Cluj has a square where students play in the evenings, badly. I used to correct them from the café.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ]
+    },
     "lucia_suncleric": {
       "town_arrive": [
         {
@@ -1797,6 +1831,33 @@
         {
           "text": "Ay bendito, come here, sit down, let me look at you. Keep talking to me.",
           "kind": "open"
+        }
+      ]
+    },
+    "rhys_ranger": {
+      "zone_arrive": [
+        {
+          "text": "Good open country here. Tegan's going to have a lovely time.",
+          "kind": "open"
+        }
+      ],
+      "town_arrive": [
+        {
+          "text": "Brecon's a little market town under the mountains, and it rains most days, and I'd give anything for a walk there.",
+          "kind": "open",
+          "topic": "cities"
+        }
+      ],
+      "boss_down": [
+        {
+          "text": "Tegan saw it coming before any of us, the clever girl.",
+          "kind": "reply"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "Out in the air again, thank goodness. She hates a roof over her head.",
+          "kind": "reply"
         }
       ]
     },
