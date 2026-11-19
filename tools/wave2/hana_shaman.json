@@ -1,0 +1,78 @@
+{
+  "recruit_text": {
+    "backstory": "Fourteen summers of black sand and heavy water on the Waikato coast, and a rip that took somebody every few years no matter how many signs went up. She's pulled a lot of people out. She remembers the two she didn't, by name, including the one whose family still won't speak to her. She was nineteen when she got here, into a world of people with whole careers behind them, and she spent a year being treated as the kid. That's the part that actually stung.",
+    "before": "The beach, with patrol, flags, and a tower her uncle Rāwiri sat in before her.\n\nThe whole family was there that Sunday morning for her cousin's birthday, and she was up in the tower. She was going to university that year to study marine science, after deferring twice because she didn't want to leave the beach.",
+    "now": "The Hillsbrad coast, colder and greyer than home, with the same undertow.\n\nShe's been teaching the fishing families to read it. Two of them listen. One of those two has stopped losing nets, and that's done more for her standing on that coast than anything she could have said about herself.",
+    "forward": "A bigger sea. She says it lightly and she means it. There's a coast on the far side of Ashenvale where the water apparently does something nobody can describe to her properly, and that's her problem now.\n\nAstranaar's on the way, and that's where the big lists go up. Her whole family was at the beach that morning, so they're somewhere, and twenty-two-year-olds don't accept somewhere the way older people have learned to."
+  },
+  "bond": {
+    "home": "Western Hillsbrad",
+    "dials": {"warmth": 1.3, "nerve": 1.2, "pride": 1.2, "restless": 1.2},
+    "likes": ["new_ground", "full_party"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "Kia ora, I'm Hana. I'm a healer, and I was a surf lifeguard for fourteen summers, so if I tell you to do something near water, do it. And don't call me kid, mate. I've heard it enough.",
+      "acquaintance": "I'm from Port Waikato, on the west coast of the North Island, where the river meets the sea. Black sand, heavy water, and a rip that took somebody every few years. I started junior lifeguards at five and I was running patrols at eighteen. My uncle Rāwiri sat in that tower before me. I was meant to go to uni that year for marine science.",
+      "companion": "My whole whānau was at the beach that morning. Mum, Dad, my three little brothers, cousins, aunties, all of them, for my cousin's birthday. I was up in the tower and then I was here, on the Hillsbrad coast, in my patrol gear. So they're somewhere. Everyone keeps telling me that like it helps.",
+      "friend": "I pulled out more people than I can count, but I remember the two I didn't. An old man called Peter, and a boy called Tama, fourteen. Tama's family still won't talk to me. I think about them every time I go in the water. I want to go to Astranaar, where the big lists go up, and then on to the Ashenvale coast, where the big sea is. Come with me, eh?",
+      "sworn": "They weren't on any of the lists, not one name. Then that ship hit the reef, and I went in, and I got every single one of them out. Sitting on the rocks after, I said it out loud for the first time. My family's somewhere, and I'm not going to find out where by standing still. I'm teaching the sailors to swim now. I keep my own list, every name, so I'll know them when they turn up. I'm still waiting, but I'm not stuck."
+    },
+    "moments": [
+      {"id": "first_wipe", "stage": "any", "when": "wipe",
+       "prompt": "After the wipe, she's already moving between everyone, healing and talking at the same time.",
+       "line": "Right, everyone stay down while I check you. Then somebody tell me who panicked, because somebody did.",
+       "options": [
+         {"text": "That was me. I went across it instead of with it.", "trust": 8, "mood": 6,
+          "reply": "Sweet as, at least you know. Everyone panics once."},
+         {"text": "You're the youngest here, let the rest of us sort it.", "trust": 0, "mood": -10,
+          "reply": "Wow, okay, I'll remember you said that, mate."}
+       ]},
+      {"id": "the_two", "stage": "friend", "when": "talk",
+       "prompt": "She's just told you about Peter and Tama.",
+       "options": [
+         {"text": "You saved more than you lost.", "trust": 4,
+          "reply": "Yeah, I know that. It doesn't work like maths though, eh."},
+         {"text": "Then let's go and find your family.", "trust": 12,
+          "reply": "Chur, let's go, before I talk myself out of it."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "Mate, we've been doing the same thing for ages and I'm going spare. Can we go somewhere I haven't seen, please?",
+      "leaving_good": "That was mean, actually, I loved it. I'm heading back to the coast to check on my fishing families. Come find me.",
+      "leaving_bored": "I'm heading back to Hillsbrad. We're not doing anything out here, and at least the sea's interesting.",
+      "after_wipe": "Okay, everyone's breathing. Next time we go with it, not against it.",
+      "wipe_warning": "We keep going down in here and I'm not keen. I'll finish this run with you, but then I'm having a break.",
+      "wipe_leave": "Sorry, I'm out after this. I'll walk you out, but I'm going back to the coast for a while.",
+      "zone_warning": "This is a rip and we're swimming against it. Let's get out sideways before it takes us all.",
+      "zone_leave": "I'm stopping here. I told you that place was a rip and I meant it. I'll be on the Hillsbrad coast.",
+      "gear_refuse": "Nah, mate, that's mine. Ask me again when we know each other.",
+      "gear_taken": "Fine, have it. I'll manage, but don't expect me to be quiet about it.",
+      "gear_short": "Still missing that piece, eh, just saying.",
+      "gear_upgrade": "Oh, that's choice! Thanks heaps for that.",
+      "back": "I'm back, and I've had a swim, so I'm in a good mood. Where are we going?",
+      "send_word": "Hana has sent word from Western Hillsbrad. The coast's quiet and she's ready to come out again.",
+      "walkout_talk": "I walked out, and I'm not sorry I did, but I'm sorry how. Sit down and let me say my bit, and then you say yours.",
+      "neglect": "Oi, there you are! I thought you'd drowned. Lucky I'm a lifeguard.",
+      "asked_to_stay": "Yeah, all right, one more. But I'm picking the next place.",
+      "on_break": "Hana is back on the Hillsbrad coast, out in the water. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "zone_arrive": [
+      {"text": "There's water under this place, lots of it, and it's moving.", "kind": "open", "topic": "water"}
+    ],
+    "close_call": [
+      {"text": "You panicked, mate, everyone does. Next time go with it, not across it.", "kind": "open"}
+    ],
+    "town_arrive": [
+      {"text": "Nobody here can swim. I asked around and not one of them can.", "kind": "reply"},
+      {"text": "Port Waikato's about four streets and a dairy, and the best beach in the world.", "kind": "open", "topic": "cities"}
+    ],
+    "dungeon_clear": [
+      {"text": "Everyone came out. On the beach that's the whole scoreboard.", "kind": "reply"}
+    ],
+    "boss_down": [
+      {"text": "Chur, that was mean. Everyone still breathing?", "kind": "open"}
+    ]
+  }
+}

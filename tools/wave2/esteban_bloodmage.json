@@ -1,0 +1,81 @@
+{
+  "recruit_text": {
+    "greeting": "There's a price. I'll name it before we proceed, and I'd ask you not to pretend afterwards that I didn't.",
+    "backstory": "Nineteen years a surgeon in Valparaíso. The work is doing a violent thing for a good reason, with absolute precision, while the person on the table trusts you entirely. Blood magic is the same thing with the formalities removed. He finds the honesty of it a relief and the company it attracts a continual disappointment.",
+    "adjustment": "He had no crisis. He had an inventory, and he did it in the first month, and found the skill had come with him whole.\n\nWhat he underestimated was how much of his old restraint had been supplied by the hospital rather than by him. He found that out in his second year, on a Bloodsail ship, and he didn't enjoy it.",
+    "now": "Orgrimmar, in a room near the healers, where the orc and troll healers have started letting him work with them.\n\nHe treats anyone who comes to him. He asks how they got hurt, every time, on the record, and then he treats them anyway.",
+    "forward": "A standard of practice, written down, binding on anyone who claims the discipline. There's nothing like it on this world and the lack of it appals him.\n\nHe's drafted eleven clauses. He expects nobody to adopt them, and he keeps drafting."
+  },
+  "bond": {
+    "home": "Orgrimmar",
+    "dials": {"warmth": 0.8, "nerve": 1.3, "pride": 0.9, "restless": 0.8},
+    "likes": ["quest", "dungeon"],
+    "dislikes": ["quest_abandoned"],
+    "stages": {
+      "stranger": "My name's Esteban, and I'm a bloodmage. Before I use it on you I'll tell you what it costs and ask if you agree, every time. I'd ask you to answer honestly, and not to pretend afterwards that I didn't ask.",
+      "acquaintance": "I'm from Valparaíso, in Chile, from one of the steep hills above the harbour where the old lifts creak up the slopes. My father worked the docks and my mother was a seamstress. I was a vascular and trauma surgeon at the city hospital for nineteen years. Car crashes, stabbings, accidents at the port. A great deal of it under X-ray, hence the badge.",
+      "companion": "I was scrubbed in, in the middle of an operation, when it happened. I landed in Stranglethorn in theatre clothes. I never married. My sister Paz is in the capital, or was, with her children, and I was their favourite uncle because I'd explain exactly how bones heal. I haven't found her on any list. I spent two years in the jungle before I came here to work with the healers.",
+      "friend": "In Stranglethorn the Bloodsail paid me to keep their injured alive. One night their captain was dying, and there was a prisoner below, dying too. I took the prisoner's blood to save the captain, and I didn't ask him. The prisoner died. I left the next morning. That's why I ask everyone now, and that's why I'm writing the clauses. There's a camp in the jungle where bloodmages are bleeding prisoners for profit. I'd like your help to stop it.",
+      "sworn": "The healers in Orgrimmar argued about my clauses for three days. They changed two and added one of their own, and then they adopted them for every bloodmage who wants to work here. I've taught my first class, three of them. On the first day I told them about the prisoner on the Bloodsail ship, because I want them to know why the first clause is there. It's regrettable that it took a death to write it. It won't take another."
+    },
+    "moments": [
+      {"id": "consent", "stage": "acquaintance", "when": "talk",
+       "prompt": "Before a fight, he asks if he may draw on your blood if things go badly.",
+       "options": [
+         {"text": "Yes. Thank you for asking.", "trust": 8,
+          "reply": "Thank you for answering. You'd be surprised how few people do."},
+         {"text": "Just do whatever you need to.", "trust": 0,
+          "reply": "That's not an answer, I'm afraid. I'll ask again when you've thought about it."},
+         {"text": "No, not mine.", "trust": 6,
+          "reply": "Then I won't. I'm grateful for a clear no."}
+       ]},
+      {"id": "the_prisoner", "stage": "friend", "when": "talk",
+       "prompt": "He's just told you about the prisoner.",
+       "options": [
+         {"text": "You've spent every day since making it right.", "trust": 10,
+          "reply": "I've spent every day since trying. That's not the same, but thank you."},
+         {"text": "You saved the captain.", "trust": 0,
+          "reply": "I did save him. I didn't have the right to choose which of them it would be."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've done the same work for some time now with nothing to show for it. I'd like to do something useful, or I'd like to go back to the healers.",
+      "leaving_good": "That was good work, and nobody paid a price they didn't agree to. I'm going back to Orgrimmar for a while. You know where I'll be.",
+      "leaving_bored": "I'm going back to Orgrimmar. We've stopped doing anything that matters out here, and there are patients there.",
+      "after_wipe": "Everyone stay still while I look at you. We'll discuss what went wrong when I've finished.",
+      "wipe_warning": "We've died in here too many times. I'll finish this run, because I don't leave a patient on the table, but afterwards I'll need a break.",
+      "wipe_leave": "I've seen it through, and now I'm going back to Orgrimmar. That was regrettable, all of it.",
+      "zone_warning": "I'd like to be precise. Everything here is beyond us, and staying is a choice to be hurt. I'd rather we didn't make it.",
+      "zone_leave": "I'm stopping here. I named the price of staying and you paid it anyway. I'll be in Orgrimmar.",
+      "gear_refuse": "I'd prefer to keep that. I don't know you well enough yet.",
+      "gear_taken": "Very well, I'll work without it, but please understand there'll be a cost.",
+      "gear_short": "I'm still missing that piece. I mention it as a clinical observation.",
+      "gear_upgrade": "That's well made, and very kind. Thank you.",
+      "back": "I'm back, and my patients are stable. Where do you need me?",
+      "send_word": "Esteban has sent word from Orgrimmar. His patients are stable and he's ready to come out.",
+      "walkout_talk": "I left in anger, which I don't approve of in myself. May I explain why? Then I'd like to hear your view, in full.",
+      "neglect": "It's been a while. I'd begun to wonder if I'd said something regrettable.",
+      "asked_to_stay": "Very well, one more, and then I've got patients waiting.",
+      "on_break": "Esteban is back with the healers in Orgrimmar. Come back after you've done a few more jobs.",
+      "quest_abandoned": "We agreed to that and left it unfinished. That's regrettable, and somebody's paying for it."
+    }
+  },
+  "banter": {
+    "close_call": [
+      {"text": "May I look at that? It's deeper than you think, and I'd rather not guess.", "kind": "open"},
+      {"text": "Everybody here estimates. I was paid for nineteen years not to.", "kind": "reply", "topic": "measure"}
+    ],
+    "boss_down": [
+      {"text": "It's done now. Before anyone celebrates, show me where you're bleeding.", "kind": "reply"}
+    ],
+    "town_arrive": [
+      {"text": "Valparaíso's built on forty hills over the harbour, with old lifts that creak up them. I miss the creaking.", "kind": "open", "topic": "cities"}
+    ],
+    "zone_arrive": [
+      {"text": "Everyone here guesses at how much a body can lose. It's the only thing that truly frightens me.", "kind": "open", "topic": "measure"}
+    ],
+    "dungeon_clear": [
+      {"text": "A clean piece of work. Nobody paid for it who didn't agree to.", "kind": "open"}
+    ]
+  }
+}

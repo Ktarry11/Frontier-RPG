@@ -1,0 +1,74 @@
+{
+  "recruit_text": {
+    "before": "A desk, a screen, and a number that had to be bigger on Friday than it was on Monday.\n\nHe was raised in Cork by a grandmother who'd have had opinions. On balance he's glad she didn't live to form them.\n\nHis son Conor was nineteen and at college in Boston, and he landed somewhere on this world and may well be looking. Ryan hasn't put his name on a single list at any hub in three years. He can give you the reason in one sentence and won't."
+  },
+  "bond": {
+    "home": "the Echo Isles",
+    "dials": {"warmth": 0.6, "nerve": 1.1, "pride": 1.0, "restless": 1.0},
+    "likes": ["quest", "demon"],
+    "dislikes": ["quest_abandoned"],
+    "stages": {
+      "stranger": "I'm Ryan Murphy, and I'm a warlock, which means I keep demons on contracts, and I keep the contracts to the letter. Here's my price up front, so nobody's surprised later. A fair share, and you don't lie to me. I'll extend you the same courtesy.",
+      "acquaintance": "I'm from Cork, then twenty years in Boston. I was a broker. Buyouts, mostly, the kind that close factories. I was very good at it. There's a town in Ohio that lost its biggest employer on a Friday afternoon because of a deal I closed, and I went for a drink after. I'm telling you so you don't find out later and feel clever.",
+      "companion": "I've a son, Conor. He'd be twenty-two now. His mother divorced me when he was eleven, and she was right to. I saw him every second weekend and I was late half the time. He landed somewhere on this world, and he might be looking. I haven't put my name on a list in three years. If he's looking, he deserves to find something better than his father.",
+      "friend": "My grandmother Nora raised me, in Cork, on the rosary and very strong opinions. She died when I was forty. I'm glad she didn't see what I turned into, and I'd give a lot to be the man she wanted for one day. So I'm going to do the thing I've been avoiding. I'm going to write my name on the list at the hub with a note for Conor. Then I'm going to wait, and I'd like company while I do it.",
+      "sworn": "He's twenty-two, tall, polite and steady, and he's a medic with a Horde unit. He listened to everything I said. Then he told me he's glad I'm alive, he's been fine without me, and he doesn't want a father now. He shook my hand and went back to his unit. That's the most honest thing anyone's ever said to me, and he turned out better than me with no help at all. I write once a month. He doesn't write back, but the letters don't come back either."
+    },
+    "moments": [
+      {"id": "hire", "stage": "stranger", "when": "hire",
+       "prompt": "He names his price before you've asked him anything.",
+       "options": [
+         {"text": "A fair share and honesty. Done.", "trust": 6, "joins": true,
+          "reply": "Lovely, that's the quickest deal I've closed in years."},
+         {"text": "Just come along and we'll sort it out later.", "trust": 0, "joins": false,
+          "reply": "A man who won't name his price is the expensive kind. Come back when you've thought about it."}
+       ]},
+      {"id": "the_list", "stage": "friend", "when": "talk",
+       "prompt": "He's told you he's going to write his name on the list for Conor.",
+       "options": [
+         {"text": "I'll wait with you.", "trust": 12,
+          "reply": "Thanks. You're cheaper company than whiskey, and I'll remember more of it."},
+         {"text": "He'll be glad you did.", "trust": 0,
+          "reply": "You don't know that, and neither do I. Don't sell me something."},
+         {"text": "Why now?", "trust": 6,
+          "reply": "Because I've run out of honest reasons not to, and I only deal in honest ones these days."}
+       ]}
+    ],
+    "lines": {
+      "bored_warning": "We've been killing the same things for no return worth mentioning. I'm a man who likes a profit. Show me one or I'll go home.",
+      "leaving_good": "That was a good run and the books balance. I'm going back to the Isles to look after my contracts. You know where to find me.",
+      "leaving_bored": "I'm off back to the Isles. The terms of this arrangement have stopped being worth it, and I always tell people when that happens.",
+      "after_wipe": "Well, that went about as well as my marriage. Let's look at what it cost us.",
+      "wipe_warning": "We keep dying in here, and dying's expensive. I'll finish this run because I said I would, but then I'm taking a break.",
+      "wipe_leave": "I've kept my end, so I'm walking. I'll be on the Echo Isles when the numbers look better.",
+      "zone_warning": "This place is a bad investment and I know a bad investment. We should get out before the losses get permanent.",
+      "zone_leave": "I'm cashing out here. I told you it was a bad bet. I'll be on the Echo Isles.",
+      "gear_refuse": "No, I don't hand my things over to people I've only just met. That's the first rule of business.",
+      "gear_taken": "Take it, then, but I've written it down, and I'll want it back or something better.",
+      "gear_short": "That piece you took is still outstanding. I'm only mentioning it because I mention everything.",
+      "gear_upgrade": "That's a better deal than I'd have negotiated. Thank you. I mean that, which is rare.",
+      "back": "I'm back, the contracts are in order, and I'm all yours for the usual rate.",
+      "send_word": "Ryan has sent word from the Echo Isles. His contracts are in order and he's ready to work.",
+      "walkout_talk": "I walked out, and I'll tell you exactly why, because I don't do it any other way now. Then you tell me your side, and we see if there's a deal.",
+      "neglect": "There you are. I'd assumed you'd found a cheaper warlock. There aren't any, by the way, only worse ones.",
+      "asked_to_stay": "Fine, one more. Consider it a goodwill gesture.",
+      "on_break": "Ryan is back on the Echo Isles with his contracts. Come back after you've done a few more jobs.",
+      "quest_abandoned": "We agreed to that and walked off. I keep my contracts, and I'd like it if we did too."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {"text": "Everyone in this square wants something. That's not cynicism, it's just true.", "kind": "open"},
+      {"text": "Boston's a town that'll sell you anything and tell you it's history. I fit in fine.", "kind": "open", "topic": "cities"}
+    ],
+    "boss_down": [
+      {"text": "That had a price on it, and for once we didn't have to pay it.", "kind": "open"}
+    ],
+    "dungeon_clear": [
+      {"text": "Somebody was owed something down there, and it wasn't us.", "kind": "reply"}
+    ],
+    "zone_arrive": [
+      {"text": "Everything out here costs something. At least it says so up front.", "kind": "open"}
+    ]
+  }
+}

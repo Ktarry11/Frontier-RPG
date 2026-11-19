@@ -68,7 +68,7 @@ standing on that coast than anything she could have said about herself.
 ## Hopes, dreams and fears
 
 - **Hope:** to find her family. All of them.
-- **Hope:** a bigger sea. There's a coast on the far side of Ashenvale, Zoram Strand, where the water apparently does
+- **Hope:** a bigger sea. There's a coast on the far side of Ashenvale where the water apparently does
   something nobody can describe properly to her, and that's her problem now.
 - **Dream:** to study the sea here properly, the way she would have at university.
 - **Dream:** a beach full of her cousins on a Sunday.
@@ -89,10 +89,10 @@ Part of what the player gives her is somebody who treated her as an equal from d
 **Her goal:** to find her family, and to find her bigger sea.
 
 **The personal quest (opens at Friend):**
-1. She asks you to come with her to Astranaar, where the big lists go up, and on to Zoram Strand.
+1. She asks you to come with her to Astranaar, where the big lists go up, and on to the Ashenvale coast.
 2. At the hub there are lists from every camp of New Zealanders that anyone knows about. None of them have her family
    on them. No Tamihanas at all.
-3. She goes on to Zoram Strand anyway. A ship is wrecking on the reef there in a storm, and she goes into the water
+3. She goes on to the Ashenvale coast anyway. A ship is wrecking on the reef there in a storm, and she goes into the water
    for the crew, with you on the shore.
 
 **Ending (still unknown):** she gets every one of them out. Afterwards, sitting on the black rocks, she says out loud

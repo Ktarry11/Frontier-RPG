@@ -537,6 +537,93 @@
         "quest_abandoned": "We just left that half done. I hate that, my friend. Half done is worse than broken."
       }
     },
+    "esteban_bloodmage": {
+      "home": "Orgrimmar",
+      "dials": {
+        "warmth": 0.8,
+        "nerve": 1.3,
+        "pride": 0.9,
+        "restless": 0.8
+      },
+      "likes": [
+        "quest",
+        "dungeon"
+      ],
+      "dislikes": [
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "My name's Esteban, and I'm a bloodmage. Before I use it on you I'll tell you what it costs and ask if you agree, every time. I'd ask you to answer honestly, and not to pretend afterwards that I didn't ask.",
+        "acquaintance": "I'm from Valparaíso, in Chile, from one of the steep hills above the harbour where the old lifts creak up the slopes. My father worked the docks and my mother was a seamstress. I was a vascular and trauma surgeon at the city hospital for nineteen years. Car crashes, stabbings, accidents at the port. A great deal of it under X-ray, hence the badge.",
+        "companion": "I was scrubbed in, in the middle of an operation, when it happened. I landed in Stranglethorn in theatre clothes. I never married. My sister Paz is in the capital, or was, with her children, and I was their favourite uncle because I'd explain exactly how bones heal. I haven't found her on any list. I spent two years in the jungle before I came here to work with the healers.",
+        "friend": "In Stranglethorn the Bloodsail paid me to keep their injured alive. One night their captain was dying, and there was a prisoner below, dying too. I took the prisoner's blood to save the captain, and I didn't ask him. The prisoner died. I left the next morning. That's why I ask everyone now, and that's why I'm writing the clauses. There's a camp in the jungle where bloodmages are bleeding prisoners for profit. I'd like your help to stop it.",
+        "sworn": "The healers in Orgrimmar argued about my clauses for three days. They changed two and added one of their own, and then they adopted them for every bloodmage who wants to work here. I've taught my first class, three of them. On the first day I told them about the prisoner on the Bloodsail ship, because I want them to know why the first clause is there. It's regrettable that it took a death to write it. It won't take another."
+      },
+      "moments": [
+        {
+          "id": "consent",
+          "stage": "acquaintance",
+          "when": "talk",
+          "prompt": "Before a fight, he asks if he may draw on your blood if things go badly.",
+          "options": [
+            {
+              "text": "Yes. Thank you for asking.",
+              "trust": 8,
+              "reply": "Thank you for answering. You'd be surprised how few people do."
+            },
+            {
+              "text": "Just do whatever you need to.",
+              "trust": 0,
+              "reply": "That's not an answer, I'm afraid. I'll ask again when you've thought about it."
+            },
+            {
+              "text": "No, not mine.",
+              "trust": 6,
+              "reply": "Then I won't. I'm grateful for a clear no."
+            }
+          ]
+        },
+        {
+          "id": "the_prisoner",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's just told you about the prisoner.",
+          "options": [
+            {
+              "text": "You've spent every day since making it right.",
+              "trust": 10,
+              "reply": "I've spent every day since trying. That's not the same, but thank you."
+            },
+            {
+              "text": "You saved the captain.",
+              "trust": 0,
+              "reply": "I did save him. I didn't have the right to choose which of them it would be."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've done the same work for some time now with nothing to show for it. I'd like to do something useful, or I'd like to go back to the healers.",
+        "leaving_good": "That was good work, and nobody paid a price they didn't agree to. I'm going back to Orgrimmar for a while. You know where I'll be.",
+        "leaving_bored": "I'm going back to Orgrimmar. We've stopped doing anything that matters out here, and there are patients there.",
+        "after_wipe": "Everyone stay still while I look at you. We'll discuss what went wrong when I've finished.",
+        "wipe_warning": "We've died in here too many times. I'll finish this run, because I don't leave a patient on the table, but afterwards I'll need a break.",
+        "wipe_leave": "I've seen it through, and now I'm going back to Orgrimmar. That was regrettable, all of it.",
+        "zone_warning": "I'd like to be precise. Everything here is beyond us, and staying is a choice to be hurt. I'd rather we didn't make it.",
+        "zone_leave": "I'm stopping here. I named the price of staying and you paid it anyway. I'll be in Orgrimmar.",
+        "gear_refuse": "I'd prefer to keep that. I don't know you well enough yet.",
+        "gear_taken": "Very well, I'll work without it, but please understand there'll be a cost.",
+        "gear_short": "I'm still missing that piece. I mention it as a clinical observation.",
+        "gear_upgrade": "That's well made, and very kind. Thank you.",
+        "back": "I'm back, and my patients are stable. Where do you need me?",
+        "send_word": "Esteban has sent word from Orgrimmar. His patients are stable and he's ready to come out.",
+        "walkout_talk": "I left in anger, which I don't approve of in myself. May I explain why? Then I'd like to hear your view, in full.",
+        "neglect": "It's been a while. I'd begun to wonder if I'd said something regrettable.",
+        "asked_to_stay": "Very well, one more, and then I've got patients waiting.",
+        "on_break": "Esteban is back with the healers in Orgrimmar. Come back after you've done a few more jobs.",
+        "quest_abandoned": "We agreed to that and left it unfinished. That's regrettable, and somebody's paying for it."
+      }
+    },
     "freja_priest": {
       "home": "Valley of Trials",
       "dials": {
@@ -625,6 +712,90 @@
         "asked_to_stay": "Fine, one more. Then I'm going home, and I'm not arguing about it.",
         "on_break": "Freja is back in the Valley of Trials, doing her rounds. Come back after you've done a few more jobs.",
         "quest_abandoned": "We said we'd help them and we walked off. I hate that. Somebody's still waiting for us."
+      }
+    },
+    "hana_shaman": {
+      "home": "Western Hillsbrad",
+      "dials": {
+        "warmth": 1.3,
+        "nerve": 1.2,
+        "pride": 1.2,
+        "restless": 1.2
+      },
+      "likes": [
+        "new_ground",
+        "full_party"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "Kia ora, I'm Hana. I'm a healer, and I was a surf lifeguard for fourteen summers, so if I tell you to do something near water, do it. And don't call me kid, mate. I've heard it enough.",
+        "acquaintance": "I'm from Port Waikato, on the west coast of the North Island, where the river meets the sea. Black sand, heavy water, and a rip that took somebody every few years. I started junior lifeguards at five and I was running patrols at eighteen. My uncle Rāwiri sat in that tower before me. I was meant to go to uni that year for marine science.",
+        "companion": "My whole whānau was at the beach that morning. Mum, Dad, my three little brothers, cousins, aunties, all of them, for my cousin's birthday. I was up in the tower and then I was here, on the Hillsbrad coast, in my patrol gear. So they're somewhere. Everyone keeps telling me that like it helps.",
+        "friend": "I pulled out more people than I can count, but I remember the two I didn't. An old man called Peter, and a boy called Tama, fourteen. Tama's family still won't talk to me. I think about them every time I go in the water. I want to go to Astranaar, where the big lists go up, and then on to the Ashenvale coast, where the big sea is. Come with me, eh?",
+        "sworn": "They weren't on any of the lists, not one name. Then that ship hit the reef, and I went in, and I got every single one of them out. Sitting on the rocks after, I said it out loud for the first time. My family's somewhere, and I'm not going to find out where by standing still. I'm teaching the sailors to swim now. I keep my own list, every name, so I'll know them when they turn up. I'm still waiting, but I'm not stuck."
+      },
+      "moments": [
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe, she's already moving between everyone, healing and talking at the same time.",
+          "line": "Right, everyone stay down while I check you. Then somebody tell me who panicked, because somebody did.",
+          "options": [
+            {
+              "text": "That was me. I went across it instead of with it.",
+              "trust": 8,
+              "mood": 6,
+              "reply": "Sweet as, at least you know. Everyone panics once."
+            },
+            {
+              "text": "You're the youngest here, let the rest of us sort it.",
+              "trust": 0,
+              "mood": -10,
+              "reply": "Wow, okay, I'll remember you said that, mate."
+            }
+          ]
+        },
+        {
+          "id": "the_two",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's just told you about Peter and Tama.",
+          "options": [
+            {
+              "text": "You saved more than you lost.",
+              "trust": 4,
+              "reply": "Yeah, I know that. It doesn't work like maths though, eh."
+            },
+            {
+              "text": "Then let's go and find your family.",
+              "trust": 12,
+              "reply": "Chur, let's go, before I talk myself out of it."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Mate, we've been doing the same thing for ages and I'm going spare. Can we go somewhere I haven't seen, please?",
+        "leaving_good": "That was mean, actually, I loved it. I'm heading back to the coast to check on my fishing families. Come find me.",
+        "leaving_bored": "I'm heading back to Hillsbrad. We're not doing anything out here, and at least the sea's interesting.",
+        "after_wipe": "Okay, everyone's breathing. Next time we go with it, not against it.",
+        "wipe_warning": "We keep going down in here and I'm not keen. I'll finish this run with you, but then I'm having a break.",
+        "wipe_leave": "Sorry, I'm out after this. I'll walk you out, but I'm going back to the coast for a while.",
+        "zone_warning": "This is a rip and we're swimming against it. Let's get out sideways before it takes us all.",
+        "zone_leave": "I'm stopping here. I told you that place was a rip and I meant it. I'll be on the Hillsbrad coast.",
+        "gear_refuse": "Nah, mate, that's mine. Ask me again when we know each other.",
+        "gear_taken": "Fine, have it. I'll manage, but don't expect me to be quiet about it.",
+        "gear_short": "Still missing that piece, eh, just saying.",
+        "gear_upgrade": "Oh, that's choice! Thanks heaps for that.",
+        "back": "I'm back, and I've had a swim, so I'm in a good mood. Where are we going?",
+        "send_word": "Hana has sent word from Western Hillsbrad. The coast's quiet and she's ready to come out again.",
+        "walkout_talk": "I walked out, and I'm not sorry I did, but I'm sorry how. Sit down and let me say my bit, and then you say yours.",
+        "neglect": "Oi, there you are! I thought you'd drowned. Lucky I'm a lifeguard.",
+        "asked_to_stay": "Yeah, all right, one more. But I'm picking the next place.",
+        "on_break": "Hana is back on the Hillsbrad coast, out in the water. Come back after you've done a few more jobs."
       }
     },
     "marco_paladin": {
@@ -783,6 +954,95 @@
         "neglect": "There you are. I was starting to think you'd found somebody with a better forecast. You haven't, by the way.",
         "asked_to_stay": "All right, one more trip, then I really need to check my instruments.",
         "on_break": "Marcus is back on his ridge in Durotar, writing up his notes. Come back after you've done a few more jobs."
+      }
+    },
+    "ryan_warlock": {
+      "home": "the Echo Isles",
+      "dials": {
+        "warmth": 0.6,
+        "nerve": 1.1,
+        "pride": 1.0,
+        "restless": 1.0
+      },
+      "likes": [
+        "quest",
+        "demon"
+      ],
+      "dislikes": [
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "I'm Ryan Murphy, and I'm a warlock, which means I keep demons on contracts, and I keep the contracts to the letter. Here's my price up front, so nobody's surprised later. A fair share, and you don't lie to me. I'll extend you the same courtesy.",
+        "acquaintance": "I'm from Cork, then twenty years in Boston. I was a broker. Buyouts, mostly, the kind that close factories. I was very good at it. There's a town in Ohio that lost its biggest employer on a Friday afternoon because of a deal I closed, and I went for a drink after. I'm telling you so you don't find out later and feel clever.",
+        "companion": "I've a son, Conor. He'd be twenty-two now. His mother divorced me when he was eleven, and she was right to. I saw him every second weekend and I was late half the time. He landed somewhere on this world, and he might be looking. I haven't put my name on a list in three years. If he's looking, he deserves to find something better than his father.",
+        "friend": "My grandmother Nora raised me, in Cork, on the rosary and very strong opinions. She died when I was forty. I'm glad she didn't see what I turned into, and I'd give a lot to be the man she wanted for one day. So I'm going to do the thing I've been avoiding. I'm going to write my name on the list at the hub with a note for Conor. Then I'm going to wait, and I'd like company while I do it.",
+        "sworn": "He's twenty-two, tall, polite and steady, and he's a medic with a Horde unit. He listened to everything I said. Then he told me he's glad I'm alive, he's been fine without me, and he doesn't want a father now. He shook my hand and went back to his unit. That's the most honest thing anyone's ever said to me, and he turned out better than me with no help at all. I write once a month. He doesn't write back, but the letters don't come back either."
+      },
+      "moments": [
+        {
+          "id": "hire",
+          "stage": "stranger",
+          "when": "hire",
+          "prompt": "He names his price before you've asked him anything.",
+          "options": [
+            {
+              "text": "A fair share and honesty. Done.",
+              "trust": 6,
+              "joins": true,
+              "reply": "Lovely, that's the quickest deal I've closed in years."
+            },
+            {
+              "text": "Just come along and we'll sort it out later.",
+              "trust": 0,
+              "joins": false,
+              "reply": "A man who won't name his price is the expensive kind. Come back when you've thought about it."
+            }
+          ]
+        },
+        {
+          "id": "the_list",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's told you he's going to write his name on the list for Conor.",
+          "options": [
+            {
+              "text": "I'll wait with you.",
+              "trust": 12,
+              "reply": "Thanks. You're cheaper company than whiskey, and I'll remember more of it."
+            },
+            {
+              "text": "He'll be glad you did.",
+              "trust": 0,
+              "reply": "You don't know that, and neither do I. Don't sell me something."
+            },
+            {
+              "text": "Why now?",
+              "trust": 6,
+              "reply": "Because I've run out of honest reasons not to, and I only deal in honest ones these days."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been killing the same things for no return worth mentioning. I'm a man who likes a profit. Show me one or I'll go home.",
+        "leaving_good": "That was a good run and the books balance. I'm going back to the Isles to look after my contracts. You know where to find me.",
+        "leaving_bored": "I'm off back to the Isles. The terms of this arrangement have stopped being worth it, and I always tell people when that happens.",
+        "after_wipe": "Well, that went about as well as my marriage. Let's look at what it cost us.",
+        "wipe_warning": "We keep dying in here, and dying's expensive. I'll finish this run because I said I would, but then I'm taking a break.",
+        "wipe_leave": "I've kept my end, so I'm walking. I'll be on the Echo Isles when the numbers look better.",
+        "zone_warning": "This place is a bad investment and I know a bad investment. We should get out before the losses get permanent.",
+        "zone_leave": "I'm cashing out here. I told you it was a bad bet. I'll be on the Echo Isles.",
+        "gear_refuse": "No, I don't hand my things over to people I've only just met. That's the first rule of business.",
+        "gear_taken": "Take it, then, but I've written it down, and I'll want it back or something better.",
+        "gear_short": "That piece you took is still outstanding. I'm only mentioning it because I mention everything.",
+        "gear_upgrade": "That's a better deal than I'd have negotiated. Thank you. I mean that, which is rare.",
+        "back": "I'm back, the contracts are in order, and I'm all yours for the usual rate.",
+        "send_word": "Ryan has sent word from the Echo Isles. His contracts are in order and he's ready to work.",
+        "walkout_talk": "I walked out, and I'll tell you exactly why, because I don't do it any other way now. Then you tell me your side, and we see if there's a deal.",
+        "neglect": "There you are. I'd assumed you'd found a cheaper warlock. There aren't any, by the way, only worse ones.",
+        "asked_to_stay": "Fine, one more. Consider it a goodwill gesture.",
+        "on_break": "Ryan is back on the Echo Isles with his contracts. Come back after you've done a few more jobs.",
+        "quest_abandoned": "We agreed to that and walked off. I keep my contracts, and I'd like it if we did too."
       }
     },
     "sebastian_bloodmage": {

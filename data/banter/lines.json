@@ -214,17 +214,22 @@
         {
           "text": "Everyone in this square wants something. That's not cynicism, it's just true.",
           "kind": "open"
+        },
+        {
+          "text": "Boston's a town that'll sell you anything and tell you it's history. I fit in fine.",
+          "kind": "open",
+          "topic": "cities"
         }
       ],
       "boss_down": [
         {
-          "text": "That had a price on it. We just didn't have to pay it.",
+          "text": "That had a price on it, and for once we didn't have to pay it.",
           "kind": "open"
         }
       ],
       "dungeon_clear": [
         {
-          "text": "Somebody was owed something down there. Wasn't us.",
+          "text": "Somebody was owed something down there, and it wasn't us.",
           "kind": "reply"
         }
       ],
@@ -679,26 +684,38 @@
     "hana_shaman": {
       "zone_arrive": [
         {
-          "text": "There's water under this. Lots of it, and it's moving.",
-          "kind": "open"
+          "text": "There's water under this place, lots of it, and it's moving.",
+          "kind": "open",
+          "topic": "water"
         }
       ],
       "close_call": [
         {
-          "text": "You panicked. Everyone does. Next time go with it, not across it.",
+          "text": "You panicked, mate, everyone does. Next time go with it, not across it.",
           "kind": "open"
         }
       ],
       "town_arrive": [
         {
-          "text": "Nobody here can swim. I asked around. Not one of them.",
+          "text": "Nobody here can swim. I asked around and not one of them can.",
           "kind": "reply"
+        },
+        {
+          "text": "Port Waikato's about four streets and a dairy, and the best beach in the world.",
+          "kind": "open",
+          "topic": "cities"
         }
       ],
       "dungeon_clear": [
         {
           "text": "Everyone came out. On the beach that's the whole scoreboard.",
           "kind": "reply"
+        }
+      ],
+      "boss_down": [
+        {
+          "text": "Chur, that was mean. Everyone still breathing?",
+          "kind": "open"
         }
       ]
     },
@@ -1105,33 +1122,38 @@
     "esteban_bloodmage": {
       "close_call": [
         {
-          "text": "I have it written down. What it cost me, exactly, to the drop.",
-          "kind": "open",
+          "text": "May I look at that? It's deeper than you think, and I'd rather not guess.",
+          "kind": "open"
+        },
+        {
+          "text": "Everybody here estimates. I was paid for nineteen years not to.",
+          "kind": "reply",
           "topic": "measure"
         }
       ],
       "boss_down": [
         {
-          "text": "Exposure's a trade, not a sin. The trick is knowing the number.",
-          "kind": "reply",
-          "topic": "measure"
-        },
-        {
-          "text": "Everybody here estimates. I was paid for twenty years not to.",
-          "kind": "reply",
-          "topic": "measure"
+          "text": "It's done now. Before anyone celebrates, show me where you're bleeding.",
+          "kind": "reply"
         }
       ],
       "town_arrive": [
         {
-          "text": "Rosario. Twenty years, three corridors, the same lead apron.",
+          "text": "Valparaíso's built on forty hills over the harbour, with old lifts that creak up them. I miss the creaking.",
           "kind": "open",
           "topic": "cities"
         }
       ],
       "zone_arrive": [
         {
-          "text": "Everyone here guesses at the dose. It's the only thing that frightens me.",
+          "text": "Everyone here guesses at how much a body can lose. It's the only thing that truly frightens me.",
+          "kind": "open",
+          "topic": "measure"
+        }
+      ],
+      "dungeon_clear": [
+        {
+          "text": "A clean piece of work. Nobody paid for it who didn't agree to.",
           "kind": "open"
         }
       ]
