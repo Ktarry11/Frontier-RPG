@@ -44,7 +44,8 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 ## 1c. Mulgore: The Fallen Bluff, the Thunder Bluff raid (boss art done, 18 Nov 2026)
 - `docs/mulgore_raid_boss_prompt.md`: Kyle's first raid. Bosses by rise (Central 5 with the final boss unlocking
   last, Hunter 3, Spirit 3, Elder 3). Every boss is drawn (sheets A, B, C v2 and Cairne's phase 4 in
-  `tools/building_sheets/mulgore_raid_*.png`), saved unsliced. Still to do: slice them, and build the raid.
+  `tools/building_sheets/mulgore_raid_*.png`), sliced 19 Nov to `assets/creatures/_src/mulgore/` (18 sprites, `fb_`).
+  Still to do: build the raid.
 
 ## 1d. Moonglade (built 18 Nov 2026, `docs/moonglade_build_log.md`)
 - The three dungeons, doors already on the map: the Barrow Dens (corrupted druids), the Dreaming Arch (the Emerald

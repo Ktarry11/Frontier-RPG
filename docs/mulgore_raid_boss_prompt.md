@@ -157,7 +157,13 @@ Body horror through mutation and fusion, as dark and grotesque as it goes, with 
 that has stood up, screaming heads and grasping arms all over it, banners and chains grown in, Cairne trapped at the
 top with the eclipse over his horns and the runed spear in one of its hands. **The raid's boss art is complete:** sheet
 A (Central 4, Hunter 3, the Risen Brave), sheet B (Spirit 3, Elder 3), Cairne phases 1 to 3 from `mulgore_raid_c_v2.png`
-and phase 4 from this one. All saved unsliced until the raid is built.
+and phase 4 from this one. **Sliced 19 Nov 2026** (`tools/slice_building_sheet.py`, sets `mulgore_raid_a`, `_b`, `_c_v2`,
+`_c_phase4`) to `assets/creatures/_src/mulgore/`: `fb_boss_lift_warden`, `fb_boss_mother_of_hooks`,
+`fb_boss_totem_of_mouths`, `fb_boss_butcher_of_the_bluff`, `fb_boss_huntress_who_rises`, `fb_boss_tanner`,
+`fb_boss_hungering_pack`, `fb_risen_brave`, `fb_boss_vision_drinker`, `fb_boss_ancestor_engine`, `fb_boss_pain_shaman`,
+`fb_boss_rootflesh_elder`, `fb_boss_choir_of_elders`, `fb_boss_mourning_mother`, and Cairne's four phases
+`fb_boss_cairne_chained`, `_splitting`, `_two_of_him` and `_unmade`. The rejected v2 phase 4 was cut and thrown away.
+Not wired to anything until the raid is built.
 
 **Kyle's gifts, 18 Nov 2026** ("some gifts <3"): four Mulgore scenes, saved in `assets/backgrounds/mulgore/` for the
 zone's and the raid's combat backgrounds when they're built (not wired to anything yet): `s_mulgore_bonefield` (the

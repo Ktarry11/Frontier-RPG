@@ -377,6 +377,21 @@ _set("deadwind_landmarks", 3, 3, "assets/buildings", """
     dw_broken_bridge dw_ogre_gate dw_great_crypt
     dw_elder_tree dw_containment_spire dw_tunnel_mouth""")
 
+#: THE FALLEN BLUFF, the Thunder Bluff raid (docs/mulgore_raid_boss_prompt.md, Kyle 18 Nov 2026). Sliced 19 Nov, kept
+#: in _src until the raid is built. Sheet C v2's fourth cell is the phase 4 Kyle sent back ("less like a giant
+#: armored Cairne"), so it's cut and discarded; phase 4 is its own image.
+_set("mulgore_raid_a", 4, 2, "assets/creatures/_src/mulgore", """
+    fb_boss_lift_warden fb_boss_mother_of_hooks fb_boss_totem_of_mouths fb_boss_butcher_of_the_bluff
+    fb_boss_huntress_who_rises fb_boss_tanner fb_boss_hungering_pack fb_risen_brave""")
+_set("mulgore_raid_b", 3, 2, "assets/creatures/_src/mulgore", """
+    fb_boss_vision_drinker fb_boss_ancestor_engine fb_boss_pain_shaman
+    fb_boss_rootflesh_elder fb_boss_choir_of_elders fb_boss_mourning_mother""")
+_set("mulgore_raid_c_v2", 2, 2, "assets/creatures/_src/mulgore", """
+    fb_boss_cairne_chained fb_boss_cairne_splitting
+    fb_boss_cairne_two_of_him _discard_cairne_p4_v2""")
+_set("mulgore_raid_c_phase4", 1, 1, "assets/creatures/_src/mulgore", """
+    fb_boss_cairne_unmade""")
+
 #: MOONGLADE (docs/moonglade_art_prompts.md sheets 2 and 3, Kyle 18 Nov 2026): the glade's nature, and Nighthaven's and
 #: the Wakened's buildings.
 _set("moonglade_nature", 6, 6, "assets/tiles/moonglade/props", """
