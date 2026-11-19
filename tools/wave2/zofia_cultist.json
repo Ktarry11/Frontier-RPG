@@ -1,0 +1,111 @@
+{
+  "bond": {
+    "home": "the Western Plaguelands",
+    "dials": {
+      "warmth": 0.6,
+      "nerve": 1.4,
+      "pride": 1.3,
+      "restless": 0.9
+    },
+    "likes": [
+      "undead",
+      "quest"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
+    "stages": {
+      "stranger": "I'm Zofia, and yes, these are Cult robes. I tore the symbols off myself, so you can stop staring.",
+      "acquaintance": "I'm from Łódź, in Poland. For eight years I answered phones for an insurance company, eight hours a day of people shouting at me about things I couldn't fix. At night I studied accounting, and I was two exams from finishing. So if you raise your voice at me, I'll hang up on you, and here that hurts more.",
+      "companion": "This clip was on my headset the day it happened. I was halfway through a call with a man who wanted to speak to my manager, and then I was in the Plaguelands in the first winter, starving. The Cult of the Damned found me and promised I'd never be powerless again, and they kept the promise for a while. I'm not talking about the first year, so don't ask. I left Andorhal at night, with three of their books.",
+      "friend": "There's something you should know about why I said yes. My grandmother came across with me, Babcia Halina. She raised me, and she cheated at cards every single game. We were starving and she was sick, and the Cult offered her food and medicine. I said yes for both of us. They told me she died in their care, the winter before I left. Now I know where that farmhouse is, and they're still taking people in there. I want it burned. Will you come?",
+      "sworn": "She didn't die. They raised her and kept her working, shuffling cards in her hands without knowing why. I put her to rest myself, with what they taught me, and she went still holding the deck. Then I burned the farmhouse to the ground. I kept the cards. There are five aces in that deck, so she cheated on the last hand too, and I laughed, and then I couldn't. I'm not answering anybody's calls any more, so you have the clip."
+    },
+    "moments": [
+      {
+        "id": "the_deck",
+        "stage": "acquaintance",
+        "when": "talk",
+        "prompt": "Zofia is shuffling a battered deck of cards, very fast, without looking at it.",
+        "options": [
+          {
+            "text": "Ask her to deal you in.",
+            "trust": 8,
+            "reply": "Fine, one hand. I'll warn you now, I cheat."
+          },
+          {
+            "text": "Tell her to put them away.",
+            "trust": 0,
+            "reply": "Don't tell me what to do with my hands."
+          }
+        ]
+      },
+      {
+        "id": "the_farmhouse",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "She's asked you to burn the farmhouse with her.",
+        "options": [
+          {
+            "text": "We'll burn it together.",
+            "trust": 12,
+            "reply": "Right, then, stay close, and don't touch anything they've drawn on the walls."
+          },
+          {
+            "text": "What if someone you knew is still in there?",
+            "trust": 3,
+            "reply": "Then I'll deal with it. That's my problem, not yours."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "This is busywork, and I did eight years of busywork. Find me a Cult house to burn.",
+      "leaving_good": "That was useful, I'll give you that. I'll be in the north of the Western Plaguelands, doing sums.",
+      "leaving_bored": "I'm not wasting my evenings on this. I'll be in the Western Plaguelands, where there's real work.",
+      "after_wipe": "Kurwa, that was a mess. Get up, everyone, and this time watch the flanks.",
+      "wipe_warning": "I'm keeping a tally of how often we've died in here, and it doesn't balance. After this run, I'm taking a few days.",
+      "wipe_leave": "The books don't balance on this place. I'm going north to the Plaguelands for a while.",
+      "zone_warning": "Run the numbers on this place and we come out at nothing. We should turn round.",
+      "zone_leave": "I don't take bad bargains any more. I'll be in the Western Plaguelands, up north.",
+      "gear_refuse": "That's mine, and people have taken enough off me already.",
+      "gear_taken": "Take it, but I'm noting it.",
+      "gear_short": "My ledger says you owe me one piece of kit. I haven't forgotten.",
+      "gear_upgrade": "Dziękuję, that's decent of you.",
+      "back": "One more of their symbols burned, and I've slept on it. What's the job?",
+      "send_word": "Zofia has sent word from the Western Plaguelands. She's ready to come out again.",
+      "walkout_talk": "I walked off because somebody talked down to me, and I don't take that twice. Sit, and I'll tell you exactly what it was.",
+      "neglect": "I was starting to think you'd hung up on me.",
+      "asked_to_stay": "One more, then, but don't make a habit of asking.",
+      "on_break": "Zofia is back in the north of the Western Plaguelands, hunting the Cult. Come back after you've done a few more jobs.",
+      "quest_abandoned": "We left a job unfinished, and I hate an open account."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "I walked a mile down Piotrkowska to the call centre every morning with my headphones on, so nobody could shout at me before nine.",
+        "kind": "open",
+        "topic": "cities"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "Cult marks on the walls in there. I scratched out every one I passed.",
+        "kind": "open"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "You let it get behind you. Don't do that again.",
+        "kind": "open"
+      }
+    ],
+    "boss_down": [
+      {
+        "text": "Good, it's down. I'm counting that as one off the list.",
+        "kind": "reply"
+      }
+    ]
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "recruit_text": {
+    "backstory": "Santiago tattooed in Medellín, in a shop in Laureles with a waiting list that ran for months. He arrived with the grip of his machine in his pocket, and runes started showing up in his work within the month. He engraves them into his blades now, and into his own arms, and they burn when he fights. He's confident, bright and a perfectionist about line work in a way that makes the Ashclaim's smiths nervous."
+  },
+  "bond": {
+    "home": "the Ashen Reach",
+    "dials": {
+      "warmth": 1.2,
+      "nerve": 1.3,
+      "pride": 1.3,
+      "restless": 1.1
+    },
+    "likes": [
+      "boss",
+      "new_ground"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
+    "stages": {
+      "stranger": "Qué más, parce, I'm Santiago, a runemaster. Every rune's a line you can't take back, same as a tattoo, just louder. Try not to stand where the sparks go.",
+      "acquaintance": "I'm from Medellín. My mother sold arepas from a cart, and I drew on everything I could find, and then on people. At twenty-two I opened a shop in Laureles with my cousin, and the waiting list ran for months. Three hundred clients' worth of designs in a folder. First-timers were my favourite. You talk them through it and they leave feeling brave.",
+      "companion": "My father drove a bus, and he died when I was fifteen. After that it was me and my mother, Gloria. She never approved of the tattoos, and she let me do a tiny sun on her wrist anyway. I was halfway through a sleeve when the world went, and all I came out with was this grip from my machine. The first rune I cut glowed, and I spent a week working out what I'd done right.",
+      "friend": "I've got a little brother, Julián, ten years younger. He's the clever one, and I was putting him through a good school in Bogotá. I never told him how proud I was. He was in Bogotá that day, a long way from me. Now I'm close to a new rune, parce, a rune of finding, that might point to someone you've lost. I need a rare stone from deep in the Ashen Reach. Will you help me get it?",
+      "sworn": "The rune worked, parce. It glowed and pointed, a long way off, past the edge of every map anyone has, and then it faded. So Julián's out there somewhere nobody can reach. I don't know if that means he's alive, and I've decided it does. I cut the rune into my own forearm, one more line I can't take back, so it'll glow if I ever get close. And I gave the design to the Ashclaim's smiths, so anyone can look for their people. Keep the grip, parce. It drew my first lines."
+    },
+    "moments": [
+      {
+        "id": "your_armour",
+        "stage": "acquaintance",
+        "when": "talk",
+        "prompt": "Santiago is studying the design on your armour with a very critical eye.",
+        "options": [
+          {
+            "text": "Ask what he'd change.",
+            "trust": 8,
+            "reply": "Pues, everything, but I'd start with that border. Ask me later and I'll sketch it."
+          },
+          {
+            "text": "Tell him it's fine as it is.",
+            "trust": 0,
+            "reply": "It's adequate, parce. But it's yours, so I'll shut up."
+          }
+        ]
+      },
+      {
+        "id": "the_stone",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to help him get the stone.",
+        "options": [
+          {
+            "text": "Let's go and get it.",
+            "trust": 12,
+            "reply": "Bacano, parce, let's go! Then you're keeping me awake all night while I cut it."
+          },
+          {
+            "text": "What if it points nowhere?",
+            "trust": 3,
+            "reply": "Then at least I'll know where nowhere is, and that's something."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "Parce, this is the same line over and over, and it's ruining my wrist. Give me something new to cut.",
+      "leaving_good": "Bacano, that was a good trip. I'll be on the Ashen Reach near the works, sketching.",
+      "leaving_bored": "I'd rather be cutting runes than doing this again. You'll find me on the Ashen Reach.",
+      "after_wipe": "Okay, okay, that went sideways. Breathe, all of you, and let's redraw it from the start.",
+      "wipe_warning": "We keep getting cut up in here, and not in the nice way. After this run I'm going back to the works for a bit.",
+      "wipe_leave": "That's enough blood for one day, parce. I'll be on the Ashen Reach near the works.",
+      "zone_warning": "We're out of our depth out here, parce, and I'd rather walk away than ruin something I can't fix.",
+      "zone_leave": "I don't cut lines I can't finish. I'll be on the Ashen Reach.",
+      "gear_refuse": "Ey, no, that's mine, parce. Earn your way into my folder first.",
+      "gear_taken": "Pues, take it. My arms are armour enough.",
+      "gear_short": "My kit's missing a piece, parce, and it's spoiling the whole composition.",
+      "gear_upgrade": "Ey, look at the line work on that! Thank you, parce.",
+      "back": "Three notebooks full now, and one new design I'm proud of. Vamos, where are we cutting?",
+      "send_word": "Santiago has sent word from the Ashen Reach. His runes are fresh and he's ready.",
+      "walkout_talk": "I stormed off like a client who hated their tattoo, and that's embarrassing. Sit down, parce, and let me explain.",
+      "neglect": "Parce, you're back! I drew you from memory while you were gone, and I got your nose wrong.",
+      "asked_to_stay": "Pues, one more. I've always got time for one more line.",
+      "on_break": "Santiago is back on the Ashen Reach, cutting runes near the works. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "My mother sold arepas from a cart in Medellín, and her queue was longer than the one at my shop. She never let me forget it.",
+        "kind": "open",
+        "topic": "cities"
+      }
+    ],
+    "boss_down": [
+      {
+        "text": "The runes flared right up on that last hit. That's clean work, parce.",
+        "kind": "open"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "Breathe through it, I've got you. Talking helps, so keep talking.",
+        "kind": "open"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "Whoever carved those walls had no sense of line weight at all.",
+        "kind": "reply"
+      }
+    ]
+  }
+}
