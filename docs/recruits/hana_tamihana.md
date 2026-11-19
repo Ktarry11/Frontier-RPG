@@ -10,7 +10,7 @@ Wave 1 profile, draft 1 (19 Nov 2026). Built on her recruit entry. Waves 2, 3 an
 | From | Port Waikato, on the west coast of New Zealand's North Island. Māori, Waikato-Tainui. |
 | Earth job | Surf lifeguard from the age of five, as a junior, and on patrol from fifteen |
 | Here | Shaman (Restoration), level 12 |
-| Lives | The Hillsbrad coast near Southpoint, in a fishing family's spare room |
+| Lives | Western Hillsbrad, on the coast, in a fishing family's spare room |
 | Family | A big family: her mum and dad, three younger brothers, her uncle Rāwiri, cousins, aunties. They were all at the beach that morning. |
 | First impression | Young, blunt and very sure of herself. Then you see her in the water and stop thinking of her as young. |
 
@@ -63,13 +63,13 @@ way older people have learned to. Neither do 22-year-olds, it turns out.
 
 She lives on the Hillsbrad coast. It's colder and greyer than home, with the same undertow. She's been teaching the
 fishing families to read it. Two of them listen. One of those two has stopped losing nets, and that's done more for her
-standing in Southpoint than anything she could have said about herself.
+standing on that coast than anything she could have said about herself.
 
 ## Hopes, dreams and fears
 
 - **Hope:** to find her family. All of them.
-- **Hope:** a bigger sea. There's a coast to the west where the water apparently does something nobody can describe
-  properly to her, and that's her problem now.
+- **Hope:** a bigger sea. There's a coast on the far side of Ashenvale, Zoram Strand, where the water apparently does
+  something nobody can describe properly to her, and that's her problem now.
 - **Dream:** to study the sea here properly, the way she would have at university.
 - **Dream:** a beach full of her cousins on a Sunday.
 - **Fear:** that she's only good at one thing.
@@ -89,10 +89,10 @@ Part of what the player gives her is somebody who treated her as an equal from d
 **Her goal:** to find her family, and to find her bigger sea.
 
 **The personal quest (opens at Friend):**
-1. She asks you to come with her west, to the hub where the big lists go up, and on to the coast nobody can describe.
+1. She asks you to come with her to Astranaar, where the big lists go up, and on to Zoram Strand.
 2. At the hub there are lists from every camp of New Zealanders that anyone knows about. None of them have her family
    on them. No Tamihanas at all.
-3. She goes on to the western coast anyway. A ship is wrecking on the reef there in a storm, and she goes into the water
+3. She goes on to Zoram Strand anyway. A ship is wrecking on the reef there in a storm, and she goes into the water
    for the crew, with you on the shore.
 
 **Ending (still unknown):** she gets every one of them out. Afterwards, sitting on the black rocks, she says out loud

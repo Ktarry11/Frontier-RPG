@@ -94,7 +94,7 @@ He's made friends with the dead. Part of what the player gives him is a table to
 **His goal:** to find his family.
 
 **The personal quest (opens at Friend):**
-1. He hears of a camp of Argentines far to the south, in the desert, and that there's a family from Buenos Aires
+1. He hears of a camp of Argentines in Tanaris, in the desert, and that there's a family from Buenos Aires
    there who run a grill. He's sure it's someone he knows.
 2. The road is long and dangerous, and he cooks for every camp on the way, because he can't help it.
 3. He finds the camp. The family running the grill are from Buenos Aires, but they're strangers. They've never heard of
@@ -133,7 +133,7 @@ he says, and he wants it somewhere safe.
 
 ## What this changes in what's already written
 
-- **New:** Nélida, the girlfriend and Tomás, River Plate, the chimichurri card, the camp in the south, the empty chair,
+- **New:** Nélida, the girlfriend and Tomás, River Plate, the chimichurri card, the camp in Tanaris, the empty chair,
   and the first Sunday in Brill.
 - **Kept:** Palermo, twelve years at the grill, his grandmother running it before him, his football club, asado for
   twenty every Sunday and never sitting down, the Forsaken not eating, reading blood on a grill, the grill in Brill,

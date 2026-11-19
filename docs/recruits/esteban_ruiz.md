@@ -10,7 +10,7 @@ Wave 1 profile, draft 1 (19 Nov 2026). Built on his recruit entry. Waves 2, 3 an
 | From | Valparaíso, Chile |
 | Earth job | Vascular and trauma surgeon at the city hospital for nineteen years |
 | Here | Bloodmage (Accursed), level 12 |
-| Lives | Orgrimmar now, in a room near the Valley of Spirits. Before that, two years in the Stranglethorn interior. |
+| Lives | Orgrimmar now, in a room near the healers. Before that, two years in Stranglethorn. |
 | Family | Never married. His older sister Paz and her family in Santiago. |
 | First impression | Calm, polite and a bit unsettling. He tells you exactly what something will cost before he does it. |
 
@@ -66,7 +66,7 @@ He hasn't found Paz on any list.
 
 ## Now
 
-He lives in Orgrimmar, near the Valley of Spirits, where the orc and troll healers have started letting him work with
+He lives in Orgrimmar, where the orc and troll healers have started letting him work with
 them. He still treats anyone who comes to him. He asks how they got hurt, every time, on the record, and then he treats
 them anyway.
 
@@ -102,7 +102,7 @@ gives him is somebody whose consent he can actually ask for and get.
    magic. He kneels down and asks the man if he agrees. The man says yes.
 3. He takes the camp's leader to Orgrimmar to be judged, along with his eleven clauses.
 
-**Ending (happy):** the healers of the Valley of Spirits read his clauses. They argue about them for three days, change
+**Ending (happy):** Orgrimmar's healers read his clauses. They argue about them for three days, change
 two, and add one of their own. Then they adopt them for every bloodmage who wants to work in Orgrimmar. Esteban teaches
 the first class of three young bloodmages. On the first day he tells them about the prisoner on the Bloodsail ship,
 because he wants them to know why the first clause is there.

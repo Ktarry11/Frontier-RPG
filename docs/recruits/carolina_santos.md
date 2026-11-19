@@ -10,7 +10,7 @@ Wave 1 profile, draft 1 (19 Nov 2026). Built on her recruit entry. Waves 2, 3 an
 | From | Manaus, Brazil, on the Amazon |
 | Earth job | River pilot on the Amazon for twelve years, guiding cargo boats through channels that change every season |
 | Here | Shaman (Enhancement), level 11 |
-| Lives | The Wetlands, in a stilt house over the water |
+| Lives | The Echo Isles, in a stilt house over the shallows |
 | Family | Her mother and younger brother in Manaus. Her grandfather, who taught her the river, died when she was 30. |
 | First impression | Calm, sunburnt and amused. She moves like someone who's always on a boat. |
 
@@ -63,8 +63,8 @@ downstream.
 
 ## Now
 
-She lives in the Wetlands, where the water moves through the marsh in channels that shift with the rains and the local
-boatmen lose craft every spring. She's teaching two of them to read a bottom by feel. One of them is getting it, and
+She lives on the Echo Isles, where the channels between the islands shift with every storm and the Darkspear
+boatmen lose canoes on the reefs every season. She's teaching two of them to read a bottom by feel. One of them is getting it, and
 watching that happen has done more for her than three years of being useful.
 
 ## Hopes, dreams and fears
@@ -90,13 +90,14 @@ right place. Part of what the player gives her is the way to it.
 **Her goal:** to find her river.
 
 **The personal quest (opens at Friend):**
-1. She's been told about a great river in Feralas, long and wild, that nobody's ever piloted properly.
+1. She's been told about the great river that runs through Ashenvale, long and wild, that nobody's ever piloted
+   properly.
 2. The way there is dangerous. When you arrive, the river's spirits are angry, because something's fouling the water
    upstream. You help her find it and fight it.
 3. She talks to the river for a long night.
 
 **Ending (happy):** in the morning the river lets her on. She takes a boat down a stretch nobody's ever run, and she
-laughs the whole way. She builds a stilt house on its bank and starts learning it. The boy from the Wetlands who was
+laughs the whole way. She builds a stilt house on its bank and starts learning it. The Darkspear boy from the Echo Isles who was
 getting it comes to be her apprentice. She tells you she'll still be learning this river in twenty years, and that's the
 best thing anyone's ever told her.
 
@@ -127,11 +128,13 @@ know which way is north any more, she knows which way is downstream.
 
 ## What this changes in what's already written
 
-- **New:** Manaus, Seu Raimundo by name, Joana, her mother and brother, the compass, and the Feralas river.
+- **New:** Manaus, Seu Raimundo by name, Joana, her mother and brother, the compass, and the Ashenvale river.
 - **Kept:** twelve years a river pilot on the Amazon, reading water that changes, deep in March and aground in
-  September, feeling the bottom through the hull, the same conversation in an accent, three gentle years, the Wetlands,
-  teaching two boatmen, one getting it, and wanting a river of her own in Feralas.
-- **To settle in Wave 2:** her text puts her in the Wetlands, but the game places her on the Echo Isles.
+  September, feeling the bottom through the hull, the same conversation in an accent, three gentle years,
+  teaching two boatmen, one getting it, and wanting a river of her own.
+- **Moved to match the game:** her recruit text says the Wetlands and Feralas, which aren't in the game. The game
+  places her on the Echo Isles, so she lives there, and her river is in Ashenvale. Her recruit text gets the same
+  change in Wave 2.
 
 ## Ending
 

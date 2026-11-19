@@ -10,7 +10,7 @@ Wave 1 profile, draft 1 (19 Nov 2026). Built on her recruit entry. Waves 2, 3 an
 | From | Thessaloniki, Greece. Eleven years in Brussels. Her father was Portuguese, which is where the surname comes from. |
 | Earth job | Simultaneous interpreter at the European Parliament for fourteen years, working in four languages |
 | Here | Mage (Fire), level 11 |
-| Lives | Theramore, in a rented room above a chandler's, with notebooks stacked on every surface |
+| Lives | The Undercity, in a rented room off the Trade Quarter, with notebooks stacked on every surface |
 | Family | Her parents in Thessaloniki. Divorced, no children. |
 | First impression | Quiet, precise and slightly distant. She pauses before she answers. The answer's always better than you expected. |
 
@@ -51,7 +51,7 @@ Her father was diagnosed with dementia when she was 39. Her mother looked after 
 
 ## The Integration and what it cost
 
-She was in the booth, mid-sentence, when it happened. She landed on the coast near Theramore with her Parliament
+She was in the booth, mid-sentence, when it happened. She landed in Tirisfal with her Parliament
 pass still on its lanyard round her neck.
 
 Greece and Belgium came down on different sides of a mountain range. She's worked out what that means more carefully
@@ -63,8 +63,8 @@ interpret a contract dispute, paid her properly, and came back.
 
 ## Now
 
-She lives in Theramore, where four languages and two factions arrive on the same dock and nobody's paid to make that
-work. She makes it work, for money. She's been in the room for three negotiations that would've gone badly without her.
+She lives in the Undercity, where Forsaken, orcs, trolls, goblins and transplants all trade in the same halls in
+half a dozen languages, and nobody's paid to make that work. She makes it work, for money. She's been in the room for three negotiations that would've gone badly without her.
 
 She's writing a grammar of this world's arcane. She's convinced magic has a syntax and every mage here is speaking it by
 ear. She's forty pages in. She's shown it to two people. One laughed and the other asked for a copy.
@@ -134,9 +134,10 @@ crossing. She says she doesn't need to prove who she is any more.
   pass, the crossing and the Thessaloniki settlement.
 - **Kept:** fourteen years interpreting at the European Parliament, four languages, holding a sentence, getting the
   register right, two years of not believing in herself, Thessaloniki and eleven years in Brussels, Greece and Belgium
-  on different sides of the mountains, the goblin's contract, Theramore and the three negotiations, the grammar of the
+  on different sides of the mountains, the goblin's contract, the three negotiations, the grammar of the
   arcane, forty pages, one laugh and one copy.
-- **To settle in Wave 2:** her text puts her in Theramore, but the game places her in the Undercity.
+- **Moved to match the game:** her recruit text says Theramore. The game places her in the Undercity, so she lives
+  and works there. Her recruit text gets the same change in Wave 2.
 
 ## Ending
 

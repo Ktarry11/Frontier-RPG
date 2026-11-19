@@ -18,6 +18,10 @@ plans for it later. Built 19 Nov 2026 (`data/npcs/keepsakes.json`, `tools/qa_kee
 only, given the moment its recruit becomes Sworn, and an ungiven one shows only who it's from. Each needs its own icon
 (it shows a stand-in until then).
 
+Where they live is where the game places them (Kyle, 19 Nov 2026: "keep their places and their location accurate").
+Every place a profile names is a real place in the game; where the old recruit text named somewhere else, the profile
+follows the game and says so.
+
 Keepsakes can be Earth things (Kyle, 19 Nov 2026): "These people came through during integration and some of them
 came with things on them. That's fine to have earth themed keepsakes too when appropriate." Deadwind's wheel stays the
 only Earth object out in the world.

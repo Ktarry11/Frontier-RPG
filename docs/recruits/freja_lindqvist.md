@@ -123,7 +123,7 @@ player gives her is somebody to argue with again, which she's missed more than s
 **Her goal:** to find William.
 
 **The personal quest (opens at Friend):**
-1. A trader passing through says there's an American who fixes goblin flying machines at a workshop far away. He's
+1. A trader passing through says there's an American who fixes goblin flying machines at a workshop on the Shimmering Flats. He's
    rude to the goblins, the trader says, and they keep him on anyway because he's the best they've got. Freja knows
    who that is before he's finished talking.
 2. The way there goes through dangerous country, and she won't wait for a safer road.

@@ -10,7 +10,7 @@ Wave 1 profile, draft 1 (19 Nov 2026). Built on his recruit entry. Waves 2, 3 an
 | From | Naples, Italy. The Quartieri Spagnoli, the narrow streets above Via Toledo. |
 | Earth job | Locksmith for 31 years, with his own shop |
 | Here | Paladin (Protection), level 10 |
-| Lives | Southshore, in two rooms behind the inn, with his tools on the windowsill |
+| Lives | The Undercity, in two rooms off the Trade Quarter, with his tools on the windowsill |
 | Family | His wife Carmela, two daughters, Giulia and Sara, and a grandson, Matteo, born the February before the Integration |
 | First impression | Quiet, heavy and patient. He stands in front of you and says very little. You feel safe without knowing why. |
 
@@ -52,7 +52,7 @@ He was going to retire that summer and hand the shop to his apprentice.
 
 ## The Integration and what it cost
 
-He was in the shop, cutting a key, when it happened. He landed near Southshore with the key still in his hand. He kept
+He was in the shop, cutting a key, when it happened. He landed in Tirisfal with the key still in his hand, and walked to the Undercity because it had doors. He kept
 it.
 
 He looked for people to be useful to and found them within a fortnight. The Light found him already doing the work. He
@@ -63,10 +63,12 @@ reasons, and none of them are the real one. The real one is that while he doesn'
 
 ## Now
 
-He lives in Southshore in two rooms behind the inn. The town has quietly worked out who to fetch when something's wrong.
+He lives in the Undercity, in two rooms off the Trade Quarter, among the Forsaken and the few living people who work
+there. The quarter has quietly worked out who to fetch when something's wrong. Forsaken have a lot of locks.
 He fixes locks, and he fixes other things, and nobody has ever asked him to.
 
-He has about half a quarter there now, a few streets where people know to come to him. He's counting.
+He has about half a quarter there now, a few passages where people, living and dead, know to come to him. He's
+counting.
 
 ## Hopes, dreams and fears
 
@@ -92,19 +94,20 @@ somebody who'll stand next to him while he reads it.
 
 **The personal quest (opens at Friend):**
 1. He asks you to come with him to the hub to read the lists. He's never done it. You find Sara's name on a list from a
-   camp of Neapolitans in the Undercity's outer districts.
+   camp of Neapolitans at Tarren Mill.
 2. The road there is dangerous, and he won't let you go ahead of him.
 3. You find the camp.
 
 **Ending (happy):** Sara is there, and so is Matteo, who's three now and hiding behind her legs. Sara cries. Matteo
 doesn't know who Marco is, and Marco kneels in the street and lets the boy look at him for as long as he wants. Giulia
 isn't there. Carmela isn't there either; Sara hasn't found her. Marco holds Matteo for the fifth time that evening, and
-the sixth, and stops counting. He moves Sara and the boy to Southshore, where he has half a quarter to give them.
+the sixth, and stops counting. He moves Sara and the boy to the Undercity, where he has half a quarter to give them. Matteo is the only
+child in the Trade Quarter, and the Forsaken are very careful around him.
 
 ## His keepsake (the new Collection tab)
 
 **The Key He Was Cutting.** A half-cut brass key from his shop in Naples, still in his hand when he landed. It doesn't
-open anything. He gives it to you after Sara and Matteo come to Southshore. He says he's finished it now, in his way.
+open anything. He gives it to you after Sara and Matteo come to the Undercity. He says he's finished it now, in his way.
 
 ## Voice notes
 
@@ -131,8 +134,9 @@ open anything. He gives it to you after Sara and Matteo come to Southshore. He s
   cutting, and the Neapolitan camp.
 - **Kept:** 31 years a locksmith in Naples, the man the neighbourhood sent for, settling disputes, everybody owing him,
   the Light arriving late, a wife, two daughters and a grandson held four times, putting everything else off at 63,
-  Southshore and the lanes behind the inn, fixing other things, half a quarter and counting.
-- **To settle in Wave 2:** his text puts him in Southshore, but the game places him in the Undercity.
+  fixing other things, half a quarter and counting.
+- **Moved to match the game:** his recruit text says Southshore. The game places him in the Undercity, so he lives
+  there. His recruit text gets the same change in Wave 2.
 
 ## Ending
 
