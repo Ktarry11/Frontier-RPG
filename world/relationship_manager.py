@@ -43,11 +43,13 @@ EFFECTS
 """
 import json
 import random
+import re
 from pathlib import Path
 
 DATA = Path(__file__).resolve().parent.parent / "data" / "npcs" / "relationships.json"
 
 FRIENDLY, CLOSE, GRATING, RIVALS = 20, 55, -20, -50
+ADDRESS = re.compile(r"\{([^{}|]+)\|([^{}|]+)\}")
 #: the slack: once in a state you stay until affinity crosses back past these
 LEAVE = {"friendly": 15, "close": 48, "grating": -14, "rivals": -42}
 STATE_NAMES = {"strangers": "Strangers", "nodding": "On nodding terms", "friendly": "Friendly",
@@ -117,31 +119,50 @@ def described(t):
     return out
 
 
-def chemistry(ta, tb, a, b):
-    """How an outing together tends to go for these two. Positive pulls them together."""
-    c = _pair(HUMOUR, ta.get("humour"), tb.get("humour"))
-    c += _pair(PACE, ta.get("pace"), tb.get("pace"))
-    c += _pair(MANNER, ta.get("manner"), tb.get("manner"))
-    c += _pair(TALK, ta.get("talk"), tb.get("talk"))
+def chemistry_parts(ta, tb, a, b):
+    """(lasting, fading). What they like about each other lasts; what grates wears off as they
+    get used to each other (fade below), so a pair who rub each other up the wrong way at first can
+    come round, the way Adrián's profile says he does with careless people who try."""
+    lasting, fading = 0.0, 0.0
+
+    def add(v):
+        nonlocal lasting, fading
+        if v >= 0:
+            lasting += v
+        else:
+            fading += v
+    add(_pair(HUMOUR, ta.get("humour"), tb.get("humour")))
+    add(_pair(PACE, ta.get("pace"), tb.get("pace")))
+    add(_pair(MANNER, ta.get("manner"), tb.get("manner")))
+    add(_pair(TALK, ta.get("talk"), tb.get("talk")))
     if {ta.get("manner"), tb.get("humour")} == {"formal", "joker"} \
             or {tb.get("manner"), ta.get("humour")} == {"formal", "joker"}:
-        c += FORMAL_JOKER
+        add(FORMAL_JOKER)
     for x, y in ((ta, tb), (tb, ta)):
         seen = described(y)
-        c += min(LIKE_CAP, LIKE * len(seen & set(x.get("likes", []))))
-        c += max(DISLIKE_CAP, DISLIKE * len(seen & set(x.get("dislikes", []))))
-    c += min(TAG_CAP, TAG * len(set(ta.get("tags", [])) & set(tb.get("tags", []))))
-    named = 0.0
+        add(min(LIKE_CAP, LIKE * len(seen & set(x.get("likes", [])))))
+        add(max(DISLIKE_CAP, DISLIKE * len(seen & set(x.get("dislikes", [])))))
+    add(min(TAG_CAP, TAG * len(set(ta.get("tags", [])) & set(tb.get("tags", [])))))
     for x, other in ((ta, b), (tb, a)):
         if other in x.get("warm_to", []):
-            named += WARM
+            add(WARM)
         if other in x.get("wary_of", []):
-            named += WARY
+            add(WARY)
         if other in x.get("spar", []):
-            named += SPAR
-    if c < 0 and ("easygoing" in ta.get("is", []) or "easygoing" in tb.get("is", [])):
-        c *= EASYGOING     # "gets on with nearly everyone": the rough edges matter half as much
-    return c + named
+            add(SPAR)
+    if "easygoing" in ta.get("is", []) or "easygoing" in tb.get("is", []):
+        fading *= EASYGOING     # "gets on with nearly everyone": the rough edges matter half as much
+    return lasting, fading
+
+
+def chemistry(ta, tb, a, b):
+    """How their first outings together tend to go. Positive pulls them together."""
+    return sum(chemistry_parts(ta, tb, a, b))
+
+
+def fade(outings):
+    """How much the things that grate still matter after this many outings together."""
+    return max(0.25, 1.0 - outings / 50.0)
 
 
 #: how hard chemistry pulls each outing. With the median pair (chemistry about 2) that's friendly
@@ -257,11 +278,13 @@ class RelationshipManager:
             return "nodding" if self._neighbours(a, b) else "strangers"
         return r.state
 
-    def chem(self, a, b):
+    def chem(self, a, b, outings=0):
+        """Chemistry as it stands after this many outings together."""
         k = self.key(a, b)
         if k not in self._chem:
-            self._chem[k] = chemistry(self.traits.get(a, {}), self.traits.get(b, {}), a, b)
-        return self._chem[k]
+            self._chem[k] = chemistry_parts(self.traits.get(a, {}), self.traits.get(b, {}), a, b)
+        lasting, fading = self._chem[k]
+        return lasting + fading * fade(outings)
 
     def _neighbours(self, a, b):
         try:
@@ -279,6 +302,22 @@ class RelationshipManager:
             return self.bm.name_of(rid).split()[0]
         except Exception:
             return rid
+
+    def gender(self, rid):
+        try:
+            from world.recruit_manager import get_recruit_manager
+            r = get_recruit_manager().recruits.get(rid)
+            return getattr(r, "gender", None) or "male"
+        except Exception:
+            return "male"
+
+    def address(self, text, to):
+        """{hermano|hermana}: the first form for a man, the second for a woman, by whoever the
+        line is said to. Spanish, Portuguese, Arabic and Turkish all change the word."""
+        if "{" not in text:
+            return text
+        female = to is not None and self.gender(to) == "female"
+        return ADDRESS.sub(lambda m: m.group(2) if female else m.group(1), text)
 
     def _deeds(self):
         return getattr(self.bm, "deeds", 0)
@@ -323,7 +362,9 @@ class RelationshipManager:
                 opts = [o for o in opts if f"{rid}:{o}" not in r.heard] or opts
             raw = random.choice(opts)
             ids.append(f"{rid}:{raw}")
-            out.append((rid, raw.replace("{name}", self.first(who)) if who else raw.replace("{name}", "")))
+            to = who or (r.other(rid) if r is not None and rid in (r.a, r.b) else None)
+            text = raw.replace("{name}", self.first(who)) if who else raw.replace("{name}", "")
+            out.append((rid, self.address(text, to)))
         if r is not None:
             if ids[0] in r.heard[-12:]:
                 return False
@@ -386,7 +427,7 @@ class RelationshipManager:
             r.outings += 1
             if not r.met_said:
                 continue                # they get to know each other once they've been introduced
-            delta = (self.chem(a, b) * PULL + familiarity(r.outings)) * talk_speed(self._t(a), self._t(b))
+            delta = (self.chem(a, b, r.outings) * PULL + familiarity(r.outings)) * talk_speed(self._t(a), self._t(b))
             if kind in ("dungeon", "boss") and r.state in BAD:
                 delta += 0.5            # a hard job done together earns a grudging nod
             self._milestone(r, self._move(r, delta))
@@ -411,9 +452,10 @@ class RelationshipManager:
         others = [x for x in ids if x != new and not self.rel(new, x).met_said]
         random.shuffle(others)
         others.sort(key=lambda x: -self._speaker_weight(x))
-        parts = [(new, "meet", None)]
+        parts = [(new, "meet", others[0] if others else None)]
         for x in others[:2]:
-            parts.append((x, "meet_neighbour" if self._neighbours(new, x) else "meet", None))
+            # (meet lines never use {name}; passing who only tells {hermano|hermana} who's listening)
+            parts.append((x, "meet_neighbour" if self._neighbours(new, x) else "meet", new))
         spoken = [p for p in parts if (self.lines.get(p[0]) or {}).get(p[1])]
         heard = set()
         if len(spoken) >= 2 and spoken[0][0] == new:

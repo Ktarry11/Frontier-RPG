@@ -13,6 +13,7 @@ Engine: world/relationship_manager.py. Text: tools/build_relationships.py from t
   4. a long campaign of random parties, wipes, close calls and gear passed around: every beat has
      two to four lines, every {name} is filled with the right person, a name only turns up between
      friends (Kyle: yes), and the whole range of states turns up, rivals included
+     and the words for "you" that change with the listener (hermano, hermana) follow their gender
   5. rivals still travel together (Kyle: no refusals), and mood is the only thing that moves
   6. it all survives a save and load
 """
@@ -148,7 +149,9 @@ def main(argv):
     # 4b. a steady crew: a pair who click become close, a pair who clash end up rivals
     for a, b, want, n in (("bakyt_hunter", "giorgi_primalist", ("close",), 30),
                           ("emiliano_pyromancer", "haruto_runemaster", ("rivals",), 40),
-                          ("dan_warrior", "camille_ranger", ("friendly", "close", "nodding"), 60)):
+                          ("dan_warrior", "camille_ranger", ("friendly", "close", "nodding"), 60),
+                          # "grates with careless people at first, and then likes them if they try"
+                          ("adrian_templar", "callum_venomancer", ("grating", "nodding"), 80)):
         rm.rels.pop(rm.key(a, b), None)
         for _ in range(n):
             rm.on_outing([a, b], "quest")
@@ -156,6 +159,10 @@ def main(argv):
         print(f"steady crew: {a} and {b} after {n} outings: {st} ({rm.rel(a, b).affinity:.0f})")
         check(st in want, f"{a} and {b} after {n} outings are {st}, expected {want}")
     rm.queue.clear()
+
+    # 4c. hermano to a man, hermana to a woman
+    check(rm.address("Hola, {hermano|hermana}.", "amber_druid") == "Hola, hermana.", "a woman was called hermano")
+    check(rm.address("Hola, {hermano|hermana}.", "dan_warrior") == "Hola, hermano.", "a man was called hermana")
 
     # 5. rivals are forced together and nothing refuses
     a, b = "emiliano_pyromancer", "alonso_pyromancer"

@@ -66,6 +66,16 @@ TAGS = {"parent", "spanish", "medic", "arabic", "night_work", "teacher", "sport"
 EITHER_WAY = ("meet", "meet_neighbour", "chat_", "common_", "turn_", "make_up")
 REPLY_START = re.compile(r"^(same|me too|me neither|so do|so did|so am|likewise|you too|and me|"
                          r"snap|ha|that too|that's true)\b", re.I)
+#: words for "you" that change with who's listening. In a line said to another recruit they go in a
+#: {man's form|woman's form} pair, which world/relationship_manager.py fills in by the listener.
+GENDERED = re.compile(r"\b(bloke|lad|lass|mijo|mija|hermano|hermana|irmão|irmã|abi|abla|habibi|habibti|"
+                      r"compadre|comadre|chico|chica|carnal|my man|my boy|my girl|sir|madam|ma'am|"
+                      r"son|brother|sister|mate)\b(?![^{]*\})", re.I)
+#: these are said about somebody, or to the party, so there's nobody to match a form to
+NO_ADDRESS = ("defend", "friend_left")
+#: "mate", "brother" and "son" are everywhere in ordinary speech about other people, so they only
+#: count when they're plainly said to the listener: at the start of the line or after a comma
+ADDRESSED = re.compile(r"(^|[,.!?] )(son|brother|sister)\b|, (son|brother|sister)[,.!?]", re.I)
 ROMANCE = re.compile(r"\b(kiss|darling|sweetheart|gorgeous|handsome|date with|fancy you|"
                      r"in love with you|my love)\b", re.I)
 
@@ -128,14 +138,24 @@ def problems(data=None, pairs=None, strict=False):
             where = f"{rid} {k}"
             if k not in wanted:
                 bad.append(f"{where}: unknown key")
-            bad += [f"{where}: {p}" for p in voice_problems(x.replace("{name}", "Sam"))]
+            flat = re.sub(r"\{([^{}|]+)\|[^{}|]+\}", r"\1", x)
+            bad += [f"{where}: {p}" for p in voice_problems(flat.replace("{name}", "Sam"))]
+            for m in GENDERED.finditer(x):
+                w = m.group(1).lower()
+                if w in ("son", "brother", "sister") and not ADDRESSED.search(x):
+                    continue
+                if w == "mate":
+                    continue        # Aussie and Cumbrian "mate" is the same for everybody
+                bad.append(f"{where}: {m.group(1)!r} changes with who's listening, use {{{w}|...}}")
+            if "|" in x and k in NO_ADDRESS:
+                bad.append(f"{where}: a {{his|hers}} form in a line said about somebody else")
             if "—" in x or " - " in x or "–" in x:
                 bad.append(f"{where}: a dash")
             if "{name}" in x and k not in NAMED:
                 bad.append(f"{where}: {{name}} in a key that can be said before they're friendly")
             if x.count("{name}") > 1:
                 bad.append(f"{where}: {{name}} twice")
-            if re.search(r"\{(?!name\})", x):
+            if re.search(r"\{(?!name\}|[^{}|]+\|[^{}|]+\})", x):
                 bad.append(f"{where}: a stray brace")
             hit = others & set(re.findall(r"[A-ZÀ-Ý][\w'À-ÿ-]+", x))
             if hit:
