@@ -115,7 +115,7 @@ SHORT_ONLY = {"postcard list", "postcard closer", "everybody out", "who's bleedi
 
 
 def tic_problems(data=None):
-    """Stock phrases, and any four word run that three or more recruits' banter shares."""
+    """Stock phrases, and any four word run shared by three recruits' banter or five recruits' bond lines."""
     data = load() if data is None else data
     bad, seen = [], {}
     for rid, d in data.items():
@@ -128,13 +128,15 @@ def tic_problems(data=None):
                     continue
                 if re.search(rx, t, re.I):
                     bad.append(f"{rid} {where}: {why}: {t!r}")
-            if where.startswith("banter"):
+            if where.startswith(("banter", "line")):
                 w = re.findall(r"[\w']+", t.lower())
+                kind = where.split()[0]
                 for g in {" ".join(w[i:i + 4]) for i in range(len(w) - 3)}:
-                    seen.setdefault(g, set()).add(rid)
-    for g, rids in sorted(seen.items()):
-        if len(rids) >= 3:
-            bad.append(f"banter shared by {len(rids)} recruits: {g!r} ({', '.join(sorted(rids))})")
+                    seen.setdefault((kind, g), set()).add(rid)
+    for (kind, g), rids in sorted(seen.items()):
+        # the bond lines all do the same few jobs, so they get a little more room than banter
+        if len(rids) >= (3 if kind == "banter" else 5):
+            bad.append(f"{kind} shared by {len(rids)} recruits: {g!r} ({', '.join(sorted(rids))})")
     return bad
 
 
