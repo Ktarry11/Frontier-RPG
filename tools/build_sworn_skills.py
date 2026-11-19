@@ -112,6 +112,16 @@ def ranks_for(a, kits):
     return out
 
 
+#: The keys the engine reads inside the dict-valued fields (a misspelt one is silently ignored).
+NESTED = {
+    "damage_share": {"pct", "reduction_pct", "heal_pct", "uses", "spread", "even"},
+    "death_prevent": {"pct", "hp", "lethal_only", "uses"},
+    "cleanses": {"types", "count"},
+    "immediate": {"action", "turns", "resource", "cost_pct", "mult", "mode", "amount"},
+    "delayed": {"turns", "mult", "mode"},
+}
+
+
 def check(rid, entry, recruits, keys, pkeys, seen):
     probs = []
     if rid in EXCLUDED:
@@ -137,6 +147,9 @@ def check(rid, entry, recruits, keys, pkeys, seen):
         bad = set(ab) - keys
         if bad:
             probs.append(f"keys the engine doesn't read: {sorted(bad)}")
+        for outer, inner in NESTED.items():
+            if isinstance(ab.get(outer), dict) and set(ab[outer]) - inner:
+                probs.append(f"{outer} keys the engine doesn't read: {sorted(set(ab[outer]) - inner)}")
         for k in ("name", "effect_type", "target_type", "resource_type", "description", "ranks"):
             if not ab.get(k):
                 probs.append(f"missing {k}")

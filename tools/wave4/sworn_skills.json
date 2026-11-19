@@ -654,5 +654,291 @@
     }
    ]
   }
+ },
+ "lucia_suncleric": {
+  "from": "Wave 4: 'what she resolves is praying alone. ... she prays out loud and every ally's healing is stronger for a few turns.'",
+  "ability": {
+   "ability_id": "personal_sworn_lucia_out_loud_for_everyone",
+   "name": "Out Loud, For Everyone",
+   "engine": "live: party healing_taken_pct for 4 turns (recipient side, so every heal and every heal over time counts)",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 4,
+   "is_instant": true,
+   "stat_mods": {
+    "healing_taken_pct": 40
+   },
+   "description": "Lúcia prays out loud, for all of them. For 4 turns every ally receives 40% more healing, from anyone.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 35,
+     "effect_value": 100
+    }
+   ]
+  }
+ },
+ "minh_chronomancer": {
+  "from": "Wave 4: 'what he resolves is never handing over control. ... he rewinds the last turn for the whole party, undoing the damage they took.'",
+  "ability": {
+   "ability_id": "personal_sworn_minh_everyone_two_turns_back",
+   "name": "Everyone, Two Turns Back",
+   "engine": "live: immediate rewind on every living ally (target_type party)",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 15,
+   "duration": 0,
+   "is_instant": true,
+   "stat_mods": {},
+   "description": "Minh lets go of the clock for all of them at once. Every ally returns to the health they had 2 of their turns ago, if that was more.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 45,
+     "effect_value": 100
+    }
+   ],
+   "immediate": {
+    "action": "rewind",
+    "turns": 2
+   }
+  }
+ },
+ "bakyt_hunter": {
+  "from": "Wave 4: 'what he resolves is the end of six generations. ... his eagle marks every enemy's weak point, and the party's attacks on them hit harder.'",
+  "ability": {
+   "ability_id": "personal_sworn_bakyt_every_weak_point",
+   "name": "The Eagle Sees Every Weak Point",
+   "engine": "live: all_enemies debuff for 4 turns, physical and magic damage taken +20 and armour -25%",
+   "effect_type": "debuff",
+   "target_type": "all_enemies",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 4,
+   "is_instant": true,
+   "stat_mods": {
+    "physical_damage_taken_pct": 20,
+    "magic_damage_taken_pct": 20,
+    "armor_pct": -25
+   },
+   "description": "Bakyt's eagle marks every enemy's weak point. For 4 turns every enemy takes 20% more damage and has 25% less armour.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 35,
+     "effect_value": 100
+    }
+   ]
+  }
+ },
+ "matias_reaper": {
+  "from": "Wave 4: 'what he resolves is the silence, and the argument with his father. ... he stands in front and takes every hit aimed at the party's weakest member.'",
+  "ability": {
+   "ability_id": "personal_sworn_matias_in_front_of_them",
+   "name": "Standing in Front of Them",
+   "engine": "live: damage_share 100% to Matías on the lowest-health ally (auto_lowest_ally), 30% reduced, 3 turns",
+   "effect_type": "buff",
+   "target_type": "ally",
+   "resource_type": "mana",
+   "cooldown": 13,
+   "duration": 3,
+   "is_instant": true,
+   "stat_mods": {},
+   "description": "Matías stands in front of whoever is closest to falling. For 3 turns every hit aimed at them lands on him instead, 30% lighter.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
+    }
+   ],
+   "auto_lowest_ally": true,
+   "damage_share": {
+    "pct": 100,
+    "reduction_pct": 30
+   }
+  }
+ },
+ "tomas_warrior": {
+  "from": "Wave 4: 'what he resolves is never staying anywhere. ... he braces the party, so for two turns nothing can knock them down, stun them or push them back.'",
+  "ability": {
+   "ability_id": "personal_sworn_tomas_braced",
+   "name": "Nothing Falls Over",
+   "engine": "live: party cc_immune and armour +30% for 2 turns, and death_prevent (hp 1, lethal only, one use each)",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "rage",
+   "cooldown": 15,
+   "duration": 2,
+   "is_instant": true,
+   "stat_mods": {
+    "cc_immune": 1,
+    "armor_pct": 30
+   },
+   "description": "Tomas braces the whole party. For 2 turns nobody can be stunned, feared or charmed, everyone has 30% more armour, and a blow that would drop one of them leaves them standing on 1 health.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
+    }
+   ],
+   "death_prevent": {
+    "hp": 1,
+    "lethal_only": true,
+    "uses": 1
+   }
+  }
+ },
+ "cristobal_knight": {
+  "from": "Wave 4: 'what he resolves is the grass fire, and the people he couldn't bring out. ... he walks into the worst of it and pulls the lowest-health ally out, shielding them.'",
+  "ability": {
+   "ability_id": "personal_sworn_cristobal_brings_them_out",
+   "name": "Brings Them Out This Time",
+   "engine": "live: absorb on the lowest-health ally (auto_lowest_ally) with forced_back, 3 turns",
+   "effect_type": "buff",
+   "target_type": "ally",
+   "resource_type": "rage",
+   "cooldown": 14,
+   "duration": 3,
+   "is_instant": true,
+   "stat_mods": {
+    "forced_back": 1
+   },
+   "description": "Cristóbal walks into the worst of it and brings out whoever is lowest. He shields them, and for 3 turns they stand in the back row.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
+    }
+   ],
+   "auto_lowest_ally": true,
+   "absorb": 110
+  }
+ },
+ "callum_venomancer": {
+  "from": "Wave 4: 'what he resolves is the serpent he had to kill. ... he takes every poison on the party into himself and shrugs it off.'",
+  "ability": {
+   "ability_id": "personal_sworn_callum_into_himself",
+   "name": "Into Himself, and Out Again",
+   "engine": "live: cleanses every poison and disease off each ally, then a party dot_immune buff for 3 turns",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "energy",
+   "cooldown": 14,
+   "duration": 3,
+   "is_instant": true,
+   "stat_mods": {},
+   "description": "Callum draws every poison and disease off the party and shrugs it off. For 3 turns no ally takes damage from anything that hurts over time.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 35,
+     "effect_value": 100
+    }
+   ],
+   "dot_immune": true,
+   "cleanses": {
+    "types": [
+     "poison",
+     "disease"
+    ],
+    "count": 9
+   }
+  }
+ },
+ "giorgi_primalist": {
+  "from": "Wave 4: 'what he resolves is walking down to nobody. ... he rings the bell, and every ally who hears it shakes off fear and slows the enemy around them.'",
+  "ability": {
+   "ability_id": "personal_sworn_giorgi_rings_the_bell",
+   "name": "Rings the Bell",
+   "engine": "live: party cc_immune for 3 turns (breaks fear already on them) and enemy_mods haste -30 on every enemy",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "rage",
+   "cooldown": 14,
+   "duration": 3,
+   "is_instant": true,
+   "stat_mods": {
+    "cc_immune": 1
+   },
+   "description": "Giorgi rings the bell. Every ally shakes off fear and can't be stunned, feared or charmed for 3 turns, and every enemy acts 30% slower for as long.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
+    }
+   ],
+   "enemy_mods": {
+    "haste": -30
+   }
+  }
+ },
+ "camille_ranger": {
+  "from": "Wave 4: 'what she resolves is the swapped shift. ... she moves so fast she acts twice, and takes an ally's next hit for them.'",
+  "ability": {
+   "ability_id": "personal_sworn_camille_takes_the_shift",
+   "name": "Takes the Shift",
+   "engine": "live: damage_share 100% to Camille for one hit (uses 1, 3 turns), and self_turn: her next turn comes at once",
+   "effect_type": "buff",
+   "target_type": "ally",
+   "resource_type": "archery_points",
+   "cooldown": 13,
+   "duration": 3,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Camille takes the next hit aimed at an ally, any time in the next 3 turns, and moves so fast she acts again at once.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 25,
+     "effect_value": 100
+    }
+   ],
+   "damage_share": {
+    "pct": 100,
+    "uses": 1
+   },
+   "self_turn": true
+  }
+ },
+ "liam_suncleric": {
+  "from": "Wave 4: 'what he resolves is going in alone. ... he calls the crew in, and every ally gets a burst of healing at once.'",
+  "ability": {
+   "ability_id": "personal_sworn_liam_calls_the_crew_in",
+   "name": "Calls the Crew In",
+   "engine": "live: party heal, plus heals_party_pct_max 10",
+   "effect_type": "heal",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 13,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Liam doesn't go in alone this time. He calls the crew in, and every ally is healed at once, and for a tenth of their maximum health on top.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 45,
+     "effect_value": 120
+    }
+   ],
+   "heals_party_pct_max": 10
+  }
  }
 }

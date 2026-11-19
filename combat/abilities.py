@@ -1919,8 +1919,16 @@ class Ability:
             return (f"{caster.name} uses {self.name}, extending {total} effect"
                     f"{'s' if total != 1 else ''} by {turns} turns!")
         if action == "rewind":
-            who = self._recipients(caster, target if target is not None else party)[0]
+            everyone = self._recipients(caster, target if target is not None else party)
             turns = int(spec.get("turns", 2))
+            if self.target_type == "party":
+                # THE WHOLE PARTY AT ONCE (Wave 4, Minh's Sworn skill).
+                gained = sum(m.rewind(turns, bool(spec.get("resource"))) for m in everyone
+                             if hasattr(m, "rewind") and m.is_alive())
+                if not gained:
+                    return f"{caster.name} uses {self.name}, but nobody was better off {turns} turns ago."
+                return f"{caster.name} uses {self.name}: the party is as it was {turns} turns ago (+{gained} health)."
+            who = everyone[0]
             gained = who.rewind(turns, bool(spec.get("resource"))) if hasattr(who, "rewind") else 0
             if not gained:
                 return f"{caster.name} uses {self.name}, but {who.name} was no better off {turns} turns ago."
@@ -2620,7 +2628,7 @@ class Ability:
                 self._refunded = False
                 return False, result_msg
             self._tally_damage(caster)
-            result_msg = self._after_cast_riders(caster, party, result_msg, target)
+            result_msg = self._after_cast_riders(caster, party, result_msg, target, engine=engine)
 
         # EVENT STACKING. Feeds any effect on the caster that gains a stack
         # from repeating an ability or from landing an attack - and, for a
@@ -2977,6 +2985,9 @@ class Ability:
     heals_pct_max = 0.0
     drains_party_pct = 0.0             # Esteban's Sworn heal: every other ally gives this share of max health
     pet_mods = None                    # stat mods put on the caster's pets as well (Ryan's demon)
+    enemy_mods = None                  # stat mods put on every living enemy as well (Giorgi's bell)
+    cleanses = None                    # {"types": [...], "count": n} taken off each recipient (Callum)
+    self_turn = False                  # the caster acts again at once (Camille)
     #: Caster and target trade rows for the rest of the fight (Dan Okafor, "Shift Change").
     swaps_rows = False
     #: A dispel that deals what was LEFT of the effect it removed to whoever put it there
@@ -3042,7 +3053,7 @@ class Ability:
             undo()
             self.cast_bonus_pct = before
         self._tally_damage(caster)
-        return self._after_cast_riders(caster, party, msg, aim)
+        return self._after_cast_riders(caster, party, msg, aim, engine=engine)
 
     def _cast_riders(self, caster, target, party=None):
         """Set up whatever bends this one cast, and return the function that puts it back.
@@ -3219,9 +3230,41 @@ class Ability:
                 fn()
         return restore
 
-    def _after_cast_riders(self, caster, party, message, target=None):
+    def _after_cast_riders(self, caster, party, message, target=None, engine=None):
         """Riders that act on what the cast DID. Returns the message, with a line added."""
         single = target if (target is not None and not isinstance(target, (list, tuple))) else None
+        from combat.status_effects import StatusEffect, EffectType
+        # THE ENEMY FEELS IT TOO (Wave 4, Giorgi's bell): stat mods on every living enemy, as a
+        # debuff for the ability's duration, from a cast aimed at the party.
+        if self.enemy_mods and engine is not None and hasattr(engine, "living_enemies"):
+            foes = [e for e in engine.living_enemies() if e.is_alive()]
+            for foe in foes:
+                foe.apply_status_effect(StatusEffect(
+                    effect_id=f"{self.ability_id}_foes", name=self.name, effect_type=EffectType.DEBUFF,
+                    duration=max(1, self.duration or 1), stat_mods=dict(self.enemy_mods),
+                    source_name=caster.name, real_time_seconds=None))
+            if foes:
+                message = f"{message} Every enemy feels it."
+        # CLEANSED ON THE WAY IN (Wave 4, Callum): every matching effect comes off each
+        # recipient of a friendly cast, as part of the same cast.
+        if self.cleanses and self.target_type in ("self", "ally", "party"):
+            kinds = self.cleanses.get("types") or ["poison"]
+            kinds = tuple(kinds) if len(kinds) > 1 else kinds[0]
+            gone = 0
+            for who in self._recipients(caster, target if target is not None else party):
+                for _ in range(int(self.cleanses.get("count", 9))):
+                    if not hasattr(who, "dispel_effect") or who.dispel_effect(kinds) is None:
+                        break
+                    gone += 1
+            if gone:
+                message = f"{message} {gone} effect{'s' if gone != 1 else ''} drawn off."
+        # THE CASTER GOES AGAIN (Wave 4, Camille): their turn comes straight back.
+        if self.self_turn and caster.is_alive():
+            # ADDED, not max(): the cast's own turn is consumed after this, so a meter set to the
+            # threshold would be spent straight back to zero.
+            from config import TURN_THRESHOLD as _TT
+            caster.turn_meter = getattr(caster, "turn_meter", 0.0) + _TT
+            message = f"{message} {caster.name} is already moving again."
         # EVERYONE GIVES A LITTLE (Wave 4, Esteban): each other living ally, the caster too,
         # gives this share of their maximum health to the one being healed. Never below 1.
         if self.drains_party_pct and single is not None and single.is_alive():
@@ -3268,8 +3311,9 @@ class Ability:
             message = f"{message} The next one will not be refused."
         if any(len(ev) >= 3 and ev[2] and ev[0] is not None and not ev[0].is_alive() for ev in events) and any(
                 getattr(e, "turn_on_kill", False) for e in (getattr(caster, "active_effects", None) or [])):
+            # Added (as self_turn above): the killing blow's own turn is consumed after this.
             from config import TURN_THRESHOLD as _TT
-            caster.turn_meter = max(getattr(caster, "turn_meter", 0.0), _TT)
+            caster.turn_meter = getattr(caster, "turn_meter", 0.0) + _TT
             message = f"{message} {caster.name} is already moving again."
         if self.self_damage_pct_of_heal and healed > 0:
             price = int(healed * self.self_damage_pct_of_heal / 100.0)
@@ -5720,7 +5764,10 @@ def _ability_from_data(entry):
         ability.drains_party_pct = float(entry["drains_party_pct"])
     if isinstance(entry.get("pet_mods"), dict):
         ability.pet_mods = dict(entry["pet_mods"])
-    for key in ("always_crits", "grants_turn", "health_buys_mana", "swaps_rows", "returns_dispelled_damage", "party_pets"):
+    for key in ("enemy_mods", "cleanses"):
+        if isinstance(entry.get(key), dict):
+            setattr(ability, key, dict(entry[key]))
+    for key in ("always_crits", "grants_turn", "health_buys_mana", "swaps_rows", "returns_dispelled_damage", "party_pets", "self_turn"):
         if entry.get(key):
             setattr(ability, key, True)
     if isinstance(entry.get("low_health_bonus"), dict):

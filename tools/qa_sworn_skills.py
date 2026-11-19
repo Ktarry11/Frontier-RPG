@@ -435,6 +435,161 @@ def c_marta(rm, bm, rid):
     check(landed == 3, f"{ab.name}: went off after {landed} turn-ends, wants 3 (the setting turn and 2 more)")
 
 
+
+def _stun(who, name="Stunned"):
+    from combat.status_effects import StatusEffect, EffectType
+    e = StatusEffect("qa_stun", name, EffectType.DEBUFF, 3, stat_mods={}, source_name="Boar 1", real_time_seconds=None)
+    e.is_stun = True
+    who.apply_status_effect(e)
+    return e
+
+
+def c_lucia(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    a = others[0]
+    a.current_health = 1
+    a.heal(1000)
+    plain = a.current_health - 1
+    cast(ch, ab, [ch] + others, eng)
+    a.current_health = 1
+    a.heal(1000)
+    got = a.current_health - 1
+    check(abs(got - plain * 1.4) <= 2, f"{ab.name}: a heal of {plain} now lands for {got}, wants {plain * 1.4:.0f}")
+
+
+def c_minh(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    marks = {}
+    for c in [ch] + others:
+        marks[c.name] = []
+        for frac in (0.9, 0.7, 0.5):
+            c.current_health = int(c.health * frac)
+            marks[c.name].append(c.current_health)
+            c.tick_status_effects()
+        c.current_health = int(c.health * 0.1)
+    cast(ch, ab, [ch] + others, eng)
+    for c in [ch] + others:
+        check(c.current_health == marks[c.name][1],
+              f"{ab.name}: {c.name} back to {c.current_health}, wants {marks[c.name][1]}")
+
+
+def c_bakyt(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    m = mobs[1]
+    before = m.current_health
+    m.take_damage(10000, "shadow", attacker=ch, attacker_level=60)
+    plain = before - m.current_health
+    armor = m.armor if hasattr(m, "armor") else None
+    cast(ch, ab, mobs, eng)
+    before = m.current_health
+    m.take_damage(10000, "shadow", attacker=ch, attacker_level=60)
+    got = before - m.current_health
+    check(abs(got - plain * 1.2) <= plain * 0.02, f"{ab.name}: a hit of {plain} now does {got}, wants about {plain * 1.2:.0f}")
+    for f in mobs:
+        check(has_effect(f, ab.ability_id), f"{ab.name}: {f.name} isn't marked")
+
+
+def c_matias(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    low = others[1]
+    hb = low.current_health
+    low.take_damage(3000, "shadow", attacker=mobs[1], attacker_level=60)
+    raw = hb - low.current_health
+    low.current_health = low.health // 4
+    cast(ch, ab, others[0], eng)
+    check(has_effect(low, ab.ability_id) and not has_effect(others[0], ab.ability_id),
+          f"{ab.name}: didn't land on the lowest ally")
+    lb, mb = low.current_health, ch.current_health
+    low.take_damage(3000, "shadow", attacker=mobs[1], attacker_level=60)
+    check(low.current_health == lb, f"{ab.name}: the lowest ally still lost {lb - low.current_health}")
+    took = mb - ch.current_health
+    check(0 < took <= raw * 0.7 + 1, f"{ab.name}: Matías took {took} of a {raw} hit, wants at most {raw * 0.7:.0f}")
+
+
+def c_tomas(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    cast(ch, ab, [ch] + others, eng)
+    a = others[1]
+    _stun(a)
+    check(not a.is_stunned, f"{ab.name}: an ally can still be stunned")
+    check(a.get_status_stat_mod("armor_pct") == 30, f"{ab.name}: armour {a.get_status_stat_mod('armor_pct')}")
+    a.take_damage(a.health * 50, "shadow", attacker=mobs[1], attacker_level=60)
+    check(a.is_alive() and a.current_health == 1, f"{ab.name}: a killing blow left {a.current_health}")
+
+
+def c_cristobal(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    from combat import rows
+    low = others[1]
+    low.current_health = low.health // 5
+    cast(ch, ab, others[0], eng)
+    check(has_effect(low, ab.ability_id), f"{ab.name}: no shield on the lowest ally")
+    check(rows.row_of(low) == rows.BACK_ROW, f"{ab.name}: the lowest ally is in row {rows.row_of(low)}")
+    before = low.current_health
+    low.take_damage(200, "shadow", attacker=mobs[1], attacker_level=60)
+    check(low.current_health == before, f"{ab.name}: the shield let {before - low.current_health} through")
+
+
+def c_callum(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    from combat.status_effects import StatusEffect, EffectType
+    a, b = others
+    for i in range(2):
+        a.apply_status_effect(StatusEffect(f"qa_poison{i}", f"Poison {i}", EffectType.DOT, 5, potency=300,
+                                           damage_school="nature", source_name="Boar 1", real_time_seconds=None,
+                                           dispel_type="poison"))
+    b.apply_status_effect(StatusEffect("qa_bleed", "Bleed", EffectType.DOT, 5, potency=300,
+                                       source_name="Boar 1", real_time_seconds=None))
+    cast(ch, ab, [ch] + others, eng)
+    check(not any(e.effect_id.startswith("qa_poison") for e in a._effects()), f"{ab.name}: a poison is still on")
+    check(any(e.effect_id == "qa_bleed" for e in b._effects()), "rig: the bleed was cleansed too")
+    before = b.current_health
+    b.tick_status_effects()
+    check(b.current_health >= before, f"{ab.name}: the bleed still ticked for {before - b.current_health}")
+
+
+def c_giorgi(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    a = others[0]
+    _stun(a, "Feared")
+    check(a.is_stunned, "rig: the fear didn't take")
+    speed = [m.turn_speed for m in mobs] if all(hasattr(m, "turn_speed") for m in mobs) else None
+    cast(ch, ab, [ch] + others, eng)
+    check(not a.is_stunned, f"{ab.name}: the ally is still feared")
+    for m in mobs:
+        check(m.get_status_stat_mod("haste") == -30, f"{ab.name}: {m.name} haste {m.get_status_stat_mod('haste')}")
+    eng.turn_meter._refresh_turn_speed(mobs[0])
+    if speed:
+        check(mobs[0].turn_speed < speed[0] * 0.75, f"{ab.name}: enemy speed {speed[0]} -> {mobs[0].turn_speed}")
+
+
+def c_camille(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    from config import TURN_THRESHOLD
+    a = others[1]
+    ch.turn_meter = TURN_THRESHOLD
+    cast(ch, ab, a, eng)
+    eng._end_turn(ch)
+    check(ch.turn_meter >= TURN_THRESHOLD, f"{ab.name}: after her turn the meter is {ch.turn_meter}, wants another turn")
+    lost = []
+    for _ in range(2):
+        before = a.current_health
+        a.take_damage(2000, "shadow", attacker=mobs[1], attacker_level=60)
+        lost.append(before - a.current_health)
+    check(lost[0] == 0 and lost[1] > 0, f"{ab.name}: the ally lost {lost}, wants nothing once and then a hit")
+
+
+def c_liam(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    for c in [ch] + others:
+        c.current_health = max(1, c.health // 4)
+    before = {c.name: c.current_health for c in [ch] + others}
+    cast(ch, ab, [ch] + others, eng)
+    for c in [ch] + others:
+        check(c.current_health - before[c.name] >= c.health * 0.1,
+              f"{ab.name}: {c.name} healed {c.current_health - before[c.name]} of {c.health}")
+
+
 CHECKS = {
     "personal_sworn_kesten_written_down_properly": c_kesten,
     "personal_sworn_adrian_let_them_carry_it": c_adrian,
@@ -453,6 +608,16 @@ CHECKS = {
     "personal_sworn_silas_says_something": c_silas,
     "personal_sworn_pavlo_nothing_gets_past": c_pavlo,
     "personal_sworn_marta_set_and_walk_away": c_marta,
+    "personal_sworn_lucia_out_loud_for_everyone": c_lucia,
+    "personal_sworn_minh_everyone_two_turns_back": c_minh,
+    "personal_sworn_bakyt_every_weak_point": c_bakyt,
+    "personal_sworn_matias_in_front_of_them": c_matias,
+    "personal_sworn_tomas_braced": c_tomas,
+    "personal_sworn_cristobal_brings_them_out": c_cristobal,
+    "personal_sworn_callum_into_himself": c_callum,
+    "personal_sworn_giorgi_rings_the_bell": c_giorgi,
+    "personal_sworn_camille_takes_the_shift": c_camille,
+    "personal_sworn_liam_calls_the_crew_in": c_liam,
 }
 #: passives with a check of their own (every other passive gets c_passive)
 PASSIVE_CHECKS = {"ama_priest": c_ama, "amber_druid": c_amber}
