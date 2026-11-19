@@ -1,0 +1,110 @@
+{
+  "bond": {
+    "home": "the Eastern Plaguelands",
+    "dials": {
+      "warmth": 1.2,
+      "nerve": 1.4,
+      "pride": 0.5,
+      "restless": 0.6
+    },
+    "likes": [
+      "undead",
+      "quest"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
+    "stages": {
+      "stranger": "Name's Dale, and I'm a reaper, I guess they call it. Bad ground out here, but it's ground. I'll take the front, and I'll go slow, and you'll get used to that.",
+      "acquaintance": "I farmed wheat outside Minot, North Dakota. Two thousand acres of hard red spring wheat, and I was the fourth Brekke to work it. My great-grandpa broke the sod with horses. I took it over at twenty-six when Dad's back gave out, and I ran it mostly by myself. You spend your whole life waiting on the weather, and you learn most things come up in their own time.",
+      "companion": "We've got two kids, Nils and Kari, grown and gone, one to Fargo and one to Denver. They called every Sunday after church, you bet. I'd paid off the combine the spring before, first time in my life I didn't owe the bank a dime. I was on the last pass of the harvest when it happened, and I came down in a dead field here with my seed cap on and a packet of seed wheat in my shirt pocket. I haven't opened it yet, and I haven't found the kids either.",
+      "friend": "My wife's name is Joan. I've known her since confirmation class. She ran the county co-op for twenty years, knew everybody's business and kept every bit of it to herself. I haven't found her. Now my seed packets say there's one field in a fold of the eastern hills that's very nearly clean. I think it's the one, and I'm ready to open the packet. Will you help me clear it and guard it through a season?",
+      "sworn": "It came up clean, green and then gold, the first clean wheat out here since the plague. I brought it in by hand with the scythe, and the Argent Dawn baked bread from it at Light's Hope. One of the supply drivers tasted it and said it was like the bread from the farmers' co-op at Southshore, run by a North Dakota woman who knows everybody's business and keeps all of it to herself. I put the cap on and took Joan a loaf. She cried, and then she told me I was late, and I said the row wasn't done. She bought me a new cap, so you have the old one."
+    },
+    "moments": [
+      {
+        "id": "the_soil",
+        "stage": "acquaintance",
+        "when": "talk",
+        "prompt": "Dale crouches, picks up a handful of grey soil, and rubs it slowly between his fingers.",
+        "options": [
+          {
+            "text": "Crouch down next to him.",
+            "trust": 8,
+            "reply": "You feel that? It's bad, but not dead. There's something under there still trying."
+          },
+          {
+            "text": "Tell him to hurry up.",
+            "trust": 0,
+            "reply": "Uff da, you can't hurry dirt. Nobody's ever managed it."
+          }
+        ]
+      },
+      {
+        "id": "the_field",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to help him clear the field and guard it through a season.",
+        "options": [
+          {
+            "text": "We'll bring it in together.",
+            "trust": 12,
+            "reply": "Well, that's a deal. Bring a hoe and a lot of patience."
+          },
+          {
+            "text": "A whole season?",
+            "trust": 3,
+            "reply": "You bet, a whole season. Wheat doesn't care how busy you are."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "We're working the same row over and over, and nothing's coming up. Let's try a new field.",
+      "leaving_good": "Well, that was a good stretch of work. I'll be out in the eastern fields of the Plaguelands, one row at a time.",
+      "leaving_bored": "I've got rows waiting out east that won't plant themselves. I'll head back to the Plaguelands.",
+      "after_wipe": "Uff da, that was a hailstorm. Up we get, slow, and we'll try again when we're ready.",
+      "wipe_warning": "We're getting flattened like hail on a good crop. I'll see us out of here, but then I'm going back to my rows for a spell.",
+      "wipe_leave": "That's my harvest done for a while. I'll be out in the eastern Plaguelands, working the fields.",
+      "zone_warning": "You don't plant in a drought and you don't fight in a place like this. We'd best turn back.",
+      "zone_leave": "I've seen enough bad weather to know when to stay in. I'll be in the eastern Plaguelands.",
+      "gear_refuse": "That stays with me, I'm afraid. Ask me again come spring.",
+      "gear_taken": "Oh, you bet, take it. I've worked in less.",
+      "gear_short": "I'm a piece short, and it's like farming with a bent tine. You get by, but you notice.",
+      "gear_upgrade": "Well, that's a deal, isn't it? Thank you kindly.",
+      "back": "Rows are planted and the weather's holding. Where's the work?",
+      "send_word": "Dale has sent word from the eastern Plaguelands. The rows are in, and he's ready.",
+      "walkout_talk": "I walked off in a huff, and I'm too old for huffs. Sit down a minute and I'll tell you what got to me.",
+      "neglect": "Well, look who it is. I wiped my boots every day in case you showed up.",
+      "asked_to_stay": "You bet, one more. The rows can wait a day.",
+      "on_break": "Dale is back in the eastern Plaguelands, working the fields one row at a time. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "Back home the grain elevator was the tallest thing for miles, and you could see it from our kitchen window every morning.",
+        "kind": "open",
+        "topic": "cities"
+      }
+    ],
+    "zone_arrive": [
+      {
+        "text": "Soil's a little better here. I'll take a sample when we stop.",
+        "kind": "open"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "Well, that's that row done. Let's wipe our boots before we go anywhere.",
+        "kind": "open"
+      }
+    ],
+    "boss_down": [
+      {
+        "text": "That came down like a full head of wheat in a good wind.",
+        "kind": "reply"
+      }
+    ]
+  }
+}

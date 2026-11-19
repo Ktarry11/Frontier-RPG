@@ -1426,6 +1426,87 @@
         "quest_abandoned": "Those people are still waiting, hermano. In my job you never leave anyone behind."
       }
     },
+    "dale_reaper": {
+      "home": "the Eastern Plaguelands",
+      "dials": {
+        "warmth": 1.2,
+        "nerve": 1.4,
+        "pride": 0.5,
+        "restless": 0.6
+      },
+      "likes": [
+        "undead",
+        "quest"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "Name's Dale, and I'm a reaper, I guess they call it. Bad ground out here, but it's ground. I'll take the front, and I'll go slow, and you'll get used to that.",
+        "acquaintance": "I farmed wheat outside Minot, North Dakota. Two thousand acres of hard red spring wheat, and I was the fourth Brekke to work it. My great-grandpa broke the sod with horses. I took it over at twenty-six when Dad's back gave out, and I ran it mostly by myself. You spend your whole life waiting on the weather, and you learn most things come up in their own time.",
+        "companion": "We've got two kids, Nils and Kari, grown and gone, one to Fargo and one to Denver. They called every Sunday after church, you bet. I'd paid off the combine the spring before, first time in my life I didn't owe the bank a dime. I was on the last pass of the harvest when it happened, and I came down in a dead field here with my seed cap on and a packet of seed wheat in my shirt pocket. I haven't opened it yet, and I haven't found the kids either.",
+        "friend": "My wife's name is Joan. I've known her since confirmation class. She ran the county co-op for twenty years, knew everybody's business and kept every bit of it to herself. I haven't found her. Now my seed packets say there's one field in a fold of the eastern hills that's very nearly clean. I think it's the one, and I'm ready to open the packet. Will you help me clear it and guard it through a season?",
+        "sworn": "It came up clean, green and then gold, the first clean wheat out here since the plague. I brought it in by hand with the scythe, and the Argent Dawn baked bread from it at Light's Hope. One of the supply drivers tasted it and said it was like the bread from the farmers' co-op at Southshore, run by a North Dakota woman who knows everybody's business and keeps all of it to herself. I put the cap on and took Joan a loaf. She cried, and then she told me I was late, and I said the row wasn't done. She bought me a new cap, so you have the old one."
+      },
+      "moments": [
+        {
+          "id": "the_soil",
+          "stage": "acquaintance",
+          "when": "talk",
+          "prompt": "Dale crouches, picks up a handful of grey soil, and rubs it slowly between his fingers.",
+          "options": [
+            {
+              "text": "Crouch down next to him.",
+              "trust": 8,
+              "reply": "You feel that? It's bad, but not dead. There's something under there still trying."
+            },
+            {
+              "text": "Tell him to hurry up.",
+              "trust": 0,
+              "reply": "Uff da, you can't hurry dirt. Nobody's ever managed it."
+            }
+          ]
+        },
+        {
+          "id": "the_field",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to help him clear the field and guard it through a season.",
+          "options": [
+            {
+              "text": "We'll bring it in together.",
+              "trust": 12,
+              "reply": "Well, that's a deal. Bring a hoe and a lot of patience."
+            },
+            {
+              "text": "A whole season?",
+              "trust": 3,
+              "reply": "You bet, a whole season. Wheat doesn't care how busy you are."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We're working the same row over and over, and nothing's coming up. Let's try a new field.",
+        "leaving_good": "Well, that was a good stretch of work. I'll be out in the eastern fields of the Plaguelands, one row at a time.",
+        "leaving_bored": "I've got rows waiting out east that won't plant themselves. I'll head back to the Plaguelands.",
+        "after_wipe": "Uff da, that was a hailstorm. Up we get, slow, and we'll try again when we're ready.",
+        "wipe_warning": "We're getting flattened like hail on a good crop. I'll see us out of here, but then I'm going back to my rows for a spell.",
+        "wipe_leave": "That's my harvest done for a while. I'll be out in the eastern Plaguelands, working the fields.",
+        "zone_warning": "You don't plant in a drought and you don't fight in a place like this. We'd best turn back.",
+        "zone_leave": "I've seen enough bad weather to know when to stay in. I'll be in the eastern Plaguelands.",
+        "gear_refuse": "That stays with me, I'm afraid. Ask me again come spring.",
+        "gear_taken": "Oh, you bet, take it. I've worked in less.",
+        "gear_short": "I'm a piece short, and it's like farming with a bent tine. You get by, but you notice.",
+        "gear_upgrade": "Well, that's a deal, isn't it? Thank you kindly.",
+        "back": "Rows are planted and the weather's holding. Where's the work?",
+        "send_word": "Dale has sent word from the eastern Plaguelands. The rows are in, and he's ready.",
+        "walkout_talk": "I walked off in a huff, and I'm too old for huffs. Sit down a minute and I'll tell you what got to me.",
+        "neglect": "Well, look who it is. I wiped my boots every day in case you showed up.",
+        "asked_to_stay": "You bet, one more. The rows can wait a day.",
+        "on_break": "Dale is back in the eastern Plaguelands, working the fields one row at a time. Come back after you've done a few more jobs."
+      }
+    },
     "dan_warrior": {
       "home": "Orgrimmar",
       "dials": {
@@ -5105,6 +5186,87 @@
         "quest_abandoned": "Leaving that undone is like leaving a guest at the door. I don't like it."
       }
     },
+    "neil_felsworn": {
+      "home": "Ariden's Watch",
+      "dials": {
+        "warmth": 0.8,
+        "nerve": 1.5,
+        "pride": 0.9,
+        "restless": 0.6
+      },
+      "likes": [
+        "quest",
+        "dungeon"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "Now then, I'm Neil, a felsworn. Stand behind me, and read the sign. The green bit doesn't care whose side you're on.",
+        "acquaintance": "I'm from Whitehaven, on the Cumbrian coast. My dad was a fitter at Sellafield, and I went there myself at twenty-four with a degree from Lancaster. I spent twenty years on decommissioning, taking apart buildings that were never meant to be taken apart, very slowly, with a plan for every bolt. And on Sundays I walked the fells. One hundred and ninety-six Wainwrights, in order.",
+        "companion": "I'll be straight with you about the fire, marra. It came to me like a bad habit, and it wants to be used more than it should. I treat it like everything else dangerous, with respect and a written plan, and I'm a little frightened of it. I was on site writing up a report when it happened, and I arrived in Deadwind with the hard hat still on and the report still in my hand. I finished the report anyway.",
+        "friend": "My wife's Gillian. She teaches maths at the grammar school, and she does the crossword in pen every day and finishes it. We were saving the last eighteen summits for when I retired. I write to her by every cart that leaves the camp. And I need a sample from the Reactor Hall, the deepest part of the Zone, where nobody's been with a jar. I want to know what the fallout is and how long it'll last. Will you come in with me, on a plan?",
+        "sworn": "I got my answer, and it's the worst one. The fallout here doesn't fade on its own. The readings only drop when somebody works on them, and left alone they don't fall at all. Deadwind will need this camp for as long as anyone lives here. I'd been planning, quietly, to go and find Gillian once the work was done, and now I know it never will be. So I've written the plan for the camp to keep going for a thousand years, with a procedure for every step, and I'm staying. I updated the sign by the pyre. It says, don't stand here, ever, Neil. Have the hard hat. I'm not going anywhere, and you might."
+      },
+      "moments": [
+        {
+          "id": "the_sign",
+          "stage": "acquaintance",
+          "when": "talk",
+          "prompt": "Neil taps a hand-painted sign. It says how long you can safely stand where you're standing.",
+          "options": [
+            {
+              "text": "Read it properly.",
+              "trust": 8,
+              "reply": "Thank you, marra. You're the first this week, and I'm touched."
+            },
+            {
+              "text": "Ignore it.",
+              "trust": 0,
+              "reply": "Aye, everybody does. It's still true, mind."
+            }
+          ]
+        },
+        {
+          "id": "reactor_hall",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to come into the Reactor Hall with him.",
+          "options": [
+            {
+              "text": "Show me the plan.",
+              "trust": 12,
+              "reply": "Now then, that's what I like to hear. It's eleven pages, but the important bit's on the first."
+            },
+            {
+              "text": "Is it worth the risk?",
+              "trust": 3,
+              "reply": "I've worked out the risk to two decimal places, and yes, just about."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We're repeating ourselves, and repeated readings tell you nowt new. Let's go and measure something different.",
+        "leaving_good": "That went to plan, which is my favourite thing. I'll be at the sample racks at Ariden's Watch.",
+        "leaving_bored": "Not one thing out here is worth a jar. I'll be at Ariden's Watch, labelling.",
+        "after_wipe": "Right, nobody move until we've worked out what went wrong. Then we'll write it down.",
+        "wipe_warning": "We've gone over the limit in here, several times, and I've got the numbers to prove it. I'll see this run out, then I want a few days at the racks.",
+        "wipe_leave": "I'm writing this one up as an incident. You'll find me at the sample racks at Ariden's Watch.",
+        "zone_warning": "By my reckoning the dose out here is about four times what we can stand. Turn round, please.",
+        "zone_leave": "I don't walk past my own signs. I'll be at Ariden's Watch.",
+        "gear_refuse": "That's labelled as mine, marra, and it's staying that way for now.",
+        "gear_taken": "Aye, take it. I'll update the inventory.",
+        "gear_short": "I've a gap in my inventory, marra, and I've already written it down.",
+        "gear_upgrade": "Now that's properly made. Thank you, marra.",
+        "back": "The sign's updated and the jars are labelled. What's the plan, and how many pages is it?",
+        "send_word": "Neil has sent word from Ariden's Watch. The jars are labelled, and he's ready.",
+        "walkout_talk": "Walking off like that was unscientific, and I'd like to correct the record. Have a seat and I'll go through what happened.",
+        "neglect": "Now then, stranger. I'd started to wonder if you'd stood too long by the pyre.",
+        "asked_to_stay": "Aye, one more, and I'll amend the plan.",
+        "on_break": "Neil is back at the sample racks at Ariden's Watch. Come back after you've done a few more jobs."
+      }
+    },
     "nicolas_bloodmage": {
       "home": "Splintertree Post",
       "dials": {
@@ -7495,6 +7657,88 @@
         "neglect": "Ah, you came! I made extra every night in case you did. Terrible waste of beans.",
         "asked_to_stay": "Ajde, one more. Then I cook.",
         "on_break": "Vuk is back at the fire in Rocky Pass. Come back after you've done a few more jobs."
+      }
+    },
+    "wes_warrior": {
+      "home": "Ariden's Watch",
+      "dials": {
+        "warmth": 0.8,
+        "nerve": 1.6,
+        "pride": 0.7,
+        "restless": 0.6
+      },
+      "likes": [
+        "quest",
+        "full_party"
+      ],
+      "dislikes": [
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "I'm Wes, a warrior, and I'll stand in front. Suit check before you go past the fence. I check everybody, and I mean you.",
+        "acquaintance": "I grew up in Richland, Washington, a town built for the Hanford plant. My dad was a pipefitter there. I spent twenty years on the tank farms, cleaning up waste that'll outlive everybody who ever made it. You do it in a suit, by the procedure, with a partner, every single day, and nobody gets hurt.",
+        "companion": "I've got two girls, Kelsey and Jenna, both away at college. Jenna plays softball, catcher, and I coached her team six seasons. She got a scholarship, and I drove six hours to every home game. I was suited up at the end of a shift when it happened, and I came down in Deadwind with this hood rolled through my belt. I don't know if my girls are all right. That was the hard part, and it still is.",
+        "friend": "My wife, Diane, died when the girls were six and four. I raised them by the procedure, lunches packed the night before and a list on the fridge. Now I want to map the Exclusion Zone, all of it, every boundary marked, starting from the oldest records the camp has. Somebody should have done it properly a long time ago. Will you walk the edges with me?",
+        "sworn": "At the far edge we found the first camp, the folks who landed in Deadwind in the first weeks, before anybody knew what the green ground was. The graves are marked with whatever people had. One has a softball glove nailed to it, and a name written by somebody who knew her. Jenna Dahlberg, Washington, catcher. I've been checking suits a mile from her for two years. I finished the map, every boundary, and I put the first camp on it with her name. I'm staying at the fence. Nobody else's kid walks onto that ground without a suit while I'm here. I still hope Kelsey's out there. Take the hood. It should go with somebody who'll come back."
+      },
+      "moments": [
+        {
+          "id": "suit_check",
+          "stage": "stranger",
+          "when": "talk",
+          "prompt": "Wes is holding up a hand, waiting for you to turn round so he can check your straps.",
+          "options": [
+            {
+              "text": "Turn round and let him check.",
+              "trust": 8,
+              "reply": "Copy that, you're good to go. Thank you for not arguing."
+            },
+            {
+              "text": "I'm fine, I checked.",
+              "trust": 0,
+              "reply": "Nope, I check everybody. Turn round, please."
+            }
+          ]
+        },
+        {
+          "id": "the_map",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to walk the edges of the Zone with him.",
+          "options": [
+            {
+              "text": "By the book, then.",
+              "trust": 12,
+              "reply": "Copy that, by the book. Eyes on the ground, and you stay where I can see you."
+            },
+            {
+              "text": "Why does it matter so much?",
+              "trust": 3,
+              "reply": "Because nobody did it at Hanford until it was too late."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've done this one by the book a dozen times now, and it's taught us all it's going to. Next job, please.",
+        "leaving_good": "Good work, by the book. I'll be at the fence at Ariden's Watch, checking suits.",
+        "leaving_bored": "Nobody needs a wall out here. I'll be back at the fence at Ariden's Watch.",
+        "after_wipe": "Everybody stay down and stay calm. Then we review what happened, step by step, before anyone moves.",
+        "wipe_warning": "We've broken procedure in here too many times, and it's costing us. I'll see this through, then I'm back on the fence for a while.",
+        "wipe_leave": "That's me off shift. I'll be at the fence at Ariden's Watch, with the mule.",
+        "zone_warning": "Nope, we're not equipped for this. Back out the way we came, slow and in order.",
+        "zone_leave": "We don't go past the fence without the right gear, and we haven't got it. I'll be at Ariden's Watch.",
+        "gear_refuse": "Nope, that's mine. I don't hand out kit to people I haven't worked with.",
+        "gear_taken": "Copy that, take it. I'll work around it.",
+        "gear_short": "Equipment check says I'm down one piece. I'd like it replaced, please.",
+        "gear_upgrade": "That's good gear, properly made. Thank you.",
+        "back": "Suits are checked, the mule's fed, and I'm ready. What's the job, and what's the procedure?",
+        "send_word": "Wes has sent word from Ariden's Watch. The fence is covered and he's ready.",
+        "walkout_talk": "I left without a word, and that's not procedure. Have a seat, and we'll go through it step by step.",
+        "neglect": "You're back, good. I kept your name on the fence list the whole time.",
+        "asked_to_stay": "Copy that, one more.",
+        "on_break": "Wes is back at the quarantine fence at Ariden's Watch. Come back after you've done a few more jobs.",
+        "quest_abandoned": "We took that job and didn't finish it. That's not how it's done."
       }
     },
     "yusuf_venomancer": {

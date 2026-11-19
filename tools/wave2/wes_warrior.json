@@ -1,0 +1,115 @@
+{
+  "recruit_text": {
+    "before": "A house in Richland with a boat in the driveway that he took out twice a year, and two daughters in college.\n\nHe coached his younger girl's softball team for six seasons and didn't raise his voice in all that time.",
+    "forward": "He wants the fallout boxed up, mapped and labelled, the way it should've been done at Hanford.\n\nAfter that he'd like a boat again. There's a lake in Ashenvale he's had his eye on."
+  },
+  "bond": {
+    "home": "Ariden's Watch",
+    "dials": {
+      "warmth": 0.8,
+      "nerve": 1.6,
+      "pride": 0.7,
+      "restless": 0.6
+    },
+    "likes": [
+      "quest",
+      "full_party"
+    ],
+    "dislikes": [
+      "quest_abandoned"
+    ],
+    "stages": {
+      "stranger": "I'm Wes, a warrior, and I'll stand in front. Suit check before you go past the fence. I check everybody, and I mean you.",
+      "acquaintance": "I grew up in Richland, Washington, a town built for the Hanford plant. My dad was a pipefitter there. I spent twenty years on the tank farms, cleaning up waste that'll outlive everybody who ever made it. You do it in a suit, by the procedure, with a partner, every single day, and nobody gets hurt.",
+      "companion": "I've got two girls, Kelsey and Jenna, both away at college. Jenna plays softball, catcher, and I coached her team six seasons. She got a scholarship, and I drove six hours to every home game. I was suited up at the end of a shift when it happened, and I came down in Deadwind with this hood rolled through my belt. I don't know if my girls are all right. That was the hard part, and it still is.",
+      "friend": "My wife, Diane, died when the girls were six and four. I raised them by the procedure, lunches packed the night before and a list on the fridge. Now I want to map the Exclusion Zone, all of it, every boundary marked, starting from the oldest records the camp has. Somebody should have done it properly a long time ago. Will you walk the edges with me?",
+      "sworn": "At the far edge we found the first camp, the folks who landed in Deadwind in the first weeks, before anybody knew what the green ground was. The graves are marked with whatever people had. One has a softball glove nailed to it, and a name written by somebody who knew her. Jenna Dahlberg, Washington, catcher. I've been checking suits a mile from her for two years. I finished the map, every boundary, and I put the first camp on it with her name. I'm staying at the fence. Nobody else's kid walks onto that ground without a suit while I'm here. I still hope Kelsey's out there. Take the hood. It should go with somebody who'll come back."
+    },
+    "moments": [
+      {
+        "id": "suit_check",
+        "stage": "stranger",
+        "when": "talk",
+        "prompt": "Wes is holding up a hand, waiting for you to turn round so he can check your straps.",
+        "options": [
+          {
+            "text": "Turn round and let him check.",
+            "trust": 8,
+            "reply": "Copy that, you're good to go. Thank you for not arguing."
+          },
+          {
+            "text": "I'm fine, I checked.",
+            "trust": 0,
+            "reply": "Nope, I check everybody. Turn round, please."
+          }
+        ]
+      },
+      {
+        "id": "the_map",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to walk the edges of the Zone with him.",
+        "options": [
+          {
+            "text": "By the book, then.",
+            "trust": 12,
+            "reply": "Copy that, by the book. Eyes on the ground, and you stay where I can see you."
+          },
+          {
+            "text": "Why does it matter so much?",
+            "trust": 3,
+            "reply": "Because nobody did it at Hanford until it was too late."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "We've done this one by the book a dozen times now, and it's taught us all it's going to. Next job, please.",
+      "leaving_good": "Good work, by the book. I'll be at the fence at Ariden's Watch, checking suits.",
+      "leaving_bored": "Nobody needs a wall out here. I'll be back at the fence at Ariden's Watch.",
+      "after_wipe": "Everybody stay down and stay calm. Then we review what happened, step by step, before anyone moves.",
+      "wipe_warning": "We've broken procedure in here too many times, and it's costing us. I'll see this through, then I'm back on the fence for a while.",
+      "wipe_leave": "That's me off shift. I'll be at the fence at Ariden's Watch, with the mule.",
+      "zone_warning": "Nope, we're not equipped for this. Back out the way we came, slow and in order.",
+      "zone_leave": "We don't go past the fence without the right gear, and we haven't got it. I'll be at Ariden's Watch.",
+      "gear_refuse": "Nope, that's mine. I don't hand out kit to people I haven't worked with.",
+      "gear_taken": "Copy that, take it. I'll work around it.",
+      "gear_short": "Equipment check says I'm down one piece. I'd like it replaced, please.",
+      "gear_upgrade": "That's good gear, properly made. Thank you.",
+      "back": "Suits are checked, the mule's fed, and I'm ready. What's the job, and what's the procedure?",
+      "send_word": "Wes has sent word from Ariden's Watch. The fence is covered and he's ready.",
+      "walkout_talk": "I left without a word, and that's not procedure. Have a seat, and we'll go through it step by step.",
+      "neglect": "You're back, good. I kept your name on the fence list the whole time.",
+      "asked_to_stay": "Copy that, one more.",
+      "on_break": "Wes is back at the quarantine fence at Ariden's Watch. Come back after you've done a few more jobs.",
+      "quest_abandoned": "We took that job and didn't finish it. That's not how it's done."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "Every summer I took the boat out on the Columbia twice, and both times the girls argued about the bait the whole way.",
+        "kind": "open",
+        "topic": "water"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "Nope, that was a shortcut, and shortcuts get people hurt. Back in line.",
+        "kind": "open"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "Everybody's present, and that's how every job should end.",
+        "kind": "open"
+      }
+    ],
+    "boss_down": [
+      {
+        "text": "Stay back from it until I've checked it's down. By the book.",
+        "kind": "reply"
+      }
+    ]
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "bond": {
+    "home": "Ariden's Watch",
+    "dials": {
+      "warmth": 0.8,
+      "nerve": 1.5,
+      "pride": 0.9,
+      "restless": 0.6
+    },
+    "likes": [
+      "quest",
+      "dungeon"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
+    "stages": {
+      "stranger": "Now then, I'm Neil, a felsworn. Stand behind me, and read the sign. The green bit doesn't care whose side you're on.",
+      "acquaintance": "I'm from Whitehaven, on the Cumbrian coast. My dad was a fitter at Sellafield, and I went there myself at twenty-four with a degree from Lancaster. I spent twenty years on decommissioning, taking apart buildings that were never meant to be taken apart, very slowly, with a plan for every bolt. And on Sundays I walked the fells. One hundred and ninety-six Wainwrights, in order.",
+      "companion": "I'll be straight with you about the fire, marra. It came to me like a bad habit, and it wants to be used more than it should. I treat it like everything else dangerous, with respect and a written plan, and I'm a little frightened of it. I was on site writing up a report when it happened, and I arrived in Deadwind with the hard hat still on and the report still in my hand. I finished the report anyway.",
+      "friend": "My wife's Gillian. She teaches maths at the grammar school, and she does the crossword in pen every day and finishes it. We were saving the last eighteen summits for when I retired. I write to her by every cart that leaves the camp. And I need a sample from the Reactor Hall, the deepest part of the Zone, where nobody's been with a jar. I want to know what the fallout is and how long it'll last. Will you come in with me, on a plan?",
+      "sworn": "I got my answer, and it's the worst one. The fallout here doesn't fade on its own. The readings only drop when somebody works on them, and left alone they don't fall at all. Deadwind will need this camp for as long as anyone lives here. I'd been planning, quietly, to go and find Gillian once the work was done, and now I know it never will be. So I've written the plan for the camp to keep going for a thousand years, with a procedure for every step, and I'm staying. I updated the sign by the pyre. It says, don't stand here, ever, Neil. Have the hard hat. I'm not going anywhere, and you might."
+    },
+    "moments": [
+      {
+        "id": "the_sign",
+        "stage": "acquaintance",
+        "when": "talk",
+        "prompt": "Neil taps a hand-painted sign. It says how long you can safely stand where you're standing.",
+        "options": [
+          {
+            "text": "Read it properly.",
+            "trust": 8,
+            "reply": "Thank you, marra. You're the first this week, and I'm touched."
+          },
+          {
+            "text": "Ignore it.",
+            "trust": 0,
+            "reply": "Aye, everybody does. It's still true, mind."
+          }
+        ]
+      },
+      {
+        "id": "reactor_hall",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to come into the Reactor Hall with him.",
+        "options": [
+          {
+            "text": "Show me the plan.",
+            "trust": 12,
+            "reply": "Now then, that's what I like to hear. It's eleven pages, but the important bit's on the first."
+          },
+          {
+            "text": "Is it worth the risk?",
+            "trust": 3,
+            "reply": "I've worked out the risk to two decimal places, and yes, just about."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "We're repeating ourselves, and repeated readings tell you nowt new. Let's go and measure something different.",
+      "leaving_good": "That went to plan, which is my favourite thing. I'll be at the sample racks at Ariden's Watch.",
+      "leaving_bored": "Not one thing out here is worth a jar. I'll be at Ariden's Watch, labelling.",
+      "after_wipe": "Right, nobody move until we've worked out what went wrong. Then we'll write it down.",
+      "wipe_warning": "We've gone over the limit in here, several times, and I've got the numbers to prove it. I'll see this run out, then I want a few days at the racks.",
+      "wipe_leave": "I'm writing this one up as an incident. You'll find me at the sample racks at Ariden's Watch.",
+      "zone_warning": "By my reckoning the dose out here is about four times what we can stand. Turn round, please.",
+      "zone_leave": "I don't walk past my own signs. I'll be at Ariden's Watch.",
+      "gear_refuse": "That's labelled as mine, marra, and it's staying that way for now.",
+      "gear_taken": "Aye, take it. I'll update the inventory.",
+      "gear_short": "I've a gap in my inventory, marra, and I've already written it down.",
+      "gear_upgrade": "Now that's properly made. Thank you, marra.",
+      "back": "The sign's updated and the jars are labelled. What's the plan, and how many pages is it?",
+      "send_word": "Neil has sent word from Ariden's Watch. The jars are labelled, and he's ready.",
+      "walkout_talk": "Walking off like that was unscientific, and I'd like to correct the record. Have a seat and I'll go through what happened.",
+      "neglect": "Now then, stranger. I'd started to wonder if you'd stood too long by the pyre.",
+      "asked_to_stay": "Aye, one more, and I'll amend the plan.",
+      "on_break": "Neil is back at the sample racks at Ariden's Watch. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "In Whitehaven the rain comes in sideways off the Irish Sea, and my mother hung the washing out regardless, every single Monday.",
+        "kind": "open",
+        "topic": "cities"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "That was over the limit. Let's not do it again, please.",
+        "kind": "open"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "I've estimated our exposure in there. It's fine, probably, and I hate saying probably.",
+        "kind": "open"
+      }
+    ],
+    "boss_down": [
+      {
+        "text": "Half-life of about four seconds, that one.",
+        "kind": "reply"
+      }
+    ]
+  }
+}
