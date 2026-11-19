@@ -24,6 +24,12 @@ two word sentences, no dashes, no stage asides, none of the stock phrases. And t
 Wave 3: neighbours start on nodding terms, {name} only once they're friendly, no romance. Lines
 also have to stay true before and after the recruit's own story ends, because they can be said at
 any stage of it: talk about the people you miss, not about whether you've found them.
+
+Two things the checker can't see, so they're written down here. A reaction (bite_back, hurt,
+laugh_off, accept, deflect, tease_back, take_it_kindly, bristle, listen, brush_off) has to fit
+anything it might be answering: laugh_off follows a dig about talking too much as easily as one
+about being reckless, and accept follows "stay behind me" as well as "are you hurt". And a line
+that can be said to every friend they make can't claim to be rare ("I don't say that often").
 """
 import json
 import re
@@ -45,7 +51,7 @@ TALK, HUMOUR, MANNER, PACE = {"quiet", "middle", "talker"}, {"joker", "dry", "ea
 DESCRIPTORS = {"healer", "showoff", "pious", "cynic", "sentimental", "worker", "maker", "artist",
                "scholar", "outdoors", "fighter", "host", "posh", "young", "elder", "sarcastic",
                "competitive", "honest", "patient", "teacher", "musician", "sporty", "bossy",
-               "macabre",
+               "macabre", "easygoing",
                # the ones traits give them (relationship_manager.described)
                "loud", "quiet", "careful", "reckless", "funny", "dry", "earnest", "blunt",
                "gentle", "formal"}
@@ -147,12 +153,16 @@ def problems(data=None, pairs=None, strict=False):
                     runs.setdefault(g, set()).add(rid)
                     runs.setdefault((k.split("_")[0], g), set()).add(rid)
             openers.setdefault((k, " ".join(w[:3])), set()).add(rid)
+    # Ninety-eight people will share some ordinary English, so these are about what a player
+    # would notice: the same phrase from eight different mouths, the same phrase doing the same
+    # job for five, or five people opening the same kind of line the same way. Questions get more
+    # room, because "where are you from" is what people say.
     for g, rids in sorted(runs.items(), key=str):
-        limit = 6 if isinstance(g, str) else 4
+        limit = 8 if isinstance(g, str) else 5
         if len(rids) >= limit:
             bad.append(f"shared by {len(rids)} recruits: {g!r} ({', '.join(sorted(rids))})")
     for (k, g), rids in sorted(openers.items()):
-        if len(rids) >= 4 and len(g.split()) == 3:
+        if len(rids) >= (8 if k.startswith(("ask_", "answer_")) else 5) and len(g.split()) == 3:
             bad.append(f"{k} opens the same way for {len(rids)} recruits: {g!r} ({', '.join(sorted(rids))})")
     seen = set()
     for p in pairs:

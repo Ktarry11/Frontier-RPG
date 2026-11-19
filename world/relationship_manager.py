@@ -96,6 +96,9 @@ DISLIKE, DISLIKE_CAP = -2.5, -5.0
 TAG, TAG_CAP = 1.5, 4.5
 WARM, WARY, SPAR = 3.0, -3.0, 2.0
 FORMAL_JOKER = -1.0
+EASYGOING = 0.5
+#: an ordinary conversation won't reuse a line any of the party has said in the last few beats
+RECENT = 10
 
 
 def _pair(table, a, b):
@@ -128,14 +131,17 @@ def chemistry(ta, tb, a, b):
         c += min(LIKE_CAP, LIKE * len(seen & set(x.get("likes", []))))
         c += max(DISLIKE_CAP, DISLIKE * len(seen & set(x.get("dislikes", []))))
     c += min(TAG_CAP, TAG * len(set(ta.get("tags", [])) & set(tb.get("tags", []))))
+    named = 0.0
     for x, other in ((ta, b), (tb, a)):
         if other in x.get("warm_to", []):
-            c += WARM
+            named += WARM
         if other in x.get("wary_of", []):
-            c += WARY
+            named += WARY
         if other in x.get("spar", []):
-            c += SPAR
-    return c
+            named += SPAR
+    if c < 0 and ("easygoing" in ta.get("is", []) or "easygoing" in tb.get("is", [])):
+        c *= EASYGOING     # "gets on with nearly everyone": the rough edges matter half as much
+    return c + named
 
 
 #: how hard chemistry pulls each outing. With the median pair (chemistry about 2) that's friendly
@@ -211,6 +217,7 @@ class RelationshipManager:
         self.traits, self.lines, self.sigs = {}, {}, {}
         self.rels = {}
         self.queue = []                 # [(priority, deed stamp, [(rid, text)])]
+        self.recent = []                # line ids from the last few beats, whoever said them
         self.log = []
         self._chem = {}
         self._load()
@@ -321,6 +328,11 @@ class RelationshipManager:
             if ids[0] in r.heard[-12:]:
                 return False
             r.heard = (r.heard + ids)[-40:]
+        if priority <= 1:
+            # the same question to three people in a row is a script, not a person
+            if any(i in self.recent for i in ids):
+                return False
+        self.recent = (self.recent + ids)[-RECENT:]
         self.queue.append((priority, self._deeds(), out))
         self.queue.sort(key=lambda q: -q[0])
         self.queue = self.queue[:3]
