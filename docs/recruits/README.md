@@ -152,9 +152,9 @@ fourth).
 | 80 | Graham Ashworth | Warlock 52 | The Pale Watch | `graham_ashworth.md` | Happy | Draft 1 |
 | 81 | Elie Khoury | Bloodmage 53 | Khaz Varun, the Black Hollow | `elie_khoury.md` | Still unknown | Draft 1 |
 | 82 | Bruno Teixeira | Templar 53 | The Bulwark | `bruno_teixeira.md` | Sad | Draft 1 |
-| 83 | Joaquín Duarte | Sun Cleric 54 | The Bulwark |  |  |  |
-| 84 | Astrid Lindqvist | Starcaller 54 | North Felwood |  |  |  |
-| 85 | Luka Perić | Stormbringer 54 | Tempest Shallows |  |  |  |
+| 83 | Joaquín Duarte | Sun Cleric 54 | The Bulwark | `joaquin_duarte.md` | Sad | Draft 1 |
+| 84 | Astrid Lindqvist | Starcaller 54 | North Felwood | `astrid_lindqvist.md` | Happy | Draft 1 |
+| 85 | Luka Perić | Stormbringer 54 | Tempest Shallows | `luka_peric.md` | Happy | Draft 1 |
 | 86 | Zofia Nowak | Cultist 55 | Western Plaguelands North |  |  |  |
 | 87 | Omar Saleh | Venomancer 55 | The Royal Hive |  |  |  |
 | 88 | Santiago Ríos | Runemaster 56 | The Ashen Reach |  |  |  |
