@@ -1,0 +1,2837 @@
+{
+ "_about": "Wave 3, how the recruits get on. Written by tools/build_relationships.py from tools/wave3/; read by world/relationship_manager.py.",
+ "traits": {
+  "adrian_templar": {
+   "talk": "middle",
+   "humour": "earnest",
+   "manner": "formal",
+   "pace": "steady",
+   "is": [
+    "honest",
+    "competitive",
+    "teacher",
+    "sporty"
+   ],
+   "likes": [
+    "honest",
+    "healer"
+   ],
+   "dislikes": [
+    "reckless"
+   ],
+   "tags": [
+    "teacher",
+    "sport",
+    "spanish"
+   ],
+   "warm_to": [
+    "tarek_templar",
+    "iker_guardian",
+    "dan_warrior"
+   ],
+   "wary_of": [
+    "kesten_the_catalogued"
+   ],
+   "spar": []
+  },
+  "alonso_pyromancer": {
+   "talk": "middle",
+   "humour": "joker",
+   "manner": "gentle",
+   "pace": "careful",
+   "is": [
+    "maker",
+    "artist"
+   ],
+   "likes": [
+    "patient",
+    "maker",
+    "careful",
+    "young"
+   ],
+   "dislikes": [
+    "reckless"
+   ],
+   "tags": [
+    "spanish",
+    "mexico",
+    "parent",
+    "craft"
+   ],
+   "warm_to": [
+    "diego_tinker",
+    "marta_tinker"
+   ],
+   "wary_of": [
+    "emiliano_pyromancer"
+   ],
+   "spar": [
+    "skye_pyromancer"
+   ]
+  },
+  "ama_priest": {
+   "talk": "middle",
+   "humour": "dry",
+   "manner": "blunt",
+   "pace": "steady",
+   "is": [
+    "healer"
+   ],
+   "likes": [
+    "patient",
+    "careful"
+   ],
+   "dislikes": [
+    "showoff"
+   ],
+   "tags": [
+    "medic",
+    "night_work"
+   ],
+   "warm_to": [
+    "freja_priest",
+    "graham_warlock",
+    "berat_tinker"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "amber_druid": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "blunt",
+   "pace": "careful",
+   "is": [
+    "outdoors",
+    "patient"
+   ],
+   "likes": [
+    "quiet",
+    "patient",
+    "young"
+   ],
+   "dislikes": [
+    "showoff"
+   ],
+   "tags": [
+    "growing",
+    "wild",
+    "american"
+   ],
+   "warm_to": [
+    "carolina_shaman",
+    "hana_shaman",
+    "anjali_druid"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "anjali_druid": {
+   "talk": "middle",
+   "humour": "earnest",
+   "manner": "gentle",
+   "pace": "careful",
+   "is": [
+    "scholar",
+    "teacher",
+    "elder",
+    "patient"
+   ],
+   "likes": [
+    "patient",
+    "scholar",
+    "young"
+   ],
+   "dislikes": [
+    "showoff"
+   ],
+   "tags": [
+    "growing",
+    "teacher",
+    "parent"
+   ],
+   "warm_to": [
+    "amber_druid",
+    "kesten_the_catalogued",
+    "sophia_mage"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "astrid_starcaller": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "formal",
+   "pace": "careful",
+   "is": [
+    "outdoors",
+    "patient"
+   ],
+   "likes": [
+    "quiet",
+    "patient"
+   ],
+   "dislikes": [
+    "loud"
+   ],
+   "tags": [
+    "sky",
+    "scandinavian",
+    "snow"
+   ],
+   "warm_to": [
+    "mateo_starcaller",
+    "minh_chronomancer"
+   ],
+   "wary_of": [],
+   "spar": [
+    "freja_priest",
+    "valentina_starcaller"
+   ]
+  },
+  "bakyt_hunter": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "formal",
+   "pace": "careful",
+   "is": [
+    "outdoors",
+    "elder",
+    "patient"
+   ],
+   "likes": [
+    "patient",
+    "outdoors",
+    "young"
+   ],
+   "dislikes": [
+    "loud"
+   ],
+   "tags": [
+    "mountains",
+    "birds",
+    "parent"
+   ],
+   "warm_to": [
+    "giorgi_primalist"
+   ],
+   "wary_of": [],
+   "spar": [
+    "khalid_hunter",
+    "rhys_ranger"
+   ]
+  },
+  "bashir_witchhunter": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "blunt",
+   "pace": "careful",
+   "is": [
+    "maker",
+    "honest"
+   ],
+   "likes": [
+    "careful",
+    "honest",
+    "maker"
+   ],
+   "dislikes": [
+    "loud"
+   ],
+   "tags": [
+    "stone",
+    "arabic",
+    "parent"
+   ],
+   "warm_to": [
+    "henrik_mage",
+    "haruto_runemaster",
+    "tobias_paladin"
+   ],
+   "wary_of": [],
+   "spar": [
+    "fiona_witchhunter"
+   ]
+  },
+  "berat_tinker": {
+   "talk": "talker",
+   "humour": "joker",
+   "manner": "gentle",
+   "pace": "steady",
+   "is": [
+    "healer",
+    "young",
+    "host"
+   ],
+   "likes": [
+    "funny",
+    "loud",
+    "healer"
+   ],
+   "dislikes": [],
+   "tags": [
+    "medic",
+    "turkish"
+   ],
+   "warm_to": [
+    "ama_priest",
+    "freja_priest"
+   ],
+   "wary_of": [],
+   "spar": [
+    "emre_rogue"
+   ]
+  },
+  "bruno_templar": {
+   "talk": "talker",
+   "humour": "joker",
+   "manner": "gentle",
+   "pace": "bold",
+   "is": [
+    "fighter",
+    "sporty"
+   ],
+   "likes": [
+    "fighter",
+    "young"
+   ],
+   "dislikes": [],
+   "tags": [
+    "ex_scarlet",
+    "sport",
+    "ring",
+    "portuguese",
+    "brazil"
+   ],
+   "warm_to": [
+    "imelda_primalist",
+    "iker_guardian",
+    "pavlo_knight",
+    "joaquin_suncleric",
+    "isla_witchhunter"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "callum_venomancer": {
+   "talk": "middle",
+   "humour": "joker",
+   "manner": "blunt",
+   "pace": "bold",
+   "is": [
+    "outdoors"
+   ],
+   "likes": [
+    "funny",
+    "outdoors"
+   ],
+   "dislikes": [
+    "formal",
+    "posh"
+   ],
+   "tags": [
+    "venom",
+    "aussie",
+    "animals"
+   ],
+   "warm_to": [
+    "rosa_hunter",
+    "bakyt_hunter",
+    "camila_venomancer",
+    "omar_venomancer"
+   ],
+   "wary_of": [],
+   "spar": [
+    "skye_pyromancer"
+   ]
+  },
+  "camila_venomancer": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "blunt",
+   "pace": "careful",
+   "is": [
+    "young"
+   ],
+   "likes": [
+    "patient",
+    "quiet"
+   ],
+   "dislikes": [
+    "loud"
+   ],
+   "tags": [
+    "venom",
+    "mexico",
+    "spanish",
+    "desert"
+   ],
+   "warm_to": [
+    "callum_venomancer",
+    "omar_venomancer",
+    "yusuf_venomancer"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "camille_ranger": {
+   "talk": "talker",
+   "humour": "dry",
+   "manner": "blunt",
+   "pace": "bold",
+   "is": [
+    "sarcastic",
+    "young",
+    "cynic"
+   ],
+   "likes": [
+    "sarcastic",
+    "dry",
+    "honest"
+   ],
+   "dislikes": [
+    "sentimental",
+    "pious",
+    "careful"
+   ],
+   "tags": [
+    "road",
+    "machines"
+   ],
+   "warm_to": [],
+   "wary_of": [],
+   "spar": []
+  },
+  "carolina_shaman": {
+   "talk": "middle",
+   "humour": "joker",
+   "manner": "gentle",
+   "pace": "steady",
+   "is": [
+    "outdoors"
+   ],
+   "likes": [
+    "outdoors",
+    "patient"
+   ],
+   "dislikes": [
+    "reckless"
+   ],
+   "tags": [
+    "boats",
+    "portuguese",
+    "brazil"
+   ],
+   "warm_to": [
+    "hana_shaman",
+    "amber_druid"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "cristobal_knight": {
+   "talk": "talker",
+   "humour": "joker",
+   "manner": "blunt",
+   "pace": "bold",
+   "is": [
+    "fighter"
+   ],
+   "likes": [
+    "loud",
+    "reckless",
+    "funny",
+    "young"
+   ],
+   "dislikes": [],
+   "tags": [
+    "fire_crew",
+    "rescue",
+    "spanish",
+    "chile"
+   ],
+   "warm_to": [
+    "matias_reaper",
+    "esteban_bloodmage",
+    "liam_suncleric",
+    "skye_pyromancer"
+   ],
+   "wary_of": [],
+   "spar": [
+    "pieter_guardian"
+   ]
+  },
+  "dale_reaper": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "gentle",
+   "pace": "careful",
+   "is": [
+    "outdoors",
+    "worker",
+    "patient"
+   ],
+   "likes": [
+    "patient",
+    "worker",
+    "young"
+   ],
+   "dislikes": [
+    "reckless"
+   ],
+   "tags": [
+    "growing",
+    "american",
+    "parent"
+   ],
+   "warm_to": [
+    "tobias_paladin",
+    "isla_witchhunter"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "dan_warrior": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "blunt",
+   "pace": "steady",
+   "is": [
+    "worker"
+   ],
+   "likes": [
+    "worker",
+    "blunt"
+   ],
+   "dislikes": [
+    "posh",
+    "bossy"
+   ],
+   "tags": [
+    "north_england",
+    "parent",
+    "factory"
+   ],
+   "warm_to": [
+    "marco_paladin",
+    "adrian_templar",
+    "ivan_warrior",
+    "pieter_guardian"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "delroy_witchdoctor": {
+   "talk": "middle",
+   "humour": "joker",
+   "manner": "gentle",
+   "pace": "careful",
+   "is": [
+    "host",
+    "elder",
+    "patient"
+   ],
+   "likes": [
+    "patient",
+    "young"
+   ],
+   "dislikes": [
+    "reckless"
+   ],
+   "tags": [
+    "night_work",
+    "kitchen",
+    "parent"
+   ],
+   "warm_to": [
+    "ama_priest",
+    "owen_cultist",
+    "minh_chronomancer"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "diego_tinker": {
+   "talk": "talker",
+   "humour": "joker",
+   "manner": "gentle",
+   "pace": "bold",
+   "is": [
+    "maker",
+    "young"
+   ],
+   "likes": [
+    "maker",
+    "loud",
+    "funny"
+   ],
+   "dislikes": [
+    "cynic"
+   ],
+   "tags": [
+    "machines",
+    "spanish"
+   ],
+   "warm_to": [
+    "alonso_pyromancer",
+    "marta_tinker",
+    "elias_suncleric",
+    "tomas_warrior"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "driss_shaman": {
+   "talk": "middle",
+   "humour": "earnest",
+   "manner": "formal",
+   "pace": "careful",
+   "is": [
+    "host",
+    "outdoors"
+   ],
+   "likes": [
+    "patient",
+    "host",
+    "young"
+   ],
+   "dislikes": [
+    "cynic"
+   ],
+   "tags": [
+    "desert",
+    "arabic",
+    "parent"
+   ],
+   "warm_to": [
+    "bakyt_hunter",
+    "giorgi_primalist"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "eino_barbarian": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "gentle",
+   "pace": "steady",
+   "is": [
+    "worker",
+    "outdoors"
+   ],
+   "likes": [
+    "quiet",
+    "young"
+   ],
+   "dislikes": [
+    "loud"
+   ],
+   "tags": [
+    "machines",
+    "snow"
+   ],
+   "warm_to": [
+    "giorgi_primalist",
+    "bakyt_hunter",
+    "ramiro_primalist"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "elias_suncleric": {
+   "talk": "middle",
+   "humour": "earnest",
+   "manner": "gentle",
+   "pace": "steady",
+   "is": [
+    "pious",
+    "maker"
+   ],
+   "likes": [
+    "maker"
+   ],
+   "dislikes": [],
+   "tags": [
+    "machines",
+    "faith",
+    "spanish"
+   ],
+   "warm_to": [
+    "diego_tinker",
+    "marta_tinker"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "elie_bloodmage": {
+   "talk": "middle",
+   "humour": "joker",
+   "manner": "gentle",
+   "pace": "careful",
+   "is": [
+    "healer"
+   ],
+   "likes": [
+    "gentle",
+    "healer"
+   ],
+   "dislikes": [],
+   "tags": [
+    "medic",
+    "blood",
+    "arabic"
+   ],
+   "warm_to": [
+    "ziad_felsworn"
+   ],
+   "wary_of": [],
+   "spar": [
+    "esteban_bloodmage"
+   ]
+  },
+  "emiliano_pyromancer": {
+   "talk": "talker",
+   "humour": "joker",
+   "manner": "blunt",
+   "pace": "bold",
+   "is": [
+    "showoff",
+    "young"
+   ],
+   "likes": [
+    "showoff",
+    "loud",
+    "young"
+   ],
+   "dislikes": [
+    "careful"
+   ],
+   "tags": [
+    "spanish",
+    "mexico"
+   ],
+   "warm_to": [
+    "hector_witchdoctor"
+   ],
+   "wary_of": [
+    "alonso_pyromancer",
+    "skye_pyromancer"
+   ],
+   "spar": []
+  },
+  "emre_rogue": {
+   "talk": "middle",
+   "humour": "dry",
+   "manner": "gentle",
+   "pace": "careful",
+   "is": [
+    "maker"
+   ],
+   "likes": [
+    "patient",
+    "scholar"
+   ],
+   "dislikes": [
+    "reckless"
+   ],
+   "tags": [
+    "locks",
+    "turkish"
+   ],
+   "warm_to": [],
+   "wary_of": [],
+   "spar": [
+    "marco_paladin",
+    "berat_tinker"
+   ]
+  },
+  "enzo_cultist": {
+   "talk": "middle",
+   "humour": "dry",
+   "manner": "blunt",
+   "pace": "bold",
+   "is": [
+    "fighter",
+    "competitive",
+    "sporty"
+   ],
+   "likes": [
+    "fighter",
+    "young"
+   ],
+   "dislikes": [
+    "pious"
+   ],
+   "tags": [
+    "sport",
+    "italian"
+   ],
+   "warm_to": [
+    "bruno_templar"
+   ],
+   "wary_of": [],
+   "spar": [
+    "marco_paladin"
+   ]
+  },
+  "esteban_bloodmage": {
+   "talk": "middle",
+   "humour": "earnest",
+   "manner": "formal",
+   "pace": "careful",
+   "is": [
+    "healer",
+    "scholar",
+    "posh"
+   ],
+   "likes": [
+    "careful",
+    "honest"
+   ],
+   "dislikes": [
+    "reckless"
+   ],
+   "tags": [
+    "medic",
+    "blood",
+    "spanish",
+    "chile"
+   ],
+   "warm_to": [
+    "ryan_warlock",
+    "cristobal_knight",
+    "matias_reaper"
+   ],
+   "wary_of": [],
+   "spar": [
+    "elie_bloodmage"
+   ]
+  },
+  "faris_shaman": {
+   "talk": "quiet",
+   "humour": "earnest",
+   "manner": "gentle",
+   "pace": "steady",
+   "is": [
+    "pious",
+    "outdoors"
+   ],
+   "likes": [
+    "gentle",
+    "pious",
+    "young"
+   ],
+   "dislikes": [
+    "loud"
+   ],
+   "tags": [
+    "growing",
+    "arabic",
+    "faith"
+   ],
+   "warm_to": [
+    "valentina_starcaller",
+    "mohammed_chronomancer",
+    "yusuf_venomancer"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "fiona_witchhunter": {
+   "talk": "middle",
+   "humour": "dry",
+   "manner": "blunt",
+   "pace": "careful",
+   "is": [
+    "honest"
+   ],
+   "likes": [
+    "careful",
+    "honest"
+   ],
+   "dislikes": [
+    "reckless"
+   ],
+   "tags": [
+    "numbers",
+    "scots"
+   ],
+   "warm_to": [
+    "henrik_mage",
+    "kourosh_mage",
+    "karim_felsworn"
+   ],
+   "wary_of": [],
+   "spar": [
+    "bashir_witchhunter"
+   ]
+  },
+  "freja_priest": {
+   "talk": "middle",
+   "humour": "dry",
+   "manner": "blunt",
+   "pace": "steady",
+   "is": [
+    "healer",
+    "young"
+   ],
+   "likes": [
+    "sarcastic",
+    "competitive",
+    "blunt"
+   ],
+   "dislikes": [
+    "posh",
+    "showoff"
+   ],
+   "tags": [
+    "medic",
+    "night_work",
+    "scandinavian"
+   ],
+   "warm_to": [
+    "ama_priest",
+    "berat_tinker",
+    "thiago_paladin"
+   ],
+   "wary_of": [],
+   "spar": [
+    "henrik_mage",
+    "astrid_starcaller"
+   ]
+  },
+  "gianluca_guardian": {
+   "talk": "talker",
+   "humour": "joker",
+   "manner": "gentle",
+   "pace": "steady",
+   "is": [
+    "host"
+   ],
+   "likes": [
+    "quiet",
+    "funny"
+   ],
+   "dislikes": [],
+   "tags": [
+    "kitchen",
+    "hosts",
+    "italian",
+    "parent"
+   ],
+   "warm_to": [
+    "mohammed_chronomancer"
+   ],
+   "wary_of": [],
+   "spar": [
+    "osvaldo_warlock",
+    "sebastian_bloodmage",
+    "vuk_knight"
+   ]
+  },
+  "giorgi_primalist": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "gentle",
+   "pace": "steady",
+   "is": [
+    "outdoors"
+   ],
+   "likes": [
+    "patient",
+    "outdoors"
+   ],
+   "dislikes": [
+    "loud"
+   ],
+   "tags": [
+    "mountains",
+    "animals",
+    "parent"
+   ],
+   "warm_to": [
+    "bakyt_hunter",
+    "pasang_primalist",
+    "eino_barbarian"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "graham_warlock": {
+   "talk": "middle",
+   "humour": "dry",
+   "manner": "gentle",
+   "pace": "careful",
+   "is": [
+    "healer"
+   ],
+   "likes": [
+    "gentle",
+    "healer"
+   ],
+   "dislikes": [],
+   "tags": [
+    "medic",
+    "night_work",
+    "north_england"
+   ],
+   "warm_to": [
+    "ama_priest",
+    "marisol_priest"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "gunnar_barbarian": {
+   "talk": "talker",
+   "humour": "joker",
+   "manner": "gentle",
+   "pace": "bold",
+   "is": [
+    "host",
+    "maker"
+   ],
+   "likes": [
+    "loud",
+    "funny",
+    "maker",
+    "quiet"
+   ],
+   "dislikes": [],
+   "tags": [
+    "kitchen",
+    "snow",
+    "animals"
+   ],
+   "warm_to": [
+    "vuk_knight",
+    "sebastian_bloodmage"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "hana_shaman": {
+   "talk": "middle",
+   "humour": "joker",
+   "manner": "blunt",
+   "pace": "bold",
+   "is": [
+    "young",
+    "outdoors",
+    "sporty"
+   ],
+   "likes": [
+    "funny",
+    "outdoors",
+    "sporty"
+   ],
+   "dislikes": [
+    "posh"
+   ],
+   "tags": [
+    "rescue"
+   ],
+   "warm_to": [
+    "carolina_shaman"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "haruto_runemaster": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "formal",
+   "pace": "careful",
+   "is": [
+    "artist",
+    "elder"
+   ],
+   "likes": [
+    "careful",
+    "quiet",
+    "formal"
+   ],
+   "dislikes": [
+    "loud",
+    "reckless"
+   ],
+   "tags": [
+    "craft"
+   ],
+   "warm_to": [
+    "kesten_the_catalogued",
+    "sophia_mage",
+    "pavlo_knight",
+    "junseo_reaper"
+   ],
+   "wary_of": [],
+   "spar": [
+    "santiago_runemaster"
+   ]
+  },
+  "hector_witchdoctor": {
+   "talk": "talker",
+   "humour": "joker",
+   "manner": "gentle",
+   "pace": "bold",
+   "is": [
+    "showoff",
+    "fighter"
+   ],
+   "likes": [
+    "loud",
+    "maker",
+    "fighter"
+   ],
+   "dislikes": [],
+   "tags": [
+    "ring",
+    "sport",
+    "spanish",
+    "mexico",
+    "parent"
+   ],
+   "warm_to": [
+    "emiliano_pyromancer",
+    "imelda_primalist"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "henrik_mage": {
+   "talk": "middle",
+   "humour": "dry",
+   "manner": "formal",
+   "pace": "careful",
+   "is": [
+    "scholar"
+   ],
+   "likes": [
+    "careful"
+   ],
+   "dislikes": [
+    "reckless",
+    "showoff"
+   ],
+   "tags": [
+    "numbers",
+    "engineers",
+    "scandinavian",
+    "parent"
+   ],
+   "warm_to": [
+    "kesten_the_catalogued",
+    "haruto_runemaster",
+    "sophia_mage"
+   ],
+   "wary_of": [],
+   "spar": [
+    "freja_priest"
+   ]
+  },
+  "iker_guardian": {
+   "talk": "talker",
+   "humour": "earnest",
+   "manner": "blunt",
+   "pace": "bold",
+   "is": [
+    "sporty",
+    "teacher",
+    "bossy"
+   ],
+   "likes": [
+    "loud",
+    "competitive",
+    "sporty"
+   ],
+   "dislikes": [],
+   "tags": [
+    "teacher",
+    "sport",
+    "spanish"
+   ],
+   "warm_to": [
+    "saoirse_starcaller",
+    "adrian_templar",
+    "imelda_primalist"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "ileana_necromancer": {
+   "talk": "middle",
+   "humour": "dry",
+   "manner": "blunt",
+   "pace": "careful",
+   "is": [
+    "artist",
+    "musician"
+   ],
+   "likes": [
+    "careful",
+    "honest"
+   ],
+   "dislikes": [
+    "loud",
+    "reckless",
+    "sentimental"
+   ],
+   "tags": [
+    "music"
+   ],
+   "warm_to": [
+    "haruto_runemaster",
+    "kesten_the_catalogued",
+    "reka_necromancer"
+   ],
+   "wary_of": [],
+   "spar": [
+    "osvaldo_warlock"
+   ]
+  },
+  "imelda_primalist": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "blunt",
+   "pace": "steady",
+   "is": [
+    "fighter",
+    "sporty"
+   ],
+   "likes": [
+    "fighter",
+    "blunt"
+   ],
+   "dislikes": [
+    "showoff"
+   ],
+   "tags": [
+    "ring",
+    "sport"
+   ],
+   "warm_to": [
+    "iker_guardian",
+    "bruno_templar",
+    "hector_witchdoctor"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "isla_witchhunter": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "blunt",
+   "pace": "careful",
+   "is": [
+    "outdoors",
+    "sporty"
+   ],
+   "likes": [
+    "careful",
+    "quiet"
+   ],
+   "dislikes": [
+    "loud",
+    "reckless"
+   ],
+   "tags": [
+    "scots",
+    "wild",
+    "sport"
+   ],
+   "warm_to": [
+    "ratih_ranger",
+    "rhys_ranger",
+    "bruno_templar",
+    "joaquin_suncleric"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "ivan_warrior": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "blunt",
+   "pace": "careful",
+   "is": [
+    "worker"
+   ],
+   "likes": [
+    "careful",
+    "worker"
+   ],
+   "dislikes": [
+    "reckless"
+   ],
+   "tags": [
+    "road",
+    "snow",
+    "parent"
+   ],
+   "warm_to": [
+    "dan_warrior"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "joaquin_suncleric": {
+   "talk": "quiet",
+   "humour": "earnest",
+   "manner": "gentle",
+   "pace": "careful",
+   "is": [
+    "teacher"
+   ],
+   "likes": [
+    "honest",
+    "gentle"
+   ],
+   "dislikes": [
+    "cynic"
+   ],
+   "tags": [
+    "teacher",
+    "ex_scarlet",
+    "spanish"
+   ],
+   "warm_to": [
+    "bruno_templar",
+    "pavlo_knight"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "junseo_reaper": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "gentle",
+   "pace": "steady",
+   "is": [
+    "worker"
+   ],
+   "likes": [
+    "quiet",
+    "worker"
+   ],
+   "dislikes": [
+    "loud",
+    "bossy"
+   ],
+   "tags": [
+    "factory",
+    "night_work"
+   ],
+   "warm_to": [
+    "haruto_runemaster"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "karim_felsworn": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "blunt",
+   "pace": "careful",
+   "is": [
+    "scholar"
+   ],
+   "likes": [
+    "honest",
+    "careful"
+   ],
+   "dislikes": [
+    "sentimental"
+   ],
+   "tags": [
+    "fel",
+    "numbers",
+    "desert",
+    "arabic"
+   ],
+   "warm_to": [
+    "henrik_mage",
+    "kourosh_mage",
+    "fiona_witchhunter"
+   ],
+   "wary_of": [],
+   "spar": [
+    "ziad_felsworn"
+   ]
+  },
+  "kesten_the_catalogued": {
+   "talk": "middle",
+   "humour": "earnest",
+   "manner": "formal",
+   "pace": "careful",
+   "is": [
+    "scholar"
+   ],
+   "likes": [
+    "patient",
+    "careful",
+    "scholar"
+   ],
+   "dislikes": [
+    "reckless"
+   ],
+   "tags": [
+    "numbers",
+    "names"
+   ],
+   "warm_to": [
+    "tarek_templar",
+    "stelios_necromancer",
+    "sophia_mage"
+   ],
+   "wary_of": [
+    "adrian_templar"
+   ],
+   "spar": []
+  },
+  "khalid_hunter": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "formal",
+   "pace": "careful",
+   "is": [
+    "outdoors"
+   ],
+   "likes": [
+    "quiet",
+    "dry"
+   ],
+   "dislikes": [
+    "loud"
+   ],
+   "tags": [
+    "birds",
+    "desert",
+    "arabic"
+   ],
+   "warm_to": [],
+   "wary_of": [],
+   "spar": [
+    "rhys_ranger",
+    "bakyt_hunter"
+   ]
+  },
+  "kiet_rogue": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "gentle",
+   "pace": "steady",
+   "is": [
+    "young"
+   ],
+   "likes": [
+    "quiet",
+    "scholar",
+    "elder"
+   ],
+   "dislikes": [
+    "loud"
+   ],
+   "tags": [
+    "road"
+   ],
+   "warm_to": [
+    "silas_rogue"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "kourosh_mage": {
+   "talk": "middle",
+   "humour": "dry",
+   "manner": "formal",
+   "pace": "careful",
+   "is": [
+    "scholar"
+   ],
+   "likes": [
+    "careful",
+    "reckless"
+   ],
+   "dislikes": [
+    "bossy"
+   ],
+   "tags": [
+    "numbers"
+   ],
+   "warm_to": [
+    "henrik_mage",
+    "kesten_the_catalogued",
+    "sophia_mage",
+    "fiona_witchhunter"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "liam_suncleric": {
+   "talk": "middle",
+   "humour": "joker",
+   "manner": "gentle",
+   "pace": "steady",
+   "is": [
+    "healer"
+   ],
+   "likes": [
+    "careful",
+    "healer",
+    "young"
+   ],
+   "dislikes": [],
+   "tags": [
+    "medic",
+    "fire_crew",
+    "rescue",
+    "aussie"
+   ],
+   "warm_to": [
+    "cristobal_knight",
+    "ama_priest",
+    "nicolas_bloodmage",
+    "skye_pyromancer",
+    "ziad_felsworn"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "lucia_suncleric": {
+   "talk": "talker",
+   "humour": "joker",
+   "manner": "gentle",
+   "pace": "steady",
+   "is": [
+    "pious",
+    "host"
+   ],
+   "likes": [
+    "loud",
+    "pious",
+    "quiet"
+   ],
+   "dislikes": [
+    "cynic",
+    "macabre"
+   ],
+   "tags": [
+    "faith",
+    "portuguese",
+    "brazil"
+   ],
+   "warm_to": [
+    "orlando_witchdoctor"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "luka_stormbringer": {
+   "talk": "middle",
+   "humour": "dry",
+   "manner": "blunt",
+   "pace": "careful",
+   "is": [
+    "outdoors",
+    "worker"
+   ],
+   "likes": [
+    "careful",
+    "worker",
+    "young"
+   ],
+   "dislikes": [
+    "reckless"
+   ],
+   "tags": [
+    "boats"
+   ],
+   "warm_to": [
+    "sondre_stormbringer",
+    "marcus_stormbringer"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "marco_paladin": {
+   "talk": "quiet",
+   "humour": "earnest",
+   "manner": "gentle",
+   "pace": "steady",
+   "is": [
+    "elder"
+   ],
+   "likes": [
+    "patient",
+    "young"
+   ],
+   "dislikes": [
+    "showoff",
+    "loud"
+   ],
+   "tags": [
+    "locks",
+    "italian",
+    "parent"
+   ],
+   "warm_to": [
+    "dan_warrior",
+    "enzo_cultist",
+    "pieter_guardian"
+   ],
+   "wary_of": [],
+   "spar": [
+    "emre_rogue",
+    "enzo_cultist"
+   ]
+  },
+  "marcus_stormbringer": {
+   "talk": "talker",
+   "humour": "earnest",
+   "manner": "gentle",
+   "pace": "careful",
+   "is": [
+    "scholar"
+   ],
+   "likes": [
+    "scholar",
+    "patient"
+   ],
+   "dislikes": [
+    "cynic"
+   ],
+   "tags": [
+    "sky"
+   ],
+   "warm_to": [
+    "luka_stormbringer",
+    "mateo_starcaller",
+    "minh_chronomancer"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "mariana_priest": {
+   "talk": "middle",
+   "humour": "earnest",
+   "manner": "gentle",
+   "pace": "careful",
+   "is": [
+    "healer"
+   ],
+   "likes": [
+    "careful",
+    "healer"
+   ],
+   "dislikes": [
+    "reckless"
+   ],
+   "tags": [
+    "medic",
+    "radiation",
+    "spanish",
+    "mexico"
+   ],
+   "warm_to": [
+    "ama_priest",
+    "freja_priest",
+    "taras_witchhunter",
+    "wes_warrior",
+    "neil_felsworn"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "marisol_priest": {
+   "talk": "middle",
+   "humour": "dry",
+   "manner": "gentle",
+   "pace": "steady",
+   "is": [
+    "healer"
+   ],
+   "likes": [
+    "patient",
+    "healer"
+   ],
+   "dislikes": [
+    "reckless"
+   ],
+   "tags": [
+    "medic",
+    "night_work",
+    "spanish"
+   ],
+   "warm_to": [
+    "graham_warlock"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "marta_tinker": {
+   "talk": "middle",
+   "humour": "dry",
+   "manner": "blunt",
+   "pace": "steady",
+   "is": [
+    "worker",
+    "maker"
+   ],
+   "likes": [
+    "worker",
+    "maker"
+   ],
+   "dislikes": [
+    "posh"
+   ],
+   "tags": [
+    "machines",
+    "factory",
+    "polish",
+    "parent"
+   ],
+   "warm_to": [
+    "diego_tinker",
+    "berat_tinker",
+    "zofia_cultist",
+    "ramiro_primalist",
+    "tomas_warrior"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "mateo_starcaller": {
+   "talk": "talker",
+   "humour": "earnest",
+   "manner": "gentle",
+   "pace": "careful",
+   "is": [
+    "scholar"
+   ],
+   "likes": [
+    "scholar",
+    "young"
+   ],
+   "dislikes": [],
+   "tags": [
+    "sky",
+    "machines",
+    "spanish",
+    "chile",
+    "parent"
+   ],
+   "warm_to": [
+    "marcus_stormbringer",
+    "minh_chronomancer",
+    "astrid_starcaller",
+    "valentina_starcaller"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "matias_reaper": {
+   "talk": "quiet",
+   "humour": "earnest",
+   "manner": "gentle",
+   "pace": "careful",
+   "is": [
+    "worker",
+    "young"
+   ],
+   "likes": [
+    "quiet",
+    "patient"
+   ],
+   "dislikes": [
+    "posh",
+    "loud"
+   ],
+   "tags": [
+    "road",
+    "spanish",
+    "chile"
+   ],
+   "warm_to": [
+    "cristobal_knight",
+    "esteban_bloodmage"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "minh_chronomancer": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "formal",
+   "pace": "careful",
+   "is": [
+    "scholar"
+   ],
+   "likes": [
+    "careful",
+    "quiet",
+    "young"
+   ],
+   "dislikes": [
+    "reckless",
+    "loud"
+   ],
+   "tags": [
+    "sky",
+    "night_work",
+    "parent"
+   ],
+   "warm_to": [
+    "marcus_stormbringer",
+    "mateo_starcaller",
+    "astrid_starcaller"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "mohammed_chronomancer": {
+   "talk": "talker",
+   "humour": "joker",
+   "manner": "gentle",
+   "pace": "steady",
+   "is": [
+    "host",
+    "pious"
+   ],
+   "likes": [
+    "loud",
+    "host",
+    "pious",
+    "young"
+   ],
+   "dislikes": [],
+   "tags": [
+    "hosts",
+    "arabic",
+    "faith"
+   ],
+   "warm_to": [
+    "gianluca_guardian",
+    "orlando_witchdoctor",
+    "faris_shaman"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "neil_felsworn": {
+   "talk": "middle",
+   "humour": "dry",
+   "manner": "blunt",
+   "pace": "careful",
+   "is": [
+    "worker"
+   ],
+   "likes": [
+    "careful"
+   ],
+   "dislikes": [
+    "reckless"
+   ],
+   "tags": [
+    "radiation",
+    "fel",
+    "north_england"
+   ],
+   "warm_to": [
+    "mariana_priest",
+    "wes_warrior",
+    "taras_witchhunter"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "nicolas_bloodmage": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "gentle",
+   "pace": "steady",
+   "is": [
+    "healer"
+   ],
+   "likes": [
+    "honest",
+    "healer"
+   ],
+   "dislikes": [
+    "cynic"
+   ],
+   "tags": [
+    "medic",
+    "rescue",
+    "blood",
+    "spanish"
+   ],
+   "warm_to": [
+    "liam_suncleric",
+    "ziad_felsworn"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "nizar_chronomancer": {
+   "talk": "middle",
+   "humour": "earnest",
+   "manner": "formal",
+   "pace": "careful",
+   "is": [
+    "scholar",
+    "teacher"
+   ],
+   "likes": [
+    "careful",
+    "gentle",
+    "young"
+   ],
+   "dislikes": [
+    "reckless"
+   ],
+   "tags": [
+    "teacher",
+    "numbers",
+    "arabic",
+    "parent"
+   ],
+   "warm_to": [
+    "pavlo_knight",
+    "kourosh_mage",
+    "henrik_mage"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "omar_venomancer": {
+   "talk": "middle",
+   "humour": "joker",
+   "manner": "gentle",
+   "pace": "steady",
+   "is": [
+    "worker"
+   ],
+   "likes": [
+    "funny",
+    "worker"
+   ],
+   "dislikes": [],
+   "tags": [
+    "venom",
+    "arabic"
+   ],
+   "warm_to": [
+    "camila_venomancer",
+    "callum_venomancer",
+    "tarek_templar"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "orlando_witchdoctor": {
+   "talk": "talker",
+   "humour": "joker",
+   "manner": "gentle",
+   "pace": "bold",
+   "is": [
+    "host"
+   ],
+   "likes": [
+    "loud",
+    "quiet"
+   ],
+   "dislikes": [
+    "blunt"
+   ],
+   "tags": [
+    "hosts",
+    "spanish"
+   ],
+   "warm_to": [
+    "lucia_suncleric",
+    "mohammed_chronomancer"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "osvaldo_warlock": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "blunt",
+   "pace": "steady",
+   "is": [
+    "musician",
+    "artist",
+    "cynic"
+   ],
+   "likes": [
+    "quiet",
+    "musician"
+   ],
+   "dislikes": [
+    "loud"
+   ],
+   "tags": [
+    "music",
+    "spanish"
+   ],
+   "warm_to": [
+    "ileana_necromancer"
+   ],
+   "wary_of": [],
+   "spar": [
+    "gianluca_guardian",
+    "ileana_necromancer"
+   ]
+  },
+  "owen_cultist": {
+   "talk": "middle",
+   "humour": "earnest",
+   "manner": "gentle",
+   "pace": "steady",
+   "is": [
+    "honest"
+   ],
+   "likes": [
+    "gentle",
+    "honest"
+   ],
+   "dislikes": [
+    "cynic"
+   ],
+   "tags": [
+    "the_dark",
+    "road",
+    "night_work",
+    "welsh"
+   ],
+   "warm_to": [
+    "rhys_ranger",
+    "rui_cultist",
+    "zofia_cultist",
+    "ama_priest",
+    "delroy_witchdoctor"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "pasang_primalist": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "gentle",
+   "pace": "careful",
+   "is": [
+    "outdoors"
+   ],
+   "likes": [
+    "patient",
+    "honest"
+   ],
+   "dislikes": [
+    "showoff"
+   ],
+   "tags": [
+    "mountains"
+   ],
+   "warm_to": [
+    "bakyt_hunter",
+    "giorgi_primalist"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "pavlo_knight": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "gentle",
+   "pace": "steady",
+   "is": [
+    "teacher"
+   ],
+   "likes": [
+    "scholar",
+    "young"
+   ],
+   "dislikes": [],
+   "tags": [
+    "teacher",
+    "ukrainian",
+    "parent"
+   ],
+   "warm_to": [
+    "kesten_the_catalogued",
+    "sophia_mage",
+    "joaquin_suncleric",
+    "nizar_chronomancer",
+    "bruno_templar"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "pieter_guardian": {
+   "talk": "middle",
+   "humour": "dry",
+   "manner": "blunt",
+   "pace": "careful",
+   "is": [
+    "worker"
+   ],
+   "likes": [
+    "careful",
+    "worker"
+   ],
+   "dislikes": [
+    "reckless"
+   ],
+   "tags": [
+    "parent",
+    "docks"
+   ],
+   "warm_to": [
+    "dan_warrior",
+    "marco_paladin"
+   ],
+   "wary_of": [],
+   "spar": [
+    "cristobal_knight"
+   ]
+  },
+  "ramiro_primalist": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "blunt",
+   "pace": "careful",
+   "is": [
+    "worker"
+   ],
+   "likes": [
+    "worker",
+    "maker"
+   ],
+   "dislikes": [
+    "loud"
+   ],
+   "tags": [
+    "stone",
+    "mountains",
+    "spanish",
+    "parent"
+   ],
+   "warm_to": [
+    "marta_tinker",
+    "eino_barbarian"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "ratih_ranger": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "blunt",
+   "pace": "careful",
+   "is": [
+    "outdoors"
+   ],
+   "likes": [
+    "quiet"
+   ],
+   "dislikes": [
+    "loud"
+   ],
+   "tags": [
+    "wild"
+   ],
+   "warm_to": [
+    "rosa_hunter",
+    "rhys_ranger",
+    "isla_witchhunter"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "reka_necromancer": {
+   "talk": "middle",
+   "humour": "joker",
+   "manner": "blunt",
+   "pace": "steady",
+   "is": [
+    "artist",
+    "macabre"
+   ],
+   "likes": [
+    "artist",
+    "dry",
+    "sarcastic"
+   ],
+   "dislikes": [
+    "pious"
+   ],
+   "tags": [
+    "craft",
+    "animals"
+   ],
+   "warm_to": [
+    "ileana_necromancer",
+    "stelios_necromancer",
+    "santiago_runemaster"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "rhys_ranger": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "gentle",
+   "pace": "careful",
+   "is": [
+    "outdoors",
+    "young"
+   ],
+   "likes": [
+    "quiet",
+    "gentle"
+   ],
+   "dislikes": [
+    "loud"
+   ],
+   "tags": [
+    "birds",
+    "wild",
+    "welsh",
+    "animals"
+   ],
+   "warm_to": [
+    "owen_cultist",
+    "taras_witchhunter",
+    "ratih_ranger"
+   ],
+   "wary_of": [],
+   "spar": [
+    "bakyt_hunter",
+    "khalid_hunter"
+   ]
+  },
+  "rosa_hunter": {
+   "talk": "middle",
+   "humour": "dry",
+   "manner": "blunt",
+   "pace": "steady",
+   "is": [
+    "outdoors",
+    "honest"
+   ],
+   "likes": [
+    "blunt",
+    "honest"
+   ],
+   "dislikes": [
+    "sentimental"
+   ],
+   "tags": [
+    "wild",
+    "spanish"
+   ],
+   "warm_to": [
+    "tarek_templar",
+    "ratih_ranger",
+    "callum_venomancer"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "rui_cultist": {
+   "talk": "quiet",
+   "humour": "earnest",
+   "manner": "gentle",
+   "pace": "careful",
+   "is": [
+    "sentimental"
+   ],
+   "likes": [
+    "gentle",
+    "quiet"
+   ],
+   "dislikes": [
+    "showoff"
+   ],
+   "tags": [
+    "the_dark",
+    "boats",
+    "portuguese"
+   ],
+   "warm_to": [
+    "owen_cultist",
+    "zofia_cultist"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "ryan_warlock": {
+   "talk": "middle",
+   "humour": "joker",
+   "manner": "blunt",
+   "pace": "steady",
+   "is": [
+    "honest",
+    "cynic",
+    "posh"
+   ],
+   "likes": [
+    "honest",
+    "blunt"
+   ],
+   "dislikes": [
+    "pious"
+   ],
+   "tags": [
+    "irish",
+    "parent"
+   ],
+   "warm_to": [
+    "esteban_bloodmage",
+    "silas_rogue"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "santiago_runemaster": {
+   "talk": "middle",
+   "humour": "joker",
+   "manner": "gentle",
+   "pace": "steady",
+   "is": [
+    "artist"
+   ],
+   "likes": [
+    "artist",
+    "maker"
+   ],
+   "dislikes": [],
+   "tags": [
+    "craft",
+    "spanish"
+   ],
+   "warm_to": [
+    "reka_necromancer"
+   ],
+   "wary_of": [],
+   "spar": [
+    "haruto_runemaster"
+   ]
+  },
+  "saoirse_starcaller": {
+   "talk": "talker",
+   "humour": "joker",
+   "manner": "blunt",
+   "pace": "bold",
+   "is": [
+    "sporty",
+    "competitive",
+    "teacher"
+   ],
+   "likes": [
+    "loud",
+    "reckless",
+    "funny",
+    "young"
+   ],
+   "dislikes": [
+    "sentimental"
+   ],
+   "tags": [
+    "sport",
+    "irish",
+    "teacher"
+   ],
+   "warm_to": [
+    "iker_guardian"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "sebastian_bloodmage": {
+   "talk": "talker",
+   "humour": "joker",
+   "manner": "gentle",
+   "pace": "bold",
+   "is": [
+    "host"
+   ],
+   "likes": [
+    "loud"
+   ],
+   "dislikes": [],
+   "tags": [
+    "kitchen",
+    "hosts",
+    "spanish",
+    "blood"
+   ],
+   "warm_to": [
+    "gunnar_barbarian",
+    "gianluca_guardian"
+   ],
+   "wary_of": [],
+   "spar": [
+    "vuk_knight",
+    "gianluca_guardian"
+   ]
+  },
+  "silas_rogue": {
+   "talk": "middle",
+   "humour": "joker",
+   "manner": "gentle",
+   "pace": "steady",
+   "is": [
+    "cynic"
+   ],
+   "likes": [
+    "funny",
+    "cynic"
+   ],
+   "dislikes": [
+    "pious"
+   ],
+   "tags": [
+    "docks"
+   ],
+   "warm_to": [
+    "ryan_warlock",
+    "kiet_rogue"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "skye_pyromancer": {
+   "talk": "talker",
+   "humour": "joker",
+   "manner": "blunt",
+   "pace": "careful",
+   "is": [
+    "outdoors"
+   ],
+   "likes": [
+    "funny",
+    "worker"
+   ],
+   "dislikes": [
+    "reckless",
+    "showoff"
+   ],
+   "tags": [
+    "fire_crew",
+    "rescue",
+    "aussie",
+    "animals"
+   ],
+   "warm_to": [
+    "cristobal_knight",
+    "liam_suncleric",
+    "callum_venomancer"
+   ],
+   "wary_of": [
+    "emiliano_pyromancer"
+   ],
+   "spar": [
+    "alonso_pyromancer",
+    "callum_venomancer"
+   ]
+  },
+  "sondre_stormbringer": {
+   "talk": "middle",
+   "humour": "dry",
+   "manner": "gentle",
+   "pace": "careful",
+   "is": [
+    "young",
+    "outdoors",
+    "teacher"
+   ],
+   "likes": [
+    "gentle",
+    "quiet",
+    "outdoors"
+   ],
+   "dislikes": [
+    "reckless",
+    "showoff"
+   ],
+   "tags": [
+    "boats",
+    "teacher",
+    "scandinavian"
+   ],
+   "warm_to": [
+    "luka_stormbringer"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "sophia_mage": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "formal",
+   "pace": "careful",
+   "is": [
+    "scholar",
+    "posh"
+   ],
+   "likes": [
+    "quiet",
+    "scholar"
+   ],
+   "dislikes": [
+    "loud"
+   ],
+   "tags": [
+    "greek"
+   ],
+   "warm_to": [
+    "kesten_the_catalogued",
+    "stelios_necromancer",
+    "haruto_runemaster"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "stelios_necromancer": {
+   "talk": "middle",
+   "humour": "dry",
+   "manner": "formal",
+   "pace": "steady",
+   "is": [
+    "honest"
+   ],
+   "likes": [
+    "formal",
+    "honest"
+   ],
+   "dislikes": [],
+   "tags": [
+    "names",
+    "greek",
+    "parent"
+   ],
+   "warm_to": [
+    "kesten_the_catalogued",
+    "sophia_mage",
+    "reka_necromancer"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "taras_witchhunter": {
+   "talk": "middle",
+   "humour": "dry",
+   "manner": "gentle",
+   "pace": "careful",
+   "is": [
+    "macabre"
+   ],
+   "likes": [
+    "careful",
+    "dry"
+   ],
+   "dislikes": [
+    "reckless"
+   ],
+   "tags": [
+    "radiation",
+    "animals",
+    "ukrainian"
+   ],
+   "warm_to": [
+    "mariana_priest",
+    "rhys_ranger",
+    "khalid_hunter",
+    "wes_warrior",
+    "neil_felsworn"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "tarek_templar": {
+   "talk": "middle",
+   "humour": "earnest",
+   "manner": "gentle",
+   "pace": "steady",
+   "is": [
+    "honest",
+    "host"
+   ],
+   "likes": [
+    "honest",
+    "funny"
+   ],
+   "dislikes": [],
+   "tags": [
+    "engineers",
+    "arabic"
+   ],
+   "warm_to": [
+    "adrian_templar",
+    "kesten_the_catalogued",
+    "rosa_hunter",
+    "omar_venomancer"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "thiago_paladin": {
+   "talk": "talker",
+   "humour": "earnest",
+   "manner": "gentle",
+   "pace": "steady",
+   "is": [
+    "healer"
+   ],
+   "likes": [
+    "healer"
+   ],
+   "dislikes": [
+    "cynic"
+   ],
+   "tags": [
+    "medic",
+    "portuguese",
+    "brazil"
+   ],
+   "warm_to": [
+    "ama_priest",
+    "freja_priest",
+    "liam_suncleric"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "tobias_paladin": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "gentle",
+   "pace": "careful",
+   "is": [
+    "maker"
+   ],
+   "likes": [
+    "maker",
+    "quiet"
+   ],
+   "dislikes": [
+    "reckless"
+   ],
+   "tags": [
+    "stone",
+    "music"
+   ],
+   "warm_to": [
+    "bashir_witchhunter",
+    "kesten_the_catalogued",
+    "dale_reaper"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "tomas_warrior": {
+   "talk": "middle",
+   "humour": "joker",
+   "manner": "gentle",
+   "pace": "careful",
+   "is": [
+    "worker"
+   ],
+   "likes": [
+    "funny",
+    "maker"
+   ],
+   "dislikes": [
+    "loud",
+    "reckless"
+   ],
+   "tags": [
+    "machines"
+   ],
+   "warm_to": [
+    "marta_tinker",
+    "diego_tinker"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "valentina_starcaller": {
+   "talk": "talker",
+   "humour": "joker",
+   "manner": "gentle",
+   "pace": "bold",
+   "is": [
+    "teacher",
+    "young"
+   ],
+   "likes": [
+    "young",
+    "loud"
+   ],
+   "dislikes": [],
+   "tags": [
+    "sky",
+    "desert",
+    "spanish",
+    "chile",
+    "portuguese"
+   ],
+   "warm_to": [
+    "faris_shaman",
+    "mateo_starcaller"
+   ],
+   "wary_of": [],
+   "spar": [
+    "astrid_starcaller"
+   ]
+  },
+  "vuk_knight": {
+   "talk": "middle",
+   "humour": "joker",
+   "manner": "blunt",
+   "pace": "steady",
+   "is": [
+    "host"
+   ],
+   "likes": [
+    "blunt",
+    "loud",
+    "young"
+   ],
+   "dislikes": [],
+   "tags": [
+    "kitchen",
+    "hosts",
+    "parent"
+   ],
+   "warm_to": [
+    "gianluca_guardian"
+   ],
+   "wary_of": [],
+   "spar": [
+    "sebastian_bloodmage",
+    "gianluca_guardian"
+   ]
+  },
+  "wes_warrior": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "gentle",
+   "pace": "careful",
+   "is": [
+    "worker"
+   ],
+   "likes": [
+    "careful"
+   ],
+   "dislikes": [
+    "reckless"
+   ],
+   "tags": [
+    "radiation",
+    "american",
+    "parent"
+   ],
+   "warm_to": [
+    "taras_witchhunter",
+    "mariana_priest",
+    "neil_felsworn"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "yusuf_venomancer": {
+   "talk": "middle",
+   "humour": "dry",
+   "manner": "blunt",
+   "pace": "careful",
+   "is": [
+    "healer",
+    "elder",
+    "bossy"
+   ],
+   "likes": [
+    "healer",
+    "young"
+   ],
+   "dislikes": [
+    "reckless"
+   ],
+   "tags": [
+    "medic",
+    "venom",
+    "arabic",
+    "parent"
+   ],
+   "warm_to": [
+    "camila_venomancer",
+    "faris_shaman"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "ziad_felsworn": {
+   "talk": "talker",
+   "humour": "joker",
+   "manner": "blunt",
+   "pace": "bold",
+   "is": [
+    "healer",
+    "cynic"
+   ],
+   "likes": [
+    "healer"
+   ],
+   "dislikes": [
+    "pious"
+   ],
+   "tags": [
+    "medic",
+    "rescue",
+    "fel",
+    "arabic"
+   ],
+   "warm_to": [
+    "liam_suncleric",
+    "nicolas_bloodmage",
+    "ama_priest",
+    "elie_bloodmage"
+   ],
+   "wary_of": [],
+   "spar": [
+    "karim_felsworn"
+   ]
+  },
+  "zofia_cultist": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "blunt",
+   "pace": "steady",
+   "is": [
+    "sarcastic"
+   ],
+   "likes": [
+    "honest",
+    "sarcastic"
+   ],
+   "dislikes": [
+    "posh"
+   ],
+   "tags": [
+    "the_dark",
+    "polish"
+   ],
+   "warm_to": [
+    "marta_tinker",
+    "rui_cultist",
+    "owen_cultist"
+   ],
+   "wary_of": [],
+   "spar": []
+  }
+ },
+ "lines": {},
+ "pairs": []
+}

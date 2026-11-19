@@ -23,6 +23,10 @@ to have been picked up by the same person, and the player is the only thing they
 
 So the hard rule, enforced by tools/qa_banter.py rather than by good intentions:
     A LINE MAY NEVER NAME ANOTHER COMPANION, and may never imply a shared past with one.
+(Wave 3, Nov 2026: once two recruits have actually travelled together they get to know each other,
+in world/relationship_manager.py, with its own lines and its own rules. Those beats come through the
+same panel. The lines in THIS file still never name anybody, because they're said in front of
+whoever happens to be there.)
 A line talks about the EVENT, about the speaker's own life, or to the player. Two strangers reacting to
 the same dungeon is a real conversation and a more interesting one than two old friends performing a
 rapport they were handed.
@@ -154,6 +158,21 @@ class BanterManager:
         self.since_last_beat += dt
         if self.current and not self.current.update(dt):
             self.current = None
+        if self.current is None:
+            self._relationship_beat()
+
+    def _relationship_beat(self):
+        """Wave 3 (world/relationship_manager.py): when the panel is free, show the next thing two
+        recruits said to each other. Those beats are queued by events, not rolled for here."""
+        try:
+            from world.bond_manager import get_bond_manager
+            bm = get_bond_manager()
+            lines = bm.rel.pop_beat(self.since_last_beat)
+        except Exception:
+            return
+        if lines:
+            self.current = BanterBeat([(rid, bm.name_of(rid), f"\"{t}\"") for rid, t in lines], hold=6.0)
+            self.since_last_beat = 0.0
 
     def _eligible(self, trigger, party_ids, kind, zone=None, exclude=(), topic=None):
         out = []

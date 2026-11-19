@@ -100,7 +100,11 @@ class BondManager:
         self.pairs_heard = []
         self.log = []                   # [(rid, text)] for the test panel and the party screen
         self.party = None
+        self._last_taken = None         # (rid, slot, deeds): the last piece taken off somebody
         self._load()
+        # Wave 3: how the recruits get on with each other (world/relationship_manager.py)
+        from world.relationship_manager import RelationshipManager
+        self.rel = RelationshipManager(self)
 
     def _load(self):
         try:
@@ -245,14 +249,17 @@ class BondManager:
                 self.say(rid, self.line(rid, "neglect"))
             else:
                 self.say(rid, self.line(rid, "back"))
+            self.rel.on_back(rid, [m.recruit_id for m in self._members(self.party)])
         b.stints += 1
 
     def depart(self, b, cause, angry=False, quiet=False):
         """Send them home now. The caller has already checked it's a safe point."""
         key = {"stint": "leaving_good", "bored": "leaving_bored", "wipe": "wipe_leave",
                "zone": "zone_leave"}.get(cause, "leaving_good")
+        # (a short first stint with no goodbye question, like Tomas's, is just a short first stint)
         if cause == "stint" and b.stage == 0 and b.data.get("first_stint_short") \
-                and "first_goodbye" not in b.moments_done:
+                and "first_goodbye" not in b.moments_done \
+                and any(x["id"] == "first_goodbye" for x in b.data.get("moments", [])):
             # Adrián's first goodbye is a question, not a departure: the party screen asks it
             if b.pending != "first_goodbye":
                 b.pending = "first_goodbye"
@@ -262,6 +269,7 @@ class BondManager:
             return False
         if not quiet:
             self.say(b.rid, self.line(b.rid, key))
+        self.rel.on_left(b.rid, [m.recruit_id for m in self._members(self.party) if m.recruit_id != b.rid])
         b.in_party = False
         b.away = True
         b.angry = angry
@@ -335,6 +343,9 @@ class BondManager:
             if b.short:
                 self._mood(b, -4 * b.dial("pride"))
         self._pairs(here)
+        for rid, v in self.rel.on_outing([b.rid for b in here], kind).items():
+            if v:
+                self._mood(self.bonds[rid], v)
         if zone is None or not self._is_dungeon(zone):
             self.safe_point(party)
 
@@ -367,6 +378,7 @@ class BondManager:
         """The whole party died. Returns the ids of anyone who walked out on the spot."""
         party = party or self.party
         gone = []
+        self.rel.on_wipe([b.rid for b in self._in(party)])
         for b in self._in(party):
             b.wipes += 1
             nerve = b.dial("nerve")
@@ -411,7 +423,13 @@ class BondManager:
             if b.short and b.mood > LEAVE:
                 self._mood(b, -3 * b.dial("pride"))
         if self._is_town(zone):
+            self.rel.on_rest([m.recruit_id for m in self._members(party)])
             self.safe_point(party)
+
+    def on_close_call(self, party, hurt):
+        """Members who ended a fight on almost nothing (combat_engine)."""
+        self.rel.on_close_call([m.recruit_id for m in self._members(party or self.party)],
+                               [getattr(m, "recruit_id", None) for m in hurt])
 
     # ------------------------------------------------------------ gear
     def may_take(self, rid):
@@ -429,6 +447,7 @@ class BondManager:
             return
         if refilled:
             return
+        self._last_taken = (rid, slot, self.deeds)
         if slot not in b.short:
             b.short.append(slot)
         self._mood(b, -6 * b.dial("pride"))
@@ -441,6 +460,9 @@ class BondManager:
             return
         if slot in b.short:
             b.short.remove(slot)
+        lt, self._last_taken = self._last_taken, None
+        if lt and lt[0] != rid and lt[1] == slot and self.deeds - lt[2] <= 1:
+            self.rel.on_gear_moved(lt[0], rid, better)       # handed from one of them to another
         if better:
             self._trust(b, GAIN["upgrade"])
             self._mood(b, 8)
@@ -614,7 +636,8 @@ class BondManager:
     # ------------------------------------------------------------ save
     def to_dict(self):
         return {"deeds": self.deeds, "pair_time": self.pair_time, "pairs_heard": self.pairs_heard,
-                "bonds": {rid: b.to_dict() for rid, b in self.bonds.items()}}
+                "bonds": {rid: b.to_dict() for rid, b in self.bonds.items()},
+                "relationships": self.rel.to_dict()}
 
     def load_state(self, d):
         d = d or {}
@@ -624,6 +647,7 @@ class BondManager:
         for rid, bd in (d.get("bonds") or {}).items():
             if rid in self.bonds:
                 self.bonds[rid].load(bd)
+        self.rel.load_state(d.get("relationships"))
 
 
 _bond_manager = None

@@ -1057,11 +1057,14 @@ class CombatEngine:
             # the LAST boss of a dungeon moves the auction house on six hours (world/market/market.py)
             from world.market.market import on_boss_down
             on_boss_down(self.party, self.enemies)
-        else:
-            hurt = [m for m in getattr(self.party, "members", [])
-                    if getattr(m, "health", 0) and m.current_health / m.health <= 0.15]
-            if hurt:
-                banter.fire("close_call", self.party, zone=self.zone)
+        hurt = [m for m in getattr(self.party, "members", [])
+                if getattr(m, "health", 0) and m.current_health / m.health <= 0.15]
+        if hurt and not any(getattr(e, "is_boss", False) for e in self.enemies):
+            banter.fire("close_call", self.party, zone=self.zone)
+        alive = [m for m in hurt if m.current_health > 0]
+        if alive:
+            # Wave 3: the healer who pulled them through, and a friend who saw it (relationship_manager)
+            get_bond_manager().on_close_call(self.party, alive)
 
         # XP is summed across every enemy, then awarded to the whole roster.
         # Active members get full value, benched get a reduced share.

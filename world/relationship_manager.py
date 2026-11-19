@@ -1,0 +1,690 @@
+"""Wave 3: the recruits get to know each other.
+
+Kyle, 19 Nov 2026, on the four open calls: neighbours start on nodding terms (yes); once they're
+friendly a line may use the other one's first name (yes); no romance between recruits; rivals never
+refuse to share a party. And: "I'd like more complex interactions that you can manage. Don't skimp
+out, this is very important."
+
+Text: data/npcs/relationships.json, written by tools/build_relationships.py from tools/wave3/.
+Hooked in by world/bond_manager.py, which owns one of these and saves it with the bonds.
+
+HOW TWO RECRUITS GET ON
+  affinity   one number per pair, -100 to 100, the same from both sides.
+  chemistry  what each outing together does to it. Worked out once from the two people's traits:
+             how they talk, what makes them laugh, how they handle people, how they take risks,
+             what each of them likes and can't stand in other people, what they have in common
+             from Earth, and anyone their profile says they'd warm to or grate on.
+  familiarity  time together wears the edges off. Each shared outing adds a little more, so a
+             pair who grate at first can come round if they keep travelling together, and a pair
+             whose chemistry is really bad never quite do.
+  events     a wipe together, a healer dragging you back from almost nothing, the player handing
+             one of them the other's gear, and what they say to each other when they talk.
+
+STATES (with a little slack either side so they don't flicker)
+  strangers -> nodding (met) -> friendly (20) -> close friends (55)
+                          \\-> grating (-20) -> rivals (-50)
+  Neighbours (the same home in bonds.json) start at nodding.
+
+WHAT THEY SAY
+  Every recruit has their own pool of lines, one file each in tools/wave3/. A beat is two to four
+  lines from two or three people's pools, picked by the pair's state and by the other person's
+  traits: a joker teased about being quiet teases back, a formal one bristles and the teaser either
+  apologises or digs in; a gentle one needled after a wipe goes quiet, and a friend of theirs in the
+  party tells the needler to leave it. Then there are the one-off moments: meeting, finding out you
+  both worked nights, becoming friends, falling out, making up, and the hand-written arcs for the
+  pairs whose profiles name each other (signature pairs).
+
+  A line may use {name} (the other person's first name) only in the keys listed in NAMED below,
+  which are the ones that can only happen once they're friendly. Nothing else names anybody.
+
+EFFECTS
+  Mood only, through the bond: friends along lift it, rivals along wear it down. No refusals and
+  nothing in combat.
+"""
+import json
+import random
+from pathlib import Path
+
+DATA = Path(__file__).resolve().parent.parent / "data" / "npcs" / "relationships.json"
+
+FRIENDLY, CLOSE, GRATING, RIVALS = 20, 55, -20, -50
+#: the slack: once in a state you stay until affinity crosses back past these
+LEAVE = {"friendly": 15, "close": 48, "grating": -14, "rivals": -42}
+STATE_NAMES = {"strangers": "Strangers", "nodding": "On nodding terms", "friendly": "Friendly",
+               "close": "Close friends", "grating": "Grating", "rivals": "Rivals"}
+GOOD = ("friendly", "close")
+BAD = ("grating", "rivals")
+NEIGHBOUR_START = 6
+
+#: chance of one ordinary conversation at the end of an outing, and at a town rest
+AMBIENT_CHANCE = 0.55
+REST_CHANCE = 0.30
+#: chance a shared bit of Earth comes up, per outing, for a pair that hasn't found it yet
+TAG_CHANCE = 0.35
+#: seconds after the last beat before a queued relationship beat is shown
+GAP = 12.0
+#: beats waiting longer than this many outings are dropped; nobody wants an old conversation
+STALE = 2
+
+#: the keys that can only happen between friends, so {name} is allowed in them
+NAMED = {"tease_quiet", "tease_talker", "tease_careful", "tease_bold", "tease_any", "tease_back",
+         "take_it_kindly", "bristle", "look_out", "accept", "deflect", "confide", "listen",
+         "check_in", "worry", "turn_friendly", "turn_friends", "make_up", "defend", "friend_left",
+         "friend_back"}
+#: everything a recruit's pool should have; common_<tag> comes on top, one per tag they carry
+KEYS = ("meet", "meet_neighbour", "ask_home", "ask_work", "answer_home", "answer_work",
+        "chat_food", "chat_sleep", "chat_missing", "chat_here",
+        "tease_quiet", "tease_talker", "tease_careful", "tease_bold", "tease_any",
+        "tease_back", "take_it_kindly", "bristle",
+        "needle_quiet", "needle_talker", "needle_careful", "needle_bold", "needle_any",
+        "bite_back", "hurt", "laugh_off", "apologise", "double_down",
+        "confide", "listen", "look_out", "accept", "deflect", "check_in", "blame",
+        "thank", "brush_off", "worry", "handed_down", "hand_fine", "hand_sulk",
+        "turn_friendly", "turn_friends", "turn_grating", "turn_rivals", "make_up",
+        "defend", "friend_left", "friend_back")
+CHAT_TOPICS = ("food", "sleep", "missing", "here")
+
+# ---------------------------------------------------------------- chemistry (tunable)
+HUMOUR = {("joker", "joker"): 3, ("dry", "dry"): 2, ("dry", "joker"): 1, ("earnest", "earnest"): 1,
+          ("earnest", "joker"): -1}
+PACE = {("bold", "careful"): -2, ("careful", "careful"): 1, ("bold", "bold"): 1}
+MANNER = {("blunt", "blunt"): 1, ("blunt", "gentle"): -1, ("formal", "formal"): 1,
+          ("blunt", "formal"): -1}
+TALK = {("quiet", "talker"): -1.5, ("talker", "talker"): 1, ("quiet", "quiet"): 1}
+LIKE, LIKE_CAP = 2.0, 4.0
+DISLIKE, DISLIKE_CAP = -2.5, -5.0
+TAG, TAG_CAP = 1.5, 4.5
+WARM, WARY, SPAR = 3.0, -3.0, 2.0
+FORMAL_JOKER = -1.0
+
+
+def _pair(table, a, b):
+    return table.get(tuple(sorted((a, b))), 0)
+
+
+def described(t):
+    """What other people notice about someone: their explicit descriptors plus the ones their
+    traits give them (a talker is loud, a bold one is reckless, and so on)."""
+    out = set(t.get("is", []))
+    out |= {"loud"} if t.get("talk") == "talker" else {"quiet"} if t.get("talk") == "quiet" else set()
+    out |= {"careful"} if t.get("pace") == "careful" else {"reckless"} if t.get("pace") == "bold" else set()
+    out |= {"funny"} if t.get("humour") == "joker" else {t.get("humour")} if t.get("humour") else set()
+    if t.get("manner"):
+        out.add(t["manner"])
+    return out
+
+
+def chemistry(ta, tb, a, b):
+    """How an outing together tends to go for these two. Positive pulls them together."""
+    c = _pair(HUMOUR, ta.get("humour"), tb.get("humour"))
+    c += _pair(PACE, ta.get("pace"), tb.get("pace"))
+    c += _pair(MANNER, ta.get("manner"), tb.get("manner"))
+    c += _pair(TALK, ta.get("talk"), tb.get("talk"))
+    if {ta.get("manner"), tb.get("humour")} == {"formal", "joker"} \
+            or {tb.get("manner"), ta.get("humour")} == {"formal", "joker"}:
+        c += FORMAL_JOKER
+    for x, y in ((ta, tb), (tb, ta)):
+        seen = described(y)
+        c += min(LIKE_CAP, LIKE * len(seen & set(x.get("likes", []))))
+        c += max(DISLIKE_CAP, DISLIKE * len(seen & set(x.get("dislikes", []))))
+    c += min(TAG_CAP, TAG * len(set(ta.get("tags", [])) & set(tb.get("tags", []))))
+    for x, other in ((ta, b), (tb, a)):
+        if other in x.get("warm_to", []):
+            c += WARM
+        if other in x.get("wary_of", []):
+            c += WARY
+        if other in x.get("spar", []):
+            c += SPAR
+    return c
+
+
+#: how hard chemistry pulls each outing. With the median pair (chemistry about 2) that's friendly
+#: after twenty-odd outings together and close friends after sixty; a pair the profiles say would
+#: click (10 and up) are friends inside one long stint, and a pair who clash (-6) are grating
+#: in about ten and rivals by thirty unless something happens between them.
+PULL = 0.3
+
+
+def familiarity(outings):
+    """Time together wears the edges off: a little at first, more the longer they've travelled."""
+    return 0.1 + min(0.8, outings * 0.02)
+
+
+def next_state(old, a):
+    """Where a pair stands at affinity a, given where they stood. Each state holds on a little past
+    the line that got them into it, so one bad day doesn't undo a friendship."""
+    if a <= RIVALS or (old == "rivals" and a <= LEAVE["rivals"]):
+        return "rivals"
+    if a <= GRATING or (old in BAD and a <= LEAVE["grating"]):
+        return "grating"
+    if a >= CLOSE or (old == "close" and a >= LEAVE["close"]):
+        return "close"
+    if a >= FRIENDLY or (old in GOOD and a >= LEAVE["friendly"]):
+        return "friendly"
+    return "nodding"
+
+
+def talk_speed(ta, tb):
+    talks = {ta.get("talk"), tb.get("talk")}
+    if talks == {"quiet"}:
+        return 0.6
+    if "talker" in talks:
+        return 1.25
+    return 1.0
+
+
+class Rel:
+    """One pair. a and b are in sorted order."""
+
+    def __init__(self, a, b):
+        self.a, self.b = a, b
+        self.affinity = 0.0
+        self.state = "strangers"
+        self.outings = 0
+        self.wipes = 0
+        self.saves = {}                 # healer rid -> times they pulled the other through
+        self.gifts = 0                  # gear passed between them by the player
+        self.quarrels = 0
+        self.was_bad = False            # has ever been grating or rivals
+        self.met_said = False           # the introduction has been spoken
+        self.tags_found = []
+        self.milestones = []            # turn_friendly, turn_friends, ... once each
+        self.heard = []                 # line ids already used for this pair, so it doesn't repeat
+        self.sig_step = 0               # next step of their signature arc, if they have one
+        self.sig_at = 0                 # outings when the last signature step played
+
+    def other(self, rid):
+        return self.b if rid == self.a else self.a
+
+    def to_dict(self):
+        return dict(self.__dict__)
+
+    def load(self, d):
+        for k, v in d.items():
+            if k in self.__dict__:
+                setattr(self, k, v)
+
+
+class RelationshipManager:
+    def __init__(self, bonds=None):
+        self.bm = bonds                 # the BondManager that owns this one
+        self.traits, self.lines, self.sigs = {}, {}, {}
+        self.rels = {}
+        self.queue = []                 # [(priority, deed stamp, [(rid, text)])]
+        self.log = []
+        self._chem = {}
+        self._load()
+
+    def _load(self):
+        try:
+            raw = json.loads(DATA.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            return
+        self.traits = raw.get("traits") or {}
+        self.lines = raw.get("lines") or {}
+        for p in raw.get("pairs") or []:
+            self.sigs[self.key(p["a"], p["b"])] = p
+
+    # ------------------------------------------------------------ helpers
+    @staticmethod
+    def key(a, b):
+        return "|".join(sorted((a, b)))
+
+    def has(self, rid):
+        return rid in self.traits
+
+    def rel(self, a, b):
+        k = self.key(a, b)
+        r = self.rels.get(k)
+        if r is None:
+            x, y = sorted((a, b))
+            r = self.rels[k] = Rel(x, y)
+            if self._neighbours(x, y):
+                r.affinity = NEIGHBOUR_START
+                r.state = "nodding"
+        return r
+
+    def state(self, a, b):
+        r = self.rels.get(self.key(a, b))
+        if r is None:
+            return "nodding" if self._neighbours(a, b) else "strangers"
+        return r.state
+
+    def chem(self, a, b):
+        k = self.key(a, b)
+        if k not in self._chem:
+            self._chem[k] = chemistry(self.traits.get(a, {}), self.traits.get(b, {}), a, b)
+        return self._chem[k]
+
+    def _neighbours(self, a, b):
+        try:
+            ha = self.bm.bonds[a].data.get("home")
+            hb = self.bm.bonds[b].data.get("home")
+            return bool(ha) and ha == hb
+        except (AttributeError, KeyError):
+            return False
+
+    def _t(self, rid):
+        return self.traits.get(rid, {})
+
+    def first(self, rid):
+        try:
+            return self.bm.name_of(rid).split()[0]
+        except Exception:
+            return rid
+
+    def _deeds(self):
+        return getattr(self.bm, "deeds", 0)
+
+    def ids(self, party):
+        return [m.recruit_id for m in getattr(party, "members", []) or []
+                if getattr(m, "recruit_id", None) in self.traits]
+
+    def pairs_in(self, ids):
+        ids = sorted(set(ids))
+        return [(ids[i], ids[j]) for i in range(len(ids)) for j in range(i + 1, len(ids))]
+
+    def line(self, rid, key, r=None, name_of=None):
+        """A line from rid's pool, with {name} filled in. Unheard for this pair if possible.
+        Returns None when they don't have one (a recruit whose Wave 3 lines aren't written yet)."""
+        t = (self.lines.get(rid) or {}).get(key)
+        if not t:
+            return None
+        opts = t if isinstance(t, list) else [t]
+        if r is not None:
+            fresh = [o for o in opts if f"{rid}:{o}" not in r.heard]
+            opts = fresh or opts
+        text = random.choice(opts)
+        if r is not None:
+            r.heard.append(f"{rid}:{text}")
+            r.heard = r.heard[-30:]
+        if "{name}" in text:
+            text = text.replace("{name}", self.first(name_of) if name_of else "")
+        return text
+
+    def _beat(self, parts, r=None, priority=1):
+        """parts: [(rid, key, name_of)]. Queues the beat if every line exists."""
+        out = []
+        for rid, key, who in parts:
+            text = self.line(rid, key, r, who)
+            if text is None:
+                return False
+            out.append((rid, text))
+        self.queue.append((priority, self._deeds(), out))
+        self.queue.sort(key=lambda q: -q[0])
+        self.queue = self.queue[:3]
+        for rid, text in out:
+            self.log.append((rid, text))
+        self.log = self.log[-60:]
+        return True
+
+    def _move(self, r, amount):
+        """Change affinity and work out the new state. Returns the milestone key, if any."""
+        r.affinity = max(-100.0, min(100.0, r.affinity + amount))
+        old = "nodding" if r.state == "strangers" else r.state
+        new = next_state(old, r.affinity)
+        r.state = new
+        if new == old:
+            return None
+        if new in BAD and old not in BAD:
+            r.was_bad = True
+            r.quarrels += 1
+        if new == "friendly" and r.was_bad and old not in GOOD:
+            return "make_up"
+        return {"friendly": "turn_friendly", "close": "turn_friends", "grating": "turn_grating",
+                "rivals": "turn_rivals"}.get(new)
+
+    def _milestone(self, r, key):
+        if key is None or key in r.milestones:
+            return
+        r.milestones.append(key)
+        if key == "turn_friendly" and "make_up" in r.milestones:
+            return
+        x, y = self._by_talk(r.a, r.b)
+        named = key in NAMED
+        self._beat([(x, key, y if named else None), (y, key, x if named else None)], r, priority=3)
+
+    def _by_talk(self, a, b):
+        """The one more likely to speak first goes first."""
+        w = {"talker": 3, "middle": 2, "quiet": 1}
+        wa, wb = w.get(self._t(a).get("talk"), 2), w.get(self._t(b).get("talk"), 2)
+        if wa == wb:
+            return (a, b) if random.random() < 0.5 else (b, a)
+        return (a, b) if wa > wb else (b, a)
+
+    # ------------------------------------------------------------ the road
+    def on_outing(self, ids, kind="quest"):
+        """An outing finished with these recruits along. Returns {rid: mood change}."""
+        ids = [i for i in ids if i in self.traits]
+        mood = {i: 0.0 for i in ids}
+        meet_done = False
+        for a, b in self.pairs_in(ids):
+            r = self.rel(a, b)
+            r.outings += 1
+            delta = (self.chem(a, b) * PULL + familiarity(r.outings)) * talk_speed(self._t(a), self._t(b))
+            if kind in ("dungeon", "boss") and r.state in BAD:
+                delta += 0.5            # a hard job done together earns a grudging nod
+            if not r.met_said and not meet_done:
+                key = "meet_neighbour" if self._neighbours(a, b) else "meet"
+                x, y = self._by_talk(a, b)
+                if self._beat([(x, key, None), (y, key, None)], r, priority=2):
+                    r.met_said = meet_done = True
+            self._milestone(r, self._move(r, delta))
+            for me, other in ((a, b), (b, a)):
+                mood[me] += {"close": 5, "friendly": 3, "grating": -2, "rivals": -4}.get(r.state, 0)
+        if len(ids) >= 2:
+            self._sig_or_ambient(ids, AMBIENT_CHANCE)
+        return {i: max(-6.0, min(6.0, v)) for i, v in mood.items()}
+
+    def on_rest(self, ids):
+        """Arriving in a town: sometimes they talk while they settle in."""
+        ids = [i for i in ids if i in self.traits]
+        if len(ids) >= 2:
+            self._sig_or_ambient(ids, REST_CHANCE, tags=False)
+
+    def _sig_or_ambient(self, ids, chance, tags=True):
+        if any(q[0] >= 2 for q in self.queue):
+            return                      # a meeting or a milestone is already waiting
+        pairs = self.pairs_in(ids)
+        random.shuffle(pairs)
+        for a, b in pairs:
+            if self._signature(a, b):
+                return
+        if tags:
+            for a, b in pairs:
+                r = self.rel(a, b)
+                common = [t for t in set(self._t(a).get("tags", [])) & set(self._t(b).get("tags", []))
+                          if t not in r.tags_found]
+                if common and r.met_said and random.random() < TAG_CHANCE:
+                    tag = random.choice(sorted(common))
+                    x, y = self._by_talk(a, b)
+                    if self._beat([(x, f"common_{tag}", None), (y, f"common_{tag}", None)], r, 2):
+                        r.tags_found.append(tag)
+                        self._milestone(r, self._move(r, 3))
+                        return
+        if random.random() < chance:
+            self._ambient(ids)
+
+    def _signature(self, a, b):
+        r = self.rel(a, b)
+        p = self.sigs.get(self.key(a, b))
+        if not p or r.sig_step >= len(p["steps"]):
+            return False
+        step = p["steps"][r.sig_step]
+        if not self._sig_ready(r, step):
+            return False
+        self.queue.append((2, self._deeds(), [(rid, t) for rid, t in step["lines"]]))
+        self.queue.sort(key=lambda q: -q[0])
+        self.queue = self.queue[:3]
+        for rid, t in step["lines"]:
+            self.log.append((rid, t))
+        r.sig_step += 1
+        r.sig_at = r.outings
+        if step.get("affinity"):
+            self._milestone(r, self._move(r, step["affinity"]))
+        return True
+
+    @staticmethod
+    def _sig_ready(r, step):
+        """when: met, friendly, close, grating, outings:N, or gap:N (outings since the last step)."""
+        w = step.get("when", "met")
+        if w == "met":
+            return r.met_said
+        if w == "friendly":
+            return r.state in GOOD
+        if w == "close":
+            return r.state == "close"
+        if w == "grating":
+            return r.state in BAD
+        if w.startswith("outings:"):
+            return r.outings >= int(w.split(":")[1])
+        if w.startswith("gap:"):
+            return r.outings - r.sig_at >= int(w.split(":")[1])
+        return False
+
+    def _speaker_weight(self, rid):
+        return {"talker": 1.6, "middle": 1.0, "quiet": 0.55}.get(self._t(rid).get("talk"), 1.0)
+
+    def _ambient(self, ids):
+        """One ordinary conversation between two of them, picked by how they get on."""
+        pairs = [(a, b) for a, b in self.pairs_in(ids) if self.rel(a, b).met_said]
+        if not pairs:
+            return
+        # talkative pairs talk more often; a pair who just talked lets somebody else have a turn
+        last = getattr(self, "_last_pair", None)
+        weights = [(self._speaker_weight(a) + self._speaker_weight(b)) * (0.3 if (a, b) == last else 1)
+                   for a, b in pairs]
+        a, b = random.choices(pairs, weights=weights)[0]
+        self._last_pair = (a, b)
+        r = self.rel(a, b)
+        s = a if random.random() * (self._speaker_weight(a) + self._speaker_weight(b)) \
+            < self._speaker_weight(a) else b
+        o = r.other(s)
+        st = r.state
+        acts = []
+        for topic in ("home", "work"):
+            if f"ask_{topic}:{s}" not in r.milestones:
+                acts += [("ask", topic)] * (3 if st == "nodding" else 1)
+        acts += [("chat", None)] * (3 if st == "nodding" else 2 if st in GOOD else 1)
+        if st in GOOD:
+            acts += [("tease", None)] * (3 if self._t(s).get("humour") == "joker" else 2)
+            acts += [("look_out", None)] * 1
+        if st == "close" and f"confide:{s}" not in r.milestones:
+            acts += [("confide", None)] * 2
+        if st in BAD:
+            acts += [("needle", None)] * (4 if st == "rivals" else 3)
+        random.shuffle(acts)
+        for act, topic in acts:
+            if getattr(self, f"_act_{act}")(r, s, o, ids, topic):
+                return
+
+    # ------------------------------------------------------------ acts
+    def _act_ask(self, r, s, o, ids, topic):
+        if self._beat([(s, f"ask_{topic}", None), (o, f"answer_{topic}", None)], r):
+            r.milestones.append(f"ask_{topic}:{s}")
+            self._milestone(r, self._move(r, 1.5))
+            return True
+        return False
+
+    def _act_chat(self, r, s, o, ids, topic):
+        topics = list(CHAT_TOPICS)
+        random.shuffle(topics)
+        for tp in topics:
+            if self._beat([(s, f"chat_{tp}", None), (o, f"chat_{tp}", None)], r):
+                self._milestone(r, self._move(r, 1))
+                return True
+        return False
+
+    def _aimed(self, s, o, kind):
+        """tease_quiet, needle_bold and so on: aimed at what stands out about the other one."""
+        t = self._t(o)
+        keys = []
+        if t.get("talk") in ("quiet", "talker"):
+            keys.append(f"{kind}_{t['talk']}")
+        if t.get("pace") == "careful":
+            keys.append(f"{kind}_careful")
+        elif t.get("pace") == "bold":
+            keys.append(f"{kind}_bold")
+        keys.append(f"{kind}_any")
+        mine = self.lines.get(s) or {}
+        keys = [k for k in keys if mine.get(k)]
+        return random.choice(keys) if keys else None
+
+    def _act_tease(self, r, s, o, ids, topic):
+        key = self._aimed(s, o, "tease")
+        if key is None:
+            return False
+        ts, to = self._t(s), self._t(o)
+        bristles = to.get("manner") == "formal" or (to.get("manner") == "blunt" and r.affinity < 35
+                                                     and to.get("humour") == "earnest")
+        if bristles and random.random() < 0.6:
+            sorry = ts.get("manner") == "gentle" or ts.get("humour") == "earnest" or r.state == "close"
+            third = "apologise" if sorry else "double_down"
+            if self._beat([(s, key, o), (o, "bristle", s), (s, third, None)], r):
+                self._milestone(r, self._move(r, -2 + (2.5 if sorry else -1)))
+                return True
+            return False
+        back = to.get("humour") in ("joker", "dry") and random.random() < 0.75
+        if self._beat([(s, key, o), (o, "tease_back" if back else "take_it_kindly", s)], r):
+            self._milestone(r, self._move(r, 2 if back else 1.5))
+            return True
+        return False
+
+    def _act_look_out(self, r, s, o, ids, topic):
+        proud = self._dial(o, "pride") >= 1.1 or self._t(o).get("manner") == "blunt"
+        reply = "deflect" if proud and random.random() < 0.6 else "accept"
+        if self._beat([(s, "look_out", o), (o, reply, s)], r):
+            self._milestone(r, self._move(r, 2 if reply == "accept" else 0.5))
+            return True
+        return False
+
+    def _act_confide(self, r, s, o, ids, topic):
+        if self._beat([(s, "confide", o), (o, "listen", s)], r):
+            r.milestones.append(f"confide:{s}")
+            self._milestone(r, self._move(r, 3))
+            return True
+        return False
+
+    def _act_needle(self, r, s, o, ids, topic):
+        key = self._aimed(s, o, "needle")
+        if key is None:
+            return False
+        return self._sharp(r, s, o, ids, key)
+
+    def _sharp(self, r, s, o, ids, key):
+        """A dig (a needle, or blame after a wipe) and how it lands."""
+        ts, to = self._t(s), self._t(o)
+        if to.get("humour") == "joker" or (self._dial(o, "nerve") >= 1.3 and to.get("manner") != "blunt"):
+            reply, delta = "laugh_off", 1.5
+        elif to.get("manner") == "blunt" or self._dial(o, "pride") >= 1.1:
+            reply, delta = "bite_back", -2.5
+        else:
+            reply, delta = "hurt", -1.5
+        parts = [(s, key, None), (o, reply, None)]
+        friend = None
+        if reply == "hurt":
+            if ts.get("manner") == "gentle" or ts.get("humour") == "earnest":
+                parts.append((s, "apologise", None))
+                delta += 3
+            else:
+                friend = next((d for d in ids if d not in (s, o)
+                               and self.state(d, o) in GOOD and self.state(d, s) != "close"), None)
+                if friend and self.line(friend, "defend") is not None:
+                    parts.append((friend, "defend", o))
+        elif reply == "bite_back" and ts.get("humour") == "joker" and random.random() < 0.5:
+            parts.append((s, "double_down", None))
+            delta -= 1
+        if self._beat(parts, r):
+            self._milestone(r, self._move(r, delta))
+            if friend:
+                rf, rs = self.rel(friend, o), self.rel(friend, s)
+                self._milestone(rf, self._move(rf, 2))
+                self._milestone(rs, self._move(rs, -3))
+            return True
+        return False
+
+    def _dial(self, rid, k):
+        try:
+            return self.bm.bonds[rid].dial(k)
+        except (AttributeError, KeyError):
+            return 1.0
+
+    # ------------------------------------------------------------ events
+    def on_wipe(self, ids):
+        ids = [i for i in ids if i in self.traits]
+        if len(ids) < 2:
+            return
+        for a, b in self.pairs_in(ids):
+            r = self.rel(a, b)
+            r.wipes += 1
+            self._milestone(r, self._move(r, -1 if r.state in BAD else 2))
+        pairs = self.pairs_in(ids)
+        random.shuffle(pairs)
+        for a, b in pairs:
+            r = self.rel(a, b)
+            s, o = self._by_talk(a, b)
+            if r.state in GOOD:
+                proud = self._dial(o, "pride") >= 1.1 or self._t(o).get("manner") == "blunt"
+                if self._beat([(s, "check_in", o), (o, "deflect" if proud else "accept", s)], r, 2):
+                    return
+            elif r.state in BAD and random.random() < 0.6:
+                if self._sharp(r, s, o, ids, "blame"):
+                    return
+
+    def on_close_call(self, ids, hurt):
+        """hurt: recruit ids who ended a fight on almost nothing. A healer in the party pulled them
+        through; a friend who saw it goes grey."""
+        ids = [i for i in ids if i in self.traits]
+        for h in [x for x in hurt if x in self.traits]:
+            healers = [x for x in ids if x != h and "healer" in self._t(x).get("is", [])]
+            for x in healers:
+                r = self.rel(h, x)
+                r.saves[x] = r.saves.get(x, 0) + 1
+                self._milestone(r, self._move(r, 4))
+            friends = [x for x in ids if x != h and self.state(h, x) in GOOD and x not in healers]
+            if healers and random.random() < 0.6:
+                x = random.choice(healers)
+                if self._beat([(h, "thank", None), (x, "brush_off", None)], self.rel(h, x), 2):
+                    return
+            if friends:
+                x = random.choice(friends)
+                proud = self._dial(h, "pride") >= 1.1
+                self._beat([(x, "worry", h), (h, "deflect" if proud else "accept", x)],
+                           self.rel(h, x), 2)
+                return
+
+    def on_gear_moved(self, giver, taker, better):
+        """The player took a piece off giver and put it on taker."""
+        if giver not in self.traits or taker not in self.traits or giver == taker:
+            return
+        r = self.rel(giver, taker)
+        r.gifts += 1
+        sulk = r.state in BAD or (self._dial(giver, "pride") >= 1.2 and r.state not in GOOD)
+        if self._beat([(taker, "handed_down", None), (giver, "hand_sulk" if sulk else "hand_fine", None)],
+                      r, 2):
+            self._milestone(r, self._move(r, -3 if sulk else 2))
+
+    def on_left(self, rid, ids):
+        """rid went home; a close friend still in the party says so."""
+        for x in ids:
+            if x != rid and self.state(rid, x) == "close":
+                self._beat([(x, "friend_left", rid)], self.rel(rid, x), 2)
+                return
+
+    def on_back(self, rid, ids):
+        for x in ids:
+            if x != rid and self.state(rid, x) == "close":
+                self._beat([(x, "friend_back", rid)], self.rel(rid, x), 2)
+                return
+
+    # ------------------------------------------------------------ showing it
+    def pop_beat(self, since_last=GAP):
+        """The next queued beat as [(rid, text)], or None. Called by the banter panel when it's free."""
+        if since_last < GAP or not self.queue:
+            return None
+        now = self._deeds()
+        self.queue = [q for q in self.queue if now - q[1] <= STALE]
+        if not self.queue:
+            return None
+        return self.queue.pop(0)[2]
+
+    def summary(self, rid):
+        """[(other rid, state)] for everyone rid has met, warmest first. For the party screen."""
+        out = []
+        for r in self.rels.values():
+            if rid in (r.a, r.b) and r.state != "strangers":
+                out.append((r.other(rid), r.state, r.affinity))
+        out.sort(key=lambda x: -x[2])
+        return [(o, s) for o, s, _a in out]
+
+    # ------------------------------------------------------------ save
+    def to_dict(self):
+        return {k: r.to_dict() for k, r in self.rels.items()}
+
+    def load_state(self, d):
+        self.rels = {}
+        for k, rd in (d or {}).items():
+            a, _, b = k.partition("|")
+            r = Rel(a, b)
+            r.load(rd)
+            self.rels[k] = r
