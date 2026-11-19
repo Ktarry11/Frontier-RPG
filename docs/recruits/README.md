@@ -117,9 +117,9 @@ fourth).
 | 47 | Ileana Dragomir | Necromancer 31 | Plague Depths | `ileana_dragomir.md` | Happy | Draft 1 |
 | 48 | Rhys Morgan | Ranger 31 | Stonetalon West | `rhys_morgan.md` | Still unknown | Draft 1 |
 | 49 | Henrik Dahl | Mage 32 | The Frostward Descent | `henrik_dahl.md` | Sad | Draft 1 |
-| 50 | Eino Virtanen | Barbarian 32 | Northern Stranglethorn |  |  |  |
-| 51 | Driss Alaoui | Shaman 32 | Freewind Post |  |  |  |
-| 52 | Thiago Macedo | Paladin 33 | Grom'gol |  |  |  |
+| 50 | Eino Virtanen | Barbarian 32 | Northern Stranglethorn | `eino_virtanen.md` | Happy | Draft 1 |
+| 51 | Driss Alaoui | Shaman 32 | Freewind Post | `driss_alaoui.md` | Happy | Draft 1 |
+| 52 | Thiago Macedo | Paladin 33 | Grom'gol | `thiago_macedo.md` | Sad | Draft 1 |
 | 53 | Jun-seo Park | Reaper 34 | Central Stranglethorn |  |  |  |
 | 54 | Skye Donnelly | Pyromancer 34 | The Drowning Floor |  |  |  |
 | 55 | Enzo Marchetti | Cultist 34 | Scarlet Monastery Grounds |  |  |  |

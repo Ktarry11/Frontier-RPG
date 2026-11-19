@@ -15910,6 +15910,57 @@
       "needs_art": false,
       "found_only": true,
       "source": "sworn:henrik_mage"
+    },
+    {
+      "id": "keepsake_eino_barbarian",
+      "name": "Eino's Marking Tape",
+      "kind": "keepsake",
+      "price": 0,
+      "rarity": "epic",
+      "blurb": "A strip of orange forestry marking tape, faded to salmon, the kind that marks trees to be left standing. Eino marked you as one to leave standing.",
+      "effect": {
+        "recruit_id": "eino_barbarian",
+        "from": "Eino Virtanen"
+      },
+      "icon_id": "col_charm_plant",
+      "art": "col_keepsake_eino",
+      "needs_art": false,
+      "found_only": true,
+      "source": "sworn:eino_barbarian"
+    },
+    {
+      "id": "keepsake_driss_shaman",
+      "name": "Driss's Torque Wrench",
+      "kind": "keepsake",
+      "price": 0,
+      "rarity": "epic",
+      "blurb": "A short, stubby torque wrench from a Land Cruiser's toolkit, in Driss's hand under a truck in the Sahara when the worlds joined. You've got further to go than he has.",
+      "effect": {
+        "recruit_id": "driss_shaman",
+        "from": "Driss Alaoui"
+      },
+      "icon_id": "col_satchel_bank",
+      "art": "col_keepsake_driss",
+      "needs_art": false,
+      "found_only": true,
+      "source": "sworn:driss_shaman"
+    },
+    {
+      "id": "keepsake_thiago_paladin",
+      "name": "Thiago's Blue Tape",
+      "kind": "keepsake",
+      "price": 0,
+      "rarity": "epic",
+      "blurb": "The last few turns of a roll of bright blue kinesiology tape from a clinic in Belo Horizonte, rationed for three years. It's for the fourth.",
+      "effect": {
+        "recruit_id": "thiago_paladin",
+        "from": "Thiago Macedo"
+      },
+      "icon_id": "col_satchel_reagents",
+      "art": "col_keepsake_thiago",
+      "needs_art": false,
+      "found_only": true,
+      "source": "sworn:thiago_paladin"
     }
   ]
 }
