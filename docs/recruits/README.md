@@ -131,9 +131,9 @@ fourth).
 | 59 | Kourosh Behzadi | Mage 36 | The Crystalline Underdark | `kourosh_behzadi.md` | Still unknown | Draft 1 |
 | 60 | Héctor Salinas | Witch Doctor 36 | Gurbashi Arena | `hector_salinas.md` | Happy | Draft 1 |
 | 61 | Ziad Haddad | Felsworn 38 | Southern Stranglethorn | `ziad_haddad.md` | Sad | Draft 1 |
-| 62 | Ratih Pranoto | Ranger 38 | The Shimmering Flats |  |  |  |
-| 63 | Fiona Strachan | Witch Hunter 39 | Southern Stranglethorn |  |  |  |
-| 64 | Khalid Al Suwaidi | Hunter 39 | Saltwheel |  |  |  |
+| 62 | Ratih Pranoto | Ranger 38 | The Shimmering Flats | `ratih_pranoto.md` | Happy | Draft 1 |
+| 63 | Fiona Strachan | Witch Hunter 39 | Southern Stranglethorn | `fiona_strachan.md` | Sad | Draft 1 |
+| 64 | Khalid Al Suwaidi | Hunter 39 | Saltwheel | `khalid_al_suwaidi.md` | Happy | Draft 1 |
 | 65 | Delroy Beckford | Witch Doctor 40 | Booty Bay |  |  |  |
 | 66 | Karim Haddad | Felsworn 40 | The Undercrust |  |  |  |
 | 67 | Osvaldo Beltrán | Warlock 40 | The Bloodsail Raider |  |  |  |
