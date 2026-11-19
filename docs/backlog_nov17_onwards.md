@@ -41,9 +41,10 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - **Next wave:** callboards and daily quests (needs its own design). More of everything as Kyle thinks of it.
 - **Pack Mule** is +12 backpack spaces, not a fifth bag slot; Kyle to say if he wants the real slot.
 
-## 1c. Mulgore: The Fallen Bluff, the Thunder Bluff raid (art prompts in progress, 18 Nov 2026)
+## 1c. Mulgore: The Fallen Bluff, the Thunder Bluff raid (boss art done, 18 Nov 2026)
 - `docs/mulgore_raid_boss_prompt.md`: Kyle's first raid. Bosses by rise (Central 5 with the final boss unlocking
-  last, Hunter 3, Spirit 3, Elder 3), drawn in batches of seven.
+  last, Hunter 3, Spirit 3, Elder 3). Every boss is drawn (sheets A, B, C v2 and Cairne's phase 4 in
+  `tools/building_sheets/mulgore_raid_*.png`), saved unsliced. Still to do: slice them, and build the raid.
 
 ## 1d. Moonglade (built 18 Nov 2026, `docs/moonglade_build_log.md`)
 - The three dungeons, doors already on the map: the Barrow Dens (corrupted druids), the Dreaming Arch (the Emerald
@@ -140,7 +141,6 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
   - `docs/rare_mount_art_prompts.md` H9 and H10 (twelve wild mounts; not built yet, where each comes from is open).
   - `docs/exalted_mount_art_prompts.md` H11 to H13 (one Exalted mount per faction; not built yet, the
     quartermasters sell them at Exalted) and I2 (their reins and the wild mounts').
-  - `docs/mulgore_raid_boss_prompt.md` (the Fallen Bluff's bosses).
 - **Class forms in combat**: since 18 Nov a shifter walks the map as their form (assets/forms); the combat screen
   still shows the person. Kyle asked for "out of combat" only, so this is a question, not a bug.
 - **The professions screen's own art**: tab art, frames and station art.

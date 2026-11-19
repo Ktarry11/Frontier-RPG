@@ -13,6 +13,7 @@ Secrets stay counts and names only here too.
 |---|---|---|
 | Recruit bonds were parked beyond the pilot three | Waves 2 and 3: every recruit has a bond record, banter and relationships | `qa_recruit_bonds`, `qa_relationships` |
 | Sworn skills weren't built | Wave 4: 98 Sworn skills, one per recruit bar Asher | `qa_sworn_skills` |
+| The Fallen Bluff's boss art was still listed as waiting | It landed 18 Nov (commit 8808c4c, all four sheets, unsliced); the line came off the art list | |
 | No way to call back a recruit who'd gone home | The mailbox's Friends tab: write to anyone you've been out with, they answer by bond and personality and meet you at a town you pick (`world/recruit_mail.py`) | `qa_recruit_mail` |
 
 ## 18 Nov 2026
