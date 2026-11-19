@@ -46,6 +46,17 @@ be bittersweet: a happy one can cost something, and a sad one can leave them bet
 
 The Ending column below keeps the count honest as we go.
 
+## Who they love
+
+Kyle, 19 Nov 2026: "make about 10% of the males recruits gay or bisexual please. only 2 females are lesbians. 1
+bisexual female --- BUT DONT DO IT HEAVY HANDED - THEYRE NOT GAY CHARACTERS, THEYRE CHARACTERS WHO HAPPEN TO BE GAY!
+big difference."
+
+So about 7 or 8 of the 74 men, and 3 of the 25 women. It comes up the way anyone's partner comes up: a name, a past,
+somebody they miss. It's never their story or their personality.
+
+Kept count here as we go: men gay or bisexual: Tarek (gay). Women: none yet.
+
 ## Order and progress
 
 The pilot three first, then everyone else from the lowest level up, unless Kyle picks someone (he picked Freja
@@ -56,10 +67,10 @@ fourth).
 | 1 | Kesten Ambrose | Runemaster 36 | Kael's Bastion | `kesten_ambrose.md` | Happy | Signed off 19 Nov 2026 |
 | 2 | Adrián Mendoza | Templar 24 | Astranaar | `adrian_mendoza.md` | Happy | Signed off 19 Nov 2026 |
 | 3 | Tarek Mansour | Templar 26 | Ashenvale East | `tarek_mansour.md` | Sad | Signed off 19 Nov 2026 |
-| 4 | Asher | Paladin 5 | Burning Blade Coven |  |  |  |
-| 5 | Diego Salazar | Tinker 5 | Deathknell |  |  |  |
-| 6 | Freja Lindqvist | Priest 6 | Valley of Trials | `freja_lindqvist.md` | Happy | Draft 1, waiting on Kyle (Kyle chose her next) |
-| 7 | Ama Boateng | Priest 7 | Razor Hill |  |  |  |
+| 4 | Asher | Paladin 5 | Burning Blade Coven | Not touched | | Kyle: "DONT TOUCH ASHER" |
+| 5 | Diego Salazar | Tinker 5 | Deathknell | `diego_salazar.md` | Happy | Draft 1 |
+| 6 | Freja Lindqvist | Priest 6 | Valley of Trials | `freja_lindqvist.md` | Happy | Signed off 19 Nov 2026 |
+| 7 | Ama Boateng | Priest 7 | Razor Hill | `ama_boateng.md` | Happy | Draft 1 |
 | 8 | Marcus Okafor | Stormbringer 8 | Durotar |  |  |  |
 | 9 | Sondre Haugen | Stormbringer 8 | Scarlet Crypt |  |  |  |
 | 10 | Sebastián Cruz | Bloodmage 8 | Western Tirisfal |  |  |  |

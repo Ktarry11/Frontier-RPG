@@ -1,6 +1,6 @@
 # Freja Lindqvist
 
-Wave 1 profile, draft 1 (19 Nov 2026). Waiting on Kyle's sign-off. Kyle: his friend William, one of the beta testers,
+Wave 1 profile. **Signed off 19 Nov 2026.** Kyle: "this level of detail is perfect". William won't be a recruit. Kyle: his friend William, one of the beta testers,
 loves her. "Make it so shes still all that - but she's also playful, strong and doesnt back down. She married a man
 named William." Her husband is modelled on Kyle's friend: "sarcastic, hates stupid people but very very loyal and the
 best friend you can have." He's American and works in aviation mechanics, and she kept her own name.
@@ -176,9 +176,7 @@ here, so she gives the old one to you. She says you've kept her alive long enoug
 ## For Kyle to decide
 
 1. **William's ending.** He's alive and they find each other. I think it's right for your friend.
-2. **Could William be a recruit later?** A sarcastic American who fixes things would make a great party member, maybe
-   a druid tank like your friend plays. It would break the rule that no two recruits share a past, but this would be
-   the one exception, and it'd be a lovely one.
+2. **William isn't a recruit** (Kyle: "No, he won't be a recruit").
 3. **The surname.** I've kept Lindqvist and said her grandfather came from Sweden. **Astrid Lindqvist**, the level 54
    Starcaller, has the same surname, so one of them should change. I'd change Astrid's.
 4. **The keepsake.** Her pinard horn.
