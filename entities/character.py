@@ -3687,6 +3687,20 @@ class Character(StatusEffectMixin):
             for _eff in attacker._effects():
                 if (_eff.stat_mods or {}).get("harmless_to_source") and _eff.source_name == self.name:
                     return 0
+        # A PERFECT RIPOSTE (Wave 4, Enzo): an enemy's hit goes back on it, and none of it lands.
+        # Straight to its health, like reflect, so two riposting fighters can't bounce a hit forever.
+        if attacker is not None and attacker is not self and getattr(attacker, "is_monster", False) and amount > 0:
+            for _eff in self._effects():
+                if (getattr(_eff, "riposte_uses", 0) or 0) > 0:
+                    _eff.riposte_uses -= 1
+                    back = int(amount * (getattr(_eff, "riposte_pct", 100.0) or 100.0) / 100.0)
+                    attacker.current_health = max(0, attacker.current_health - back)
+                    pending = getattr(self, "_pending_proc_messages", None)
+                    if pending is None:
+                        pending = []
+                        self._pending_proc_messages = pending
+                    pending.append(f"{self.name} turns it back on {attacker.name} for {back}!")
+                    return 0
 
 
         # Absorb shields (StatusEffect.absorb - see its docstring; Tinker's

@@ -2503,6 +2503,20 @@ class Ability:
         if self.requires_fallen_ally and in_combat and engine is not None:
             if not any(not m.is_alive() for m in (getattr(caster, "_fight_party", None) or [])):
                 return False, f"{self.name} is for when somebody has fallen. Nobody has."
+        # WHICH ENEMY, WHOEVER WAS CLICKED (Wave 4): "next" is the one about to act (Rhys's hawk),
+        # "largest" the one with the most maximum health (Eino), "dangerous" a boss first, then the
+        # highest level, then the hardest hitter (Khalid's bird).
+        if self.auto_enemy and engine is not None and hasattr(engine, "living_enemies"):
+            foes = engine.living_enemies()
+            if foes:
+                pick = {
+                    "next": lambda m: getattr(m, "turn_meter", 0.0),
+                    "largest": lambda m: getattr(m, "max_health", 0) or getattr(m, "health", 0),
+                    "dangerous": lambda m: (bool(getattr(m, "is_boss", False)), getattr(m, "level", 0),
+                                            getattr(m, "attack_power", 0) or 0),
+                }.get(self.auto_enemy)
+                if pick is not None:
+                    target = max(foes, key=pick)
         if self.auto_weakest_enemy and engine is not None and hasattr(engine, "living_enemies"):
             foes = engine.living_enemies()
             if foes:
@@ -2988,6 +3002,10 @@ class Ability:
     enemy_mods = None                  # stat mods put on every living enemy as well (Giorgi's bell)
     cleanses = None                    # {"types": [...], "count": n} taken off each recipient (Callum)
     self_turn = False                  # the caster acts again at once (Camille)
+    auto_enemy = None                  # "next" / "largest" / "dangerous": lands on that enemy
+    target_mods = None                 # stat mods left on the one enemy a hostile cast hit (Eino)
+    riposte = None                     # {"uses", "pct"}: the next enemy hit goes back on its owner (Enzo)
+    self_buff = None                   # {"turns", "mods"}: a buff on the caster after the cast (Ziad)
     #: Caster and target trade rows for the rest of the fight (Dan Okafor, "Shift Change").
     swaps_rows = False
     #: A dispel that deals what was LEFT of the effect it removed to whoever put it there
@@ -3245,6 +3263,30 @@ class Ability:
                     source_name=caster.name, real_time_seconds=None))
             if foes:
                 message = f"{message} Every enemy feels it."
+        # LEFT ON THE ONE IT HIT (Wave 4, Eino's felling blow): stat mods on the single enemy
+        # a hostile cast landed on, as a debuff for the ability's duration.
+        if self.target_mods and single is not None and getattr(single, "is_monster", False) and single.is_alive():
+            single.apply_status_effect(StatusEffect(
+                effect_id=f"{self.ability_id}_mark", name=self.name, effect_type=EffectType.DEBUFF,
+                duration=max(1, self.duration or 1), stat_mods=dict(self.target_mods),
+                source_name=caster.name, real_time_seconds=None))
+        # A BUFF ON THE CASTER AFTER THE CAST (Wave 4, Ziad: the fel pays him back).
+        if self.self_buff and caster.is_alive():
+            caster.apply_status_effect(StatusEffect(
+                effect_id=f"{self.ability_id}_after", name=self.name, effect_type=EffectType.BUFF,
+                duration=int(self.self_buff.get("turns", 3)), stat_mods=dict(self.self_buff.get("mods") or {}),
+                source_name=caster.name, real_time_seconds=None))
+        # STRIPPED (Wave 4, Fiona): a hostile cast takes matching buffs off the enemy it hit.
+        if self.cleanses and single is not None and getattr(single, "is_monster", False):
+            kinds = self.cleanses.get("types") or ["magic"]
+            kinds = tuple(kinds) if len(kinds) > 1 else kinds[0]
+            gone = 0
+            for _ in range(int(self.cleanses.get("count", 9))):
+                if not hasattr(single, "dispel_effect") or single.dispel_effect(kinds) is None:
+                    break
+                gone += 1
+            if gone:
+                message = f"{message} {gone} protection{'s' if gone != 1 else ''} stripped."
         # CLEANSED ON THE WAY IN (Wave 4, Callum): every matching effect comes off each
         # recipient of a friendly cast, as part of the same cast.
         if self.cleanses and self.target_type in ("self", "ally", "party"):
@@ -4879,12 +4921,16 @@ class Ability:
                         effect.damage_spread_even = bool(self.damage_share.get("even"))
                     if self.damage_share.get("schools"):
                         effect.damage_share_schools = tuple(self.damage_share["schools"])
+                if self.riposte:
+                    effect.riposte_uses = int(self.riposte.get("uses", 1))
+                    effect.riposte_pct = float(self.riposte.get("pct", 100))
                 if self.death_prevent:
                     effect.death_prevent_pct = self.death_prevent.get("pct", 0)
                     effect.death_prevent_hp = self.death_prevent.get("hp", 0)
                     effect.death_prevent_lethal_only = self.death_prevent.get(
                         "lethal_only", True)
                     effect.death_prevent_uses = self.death_prevent.get("uses", 1)
+                    effect.death_prevent_holds = bool(self.death_prevent.get("holds"))
                 if self.reflect:
                     effect.reflect_pct = self.reflect.get("pct", 0)
                     effect.reflect_school = self.reflect.get("school", "physical")
@@ -5798,7 +5844,9 @@ def _ability_from_data(entry):
         ability.drains_party_pct = float(entry["drains_party_pct"])
     if isinstance(entry.get("pet_mods"), dict):
         ability.pet_mods = dict(entry["pet_mods"])
-    for key in ("enemy_mods", "cleanses"):
+    if entry.get("auto_enemy"):
+        ability.auto_enemy = str(entry["auto_enemy"])
+    for key in ("enemy_mods", "cleanses", "target_mods", "riposte", "self_buff"):
         if isinstance(entry.get(key), dict):
             setattr(ability, key, dict(entry[key]))
     for key in ("always_crits", "grants_turn", "health_buys_mana", "swaps_rows", "returns_dispelled_damage", "party_pets", "self_turn"):

@@ -375,9 +375,9 @@ def c_marisol(rm, bm, rid):
     cast(ch, ab, a, eng)
     floor = int(a.health * 0.05)
     for _ in range(4):
-        a.take_damage(a.health, "physical", attacker=mobs[0], attacker_level=60)
+        a.take_damage(a.health * 50, "shadow", attacker=mobs[1], attacker_level=60)
     check(a.is_alive() and a.current_health >= floor - 1,
-          f"{ab.name}: four big hits left {a.current_health}, wants at least {floor}")
+          f"{ab.name}: four killing blows left {a.current_health}, wants at least {floor}")
 
 
 def c_silas(rm, bm, rid):

@@ -115,8 +115,10 @@ def ranks_for(a, kits):
 #: The keys the engine reads inside the dict-valued fields (a misspelt one is silently ignored).
 NESTED = {
     "damage_share": {"pct", "reduction_pct", "heal_pct", "uses", "spread", "even", "schools"},
-    "death_prevent": {"pct", "hp", "lethal_only", "uses"},
+    "death_prevent": {"pct", "hp", "lethal_only", "uses", "holds"},
     "cleanses": {"types", "count"},
+    "riposte": {"uses", "pct"},
+    "self_buff": {"turns", "mods"},
     "immediate": {"action", "turns", "resource", "cost_pct", "mult", "mode", "amount"},
     "delayed": {"turns", "mult", "mode"},
 }

@@ -376,6 +376,10 @@ class StatusEffect:
         self.damage_spread_pct = 0
         self.damage_spread_party = None
         self.damage_spread_even = False     # the holder keeps an equal share (Pasang's rope)
+        #: RIPOSTE (Wave 4, Enzo): this many enemy hits are turned back on whoever threw them, at
+        #: riposte_pct of the incoming amount, and the holder takes none of it.
+        self.riposte_uses = 0
+        self.riposte_pct = 0.0
         self.damage_share_schools = None    # only hits of these schools are shared (Owen)
 
         # ---- DEATH PREVENTION --------------------------------------------
@@ -395,6 +399,9 @@ class StatusEffect:
         #:         which is Henrik's "the next hit that would reduce him
         #:         BELOW 20% instead leaves him at 20%".
         self.death_prevent_lethal_only = True
+        #: HOLDS (Wave 4, Marisol and Thiago): the floor keeps catching blows while the holder sits
+        #: on it, for as long as the effect lasts - a short, deliberate immunity window.
+        self.death_prevent_holds = False
         #: How many blows this can still catch. These are all written as
         #: "the FIRST blow", so 1.
         self.death_prevent_uses = 1
@@ -1832,6 +1839,9 @@ class StatusEffectMixin:
             floor = hp if hp > 0 else int(self._max_hp() * pct / 100.0)
             floor = max(1, min(floor, self._max_hp()))
             if self.current_health <= floor:
+                if getattr(effect, "death_prevent_holds", False) and self.current_health > 0:
+                    effect.death_prevent_uses -= 1
+                    return 0          # a holding floor: nothing more comes off while it lasts
                 continue  # already past it - this is not an immunity
             remaining = self.current_health - actual
             lethal_only = getattr(effect, "death_prevent_lethal_only", True)

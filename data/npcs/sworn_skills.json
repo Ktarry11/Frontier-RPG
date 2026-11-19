@@ -31,6 +31,32 @@
    }
   }
  },
+ "alonso_pyromancer": {
+  "from": "Wave 4: 'what he resolves is the word he couldn't say. ... he brings the whole fight up to firing heat for a few turns, and every fire spell in the party hits harder.'",
+  "ability": {
+   "ability_id": "personal_sworn_alonso_firing_heat",
+   "name": "Up to Firing Heat",
+   "engine": "live: all_enemies debuff fire_damage_taken_pct +40 for 4 turns (monster take_damage reads <school>_damage_taken_pct)",
+   "effect_type": "debuff",
+   "target_type": "all_enemies",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 4,
+   "is_instant": true,
+   "stat_mods": {
+    "fire_damage_taken_pct": 40
+   },
+   "description": "Alonso brings the whole fight up to firing heat. For 4 turns every enemy takes 40% more fire damage, from anyone in the party.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 35,
+     "effect_value": 100
+    }
+   ]
+  }
+ },
  "ama_priest": {
   "from": "Wave 4: 'what she resolves is being unable to stop. ... a passive where she heals less when the party is safe and more when it isn't, because she's finally letting herself rest.'",
   "passives": {
@@ -366,6 +392,88 @@
    "absorb": 120
   }
  },
+ "driss_shaman": {
+  "from": "Wave 4: 'what he resolves is the years away from Nour. ... he calls a sandstorm that blinds the enemies and hides the party.'",
+  "ability": {
+   "ability_id": "personal_sworn_driss_the_sandstorm",
+   "name": "The Sandstorm",
+   "engine": "live: party dodge +20 and enemy_mods miss_chance_pct 30 for 3 turns",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 3,
+   "is_instant": true,
+   "stat_mods": {
+    "dodge": 20
+   },
+   "description": "Driss calls the sand up. For 3 turns every enemy misses 30% of its attacks, and every ally has 20% more dodge.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 40,
+     "effect_value": 100
+    }
+   ],
+   "enemy_mods": {
+    "miss_chance_pct": 30
+   }
+  }
+ },
+ "eino_barbarian": {
+  "from": "Wave 4: 'what he resolves is his stubbornness, and his brother. ... a huge felling blow that drops the biggest enemy's guard for the whole party.'",
+  "ability": {
+   "ability_id": "personal_sworn_eino_felling_blow",
+   "name": "The Felling Blow",
+   "engine": "live: heavy strike on the enemy with the most maximum health (auto_enemy largest); target_mods armour -50% and physical damage taken +20 for 3 turns",
+   "effect_type": "damage",
+   "target_type": "enemy",
+   "resource_type": "energy",
+   "cooldown": 14,
+   "duration": 3,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Eino fells the biggest enemy in the fight, whoever was clicked. For 3 turns it has half its armour and takes 20% more physical damage from everyone.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 150
+    },
+    {
+     "rank": 2,
+     "level_req": 15,
+     "cost": 30,
+     "effect_value": 295
+    },
+    {
+     "rank": 3,
+     "level_req": 30,
+     "cost": 30,
+     "effect_value": 440
+    },
+    {
+     "rank": 4,
+     "level_req": 45,
+     "cost": 30,
+     "effect_value": 586
+    },
+    {
+     "rank": 5,
+     "level_req": 60,
+     "cost": 30,
+     "effect_value": 731
+    }
+   ],
+   "auto_enemy": "largest",
+   "target_mods": {
+    "armor_pct": -50,
+    "physical_damage_taken_pct": 20
+   }
+  }
+ },
  "emre_rogue": {
   "from": "Wave 4: 'what he resolves is the question, and the guilt of feeling light. ... he finds the weak point in an enemy's defence, and every ally ignores its armour for a turn.'",
   "ability": {
@@ -391,6 +499,34 @@
      "effect_value": 100
     }
    ]
+  }
+ },
+ "enzo_cultist": {
+  "from": "Wave 4: 'what he resolves is never knowing if it was him. ... a perfect riposte that turns the next attack on him back on its owner.'",
+  "ability": {
+   "ability_id": "personal_sworn_enzo_the_perfect_riposte",
+   "name": "The Perfect Riposte",
+   "engine": "live: riposte (new): for 3 turns the next enemy hit on Enzo lands on its owner at 150% and Enzo takes nothing",
+   "effect_type": "buff",
+   "target_type": "self",
+   "resource_type": "mana",
+   "cooldown": 13,
+   "duration": 3,
+   "is_instant": true,
+   "stat_mods": {},
+   "description": "Enzo waits for it. The next attack on him in the next 3 turns misses him completely and lands on whoever threw it, half again as hard.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 25,
+     "effect_value": 100
+    }
+   ],
+   "riposte": {
+    "uses": 1,
+    "pct": 150
+   }
   }
  },
  "esteban_bloodmage": {
@@ -598,6 +734,33 @@
    ]
   }
  },
+ "henrik_mage": {
+  "from": "Wave 4: 'what he resolves is the unfinished calculation. ... he works right at his limit, and his next spells hit far harder.'",
+  "ability": {
+   "ability_id": "personal_sworn_henrik_at_his_limit",
+   "name": "Right at the Limit",
+   "engine": "live: self buff, damage dealt +50% and spell crit +15 for 3 turns",
+   "effect_type": "buff",
+   "target_type": "self",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 3,
+   "is_instant": true,
+   "stat_mods": {
+    "damage_dealt_pct": 50,
+    "crit_chance_spell": 15
+   },
+   "description": "Henrik stops leaving a margin. For 3 turns his spells deal 50% more damage and have 15% more chance to land a critical hit.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
+    }
+   ]
+  }
+ },
  "iker_guardian": {
   "from": "Wave 4: 'what he resolves is the ninety kids he couldn't find. ... he shouts the party back up, and every ally regains health and resource.'",
   "ability": {
@@ -646,6 +809,31 @@
    ],
    "heals_party_pct_max": 10,
    "party_resource_pct": 30
+  }
+ },
+ "ileana_necromancer": {
+  "from": "Wave 4: 'what she resolves is the unfinished conversation, and the years of being cold. ... she holds the line for the whole ensemble, freezing every enemy's next action.'",
+  "ability": {
+   "ability_id": "personal_sworn_ileana_hold_the_line",
+   "name": "Hold the Line, Everyone",
+   "engine": "live: stun on every enemy for 1 turn (is_stun debuff, all_enemies)",
+   "effect_type": "debuff",
+   "target_type": "all_enemies",
+   "resource_type": "life_force",
+   "cooldown": 15,
+   "duration": 1,
+   "is_instant": true,
+   "stat_mods": {},
+   "description": "Ileana holds the line for the whole ensemble. Every enemy freezes in place for 1 turn and loses its next action.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 40,
+     "effect_value": 100
+    }
+   ],
+   "is_stun": true
   }
  },
  "imelda_primalist": {
@@ -744,6 +932,33 @@
      "level_req": 60,
      "cost": 30,
      "effect_value": 731
+    }
+   ]
+  }
+ },
+ "junseo_reaper": {
+  "from": "Wave 4: 'what he resolves is moving without choosing. ... he chooses every strike deliberately for a few turns, and each one lands where it hurts most.'",
+  "ability": {
+   "ability_id": "personal_sworn_junseo_every_one_chosen",
+   "name": "Every One Chosen",
+   "engine": "live: self buff, physical crit +30 and hit +27 for 4 turns",
+   "effect_type": "buff",
+   "target_type": "self",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 4,
+   "is_instant": true,
+   "stat_mods": {
+    "crit_chance_physical": 30,
+    "hit_rating": 27
+   },
+   "description": "Jun-seo chooses every strike. For 4 turns his attacks have 30% more chance to land a critical hit, and he doesn't miss.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
     }
    ]
   }
@@ -913,7 +1128,7 @@
   "ability": {
    "ability_id": "personal_sworn_marisol_talk_them_through",
    "name": "Talk Them Through It",
-   "engine": "live: death_prevent at 5% that catches every blow, not only a lethal one, for 2 turns",
+   "engine": "live: death_prevent at 5% that catches every blow, not only a lethal one, for 2 turns; holds, so it keeps catching while they sit on the floor",
    "effect_type": "buff",
    "target_type": "ally",
    "resource_type": "mana",
@@ -924,7 +1139,8 @@
    "death_prevent": {
     "pct": 5,
     "lethal_only": false,
-    "uses": 99
+    "uses": 99,
+    "holds": true
    },
    "description": "Marisol keeps talking. For 2 turns that ally can't be brought below 5% of their health, however hard they're hit.",
    "ranks": [
@@ -955,7 +1171,7 @@
     "turns": 2,
     "mult": 1.5
    },
-   "description": "Marta sets a charge on an enemy and walks away. At the end of her second turn from now it goes off for 50% more than an ordinary blast of its size, and nothing can stop it.",
+   "description": "Marta sets a charge on an enemy and walks away. At the end of her second turn from now it goes off for 50% more than an ordinary blast of its size, and nothing can stop it or make it miss.",
    "ranks": [
     {
      "rank": 1,
@@ -987,7 +1203,8 @@
      "cost": 91,
      "effect_value": 731
     }
-   ]
+   ],
+   "cannot_miss": true
   }
  },
  "mateo_starcaller": {
@@ -1234,6 +1451,57 @@
    ]
   }
  },
+ "rhys_ranger": {
+  "from": "Wave 4: 'what he resolves is not knowing. ... Tegan dives on the enemy about to act and stops it.'",
+  "ability": {
+   "ability_id": "personal_sworn_rhys_tegan_stoops",
+   "name": "Tegan Stoops",
+   "engine": "live: ranged hit on whichever enemy acts next (auto_enemy next), with a 1-turn stun",
+   "effect_type": "ranged_damage",
+   "target_type": "enemy",
+   "resource_type": "archery_points",
+   "cooldown": 14,
+   "duration": 1,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Tegan stoops on whichever enemy is about to act, whoever Rhys was aiming at. It is struck and loses its turn.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 110
+    },
+    {
+     "rank": 2,
+     "level_req": 15,
+     "cost": 30,
+     "effect_value": 250
+    },
+    {
+     "rank": 3,
+     "level_req": 30,
+     "cost": 30,
+     "effect_value": 390
+    },
+    {
+     "rank": 4,
+     "level_req": 45,
+     "cost": 30,
+     "effect_value": 530
+    },
+    {
+     "rank": 5,
+     "level_req": 60,
+     "cost": 30,
+     "effect_value": 670
+    }
+   ],
+   "auto_enemy": "next",
+   "is_stun": true,
+   "cannot_miss": true
+  }
+ },
  "rosa_hunter": {
   "from": "Wave 4: 'what she resolves is the year she was outclassed and the pride it cost. ... she reads the enemy's next three moves, and the party's attacks can't miss for those turns.'",
   "ability": {
@@ -1378,6 +1646,56 @@
    ]
   }
  },
+ "skye_pyromancer": {
+  "from": "Wave 4: 'what she resolves is the fear of her own fire. ... a controlled burn that hits every enemy and doesn't touch a single ally.'",
+  "ability": {
+   "ability_id": "personal_sworn_skye_controlled_burn",
+   "name": "A Controlled Burn",
+   "engine": "live: fire spell damage on every enemy, and applies_dot_pct 0.3 (one more burn next turn)",
+   "effect_type": "spell_damage",
+   "target_type": "all_enemies",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Skye lets the fire go exactly where she means it to. It burns every enemy and no ally, and smoulders on each of them for another 30% of the hit next turn.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 45,
+     "effect_value": 150
+    },
+    {
+     "rank": 2,
+     "level_req": 15,
+     "cost": 63,
+     "effect_value": 242
+    },
+    {
+     "rank": 3,
+     "level_req": 30,
+     "cost": 81,
+     "effect_value": 334
+    },
+    {
+     "rank": 4,
+     "level_req": 45,
+     "cost": 99,
+     "effect_value": 426
+    },
+    {
+     "rank": 5,
+     "level_req": 60,
+     "cost": 117,
+     "effect_value": 518
+    }
+   ],
+   "damage_school": "fire",
+   "applies_dot_pct": 0.3
+  }
+ },
  "sondre_stormbringer": {
   "from": "Wave 4: 'he throws everything at the enemies without holding back, and none of it can touch the party.'",
   "ability": {
@@ -1511,6 +1829,38 @@
     }
    ],
    "absorb": 90
+  }
+ },
+ "thiago_paladin": {
+  "from": "Wave 4: 'what he resolves is the family he couldn't reach. ... he promises an ally they won't die today, and that ally can't fall for a few turns.'",
+  "ability": {
+   "ability_id": "personal_sworn_thiago_not_today",
+   "name": "Not Today, I Promise",
+   "engine": "live: ally death_prevent hp 1 on every lethal blow (uses 99) for 4 turns, and healing received +30; holds, so every blow is caught",
+   "effect_type": "buff",
+   "target_type": "ally",
+   "resource_type": "mana",
+   "cooldown": 15,
+   "duration": 4,
+   "is_instant": true,
+   "stat_mods": {
+    "healing_taken_pct": 30
+   },
+   "description": "Thiago promises an ally they won't die today. For 4 turns no blow can kill them, however many come, and they receive 30% more healing.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 40,
+     "effect_value": 100
+    }
+   ],
+   "death_prevent": {
+    "hp": 1,
+    "lethal_only": true,
+    "uses": 99,
+    "holds": true
+   }
   }
  },
  "tomas_warrior": {
