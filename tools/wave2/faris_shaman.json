@@ -1,0 +1,114 @@
+{
+  "recruit_text": {
+    "adjustment": "He woke in dry country, and for weeks he couldn't sleep without the sound of water.\n\nA shaman found him at a spring talking to it, and told him the spring was talking back."
+  },
+  "bond": {
+    "home": "Moonglade",
+    "dials": {
+      "warmth": 1.3,
+      "nerve": 1.1,
+      "pride": 0.5,
+      "restless": 0.7
+    },
+    "likes": [
+      "quest",
+      "new_ground"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
+    "stages": {
+      "stranger": "Peace be with you. I'm Faris, a shaman. Sit by the water for a while, it's good water, I can tell.",
+      "acquaintance": "My family's land is on the Shatt al-Arab, outside Basra, where the Tigris and the Euphrates meet. Ninety date palms, a house with a courtyard and a fig tree, and a big family that ate together every Friday. Palms take years to fruit, so you learn to be patient with everything.",
+      "companion": "My brother Haidar has two boys, Ali and Mustafa. I used to take them out on the river in a flat boat and teach them the names of the birds, the kingfishers and the herons and the little pied ones that sat on the boat. I was out among the palms at dawn, checking the channels, when everything changed, and I woke in dry country with these beads on my wrist and one date stone in my pocket. I haven't found them.",
+      "friend": "These were my grandfather Kadhim's beads. He raised the palms for sixty years, and he taught me that you look after the water first, and the palms look after themselves. I've never found a better rule. And the stream that feeds this lake is running wrong. I can taste it. Something upstream in Felwood is spoiling it. Will you follow it up with me, inshallah, and find the source?",
+      "sworn": "When the clean water reached the lake, the date stone sprouted three days later. The druids gave me a patch of ground by the water for as long as I want it. Then a letter came from Astranaar, from Haidar. He and the boys crossed over together, and they've been looking for me for two years. I built a flat boat and took Ali and Mustafa out on the lake, and taught them the names of all the birds here. The palm will fruit in about eight years, and we'll eat the first dates together on a Friday. Take the beads. My grandfather would want them with someone who looks after the water first."
+    },
+    "moments": [
+      {
+        "id": "taste_it",
+        "stage": "acquaintance",
+        "when": "talk",
+        "prompt": "Faris kneels at a stream, cups some water and tastes it, very seriously.",
+        "options": [
+          {
+            "text": "Kneel and taste it too.",
+            "trust": 8,
+            "reply": "It's sweet, isn't it? This one's healthy. You can always tell."
+          },
+          {
+            "text": "Ask if that's safe.",
+            "trust": 0,
+            "reply": "Safer than people think. The water tells you, if you're polite to it."
+          }
+        ]
+      },
+      {
+        "id": "the_stream",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to follow the stream up into Felwood with him.",
+        "options": [
+          {
+            "text": "Let's find what's spoiling it.",
+            "trust": 12,
+            "reply": "Inshallah, we will. Walk beside the water, and listen to it."
+          },
+          {
+            "text": "Couldn't the druids do it?",
+            "trust": 3,
+            "reply": "Maybe, but I can taste where it's wrong, and they can't."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "We keep walking the same dry ground, akhi. I'd like to find some water to look after.",
+      "leaving_good": "Peace be with you, all of you, that was good. I'll be by the lake in Moonglade.",
+      "leaving_bored": "There's no water out here worth tending. I'm going back to the lake.",
+      "after_wipe": "Breathe slowly, everyone, like water settling. Then we'll start again.",
+      "wipe_warning": "We fall here too often, and I'm tired in my bones. One more, inshallah, and then I need the lake for a while.",
+      "wipe_leave": "I need to sit by the water and be quiet for a while. I'll be at the lake in Moonglade.",
+      "zone_warning": "The water here is wrong, and so is everything else. We should go back while we can.",
+      "zone_leave": "I won't take us further into that. You'll find me by the lake in Moonglade.",
+      "gear_refuse": "Not yet, akhi, forgive me. In time, inshallah.",
+      "gear_taken": "Take it, akhi. The water looks after me.",
+      "gear_short": "There's something missing from my kit, and I feel it like a dry channel.",
+      "gear_upgrade": "Shukran, that's a kind gift. May it bring you blessings.",
+      "back": "The date stone's still in the ground, and the lake is calm. Shlonak, where are we going?",
+      "send_word": "Faris has sent word from Moonglade. The lake is calm, and he's ready.",
+      "walkout_talk": "I left with anger in me, and that wasn't right. Sit by the water with me, and I'll tell you what troubled me.",
+      "neglect": "Peace be with you, you've come back. I kept a place for you by the water.",
+      "asked_to_stay": "Inshallah, one more. The lake will still be there.",
+      "on_break": "Faris is back in Moonglade, by the lake, looking after the water. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "At home the kingfishers sat on the edge of my flat boat as if they owned it. I still look for them on every river.",
+        "kind": "open",
+        "topic": "water"
+      }
+    ],
+    "zone_arrive": [
+      {
+        "text": "The birds here sing differently from ours, but I think they sing about the same things.",
+        "kind": "open"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "Gently, now, gently. Sit down, and let me bring the water to you.",
+        "kind": "open",
+        "topic": "water"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "That place was dry in every way. I'll be glad to see the lake.",
+        "kind": "reply"
+      }
+    ]
+  }
+}

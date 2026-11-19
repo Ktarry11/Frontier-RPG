@@ -2432,6 +2432,87 @@
         "quest_abandoned": "We agreed to that and left it unfinished. That's regrettable, and somebody's paying for it."
       }
     },
+    "faris_shaman": {
+      "home": "Moonglade",
+      "dials": {
+        "warmth": 1.3,
+        "nerve": 1.1,
+        "pride": 0.5,
+        "restless": 0.7
+      },
+      "likes": [
+        "quest",
+        "new_ground"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "Peace be with you. I'm Faris, a shaman. Sit by the water for a while, it's good water, I can tell.",
+        "acquaintance": "My family's land is on the Shatt al-Arab, outside Basra, where the Tigris and the Euphrates meet. Ninety date palms, a house with a courtyard and a fig tree, and a big family that ate together every Friday. Palms take years to fruit, so you learn to be patient with everything.",
+        "companion": "My brother Haidar has two boys, Ali and Mustafa. I used to take them out on the river in a flat boat and teach them the names of the birds, the kingfishers and the herons and the little pied ones that sat on the boat. I was out among the palms at dawn, checking the channels, when everything changed, and I woke in dry country with these beads on my wrist and one date stone in my pocket. I haven't found them.",
+        "friend": "These were my grandfather Kadhim's beads. He raised the palms for sixty years, and he taught me that you look after the water first, and the palms look after themselves. I've never found a better rule. And the stream that feeds this lake is running wrong. I can taste it. Something upstream in Felwood is spoiling it. Will you follow it up with me, inshallah, and find the source?",
+        "sworn": "When the clean water reached the lake, the date stone sprouted three days later. The druids gave me a patch of ground by the water for as long as I want it. Then a letter came from Astranaar, from Haidar. He and the boys crossed over together, and they've been looking for me for two years. I built a flat boat and took Ali and Mustafa out on the lake, and taught them the names of all the birds here. The palm will fruit in about eight years, and we'll eat the first dates together on a Friday. Take the beads. My grandfather would want them with someone who looks after the water first."
+      },
+      "moments": [
+        {
+          "id": "taste_it",
+          "stage": "acquaintance",
+          "when": "talk",
+          "prompt": "Faris kneels at a stream, cups some water and tastes it, very seriously.",
+          "options": [
+            {
+              "text": "Kneel and taste it too.",
+              "trust": 8,
+              "reply": "It's sweet, isn't it? This one's healthy. You can always tell."
+            },
+            {
+              "text": "Ask if that's safe.",
+              "trust": 0,
+              "reply": "Safer than people think. The water tells you, if you're polite to it."
+            }
+          ]
+        },
+        {
+          "id": "the_stream",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to follow the stream up into Felwood with him.",
+          "options": [
+            {
+              "text": "Let's find what's spoiling it.",
+              "trust": 12,
+              "reply": "Inshallah, we will. Walk beside the water, and listen to it."
+            },
+            {
+              "text": "Couldn't the druids do it?",
+              "trust": 3,
+              "reply": "Maybe, but I can taste where it's wrong, and they can't."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We keep walking the same dry ground, akhi. I'd like to find some water to look after.",
+        "leaving_good": "Peace be with you, all of you, that was good. I'll be by the lake in Moonglade.",
+        "leaving_bored": "There's no water out here worth tending. I'm going back to the lake.",
+        "after_wipe": "Breathe slowly, everyone, like water settling. Then we'll start again.",
+        "wipe_warning": "We fall here too often, and I'm tired in my bones. One more, inshallah, and then I need the lake for a while.",
+        "wipe_leave": "I need to sit by the water and be quiet for a while. I'll be at the lake in Moonglade.",
+        "zone_warning": "The water here is wrong, and so is everything else. We should go back while we can.",
+        "zone_leave": "I won't take us further into that. You'll find me by the lake in Moonglade.",
+        "gear_refuse": "Not yet, akhi, forgive me. In time, inshallah.",
+        "gear_taken": "Take it, akhi. The water looks after me.",
+        "gear_short": "There's something missing from my kit, and I feel it like a dry channel.",
+        "gear_upgrade": "Shukran, that's a kind gift. May it bring you blessings.",
+        "back": "The date stone's still in the ground, and the lake is calm. Shlonak, where are we going?",
+        "send_word": "Faris has sent word from Moonglade. The lake is calm, and he's ready.",
+        "walkout_talk": "I left with anger in me, and that wasn't right. Sit by the water with me, and I'll tell you what troubled me.",
+        "neglect": "Peace be with you, you've come back. I kept a place for you by the water.",
+        "asked_to_stay": "Inshallah, one more. The lake will still be there.",
+        "on_break": "Faris is back in Moonglade, by the lake, looking after the water. Come back after you've done a few more jobs."
+      }
+    },
     "fiona_witchhunter": {
       "home": "Booty Bay",
       "dials": {
@@ -7574,6 +7655,87 @@
         "neglect": "Hey, you made it back! I'd started to think you'd fallen off something. I'd have caught you, though.",
         "asked_to_stay": "One more show, and then home.",
         "on_break": "Tomas is back on Fenris Isle, fixing scaffolding. Come back after you've done a few more jobs."
+      }
+    },
+    "valentina_starcaller": {
+      "home": "Moonglade",
+      "dials": {
+        "warmth": 1.4,
+        "nerve": 1.2,
+        "pride": 0.7,
+        "restless": 1.1
+      },
+      "likes": [
+        "new_ground",
+        "quest"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "Hola, I'm Valentina, a starcaller! Look up, really look. I've never seen a sky like the one over this lake, and I've seen a lot of sky.",
+        "acquaintance": "I grew up in Antofagasta, and at twenty-one I moved to San Pedro de Atacama to guide night-sky tours. A hostel with a telescope on the roof, four dogs that belonged to nobody, and a minibus out past the salt flats at midnight. I did it in Spanish, English and Portuguese, and I always found the Southern Cross first. When somebody saw the Milky Way for the first time, I cried a little, every single time.",
+        "companion": "I was on the hostel roof showing a couple from Brazil the Southern Cross when it happened, and I landed here with this red torch round my neck. The first night I looked up and didn't recognise a single star. I sat down and cried, and then I started drawing new charts. What frightens me is the sun, our sun. I keep wondering if it's up there somewhere, and I'm scared of the answer, cachai?",
+        "friend": "My mother, Rocío, is a nurse in Antofagasta. She raised me and my little brother Pablo on her own, and once a year she drove us out into the desert to see the stars. That's when I decided what I'd do with my life, at nine. The last part of this sky can only be seen from the highest ridge above Moonglade, on the clearest nights of the year, and I need to be up there for weeks. Will you keep watch while I draw?",
+        "sworn": "I finished the chart, and then I checked every star that could be our sun, every one the right colour and the right brightness. None of them is. I'm sure now that it isn't up there at all. I cried, like the first night. Then I took my pencil and named the brightest four stars in the south the Southern Cross anyway, because somebody should, and I teach it to everyone who comes to the lake. My mother's looking up somewhere, and she'll want to know which way is south. Take the torch. When you want to see the Cross, I'll show you where it is."
+      },
+      "moments": [
+        {
+          "id": "meteor",
+          "stage": "stranger",
+          "when": "talk",
+          "prompt": "Valentina stops in the middle of a sentence and points straight up.",
+          "options": [
+            {
+              "text": "Look where she's pointing.",
+              "trust": 8,
+              "reply": "That was a meteor, did you see it? Bacán, you did, I can tell from your face."
+            },
+            {
+              "text": "Ask her to finish her sentence.",
+              "trust": 0,
+              "reply": "Sorry, sorry, I forget I'm talking. What was I saying?"
+            }
+          ]
+        },
+        {
+          "id": "the_ridge",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's asked you to keep watch on the high ridge while she draws.",
+          "options": [
+            {
+              "text": "I'll watch the dark for you.",
+              "trust": 12,
+              "reply": "Gracias, thank you! Use the red torch, please, or you'll ruin my night eyes."
+            },
+            {
+              "text": "For weeks?",
+              "trust": 3,
+              "reply": "Weeks, sí, weeks. The sky doesn't hurry for anyone."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We keep doing the same thing, and I haven't looked up once all day. Take me somewhere with a horizon, por favor.",
+        "leaving_good": "That was amazing, thank you! I'll be in Moonglade by the lake, adding stars to my chart.",
+        "leaving_bored": "We haven't looked up in days. I'm going back to Moonglade, where there's sky to spare.",
+        "after_wipe": "Okay, everybody up, and nobody shine anything in my eyes. Let's try again, slower.",
+        "wipe_warning": "Too much dying, too much ceiling, and no stars at all. Once we're out of here, I'm going back to my lake for a while.",
+        "wipe_leave": "I need to see the sky, properly, for a few nights. I'll be in Moonglade.",
+        "zone_warning": "Even the stars look worried out here, and stars don't do that. Let's turn back.",
+        "zone_leave": "I'm not losing my night eyes to that. I'll be by the lake in Moonglade.",
+        "gear_refuse": "Ay, no, I need that one, sorry. Maybe once you've used my red torch properly.",
+        "gear_taken": "Bueno, take it. I'll fight by starlight instead.",
+        "gear_short": "Something's missing from my kit, like a star gone out of a constellation, and I notice.",
+        "gear_upgrade": "Bacán, that's beautiful, thank you so much!",
+        "back": "My chart's got twelve new stars on it, and I've named three after dogs. Where are we going tonight?",
+        "send_word": "Valentina has sent word from Moonglade. Her chart's up to date and she's ready.",
+        "walkout_talk": "I ran off like a tourist who saw a scorpion, and I'm embarrassed. Sit with me by the lake and I'll explain, cachai?",
+        "neglect": "Hola, you're back! I saved you the best spot on the grass for stargazing.",
+        "asked_to_stay": "Sí, sí, one more, and then the lake.",
+        "on_break": "Valentina is back in Moonglade, by the lake, drawing her chart. Come back after you've done a few more jobs."
       }
     },
     "vuk_knight": {

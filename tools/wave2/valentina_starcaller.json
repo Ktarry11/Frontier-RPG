@@ -1,0 +1,110 @@
+{
+  "bond": {
+    "home": "Moonglade",
+    "dials": {
+      "warmth": 1.4,
+      "nerve": 1.2,
+      "pride": 0.7,
+      "restless": 1.1
+    },
+    "likes": [
+      "new_ground",
+      "quest"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
+    "stages": {
+      "stranger": "Hola, I'm Valentina, a starcaller! Look up, really look. I've never seen a sky like the one over this lake, and I've seen a lot of sky.",
+      "acquaintance": "I grew up in Antofagasta, and at twenty-one I moved to San Pedro de Atacama to guide night-sky tours. A hostel with a telescope on the roof, four dogs that belonged to nobody, and a minibus out past the salt flats at midnight. I did it in Spanish, English and Portuguese, and I always found the Southern Cross first. When somebody saw the Milky Way for the first time, I cried a little, every single time.",
+      "companion": "I was on the hostel roof showing a couple from Brazil the Southern Cross when it happened, and I landed here with this red torch round my neck. The first night I looked up and didn't recognise a single star. I sat down and cried, and then I started drawing new charts. What frightens me is the sun, our sun. I keep wondering if it's up there somewhere, and I'm scared of the answer, cachai?",
+      "friend": "My mother, Rocío, is a nurse in Antofagasta. She raised me and my little brother Pablo on her own, and once a year she drove us out into the desert to see the stars. That's when I decided what I'd do with my life, at nine. The last part of this sky can only be seen from the highest ridge above Moonglade, on the clearest nights of the year, and I need to be up there for weeks. Will you keep watch while I draw?",
+      "sworn": "I finished the chart, and then I checked every star that could be our sun, every one the right colour and the right brightness. None of them is. I'm sure now that it isn't up there at all. I cried, like the first night. Then I took my pencil and named the brightest four stars in the south the Southern Cross anyway, because somebody should, and I teach it to everyone who comes to the lake. My mother's looking up somewhere, and she'll want to know which way is south. Take the torch. When you want to see the Cross, I'll show you where it is."
+    },
+    "moments": [
+      {
+        "id": "meteor",
+        "stage": "stranger",
+        "when": "talk",
+        "prompt": "Valentina stops in the middle of a sentence and points straight up.",
+        "options": [
+          {
+            "text": "Look where she's pointing.",
+            "trust": 8,
+            "reply": "That was a meteor, did you see it? Bacán, you did, I can tell from your face."
+          },
+          {
+            "text": "Ask her to finish her sentence.",
+            "trust": 0,
+            "reply": "Sorry, sorry, I forget I'm talking. What was I saying?"
+          }
+        ]
+      },
+      {
+        "id": "the_ridge",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "She's asked you to keep watch on the high ridge while she draws.",
+        "options": [
+          {
+            "text": "I'll watch the dark for you.",
+            "trust": 12,
+            "reply": "Gracias, thank you! Use the red torch, please, or you'll ruin my night eyes."
+          },
+          {
+            "text": "For weeks?",
+            "trust": 3,
+            "reply": "Weeks, sí, weeks. The sky doesn't hurry for anyone."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "We keep doing the same thing, and I haven't looked up once all day. Take me somewhere with a horizon, por favor.",
+      "leaving_good": "That was amazing, thank you! I'll be in Moonglade by the lake, adding stars to my chart.",
+      "leaving_bored": "We haven't looked up in days. I'm going back to Moonglade, where there's sky to spare.",
+      "after_wipe": "Okay, everybody up, and nobody shine anything in my eyes. Let's try again, slower.",
+      "wipe_warning": "Too much dying, too much ceiling, and no stars at all. Once we're out of here, I'm going back to my lake for a while.",
+      "wipe_leave": "I need to see the sky, properly, for a few nights. I'll be in Moonglade.",
+      "zone_warning": "Even the stars look worried out here, and stars don't do that. Let's turn back.",
+      "zone_leave": "I'm not losing my night eyes to that. I'll be by the lake in Moonglade.",
+      "gear_refuse": "Ay, no, I need that one, sorry. Maybe once you've used my red torch properly.",
+      "gear_taken": "Bueno, take it. I'll fight by starlight instead.",
+      "gear_short": "Something's missing from my kit, like a star gone out of a constellation, and I notice.",
+      "gear_upgrade": "Bacán, that's beautiful, thank you so much!",
+      "back": "My chart's got twelve new stars on it, and I've named three after dogs. Where are we going tonight?",
+      "send_word": "Valentina has sent word from Moonglade. Her chart's up to date and she's ready.",
+      "walkout_talk": "I ran off like a tourist who saw a scorpion, and I'm embarrassed. Sit with me by the lake and I'll explain, cachai?",
+      "neglect": "Hola, you're back! I saved you the best spot on the grass for stargazing.",
+      "asked_to_stay": "Sí, sí, one more, and then the lake.",
+      "on_break": "Valentina is back in Moonglade, by the lake, drawing her chart. Come back after you've done a few more jobs."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "In San Pedro the hostel dogs followed every tour into the desert at midnight, and the tourists thought they were part of the show.",
+        "kind": "open",
+        "topic": "cities"
+      }
+    ],
+    "zone_arrive": [
+      {
+        "text": "Open sky, finally! Somebody remind me to look down every so often.",
+        "kind": "open"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "Ay, that was close! Breathe, and don't look at the light.",
+        "kind": "open"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "Outside, please, quickly. I've missed at least four meteors in there.",
+        "kind": "reply"
+      }
+    ]
+  }
+}
