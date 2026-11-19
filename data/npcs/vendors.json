@@ -7515,6 +7515,131 @@
         "cook_water",
         "cook_mushroom"
       ]
+    },
+    {
+      "vendor_id": "moj_smith",
+      "name": "Forgewright Taima Stonehoof",
+      "zone": "camp_mojache",
+      "x": 106,
+      "y": 56,
+      "tile_sprite": "npc",
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 46,
+      "sells_gear": true,
+      "race": "tauren",
+      "gender": "female",
+      "appearance_variant": 6,
+      "facing": "left",
+      "greeting": "I left my anvil in Thunder Bluff. This one's a rock we dragged out of the river, and it rings almost as true. Bring me what's broken.",
+      "sells": [
+        "whetstone",
+        "flux_strong",
+        "coal",
+        "kit_field_repair",
+        "bs_mithril_shield"
+      ]
+    },
+    {
+      "vendor_id": "moj_provisioner",
+      "name": "Provisioner Wahya Tallhorn",
+      "zone": "camp_mojache",
+      "x": 46,
+      "y": 70,
+      "tile_sprite": "npc",
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 45,
+      "sells_gear": false,
+      "race": "tauren",
+      "gender": "female",
+      "appearance_variant": 9,
+      "facing": "down",
+      "greeting": "We feed twice as many as this camp was built for, and nobody's gone hungry yet. The hunters bring in the elk and I make it stretch.",
+      "sells": [
+        "meal_kodo_ribs",
+        "meal_saltback_roast",
+        "drink_birch_wine",
+        "drink_deepwell_cordial",
+        "hunters_brace_platter",
+        "cook_flour",
+        "cook_spice",
+        "cook_water",
+        "cook_mushroom"
+      ]
+    },
+    {
+      "vendor_id": "fm_smith",
+      "name": "Armourer Elanis Starblade",
+      "zone": "feathermoon_stronghold",
+      "x": 78,
+      "y": 62,
+      "tile_sprite": "npc",
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 47,
+      "sells_gear": true,
+      "race": "night_elf",
+      "gender": "female",
+      "appearance_variant": 3,
+      "facing": "left",
+      "greeting": "The Sentinels' armoury keeps every glaive on this island sharp. I'll do yours too, as long as you don't let it get that bad again.",
+      "sells": [
+        "whetstone",
+        "flux_strong",
+        "kit_field_repair",
+        "bs_mithril_shield"
+      ]
+    },
+    {
+      "vendor_id": "fm_provisioner",
+      "name": "Provisioner Ralanna Leafsong",
+      "zone": "feathermoon_stronghold",
+      "x": 88,
+      "y": 60,
+      "tile_sprite": "npc",
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 47,
+      "sells_gear": false,
+      "race": "night_elf",
+      "gender": "female",
+      "appearance_variant": 5,
+      "facing": "down",
+      "greeting": "Nightfin soup, fresh from the boats this morning. The Sentinels eat it every night and complain about it every night, and they'd riot if I stopped.",
+      "sells": [
+        "meal_cooked_nightfin_soup",
+        "meal_saltback_roast",
+        "drink_deepwell_cordial",
+        "drink_birch_wine",
+        "cook_flour",
+        "cook_spice",
+        "cook_water",
+        "cook_mushroom"
+      ]
+    },
+    {
+      "vendor_id": "fm_quartermaster",
+      "name": "Quartermaster Lyriel Dawnbough",
+      "zone": "feathermoon_stronghold",
+      "x": 40,
+      "y": 58,
+      "tile_sprite": "npc",
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 48,
+      "sells_gear": true,
+      "race": "night_elf",
+      "gender": "female",
+      "appearance_variant": 4,
+      "facing": "down",
+      "greeting": "The Sentinels' stores. Most of what's on these shelves goes to the women on the walls, and the rest goes to people who've earned Shandris's trust. Earn it and we'll talk.",
+      "sells": [
+        "kit_field_repair",
+        "healing_potion_sansam",
+        "mana_potion_dreamfoil",
+        "barbed_arrows"
+      ]
     }
   ]
 }

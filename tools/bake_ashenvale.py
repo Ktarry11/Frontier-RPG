@@ -397,11 +397,45 @@ MOONGLADE_SHEET = {
     "av_corrupt_ground": _mg("mg_bramble_earth"),
     "av_satyr_earth":    _mg("mg_barrow_earth"),
 }
+#: FERALAS (docs/feralas_brief.md), built before Kyle's Feralas sheet (Kyle, 19 Nov 2026: "Build without art for
+#: now"): Ashenvale's deep green floor, grass and ferns with Stonetalon's moss, canopy floor and granite, so the giant
+#: forest reads greener and wetter than Ashenvale. The Hive Fields' dug ground is the "corrupt" stem, the Gordunni's
+#: trampled camps the "satyr" stem. When docs/feralas_art_prompts.md sheet 1 is sliced, these point at it instead.
+_AVM = T / "ashenvale" / "materials"
+
+
+def _avm(name, off=0.5, rec=None, extra=None):
+    return (_AVM / f"{name}.png", off, rec, extra)
+
+
+FERALAS_SHEET = {
+    "av_forest_floor":   _avm("av_forest_floor"),
+    "av_forest_grass":   _avm("av_forest_grass"),
+    "av_fern_floor":     _avm("av_fern_floor"),
+    "av_root_earth":     _st("st_wet_moss"),
+    "av_needle_mulch":   _avm("av_root_earth"),
+    "av_canopy":         _st("st_canopy_floor", extra="canopy"),
+    "av_rocky_ground":   _st("st_granite_lichen"),
+    "av_cliff_a":        _st("st_granite_cliff"),
+    "av_cliff_b":        _st("st_granite_cliff", off=0.2),
+    "av_corrupt_ground": _st("st_mudflow"),
+    "av_satyr_earth":    _st("st_grimtotem_earth"),
+    "av_lake_mud":       _st("st_mossy_roots"),
+}
+#: The Forgotten Coast: the same forest, and the Fog Groves (the graft from our world) are the "corrupt" patches,
+#: painted with Stonetalon's redwood duff; the sorrel is the "bluebell" stem there.
+FERALAS_COAST_SHEET = dict(FERALAS_SHEET)
+FERALAS_COAST_SHEET.update({
+    "av_corrupt_ground": _st("st_redwood_duff"),
+    "av_bluebell":       _st("st_redwood_sorrel"),
+})
 WPL_SHEET = _plague_sheet(east=False)
 EPL_SHEET = _plague_sheet(east=True)
 ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_SHEET, "epl_east": EPL_SHEET, "felwood_north": NORTH_SHEET, "stonetalon_east": STONETALON_SHEET,
                "stonetalon_west": STONETALON_WEST_SHEET, "sun_rock": SUN_ROCK_SHEET,
-               "azshara_west": AZSHARA_SHEET, "timbermaw_hold": TIMBERMAW_HOLD_SHEET,
+               "azshara_west": AZSHARA_SHEET,
+               "feralas_high_wilderness": FERALAS_SHEET, "feralas_twin_colossals": FERALAS_SHEET,
+               "feralas_forgotten_coast": FERALAS_COAST_SHEET, "timbermaw_hold": TIMBERMAW_HOLD_SHEET,
                "azshara_central": AZSHARA_CENTRAL_SHEET, "azshara_east": AZSHARA_EAST_SHEET,
                "deadwind_west": DEADWIND_SHEET, "deadwind_east": DEADWIND_EAST_SHEET, "ariden_watch": ARIDEN_SHEET,
                "moonglade": MOONGLADE_SHEET}
@@ -744,6 +778,10 @@ def bake(zone="west", preview=None, scale=4, only=None):
     elif zone == "deadwind_east":
         # Deadwind East: the gorge, broken time, Karazhan's crag and the rupture under the wheel (DEADWIND_EAST_SHEET)
         from tools import handbuilt_deadwind_east as M
+    elif zone.startswith("feralas_"):
+        # Feralas (docs/feralas_brief.md): the three open maps, FERALAS_SHEET / FERALAS_COAST_SHEET
+        import importlib
+        M = importlib.import_module(f"tools.handbuilt_{zone}")
     elif zone == "stonetalon_east":
         # Stonetalon East: the blast zone, painted from the Aspen materials (STONETALON_SHEET)
         from tools import handbuilt_stonetalon_east as M
@@ -776,7 +814,7 @@ def main():
     if "--preview" in sys.argv:
         preview = sys.argv[sys.argv.index("--preview") + 1]
     sc = int(sys.argv[sys.argv.index("--scale") + 1]) if "--scale" in sys.argv else 4
-    zone = next((z for z in ("deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
+    zone = next((z for z in ("feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
     only = None
     if "--region" in sys.argv:       # x0,y0,x1,y1 in tiles: bake only the 20x20 chunks touching it (fast look-dev)
         x0, y0, x1, y1 = map(int, sys.argv[sys.argv.index("--region") + 1].split(","))

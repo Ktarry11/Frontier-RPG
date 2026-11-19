@@ -471,6 +471,26 @@
         -128
       ],
       "continent": "kalimdor"
+    },
+    "camp_mojache": {
+      "name": "Camp Mojache",
+      "zone": "Camp Mojache",
+      "master": "moj_flight_master",
+      "pos": [
+        -62,
+        142
+      ],
+      "continent": "kalimdor"
+    },
+    "feathermoon_stronghold": {
+      "name": "Feathermoon Stronghold",
+      "zone": "Feathermoon Stronghold",
+      "master": "fm_flight_master",
+      "pos": [
+        -98,
+        120
+      ],
+      "continent": "kalimdor"
     }
   },
   "flight_cost": {
@@ -749,6 +769,18 @@
       "inn"
     ],
     "mg_bunthen": [
+      "flight"
+    ],
+    "moj_innkeeper": [
+      "inn"
+    ],
+    "moj_flight_master": [
+      "flight"
+    ],
+    "fm_innkeeper": [
+      "inn"
+    ],
+    "fm_flight_master": [
       "flight"
     ]
   }

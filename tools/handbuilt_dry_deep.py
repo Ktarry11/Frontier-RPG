@@ -25,6 +25,10 @@ from world.tilemap import Tilemap
 from tools.handbuilt_vot_caves import CaveLayout, register_baked  # noqa: F401
 
 BAKED = "assets/tiles/dry_deep/baked"
+#: Kyle, 19 Nov 2026: "We can also have the writhing deep in Feralas connect to the map under Abyssal Sands. Since the
+#: silithids are digging....". The Zukk'ash tunnel comes out in the Brine Seep's west wall: Feralas lies west.
+FERALAS = (3, 37)
+FERALAS_ARRIVAL = (6, 37)
 SFP = "assets/tiles/shimmering_flats/props/"
 SNP = "assets/tiles/southern_needles/props/"
 
@@ -152,6 +156,10 @@ def build_dry_deep():
         L.mark("portal", px, py)
     zone.collision_layer[DOWN[1]][DOWN[0]] = None
     L.mark("portal", *DOWN)
+    # the Zukk'ash tunnel from Feralas comes out in the Brine Seep's west wall (19 Nov 2026)
+    zone.collision_layer[FERALAS[1]][FERALAS[0]] = None
+    zone.set_tile(FERALAS[0], FERALAS[1], "portal", "interaction")
+    L.mark("portal", *FERALAS)
     for n, (x, y) in BOSSES.items():
         L.mark("boss_marker", x, y)        # the tile the other caves use; "boss" is not a tile at all
     for c in CHESTS:
@@ -159,7 +167,7 @@ def build_dry_deep():
 
     for (name, cx, cy, rx, ry) in CHAMBERS:
         zone.add_subzone(name, max(0, cx - rx), max(0, cy - ry), rx * 2, ry * 2)
-    zone.arrivals = [(px, py + 2) for (px, py) in PORTALS] + [DOWN_ARRIVAL]
+    zone.arrivals = [(px, py + 2) for (px, py) in PORTALS] + [DOWN_ARRIVAL, FERALAS_ARRIVAL]
     return zone, L
 
 
@@ -191,6 +199,8 @@ def dress(zone, L):
     P("sn_rib_bones", 12, 12, 3, near_ok=True, **N)
     for (x, y) in [(6, 34), (10, 41)]:                          # the Brine Seep
         P("sn_driftwood_salt", x, y, 3, near_ok=True, **N)
+    # the Zukk'ash tunnel's mouth in the Seep's west wall, dug through from Feralas (the Zukk'ash Hive)
+    P("ent_exit_kobold_tunnel", FERALAS[0] + 1, FERALAS[1] - 1, 4, near_ok=True, where="assets/tiles/cave_entrances/")
     for (x, y) in [(40, 8), (52, 7)]:                           # the Whispering Fault
         P("sn_split_stone", x, y, 3, near_ok=True, **N)
     for (x, y) in [(88, 14), (98, 17), (92, 19)]:               # the Fossil Shelf: things that swam, in the wall
@@ -251,7 +261,7 @@ def verify(zone):
 
 
 def finish(zone, L):
-    return L.finish(list(PORTALS) + list(BOSSES.values()) + list(CHESTS) + [DOWN])
+    return L.finish(list(PORTALS) + list(BOSSES.values()) + list(CHESTS) + [DOWN, FERALAS])
 
 
 def build_dry_deep_baked():

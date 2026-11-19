@@ -846,6 +846,7 @@ TIER_SKILL_CAPS = {
 #: nothing to inherit an ore table FROM yet, so it's left out rather than
 #: guessed at, same reasoning node_pools.json's zones list stays small.
 CAVE_TO_PARENT_ZONE = {
+    "The Zukk'ash Hive": "The High Wilderness",      # Feralas's silithid cave (19 Nov 2026)
     "The Den": "Valley of Trials",
     "Burning Blade Coven": "Valley of Trials",
     "Skull Rock": "Durotar",

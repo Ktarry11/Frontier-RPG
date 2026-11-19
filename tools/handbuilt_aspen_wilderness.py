@@ -81,8 +81,11 @@ PORTALS = {(105, 5): "Southern Barrens",
            (145, 48): "The Weeping Ice",
            #: THE PASS. Carved from the start and deliberately unregistered until there was something on
            #: the far side of it; Southern Thousand Needles now exists, so it opens.
-           (104, 176): "Southern Thousand Needles"}
-ARRIVALS = [(105, 11), (145, 51), (104, 172)]
+           (104, 176): "Southern Thousand Needles",
+           #: WEST, where the Rockies come down into Feralas (Kyle, 19 Nov 2026: in from "the west end of the Aspen
+           #: Wilderness"). The bench on the south-west already reached the edge; this opens it.
+           (4, 154): "The High Wilderness"}
+ARRIVALS = [(105, 11), (145, 51), (104, 172), (6, 152)]
 START = (105, 12)
 
 #: Where the forest stops. In elevation units, not tiles - see elevation().
@@ -648,6 +651,9 @@ def dress(L):
     p(A("tau_drying_rack"), 100, 76, 4, nudge=4)
     p(A("tau_totem_carved"), 92, 66, 6)
     p(A("tau_hitching_post"), 82, 70, 3)
+
+    # ---- the way west into Feralas: cairns either side of the trail down off the bench (19 Nov 2026) --------
+    p("assets/tiles/cave_entrances/ent_gate_pass_cairns.png", 6, 151, 6, solid=False)
 
     # ---- the high country ---------------------------------------------------------------------------------
     p(A("asp_elk_skull"), 104, 134, 2, solid=False)

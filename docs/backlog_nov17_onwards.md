@@ -59,7 +59,7 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - `docs/feralas_worldtree_brief.md`: Feralas 44-49 (classic L shape, largely untouched by the Integration), and a
   home-brew World Tree off Northern Stranglethorn's coast: island 42-44, lived-on tiers 44-48, a town halfway up, two
   sky zones at the crown (46-49, 48-51), two new factions. Names and peoples still to settle.
-- The Writhing Deep (Feralas's silithid hive) tunnels through to the Dry Deep under the Abyssal Sands (Kyle: "the
+- The Zukk'ash Hive (Feralas's silithid hive, Kyle's "writhing deep") tunnels through to the Dry Deep under the Abyssal Sands (Kyle: "the
   silithids are digging").
 
 ## 1f. The forward base: an endless descent into the uncharted (idea, Kyle, 19 Nov 2026; after Feralas)

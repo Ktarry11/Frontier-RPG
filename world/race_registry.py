@@ -401,6 +401,13 @@ ZONE_POPULATION_MIX = {
     # Moonglade (18 Nov 2026): the Circle's night elves and tauren in Nighthaven, the Wakened on the west shore
     "moonglade": [("night_elf", 45), ("tauren", 35), ("human", 20)],
     "west_azshara": [("orc", 50), ("blood_elf", 25), ("furbolg", 15), ("human", 10)],
+    # Feralas (19 Nov 2026): Mojache is tauren with Orgrimmar's few; Feathermoon is the Sentinels'; the settlers of the
+    # Fog Groves are transplants
+    "camp_mojache": [("tauren", 85), ("orc", 10), ("goblin", 5)],
+    "feathermoon_stronghold": [("night_elf", 100)],
+    "the_high_wilderness": [("tauren", 80), ("orc", 20)],
+    "the_forgotten_coast": [("night_elf", 60), ("human", 40)],
+    "the_twin_colossals": [("night_elf", 70), ("tauren", 30)],
     # the salvage crews out at Eldarath and the Font, and the odd Timbermaw scout
     "central_azshara": [("orc", 45), ("blood_elf", 35), ("human", 10), ("furbolg", 10)],
     # Stormwatch's grunts and the Conclave's magisters come out to the coast for what the sea gave back

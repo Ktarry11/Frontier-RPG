@@ -1,0 +1,128 @@
+"""
+Hand-built Camp Mojache (124x96): the tauren camp in the High Wilderness, Feralas, 44-46 (docs/feralas_brief.md).
+
+Kyle, 19 Nov 2026: Mojache is "grown with refugees": the tauren who walked out of Mulgore came south through the Needles
+and the camp took them in. It answers to Elder Longtread at Camp Taurajo. A town is always its own map (Kyle, 16 Nov
+2026), with an inn and the flight path for this part of Feralas.
+
+ORIENTATION FOLLOWS THE OVERWORLD. The High Wilderness's door to the camp (160,86) stands on the north side of the arm
+road, so the camp lies north of it: the gate is on the south edge and the camp climbs north into the clearing.
+
+    the gate (62,95), south <- The High Wilderness (160,86)
+    the old camp in the middle: Mojache's great totem in a ring of lodges, the chieftain's lodge north of it
+    the inn and the wind rider roost either side of the gate road, where travellers come in
+    the trades on the east side: the forge, the hide frames, the herbalist
+    the refugees' quarter in the north-west: lean-tos and patched tents put up in a hurry, the memorial pole
+    the kodo pen and the hunters' ground in the north-east
+
+THE ART: built before Kyle's Feralas sheets (Kyle, 19 Nov 2026: "Build without art for now"), from the tauren pieces
+already in the game (Camp Taurajo's, Thunder Bluff's in Moonglade, the Aspen camp's). docs/feralas_art_prompts.md
+sheet 3 is Mojache's own set.
+
+HARD CONTRACTS (world/portal_manager.py)
+  portal   (62,95) <-> The High Wilderness (160,86): you arrive at (62,91) coming in and (160,89) going out
+  NPC ids  moj_*, ct_mojache, pt_moj_*: written by tools/build_feralas_towns.py from NPC_POSITIONS
+"""
+import sys
+
+from tools import ashenvale_town_kit as AK
+
+KEY = "camp_mojache"
+NAME = "Camp Mojache"
+DESC = ("The tauren camp in Feralas's giant forest, twice the size it was. The ones who walked out of Mulgore came "
+        "here, and Mojache took every one of them in.")
+REGION = "Kalimdor - Feralas"
+W, H = 124, 96
+BAKED_DIR = "assets/tiles/feralas/baked_mojache"
+SHEET = "feralas_high_wilderness"
+PORTALS = {(62, 95): "The High Wilderness"}
+ARRIVALS = [(62, 91)]
+START = (62, 88)
+
+ROADS = {
+    "gate":   ([(62, 96), (62, 80), (62, 62)], 3.4),
+    # the ring round the great totem
+    "ring":   ([(62, 62), (78, 56), (82, 44), (74, 32), (62, 28), (48, 32), (42, 44), (46, 56), (62, 62)], 3.0),
+    "trades": ([(82, 44), (96, 46), (108, 50)], 2.6),
+    "refuge": ([(48, 32), (36, 24), (24, 22)], 2.6),
+    "pen":    ([(74, 32), (88, 22), (100, 18)], 2.4),
+    "inn":    ([(62, 74), (46, 74), (36, 74)], 2.6),
+    "roost":  ([(62, 74), (80, 74), (90, 72)], 2.6),
+}
+STREAMS = {"creek": ([(124, 64), (112, 70), (102, 80), (98, 96)], 1.6)}
+POOLS = []
+PLAZA = (62, 44, 9, 7)
+PAVED_PATCHES = []
+CLEARINGS = [(62, 48, 50, 34), (62, 84, 14, 12), (24, 24, 16, 12), (100, 20, 16, 12), (104, 52, 14, 12),
+             (36, 74, 12, 8), (90, 72, 12, 8)]
+ROCKS = [(8, 60, 5, 5), (116, 30, 4, 6)]
+DECKS = []
+CLEARING_GRASS = True
+GRADE = (1.22, 1.10)
+EXTRA_PATCHES = {"satyr": [(24, 24, 14, 9, 1.2), (100, 20, 12, 8, 1.0)], "mud": [(62, 44, 18, 13, 0.9)],
+                 "scorch": [(98, 50, 3, 2, 1.0)]}
+
+NPC_POSITIONS = {
+    # the gate and the travellers' ground
+    "moj_innkeeper":      (38, 77),     # Innkeeper Greul, the inn west of the gate road
+    "moj_flight_master":  (88, 76),     # Wind Rider Master Shyn, the roost east of it
+    "moj_gate_brave":     (57, 88),     # a brave at the gate
+    # the old camp, round the great totem
+    "moj_chieftain":      (62, 26),     # Chieftain Ahanu Swiftstrider, at her lodge
+    "moj_hadoken":        (78, 40),     # Hadoken Swiftstrider, the camp's hunter
+    "moj_elder_nayeli":   (46, 48),     # Elder Nayeli Cloudhoof, who walked out of Mulgore
+    "moj_krueg":          (70, 58),     # Krueg Skullsplitter, Orgrimmar's man
+    "ct_mojache":         (52, 60),     # the class trainer
+    # the refugees' quarter
+    "moj_brann":          (28, 30),     # Brann Tallgrass and his list
+    # the trades
+    "moj_orwin":          (96, 40),     # Orwin Gizzmick, the trader
+    "moj_smith":          (106, 56),    # the forge
+    "pt_moj_hide":        (112, 46),    # skinning and leather, by the hide frames
+    "pt_moj_herbs":       (92, 54),     # herbs and alchemy
+    "moj_provisioner":    (46, 70),     # by the inn
+}
+CHESTS = []
+
+
+def dress(L):
+    A, B, V = L.p, L.b, L.v
+    # ---- the gate and the travellers' ground
+    A("ent_town_tauren_totems", 62, 92, 7, solid=False, road_ok=True)
+    B("tau_hearth_lodge", 34, 72, 10)
+    B("tl_wind_rider_roost", 92, 70, 11)
+    A("tau_hitching_post", 70, 84, 3)
+    A("ash_horde_signpost", 68, 80, 4)
+    # ---- the old camp: the great totem in the middle, the lodges round it
+    A("mg_tauren_totem", 62, 46, 9)
+    A("mg_tauren_cookfire", 62, 52, 3)
+    B("tau_elder_lodge", 62, 22, 10)
+    B("tau_great_lodge", 80, 34, 9)
+    B("tau_spirit_lodge", 44, 38, 9)
+    B("mg_tauren_lodge", 46, 58, 8)
+    B("tau_longhouse", 80, 56, 8)
+    A("tau_totem_carved", 52, 30, 6)
+    A("tau_totem_carved", 72, 30, 6)
+    # ---- the refugees' quarter: patched tents, bedrolls, the memorial pole for Thunder Bluff
+    A("mg_tauren_memorial", 30, 36, 7)
+    A("mg_tauren_tent", 18, 22, 6)
+    A("mg_tauren_tent", 32, 18, 6)
+    A("tau_hide_tent_small", 14, 32, 5)
+    A("tau_hide_tent_small", 24, 14, 5)
+    A("tau_lodge_collapsed", 40, 16, 6)
+    A("tau_cook_fire", 22, 28, 3)
+    # ---- the trades
+    B("tau_storehouse", 98, 34, 7)
+    A("tau_drying_rack", 112, 42, 4)
+    B("hide_tanners_hut", 114, 54, 7)
+    B("tau_herb_hut", 90, 50, 7)
+    A("tau_timber_stack", 104, 62, 4)
+    A("st_grim_drum", 70, 66, 3)
+    # ---- the kodo pen and the hunters' ground
+    B("taurajo_stables", 100, 14, 8)
+    A("st_grim_hide_rack", 88, 18, 4)
+    A("tau_drying_rack", 108, 24, 4)
+    L.edge_canopy(seed=4411, names=(("large_canopy_tree", 12), ("medium_canopy_tree", 10), ("st_sequoia_mature", 11)))
+
+
+AK.install(sys.modules[__name__])

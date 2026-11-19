@@ -205,6 +205,12 @@ ZONE_BACKGROUND = {
     "Southshore": "coast",                        # the Alliance harbour town, its own map
     "West Azshara": "fantasy_forest",             # Azshara's autumn forest (until its own background)
     "Talrendis Landing": "coast",                 # the salvage camp on the bay
+    "The High Wilderness": "mossy_forest",        # Feralas's giant forest (until its own background)
+    "The Forgotten Coast": "mossy_forest",
+    "The Twin Colossals": "mossy_forest",
+    "Camp Mojache": "mossy_forest",               # the tauren camp in the forest clearing
+    "Feathermoon Stronghold": "coast",            # the Sentinels' island
+    "The Zukk'ash Hive": "hive",                  # the silithid dig
     "Timbermaw Hold": "mountain",                 # the Timbermaw's caldera
     "Central Azshara": "fantasy_forest",          # Azshara's autumn forest and the Bay of Storms
     "East Azshara": "coast",                      # the drowned coast and the Drowned Court

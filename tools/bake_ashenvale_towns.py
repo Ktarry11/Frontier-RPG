@@ -30,7 +30,9 @@ TOWNS = {"astranaar": "tools.handbuilt_astranaar", "splintertree": "tools.handbu
          "pale_watch": "tools.handbuilt_pale_watch", "lights_hope": "tools.handbuilt_lights_hope",
          "talrendis_landing": "tools.handbuilt_talrendis_landing",
          "timbermaw_hold": "tools.handbuilt_timbermaw_hold",
-         "ariden_watch": "tools.handbuilt_ariden_watch", "moonglade": "tools.handbuilt_moonglade"}
+         "ariden_watch": "tools.handbuilt_ariden_watch", "moonglade": "tools.handbuilt_moonglade",
+         "camp_mojache": "tools.handbuilt_camp_mojache",
+         "feathermoon_stronghold": "tools.handbuilt_feathermoon_stronghold"}
 
 MATS = dict(AV.MATERIALS)
 MATS.update({

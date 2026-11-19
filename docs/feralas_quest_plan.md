@@ -2,7 +2,7 @@
 
 For `docs/feralas_brief.md`. Ashenvale is the bar: people talking in their own voice, the useful thing first, real
 lore, chains that build to something. About 70% of the quests come from the two towns; nobody gives more than five;
-no quest giver stands at the place their quest sends you; the Writhing Deep's quests are given in Camp Mojache.
+no quest giver stands at the place their quest sends you; the Zukk'ash Hive's quests are given in Camp Mojache.
 
 Rules carried over: every kill target spawns where the quest says, every fetch item drops (about 75% when a quest
 needs several), every explore point is walkable, a chain is a chain, and the rewards give every spec something. Earth
@@ -61,7 +61,7 @@ ones he can't cross off. The Grimtotem Compound, where Pathfinder Harrok wears a
 It ends with Brann's list going north to Elder Longtread at Camp Taurajo (out).
 
 **THE DIG (Mojache, about 14).** Orwin's resin, the mounds in the Hive Fields, the Zukk'ash coming up through the
-forest floor, and the hunters working out the mounds run in a line. Into the Writhing Deep (the cave's quests): its
+forest floor, and the hunters working out the mounds run in a line. Into the Zukk'ash Hive (the cave's quests): its
 boss, and at the back the tunnel the silithids are still digging, which comes out in the Dry Deep under the Abyssal
 Sands. It ends by carrying what you found through the tunnel to Onyxhollow (out).
 
@@ -86,7 +86,7 @@ with Dreamwatcher Lethiel (out).
 
 ## Out of Feralas
 - To **Camp Taurajo**: Brann's list for Elder Longtread.
-- To **Onyxhollow** through the Writhing Deep's tunnel and the Dry Deep: the dig.
+- To **Onyxhollow** through the Zukk'ash Hive's tunnel and the Dry Deep: the dig.
 - To **Moonglade**: the Dream Bough.
 - To **Orgrimmar**: Krueg's report on the Gordunni and the gate.
 - Into Feralas: a letter from Freewind Post's High Elder Namka Windhollow asking after the refugees who went south,

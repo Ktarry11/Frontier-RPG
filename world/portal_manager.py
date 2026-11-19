@@ -254,6 +254,8 @@ class PortalManager:
                 (104, 176): ("Southern Thousand Needles", 110, 12),
                 (48, 35): ("Rocky Pass", 52, 186),           # the cleft up to the summit
                 (204, 150): ("The Shimmering Flats", 6, 40),  # east, where the range bleeds out
+                # west, where the Rockies come down into Feralas (19 Nov 2026): arrive (213,80) at the foot of the descent
+                (4, 154): ("The High Wilderness", 213, 82),
             },
 
             # ===== SOUTHERN THOUSAND NEEDLES =====
@@ -423,6 +425,8 @@ class PortalManager:
                 (89, 70): ("The Abyssal Sands", 148, 116),      # up Underlight
                 # "at the end of the descent" (Kyle): the last room, and the stair in it
                 (98, 40): ("The Black Strand", 20, 14),
+                # the Zukk'ash tunnel from Feralas, in the Brine Seep's west wall (19 Nov 2026): arrive (52,119)
+                (3, 37): ("The Zukk'ash Hive", 52, 121),
             },
             # Under the Dry Deep, and the town behind its gate.
             "The Black Strand": {
@@ -736,6 +740,25 @@ class PortalManager:
                 (90, 196): ("North Felwood", 94, 9),                # arrive (94,7), at the foot of the tunnel
                 (177, 152): ("Timbermaw Hold", 4, 110),             # the East Passage: arrive (4,108), in the Hold
                 (12, 34): ("Moonglade", 156, 167),                  # the Moonglade passage: arrive (156,165)
+            },
+            # ===== FERALAS (docs/feralas_brief.md, 19 Nov 2026): the arrival is always two tiles north of the target =====
+            "The High Wilderness": {
+                (216, 80): ("The Aspen Wilderness", 6, 154),        # back up the descent: arrive (6,152)
+                (160, 86): ("Camp Mojache", 62, 93),                # arrive (62,91), inside the gate
+                (4, 110): ("The Forgotten Coast", 193, 112),        # arrive (193,110)
+                (176, 142): ("The Zukk'ash Hive", 52, 6),           # arrive (52,4), on the mouth's landing
+            },
+            "Camp Mojache": {(62, 95): ("The High Wilderness", 160, 91)},       # arrive (160,89), outside the gate
+            "The Forgotten Coast": {
+                (196, 110): ("The High Wilderness", 7, 112),        # arrive (7,110)
+                (112, 4): ("The Twin Colossals", 112, 215),         # arrive (112,213)
+                (62, 118): ("Feathermoon Stronghold", 111, 54),     # the boat: arrive (111,52) on the pier
+            },
+            "Feathermoon Stronghold": {(116, 52): ("The Forgotten Coast", 65, 120)},   # the boat back: arrive (65,118)
+            "The Twin Colossals": {(112, 216): ("The Forgotten Coast", 112, 9)},       # arrive (112,7)
+            "The Zukk'ash Hive": {
+                (52, 2): ("The High Wilderness", 176, 142),         # up and out (leaving a cave lands a step south)
+                (52, 121): ("The Dry Deep", 6, 39),                 # through the tunnel: arrive (6,37) in the Brine Seep
             },
             "Moonglade": {
                 # The druids' valley (tools/handbuilt_moonglade.py, 18 Nov 2026): one way in, up from the tunnel.

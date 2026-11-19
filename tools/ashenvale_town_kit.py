@@ -37,7 +37,9 @@ _DIRS = [AP, XP, GP, "assets/tiles/barrens/props/", "assets/tiles/dungeon_props/
          # Deadwind (Kyle's sheets, 18 Nov 2026)
          "assets/tiles/deadwind/props/",
          # Moonglade (Kyle's sheets, 18 Nov 2026)
-         "assets/tiles/moonglade/props/"]
+         "assets/tiles/moonglade/props/",
+         # Feralas (19 Nov 2026, before its sheets): the entrance library, for the towns' gates
+         "assets/tiles/cave_entrances/"]
 INDEX = {}
 for _d in _DIRS:
     if os.path.isdir(_d):

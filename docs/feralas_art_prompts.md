@@ -1,7 +1,7 @@
 # Feralas art prompts (sheets 1 to 9)
 
 For `docs/feralas_brief.md`. Kyle, 19 Nov 2026, picked new art for Feralas: three open-world maps (the High Wilderness,
-the Forgotten Coast, the Twin Colossals), two towns (Camp Mojache, Feathermoon Stronghold) and the Writhing Deep.
+the Forgotten Coast, the Twin Colossals), two towns (Camp Mojache, Feathermoon Stronghold) and the Zukk'ash Hive.
 
 Every prompt below is complete on its own: paste one block and nothing else. Each states the image size, the grid and
 cell size, the background, the margin, the style, the camera, the scale rule, the negatives, the never-magenta line,
@@ -20,8 +20,8 @@ fences, machines or tools of our world. The settlers' cabins are hand-built from
 | 5 | 36 wild camps and ruins: ogres, gnolls, naga, Highborne, settlers, the dig | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |
 | 6 | 9 giant landmarks | 2048x2048 | 3 x 3 (about 682 x 682) | magenta |
 | 7 | 36 creatures | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |
-| 8 | 48 Writhing Deep cave tiles | 2048x1536 | 8 x 6 (256 x 256) | **NO magenta** |
-| 9 | 36 Writhing Deep cave props | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |
+| 8 | 48 Zukk'ash Hive cave tiles | 2048x1536 | 8 x 6 (256 x 256) | **NO magenta** |
+| 9 | 36 Zukk'ash Hive cave props | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |
 
 **Priority:** sheet 1 first (the ground is most of the look), then 2, 3 and 6. The towns, creatures and the cave can
 follow while the maps are built.
@@ -263,7 +263,7 @@ These are the zone's giant set pieces: each one fills most of its cell.
 
 Landmarks are numbered row by row, left to right, top to bottom:
 
-Row 1: 1 one of the TWIN COLOSSALS, a vast natural arch of grey granite rising out of the forest, moss and small trees on its top and waterfalls running down its legs; 2 the great gate of DIRE MAUL, a towering Highborne gateway of pale stone in a ruined fortress wall, crudely barricaded by ogres with tree trunks, chains and skulls, the doorway dark; 3 the mouth of the WRITHING DEEP, a huge hive mound of dug earth and amber resin pushed up through the forest floor, giant roots torn and bent around it, a wide dark tunnel opening in its front.
+Row 1: 1 one of the TWIN COLOSSALS, a vast natural arch of grey granite rising out of the forest, moss and small trees on its top and waterfalls running down its legs; 2 the great gate of DIRE MAUL, a towering Highborne gateway of pale stone in a ruined fortress wall, crudely barricaded by ogres with tree trunks, chains and skulls, the doorway dark; 3 the mouth of the ZUKK'ASH HIVE, a huge hive mound of dug earth and amber resin pushed up through the forest floor, giant roots torn and bent around it, a wide dark tunnel opening in its front.
 
 Row 2: 4 the DREAM BOUGH, a colossal ancient tree whose great roots arch over a hollow glowing soft green-gold, the shimmering way into the Dream between them, dream flowers all around its base; 5 THE WAY DOWN FROM THE ASPENS, a mountain pass opening out of grey Rocky Mountain cliffs, golden aspens growing on the rock above and giant dark green Feralas trees beginning at its foot, a trail running out of it toward the viewer; 6 FEATHERMOON LANDING, a night elf gatehouse and pier on the mainland shore, pale silver stone and dark curved wood with a moon lantern, where the boats leave for the island.
 
@@ -305,7 +305,7 @@ Row 4 - THE GIANTS, THE ISLE AND THE HIGHLANDS: 19 a forest giant, huge, made of
 
 Row 5 - THE WILD: 25 a Rage Scar yeti, shaggy red-brown with long arms; 26 a Rage Scar matriarch, bigger with grey streaks; 27 a lean grey longtooth wolf; 28 an ironfur bear, big and dark brown with a silver back; 29 a Feralas stalker, a big green-striped forest cat; 30 a Roosevelt elk from the Fog Groves, a huge bull elk with great antlers (an animal from our world).
 
-Row 6 - THE SILITHIDS OF THE WRITHING DEEP: 31 a silithid tunneler with huge digging forelimbs caked in earth; 32 a silithid hive warrior, armoured in black and amber chitin; 33 a winged silithid swarmer, small and fast; 34 a silithid ravager with scything blade-arms; 35 a silithid resin-spitter, swollen and dripping amber; 36 the Deep Mother, an enormous silithid queen with digging mandibles and a swollen egg sac, the largest figure on the sheet.
+Row 6 - THE SILITHIDS OF THE ZUKK'ASH HIVE: 31 a silithid tunneler with huge digging forelimbs caked in earth; 32 a silithid hive warrior, armoured in black and amber chitin; 33 a winged silithid swarmer, small and fast; 34 a silithid ravager with scything blade-arms; 35 a silithid resin-spitter, swollen and dripping amber; 36 the Deep Mother, an enormous silithid queen with digging mandibles and a swollen egg sac, the largest figure on the sheet.
 ```
 
 The boss and rare names are working names for the art.
@@ -323,14 +323,14 @@ The boss and rare names are working names for the art.
 
 ---
 
-## SHEET 8: 48 Writhing Deep cave tiles (NO magenta)
+## SHEET 8: 48 Zukk'ash Hive cave tiles (NO magenta)
 
 ```
 Generate ONE texture sheet image, 2048x1536, laid out as a strict 8 columns x 6 rows grid = 48 separate seamless cave floor, wall and water textures, each cell exactly 256x256. Each cell is COMPLETELY FILLED by its texture, edge to edge, touching its neighbours with no gap. No border, no background colour, no magenta, no frames, no gutters, no grid lines, no text, no labels, no numbers. Every texture must TILE SEAMLESSLY with itself on all four sides: no single large feature that would obviously repeat, no emblem or pattern repeated in every tile, no lighting gradient across the cell, flat even illumination, no vignette, no baked shadows, no objects or props standing on the ground. Straight top-down view, no perspective.
 
 Match the attached reference tiles EXACTLY in style, scale of detail and level of saturation: they are from the same set. Painterly semi-realistic WoW Classic cave texture style, dark and moody but readable at small size, not too busy.
 
-Setting: THE WRITHING DEEP, a silithid hive dug under the giant forest of Feralas. Near the top it is wet forest earth, giant roots and moss coming through the walls; in the middle it is the hive, raw dug earth, amber resin, chitin and eggs; at the very back it is a long tunnel the silithids are still digging, where the wet earth gives way to dry dark grey-black sand, pale glowing fungus and old buried stone, the ground of the deep underground they are digging toward. Palette: dark wet loam, root brown, moss green; amber resin and honey-gold glows, black and brown chitin; dry grey-black sand, pale blue-white and violet fungus glows, ash grey stone.
+Setting: THE ZUKK'ASH HIVE, a silithid hive dug under the giant forest of Feralas. Near the top it is wet forest earth, giant roots and moss coming through the walls; in the middle it is the hive, raw dug earth, amber resin, chitin and eggs; at the very back it is a long tunnel the silithids are still digging, where the wet earth gives way to dry dark grey-black sand, pale glowing fungus and old buried stone, the ground of the deep underground they are digging toward. Palette: dark wet loam, root brown, moss green; amber resin and honey-gold glows, black and brown chitin; dry grey-black sand, pale blue-white and violet fungus glows, ash grey stone.
 
 Tiles are numbered row by row, left to right, top to bottom:
 
@@ -360,7 +360,7 @@ Row 6 - THE DEEP END: 41 black sand with patches of pale blue-white glowing fung
 
 ---
 
-## SHEET 9: 36 Writhing Deep cave props (MAGENTA KEY)
+## SHEET 9: 36 Zukk'ash Hive cave props (MAGENTA KEY)
 
 ```
 Generate ONE sprite sheet image, 2048x2048, a 6 columns x 6 rows grid = 36 separate sprites, each cell about 341x341. Flat pure #FF00FF magenta background everywhere. Each sprite is ONE single object, centred in its own cell with a wide margin, not touching or overlapping its neighbours or the image edge. No ground, no floor patch, no water under it unless the prompt puts the water inside the object itself, no cast shadow, no glow halo bleeding onto the background, no people, no creatures, no text, no labels, no numbers, no grid lines, no frames, no borders. Never use magenta or pink anywhere on the objects themselves.
@@ -369,7 +369,7 @@ Match the attached references EXACTLY in style, camera angle, outline and level 
 
 Camera: isometric three-quarter view elevated about 45 degrees. EVERY object is turned the same way, front face toward the lower-right. Openings face the front. Consistency of angle across all 36 is critical.
 
-Setting: THE WRITHING DEEP, a silithid hive dug under the giant forest of Feralas: wet earth and giant roots near the top, amber resin, chitin and eggs in the hive, and at the back a long tunnel being dug toward the deep underground, where the earth turns to dry dark sand, pale glowing fungus and old buried stone. Palette: dark loam and root brown, moss green, amber resin with honey-gold glows, black and brown chitin, dry grey-black sand, pale blue-white and violet fungus glows.
+Setting: THE ZUKK'ASH HIVE, a silithid hive dug under the giant forest of Feralas: wet earth and giant roots near the top, amber resin, chitin and eggs in the hive, and at the back a long tunnel being dug toward the deep underground, where the earth turns to dry dark sand, pale glowing fungus and old buried stone. Palette: dark loam and root brown, moss green, amber resin with honey-gold glows, black and brown chitin, dry grey-black sand, pale blue-white and violet fungus glows.
 
 Objects keep their RELATIVE scale: the resin pillar, the queen's egg throne and the tunnel mouth are the largest sprites on the sheet; an egg, a mushroom and a husk are small. Do not blow each one up to fill its own cell.
 

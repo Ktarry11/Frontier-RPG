@@ -16,11 +16,20 @@ the silithids are digging....", and "Let's build feralas first" (before the Worl
 | Camp Mojache | **Grown with refugees**: tauren who walked out of Mulgore made it bigger; it answers to the leader at Camp Taurajo |
 | The Integration's touch | **Pacific Northwest rainforest** grafted in, **the silithid dig**, **a few transplant settlers** |
 | Dire Maul | **A door now, built later at 55-60** (like Moonglade's three doors) |
-| The Writhing Deep | **A hive cave with the tunnel at the back**, coming out in the Dry Deep |
+| The Zukk'ash Hive | **A hive cave with the tunnel at the back**, coming out in the Dry Deep |
 | Factions | **The Feathermoon Sentinels**, a new night elf faction; Mojache's quests give Orgrimmar reputation |
 | Recruits | **None for now** |
 | Art | **New sheets** (`docs/feralas_art_prompts.md`) |
 | Peoples | **Gordunni ogres, Woodpaw gnolls, naga on the coast, giants at the Twin Colossals**, plus the wildlife and the Grimtotem |
+
+**The cave's name.** Kyle asked for "the writhing deep in Feralas", but the Plaguelands already have a cave called The
+Writhing Deep (the spiders under South Western Plaguelands), and two maps can't share a name. So Feralas's hive is **the
+Zukk'ash Hive** (the classic hive's own name) until Kyle picks another.
+
+**Built before the art (Kyle, 19 Nov 2026: "Build without art for now").** Everything stands on art already in the game:
+Ashenvale's and Stonetalon's ground and trees, the tauren and night elf buildings from Camp Taurajo, Moonglade and
+Felwood, the cave entrance library, and placeholder sprites for the creatures. The art prompts' file names are wired in
+(the creature builders' PLACEHOLDER tables), so slicing the sheets swaps everything over.
 
 ## The shape
 
@@ -30,7 +39,7 @@ far end of the east arm, walk west along it to the corner, and then turn north u
 
 | Map | Levels | Shape | What's in it |
 |---|---|---|---|
-| **The High Wilderness** (the east arm) | 44-46 | wide, east to west | the way down from the aspens, Camp Mojache's door, Woodpaw Hills, the Lower Wilds, the Grimtotem Compound, the Gordunni Outpost, Dire Maul's gate, the Writhing Deep's hive mouth |
+| **The High Wilderness** (the east arm) | 44-46 | wide, east to west | the way down from the aspens, Camp Mojache's door, Woodpaw Hills, the Lower Wilds, the Grimtotem Compound, the Gordunni Outpost, Dire Maul's gate, the Zukk'ash Hive's mouth |
 | **The Forgotten Coast** (the corner and the south coast) | 46-48 | the corner of the L | the Fog Groves (the grafted rainforest and its settlers), the Ruins of Isildien, the naga beaches, Feathermoon's landing, Sardor Isle and the Isle of Dread across the shallows, the Frayfeather Highlands |
 | **The Twin Colossals** (the north coast) | 47-49 | tall, north to south | the Twin Colossals and their giants, Rage Scar Hold, the Ruins of Ravenwind, the Dream Bough |
 
@@ -40,7 +49,7 @@ The map names are classic Feralas subzone names, used for the three maps. Kyle c
 Coast, reached by boat from the landing). Each has an inn and the flight path for its part of Feralas. The Twin
 Colossals gets a small group of quest givers at the Sentinels' watch and no flight path.
 
-**The Writhing Deep (47-49):** the silithid hive under the east arm's south edge. A cave, a cave boss, and at the back
+**The Zukk'ash Hive (47-49):** the silithid hive under the east arm's south edge. A cave, a cave boss, and at the back
 the tunnel the silithids are still digging, which comes out in the Dry Deep under the Abyssal Sands. That gives the Dry
 Deep a second way in, and Feralas a way through to Tanaris without a flight.
 
@@ -65,12 +74,12 @@ east arm, and they stay a note, never the zone's theme.
 
 **Enemies:** the Gordunni ogres (Dire Maul's gate, the Gordunni Outpost, the Ruins of Isildien), the Woodpaw gnolls,
 the Grimtotem, the naga of the Forgotten Coast and its isles, the giants walking the Twin Colossals, the silithids
-spreading out of the Writhing Deep, and the wildlife: yetis at Rage Scar Hold, hippogryphs in the Frayfeather
+spreading out of the Zukk'ash Hive, and the wildlife: yetis at Rage Scar Hold, hippogryphs in the Frayfeather
 Highlands, chimaeras on the Isle of Dread, sprite darters, wolves, stags, bears and the forest's great cats.
 
 ## The story threads (draft, for the quests)
 - **The dig.** The silithids aren't spreading at random; they're digging somewhere. Mojache's hunters follow the
-  mounds south to the Writhing Deep, and the cave's back end shows where to: through to the Dry Deep. Leaves Feralas
+  mounds south to the Zukk'ash Hive, and the cave's back end shows where to: through to the Dry Deep. Leaves Feralas
   for Tanaris.
 - **The refugees.** Who came south from Mulgore, who didn't, and what the Grimtotem took while the tauren were gone.
   Ties back to Camp Taurajo's leader and the survivors' list from Moonglade.
@@ -86,6 +95,6 @@ Highlands, chimaeras on the Isle of Dread, sprite darters, wolves, stags, bears 
 1. The art prompts go to Kyle (`docs/feralas_art_prompts.md`).
 2. While the art comes: the creatures, the encounter tables with subzones and rares, the towns' people, the Sentinels
    faction, the quests (Ashenvale is the bar: about 30 a map, about 70% from towns).
-3. When the art is in: slice it, build the three maps, the two towns and the Writhing Deep, and wire the portals (the
-   Aspen Wilderness's west edge, the Writhing Deep's tunnel into the Dry Deep, the boat to Feathermoon).
+3. When the art is in: slice it, build the three maps, the two towns and the Zukk'ash Hive, and wire the portals (the
+   Aspen Wilderness's west edge, the Zukk'ash Hive's tunnel into the Dry Deep, the boat to Feathermoon).
 4. QA, the levelling run (`tools/sim_campaign.py`) and the rare census for Feralas, then Kyle plays it.
