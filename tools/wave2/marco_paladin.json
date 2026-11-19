@@ -9,9 +9,19 @@
   },
   "bond": {
     "home": "the Undercity",
-    "dials": {"warmth": 1.0, "nerve": 1.4, "pride": 1.2, "restless": 0.6},
-    "likes": ["quest", "dungeon"],
-    "dislikes": ["quest_abandoned"],
+    "dials": {
+      "warmth": 1.0,
+      "nerve": 1.4,
+      "pride": 1.2,
+      "restless": 0.6
+    },
+    "likes": [
+      "quest",
+      "dungeon"
+    ],
+    "dislikes": [
+      "quest_abandoned"
+    ],
     "stages": {
       "stranger": "My name's Marco. I'm a locksmith, and here I stand in front of people. You go where you need to go and I'll be in front of you. That's all you need to know for now, ragazzo.",
       "acquaintance": "I'm from Naples, from the Quartieri Spagnoli, the narrow streets above Via Toledo. My father mended shoes. I was a locksmith for thirty-one years, with my own shop and a door that was always open. People sent for me when something was wrong, and not only with locks. I was going to retire that summer and give the shop to my apprentice.",
@@ -20,16 +30,29 @@
       "sworn": "Sara was there, and Matteo, who's three now and hid behind her legs. He didn't know me. I knelt in the street and let him look at me for as long as he wanted. I held him a fifth time that evening, and a sixth, and then I stopped counting. Giulia and Carmela are still missing. Sara and the boy live in the Undercity with me now, and the Forsaken are very careful around him. I've finished the key, in my way."
     },
     "moments": [
-      {"id": "the_lists", "stage": "friend", "when": "talk",
-       "prompt": "He's asked you to come with him to read the lists.",
-       "options": [
-         {"text": "I'll come. We'll read it together.", "trust": 12,
-          "reply": "Grazie, ragazzo, I'll go first, piano, piano. You stand next to me."},
-         {"text": "Are you sure you want to know?", "trust": 2,
-          "reply": "No, I'm not, and that's why I'm asking you to come."},
-         {"text": "You could go on your own.", "trust": 0,
-          "reply": "I could have, for three years, and I didn't."}
-       ]}
+      {
+        "id": "the_lists",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to come with him to read the lists.",
+        "options": [
+          {
+            "text": "I'll come. We'll read it together.",
+            "trust": 12,
+            "reply": "Grazie, ragazzo, I'll go first, piano, piano. You stand next to me."
+          },
+          {
+            "text": "Are you sure you want to know?",
+            "trust": 2,
+            "reply": "No, I'm not, and that's why I'm asking you to come."
+          },
+          {
+            "text": "You could go on your own.",
+            "trust": 0,
+            "reply": "I could have, for three years, and I didn't."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We've been doing the same work for a long time and nobody's better off for it. Give me something that helps somebody, or I'll go back to my quarter.",
@@ -55,20 +78,39 @@
   },
   "banter": {
     "town_arrive": [
-      {"text": "Who keeps order here? Somebody does, and I like to know who.", "kind": "open"},
-      {"text": "In Naples the streets were so narrow you could hand bread from one balcony to the next. I miss that.", "kind": "open", "topic": "cities"}
+      {
+        "text": "Who keeps order here? Somebody does, and I like to know who.",
+        "kind": "open"
+      },
+      {
+        "text": "In my old street you could hand bread from one balcony to the next, and people did. I knew every family on it.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "boss_down": [
-      {"text": "Nobody's ever going to answer for what that thing did to people.", "kind": "open"}
+      {
+        "text": "Nobody's ever going to answer for what that thing did to people.",
+        "kind": "open"
+      }
     ],
     "close_call": [
-      {"text": "We went in without knowing the ground, ragazzo. Next time I go first.", "kind": "reply"}
+      {
+        "text": "We went in without knowing the ground, ragazzo. Next time I go first.",
+        "kind": "reply"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Everybody walked out behind me. That's how it should be.", "kind": "open"}
+      {
+        "text": "They all walked out behind me, the way it should be.",
+        "kind": "open"
+      }
     ],
     "zone_arrive": [
-      {"text": "Thirty years I was the man people looked for. It's a hard habit to lose.", "kind": "open"}
+      {
+        "text": "Thirty years I was the man people looked for. It's a hard habit to lose.",
+        "kind": "open"
+      }
     ]
   }
 }

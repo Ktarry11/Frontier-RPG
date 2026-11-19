@@ -9,9 +9,19 @@
   },
   "bond": {
     "home": "Northern Stranglethorn",
-    "dials": {"warmth": 0.5, "nerve": 1.5, "pride": 1.0, "restless": 0.7},
-    "likes": ["boss", "dungeon"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 0.5,
+      "nerve": 1.5,
+      "pride": 1.0,
+      "restless": 0.7
+    },
+    "likes": [
+      "boss",
+      "dungeon"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Eino, and I hit things with an axe. I don't talk much. That's not because I don't like you, it's just how I am.",
       "acquaintance": "I'm from Lapland, outside Kittilä, above the Arctic Circle. My family cut and planted the same forest for four generations. I felled timber for twenty-six years, chainsaw first, then a harvester. Six months of dark every winter. I liked it, very much.",
@@ -20,22 +30,42 @@
       "sworn": "The foreman was Juha. Two years running clear-cuts for the goblins, and I didn't know. Afterwards he said he was wrong, at home and here. I said I was too stubborn to listen. That's all either of us said. He's changed the plan to selective felling, the way our father did it. Then we sat in my sauna together for three hours without a word, and jumped in the river. Best conversation we've ever had."
     },
     "moments": [
-      {"id": "the_sauna", "stage": "acquaintance", "when": "talk",
-       "prompt": "He's built a sauna at camp in the middle of the jungle, and he's looking at you.",
-       "options": [
-         {"text": "Sit in it with him, in silence.", "trust": 10,
-          "reply": "Good, that's how it's done, and you'll do."},
-         {"text": "Say something about the sauna.", "trust": 0,
-          "reply": "Everybody says something. It's still a good sauna."}
-       ]},
-      {"id": "the_foreman", "stage": "friend", "when": "talk",
-       "prompt": "He's asked you to come and argue with the goblin foreman.",
-       "options": [
-         {"text": "I'll do the talking if you want.", "trust": 8,
-          "reply": "Yes, please, you talk. I'll stand behind you and look big."},
-         {"text": "I'll come. You say what you need to.", "trust": 12,
-          "reply": "No niin, okay. I'll try to use whole sentences."}
-       ]}
+      {
+        "id": "the_sauna",
+        "stage": "acquaintance",
+        "when": "talk",
+        "prompt": "He's built a sauna at camp in the middle of the jungle, and he's looking at you.",
+        "options": [
+          {
+            "text": "Sit in it with him, in silence.",
+            "trust": 10,
+            "reply": "Good, that's how it's done, and you'll do."
+          },
+          {
+            "text": "Say something about the sauna.",
+            "trust": 0,
+            "reply": "Everybody says something. It's still a good sauna."
+          }
+        ]
+      },
+      {
+        "id": "the_foreman",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to come and argue with the goblin foreman.",
+        "options": [
+          {
+            "text": "I'll do the talking if you want.",
+            "trust": 8,
+            "reply": "Yes, please, you talk. I'll stand behind you and look big."
+          },
+          {
+            "text": "I'll come. You say what you need to.",
+            "trust": 12,
+            "reply": "No niin, okay. I'll try to use whole sentences."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "Same field, same animals, again and again. Even a forest gets cut faster than this. Let's go somewhere new.",
@@ -60,19 +90,36 @@
   },
   "banter": {
     "zone_arrive": [
-      {"text": "This is warm. I'm not complaining, I'm noticing.", "kind": "open", "topic": "the_cold"}
+      {
+        "text": "This is warm. I'm not complaining, I'm noticing.",
+        "kind": "open",
+        "topic": "the_cold"
+      }
     ],
     "boss_down": [
-      {"text": "It's dead, so we can go now.", "kind": "reply"}
+      {
+        "text": "It's dead, so we can go now.",
+        "kind": "reply"
+      }
     ],
     "close_call": [
-      {"text": "You're fine, so walk it off or don't, but decide quickly.", "kind": "open"}
+      {
+        "text": "You're fine, so walk it off or don't, but decide quickly.",
+        "kind": "open"
+      }
     ],
     "town_arrive": [
-      {"text": "In Lapland the winter sun doesn't come up for weeks. I miss the dark, honestly.", "kind": "open", "topic": "the_cold"}
+      {
+        "text": "In Lapland the sun doesn't come up for weeks in winter. All this daylight makes me tired.",
+        "kind": "open",
+        "topic": "the_cold"
+      }
     ],
     "dungeon_clear": [
-      {"text": "That was good work. Now I need a sauna.", "kind": "reply"}
+      {
+        "text": "That was good work. Now I need a sauna.",
+        "kind": "reply"
+      }
     ]
   }
 }

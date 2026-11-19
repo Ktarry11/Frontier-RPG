@@ -4,9 +4,19 @@
   },
   "bond": {
     "home": "Orgrimmar",
-    "dials": {"warmth": 0.8, "nerve": 1.4, "pride": 0.7, "restless": 0.8},
-    "likes": ["dungeon", "full_party"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 0.8,
+      "nerve": 1.4,
+      "pride": 0.7,
+      "restless": 0.8
+    },
+    "likes": [
+      "dungeon",
+      "full_party"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Dan, and I go first and I stand in front, and you lot get on with it behind me. Don't thank me, it's the job and somebody has to have it.",
       "acquaintance": "I'm from Sheffield, Attercliffe. My dad came over from Enugu in the sixties and worked the steel for thirty years, and my mum was a dinner lady from Rotherham. I went on the floor at eighteen, same plant as him. Twenty-two years on a four-man crew. Me, Gaz, Little Mick and Pete. We went for a pint every Friday for nine years straight.",
@@ -15,31 +25,56 @@
       "sworn": "The trail ran out at that empty camp in the Barrens, and that's all there is. She's a paramedic, she's tough, and she's out there doing the job somewhere. That'll have to do. I've left a note at every hub, under both names. I've stopped trying to build a crew out of whoever's in the tavern, because I've got one. It's this lot. I still check the D's, mind."
     },
     "moments": [
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe he's already on his feet, checking everyone's straps.",
-       "line": "Somebody pulled before I was in. I'm not having a go, but I go first. That's the arrangement.",
-       "options": [
-         {"text": "Fair enough. You go first from now on.", "trust": 8, "mood": 6,
-          "reply": "Right, good, let's go again, then."},
-         {"text": "We were trying to speed things up.", "trust": 0, "mood": -6,
-          "reply": "Aye, and now we're slower. Funny how that works."}
-       ]},
-      {"id": "the_sofa", "stage": "friend", "when": "talk",
-       "prompt": "He's just told you about the four years out of work.",
-       "options": [
-         {"text": "Then let's find her so you can tell her.", "trust": 12,
-          "reply": "Aye, thanks, love. That's all I wanted to hear."},
-         {"text": "That sounds like it was hard.", "trust": 4,
-          "reply": "It was hard. I'm not going on about it, mind."},
-         {"text": "You should've told her.", "trust": 0,
-          "reply": "I know that, ta. That's why I'm going to find her."}
-       ]}
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe he's already on his feet, checking everyone's straps.",
+        "line": "Somebody pulled before I was in. I'm not having a go, but I go first. That's the arrangement.",
+        "options": [
+          {
+            "text": "Fair enough. You go first from now on.",
+            "trust": 8,
+            "mood": 6,
+            "reply": "Right, good, let's go again, then."
+          },
+          {
+            "text": "We were trying to speed things up.",
+            "trust": 0,
+            "mood": -6,
+            "reply": "Aye, and now we're slower. Funny how that works."
+          }
+        ]
+      },
+      {
+        "id": "the_sofa",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's just told you about the four years out of work.",
+        "options": [
+          {
+            "text": "Then let's find her so you can tell her.",
+            "trust": 12,
+            "reply": "Aye, thanks, love. That's all I wanted to hear."
+          },
+          {
+            "text": "That sounds like it was hard.",
+            "trust": 4,
+            "reply": "It was hard. I'm not going on about it, mind."
+          },
+          {
+            "text": "You should've told her.",
+            "trust": 0,
+            "reply": "I know that, ta. That's why I'm going to find her."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We've been at this same patch for ages and it's going nowhere. Give me a proper job or I'll head back to the forges.",
       "leaving_good": "That was a good shift, that. I'm going back to Orgrimmar for a bit. Give us a shout when you need someone at the front.",
       "leaving_bored": "I'm heading back to Orgrimmar. This is daft, we're just hitting things for nowt.",
-      "after_wipe": "Right, everyone up. Check your straps and we'll have another go.",
+      "after_wipe": "Right, everyone up. Shake it off and we'll have another go.",
       "wipe_warning": "We're dying too much in here. I'll see it through because I don't leave a job half done, but then I'm having a break.",
       "wipe_leave": "Job's done, so I'm off for a bit. I'll be by the forges in Orgrimmar when you've sorted yourselves out.",
       "zone_warning": "This lot's well above us. I'll stand in front of owt, but I'm not daft. Let's go somewhere we can handle.",
@@ -58,21 +93,43 @@
   },
   "banter": {
     "town_arrive": [
-      {"text": "Walls, a gate, somebody watching it. I'll sleep tonight.", "kind": "open"},
-      {"text": "Sheffield's seven hills and a lot of rain, and the best pint in England, so don't argue.", "kind": "open", "topic": "cities"}
+      {
+        "text": "Walls, a gate, somebody watching it. I'll sleep tonight.",
+        "kind": "open"
+      },
+      {
+        "text": "My dad drank in the same pub on the same stool for thirty years. I'm going to find out where this lot drink.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Everybody walked out. That's the job, that's all the job ever is.", "kind": "open"},
-      {"text": "Nobody got hurt being clever. I'll take that.", "kind": "reply"}
+      {
+        "text": "We all walked out on our own. That's the job done, as far as I'm concerned.",
+        "kind": "open"
+      },
+      {
+        "text": "Nobody got hurt being clever. I'll take that.",
+        "kind": "reply"
+      }
     ],
     "close_call": [
-      {"text": "That's on me. I was a step too far left.", "kind": "open"}
+      {
+        "text": "That's on me. I was a step too far left.",
+        "kind": "open"
+      }
     ],
     "boss_down": [
-      {"text": "Right, check your straps before we move.", "kind": "reply"}
+      {
+        "text": "Right, give it a minute, then we move. No rushing it.",
+        "kind": "reply"
+      }
     ],
     "zone_arrive": [
-      {"text": "Ground's soft on the left. Walk the right side.", "kind": "open"}
+      {
+        "text": "Ground's soft on the left. Walk the right side.",
+        "kind": "open"
+      }
     ]
   }
 }

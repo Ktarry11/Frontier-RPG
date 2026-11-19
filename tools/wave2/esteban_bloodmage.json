@@ -8,9 +8,19 @@
   },
   "bond": {
     "home": "Orgrimmar",
-    "dials": {"warmth": 0.8, "nerve": 1.3, "pride": 0.9, "restless": 0.8},
-    "likes": ["quest", "dungeon"],
-    "dislikes": ["quest_abandoned"],
+    "dials": {
+      "warmth": 0.8,
+      "nerve": 1.3,
+      "pride": 0.9,
+      "restless": 0.8
+    },
+    "likes": [
+      "quest",
+      "dungeon"
+    ],
+    "dislikes": [
+      "quest_abandoned"
+    ],
     "stages": {
       "stranger": "My name's Esteban, and I'm a bloodmage. Before I use it on you I'll tell you what it costs and ask if you agree, every time. I'd ask you to answer honestly, and not to pretend afterwards that I didn't ask.",
       "acquaintance": "I'm from Valparaíso, in Chile, from one of the steep hills above the harbour where the old lifts creak up the slopes. My father worked the docks and my mother was a seamstress. I was a vascular and trauma surgeon at the city hospital for nineteen years. Car crashes, stabbings, accidents at the port. A great deal of it under X-ray, hence the badge.",
@@ -19,24 +29,47 @@
       "sworn": "The healers in Orgrimmar argued about my clauses for three days. They changed two and added one of their own, and then they adopted them for every bloodmage who wants to work here. I've taught my first class, three of them. On the first day I told them about the prisoner on the Bloodsail ship, because I want them to know why the first clause is there. It's regrettable that it took a death to write it. It won't take another."
     },
     "moments": [
-      {"id": "consent", "stage": "acquaintance", "when": "talk",
-       "prompt": "Before a fight, he asks if he may draw on your blood if things go badly.",
-       "options": [
-         {"text": "Yes. Thank you for asking.", "trust": 8,
-          "reply": "Thank you for answering. You'd be surprised how few people do."},
-         {"text": "Just do whatever you need to.", "trust": 0,
-          "reply": "That's not an answer, I'm afraid. I'll ask again when you've thought about it."},
-         {"text": "No, not mine.", "trust": 6,
-          "reply": "Then I won't. I'm grateful for a clear no."}
-       ]},
-      {"id": "the_prisoner", "stage": "friend", "when": "talk",
-       "prompt": "He's just told you about the prisoner.",
-       "options": [
-         {"text": "You've spent every day since making it right.", "trust": 10,
-          "reply": "I've spent every day since trying. That's not the same, but thank you."},
-         {"text": "You saved the captain.", "trust": 0,
-          "reply": "I did save him. I didn't have the right to choose which of them it would be."}
-       ]}
+      {
+        "id": "consent",
+        "stage": "acquaintance",
+        "when": "talk",
+        "prompt": "Before a fight, he asks if he may draw on your blood if things go badly.",
+        "options": [
+          {
+            "text": "Yes. Thank you for asking.",
+            "trust": 8,
+            "reply": "Thank you for answering. You'd be surprised how few people do."
+          },
+          {
+            "text": "Just do whatever you need to.",
+            "trust": 0,
+            "reply": "That's not an answer, I'm afraid. I'll ask again when you've thought about it."
+          },
+          {
+            "text": "No, not mine.",
+            "trust": 6,
+            "reply": "Then I won't. I'm grateful for a clear no."
+          }
+        ]
+      },
+      {
+        "id": "the_prisoner",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's just told you about the prisoner.",
+        "options": [
+          {
+            "text": "You've spent every day since making it right.",
+            "trust": 10,
+            "reply": "I've spent every day since trying. That's not the same, but thank you."
+          },
+          {
+            "text": "You saved the captain.",
+            "trust": 0,
+            "reply": "I did save him. I didn't have the right to choose which of them it would be."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We've done the same work for some time now with nothing to show for it. I'd like to do something useful, or I'd like to go back to the healers.",
@@ -62,20 +95,41 @@
   },
   "banter": {
     "close_call": [
-      {"text": "May I look at that? It's deeper than you think, and I'd rather not guess.", "kind": "open"},
-      {"text": "Everybody here estimates. I was paid for nineteen years not to.", "kind": "reply", "topic": "measure"}
+      {
+        "text": "May I look at that? It's deeper than you think, and I'd rather not guess.",
+        "kind": "open"
+      },
+      {
+        "text": "Everybody here estimates. I was paid for nineteen years not to.",
+        "kind": "reply",
+        "topic": "measure"
+      }
     ],
     "boss_down": [
-      {"text": "It's done now. Before anyone celebrates, show me where you're bleeding.", "kind": "reply"}
+      {
+        "text": "It's done now. Before anyone celebrates, show me where you're bleeding.",
+        "kind": "reply"
+      }
     ],
     "town_arrive": [
-      {"text": "Valparaíso's built on forty hills over the harbour, with old lifts that creak up them. I miss the creaking.", "kind": "open", "topic": "cities"}
+      {
+        "text": "My mother was a seamstress. I learned to stitch at her kitchen table years before anyone let me near a patient.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "zone_arrive": [
-      {"text": "Everyone here guesses at how much a body can lose. It's the only thing that truly frightens me.", "kind": "open", "topic": "measure"}
+      {
+        "text": "Everyone here guesses at how much a body can lose. It's the only thing that truly frightens me.",
+        "kind": "open",
+        "topic": "measure"
+      }
     ],
     "dungeon_clear": [
-      {"text": "A clean piece of work. Nobody paid for it who didn't agree to.", "kind": "open"}
+      {
+        "text": "A clean piece of work. Nobody paid for it who didn't agree to.",
+        "kind": "open"
+      }
     ]
   }
 }

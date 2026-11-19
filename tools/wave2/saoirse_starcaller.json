@@ -9,34 +9,66 @@
   },
   "bond": {
     "home": "the Sepulcher",
-    "dials": {"warmth": 1.4, "nerve": 1.5, "pride": 0.6, "restless": 1.0},
-    "likes": ["boss", "full_party"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 1.4,
+      "nerve": 1.5,
+      "pride": 0.6,
+      "restless": 1.0
+    },
+    "likes": [
+      "boss",
+      "full_party"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Saoirse, and I stand in front of things. Get behind me, keep your head up, and do what I shout. If you get notions, I'll throw this ball at you, and I don't miss.",
       "acquaintance": "I'm from Kilkenny, so. My da farmed and my mam was a nurse. I had a camogie stick in my hand at five and played for the county from seventeen, until my knee went in a county final at twenty-six. That was the end of playing. I took up coaching the same year, under-sixteen girls, and I loved it more than I ever loved playing, if you can believe that.",
-      "companion": "I was driving the minibus to an away match at seven in the morning with eleven of my girls in the back when it happened. I landed in Silverpine on my own with this sliotar in my pocket. I don't know where they went. I've checked every list I can reach for eleven names. That's the bit I can't put down, honestly.",
+      "companion": "I was driving the minibus to an away match at seven in the morning with eleven of my girls in the back when it happened. I landed in Silverpine on my own with this sliotar in my pocket. I don't know where they went. I've checked every list I can reach for eleven names. That's the part I can't put down.",
       "friend": "My parents died within a year of each other when I was twenty-nine, and my brother's in Australia, and we're not close. There was nobody whose being gone really rearranged me, and I've felt guilty about that for years. But those girls are mine. A trader in Tarren Mill says there's a group of Irish teenage girls living on a farm out there. I need to go now. Will you come?",
       "sworn": "Seven of my eleven, older and taller, standing in front of each other with sticks in their hands, the way I taught them. I nearly cried, I'm not ashamed to say. The other four were never with them, and nobody knows where they are. I'll keep looking. But I've got a team now. Seven of mine and four from the Sepulcher, out on the training ground at seven every morning, complaining. Best day I've had in three years, that first one."
     },
     "moments": [
-      {"id": "the_farm", "stage": "friend", "when": "talk",
-       "prompt": "She's asked you to come to Tarren Mill with her.",
-       "options": [
-         {"text": "Let's go and get your girls.", "trust": 12,
-          "reply": "Grand, that's grand. Come on, before I lose my nerve."},
-         {"text": "What if it's not them?", "trust": 2,
-          "reply": "Then it's somebody's girls, and they'll need us anyway."}
-       ]},
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe she claps her hands, loudly, like it's half time.",
-       "line": "Right, team talk! We got beaten because we didn't stay in our lines. Up, and we go again, properly this time.",
-       "options": [
-         {"text": "Yes, coach.", "trust": 8, "mood": 8,
-          "reply": "Ha, that's the spirit! Lines, everybody, and talk to each other."},
-         {"text": "This isn't a match.", "trust": 0, "mood": -4,
-          "reply": "Everything's a match if you want to win it, so."}
-       ]}
+      {
+        "id": "the_farm",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "She's asked you to come to Tarren Mill with her.",
+        "options": [
+          {
+            "text": "Let's go and get your girls.",
+            "trust": 12,
+            "reply": "Grand, that's grand. Come on, before I lose my nerve."
+          },
+          {
+            "text": "What if it's not them?",
+            "trust": 2,
+            "reply": "Then it's somebody's girls, and they'll need us anyway."
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe she claps her hands, loudly, like it's half time.",
+        "line": "Right, team talk! We got beaten because we didn't stay in our lines. Up, and we go again, properly this time.",
+        "options": [
+          {
+            "text": "Yes, coach.",
+            "trust": 8,
+            "mood": 8,
+            "reply": "Ha, that's the spirit! Lines, everybody, and talk to each other."
+          },
+          {
+            "text": "This isn't a match.",
+            "trust": 0,
+            "mood": -4,
+            "reply": "Everything's a match if you want to win it, so."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We've been doing the same drill for days and nobody's getting any better at it. Let's find a proper game, will we?",
@@ -61,19 +93,35 @@
   },
   "banter": {
     "dungeon_clear": [
-      {"text": "Everybody stayed in their lines that time. I'm proud of yiz, honestly.", "kind": "open"}
+      {
+        "text": "Everybody stayed in their lines that time. I'm proud of yiz.",
+        "kind": "open"
+      }
     ],
     "boss_down": [
-      {"text": "Get in, yes! That's what we've been drilling for, that is.", "kind": "open"}
+      {
+        "text": "Get in, yes! That's what we've been drilling for, that is.",
+        "kind": "open"
+      }
     ],
     "town_arrive": [
-      {"text": "Kilkenny's got a castle, a lot of pubs and the best hurlers in Ireland. Don't argue, it's a fact.", "kind": "open", "topic": "cities"}
+      {
+        "text": "My da farmed and my mam nursed, and between them they knew every family in Kilkenny. You couldn't get away with anything.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "close_call": [
-      {"text": "Keep your head up and your feet moving, I've told you before. Next time, behind me.", "kind": "reply"}
+      {
+        "text": "Keep your head up and your feet moving, I've told you before. Next time, behind me.",
+        "kind": "reply"
+      }
     ],
     "zone_arrive": [
-      {"text": "Good flat ground out here. You could mark out a pitch on that.", "kind": "open"}
+      {
+        "text": "Good flat ground out here. You could mark out a pitch on that.",
+        "kind": "open"
+      }
     ]
   }
 }

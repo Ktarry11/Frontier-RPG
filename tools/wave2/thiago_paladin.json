@@ -9,9 +9,19 @@
   },
   "bond": {
     "home": "Grom'gol",
-    "dials": {"warmth": 1.5, "nerve": 1.3, "pride": 0.4, "restless": 1.1},
-    "likes": ["full_party", "quest"],
-    "dislikes": ["quest_abandoned"],
+    "dials": {
+      "warmth": 1.5,
+      "nerve": 1.3,
+      "pride": 0.4,
+      "restless": 1.1
+    },
+    "likes": [
+      "full_party",
+      "quest"
+    ],
+    "dislikes": [
+      "quest_abandoned"
+    ],
     "stages": {
       "stranger": "I'm Thiago, meu irmão, and I'm a paladin, a healer. Hey, look at me. Nobody's dying today, and I promise you that, and I don't promise things lightly.",
       "acquaintance": "I'm from Belo Horizonte, in Brazil, in Minas Gerais. My father's a mechanic, my mother cooks at a school, and my whole family lives on the same three streets, thirty of us at Sunday lunch. I was a physiotherapist for ten years, mostly people recovering badly from terrible things. I got them walking again, or got them to accept they wouldn't.",
@@ -20,23 +30,45 @@
       "sworn": "Júlio cried when he saw me. Then he told me the rest. Our three streets came through together and landed somewhere bad in the first winter, and he's the only one who made it. My parents, my sisters, my grandparents, all gone. I sat on the sand a long time, and you sat with me. Then I told Júlio he's not dying today, and that I promise. I taught every fisherman there to carry the injured. I'm lighter now, and heavier."
     },
     "moments": [
-      {"id": "alone", "stage": "friend", "when": "talk",
-       "prompt": "He's told you he's never been alone before all this.",
-       "options": [
-         {"text": "You're not alone now.", "trust": 12,
-          "reply": "No, I'm not, uai. That means more than you know, meu irmão."},
-         {"text": "Let's go and find Júlio.", "trust": 8,
-          "reply": "Yes, let's go. It's certain, I've decided."}
-       ]},
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe he's kneeling by each of you in turn, very gently.",
-       "line": "Hey, hey, look at me, everybody. Don't move until I've checked you, and don't let anybody carry you badly.",
-       "options": [
-         {"text": "Take your time. We're not going anywhere.", "trust": 8, "mood": 6,
-          "reply": "Good, thank you. Breathe for me, nice and slow."},
-         {"text": "We're fine, let's go.", "trust": 0, "mood": -6,
-          "reply": "You're fine when I say so, irmão, so sit down."}
-       ]}
+      {
+        "id": "alone",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's told you he's never been alone before all this.",
+        "options": [
+          {
+            "text": "You're not alone now.",
+            "trust": 12,
+            "reply": "No, I'm not, uai. That means more than you know, meu irmão."
+          },
+          {
+            "text": "Let's go and find Júlio.",
+            "trust": 8,
+            "reply": "Yes, let's go. It's certain, I've decided."
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe he's kneeling by each of you in turn, very gently.",
+        "line": "Hey, hey, look at me, everybody. Don't move until I've checked you, and don't let anybody carry you badly.",
+        "options": [
+          {
+            "text": "Take your time. We're not going anywhere.",
+            "trust": 8,
+            "mood": 6,
+            "reply": "Good, thank you. Breathe for me, nice and slow."
+          },
+          {
+            "text": "We're fine, let's go.",
+            "trust": 0,
+            "mood": -6,
+            "reply": "You're fine when I say so, irmão, so sit down."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "Irmão, we've done the same thing for days and nobody's needed me. Let's go somewhere people need help.",
@@ -62,16 +94,29 @@
   },
   "banter": {
     "close_call": [
-      {"text": "Hey, hey, look at me. You're not dying today, I promise.", "kind": "open"}
+      {
+        "text": "Hey, hey, look at me. You're not dying today, I promise.",
+        "kind": "open"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Everybody walked out on their own legs. That's my favourite thing in the world.", "kind": "open"}
+      {
+        "text": "Nobody needs carrying today, and that makes me a very happy physio.",
+        "kind": "open"
+      }
     ],
     "town_arrive": [
-      {"text": "Belo Horizonte's all hills and bars and the best cheese bread in Brazil. You'd never leave.", "kind": "open", "topic": "cities"}
+      {
+        "text": "There are thirty of us at Sunday lunch at home, and somebody's always fighting over the last cheese bread. It's usually me.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "boss_down": [
-      {"text": "Okay, that's done. Now, nobody carries anybody until I've checked them.", "kind": "reply"}
+      {
+        "text": "Okay, that's done. Now, nobody carries anybody until I've checked them.",
+        "kind": "reply"
+      }
     ]
   }
 }

@@ -8,9 +8,19 @@
   },
   "bond": {
     "home": "the Crystalline Underdark",
-    "dials": {"warmth": 0.8, "nerve": 1.1, "pride": 0.8, "restless": 0.8},
-    "likes": ["dungeon", "boss"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 0.8,
+      "nerve": 1.1,
+      "pride": 0.8,
+      "restless": 0.8
+    },
+    "likes": [
+      "dungeon",
+      "boss"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Kourosh, an arcane mage, and I'll stand at the back and be extremely precise. Before every fight I'll give you the odds, cheerfully. You're welcome to ignore them.",
       "acquaintance": "I'm from Tehran. My father taught mathematics and died when I was a student, and my mother worked at a bank and had ambitions for me. I became an actuary, which means I spent twelve years pricing how likely people were to die. You'd be surprised how relaxing this world is by comparison. The numbers here stay still.",
@@ -19,22 +29,42 @@
       "sworn": "It was right, and people left in time, and that's the first thing I've ever calculated that saved anybody. You asked for the figure, so here it is, thirty-one percent. That's the chance my mother survived. I've never checked, and I won't, because as long as I don't, the thirty-one percent is still alive. You can read the first volume of my notes. You're the first person I've let."
     },
     "moments": [
-      {"id": "the_odds", "stage": "acquaintance", "when": "talk",
-       "prompt": "Before a fight he cheerfully gives you the odds of losing.",
-       "options": [
-         {"text": "Thank him, and ask how to improve them.", "trust": 8,
-          "reply": "Oh, a practical question. Stand two steps to the left and they improve by a third."},
-         {"text": "I'd rather not know.", "trust": 0,
-          "reply": "Most people would rather not. That doesn't change the number, jan."}
-       ]},
-      {"id": "the_lattice", "stage": "friend", "when": "talk",
-       "prompt": "He's asked you to help him finish the measurements at the heart of the lattice.",
-       "options": [
-         {"text": "What are our odds?", "trust": 8,
-          "reply": "Better with you than without. That's not flattery, that's arithmetic."},
-         {"text": "Let's go and finish it.", "trust": 12,
-          "reply": "Khoda hafez to the quiet life, then. Bring something to write on."}
-       ]}
+      {
+        "id": "the_odds",
+        "stage": "acquaintance",
+        "when": "talk",
+        "prompt": "Before a fight he cheerfully gives you the odds of losing.",
+        "options": [
+          {
+            "text": "Thank him, and ask how to improve them.",
+            "trust": 8,
+            "reply": "Oh, a practical question. Stand two steps to the left and they improve by a third."
+          },
+          {
+            "text": "I'd rather not know.",
+            "trust": 0,
+            "reply": "Most people would rather not. That doesn't change the number, jan."
+          }
+        ]
+      },
+      {
+        "id": "the_lattice",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to help him finish the measurements at the heart of the lattice.",
+        "options": [
+          {
+            "text": "What are our odds?",
+            "trust": 8,
+            "reply": "Better with you than without. That's not flattery, that's arithmetic."
+          },
+          {
+            "text": "Let's go and finish it.",
+            "trust": 12,
+            "reply": "Khoda hafez to the quiet life, then. Bring something to write on."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We've repeated the same task enough times that I can predict every outcome. Predictable is restful, but it's also boring.",
@@ -59,17 +89,36 @@
   },
   "banter": {
     "town_arrive": [
-      {"text": "I spent eight days in Alexandria once, auditing a shipping firm. I've thought about those eight days more than the twelve years around them.", "kind": "reply", "topic": "cities"},
-      {"text": "Tehran was louder than this, and I could price every risk in it.", "kind": "open", "topic": "cities"}
+      {
+        "text": "I spent eight days in Alexandria once, auditing a shipping firm, and I still think about the fish I ate there.",
+        "kind": "reply",
+        "topic": "cities"
+      },
+      {
+        "text": "Tehran was louder than this, and I could price every risk in it.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "boss_down": [
-      {"text": "That was within tolerance. I had it at about one in nine against us.", "kind": "open", "topic": "measure"}
+      {
+        "text": "That was within tolerance. I had it at about one in nine against us.",
+        "kind": "open",
+        "topic": "measure"
+      }
     ],
     "close_call": [
-      {"text": "That was outside my estimate, so I'll revise it.", "kind": "reply", "topic": "measure"}
+      {
+        "text": "That was outside my estimate, so I'll revise it.",
+        "kind": "reply",
+        "topic": "measure"
+      }
     ],
     "zone_arrive": [
-      {"text": "I priced risk for twelve years. This place would have bankrupted me.", "kind": "open"}
+      {
+        "text": "I priced risk for twelve years. This place would have bankrupted me.",
+        "kind": "open"
+      }
     ]
   }
 }

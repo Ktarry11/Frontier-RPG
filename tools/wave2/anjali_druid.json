@@ -9,9 +9,19 @@
   },
   "bond": {
     "home": "Ashenvale West",
-    "dials": {"warmth": 0.9, "nerve": 1.1, "pride": 0.8, "restless": 0.8},
-    "likes": ["new_ground", "quest"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 0.9,
+      "nerve": 1.1,
+      "pride": 0.8,
+      "restless": 0.8
+    },
+    "likes": [
+      "new_ground",
+      "quest"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "My name is Anjali, and I'm a druid and a botanist. Slow down, please, you're walking past a great deal. If you'd like to know the name of anything we pass, ask me, and I'll tell you in Latin as well.",
       "acquaintance": "I'm from Pune, though my family are Malayali, from Kerala. My mother kept a garden full of plants from home, and I grew up in it. I taught botany at a university in Pune for thirty-one years. My students were frightened of me, and they loved me, and both were correct.",
@@ -20,22 +30,42 @@
       "sworn": "The elves at Kael's Bastion have taken a copy for their gallery, and they've promised to keep it. And Ilyara has agreed to be my student. On her first day she corrected my spelling of a night elf plant name, and I was delighted. I'll be read in two hundred years now, and Ilyara will still be alive to check my work. Arjun and Meera are still out there, I hope. I press a leaf for Meera every week."
     },
     "moments": [
-      {"id": "what_notice", "stage": "acquaintance", "when": "talk",
-       "prompt": "She crouches by a plant and asks you what you notice about it.",
-       "options": [
-         {"text": "Look closely, and tell her something true about it.", "trust": 8,
-          "reply": "Yes, that's it exactly. You'd have been one of my good students."},
-         {"text": "It's a plant.", "trust": 0,
-          "reply": "It is, and that's a beginning. We'll do better next time."}
-       ]},
-      {"id": "the_copy", "stage": "friend", "when": "talk",
-       "prompt": "She's asked you to help her finish the notebook and keep it safe.",
-       "options": [
-         {"text": "We'll finish it together.", "trust": 12,
-          "reply": "Thank you. We'll go gently, and we'll go thoroughly."},
-         {"text": "Who'll even read it?", "trust": 0,
-          "reply": "Somebody in two hundred years. That's who I'm writing for."}
-       ]}
+      {
+        "id": "what_notice",
+        "stage": "acquaintance",
+        "when": "talk",
+        "prompt": "She crouches by a plant and asks you what you notice about it.",
+        "options": [
+          {
+            "text": "Look closely, and tell her something true about it.",
+            "trust": 8,
+            "reply": "Yes, that's it exactly. You'd have been one of my good students."
+          },
+          {
+            "text": "It's a plant.",
+            "trust": 0,
+            "reply": "It is, and that's a beginning. We'll do better next time."
+          }
+        ]
+      },
+      {
+        "id": "the_copy",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "She's asked you to help her finish the notebook and keep it safe.",
+        "options": [
+          {
+            "text": "We'll finish it together.",
+            "trust": 12,
+            "reply": "Thank you. We'll go gently, and we'll go thoroughly."
+          },
+          {
+            "text": "Who'll even read it?",
+            "trust": 0,
+            "reply": "Somebody in two hundred years. That's who I'm writing for."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We've walked the same ground so many times I've catalogued every weed in it. I'd like to see something new, please.",
@@ -60,18 +90,37 @@
   },
   "banter": {
     "zone_arrive": [
-      {"text": "This soil's been asked for too much for too long.", "kind": "reply"},
-      {"text": "Oh, look at that fern. I've never seen one like it. Wait for me, please.", "kind": "open"}
+      {
+        "text": "This soil's been asked for too much for too long.",
+        "kind": "reply"
+      },
+      {
+        "text": "Oh, look at that fern. I've never seen one like it. Wait for me, please.",
+        "kind": "open"
+      }
     ],
     "town_arrive": [
-      {"text": "Their grain's stored wrong. One wet month and they'll lose the lot.", "kind": "open"},
-      {"text": "Pune in the monsoon smells of wet earth and filter coffee, and I'd give a great deal for both.", "kind": "open", "topic": "cities"}
+      {
+        "text": "Their grain's stored wrong. One wet month and they'll lose the lot.",
+        "kind": "open"
+      },
+      {
+        "text": "My mother grew curry leaves in a pot on the balcony. I keep looking in people's gardens here in case somebody's got some.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "dungeon_clear": [
-      {"text": "There were mosses down there that grow without light. I'd like to know how.", "kind": "open"}
+      {
+        "text": "There were mosses down there that grow without light. I'd like to know how.",
+        "kind": "open"
+      }
     ],
     "close_call": [
-      {"text": "You pushed past where you had anything left. A field does that once and then it's gone.", "kind": "reply"}
+      {
+        "text": "You pushed past where you had anything left. A field does that once and then it's gone.",
+        "kind": "reply"
+      }
     ]
   }
 }

@@ -9,9 +9,19 @@
   },
   "bond": {
     "home": "the Undercity",
-    "dials": {"warmth": 0.5, "nerve": 1.3, "pride": 1.3, "restless": 0.9},
-    "likes": ["undead", "dungeon"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 0.5,
+      "nerve": 1.3,
+      "pride": 1.3,
+      "restless": 0.9
+    },
+    "likes": [
+      "undead",
+      "dungeon"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Ileana, a necromancer. I stand at the back, I don't miss, and I'll tell you every time you do something sloppy. Don't take it personally, it's how I give advice.",
       "acquaintance": "I'm from Sibiu, in Romania. My mother taught school and my father played the organ in church, and I had a violin under my chin at four. I played second violin in the Cluj philharmonic for eleven years. Second violin is being very good at something with four hundred people better than you. I'm still bitter about that, and I'm still right to be.",
@@ -20,26 +30,48 @@
       "sworn": "It's a bad violin. It's the only one. I played it in Brill, out of practice, and a man stood up in the corner halfway through the Bartók. It was Andrei. He's been teaching music to Forsaken children who can't sleep, and he knew there was only one person on this world who'd play it that sharply. I finished the piece first. Then I finished the conversation, and this time I could say it twice."
     },
     "moments": [
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe she's first to the fallen, saying nothing kind at all.",
-       "line": "That entry was late, and the next one was later. Get up, I've got you, so stop wriggling.",
-       "options": [
-         {"text": "You were first to us. Thank you.", "trust": 10, "mood": 4,
-          "reply": "Don't make it a thing. Fix your footwork and we're even."},
-         {"text": "Less criticism, more healing.", "trust": 0, "mood": -6,
-          "reply": "I can do both at once, and can you?"}
-       ]},
-      {"id": "the_violin", "stage": "friend", "when": "talk",
-       "prompt": "She's asked you to help gather what the luthier needs.",
-       "options": [
-         {"text": "Let's get you a violin.", "trust": 12,
-          "reply": "Good, and if you're sloppy about the wood I'll know."},
-         {"text": "Do you still love him?", "trust": 4,
-          "reply": "That's the unfinished conversation. I'm not having it with you first."}
-       ]}
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe she's first to the fallen, saying nothing kind at all.",
+        "line": "That entry was late, and the next one was later. Get up, I've got you, so stop wriggling.",
+        "options": [
+          {
+            "text": "You were first to us. Thank you.",
+            "trust": 10,
+            "mood": 4,
+            "reply": "Don't make it a thing. Fix your footwork and we're even."
+          },
+          {
+            "text": "Less criticism, more healing.",
+            "trust": 0,
+            "mood": -6,
+            "reply": "I can do both at once, and can you?"
+          }
+        ]
+      },
+      {
+        "id": "the_violin",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "She's asked you to help gather what the luthier needs.",
+        "options": [
+          {
+            "text": "Let's get you a violin.",
+            "trust": 12,
+            "reply": "Good, and if you're sloppy about the wood I'll know."
+          },
+          {
+            "text": "Do you still love him?",
+            "trust": 4,
+            "reply": "That's the unfinished conversation. I'm not having it with you first."
+          }
+        ]
+      }
     ],
     "lines": {
-      "bored_warning": "We've played the same passage a hundred times and nobody's improved. That's not rehearsal, it's noise. Find us something worth doing.",
+      "bored_warning": "We've played the same passage a hundred times and nobody's improved. Find us something worth doing.",
       "leaving_good": "That was acceptable, which from me is high praise. I'm going back to the Undercity for a while. You know where I'll be.",
       "leaving_bored": "I'm going back to the Undercity. This has become sloppy and repetitive, and I won't play in a bad ensemble.",
       "after_wipe": "That entry was late. Everybody up, and this time count properly.",
@@ -61,16 +93,29 @@
   },
   "banter": {
     "boss_down": [
-      {"text": "That was acceptable. The timing at the end was nearly right, for once.", "kind": "open"}
+      {
+        "text": "That was acceptable. The timing at the end was nearly right, for once.",
+        "kind": "open"
+      }
     ],
     "close_call": [
-      {"text": "Get up, I've got you. Now stop doing that, it was sloppy.", "kind": "open"}
+      {
+        "text": "Get up, I've got you. Now stop doing that, it was sloppy.",
+        "kind": "open"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Nobody missed an entry in there, which I'll remember, because it won't happen again.", "kind": "reply"}
+      {
+        "text": "Nobody missed an entry in there, which I'll remember, because it won't happen again.",
+        "kind": "reply"
+      }
     ],
     "town_arrive": [
-      {"text": "Cluj has a square where students play in the evenings, badly. I used to correct them from the café.", "kind": "open", "topic": "cities"}
+      {
+        "text": "Cluj has a square where students play in the evenings, badly. I used to correct them from the café.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ]
   }
 }

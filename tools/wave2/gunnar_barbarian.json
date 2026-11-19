@@ -4,9 +4,19 @@
   },
   "bond": {
     "home": "Hammerfall",
-    "dials": {"warmth": 1.6, "nerve": 1.3, "pride": 0.5, "restless": 0.9},
-    "likes": ["boss", "full_party"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 1.6,
+      "nerve": 1.3,
+      "pride": 0.5,
+      "restless": 0.9
+    },
+    "likes": [
+      "boss",
+      "full_party"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Gunnar, hello! Sit down, you look like you've had a long road. Try this, it's mine. I'm a barbarian and a brewer, and I'm better at the second one.",
       "acquaintance": "I'm from Akureyri, in the north of Iceland, a fishing town. I started brewing in a shed behind my uncle's garage, and it grew into a proper brewery with a queue out the door on Fridays. I've got a dog, Brúnó, and a sister, Sigrún, who thinks stout isn't food, and she's wrong. I played second row for a rugby club that lost almost every match, and we celebrated every one.",
@@ -15,22 +25,44 @@
       "sworn": "At the feast they sang for their dead and asked me to name mine. I stood up and named my father and sang the first verse of his choir song, badly, and they joined in on the second without knowing the words. Then I passed the beer round. The orcs stopped pretending they don't like it. Grettha said it's better than hers, once, quietly, and I'll never let her forget it. Skál to that."
     },
     "moments": [
-      {"id": "try_this", "stage": "stranger", "when": "hire",
-       "prompt": "He pours you something from his keg and waits to see your face.",
-       "options": [
-         {"text": "Drink it and tell him it's good.", "trust": 6, "joins": true,
-          "reply": "Ha, skál to you! I knew I liked you. Let me get my axe."},
-         {"text": "Turn it down.", "trust": 0, "joins": true,
-          "reply": "More for me, then! I'll come anyway, but you're missing out."}
-       ]},
-      {"id": "the_song", "stage": "friend", "when": "talk",
-       "prompt": "He's just told you about his father.",
-       "options": [
-         {"text": "Let's get the barley, and you can sing for him.", "trust": 12,
-          "reply": "Jæja, yes, let's do it. Let's go, before I get sentimental and cry into my keg."},
-         {"text": "You're allowed to grieve, you know.", "trust": 8,
-          "reply": "I know, elskan. It took me seventeen years and a clan of barbarians to learn it."}
-       ]}
+      {
+        "id": "try_this",
+        "stage": "stranger",
+        "when": "hire",
+        "prompt": "He pours you something from his keg and waits to see your face.",
+        "options": [
+          {
+            "text": "Drink it and tell him it's good.",
+            "trust": 6,
+            "joins": true,
+            "reply": "Ha, skál to you! I knew I liked you. Let me get my axe."
+          },
+          {
+            "text": "Turn it down.",
+            "trust": 0,
+            "joins": true,
+            "reply": "More for me, then! I'll come anyway, but you're missing out."
+          }
+        ]
+      },
+      {
+        "id": "the_song",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's just told you about his father.",
+        "options": [
+          {
+            "text": "Let's get the barley, and you can sing for him.",
+            "trust": 12,
+            "reply": "Jæja, yes, let's do it. Let's go, before I get sentimental and cry into my keg."
+          },
+          {
+            "text": "You're allowed to grieve, you know.",
+            "trust": 8,
+            "reply": "I know, elskan. It took me seventeen years and a clan of barbarians to learn it."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "Jæja, we've been doing the same thing for days and nobody's even sung. Let's go somewhere with a bit of life in it.",
@@ -55,17 +87,33 @@
   },
   "banter": {
     "boss_down": [
-      {"text": "Skál to whoever that was, and to us for still standing.", "kind": "open"}
+      {
+        "text": "Skál to whoever that was, and to us for still standing.",
+        "kind": "open"
+      }
     ],
     "town_arrive": [
-      {"text": "Right, let's find the inn and see if they know how to brew anything.", "kind": "open"},
-      {"text": "Akureyri's a little town by a fjord, with the northern lights over it all winter. You'd love it.", "kind": "open", "topic": "the_cold"}
+      {
+        "text": "Right, let's find the inn and see if they know how to brew anything.",
+        "kind": "open"
+      },
+      {
+        "text": "Back in Akureyri the whole town came out when the northern lights were up. Nobody here ever looks up, and it's a shame.",
+        "kind": "open",
+        "topic": "the_cold"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Everybody out alive! That calls for a song, and I'm going to sing it.", "kind": "open"}
+      {
+        "text": "Nobody died in there! That calls for a song, and I'm going to sing it.",
+        "kind": "open"
+      }
     ],
     "close_call": [
-      {"text": "Ha, too close! Have a drink, it helps, trust me.", "kind": "reply"}
+      {
+        "text": "Ha, too close! Have a drink, it helps, trust me.",
+        "kind": "reply"
+      }
     ]
   }
 }

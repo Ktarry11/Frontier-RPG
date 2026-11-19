@@ -9,9 +9,19 @@
   },
   "bond": {
     "home": "the Bloodsail Raider",
-    "dials": {"warmth": 0.5, "nerve": 1.3, "pride": 1.1, "restless": 1.0},
-    "likes": ["boss", "dungeon"],
-    "dislikes": ["full_party"],
+    "dials": {
+      "warmth": 0.5,
+      "nerve": 1.3,
+      "pride": 1.1,
+      "restless": 1.0
+    },
+    "likes": [
+      "boss",
+      "dungeon"
+    ],
+    "dislikes": [
+      "full_party"
+    ],
     "stages": {
       "stranger": "I'm Osvaldo, and I do fire, not conversation. You get me off this ship, I burn what you point at. That's the deal, asere.",
       "acquaintance": "I'm from Havana, from Centro. My father worked the docks, my mother sang in church and taught us music. My brother Rubén got the piano. I took trumpet so I'd have something he didn't. Sixteen years in a hotel band, six nights a week, tourists talking through every song. Rubén on piano, better than me. We fought every night and played every night.",
@@ -20,22 +30,42 @@
       "sworn": "Rubén looked up from the piano and said I'm late, and I'm flat, and I laughed. You heard me, nobody's heard that before. He told me our mother died the first winter, in a camp, peacefully, with him holding her hand, and she asked for me at the end. It hurt, and it wasn't the worst news, and we both knew. Then he found me a goblin trumpet, and I fitted my mouthpiece to it, and we played. Nobody talked through it."
     },
     "moments": [
-      {"id": "sit_up", "stage": "companion", "when": "talk",
-       "prompt": "It's late, and you can't sleep. He's sitting by the fire, saying nothing.",
-       "options": [
-         {"text": "Sit with him, in silence.", "trust": 10,
-          "reply": "Good, you don't talk. I like that."},
-         {"text": "Ask him why he's awake.", "trust": 0,
-          "reply": "Same as you, asere. Sit or don't."}
-       ]},
-      {"id": "the_piano", "stage": "friend", "when": "talk",
-       "prompt": "He's asked you to come to the tavern in Booty Bay.",
-       "options": [
-         {"text": "Let's go and get your brother.", "trust": 12,
-          "reply": "Chévere, thank you. Don't tell anyone I said that."},
-         {"text": "The captain will recognise you.", "trust": 4,
-          "reply": "Good, let him recognise me."}
-       ]}
+      {
+        "id": "sit_up",
+        "stage": "companion",
+        "when": "talk",
+        "prompt": "It's late, and you can't sleep. He's sitting by the fire, saying nothing.",
+        "options": [
+          {
+            "text": "Sit with him, in silence.",
+            "trust": 10,
+            "reply": "Good, you don't talk. I like that."
+          },
+          {
+            "text": "Ask him why he's awake.",
+            "trust": 0,
+            "reply": "Same as you, asere. Sit or don't."
+          }
+        ]
+      },
+      {
+        "id": "the_piano",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to come to the tavern in Booty Bay.",
+        "options": [
+          {
+            "text": "Let's go and get your brother.",
+            "trust": 12,
+            "reply": "Chévere, thank you. Don't tell anyone I said that."
+          },
+          {
+            "text": "The captain will recognise you.",
+            "trust": 4,
+            "reply": "Good, let him recognise me."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "Same thing, again and again. Even the tourists had more variety. Find me something worth burning, asere.",
@@ -60,16 +90,29 @@
   },
   "banter": {
     "boss_down": [
-      {"text": "Good, it's burned. Now nobody talk for a minute, please.", "kind": "open"}
+      {
+        "text": "Good, it's burned. Now nobody talk for a minute, please.",
+        "kind": "open"
+      }
     ],
     "town_arrive": [
-      {"text": "Havana has music on every corner and nobody listening to any of it. I miss that noise.", "kind": "open", "topic": "cities"}
+      {
+        "text": "I played six nights a week to tourists who talked through every song. I'd play for this crowd for nothing.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Quiet in there, after. I liked the quiet.", "kind": "reply"}
+      {
+        "text": "Quiet in there, after. I liked the quiet.",
+        "kind": "reply"
+      }
     ],
     "close_call": [
-      {"text": "Coño, that was close. Stay behind me next time, asere.", "kind": "reply"}
+      {
+        "text": "Coño, that was close. Stay behind me next time, asere.",
+        "kind": "reply"
+      }
     ]
   }
 }

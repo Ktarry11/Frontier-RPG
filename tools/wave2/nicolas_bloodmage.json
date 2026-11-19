@@ -9,9 +9,19 @@
   },
   "bond": {
     "home": "Splintertree Post",
-    "dials": {"warmth": 1.1, "nerve": 1.5, "pride": 0.5, "restless": 0.9},
-    "likes": ["dungeon", "full_party"],
-    "dislikes": ["quest_abandoned"],
+    "dials": {
+      "warmth": 1.1,
+      "nerve": 1.5,
+      "pride": 0.5,
+      "restless": 0.9
+    },
+    "likes": [
+      "dungeon",
+      "full_party"
+    ],
+    "dislikes": [
+      "quest_abandoned"
+    ],
     "stages": {
       "stranger": "I'm Nicolás, and I'm a tank, a bloodmage one. Stand behind me, and if I go down, you run and you don't drag me. Promise me now, pata.",
       "acquaintance": "I'm from Comas, on the north side of Lima. My mum sold in the market and my dad drove a bus, and my two big sisters bossed me around my whole life. I was a paramedic on a motorbike for nine years, because an ambulance can't get through Lima's traffic and a bike can. Fast bike, big bag, a lot of blood on my boots.",
@@ -20,22 +30,44 @@
       "sworn": "It was her, greyer and swearing at everybody, pinned down with the wounded in the middle of an attack. When she saw me she swore at me for taking three years, and then she held my face in both her hands. We got them all out together, the way we used to. She's been looking for me at every hub too. We're a crew again. She says I was always the slow one, and she's right."
     },
     "moments": [
-      {"id": "promise", "stage": "stranger", "when": "hire",
-       "prompt": "He asks you to promise you won't drag him if he goes down.",
-       "options": [
-         {"text": "I promise.", "trust": 4, "joins": true,
-          "reply": "Good, that's chévere. Then I'll stand in front of you as long as you want."},
-         {"text": "I don't leave people behind.", "trust": 10, "joins": true,
-          "reply": "Neither do I, pata. That's exactly the problem. Okay, I'll come."}
-       ]},
-      {"id": "the_note", "stage": "friend", "when": "talk",
-       "prompt": "He's told you about the note with his name on it.",
-       "options": [
-         {"text": "Let's go and read it.", "trust": 12,
-          "reply": "Chévere, thank you, pata. Let's go fast."},
-         {"text": "It might be old.", "trust": 2,
-          "reply": "Then it's old, and it's still more than I've had in three years."}
-       ]}
+      {
+        "id": "promise",
+        "stage": "stranger",
+        "when": "hire",
+        "prompt": "He asks you to promise you won't drag him if he goes down.",
+        "options": [
+          {
+            "text": "I promise.",
+            "trust": 4,
+            "joins": true,
+            "reply": "Good, that's chévere. Then I'll stand in front of you as long as you want."
+          },
+          {
+            "text": "I don't leave people behind.",
+            "trust": 10,
+            "joins": true,
+            "reply": "Neither do I, pata. That's exactly the problem. Okay, I'll come."
+          }
+        ]
+      },
+      {
+        "id": "the_note",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's told you about the note with his name on it.",
+        "options": [
+          {
+            "text": "Let's go and read it.",
+            "trust": 12,
+            "reply": "Chévere, thank you, pata. Let's go fast."
+          },
+          {
+            "text": "It might be old.",
+            "trust": 2,
+            "reply": "Then it's old, and it's still more than I've had in three years."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "Pata, we've been hitting the same things for days and nobody needed saving. Let's go somewhere that needs us.",
@@ -61,16 +93,29 @@
   },
   "banter": {
     "close_call": [
-      {"text": "Your colour's wrong. Sit down, pata, and don't argue with a paramedic.", "kind": "open"}
+      {
+        "text": "Your colour's wrong. Sit down, pata, and don't argue with a paramedic.",
+        "kind": "open"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Everybody out, nobody left behind. That's the only rule I care about.", "kind": "open"}
+      {
+        "text": "Nobody left behind in there. My sisters would be proud of me for once.",
+        "kind": "open"
+      }
     ],
     "town_arrive": [
-      {"text": "Lima traffic is the worst in the world, and I'd give anything for a bike and a free road through it.", "kind": "open", "topic": "cities"}
+      {
+        "text": "My sisters would have this whole town organised by lunchtime, and they'd boss me around while they did it.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "boss_down": [
-      {"text": "Good, it's down. Now, who's bleeding? Somebody always is.", "kind": "reply"}
+      {
+        "text": "Good, it's down. Now stand still and let a paramedic do his job.",
+        "kind": "reply"
+      }
     ]
   }
 }

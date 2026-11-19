@@ -9,9 +9,19 @@
   },
   "bond": {
     "home": "Durotar",
-    "dials": {"warmth": 0.6, "nerve": 1.3, "pride": 0.6, "restless": 0.9},
-    "likes": ["dungeon", "full_party"],
-    "dislikes": ["quest_abandoned"],
+    "dials": {
+      "warmth": 0.6,
+      "nerve": 1.3,
+      "pride": 0.6,
+      "restless": 0.9
+    },
+    "likes": [
+      "dungeon",
+      "full_party"
+    ],
+    "dislikes": [
+      "quest_abandoned"
+    ],
     "stages": {
       "stranger": "I'm Matías, and I go in front. I don't talk much, it's not because I don't understand. If I say something in a fight, it's useful.",
       "acquaintance": "I'm from Puente Alto, on the south edge of the capital, in Chile. I was a bus conductor for ten years, from nineteen. Same route, same forty faces every morning. I knew who got off where and who was having a bad week. My father did the same job before me, and he thought it was beneath me.",
@@ -20,25 +30,50 @@
       "sworn": "My mother and Benjamín were on the second list. They came through together and they died together in the first winter. I sat outside the camp all night. In the morning I wrote another page in my father's letter, for all three of them, and I burned it, because there's nowhere to send it and that's how I can send it anyway. I talk more now. There's nobody left to save the words for, so I give them to you."
     },
     "moments": [
-      {"id": "the_letter", "stage": "friend", "when": "talk",
-       "prompt": "He's handed you the letter to his father and asked you to read it.",
-       "options": [
-         {"text": "Read it carefully, and give it back without a word.", "trust": 12,
-          "reply": "Thank you. That's the right answer. I don't know how you knew."},
-         {"text": "Tell him it's beautiful.", "trust": 2,
-          "reply": "It isn't beautiful, it's true, and that's enough."},
-         {"text": "Ask him if he's sure.", "trust": 0,
-          "reply": "I learned a whole new language to write it, so I'm sure."}
-       ]},
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe he's quiet, and then he speaks more than usual.",
-       "line": "I saw the left side going wrong, and I didn't say. Next time I'll say, even if my words come out wrong.",
-       "options": [
-         {"text": "Say it however it comes out. We'll understand.", "trust": 10, "mood": 6,
-          "reply": "Ya, okay, I'll shout it, then."},
-         {"text": "Just focus on your job.", "trust": 0, "mood": -6,
-          "reply": "Watching is my job. That's what I'm telling you."}
-       ]}
+      {
+        "id": "the_letter",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's handed you the letter to his father and asked you to read it.",
+        "options": [
+          {
+            "text": "Read it carefully, and give it back without a word.",
+            "trust": 12,
+            "reply": "Thank you. That's the right answer. I don't know how you knew."
+          },
+          {
+            "text": "Tell him it's beautiful.",
+            "trust": 2,
+            "reply": "Maybe it isn't beautiful, but it's true, and that's enough."
+          },
+          {
+            "text": "Ask him if he's sure.",
+            "trust": 0,
+            "reply": "I learned a whole new language to write it, so I'm sure."
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe he's quiet, and then he speaks more than usual.",
+        "line": "I saw the left side going wrong, and I didn't say. Next time I'll say, even if my words come out wrong.",
+        "options": [
+          {
+            "text": "Say it however it comes out. We'll understand.",
+            "trust": 10,
+            "mood": 6,
+            "reply": "Ya, okay, I'll shout it, then."
+          },
+          {
+            "text": "Just focus on your job.",
+            "trust": 0,
+            "mood": -6,
+            "reply": "Watching is my job. That's what I'm telling you."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We do the same route over and over, but with no passengers. Can we go somewhere we're needed?",
@@ -64,16 +99,29 @@
   },
   "banter": {
     "zone_arrive": [
-      {"text": "Lots of faces out here, not all of them friendly, so I'm watching.", "kind": "open"}
+      {
+        "text": "Lots of faces out here, not all of them friendly, so I'm watching.",
+        "kind": "open"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Everybody got where they were going. That's a good shift.", "kind": "reply"}
+      {
+        "text": "Everybody got where they were going, and nobody missed their stop.",
+        "kind": "reply"
+      }
     ],
     "close_call": [
-      {"text": "I saw it coming and I said it too late. Next time I say it sooner.", "kind": "open"}
+      {
+        "text": "I saw it coming and kept quiet, like a fool. Next time I'm shouting.",
+        "kind": "open"
+      }
     ],
     "town_arrive": [
-      {"text": "At home the buses were full at six in the morning, everybody half asleep, and I knew all their faces.", "kind": "open", "topic": "cities"}
+      {
+        "text": "At home the buses were full at six in the morning, everybody half asleep, and I knew all their faces.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ]
   }
 }

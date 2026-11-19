@@ -9,33 +9,63 @@
   },
   "bond": {
     "home": "Southern Thousand Needles",
-    "dials": {"warmth": 1.3, "nerve": 0.9, "pride": 0.6, "restless": 1.0},
-    "likes": ["new_ground", "quest"],
-    "dislikes": ["dungeon"],
+    "dials": {
+      "warmth": 1.3,
+      "nerve": 0.9,
+      "pride": 0.6,
+      "restless": 1.0
+    },
+    "likes": [
+      "new_ground",
+      "quest"
+    ],
+    "dislikes": [
+      "dungeon"
+    ],
     "stages": {
       "stranger": "I'm Mateo, and I'm a starcaller, and before that I was a technician at an observatory. Technician, not astronomer, people always get that wrong. Look up tonight, will you? The sky here's wonderful.",
       "acquaintance": "I'm from La Serena, in Chile, on the coast. My dad was a fisherman. I studied electronics and worked seventeen years at an observatory on a mountain above the Elqui valley. Cold domes, cable runs, and four hours before dawn when the astronomers slept and the whole mountain was mine. The sky there's so clear it stops being scenery, po.",
-      "companion": "My wife is Paula, a nurse. We have two girls, Antonia and Josefa. They thought the mountain was boring, and they were right, honestly. I was in the dome at four in the morning fixing a cable when it happened, and I landed here at night under a sky full of stars I didn't know. I walk to Freewind Post twice a year with their names in my pocket.",
+      "companion": "My wife is Paula, a nurse. We have two girls, Antonia and Josefa. They thought the mountain was boring, and they were right. I was in the dome at four in the morning fixing a cable when it happened, and I landed here at night under a sky full of stars I didn't know. I walk to Freewind Post twice a year with their names in my pocket.",
       "friend": "Every month, for seventeen years, I went up the mountain for two weeks, and Paula held everything together while I was gone. I loved the sky more easily than I loved being home, and I knew it, and I went anyway. I'm not proud of that. But the star map's finished, and I think it can guide caravans across the desert at night, the way the old navigators did. Help me try it.",
       "sworn": "In the back of that caravan was a Chilean woman with two teenage girls. Paula, Antonia and Josefa. They'd been following my star map to Freewind without knowing it was mine. The girls told me the stars here are actually quite good, which is the nicest thing they've ever said about my job. I took them up the goblin tower that night and made them look up. Neither of them was bored."
     },
     "moments": [
-      {"id": "look_up", "stage": "acquaintance", "when": "talk",
-       "prompt": "At camp, he asks you to look up and tell him what you see.",
-       "options": [
-         {"text": "Lie back in the grass and look properly.", "trust": 10,
-          "reply": "Ya, you see it? That's it exactly. That one's mine, I named it after my girls."},
-         {"text": "It's just stars.", "trust": 0,
-          "reply": "Just stars, he says. Seventeen years and people still say that to me."}
-       ]},
-      {"id": "the_map", "stage": "friend", "when": "talk",
-       "prompt": "He's asked you to help him test the star map with a caravan.",
-       "options": [
-         {"text": "Let's take it out tonight.", "trust": 12,
-          "reply": "Yes, tonight, it's clear! I'll bring the charts and a lot of coffee."},
-         {"text": "Do you miss them?", "trust": 6,
-          "reply": "Every night, cachai. That's when I miss them most, when I'm looking up."}
-       ]}
+      {
+        "id": "look_up",
+        "stage": "acquaintance",
+        "when": "talk",
+        "prompt": "At camp, he asks you to look up and tell him what you see.",
+        "options": [
+          {
+            "text": "Lie back in the grass and look properly.",
+            "trust": 10,
+            "reply": "Ya, you see it? That's it exactly. That one's mine, I named it after my girls."
+          },
+          {
+            "text": "It's just stars.",
+            "trust": 0,
+            "reply": "Just stars, he says. Seventeen years and people still say that to me."
+          }
+        ]
+      },
+      {
+        "id": "the_map",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to help him test the star map with a caravan.",
+        "options": [
+          {
+            "text": "Let's take it out tonight.",
+            "trust": 12,
+            "reply": "Yes, tonight, it's clear! I'll bring the charts and a lot of coffee."
+          },
+          {
+            "text": "Do you miss them?",
+            "trust": 6,
+            "reply": "Every night, cachai. That's when I miss them most, when I'm looking up."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We've been doing the same thing in the same place for days, and I haven't seen a new star in ages. Can we go somewhere with a better sky?",
@@ -60,20 +90,39 @@
   },
   "banter": {
     "zone_arrive": [
-      {"text": "Clear sky tonight, so I'll be up late. Don't wait for me in the morning.", "kind": "open"}
+      {
+        "text": "Clear sky tonight, so I'll be up late. Don't wait for me in the morning.",
+        "kind": "open"
+      }
     ],
     "town_arrive": [
-      {"text": "Too many lamps here. I can't see anything that matters.", "kind": "reply"},
-      {"text": "La Serena has a lighthouse on the beach and the clearest skies in the world just up the valley.", "kind": "open", "topic": "cities"}
+      {
+        "text": "Too many lamps here. I can't see anything that matters.",
+        "kind": "reply"
+      },
+      {
+        "text": "My dad fished out of La Serena and came home smelling of the sea. I'd know that smell anywhere, and this town hasn't got it.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "boss_down": [
-      {"text": "It went quiet the moment the moon cleared the ridge. I noticed, and I'm writing it down.", "kind": "open"}
+      {
+        "text": "It went quiet the moment the moon cleared the ridge. I noticed, and I'm writing it down.",
+        "kind": "open"
+      }
     ],
     "close_call": [
-      {"text": "Seventeen years I watched a sky that never answered. Now it answers, and it's rude about it.", "kind": "reply"}
+      {
+        "text": "Seventeen years I watched a sky that never answered. Now it answers, and it's rude about it.",
+        "kind": "reply"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Good, we're out from under all that rock. Look up, everybody, there's the sky.", "kind": "reply"}
+      {
+        "text": "Good, we're out from under all that rock. Look up, everybody, there's the sky.",
+        "kind": "reply"
+      }
     ]
   }
 }

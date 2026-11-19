@@ -9,9 +9,19 @@
   },
   "bond": {
     "home": "the Shadowpine Altar",
-    "dials": {"warmth": 1.6, "nerve": 1.0, "pride": 0.5, "restless": 0.9},
-    "likes": ["full_party", "quest"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 1.6,
+      "nerve": 1.0,
+      "pride": 0.5,
+      "restless": 0.9
+    },
+    "likes": [
+      "full_party",
+      "quest"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Orlando, mi amor, and I'm a witch doctor, and a barber, which is basically the same job. Sit down, tell me everything, and let me fix that hair while you talk. With love, it needs fixing.",
       "acquaintance": "I'm from Santurce, in San Juan, Puerto Rico. My papi fixed buses and my mami cooked at a school, and our house was full of aunts and cousins all the time. I swept up at a barbershop at fourteen and had my own shop at twenty-two. Two chairs, the radio always on. Everybody told me everything, and I never repeated one word.",
@@ -20,23 +30,45 @@
       "sworn": "The island's there, whole, my family and all, and no ship can reach it. The sea turned us back and nearly sank us, you were there. So they're probably alive, all of them, and I can't ever get to them. I stood at the rail a long time. Then I came home and took the next building, and my hands didn't shake. It's called Casa Rivera, after Mami's house. There's an empty chair for Don Beni. Everybody in that chair is family now."
     },
     "moments": [
-      {"id": "the_trader", "stage": "friend", "when": "talk",
-       "prompt": "He's asked you to come to Booty Bay to find the trader.",
-       "options": [
-         {"text": "Let's go and hear what he knows.", "trust": 12,
-          "reply": "Wepa, let's go! Okay, okay, I'm nervous, so I'm going to talk the whole way. Sorry, with love."},
-         {"text": "What if it's bad news?", "trust": 4,
-          "reply": "Then at least it's news, nene. I've lived on nothing for three years."}
-       ]},
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe, for once he's completely silent.",
-       "line": "Ay bendito, that was horrible. I need everybody to say something, anything, because I can't stand the quiet.",
-       "options": [
-         {"text": "Talk us through it, then.", "trust": 8, "mood": 6,
-          "reply": "Okay, okay, that's better. So first, the spirits were telling me left, and nobody went left."},
-         {"text": "Give it a minute.", "trust": 0, "mood": -4,
-          "reply": "A minute of quiet is a very long time for me, my friend."}
-       ]}
+      {
+        "id": "the_trader",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to come to Booty Bay to find the trader.",
+        "options": [
+          {
+            "text": "Let's go and hear what he knows.",
+            "trust": 12,
+            "reply": "Wepa, let's go! Okay, okay, I'm nervous, so I'm going to talk the whole way. Sorry, with love."
+          },
+          {
+            "text": "What if it's bad news?",
+            "trust": 4,
+            "reply": "Then at least it's news, nene. I've lived on nothing for three years."
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe, for once he's completely silent.",
+        "line": "Ay bendito, that was horrible. I need everybody to say something, anything, because I can't stand the quiet.",
+        "options": [
+          {
+            "text": "Talk us through it, then.",
+            "trust": 8,
+            "mood": 6,
+            "reply": "Okay, okay, that's better. So first, the spirits were telling me left, and nobody went left."
+          },
+          {
+            "text": "Give it a minute.",
+            "trust": 0,
+            "mood": -4,
+            "reply": "A minute of quiet is a very long time for me, my friend."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "Mi amor, we've been doing the same thing for days and nobody's even talking. Let's go somewhere with people, please, I'm dying here.",
@@ -61,17 +93,33 @@
   },
   "banter": {
     "town_arrive": [
-      {"text": "Look at this place, everybody needs a haircut. I'm going to make so many friends.", "kind": "open"},
-      {"text": "Santurce is all music and murals and somebody's grandmother on every porch. You'd love it.", "kind": "open", "topic": "cities"}
+      {
+        "text": "Look at this place, everybody needs a haircut. I'm going to make so many friends.",
+        "kind": "open"
+      },
+      {
+        "text": "My mami cooked at a school, and she could feed forty kids out of one pot. Somebody here needs her.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "boss_down": [
-      {"text": "Wepa, the spirits liked that one. They're very loud right now.", "kind": "open"}
+      {
+        "text": "Wepa, the spirits liked that one. They're very loud right now.",
+        "kind": "open"
+      }
     ],
     "dungeon_clear": [
-      {"text": "That place was so lonely. Nobody's talked down there in years.", "kind": "reply"}
+      {
+        "text": "That place was so lonely. Nobody's talked down there in years.",
+        "kind": "reply"
+      }
     ],
     "close_call": [
-      {"text": "Ay bendito, come here, sit down, let me look at you. Keep talking to me.", "kind": "open"}
+      {
+        "text": "Ay bendito, come here and sit down. Keep talking to me.",
+        "kind": "open"
+      }
     ]
   }
 }

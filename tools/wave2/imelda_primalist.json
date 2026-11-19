@@ -5,9 +5,19 @@
   },
   "bond": {
     "home": "Freewind Post",
-    "dials": {"warmth": 0.8, "nerve": 1.4, "pride": 1.1, "restless": 0.9},
-    "likes": ["boss", "dungeon"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 0.8,
+      "nerve": 1.4,
+      "pride": 1.1,
+      "restless": 0.9
+    },
+    "likes": [
+      "boss",
+      "dungeon"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Imelda, and I heal by hitting things, and yes, I know how that looks. Stay behind me and watch. You'll feel it when I land one.",
       "acquaintance": "I'm from Navotas, in Manila, a fishing district. I sold fish on the quay from five in the morning with my mother, and in the evenings I boxed, at a gym above a tyre shop. Nineteen years, about ten fights a year, and I won more than I lost. I never made money from it. I didn't want money, I wanted to do it properly.",
@@ -16,23 +26,45 @@
       "sworn": "I won in the ninth. She stood up and shouted, the only time I've ever heard my mother shout. Afterwards she wrapped my hands for me, the first time, and said it was never a phase. That winter she died in her sleep, back at Freewind. She was old and tired from the journey, and she'd seen what she came to see. I wrap my hands the way she did now, too loose. I won't fix it."
     },
     "moments": [
-      {"id": "the_bout", "stage": "friend", "when": "talk",
-       "prompt": "She's asked you to help her train for the bout at the arena.",
-       "options": [
-         {"text": "I'll hold the pads. Let's train.", "trust": 12,
-          "reply": "Sige, okay, let's go. Hold them up properly, I hit hard."},
-         {"text": "Your mother might not come.", "trust": 2,
-          "reply": "Then I'll fight anyway. But I'll ask her, and she'll come."}
-       ]},
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe she's shadowboxing in a corner, counting under her breath.",
-       "line": "We dropped our guard in the third round. Again, hands up this time, everybody.",
-       "options": [
-         {"text": "Show us how to keep our guard up.", "trust": 8, "mood": 6,
-          "reply": "Hands up, chin down, and don't stand still. That's it, that's boxing."},
-         {"text": "This isn't a boxing match.", "trust": 0, "mood": -4,
-          "reply": "Everything's a boxing match. You just don't know the rules yet."}
-       ]}
+      {
+        "id": "the_bout",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "She's asked you to help her train for the bout at the arena.",
+        "options": [
+          {
+            "text": "I'll hold the pads. Let's train.",
+            "trust": 12,
+            "reply": "Sige, okay, let's go. Hold them up properly, I hit hard."
+          },
+          {
+            "text": "Your mother might not come.",
+            "trust": 2,
+            "reply": "Then I'll fight anyway. But I'll ask her, and she'll come."
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe she's shadowboxing in a corner, counting under her breath.",
+        "line": "We dropped our guard in the third round. Again, hands up this time, everybody.",
+        "options": [
+          {
+            "text": "Show us how to keep our guard up.",
+            "trust": 8,
+            "mood": 6,
+            "reply": "Hands up, chin down, and don't stand still. That's it, that's boxing."
+          },
+          {
+            "text": "This isn't a boxing match.",
+            "trust": 0,
+            "mood": -4,
+            "reply": "Everything's a boxing match. You just don't know the rules yet."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We're hitting the same bags over and over. That's training, not fighting. Let's go and find a real opponent.",
@@ -57,16 +89,29 @@
   },
   "banter": {
     "close_call": [
-      {"text": "Hands up, and not for show. Up where they actually do something.", "kind": "open"}
+      {
+        "text": "Hands up, and not for show. Up where they actually do something.",
+        "kind": "open"
+      }
     ],
     "boss_down": [
-      {"text": "I know how it looks. I hit it and you felt better, and I can't explain it either.", "kind": "reply"}
+      {
+        "text": "I know how it looks. I hit it and you felt better, and I can't explain it either.",
+        "kind": "reply"
+      }
     ],
     "zone_arrive": [
-      {"text": "The quay at five in the morning was louder than this, and it smelled worse.", "kind": "open", "topic": "night_work"}
+      {
+        "text": "The quay at five in the morning was louder than this, and it smelled worse.",
+        "kind": "open",
+        "topic": "night_work"
+      }
     ],
     "town_arrive": [
-      {"text": "Somebody here fights for money. There always is, and I'll find them.", "kind": "open"}
+      {
+        "text": "There's bound to be somebody here who fights for money. I'd like to see how good they are.",
+        "kind": "open"
+      }
     ]
   }
 }

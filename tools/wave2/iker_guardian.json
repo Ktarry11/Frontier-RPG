@@ -7,9 +7,19 @@
   },
   "bond": {
     "home": "Arathi West",
-    "dials": {"warmth": 1.5, "nerve": 1.4, "pride": 0.7, "restless": 1.1},
-    "likes": ["boss", "full_party"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 1.5,
+      "nerve": 1.4,
+      "pride": 0.7,
+      "restless": 1.1
+    },
+    "likes": [
+      "boss",
+      "full_party"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "Kaixo, I'm Iker! I'm a guardian, which means I shout at you until you keep going, and it works, I promise. Come on, one more fight, and then one more after that!",
       "acquaintance": "I'm from Lekeitio, a fishing town on the Basque coast. My father fished and my mother Miren ran the bakery, the best burnt cheesecake in the whole province. I taught PE at the town school and coached pelota against a fronton wall older than the church. We won the regional schools final twice, and the second time was the best day of my life, so far.",
@@ -18,23 +28,45 @@
       "sworn": "Nothing, not one of the ninety, not Unai, not my mother. I stood in those ruins and I was quiet for a long time, which you know isn't like me. Then I came back and built the fronton against a barn, stone by stone, and now I teach the farmers' kids pelota. Some of my ninety are out there being coached by somebody. I hope that somebody's loud. The names are still in my pocket."
     },
     "moments": [
-      {"id": "the_names", "stage": "friend", "when": "talk",
-       "prompt": "He's just shown you the list of ninety names.",
-       "options": [
-         {"text": "We'll check every hub together.", "trust": 12,
-          "reply": "Aupa, that's it! Come on, then, ninety names, we'll go through every one."},
-         {"text": "That's a lot of children to carry.", "trust": 6,
-          "reply": "It is a lot. I carry them anyway, every day. They're light, they're kids."}
-       ]},
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe he's already on his feet, clapping, too loud.",
-       "line": "Come on, come on, up! That was one round, not the match. We've got this, venga!",
-       "options": [
-         {"text": "Give us a second, Iker.", "trust": 8, "mood": 4,
-          "reply": "Okay, okay, one second. I'm counting, though."},
-         {"text": "Right behind you, coach!", "trust": 4, "mood": 6,
-          "reply": "That's the spirit! Aupa, everybody up!"}
-       ]}
+      {
+        "id": "the_names",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's just shown you the list of ninety names.",
+        "options": [
+          {
+            "text": "We'll check every hub together.",
+            "trust": 12,
+            "reply": "Aupa, that's it! Come on, then, ninety names, we'll go through every one."
+          },
+          {
+            "text": "That's a lot of children to carry.",
+            "trust": 6,
+            "reply": "It is a lot. I carry them anyway, every day. They're light, they're kids."
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe he's already on his feet, clapping, too loud.",
+        "line": "Come on, come on, up! That was one round, not the match. We've got this, venga!",
+        "options": [
+          {
+            "text": "Give us a second, Iker.",
+            "trust": 8,
+            "mood": 4,
+            "reply": "Okay, okay, one second. I'm counting, though."
+          },
+          {
+            "text": "Right behind you, coach!",
+            "trust": 4,
+            "mood": 6,
+            "reply": "That's the spirit! Aupa, everybody up!"
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "Come on, we've done this same drill a hundred times and I'm the only one keeping score. Let's go and find a real game!",
@@ -59,17 +91,33 @@
   },
   "banter": {
     "boss_down": [
-      {"text": "That's one more for us, and I'm counting, aupa!", "kind": "open"}
+      {
+        "text": "That's one more for us, and I'm counting, aupa!",
+        "kind": "open"
+      }
     ],
     "close_call": [
-      {"text": "Come on, you're still up, so you're still in it, keep going!", "kind": "open"}
+      {
+        "text": "Come on, you're still up, so you're still in it, keep going!",
+        "kind": "open"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Everybody out, great teamwork, I'm putting that on the scoreboard.", "kind": "reply"}
+      {
+        "text": "Great teamwork in there, all of you. I'm putting that on the scoreboard.",
+        "kind": "reply"
+      }
     ],
     "town_arrive": [
-      {"text": "Lekeitio's got a harbour, an island you can walk to at low tide, and the best cheesecake in the world.", "kind": "open", "topic": "cities"},
-      {"text": "Is there a wall in this town I could hit a ball against? I'm asking for a friend, it's me.", "kind": "open"}
+      {
+        "text": "My mother made the best burnt cheesecake in the province. Somebody here must bake, so I'll be following my nose.",
+        "kind": "open",
+        "topic": "cities"
+      },
+      {
+        "text": "Is there a wall in this town I could hit a ball against? I'm asking for a friend, it's me.",
+        "kind": "open"
+      }
     ]
   }
 }

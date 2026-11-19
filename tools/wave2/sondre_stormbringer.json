@@ -9,9 +9,19 @@
   },
   "bond": {
     "home": "the high ground by the Scarlet Crypt",
-    "dials": {"warmth": 0.8, "nerve": 0.7, "pride": 0.4, "restless": 1.0},
-    "likes": ["new_ground", "quest"],
-    "dislikes": ["full_party"],
+    "dials": {
+      "warmth": 0.8,
+      "nerve": 0.7,
+      "pride": 0.4,
+      "restless": 1.0
+    },
+    "likes": [
+      "new_ground",
+      "quest"
+    ],
+    "dislikes": [
+      "full_party"
+    ],
     "stages": {
       "stranger": "I'm Sondre, and I'm a Stormbringer, which you'll see, and I'd ask you to stand a little way away from me when I'm working. If I say get down, please get down first and ask me why afterwards.",
       "acquaintance": "I'm from Bergen, in Norway, where it rains most days and nobody minds. My father's a ferry captain and my mother's a dentist, and my little sister Ingrid is braver than me. I taught sailing to teenagers on the Hardangerfjord every summer and studied marine biology in the winters. They listened to me because I never shouted and I was never frightened.",
@@ -20,23 +30,47 @@
       "sworn": "They keep a book up there, of everyone from Bergen, and the ones who didn't make it are in the back. My parents and Ingrid are in the back. They landed together, somewhere bad, in the first week. I can say they were, now, and not they are. But I held a storm off a whole caravan with you standing right beside me, and nobody got hurt. I'm not frightened of the wind any more. I think I can manage a barn."
     },
     "moments": [
-      {"id": "hire", "stage": "stranger", "when": "hire",
-       "prompt": "He asks if you'll do what he says when he tells you to get down.",
-       "options": [
-         {"text": "If you say get down, I'll get down.", "trust": 6, "joins": true,
-          "reply": "Thank you. Then I'll come, and I'll try not to need to say it."},
-         {"text": "We'll see when it happens.", "trust": 0, "joins": false,
-          "reply": "Then I'd better stay here. It's safer for everybody. Come back another day."}
-       ]},
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe he's gone very quiet and he won't come near anyone.",
-       "line": "Was that me? Please tell me honestly if any of that was me.",
-       "options": [
-         {"text": "It wasn't you. Come and sit with us.", "trust": 10, "mood": 6,
-          "reply": "All right, I'll sit, thank you."},
-         {"text": "Just be more careful.", "trust": 0, "mood": -8,
-          "reply": "I'm always careful. That's the whole problem, really."}
-       ]}
+      {
+        "id": "hire",
+        "stage": "stranger",
+        "when": "hire",
+        "prompt": "He asks if you'll do what he says when he tells you to get down.",
+        "options": [
+          {
+            "text": "If you say get down, I'll get down.",
+            "trust": 6,
+            "joins": true,
+            "reply": "Thank you. Then I'll come, and I'll try not to need to say it."
+          },
+          {
+            "text": "We'll see when it happens.",
+            "trust": 0,
+            "joins": false,
+            "reply": "Then I'd better stay here. It's safer for everybody. Come back another day."
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe he's gone very quiet and he won't come near anyone.",
+        "line": "Was that me? Please tell me honestly if any of that was me.",
+        "options": [
+          {
+            "text": "It wasn't you. Come and sit with us.",
+            "trust": 10,
+            "mood": 6,
+            "reply": "All right, I'll sit, thank you."
+          },
+          {
+            "text": "Just be more careful.",
+            "trust": 0,
+            "mood": -8,
+            "reply": "I'm always careful. That's the whole problem, really."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We've been out here doing the same thing for a long time, and I'm not learning anything. I'd like to go somewhere new, or I'd like to go home and practise.",
@@ -61,20 +95,39 @@
   },
   "banter": {
     "zone_arrive": [
-      {"text": "Weather's coming in from the west, about an hour out. We've got time, but not much.", "kind": "open"},
-      {"text": "Good open ground here. I can breathe out here.", "kind": "open"}
+      {
+        "text": "Weather's coming in from the west, about an hour out. We've got time, but not much.",
+        "kind": "open"
+      },
+      {
+        "text": "Good open ground here. I can breathe out here.",
+        "kind": "open"
+      }
     ],
     "close_call": [
-      {"text": "Please stand further from me next time. I nearly couldn't stop it.", "kind": "open"}
+      {
+        "text": "Please stand further from me next time. I nearly couldn't stop it.",
+        "kind": "open"
+      }
     ],
     "dungeon_clear": [
-      {"text": "I held back the whole way in there. Small rooms frighten me more than the things in them.", "kind": "reply"}
+      {
+        "text": "I held back the whole way in there. Small rooms frighten me more than the things in them.",
+        "kind": "reply"
+      }
     ],
     "town_arrive": [
-      {"text": "Bergen's got seven hills, a fish market and it rains every day. My family's there, I think.", "kind": "open", "topic": "cities"}
+      {
+        "text": "My little sister used to row us out on the fjord when I was too scared to. I think about her whenever I see boats.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "boss_down": [
-      {"text": "Is everyone all right? I'd like to hear it, please.", "kind": "reply"}
+      {
+        "text": "Is everyone all right? I'd like to hear it, please.",
+        "kind": "reply"
+      }
     ]
   }
 }

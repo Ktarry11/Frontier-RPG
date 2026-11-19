@@ -8,9 +8,19 @@
   },
   "bond": {
     "home": "Steamwheedle Port",
-    "dials": {"warmth": 1.5, "nerve": 1.4, "pride": 0.8, "restless": 0.8},
-    "likes": ["full_party", "dungeon"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 1.5,
+      "nerve": 1.4,
+      "pride": 0.8,
+      "restless": 0.8
+    },
+    "likes": [
+      "full_party",
+      "dungeon"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "Ciao, I'm Gianluca, and I'm a guardian, which means I stand in front and talk. You'll get used to the talking. Everybody does, eventually, or they leave.",
       "acquaintance": "I'm from Bologna. My parents ran a bar near the university, and I took it over at twenty-two and ran it thirty years. Open at six, close late, and an espresso machine I rebuilt with my own hands twice. The six o'clock crowd never ordered, because I already knew. That's the best feeling in the world, allora.",
@@ -19,22 +29,42 @@
       "sworn": "It's an eight, and I was thrilled! I opened at six the first morning, and the first customer through the door was a woman who'd heard about an Italian at Steamwheedle who rates everything out of ten, and it was Ornella. She'd been running a kitchen in a camp in Tanaris for two years. She tasted my coffee and said it's a six, and she's wrong. We argued for an hour, and then she went into the kitchen without being asked. I still read the Milan list twice."
     },
     "moments": [
-      {"id": "rate_it", "stage": "acquaintance", "when": "talk",
-       "prompt": "He's rating tonight's meal out of ten, loudly, and asks for your score.",
-       "options": [
-         {"text": "Give it an honest score.", "trust": 8,
-          "reply": "Ha, a five? You're harsh, I like that. A man who rates honestly is a friend."},
-         {"text": "Say it's a ten.", "trust": 0,
-          "reply": "A ten, really? Mamma mia, you've never had real food. We'll fix that."}
-       ]},
-      {"id": "the_bean", "stage": "friend", "when": "talk",
-       "prompt": "He's asked you to come and find the goblin's coffee bean.",
-       "options": [
-         {"text": "Let's find you a ten.", "trust": 12,
-          "reply": "Dai, let's go! It won't be a ten, nothing's a ten, but let's go."},
-         {"text": "What if it's terrible?", "trust": 4,
-          "reply": "Then I'll rate it a two and complain the whole way home, allora."}
-       ]}
+      {
+        "id": "rate_it",
+        "stage": "acquaintance",
+        "when": "talk",
+        "prompt": "He's rating tonight's meal out of ten, loudly, and asks for your score.",
+        "options": [
+          {
+            "text": "Give it an honest score.",
+            "trust": 8,
+            "reply": "Ha, a five? You're harsh, I like that. A man who rates honestly is a friend."
+          },
+          {
+            "text": "Say it's a ten.",
+            "trust": 0,
+            "reply": "A ten, really? Mamma mia, you've never had real food. We'll fix that."
+          }
+        ]
+      },
+      {
+        "id": "the_bean",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to come and find the goblin's coffee bean.",
+        "options": [
+          {
+            "text": "Let's find you a ten.",
+            "trust": 12,
+            "reply": "Dai, let's go! It won't be a ten, nothing's a ten, but let's go."
+          },
+          {
+            "text": "What if it's terrible?",
+            "trust": 4,
+            "reply": "Then I'll rate it a two and complain the whole way home, allora."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We've done the same thing every day, and the food's a three, and the company's lovely but bored. Let's go somewhere new, dai.",
@@ -59,17 +89,33 @@
   },
   "banter": {
     "town_arrive": [
-      {"text": "Let's see if anyone here knows how to make a coffee. I'm expecting a three, at best.", "kind": "open"},
-      {"text": "Bologna has miles of arcades, the best food in Italy and a bar on every corner. One of them was mine.", "kind": "open", "topic": "cities"}
+      {
+        "text": "Let's see if anyone here knows how to make a coffee. I'm expecting a three, at best.",
+        "kind": "open"
+      },
+      {
+        "text": "I knew what my six o'clock crowd wanted before they sat down. Give me a week here and I'll know what this lot want too.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "boss_down": [
-      {"text": "I'd give that fight a seven. Good footwork, terrible smell.", "kind": "open"}
+      {
+        "text": "I'd give that fight a seven. Good footwork, terrible smell.",
+        "kind": "open"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Everybody out alive, that's a nine! Drinks are on me, when I've got drinks.", "kind": "open"}
+      {
+        "text": "We all made it out, so that's a nine! Drinks are on me, when I've got drinks.",
+        "kind": "open"
+      }
     ],
     "close_call": [
-      {"text": "Too close, much too close. Stand behind me next time, I'm wider.", "kind": "reply"}
+      {
+        "text": "Too close, much too close. Stand behind me next time, I'm wider.",
+        "kind": "reply"
+      }
     ]
   }
 }

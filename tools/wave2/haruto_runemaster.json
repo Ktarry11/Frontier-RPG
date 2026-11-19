@@ -9,9 +9,19 @@
   },
   "bond": {
     "home": "Silverpine South",
-    "dials": {"warmth": 0.5, "nerve": 1.2, "pride": 1.3, "restless": 0.8},
-    "likes": ["dungeon", "undead"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 0.5,
+      "nerve": 1.2,
+      "pride": 1.3,
+      "restless": 0.8
+    },
+    "likes": [
+      "dungeon",
+      "undead"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Haruto, and I cut runes. You're holding that weapon too tightly, so loosen your grip. I'll say very little, and what I say I'll mean.",
       "acquaintance": "I'm from Kanazawa, in Japan. My father laid gold leaf. At twenty-two I went to study calligraphy under Master Fujita, who corrected me for eleven years before he praised me once. When he died I kept his studio and took four students. I did that for thirty-one years in all.",
@@ -20,28 +30,53 @@
       "sworn": "Edrin cut the last rune. My hand shook and my stroke went wrong, and he did it while I watched, and he did it well. I praised him, which I'd never done. The shake will get worse, so the reference is theirs to finish. And I'll tell you about Kenji now, all of it, because I've decided not to waste any more time. He was a potter, across the river. For twenty years we ate together most nights. He was at a fair in Kyoto that day."
     },
     "moments": [
-      {"id": "the_hand", "stage": "friend", "when": "talk",
-       "prompt": "He's just told you about his hand.",
-       "options": [
-         {"text": "I won't tell anyone. Let's go to the stones.", "trust": 12,
-          "reply": "Thank you. We'll leave at first light, after the ink."},
-         {"text": "You should tell your students.", "trust": 0,
-          "reply": "That's my decision to make, not yours."},
-         {"text": "How long have you known?", "trust": 4,
-          "reply": "For three months, which is long enough to stop pretending it was the cold."}
-       ]},
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe he speaks quietly to the whole party.",
-       "line": "That was careless, all of it, mine included. We'll do it again, and this time we'll do it properly.",
-       "options": [
-         {"text": "Show us what properly looks like.", "trust": 8, "mood": 6,
-          "reply": "Watch my feet, then. Not my blade, my feet."},
-         {"text": "It wasn't that bad.", "trust": 0, "mood": -6,
-          "reply": "It was exactly that bad. That's why it failed."}
-       ]}
+      {
+        "id": "the_hand",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's just told you about his hand.",
+        "options": [
+          {
+            "text": "I won't tell anyone. Let's go to the stones.",
+            "trust": 12,
+            "reply": "Thank you. We'll leave at first light, after the ink."
+          },
+          {
+            "text": "You should tell your students.",
+            "trust": 0,
+            "reply": "That's my decision to make, not yours."
+          },
+          {
+            "text": "How long have you known?",
+            "trust": 4,
+            "reply": "For three months, which is long enough to stop pretending it was the cold."
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe he speaks quietly to the whole party.",
+        "line": "That was careless, all of it, mine included. We'll do it again, and this time we'll do it properly.",
+        "options": [
+          {
+            "text": "Show us what properly looks like.",
+            "trust": 8,
+            "mood": 6,
+            "reply": "Watch my feet, then. Not my blade, my feet."
+          },
+          {
+            "text": "It wasn't that bad.",
+            "trust": 0,
+            "mood": -6,
+            "reply": "It was exactly that bad. That's why it failed."
+          }
+        ]
+      }
     ],
     "lines": {
-      "bored_warning": "We repeat the same motion without improving it. That isn't practice, it's habit. I'd like to do something that teaches me something.",
+      "bored_warning": "We repeat the same motion without improving it. I'm learning nothing, and I'd like to do something that teaches me something.",
       "leaving_good": "That was good work. I'll go back to Silverpine now, to the stones, before more of them fade. You know where I'll be.",
       "leaving_bored": "I'm going back to the stones in Silverpine. What we're doing here has no form to it.",
       "after_wipe": "That was careless. We'll stand, and we'll do it again, properly.",
@@ -63,17 +98,33 @@
   },
   "banter": {
     "dungeon_clear": [
-      {"text": "Those marks on the pillars were cut, not grown. It was a bad hand, in a hurry.", "kind": "open"}
+      {
+        "text": "Those marks on the pillars were cut, not grown. It was a bad hand, in a hurry.",
+        "kind": "open"
+      }
     ],
     "boss_down": [
-      {"text": "Whatever was written on that, it didn't wash off. It never does.", "kind": "open"}
+      {
+        "text": "Whatever was written on that, it didn't wash off. It never does.",
+        "kind": "open"
+      }
     ],
     "town_arrive": [
-      {"text": "Their letters lean left here. Somebody taught this whole town to write.", "kind": "reply"},
-      {"text": "Kanazawa has a garden that changes with every season, and I walked it every morning for thirty years.", "kind": "open", "topic": "cities"}
+      {
+        "text": "Their letters lean left here. Somebody taught this whole town to write.",
+        "kind": "reply"
+      },
+      {
+        "text": "My master corrected my brush for eleven years before he praised me once. I read the signs in this town and I can hear him sighing.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "zone_arrive": [
-      {"text": "The marks change out here, but the same hand did them. You can see it.", "kind": "open"}
+      {
+        "text": "The marks change out here, but the same hand did them. You can see it.",
+        "kind": "open"
+      }
     ]
   }
 }

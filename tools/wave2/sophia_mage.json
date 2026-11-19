@@ -9,9 +9,19 @@
   },
   "bond": {
     "home": "the Undercity",
-    "dials": {"warmth": 0.7, "nerve": 0.8, "pride": 0.8, "restless": 0.9},
-    "likes": ["dungeon", "new_ground"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 0.7,
+      "nerve": 0.8,
+      "pride": 0.8,
+      "restless": 0.9
+    },
+    "likes": [
+      "dungeon",
+      "new_ground"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Sophia, and I'm a mage, mostly fire, and before that I was an interpreter. If I'm quiet it's because I'm listening, and if I correct something you say, I'm sorry in advance. It's a habit.",
       "acquaintance": "I grew up in Thessaloniki. My father's Portuguese, a ship's engineer who came for a job at the port and stayed for my mother, who taught Greek literature. So I had Greek at home, Portuguese with my father, and English and French at school. I spent fourteen years in a booth at the Parliament in Brussels, interpreting debates, and nobody knew my name. I liked that.",
@@ -20,25 +30,50 @@
       "sworn": "My mother's alive, and thin, and she couldn't speak when she saw me. My father was sitting in the sun outside the house. He was polite to me, the way he's polite to any visitor. I stayed a week. On the last day he called me by my mother's name, and I've decided that's the best he can give me, and it's enough. I write to her every week now. My work is here, and so are you."
     },
     "moments": [
-      {"id": "her_father", "stage": "friend", "when": "talk",
-       "prompt": "She's just told you about her father.",
-       "options": [
-         {"text": "Then we'll cross the mountains together.", "trust": 12,
-          "reply": "Thank you. I'll write down everything we need. That's how I stop being frightened."},
-         {"text": "He might remember you.", "trust": 2,
-          "reply": "He might, yes. I'd rather not hope too hard, if you don't mind."},
-         {"text": "Maybe it's kinder not to go.", "trust": 0,
-          "reply": "Kinder to whom? I'm sorry, that was sharp. But I'm still going."}
-       ]},
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe she's very quiet, writing something down.",
-       "line": "I saw what it was going to do half a second before it did it, and I didn't say anything because I wasn't sure. I'm sorry about that.",
-       "options": [
-         {"text": "Next time, say it even if you're not sure.", "trust": 8, "mood": 6,
-          "reply": "All right, I will. Even if I'm wrong in front of everyone."},
-         {"text": "It's not your job to call it.", "trust": 0, "mood": -4,
-          "reply": "No, but I could have, and that's worse."}
-       ]}
+      {
+        "id": "her_father",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "She's just told you about her father.",
+        "options": [
+          {
+            "text": "Then we'll cross the mountains together.",
+            "trust": 12,
+            "reply": "Thank you. I'll write down everything we need. That's how I stop being frightened."
+          },
+          {
+            "text": "He might remember you.",
+            "trust": 2,
+            "reply": "He might, yes. I'd rather not hope too hard, if you don't mind."
+          },
+          {
+            "text": "Maybe it's kinder not to go.",
+            "trust": 0,
+            "reply": "Kinder to whom? I'm sorry, that was sharp. But I'm still going."
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe she's very quiet, writing something down.",
+        "line": "I saw what it was going to do half a second before it did it, and I didn't say anything because I wasn't sure. I'm sorry about that.",
+        "options": [
+          {
+            "text": "Next time, say it even if you're not sure.",
+            "trust": 8,
+            "mood": 6,
+            "reply": "All right, I will. Even if I'm wrong in front of everyone."
+          },
+          {
+            "text": "It's not your job to call it.",
+            "trust": 0,
+            "mood": -4,
+            "reply": "No, but I could have, and that's worse."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We've been doing the same thing for a long time and I haven't learned a single new word. Could we go somewhere with something written on the walls?",
@@ -63,20 +98,39 @@
   },
   "banter": {
     "dungeon_clear": [
-      {"text": "There was writing on the third wall in there. I copied it, and I'll tell you what it says once I know.", "kind": "open"}
+      {
+        "text": "There was writing on the third wall in there. I copied it, and I'll tell you what it says once I know.",
+        "kind": "open"
+      }
     ],
     "boss_down": [
-      {"text": "It was saying something just before it fell. I'm fairly sure it was a name.", "kind": "open"}
+      {
+        "text": "It was saying something just before it fell. I'm fairly sure it was a name.",
+        "kind": "open"
+      }
     ],
     "zone_arrive": [
-      {"text": "Somebody here's speaking a language I don't know yet. I'm rather excited about that.", "kind": "open"}
+      {
+        "text": "Somebody here's speaking a language I don't know yet. I'm rather excited about that.",
+        "kind": "open"
+      }
     ],
     "town_arrive": [
-      {"text": "Thessaloniki has a sea wall where everyone walks in the evening, slowly, talking. I miss the talking.", "kind": "open", "topic": "cities"},
-      {"text": "Listen, four languages at that stall at once, and nobody's quite understanding anybody. I could fix that.", "kind": "reply"}
+      {
+        "text": "I grew up with Greek from my mother and Portuguese from my father, and I can hear four languages in this square. I'm very happy here.",
+        "kind": "open",
+        "topic": "cities"
+      },
+      {
+        "text": "Listen, four languages at that stall at once, and nobody's quite understanding anybody. I could fix that.",
+        "kind": "reply"
+      }
     ],
     "close_call": [
-      {"text": "That was too close, and I should have said something sooner, and I'm sorry.", "kind": "reply"}
+      {
+        "text": "That was too close, and I should have said something sooner, and I'm sorry.",
+        "kind": "reply"
+      }
     ]
   }
 }

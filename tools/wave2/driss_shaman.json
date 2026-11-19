@@ -8,9 +8,19 @@
   },
   "bond": {
     "home": "Freewind Post",
-    "dials": {"warmth": 1.2, "nerve": 1.3, "pride": 0.7, "restless": 1.0},
-    "likes": ["new_ground", "quest"],
-    "dislikes": ["dungeon"],
+    "dials": {
+      "warmth": 1.2,
+      "nerve": 1.3,
+      "pride": 0.7,
+      "restless": 1.0
+    },
+    "likes": [
+      "new_ground",
+      "quest"
+    ],
+    "dislikes": [
+      "dungeon"
+    ],
     "stages": {
       "stranger": "I'm Driss, a shaman, and before that a desert guide. Drink some water first, please, and then we'll talk. I never let anybody in my care run short of water.",
       "acquaintance": "I'm from Zagora, in Morocco, at the edge of the Sahara. My father and grandfather guided caravans across the desert, and I learned the routes on a camel before I could read. When the tourists came I guided them too, first on camels and later in two old Land Cruisers I kept running with my own hands, for twenty-eight years.",
@@ -19,22 +29,44 @@
       "sworn": "On the second night of the first summer crossing, I heard a girl laughing at the back of the caravan, and I knew the laugh. It was Nour, twelve now, and Khadija with her. They'd been waiting in a Moroccan camp in Tanaris for two years, unable to cross the Flats in summer. My route brought them. I carried her the rest of the way on my shoulders, though she says she's too old. That night I made mint tea for everybody."
     },
     "moments": [
-      {"id": "water", "stage": "stranger", "when": "hire",
-       "prompt": "He hands you a waterskin before anything else and waits.",
-       "options": [
-         {"text": "Drink, and thank him.", "trust": 6, "joins": true,
-          "reply": "Good, now we can talk. Yallah, I'll come with you."},
-         {"text": "I'm not thirsty.", "trust": 0, "joins": false,
-          "reply": "Everybody's thirsty, they just don't know it yet. Come back when you've learned that."}
-       ]},
-      {"id": "the_spring", "stage": "friend", "when": "talk",
-       "prompt": "He's asked you to help him find the spring under the salt.",
-       "options": [
-         {"text": "Let's find your water.", "trust": 12,
-          "reply": "Bismillah, let's go. We'll leave at dawn, before the heat, and we'll carry plenty."},
-         {"text": "Why does the route matter so much?", "trust": 6,
-          "reply": "Because somebody's waiting on the other side of the Flats. Somebody always is."}
-       ]}
+      {
+        "id": "water",
+        "stage": "stranger",
+        "when": "hire",
+        "prompt": "He hands you a waterskin before anything else and waits.",
+        "options": [
+          {
+            "text": "Drink, and thank him.",
+            "trust": 6,
+            "joins": true,
+            "reply": "Good, now we can talk. Yallah, I'll come with you."
+          },
+          {
+            "text": "I'm not thirsty.",
+            "trust": 0,
+            "joins": false,
+            "reply": "Everybody's thirsty, they just don't know it yet. Come back when you've learned that."
+          }
+        ]
+      },
+      {
+        "id": "the_spring",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to help him find the spring under the salt.",
+        "options": [
+          {
+            "text": "Let's find your water.",
+            "trust": 12,
+            "reply": "Bismillah, let's go. We'll leave at dawn, before the heat, and we'll carry plenty."
+          },
+          {
+            "text": "Why does the route matter so much?",
+            "trust": 6,
+            "reply": "Because somebody's waiting on the other side of the Flats. I'd want somebody to come for me."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We walk the same circle again and again, and the land has nothing new to tell us. Let's find a road we haven't walked.",
@@ -59,16 +91,29 @@
   },
   "banter": {
     "zone_arrive": [
-      {"text": "Check your water before anything else. This ground will take it from you without asking.", "kind": "open"}
+      {
+        "text": "Check your water before anything else. This ground will take it from you without asking.",
+        "kind": "open"
+      }
     ],
     "town_arrive": [
-      {"text": "Zagora's the last town before the sand, with a sign that says it's fifty-two days to Timbuktu by camel. I've done it.", "kind": "open", "topic": "cities"}
+      {
+        "text": "My father could smell water from a mile off. I've only got about half of that, but there's a good well in this town somewhere.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "boss_down": [
-      {"text": "The land answered me just then. That part I'm still not used to.", "kind": "reply"}
+      {
+        "text": "The land answered me just then. That part I'm still not used to.",
+        "kind": "reply"
+      }
     ],
     "dungeon_clear": [
-      {"text": "No air moving in there at all, and I hated it. Let's get under the sky.", "kind": "reply"}
+      {
+        "text": "No air moving in there at all, and I hated it. Let's get under the sky.",
+        "kind": "reply"
+      }
     ]
   }
 }

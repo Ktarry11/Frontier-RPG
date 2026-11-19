@@ -1,9 +1,19 @@
 {
   "bond": {
     "home": "Durotar",
-    "dials": {"warmth": 1.2, "nerve": 1.1, "pride": 0.6, "restless": 0.9},
-    "likes": ["new_ground", "quest"],
-    "dislikes": ["dungeon"],
+    "dials": {
+      "warmth": 1.2,
+      "nerve": 1.1,
+      "pride": 0.6,
+      "restless": 0.9
+    },
+    "likes": [
+      "new_ground",
+      "quest"
+    ],
+    "dislikes": [
+      "dungeon"
+    ],
     "stages": {
       "stranger": "I'm Marcus, and I'm a meteorologist, which here means I'm the man who tells you it's going to rain about ten minutes before it does. Sorry in advance. I'll tell you what the sky's doing whether you ask or not, and you can tell me to stop.",
       "acquaintance": "I'm from Toronto, from Scarborough in the east end. My dad drove a city bus and my mum worked in a bank, and they both wanted a doctor. Then I watched an ice storm black out half the city when I was twelve and that was that. I chased tornadoes across the prairies in a Corolla as a student, then I spent fifteen years forecasting from a building with a window.",
@@ -12,25 +22,50 @@
       "sworn": "Razor Hill held, because it was ready. The camps on the coast road didn't listen, and people died there that I'd named. I got one boy out of the water, so that's one. The old shaman's got my notes now, so the next lot will know the pattern. My mum told me every Christmas my job was a waste of a good degree, the last one included. I think she was wrong. I was right early again, and this time it changed some things, and I'm learning to live with some."
     },
     "moments": [
-      {"id": "the_trailer_park", "stage": "friend", "when": "talk",
-       "prompt": "He's just told you about the trailer park, and the storm that's coming.",
-       "options": [
-         {"text": "I believe you. Tell me what you need.", "trust": 12,
-          "reply": "You've no idea how long I've waited for somebody to say that first. Okay, here's the list."},
-         {"text": "That wasn't your fault.", "trust": 2,
-          "reply": "I know that. I wrote it properly. It still feels like mine, sorry."},
-         {"text": "Are you sure about the storm?", "trust": 0,
-          "reply": "I'm always sure. That's never been the problem."}
-       ]},
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe he's very calm, which is how you find out he's angry.",
-       "line": "I said that one was coming, about a minute before it came. I'm not trying to score a point, I'd just like it to help next time.",
-       "options": [
-         {"text": "You did. Next time I'll listen.", "trust": 8, "mood": 6,
-          "reply": "Thank you. That's honestly all I ever wanted from anybody."},
-         {"text": "We couldn't have stopped it anyway.", "trust": 0, "mood": -6,
-          "reply": "We could have. Sorry, but we could have."}
-       ]}
+      {
+        "id": "the_trailer_park",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's just told you about the trailer park, and the storm that's coming.",
+        "options": [
+          {
+            "text": "I believe you. Tell me what you need.",
+            "trust": 12,
+            "reply": "You've no idea how long I've waited for somebody to say that first. Okay, here's the list."
+          },
+          {
+            "text": "That wasn't your fault.",
+            "trust": 2,
+            "reply": "I know that. I wrote it properly. It still feels like mine, sorry."
+          },
+          {
+            "text": "Are you sure about the storm?",
+            "trust": 0,
+            "reply": "I'm always sure. That's never been the problem."
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe he's very calm, which is how you find out he's angry.",
+        "line": "I said that one was coming, about a minute before it came. I'm not trying to score a point, I'd just like it to help next time.",
+        "options": [
+          {
+            "text": "You did. Next time I'll listen.",
+            "trust": 8,
+            "mood": 6,
+            "reply": "Thank you. That's honestly all I ever wanted from anybody."
+          },
+          {
+            "text": "We couldn't have stopped it anyway.",
+            "trust": 0,
+            "mood": -6,
+            "reply": "We could have. Sorry, but we could have."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "Sorry, but we've been doing the same thing in the same field for a while and I haven't seen a new sky in days. Can we go somewhere with a horizon I don't know?",
@@ -55,21 +90,43 @@
   },
   "banter": {
     "zone_arrive": [
-      {"text": "Pressure's dropping out here. Give it two hours and you'll want a hood.", "kind": "open"},
-      {"text": "Big sky here. I'm going to be up half the night looking at it.", "kind": "open"}
+      {
+        "text": "Pressure's dropping out here. Give it two hours and you'll want a hood.",
+        "kind": "open"
+      },
+      {
+        "text": "Big sky here. I'm going to be up half the night looking at it.",
+        "kind": "open"
+      }
     ],
     "town_arrive": [
-      {"text": "Every roof here's pitched the same way. That tells you where the wind comes from.", "kind": "reply"},
-      {"text": "Toronto has winters that'd kill you and summers that'd melt you, and I miss both, honestly.", "kind": "open", "topic": "cities"}
+      {
+        "text": "Every roof here's pitched the same way. That tells you where the wind comes from.",
+        "kind": "reply"
+      },
+      {
+        "text": "My dad drove a city bus and could tell you the weather from who got on in the morning. I'm trying to learn that here.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "boss_down": [
-      {"text": "Did you feel the air go dead right before it dropped? I want that written down.", "kind": "open"}
+      {
+        "text": "Did you feel the air go dead right before it dropped? I want that written down.",
+        "kind": "open"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Pressure dropped in there and I felt it in my teeth. Can we go outside now, please?", "kind": "reply"}
+      {
+        "text": "Pressure dropped in there and I felt it in my teeth. I need some open sky.",
+        "kind": "reply"
+      }
     ],
     "close_call": [
-      {"text": "Sorry, I saw that coming and said it too quietly. I'll say it louder next time.", "kind": "open"}
+      {
+        "text": "Sorry, I felt that one coming and kept my mouth shut. I won't do that again.",
+        "kind": "open"
+      }
     ]
   }
 }

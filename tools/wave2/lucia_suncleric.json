@@ -5,9 +5,19 @@
   },
   "bond": {
     "home": "the Crossroads",
-    "dials": {"warmth": 1.5, "nerve": 0.9, "pride": 0.6, "restless": 1.0},
-    "likes": ["full_party", "quest"],
-    "dislikes": ["undead"],
+    "dials": {
+      "warmth": 1.5,
+      "nerve": 0.9,
+      "pride": 0.6,
+      "restless": 1.0
+    },
+    "likes": [
+      "full_party",
+      "quest"
+    ],
+    "dislikes": [
+      "undead"
+    ],
     "stages": {
       "stranger": "I'm Lúcia, querido, and you've got half the Barrens in your hair. I'll heal you and I'll pray for you, and I'll fix that hair while we walk. Tell me everything about yourself.",
       "acquaintance": "I'm from Goiânia, in the middle of Brazil. I had my own salon, pink tiles and two chairs, a radio that only got one station, and a cat called Dona Flor asleep in the window. Saturdays there was a queue down the street. I had a boyfriend, Marcelo, for four years, but he wanted São Paulo and I didn't. We split up kindly.",
@@ -16,22 +26,42 @@
       "sworn": "It wasn't my church and it wasn't my language, and it didn't matter at all. They sang to the sun and I sang with them in Portuguese, and the sun answered both of us. An old tauren woman told me to come back every dawn I can. I've got a little shelter at the Crossroads now with a real door and a real mirror, and a candle wall. Every Sunday I light one for everybody on my grandmother's list, and for the tauren they've told me about."
     },
     "moments": [
-      {"id": "noon", "stage": "companion", "when": "talk",
-       "prompt": "It's noon, and she's gone quiet for a moment.",
-       "options": [
-         {"text": "Take as long as you need.", "trust": 10,
-          "reply": "Thank you, querido. She'd have liked you, she likes everybody who waits."},
-         {"text": "Are you all right?", "trust": 4,
-          "reply": "Yes, I'm fine. It's just noon, that's all."}
-       ]},
-      {"id": "the_song", "stage": "friend", "when": "talk",
-       "prompt": "She's asked you to take her to Camp Taurajo.",
-       "options": [
-         {"text": "Let's go and hear them sing.", "trust": 12,
-          "reply": "Nossa, do you mean it? I'm going to cry the whole way there, I warn you."},
-         {"text": "They might not want an outsider.", "trust": 2,
-          "reply": "Then I'll earn it. I've won over worse customers than a tauren."}
-       ]}
+      {
+        "id": "noon",
+        "stage": "companion",
+        "when": "talk",
+        "prompt": "It's noon, and she's gone quiet for a moment.",
+        "options": [
+          {
+            "text": "Take as long as you need.",
+            "trust": 10,
+            "reply": "Thank you, querido. She'd have liked you, she likes everybody who waits."
+          },
+          {
+            "text": "Are you all right?",
+            "trust": 4,
+            "reply": "Yes, I'm fine. It's just noon, that's all."
+          }
+        ]
+      },
+      {
+        "id": "the_song",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "She's asked you to take her to Camp Taurajo.",
+        "options": [
+          {
+            "text": "Let's go and hear them sing.",
+            "trust": 12,
+            "reply": "Nossa, do you mean it? I'm going to cry the whole way there, I warn you."
+          },
+          {
+            "text": "They might not want an outsider.",
+            "trust": 2,
+            "reply": "Then I'll earn it. I've won over worse customers than a tauren."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "Querido, we've been doing the same thing for days and I haven't met a single new person. Can we go somewhere with people in it?",
@@ -56,17 +86,33 @@
   },
   "banter": {
     "town_arrive": [
-      {"text": "Look at all these people. I want to know every one of their stories.", "kind": "open"},
-      {"text": "Goiânia's in the middle of Brazil, hot and flat and full of music, and every street knows your business.", "kind": "open", "topic": "cities"}
+      {
+        "text": "Look at all these people. I want to know every one of their stories.",
+        "kind": "open"
+      },
+      {
+        "text": "My cat slept in the salon window all day, every day. I look for a cat in a window in every town we walk into.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "boss_down": [
-      {"text": "Graças a Deus. Now let me look at everybody, one at a time.", "kind": "open"}
+      {
+        "text": "Graças a Deus. Now line up, everybody, one at a time.",
+        "kind": "open"
+      }
     ],
     "close_call": [
-      {"text": "Meu Deus, I prayed so hard just then. Come here, let me see.", "kind": "open"}
+      {
+        "text": "Meu Deus, I prayed so hard just then. Come here, let me see.",
+        "kind": "open"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Out in the sun again, thank God. I don't like it where the light can't reach.", "kind": "reply"}
+      {
+        "text": "Out in the sun again, thank God. I don't like it where the light can't reach.",
+        "kind": "reply"
+      }
     ]
   }
 }

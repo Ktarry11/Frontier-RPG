@@ -1,6 +1,6 @@
 {
   "recruit_text": {
-    "greeting": "You cooked this? It's terrible, honestly. Sit down, I'll show you. No, you sit, it's faster if I do it.",
+    "greeting": "You cooked this? I'm sorry, but it's terrible. Sit down, I'll show you. No, you sit, it's faster if I do it.",
     "backstory": "He ran a kafana in Novi Sad that his uncle left him, and he's a far better cook than he is a fighter. He says so himself, with some bitterness. He's blunt to the point of rudeness about small things and completely reliable about large ones. He took to this world badly and is only now coming out of it, and the coming out looks like him feeding people and insulting them while he does it.",
     "before": "A kitchen, a card table, and forty regulars who came for the beans and stayed because there was nowhere else.\n\nA daughter, Mila, who was nine, and an ex-wife, Jelena, he was on decent terms with. They had Mila on alternate weeks. It wasn't his week.",
     "adjustment": "Two years that he describes in three words, and nobody presses him on them.\n\nWhat brought him back was being handed a cooking pot in a camp and being too irritated by how badly it was being used to leave it alone. He's cooked for whoever's nearby ever since, and he still says he isn't a cook any more.",
@@ -9,9 +9,19 @@
   },
   "bond": {
     "home": "Rocky Pass",
-    "dials": {"warmth": 0.9, "nerve": 1.1, "pride": 1.0, "restless": 0.8},
-    "likes": ["full_party", "quest"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 0.9,
+      "nerve": 1.1,
+      "pride": 1.0,
+      "restless": 0.8
+    },
+    "likes": [
+      "full_party",
+      "quest"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Vuk, and I fight badly and I cook very well, and I'll tell you your food's terrible, because it is. Sit down, eat, and then we'll go and hit something.",
       "acquaintance": "I'm from Novi Sad, in Serbia, by the Danube. My father drank and left, and my uncle Dragan raised me in his kafana kitchen. When he died it was mine. A kitchen, a card table, forty regulars who came for the beans. Best beans in the city, bre. Maybe the world.",
@@ -20,22 +30,44 @@
       "sworn": "A caravan came over the pass, and after the fighting a girl climbed down from the last wagon and followed the smell of the beans. Mila, twelve now, with Jelena behind her. She sat down at my fire without asking, the way she used to sit at the card table. I filled the second bowl. Then she asked if I still had the double six, and I put it on the table and let her have it."
     },
     "moments": [
-      {"id": "first_meal", "stage": "stranger", "when": "hire",
-       "prompt": "He shoves a bowl of beans at you and watches you eat.",
-       "options": [
-         {"text": "Eat it all and ask for more.", "trust": 8, "joins": true,
-          "reply": "Ha, finally, somebody with taste. Ajde, I'll get my axe."},
-         {"text": "Say it's a bit salty.", "trust": 0, "joins": false,
-          "reply": "Salty, you say? Get out of my kitchen. Come back when your tongue works."}
-       ]},
-      {"id": "the_bowl", "stage": "friend", "when": "talk",
-       "prompt": "He's just told you who the second bowl is for.",
-       "options": [
-         {"text": "Then we'll keep the pass open for her.", "trust": 12,
-          "reply": "Ajde, yes, we will. Nobody comes through that pass hurt while I'm cooking."},
-         {"text": "She might not be looking for you.", "trust": 0,
-          "reply": "She'd look for the beans, bre, everybody does."}
-       ]}
+      {
+        "id": "first_meal",
+        "stage": "stranger",
+        "when": "hire",
+        "prompt": "He shoves a bowl of beans at you and watches you eat.",
+        "options": [
+          {
+            "text": "Eat it all and ask for more.",
+            "trust": 8,
+            "joins": true,
+            "reply": "Ha, finally, somebody with taste. Ajde, I'll get my axe."
+          },
+          {
+            "text": "Say it's a bit salty.",
+            "trust": 0,
+            "joins": false,
+            "reply": "Salty, you say? Get out of my kitchen. Come back when your tongue works."
+          }
+        ]
+      },
+      {
+        "id": "the_bowl",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's just told you who the second bowl is for.",
+        "options": [
+          {
+            "text": "Then we'll keep the pass open for her.",
+            "trust": 12,
+            "reply": "Ajde, yes, we will. Nobody comes through that pass hurt while I'm cooking."
+          },
+          {
+            "text": "She might not be looking for you.",
+            "trust": 0,
+            "reply": "She'd look for the beans, bre, everybody does."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "Same field, same food, same everything. Even I can't make this interesting. Let's go somewhere new, bre.",
@@ -60,17 +92,33 @@
   },
   "banter": {
     "town_arrive": [
-      {"text": "Let's find whoever cooks here and see how bad it is.", "kind": "open"},
-      {"text": "Novi Sad has a fortress on the Danube and a festival every summer, and my beans were famous there.", "kind": "open", "topic": "cities"}
+      {
+        "text": "Let's find whoever cooks here and see how bad it is.",
+        "kind": "open"
+      },
+      {
+        "text": "My uncle tasted the soup in a new town before he said hello to anybody. I'm the same, bre.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Everybody's alive, so everybody eats tonight, and nobody complains about it.", "kind": "open"}
+      {
+        "text": "Everybody's alive, so everybody eats tonight, and nobody complains about it.",
+        "kind": "open"
+      }
     ],
     "boss_down": [
-      {"text": "Good, that's done. Who's hungry, then? Don't answer, I know you are.", "kind": "reply"}
+      {
+        "text": "Good, that's done. Who's hungry, then? Don't answer, I know you are.",
+        "kind": "reply"
+      }
     ],
     "close_call": [
-      {"text": "Too close, bre. Sit down and eat something before you fall down.", "kind": "reply"}
+      {
+        "text": "Too close, bre. Sit down and eat something before you fall down.",
+        "kind": "reply"
+      }
     ]
   }
 }

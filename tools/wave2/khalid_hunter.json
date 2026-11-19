@@ -9,9 +9,19 @@
   },
   "bond": {
     "home": "Saltwheel",
-    "dials": {"warmth": 0.9, "nerve": 1.2, "pride": 0.8, "restless": 1.0},
-    "likes": ["new_ground", "beast"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 0.9,
+      "nerve": 1.2,
+      "pride": 0.8,
+      "restless": 1.0
+    },
+    "likes": [
+      "new_ground",
+      "beast"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Khalid, a hunter. Walk where I walk and nothing exciting will happen, which is the whole idea. Boring is the aim, habibi.",
       "acquaintance": "I'm from Al Ain, in the Emirates, the oasis city inland. My family's kept falcons longer than anybody wrote down, and my grandfather taught me to fly a bird at eight. I worked in logistics at the airport to pay for it. My mother had a list of suitable women, and I kept politely failing to meet any of them.",
@@ -20,23 +30,45 @@
       "sworn": "On her first real flight she went up over the Flats, higher than any falcon I ever flew, and she was gone a long time. I stood there with my glove up. Then she came back and landed on my arm, and chose me. I've named her Hurra, for the other one. It means free, and we both are. These have been the best three years of my life, and I'm not going to apologise for saying so."
     },
     "moments": [
-      {"id": "the_chick", "stage": "friend", "when": "talk",
-       "prompt": "He's asked you to help protect the nest.",
-       "options": [
-         {"text": "We'll keep the raiders off it.", "trust": 12,
-          "reply": "Thank you, habibi. It'll be a long few days. Boring, if we're lucky."},
-         {"text": "You're allowed to be happy here.", "trust": 8,
-          "reply": "I know, wallah. It's just strange to say it out loud."}
-       ]},
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe he looks deeply unimpressed.",
-       "line": "That was the opposite of boring. Next time walk where I walk, and nobody dies.",
-       "options": [
-         {"text": "Lead, and we'll follow.", "trust": 8, "mood": 6,
-          "reply": "Good, finally, someone sensible. It'll be so boring you'll forget we were in danger."},
-         {"text": "That was exciting, at least.", "trust": 0, "mood": -4,
-          "reply": "Exciting is what people say just before they die, astaghfirullah."}
-       ]}
+      {
+        "id": "the_chick",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to help protect the nest.",
+        "options": [
+          {
+            "text": "We'll keep the raiders off it.",
+            "trust": 12,
+            "reply": "Thank you, habibi. It'll be a long few days. Boring, if we're lucky."
+          },
+          {
+            "text": "You're allowed to be happy here.",
+            "trust": 8,
+            "reply": "I know, wallah. It's just strange to say it out loud."
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe he looks deeply unimpressed.",
+        "line": "That was the opposite of boring. Next time walk where I walk, and nobody dies.",
+        "options": [
+          {
+            "text": "Lead, and we'll follow.",
+            "trust": 8,
+            "mood": 6,
+            "reply": "Good, finally, someone sensible. It'll be so boring you'll forget we were in danger."
+          },
+          {
+            "text": "That was exciting, at least.",
+            "trust": 0,
+            "mood": -4,
+            "reply": "Exciting is what people say just before they die, astaghfirullah."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "I like boring, habibi, but this is a different kind of boring. Let's go somewhere with birds in the sky.",
@@ -61,16 +93,29 @@
   },
   "banter": {
     "zone_arrive": [
-      {"text": "Good sky here, lots of birds. I like this place already.", "kind": "open"}
+      {
+        "text": "Good sky here, lots of birds. I like this place already.",
+        "kind": "open"
+      }
     ],
     "town_arrive": [
-      {"text": "Al Ain is an oasis with date palms and old forts, and my family fly falcons out in the dunes every winter.", "kind": "open", "topic": "cities"}
+      {
+        "text": "My grandfather looked at the birds over a town before he looked at the people in it. I've caught the habit.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "dungeon_clear": [
-      {"text": "That was satisfyingly boring. Well done, everybody.", "kind": "open"}
+      {
+        "text": "That was satisfyingly boring. Well done, everybody.",
+        "kind": "open"
+      }
     ],
     "close_call": [
-      {"text": "That was exciting. I asked for boring. Next time, walk where I walk.", "kind": "reply"}
+      {
+        "text": "That was exciting. I asked for boring. Next time, walk where I walk.",
+        "kind": "reply"
+      }
     ]
   }
 }

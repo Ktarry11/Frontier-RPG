@@ -4,14 +4,24 @@
     "backstory": "Six years a paramedic in Beirut, a city that taught him triage as a reflex and the bitter arithmetic of a van with four spaces. He made those choices for six years, and every one was correct, and every one cost him something. Fel magic put a terrible, obvious power in reach, and he took it, for the same reason he chose the fourth patient over the fifth.",
     "before": "A van, a radio, and a city where the road you took mattered more than the medicine you carried.\n\nHis parents and his little sister Lina are in Beirut, or were. He doesn't let himself look very hard.",
     "adjustment": "Twelve months of saying yes to things he should have slept on.\n\nHe owns all of it. What he refuses is the suggestion that it was weakness. He was offered the ability to save more people and he took it, and three years on he's still doing the arithmetic in public, out loud, for anyone who wants to argue.",
-    "now": "The country around Booty Bay in Southern Stranglethorn, where the Bloodsail, the trolls and the jungle trade blows with the town and the casualties are constant.\n\nHe's first on scene, always. The jungle trolls have a word for him, and he's asked three times what it means and been told three different things.",
+    "now": "The country around Booty Bay in Southern Stranglethorn, where the Bloodsail, the trolls and the jungle trade blows with the town and the casualties are constant.\n\nHe's first on scene, always. The jungle trolls have a word for him, and he's asked three times what it means and got three different answers.",
     "forward": "Out of the fel, for good. He's looked into what getting out of the fel costs, and the figure is the reason he's still in.\n\nIn the meantime he works. The people he pulls out are alive either way, and that's his whole defence, and he knows how thin it is."
   },
   "bond": {
     "home": "Booty Bay",
-    "dials": {"warmth": 1.1, "nerve": 1.4, "pride": 0.9, "restless": 1.4},
-    "likes": ["boss", "quest"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 1.1,
+      "nerve": 1.4,
+      "pride": 0.9,
+      "restless": 1.4
+    },
+    "likes": [
+      "boss",
+      "quest"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Ziad, habibi, a felsworn, and a paramedic before that. Keep moving, and if you're hurt, tell me fast. And yes, the green in my eyes is new. We can argue about it later.",
       "acquaintance": "I'm from Beirut, from Achrafieh. My dad's a pharmacist and my mum teaches, and my little sister Lina is the only person who can shut me up. I did six years in a Red Cross ambulance. A van with four spaces and five people dying, every week. You get very good at choosing, and choosing gets very heavy.",
@@ -20,22 +30,42 @@
       "sworn": "It worked, and for a week I was just a man. Then the Bloodsail hit a village, a dozen wounded, and without the fel I could save four. I chose, fast and correctly, and the fifth died in front of me. A week before, I'd have saved them. So I went back and asked for it again. The troll warned me it'll be harder to put down a second time. I know that. I've stopped arguing the arithmetic. I just work now."
     },
     "moments": [
-      {"id": "the_arithmetic", "stage": "companion", "when": "talk",
-       "prompt": "He's daring you to argue with him about the fel.",
-       "options": [
-         {"text": "Argue it with him, honestly.", "trust": 10,
-          "reply": "Yalla, finally, somebody who'll actually argue. Okay, here's my side."},
-         {"text": "It's not my place to judge.", "trust": 0,
-          "reply": "Everybody judges, habibi. You're just not saying it."}
-       ]},
-      {"id": "the_shrine", "stage": "friend", "when": "talk",
-       "prompt": "He's asked you to come to the shrine with him.",
-       "options": [
-         {"text": "I'll come. Whatever you decide after.", "trust": 12,
-          "reply": "Khalas, then, thank you. That last part's the bit I needed."},
-         {"text": "Are you sure you want to give it up?", "trust": 4,
-          "reply": "No, I'm not. That's why I need to do it before I talk myself out of it."}
-       ]}
+      {
+        "id": "the_arithmetic",
+        "stage": "companion",
+        "when": "talk",
+        "prompt": "He's daring you to argue with him about the fel.",
+        "options": [
+          {
+            "text": "Argue it with him, honestly.",
+            "trust": 10,
+            "reply": "Yalla, finally, somebody who'll actually argue. Okay, here's my side."
+          },
+          {
+            "text": "It's not my place to judge.",
+            "trust": 0,
+            "reply": "Everybody judges, habibi. You're just not saying it."
+          }
+        ]
+      },
+      {
+        "id": "the_shrine",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to come to the shrine with him.",
+        "options": [
+          {
+            "text": "I'll come. Whatever you decide after.",
+            "trust": 12,
+            "reply": "Khalas, then, thank you. That last part's the bit I needed."
+          },
+          {
+            "text": "Are you sure you want to give it up?",
+            "trust": 4,
+            "reply": "No, I'm not. That's why I need to do it before I talk myself out of it."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "Habibi, we keep doing the same thing and nobody needs saving. I can't stand still like this, so let's move.",
@@ -60,17 +90,34 @@
   },
   "banter": {
     "close_call": [
-      {"text": "Don't follow me in next time, habibi. That isn't modesty, it's arithmetic.", "kind": "reply"}
+      {
+        "text": "Don't follow me in next time, habibi. I can only carry one of you at a time.",
+        "kind": "reply"
+      }
     ],
     "town_arrive": [
-      {"text": "Beirut at two in the morning, four nights a week. This is quieter, and I'm not sure that's better.", "kind": "open", "topic": "night_work"},
-      {"text": "Beirut has the sea on one side and the mountains on the other, and the best coffee in the world in between.", "kind": "open", "topic": "cities"}
+      {
+        "text": "Beirut at two in the morning, four nights a week. This is quieter, and I'm not sure that's better.",
+        "kind": "open",
+        "topic": "night_work"
+      },
+      {
+        "text": "My little sister would have that stall down to half price by now. She's the only person alive who can shut me up.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "boss_down": [
-      {"text": "Count the wounded before anyone touches the loot, please.", "kind": "reply"}
+      {
+        "text": "Count the wounded before anyone touches the loot, please.",
+        "kind": "reply"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Everybody out, everybody counted. Yalla, let's keep moving.", "kind": "open"}
+      {
+        "text": "All of us out and nobody bleeding. Yalla, let's keep moving.",
+        "kind": "open"
+      }
     ]
   }
 }

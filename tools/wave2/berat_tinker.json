@@ -9,9 +9,19 @@
   },
   "bond": {
     "home": "Brill",
-    "dials": {"warmth": 1.5, "nerve": 1.0, "pride": 0.5, "restless": 1.1},
-    "likes": ["full_party", "quest"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 1.5,
+      "nerve": 1.0,
+      "pride": 0.5,
+      "restless": 1.1
+    },
+    "likes": [
+      "full_party",
+      "quest"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Berat, and I'm a dentist, so I'm the best healer you'll ever meet for small careful work. Before we go anywhere, tell me what you did before all this. I ask everybody. I'll remember, I promise.",
       "acquaintance": "I'm from Izmir, from Karşıyaka on the north side of the bay. Three generations of Yilmazes in one building on four floors, and every one of them talking at the same time. My father sold carpets, my mother ran everything, and I've got three older brothers, all louder than me. I was the first to go to university. My grandmother told the whole street.",
@@ -20,23 +30,45 @@
       "sworn": "They were at the Crossroads the whole time, canım. A carpet stall and a tea house, and the noise when I walked in brought the orc guards running. My mother slapped me for taking so long and then wouldn't let go. My grandmother told the entire market I'm a doctor. One of my brothers didn't make it, and my father's older. But I've got a surgery at the Crossroads with my name on the door, and every Sunday they all come and eat there."
     },
     "moments": [
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe he's grinning, but his hands are shaking a little.",
-       "line": "Okay, okay, good news, everyone still has all their teeth. Bad news is everything else. Let me look at you.",
-       "options": [
-         {"text": "You can stop joking for a minute, you know.", "trust": 10, "mood": 4,
-          "reply": "Can I really? Okay then, that was frightening, abi. Give me a second."},
-         {"text": "Good one. Let's go again.", "trust": 2, "mood": 2,
-          "reply": "That's the spirit! I'll think of a better joke for next time."}
-       ]},
-      {"id": "the_list", "stage": "friend", "when": "talk",
-       "prompt": "He's just shown you his list of medics.",
-       "options": [
-         {"text": "Nobody else would have thought of this.", "trust": 8,
-          "reply": "Somebody had to, and I'm very nosy. It's the same thing."},
-         {"text": "Is your family's doctor on it?", "trust": 4,
-          "reply": "I check, every time I add a name. Not yet, abi."}
-       ]}
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe he's grinning, but his hands are shaking a little.",
+        "line": "Okay, okay, good news, everyone still has all their teeth. Bad news is everything else. Let me look at you.",
+        "options": [
+          {
+            "text": "You can stop joking for a minute, you know.",
+            "trust": 10,
+            "mood": 4,
+            "reply": "Can I really? Okay then, that was frightening, abi. Give me a second."
+          },
+          {
+            "text": "Good one. Let's go again.",
+            "trust": 2,
+            "mood": 2,
+            "reply": "That's the spirit! I'll think of a better joke for next time."
+          }
+        ]
+      },
+      {
+        "id": "the_list",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's just shown you his list of medics.",
+        "options": [
+          {
+            "text": "Nobody else would have thought of this.",
+            "trust": 8,
+            "reply": "Somebody had to, and I'm very nosy. It's the same thing."
+          },
+          {
+            "text": "Is your family's doctor on it?",
+            "trust": 4,
+            "reply": "I check, every time I add a name. Not yet, abi."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "Abi, we've seen the same faces for days and none of them were people. Can we go somewhere with someone new to talk to?",
@@ -61,20 +93,39 @@
   },
   "banter": {
     "town_arrive": [
-      {"text": "I'm going to ask everyone here what they used to be. Don't wait for me.", "kind": "open"},
-      {"text": "Izmir's got a long bay, a thousand tea houses, and my whole family talking at once.", "kind": "open", "topic": "cities"}
+      {
+        "text": "I'm going to ask everyone here what they used to be. Don't wait for me.",
+        "kind": "open"
+      },
+      {
+        "text": "In our building in Izmir you couldn't go out for bread without three relatives asking where you were going with it.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "close_call": [
-      {"text": "That was close, abi. Show me your hands, they're shaking. Mine too, look.", "kind": "open"}
+      {
+        "text": "That was close, abi. Show me your hands, they're shaking. Mine too, look.",
+        "kind": "open"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Everybody's out and everybody's teeth are fine, because I checked.", "kind": "reply"}
+      {
+        "text": "Nobody lost a tooth in there. I checked, and I'm very proud of all of you.",
+        "kind": "reply"
+      }
     ],
     "boss_down": [
-      {"text": "Wonderful, that was wonderful. Now, who's bleeding and pretending they aren't?", "kind": "reply"}
+      {
+        "text": "Wonderful, that was wonderful. Now open your mouths, all of you, I want to see those teeth.",
+        "kind": "reply"
+      }
     ],
     "zone_arrive": [
-      {"text": "New place, new people, new stories. I'm very happy about this.", "kind": "open"}
+      {
+        "text": "I've never seen this place before, and I want to tell my brothers about every bit of it.",
+        "kind": "open"
+      }
     ]
   }
 }

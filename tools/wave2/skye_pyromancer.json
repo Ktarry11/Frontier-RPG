@@ -9,34 +9,66 @@
   },
   "bond": {
     "home": "the Drowning Floor",
-    "dials": {"warmth": 1.3, "nerve": 1.4, "pride": 0.5, "restless": 1.0},
-    "likes": ["boss", "full_party"],
-    "dislikes": ["quest_abandoned"],
+    "dials": {
+      "warmth": 1.3,
+      "nerve": 1.4,
+      "pride": 0.5,
+      "restless": 1.0
+    },
+    "likes": [
+      "boss",
+      "full_party"
+    ],
+    "dislikes": [
+      "quest_abandoned"
+    ],
     "stages": {
       "stranger": "G'day, I'm Skye, I'm a pyromancer. Stand upwind, don't touch anything glowing, and if I say move, move. That's the whole briefing, mate.",
       "acquaintance": "I'm from Ballarat, in Victoria. Dad was a postie and Mum taught primary school. I was a vet nurse to pay the bills, and for eleven seasons I was a volunteer firefighter with the CFA. Tanker, pager, and a shed with a kettle where the crew sat out the quiet nights. Best people I ever knew.",
-      "companion": "I was married to Dave, a mechanic, for four years. We split at twenty-nine, no hard feelings, mostly because the brigade ate every summer. I'd do it again, honestly. I was cleaning the tanker when it happened, and I landed in Thousand Needles with this torch on my belt. It's been dead two and a half years. I still click it, so don't laugh.",
+      "companion": "I was married to Dave, a mechanic, for four years. We split at twenty-nine, no hard feelings, mostly because the brigade ate every summer. I'd still do it again. I was cleaning the tanker when it happened, and I landed in Thousand Needles with this torch on my belt. It's been dead two and a half years. I still click it, so don't laugh.",
       "friend": "I'll tell you my rule, then, since you're the first who's asked. I never start a fire I couldn't put out myself. Never, not once. Because I know exactly what fire does when it gets away from you. Now the fires under the water in the Drowning Floor are getting worse, and if the flood carries burning oil into the canyons, it's a disaster. I'll need you down there.",
       "sworn": "I had to start one I wasn't sure I could put out. You held the line above with four of my volunteers, the way I trained them, and the fire went exactly where I meant and died when I said. I sat on a wet rock after, shaking and swearing and laughing. All six of my brigade turned up to the next training day. Best turnout in the history of firefighting, and I'm not joking."
     },
     "moments": [
-      {"id": "the_rule", "stage": "friend", "when": "talk",
-       "prompt": "She's just told you her rule about fire.",
-       "options": [
-         {"text": "That's a good rule. Keep it.", "trust": 8,
-          "reply": "I will, mate, as long as I can. That's the bit that frightens me."},
-         {"text": "Then let's go down there together.", "trust": 12,
-          "reply": "She'll be right with you there. Grab your coat, it's wet down there."}
-       ]},
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe she's swearing creatively, and then she goes very quiet and precise.",
-       "line": "Okay, that went sideways. Everyone upwind of me, now, and we work out where it got away from us.",
-       "options": [
-         {"text": "You call it, we'll follow.", "trust": 8, "mood": 6,
-          "reply": "Good, that's a crew. Right, here's the plan, and it's one sentence long."},
-         {"text": "Let's just go again.", "trust": 0, "mood": -4,
-          "reply": "Mate, you don't go back into a fire without a plan, ever."}
-       ]}
+      {
+        "id": "the_rule",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "She's just told you her rule about fire.",
+        "options": [
+          {
+            "text": "That's a good rule. Keep it.",
+            "trust": 8,
+            "reply": "I will, mate, as long as I can. That's the bit that frightens me."
+          },
+          {
+            "text": "Then let's go down there together.",
+            "trust": 12,
+            "reply": "She'll be right with you there. Grab your coat, it's wet down there."
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe she's swearing creatively, and then she goes very quiet and precise.",
+        "line": "Okay, that went sideways. Everyone upwind of me, now, and we work out where it got away from us.",
+        "options": [
+          {
+            "text": "You call it, we'll follow.",
+            "trust": 8,
+            "mood": 6,
+            "reply": "Good, that's a crew. Right, here's the plan, and it's one sentence long."
+          },
+          {
+            "text": "Let's just go again.",
+            "trust": 0,
+            "mood": -4,
+            "reply": "Mate, you don't go back into a fire without a plan, ever."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "Mate, we've been doing the same thing for days and nothing's even caught fire. Let's go somewhere with a bit of action.",
@@ -62,16 +94,31 @@
   },
   "banter": {
     "zone_arrive": [
-      {"text": "Can you smell that? That's dry scrub, and it's waiting for an excuse.", "kind": "open", "topic": "fire"}
+      {
+        "text": "Can you smell that? That's dry scrub, and it's waiting for an excuse.",
+        "kind": "open",
+        "topic": "fire"
+      }
     ],
     "town_arrive": [
-      {"text": "Ballarat's an old gold town with big old buildings and freezing winters, and the best pies in Victoria.", "kind": "open", "topic": "cities"}
+      {
+        "text": "Our brigade shed had a kettle and a pack of cards and not much else. I'd swap this whole town for one quiet night in there.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "boss_down": [
-      {"text": "That one's out. Nobody touch anything still smoking, please.", "kind": "reply", "topic": "fire"}
+      {
+        "text": "That one's out. Nobody touch anything still smoking, please.",
+        "kind": "reply",
+        "topic": "fire"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Everybody out and nothing's on fire. That's a perfect day in my book.", "kind": "open"}
+      {
+        "text": "Nobody's hurt and nothing's on fire. I couldn't ask for more than that.",
+        "kind": "open"
+      }
     ]
   }
 }

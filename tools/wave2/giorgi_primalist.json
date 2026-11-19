@@ -9,9 +9,19 @@
   },
   "bond": {
     "home": "the high ground above Tarren Mill",
-    "dials": {"warmth": 0.6, "nerve": 1.3, "pride": 1.0, "restless": 0.7},
-    "likes": ["new_ground", "beast"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 0.6,
+      "nerve": 1.3,
+      "pride": 1.0,
+      "restless": 0.7
+    },
+    "likes": [
+      "new_ground",
+      "beast"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Giorgi, and I'm a primalist. I'm slow, and I don't talk much. You walk too fast, so slow down and the ground will tell you things.",
       "acquaintance": "I'm from Kazbegi, in the mountains of Georgia. My family kept sheep there longer than anyone wrote down. Every summer I took the flock up to high pasture with a dog and a wooden hut, six months with no road. I spoke to nobody for weeks. It was good. Here people worry when you're alone, and that's strange to me.",
@@ -20,23 +30,45 @@
       "sworn": "In autumn, on the right day, I brought the flock down with the bell untied and ringing. Nobody was waiting at the bottom. Nino and the girls aren't on any list, and nobody knows if Kazbegi came through. I stood there a long time. So every autumn I'll bring the flock down and ring the bell, so if they're anywhere near, they'll hear it. Tarren Mill lets me keep the flock. I'm still listening."
     },
     "moments": [
-      {"id": "the_walk", "stage": "friend", "when": "talk",
-       "prompt": "He's just told you why he walks down every autumn.",
-       "options": [
-         {"text": "Then let's find you a herd to bring down.", "trust": 12,
-          "reply": "Kargi, that's good. We start with the hills, slowly."},
-         {"text": "Does it help?", "trust": 4,
-          "reply": "No, it doesn't. But stopping would hurt more, so I keep walking."}
-       ]},
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe he sits down heavily and says nothing for a long moment.",
-       "line": "We ran too fast. The ground told us to wait, and we ran anyway. Next time we listen to it.",
-       "options": [
-         {"text": "You set the pace next time.", "trust": 8, "mood": 6,
-          "reply": "Kargi, that's good. It'll be slow, and we'll all walk out."},
-         {"text": "We can't always go slowly.", "trust": 0, "mood": -6,
-          "reply": "Then we'll keep falling down, and getting up, and falling down again."}
-       ]}
+      {
+        "id": "the_walk",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's just told you why he walks down every autumn.",
+        "options": [
+          {
+            "text": "Then let's find you a herd to bring down.",
+            "trust": 12,
+            "reply": "Kargi, that's good. We start with the hills, slowly."
+          },
+          {
+            "text": "Does it help?",
+            "trust": 4,
+            "reply": "No, it doesn't. But stopping would hurt more, so I keep walking."
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe he sits down heavily and says nothing for a long moment.",
+        "line": "We ran too fast. The ground told us to wait, and we ran anyway. Next time we listen to it.",
+        "options": [
+          {
+            "text": "You set the pace next time.",
+            "trust": 8,
+            "mood": 6,
+            "reply": "Kargi, that's good. It'll be slow, and we'll all walk out."
+          },
+          {
+            "text": "We can't always go slowly.",
+            "trust": 0,
+            "mood": -6,
+            "reply": "Then we'll keep falling down, and getting up, and falling down again."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We walk the same circle and eat the same grass. A flock doesn't stay on one hillside forever, so let's move on.",
@@ -61,17 +93,33 @@
   },
   "banter": {
     "zone_arrive": [
-      {"text": "This grass is good, very good. I could keep sheep here.", "kind": "open"}
+      {
+        "text": "This grass is good, very good. I could keep sheep here.",
+        "kind": "open"
+      }
     ],
     "town_arrive": [
-      {"text": "Too many people, too close together. I'll be outside the wall if you need me.", "kind": "open"},
-      {"text": "Kazbegi has a church on a mountain and snow on top all year. I miss the quiet.", "kind": "open", "topic": "the_cold"}
+      {
+        "text": "Too many people, too close together. I'll be outside the wall if you need me.",
+        "kind": "open"
+      },
+      {
+        "text": "At home you could hear one dog bark from the next valley. Here I can't hear myself think.",
+        "kind": "open",
+        "topic": "the_cold"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Good, we're back under the sky. I don't like a roof made of rock.", "kind": "reply"}
+      {
+        "text": "Good, we're back under the sky. I don't like a roof made of rock.",
+        "kind": "reply"
+      }
     ],
     "close_call": [
-      {"text": "You ran too fast, and the ground punished you. Walk slowly and it won't.", "kind": "reply"}
+      {
+        "text": "You ran too fast, and the ground punished you. Walk slowly and it won't.",
+        "kind": "reply"
+      }
     ]
   }
 }

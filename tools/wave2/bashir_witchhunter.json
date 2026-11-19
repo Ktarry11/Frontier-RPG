@@ -9,9 +9,19 @@
   },
   "bond": {
     "home": "the Drowned Shrine",
-    "dials": {"warmth": 0.5, "nerve": 1.5, "pride": 0.9, "restless": 0.7},
-    "likes": ["dungeon", "undead"],
-    "dislikes": ["quest_abandoned"],
+    "dials": {
+      "warmth": 0.5,
+      "nerve": 1.5,
+      "pride": 0.9,
+      "restless": 0.7
+    },
+    "likes": [
+      "dungeon",
+      "undead"
+    ],
+    "dislikes": [
+      "quest_abandoned"
+    ],
     "stages": {
       "stranger": "My name's Bashir, and I hunt corruption. I'll tell you everything I find, plainly. I work slowly, and I won't be hurried. If you can accept that, we'll get on.",
       "acquaintance": "I'm from Nablus. My grandfather and my father cut stone in the same yard, and I learned it at twelve. Twenty-two years of walls, old and new. You snap a chalk line across the block before you cut, so the cut runs true. I still do it, at every door. I know I do it.",
@@ -20,23 +30,45 @@
       "sworn": "There was no sign of her, not at any of the three. At the last, a camp of engineers building a bridge, the foreman had never heard of her. So I said it out loud to you, at last. I was pleased she chose engineering, and proud, and she'd be good at it. Then I helped them build the bridge, stone by stone, correctly. I've started a new list. Every bridge being built, anywhere. If she's alive, she's building one."
     },
     "moments": [
-      {"id": "the_list", "stage": "friend", "when": "talk",
-       "prompt": "He's asked you to come with him to the last places on his list.",
-       "options": [
-         {"text": "To the end of the list, together.", "trust": 12,
-          "reply": "Thank you. We'll go slowly, and correctly, and we'll look properly."},
-         {"text": "What happens when the list runs out?", "trust": 4,
-          "reply": "I don't know. That's why I've been walking slowly."}
-       ]},
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe he reports, flatly, what went wrong.",
-       "line": "We went against the grain. This isn't how it's done. We'll start again from the first stone.",
-       "options": [
-         {"text": "Show us the grain.", "trust": 8, "mood": 6,
-          "reply": "Good, slowly, then, and you'll see it."},
-         {"text": "We haven't got time for slow.", "trust": 0, "mood": -6,
-          "reply": "Then you'll spend it on wipes instead."}
-       ]}
+      {
+        "id": "the_list",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to come with him to the last places on his list.",
+        "options": [
+          {
+            "text": "To the end of the list, together.",
+            "trust": 12,
+            "reply": "Thank you. We'll go slowly, and correctly, and we'll look properly."
+          },
+          {
+            "text": "What happens when the list runs out?",
+            "trust": 4,
+            "reply": "I don't know. That's why I've been walking slowly."
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe he reports, flatly, what went wrong.",
+        "line": "We went against the grain. This isn't how it's done. We'll start again from the first stone.",
+        "options": [
+          {
+            "text": "Show us the grain.",
+            "trust": 8,
+            "mood": 6,
+            "reply": "Good, slowly, then, and you'll see it."
+          },
+          {
+            "text": "We haven't got time for slow.",
+            "trust": 0,
+            "mood": -6,
+            "reply": "Then you'll spend it on wipes instead."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We repeat the same work without purpose. I don't mind slow, but I mind pointless. Let's go somewhere that needs us.",
@@ -62,16 +94,29 @@
   },
   "banter": {
     "dungeon_clear": [
-      {"text": "That wall at the back was cut by a mason who knew his work. The rest was rubbish.", "kind": "open"}
+      {
+        "text": "That wall at the back was cut by a mason who knew his work. The rest was rubbish.",
+        "kind": "open"
+      }
     ],
     "town_arrive": [
-      {"text": "Nablus is old stone in a valley between two mountains, and my family cut some of it.", "kind": "open", "topic": "cities"}
+      {
+        "text": "My father would walk into a town like this and put his hand on the walls before he said hello to anybody. I've noticed I do it too.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "boss_down": [
-      {"text": "It's done now. I'll report what I saw, all of it, when we stop.", "kind": "reply"}
+      {
+        "text": "It's done now. I'll report what I saw, all of it, when we stop.",
+        "kind": "reply"
+      }
     ],
     "zone_arrive": [
-      {"text": "The corruption runs along the ground like a crack in stone. Follow it slowly.", "kind": "open"}
+      {
+        "text": "The corruption runs along the ground like a crack in stone. Follow it slowly.",
+        "kind": "open"
+      }
     ]
   }
 }

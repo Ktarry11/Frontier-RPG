@@ -7,9 +7,19 @@
   },
   "bond": {
     "home": "Valley of Trials",
-    "dials": {"warmth": 0.9, "nerve": 1.5, "pride": 0.9, "restless": 1.1},
-    "likes": ["boss", "quest"],
-    "dislikes": ["quest_abandoned"],
+    "dials": {
+      "warmth": 0.9,
+      "nerve": 1.5,
+      "pride": 0.9,
+      "restless": 1.1
+    },
+    "likes": [
+      "boss",
+      "quest"
+    ],
+    "dislikes": [
+      "quest_abandoned"
+    ],
     "stages": {
       "stranger": "I'm Freja, and I'm a midwife, or I was. Here I'm whoever's nearest when somebody's bleeding. When I tell you to do something in a fight, do it, and we'll argue about it afterwards. I like arguing afterwards.",
       "acquaintance": "I'm from Aarhus, in Denmark. I worked six years at the university hospital, mostly nights, and before that I played handball for twelve years on the pivot, which is where you take the most hits. My husband William is American. He fell off his bicycle outside the hospital on an icy morning and I strapped his wrist on the pavement. He asked me out before I'd finished the bandage.",
@@ -18,25 +28,50 @@
       "sworn": "He said I took my time. I hit him on the arm and then I didn't let go of him for about an hour. And I delivered a baby the same day, a goblin baby, early and in a hurry, and I didn't freeze. William's carving me a new horn. We were going to try for children the spring after all this happened. I haven't said that out loud before. We might try again."
     },
     "moments": [
-      {"id": "the_flats", "stage": "friend", "when": "talk",
-       "prompt": "She's just told you about the American on the Shimmering Flats.",
-       "options": [
-         {"text": "Then we're going. Today.", "trust": 10,
-          "reply": "Good, I was going anyway, but it's nicer with you."},
-         {"text": "It might not be him.", "trust": 2,
-          "reply": "I know that. I'm a midwife, I know how hope works. I'm still going."},
-         {"text": "What if he's different?", "trust": 0,
-          "reply": "Then I'll find out, won't I. Don't ask me that one again."}
-       ]},
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe, she's on her knees checking everyone before anyone's said anything.",
-       "line": "Everybody stay down for a second while I look at you. Then you can tell me whose fault it was.",
-       "options": [
-         {"text": "It was mine. I pulled too early.", "trust": 6, "mood": 5,
-          "reply": "Yes, it was. Thank you for saying it. Now drink something."},
-         {"text": "We're fine, let's go again.", "trust": 0, "mood": -5,
-          "reply": "You're fine when I say you're fine. Sit there until I do."}
-       ]}
+      {
+        "id": "the_flats",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "She's just told you about the American on the Shimmering Flats.",
+        "options": [
+          {
+            "text": "Then we're going. Today.",
+            "trust": 10,
+            "reply": "Good, I was going anyway, but it's nicer with you."
+          },
+          {
+            "text": "It might not be him.",
+            "trust": 2,
+            "reply": "I know that. I'm a midwife, I know how hope works. I'm still going."
+          },
+          {
+            "text": "What if he's different?",
+            "trust": 0,
+            "reply": "Then I'll find out, won't I. Don't ask me that one again."
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe, she's on her knees checking everyone before anyone's said anything.",
+        "line": "Everybody stay down for a second while I look at you. Then you can tell me whose fault it was.",
+        "options": [
+          {
+            "text": "It was mine. I pulled too early.",
+            "trust": 6,
+            "mood": 5,
+            "reply": "Yes, it was. Thank you for saying it. Now drink something."
+          },
+          {
+            "text": "We're fine, let's go again.",
+            "trust": 0,
+            "mood": -5,
+            "reply": "You're fine when I say you're fine. Sit there until I do."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We've killed a lot of the same thing and nobody's needed me in a while. I didn't come out here to stand at the back. Can we go and do something that matters?",
@@ -51,7 +86,7 @@
       "gear_taken": "Fine, take it. I'll tell you exactly how much worse I'm healing without it, every fight, until you replace it.",
       "gear_short": "I'm still short that piece. I told you I'd mention it every fight, and I'm a woman of my word.",
       "gear_upgrade": "Oh, that's good. Thank you. I'm going to tell everyone you finally did something sensible.",
-      "back": "I'm back, so who's hurt, and who's been doing something stupid while I was away?",
+      "back": "I'm back, and I've slept, so I'm in a much better mood. Where are we going?",
       "send_word": "Freja has sent word from the Valley of Trials. The farms are quiet and she's ready to come back out and boss you around.",
       "walkout_talk": "I walked out, and I meant it. Now sit down and listen to why, and then I'll listen to you, and then we'll see.",
       "neglect": "You took your time. I nearly sent a search party, and then I remembered I'm the search party.",
@@ -62,22 +97,48 @@
   },
   "banter": {
     "town_arrive": [
-      {"text": "I'll find whoever does the healing here and see if they're any good.", "kind": "open"},
-      {"text": "Aarhus had a harbour, a cathedral and about a million bicycles. I miss the bicycles.", "kind": "open", "topic": "cities"}
+      {
+        "text": "I'll find whoever does the healing here and see if they're any good.",
+        "kind": "open"
+      },
+      {
+        "text": "My husband fell off his bicycle outside my hospital, and that's how we met. I still look twice at every bicycle, which is silly.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "close_call": [
-      {"text": "Stay where you are and let me look at you. Then you can tell me you're fine.", "kind": "open"},
-      {"text": "Six years of nights on a labour ward and I've never seen a colour like yours. Drink something now.", "kind": "reply", "topic": "night_work"}
+      {
+        "text": "Stay where you are and let me look at you. Then you can tell me you're fine.",
+        "kind": "open"
+      },
+      {
+        "text": "Six years of nights on a labour ward and I've never seen a colour like yours. Drink something now.",
+        "kind": "reply",
+        "topic": "night_work"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Everybody walked out on their own feet. That's my favourite kind of day.", "kind": "open"},
-      {"text": "I've kept score, by the way, and I'm winning.", "kind": "reply"}
+      {
+        "text": "Nobody needed carrying out of there. I'm so pleased I could cry.",
+        "kind": "open"
+      },
+      {
+        "text": "I've kept score, by the way, and I'm winning.",
+        "kind": "reply"
+      }
     ],
     "boss_down": [
-      {"text": "That's that one done. Who's bleeding and hasn't told me?", "kind": "reply"}
+      {
+        "text": "That's that one done. Form a queue, and don't tell me you're fine.",
+        "kind": "reply"
+      }
     ],
     "zone_arrive": [
-      {"text": "There'll be farms out here somewhere, and somebody pregnant who needs looking at.", "kind": "open"}
+      {
+        "text": "There'll be farms out here somewhere, and somebody pregnant who needs looking at.",
+        "kind": "open"
+      }
     ]
   }
 }

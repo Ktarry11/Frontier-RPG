@@ -4,9 +4,19 @@
   },
   "bond": {
     "home": "the Echo Isles",
-    "dials": {"warmth": 0.6, "nerve": 1.1, "pride": 1.0, "restless": 1.0},
-    "likes": ["quest", "demon"],
-    "dislikes": ["quest_abandoned"],
+    "dials": {
+      "warmth": 0.6,
+      "nerve": 1.1,
+      "pride": 1.0,
+      "restless": 1.0
+    },
+    "likes": [
+      "quest",
+      "demon"
+    ],
+    "dislikes": [
+      "quest_abandoned"
+    ],
     "stages": {
       "stranger": "I'm Ryan Murphy, and I'm a warlock, which means I keep demons on contracts, and I keep the contracts to the letter. Here's my price up front, so nobody's surprised later. A fair share, and you don't lie to me. I'll extend you the same courtesy.",
       "acquaintance": "I'm from Cork, then twenty years in Boston. I was a broker. Buyouts, mostly, the kind that close factories. I was very good at it. There's a town in Ohio that lost its biggest employer on a Friday afternoon because of a deal I closed, and I went for a drink after. I'm telling you so you don't find out later and feel clever.",
@@ -15,24 +25,49 @@
       "sworn": "He's twenty-two, tall, polite and steady, and he's a medic with a Horde unit. He listened to everything I said. Then he told me he's glad I'm alive, he's been fine without me, and he doesn't want a father now. He shook my hand and went back to his unit. That's the most honest thing anyone's ever said to me, and he turned out better than me with no help at all. I write once a month. He doesn't write back, but the letters don't come back either."
     },
     "moments": [
-      {"id": "hire", "stage": "stranger", "when": "hire",
-       "prompt": "He names his price before you've asked him anything.",
-       "options": [
-         {"text": "A fair share and honesty. Done.", "trust": 6, "joins": true,
-          "reply": "Lovely, that's the quickest deal I've closed in years."},
-         {"text": "Just come along and we'll sort it out later.", "trust": 0, "joins": false,
-          "reply": "A man who won't name his price is the expensive kind. Come back when you've thought about it."}
-       ]},
-      {"id": "the_list", "stage": "friend", "when": "talk",
-       "prompt": "He's told you he's going to write his name on the list for Conor.",
-       "options": [
-         {"text": "I'll wait with you.", "trust": 12,
-          "reply": "Thanks. You're cheaper company than whiskey, and I'll remember more of it."},
-         {"text": "He'll be glad you did.", "trust": 0,
-          "reply": "You don't know that, and neither do I. Don't sell me something."},
-         {"text": "Why now?", "trust": 6,
-          "reply": "Because I've run out of honest reasons not to, and I only deal in honest ones these days."}
-       ]}
+      {
+        "id": "hire",
+        "stage": "stranger",
+        "when": "hire",
+        "prompt": "He names his price before you've asked him anything.",
+        "options": [
+          {
+            "text": "A fair share and honesty. Done.",
+            "trust": 6,
+            "joins": true,
+            "reply": "Lovely, that's the quickest deal I've closed in years."
+          },
+          {
+            "text": "Just come along and we'll sort it out later.",
+            "trust": 0,
+            "joins": false,
+            "reply": "A man who won't name his price is the expensive kind. Come back when you've thought about it."
+          }
+        ]
+      },
+      {
+        "id": "the_list",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's told you he's going to write his name on the list for Conor.",
+        "options": [
+          {
+            "text": "I'll wait with you.",
+            "trust": 12,
+            "reply": "Thanks. You're cheaper company than whiskey, and I'll remember more of it."
+          },
+          {
+            "text": "He'll be glad you did.",
+            "trust": 0,
+            "reply": "You don't know that, and neither do I. Don't sell me something."
+          },
+          {
+            "text": "Why now?",
+            "trust": 6,
+            "reply": "Because I've run out of honest reasons not to, and I only deal in honest ones these days."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We've been killing the same things for no return worth mentioning. I'm a man who likes a profit. Show me one or I'll go home.",
@@ -58,17 +93,33 @@
   },
   "banter": {
     "town_arrive": [
-      {"text": "Everyone in this square wants something. That's not cynicism, it's just true.", "kind": "open"},
-      {"text": "Boston's a town that'll sell you anything and tell you it's history. I fit in fine.", "kind": "open", "topic": "cities"}
+      {
+        "text": "Everyone in this square wants something. I used to be paid very well to work out what.",
+        "kind": "open"
+      },
+      {
+        "text": "Boston's a town that'll sell you anything and tell you it's history. I fit in fine.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "boss_down": [
-      {"text": "That had a price on it, and for once we didn't have to pay it.", "kind": "open"}
+      {
+        "text": "That had a price on it, and for once we didn't have to pay it.",
+        "kind": "open"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Somebody was owed something down there, and it wasn't us.", "kind": "reply"}
+      {
+        "text": "Somebody was owed something down there, and it wasn't us.",
+        "kind": "reply"
+      }
     ],
     "zone_arrive": [
-      {"text": "Everything out here costs something. At least it says so up front.", "kind": "open"}
+      {
+        "text": "Everything out here costs something. At least it says so up front.",
+        "kind": "open"
+      }
     ]
   }
 }

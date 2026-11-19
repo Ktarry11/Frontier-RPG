@@ -9,9 +9,19 @@
   },
   "bond": {
     "home": "Fenris Isle",
-    "dials": {"warmth": 1.2, "nerve": 1.2, "pride": 0.8, "restless": 1.3},
-    "likes": ["dungeon", "boss"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 1.2,
+      "nerve": 1.2,
+      "pride": 0.8,
+      "restless": 1.3
+    },
+    "likes": [
+      "dungeon",
+      "boss"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Tomas, and I hit things with a very big sword. Tell me where to stand before we start, and please don't shout at me during. Plan first, then work, that's my whole philosophy.",
       "acquaintance": "I'm Czech, from Brno, but I lived in Prague. I was a rigger for eighteen years, up in the grid of theatres and arenas, rock tours, opera, all of it, hanging lights and speakers over people's heads at four in the morning. Never once the reason something fell. I'll tell you the story of how I got here, but I warn you, it sounds like bragging.",
@@ -20,23 +30,45 @@
       "sworn": "It held up. You saw it, the storm hit it the first night, and in the morning people walked across without looking down. That's the best thing anyone can say about a rigger's work. It's the first thing I've ever built that'll still be there when I leave. Except I'm not leaving. I heard myself say it, and I meant it. Fenris Isle is home."
     },
     "moments": [
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe he's rubbing his bad shoulder and looking very calm.",
-       "line": "Okay, so somebody shouted during, and it all came down. Let's set positions now, before, and try again.",
-       "options": [
-         {"text": "You set them. We'll listen.", "trust": 8, "mood": 6,
-          "reply": "Lovely, a crew that listens. You there, you there, and nobody moves till I nod."},
-         {"text": "Things go wrong in a fight.", "trust": 0, "mood": -4,
-          "reply": "Sure, and that's why you plan before. Every rigger knows that."}
-       ]},
-      {"id": "the_bridge", "stage": "friend", "when": "talk",
-       "prompt": "He's asked you to help him build the bridge.",
-       "options": [
-         {"text": "Let's build something that stays up.", "trust": 12,
-          "reply": "Yes, let's build it! First the timber, then the iron, then a lot of swearing in Czech."},
-         {"text": "You're not leaving the island?", "trust": 4,
-          "reply": "I don't know yet. Let's see if the bridge holds and ask me again."}
-       ]}
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe he's rubbing his bad shoulder and looking very calm.",
+        "line": "Okay, so somebody shouted during, and it all came down. Let's set positions now, before, and try again.",
+        "options": [
+          {
+            "text": "You set them. We'll listen.",
+            "trust": 8,
+            "mood": 6,
+            "reply": "Lovely, a crew that listens. You there, you there, and nobody moves till I nod."
+          },
+          {
+            "text": "Things go wrong in a fight.",
+            "trust": 0,
+            "mood": -4,
+            "reply": "Sure, and that's why you plan before. Every rigger knows that."
+          }
+        ]
+      },
+      {
+        "id": "the_bridge",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to help him build the bridge.",
+        "options": [
+          {
+            "text": "Let's build something that stays up.",
+            "trust": 12,
+            "reply": "Yes, let's build it! First the timber, then the iron, then a lot of swearing in Czech."
+          },
+          {
+            "text": "You're not leaving the island?",
+            "trust": 4,
+            "reply": "I don't know yet. Let's see if the bridge holds and ask me again."
+          }
+        ]
+      }
     ],
     "first_stint_short": true,
     "lines": {
@@ -62,17 +94,33 @@
   },
   "banter": {
     "zone_arrive": [
-      {"text": "Tell me where you want me before it starts. Not during, never during.", "kind": "open"}
+      {
+        "text": "Tell me where you want me before it starts. Not during, never during.",
+        "kind": "open"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Nothing fell on anybody. That's a good day by my old standards.", "kind": "reply"}
+      {
+        "text": "Nothing fell on anybody. Back in the theatre that's all I ever wanted.",
+        "kind": "reply"
+      }
     ],
     "town_arrive": [
-      {"text": "Prague had better scaffolding than this, and I say that with love.", "kind": "open", "topic": "cities"},
-      {"text": "Look at that roof. Who tied that off? I need to go and fix it.", "kind": "open"}
+      {
+        "text": "Prague had better scaffolding than this, and I say that with love.",
+        "kind": "open",
+        "topic": "cities"
+      },
+      {
+        "text": "Look at that roof. Who tied that off? I need to go and fix it.",
+        "kind": "open"
+      }
     ],
     "boss_down": [
-      {"text": "Check above you before you check the body. Always check above you.", "kind": "reply"}
+      {
+        "text": "Check above you before you check the body. Always check above you.",
+        "kind": "reply"
+      }
     ]
   }
 }

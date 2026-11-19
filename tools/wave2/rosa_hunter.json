@@ -7,9 +7,19 @@
   },
   "bond": {
     "home": "the Central Barrens",
-    "dials": {"warmth": 0.9, "nerve": 1.3, "pride": 1.0, "restless": 1.2},
-    "likes": ["beast", "new_ground"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 0.9,
+      "nerve": 1.3,
+      "pride": 1.0,
+      "restless": 1.2
+    },
+    "likes": [
+      "beast",
+      "new_ground"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Rosa, and I hunt. I'll tell you what the animals out here are about to do before they do it, and you'll listen, because I'm usually right. I don't kill things for nothing, so don't ask me to.",
       "acquaintance": "I'm from Madrid, from Lavapiés. My dad drove a bus and my mum did hair. I spent every summer at my grandparents' farm in Extremadura watching eagles, and at ten I decided I was going to Africa. I went to Tanzania at twenty-six for a six-month research job and stayed eight years, guiding out of Arusha.",
@@ -18,23 +28,45 @@
       "sworn": "I didn't shoot her. She was only hungry, and hunger isn't personal. I drove the pack off the road for good with fire and noise in the right places, and the caravan masters are furious about the bounty. Then I walked to Ratchet, took my boots off, and walked into the sea for the first time in my life. I laughed like an idiot. I'm owed one more thing now, the far side of the mountain, and I'll get there."
     },
     "moments": [
-      {"id": "the_matriarch", "stage": "friend", "when": "talk",
-       "prompt": "She's told you about the hyena matriarch on the Crossroads road.",
-       "options": [
-         {"text": "We'll stop her, your way.", "trust": 12,
-          "reply": "Sawa, we'll do it. My way means waiting, a lot of waiting, pole pole."},
-         {"text": "There's a bounty on her. Easy money.", "trust": 0,
-          "reply": "That's exactly the kind of thinking I'm trying to get away from."}
-       ]},
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe, she's furious, mostly with herself.",
-       "line": "I saw that pack shift and I read it wrong. That's on me, and I hate it.",
-       "options": [
-         {"text": "You'll read it right next time.", "trust": 6, "mood": 6,
-          "reply": "I will, because I'm not making that mistake twice."},
-         {"text": "Everyone gets it wrong sometimes.", "trust": 0, "mood": -2,
-          "reply": "Not me, not usually, anyway."}
-       ]}
+      {
+        "id": "the_matriarch",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "She's told you about the hyena matriarch on the Crossroads road.",
+        "options": [
+          {
+            "text": "We'll stop her, your way.",
+            "trust": 12,
+            "reply": "Sawa, we'll do it. My way means waiting, a lot of waiting, pole pole."
+          },
+          {
+            "text": "There's a bounty on her. Easy money.",
+            "trust": 0,
+            "reply": "That's exactly the kind of thinking I'm trying to get away from."
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe, she's furious, mostly with herself.",
+        "line": "I saw that pack shift and I read it wrong. That's on me, and I hate it.",
+        "options": [
+          {
+            "text": "You'll read it right next time.",
+            "trust": 6,
+            "mood": 6,
+            "reply": "I will, because I'm not making that mistake twice."
+          },
+          {
+            "text": "Everyone gets it wrong sometimes.",
+            "trust": 0,
+            "mood": -2,
+            "reply": "Not me, not usually, anyway."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We've been killing the same animals in the same place for no reason. I don't do that. Find us somewhere new or I'm going back to my road.",
@@ -59,20 +91,39 @@
   },
   "banter": {
     "zone_arrive": [
-      {"text": "Give me a day and I'll know what hunts here at night.", "kind": "open"}
+      {
+        "text": "Give me a day and I'll know what hunts here at night.",
+        "kind": "open"
+      }
     ],
     "boss_down": [
-      {"text": "It was guarding something. They always are.", "kind": "open"}
+      {
+        "text": "It was guarding something. I want to know what.",
+        "kind": "open"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Nothing in there was hungry. That's not normal and I don't like it.", "kind": "reply"}
+      {
+        "text": "Nothing in there was hungry. That's not normal and I don't like it.",
+        "kind": "reply"
+      }
     ],
     "town_arrive": [
-      {"text": "Something's been hunting close to this place. The dogs here are wrong.", "kind": "open"},
-      {"text": "Madrid's about as far from the sea as Spain gets, and it's loud all night. I left as soon as I could.", "kind": "open", "topic": "cities"}
+      {
+        "text": "Something's been hunting close to this place. The dogs here are wrong.",
+        "kind": "open"
+      },
+      {
+        "text": "Madrid's about as far from the sea as Spain gets, and it's loud all night. I left as soon as I could.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "close_call": [
-      {"text": "It went for the weakest one, like they always do. Stay closer next time.", "kind": "reply"}
+      {
+        "text": "It went for the weakest one, like they always do. Stay closer next time.",
+        "kind": "reply"
+      }
     ]
   }
 }

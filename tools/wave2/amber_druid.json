@@ -7,9 +7,19 @@
   },
   "bond": {
     "home": "the Central Barrens",
-    "dials": {"warmth": 0.8, "nerve": 1.2, "pride": 0.6, "restless": 0.8},
-    "likes": ["quest", "new_ground"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 0.8,
+      "nerve": 1.2,
+      "pride": 0.6,
+      "restless": 0.8
+    },
+    "likes": [
+      "quest",
+      "new_ground"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Amber, and I'm a druid, and I fix land, slowly. If you want something done by Tuesday I'm the wrong person. If you want it done right, give it a season.",
       "acquaintance": "I'm from Astoria, on the Oregon coast, where the Columbia meets the Pacific. My dad ran a charter boat and my mom taught school, and I grew up in waders. I spent twenty-three years restoring wetland, and I never once got to finish a basin, because the grant money always ran out three years into a thirty-year job.",
@@ -18,14 +28,24 @@
       "sworn": "Reeds first, then the lilies, then the birds. You waited, and so did I, and it came back. My student did half the work without being told, slowly and right. The tauren came to look, and one of their elders asked me to do the next one. I said I'd need a few years, and she said that was fine. Nobody's ever said that to me before. Beth's still out there somewhere. I'll keep the seed bank going for her."
     },
     "moments": [
-      {"id": "the_season", "stage": "friend", "when": "talk",
-       "prompt": "She's asked you to wait a whole season with her.",
-       "options": [
-         {"text": "I'll wait. However long it takes.", "trust": 12,
-          "reply": "Good, that's the answer I never got from a single grant committee."},
-         {"text": "Can't you just make it grow faster?", "trust": 0,
-          "reply": "I could do that. Then it'd rot again by spring. Wait and see."}
-       ]}
+      {
+        "id": "the_season",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "She's asked you to wait a whole season with her.",
+        "options": [
+          {
+            "text": "I'll wait. However long it takes.",
+            "trust": 12,
+            "reply": "Good, that's the answer I never got from a single grant committee."
+          },
+          {
+            "text": "Can't you just make it grow faster?",
+            "trust": 0,
+            "reply": "I could do that. Then it'd rot again by spring. Wait and see."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We're stripping the same ground over and over. That's how you lose topsoil. Let's move on before we wreck the place.",
@@ -50,17 +70,33 @@
   },
   "banter": {
     "zone_arrive": [
-      {"text": "Overgrazed, and badly. Two more seasons and the topsoil's gone.", "kind": "open"}
+      {
+        "text": "Overgrazed, and badly. Two more seasons and the topsoil's gone.",
+        "kind": "open"
+      }
     ],
     "town_arrive": [
-      {"text": "They're cutting faster than it grows. Somebody should tell them.", "kind": "reply"},
-      {"text": "Astoria's all fog and fishing boats and old houses on the hill. I miss the fog.", "kind": "open", "topic": "cities"}
+      {
+        "text": "They're cutting faster than it grows. Somebody should tell them.",
+        "kind": "reply"
+      },
+      {
+        "text": "My dad would have a charter boat out on that water by now, and he'd be charging too much for it.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Things were growing down there in the dark. I'd love to know what on.", "kind": "open"}
+      {
+        "text": "Things were growing down there in the dark. I'd love to know what on.",
+        "kind": "open"
+      }
     ],
     "close_call": [
-      {"text": "Sit down before you fall down. I've watched people walk off worse and not get up.", "kind": "reply"}
+      {
+        "text": "Sit down before you fall down. I've watched people walk off worse and not get up.",
+        "kind": "reply"
+      }
     ]
   }
 }

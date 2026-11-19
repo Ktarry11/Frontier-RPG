@@ -4,9 +4,19 @@
   },
   "bond": {
     "home": "Deathknell",
-    "dials": {"warmth": 1.4, "nerve": 1.1, "pride": 0.5, "restless": 1.0},
-    "likes": ["dungeon", "full_party"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 1.4,
+      "nerve": 1.1,
+      "pride": 0.5,
+      "restless": 1.0
+    },
+    "likes": [
+      "dungeon",
+      "full_party"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Diego, and I fix things, anything, and if it's broken I'll hear what's wrong with it before you finish telling me. I used to fix phones, but I'm not fussy, my friend. If it has a gear in it, give it to me.",
       "acquaintance": "I'm from Maracaibo, in Venezuela. I started at a phone kiosk in a mall when I was fifteen, and the power went off twice a day there, so everybody learned to work in the dark. After a year people queued for me by name. I'm the youngest of five and the only boy, and my sisters all left the country, one by one, in different directions.",
@@ -15,25 +25,50 @@
       "sworn": "It really walked. You saw it, across the table and back again. I cried about my mother for the first time since she died, a lot, and then I felt better than I've felt in years. The workshop's in Brill now, under the sign I wanted, crooked letters and all. And my sister Luisa saw my name on a trader's list. She's in Ratchet, and she's coming to see the sign."
     },
     "moments": [
-      {"id": "the_beetle", "stage": "friend", "when": "talk",
-       "prompt": "He's just told you what the beetle is.",
-       "options": [
-         {"text": "Then let's go and get it a heart.", "trust": 10,
-          "reply": "Yes, okay, let's do it. I'll make a list, a long one, and you're going to hate it."},
-         {"text": "Maybe it's fine as it is.", "trust": 0,
-          "reply": "It isn't fine, my friend. It's been waiting since I was seven."},
-         {"text": "Do you think about her a lot?", "trust": 6,
-          "reply": "Every time I pick up a screwdriver. Let's talk about the spring instead, okay?"}
-       ]},
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe, he's already picking up pieces of somebody's broken gear.",
-       "line": "Okay, that was bad, but look, this buckle's only bent. I can fix this before the next pull.",
-       "options": [
-         {"text": "You're taking this very well.", "trust": 4, "mood": 4,
-          "reply": "What else am I going to do, cry? I'll cry later, maybe. Hold this for me."},
-         {"text": "Can you be serious for a minute?", "trust": 0, "mood": -4,
-          "reply": "I'm always serious about buckles. But sure, sure, I'll be quiet."}
-       ]}
+      {
+        "id": "the_beetle",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's just told you what the beetle is.",
+        "options": [
+          {
+            "text": "Then let's go and get it a heart.",
+            "trust": 10,
+            "reply": "Yes, okay, let's do it. I'll make a list, a long one, and you're going to hate it."
+          },
+          {
+            "text": "Maybe it's fine as it is.",
+            "trust": 0,
+            "reply": "It isn't fine, my friend. It's been waiting since I was seven."
+          },
+          {
+            "text": "Do you think about her a lot?",
+            "trust": 6,
+            "reply": "Every time I pick up a screwdriver. Let's talk about the spring instead, okay?"
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe, he's already picking up pieces of somebody's broken gear.",
+        "line": "Okay, that was bad, but look, this buckle's only bent. I can fix this before the next pull.",
+        "options": [
+          {
+            "text": "You're taking this very well.",
+            "trust": 4,
+            "mood": 4,
+            "reply": "What else am I going to do, cry? I'll cry later, maybe. Hold this for me."
+          },
+          {
+            "text": "Can you be serious for a minute?",
+            "trust": 0,
+            "mood": -4,
+            "reply": "I'm always serious about buckles. But sure, sure, I'll be quiet."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "My friend, we've hit the same things in the same field for a long time and nothing new has broken. Can we go somewhere with a door that doesn't open, or a machine, or anything?",
@@ -59,21 +94,43 @@
   },
   "banter": {
     "town_arrive": [
-      {"text": "Somebody here has a broken thing in a drawer, I promise you. Give me an hour.", "kind": "open"},
-      {"text": "Maracaibo was hot, loud and the power went off twice a day, and I'd go back tomorrow.", "kind": "open", "topic": "cities"}
+      {
+        "text": "Somebody here has a broken thing in a drawer, I promise you. Give me an hour.",
+        "kind": "open"
+      },
+      {
+        "text": "The power went off twice a day back home, so I learned to fix phones by candlelight. Give me a lamp and I feel spoiled.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Did you see the door mechanism on the way in? I want to go back and look at it.", "kind": "open"},
-      {"text": "Everybody's still in one piece, more or less. I can fix the less.", "kind": "reply"}
+      {
+        "text": "Did you see the door mechanism on the way in? I want to go back and look at it.",
+        "kind": "open"
+      },
+      {
+        "text": "Everybody's still in one piece, more or less. I can fix the less.",
+        "kind": "reply"
+      }
     ],
     "boss_down": [
-      {"text": "Big ones always have something good in them. Let me look before you sell it.", "kind": "reply"}
+      {
+        "text": "Big ones always have something good in them. Let me look before you sell it.",
+        "kind": "reply"
+      }
     ],
     "close_call": [
-      {"text": "Okay, that was too close, my friend. My heart's going like a bad engine.", "kind": "open"}
+      {
+        "text": "Okay, that was too close, my friend. My heart's going like a bad engine.",
+        "kind": "open"
+      }
     ],
     "zone_arrive": [
-      {"text": "New place, new junk, and I'm very happy about it.", "kind": "open"}
+      {
+        "text": "Look at all this junk lying around. I could build something out of half of it.",
+        "kind": "open"
+      }
     ]
   }
 }

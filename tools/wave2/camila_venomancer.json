@@ -4,9 +4,19 @@
   },
   "bond": {
     "home": "Northern Tanaris",
-    "dials": {"warmth": 0.8, "nerve": 1.5, "pride": 0.6, "restless": 0.8},
-    "likes": ["beast", "quest"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 0.8,
+      "nerve": 1.5,
+      "pride": 0.6,
+      "restless": 0.8
+    },
+    "likes": [
+      "beast",
+      "quest"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Camila, a venomancer. Stand still, please, there's a scorpid by your boot. If anyone gets poisoned, tell me straight away. I'm good at that part.",
       "acquaintance": "I'm from Durango, in Mexico, where scorpions come into the houses every summer and every kid shakes out their shoes. My dad drove a truck and my mum had a little shop. I worked seven years in an antivenom lab, milking scorpions with tweezers. Ten thousand of them, and the venom turned into antivenom that saved kids all over the country.",
@@ -15,22 +25,42 @@
       "sworn": "At the camp there was a young woman nursing the stung and shouting at everybody and organising everything, and it was Daniela. She's been nursing in the Tanaris camps for two years and looking for me on every list. She took one look at the antivenom and said, of course it's you. We saved everyone. That night she complained about a goblin she's seeing for two hours, and I listened to every word."
     },
     "moments": [
-      {"id": "stand_still", "stage": "stranger", "when": "talk",
-       "prompt": "She tells you, very calmly, that there's a scorpid on your arm.",
-       "options": [
-         {"text": "Stand completely still.", "trust": 10,
-          "reply": "Good, very good. There, she's gone. You'd have made a decent lab tech."},
-         {"text": "Brush it off.", "trust": 0,
-          "reply": "Órale, don't do that. She was just passing through."}
-       ]},
-      {"id": "the_scorpid", "stage": "friend", "when": "talk",
-       "prompt": "She's asked you to help her bring the giant scorpid back alive.",
-       "options": [
-         {"text": "Alive it is. Show me how.", "trust": 12,
-          "reply": "Neta, you'll help? Okay, then, stand where I tell you, and don't move when it looks at you."},
-         {"text": "Wouldn't dead be easier?", "trust": 0,
-          "reply": "Dead doesn't make venom. Alive saves the camp."}
-       ]}
+      {
+        "id": "stand_still",
+        "stage": "stranger",
+        "when": "talk",
+        "prompt": "She tells you, very calmly, that there's a scorpid on your arm.",
+        "options": [
+          {
+            "text": "Stand completely still.",
+            "trust": 10,
+            "reply": "Good, very good. There, she's gone. You'd have made a decent lab tech."
+          },
+          {
+            "text": "Brush it off.",
+            "trust": 0,
+            "reply": "Órale, don't do that. She was just passing through."
+          }
+        ]
+      },
+      {
+        "id": "the_scorpid",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "She's asked you to help her bring the giant scorpid back alive.",
+        "options": [
+          {
+            "text": "Alive it is. Show me how.",
+            "trust": 12,
+            "reply": "Neta, you'll help? Okay, then, stand where I tell you, and don't move when it looks at you."
+          },
+          {
+            "text": "Wouldn't dead be easier?",
+            "trust": 0,
+            "reply": "Dead doesn't make venom. Alive saves the camp."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We've done the same thing for days and I haven't seen a single new scorpid. Can we go somewhere with something interesting in the sand?",
@@ -55,16 +85,29 @@
   },
   "banter": {
     "zone_arrive": [
-      {"text": "Stand still a moment. Something under the sand is deciding whether we're food.", "kind": "open"}
+      {
+        "text": "Stand still a moment. Something under the sand is deciding whether we're food.",
+        "kind": "open"
+      }
     ],
     "town_arrive": [
-      {"text": "Durango's dry and hot with mountains all around, and the best gorditas in Mexico, from a stand by my old lab.", "kind": "open", "topic": "cities"}
+      {
+        "text": "Every kid in Durango shakes their shoes out in the morning. I still do it, and people here look at me like I'm mad.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "close_call": [
-      {"text": "Let me see that sting. Okay, it's not the bad kind. You'll live, I promise.", "kind": "open"}
+      {
+        "text": "Let me see that sting. Okay, it's not the bad kind. You'll live, I promise.",
+        "kind": "open"
+      }
     ],
     "boss_down": [
-      {"text": "Did anyone get stung? Tell me now, not in an hour.", "kind": "reply"}
+      {
+        "text": "Did anyone get stung? Tell me now, not in an hour.",
+        "kind": "reply"
+      }
     ]
   }
 }

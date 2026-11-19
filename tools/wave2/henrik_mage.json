@@ -9,9 +9,19 @@
   },
   "bond": {
     "home": "the Frostward Descent",
-    "dials": {"warmth": 0.7, "nerve": 0.9, "pride": 0.9, "restless": 0.8},
-    "likes": ["dungeon", "quest"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 0.7,
+      "nerve": 0.9,
+      "pride": 0.9,
+      "restless": 0.8
+    },
+    "likes": [
+      "dungeon",
+      "quest"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Henrik, a frost mage. Before we go anywhere, I'd like to know the objective, precisely. I'll stay inside my tolerances, and I'd ask you to stay inside yours.",
       "acquaintance": "I'm from Copenhagen. My father was a ship's engineer and my mother a librarian. I spent twenty-one years designing the structures inside buildings and bridges, which mostly meant telling architects that their beautiful idea would fall down. They didn't thank me. The buildings stayed up.",
@@ -20,23 +30,45 @@
       "sworn": "Her name was on the Copenhagen list, among those who didn't survive. The lecture theatre came down. I read it twice, and then I finished the calculation out loud to you, all the way to the end, for the first time in three years. The standard's published now. It's dedicated to her, by name, on the first page. She'd have found three errors in it, and I wish she could."
     },
     "moments": [
-      {"id": "the_limit", "stage": "friend", "when": "talk",
-       "prompt": "He's asked you to stand by while he works at his limit.",
-       "options": [
-         {"text": "I'll be right beside you.", "trust": 12,
-          "reply": "Thank you. If I go past tolerance, pull me back. I'll tell you exactly when."},
-         {"text": "Is it safe?", "trust": 2,
-          "reply": "No, it's outside tolerance. That's why I'm asking you to come."}
-       ]},
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe he's already writing something down, very calmly.",
-       "line": "That was outside tolerance. Before we try again, I'd like us to agree on the objective, and the limit.",
-       "options": [
-         {"text": "Tell us the limit, and we'll stay inside it.", "trust": 8, "mood": 6,
-          "reply": "Good, three pulls, no more, and we rest when I say."},
-         {"text": "We'll just push harder next time.", "trust": 0, "mood": -6,
-          "reply": "That's exactly how bridges fall down."}
-       ]}
+      {
+        "id": "the_limit",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to stand by while he works at his limit.",
+        "options": [
+          {
+            "text": "I'll be right beside you.",
+            "trust": 12,
+            "reply": "Thank you. If I go past tolerance, pull me back. I'll tell you exactly when."
+          },
+          {
+            "text": "Is it safe?",
+            "trust": 2,
+            "reply": "No, it's outside tolerance. That's why I'm asking you to come."
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe he's already writing something down, very calmly.",
+        "line": "That was outside tolerance. Before we try again, I'd like us to agree on the objective, and the limit.",
+        "options": [
+          {
+            "text": "Tell us the limit, and we'll stay inside it.",
+            "trust": 8,
+            "mood": 6,
+            "reply": "Good, three pulls, no more, and we rest when I say."
+          },
+          {
+            "text": "We'll just push harder next time.",
+            "trust": 0,
+            "mood": -6,
+            "reply": "That's exactly how bridges fall down."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We've repeated the same task many times without gaining any new data. I'd like to do something with a measurable objective.",
@@ -61,17 +93,35 @@
   },
   "banter": {
     "zone_arrive": [
-      {"text": "Before anyone crosses that bridge, let me look at it. I don't trust the joints.", "kind": "open", "topic": "measure"}
+      {
+        "text": "Before anyone crosses that bridge, let me look at it. I don't trust the joints.",
+        "kind": "open",
+        "topic": "measure"
+      }
     ],
     "dungeon_clear": [
-      {"text": "The ice at the back of that was older than the stone around it. That shouldn't be possible.", "kind": "open"}
+      {
+        "text": "The ice at the back of that was older than the stone around it. That shouldn't be possible.",
+        "kind": "open"
+      }
     ],
     "boss_down": [
-      {"text": "I'd like to go back and measure it before it thaws.", "kind": "reply"}
+      {
+        "text": "I'd like to go back and measure it before it thaws.",
+        "kind": "reply"
+      }
     ],
     "town_arrive": [
-      {"text": "Copenhagen is flat, tidy and full of bicycles, and every building in it was checked by somebody like me.", "kind": "open", "topic": "cities"},
-      {"text": "Every beam in that roof is undersized. I'd sleep outside, honestly.", "kind": "reply", "topic": "measure"}
+      {
+        "text": "My mother ran a library, and she'd have that notice board sorted out in an afternoon.",
+        "kind": "open",
+        "topic": "cities"
+      },
+      {
+        "text": "Every beam in that roof is undersized. I'd sleep outside if I were you.",
+        "kind": "reply",
+        "topic": "measure"
+      }
     ]
   }
 }

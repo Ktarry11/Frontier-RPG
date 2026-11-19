@@ -9,9 +9,19 @@
   },
   "bond": {
     "home": "the Crossing",
-    "dials": {"warmth": 1.0, "nerve": 1.4, "pride": 0.7, "restless": 0.9},
-    "likes": ["quest", "new_ground"],
-    "dislikes": ["quest_abandoned"],
+    "dials": {
+      "warmth": 1.0,
+      "nerve": 1.4,
+      "pride": 0.7,
+      "restless": 0.9
+    },
+    "likes": [
+      "quest",
+      "new_ground"
+    ],
+    "dislikes": [
+      "quest_abandoned"
+    ],
     "stages": {
       "stranger": "My name's Nizar, and I'm a chronomancer. If you'd permit me, I'll call out the order of things in a fight. It helps, I find, if somebody's keeping the sequence.",
       "acquaintance": "I'm from Homs, in Syria. My father was a pharmacist. I taught mathematics in Homs for eleven years, until the war made it impossible, then in Beirut, then in Hamburg, where I learned German in fifty-hour weeks and taught in it. This is simply the fourth time I've started again.",
@@ -20,22 +30,42 @@
       "sworn": "Hala survived the landing. She spent two years as that camp's doctor, and every spare day looking for me, hub by hub, list by list, with dates, the way I taught her. She died of a fever last winter, treating others. My name is on every page of her notebook. We used the same method and kept missing each other. I stopped winding the watch, and let it run down. Then I went back and taught my four children the next morning, because she would have."
     },
     "moments": [
-      {"id": "the_method", "stage": "companion", "when": "talk",
-       "prompt": "He notices you're struggling with something, and asks if he may tell you about his method for loss.",
-       "options": [
-         {"text": "Please do.", "trust": 10,
-          "reply": "The first time destroys you. The second is merely very hard. By the third, you have a method. It's information, not wisdom."},
-         {"text": "I'm fine, thank you.", "trust": 2,
-          "reply": "Of course you are. The offer stands, whenever you'd like it."}
-       ]},
-      {"id": "the_camp", "stage": "friend", "when": "talk",
-       "prompt": "He's asked you to come with him to the camp near the Amman hub.",
-       "options": [
-         {"text": "I'll come. Whatever we find.", "trust": 12,
-          "reply": "Thank you. I should like that very much. We'll go carefully, in order."},
-         {"text": "It might not be her.", "trust": 2,
-          "reply": "It might not. I've a column in my notebook for that. I've used it a great deal."}
-       ]}
+      {
+        "id": "the_method",
+        "stage": "companion",
+        "when": "talk",
+        "prompt": "He notices you're struggling with something, and asks if he may tell you about his method for loss.",
+        "options": [
+          {
+            "text": "Please do.",
+            "trust": 10,
+            "reply": "The first time destroys you. The second is merely very hard. By the third, you have a method. It's information, not wisdom."
+          },
+          {
+            "text": "I'm fine, thank you.",
+            "trust": 2,
+            "reply": "Of course you are. The offer stands, whenever you'd like it."
+          }
+        ]
+      },
+      {
+        "id": "the_camp",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to come with him to the camp near the Amman hub.",
+        "options": [
+          {
+            "text": "I'll come. Whatever we find.",
+            "trust": 12,
+            "reply": "Thank you. I should like that very much. We'll go carefully, in order."
+          },
+          {
+            "text": "It might not be her.",
+            "trust": 2,
+            "reply": "It might not. I've a column in my notebook for that. I've used it a great deal."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We've repeated the same sequence many times without new information. I should like to go somewhere we might learn something.",
@@ -61,16 +91,30 @@
   },
   "banter": {
     "town_arrive": [
-      {"text": "Homs had an old souk with a roof of stone, and my father's pharmacy was at the end of it. I think of it often.", "kind": "open", "topic": "cities"}
+      {
+        "text": "My father's pharmacy was at the end of an old covered souk. A place like this, with everyone haggling, takes me straight back there.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "boss_down": [
-      {"text": "First its guard, then its strength, then it fell. A tidy proof.", "kind": "open", "topic": "measure"}
+      {
+        "text": "First its guard, then its strength, then it fell. A tidy proof.",
+        "kind": "open",
+        "topic": "measure"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Everybody accounted for. Thank you, all of you.", "kind": "reply"}
+      {
+        "text": "All of us out, and in the right order. Thank you, all of you.",
+        "kind": "reply"
+      }
     ],
     "close_call": [
-      {"text": "That was out of sequence. If you'd permit me, I'll call it sooner next time.", "kind": "reply"}
+      {
+        "text": "That was out of sequence, and I saw it late. Please forgive me.",
+        "kind": "reply"
+      }
     ]
   }
 }

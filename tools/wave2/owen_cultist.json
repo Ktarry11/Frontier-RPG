@@ -9,27 +9,50 @@
   },
   "bond": {
     "home": "the Azurelode Mine",
-    "dials": {"warmth": 1.0, "nerve": 1.1, "pride": 0.4, "restless": 0.8},
-    "likes": ["dungeon", "full_party"],
-    "dislikes": ["demon"],
+    "dials": {
+      "warmth": 1.0,
+      "nerve": 1.1,
+      "pride": 0.4,
+      "restless": 0.8
+    },
+    "likes": [
+      "dungeon",
+      "full_party"
+    ],
+    "dislikes": [
+      "demon"
+    ],
     "stages": {
-      "stranger": "I'm Owen, and I should tell you now, something in the dark talks to me. I'd rather you heard it from me first. I'm a tank, I'll stand in front, and I'm glad of the company, honestly.",
+      "stranger": "I'm Owen, and I should tell you now, something in the dark talks to me. I'd rather you heard it from me first. I'm a tank, I'll stand in front, and I'm glad of the company.",
       "acquaintance": "I'm from Barry, down the coast from Cardiff. My dad left when I was three, and my mam worked in a bakery and sang in the chapel choir, and she sang to me every night. I drove buses, then vans, then lorries, long-haul out of Cardiff, mostly nights. Eight years of motorways and laybys and talking to the radio.",
       "companion": "My mam went into a home in Barry with dementia when I was forty-one. I went every second Sunday for six years, and by the end she didn't know who I was. I was on the M4 at three in the morning when it happened, and I landed with my CB handset still in my hand. That first week I went into the mine for shelter, and something answered me when I talked to myself.",
       "friend": "I'll tell you what it says, then, since you've asked and you're the first who has. It knows things about me. It knows about Mam's singing. Now it wants me to go down to the deepest part of the mine and open something that's been shut a long time. It's never asked for anything that big before. I want to know what it is. I'd like you there, mind, in case I need stopping.",
       "sworn": "I didn't open it. It offered me Mam, singing, knowing me again, and I said no, out loud, and we made the seal stronger. It went quiet after that, for good. I'm on my own in my head for the first time in three years, and it's the loneliest I've ever been. I'll miss it. I'm ashamed of that, and I'm telling you anyway, because I promised myself I'd always say the worst thing first."
     },
     "moments": [
-      {"id": "the_voice", "stage": "friend", "when": "talk",
-       "prompt": "He's told you what the voice wants him to open.",
-       "options": [
-         {"text": "I'll come, and I'll stop you if I have to.", "trust": 12,
-          "reply": "Diolch, thank you. That's exactly what I needed somebody to say."},
-         {"text": "Why not just ignore it?", "trust": 2,
-          "reply": "I've tried, now. It's like ignoring the radio in a cab at three in the morning."},
-         {"text": "Maybe you should open it and see.", "trust": 0,
-          "reply": "That's what it says, word for word. I'd rather you didn't sound like it."}
-       ]}
+      {
+        "id": "the_voice",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's told you what the voice wants him to open.",
+        "options": [
+          {
+            "text": "I'll come, and I'll stop you if I have to.",
+            "trust": 12,
+            "reply": "Diolch, thank you. That's exactly what I needed somebody to say."
+          },
+          {
+            "text": "Why not just ignore it?",
+            "trust": 2,
+            "reply": "I've tried, now. It's like ignoring the radio in a cab at three in the morning."
+          },
+          {
+            "text": "Maybe you should open it and see.",
+            "trust": 0,
+            "reply": "That's what it says, word for word. I'd rather you didn't sound like it."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We've been doing the same thing a long time now, and it's getting very quiet in my head. I'd rather we did something useful, if it's all the same to you.",
@@ -54,17 +77,33 @@
   },
   "banter": {
     "dungeon_clear": [
-      {"text": "Count again, please. I'm not moving till somebody counts again.", "kind": "open"}
+      {
+        "text": "Count again, please. I'm not moving till somebody counts again.",
+        "kind": "open"
+      }
     ],
     "zone_arrive": [
-      {"text": "There's old workings under this. You can feel it through your boots.", "kind": "open"}
+      {
+        "text": "There's old workings under this. You can feel it through your boots.",
+        "kind": "open"
+      }
     ],
     "close_call": [
-      {"text": "That roof was talking for ten seconds before it went. Learn that sound.", "kind": "reply"},
-      {"text": "Eight years of night driving and I still go cold when something comes out of the dark at you.", "kind": "open", "topic": "night_work"}
+      {
+        "text": "That roof was talking for ten seconds before it went. Learn that sound.",
+        "kind": "reply"
+      },
+      {
+        "text": "Eight years of night driving and I still go cold when something comes out of the dark at you.",
+        "kind": "open",
+        "topic": "night_work"
+      }
     ],
     "boss_down": [
-      {"text": "Listen to the roof a minute before anybody celebrates.", "kind": "open"}
+      {
+        "text": "Listen to the roof a minute before anybody celebrates.",
+        "kind": "open"
+      }
     ]
   }
 }

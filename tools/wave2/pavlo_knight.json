@@ -6,9 +6,19 @@
   },
   "bond": {
     "home": "the Sepulcher",
-    "dials": {"warmth": 1.0, "nerve": 1.4, "pride": 0.5, "restless": 0.7},
-    "likes": ["dungeon", "quest"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 1.0,
+      "nerve": 1.4,
+      "pride": 0.5,
+      "restless": 0.7
+    },
+    "likes": [
+      "dungeon",
+      "quest"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Pavlo, and I hold lines. Tell me where and for how long, and I'll stay there exactly that long. I'd rather know the number than be surprised.",
       "acquaintance": "I'm from Lviv, in Ukraine. My father drove a tram and my mother was a librarian. I worked in a museum for years and became a history teacher late, at thirty-seven. Sixteen years of fourteen-year-olds. I taught the same four wars every spring, and every year I reached most of my thirty. Nobody here needs a history teacher, and it took me a long time to stop minding.",
@@ -17,16 +27,29 @@
       "sworn": "It was Andriy, and he believes all of it. He says the Crusade gave him a reason to live when everything else was gone. I spent two hours using everything I know about how ordinary people end up doing terrible things, and none of it worked. He hugged me and said he loved me and went back inside. The next day I asked the two children why they'd stopped coming. Then I taught all six of them harder than I ever have."
     },
     "moments": [
-      {"id": "andriy", "stage": "friend", "when": "talk",
-       "prompt": "He's just told you about the young engineer in the Crusade.",
-       "options": [
-         {"text": "I'll come with you, whatever we find.", "trust": 12,
-          "reply": "Thank you. I've been rehearsing what to say for an hour, and I'll probably say none of it."},
-         {"text": "What if it's him and he won't leave?", "trust": 4,
-          "reply": "Then I'll have taught him to think for himself, and I'll have to live with what he thinks."},
-         {"text": "The Crusade won't let you near him.", "trust": 0,
-          "reply": "They might not. I'm still going to stand at the gate and find out."}
-       ]}
+      {
+        "id": "andriy",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's just told you about the young engineer in the Crusade.",
+        "options": [
+          {
+            "text": "I'll come with you, whatever we find.",
+            "trust": 12,
+            "reply": "Thank you. I've been rehearsing what to say for an hour, and I'll probably say none of it."
+          },
+          {
+            "text": "What if it's him and he won't leave?",
+            "trust": 4,
+            "reply": "Then I'll have taught him to think for himself, and I'll have to live with what he thinks."
+          },
+          {
+            "text": "The Crusade won't let you near him.",
+            "trust": 0,
+            "reply": "They might not. I'm still going to stand at the gate and find out."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We've done the same thing for a long time now, and I'm not sure what we're learning. Could we do something with a purpose to it?",
@@ -51,19 +74,35 @@
   },
   "banter": {
     "zone_arrive": [
-      {"text": "Somebody fought over this ground once. You can see where the old walls stood, if you look.", "kind": "open"}
+      {
+        "text": "Somebody fought over this ground once. You can see where the old walls stood, if you look.",
+        "kind": "open"
+      }
     ],
     "town_arrive": [
-      {"text": "Lviv has a square with a different coffee house on every corner, and a tram that rattles your teeth. I miss them both.", "kind": "open", "topic": "cities"}
+      {
+        "text": "My father drove a tram, and on Saturdays I rode up front with him. I'd have ridden all day if he'd let me.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "dungeon_clear": [
-      {"text": "One way in and one way out. I like a place like that, it's honest.", "kind": "reply"}
+      {
+        "text": "One way in and one way out. I like a place like that, it's honest.",
+        "kind": "reply"
+      }
     ],
     "close_call": [
-      {"text": "You stopped moving, and stopping's what gets you. Keep your feet going next time.", "kind": "reply"}
+      {
+        "text": "You stopped moving, and stopping's what gets you. Keep your feet going next time.",
+        "kind": "reply"
+      }
     ],
     "boss_down": [
-      {"text": "And why do you think it was here, guarding that? There's always a reason.", "kind": "open"}
+      {
+        "text": "And why do you think it was here, guarding that? Somebody put it there for a reason.",
+        "kind": "open"
+      }
     ]
   }
 }

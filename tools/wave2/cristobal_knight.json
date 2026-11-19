@@ -4,9 +4,19 @@
   },
   "bond": {
     "home": "Camp Taurajo",
-    "dials": {"warmth": 1.5, "nerve": 1.5, "pride": 0.5, "restless": 1.0},
-    "likes": ["boss", "full_party"],
-    "dislikes": ["quest_abandoned"],
+    "dials": {
+      "warmth": 1.5,
+      "nerve": 1.5,
+      "pride": 0.5,
+      "restless": 1.0
+    },
+    "likes": [
+      "boss",
+      "full_party"
+    ],
+    "dislikes": [
+      "quest_abandoned"
+    ],
     "stages": {
       "stranger": "Hermano, I'm Cristóbal! I'm a firefighter, or I was, and now the fire lives inside me, which is very funny if you think about it. I go in first and I come out last, that's the rule.",
       "acquaintance": "I'm from Valparaíso, from the hills above the port, hermano. My father left when I was four, and my mother cleaned offices and raised me alone, and sent me off every morning with empanadas. I joined the forest fire brigade at twenty-three. Twelve years in the hills, on a motorbike that broke down every week, and I danced cueca very badly at every fiesta.",
@@ -15,23 +25,45 @@
       "sworn": "The line held, and the kids held it without me for the last hour while I was pulling people out. They did it, not me. And then a letter came from across the sea. My mother's alive! She heard there's a crazy Chilean fighting fires in the Barrens and she knew it was me, and she told me to be careful. I sent her all the letters at once, three years of them, in a sack. She's going to be reading for a month."
     },
     "moments": [
-      {"id": "the_grass_fire", "stage": "friend", "when": "talk",
-       "prompt": "He's just told you about the grass fire on his first day.",
-       "options": [
-         {"text": "You couldn't have saved them all.", "trust": 4,
-          "reply": "I know, hermano. My head knows. The rest of me is still in that grass."},
-         {"text": "Then let's make sure it never happens at Taurajo.", "trust": 12,
-          "reply": "Yes, hermano, that's it, exactly that. Let's go and cut some breaks."}
-       ]},
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe he's laughing, too loudly, checking everyone over.",
-       "line": "Okay, okay, everybody's breathing, that's the main thing! We go back in, but smarter, hermano.",
-       "options": [
-         {"text": "You're allowed to be shaken, you know.", "trust": 10, "mood": 4,
-          "reply": "Ah, you noticed. Okay, give me a minute, then we go."},
-         {"text": "Back in, then!", "trust": 2, "mood": 4,
-          "reply": "That's the spirit, hermano! Follow me in."}
-       ]}
+      {
+        "id": "the_grass_fire",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's just told you about the grass fire on his first day.",
+        "options": [
+          {
+            "text": "You couldn't have saved them all.",
+            "trust": 4,
+            "reply": "I know, hermano. My head knows. The rest of me is still in that grass."
+          },
+          {
+            "text": "Then let's make sure it never happens at Taurajo.",
+            "trust": 12,
+            "reply": "Yes, hermano, that's it, exactly that. Let's go and cut some breaks."
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe he's laughing, too loudly, checking everyone over.",
+        "line": "Okay, okay, everybody's breathing, that's the main thing! We go back in, but smarter, hermano.",
+        "options": [
+          {
+            "text": "You're allowed to be shaken, you know.",
+            "trust": 10,
+            "mood": 4,
+            "reply": "Ah, you noticed. Okay, give me a minute, then we go."
+          },
+          {
+            "text": "Back in, then!",
+            "trust": 2,
+            "mood": 4,
+            "reply": "That's the spirit, hermano! Follow me in."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "Hermano, we've been burning the same field for days. Even fire gets bored. Let's go somewhere with a bit of excitement.",
@@ -57,17 +89,35 @@
   },
   "banter": {
     "town_arrive": [
-      {"text": "Look at those roofs, hermano. One spark and the whole street goes. Somebody needs a firebreak.", "kind": "open", "topic": "fire"},
-      {"text": "Valparaíso's all hills and colour and stairs, and every house looks at the sea. You'd love it.", "kind": "open", "topic": "cities"}
+      {
+        "text": "Look at those roofs, hermano. One spark and the whole street goes. Somebody needs a firebreak.",
+        "kind": "open",
+        "topic": "fire"
+      },
+      {
+        "text": "My mother sent me off every morning with empanadas wrapped in a tea towel. I'd kill for one of those right now, hermano.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "close_call": [
-      {"text": "Too close, hermano! I'm going back in for you next time, don't argue.", "kind": "open"}
+      {
+        "text": "Too close, hermano! I'm going back in for you next time, don't argue.",
+        "kind": "open"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Everybody out, everybody alive, that's a good shift, hermano!", "kind": "open"}
+      {
+        "text": "Nobody's burnt and nobody's left inside, hermano. Back home this is when we'd put the kettle on.",
+        "kind": "open"
+      }
     ],
     "zone_arrive": [
-      {"text": "Can you smell that? It's dry grass. If this place goes up, it goes up fast.", "kind": "open", "topic": "fire"}
+      {
+        "text": "Can you smell that? It's dry grass. If this place goes up, it goes up fast.",
+        "kind": "open",
+        "topic": "fire"
+      }
     ]
   }
 }

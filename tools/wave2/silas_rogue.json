@@ -5,9 +5,19 @@
   },
   "bond": {
     "home": "Ratchet",
-    "dials": {"warmth": 0.7, "nerve": 1.0, "pride": 0.8, "restless": 1.3},
-    "likes": ["quest", "new_ground"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 0.7,
+      "nerve": 1.0,
+      "pride": 0.8,
+      "restless": 1.3
+    },
+    "likes": [
+      "quest",
+      "new_ground"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "Name's Silas, and I notice things for a living, which crate's light, which captain's lying, who's about to rob who. What did I do before? It was port work. Ask me again tomorrow and it'll be different port work.",
       "acquaintance": "Fine, the true version. Antwerp, near the docks. My dad was an English sailor who was home three months a year and then not at all, and my mum raised us on a cleaner's wage. I drifted through my twenties, then I got five years as a security guard at the port, watching cameras and checking manifests. First steady job of my life.",
@@ -16,23 +26,45 @@
       "sworn": "I told Jens about the cameras, on the pier after. He said he always knew, and he'd have done it anyway, and he was angry for a long time and he isn't now. We had a beer. He's in Ratchet with me now. And I've taken a cut of the goblin's pier, my first real commitment, and I didn't flip the coin to decide it. You can have the coin. I'd rather you had it than be tempted."
     },
     "moments": [
-      {"id": "first_goodbye", "stage": "stranger", "when": "first_stint_end",
-       "prompt": "At the end of his first trip with you, he flips his coin.",
-       "line": "Heads I stay, tails I go back to Ratchet. Let's see what it says.",
-       "options": [
-         {"text": "Don't flip it. Just stay.", "trust": 12, "stays": true, "flag": "asked_to_stay",
-          "reply": "Huh, nobody's ever asked me not to flip it. All right, I'll stay."},
-         {"text": "Whatever the coin says.", "trust": 0,
-          "reply": "It came up tails, so I'll see you in Ratchet, then. It was fun."}
-       ]},
-      {"id": "jens", "stage": "friend", "when": "talk",
-       "prompt": "He's just told you about Jens and the cameras.",
-       "options": [
-         {"text": "Then this time, don't watch.", "trust": 12,
-          "reply": "Yeah, that's the whole plan, really. Let's go and do it."},
-         {"text": "You couldn't have stopped him.", "trust": 0,
-          "reply": "I could've tried. That's the bit I keep coming back to."}
-       ]}
+      {
+        "id": "first_goodbye",
+        "stage": "stranger",
+        "when": "first_stint_end",
+        "prompt": "At the end of his first trip with you, he flips his coin.",
+        "line": "Heads I stay, tails I go back to Ratchet. Let's see what it says.",
+        "options": [
+          {
+            "text": "Don't flip it. Just stay.",
+            "trust": 12,
+            "stays": true,
+            "flag": "asked_to_stay",
+            "reply": "Huh, nobody's ever asked me not to flip it. All right, I'll stay."
+          },
+          {
+            "text": "Whatever the coin says.",
+            "trust": 0,
+            "reply": "It came up tails, so I'll see you in Ratchet, then. It was fun."
+          }
+        ]
+      },
+      {
+        "id": "jens",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's just told you about Jens and the cameras.",
+        "options": [
+          {
+            "text": "Then this time, don't watch.",
+            "trust": 12,
+            "reply": "Yeah, that's the whole plan, really. Let's go and do it."
+          },
+          {
+            "text": "You couldn't have stopped him.",
+            "trust": 0,
+            "reply": "I could've tried. That's the bit I keep coming back to."
+          }
+        ]
+      }
     ],
     "first_stint_short": true,
     "lines": {
@@ -58,18 +90,37 @@
   },
   "banter": {
     "town_arrive": [
-      {"text": "Three ways out of this square, and two of them are bad.", "kind": "open"},
-      {"text": "Somebody here's already pricing our boots.", "kind": "reply"},
-      {"text": "Antwerp's a port with a cathedral stuck on it, and it smells of diesel and chips. I miss it more than I'd say.", "kind": "open", "topic": "cities"}
+      {
+        "text": "Three ways out of this square, and two of them are bad.",
+        "kind": "open"
+      },
+      {
+        "text": "Somebody here's already pricing our boots.",
+        "kind": "reply"
+      },
+      {
+        "text": "My mum raised us on a cleaner's wage near the docks, and she could make a week's food out of nothing. Towns like this make me think of her.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Nothing down there was locked. That bothers me more than if it had been.", "kind": "open"}
+      {
+        "text": "Nothing down there was locked. That bothers me more than if it had been.",
+        "kind": "open"
+      }
     ],
     "boss_down": [
-      {"text": "Check its hands before anybody checks its pockets.", "kind": "reply"}
+      {
+        "text": "Check its hands before anybody checks its pockets.",
+        "kind": "reply"
+      }
     ],
     "zone_arrive": [
-      {"text": "Two ways out of here that I can see. I like to know.", "kind": "open"}
+      {
+        "text": "Two ways out of here that I can see. I like to know.",
+        "kind": "open"
+      }
     ]
   }
 }

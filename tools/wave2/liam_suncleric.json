@@ -7,9 +7,19 @@
   },
   "bond": {
     "home": "Grom's Rest",
-    "dials": {"warmth": 1.4, "nerve": 1.5, "pride": 0.5, "restless": 0.9},
-    "likes": ["boss", "quest"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 1.4,
+      "nerve": 1.5,
+      "pride": 0.5,
+      "restless": 0.9
+    },
+    "likes": [
+      "boss",
+      "quest"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "G'day, I'm Liam. Firefighter and paramedic back home, healer here. If it all goes bad, stay behind me and breathe out loud so I can hear you. No worries, we'll be right.",
       "acquaintance": "I'm from Katoomba, up in the Blue Mountains outside Sydney. Dad was a builder and Mum was a nurse. I joined the rural fire service at twenty and trained as a paramedic at twenty-six, because there was no ambulance for an hour in either direction. Seventeen years doing both, because the roster never cared which badge you had on at three in the morning.",
@@ -18,23 +28,45 @@
       "sworn": "We brought them back, mate, both of them. The crew we trained handled the whole village without me. That night the little girl fell asleep against my arm, and I sat there till morning without moving, and I slept. First proper night in three years. The village asked me to take the kids in, and I said yes before they'd finished asking. The protocol's five lines now. Line five says don't go in alone."
     },
     "moments": [
-      {"id": "asking", "stage": "friend", "when": "talk",
-       "prompt": "He's just asked you for help, for the first time.",
-       "options": [
-         {"text": "Of course. You're not going in alone this time.", "trust": 12,
-          "reply": "Too right, and thanks, mate. That's harder to hear than you'd think."},
-         {"text": "You've done fine on your own so far.", "trust": 0,
-          "reply": "Have I, though? Ask anyone who's watched me."}
-       ]},
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe he's moving between everybody, low and steady.",
-       "line": "Everyone breathe for me, out loud, that's good. Now, who went in on their own? It's usually me.",
-       "options": [
-         {"text": "It was you, Liam.", "trust": 8, "mood": 4,
-          "reply": "Yeah, I reckon it was. Thanks for saying it, mate."},
-         {"text": "Nobody, it was just bad luck.", "trust": 0, "mood": -4,
-          "reply": "There's no such thing as bad luck, mate, only bad plans."}
-       ]}
+      {
+        "id": "asking",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's just asked you for help, for the first time.",
+        "options": [
+          {
+            "text": "Of course. You're not going in alone this time.",
+            "trust": 12,
+            "reply": "Too right, and thanks, mate. That's harder to hear than you'd think."
+          },
+          {
+            "text": "You've done fine on your own so far.",
+            "trust": 0,
+            "reply": "Have I, though? Ask anyone who's watched me."
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe he's moving between everybody, low and steady.",
+        "line": "Everyone breathe for me, out loud, that's good. Now, who went in on their own? It's usually me.",
+        "options": [
+          {
+            "text": "It was you, Liam.",
+            "trust": 8,
+            "mood": 4,
+            "reply": "Yeah, I reckon it was. Thanks for saying it, mate."
+          },
+          {
+            "text": "Nobody, it was just bad luck.",
+            "trust": 0,
+            "mood": -4,
+            "reply": "There's no such thing as bad luck, mate, only bad plans."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "Mate, nothing's happening, and I'm no good when nothing's happening. Let's find somewhere that needs us.",
@@ -59,20 +91,40 @@
   },
   "banter": {
     "close_call": [
-      {"text": "Look at me and keep talking, I don't care what about.", "kind": "open"}
+      {
+        "text": "Look at me and keep talking, I don't care what about.",
+        "kind": "open"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Everyone out and walking. That's a good night, that is.", "kind": "open"}
+      {
+        "text": "Nobody's limping, which is a first. I'll take that, mate.",
+        "kind": "open"
+      }
     ],
     "town_arrive": [
-      {"text": "Where'd they take a burn case here? It's worth knowing before we need it.", "kind": "reply"},
-      {"text": "Katoomba's all cliffs and fog and gum trees, and the whole valley smells like eucalyptus after rain.", "kind": "open", "topic": "cities"}
+      {
+        "text": "Where'd they take a burn case here? It's worth knowing before we need it.",
+        "kind": "reply"
+      },
+      {
+        "text": "Dad built half the houses on our street, and he'd have something to say about every roof in this town.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "boss_down": [
-      {"text": "Right, who's hurt and lying about it? Someone always is.", "kind": "reply"}
+      {
+        "text": "Right, sit down for a second, all of you, and let me check your eyes.",
+        "kind": "reply"
+      }
     ],
     "zone_arrive": [
-      {"text": "Dry out here. If this goes up, we go that way, quick smart.", "kind": "open", "topic": "fire"}
+      {
+        "text": "Dry out here. If this goes up, we go that way, quick smart.",
+        "kind": "open",
+        "topic": "fire"
+      }
     ]
   }
 }

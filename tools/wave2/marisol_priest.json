@@ -9,9 +9,19 @@
   },
   "bond": {
     "home": "the Sepulcher",
-    "dials": {"warmth": 0.7, "nerve": 1.5, "pride": 0.6, "restless": 0.9},
-    "likes": ["quest", "undead"],
-    "dislikes": ["quest_abandoned"],
+    "dials": {
+      "warmth": 0.7,
+      "nerve": 1.5,
+      "pride": 0.6,
+      "restless": 0.9
+    },
+    "likes": [
+      "quest",
+      "undead"
+    ],
+    "dislikes": [
+      "quest_abandoned"
+    ],
     "stages": {
       "stranger": "I'm Marisol, and I'm a nurse, and a priest, and I talk while I work. I'm going to tell you everything I'm doing as I do it, and you can tell me anything you like back. It helps both of us.",
       "acquaintance": "I'm from Bogotá, from Chapinero. My father drove a taxi and my mother cleaned houses. I worked in a pharmacy for years and trained as a nurse late, at thirty, and then I went into emergency care and stayed nine years. Three of them on nights. Trolleys in a corridor and a triage board that never emptied.",
@@ -20,23 +30,45 @@
       "sworn": "It was Andrés. He died when the worlds joined and he was raised, and he's been carrying messages on this road for three years. He remembers me. He remembers the corridor, and he says he deserved it. I can't patch him up any more, mijo. There's nothing left to patch. He comes to see me now and then, and each time there's a little less of him. He asked the quartermaster to give me the building. I've got four beds now."
     },
     "moments": [
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe she's already kneeling by the nearest body, talking in the same level voice.",
-       "line": "I'm going to look at you now, one at a time. Nobody gets up until I've said so, tranquilo.",
-       "options": [
-         {"text": "Do what you need to. We'll wait.", "trust": 8, "mood": 6,
-          "reply": "Thank you. I'll be quick, and I'll tell you everything I'm doing."},
-         {"text": "We're fine, let's keep moving.", "trust": 0, "mood": -6,
-          "reply": "You're fine when I say you're fine. Sit down for me."}
-       ]},
-      {"id": "the_corridor", "stage": "friend", "when": "talk",
-       "prompt": "She's just told you about the corridor.",
-       "options": [
-         {"text": "You shouted because you were frightened for him.", "trust": 10,
-          "reply": "Yes, I was. He knew that, I think. I'd like to ask him."},
-         {"text": "He probably doesn't remember it.", "trust": 0,
-          "reply": "I remember it, and that's the part I can't put down."}
-       ]}
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe she's already kneeling by the nearest body, talking in the same level voice.",
+        "line": "I'm going to look at you now, one at a time. Nobody gets up until I've said so, tranquilo.",
+        "options": [
+          {
+            "text": "Do what you need to. We'll wait.",
+            "trust": 8,
+            "mood": 6,
+            "reply": "Thank you. I'll be quick, and I'll tell you everything I'm doing."
+          },
+          {
+            "text": "We're fine, let's keep moving.",
+            "trust": 0,
+            "mood": -6,
+            "reply": "You're fine when I say you're fine. Sit down for me."
+          }
+        ]
+      },
+      {
+        "id": "the_corridor",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "She's just told you about the corridor.",
+        "options": [
+          {
+            "text": "You shouted because you were frightened for him.",
+            "trust": 10,
+            "reply": "Yes, I was. He knew that, I think. I'd like to ask him."
+          },
+          {
+            "text": "He probably doesn't remember it.",
+            "trust": 0,
+            "reply": "I remember it, and that's the part I can't put down."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We've been doing the same thing for a long time, and nobody's needed patching for days. There are people on my road who need me more than this field does.",
@@ -62,17 +94,34 @@
   },
   "banter": {
     "boss_down": [
-      {"text": "Somebody should say something over it. Nobody will, so I might.", "kind": "open"}
+      {
+        "text": "Somebody should say something over it. Nobody will, so I might.",
+        "kind": "open"
+      }
     ],
     "close_call": [
-      {"text": "I'm going to look at that cut now, and it's going to sting, and then it's going to be fine.", "kind": "open"},
-      {"text": "Nine years of night shifts and I still count heads after every bad one. Everyone's here, tranquilo.", "kind": "reply", "topic": "night_work"}
+      {
+        "text": "I'm going to look at that cut now, and it's going to sting, and then it's going to be fine.",
+        "kind": "open"
+      },
+      {
+        "text": "Nine years of night shifts and I still count heads after every bad one. Everyone's here, tranquilo.",
+        "kind": "reply",
+        "topic": "night_work"
+      }
     ],
     "town_arrive": [
-      {"text": "Bogotá sits up in the mountains, cold and grey and full of traffic, and I'd give a lot for a coffee there.", "kind": "open", "topic": "cities"}
+      {
+        "text": "My father drove a taxi in Bogotá, and he'd have something rude to say about every one of these streets.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Somebody died in that room a long time ago and nobody marked it.", "kind": "reply"}
+      {
+        "text": "Somebody died in that room a long time ago and nobody marked it.",
+        "kind": "reply"
+      }
     ]
   }
 }

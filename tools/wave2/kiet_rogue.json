@@ -8,9 +8,19 @@
   },
   "bond": {
     "home": "the Abyssal Sands",
-    "dials": {"warmth": 0.7, "nerve": 1.1, "pride": 0.6, "restless": 1.3},
-    "likes": ["new_ground", "quest"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 0.7,
+      "nerve": 1.1,
+      "pride": 0.6,
+      "restless": 1.3
+    },
+    "likes": [
+      "new_ground",
+      "quest"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Kiet, a rogue, and a courier. Keep your voice down near people, please. You'd be amazed what they say when they think nobody's listening.",
       "acquaintance": "I'm from Bangkok, from Khlong Toei, by the port. I was a motorcycle courier for eleven years. The fastest in my company, and the one nobody remembered. I went into a hundred offices a day and heard everything. Mai pen rai, it's a useful skill.",
@@ -19,22 +29,42 @@
       "sworn": "The caravan's leader was an old Thai woman with a sweet cart, and she thanked me by name, and I couldn't speak. She's from Khlong Toei. She knew Yai. She told me Yai died in her sleep the night before all this, in her own bed, and never had to manage the stairs or the worlds joining. That's the best news I could ever have had. Her caravan pays me now, politely. I'm starting to like the quiet, a little, by her fire."
     },
     "moments": [
-      {"id": "quiet", "stage": "acquaintance", "when": "talk",
-       "prompt": "Camp's gone very quiet, and he's flinching at it.",
-       "options": [
-         {"text": "Hum something, so it isn't quiet.", "trust": 10,
-          "reply": "Ha, thank you, that's better. Keep going, please, ja."},
-         {"text": "Enjoy the peace.", "trust": 0,
-          "reply": "This isn't peace for me. It's just very loud nothing."}
-       ]},
-      {"id": "the_caravan", "stage": "friend", "when": "talk",
-       "prompt": "He's asked you to help stop the raid on the caravan.",
-       "options": [
-         {"text": "We'll beat them there by your routes.", "trust": 12,
-          "reply": "Yes, ja, my routes. Nobody knows them like me. Come on, fast."},
-         {"text": "You could sell it and walk away.", "trust": 0,
-          "reply": "I could, and I won't. Those are people, not information."}
-       ]}
+      {
+        "id": "quiet",
+        "stage": "acquaintance",
+        "when": "talk",
+        "prompt": "Camp's gone very quiet, and he's flinching at it.",
+        "options": [
+          {
+            "text": "Hum something, so it isn't quiet.",
+            "trust": 10,
+            "reply": "Ha, thank you, that's better. Keep going, please, ja."
+          },
+          {
+            "text": "Enjoy the peace.",
+            "trust": 0,
+            "reply": "This isn't peace for me. It's just very loud nothing."
+          }
+        ]
+      },
+      {
+        "id": "the_caravan",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to help stop the raid on the caravan.",
+        "options": [
+          {
+            "text": "We'll beat them there by your routes.",
+            "trust": 12,
+            "reply": "Yes, ja, my routes. Nobody knows them like me. Come on, fast."
+          },
+          {
+            "text": "You could sell it and walk away.",
+            "trust": 0,
+            "reply": "I could, and I won't. Those are people, not information."
+          }
+        ]
+      }
     ],
     "first_stint_short": false,
     "lines": {
@@ -60,17 +90,33 @@
   },
   "banter": {
     "town_arrive": [
-      {"text": "Keep your voice down here. Somebody in this crowd is listening, and it's usually me.", "kind": "open"},
-      {"text": "Bangkok traffic is the loudest place in the world, and I miss every horn in it.", "kind": "open", "topic": "cities"}
+      {
+        "text": "Keep your voice down here. Somebody in this crowd is listening, and it's usually me.",
+        "kind": "open"
+      },
+      {
+        "text": "I walked into a hundred offices a day back home and nobody remembered my face. A town like this is easy for me.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Too quiet in there. I hated it. Somebody say something, please.", "kind": "reply"}
+      {
+        "text": "Too quiet in there. I hated it. Somebody say something, please.",
+        "kind": "reply"
+      }
     ],
     "zone_arrive": [
-      {"text": "I'm quiet and I'm not brave. Those are different things.", "kind": "open"}
+      {
+        "text": "It's quiet out here. I like quiet, but I don't like what it's usually hiding.",
+        "kind": "open"
+      }
     ],
     "close_call": [
-      {"text": "You went in loud. I'd have gone in quiet, but nobody asked.", "kind": "reply"}
+      {
+        "text": "You went in loud. I'd have gone in quiet, but nobody asked.",
+        "kind": "reply"
+      }
     ]
   }
 }

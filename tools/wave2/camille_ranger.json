@@ -9,9 +9,19 @@
   },
   "bond": {
     "home": "the Wailing Caverns",
-    "dials": {"warmth": 0.5, "nerve": 1.3, "pride": 1.2, "restless": 1.4},
-    "likes": ["new_ground", "dungeon"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 0.5,
+      "nerve": 1.3,
+      "pride": 1.2,
+      "restless": 1.4
+    },
+    "likes": [
+      "new_ground",
+      "dungeon"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Camille, and I'm fast, and I map things. I go first, I don't wait for slow people, and I don't talk about feelings, yes? If that's a problem, find another ranger.",
       "acquaintance": "Lyon, from Villeurbanne just outside. Papa was a postman and Maman cleaned at a hospital. I was a bike courier for nine years, and I fixed everybody's bikes because nobody else could do it properly. I could cross the whole city in twenty-two minutes. I'm still faster than anyone here, by the way.",
@@ -20,23 +30,45 @@
       "sworn": "It was Théo, alive, older, and just as annoying as before. He's been reading every message for three years for exactly the same reason I do. I told him about the swapped shift, and he laughed at me and said he'd always have taken Part-Dieu because it's the best road. We argued about the fastest route to the Crossroads the whole way back. If you tell anyone I was smiling, I'll deny it."
     },
     "moments": [
-      {"id": "first_goodbye", "stage": "stranger", "when": "first_stint_end",
-       "prompt": "At the end of her first trip with you, she's already got her bag on.",
-       "line": "Right, that was fine, I'm off. I've got roads to map, yes?",
-       "options": [
-         {"text": "Stay. We're faster with you.", "trust": 12, "stays": true, "flag": "asked_to_stay",
-          "reply": "Obviously you're faster with me. Fine, I'll stay, but I'm still going first."},
-         {"text": "See you around, then.", "trust": 0,
-          "reply": "Yes, see you. Try not to get lost without me."}
-       ]},
-      {"id": "the_shift", "stage": "friend", "when": "talk",
-       "prompt": "She's just told you about the swapped shift.",
-       "options": [
-         {"text": "Say nothing, and walk next to her.", "trust": 12,
-          "reply": "Merci, that's exactly right. Allez, let's go."},
-         {"text": "It wasn't your fault.", "trust": 0,
-          "reply": "I said don't say anything, yes? That included that."}
-       ]}
+      {
+        "id": "first_goodbye",
+        "stage": "stranger",
+        "when": "first_stint_end",
+        "prompt": "At the end of her first trip with you, she's already got her bag on.",
+        "line": "Right, that was fine, I'm off. I've got roads to map, yes?",
+        "options": [
+          {
+            "text": "Stay. We're faster with you.",
+            "trust": 12,
+            "stays": true,
+            "flag": "asked_to_stay",
+            "reply": "Obviously you're faster with me. Fine, I'll stay, but I'm still going first."
+          },
+          {
+            "text": "See you around, then.",
+            "trust": 0,
+            "reply": "Yes, see you. Try not to get lost without me."
+          }
+        ]
+      },
+      {
+        "id": "the_shift",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "She's just told you about the swapped shift.",
+        "options": [
+          {
+            "text": "Say nothing, and walk next to her.",
+            "trust": 12,
+            "reply": "Merci, that's exactly right. Allez, let's go."
+          },
+          {
+            "text": "It wasn't your fault.",
+            "trust": 0,
+            "reply": "I said don't say anything, yes? That included that."
+          }
+        ]
+      }
     ],
     "first_stint_short": true,
     "lines": {
@@ -63,17 +95,33 @@
   },
   "banter": {
     "zone_arrive": [
-      {"text": "New roads, nobody's mapped them properly. Give me a day and I'll have done it.", "kind": "open"}
+      {
+        "text": "New roads, nobody's mapped them properly. Give me a day and I'll have done it.",
+        "kind": "open"
+      }
     ],
     "town_arrive": [
-      {"text": "Lyon has two rivers and a hill so steep you need good legs, and I had the best legs in the city.", "kind": "open", "topic": "cities"},
-      {"text": "There's a notice board over there and I'm going to read every single thing on it.", "kind": "open"}
+      {
+        "text": "I could cross Lyon in twenty-two minutes on a bike. I'd do this place in five, and I'd still be bored.",
+        "kind": "open",
+        "topic": "cities"
+      },
+      {
+        "text": "There's a notice board over there and I'm going to read every single thing on it.",
+        "kind": "open"
+      }
     ],
     "dungeon_clear": [
-      {"text": "I've drawn the whole place. Next time we'll be twice as fast, yes?", "kind": "open"}
+      {
+        "text": "I've drawn the whole place. Next time we'll be twice as fast, yes?",
+        "kind": "open"
+      }
     ],
     "close_call": [
-      {"text": "Too slow, you were too slow. Move, next time, don't think about it.", "kind": "reply"}
+      {
+        "text": "Too slow, you were too slow. Move, next time, don't think about it.",
+        "kind": "reply"
+      }
     ]
   }
 }

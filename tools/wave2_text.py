@@ -85,6 +85,59 @@ def _texts(rid, d):
             yield f"banter {trig}", e["text"]
 
 
+#: Stock phrases. Each line passes the voice rules alone, but read 75 recruits back to back and
+#: these turn up again and again, and that's what makes them sound written rather than spoken.
+#: Kyle: "These are real people." Narrator lines (send_word, on_break) are left out.
+TICS = [
+    (r"\byou'd (love|never leave)", "postcard closer"),
+    (r"\bi'd give (anything|a lot|a great deal)", "postcard closer"),
+    (r"\bi miss (the|both|every|them both|it every|that)\b", "postcard closer"),
+    (r"'s (all|built on) [\w ,'-]+? and ", "postcard list"),
+    (r"^(?!That|It|This)[A-ZÀ-Ý][\w' -]+ (has|had) (a|an|the|two|seven|forty|miles|more|twenty) [\w ,'-]+?, (a|an|and|the) ", "postcard list"),
+    (r"\bevery(body|one)('s| is)? (out|walked out|accounted|came out)", "everybody out"),
+    (r"\bevery(body|one) (counted|alive)", "everybody out"),
+    (r"\b(somebody|someone|there) always is\b|\bthey always are\b|\bmost of them are\b", "always is"),
+    (r"\balways a reason\b", "always a reason"),
+    (r",? honestly[.!?]", "honestly tag"),
+    (r"\bcan we go outside\b", "repeat"),
+    (r"\b(that's|that is|it's|isn't) not \w+, it's\b|\bisn't \w+, it's\b", "not X, it's Y zinger"),
+    (r"\bdifferent things\b", "zinger"),
+    (r"\bwho's (bleeding|hurt)\b|\bbleeding (and|who)\b", "who's bleeding"),
+    (r"\bthat's a (good|perfect) (shift|day|night)\b|\bin my book\b", "good shift"),
+    (r"\b(bit|rule|thing) i care about\b", "repeat"),
+    (r"\bnew place, new\b", "repeat"),
+    (r"\b(say|call) it (sooner|louder)\b|\bsaid it too\b", "repeat"),
+    (r"\bi'll find (them|it)\b", "repeat"),
+]
+NARRATOR = {"send_word", "on_break"}
+#: Only checked in banter and the short bond lines; in a long speech these read naturally.
+SHORT_ONLY = {"postcard list", "postcard closer", "everybody out", "who's bleeding", "good shift"}
+
+
+def tic_problems(data=None):
+    """Stock phrases, and any four word run that three or more recruits' banter shares."""
+    data = load() if data is None else data
+    bad, seen = [], {}
+    for rid, d in data.items():
+        for where, t in _texts(rid, d):
+            if where.split()[-1] in NARRATOR:
+                continue
+            spoken_short = where.startswith(("banter", "line"))
+            for rx, why in TICS:
+                if why in SHORT_ONLY and not spoken_short:
+                    continue
+                if re.search(rx, t, re.I):
+                    bad.append(f"{rid} {where}: {why}: {t!r}")
+            if where.startswith("banter"):
+                w = re.findall(r"[\w']+", t.lower())
+                for g in {" ".join(w[i:i + 4]) for i in range(len(w) - 3)}:
+                    seen.setdefault(g, set()).add(rid)
+    for g, rids in sorted(seen.items()):
+        if len(rids) >= 3:
+            bad.append(f"banter shared by {len(rids)} recruits: {g!r} ({', '.join(sorted(rids))})")
+    return bad
+
+
 def problems():
     from tools.build_tempest_quests import voice_problems
     recruits = json.loads((ROOT / "data/npcs/recruits.json").read_text(encoding="utf-8"))["recruits"]
@@ -127,7 +180,7 @@ def problems():
         for trig in d.get("banter", {}):
             if trig not in TRIGGERS:
                 bad.append(f"{rid}: unknown banter trigger {trig}")
-    return bad
+    return bad + tic_problems()
 
 
 if __name__ == "__main__":

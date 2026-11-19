@@ -4,9 +4,19 @@
   },
   "bond": {
     "home": "Stonetalon West",
-    "dials": {"warmth": 1.1, "nerve": 1.0, "pride": 0.5, "restless": 0.8},
-    "likes": ["new_ground", "beast"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 1.1,
+      "nerve": 1.0,
+      "pride": 0.5,
+      "restless": 0.8
+    },
+    "likes": [
+      "new_ground",
+      "beast"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Rhys, and this is Tegan. Keep your voice down near the trees, would you? She hunts better when nobody's chattering, and she's watching you, so be nice.",
       "acquaintance": "I'm from Brecon, in the Beacons, in Wales. I was a falconer at a centre outside town, weddings in summer and school visits in winter, mostly keeping a bird calm in front of two hundred people in hats. Tegan's a Harris's hawk. She's been mine seven years, and she was on my glove the evening it all happened, so she came with me.",
@@ -15,22 +25,44 @@
       "sworn": "The camp was empty, a long time empty, no list and no names. But by the gate somebody had carved a hawk into a post, rough, and the word Gwen. I don't know if it was my mam, or someone with the same name. I've decided it was her, and she's somewhere, and she'd want me to keep flying. I carved a hawk and my name under it. The Sun Rock boy's my apprentice now."
     },
     "moments": [
-      {"id": "tegan", "stage": "stranger", "when": "hire",
-       "prompt": "Tegan looks you over from his glove before he'll say yes.",
-       "options": [
-         {"text": "Stand still and let her look.", "trust": 6, "joins": true,
-          "reply": "There, she likes you. Tidy, I'll get my things."},
-         {"text": "Reach out to touch her.", "trust": 0, "joins": false,
-          "reply": "Duw, no, she's had enough of you for today. Come back tomorrow, slower."}
-       ]},
-      {"id": "the_camp", "stage": "friend", "when": "talk",
-       "prompt": "He's asked you to come to the camp from the Beacons.",
-       "options": [
-         {"text": "Let's go and see.", "trust": 12,
-          "reply": "Diolch, thank you. Tegan will scout ahead, she loves a long walk."},
-         {"text": "What if it's empty?", "trust": 2,
-          "reply": "Then it's empty, and I'll know. Not knowing is heavier, mind."}
-       ]}
+      {
+        "id": "tegan",
+        "stage": "stranger",
+        "when": "hire",
+        "prompt": "Tegan looks you over from his glove before he'll say yes.",
+        "options": [
+          {
+            "text": "Stand still and let her look.",
+            "trust": 6,
+            "joins": true,
+            "reply": "There, she likes you. Tidy, I'll get my things."
+          },
+          {
+            "text": "Reach out to touch her.",
+            "trust": 0,
+            "joins": false,
+            "reply": "Duw, no, she's had enough of you for today. Come back tomorrow, slower."
+          }
+        ]
+      },
+      {
+        "id": "the_camp",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to come to the camp from the Beacons.",
+        "options": [
+          {
+            "text": "Let's go and see.",
+            "trust": 12,
+            "reply": "Diolch, thank you. Tegan will scout ahead, she loves a long walk."
+          },
+          {
+            "text": "What if it's empty?",
+            "trust": 2,
+            "reply": "Then it's empty, and I'll know. Not knowing is heavier, mind."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We've been round this same patch for days and Tegan's bored, and when she's bored she sulks. Can we go somewhere new?",
@@ -55,16 +87,29 @@
   },
   "banter": {
     "zone_arrive": [
-      {"text": "Good open country here. Tegan's going to have a lovely time.", "kind": "open"}
+      {
+        "text": "Good open country here. Tegan's going to have a lovely time.",
+        "kind": "open"
+      }
     ],
     "town_arrive": [
-      {"text": "Brecon's a little market town under the mountains, and it rains most days, and I'd give anything for a walk there.", "kind": "open", "topic": "cities"}
+      {
+        "text": "I spent summers keeping a hawk calm in front of two hundred wedding guests. A crowd like this doesn't bother Tegan at all.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "boss_down": [
-      {"text": "Tegan saw it coming before any of us, the clever girl.", "kind": "reply"}
+      {
+        "text": "Tegan saw it coming before any of us, the clever girl.",
+        "kind": "reply"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Out in the air again, thank goodness. She hates a roof over her head.", "kind": "reply"}
+      {
+        "text": "Out in the air again, thank goodness. She hates a roof over her head.",
+        "kind": "reply"
+      }
     ]
   }
 }

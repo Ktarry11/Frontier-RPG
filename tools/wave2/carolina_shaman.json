@@ -9,9 +9,19 @@
   },
   "bond": {
     "home": "the Echo Isles",
-    "dials": {"warmth": 1.2, "nerve": 1.3, "pride": 0.5, "restless": 1.1},
-    "likes": ["new_ground", "quest"],
-    "dislikes": ["dungeon"],
+    "dials": {
+      "warmth": 1.2,
+      "nerve": 1.3,
+      "pride": 0.5,
+      "restless": 1.1
+    },
+    "likes": [
+      "new_ground",
+      "quest"
+    ],
+    "dislikes": [
+      "dungeon"
+    ],
     "stages": {
       "stranger": "I'm Carolina, and I'm a shaman, and before that I was a river pilot. I'm happiest near water and I get grumpy underground, so now you know. Calma, we'll get on fine.",
       "acquaintance": "I'm from Manaus, in Brazil, where the Rio Negro meets the Amazon and the two waters run side by side for miles without mixing. I piloted cargo boats for twelve years. The captains didn't trust a woman at first, and after the first season they did, because a channel that was deep in March would ground you in September and I always knew.",
@@ -20,23 +30,45 @@
       "sworn": "The river let me on. You saw it, the whole stretch nobody's ever run, and I laughed the entire way down. I've built a house on the bank, and the Darkspear boy from the Isles has come to be my apprentice, and he's getting it. I'll still be learning this river in twenty years. That's the best thing anyone's ever told me, and I'm the one who said it."
     },
     "moments": [
-      {"id": "first_wipe", "stage": "any", "when": "wipe",
-       "prompt": "After the wipe she sits down where she is and laughs, a bit shakily.",
-       "line": "Okay, everybody breathe. We went against the current in there, that's all. We'll find the right line next time.",
-       "options": [
-         {"text": "Show us the right line, then.", "trust": 8, "mood": 6,
-          "reply": "That's the spirit. Watch where I go, and go there too."},
-         {"text": "This isn't a river.", "trust": 0, "mood": -4,
-          "reply": "Nossa, everything's a river. You'll see it soon."}
-       ]},
-      {"id": "the_river", "stage": "friend", "when": "talk",
-       "prompt": "She's just told you about the river in Ashenvale.",
-       "options": [
-         {"text": "Let's go and meet it.", "trust": 10,
-          "reply": "Yes, let's go. It'll be angry, probably. Rivers usually are when you first meet them."},
-         {"text": "You'd really stay in one place?", "trust": 4,
-          "reply": "For the right river, I would. I'm as surprised as you are."}
-       ]}
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe she sits down where she is and laughs, a bit shakily.",
+        "line": "Okay, everybody breathe. We went against the current in there, that's all. We'll find the right line next time.",
+        "options": [
+          {
+            "text": "Show us the right line, then.",
+            "trust": 8,
+            "mood": 6,
+            "reply": "That's the spirit. Watch where I go, and go there too."
+          },
+          {
+            "text": "This isn't a river.",
+            "trust": 0,
+            "mood": -4,
+            "reply": "Nossa, everything's a river. You'll see it soon."
+          }
+        ]
+      },
+      {
+        "id": "the_river",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "She's just told you about the river in Ashenvale.",
+        "options": [
+          {
+            "text": "Let's go and meet it.",
+            "trust": 10,
+            "reply": "Yes, let's go. It'll be angry, probably. Rivers usually are when you first meet them."
+          },
+          {
+            "text": "You'd really stay in one place?",
+            "trust": 4,
+            "reply": "For the right river, I would. I'm as surprised as you are."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We've been going round the same eddy for a long time, meu bem. Can we let the current take us somewhere new?",
@@ -61,18 +93,38 @@
   },
   "banter": {
     "zone_arrive": [
-      {"text": "The ground here's saying something, and it's not happy about it.", "kind": "open"},
-      {"text": "There's water somewhere close. I can feel it in my hands.", "kind": "open", "topic": "water"}
+      {
+        "text": "The ground here's saying something, and it's not happy about it.",
+        "kind": "open"
+      },
+      {
+        "text": "There's water somewhere close. I can feel it in my hands.",
+        "kind": "open",
+        "topic": "water"
+      }
     ],
     "town_arrive": [
-      {"text": "They've taken the water upstream here. You can hear where it stops.", "kind": "reply"},
-      {"text": "Manaus is a city in the middle of a jungle, on the biggest river in the world, and it's loud and hot and I love it.", "kind": "open", "topic": "cities"}
+      {
+        "text": "They've taken the water upstream here. You can hear where it stops.",
+        "kind": "reply"
+      },
+      {
+        "text": "On the river you learn to hear a town before you see it. This one's noisier than Manaus, and I didn't think that was possible.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "dungeon_clear": [
-      {"text": "That place was sick a long time before anything moved into it. Can we go outside now?", "kind": "open"}
+      {
+        "text": "That place was sick a long time before anything moved into it. I want to wash my hands in a river.",
+        "kind": "open"
+      }
     ],
     "boss_down": [
-      {"text": "It wasn't evil, meu bem. It was hungry, and somebody put it here.", "kind": "reply"}
+      {
+        "text": "It wasn't evil, meu bem. It was hungry, and somebody put it here.",
+        "kind": "reply"
+      }
     ]
   }
 }

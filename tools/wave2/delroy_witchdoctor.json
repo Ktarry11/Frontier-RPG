@@ -5,9 +5,19 @@
   },
   "bond": {
     "home": "Booty Bay",
-    "dials": {"warmth": 1.2, "nerve": 1.3, "pride": 0.6, "restless": 0.8},
-    "likes": ["quest", "full_party"],
-    "dislikes": ["grinding"],
+    "dials": {
+      "warmth": 1.2,
+      "nerve": 1.3,
+      "pride": 0.6,
+      "restless": 0.8
+    },
+    "likes": [
+      "quest",
+      "full_party"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
     "stages": {
       "stranger": "I'm Delroy, and I brew. Sit down, drink this, and don't ask what's in it. You wouldn't thank me, and you'll feel better in a minute.",
       "acquaintance": "I'm from Kingston, near Spanish Town Road. My mother sold in the market and my father worked the docks. I went into a bakery at twenty-two and stayed thirty-one years, nights, in at eleven and out at seven. I fed a whole city its breakfast, and not one of them ever asked what was in the bread.",
@@ -16,22 +26,42 @@
       "sworn": "Andre was in the hold, pressed by the Bloodsail, and he lifted me clean off the deck. Then he told me Shanice and Kezia are alive, in a camp of Jamaicans near Ratchet. Kezia's eight now. She looked at me a long time, and then she said Grandy and ran at me. I've built an oven near the camp, and she's my apprentice, though she's mostly interested in the eating. Mi soon come, they say, and I came."
     },
     "moments": [
-      {"id": "the_brew", "stage": "stranger", "when": "talk",
-       "prompt": "He hands you a cup of something steaming and won't say what it is.",
-       "options": [
-         {"text": "Drink it without asking.", "trust": 8,
-          "reply": "Good, yuh have sense. Nobody asked about the bread either."},
-         {"text": "What's in it?", "trust": 0,
-          "reply": "You wouldn't thank me for telling yuh, so drink."}
-       ]},
-      {"id": "the_ship", "stage": "friend", "when": "talk",
-       "prompt": "He's asked you to help him find the ship out of Ratchet.",
-       "options": [
-         {"text": "Let's find your son.", "trust": 12,
-          "reply": "Bless yuh, thank you. I'll pack a brew for the road, and some bread."},
-         {"text": "It might not be him.", "trust": 2,
-          "reply": "Then it's somebody's son, and they'll need getting off that ship anyway."}
-       ]}
+      {
+        "id": "the_brew",
+        "stage": "stranger",
+        "when": "talk",
+        "prompt": "He hands you a cup of something steaming and won't say what it is.",
+        "options": [
+          {
+            "text": "Drink it without asking.",
+            "trust": 8,
+            "reply": "Good, yuh have sense. Nobody asked about the bread either."
+          },
+          {
+            "text": "What's in it?",
+            "trust": 0,
+            "reply": "You wouldn't thank me for telling yuh, so drink."
+          }
+        ]
+      },
+      {
+        "id": "the_ship",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to help him find the ship out of Ratchet.",
+        "options": [
+          {
+            "text": "Let's find your son.",
+            "trust": 12,
+            "reply": "Bless yuh, thank you. I'll pack a brew for the road, and some bread."
+          },
+          {
+            "text": "It might not be him.",
+            "trust": 2,
+            "reply": "Then it's somebody's son, and they'll need getting off that ship anyway."
+          }
+        ]
+      }
     ],
     "lines": {
       "bored_warning": "We've been doing the same thing over and over, like dough that won't prove. Let's go somewhere with a bit of rise in it.",
@@ -56,17 +86,34 @@
   },
   "banter": {
     "town_arrive": [
-      {"text": "Somebody here's up at four making bread. There always is, and I'll find them.", "kind": "open", "topic": "night_work"},
-      {"text": "Kingston at four in the morning smells of bread and sea and somebody's radio. I miss it every night.", "kind": "open", "topic": "cities"}
+      {
+        "text": "Somebody in this town gets up at four to make the bread. I'd like to go and say hello to them.",
+        "kind": "open",
+        "topic": "night_work"
+      },
+      {
+        "text": "I'd finish at seven and walk home past people eating my bread on the bus. They never knew it was mine, and I liked it that way.",
+        "kind": "open",
+        "topic": "cities"
+      }
     ],
     "dungeon_clear": [
-      {"text": "Everybody gets something and nobody waits long, same as any morning.", "kind": "reply"}
+      {
+        "text": "Everybody gets something and nobody waits long, same as any morning.",
+        "kind": "reply"
+      }
     ],
     "close_call": [
-      {"text": "Sit down and drink it. No, I'm not telling you what's in it.", "kind": "open"}
+      {
+        "text": "Sit down and drink it. No, I'm not telling you what's in it.",
+        "kind": "open"
+      }
     ],
     "boss_down": [
-      {"text": "Sit down and eat something. You'll argue, and then you'll do it.", "kind": "reply"}
+      {
+        "text": "Sit down and eat something. You'll argue, and then you'll do it.",
+        "kind": "reply"
+      }
     ]
   }
 }
