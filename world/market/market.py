@@ -815,6 +815,7 @@ class Market:
                 self.mail.tidy(self.clock)
                 if self.party is not None:
                     self.mail.deliver_due(self.clock, self.party, self.rng)
+                    self._recruit_letters()
             return hours
         done = 0.0
         while hours - done > 1e-9:
@@ -826,7 +827,18 @@ class Market:
             self.mail.tidy(self.clock)
             if self.party is not None:
                 self.mail.deliver_due(self.clock, self.party, self.rng)
+                self._recruit_letters()
         return done
+
+    def _recruit_letters(self):
+        """Answers from recruits you've written to (world/recruit_mail.py), and anyone waiting where you stand."""
+        try:
+            from world import recruit_mail
+            zm = _LIVE.get("zone_manager")
+            recruit_mail.process(self.clock, self.party, self.mail, zone=getattr(zm, "current_zone", None))
+        except Exception as e:          # a letter must never stop the clock
+            import logging
+            logging.getLogger(__name__).warning("recruit letters: %s", e)
 
     def on_play_seconds(self, seconds):
         """Overworld time. Whole market hours are worked as they accrue."""

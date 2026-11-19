@@ -2,7 +2,8 @@
 
 Kyle, 15 Nov 2026: "MAILBOX and MAIL SERVICE". Everything the auction house pays, refunds, returns or hands over
 arrives here, and so do the letters from the other traders (world/market/meme_mail.py) and their cash-on-delivery
-offers. Send Mail posts things to your own recruits, in the party or on the bench.
+offers. Send Mail posts things to your own recruits, in the party or on the bench. Friends writes to the ones who've
+gone home and asks them to meet you at a town you pick (world/recruit_mail.py).
 """
 import pygame
 
@@ -50,6 +51,14 @@ class MailScreen(BaseScreen):
         self.bag_scroll = 0
         self._bg = None
         self._hover = None
+        # friends
+        self.friend_page = 0
+        self.friend_id = None
+        self.town_index = 0
+        fx = WIN.x + 470
+        self.town_prev = Button((fx + 96, WIN.y + 250, 34, 30), "<")
+        self.town_next = Button((WIN.right - 50, WIN.y + 250, 34, 30), ">")
+        self.write_btn = Button((fx, WIN.bottom - 52, 200, 34), "Write to them")
 
     @property
     def icons(self):
@@ -59,6 +68,15 @@ class MailScreen(BaseScreen):
         self.page = 0
         self.open_id = None
         m = market_of(self.party)
+        # you're standing at a mailbox, so this town is somewhere you can ask people to meet you
+        try:
+            from world import recruit_mail
+            from world.bond_manager import get_bond_manager
+            zm = getattr(self.state_manager, "zone_manager", None)
+            if zm is not None and getattr(zm, "current_zone", None) is not None:
+                recruit_mail.note_town(get_bond_manager(), zm.current_zone)
+        except Exception:
+            pass
         m.advance(0)
         self._refresh_to()
 
@@ -106,7 +124,8 @@ class MailScreen(BaseScreen):
 
     def _tab_rects(self):
         return [("inbox", "Inbox", pygame.Rect(WIN.x + 20, WIN.bottom + 2, 120, 32)),
-                ("send", "Send Mail", pygame.Rect(WIN.x + 146, WIN.bottom + 2, 120, 32))]
+                ("send", "Send Mail", pygame.Rect(WIN.x + 146, WIN.bottom + 2, 120, 32)),
+                ("friends", "Friends", pygame.Rect(WIN.x + 272, WIN.bottom + 2, 120, 32))]
 
     def _bag_rect(self, i):
         c, r = i % 8, i // 8
@@ -134,6 +153,8 @@ class MailScreen(BaseScreen):
             return
         if self.tab == "inbox":
             self._inbox_event(event)
+        elif self.tab == "friends":
+            self._friends_event(event)
         else:
             self._send_event(event)
 
@@ -292,6 +313,8 @@ class MailScreen(BaseScreen):
                         color=theme.TEXT if on else theme.TEXT_DIM)
         if self.tab == "inbox":
             self._render_inbox(screen)
+        elif self.tab == "friends":
+            self._render_friends(screen)
         else:
             self._render_send(screen)
         if self.message_t > 0:
@@ -443,3 +466,164 @@ class MailScreen(BaseScreen):
                     _qty(r, screen, q, rr)
                 if rr.collidepoint(pygame.mouse.get_pos()):
                     self._hover = good
+
+    # ------------------------------------------------------------ friends (world/recruit_mail.py)
+    def _friends(self):
+        from world import recruit_mail
+        from world.bond_manager import get_bond_manager
+        from world.recruit_manager import get_recruit_manager
+        return recruit_mail.friends(get_bond_manager(), get_recruit_manager(), self.party)
+
+    def _friend(self):
+        for b, rec in self._friends():
+            if b.rid == self.friend_id:
+                return b, rec
+        return None, None
+
+    def _towns(self):
+        from world import recruit_mail
+        from world.bond_manager import get_bond_manager
+        return recruit_mail.meeting_towns(get_bond_manager())
+
+    def _friend_row(self, i):
+        return pygame.Rect(WIN.x + 16, WIN.y + 64 + i * ROW, 420, ROW - 6)
+
+    def _friends_event(self, event):
+        people = self._friends()
+        pages = max(1, (len(people) + PER_PAGE - 1) // PER_PAGE)
+        if self.prev_btn.clicked(event):
+            self.friend_page = max(0, self.friend_page - 1)
+            return
+        if self.next_btn.clicked(event):
+            self.friend_page = min(pages - 1, self.friend_page + 1)
+            return
+        towns = self._towns()
+        if towns and self.town_prev.clicked(event):
+            self.town_index = (self.town_index - 1) % len(towns)
+            return
+        if towns and self.town_next.clicked(event):
+            self.town_index = (self.town_index + 1) % len(towns)
+            return
+        if self.write_btn.clicked(event):
+            self._write()
+            return
+        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+            shown = people[self.friend_page * PER_PAGE:(self.friend_page + 1) * PER_PAGE]
+            for i, (b, _rec) in enumerate(shown):
+                if self._friend_row(i).collidepoint(event.pos):
+                    self.friend_id = b.rid
+                    return
+        if event.type == pygame.MOUSEWHEEL:
+            self.friend_page = max(0, min(pages - 1, self.friend_page - event.y))
+
+    def _write(self):
+        import random
+        from world import recruit_mail
+        from world.bond_manager import get_bond_manager
+        from world.recruit_manager import get_recruit_manager
+        b, rec = self._friend()
+        towns = self._towns()
+        if b is None:
+            self._say("Pick somebody to write to.", theme.WARN)
+            return
+        if not towns:
+            self._say("You haven't been to a town with a mailbox yet.", theme.WARN)
+            return
+        _line, can = recruit_mail.status(get_bond_manager(), get_recruit_manager(), b, rec, self.now,
+                                         getattr(self.player, "level", None))
+        if not can:
+            self._say(_line, theme.WARN)
+            return
+        cost = Mailbox.postage(0)
+        if not self.party.remove_currency(cost):
+            self._say("You can't afford the postage.", theme.BAD)
+            return
+        key, _name = towns[self.town_index % len(towns)]
+        ok, msg = recruit_mail.invite(get_bond_manager(), b, key, self.now, random)
+        self._say(msg, theme.OK if ok else theme.WARN)
+
+    def _render_friends(self, screen):
+        from world import recruit_mail
+        from world.bond_manager import STAGE_NAMES, get_bond_manager
+        from world.recruit_manager import get_recruit_manager
+        r = self.renderer
+        bonds, rm = get_bond_manager(), get_recruit_manager()
+        people = self._friends()
+        pages = max(1, (len(people) + PER_PAGE - 1) // PER_PAGE)
+        self.friend_page = min(self.friend_page, pages - 1)
+        shown = people[self.friend_page * PER_PAGE:(self.friend_page + 1) * PER_PAGE]
+        level = getattr(self.player, "level", None)
+        mouse = pygame.mouse.get_pos()
+        if not people:
+            r.draw_text(screen, "Nobody's gone home yet.", (WIN.x + 226, WIN.y + 180), color=theme.TEXT_DIM, center=True)
+            r.draw_text(screen, "Anyone who's been out with you shows up here once they leave.",
+                        (WIN.x + 226, WIN.y + 206), size="small", color=theme.TEXT_DIM, center=True)
+        for i, (b, rec) in enumerate(shown):
+            rr = self._friend_row(i)
+            sel = b.rid == self.friend_id
+            r.draw_panel(screen, rr, selected=sel, inset=not sel, studs=False)
+            if rr.collidepoint(mouse) and not sel:
+                pygame.draw.rect(screen, theme.FRAME_SELECTED, rr, 1)
+            try:
+                from ui.recruit_portrait import get_recruit_portrait
+                pic = get_recruit_portrait(rec.recruit_id, 52)
+            except Exception:
+                pic = None
+            if pic is not None:
+                screen.blit(pic, (rr.x + 6, rr.y + 6))
+            line, _can = recruit_mail.status(bonds, rm, b, rec, self.now, level)
+            r.draw_text(screen, r.truncate(rec.name, 200, size="normal"), (rr.x + 66, rr.y + 6), color=theme.TEXT_HEADING)
+            stage = STAGE_NAMES.get(b.stage_key, "")
+            sw = r._get_font("small").size(stage)[0]
+            r.draw_text(screen, stage, (rr.right - 10 - sw, rr.y + 8), size="small", color=theme.TEXT_DIM)
+            r.draw_text(screen, r.truncate(f"{rec.char_class}", 300, size="small"), (rr.x + 66, rr.y + 28), size="small",
+                        color=theme.TEXT_DIM)
+            r.draw_text(screen, r.truncate(line, 340, size="small"), (rr.x + 66, rr.y + 45), size="small",
+                        color=theme.TEXT)
+        r.draw_text(screen, f"Page {self.friend_page + 1} of {pages}", (WIN.x + 226, WIN.bottom - 44), size="small",
+                    color=theme.TEXT_DIM, center=True)
+        self.prev_btn.enabled = self.friend_page > 0
+        self.next_btn.enabled = self.friend_page < pages - 1
+        self.prev_btn.draw(r, screen)
+        self.next_btn.draw(r, screen)
+        lx = WIN.x + 470
+        b, rec = self._friend()
+        if b is None:
+            r.draw_text(screen, "Pick somebody to write to.", (lx + 220, WIN.y + 160), color=theme.TEXT_DIM, center=True)
+            r.draw_text(screen, "The better you know them, the likelier they are to answer, and the sooner.",
+                        (lx + 220, WIN.y + 190), size="small", color=theme.TEXT_DIM, center=True)
+            return
+        r.draw_text(screen, rec.name, (lx, WIN.y + 64), size="large", color=theme.TEXT_HEADING)
+        r.draw_text(screen, f"{STAGE_NAMES.get(b.stage_key, '')}, {rec.char_class}", (lx, WIN.y + 100),
+                    color=theme.TEXT_DIM)
+        line, can = recruit_mail.status(bonds, rm, b, rec, self.now, level)
+        y = WIN.y + 132
+        for part in r.wrap_text(line, WIN.right - 16 - lx):
+            r.draw_text(screen, part, (lx, y))
+            y += 20
+        odds = recruit_mail.chance(b)
+        pace = recruit_mail.reply_hours(b)
+        word = ("always writes back" if odds >= 0.999 else "usually writes back" if odds >= 0.7
+                else "often writes back" if odds >= 0.45 else "might not write back")
+        r.draw_text(screen, f"{rec.name.split()[0]} {word}. An answer takes about {int(pace + 0.5)} hours.",
+                    (lx, WIN.y + 196), size="small", color=theme.TEXT_DIM)
+        towns = self._towns()
+        r.draw_text(screen, "Meet at", (lx, WIN.y + 256), color=theme.TEXT_DIM)
+        box = pygame.Rect(lx + 136, WIN.y + 250, WIN.right - 56 - (lx + 136), 30)
+        pygame.draw.rect(screen, (16, 15, 20), box)
+        pygame.draw.rect(screen, theme.FRAME_INNER, box, 1)
+        if towns:
+            self.town_index %= len(towns)
+            r.draw_text(screen, r.truncate(f"The inn in {towns[self.town_index][1]}", box.width - 16, size="normal"),
+                        (box.centerx, box.y + 6), center=True)
+        else:
+            r.draw_text(screen, "No town with a mailbox yet", (box.centerx, box.y + 6), center=True, color=theme.TEXT_DIM)
+        self.town_prev.enabled = self.town_next.enabled = len(towns) > 1
+        self.town_prev.draw(r, screen)
+        self.town_next.draw(r, screen)
+        r.draw_text(screen, "Any town with a mailbox you've been to. They wait at its inn and join when you get there.",
+                    (lx, WIN.y + 290), size="small", color=theme.TEXT_DIM)
+        r.draw_text(screen, "Postage", (lx, WIN.bottom - 92), color=theme.TEXT_DIM)
+        draw_coins(r, screen, Mailbox.postage(0), (lx + 90, WIN.bottom - 90))
+        self.write_btn.enabled = bool(can and towns)
+        self.write_btn.draw(r, screen)

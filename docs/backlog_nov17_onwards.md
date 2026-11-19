@@ -100,7 +100,8 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - **New chains that connect zones and build to something** (left over from [37]).
 - **Earth people throughout zones** (Kyle, 14 Nov: "we should start having more earth people throughout zones"):
   transplants with a purpose, more of them the higher the zone. Azshara has them built in; the older zones need a pass.
-- **Recruit personal quests and Sworn** aren't built. Tarek's ending and his trip and break numbers wait on Kyle.
+- **Recruit personal quests** aren't built (the Sworn skills are, Wave 4, 19 Nov). Tarek's ending and his trip and
+  break numbers wait on Kyle, and so do Neil's ending, Valentina's sun and Marisol's brother.
 
 ## 7. World and towns
 - **The Crossing** (Kyle: "my favorite design concept of double dungeon via invasion"): a visual pass on the Booty
@@ -143,6 +144,8 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - **Class forms in combat**: since 18 Nov a shifter walks the map as their form (assets/forms); the combat screen
   still shows the person. Kyle asked for "out of combat" only, so this is a question, not a bug.
 - **The professions screen's own art**: tab art, frames and station art.
+- **Keepsake icons, 98** (one per recruit, `data/npcs/keepsakes.json` names each `col_keepsake_<name>`): every one
+  shows a stand-in. The prompt sheets aren't written yet (about three sheets of 36).
 - **Walk cycles**: rolling out sheet by sheet by playable race (claude/walk_cycle_prompts.md).
 - **The recoloured T0 set versions** are plain hue turns (some gold sets come out lime). Kyle's eye.
 
@@ -156,4 +159,3 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 
 ## 12. Parked by Kyle (not anytime soon)
 - **The prestige constellation** (design only, docs/prestige_constellation.md).
-- **Recruit bonds beyond the pilot three** (Kesten, Adrián, Tarek), after their personal quests.

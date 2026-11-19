@@ -69,6 +69,7 @@ class Bond:
         self.last_with_you = 0
         self.pending = None             # a moment waiting to be shown (id)
         self.in_party = False
+        self.invite = None              # a letter asking them to meet you (world/recruit_mail.py)
 
     # -- reading
     @property
@@ -100,6 +101,7 @@ class BondManager:
         self.pairs_heard = []
         self.log = []                   # [(rid, text)] for the test panel and the party screen
         self.party = None
+        self.towns = {}                 # zone key -> name: towns with a mailbox you've walked into (recruit_mail)
         self._last_taken = None         # (rid, slot, deeds): the last piece taken off somebody
         self._load()
         # Wave 3: how the recruits get on with each other (world/relationship_manager.py)
@@ -278,6 +280,7 @@ class BondManager:
             return
         returning = b.stints > 0
         b.in_party = True
+        b.invite = None                 # however they joined, no letter is still waiting on them
         b.mood = MOOD_START
         b.outings = 0
         b.stint_len = self._stint_length(b)
@@ -679,6 +682,7 @@ class BondManager:
     # ------------------------------------------------------------ save
     def to_dict(self):
         return {"deeds": self.deeds, "pair_time": self.pair_time, "pairs_heard": self.pairs_heard,
+                "towns": dict(self.towns),
                 "bonds": {rid: b.to_dict() for rid, b in self.bonds.items()},
                 "relationships": self.rel.to_dict()}
 
@@ -687,6 +691,7 @@ class BondManager:
         self.deeds = int(d.get("deeds", 0))
         self.pair_time = dict(d.get("pair_time", {}))
         self.pairs_heard = list(d.get("pairs_heard", []))
+        self.towns = dict(d.get("towns", {}))
         for rid, bd in (d.get("bonds") or {}).items():
             if rid in self.bonds:
                 self.bonds[rid].load(bd)

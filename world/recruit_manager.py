@@ -644,6 +644,8 @@ class RecruitManager:
             b = bonds.get(recruit.recruit_id)
             if b is not None and b.away and not self.is_recruited(recruit.recruit_id):
                 continue        # on a break: their spot stands empty (bonds design, "gone means gone")
+            if b is not None and b.invite and b.invite.get("state") == "waiting":
+                continue        # gone to meet you at an inn (world/recruit_mail.py)
             location = self.current_location(recruit)
             if location and self._zone_key(location[0]) == key:
                 found.append(recruit)
@@ -660,6 +662,8 @@ class RecruitManager:
                 continue
             b = bonds.get(recruit.recruit_id)
             if b is not None and b.away and not self.is_recruited(recruit.recruit_id):
+                continue
+            if b is not None and b.invite and b.invite.get("state") == "waiting":
                 continue
             location = self.current_location(recruit)
             if not location:

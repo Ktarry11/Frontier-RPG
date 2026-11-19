@@ -143,6 +143,9 @@ BONDS = {
                 "come back with you, but I'd like you to read what I wrote first."),
             "neglect": "It's been a long time. I'd started to think you'd forgotten about me.",
             "asked_to_stay": "All right, one more. I'll hold you to it.",
+            "mail_yes": "Your letter came, and I've filed it. I'll take the road to {town} today and wait for you at the inn, so don't be surprised if there's ink on the table when you find me.",
+            "mail_later": "I've got your letter, but I'm halfway through a copy and I won't leave it half done. I'll send word when the last page is dry.",
+            "mail_see_me": "Some things should be said in the same room, and this is one of them. Come to the Bastion and we'll talk it through properly.",
             "on_break": "Kesten is away copying out his notes. Come back after you've been out "
                         "for a while.",
         },
@@ -245,6 +248,9 @@ BONDS = {
                 "I thought you probably had a full group already. You don't need to apologise, "
                 "I'm glad you came back."),
             "asked_to_stay": "All right, one more, and then we'll see.",
+            "mail_yes": "I was hoping you'd write! I'll set out for {town} this afternoon. Look for me in the taproom, I'll be the one who's already ordered for both of us.",
+            "mail_later": "It's good to hear from you, truly. I'm not quite ready to come out yet, though. Carry on for a while without me and I'll be glad to see you after.",
+            "mail_see_me": "Thank you for writing, but I don't want to settle this on paper. Come to Astranaar and we'll talk, just the two of us, and then we can start again.",
             "on_break": "Adrián has gone back to Astranaar for a while. Come back after you've "
                         "done a few more jobs.",
         },
@@ -351,6 +357,9 @@ BONDS = {
                 "I was starting to wonder if you'd forgotten the road up here. Come and sit "
                 "down. Have you eaten?"),
             "asked_to_stay": "All right, one more trip. Then the wells.",
+            "mail_yes": "Got your letter. The wells will keep for a while, so I'm on my way to {town}. I'll be the one in the inn with the bucket.",
+            "mail_later": "I read your letter by the east spring, and the spring isn't done with me yet. Once it is, I'm yours.",
+            "mail_see_me": "I'm not answering that by letter. Come to Splintertree, and we'll say it to each other's faces.",
             "on_break": "Tarek is out checking his wells. Come back after you've been busy for a "
                         "while.",
         },

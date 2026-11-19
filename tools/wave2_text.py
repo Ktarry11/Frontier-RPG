@@ -39,7 +39,9 @@ STAGES = ("stranger", "acquaintance", "companion", "friend", "sworn")
 LINE_KEYS = ("bored_warning", "leaving_good", "leaving_bored", "after_wipe", "wipe_warning",
              "wipe_leave", "zone_warning", "zone_leave", "gear_refuse", "gear_taken", "gear_short",
              "gear_upgrade", "back", "send_word", "walkout_talk", "neglect", "asked_to_stay",
-             "on_break")
+             "on_break",
+             # letters, by mail (world/recruit_mail.py): {town} is the meeting place you picked
+             "mail_yes", "mail_later", "mail_see_me")
 LIKES = {"dungeon", "boss", "quest", "new_ground", "undead", "demon", "beast", "grinding",
          "full_party", "quest_abandoned"}
 TRIGGERS = ("town_arrive", "dungeon_clear", "boss_down", "close_call", "zone_arrive")

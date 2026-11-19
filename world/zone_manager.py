@@ -682,6 +682,11 @@ class ZoneManager:
             if party is not None:
                 from world.bond_manager import get_bond_manager
                 get_bond_manager().on_zone(new_zone, party, left_cleared_dungeon=left_cleared)
+                # LETTERS: a town with a mailbox becomes a meeting place, and anyone waiting here joins
+                # (world/recruit_mail.py)
+                from world import recruit_mail
+                recruit_mail.note_town(get_bond_manager(), new_zone)
+                recruit_mail.meet(party, new_zone)
 
             self._enforce_asher_leash(leaving, new_zone)
 
