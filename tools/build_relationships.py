@@ -70,7 +70,7 @@ REPLY_START = re.compile(r"^(same|me too|me neither|so do|so did|so am|likewise|
 #: {man's form|woman's form} pair, which world/relationship_manager.py fills in by the listener.
 GENDERED = re.compile(r"\b(bloke|lad|lass|mijo|mija|hermano|hermana|irmão|irmã|abi|abla|habibi|habibti|"
                       r"compadre|comadre|chico|chica|carnal|carnala|querido|querida|ragazzo|ragazza|uagliò|bello|bella|"
-                      r"my man|my boy|my girl|sir|madam|ma'am|"
+                      r"basha|hanem|nene|nena|my man|my boy|my girl|sir|madam|ma'am|"
                       r"son|brother|sister|mate)\b(?![^{]*\})", re.I)
 #: these are said about somebody, or to the party, so there's nobody to match a form to
 NO_ADDRESS = ("defend", "friend_left")
