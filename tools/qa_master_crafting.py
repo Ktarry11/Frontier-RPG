@@ -15,6 +15,7 @@ Checks, through the real data and code:
      ones stay pre-60
   5. a heroic boss's pattern is a Master epic, and those patterns are in no trainer's list and no world drop pool
   6. competitive: a crafted blue matches a heroic drop's level, a crafted epic matches T1 and Exalted
+  7. every spec of every class can use at least 3 Master pieces (Kyle: "a little bit for most classes")
 """
 import contextlib
 import io
@@ -151,6 +152,23 @@ def main():
 
     # 6
     check(H.ITEM_LEVEL == 66, f"heroic drops are {H.ITEM_LEVEL}, crafted blues are 66")
+
+    # 7. a little for every class (Kyle, 18 Nov 2026: "We can have a little bit for most classes"): every spec in
+    # data/items/spec_gear.json can use at least 3 Master pieces, its stats in its armour or its weapons
+    specs = {k: v for k, v in json.loads((ROOT / "data/items/spec_gear.json").read_text(encoding="utf-8")).items()
+             if not k.startswith("_")}
+    pieces = [r["output"]["item"] for rid, (p, r) in m60.items() if isinstance(r.get("output", {}).get("item"), dict)]
+
+    def fits(spec, it):
+        if it.get("stat_template") != spec["stat_template"]:
+            return False
+        if it["slot"] in ("ring", "neck", "back"):
+            return True
+        if it.get("weapon_type"):
+            return it["weapon_type"] in [v for v in spec["weapons"].values() if v]
+        return it.get("armor_type") == spec["armor_type"]
+    thin = [f"{s['class']} {k.split('_', 1)[1]}" for k, s in specs.items() if sum(fits(s, it) for it in pieces) < 3]
+    check(not thin, f"specs with fewer than 3 Master pieces: {thin}")
 
     print(f"{len(m60)} Master recipes: " + ", ".join(f"{t} {v['rare']} blue/{v['epic']} epic"
                                                     for t, v in sorted(by_trade.items())))

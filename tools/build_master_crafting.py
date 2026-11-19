@@ -90,6 +90,18 @@ BLUES = {
         ("manticore_girdle", "Manticore-Scale Girdle", "waist", "armor", "mail", "tide_healer", "A healer's belt with a hunter's patience."),
         ("manticore_legguards", "Manticore-Scale Legguards", "legs", "armor", "mail", "hunter", "Good for long walks and short arguments."),
         ("manticore_sabatons", "Manticore-Scale Sabatons", "feet", "armor", "mail", "mail_caster", "They ring a little on stone, like distant rain."),
+        # for the mail fighters, the leather and mail healers, the agility casters and the Barbarians
+        ("manticore_brigandine", "Manticore-Scale Brigandine", "chest", "armor", "mail", "agility", "Scales riveted over leather. Quiet enough, tough enough."),
+        ("manticore_scale_spaulders", "Manticore-Scale Spaulders", "shoulder", "armor", "mail", "agility", "The mane scales stand up when you're angry. So do you."),
+        ("manticore_scale_bracers", "Manticore-Scale Bracers", "wrist", "armor", "mail", "hunter_crit", "Snug at the wrist, so the string never catches."),
+        ("manticore_mending_vest", "Manticore Mending Vest", "chest", "armor", "leather", "healer", "Soft hide, dyed green, with a pocket for every herb."),
+        ("manticore_mending_leggings", "Manticore Mending Leggings", "legs", "armor", "leather", "spirit_healer", "Patched at the knees from a lot of kneeling beside people."),
+        ("manticore_tidemail", "Manticore-Scale Tidemail", "chest", "armor", "mail", "tide_healer", "Blue-glazed scales that run like water when you move."),
+        ("wildstalker_jerkin", "Manticore Wildstalker Jerkin", "chest", "armor", "leather", "wildheart", "For the ones who fight with a blade in one hand and a spell in the other."),
+        ("wildstalker_leggings", "Manticore Wildstalker Leggings", "legs", "armor", "leather", "wildheart", "Fur-lined, spell-stitched, and quiet in long grass."),
+        ("huntsmans_vest", "Manticore-Scale Huntsman's Vest", "chest", "armor", "mail", "hunter", "Scale on the front, pockets on the back, a quiver hook on the side."),
+        ("brutes_harness", "Manticore Brute's Harness", "chest", "armor", "leather", "bruiser", "More strap than shirt, and the straps are doing a lot of work."),
+        ("brutes_leggings", "Manticore Brute's Leggings", "legs", "armor", "leather", "bruiser", "Thick enough to kick through a door. Several doors."),
     ],
     "blacksmithing": [
         ("frostforged_helm", "Frostforged Helm", "head", "armor", "plate", "tank", "Frostforged silver keeps its edge in the cold and its shape in the fire."),
@@ -104,6 +116,15 @@ BLUES = {
         ("frostforged_longsword", "Frostforged Longsword", "main_hand", "weapon", "sword_1h", "strength_crit", "Balanced on a single finger, and fond of throats."),
         ("frostforged_bulwark", "Frostforged Bulwark", "off_hand", "weapon", "shield", "shield_tank", "Frost creeps across its face when something hits it."),
         ("frostforged_hammer", "Frostforged Hammer", "main_hand", "weapon", "mace_1h", "plate_healer", "A healer's hammer. It still breaks things."),
+        # "a little bit for most classes" (Kyle, 18 Nov 2026): the strength-and-intellect plate wearers, the plate
+        # healers and the one-handed agility fighters
+        ("crusader_helm", "Frostforged Crusader Helm", "head", "armor", "plate", "crusader", "Worn by the ones who swing first and pray after."),
+        ("crusader_breastplate", "Frostforged Crusader Breastplate", "chest", "armor", "plate", "earthen", "A sun is hammered into the chest. It catches every torch."),
+        ("crusader_legplates", "Frostforged Crusader Legplates", "legs", "armor", "plate", "crusader", "Made for kneeling at an altar and getting up swinging."),
+        ("frostforged_warmace", "Frostforged Warmace", "main_hand", "weapon", "mace_1h", "crusader", "A mace for a holy warrior. The flanges are blessed. Mostly."),
+        ("lightbringer_mantle", "Frostforged Lightbringer Mantle", "shoulder", "armor", "plate", "plate_healer", "Silver suns on each shoulder, cold to the touch and warm to the eye."),
+        ("lightbringer_chestguard", "Frostforged Lightbringer Chestguard", "chest", "armor", "plate", "plate_healer", "Heavy enough to stand in front of a friend and heal them anyway."),
+        ("frostforged_saber", "Frostforged Saber", "main_hand", "weapon", "sword_1h", "agility", "Light, curved and quick. It finishes the sentence for you."),
     ],
     "woodworking": [
         ("voidwood_staff", "Voidwood Staff", "main_hand", "weapon", "staff", "caster", "Voidwood grows towards the dark. A caster can feel it pulling."),
@@ -111,6 +132,8 @@ BLUES = {
         ("voidwood_codex", "Voidwood Codex", "off_hand", "weapon", "tome", "healer", "Its pages are the colour of a moonless night, and the words glow."),
         ("voidwood_wand", "Voidwood Wand", "ranged", "weapon", "wand", "caster_crit", "Point it at something you dislike."),
         ("voidwood_totem", "Voidwood Totem", "ranged", "weapon", "totem", "storm", "Carved with four faces. The fifth carved itself."),
+        ("voidwood_libram", "Voidwood Libram", "ranged", "weapon", "libram", "crusader", "A book of oaths, bound in wood that never warms."),
+        ("voidwood_idol", "Voidwood Idol", "ranged", "weapon", "idol", "healer", "A little carved bear, sleeping. It wakes when someone needs it."),
     ],
     "jewelcrafting": [
         ("glacier_ring", "Glacier Sapphire Ring", "ring", "armor", None, "caster", "The sapphire is cold enough to fog the glass it's kept under."),
@@ -122,6 +145,7 @@ BLUES = {
         ("frostforged_rifle", "Frostforged Rifle", "ranged", "weapon", "gun", "hunter", "Cold barrel, hot shot. The goblins call it balance."),
         ("spellsight_goggles", "Frostforged Spellsight Goggles", "head", "armor", "cloth", "caster_crit", "See the weave of a spell, and where to pull it."),
         ("scout_goggles", "Frostforged Scout Goggles", "head", "armor", "leather", "hunter", "Twelve lenses, one of which is pointing the right way."),
+        ("frostforged_crossbow", "Frostforged Crossbow", "ranged", "weapon", "crossbow", "agility", "Wind it, aim it, and let the frost do the rest."),
     ],
 }
 EPICS = {
@@ -136,12 +160,18 @@ EPICS = {
         ("chimera_leggings", "Chimera Hide Leggings", "legs", "armor", "leather", "feral", "Built for a hunter who's half beast already."),
         ("chimera_hauberk", "Chimera-Scale Hauberk", "chest", "armor", "mail", "hunter_crit", "Every scale was taken from a chimera that wanted it back."),
         ("chimera_legguards", "Chimera-Scale Legguards", "legs", "armor", "mail", "mail_caster", "Cool as river stone, warm when it counts."),
+        ("chimera_scale_helm", "Chimera-Scale Helm", "head", "armor", "mail", "agility", "A crest of chimera spines, and a face plate with three expressions."),
+        ("chimera_mending_robe", "Chimera Mending Robe", "chest", "armor", "leather", "high_healer", "Three hides, three colours, one very calm healer inside."),
+        ("chimera_wildstalker_tunic", "Chimera Wildstalker Tunic", "chest", "armor", "leather", "wildheart", "Half beast, half spell, all of it pointed at someone."),
     ],
     "blacksmithing": [
         ("sylvanite_warhelm", "Sylvanite Warhelm", "head", "armor", "plate", "tank", "Sylvanite rings like a bell when it's struck, so you always know who's hitting you."),
         ("sylvanite_breastplate", "Sylvanite Breastplate", "chest", "armor", "plate", "strength", "Green-silver, light as oak, harder than the anvil it was made on."),
         ("sylvanite_greataxe", "Sylvanite Greataxe", "main_hand", "weapon", "axe_2h", "strength_crit", "It chops through the first thing and keeps going out of politeness."),
         ("sylvanite_aegis", "Sylvanite Aegis", "off_hand", "weapon", "shield", "shield_tank", "Engraved with every name it's protected. There's room for more."),
+        ("sylvanite_bastion_legplates", "Sylvanite Bastion Legplates", "legs", "armor", "plate", "earthen", "Holy words run down each leg. The plate stands up straighter for them."),
+        ("sylvanite_crusaders_hammer", "Sylvanite Crusader's Hammer", "main_hand", "weapon", "mace_1h", "crusader", "Light in the hand, terrible on the landing."),
+        ("sylvanite_mace_of_mending", "Sylvanite Mace of Mending", "main_hand", "weapon", "mace_1h", "high_healer", "Its head is a green-silver sun. It shines brightest over the wounded."),
     ],
     "woodworking": [
         ("dreamwillow_greatstaff", "Dreamwillow Greatstaff", "main_hand", "weapon", "staff", "high_healer", "Dreamwillow only grows where someone once slept well. It wants to help."),

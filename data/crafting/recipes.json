@@ -13481,7 +13481,7 @@
               "sell_price": 33733,
               "flavor_text": "Chronoweave is spun from cloth that was in two places at once. The cowl still is, slightly.",
               "identity": "arcane_crit",
-              "icon_id": "gear_inv_helmet_36"
+              "icon_id": "gear_m60_chronoweave_cowl"
             }
           }
         },
@@ -27670,6 +27670,114 @@
               "block_value": 0
             }
           }
+        },
+        "m60_voidwood_libram": {
+          "name": "Voidwood Libram",
+          "inputs": {
+            "plank_voidwood": 7,
+            "fiber_warded": 1,
+            "stick_ironbound": 1,
+            "resin": 1
+          },
+          "skill_required": 310,
+          "skill_range": [
+            313,
+            318,
+            323,
+            328
+          ],
+          "source": "trainer",
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "item_level": 66,
+            "rarity": "rare",
+            "required_level": 60,
+            "stat_template": "str_int_hybrid",
+            "material_tier": "voidwood",
+            "fixed_item_level": true,
+            "weapon_type": "libram",
+            "item": {
+              "name": "Voidwood Libram",
+              "slot": "ranged",
+              "item_level": 66,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "libram",
+              "stat_template": "str_int_hybrid",
+              "primary_stats": {
+                "strength": 10,
+                "intellect": 10
+              },
+              "secondary_stats": {
+                "attack_power": 26
+              },
+              "armor_value": 0,
+              "required_level": 60,
+              "sell_price": 18279,
+              "flavor_text": "A book of oaths, bound in wood that never warms.",
+              "identity": "crusader",
+              "icon_id": "gear_inv_libram_1",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 0
+            }
+          }
+        },
+        "m60_voidwood_idol": {
+          "name": "Voidwood Idol",
+          "inputs": {
+            "plank_voidwood": 7,
+            "fiber_warded": 1,
+            "stick_ironbound": 1,
+            "resin": 1
+          },
+          "skill_required": 312,
+          "skill_range": [
+            315,
+            320,
+            325,
+            330
+          ],
+          "source": "trainer",
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "item_level": 66,
+            "rarity": "rare",
+            "required_level": 60,
+            "stat_template": "spi_healer",
+            "material_tier": "voidwood",
+            "fixed_item_level": true,
+            "weapon_type": "idol",
+            "item": {
+              "name": "Voidwood Idol",
+              "slot": "ranged",
+              "item_level": 66,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "idol",
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 8,
+                "intellect": 6
+              },
+              "secondary_stats": {
+                "healing_power": 34
+              },
+              "armor_value": 0,
+              "required_level": 60,
+              "sell_price": 18279,
+              "flavor_text": "A little carved bear, sleeping. It wakes when someone needs it.",
+              "identity": "healer",
+              "icon_id": "gear_inv_idol_3",
+              "weapon_damage_min": 0,
+              "weapon_damage_max": 0,
+              "attack_speed": 0.0,
+              "block_value": 0
+            }
+          }
         }
       }
     },
@@ -35304,7 +35412,7 @@
               "sell_price": 18279,
               "flavor_text": "See the weave of a spell, and where to pull it.",
               "identity": "caster_crit",
-              "icon_id": "gear_inv_helmet_06"
+              "icon_id": "gear_inv_helmet_53"
             }
           }
         },
@@ -35352,7 +35460,7 @@
               "sell_price": 18279,
               "flavor_text": "Twelve lenses, one of which is pointing the right way.",
               "identity": "hunter",
-              "icon_id": "gear_inv_helmet_61"
+              "icon_id": "gear_inv_helmet_06"
             }
           }
         },
@@ -35457,6 +35565,58 @@
               "flavor_text": "The lenses spin on their own. Don't ask what they're looking for.",
               "identity": "hunter",
               "icon_id": "gear_m60_sylvanite_gyro_goggles"
+            }
+          }
+        },
+        "m60_frostforged_crossbow": {
+          "name": "Frostforged Crossbow",
+          "inputs": {
+            "bar_frostforged_silver": 6,
+            "part_gear_assembly": 1
+          },
+          "skill_required": 306,
+          "skill_range": [
+            309,
+            314,
+            319,
+            324
+          ],
+          "source": "trainer",
+          "output": {
+            "kind": "weapon",
+            "slot": "ranged",
+            "item_level": 66,
+            "rarity": "rare",
+            "required_level": 60,
+            "stat_template": "agi_physical",
+            "material_tier": "frostforged_silver",
+            "fixed_item_level": true,
+            "weapon_type": "crossbow",
+            "item": {
+              "name": "Frostforged Crossbow",
+              "slot": "ranged",
+              "item_level": 66,
+              "rarity": "rare",
+              "armor_type": null,
+              "weapon_type": "crossbow",
+              "stat_template": "agi_physical",
+              "primary_stats": {
+                "agility": 11,
+                "stamina": 6
+              },
+              "secondary_stats": {
+                "attack_power": 28
+              },
+              "armor_value": 0,
+              "required_level": 60,
+              "sell_price": 18279,
+              "flavor_text": "Wind it, aim it, and let the frost do the rest.",
+              "identity": "agility",
+              "icon_id": "gear_inv_weapon_crossbow_08",
+              "weapon_damage_min": 97,
+              "weapon_damage_max": 131,
+              "attack_speed": 2.4,
+              "block_value": 0
             }
           }
         }

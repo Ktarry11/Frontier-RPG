@@ -33,7 +33,7 @@ up to the trade's own cap (Master).
 The raw ten come from heroics for now, and from the level-60 zones once those are built. Smelting, planking and gem
 cutting already existed; the two bolts are new.
 
-## The gear (67 recipes, `tools/build_master_crafting.py`, ids `m60_`)
+## The gear (94 recipes, `tools/build_master_crafting.py`, ids `m60_`)
 
 - **Blues: item level 66, worn at 60, level with a heroic's drops.** Taught by the trainer from skill 300 to 318.
   - Tailoring: a nine-piece Dreamsilk caster and healer set.
@@ -50,6 +50,23 @@ cutting already existed; the two bolts are new.
   - Woodworking: Dreamwillow Greatstaff and Warbow.
   - Jewelcrafting: Sylvanite Signet of Frost and Sylvan Emerald Torc.
   - Engineering: Sylvanite Hand Cannon and Gyro-Goggles.
+
+**A little for every class** (Kyle: "We can have a little bit for most classes"). A second pass added 27 pieces for
+the specs that got little or nothing:
+- the strength-and-intellect plate wearers (Paladin, Cultist, Primalist, Sun Cleric and Knight of Xoroth tank specs):
+  a Frostforged Crusader helm, breastplate and legplates and a warmace, plus Sylvanite Bastion Legplates and a
+  Crusader's Hammer at epic;
+- the plate healers: a Lightbringer mantle and chestguard, and a Sylvanite Mace of Mending;
+- the mail agility fighters (Hunter, Reaper, Witch Hunter, Venomancer, enhancement Shaman): a Manticore-Scale
+  brigandine, spaulders and bracers, and a Chimera-Scale Helm;
+- the leather and mail healers: Mending vest and leggings, a Tidemail chest, and a Chimera Mending Robe;
+- the agility-and-intellect leather wearers (Felsworn, Witch Doctor): a Wildstalker jerkin and leggings, and a
+  Chimera Wildstalker Tunic;
+- Barbarians: a Brute's harness and leggings;
+- a saber, a crossbow, a libram and an idol.
+
+Every one of the 97 specs can now use at least 3 Master pieces, and 91 of them 5 or more (`qa_master_crafting`
+check 7).
 
 Every piece is authored like every other crafted item (identity, its own icon, the crafted-gear audit), then put on
 the item curve (1.0). That's the same strength as a heroic drop of its level: competitive, never above or below.

@@ -67,8 +67,8 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
   from its last boss.
 - **Stage 3:** one heroic-only trick per boss; now and then a heroic-only boss ("for spice").
 - **Master crafting, more of it** (built 18 Nov 2026, `docs/master_crafting.md`): the 71 showpieces wait for the raid's
-  materials; epic cloaks, belts and bracers; Alchemy and Enchanting at Master. **Art:** 13 Master epics wear a
-  recoloured stand-in icon and 16 Master blues share one (the installed art for rings, necks, shields, guns, goggles
+  materials; epic cloaks, belts and bracers; Alchemy and Enchanting at Master. **Art:** some Master epics wear a
+  recoloured stand-in icon and about 40 Master blues share one (the installed art for rings, necks, shields, guns, goggles
   and some plate ran out; Kyle's WoW pack isn't in this workspace).
 - **Later:** the skull zone (68) and frontier zone (69) heroics; tuning the elite multipliers (health x1.3, damage
   x1.15) once played.

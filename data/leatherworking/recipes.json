@@ -11338,7 +11338,7 @@
           "sell_price": 22849,
           "flavor_text": "Thick at the chest, loose at the arms, built for something with claws.",
           "identity": "feral",
-          "icon_id": "gear_inv_chest_leather_02"
+          "icon_id": "gear_inv_chest_leather_09"
         }
       }
     },
@@ -11530,7 +11530,7 @@
           "sell_price": 22849,
           "flavor_text": "Creased at the knee like it's ready to pounce.",
           "identity": "feral",
-          "icon_id": "gear_inv_pants_09"
+          "icon_id": "gear_inv_pants_12"
         }
       }
     },
@@ -11674,7 +11674,7 @@
           "sell_price": 22849,
           "flavor_text": "Heavier than it looks, lighter than it was on the manticore.",
           "identity": "mail_caster",
-          "icon_id": "gear_inv_chest_chain_10"
+          "icon_id": "gear_inv_chest_chain_04"
         }
       }
     },
@@ -12066,6 +12066,683 @@
           "flavor_text": "Cool as river stone, warm when it counts.",
           "identity": "mail_caster",
           "icon_id": "gear_m60_chimera_scale_legguards"
+        }
+      }
+    },
+    "m60_manticore_brigandine": {
+      "name": "Manticore-Scale Brigandine",
+      "inputs": {
+        "leather_manticore": 10,
+        "thread_silken": 2
+      },
+      "skill_required": 318,
+      "skill_range": [
+        321,
+        326,
+        331,
+        336
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "agi_physical",
+        "material_tier": "manticore",
+        "fixed_item_level": true,
+        "armor_type": "mail",
+        "item": {
+          "name": "Manticore-Scale Brigandine",
+          "slot": "chest",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 18,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 46
+          },
+          "armor_value": 346,
+          "required_level": 60,
+          "sell_price": 22849,
+          "flavor_text": "Scales riveted over leather. Quiet enough, tough enough.",
+          "identity": "agility",
+          "icon_id": "gear_inv_chest_chain_10"
+        }
+      }
+    },
+    "m60_manticore_scale_spaulders": {
+      "name": "Manticore-Scale Spaulders",
+      "inputs": {
+        "leather_manticore": 7,
+        "thread_silken": 1
+      },
+      "skill_required": 318,
+      "skill_range": [
+        321,
+        326,
+        331,
+        336
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "armor",
+        "slot": "shoulder",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "agi_physical",
+        "material_tier": "manticore",
+        "fixed_item_level": true,
+        "armor_type": "mail",
+        "item": {
+          "name": "Manticore-Scale Spaulders",
+          "slot": "shoulder",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 15,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "attack_power": 39
+          },
+          "armor_value": 311,
+          "required_level": 60,
+          "sell_price": 18279,
+          "flavor_text": "The mane scales stand up when you're angry. So do you.",
+          "identity": "agility",
+          "icon_id": "gear_inv_shoulder_31"
+        }
+      }
+    },
+    "m60_manticore_scale_bracers": {
+      "name": "Manticore-Scale Bracers",
+      "inputs": {
+        "leather_manticore": 4,
+        "thread_silken": 1
+      },
+      "skill_required": 318,
+      "skill_range": [
+        321,
+        326,
+        331,
+        336
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "agi_physical",
+        "material_tier": "manticore",
+        "fixed_item_level": true,
+        "armor_type": "mail",
+        "item": {
+          "name": "Manticore-Scale Bracers",
+          "slot": "wrist",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 10
+          },
+          "secondary_stats": {
+            "attack_power": 27,
+            "crit_chance_physical": 10
+          },
+          "armor_value": 430,
+          "required_level": 60,
+          "sell_price": 11424,
+          "flavor_text": "Snug at the wrist, so the string never catches.",
+          "identity": "hunter_crit",
+          "icon_id": "gear_inv_bracer_09"
+        }
+      }
+    },
+    "m60_manticore_mending_vest": {
+      "name": "Manticore Mending Vest",
+      "inputs": {
+        "leather_manticore": 10,
+        "thread_silken": 2
+      },
+      "skill_required": 318,
+      "skill_range": [
+        321,
+        326,
+        331,
+        336
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "spi_healer",
+        "material_tier": "manticore",
+        "fixed_item_level": true,
+        "armor_type": "leather",
+        "item": {
+          "name": "Manticore Mending Vest",
+          "slot": "chest",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 13,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "healing_power": 54
+          },
+          "armor_value": 216,
+          "required_level": 60,
+          "sell_price": 22849,
+          "flavor_text": "Soft hide, dyed green, with a pocket for every herb.",
+          "identity": "healer",
+          "icon_id": "gear_inv_chest_leather_10"
+        }
+      }
+    },
+    "m60_manticore_mending_leggings": {
+      "name": "Manticore Mending Leggings",
+      "inputs": {
+        "leather_manticore": 10,
+        "thread_silken": 2
+      },
+      "skill_required": 318,
+      "skill_range": [
+        321,
+        326,
+        331,
+        336
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "spi_healer",
+        "material_tier": "manticore",
+        "fixed_item_level": true,
+        "armor_type": "leather",
+        "item": {
+          "name": "Manticore Mending Leggings",
+          "slot": "legs",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 17,
+            "intellect": 17
+          },
+          "secondary_stats": {
+            "healing_power": 45
+          },
+          "armor_value": 216,
+          "required_level": 60,
+          "sell_price": 22849,
+          "flavor_text": "Patched at the knees from a lot of kneeling beside people.",
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_pants_wolf"
+        }
+      }
+    },
+    "m60_manticore_tidemail": {
+      "name": "Manticore-Scale Tidemail",
+      "inputs": {
+        "leather_manticore": 10,
+        "thread_silken": 2
+      },
+      "skill_required": 318,
+      "skill_range": [
+        321,
+        326,
+        331,
+        336
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "spi_healer",
+        "material_tier": "manticore",
+        "fixed_item_level": true,
+        "armor_type": "mail",
+        "item": {
+          "name": "Manticore-Scale Tidemail",
+          "slot": "chest",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "healing_power": 59
+          },
+          "armor_value": 346,
+          "required_level": 60,
+          "sell_price": 22849,
+          "flavor_text": "Blue-glazed scales that run like water when you move.",
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_chest_chain_12"
+        }
+      }
+    },
+    "m60_wildstalker_jerkin": {
+      "name": "Manticore Wildstalker Jerkin",
+      "inputs": {
+        "leather_manticore": 10,
+        "thread_silken": 2
+      },
+      "skill_required": 318,
+      "skill_range": [
+        321,
+        326,
+        331,
+        336
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "agi_int_hybrid",
+        "material_tier": "manticore",
+        "fixed_item_level": true,
+        "armor_type": "leather",
+        "item": {
+          "name": "Manticore Wildstalker Jerkin",
+          "slot": "chest",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 19,
+            "intellect": 17
+          },
+          "secondary_stats": {
+            "attack_power": 39
+          },
+          "armor_value": 216,
+          "required_level": 60,
+          "sell_price": 22849,
+          "flavor_text": "For the ones who fight with a blade in one hand and a spell in the other.",
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_08"
+        }
+      }
+    },
+    "m60_wildstalker_leggings": {
+      "name": "Manticore Wildstalker Leggings",
+      "inputs": {
+        "leather_manticore": 10,
+        "thread_silken": 2
+      },
+      "skill_required": 318,
+      "skill_range": [
+        321,
+        326,
+        331,
+        336
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "agi_int_hybrid",
+        "material_tier": "manticore",
+        "fixed_item_level": true,
+        "armor_type": "leather",
+        "item": {
+          "name": "Manticore Wildstalker Leggings",
+          "slot": "legs",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 19,
+            "intellect": 17
+          },
+          "secondary_stats": {
+            "attack_power": 39
+          },
+          "armor_value": 216,
+          "required_level": 60,
+          "sell_price": 22849,
+          "flavor_text": "Fur-lined, spell-stitched, and quiet in long grass.",
+          "identity": "wildheart",
+          "icon_id": "gear_inv_pants_14"
+        }
+      }
+    },
+    "m60_huntsmans_vest": {
+      "name": "Manticore-Scale Huntsman's Vest",
+      "inputs": {
+        "leather_manticore": 10,
+        "thread_silken": 2
+      },
+      "skill_required": 318,
+      "skill_range": [
+        321,
+        326,
+        331,
+        336
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "agi_int_hybrid",
+        "material_tier": "manticore",
+        "fixed_item_level": true,
+        "armor_type": "mail",
+        "item": {
+          "name": "Manticore-Scale Huntsman's Vest",
+          "slot": "chest",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 15,
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "attack_power": 46
+          },
+          "armor_value": 346,
+          "required_level": 60,
+          "sell_price": 22849,
+          "flavor_text": "Scale on the front, pockets on the back, a quiver hook on the side.",
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_05"
+        }
+      }
+    },
+    "m60_brutes_harness": {
+      "name": "Manticore Brute's Harness",
+      "inputs": {
+        "leather_manticore": 10,
+        "thread_silken": 2
+      },
+      "skill_required": 318,
+      "skill_range": [
+        321,
+        326,
+        331,
+        336
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "str_physical",
+        "material_tier": "manticore",
+        "fixed_item_level": true,
+        "armor_type": "leather",
+        "item": {
+          "name": "Manticore Brute's Harness",
+          "slot": "chest",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 18,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 46
+          },
+          "armor_value": 237,
+          "required_level": 60,
+          "sell_price": 22849,
+          "flavor_text": "More strap than shirt, and the straps are doing a lot of work.",
+          "identity": "bruiser",
+          "icon_id": "gear_inv_chest_leather_02"
+        }
+      }
+    },
+    "m60_brutes_leggings": {
+      "name": "Manticore Brute's Leggings",
+      "inputs": {
+        "leather_manticore": 10,
+        "thread_silken": 2
+      },
+      "skill_required": 318,
+      "skill_range": [
+        321,
+        326,
+        331,
+        336
+      ],
+      "source": "trainer",
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "item_level": 66,
+        "rarity": "rare",
+        "required_level": 60,
+        "stat_template": "str_physical",
+        "material_tier": "manticore",
+        "fixed_item_level": true,
+        "armor_type": "leather",
+        "item": {
+          "name": "Manticore Brute's Leggings",
+          "slot": "legs",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 18,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 46
+          },
+          "armor_value": 216,
+          "required_level": 60,
+          "sell_price": 22849,
+          "flavor_text": "Thick enough to kick through a door. Several doors.",
+          "identity": "bruiser",
+          "icon_id": "gear_inv_pants_09"
+        }
+      }
+    },
+    "m60_chimera_scale_helm": {
+      "name": "Chimera-Scale Helm",
+      "inputs": {
+        "leather_chimera": 10,
+        "leather_manticore": 3,
+        "thread_silken": 2,
+        "gem_sylvan_emerald": 1
+      },
+      "skill_required": 325,
+      "skill_range": [
+        328,
+        333,
+        338,
+        343
+      ],
+      "source": "heroic",
+      "output": {
+        "kind": "armor",
+        "slot": "head",
+        "item_level": 68,
+        "rarity": "epic",
+        "required_level": 60,
+        "stat_template": "agi_physical",
+        "material_tier": "chimera",
+        "fixed_item_level": true,
+        "armor_type": "mail",
+        "item": {
+          "name": "Chimera-Scale Helm",
+          "slot": "head",
+          "item_level": 68,
+          "rarity": "epic",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 21,
+            "stamina": 12
+          },
+          "secondary_stats": {
+            "attack_power": 55
+          },
+          "armor_value": 407,
+          "required_level": 60,
+          "sell_price": 33733,
+          "flavor_text": "A crest of chimera spines, and a face plate with three expressions.",
+          "identity": "agility",
+          "icon_id": "gear_inv_helmet_36"
+        }
+      }
+    },
+    "m60_chimera_mending_robe": {
+      "name": "Chimera Mending Robe",
+      "inputs": {
+        "leather_chimera": 12,
+        "leather_manticore": 4,
+        "thread_silken": 2,
+        "gem_sylvan_emerald": 1
+      },
+      "skill_required": 325,
+      "skill_range": [
+        328,
+        333,
+        338,
+        343
+      ],
+      "source": "heroic",
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "item_level": 68,
+        "rarity": "epic",
+        "required_level": 60,
+        "stat_template": "spi_healer",
+        "material_tier": "chimera",
+        "fixed_item_level": true,
+        "armor_type": "leather",
+        "item": {
+          "name": "Chimera Mending Robe",
+          "slot": "chest",
+          "item_level": 68,
+          "rarity": "epic",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 17,
+            "spirit": 14
+          },
+          "secondary_stats": {
+            "healing_power": 77
+          },
+          "armor_value": 308,
+          "required_level": 60,
+          "sell_price": 42167,
+          "flavor_text": "Three hides, three colours, one very calm healer inside.",
+          "identity": "high_healer",
+          "icon_id": "gear_m60_chimera_mending_robe"
+        }
+      }
+    },
+    "m60_chimera_wildstalker_tunic": {
+      "name": "Chimera Wildstalker Tunic",
+      "inputs": {
+        "leather_chimera": 12,
+        "leather_manticore": 4,
+        "thread_silken": 2,
+        "gem_sylvan_emerald": 1
+      },
+      "skill_required": 325,
+      "skill_range": [
+        328,
+        333,
+        338,
+        343
+      ],
+      "source": "heroic",
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "item_level": 68,
+        "rarity": "epic",
+        "required_level": 60,
+        "stat_template": "agi_int_hybrid",
+        "material_tier": "chimera",
+        "fixed_item_level": true,
+        "armor_type": "leather",
+        "item": {
+          "name": "Chimera Wildstalker Tunic",
+          "slot": "chest",
+          "item_level": 68,
+          "rarity": "epic",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 27,
+            "intellect": 24
+          },
+          "secondary_stats": {
+            "attack_power": 55
+          },
+          "armor_value": 288,
+          "required_level": 60,
+          "sell_price": 42167,
+          "flavor_text": "Half beast, half spell, all of it pointed at someone.",
+          "identity": "wildheart",
+          "icon_id": "gear_m60_chimera_wildstalker_tunic"
         }
       }
     }
