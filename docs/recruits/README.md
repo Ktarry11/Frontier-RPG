@@ -134,6 +134,47 @@ phrases, and any opening or four-word run shared by too many recruits. `tools/qa
 campaign and steady crews, checks chemistry, hysteresis, neighbours, rivals and saves, and `--pair=a,b` prints one
 pair's whole arc in order.
 
+## Wave 4: Sworn (done 19 Nov 2026)
+
+Kyle's call: "These character traits should be slightly stronger than the other ones. They still will get 5 ranks
+when appropriate (lvl 1,15,30,45, and 60)."
+
+**What it is.** Every recruit bar Asher gets one Sworn skill, unlocked the moment their bond reaches Sworn: 94 actives
+and 4 passives (Ama, Amber, Anjali and Orlando). It comes from the skill idea in their own profile, and its `from`
+field quotes it. It sits on the Core tab with their kit, and the moment they swear the log says so ("[Name has a new
+Sworn skill: X.]"). It's taken away again if the bond ever drops below Sworn, and given back on load.
+
+**How strong.** A damage, heal or shield Sworn skill is sized by the character traits' own rank rule, 15% bigger
+(`SWORN = 1.15` in `tools/build_sworn_skills.py`), and gets the same five ranks at 1, 15, 30, 45 and 60 (43 of them
+grow). Skills built on a percentage (a buff, a debuff, a redirect) keep one rank. A flurry that strikes several times
+is sized so all of its hits together come to about a tenth over one ordinary hit of its size.
+
+**Cooldowns.** 13 to 15 turns, never "once a fight": 18 at 13, 54 at 14, 22 at 15. The strongest (a whole-party wall,
+a revive, freezing every enemy) sit at 15. Where a profile's idea said "once a fight", it became 15 turns.
+
+**Where the build differs from the profile idea.** Sebastián's and Dan's ideas were passives; both are actives, because
+a party-wide effect that's always on was stronger than anything else in Wave 4.
+
+**What the engine learned for it.** Party rewind; riders that put mods on every enemy, on the one enemy hit, on every
+ally or on the caster after a cast; cleansing on the way in (and stripping an enemy's protections); the caster acting
+again at once; aiming at whichever enemy acts next, is biggest or is most dangerous; a perfect riposte (and, at 0%, a
+hit simply stopped); a cap on how much one hit can take; a floor that keeps holding; damage spread evenly across the
+party; a share that only takes spells; heals that leave a slow growth; DoTs whose ticks heal the party; a flurry; the
+party's health shared out evenly; a raised pet that's laid to rest after a few turns; and a buff the whole party gets
+as a fight opens.
+
+Fixed on the way, in things that already shipped: a kill's extra turn (Emre) and Camille-style "act again" never
+actually gave the turn, because the turn was spent straight after; a mark that says the party can't miss only helped
+whoever set it; "gives back resource" only ever gave mana; and a "can't be brought below 5%" floor only caught the
+first blow.
+
+**Checks.** `tools/build_sworn_skills.py --strict` builds `data/npcs/sworn_skills.json` from
+`tools/wave4/sworn_skills.json` and fails on any key the engine doesn't read (including inside `damage_share`,
+`death_prevent` and the rest), a cooldown outside 12 to 15, "once a fight", a missing quote, dashes, or a description
+that names a growing number or states none. `tools/qa_sworn_skills.py` checks every last rank is clearly above the
+trait rule, that nothing exists until the bond is Sworn, the swear-time log line and the reload, and then casts every
+one of the 98 in a real fight and measures what it does.
+
 ## Order and progress
 
 The pilot three first, then everyone else from the lowest level up, unless Kyle picks someone (he picked Freja
