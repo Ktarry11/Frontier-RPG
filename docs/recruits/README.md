@@ -128,9 +128,9 @@ fourth).
 | 56 | Alonso Vega | Pyromancer 35 | Central Stranglethorn | `alonso_vega.md` | Sad | Draft 1 |
 | 57 | Vuk Jovanović | Knight of Xoroth 35 | Rocky Pass | `vuk_jovanovic.md` | Happy | Draft 1 |
 | 58 | Gunnar Sigurðsson | Barbarian 35 | Hammerfall | `gunnar_sigurdsson.md` | Happy | Draft 1 |
-| 59 | Kourosh Behzadi | Mage 36 | The Crystalline Underdark |  |  |  |
-| 60 | Héctor Salinas | Witch Doctor 36 | Gurbashi Arena |  |  |  |
-| 61 | Ziad Haddad | Felsworn 38 | Southern Stranglethorn |  |  |  |
+| 59 | Kourosh Behzadi | Mage 36 | The Crystalline Underdark | `kourosh_behzadi.md` | Still unknown | Draft 1 |
+| 60 | Héctor Salinas | Witch Doctor 36 | Gurbashi Arena | `hector_salinas.md` | Happy | Draft 1 |
+| 61 | Ziad Haddad | Felsworn 38 | Southern Stranglethorn | `ziad_haddad.md` | Sad | Draft 1 |
 | 62 | Ratih Pranoto | Ranger 38 | The Shimmering Flats |  |  |  |
 | 63 | Fiona Strachan | Witch Hunter 39 | Southern Stranglethorn |  |  |  |
 | 64 | Khalid Al Suwaidi | Hunter 39 | Saltwheel |  |  |  |
