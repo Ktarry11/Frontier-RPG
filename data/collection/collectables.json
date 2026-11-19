@@ -15247,6 +15247,57 @@
       "needs_art": false,
       "found_only": true,
       "source": "sworn:sebastian_bloodmage"
+    },
+    {
+      "id": "keepsake_marco_paladin",
+      "name": "The Key He Was Cutting",
+      "kind": "keepsake",
+      "price": 0,
+      "rarity": "epic",
+      "blurb": "A half-cut brass key from Marco's shop in Naples, still in his hand when he landed. It doesn't open anything. He says he's finished it now, in his way.",
+      "effect": {
+        "recruit_id": "marco_paladin",
+        "from": "Marco Rossi"
+      },
+      "icon_id": "col_satchel_bank",
+      "art": "col_keepsake_marco",
+      "needs_art": false,
+      "found_only": true,
+      "source": "sworn:marco_paladin"
+    },
+    {
+      "id": "keepsake_sophia_mage",
+      "name": "Sophia's Parliament Pass",
+      "kind": "keepsake",
+      "price": 0,
+      "rarity": "epic",
+      "blurb": "Sophia's European Parliament pass on its blue lanyard, the photo faded. It got her into the booth every morning for fourteen years. She doesn't need to prove who she is any more.",
+      "effect": {
+        "recruit_id": "sophia_mage",
+        "from": "Sophia Dias"
+      },
+      "icon_id": "col_book_master",
+      "art": "col_keepsake_sophia",
+      "needs_art": false,
+      "found_only": true,
+      "source": "sworn:sophia_mage"
+    },
+    {
+      "id": "keepsake_carolina_shaman",
+      "name": "Seu Raimundo's Compass",
+      "kind": "keepsake",
+      "price": 0,
+      "rarity": "epic",
+      "blurb": "Carolina's grandfather's brass compass, carried on the Amazon every day and never used. She doesn't need north any more. She knows which way is downstream.",
+      "effect": {
+        "recruit_id": "carolina_shaman",
+        "from": "Carolina Santos"
+      },
+      "icon_id": "col_feather_kalimdor",
+      "art": "col_keepsake_carolina",
+      "needs_art": false,
+      "found_only": true,
+      "source": "sworn:carolina_shaman"
     }
   ]
 }

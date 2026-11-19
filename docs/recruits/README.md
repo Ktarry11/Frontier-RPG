@@ -55,7 +55,7 @@ big difference."
 So about 7 or 8 of the 74 men, and 3 of the 25 women. It comes up the way anyone's partner comes up: a name, a past,
 somebody they miss. It's never their story or their personality.
 
-Kept count here as we go: men gay or bisexual: Tarek (gay), Sondre (gay), Sebastián (bisexual). Women: none yet.
+Kept count here as we go: men gay or bisexual: Tarek (gay), Sondre (gay), Sebastián (bisexual). Women: Carolina (lesbian).
 
 ## Order and progress
 
@@ -74,9 +74,9 @@ fourth).
 | 8 | Marcus Okafor | Stormbringer 8 | Durotar | `marcus_okafor.md` | Sad | Draft 1 |
 | 9 | Sondre Haugen | Stormbringer 8 | Scarlet Crypt | `sondre_haugen.md` | Sad | Draft 1 |
 | 10 | Sebastián Cruz | Bloodmage 8 | Western Tirisfal | `sebastian_cruz.md` | Still unknown | Draft 1 |
-| 11 | Marco Rossi | Paladin 10 | Undercity |  |  |  |
-| 12 | Sophia Dias | Mage 11 | Undercity |  |  |  |
-| 13 | Carolina Santos | Shaman 11 | Echo Isles |  |  |  |
+| 11 | Marco Rossi | Paladin 10 | Undercity | `marco_rossi.md` | Happy | Draft 1 |
+| 12 | Sophia Dias | Mage 11 | Undercity | `sophia_dias.md` | Sad | Draft 1 |
+| 13 | Carolina Santos | Shaman 11 | Echo Isles | `carolina_santos.md` | Happy | Draft 1 |
 | 14 | Ryan Murphy | Warlock 12 | Echo Isles |  |  |  |
 | 15 | Hana Tamihana | Shaman 12 | Western Hillsbrad |  |  |  |
 | 16 | Esteban Ruiz | Bloodmage 12 | Orgrimmar |  |  |  |
