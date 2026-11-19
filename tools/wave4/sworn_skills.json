@@ -1753,5 +1753,283 @@
    "taunts_all": true,
    "absorb": 120
   }
+ },
+ "osvaldo_warlock": {
+  "from": "Wave 4: 'what he resolves is the emptiness. ... he plays one long note, and the party's spells hit harder until it fades.'",
+  "ability": {
+   "ability_id": "personal_sworn_osvaldo_one_long_note",
+   "name": "One Long Note",
+   "engine": "live: all_enemies debuff magic_damage_taken_pct +35 for 4 turns (every school but physical)",
+   "effect_type": "debuff",
+   "target_type": "all_enemies",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 4,
+   "is_instant": true,
+   "stat_mods": {
+    "magic_damage_taken_pct": 35
+   },
+   "description": "Osvaldo plays one long note and holds it. For 4 turns every enemy takes 35% more damage from spells, whoever casts them.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 35,
+     "effect_value": 100
+    }
+   ]
+  }
+ },
+ "bashir_witchhunter": {
+  "from": "Wave 4: 'what he resolves is the unfinished sentence. ... he marks a line, and corrupted enemies that cross it take heavy holy damage.'",
+  "ability": {
+   "ability_id": "personal_sworn_bashir_the_line_holds",
+   "name": "The Line Holds",
+   "engine": "live: trap on one enemy row, holy; creature_bonus +100% against undead and demons",
+   "effect_type": "debuff",
+   "target_type": "enemy_aoe",
+   "resource_type": "focus",
+   "cooldown": 13,
+   "duration": 4,
+   "is_instant": true,
+   "stat_mods": {},
+   "description": "Bashir snaps a chalk line across one enemy row. The first enemy in it to act takes heavy holy damage, and an undead or demon takes double.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 160
+    }
+   ],
+   "trap": {
+    "school": "holy"
+   },
+   "creature_bonus": {
+    "types": [
+     "undead",
+     "demon"
+    ],
+    "pct": 100
+   }
+  }
+ },
+ "pieter_guardian": {
+  "from": "Wave 4: 'what he resolves is the tenth man. ... he puts up a barrier, and for a few turns no ally can take more than a set amount of damage from one hit.'",
+  "ability": {
+   "ability_id": "personal_sworn_pieter_the_tenth_man",
+   "name": "Nobody Is the Tenth Man",
+   "engine": "live: party max_hit_pct 15 for 3 turns (no single hit takes more than 15% of maximum health)",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "energy",
+   "cooldown": 15,
+   "duration": 3,
+   "is_instant": true,
+   "stat_mods": {
+    "max_hit_pct": 15
+   },
+   "description": "Pieter puts the barrier up. For 3 turns no single hit can take more than 15% of any ally's maximum health.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 35,
+     "effect_value": 100
+    }
+   ]
+  }
+ },
+ "gianluca_guardian": {
+  "from": "Wave 4: 'what he resolves is waiting for them to come back before he builds. ... he talks the enemies into fighting him, taunting every one of them, and his shield holds harder while he talks.'",
+  "ability": {
+   "ability_id": "personal_sworn_gianluca_keeps_talking",
+   "name": "Keeps Them Talking",
+   "engine": "live: self absorb renewed each turn (absorb_refreshes) and taunts_all, 3 turns",
+   "effect_type": "buff",
+   "target_type": "self",
+   "resource_type": "energy",
+   "cooldown": 14,
+   "duration": 3,
+   "is_instant": true,
+   "stat_mods": {},
+   "description": "Gianluca talks every enemy into coming at him instead. For 3 turns they fight him and nobody else, and his shield is made whole again at the start of each of his turns.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
+    }
+   ],
+   "taunts_all": true,
+   "absorb_refreshes": true,
+   "absorb": 80
+  }
+ },
+ "camila_venomancer": {
+  "from": "Wave 4: 'what she resolves is preferring scorpions to people. ... she turns every poison on the party into a heal.'",
+  "ability": {
+   "ability_id": "personal_sworn_camila_all_of_it_back",
+   "name": "All of It, Back",
+   "engine": "live: party dispel of every poison and disease, each healing for what it would still have done; heals_party_pct_max 8",
+   "effect_type": "dispel",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 13,
+   "duration": 0,
+   "is_instant": true,
+   "stat_mods": {},
+   "description": "Camila takes every poison and disease off the party, and each one heals its ally for all the damage it still had to do. Every ally is healed for 8% of their maximum on top.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 35,
+     "effect_value": 100
+    }
+   ],
+   "dispel_type": [
+    "poison",
+    "disease"
+   ],
+   "dispel_count": 9,
+   "heals_dispelled_damage": true,
+   "heals_party_pct_max": 8
+  }
+ },
+ "elias_suncleric": {
+  "from": "Wave 4: 'what he resolves is putting it off. ... he raises a wall of light in front of the party, absorbing a large amount of damage.'",
+  "ability": {
+   "ability_id": "personal_sworn_elias_not_putting_it_off",
+   "name": "Not Putting It Off",
+   "engine": "live: party absorb for 3 turns",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 3,
+   "is_instant": true,
+   "stat_mods": {},
+   "description": "Elias stops putting it off and raises the wall now. Every ally is shielded by light for 3 turns.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 45,
+     "effect_value": 100
+    }
+   ],
+   "absorb": 150
+  }
+ },
+ "kiet_rogue": {
+  "from": "Wave 4: 'what he resolves is being invisible. ... he vanishes and reappears behind the most dangerous enemy with a crippling strike.'",
+  "ability": {
+   "ability_id": "personal_sworn_kiet_out_of_nowhere",
+   "name": "Out of Nowhere",
+   "engine": "live: always_crits strike on the most dangerous enemy (auto_enemy dangerous), wipes_threat, target_mods haste -40 and damage dealt -30 for 3 turns",
+   "effect_type": "damage",
+   "target_type": "enemy",
+   "resource_type": "energy",
+   "cooldown": 14,
+   "duration": 3,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Kiet vanishes and comes out behind the most dangerous enemy with a strike that always crits. Every enemy forgets him, and for 3 turns that one acts 40% slower and deals 30% less damage.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 150
+    }
+   ],
+   "auto_enemy": "dangerous",
+   "always_crits": true,
+   "wipes_threat": true,
+   "target_mods": {
+    "haste": -40,
+    "damage_dealt_pct": -30
+   }
+  }
+ },
+ "rui_cultist": {
+  "from": "Wave 4: 'what he resolves is the thing he gave to the sea. ... a plain, clean healing tide that washes over the whole party, his own and nothing else's.'",
+  "ability": {
+   "ability_id": "personal_sworn_rui_his_own_tide",
+   "name": "His Own Tide",
+   "engine": "live: a plain party heal, no cost to Rui",
+   "effect_type": "heal",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 13,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "A plain, clean tide of Rui's own, with nothing owed for it. It heals the whole party and costs him nothing but mana.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 45,
+     "effect_value": 160
+    }
+   ]
+  }
+ },
+ "stelios_necromancer": {
+  "from": "Wave 4: 'what he resolves is the blank page. ... he raises a fallen enemy to fight for the party for a few turns, and lays it to rest properly afterwards.'",
+  "ability": {
+   "ability_id": "personal_sworn_stelios_borrowed_properly",
+   "name": "Borrowed, and Given Back",
+   "engine": "live: summon_pet abomination as an extra pet, needs a fallen enemy, laid to rest after 5 of its turns (pet_lifespan)",
+   "effect_type": "summon_pet",
+   "target_type": "self",
+   "resource_type": "life_force",
+   "cooldown": 15,
+   "duration": 0,
+   "is_instant": true,
+   "stat_mods": {},
+   "description": "Once an enemy has fallen, Stelios raises it to fight beside the party. After 5 of its turns he lays it to rest properly.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 40,
+     "effect_value": 100
+    }
+   ],
+   "summon_pet_template": "abomination",
+   "additional_pet": true,
+   "requires_fallen_enemy": true,
+   "pet_lifespan": 5
+  }
+ },
+ "nizar_chronomancer": {
+  "from": "Wave 4: 'what he resolves is the time that wouldn't move. ... he slows every enemy for a few turns while the party acts at full speed.'",
+  "ability": {
+   "ability_id": "personal_sworn_nizar_time_for_them",
+   "name": "Time Stands Still for Them",
+   "engine": "live: all_enemies debuff haste -45 for 4 turns",
+   "effect_type": "debuff",
+   "target_type": "all_enemies",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 4,
+   "is_instant": true,
+   "stat_mods": {
+    "haste": -45
+   },
+   "description": "Nizar holds the clock still for everyone but the party. For 4 turns every enemy acts 45% slower.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 35,
+     "effect_value": 100
+    }
+   ]
+  }
  }
 }

@@ -2349,6 +2349,10 @@ class Ability:
                     kind = None
                 if kind:
                     global_key += self._talent(caster, f"{kind}_damage_pct")
+                    # the ability's own "more against these kinds" (Wave 4, Bashir's chalk line)
+                    bonus = self.creature_bonus or {}
+                    if kind in (bonus.get("types") or ()):
+                        global_key += float(bonus.get("pct", 0)) / 100.0
             if self.target_type in ("enemy_aoe", "all_enemies"):
                 global_key += self._talent(caster, "aoe_damage")
             if self.effect_type in ("dot", "spell_dot"):
@@ -2500,6 +2504,9 @@ class Ability:
         # normal restriction" talents) - checked via the same _effects()
         # a real proc reads, not a special-cased talent lookup, so any
         # future ability/talent can grant this bypass the same way.
+        if self.requires_fallen_enemy and in_combat and engine is not None:
+            if not any(not e.is_alive() for e in (getattr(engine, "enemies", None) or [])):
+                return False, f"{self.name} needs a fallen enemy. None has fallen yet."
         if self.requires_fallen_ally and in_combat and engine is not None:
             if not any(not m.is_alive() for m in (getattr(caster, "_fight_party", None) or [])):
                 return False, f"{self.name} is for when somebody has fallen. Nobody has."
@@ -3006,6 +3013,9 @@ class Ability:
     target_mods = None                 # stat mods left on the one enemy a hostile cast hit (Eino)
     riposte = None                     # {"uses", "pct"}: the next enemy hit goes back on its owner (Enzo)
     self_buff = None                   # {"turns", "mods"}: a buff on the caster after the cast (Ziad)
+    creature_bonus = None              # {"types": [...], "pct": n}: more against those kinds (Bashir)
+    requires_fallen_enemy = False      # usable only once an enemy is down (Stelios)
+    pet_lifespan = 0                   # a summoned pet is laid to rest after this many of its turns
     #: Caster and target trade rows for the rest of the fight (Dan Okafor, "Shift Change").
     swaps_rows = False
     #: A dispel that deals what was LEFT of the effect it removed to whoever put it there
@@ -5400,6 +5410,10 @@ class Ability:
             if not success:
                 self._refund_failed_cast(caster, cost=cost)
                 return result
+            if self.pet_lifespan:
+                # LAID TO REST AFTERWARDS (Wave 4, Stelios): the engine ends it after this many of its turns
+                result._lifespan = int(self.pet_lifespan)
+                return f"{caster.name} raises {result.name} for {int(self.pet_lifespan)} turns!"
             return f"{caster.name} summons {result.name}!"
 
         elif self.effect_type == "restore_resource":
@@ -5846,7 +5860,11 @@ def _ability_from_data(entry):
         ability.pet_mods = dict(entry["pet_mods"])
     if entry.get("auto_enemy"):
         ability.auto_enemy = str(entry["auto_enemy"])
-    for key in ("enemy_mods", "cleanses", "target_mods", "riposte", "self_buff"):
+    if entry.get("pet_lifespan"):
+        ability.pet_lifespan = int(entry["pet_lifespan"])
+    if entry.get("requires_fallen_enemy"):
+        ability.requires_fallen_enemy = True
+    for key in ("enemy_mods", "cleanses", "target_mods", "riposte", "self_buff", "creature_bonus"):
         if isinstance(entry.get(key), dict):
             setattr(ability, key, dict(entry[key]))
     for key in ("always_crits", "grants_turn", "health_buys_mana", "swaps_rows", "returns_dispelled_damage", "party_pets", "self_turn"):

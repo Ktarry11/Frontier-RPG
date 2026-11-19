@@ -4055,6 +4055,10 @@ class Character(StatusEffectMixin):
         # Pasang's and Nicolas's "absorbs 30%/35% of all damage dealt to
         # the party", Elias's with a heal attached, Marco's and Saoirse's
         # full redirect at a discount, and Dan's one-shot interception.
+        # NO MORE THAN THIS FROM ONE HIT (Wave 4, Pieter's barrier): a share of maximum health.
+        cap = self.get_status_stat_mod("max_hit_pct") if hasattr(self, "get_status_stat_mod") else 0
+        if cap and cap > 0 and actual > 0:
+            actual = min(actual, max(1, int(self.health * cap / 100.0)))
         actual = self._share_damage_out(actual, damage_type, attacker)
 
         # DEATH PREVENTION, last - after sharing, so a guardian soaking part

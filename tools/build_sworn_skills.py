@@ -119,6 +119,7 @@ NESTED = {
     "cleanses": {"types", "count"},
     "riposte": {"uses", "pct"},
     "self_buff": {"turns", "mods"},
+    "creature_bonus": {"types", "pct"},
     "immediate": {"action", "turns", "resource", "cost_pct", "mult", "mode", "amount"},
     "delayed": {"turns", "mult", "mode"},
 }

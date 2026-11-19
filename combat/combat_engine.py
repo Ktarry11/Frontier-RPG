@@ -988,6 +988,13 @@ class CombatEngine:
         if hasattr(actor, "tick_status_effects"):
             for msg in actor.tick_status_effects():
                 self.combat_log.append(msg)
+        # A RAISED PET'S TIME RUNS OUT (Wave 4, Stelios): laid to rest after its last turn.
+        life = getattr(actor, "_lifespan", None)
+        if life is not None and actor.is_alive():
+            actor._lifespan = life - 1
+            if actor._lifespan <= 0:
+                actor.current_health = 0
+                self.combat_log.append(f"{actor.name} is laid to rest.")
 
     def _check_combat_end(self):
         """Check for victory (all enemies down) or defeat (party wiped)."""

@@ -894,6 +894,112 @@ def c_karim(rm, bm, rid):
     check(ch.current_health == before, f"{ab.name}: the shield let {before - ch.current_health} through")
 
 
+
+def c_osvaldo(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    m = mobs[0]
+    def hit(school):
+        b = m.current_health
+        m.take_damage(10000, school, attacker=ch, attacker_level=60)
+        return b - m.current_health
+    sp, ph = hit("shadow"), hit("physical")
+    cast(ch, ab, mobs, eng)
+    sp2, ph2 = hit("shadow"), hit("physical")
+    check(abs(sp2 - sp * 1.35) <= sp * 0.02 + 1, f"{ab.name}: a spell {sp} -> {sp2}, wants x1.35")
+    check(abs(ph2 - ph) <= ph * 0.02 + 1, f"{ab.name}: a physical hit changed too ({ph} -> {ph2})")
+
+
+def c_bashir(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    cast(ch, ab, mobs, eng)
+    trapped = [e for m in mobs for e in m._effects() if getattr(e, "trap_damage", 0)]
+    check(bool(trapped), f"{ab.name}: no trap was set")
+    m = mobs[0]
+    beast = ab._damage_multiplier(ch, "spell", recipient=m)
+    m.creature_type = "undead"
+    undead = ab._damage_multiplier(ch, "spell", recipient=m)
+    m.creature_type = None
+    check(undead / beast > 1.4, f"{ab.name}: undead x{undead:.2f} against x{beast:.2f} for a beast")
+
+
+def c_pieter(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    cast(ch, ab, [ch] + others, eng)
+    a = others[1]
+    before = a.current_health
+    a.take_damage(a.health * 3, "shadow", attacker=mobs[1], attacker_level=60)
+    lost = before - a.current_health
+    check(0 < lost <= int(a.health * 0.15) + 1, f"{ab.name}: one hit took {lost} of {a.health}, wants at most 15%")
+
+
+def _shield_holds(ab, who, mob):
+    before = who.current_health
+    who.take_damage(200, "shadow", attacker=mob, attacker_level=60)
+    check(who.current_health == before, f"{ab.name}: the shield let {before - who.current_health} through on {who.name}")
+
+
+def c_gianluca(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    cast(ch, ab, ch, eng)
+    _shield_holds(ab, ch, mobs[1])
+    eff = next(e for e in ch._effects() if e.effect_id == ab.ability_id)
+    full = getattr(eff, "absorb_max", None) or getattr(eff, "max_absorb", None)
+    ch.take_damage(eff.absorb - 1, "shadow", attacker=mobs[1], attacker_level=60)
+    ch.tick_status_effects()
+    check(eff.absorb > 1, f"{ab.name}: the shield wasn't made whole on his turn (absorb {eff.absorb}, full {full})")
+
+
+def c_camila(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    from combat.status_effects import StatusEffect, EffectType
+    a = others[0]
+    a.current_health = a.health // 3
+    for i, kind in enumerate(("poison", "disease", "poison")):
+        a.apply_status_effect(StatusEffect(f"qa_{kind}{i}", f"Sick {i}", EffectType.DOT, 5, potency=500,
+                                           damage_school="nature", source_name="Boar 1", real_time_seconds=None,
+                                           dispel_type=kind))
+    before = a.current_health
+    cast(ch, ab, [ch] + others, eng)
+    check(not any(e.effect_id.startswith("qa_") for e in a._effects()), f"{ab.name}: something is still on")
+    check(a.current_health - before >= 3 * 500 * 5 * 0.9, f"{ab.name}: healed {a.current_health - before}, wants about 7500 and more")
+
+
+def c_elias(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    cast(ch, ab, [ch] + others, eng)
+    for c in [ch] + others:
+        _shield_holds(ab, c, mobs[1])
+
+
+def c_kiet(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    mobs[1].level = 63
+    hp = [m.current_health for m in mobs]
+    ok, msg = cast(ch, ab, mobs[0], eng)
+    check(mobs[1].current_health < hp[1] and mobs[0].current_health == hp[0], f"{ab.name}: didn't come out behind the most dangerous enemy")
+    check("CRIT" in msg.upper(), f"{ab.name}: didn't crit ({msg!r})")
+    for key, value in ab.target_mods.items():
+        check(mobs[1].get_status_stat_mod(key) == value, f"{ab.name}: {key} {mobs[1].get_status_stat_mod(key)}")
+
+
+def c_stelios(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    fill(ch, ab)
+    ok, msg = ab.use(ch, ch, party=eng.living_allies(), engine=eng)
+    check(not ok, f"{ab.name}: raised something with no enemy fallen ({msg!r})")
+    mobs[2].current_health = 0
+    had = list(getattr(ch, "all_pets", None) or [])
+    cast(ch, ab, ch, eng)
+    new = [p for p in (ch.all_pets or []) if p not in had]
+    if check(len(new) == 1, f"{ab.name}: raised {len(new)} pets"):
+        pet = new[0]
+        check(getattr(pet, "_lifespan", None) == 5, f"{ab.name}: lifespan {getattr(pet, '_lifespan', None)}")
+        for t in range(5):
+            check(pet.is_alive(), f"{ab.name}: laid to rest after {t} turns, wants 5")
+            eng._end_turn(pet)
+        check(not pet.is_alive(), f"{ab.name}: still standing after 5 turns")
+
+
 CHECKS = {
     "personal_sworn_kesten_written_down_properly": c_kesten,
     "personal_sworn_adrian_let_them_carry_it": c_adrian,
@@ -943,6 +1049,14 @@ CHECKS = {
     "personal_sworn_khalid_the_falcon_comes_back": c_khalid,
     "personal_sworn_delroy_one_for_everyone": c_delroy,
     "personal_sworn_karim_plants_himself": c_karim,
+    "personal_sworn_osvaldo_one_long_note": c_osvaldo,
+    "personal_sworn_bashir_the_line_holds": c_bashir,
+    "personal_sworn_pieter_the_tenth_man": c_pieter,
+    "personal_sworn_gianluca_keeps_talking": c_gianluca,
+    "personal_sworn_camila_all_of_it_back": c_camila,
+    "personal_sworn_elias_not_putting_it_off": c_elias,
+    "personal_sworn_kiet_out_of_nowhere": c_kiet,
+    "personal_sworn_stelios_borrowed_properly": c_stelios,
 }
 #: passives with a check of their own (every other passive gets c_passive)
 PASSIVE_CHECKS = {"ama_priest": c_ama, "amber_druid": c_amber, "orlando_witchdoctor": c_orlando,
