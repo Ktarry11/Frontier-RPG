@@ -3042,6 +3042,8 @@ class Ability:
     repeat_hits = 0                    # the strike lands this many times on its one target (Bruno)
     heals_party_pct_of_damage = 0.0    # every living ally is healed this share of what the cast dealt
     dot_heals_party_pct = 0.0          # each tick of this DoT heals the caster's party this share of it (Graham)
+    applies_dot_turns = 0              # how long applies_dot_pct's lingering burn lasts (default 1)
+    party_rider = None                 # {"turns", "mods", "riposte_uses"}: a buff on every ally after the cast
     #: Caster and target trade rows for the rest of the fight (Dan Okafor, "Shift Change").
     swaps_rows = False
     #: A dispel that deals what was LEFT of the effect it removed to whoever put it there
@@ -3301,6 +3303,18 @@ class Ability:
                     source_name=caster.name, real_time_seconds=None))
             if foes:
                 message = f"{message} Every enemy feels it."
+        # THE PARTY GETS SOMETHING TOO (Wave 4, Valentina's stars): a buff on every living ally
+        # from a cast aimed elsewhere; riposte_uses at 0% means "the next hit is turned aside".
+        if self.party_rider:
+            spec = self.party_rider
+            for m in [m for m in (getattr(party, "members", party) or []) if m is not None and m.is_alive()]:
+                eff = StatusEffect(
+                    effect_id=f"{self.ability_id}_party", name=self.name, effect_type=EffectType.BUFF,
+                    duration=int(spec.get("turns", 3)), stat_mods=dict(spec.get("mods") or {}),
+                    source_name=caster.name, real_time_seconds=None)
+                if spec.get("riposte_uses"):
+                    eff.riposte_uses, eff.riposte_pct = int(spec["riposte_uses"]), 0.0
+                m.apply_status_effect(eff)
         # EVERY HIT HEALS THE PARTY (Wave 4, Bruno's flurry): a share of all this cast dealt.
         if self.heals_party_pct_of_damage:
             dealt = sum(ev[1] for ev in (getattr(self, "_last_threat_events", None) or [])
@@ -4469,8 +4483,10 @@ class Ability:
                         if hasattr(t, "apply_status_effect"):
                             dot_effect = StatusEffect(
                                 effect_id=f"{self.ability_id}_dot", name=f"{self.name} (Lingering)",
-                                effect_type=EffectType.DOT, duration=1, potency=dot_amount,
-                                damage_school="magic", source_name=caster.name,
+                                # applies_dot_turns: burning ground that stays (Wave 4, Neil); Shock's is 1 turn
+                                effect_type=EffectType.DOT, duration=int(self.applies_dot_turns or 1), potency=dot_amount,
+                                damage_school=(self.damage_school if self.applies_dot_turns and isinstance(
+                                    self.damage_school, str) else "magic"), source_name=caster.name,
                                 real_time_seconds=None,
                             )
                             t.apply_status_effect(dot_effect)
@@ -5896,6 +5912,10 @@ def _ability_from_data(entry):
         ability.pet_mods = dict(entry["pet_mods"])
     if entry.get("auto_enemy"):
         ability.auto_enemy = str(entry["auto_enemy"])
+    if entry.get("applies_dot_turns"):
+        ability.applies_dot_turns = int(entry["applies_dot_turns"])
+    if isinstance(entry.get("party_rider"), dict):
+        ability.party_rider = dict(entry["party_rider"])
     if entry.get("repeat_hits"):
         ability.repeat_hits = int(entry["repeat_hits"])
     for key in ("heals_party_pct_of_damage", "dot_heals_party_pct"):

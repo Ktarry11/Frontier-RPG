@@ -2493,5 +2493,185 @@
    },
    "reveals_intent": "all"
   }
+ },
+ "mariana_priest": {
+  "from": "Wave 4: 'what she resolves is never ringing the bell again. ... an exactly aimed heal on the most wounded ally that also cleanses everything harmful on them.'",
+  "ability": {
+   "ability_id": "personal_sworn_mariana_exactly_there",
+   "name": "Exactly There, and Nowhere Else",
+   "engine": "live: heal on the lowest-health ally (auto_lowest_ally), cleansing every magic, curse, poison and disease effect on them",
+   "effect_type": "heal",
+   "target_type": "ally",
+   "resource_type": "mana",
+   "cooldown": 13,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Mariana aims exactly. The most wounded ally is healed, whoever was chosen, and every magic effect, curse, poison and disease on them comes off.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 40,
+     "effect_value": 180
+    }
+   ],
+   "auto_lowest_ally": true,
+   "cleanses": {
+    "types": [
+     "magic",
+     "curse",
+     "poison",
+     "disease"
+    ],
+    "count": 9
+   }
+  }
+ },
+ "dale_reaper": {
+  "from": "Wave 4: 'what he resolves is the ground he couldn't save. ... one long harvest sweep that strikes every enemy in front of him and heals the party a little for each one it cuts down.'",
+  "ability": {
+   "ability_id": "personal_sworn_dale_the_whole_field",
+   "name": "The Whole Field In",
+   "engine": "live: one long sweep through every enemy, and every ally healed for 10% of all it dealt (heals_party_pct_of_damage)",
+   "effect_type": "damage",
+   "target_type": "all_enemies",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Dale takes the whole field in one long sweep. It strikes every enemy, and every ally is healed for 10% of all the damage it does.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 35,
+     "effect_value": 130
+    }
+   ],
+   "heals_party_pct_of_damage": 10
+  }
+ },
+ "wes_warrior": {
+  "from": "Wave 4: 'what he resolves is the girl he couldn't protect. ... he plants his shield and takes every attack aimed at the party for a turn, and can't fall while he does.'",
+  "ability": {
+   "ability_id": "personal_sworn_wes_plants_the_shield",
+   "name": "Plants the Shield",
+   "engine": "live: party damage_share 100% to Wes, 30% reduced, and a holding death_prevent at 1 health, 2 turns",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "rage",
+   "cooldown": 15,
+   "duration": 2,
+   "is_instant": true,
+   "stat_mods": {},
+   "description": "Wes plants his shield in front of all of them. For 2 turns every hit on an ally lands on him instead, 30% lighter, and while it's planted no blow can drop him or anyone behind him.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
+    }
+   ],
+   "damage_share": {
+    "pct": 100,
+    "reduction_pct": 30
+   },
+   "death_prevent": {
+    "hp": 1,
+    "lethal_only": true,
+    "uses": 99,
+    "holds": true
+   }
+  }
+ },
+ "neil_felsworn": {
+  "from": "Wave 4: 'a controlled burst of fel fire that hits every enemy and leaves burning ground that keeps damaging them for several turns.'",
+  "ability": {
+   "ability_id": "personal_sworn_neil_by_the_plan",
+   "name": "Exactly to the Plan",
+   "engine": "live: fire spell damage on every enemy, leaving burning ground for 4 turns (applies_dot_pct 0.2, applies_dot_turns 4)",
+   "effect_type": "spell_damage",
+   "target_type": "all_enemies",
+   "resource_type": "felfury",
+   "cooldown": 14,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Neil lets out a burst of fel fire exactly as planned. It hits every enemy, and the ground under them burns for 4 turns, each turn for 20% of the burst.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 140
+    }
+   ],
+   "damage_school": "fire",
+   "applies_dot_pct": 0.2,
+   "applies_dot_turns": 4
+  }
+ },
+ "valentina_starcaller": {
+  "from": "Wave 4: 'she calls down four stars in a cross that strike the enemies and leave the party glowing with starlight that turns aside the next hit.'",
+  "ability": {
+   "ability_id": "personal_sworn_valentina_four_stars",
+   "name": "Four Stars in a Cross",
+   "engine": "live: arcane spell damage on every enemy, and party_rider: for 3 turns each ally's next enemy hit is turned aside",
+   "effect_type": "spell_damage",
+   "target_type": "all_enemies",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Valentina calls down four stars in a cross. They strike every enemy, and for 3 turns each ally glows with starlight that turns aside the next hit aimed at them.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 45,
+     "effect_value": 140
+    }
+   ],
+   "damage_school": "arcane",
+   "party_rider": {
+    "turns": 3,
+    "riposte_uses": 1
+   }
+  }
+ },
+ "faris_shaman": {
+  "from": "Wave 4: 'what he resolves is the stone that wouldn't grow. ... he calls up a spring under the party that heals everyone over several turns and washes off poisons.'",
+  "ability": {
+   "ability_id": "personal_sworn_faris_the_spring",
+   "name": "The Spring Comes Up",
+   "engine": "live: party heal over time for 5 turns, washing every poison and disease off first (cleanses)",
+   "effect_type": "hot",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 5,
+   "is_instant": true,
+   "stat_mods": {},
+   "description": "Faris calls a spring up under the party. It washes every poison and disease off them, and heals every ally each turn for 5 turns.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 45,
+     "effect_value": 45
+    }
+   ],
+   "cleanses": {
+    "types": [
+     "poison",
+     "disease"
+    ],
+    "count": 9
+   }
+  }
  }
 }

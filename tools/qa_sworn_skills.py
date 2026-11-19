@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """Wave 4: every Sworn skill is built right, only exists while Sworn, and does what it says.
 
-    PYTHONPATH=. python3 tools/qa_sworn_skills.py [--strict]
+    PYTHONPATH=. python3 tools/qa_sworn_skills.py [--loose]
 
 Kyle, 19 Nov 2026: "These character traits should be slightly stronger than the other ones.
 They still will get 5 ranks when appropriate (lvl 1,15,30,45, and 60)."
 
   1. tools/build_sworn_skills.py passes: every key is one the engine reads, cooldowns are 12 to
      15, nothing is "once a fight", every skill quotes its profile, descriptions say the
-     mechanic. --strict also fails while any recruit is still unwritten.
+     mechanic. All 98 recruits (bar Asher) must have one; --loose allows gaps while writing.
   2. STRONGER THAN A TRAIT. Every five-rank Sworn skill's last rank is at least 1.1 times what
      the character traits' own rule gives the same ability.
   3. ONLY WHILE SWORN. A recruit has no Sworn skill (ability or passive) until their bond is
@@ -1149,6 +1149,90 @@ def c_taras(rm, bm, rid):
     check(lost[0] == 0 and lost[1] > 0, f"{ab.name}: the ally lost {lost}, wants the first avoided and the second landing")
 
 
+
+def _sicken(who, kinds):
+    from combat.status_effects import StatusEffect, EffectType
+    for i, kind in enumerate(kinds):
+        who.apply_status_effect(StatusEffect(f"qa_{kind}{i}", f"Sick {i}", EffectType.DOT, 5, potency=200,
+                                             damage_school="shadow", source_name="Boar 1", real_time_seconds=None,
+                                             dispel_type=kind))
+
+
+def c_mariana(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    low = others[1]
+    low.current_health = low.health // 5
+    _sicken(low, ("curse", "poison", "magic", "disease"))
+    before = low.current_health
+    cast(ch, ab, others[0], eng)
+    check(low.current_health > before, f"{ab.name}: the most wounded ally wasn't healed")
+    check(not any(e.effect_id.startswith("qa_") for e in low._effects()), f"{ab.name}: something harmful is still on them")
+
+
+def c_dale(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    party = [ch] + others
+    for c in party:
+        c.current_health = c.health // 3
+    before = {c.name: c.current_health for c in party}
+    hp = sum(m.current_health for m in mobs)
+    cast(ch, ab, mobs, eng)
+    dealt = hp - sum(m.current_health for m in mobs)
+    check(dealt > 0, f"{ab.name}: dealt nothing")
+    for c in party:
+        check(c.current_health - before[c.name] >= dealt * 0.1 * 0.9, f"{ab.name}: {c.name} healed {c.current_health - before[c.name]} of {dealt}")
+
+
+def c_wes(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    a = others[1]
+    raw = _control(a, mobs[1])
+    cast(ch, ab, [ch] + others, eng)
+    b, wb = a.current_health, ch.current_health
+    a.take_damage(3000, "shadow", attacker=mobs[1], attacker_level=60)
+    check(a.current_health == b, f"{ab.name}: the ally still lost {b - a.current_health}")
+    check(0 < wb - ch.current_health <= raw * 0.7 + 1, f"{ab.name}: Wes took {wb - ch.current_health} of {raw}")
+    for _ in range(4):
+        ch.take_damage(ch.health * 50, "shadow", attacker=mobs[1], attacker_level=60)
+    check(ch.is_alive(), f"{ab.name}: Wes fell with the shield planted")
+
+
+def c_neil(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    hp = [m.current_health for m in mobs]
+    cast(ch, ab, mobs, eng)
+    for m, h in zip(mobs, hp):
+        if m.current_health < h:
+            burn = next((e for e in m._effects() if e.effect_id == f"{ab.ability_id}_dot"), None)
+            check(burn is not None and burn.duration == 4 and burn.damage_school == "fire",
+                  f"{ab.name}: {m.name} burn {getattr(burn, 'duration', None)} turns, {getattr(burn, 'damage_school', None)}")
+
+
+def c_valentina(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    cast(ch, ab, mobs, eng)
+    a = others[1]
+    lost = []
+    for _ in range(2):
+        before = a.current_health
+        a.take_damage(3000, "shadow", attacker=mobs[1], attacker_level=60)
+        lost.append(before - a.current_health)
+    check(lost[0] == 0 and lost[1] > 0, f"{ab.name}: the ally lost {lost}, wants the first turned aside")
+
+
+def c_faris(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    a = others[0]
+    _sicken(a, ("poison", "disease", "poison"))
+    cast(ch, ab, [ch] + others, eng)
+    check(not any(e.effect_id.startswith("qa_") for e in a._effects()), f"{ab.name}: a poison is still on")
+    check(has_effect(a, ab.ability_id), f"{ab.name}: no spring on the ally")
+    a.current_health = a.health // 3
+    before = a.current_health
+    a.tick_status_effects()
+    check(a.current_health > before, f"{ab.name}: the spring healed nothing")
+
+
 CHECKS = {
     "personal_sworn_kesten_written_down_properly": c_kesten,
     "personal_sworn_adrian_let_them_carry_it": c_adrian,
@@ -1218,6 +1302,12 @@ CHECKS = {
     "personal_sworn_mohammed_one_moment_ahead": c_mohammed,
     "personal_sworn_tobias_the_whole_crew": c_tobias,
     "personal_sworn_taras_kashtan_knows": c_taras,
+    "personal_sworn_mariana_exactly_there": c_mariana,
+    "personal_sworn_dale_the_whole_field": c_dale,
+    "personal_sworn_wes_plants_the_shield": c_wes,
+    "personal_sworn_neil_by_the_plan": c_neil,
+    "personal_sworn_valentina_four_stars": c_valentina,
+    "personal_sworn_faris_the_spring": c_faris,
 }
 #: passives with a check of their own (every other passive gets c_passive)
 PASSIVE_CHECKS = {"ama_priest": c_ama, "amber_druid": c_amber, "orlando_witchdoctor": c_orlando,
@@ -1263,7 +1353,7 @@ def main():
     import build_sworn_skills as B
     import rank_kit_abilities as R
     from world import personal_kits as PK
-    strict = "--strict" in sys.argv
+    strict = "--loose" not in sys.argv      # every recruit is written now (19 Nov 2026)
 
     # 1
     import io

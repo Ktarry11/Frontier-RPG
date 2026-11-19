@@ -124,6 +124,7 @@ NESTED = {
     "riposte": {"uses", "pct"},
     "self_buff": {"turns", "mods"},
     "creature_bonus": {"types", "pct"},
+    "party_rider": {"turns", "mods", "riposte_uses"},
     "immediate": {"action", "turns", "resource", "cost_pct", "mult", "mode", "amount", "bonus"},
     "delayed": {"turns", "mult", "mode"},
 }
