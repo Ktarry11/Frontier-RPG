@@ -2391,8 +2391,20 @@ class Ability:
             if _as.USE_HEAL_FORMULA and _hf.enabled():
                 spec = min(_hf.SPEC_CAP, spec)
             self._last_heal_spec = spec           # the echo room reads it (open_echo_room)
+            # WHO NEEDS IT (Wave 4, Ama's Sworn passive): her heals land harder on an ally below
+            # half health and softer on one above 80%, "because she's finally letting herself
+            # rest". A Sworn skill is a trump card, stronger than a trait, so like a cooldown it
+            # sits outside the +25% cap rather than being swallowed by it.
+            need = 0.0
+            max_hp = getattr(recipient, "health", 0) or 0 if recipient is not None else 0
+            cur_hp = getattr(recipient, "current_health", None) if recipient is not None else None
+            if max_hp and cur_hp is not None:
+                if cur_hp / max_hp < 0.5:
+                    need = self._talent(caster, "heal_wounded_target_pct")
+                elif cur_hp / max_hp > 0.8:
+                    need = self._talent(caster, "heal_healthy_target_pct")
             # the aura balances healers' kits against each other, so it sits outside the cap (ability_scaling)
-            return spec * aura * (1.0 + buff_pct / 100.0)
+            return spec * aura * (1.0 + buff_pct / 100.0) * (1.0 + need)
         return (1.0 + per_ability) * (1.0 + global_key) * (1.0 + buff_pct / 100.0) * aura
 
     def is_available(self):
@@ -2963,6 +2975,8 @@ class Ability:
     #: A heal that brings the target up by exactly this share of their maximum health, however
     #: little the base heal did (Hana Tamihana: "heals them for 60% of their maximum").
     heals_pct_max = 0.0
+    drains_party_pct = 0.0             # Esteban's Sworn heal: every other ally gives this share of max health
+    pet_mods = None                    # stat mods put on the caster's pets as well (Ryan's demon)
     #: Caster and target trade rows for the rest of the fight (Dan Okafor, "Shift Change").
     swaps_rows = False
     #: A dispel that deals what was LEFT of the effect it removed to whoever put it there
@@ -3208,6 +3222,28 @@ class Ability:
     def _after_cast_riders(self, caster, party, message, target=None):
         """Riders that act on what the cast DID. Returns the message, with a line added."""
         single = target if (target is not None and not isinstance(target, (list, tuple))) else None
+        # EVERYONE GIVES A LITTLE (Wave 4, Esteban): each other living ally, the caster too,
+        # gives this share of their maximum health to the one being healed. Never below 1.
+        if self.drains_party_pct and single is not None and single.is_alive():
+            given = 0
+            for ally in [m for m in (getattr(party, "members", party) or []) if m is not None]:
+                if ally is single or not ally.is_alive():
+                    continue
+                take = min(int(ally.health * self.drains_party_pct / 100.0), max(0, ally.current_health - 1))
+                ally.current_health -= take
+                given += take
+            if given:
+                single.current_health = min(single.health, single.current_health + given)
+                message = f"{message} The party gives {given} health to {single.name}."
+        # THE CASTER'S PET GETS IT TOO (Wave 4, Ryan's demon): stat mods on every pet the
+        # caster has out, for the ability's duration.
+        if self.pet_mods and hasattr(caster, "all_pets"):
+            from combat.status_effects import StatusEffect, EffectType
+            for pet in [p for p in (caster.all_pets or []) if p is not None and p.is_alive()]:
+                pet.apply_status_effect(StatusEffect(
+                    effect_id=f"{self.ability_id}_pet", name=self.name, effect_type=EffectType.BUFF,
+                    duration=max(1, self.duration or 1), stat_mods=dict(self.pet_mods),
+                    source_name=caster.name, real_time_seconds=None))
         if self.heals_pct_max and single is not None and single.is_alive():
             before = getattr(self, "_target_health_before", None)
             if before is not None:
@@ -4621,9 +4657,14 @@ class Ability:
                     effect_id=self.ability_id, name=self.name,
                     effect_type=EffectType.HOT, duration=duration,
                     potency=per_turn, source_name=caster.name,
+                    # a HoT can carry stat mods while it runs (Wave 4, Carolina's river speeds
+                    # everyone up); none authored before this had any, so nothing else changes
+                    stat_mods=dict(self.stat_mods or {}),
                 )
-                if self.tick_growth_pct:
-                    effect.tick_growth_pct = self.tick_growth_pct
+                # Amber's Sworn passive (Wave 4): every HoT she casts grows each turn it runs
+                grow = (self.tick_growth_pct or 0) + self._talent(caster, "hot_tick_growth_pct") * 100.0
+                if grow:
+                    effect.tick_growth_pct = grow
                 if self.final_burst_mult:
                     effect.final_burst_mult = self.final_burst_mult
                 if self.idle_bonus_pct:
@@ -4770,6 +4811,7 @@ class Ability:
                     effect.reflect_pct = self.reflect.get("pct", 0)
                     effect.reflect_school = self.reflect.get("school", "physical")
                     effect.reflect_melee_only = self.reflect.get("melee_only", False)
+                    effect.reflect_spell_only = self.reflect.get("spell_only", False)
                 if self.on_low_health:
                     effect.on_low_health_pct = self.on_low_health.get("pct", 0)
                     effect.on_low_health_heal_pct = self.on_low_health.get("heal_pct", 0)
@@ -5674,6 +5716,10 @@ def _ability_from_data(entry):
     _scaling.apply(ability, entry)
     if entry.get("heals_pct_max"):
         ability.heals_pct_max = float(entry["heals_pct_max"])
+    if entry.get("drains_party_pct"):
+        ability.drains_party_pct = float(entry["drains_party_pct"])
+    if isinstance(entry.get("pet_mods"), dict):
+        ability.pet_mods = dict(entry["pet_mods"])
     for key in ("always_crits", "grants_turn", "health_buys_mana", "swaps_rows", "returns_dispelled_damage", "party_pets"):
         if entry.get(key):
             setattr(ability, key, True)

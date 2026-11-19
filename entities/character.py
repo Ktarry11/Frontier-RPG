@@ -3994,7 +3994,12 @@ class Character(StatusEffectMixin):
 
         taken_mult = max(0.0, taken_mult)
 
-        actual = max(1, int(amount * (1.0 - reduction) * row_mult * level_mult * taken_mult))
+        # every reduction together reaching 100% means nothing lands (Wave 4, Pavlo's "the party
+        # takes no damage for a turn"); short of that, a hit always does at least 1
+        if taken_mult <= 0:
+            actual = 0
+        else:
+            actual = max(1, int(amount * (1.0 - reduction) * row_mult * level_mult * taken_mult))
 
         if blocked:
             # A BLOCK SUBTRACTS ITS VALUE. Dodge and parry already stop the hit outright above, so
@@ -4021,7 +4026,7 @@ class Character(StatusEffectMixin):
             # subtraction: block_value reached 124 on a geared level-40
             # Warrior against post-mitigation trash hits of ~72, so the
             # shield ate whole attacks. See BLOCK_VALUE_FROM_STRENGTH.
-            actual = max(1, int(actual - absorbed))
+            actual = max(1, int(actual - absorbed)) if actual > 0 else 0
             # A block is a partial hit, so ON_BLOCK fires here AND
             # ON_DAMAGE_TAKEN fires below, off the reduced amount. A talent
             # that pays out on blocking ("Blocking an attack now generates 3

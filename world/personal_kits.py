@@ -224,7 +224,7 @@ FRACTION_KEYS = {
 COMBAT_KEYS = {
     "healing_done", "crit_damage_physical", "crit_damage_spell", "pet_damage", "pet_health",
     "stun_duration_reduction_pct", "threat_generation_pct", "healing_received_pct",
-    "gold_find_pct",
+    "gold_find_pct", "heal_wounded_target_pct", "heal_healthy_target_pct", "hot_tick_growth_pct",
 }
 
 
@@ -271,6 +271,9 @@ PASSIVE_LABELS = {
     "crit_damage_physical": "Physical Crit Damage", "crit_damage_spell": "Spell Crit Damage",
     "pet_damage": "Pet Damage", "pet_health": "Pet Health",
     "beast_damage_pct": "Damage to Beasts",
+    "heal_wounded_target_pct": "Healing on Allies Below Half Health",
+    "heal_healthy_target_pct": "Healing on Allies Above 80% Health",
+    "hot_tick_growth_pct": "Heals Over Time Grow Each Turn",
 }
 
 

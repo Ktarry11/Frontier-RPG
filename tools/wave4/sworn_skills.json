@@ -6,11 +6,27 @@
    "ability_id": "personal_sworn_kesten_written_down_properly",
    "name": "Written Down Properly",
    "engine": "live: death_prevent on every ally (hp 1, lethal hits only, one use each)",
-   "effect_type": "buff", "target_type": "party", "resource_type": "mana",
-   "cooldown": 15, "duration": 3, "is_instant": true, "stat_mods": {},
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 15,
+   "duration": 3,
+   "is_instant": true,
+   "stat_mods": {},
    "description": "For 3 turns, the first blow that would kill each ally leaves them at 1 health instead.",
-   "ranks": [{"rank": 1, "level_req": 1, "cost": 40, "effect_value": 100}],
-   "death_prevent": {"hp": 1, "lethal_only": true, "uses": 1}
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 40,
+     "effect_value": 100
+    }
+   ],
+   "death_prevent": {
+    "hp": 1,
+    "lethal_only": true,
+    "uses": 1
+   }
   }
  },
  "adrian_templar": {
@@ -19,11 +35,27 @@
    "ability_id": "personal_sworn_adrian_let_them_carry_it",
    "name": "Let Them Carry Some of It",
    "engine": "live: damage_share spread (new 19 Nov 2026) - a share of each hit on him is split across the party, cut on the way",
-   "effect_type": "buff", "target_type": "self", "resource_type": "combo",
-   "cooldown": 13, "duration": 4, "is_instant": true, "stat_mods": {},
+   "effect_type": "buff",
+   "target_type": "self",
+   "resource_type": "combo",
+   "cooldown": 13,
+   "duration": 4,
+   "is_instant": true,
+   "stat_mods": {},
    "description": "For 4 turns, 60% of every hit on Adrián is split evenly across the rest of the party, and they take 30% less of it than he would have.",
-   "ranks": [{"rank": 1, "level_req": 1, "cost": 28, "effect_value": 100}],
-   "damage_share": {"spread": true, "pct": 60, "reduction_pct": 30}
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 28,
+     "effect_value": 100
+    }
+   ],
+   "damage_share": {
+    "spread": true,
+    "pct": 60,
+    "reduction_pct": 30
+   }
   }
  },
  "tarek_templar": {
@@ -32,10 +64,22 @@
    "ability_id": "personal_sworn_tarek_built_to_last",
    "name": "Built to Last",
    "engine": "live: party absorb with a fight-long duration, so only breaking it ends it",
-   "effect_type": "buff", "target_type": "party", "resource_type": "combo",
-   "cooldown": 15, "duration": 40, "is_instant": true, "stat_mods": {},
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "combo",
+   "cooldown": 15,
+   "duration": 40,
+   "is_instant": true,
+   "stat_mods": {},
    "description": "Shields every ally. The shield doesn't wear off with time: it lasts until it's broken or the fight ends.",
-   "ranks": [{"rank": 1, "level_req": 1, "cost": 30, "effect_value": 100}],
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
+    }
+   ],
    "absorb": 90
   }
  },
@@ -45,10 +89,22 @@
    "ability_id": "personal_sworn_diego_put_it_right",
    "name": "Put It Right",
    "engine": "live: revive with a shield (new 19 Nov 2026): back at 40% health with a 3-turn absorb",
-   "effect_type": "revive", "target_type": "ally", "resource_type": "mana",
-   "cooldown": 15, "duration": 3, "is_instant": false, "stat_mods": {},
+   "effect_type": "revive",
+   "target_type": "ally",
+   "resource_type": "mana",
+   "cooldown": 15,
+   "duration": 3,
+   "is_instant": false,
+   "stat_mods": {},
    "description": "Brings a fallen ally back at 40% health, with a shield that holds for 3 turns.",
-   "ranks": [{"rank": 1, "level_req": 1, "cost": 45, "effect_value": 40}],
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 45,
+     "effect_value": 40
+    }
+   ],
    "absorb": 120
   }
  },
@@ -58,11 +114,545 @@
    "ability_id": "personal_sworn_freja_calmest_in_the_room",
    "name": "The Calmest Person in the Room",
    "engine": "live: healing_done_pct on herself for 2 turns, instant so the heal comes the same turn",
-   "effect_type": "buff", "target_type": "self", "resource_type": "mana",
-   "cooldown": 14, "duration": 2, "is_instant": true,
-   "stat_mods": {"healing_done_pct": 100},
+   "effect_type": "buff",
+   "target_type": "self",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 2,
+   "is_instant": true,
+   "stat_mods": {
+    "healing_done_pct": 100
+   },
    "description": "For 2 turns every heal Freja casts lands twice: her healing is doubled.",
-   "ranks": [{"rank": 1, "level_req": 1, "cost": 20, "effect_value": 100}]
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 20,
+     "effect_value": 100
+    }
+   ]
+  }
+ },
+ "ama_priest": {
+  "from": "Wave 4: 'what she resolves is being unable to stop. ... a passive where she heals less when the party is safe and more when it isn't, because she's finally letting herself rest.'",
+  "passives": {
+   "_name": "Letting Herself Rest",
+   "_text": "Ama's heals land 40% harder on an ally below half health, and 20% softer on one above 80%.",
+   "heal_wounded_target_pct": 40,
+   "heal_healthy_target_pct": -20
+  }
+ },
+ "marcus_stormbringer": {
+  "from": "Wave 4: 'when the party is about to take a big hit, he calls it in time and they take far less.'",
+  "ability": {
+   "ability_id": "personal_sworn_marcus_heard_this_time",
+   "name": "Heard This Time",
+   "engine": "live: party damage taken -50% for 2 turns, and reveals_intent all",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 2,
+   "is_instant": true,
+   "stat_mods": {
+    "physical_damage_taken_pct": -50,
+    "magic_damage_taken_pct": -50
+   },
+   "description": "Marcus calls it in time, and this time they listen. For 2 turns the party takes 50% less damage and sees every enemy's next move.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 35,
+     "effect_value": 100
+    }
+   ],
+   "reveals_intent": "all"
+  }
+ },
+ "sondre_stormbringer": {
+  "from": "Wave 4: 'he throws everything at the enemies without holding back, and none of it can touch the party.'",
+  "ability": {
+   "ability_id": "personal_sworn_sondre_nothing_held_back",
+   "name": "Nothing Held Back",
+   "engine": "live: spell damage to every enemy that cannot miss",
+   "effect_type": "spell_damage",
+   "target_type": "all_enemies",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "damage_school": "nature",
+   "cannot_miss": true,
+   "description": "Heavy nature damage to every enemy. It can't miss, and none of it touches the party.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 45,
+     "effect_value": 150
+    }
+   ]
+  }
+ },
+ "sebastian_bloodmage": {
+  "from": "Wave 4: 'after a rest, the whole party starts the next fight stronger, because they ate properly and so did he.'",
+  "ability": {
+   "ability_id": "personal_sworn_sebastian_everybody_sits_down",
+   "name": "Everybody Sits Down",
+   "engine": "live: party damage dealt +25% and damage taken -15% for 5 turns. The profile's idea was a passive after a rest; built as a cast so it works in any fight",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "rage",
+   "cooldown": 15,
+   "duration": 5,
+   "is_instant": true,
+   "stat_mods": {
+    "damage_dealt_pct": 25,
+    "physical_damage_taken_pct": -15,
+    "magic_damage_taken_pct": -15
+   },
+   "description": "Everyone eats properly, Sebastián too. For 5 turns the party deals 25% more damage and takes 15% less.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
+    }
+   ]
+  }
+ },
+ "marco_paladin": {
+  "from": "Wave 4: 'what he resolves is putting things off. ... he takes every hit aimed at the party for a turn, and the hits that land on him are much weaker.'",
+  "ability": {
+   "ability_id": "personal_sworn_marco_not_putting_it_off",
+   "name": "Not Putting It Off",
+   "engine": "live: damage_share 100% to Marco from every ally, halved, for 2 turns",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 15,
+   "duration": 2,
+   "is_instant": true,
+   "stat_mods": {},
+   "damage_share": {
+    "pct": 100,
+    "reduction_pct": 50
+   },
+   "description": "For 2 turns every hit aimed at an ally lands on Marco instead, and he takes 50% less from it.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 35,
+     "effect_value": 100
+    }
+   ]
+  }
+ },
+ "sophia_mage": {
+  "from": "Wave 4: 'what she resolves is doubting herself, and losing her father. ... she reads the enemy's next spell and turns it back on them.'",
+  "ability": {
+   "ability_id": "personal_sworn_sophia_read_it_back",
+   "name": "Read It Back",
+   "engine": "live: party magic damage taken -40% and a spell-only reflect of 100% (spell_only new 19 Nov 2026)",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 2,
+   "is_instant": true,
+   "stat_mods": {
+    "magic_damage_taken_pct": -40
+   },
+   "reflect": {
+    "pct": 100,
+    "school": "arcane",
+    "spell_only": true
+   },
+   "description": "For 2 turns every ally takes 40% less magic damage, and whatever magic still lands is turned back on its caster in full.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 35,
+     "effect_value": 100
+    }
+   ]
+  }
+ },
+ "carolina_shaman": {
+  "from": "Wave 4: 'what she resolves is wanting to belong somewhere. ... she calls the river's current through the party, washing away harmful effects and speeding everyone up.'",
+  "ability": {
+   "ability_id": "personal_sworn_carolina_where_the_river_goes",
+   "name": "Where the River Goes",
+   "engine": "live: party heal over time that cleanses one harmful effect each turn, with haste while it runs",
+   "effect_type": "hot",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 15,
+   "duration": 3,
+   "is_instant": true,
+   "stat_mods": {
+    "haste": 25
+   },
+   "cleanses_each_tick": true,
+   "description": "The river runs through the party. For 3 turns every ally heals each turn, loses one harmful effect each turn, and acts 25% faster.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 40,
+     "effect_value": 40
+    }
+   ]
+  }
+ },
+ "ryan_warlock": {
+  "from": "Wave 4: 'what he resolves is hiding from what he did. ... he pays the price himself, taking the damage meant for the party and turning it into power for his demon.'",
+  "ability": {
+   "ability_id": "personal_sworn_ryan_pays_it_himself",
+   "name": "Pays It Himself",
+   "engine": "live: damage_share 50% to Ryan, 30% lighter, for 3 turns; pet_mods (new 19 Nov 2026) give his demon +40% damage",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 3,
+   "is_instant": true,
+   "stat_mods": {},
+   "damage_share": {
+    "pct": 50,
+    "reduction_pct": 30
+   },
+   "pet_mods": {
+    "damage_dealt_pct": 40
+   },
+   "description": "For 3 turns half of every hit on an ally goes to Ryan instead, 30% lighter, and his demon deals 40% more damage.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 35,
+     "effect_value": 100
+    }
+   ]
+  }
+ },
+ "hana_shaman": {
+  "from": "Wave 4: 'what she resolves is not accepting \"somewhere\". ... she pulls the most wounded ally out of danger and heals them to full.'",
+  "ability": {
+   "ability_id": "personal_sworn_hana_not_somewhere",
+   "name": "Not Somewhere",
+   "engine": "live: heals_pct_max 100 on whoever is lowest (auto_lowest_ally)",
+   "effect_type": "heal",
+   "target_type": "ally",
+   "resource_type": "mana",
+   "cooldown": 15,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "auto_lowest_ally": true,
+   "heals_pct_max": 100,
+   "description": "Hana goes in for whoever's worst off. The most wounded ally, whoever was picked, is healed to full health.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 45,
+     "effect_value": 80
+    }
+   ]
+  }
+ },
+ "esteban_bloodmage": {
+  "from": "Wave 4: 'with the party's agreement, he takes some of everyone's health and uses it to save the one who's dying.'",
+  "ability": {
+   "ability_id": "personal_sworn_esteban_with_everyones_consent",
+   "name": "With Everyone's Consent",
+   "engine": "live: a heal on the lowest ally, plus drains_party_pct (new 19 Nov 2026): every other ally gives 10% of their maximum health to them",
+   "effect_type": "heal",
+   "target_type": "ally",
+   "resource_type": "rage",
+   "cooldown": 14,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "auto_lowest_ally": true,
+   "drains_party_pct": 10,
+   "description": "Esteban asks, and everyone agrees. Every other ally, Esteban included, gives 10% of their maximum health to the most wounded one, on top of a heal from him.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 70
+    }
+   ]
+  }
+ },
+ "berat_tinker": {
+  "from": "Wave 4: 'what he resolves is never stopping to feel it. ... he gets everyone talking and laughing so the whole party shakes off fear and stuns.'",
+  "ability": {
+   "ability_id": "personal_sworn_berat_everybody_laughing",
+   "name": "Everybody Laughing at Once",
+   "engine": "live: party cc_immune for 4 turns (it also breaks stuns already on them) and +15% damage",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 13,
+   "duration": 4,
+   "is_instant": true,
+   "stat_mods": {
+    "cc_immune": 1,
+    "damage_dealt_pct": 15
+   },
+   "description": "Berat gets the whole party talking and laughing. Anyone stunned or frightened shakes it off, and for 4 turns nobody can be stunned, feared or charmed, and everyone deals 15% more damage.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 35,
+     "effect_value": 100
+    }
+   ]
+  }
+ },
+ "dan_warrior": {
+  "from": "Wave 4: 'what he resolves is being afraid he's useless. ... the party takes less damage for every ally still standing, because a crew holds together.'",
+  "ability": {
+   "ability_id": "personal_sworn_dan_a_crew_holds_together",
+   "name": "A Crew Holds Together",
+   "engine": "live: party damage taken -7% per living ally (scaling living_allies, cap 5) for 4 turns; the cooldown starts when it ends. The profile's idea was a passive; built as a cast so it stays a trump card",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "rage",
+   "cooldown": 13,
+   "duration": 4,
+   "is_instant": true,
+   "stat_mods": {
+    "physical_damage_taken_pct": -7,
+    "magic_damage_taken_pct": -7
+   },
+   "scaling": {
+    "source": "living_allies",
+    "cap": 5
+   },
+   "cooldown_starts_after_expiry": true,
+   "description": "For 4 turns every ally takes 7% less damage for each ally still standing, Dan included, up to 35%.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 20,
+     "effect_value": 100
+    }
+   ]
+  }
+ },
+ "marisol_priest": {
+  "from": "Wave 4: 'she talks an ally through it, and they can't fall below a sliver of health for two turns.'",
+  "ability": {
+   "ability_id": "personal_sworn_marisol_talk_them_through",
+   "name": "Talk Them Through It",
+   "engine": "live: death_prevent at 5% that catches every blow, not only a lethal one, for 2 turns",
+   "effect_type": "buff",
+   "target_type": "ally",
+   "resource_type": "mana",
+   "cooldown": 13,
+   "duration": 2,
+   "is_instant": true,
+   "stat_mods": {},
+   "death_prevent": {
+    "pct": 5,
+    "lethal_only": false,
+    "uses": 99
+   },
+   "description": "Marisol keeps talking. For 2 turns that ally can't be brought below 5% of their health, however hard they're hit.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
+    }
+   ]
+  }
+ },
+ "silas_rogue": {
+  "from": "Wave 4: 'what he resolves is watching and saying nothing. ... he sees an enemy's big attack coming and steps in front of the ally it was meant for.'",
+  "ability": {
+   "ability_id": "personal_sworn_silas_says_something",
+   "name": "Says Something This Time",
+   "engine": "live: damage_share 100% to Silas, 60% lighter, two uses on each ally, for 3 turns",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "energy",
+   "cooldown": 15,
+   "duration": 3,
+   "is_instant": true,
+   "stat_mods": {},
+   "damage_share": {
+    "pct": 100,
+    "reduction_pct": 60,
+    "uses": 2
+   },
+   "description": "Silas sees it coming and steps in. For 3 turns the next 2 attacks aimed at each ally land on him instead, and he takes 60% less from them.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
+    }
+   ]
+  }
+ },
+ "rosa_hunter": {
+  "from": "Wave 4: 'what she resolves is the year she was outclassed and the pride it cost. ... she reads the enemy's next three moves, and the party's attacks can't miss for those turns.'",
+  "ability": {
+   "ability_id": "personal_sworn_rosa_three_moves_ahead",
+   "name": "Three Moves Ahead",
+   "engine": "live: party hit_rating +27 and spell_hit_rating +100 for 3 turns, and reveals_intent all",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 3,
+   "is_instant": true,
+   "stat_mods": {
+    "hit_rating": 27,
+    "spell_hit_rating": 100
+   },
+   "reveals_intent": "all",
+   "description": "Rosa reads the next three moves. For 3 turns the party sees what every enemy will do next, and nobody's attacks or spells can miss.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
+    }
+   ]
+  }
+ },
+ "pavlo_knight": {
+  "from": "Wave 4: 'what he resolves is believing nothing he taught mattered. ... he holds the line so completely that the party takes no damage for a turn.'",
+  "ability": {
+   "ability_id": "personal_sworn_pavlo_nothing_gets_past",
+   "name": "Nothing Gets Past",
+   "engine": "live: party damage taken -100% for 1 turn",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "rage",
+   "cooldown": 15,
+   "duration": 1,
+   "is_instant": true,
+   "stat_mods": {
+    "physical_damage_taken_pct": -100,
+    "magic_damage_taken_pct": -100
+   },
+   "description": "Pavlo holds the line completely. For 1 turn the party takes no damage at all.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
+    }
+   ]
+  }
+ },
+ "amber_druid": {
+  "from": "Wave 4: 'what she resolves is the fear of running out of time. ... a passive where her heals over time grow stronger the longer they run.'",
+  "passives": {
+   "_name": "There's Time",
+   "_text": "Every heal over time Amber casts heals 15% more with each turn it keeps running.",
+   "hot_tick_growth_pct": 15
+  }
+ },
+ "ivan_warrior": {
+  "from": "Wave 4: 'what he resolves is the fear of hitting someone. ... a huge two-handed strike that can't hit an ally even in a crowd, and that stops dead on the enemy.'",
+  "ability": {
+   "ability_id": "personal_sworn_ivan_stops_dead",
+   "name": "Stops Dead on It",
+   "engine": "live: one heavy strike that cannot miss and ignores 40% of armour; single target only",
+   "effect_type": "damage",
+   "target_type": "enemy",
+   "resource_type": "rage",
+   "cooldown": 14,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "cannot_miss": true,
+   "armor_ignore_pct": 40,
+   "description": "A huge two-handed strike that can't miss and ignores 40% of the target's armour. It stops dead on that enemy and never touches anyone else.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 160
+    }
+   ]
+  }
+ },
+ "haruto_runemaster": {
+  "from": "Wave 4: 'what he resolves is the twenty years of silence, and losing his hand. ... a single perfect rune strike that can't miss, be dodged or be resisted.'",
+  "ability": {
+   "ability_id": "personal_sworn_haruto_twenty_years_one_line",
+   "name": "Twenty Years in One Line",
+   "engine": "live: one strike that cannot miss, dodge or parry and ignores all armour",
+   "effect_type": "damage",
+   "target_type": "enemy",
+   "resource_type": "mana",
+   "cooldown": 15,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "cannot_miss": true,
+   "armor_ignore_pct": 100,
+   "description": "One perfect rune stroke. It can't miss, be dodged or be parried, and it ignores all of the target's armour.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 40,
+     "effect_value": 200
+    }
+   ]
+  }
+ },
+ "marta_tinker": {
+  "from": "Wave 4: 'what she resolves is waiting at the door. ... a charge she sets and leaves, and it goes off later exactly when it'll do the most.'",
+  "ability": {
+   "ability_id": "personal_sworn_marta_set_and_walk_away",
+   "name": "Set It and Walk Away",
+   "engine": "live: delayed (2 turns, x1.5) fire damage that can't be interrupted",
+   "effect_type": "damage",
+   "target_type": "enemy",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 0,
+   "is_instant": true,
+   "stat_mods": {},
+   "damage_school": "fire",
+   "delayed": {
+    "turns": 2,
+    "mult": 1.5
+   },
+   "description": "Marta sets a charge on an enemy and walks away. At the end of her second turn from now it goes off for 50% more than an ordinary blast of its size, and nothing can stop it.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 35,
+     "effect_value": 150
+    }
+   ]
   }
  }
 }

@@ -1422,6 +1422,9 @@ class StatusEffectMixin:
                 continue
             if getattr(effect, "reflect_melee_only", False) and damage_type != "physical":
                 continue
+            # Sophia's Sworn skill turns spells back, not swords
+            if getattr(effect, "reflect_spell_only", False) and damage_type == "physical":
+                continue
             back = int(actual * min(100.0, pct) / 100.0)
             if back <= 0:
                 continue
@@ -1882,7 +1885,10 @@ class StatusEffectMixin:
         """
         total = 0
         for e in self._effects():
-            if e.effect_type in (EffectType.BUFF, EffectType.DEBUFF):
+            # a HoT counts too when it carries mods (Wave 4: Carolina's river heals AND speeds
+            # everyone up); no HoT authored before that had any, so this changes nothing else
+            if e.effect_type in (EffectType.BUFF, EffectType.DEBUFF) or (
+                    e.effect_type == EffectType.HOT and e.stat_mods):
                 value = self._status_mods_for(e).get(stat_name, 0)
                 if isinstance(value, (int, float)):
                     total += value

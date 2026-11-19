@@ -76,7 +76,8 @@ def passive_keys():
         keys |= set(StatusEffectMixin.STAT_LABELS)
     except Exception:
         pass
-    return keys
+    from world.personal_kits import COMBAT_KEYS
+    return keys | set(COMBAT_KEYS) | {"_name", "_text", "_from"}
 
 
 def ranks_for(a, kits):

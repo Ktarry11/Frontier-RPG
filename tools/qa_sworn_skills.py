@@ -220,13 +220,242 @@ def c_freja(rm, bm, rid):
     check(plain > 0 and 1.8 <= doubled / plain <= 2.2, f"{ab.name}: {heal.name} healed {plain}, then {doubled}, wants double")
 
 
+def c_marco(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    a = others[1]
+    before = a.current_health
+    a.take_damage(4000, "shadow", attacker=mobs[1], attacker_level=60)
+    check(a.current_health < before, "rig: the ally takes nothing from a plain hit")
+    a.current_health = a.health
+    cast(ch, ab, [ch] + others, eng)
+    a_before, m_before = a.current_health, ch.current_health
+    a.take_damage(4000, "shadow", attacker=mobs[1], attacker_level=60)
+    check(a.current_health == a_before, f"{ab.name}: the ally still took {a_before - a.current_health}")
+    check(0 < m_before - ch.current_health, f"{ab.name}: Marco took nothing for them")
+
+
+def c_sophia(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    a = others[0]
+    before = a.current_health
+    a.take_damage(4000, "fire", attacker=mobs[1], attacker_level=60)
+    plain = before - a.current_health
+    a.current_health = a.health
+    cast(ch, ab, [ch] + others, eng)
+    before, foe = a.current_health, mobs[1].current_health
+    a.take_damage(4000, "fire", attacker=mobs[1], attacker_level=60)
+    took = before - a.current_health
+    check(plain > 0 and 0.5 <= took / plain <= 0.7, f"{ab.name}: magic took {took}, was {plain}, wants 40% less")
+    check(foe - mobs[1].current_health == took, f"{ab.name}: the caster got back {foe - mobs[1].current_health} of {took}")
+    foe = mobs[0].current_health
+    a.take_damage(3000, "physical", attacker=mobs[0], attacker_level=60)
+    check(mobs[0].current_health == foe, f"{ab.name}: a sword was turned back too")
+
+
+def c_carolina(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    from combat.status_effects import StatusEffect, EffectType
+    a = others[0]
+    a.apply_status_effect(StatusEffect("qa_poison", "Poison", EffectType.DEBUFF, 6, stat_mods={"armor_pct": -10},
+                                       source_name="Boar 1", real_time_seconds=None))
+    a.current_health = a.health // 3
+    a._recalculate_derived_stats()
+    h0 = a.haste
+    cast(ch, ab, [ch] + others, eng)
+    check(any(e.effect_id == ab.ability_id for e in a._effects()), f"{ab.name}: nothing on the ally")
+    a._recalculate_derived_stats()
+    check(a.get_status_stat_mod("haste") == 25 and a.haste - h0 >= 24.9,
+          f"{ab.name}: haste went {h0:.1f} to {a.haste:.1f}, wants +25")
+    before = a.current_health
+    a.tick_status_effects()
+    check(a.current_health > before, f"{ab.name}: a tick healed nothing")
+    check(not any(e.effect_id == "qa_poison" for e in a._effects()), f"{ab.name}: a tick didn't wash the poison off")
+
+
+def c_ryan(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    summon = next((x for x in ch.ability_book.get_all_abilities() if x.effect_type == "summon_pet"), None)
+    if summon is not None:
+        fill(ch, summon)
+        summon.is_learned = True
+        summon.use(ch, ch, party=eng.living_allies(), engine=eng, free=True)
+    cast(ch, ab, [ch] + others, eng)
+    a = others[1]
+    a_before, r_before = a.current_health, ch.current_health
+    a.take_damage(4000, "shadow", attacker=mobs[1], attacker_level=60)
+    lost, paid = a_before - a.current_health, r_before - ch.current_health
+    check(lost > 0 and paid > 0 and 0.6 <= paid / lost <= 0.8, f"{ab.name}: ally lost {lost}, Ryan paid {paid}, wants about 0.7 of it")
+    pets = [p for p in (getattr(ch, "all_pets", None) or []) if p.is_alive()]
+    if check(pets, f"{ab.name}: rig has no demon out"):
+        check(pets[0].get_status_stat_mod("damage_dealt_pct") == 40,
+              f"{ab.name}: demon damage {pets[0].get_status_stat_mod('damage_dealt_pct')}, wants +40")
+
+
+def c_hana(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    low = others[1]
+    low.current_health = low.health // 10
+    cast(ch, ab, others[0], eng)
+    check(low.current_health == low.health, f"{ab.name}: the worst-off ally is at {low.current_health}/{low.health}")
+
+
+def c_esteban(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    low = others[1]
+    low.current_health = low.health // 10
+    before = {id(c): c.current_health for c in [ch] + others}
+    cast(ch, ab, others[0], eng)
+    for c in [ch, others[0]]:
+        gave = before[id(c)] - c.current_health
+        check(abs(gave - int(c.health * 0.10)) <= 2, f"{ab.name}: {c.name} gave {gave}, wants 10% of {c.health}")
+    check(low.current_health - before[id(low)] > int(ch.health * 0.1) + int(others[0].health * 0.1),
+          f"{ab.name}: the dying ally got only {low.current_health - before[id(low)]}")
+
+
+def c_passive(rm, bm, rid):
+    """A Sworn passive is in the passive pools only while Sworn, and shows on the sheet."""
+    from world import personal_kits as PK
+    recs = {r.recruit_id: r for r in rm.recruits.values()}
+    block = PK.sworn_skills()[rid]["passives"]
+    keys = {k for k in block if not k.startswith("_")}
+    swear(bm, rid, False)
+    ch = rm.build_or_restore(recs[rid], player_level=60)
+    off = {**PK.passives_for(ch), **PK.combat_passives_for(ch)}
+    swear(bm, rid, True)
+    on = {**PK.passives_for(ch), **PK.combat_passives_for(ch)}
+    for k in keys:
+        check(off.get(k, 0) == 0 and on.get(k, 0) != 0, f"{rid}: passive {k} is {off.get(k)} before swearing, {on.get(k)} after")
+    check(any(src == "Sworn" for _, src, _ in PK.passive_entries_for(ch)), f"{rid}: the Sworn passive isn't listed")
+    return ch
+
+
+def c_ama(rm, bm, rid):
+    ch = c_passive(rm, bm, rid)
+    from entities.character import Character
+    heal = next((x for x in ch.ability_book.get_all_abilities() if x.effect_type == "heal"), None)
+    if not check(heal is not None, "Ama: no heal to measure"):
+        return
+    low, high, mid = (Character(n, "Warrior", 60) for n in ("Low", "High", "Mid"))
+    for c, f in ((low, 0.3), (high, 0.95), (mid, 0.65)):
+        c.current_health = int(c.health * f)
+    ch._recalculate_derived_stats()
+    m = {c.name: heal._damage_multiplier(ch, "healing", recipient=c) for c in (low, high, mid)}
+    check(abs(m["Low"] / m["Mid"] - 1.40) < 0.01, f"Ama: below half heals x{m['Low'] / m['Mid']:.2f}, wants x1.40")
+    check(abs(m["High"] / m["Mid"] - 0.80) < 0.01, f"Ama: above 80% heals x{m['High'] / m['Mid']:.2f}, wants x0.80")
+
+
+def c_berat(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    from combat.status_effects import StatusEffect, EffectType
+    a = others[0]
+    stun = StatusEffect("qa_stun", "Stunned", EffectType.DEBUFF, 3, stat_mods={}, source_name="Boar 1",
+                        real_time_seconds=None)
+    stun.is_stun = True
+    a.apply_status_effect(stun)
+    check(a.is_stunned, "rig: the stun didn't take")
+    cast(ch, ab, [ch] + others, eng)
+    check(not a.is_stunned, f"{ab.name}: the ally is still stunned")
+    for key, value in ab.stat_mods.items():
+        check(a.get_status_stat_mod(key) == value, f"{ab.name}: {key} {a.get_status_stat_mod(key)}, wants {value}")
+
+
+def c_dan(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    cast(ch, ab, [ch] + others, eng)
+    n = len([c for c in [ch] + others if c.is_alive()])
+    a = others[0]
+    got = a.get_status_stat_mod("physical_damage_taken_pct")
+    check(got == -7 * n, f"{ab.name}: an ally takes {got}% with {n} standing, wants {-7 * n}")
+
+
+def c_marisol(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    a = others[1]
+    cast(ch, ab, a, eng)
+    floor = int(a.health * 0.05)
+    for _ in range(4):
+        a.take_damage(a.health, "physical", attacker=mobs[0], attacker_level=60)
+    check(a.is_alive() and a.current_health >= floor - 1,
+          f"{ab.name}: four big hits left {a.current_health}, wants at least {floor}")
+
+
+def c_silas(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    a = others[1]
+    before = a.current_health
+    a.take_damage(2000, "shadow", attacker=mobs[1], attacker_level=60)
+    check(a.current_health < before, "rig: the ally takes nothing from a plain hit")
+    a.current_health = a.health
+    cast(ch, ab, [ch] + others, eng)
+    lost = []
+    for _ in range(3):
+        before = a.current_health
+        a.take_damage(2000, "shadow", attacker=mobs[1], attacker_level=60)
+        lost.append(before - a.current_health)
+    check(lost[0] == 0 and lost[1] == 0 and lost[2] > 0, f"{ab.name}: the ally lost {lost}, wants nothing twice and then a hit")
+
+
+def c_pavlo(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    cast(ch, ab, [ch] + others, eng)
+    for c in [ch] + others:
+        before = c.current_health
+        c.take_damage(5000, "physical", attacker=mobs[0], attacker_level=60)
+        c.take_damage(5000, "shadow", attacker=mobs[1], attacker_level=60)
+        check(c.current_health == before, f"{ab.name}: {c.name} still lost {before - c.current_health}")
+
+
+def c_amber(rm, bm, rid):
+    ch = c_passive(rm, bm, rid)
+    hot = next((x for x in ch.ability_book.get_all_abilities() if x.effect_type == "hot"), None)
+    if not check(hot is not None, "Amber: no heal over time to measure"):
+        return
+    from entities.character import Character
+    a = Character("Friend", "Warrior", 60)
+    ch._recalculate_derived_stats()
+    fill(ch, hot)
+    hot.use(ch, a, party=[ch, a], free=True)
+    eff = next((e for e in a._effects() if e.effect_id == hot.ability_id), None)
+    if check(eff is not None, f"Amber: {hot.name} put nothing on"):
+        want = (hot.tick_growth_pct or 0) + 15
+        check(abs(eff.tick_growth_pct - want) < 0.01, f"Amber: {hot.name} grows {eff.tick_growth_pct}% a turn, wants {want}")
+
+
+def c_marta(rm, bm, rid):
+    ch, ab, others, mobs, eng = fight(rm, bm, rid)
+    hp = mobs[0].current_health
+    cast(ch, ab, mobs[0], eng)
+    check(mobs[0].current_health == hp, f"{ab.name}: went off at once")
+    landed = None
+    for t in range(1, 5):
+        eng._end_turn(ch)
+        if mobs[0].current_health < hp:
+            landed = t
+            break
+    check(landed == 3, f"{ab.name}: went off after {landed} turn-ends, wants 3 (the setting turn and 2 more)")
+
+
 CHECKS = {
     "personal_sworn_kesten_written_down_properly": c_kesten,
     "personal_sworn_adrian_let_them_carry_it": c_adrian,
     "personal_sworn_tarek_built_to_last": c_tarek,
     "personal_sworn_diego_put_it_right": c_diego,
     "personal_sworn_freja_calmest_in_the_room": c_freja,
+    "personal_sworn_marco_not_putting_it_off": c_marco,
+    "personal_sworn_sophia_read_it_back": c_sophia,
+    "personal_sworn_carolina_where_the_river_goes": c_carolina,
+    "personal_sworn_ryan_pays_it_himself": c_ryan,
+    "personal_sworn_hana_not_somewhere": c_hana,
+    "personal_sworn_esteban_with_everyones_consent": c_esteban,
+    "personal_sworn_berat_everybody_laughing": c_berat,
+    "personal_sworn_dan_a_crew_holds_together": c_dan,
+    "personal_sworn_marisol_talk_them_through": c_marisol,
+    "personal_sworn_silas_says_something": c_silas,
+    "personal_sworn_pavlo_nothing_gets_past": c_pavlo,
+    "personal_sworn_marta_set_and_walk_away": c_marta,
 }
+#: passives with a check of their own (every other passive gets c_passive)
+PASSIVE_CHECKS = {"ama_priest": c_ama, "amber_druid": c_amber}
 
 
 def by_kind(rm, bm, rid):
@@ -347,9 +576,14 @@ def main():
     # 5
     for rid, e in sorted(sworn.items()):
         a = e.get("ability")
-        if not a:
-            continue
         rm, bm = rig()
+        if not a:
+            try:
+                PASSIVE_CHECKS.get(rid, c_passive)(rm, bm, rid)
+            except Exception as exc:
+                import traceback
+                check(False, f"{rid}: passive check crashed: {exc!r}\n{traceback.format_exc()[-600:]}")
+            continue
         try:
             fn = CHECKS.get(a["ability_id"], by_kind)
             fn(rm, bm, rid)
