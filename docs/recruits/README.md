@@ -82,9 +82,13 @@ Each recruit's profile becomes one file, `tools/wave2/<recruit_id>.json`, with t
 `tools/qa_recruit_bonds.py` fails if any file is wrong or doesn't load. Kesten, Adrián and Tarek
 stay in `tools/build_recruit_bonds.py` as the pilot. Asher is never touched.
 
-Profiles corrected during Wave 2, still to re-mirror to the project: `haruto_nakamura.md` (Hrunn from Thousand Needles), `matias_fuentes.md` (brother Benjamín), `nicolas_arce.md` (partner Gladys Huamán), `driss_alaoui.md` (son Hamza). Sophia's Wouter and Hana's Ashenvale coast are mirrored.
+Profiles corrected during Wave 2 (all mirrored to the project): `haruto_nakamura.md` (Hrunn from Thousand Needles), `matias_fuentes.md` (brother Benjamín), `nicolas_arce.md` (partner Gladys Huamán), `driss_alaoui.md` (son Hamza), Sophia's Wouter and Hana's Ashenvale coast.
 
 **Wave 2 done:** Diego, Freja, Ama, Marcus, Sondre, Sebastián, Marco, Sophia, Carolina, Ryan, Hana, Esteban, Berat, Dan, Marisol, Silas, Rosa, Pavlo, Amber, Ivan, Haruto, Marta, Lúcia, Minh, Bakyt, Matías, Tomas, Cristóbal, Callum, Giorgi, Camille, Liam, Orlando, Owen, Anjali, Emre, Saoirse, Pasang, Nicolás, Iker, Mateo, Imelda, Ileana, Rhys, Henrik, Eino, Driss, Thiago, Jun-seo, Skye, Enzo, Alonso, Vuk, Gunnar, Kourosh, Héctor, Ziad, Ratih, Fiona, Khalid, Delroy, Karim, Osvaldo, Bashir, Pieter, Gianluca, Camila, Elias, Kiet, Rui, Stelios, Nizar, Yusuf, Réka, Ramiro, Graham, Elie, Bruno, Joaquín, Astrid, Luka, Zofia, Omar, Santiago, Emiliano, Mohammed, Tobias, Isla, Taras, Mariana, Dale, Wes, Neil, Valentina, Faris.
+
+**Wave 2 complete, 19 Nov 2026:** all 95 recruits (98 profiles less the pilot three and Asher).
+
+**Realism pass (Kyle: "These are real people").** Read back to back, the first files shared skeletons that no single line showed: hometown banter written as postcards, "Everybody out, everybody counted", every goodbye opening "I'm going back to", every return opening "I'm back, and", and half the cast telling you where they landed with one sentence shape. All of it was rewritten line type by line type across the whole cast, so each person sounds like themselves. `tools/wave2_text.py` now also fails on stock phrases, the "it's not X, it's Y" line, any four words that three recruits' banter shares or eight recruits' bond lines share, and any line type where four recruits open with the same three words.
 
 ## Order and progress
 
