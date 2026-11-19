@@ -116,18 +116,36 @@ class BanterLine:
 
 
 class BanterBeat:
-    """What the UI draws: one or two lines with portraits, and how long it has left."""
+    """What the UI draws: lines with portraits, revealed one at a time, and how long it has left.
+
+    Wave 3 conversations run to four, five or six lines, so each line waits for the one before it
+    to be read: a short line gives the reply about two and a half seconds, a long one up to six.
+    The last line stays up long enough to read it too. One line on its own keeps the hold it was
+    given, which is what every older caller expects."""
 
     def __init__(self, lines, hold=6.0):
         self.lines = lines        # [(recruit_id, speaker_name, text)]
-        self.remaining = hold + 2.5 * (len(lines) - 1)
-        self.revealed = 1         # the reply appears a beat after the opener
+        self.starts = [0.0]
+        for _, _, text in lines[:-1]:
+            self.starts.append(self.starts[-1] + read_time(text))
+        if len(lines) <= 1:
+            tail = hold
+        else:
+            tail = max(4.0, min(9.0, 1.5 + len(lines[-1][2]) / 20))
+        self.remaining = self.starts[-1] + tail
+        self.elapsed = 0.0
+        self.revealed = 1         # each reply appears once the line before it has been read
 
     def update(self, dt):
         self.remaining -= dt
-        if self.revealed < len(self.lines) and self.remaining < (len(self.lines) - 1) * 2.5 + 2.0:
-            self.revealed = len(self.lines)
+        self.elapsed += dt
+        self.revealed = max(self.revealed, sum(1 for s in self.starts if s <= self.elapsed))
         return self.remaining > 0
+
+
+def read_time(text):
+    """Seconds before the next line appears: long enough to read this one, never a wait."""
+    return min(6.0, max(2.5, 1.0 + len(text) / 30))
 
 
 class BanterManager:

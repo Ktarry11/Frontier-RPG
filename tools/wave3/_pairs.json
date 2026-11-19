@@ -1080,5 +1080,579 @@
     ]
    }
   ]
+ },
+ {
+  "a": "karim_felsworn",
+  "b": "ziad_felsworn",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": -1,
+    "lines": [
+     [
+      "ziad_felsworn",
+      "Another one with green eyes! Habibi, how did you pay for yours?"
+     ],
+     [
+      "karim_felsworn",
+      "Carefully, after a week of consideration, with my eyes open. How did you pay for yours?"
+     ],
+     [
+      "ziad_felsworn",
+      "In about four seconds, in a jungle full of wounded people."
+     ],
+     [
+      "karim_felsworn",
+      "Then one of us chose and one of us reacted. I'll let you decide which."
+     ]
+    ]
+   },
+   {
+    "when": "gap:6",
+    "affinity": -2,
+    "lines": [
+     [
+      "ziad_felsworn",
+      "Your arithmetic's wrong, Karim. You took it to be useful, and I took it to save the fifth patient, and that's different."
+     ],
+     [
+      "karim_felsworn",
+      "It's the same sum written in a different order. Useful is saving people with the sentiment taken out."
+     ],
+     [
+      "ziad_felsworn",
+      "Don't take the sentiment out, it's the only part that hurts. The hurting's the point."
+     ],
+     [
+      "karim_felsworn",
+      "That's precisely why I took it out."
+     ]
+    ]
+   },
+   {
+    "when": "gap:8",
+    "affinity": 3,
+    "lines": [
+     [
+      "karim_felsworn",
+      "I surveyed the desert east of Amman for fifteen years. Out there you learn a line's only as honest as the person who drew it."
+     ],
+     [
+      "ziad_felsworn",
+      "And in an ambulance you learn the line moves every time somebody screams."
+     ],
+     [
+      "karim_felsworn",
+      "Then we'd both have hated each other's jobs."
+     ],
+     [
+      "ziad_felsworn",
+      "Probably, but I'd have liked you in the van. You'd have kept the count straight."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "ziad_felsworn",
+      "Okay, I'll say it, you're the only one who argues the fel with me properly. Everybody else just looks sad."
+     ],
+     [
+      "karim_felsworn",
+      "I'm tired of people being sad on my behalf. I imagine you are too."
+     ],
+     [
+      "ziad_felsworn",
+      "I'm exhausted, habibi. Let's keep arguing, it's restful."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 5,
+    "lines": [
+     [
+      "karim_felsworn",
+      "When you chose, at the port, did you ever choose wrong?"
+     ],
+     [
+      "ziad_felsworn",
+      "Never once, and I carry every one of them anyway. Being right doesn't make it light."
+     ],
+     [
+      "karim_felsworn",
+      "I always believed that if the sum was right, the weight went away. I'm less sure of that than I used to be."
+     ],
+     [
+      "ziad_felsworn",
+      "It doesn't go away, it just gets carried by more people. Sit with me, and we'll split it."
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "a": "ileana_necromancer",
+  "b": "osvaldo_warlock",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 2,
+    "lines": [
+     [
+      "ileana_necromancer",
+      "You're a musician, aren't you? You hold your hands like they're still holding something."
+     ],
+     [
+      "osvaldo_warlock",
+      "Trumpet, sixteen years. Don't ask me to play."
+     ],
+     [
+      "ileana_necromancer",
+      "I wasn't going to. I'd only criticise, and you'd hate me."
+     ],
+     [
+      "osvaldo_warlock",
+      "Second violin, I'd guess. You've got the face of somebody who's been told off by a conductor."
+     ],
+     [
+      "ileana_necromancer",
+      "Eleven years, by a man with a stick. You're annoyingly right."
+     ]
+    ]
+   },
+   {
+    "when": "gap:6",
+    "affinity": -1,
+    "lines": [
+     [
+      "osvaldo_warlock",
+      "You hummed the Bartók again last night. You were flat on the fourth bar."
+     ],
+     [
+      "ileana_necromancer",
+      "I wasn't flat, I was expressive, which you'd know if you'd ever played anything but hotel jazz."
+     ],
+     [
+      "osvaldo_warlock",
+      "Hotel jazz paid my rent for sixteen years, and the tourists talked through all of it."
+     ],
+     [
+      "ileana_necromancer",
+      "At least they talked through something good. Mine coughed through Brahms."
+     ]
+    ]
+   },
+   {
+    "when": "gap:8",
+    "affinity": 3,
+    "lines": [
+     [
+      "ileana_necromancer",
+      "I want an ensemble, Osvaldo, not an audience. Three or four people who can hold a line."
+     ],
+     [
+      "osvaldo_warlock",
+      "I know what you want. Don't ask me to play for you."
+     ],
+     [
+      "ileana_necromancer",
+      "I'm asking you to listen and tell me when I'm wrong, because you'd actually know."
+     ],
+     [
+      "osvaldo_warlock",
+      "That, I can do. You'll hate it."
+     ],
+     [
+      "ileana_necromancer",
+      "I'll hate it and I'll be better for it, which is the whole point of anybody who's any good."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "osvaldo_warlock",
+      "My brother plays piano better than me. We fought every night and played every night."
+     ],
+     [
+      "ileana_necromancer",
+      "That's the only way to make music worth hearing. Comfortable ensembles are boring."
+     ],
+     [
+      "osvaldo_warlock",
+      "You'd like him. He's rude, like you."
+     ],
+     [
+      "ileana_necromancer",
+      "Then I'd adore him, asere."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 5,
+    "lines": [
+     [
+      "ileana_necromancer",
+      "I was unbearable for two years here. I knew I was doing it, and I did it anyway."
+     ],
+     [
+      "osvaldo_warlock",
+      "I burned ships for the Bloodsail and didn't care whose. Don't tell me about unbearable."
+     ],
+     [
+      "ileana_necromancer",
+      "Then neither of us is allowed to be smug about the other."
+     ],
+     [
+      "osvaldo_warlock",
+      "Fine, we'll just be rude, like musicians."
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "a": "callum_venomancer",
+  "b": "skye_pyromancer",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 1,
+    "lines": [
+     [
+      "skye_pyromancer",
+      "You're from Brisbane? Mate, I told everyone not to say Queensland, and here you are."
+     ],
+     [
+      "callum_venomancer",
+      "Sorry, no worries, I'll keep it quiet. You're Victoria, by the sound of it, all that cold made you serious."
+     ],
+     [
+      "skye_pyromancer",
+      "Ballarat, and I'm not serious, I'm careful. There's a difference, and you don't know it."
+     ],
+     [
+      "callum_venomancer",
+      "I've been bitten by a taipan, Skye. I know heaps about careful, mostly what happens when you're not."
+     ]
+    ]
+   },
+   {
+    "when": "gap:5",
+    "affinity": -1,
+    "lines": [
+     [
+      "skye_pyromancer",
+      "You stuck your hand in that nest without looking, Callum. I watched you."
+     ],
+     [
+      "callum_venomancer",
+      "I looked, I just looked fast. The spider was more scared of me, mate."
+     ],
+     [
+      "skye_pyromancer",
+      "The spider wasn't scared of anything, it was the size of a dinner plate!"
+     ],
+     [
+      "callum_venomancer",
+      "And now it's my mate. You're welcome to come and meet it."
+     ],
+     [
+      "skye_pyromancer",
+      "Not a chance, and if you get bitten I'm not carrying you."
+     ]
+    ]
+   },
+   {
+    "when": "gap:8",
+    "affinity": 3,
+    "lines": [
+     [
+      "callum_venomancer",
+      "You were a vet nurse, weren't you? You held that wolf's paw like you were checking for a break."
+     ],
+     [
+      "skye_pyromancer",
+      "Years of other people's dogs and cats, and a lot of farm visits. Why do you ask?"
+     ],
+     [
+      "callum_venomancer",
+      "I had a blue heeler, Biscuit. Best mate I ever had, and I had to leave her behind."
+     ],
+     [
+      "skye_pyromancer",
+      "Oh, mate, I'm sorry. Heelers are the best dogs going, and they know it."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "skye_pyromancer",
+      "Righto, here's the deal. You look before you put your hand in things, and I'll stop yelling about it."
+     ],
+     [
+      "callum_venomancer",
+      "That's a terrible deal for you, you love yelling about it."
+     ],
+     [
+      "skye_pyromancer",
+      "I do, but I'd rather you didn't die. Have we got a deal?"
+     ],
+     [
+      "callum_venomancer",
+      "Deal, no worries, mostly."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 5,
+    "lines": [
+     [
+      "callum_venomancer",
+      "I'm better with animals than people, Skye. Always have been, and I didn't notice till here."
+     ],
+     [
+      "skye_pyromancer",
+      "You're all right with this person, mate, and I've noticed."
+     ],
+     [
+      "callum_venomancer",
+      "Yeah, you reckon? Then I reckon I'm getting better at it."
+     ],
+     [
+      "skye_pyromancer",
+      "You're getting there. I'll keep yelling at you till you're perfect."
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "a": "iker_guardian",
+  "b": "saoirse_starcaller",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 4,
+    "lines": [
+     [
+      "iker_guardian",
+      "You're a coach, I can see it from here! You stand like you're about to blow a whistle."
+     ],
+     [
+      "saoirse_starcaller",
+      "Under-sixteen camogie, and you're one too, so. Nobody walks like that unless they've done a thousand warm-ups."
+     ],
+     [
+      "iker_guardian",
+      "Pelota, and PE for the whole school! Race you to the top of the hill, right now!"
+     ],
+     [
+      "saoirse_starcaller",
+      "You're on, and I'll be waiting for you at the top."
+     ]
+    ]
+   },
+   {
+    "when": "gap:5",
+    "affinity": 3,
+    "lines": [
+     [
+      "saoirse_starcaller",
+      "That was a dead heat on the hill, Iker, and I want a rematch."
+     ],
+     [
+      "iker_guardian",
+      "I won by a step! I keep score of everything, and it was a step."
+     ],
+     [
+      "saoirse_starcaller",
+      "You keep score of everything? So do I, and I've got you down as losing."
+     ],
+     [
+      "iker_guardian",
+      "Then we're both liars, and we race again tomorrow at seven!"
+     ]
+    ]
+   },
+   {
+    "when": "gap:8",
+    "affinity": 3,
+    "lines": [
+     [
+      "iker_guardian",
+      "You shout at people until they get better. Where did you learn that?"
+     ],
+     [
+      "saoirse_starcaller",
+      "My first coach, a nun with a whistle and no mercy. Who taught you?"
+     ],
+     [
+      "iker_guardian",
+      "My grandfather, on the fronton, in his txapela, shouting louder than the sea."
+     ],
+     [
+      "saoirse_starcaller",
+      "Then we were both raised by maniacs, and look how well we turned out."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "saoirse_starcaller",
+      "If we ever put a team together out here, Iker, I'm captain."
+     ],
+     [
+      "iker_guardian",
+      "You think you're captain? No, I'm the captain! Fine, we'll be co-captains, and we'll shout in turns."
+     ],
+     [
+      "saoirse_starcaller",
+      "Nobody'll be able to hear a thing, and the team'll be brilliant."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 6,
+    "lines": [
+     [
+      "iker_guardian",
+      "Ninety names, Saoirse. I've got them all in my pocket, and I don't talk about it, because if I start I'll stop shouting."
+     ],
+     [
+      "saoirse_starcaller",
+      "I've names of my own I'm still looking for. Eleven girls in a minibus, and I was the one driving it."
+     ],
+     [
+      "iker_guardian",
+      "Then you know exactly."
+     ],
+     [
+      "saoirse_starcaller",
+      "I know it well. You keep shouting, and I'll keep shouting, and if either of us goes quiet, the other one notices."
+     ],
+     [
+      "iker_guardian",
+      "That's a deal, co-captain."
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "a": "luka_stormbringer",
+  "b": "sondre_stormbringer",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 4,
+    "lines": [
+     [
+      "luka_stormbringer",
+      "You're a sailor, mali. I can tell by how you watch the horizon."
+     ],
+     [
+      "sondre_stormbringer",
+      "Sailing instructor, on the Hardangerfjord. Teenagers and dinghies, mostly."
+     ],
+     [
+      "luka_stormbringer",
+      "Car ferries, me, out of Split, fifteen years. Two hundred passengers and a crew of eight."
+     ],
+     [
+      "sondre_stormbringer",
+      "Then you'd have hated my dinghies. They capsize if you look at them."
+     ],
+     [
+      "luka_stormbringer",
+      "Everything capsizes if you look at it wrong. That's the first thing the sea teaches you."
+     ]
+    ]
+   },
+   {
+    "when": "gap:6",
+    "affinity": 3,
+    "lines": [
+     [
+      "sondre_stormbringer",
+      "Luka, the first storm you called, did it go the way you wanted?"
+     ],
+     [
+      "luka_stormbringer",
+      "It nearly drowned me, and that's how I knew it was mine."
+     ],
+     [
+      "sondre_stormbringer",
+      "Mine knocked over a barn with people in it. A girl broke her leg."
+     ],
+     [
+      "luka_stormbringer",
+      "Then you know the weight, and you'll call it carefully. Careful is what keeps the passengers alive."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "luka_stormbringer",
+      "You make the fire every morning before anybody's up. My mate on the Marjan did the same with the coffee."
+     ],
+     [
+      "sondre_stormbringer",
+      "Somebody has to do it. It's a good hour, the first one."
+     ],
+     [
+      "luka_stormbringer",
+      "You're right, mali. Wake me next time, and I'll keep you company and not talk."
+     ],
+     [
+      "sondre_stormbringer",
+      "You'll talk, Luka. Dalmatians always talk."
+     ],
+     [
+      "luka_stormbringer",
+      "Only a little, and only about the weather."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 5,
+    "lines": [
+     [
+      "sondre_stormbringer",
+      "When the wind's bad, I'd like you on deck with me. I trust you to tell me when to stop."
+     ],
+     [
+      "luka_stormbringer",
+      "And I'll trust you to stop when I tell you. That's how a crew works."
+     ],
+     [
+      "sondre_stormbringer",
+      "Then that's what we are, I think, a crew of two."
+     ],
+     [
+      "luka_stormbringer",
+      "A crew of two is how every good crossing starts."
+     ]
+    ]
+   }
+  ]
  }
 ]

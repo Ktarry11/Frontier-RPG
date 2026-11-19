@@ -121,7 +121,7 @@ def main(argv):
                 if not lines:
                     break
                 beats += 1
-                check(1 <= len(lines) <= 4, f"a beat with {len(lines)} lines")
+                check(1 <= len(lines) <= 6, f"a beat with {len(lines)} lines")
                 for rid, text in lines:
                     check("{" not in text, f"unfilled brace: {text!r}")
                     for other in ids:
