@@ -1654,5 +1654,475 @@
     ]
    }
   ]
+ },
+ {
+  "a": "bashir_witchhunter",
+  "b": "tobias_paladin",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 4,
+    "lines": [
+     [
+      "tobias_paladin",
+      "You snap a chalk line at every doorway. I saw you do it at the inn."
+     ],
+     [
+      "bashir_witchhunter",
+      "I know I do it. Twenty-two years of stone in Nablus. You cut too, I can tell from your hands."
+     ],
+     [
+      "tobias_paladin",
+      "Sixteen years on Cologne Cathedral. We replaced stones carved by men who died in the middle ages."
+     ],
+     [
+      "bashir_witchhunter",
+      "Then you know a wall is only as good as the last man who was patient with it."
+     ]
+    ]
+   },
+   {
+    "when": "gap:6",
+    "affinity": 3,
+    "lines": [
+     [
+      "bashir_witchhunter",
+      "Your chapel wall at Light's Hope. The mortar on the east face was laid in a hurry, and not by you."
+     ],
+     [
+      "tobias_paladin",
+      "Na ja, no, not by me. I've been meaning to repoint it for a month."
+     ],
+     [
+      "bashir_witchhunter",
+      "I'll help you. Taking it apart correctly is half of building it."
+     ],
+     [
+      "tobias_paladin",
+      "My old foreman said exactly that. He'd have liked you, and he liked nobody."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "bashir_witchhunter",
+      "You sing while you work, Tobias. Low, under your breath."
+     ],
+     [
+      "tobias_paladin",
+      "I've started a choir at Light's Hope. It's small, but it's in tune."
+     ],
+     [
+      "bashir_witchhunter",
+      "I don't sing."
+     ],
+     [
+      "tobias_paladin",
+      "You don't have to. Stonemasons are allowed to hum, it's in the rules."
+     ],
+     [
+      "bashir_witchhunter",
+      "Then I'll hum, quietly, and only on the east face."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 5,
+    "lines": [
+     [
+      "tobias_paladin",
+      "The crew I worked with were my family. Twelve of us, and lunch on the cathedral roof every day."
+     ],
+     [
+      "bashir_witchhunter",
+      "My grandfather's yard was the same. Three generations cutting stone in one place, and nobody ever said anything soft."
+     ],
+     [
+      "tobias_paladin",
+      "We didn't need to. You can tell everything about a man from how he hands you a block."
+     ],
+     [
+      "bashir_witchhunter",
+      "Then hand me one, Tobias, and I'll know you're all right."
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "a": "owen_cultist",
+  "b": "rhys_ranger",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 4,
+    "lines": [
+     [
+      "owen_cultist",
+      "Duw, that's a Brecon voice if ever I heard one. I'm Owen, from Barry."
+     ],
+     [
+      "rhys_ranger",
+      "Barry, is it? You're a long way from the sea, Owen. I'm Rhys, and this is Tegan."
+     ],
+     [
+      "owen_cultist",
+      "She's a beauty. Does she mind lorry drivers?"
+     ],
+     [
+      "rhys_ranger",
+      "She minds noise. You're quiet enough, mind, so she'll allow you."
+     ]
+    ]
+   },
+   {
+    "when": "gap:6",
+    "affinity": 2,
+    "lines": [
+     [
+      "rhys_ranger",
+      "You talk to yourself at night, Owen. I hear you from the ridge."
+     ],
+     [
+      "owen_cultist",
+      "Eight years in a cab on the M4, Rhys. I talked to the radio and the radio never answered."
+     ],
+     [
+      "rhys_ranger",
+      "Tegan talks back, in her way. Maybe that's why I never needed the radio."
+     ],
+     [
+      "owen_cultist",
+      "A hawk on the dashboard, now, that would've been company."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "owen_cultist",
+      "My mam sang in the chapel choir in Barry. She sang to me every night, and I still hum it."
+     ],
+     [
+      "rhys_ranger",
+      "Was it Calon Lân? My mam sang that one at every rugby match, badly, in the rain."
+     ],
+     [
+      "owen_cultist",
+      "That's the one. Badly in the rain is the proper way to sing it."
+     ],
+     [
+      "rhys_ranger",
+      "Go on, then, hum it. Tegan won't mind, she's Welsh too, in a way."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 5,
+    "lines": [
+     [
+      "owen_cultist",
+      "I'll say the worst thing first, Rhys, because I always do. When it answered me in the dark, I was glad."
+     ],
+     [
+      "rhys_ranger",
+      "I know, Owen. I've watched you carry it, and you carry it straighter than most people carry nothing."
+     ],
+     [
+      "owen_cultist",
+      "That's kind of you to say."
+     ],
+     [
+      "rhys_ranger",
+      "It's not kind, it's true. Tegan trusts you, and she's never once been wrong."
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "a": "owen_cultist",
+  "b": "rui_cultist",
+  "steps": [
+   {
+    "when": "outings:2",
+    "affinity": 4,
+    "lines": [
+     [
+      "rui_cultist",
+      "Sorry, but something in the dark helped you too, didn't it? You've got the same look."
+     ],
+     [
+      "owen_cultist",
+      "It answered me, the first week, in a mine. And the worst part is that I was glad."
+     ],
+     [
+      "rui_cultist",
+      "I was glad too. Desculpa, I've never said that out loud before."
+     ],
+     [
+      "owen_cultist",
+      "Then that's two of us, and it's easier said to somebody who knows."
+     ]
+    ]
+   },
+   {
+    "when": "gap:6",
+    "affinity": 2,
+    "lines": [
+     [
+      "owen_cultist",
+      "Do you write down what it said to you, Rui? I've written down every word mine ever said."
+     ],
+     [
+      "rui_cultist",
+      "No, sorry, I try to forget it. Is that worse?"
+     ],
+     [
+      "owen_cultist",
+      "I don't think there's a better or worse, only what helps you sleep."
+     ],
+     [
+      "rui_cultist",
+      "I sleep by the fire, always. Nothing really helps, but the fire helps a little."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "rui_cultist",
+      "You're the only one I don't apologise to, Owen. I noticed it yesterday."
+     ],
+     [
+      "owen_cultist",
+      "I noticed too, and I didn't want to say, in case you started again."
+     ],
+     [
+      "rui_cultist",
+      "Sorry, I just did, didn't I?"
+     ],
+     [
+      "owen_cultist",
+      "That one doesn't count, it was about the not apologising."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 5,
+    "lines": [
+     [
+      "owen_cultist",
+      "If the thing that helped you ever asks for something big, Rui, come and find me first. Promise me that."
+     ],
+     [
+      "rui_cultist",
+      "Only if you promise me the same. I'd want somebody there to stop me."
+     ],
+     [
+      "owen_cultist",
+      "Then we've both got somebody, and that's more than either of us had down there."
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "a": "kiet_rogue",
+  "b": "silas_rogue",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 3,
+    "lines": [
+     [
+      "silas_rogue",
+      "You're the one nobody notices. I noticed, which should worry you."
+     ],
+     [
+      "kiet_rogue",
+      "It does, a little. You're the one who notices everything and turns it into a joke."
+     ],
+     [
+      "silas_rogue",
+      "Port security, Antwerp, five years. Or crane driver, depending on the day."
+     ],
+     [
+      "kiet_rogue",
+      "Motorcycle courier, Bangkok, eleven years, and that one's true every day."
+     ]
+    ]
+   },
+   {
+    "when": "gap:5",
+    "affinity": 3,
+    "lines": [
+     [
+      "kiet_rogue",
+      "The goblin at the last camp was lying about the water."
+     ],
+     [
+      "silas_rogue",
+      "And the guard on the gate was taking a little off every crate. You saw that too?"
+     ],
+     [
+      "kiet_rogue",
+      "I saw it twice. He does it with his left hand, so the right one stays clean."
+     ],
+     [
+      "silas_rogue",
+      "We should start a business, you and me. Very quiet, and very well informed."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "silas_rogue",
+      "You flinch when it goes quiet. I noticed that the first week."
+     ],
+     [
+      "kiet_rogue",
+      "Eleven years of engines, and now I can hear people breathe. It's too much, sometimes."
+     ],
+     [
+      "silas_rogue",
+      "Then I'll talk nonsense at you on the quiet nights. I'm very good at nonsense."
+     ],
+     [
+      "kiet_rogue",
+      "You really are. It helps, so please don't stop."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 5,
+    "lines": [
+     [
+      "kiet_rogue",
+      "I carried my grandmother up and down the stairs every day at the end. She called me her legs."
+     ],
+     [
+      "silas_rogue",
+      "I watched my brother go wrong on a camera feed for months and never said a word. I've told almost nobody that."
+     ],
+     [
+      "kiet_rogue",
+      "Then we've both got something we carried, and something we didn't."
+     ],
+     [
+      "silas_rogue",
+      "And I'd rather carry mine next to somebody who already knows how heavy it is."
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "a": "esteban_bloodmage",
+  "b": "ryan_warlock",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 4,
+    "lines": [
+     [
+      "ryan_warlock",
+      "You name the price before every spell, doctor. I've been watching, and I respect it enormously."
+     ],
+     [
+      "esteban_bloodmage",
+      "And you keep your contracts to the letter, I'm told. That's rarer than blood magic."
+     ],
+     [
+      "ryan_warlock",
+      "Twelve years of buyouts taught me what happens when nobody reads the small print."
+     ],
+     [
+      "esteban_bloodmage",
+      "Nineteen years of consent forms taught me the same. Nobody reads them, so I read them aloud."
+     ]
+    ]
+   },
+   {
+    "when": "gap:6",
+    "affinity": 3,
+    "lines": [
+     [
+      "esteban_bloodmage",
+      "About your demons. Did they agree to the terms, or did you simply impose them?"
+     ],
+     [
+      "ryan_warlock",
+      "They agreed, in writing, every clause. I'm the only warlock I know who negotiates."
+     ],
+     [
+      "esteban_bloodmage",
+      "Then you and I are the only two people on this continent who'd sign each other's paperwork."
+     ],
+     [
+      "ryan_warlock",
+      "That's the nicest thing a surgeon's ever said to me."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "ryan_warlock",
+      "I closed factories on a Friday afternoon, Esteban. That was my job, and I was good at it."
+     ],
+     [
+      "esteban_bloodmage",
+      "I've cut people open on bad nights and lost them. Being good at a job doesn't settle anything."
+     ],
+     [
+      "ryan_warlock",
+      "No, it doesn't. Being honest about it afterwards is the only thing I've got."
+     ],
+     [
+      "esteban_bloodmage",
+      "It's the only thing either of us has, Ryan, and I find it's enough to work with."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 5,
+    "lines": [
+     [
+      "esteban_bloodmage",
+      "I took a prisoner's blood once, without asking, to save a captain. The prisoner died, and that's why I ask everyone now."
+     ],
+     [
+      "ryan_warlock",
+      "Thank you for telling me. I won't sell it, and I won't excuse it either, which I think is what you want."
+     ],
+     [
+      "esteban_bloodmage",
+      "That's exactly what I want. You'd have made a good conscience for a surgeon."
+     ],
+     [
+      "ryan_warlock",
+      "And you'd have made a terrible broker, and I mean that as the highest praise."
+     ]
+    ]
+   }
+  ]
  }
 ]
