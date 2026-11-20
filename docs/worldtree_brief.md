@@ -248,6 +248,13 @@ are written with the others (`docs/player_sprite_prompts.md`, sheet P6). Still a
 Why it's canon (Kyle, 20 Nov 2026): the sky arc ends with the Aetherians joining the Horde ("Twenty questions", 20),
 "This is what allows the Aether starting zone (cannonically)".
 
+Where it goes (Kyle, 20 Nov 2026): "north of the capital city is the 'low level zones' where the lvl 21-24 zone connects
+into the city. It'll eventually have ways to UC and Org too once the game opens up". So the start zone's maps run down
+from the north to Aurelion's north gate, the last of them (21-24) opening straight into the city, and later the city's
+docks reach the Undercity and Orgrimmar. Its first recruits are already drawn up (`docs/recruit_art_prompts_sheet6.md`):
+four Earthborn, a healer in the first map (Kyle: "We need to ensure a Healer recruit in the start of the zone too"), then
+a tank, a melee and a ranged.
+
 ## Twenty questions: the sky continent's story (Kyle, 20 Nov 2026)
 
 Kyle: "So these places can be large! Don't hold back right bro", and "the first zone players get into is where tension

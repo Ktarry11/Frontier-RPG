@@ -14,7 +14,9 @@ wire them).
 | **H14** | **New Exalted mounts** for the five new factions (Kyle, 20 Nov: "will need new mounts for new factions") | 5 | New |
 | **I3** | Their five reins, and the five new factions' tabards | 10 | New |
 | **K1, K2, K3** | Keepsake icons, one per recruit (what each gives you when they become Sworn) | 98 | New. All 98 show a stand-in |
-| **SKY-NPC** | Five Aetherian women (four facings, empty hands, P6's style), the two allies' own figures (Ilaren Vey, Matias Arrieta), and the Mural Shard's Collection icon | 8 | New, 20 Nov (the Sunward Crown): every Aetherian NPC is a man until the women land; the shard shows qi_tablet. Not written yet |
+| **6A, 6B** | Recruit sheet 6: 16 new recruits (12 men, 4 women), sprites and portraits (`docs/recruit_art_prompts_sheet6.md`) | 32 | Written 20 Nov |
+| **AE-M, AE-W** | 24 Aetherian men and 24 Aetherian women for NPCs, front view (`docs/recruit_art_prompts_sheet6.md`) | 48 | Written 20 Nov. Covers SKY-NPC's women |
+| **SKY-NPC** | The two Crown allies' own figures (Ilaren Vey, Leandro Arrieta) and the Mural Shard's Collection icon | 3 | Not written yet. The Aetherian women moved to AE-W |
 | **WALK** | Walk cycles | - | **Parked** (Kyle, 20 Nov: "Walk cycles will come after better sprites"). New player sprites first, about five a race, then walk cycles on those |
 
 **Order I'd paste them in:** H14 and I3 first (the Feathermoon Sentinels and the Highbough Tribes are in the game today

@@ -9,7 +9,7 @@ Orgrimmar's envoy is trying to stop it; the scholar houses are split, and the Ho
 is the one that respects the ground; the Earth people the Aetherians found on the sky islands are the survey's guests,
 "something to study, smart", and most of them respect the Aetherians for something; the player rests in the survey's
 camp; and the player's allies through the whole sky are a pair who don't fully trust each other, a scholar of the
-Patient Lens (Ilaren Vey, at the Parley Stones) and an Earthborn who's lived three years with the Aetherians (Matias
+Patient Lens (Ilaren Vey, at the Parley Stones) and an Earthborn who's lived three years with the Aetherians (Leandro
 Arrieta, at the Annex).
 
 THE RULES IT KEEPS. Transplants are factionless. The Aetherians hunt for what the Integration was and never get close to
@@ -116,7 +116,7 @@ AMBIENT = {
                         "the giants, and they cut warnings into every stone. I can read about one word in three, and "
                         "every word I can read means keep it shut."),
     # ---- the Annex
-    "sc_annex_lead": ("crown", "Matias Arrieta", "human", M, 15, "down",
+    "sc_annex_lead": ("crown", "Leandro Arrieta", "human", M, 15, "down",
                       "I was a paragliding instructor in Bariloche, and I woke up on a rock in the sky with my wing in "
                       "shreds. The scholars found me two weeks later. I've lived with them for three years now. "
                       "They're good people, mostly, but not one of them has ever asked me if I want to go home."),

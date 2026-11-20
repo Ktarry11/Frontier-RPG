@@ -16,9 +16,9 @@ THE THREADS (Kyle, 20 Nov 2026):
     archivist wants back the pages the Ascendancy took from the stones; its lensmaster wants the cloud measured and the
     storms read; its shipmaster wants the guns on the Chainhold quiet.
   The Earthborn: the Earth people the scholars found on the sky islands, kept at the Annex as guests who can't quite
-    leave. Matias Arrieta, three years with the Aetherians, wants to know if they're allowed to go home; Dr. Rania Azar
+    leave. Leandro Arrieta, three years with the Aetherians, wants to know if they're allowed to go home; Dr. Rania Azar
     learns the sky's medicine; Pavel Novak takes apart Aetherian engineering; Ewan Docherty, who climbed the whole tree,
-    maps the islets. Matias and Ilaren are the player's pair of allies, and they don't fully trust each other.
+    maps the islets. Leandro and Ilaren are the player's pair of allies, and they don't fully trust each other.
   The seal: the witch doctor sees light leaking up through the cloud, the archivist at the old ring reads warnings cut
     by the Kharad, and the guardians round it are waking. When every side's gathered at the ring, the guns fire, and the
     seal cracks. The Aetherians see there are worse things in the sky than the Ascendancy, Aurelion opens to the ground,
@@ -41,13 +41,13 @@ RAKKUZI, JINRA, TAZKAL, ZANSHI, GARROK = "sc_warleader", "sc_spear_scout", "sc_w
 # ---- Lenswatch
 DESTREN, TAVIAN, CORYN, HALDANE, SELLIS = "lw_surveyor", "lw_archivist", "lw_lensmaster", "lw_shipwright", "lw_warden"
 # ---- the Annex
-MATIAS, RANIA, PAVEL, EWAN = "sc_annex_lead", "sc_annex_doctor", "sc_annex_engineer", "sc_climber"
+LEANDRO, RANIA, PAVEL, EWAN = "sc_annex_lead", "sc_annex_doctor", "sc_annex_engineer", "sc_climber"
 # ---- out on the crown
 ZULMO, RANJO, HEZZA, ILAREN, ELYON, MUZZA, SAREN, DAKZIN = ("sc_gatewatch", "sc_lookdown", "sc_parley_troll",
                                                            "sc_parley_scholar", "sc_seal_watcher", "sc_line_scout",
                                                            "sc_dockhand", "sc_falls_hunter")
 
-HUB_GIVERS = {RAKKUZI, JINRA, TAZKAL, ZANSHI, GARROK, DESTREN, TAVIAN, CORYN, HALDANE, SELLIS, MATIAS, RANIA, PAVEL,
+HUB_GIVERS = {RAKKUZI, JINRA, TAZKAL, ZANSHI, GARROK, DESTREN, TAVIAN, CORYN, HALDANE, SELLIS, LEANDRO, RANIA, PAVEL,
               EWAN}
 TRIBE_GIVERS = {RAKKUZI, JINRA, TAZKAL, ZANSHI, ZULMO, RANJO, HEZZA, MUZZA, DAKZIN}
 HORDE_GIVERS = {GARROK}
@@ -400,21 +400,21 @@ def build():
         "down here. I can't say I've missed them."))
 
     # =================================================================================== 4. THE EARTHBORN
-    A(Q("scq_ask_them_yourself", "Ask Them Yourself", MATIAS, 48, 48, "Earthborn",
-        "Matias Arrieta has lived with the Aetherians for three years, and in all that time nobody's told him whether "
+    A(Q("scq_ask_them_yourself", "Ask Them Yourself", LEANDRO, 48, 48, "Earthborn",
+        "Leandro Arrieta has lived with the Aetherians for three years, and in all that time nobody's told him whether "
         "the Earth people are allowed to leave. He wants someone else to ask the Warden.",
-        [deliver("sc_q_matias_letter", "Take Matias's letter to Warden Sellis Varn in Lenswatch")],
+        [deliver("sc_q_leandro_letter", "Take Leandro's letter to Warden Sellis Varn in Lenswatch")],
         "I've asked Warden Varn twice if we're free to go, and twice he's told me it's complicated. He's kind about it, "
         "and that's the worst part. Take him this letter. You're not one of his guests, so maybe he'll give you a "
         "straight answer.",
-        "Matias wrote this, I'd know his hand anywhere. He's asking whether they can leave.\n\nThe true answer is yes, "
+        "Leandro wrote this, I'd know his hand anywhere. He's asking whether they can leave.\n\nThe true answer is yes, "
         "they can, and the honest answer is that I've no idea where they'd go. I've never had the courage to say both "
         "at once. You can tell him I said it.",
         turn_in_npc_id=SELLIS, nxt="scq_the_two_they_took",
-        grant_items=carry("sc_q_matias_letter", "Matias's Letter", "A folded letter in Spanish and then in careful "
+        grant_items=carry("sc_q_leandro_letter", "Leandro's Letter", "A folded letter in Spanish and then in careful "
                           "Aetherian, the same question twice.")))
-    A(Q("scq_the_two_they_took", "The Two They Took", MATIAS, 49, 49, "Annexwarden's",
-        "When the Ascendancy came down on the stones they took two of the Earthborn back to the Chainhold. Matias "
+    A(Q("scq_the_two_they_took", "The Two They Took", LEANDRO, 49, 49, "Annexwarden's",
+        "When the Ascendancy came down on the stones they took two of the Earthborn back to the Chainhold. Leandro "
         "found out where, and the Construct Hounds guarding the hangar are all that's in the way.",
         [k("Construct Hound", 6), explore(*HANGAR, "Find the two Earthborn the Ascendancy took, in the Chainhold's hangar")],
         "The soldiers took two of ours when they hit the stones, Lise and Tomasz. I found out they're being kept in the "
@@ -424,14 +424,14 @@ def build():
         "soldiers wanted to know where we came from. They asked over and over, and they didn't believe a word of the "
         "answer. Thank you.",
         requires_quests=["scq_ask_them_yourself"]))
-    A(Q("scq_two_kinds_of_guest", "Two Kinds of Guest", MATIAS, 49, 49, "Guestfriend's",
-        "Matias doesn't trust Ilaren Vey, and he says so, but Ilaren is the only scholar who comes to the Annex without "
-        "a notebook. Matias sends him something from the Annex.",
+    A(Q("scq_two_kinds_of_guest", "Two Kinds of Guest", LEANDRO, 49, 49, "Guestfriend's",
+        "Leandro doesn't trust Ilaren Vey, and he says so, but Ilaren is the only scholar who comes to the Annex without "
+        "a notebook. Leandro sends him something from the Annex.",
         [deliver("sc_q_annex_bread", "Take the Annex's bread to Ilaren Vey at the Parley Stones")],
         "Ilaren Vey's the only one of them who comes to the Annex without a notebook, and he eats what Beatriz cooks. "
         "I still don't trust him, because I've never trusted any of them. But he stood on the stones when the soldiers "
         "came, and he's still here. Take him this, from the Annex.",
-        "This is Beatriz's bread, which means Matias sent it, and he doesn't like me.\n\nHe's right not to, mostly. My house kept his "
+        "This is Beatriz's bread, which means Leandro sent it, and he doesn't like me.\n\nHe's right not to, mostly. My house kept his "
         "people for three years and called it kindness. Tell him I said thank you, and that I'll come and eat it at "
         "the Annex, if he'll have me.",
         turn_in_npc_id=ILAREN, requires_quests=["scq_the_two_they_took"],
@@ -554,6 +554,6 @@ def build():
         "first time in our history, and they're sending their own skiff down to the crown. But Lance-Captain Varos "
         "Thale holds the Chainhold, and he'll shoot it out of the sky. Cross the chains and put him down.",
         "The Chainhold's quiet, and the council's skiff is already on its way down.\n\nYou'll be on it, and so will "
-        "Matias and Ilaren, whether they like sitting next to each other or not. Aurelion's open to you. I hope it's "
+        "Leandro and Ilaren, whether they like sitting next to each other or not. Aurelion's open to you. I hope it's "
         "everything I've told you it is, and I'm afraid it's falling apart a little faster than I told you."))
     return out

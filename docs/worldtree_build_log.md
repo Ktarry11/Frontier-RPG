@@ -284,8 +284,8 @@ gate. The Survey Dock (295,130) <-> Lenswatch (2,46).
 
 **People** (`tools/build_sunward_crown_people.py`): 31 people and one thing. Spearhold's trolls under War-Leader
 Rakkuzi and Envoy Garrok Blackmane from Orgrimmar; the survey's Aetherians (Surveyor-Captain Ilvaro Destren and
-Lenswatch's keepers); the Annex's Earthborn (Matias Arrieta, Dr. Rania Azar, Pavel Novak, Ewan Docherty, Beatriz Lobo);
-the two allies, Ilaren Vey and Matias. Aetherian is an NPC-only race now (`world/race_registry.py`); only the men are
+Lenswatch's keepers); the Annex's Earthborn (Leandro Arrieta, Dr. Rania Azar, Pavel Novak, Ewan Docherty, Beatriz Lobo);
+the two allies, Ilaren Vey and Leandro. Aetherian is an NPC-only race now (`world/race_registry.py`); only the men are
 drawn, so every Aetherian NPC is a man until the women's sheet lands.
 
 **Creatures** (`tools/build_sunward_crown_content.py`): 32, seven of them rares (Old Sunantler, the Dewdrinker,

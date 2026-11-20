@@ -2405,24 +2405,24 @@
       "zone": "sunward_crown",
       "level_min": 48,
       "level_max": 48,
-      "description": "Matias Arrieta has lived with the Aetherians for three years, and in all that time nobody's told him whether the Earth people are allowed to leave. He wants someone else to ask the Warden.",
+      "description": "Leandro Arrieta has lived with the Aetherians for three years, and in all that time nobody's told him whether the Earth people are allowed to leave. He wants someone else to ask the Warden.",
       "objectives": [
         {
           "type": "deliver",
-          "target": "sc_q_matias_letter",
+          "target": "sc_q_leandro_letter",
           "count": 1,
-          "label": "Take Matias's letter to Warden Sellis Varn in Lenswatch"
+          "label": "Take Leandro's letter to Warden Sellis Varn in Lenswatch"
         }
       ],
       "accept_text": "I've asked Warden Varn twice if we're free to go, and twice he's told me it's complicated. He's kind about it, and that's the worst part. Take him this letter. You're not one of his guests, so maybe he'll give you a straight answer.",
-      "turn_in_text": "Matias wrote this, I'd know his hand anywhere. He's asking whether they can leave.\n\nThe true answer is yes, they can, and the honest answer is that I've no idea where they'd go. I've never had the courage to say both at once. You can tell him I said it.",
+      "turn_in_text": "Leandro wrote this, I'd know his hand anywhere. He's asking whether they can leave.\n\nThe true answer is yes, they can, and the honest answer is that I've no idea where they'd go. I've never had the courage to say both at once. You can tell him I said it.",
       "next_quest_id": "scq_the_two_they_took",
       "turn_in_npc_id": "lw_warden",
       "grant_items": {
         "on_accept": [
           {
-            "item_id": "sc_q_matias_letter",
-            "name": "Matias's Letter",
+            "item_id": "sc_q_leandro_letter",
+            "name": "Leandro's Letter",
             "description": "A folded letter in Spanish and then in careful Aetherian, the same question twice.",
             "count": 1
           }
@@ -2509,7 +2509,7 @@
       "zone": "sunward_crown",
       "level_min": 49,
       "level_max": 49,
-      "description": "When the Ascendancy came down on the stones they took two of the Earthborn back to the Chainhold. Matias found out where, and the Construct Hounds guarding the hangar are all that's in the way.",
+      "description": "When the Ascendancy came down on the stones they took two of the Earthborn back to the Chainhold. Leandro found out where, and the Construct Hounds guarding the hangar are all that's in the way.",
       "objectives": [
         {
           "type": "kill",
@@ -2613,7 +2613,7 @@
       "zone": "sunward_crown",
       "level_min": 49,
       "level_max": 49,
-      "description": "Matias doesn't trust Ilaren Vey, and he says so, but Ilaren is the only scholar who comes to the Annex without a notebook. Matias sends him something from the Annex.",
+      "description": "Leandro doesn't trust Ilaren Vey, and he says so, but Ilaren is the only scholar who comes to the Annex without a notebook. Leandro sends him something from the Annex.",
       "objectives": [
         {
           "type": "deliver",
@@ -2623,7 +2623,7 @@
         }
       ],
       "accept_text": "Ilaren Vey's the only one of them who comes to the Annex without a notebook, and he eats what Beatriz cooks. I still don't trust him, because I've never trusted any of them. But he stood on the stones when the soldiers came, and he's still here. Take him this, from the Annex.",
-      "turn_in_text": "This is Beatriz's bread, which means Matias sent it, and he doesn't like me.\n\nHe's right not to, mostly. My house kept his people for three years and called it kindness. Tell him I said thank you, and that I'll come and eat it at the Annex, if he'll have me.",
+      "turn_in_text": "This is Beatriz's bread, which means Leandro sent it, and he doesn't like me.\n\nHe's right not to, mostly. My house kept his people for three years and called it kindness. Tell him I said thank you, and that I'll come and eat it at the Annex, if he'll have me.",
       "next_quest_id": null,
       "turn_in_npc_id": "sc_parley_scholar",
       "requires_quests": [
@@ -3686,7 +3686,7 @@
         }
       ],
       "accept_text": "The council's answered, and it's the answer I hoped for. Aurelion will open its gates to the ground for the first time in our history, and they're sending their own skiff down to the crown. But Lance-Captain Varos Thale holds the Chainhold, and he'll shoot it out of the sky. Cross the chains and put him down.",
-      "turn_in_text": "The Chainhold's quiet, and the council's skiff is already on its way down.\n\nYou'll be on it, and so will Matias and Ilaren, whether they like sitting next to each other or not. Aurelion's open to you. I hope it's everything I've told you it is, and I'm afraid it's falling apart a little faster than I told you.",
+      "turn_in_text": "The Chainhold's quiet, and the council's skiff is already on its way down.\n\nYou'll be on it, and so will Leandro and Ilaren, whether they like sitting next to each other or not. Aurelion's open to you. I hope it's everything I've told you it is, and I'm afraid it's falling apart a little faster than I told you.",
       "next_quest_id": null,
       "requires_quests": [
         "scq_bigger_than_the_ascendancy"
