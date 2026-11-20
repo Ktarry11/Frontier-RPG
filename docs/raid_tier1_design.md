@@ -43,10 +43,15 @@ higher**, item level 71.
 
 ## Earning the way in
 
-- **Each raid is unlocked by a quest chain**, and the chains take real effort: several zones, a dungeon or heroic, a
-  hard kill or a rare item along the way. Rafa's proposal for the shape: each chain starts where its raid is (Thunder
-  Bluff, the Aetherians in Aurelion, the Tempest Isles, Kael's Bastion), sends you through the content that leads to it,
-  and ends at the raid's door.
+- **Each raid is unlocked by a quest chain that takes real effort** (Kyle, 20 Nov 2026: "Attunement chains should span
+  multiple zones or be quest chains inside the region.. like mulgore to unlock bluffs. But Tempest Isle sends you all
+  over...for the sky you need to unlock the first capital to even in the raid etc."):
+  - **The Fallen Bluff**: a chain inside its region, Mulgore and Thunder Bluff.
+  - **The Tempest raid**: a chain that sends you all over the world before the sea gives the raid up.
+  - **The Celestial raid**: first you have to unlock the sky's first capital (Aurelion, through the Aetherian
+    continent's own story); only then does the chain to the raid open.
+  - **The Underdark raid**: a chain through the Crystalline Underdark and Kael's Bastion (its region), the same way
+    as the Bluff's, unless Kyle wants it to range wider.
 - **The unlock is a collectable kept on the character**, shown with their other unlocks.
 - **A rare item on the auction house** lets the unlock carry to the player's other characters: bought once, it makes
   that raid's unlock account-wide. It fits the Collection (`docs/collection_design.md`), where the AH already sells
