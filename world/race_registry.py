@@ -405,6 +405,7 @@ ZONE_POPULATION_MIX = {
     # Fog Groves are transplants
     # the World Tree (19 Nov 2026): the trolls who climbed it, a goblin or two who built the lifts, a few transplants
     "rootwater_isle": [("troll", 80), ("goblin", 10), ("human", 10)],
+    "lower_boughs": [("troll", 85), ("goblin", 5), ("human", 10)],
     "camp_mojache": [("tauren", 85), ("orc", 10), ("goblin", 5)],
     "feathermoon_stronghold": [("night_elf", 100)],
     "the_high_wilderness": [("tauren", 80), ("orc", 20)],

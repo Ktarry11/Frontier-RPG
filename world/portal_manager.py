@@ -747,6 +747,14 @@ class PortalManager:
             "Rootwater Isle": {
                 (170, 92): ("Grom'gol", 12, 35),                    # the boat back to Stranglethorn: arrive (12,33)
                 (14, 46): ("Zoram Strand", 4, 23),                  # the boat across to Ashenvale: arrive (4,21)
+                (114, 46): ("The Lower Boughs", 40, 22),            # up the Root Stair: arrive (40,20) on the ledge
+            },
+            "The Lower Boughs": {
+                (40, 16): ("Rootwater Isle", 114, 51),              # down the Root Stair: arrive (114,49) at its foot
+                (62, 16): ("The Knothollow", 40, 6),                # into the trunk: arrive (40,4) inside the knot
+            },
+            "The Knothollow": {
+                (40, 2): ("The Lower Boughs", 62, 22),              # out of the knot: arrive (62,20) on the ledge
             },
             # ===== FERALAS (docs/feralas_brief.md, 19 Nov 2026): the arrival is always two tiles north of the target =====
             "The High Wilderness": {

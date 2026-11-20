@@ -1,0 +1,3043 @@
+{
+  "quests": [
+    {
+      "quest_id": "lbq_moths_on_the_stair",
+      "title": "Moths on the Stair",
+      "giver_npc_id": "lb_stairwarden",
+      "zone": "lower_boughs",
+      "level_min": 44,
+      "level_max": 44,
+      "description": "Stairwarden Mozu keeps the top of the Root Stair, and the Glimmerwing Moths come to its lanterns in clouds. Their dust makes the steps as slick as ice.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Glimmerwing Moth",
+          "count": 8,
+          "zone": "lower_boughs"
+        }
+      ],
+      "accept_text": "The Glimmerwing Moths come for the stair's lanterns every night, and their dust makes the steps slick. Somebody's going to go down the stair the fast way if it keeps up. Knock them out of the air along the ledge.",
+      "turn_in_text": "That's much better, and I'll sweep the steps in the morning so nobody slides.\n\nYou'd think a stair this old would be safe by now. It's three years old, which is old for anything up here.",
+      "next_quest_id": null,
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "unique_item_defs": [
+        {
+          "name": "Stairwarden's Shield",
+          "slot": "off_hand",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "spell_power": 16,
+            "haste": 5
+          },
+          "armor_value": 351,
+          "required_level": 44,
+          "sell_price": 5452,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_shield_18",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 40
+        },
+        {
+          "name": "Stairwarden's Greaves",
+          "slot": "feet",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 139,
+          "required_level": 44,
+          "sell_price": 4430,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_06"
+        },
+        {
+          "name": "Stairwarden's Robe",
+          "slot": "chest",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 9,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "healing_power": 26
+          },
+          "armor_value": 56,
+          "required_level": 44,
+          "sell_price": 6815,
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_chest_cloth_01"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lbq_skinks_in_the_steps",
+      "title": "Skinks in the Steps",
+      "giver_npc_id": "lb_stairwarden",
+      "zone": "lower_boughs",
+      "level_min": 44,
+      "level_max": 45,
+      "description": "The Mossback Skinks have started nesting in the cracks of the Root Stair, and they bite anybody who steps on one in the dark.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Mossback Skink",
+          "count": 8,
+          "zone": "lower_boughs"
+        }
+      ],
+      "accept_text": "The Mossback Skinks nest in the cracks of the stair and the ledge, and they'll bite at ankles in the dark. Clear them off the ledge before somebody kicks one and goes over the edge after it.",
+      "turn_in_text": "My ankles thank you, and so will everybody who climbs tonight.\n\nThe newcomers who come up the stair always ask why it's so far down. I tell them it's farther up, and that usually ends the conversation.",
+      "next_quest_id": null,
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "unique_item_defs": [
+        {
+          "name": "Stepwarden Shield",
+          "slot": "off_hand",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 13,
+            "strength": 4
+          },
+          "secondary_stats": {
+            "block_value": 11
+          },
+          "armor_value": 358,
+          "required_level": 44,
+          "sell_price": 5710,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_21",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 41
+        },
+        {
+          "name": "Stepwarden Breeches",
+          "slot": "legs",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 14,
+            "agility": 10
+          },
+          "secondary_stats": {
+            "dodge_rating": 7
+          },
+          "armor_value": 254,
+          "required_level": 44,
+          "sell_price": 7137,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_06"
+        },
+        {
+          "name": "Stepwarden Gloves",
+          "slot": "hands",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "arcane_spell_power": 24
+          },
+          "armor_value": 39,
+          "required_level": 44,
+          "sell_price": 4639,
+          "identity": "arcane",
+          "icon_id": "gear_inv_gauntlets_05"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lbq_counterweights",
+      "title": "Counterweights",
+      "giver_npc_id": "lb_liftkeeper",
+      "zone": "lower_boughs",
+      "level_min": 44,
+      "level_max": 45,
+      "description": "Liftkeeper Grizzik built the Great Lift up to the Settlement, and its counterweights are wearing down. There's mithril in the stones caught in the boughs' forks.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "ore_mithril",
+          "count": 6,
+          "label": "Gather Mithril Ore"
+        }
+      ],
+      "accept_text": "A lift's only as good as its counterweights, and mine are wearing thin. There's mithril in the stones that got caught in the forks when the tree grew up through the jungle. Bring me some and I'll recast them.",
+      "turn_in_text": "That's good honest metal. I'll have the new weights hung by the end of the week.\n\nFizzle laughs at me for using mithril on a lift. Fizzle's lifts only go up as far as a house.",
+      "next_quest_id": null,
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "unique_item_defs": [
+        {
+          "name": "Liftkeeper's Spear",
+          "slot": "main_hand",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 0,
+          "required_level": 44,
+          "sell_price": 8921,
+          "identity": "strength",
+          "icon_id": "gear_inv_spear_02",
+          "weapon_damage_min": 85,
+          "weapon_damage_max": 115,
+          "attack_speed": 3.3,
+          "block_value": 0
+        },
+        {
+          "name": "Liftkeeper's Hood",
+          "slot": "head",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 66,
+          "required_level": 44,
+          "sell_price": 5710,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_02"
+        },
+        {
+          "name": "Liftkeeper's Grips",
+          "slot": "hands",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 7,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 18
+          },
+          "armor_value": 79,
+          "required_level": 44,
+          "sell_price": 4639,
+          "identity": "feral",
+          "icon_id": "gear_inv_gauntlets_21"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lbq_pythons_on_the_cable",
+      "title": "Pythons on the Cable",
+      "giver_npc_id": "lb_liftkeeper",
+      "zone": "lower_boughs",
+      "level_min": 44,
+      "level_max": 45,
+      "description": "The Bough Pythons climb the lift's cables to sun themselves, and one of them nearly stopped the lift halfway up last week.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bough Python",
+          "count": 7,
+          "zone": "lower_boughs"
+        }
+      ],
+      "accept_text": "The Bough Pythons climb the cables to lie in the sun, and one of them wrapped round the drum last week and stopped the lift dead, which isn't good for business. Thin them out on the ledge and down the Great Bough.",
+      "turn_in_text": "That should keep the cables clear for a while.\n\nThe passengers who were stuck halfway up that day still won't look at me. Three hours, swinging over the drop, with a python for company.",
+      "next_quest_id": null,
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "unique_item_defs": [
+        {
+          "name": "Cable-Clearer's Legguards",
+          "slot": "legs",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "nature_spell_power": 26,
+            "haste": 8
+          },
+          "armor_value": 184,
+          "required_level": 44,
+          "sell_price": 7137,
+          "identity": "storm",
+          "icon_id": "gear_inv_pants_10"
+        },
+        {
+          "name": "Cable-Clearer's Cloak",
+          "slot": "back",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 18
+          },
+          "armor_value": 35,
+          "required_level": 44,
+          "sell_price": 3925,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_13"
+        },
+        {
+          "name": "Cable-Clearer's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 234,
+          "required_level": 44,
+          "sell_price": 5710,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_25"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lbq_who_climbs_up",
+      "title": "Who Climbs Up",
+      "giver_npc_id": "lb_scout_south",
+      "zone": "lower_boughs",
+      "level_min": 44,
+      "level_max": 44,
+      "description": "The Bloodscalp have started coming up the tree on ropes, over the end of the Great Bough where it hangs above the jungle. Scout Tiko'ra wants them driven back down.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bloodscalp Ropecutter",
+          "count": 6,
+          "zone": "lower_boughs"
+        },
+        {
+          "type": "kill",
+          "target": "Bloodscalp Skull-Taker",
+          "count": 6,
+          "zone": "lower_boughs"
+        }
+      ],
+      "accept_text": "The Bloodscalp have found a way up that doesn't go past the landing. They throw ropes up from the jungle and climb onto the end of the Great Bough. Kill their Bloodscalp Ropecutters and the Bloodscalp Skull-Takers who come up behind them.",
+      "turn_in_text": "That's a few less ropes on the Great Bough tonight.\n\nMy grandmother was Bloodscalp, and so were half the elders. We climbed this tree to get away from them, and now they've followed us up it.",
+      "next_quest_id": "lbq_ropemaster_vazjin",
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "unique_item_defs": [
+        {
+          "name": "Lookout's Staff",
+          "slot": "main_hand",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 0,
+          "required_level": 44,
+          "sell_price": 8519,
+          "identity": "agility",
+          "icon_id": "gear_inv_staff_04",
+          "weapon_damage_min": 83,
+          "weapon_damage_max": 112,
+          "attack_speed": 3.6,
+          "block_value": 0
+        },
+        {
+          "name": "Lookout's Belt",
+          "slot": "waist",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 19
+          },
+          "armor_value": 101,
+          "required_level": 44,
+          "sell_price": 3748,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_05"
+        },
+        {
+          "name": "Lookout's Band",
+          "slot": "ring",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 17
+          },
+          "armor_value": 0,
+          "required_level": 44,
+          "sell_price": 4089,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_ring_32"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lbq_ropemaster_vazjin",
+      "title": "Ropemaster Vaz'jin",
+      "giver_npc_id": "lb_scout_south",
+      "zone": "lower_boughs",
+      "level_min": 45,
+      "level_max": 45,
+      "description": "The climbs are led by Vaz'jin, who's the best climber the Bloodscalp have. As long as he's tying the ropes, they'll keep coming up.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Ropemaster Vaz'jin",
+          "count": 1,
+          "zone": "lower_boughs"
+        }
+      ],
+      "accept_text": "Ropemaster Vaz'jin ties every rope the Bloodscalp climb, and he climbs first on every one. Without him they'll be throwing ropes at the bark for a year. Find him at the Climbers' Cut and end him.",
+      "turn_in_text": "Vaz'jin's dead, and his ropes go with him.\n\nThey'll find another climber, they always do, but not one like him. Tell the elder you've bought Mossroof a quiet season.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "lbq_who_climbs_up"
+      ],
+      "reward_exp": 4212,
+      "reward_gold": 16770,
+      "unique_item_defs": [
+        {
+          "name": "Ropemaster's Breastplate",
+          "slot": "chest",
+          "item_level": 47,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "healing_power": 59
+          },
+          "armor_value": 384,
+          "required_level": 45,
+          "sell_price": 11200,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_chest_plate16"
+        },
+        {
+          "name": "Ropemaster's Slippers",
+          "slot": "feet",
+          "item_level": 47,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "spell_power": 26
+          },
+          "armor_value": 53,
+          "required_level": 45,
+          "sell_price": 7280,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_01"
+        },
+        {
+          "name": "Ropemaster's Wristguards",
+          "slot": "wrist",
+          "item_level": 47,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 10,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 170,
+          "required_level": 45,
+          "sell_price": 5600,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_bracer_19"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "lbq_cut_their_ropes",
+      "title": "Cut Their Ropes",
+      "giver_npc_id": "lb_scout_south",
+      "zone": "lower_boughs",
+      "level_min": 44,
+      "level_max": 45,
+      "description": "Scout Tiko'ra watches for climbers at the end of the Great Bough. He wants the Bloodscalp ropes cut where they come up over the edge, and the warriors who guard them killed.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "lower_boughs",
+          "target_x": 86,
+          "target_y": 140,
+          "radius": 4,
+          "label": "Cut the Bloodscalp ropes at the end of the Great Bough"
+        },
+        {
+          "type": "kill",
+          "target": "Bloodscalp Spear-Hurler",
+          "count": 5,
+          "zone": "lower_boughs"
+        },
+        {
+          "type": "kill",
+          "target": "Bloodscalp Reaver",
+          "count": 5,
+          "zone": "lower_boughs"
+        }
+      ],
+      "accept_text": "The Bloodscalp ropes come up over the edge at the very end of the Great Bough, and they're tied off on iron hooks. The Bloodscalp Spear-Hurlers and the Bloodscalp Reavers guard them. Kill them and cut every rope you find.",
+      "turn_in_text": "I heard them hit the jungle from here. That's a long way to fall for a rope.\n\nThey'll tie new ones. They always do. But every rope we cut is a night they don't come up.",
+      "next_quest_id": null,
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "unique_item_defs": [
+        {
+          "name": "Ropecutter's Longbow",
+          "slot": "ranged",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "attack_power": 18
+          },
+          "armor_value": 0,
+          "required_level": 44,
+          "sell_price": 5710,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_10",
+          "weapon_damage_min": 53,
+          "weapon_damage_max": 72,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Ropecutter's Coif",
+          "slot": "head",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 38
+          },
+          "armor_value": 156,
+          "required_level": 44,
+          "sell_price": 5710,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_44"
+        },
+        {
+          "name": "Ropecutter's Leggings",
+          "slot": "legs",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "spell_power": 29
+          },
+          "armor_value": 57,
+          "required_level": 44,
+          "sell_price": 7137,
+          "identity": "caster",
+          "icon_id": "gear_inv_pants_12"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lbq_the_knotted_cord",
+      "title": "The Knotted Cord",
+      "giver_npc_id": "item:lb_q_knotted_cord",
+      "zone": "lower_boughs",
+      "level_min": 44,
+      "level_max": 45,
+      "description": "A Bloodscalp ropecutter was carrying a short cord tied in a row of different knots. The climbers use them to tell each other where the next ropes go up, and Scout Tiko'ra can read them.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "lb_q_knotted_cord",
+          "count": 1,
+          "label": "Bring the knotted cord to Scout Tiko'ra on the Great Bough"
+        }
+      ],
+      "accept_text": "The cord's tied in a row of different knots, the kind climbers use to pass a message. Scout Tiko'ra's been watching the Bloodscalp longer than anyone, and he'll be able to read it.",
+      "turn_in_text": "Three knots, a hitch and a double loop. That means the east bough, at night, when the moon's down.\n\nThey wanted to come up behind us through the Silkwood. We'll have people waiting there now.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "lb_scout_south",
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "unique_item_defs": [
+        {
+          "name": "Knot-Reader's Knife",
+          "slot": "main_hand",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 0,
+          "required_level": 44,
+          "sell_price": 6780,
+          "identity": "agility",
+          "icon_id": "gear_inv_throwingknife_03",
+          "weapon_damage_min": 62,
+          "weapon_damage_max": 85,
+          "attack_speed": 1.7,
+          "block_value": 0
+        },
+        {
+          "name": "Knot-Reader's Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 97,
+          "required_level": 44,
+          "sell_price": 5710,
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_05"
+        },
+        {
+          "name": "Knot-Reader's Sabatons",
+          "slot": "feet",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 191,
+          "required_level": 44,
+          "sell_price": 4639,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_01"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lbq_howlers_on_the_west_bough",
+      "title": "Howlers on the West Bough",
+      "giver_npc_id": "lb_hunter",
+      "zone": "lower_boughs",
+      "level_min": 44,
+      "level_max": 44,
+      "description": "The Canopy Howlers on the west bough have gone mean since they started drinking the sap, and they've been coming onto the ledge to steal from Mossroof.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Canopy Howler",
+          "count": 8,
+          "zone": "lower_boughs"
+        }
+      ],
+      "accept_text": "The Canopy Howlers used to steal fruit and run. Now they steal and stay, and they've started fighting back. Go out on the Howling Bough and teach them to run again.",
+      "turn_in_text": "They'll think twice before they come onto the ledge.\n\nThe young ones are the worst. They've never known the jungle without this tree in it.",
+      "next_quest_id": "lbq_the_silverbacks",
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "unique_item_defs": [
+        {
+          "name": "Bough-Hunter's Tome",
+          "slot": "off_hand",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 26
+          },
+          "armor_value": 0,
+          "required_level": 44,
+          "sell_price": 4089,
+          "identity": "healer",
+          "icon_id": "gear_inv_tome_5",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        },
+        {
+          "name": "Bough-Hunter's Handguards",
+          "slot": "hands",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_value": 187,
+          "required_level": 44,
+          "sell_price": 4430,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_08"
+        },
+        {
+          "name": "Bough-Hunter's Girdle",
+          "slot": "waist",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 125,
+          "required_level": 44,
+          "sell_price": 3748,
+          "identity": "hunter",
+          "icon_id": "gear_inv_belt_22"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lbq_the_silverbacks",
+      "title": "The Silverbacks",
+      "giver_npc_id": "lb_hunter",
+      "zone": "lower_boughs",
+      "level_min": 44,
+      "level_max": 45,
+      "description": "The big Sap-Drunk Silverbacks lead the howlers, and they're the ones drinking the most sap. Rakaz wants them brought down before they get any bigger.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Sap-Drunk Silverback",
+          "count": 6,
+          "zone": "lower_boughs"
+        }
+      ],
+      "accept_text": "The Sap-Drunk Silverbacks lead the troop, and they drink more sap than all the rest put together. Every week they're bigger. Bring them down on the Howling Bough before they're too big to bring down at all.",
+      "turn_in_text": "That's a quieter bough already. You can hear the birds again.\n\nThere's still one left, though, the biggest of them, the one with the gold tooth.",
+      "next_quest_id": "lbq_old_goldtooth",
+      "requires_quests": [
+        "lbq_howlers_on_the_west_bough"
+      ],
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "unique_item_defs": [
+        {
+          "name": "Silverback Mace",
+          "slot": "main_hand",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 0,
+          "required_level": 44,
+          "sell_price": 6780,
+          "identity": "healer",
+          "icon_id": "gear_inv_mace_11",
+          "weapon_damage_min": 62,
+          "weapon_damage_max": 85,
+          "attack_speed": 2.6,
+          "block_value": 0
+        },
+        {
+          "name": "Silverback Jerkin",
+          "slot": "chest",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 11,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 115,
+          "required_level": 44,
+          "sell_price": 7137,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_01"
+        },
+        {
+          "name": "Silverback Pendant",
+          "slot": "neck",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 18
+          },
+          "armor_value": 0,
+          "required_level": 44,
+          "sell_price": 4282,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_necklace_11"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lbq_old_goldtooth",
+      "title": "Old Goldtooth",
+      "giver_npc_id": "lb_hunter",
+      "zone": "lower_boughs",
+      "level_min": 45,
+      "level_max": 45,
+      "description": "The biggest silverback on the west bough has a tooth stained gold with sap, and he's thrown two trolls off the bough this season. Rakaz calls him Old Goldtooth.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Old Goldtooth",
+          "count": 1,
+          "zone": "lower_boughs"
+        }
+      ],
+      "accept_text": "Old Goldtooth's the biggest ape on the tree, and he's thrown two of our hunters off the Howling Bough. Nobody's come back from a fall that long. Find him and finish him.",
+      "turn_in_text": "Old Goldtooth's dead. I'll tell the families of the two he threw.\n\nIt wasn't his fault, not really. He drank what the tree gave him, and it made him into that.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "lbq_the_silverbacks"
+      ],
+      "reward_exp": 4212,
+      "reward_gold": 16770,
+      "unique_item_defs": [
+        {
+          "name": "Goldtooth Greatsword",
+          "slot": "main_hand",
+          "item_level": 47,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 13,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 32
+          },
+          "armor_value": 0,
+          "required_level": 45,
+          "sell_price": 14000,
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_23",
+          "weapon_damage_min": 113,
+          "weapon_damage_max": 153,
+          "attack_speed": 3.4,
+          "block_value": 0
+        },
+        {
+          "name": "Goldtooth Bracers",
+          "slot": "wrist",
+          "item_level": 47,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 27
+          },
+          "armor_value": 106,
+          "required_level": 45,
+          "sell_price": 5600,
+          "identity": "agility",
+          "icon_id": "gear_inv_bracer_06"
+        },
+        {
+          "name": "Goldtooth Hood",
+          "slot": "head",
+          "item_level": 47,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "spell_power": 33
+          },
+          "armor_value": 65,
+          "required_level": 45,
+          "sell_price": 8960,
+          "identity": "caster",
+          "icon_id": "gear_inv_helmet_57"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "lbq_python_skins",
+      "title": "Python Skins",
+      "giver_npc_id": "lb_hunter",
+      "zone": "lower_boughs",
+      "level_min": 44,
+      "level_max": 45,
+      "description": "The trolls wrap their ladder rungs in Bough Python skin, so wet hands don't slip. Rakaz needs more for the new ladders going up in Mossroof.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "lb_q_python_skin",
+          "count": 6
+        }
+      ],
+      "accept_text": "Every ladder in Mossroof has its rungs wrapped in Bough Python skin. It grips when it's wet, and up here it's always wet. Bring me skins from the pythons on the Great Bough and the ledge.",
+      "turn_in_text": "These will wrap a whole ladder, maybe two.\n\nThe transplant who climbs, Aroha, says they used to use something called rubber for this where she's from. I've never seen rubber, but I'd bet it's not as good.",
+      "next_quest_id": null,
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "unique_item_defs": [
+        {
+          "name": "Laddergrip Hauberk",
+          "slot": "chest",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 10,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 184,
+          "required_level": 44,
+          "sell_price": 7137,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_13"
+        },
+        {
+          "name": "Laddergrip Sash",
+          "slot": "waist",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 20
+          },
+          "armor_value": 39,
+          "required_level": 44,
+          "sell_price": 3925,
+          "identity": "caster",
+          "icon_id": "gear_inv_belt_07"
+        },
+        {
+          "name": "Laddergrip Sabatons",
+          "slot": "feet",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_value": 191,
+          "required_level": 44,
+          "sell_price": 4639,
+          "identity": "tank",
+          "icon_id": "gear_inv_boots_08"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lbq_check_the_bridges",
+      "title": "Check the Bridges",
+      "giver_npc_id": "lb_ropemaster",
+      "zone": "lower_boughs",
+      "level_min": 44,
+      "level_max": 44,
+      "description": "Bridgekeeper Ozzu keeps the plank bridges that cross the drop between the boughs. He wants someone to walk both of them and tell him how they're holding.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "lower_boughs",
+          "target_x": 38,
+          "target_y": 105,
+          "radius": 4,
+          "label": "Walk the west bridge, from the west fork to the Howling Bough"
+        },
+        {
+          "type": "explore",
+          "target": "lower_boughs",
+          "target_x": 146,
+          "target_y": 96,
+          "radius": 4,
+          "label": "Walk the east bridge, from the east fork to the Silkwood"
+        }
+      ],
+      "accept_text": "There are two bridges across the drop, one to the Howling Bough and one to the Silkwood. Walk them both for me and tell me if anything's moving that shouldn't. Don't look down, and if you do, don't look down for long.",
+      "turn_in_text": "The west one's fine. The east one has web all over its ropes, and that's not mine.\n\nThe spiders have started hanging their webs off my bridge. That's going to stop.",
+      "next_quest_id": "lbq_web_on_the_ropes",
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "unique_item_defs": [
+        {
+          "name": "Bridgekeeper's Grips",
+          "slot": "hands",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 19
+          },
+          "armor_value": 78,
+          "required_level": 44,
+          "sell_price": 4430,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_07"
+        },
+        {
+          "name": "Bridgekeeper's Spaulders",
+          "slot": "shoulder",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 37
+          },
+          "armor_value": 152,
+          "required_level": 44,
+          "sell_price": 5452,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_shoulder_04"
+        },
+        {
+          "name": "Bridgekeeper's Pendant",
+          "slot": "neck",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 17
+          },
+          "armor_value": 0,
+          "required_level": 44,
+          "sell_price": 4089,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_necklace_07"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lbq_web_on_the_ropes",
+      "title": "Web on the Ropes",
+      "giver_npc_id": "lb_ropemaster",
+      "zone": "lower_boughs",
+      "level_min": 44,
+      "level_max": 45,
+      "description": "The Silkwood Stalkers have been dropping onto the east bridge from webs hung off its ropes, and taking whoever's crossing.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Silkwood Stalker",
+          "count": 7,
+          "zone": "lower_boughs"
+        }
+      ],
+      "accept_text": "The Silkwood Stalkers hang their webs off the east bridge and drop on whoever's crossing. Two traders went over the side last month. Clear them out of the Silkwood before I lose anybody else.",
+      "turn_in_text": "I've cut the webs off the ropes, and nothing's dropped on me yet.\n\nThere's something bigger in there, though, something that spins the webs the stalkers sit in.",
+      "next_quest_id": "lbq_mother_lattice",
+      "requires_quests": [
+        "lbq_check_the_bridges"
+      ],
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "unique_item_defs": [
+        {
+          "name": "Webcutter's Cloak",
+          "slot": "back",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 20,
+            "hit_rating": 5
+          },
+          "armor_value": 35,
+          "required_level": 44,
+          "sell_price": 3925,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_16"
+        },
+        {
+          "name": "Webcutter's Cuffs",
+          "slot": "wrist",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "healing_power": 24
+          },
+          "armor_value": 39,
+          "required_level": 44,
+          "sell_price": 3569,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_05"
+        },
+        {
+          "name": "Webcutter's Legplates",
+          "slot": "legs",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 277,
+          "required_level": 44,
+          "sell_price": 7137,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_10"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lbq_mother_lattice",
+      "title": "Mother Lattice",
+      "giver_npc_id": "lb_ropemaster",
+      "zone": "lower_boughs",
+      "level_min": 45,
+      "level_max": 45,
+      "description": "At the heart of the Silkwood a spider has spun a lattice of web between the leaf crowns big enough to catch an ape. Ozzu wants her dead before she spins one across his bridge.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Mother Lattice",
+          "count": 1,
+          "zone": "lower_boughs"
+        }
+      ],
+      "accept_text": "Every web in the Silkwood leads back to one spider, and the trolls call her Mother Lattice. She's spun a web big enough to catch an ape. Find her in the Silkwood and kill her before she spins one across my bridge.",
+      "turn_in_text": "Mother Lattice is dead, and the Silkwood will be a lot quieter.\n\nI'll take her silk, if you don't mind. It's the strongest rope there is.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "lbq_web_on_the_ropes"
+      ],
+      "reward_exp": 4212,
+      "reward_gold": 16770,
+      "unique_item_defs": [
+        {
+          "name": "Lattice Cap",
+          "slot": "head",
+          "item_level": 47,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 16,
+            "agility": 11
+          },
+          "secondary_stats": {
+            "dodge_rating": 8
+          },
+          "armor_value": 142,
+          "required_level": 45,
+          "sell_price": 8960,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_06"
+        },
+        {
+          "name": "Lattice Band",
+          "slot": "ring",
+          "item_level": 47,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 29
+          },
+          "armor_value": 0,
+          "required_level": 45,
+          "sell_price": 6720,
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_ring_03"
+        },
+        {
+          "name": "Lattice Gauntlets",
+          "slot": "hands",
+          "item_level": 47,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 9,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 180,
+          "required_level": 45,
+          "sell_price": 7280,
+          "identity": "earthen",
+          "icon_id": "gear_inv_gauntlets_32"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "lbq_silk_for_the_bridges",
+      "title": "Silk for the Bridges",
+      "giver_npc_id": "lb_ropemaster",
+      "zone": "lower_boughs",
+      "level_min": 44,
+      "level_max": 45,
+      "description": "Silkwood silk is stronger than rope and doesn't rot. Ozzu wants spools of it from the Silkwood Weavers to rope his bridges with.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "lb_q_silk",
+          "count": 6
+        }
+      ],
+      "accept_text": "If the spiders are going to hang off my bridges, they can rope them too. Silkwood silk is stronger than any rope I can make, and it doesn't rot. Bring me spools of it off the Silkwood Weavers.",
+      "turn_in_text": "That's enough to rope the east bridge twice over.\n\nThere's a kind of justice in it. The spiders tried to take my bridge, and now they're holding it up.",
+      "next_quest_id": null,
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "unique_item_defs": [
+        {
+          "name": "Silkspinner's Staff",
+          "slot": "main_hand",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 19
+          },
+          "secondary_stats": {
+            "spell_power": 44
+          },
+          "armor_value": 0,
+          "required_level": 44,
+          "sell_price": 8921,
+          "identity": "caster",
+          "icon_id": "gear_inv_staff_06",
+          "weapon_damage_min": 34,
+          "weapon_damage_max": 46,
+          "attack_speed": 3.2,
+          "block_value": 0
+        },
+        {
+          "name": "Silkspinner's Jerkin",
+          "slot": "chest",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 115,
+          "required_level": 44,
+          "sell_price": 7137,
+          "identity": "strength",
+          "icon_id": "gear_inv_chest_leather_01"
+        },
+        {
+          "name": "Silkspinner's Waistguard",
+          "slot": "waist",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 191,
+          "required_level": 44,
+          "sell_price": 3925,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_belt_07"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lbq_what_the_river_carries",
+      "title": "What the River Carries",
+      "giver_npc_id": "lb_shaman",
+      "zone": "lower_boughs",
+      "level_min": 44,
+      "level_max": 44,
+      "description": "Rivercaller Jinda says the fish in the Great Bough's river have started to taste of sap. She wants a catch to read.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "fish_redgill",
+          "count": 6,
+          "label": "Catch Redgill in the Great Bough's river"
+        }
+      ],
+      "accept_text": "A river shouldn't run along a branch, but this one does, and the fish in it have started tasting of sap. I read the river by what lives in it. Catch me some Redgill from the Great Bough and I'll see what they say.",
+      "turn_in_text": "Sweet, and gold under the scales. The sap's in the river now, all the way down.\n\nThat's new this year. Something's pushing sap out of the tree faster than it ever used to.",
+      "next_quest_id": "lbq_amber_in_the_water",
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "unique_item_defs": [
+        {
+          "name": "Rivercaller's Mantle",
+          "slot": "shoulder",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 23
+          },
+          "armor_value": 47,
+          "required_level": 44,
+          "sell_price": 5452,
+          "identity": "caster",
+          "icon_id": "gear_inv_shoulder_18"
+        },
+        {
+          "name": "Rivercaller's Breeches",
+          "slot": "legs",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 11,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 112,
+          "required_level": 44,
+          "sell_price": 6815,
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_09"
+        },
+        {
+          "name": "Rivercaller's Vambraces",
+          "slot": "wrist",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_value": 187,
+          "required_level": 44,
+          "sell_price": 3408,
+          "identity": "tank",
+          "icon_id": "gear_inv_bracer_06"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lbq_amber_in_the_water",
+      "title": "Amber in the Water",
+      "giver_npc_id": "lb_shaman",
+      "zone": "lower_boughs",
+      "level_min": 44,
+      "level_max": 45,
+      "description": "The sap's pooling in the bark along the river and coming alive as Amberdrip Oozes. Jinda wants them cleared out and a clot of their amber brought back.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Amberdrip Ooze",
+          "count": 6,
+          "zone": "lower_boughs"
+        },
+        {
+          "type": "fetch",
+          "target": "lb_q_amber_clot",
+          "count": 4
+        }
+      ],
+      "accept_text": "Where the sap pools in the bark it wakes up, and the Amberdrip Oozes slide down into the river and foul it. Kill them along the Great Bough, and bring me clots of their amber. I'll read those too.",
+      "turn_in_text": "There's a gnat in this one that's never lived anywhere but this tree. It's set in amber, and the amber isn't a week old.\n\nThe sap's coming from somewhere deeper than the bark. I think it's coming from inside the trunk.",
+      "next_quest_id": "lbq_the_amber_glut",
+      "requires_quests": [
+        "lbq_what_the_river_carries"
+      ],
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "unique_item_defs": [
+        {
+          "name": "Amberbane Shield",
+          "slot": "off_hand",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 15,
+            "haste": 5
+          },
+          "armor_value": 358,
+          "required_level": 44,
+          "sell_price": 5710,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_shield_18",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 41
+        },
+        {
+          "name": "Amberbane Greaves",
+          "slot": "feet",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 18
+          },
+          "armor_value": 127,
+          "required_level": 44,
+          "sell_price": 4639,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_plate_05"
+        },
+        {
+          "name": "Amberbane Robe",
+          "slot": "chest",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 10,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "healing_power": 24
+          },
+          "armor_value": 57,
+          "required_level": 44,
+          "sell_price": 7137,
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_chest_cloth_18"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lbq_sunscale",
+      "title": "Sunscale",
+      "giver_npc_id": "lb_shaman",
+      "zone": "lower_boughs",
+      "level_min": 45,
+      "level_max": 45,
+      "description": "A python with gold scales lies in the sun on the Great Bough, as long as three boats, and the trolls who fish the river have learned to leave when they see it. Jinda calls it Sunscale.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Sunscale",
+          "count": 1,
+          "zone": "lower_boughs"
+        }
+      ],
+      "accept_text": "Sunscale lies in the sun along the Great Bough, and it's been taking the fishers off the river one by one. It's drunk so much sap its scales have turned gold. Find it on the Greenwater Bough and kill it.",
+      "turn_in_text": "Sunscale's dead, and the fishers can go back to the river.\n\nI'll miss seeing it in the sun, a little. It was beautiful, in the way terrible things sometimes are.",
+      "next_quest_id": null,
+      "reward_exp": 4212,
+      "reward_gold": 16770,
+      "unique_item_defs": [
+        {
+          "name": "Sunscale Shield",
+          "slot": "off_hand",
+          "item_level": 47,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 16,
+            "strength": 6
+          },
+          "secondary_stats": {
+            "block_value": 15
+          },
+          "armor_value": 479,
+          "required_level": 45,
+          "sell_price": 8960,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_10",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 55
+        },
+        {
+          "name": "Sunscale Breeches",
+          "slot": "legs",
+          "item_level": 47,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 19,
+            "agility": 13
+          },
+          "secondary_stats": {
+            "dodge_rating": 10
+          },
+          "armor_value": 168,
+          "required_level": 45,
+          "sell_price": 11200,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_02"
+        },
+        {
+          "name": "Sunscale Gloves",
+          "slot": "hands",
+          "item_level": 47,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "arcane_spell_power": 32
+          },
+          "armor_value": 53,
+          "required_level": 45,
+          "sell_price": 7280,
+          "identity": "arcane",
+          "icon_id": "gear_inv_gauntlets_04"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "lbq_the_amber_glut",
+      "title": "The Amber Glut",
+      "giver_npc_id": "lb_shaman",
+      "zone": "lower_boughs",
+      "level_min": 45,
+      "level_max": 45,
+      "description": "Jinda's followed the sap back into the trunk, down through the Knothollow to where the bark turns to heartwood. Something's pooled there and swollen, and the river's sap is coming from it.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "knothollow",
+          "target_x": 52,
+          "target_y": 68,
+          "radius": 4,
+          "label": "Find the Sapwell inside the Knothollow"
+        },
+        {
+          "type": "kill_boss",
+          "target": "The Amber Glut",
+          "count": 1,
+          "zone": "knothollow"
+        }
+      ],
+      "accept_text": "The sap's coming from inside the trunk, through the Knothollow, the great knot off the ledge. Go in past the Sapwell to the bottom bore, where the bark turns to heartwood. Whatever's swollen up down there's the Amber Glut, and it's bleeding the tree into my river.",
+      "turn_in_text": "You went all the way to the heartwood. I've never been that far into the tree.\n\nThe river's running clear tonight, for the first time this year. The tree will heal what the Glut drank, given time.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "lbq_amber_in_the_water"
+      ],
+      "reward_exp": 4212,
+      "reward_gold": 16770,
+      "unique_item_defs": [
+        {
+          "name": "Amber Glut Spear",
+          "slot": "main_hand",
+          "item_level": 47,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 13,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 32
+          },
+          "armor_value": 0,
+          "required_level": 45,
+          "sell_price": 14000,
+          "identity": "strength",
+          "icon_id": "gear_inv_weapon_halberd_10",
+          "weapon_damage_min": 113,
+          "weapon_damage_max": 153,
+          "attack_speed": 3.3,
+          "block_value": 0
+        },
+        {
+          "name": "Amber Glut Hood",
+          "slot": "head",
+          "item_level": 47,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 9,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 40
+          },
+          "armor_value": 65,
+          "required_level": 45,
+          "sell_price": 8960,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_34"
+        },
+        {
+          "name": "Amber Glut Grips",
+          "slot": "hands",
+          "item_level": 47,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 27
+          },
+          "armor_value": 116,
+          "required_level": 45,
+          "sell_price": 7280,
+          "identity": "feral",
+          "icon_id": "gear_inv_gauntlets_25"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "lbq_the_knot_in_the_trunk",
+      "title": "The Knot in the Trunk",
+      "giver_npc_id": "lb_elder",
+      "zone": "lower_boughs",
+      "level_min": 44,
+      "level_max": 45,
+      "description": "Elder Tal'vani can hear chewing in the trunk under Mossroof at night. The bark-borers have got into the great knot off the ledge, and they're eating their way in.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Knothollow Borer",
+          "count": 8,
+          "zone": "knothollow"
+        },
+        {
+          "type": "kill",
+          "target": "Borer Grub",
+          "count": 6,
+          "zone": "knothollow"
+        }
+      ],
+      "accept_text": "At night I can hear them chewing in the wood under the village. The borers have got into the Knothollow, the great knot in the trunk off the ledge, and they're eating their way in. Go inside and kill the Knothollow Borers, and the Borer Grubs they're raising.",
+      "turn_in_text": "It's quieter under the village tonight, but not quiet.\n\nThey've eaten deeper than I thought. There's a mother in there somewhere, laying them as fast as you kill them.",
+      "next_quest_id": "lbq_gnawmother_ixx",
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "unique_item_defs": [
+        {
+          "name": "Knotwarden's Legguards",
+          "slot": "legs",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "nature_spell_power": 26,
+            "haste": 8
+          },
+          "armor_value": 205,
+          "required_level": 44,
+          "sell_price": 7137,
+          "identity": "storm",
+          "icon_id": "gear_inv_pants_08"
+        },
+        {
+          "name": "Knotwarden's Cloak",
+          "slot": "back",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 18
+          },
+          "armor_value": 35,
+          "required_level": 44,
+          "sell_price": 3925,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_13"
+        },
+        {
+          "name": "Knotwarden's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 234,
+          "required_level": 44,
+          "sell_price": 5710,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_19"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lbq_gnawmother_ixx",
+      "title": "Gnawmother Ixx",
+      "giver_npc_id": "lb_elder",
+      "zone": "lower_boughs",
+      "level_min": 45,
+      "level_max": 45,
+      "description": "The borers in the Knothollow all come from one mother, who's made her nest where they broke into a vein of sap. Tal'vani calls her Gnawmother Ixx.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Gnawmother Ixx",
+          "count": 1,
+          "zone": "knothollow"
+        }
+      ],
+      "accept_text": "The borers broke into a vein of sap deep in the Knothollow, and that's where their mother sits, laying them in the gold. Gnawmother Ixx has to die, or the trunk under Mossroof will be hollow by the rains.",
+      "turn_in_text": "The chewing's stopped. I slept all night for the first time this month.\n\nThe tree carried us up out of the world when it broke. The least we can do is keep the bugs out of it.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "lbq_the_knot_in_the_trunk"
+      ],
+      "reward_exp": 4212,
+      "reward_gold": 16770,
+      "unique_item_defs": [
+        {
+          "name": "Gnawmother's Staff",
+          "slot": "main_hand",
+          "item_level": 47,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 13,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 32
+          },
+          "armor_value": 0,
+          "required_level": 45,
+          "sell_price": 14000,
+          "identity": "agility",
+          "icon_id": "gear_inv_staff_18",
+          "weapon_damage_min": 113,
+          "weapon_damage_max": 153,
+          "attack_speed": 3.6,
+          "block_value": 0
+        },
+        {
+          "name": "Gnawmother's Belt",
+          "slot": "waist",
+          "item_level": 47,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 27
+          },
+          "armor_value": 106,
+          "required_level": 45,
+          "sell_price": 6160,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_08"
+        },
+        {
+          "name": "Gnawmother's Band",
+          "slot": "ring",
+          "item_level": 47,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 0,
+          "required_level": 45,
+          "sell_price": 6720,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_ring_14"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "lbq_sky_bones",
+      "title": "Sky-Bones",
+      "giver_npc_id": "lb_scholar",
+      "zone": "lower_boughs",
+      "level_min": 44,
+      "level_max": 44,
+      "description": "Pieces of bronze and crystal keep falling out of the clouds and catching in the branches. The trolls call them sky-bones, and Scholar Vel'jani has come down from the Settlement to find every one.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "lower_boughs",
+          "target_x": 59,
+          "target_y": 98,
+          "radius": 4,
+          "label": "Find the sky-bones caught on the west fork"
+        },
+        {
+          "type": "explore",
+          "target": "lower_boughs",
+          "target_x": 126,
+          "target_y": 93,
+          "radius": 4,
+          "label": "Find the sky-bones caught on the east fork"
+        }
+      ],
+      "accept_text": "Things keep falling out of the clouds onto the tree, bronze and crystal, worked by somebody's hands. The trolls call them sky-bones. Two have caught on the forks of the Great Bough, one on each side. Go and look at them for me.",
+      "turn_in_text": "A bronze plate and a whole engine housing, still warm. Nobody on the ground made these.\n\nThe scholars in the Settlement have a wall of them now. Not one of us can say what they're for.",
+      "next_quest_id": "lbq_what_apes_hoard",
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "unique_item_defs": [
+        {
+          "name": "Sky-Bone Breastplate",
+          "slot": "chest",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "healing_power": 44
+          },
+          "armor_value": 271,
+          "required_level": 44,
+          "sell_price": 6815,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_chest_plate07"
+        },
+        {
+          "name": "Sky-Bone Slippers",
+          "slot": "feet",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 19
+          },
+          "armor_value": 39,
+          "required_level": 44,
+          "sell_price": 4430,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_07"
+        },
+        {
+          "name": "Sky-Bone Wristguards",
+          "slot": "wrist",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 15
+          },
+          "armor_value": 125,
+          "required_level": 44,
+          "sell_price": 3408,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_bracer_19"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lbq_what_apes_hoard",
+      "title": "What Apes Hoard",
+      "giver_npc_id": "lb_scholar",
+      "zone": "lower_boughs",
+      "level_min": 44,
+      "level_max": 45,
+      "description": "The Canopy Howlers collect anything shiny that falls into the boughs, and they've been collecting the crystal chips off the sky-bones.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "lb_q_hoarded_crystal",
+          "count": 5
+        }
+      ],
+      "accept_text": "The Canopy Howlers pick up anything that shines, and they've been picking the crystal chips off the sky-bones and carrying them off. Take them back off the howlers on the Howling Bough.",
+      "turn_in_text": "Every one of these is cut the same way, at the same angles, by the same hand.\n\nThat's not a crystal that grew. That's a part.",
+      "next_quest_id": "lbq_bronze_in_the_silk",
+      "requires_quests": [
+        "lbq_sky_bones"
+      ],
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "unique_item_defs": [
+        {
+          "name": "Hoardfinder's Longbow",
+          "slot": "ranged",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "attack_power": 18
+          },
+          "armor_value": 0,
+          "required_level": 44,
+          "sell_price": 5710,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_09",
+          "weapon_damage_min": 53,
+          "weapon_damage_max": 72,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Hoardfinder's Coif",
+          "slot": "head",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 38
+          },
+          "armor_value": 156,
+          "required_level": 44,
+          "sell_price": 5710,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_52"
+        },
+        {
+          "name": "Hoardfinder's Leggings",
+          "slot": "legs",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "spell_power": 29
+          },
+          "armor_value": 57,
+          "required_level": 44,
+          "sell_price": 7137,
+          "identity": "caster",
+          "icon_id": "gear_inv_pants_12"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lbq_bronze_in_the_silk",
+      "title": "Bronze in the Silk",
+      "giver_npc_id": "lb_scholar",
+      "zone": "lower_boughs",
+      "level_min": 44,
+      "level_max": 45,
+      "description": "The spiders in the Silkwood have been wrapping pieces of fallen bronze in silk the way they wrap their prey. Vel'jani wants them back.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "lb_q_wrapped_bronze",
+          "count": 3
+        }
+      ],
+      "accept_text": "The Silkwood Weavers wrap the fallen bronze up in silk like it's food. I don't know if they think it's alive. Bring me the pieces, silk and all, and I'll cut them out.",
+      "turn_in_text": "Listen to it hum. Whatever this was part of, it was running when it fell.\n\nI want somebody else to see one of these, somebody who knows machines better than any troll.",
+      "next_quest_id": "lbq_down_to_fizzle",
+      "requires_quests": [
+        "lbq_what_apes_hoard"
+      ],
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "unique_item_defs": [
+        {
+          "name": "Silkwrapped Knife",
+          "slot": "main_hand",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 0,
+          "required_level": 44,
+          "sell_price": 6780,
+          "identity": "agility",
+          "icon_id": "gear_inv_weapon_shortblade_03",
+          "weapon_damage_min": 62,
+          "weapon_damage_max": 85,
+          "attack_speed": 1.7,
+          "block_value": 0
+        },
+        {
+          "name": "Silkwrapped Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 97,
+          "required_level": 44,
+          "sell_price": 5710,
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_21"
+        },
+        {
+          "name": "Silkwrapped Sabatons",
+          "slot": "feet",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 191,
+          "required_level": 44,
+          "sell_price": 4639,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_plate_04"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lbq_down_to_fizzle",
+      "title": "Down to Fizzle",
+      "giver_npc_id": "lb_scholar",
+      "zone": "lower_boughs",
+      "level_min": 45,
+      "level_max": 45,
+      "description": "Vel'jani wants a goblin's eye on the humming bronze. Fizzle Brasswinch, who built the lifts down at Rootwater Landing, has seen a piece like it before.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "lb_q_humming_bronze",
+          "count": 1,
+          "label": "Take the humming bronze to Fizzle Brasswinch at Rootwater Landing"
+        }
+      ],
+      "accept_text": "Fizzle Brasswinch at the landing knows machines better than anybody on this tree. Take him this piece, the one that hums, and ask him what it is. Go down the Root Stair, it's quicker than you'd think.",
+      "turn_in_text": "Oh, I've seen one of these before. Not this piece, but its cousin, in the sand on the north-west root.\n\nIt's still running. Whatever's up there building these, it's not done falling apart. Tell Vel'jani I still can't place it, and that worries me more than it worries him.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "rw_dockhand",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "lb_q_humming_bronze",
+            "name": "Humming Bronze",
+            "description": "A piece of engraved bronze cut out of spider silk. It hums when you hold it, and the hum gets louder the higher you climb.",
+            "count": 1
+          }
+        ]
+      },
+      "requires_quests": [
+        "lbq_bronze_in_the_silk"
+      ],
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "unique_item_defs": [
+        {
+          "name": "Bronze-Hum Tome",
+          "slot": "off_hand",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 27
+          },
+          "armor_value": 0,
+          "required_level": 45,
+          "sell_price": 4282,
+          "identity": "healer",
+          "icon_id": "gear_inv_tome_1",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        },
+        {
+          "name": "Bronze-Hum Handguards",
+          "slot": "hands",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_value": 191,
+          "required_level": 45,
+          "sell_price": 4639,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_19"
+        },
+        {
+          "name": "Bronze-Hum Girdle",
+          "slot": "waist",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 18
+          },
+          "armor_value": 127,
+          "required_level": 45,
+          "sell_price": 3925,
+          "identity": "hunter",
+          "icon_id": "gear_inv_belt_02"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lbq_a_climbers_eye",
+      "title": "A Climber's Eye",
+      "giver_npc_id": "lb_transplant",
+      "zone": "lower_boughs",
+      "level_min": 44,
+      "level_max": 45,
+      "description": "Aroha Tane climbed trees for a living on Earth before the merge, and she came up this one for the view. She wants someone to go out to the very tips of the outer boughs and look back at the trunk.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "lower_boughs",
+          "target_x": 24,
+          "target_y": 132,
+          "radius": 4,
+          "label": "Go out to the tip of the west bough"
+        },
+        {
+          "type": "explore",
+          "target": "lower_boughs",
+          "target_x": 166,
+          "target_y": 126,
+          "radius": 4,
+          "label": "Go out to the tip of the east bough"
+        }
+      ],
+      "accept_text": "I've been out on every bough in Mossroof but the two outer ones, because the apes and the spiders get there first. Go out to the tips of the west and the east bough for me, turn round and look back at the trunk.",
+      "turn_in_text": "It doesn't end, does it? You look up and it just keeps going into the cloud.\n\nBack home the tallest kauri I ever climbed was fifty metres. My mates would never believe this.",
+      "next_quest_id": null,
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "unique_item_defs": [
+        {
+          "name": "Treetop Mace",
+          "slot": "main_hand",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 0,
+          "required_level": 44,
+          "sell_price": 6780,
+          "identity": "healer",
+          "icon_id": "gear_inv_mace_06",
+          "weapon_damage_min": 62,
+          "weapon_damage_max": 85,
+          "attack_speed": 2.6,
+          "block_value": 0
+        },
+        {
+          "name": "Treetop Jerkin",
+          "slot": "chest",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 11,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 115,
+          "required_level": 44,
+          "sell_price": 7137,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_04"
+        },
+        {
+          "name": "Treetop Pendant",
+          "slot": "neck",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 18
+          },
+          "armor_value": 0,
+          "required_level": 44,
+          "sell_price": 4282,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_amulet_04"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lbq_harness_leather",
+      "title": "Harness Leather",
+      "giver_npc_id": "lb_transplant",
+      "zone": "lower_boughs",
+      "level_min": 44,
+      "level_max": 45,
+      "description": "Aroha teaches the young trolls to climb with a harness, the way arborists do back on Earth. She needs soft leather for the straps.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "lb_q_skink_hide",
+          "count": 6
+        }
+      ],
+      "accept_text": "The young trolls climb like they can't fall, and some of them are about to find out. I'm teaching them to use a harness. Mossback Skink hide is soft enough for the straps, so bring me some off the ledge.",
+      "turn_in_text": "These will make three harnesses at least.\n\nThe elders laughed at me at first. Then one of the young ones slipped with a harness on, and swung there, and climbed back up. Nobody's laughing now.",
+      "next_quest_id": null,
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "unique_item_defs": [
+        {
+          "name": "Harnessmaker's Greatsword",
+          "slot": "main_hand",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 0,
+          "required_level": 44,
+          "sell_price": 8921,
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_06",
+          "weapon_damage_min": 85,
+          "weapon_damage_max": 115,
+          "attack_speed": 3.4,
+          "block_value": 0
+        },
+        {
+          "name": "Harnessmaker's Bracers",
+          "slot": "wrist",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 93,
+          "required_level": 44,
+          "sell_price": 3569,
+          "identity": "agility",
+          "icon_id": "gear_inv_bracer_02"
+        },
+        {
+          "name": "Harnessmaker's Hood",
+          "slot": "head",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 24
+          },
+          "armor_value": 66,
+          "required_level": 44,
+          "sell_price": 5710,
+          "identity": "caster",
+          "icon_id": "gear_inv_helmet_30"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lbq_hexes_in_the_leaves",
+      "title": "Hexes in the Leaves",
+      "giver_npc_id": "lb_transplant",
+      "zone": "lower_boughs",
+      "level_min": 44,
+      "level_max": 45,
+      "description": "The Bloodscalp's casters come up with the climbers and hex the trolls on the Great Bough. Aroha was caught by one last week and couldn't stop shaking for a day.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bloodscalp Hexer",
+          "count": 5,
+          "zone": "lower_boughs"
+        },
+        {
+          "type": "kill",
+          "target": "Bloodscalp Bough-Shaman",
+          "count": 5,
+          "zone": "lower_boughs"
+        }
+      ],
+      "accept_text": "A Bloodscalp Hexer caught me on the Great Bough last week, and I couldn't stop shaking for a day. The Bloodscalp Bough-Shamans call lightning down through the leaves. Kill them at the Climbers' Cut.",
+      "turn_in_text": "Thank you. I've been jumping at every shadow on that bough.\n\nI kept thinking, I came up here to climb trees and look at things. I didn't come up here to be cursed. Then again, none of us asked to come here.",
+      "next_quest_id": null,
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "unique_item_defs": [
+        {
+          "name": "Hexwarden's Hauberk",
+          "slot": "chest",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 10,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 184,
+          "required_level": 44,
+          "sell_price": 7137,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_13"
+        },
+        {
+          "name": "Hexwarden's Sash",
+          "slot": "waist",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 20
+          },
+          "armor_value": 39,
+          "required_level": 44,
+          "sell_price": 3925,
+          "identity": "caster",
+          "icon_id": "gear_inv_belt_31"
+        },
+        {
+          "name": "Hexwarden's Sabatons",
+          "slot": "feet",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_value": 205,
+          "required_level": 44,
+          "sell_price": 4639,
+          "identity": "tank",
+          "icon_id": "gear_inv_boots_plate_08"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lbq_bark_samples",
+      "title": "Bark Samples",
+      "giver_npc_id": "lb_transplant",
+      "zone": "lower_boughs",
+      "level_min": 44,
+      "level_max": 45,
+      "description": "Aroha wants to know how fast the tree is growing. She's been measuring the bark, and she needs wood from the boughs to compare against her notes.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "wood_bloodroot_stump",
+          "count": 5,
+          "label": "Gather Bloodroot Wood"
+        }
+      ],
+      "accept_text": "I've been measuring the bark since I got here, and the numbers don't make any sense. No tree grows this fast. Bring me Bloodroot wood from the boughs, and I'll count the rings against my notes.",
+      "turn_in_text": "There are rings in here for every month, not every year. It's growing like it's in a hurry.\n\nA tree that grows like this is reaching for something. I'd love to know what's up there.",
+      "next_quest_id": null,
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "unique_item_defs": [
+        {
+          "name": "Barkreader's Grips",
+          "slot": "hands",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 93,
+          "required_level": 44,
+          "sell_price": 4639,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_30"
+        },
+        {
+          "name": "Barkreader's Spaulders",
+          "slot": "shoulder",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 38
+          },
+          "armor_value": 156,
+          "required_level": 44,
+          "sell_price": 5710,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_shoulder_13"
+        },
+        {
+          "name": "Barkreader's Pendant",
+          "slot": "neck",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 18
+          },
+          "armor_value": 0,
+          "required_level": 44,
+          "sell_price": 4282,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_necklace_09"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lbq_the_shrine_on_the_west_bough",
+      "title": "The Shrine on the West Bough",
+      "giver_npc_id": "lb_scout_west",
+      "zone": "lower_boughs",
+      "level_min": 44,
+      "level_max": 45,
+      "description": "The trolls built a small shrine to the tree's loa out on the west bough, and the apes have taken it over. Scout Halaja wants to know what they've done to it.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "lower_boughs",
+          "target_x": 27,
+          "target_y": 90,
+          "radius": 4,
+          "label": "Find the old shrine on the Howling Bough"
+        },
+        {
+          "type": "kill",
+          "target": "Canopy Howler",
+          "count": 5,
+          "zone": "lower_boughs"
+        }
+      ],
+      "accept_text": "We built a shrine to the loa out on the west bough when we first came up, and the apes have moved into it. Go and see what's left of it. The Canopy Howlers will come at you, so kill them as you go.",
+      "turn_in_text": "They've filled it with fruit pits and shiny bits of bronze. It's almost like they were praying.\n\nMaybe they were. The tree answered us. Maybe it's been answering them too.",
+      "next_quest_id": null,
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "unique_item_defs": [
+        {
+          "name": "Loa-Shrine Cloak",
+          "slot": "back",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 20,
+            "hit_rating": 5
+          },
+          "armor_value": 35,
+          "required_level": 44,
+          "sell_price": 3925,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_18"
+        },
+        {
+          "name": "Loa-Shrine Cuffs",
+          "slot": "wrist",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "healing_power": 24
+          },
+          "armor_value": 39,
+          "required_level": 44,
+          "sell_price": 3569,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_06"
+        },
+        {
+          "name": "Loa-Shrine Legplates",
+          "slot": "legs",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 298,
+          "required_level": 44,
+          "sell_price": 7137,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_04"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "lbq_the_great_lift",
+      "title": "The Great Lift",
+      "giver_npc_id": "lb_elder",
+      "zone": "lower_boughs",
+      "level_min": 45,
+      "level_max": 45,
+      "description": "Elder Tal'vani says you've earned the city. The Great Lift at the ledge's east end goes up to the Great Settlement, and Liftkeeper Grizzik will take you up.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "lb_q_elders_word",
+          "count": 1,
+          "label": "Take Elder Tal'vani's word to Liftkeeper Grizzik at the Great Lift"
+        }
+      ],
+      "accept_text": "You've done more for Mossroof than anybody since we built it. The Great Settlement's above us, in the heart of the tree, and the High Chieftain will want to meet you. Take my word to Grizzik at the Great Lift and he'll take you up.",
+      "turn_in_text": "Tal'vani's word, eh? Then you go up first, ahead of the crates.\n\nKeep your elbows in and don't look down until the Settlement's lanterns are all round you. It's worth the wait.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "lb_liftkeeper",
+      "requires_quests": [
+        "lbq_ropemaster_vazjin",
+        "lbq_gnawmother_ixx"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "lb_q_elders_word",
+            "name": "Tal'vani's Word",
+            "description": "A strip of bark painted with Mossroof's moss-green mark, saying the bearer has earned the climb to the city.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "unique_item_defs": [
+        {
+          "name": "Liftward Cap",
+          "slot": "head",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 12,
+            "agility": 8
+          },
+          "secondary_stats": {
+            "dodge_rating": 6
+          },
+          "armor_value": 97,
+          "required_level": 45,
+          "sell_price": 5710,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_57"
+        },
+        {
+          "name": "Liftward Band",
+          "slot": "ring",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 5,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "healing_power": 22
+          },
+          "armor_value": 0,
+          "required_level": 45,
+          "sell_price": 4282,
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_ring_33"
+        },
+        {
+          "name": "Liftward Gauntlets",
+          "slot": "hands",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 7,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 16
+          },
+          "armor_value": 127,
+          "required_level": 45,
+          "sell_price": 4639,
+          "identity": "earthen",
+          "icon_id": "gear_inv_gauntlets_30"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    }
+  ]
+}

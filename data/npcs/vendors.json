@@ -7696,6 +7696,62 @@
         "beast_lure",
         "vial_crystal"
       ]
+    },
+    {
+      "vendor_id": "lb_provisioner",
+      "name": "Cook Ma'tuka",
+      "zone": "lower_boughs",
+      "x": 82,
+      "y": 36,
+      "tile_sprite": "npc",
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 45,
+      "sells_gear": false,
+      "race": "troll",
+      "gender": "female",
+      "appearance_variant": 8,
+      "facing": "down",
+      "greeting": "River fish, fruit off the boughs and a pot that's never been empty since Mossroof was built. Eat before you go out on the branches, they're longer than they look.",
+      "sells": [
+        "meal_kodo_ribs",
+        "meal_saltback_roast",
+        "hunters_brace_platter",
+        "drink_birch_wine",
+        "drink_deepwell_cordial",
+        "cook_flour",
+        "cook_spice",
+        "cook_fruit",
+        "cook_roots"
+      ]
+    },
+    {
+      "vendor_id": "lb_trader",
+      "name": "Trader Zekk",
+      "zone": "lower_boughs",
+      "x": 104,
+      "y": 36,
+      "tile_sprite": "npc",
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 45,
+      "sells_gear": false,
+      "race": "goblin",
+      "gender": "male",
+      "appearance_variant": 4,
+      "facing": "down",
+      "greeting": "Everything up here came up the Root Stair on somebody's back, so the prices are fair, considering. Rope's free if you've got the nerve to use it.",
+      "sells": [
+        "healing_potion_mega",
+        "mana_potion_mega",
+        "kit_field_repair",
+        "broadhead_arrows",
+        "quarrel_bolts",
+        "shot_mithril",
+        "parchment",
+        "beast_lure",
+        "vial_crystal"
+      ]
     }
   ]
 }

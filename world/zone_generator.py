@@ -5633,6 +5633,8 @@ def create_all_zones():
     from tools import handbuilt_ariden_watch as daw_watch
     from tools import handbuilt_moonglade as dmg
     from tools import handbuilt_worldtree_rootwater_isle as dwrw   # THE WORLD TREE (docs/worldtree_brief.md, 19 Nov 2026)
+    from tools import handbuilt_worldtree_lower_boughs as dwlb
+    from tools.handbuilt_knothollow import generate_knothollow
     from tools import handbuilt_feralas_high_wilderness as dfhw   # FERALAS (docs/feralas_brief.md, 19 Nov 2026)
     from tools import handbuilt_feralas_forgotten_coast as dffc
     from tools import handbuilt_feralas_twin_colossals as dftc
@@ -5812,6 +5814,8 @@ def create_all_zones():
         "Moonglade": dmg.generate_moonglade(),                  # tools/handbuilt_moonglade.py, up the Moonglade passage
         # ===== THE WORLD TREE (42-60, docs/worldtree_brief.md, 19 Nov 2026): the island first =====
         "Rootwater Isle": dwrw.generate_rootwater_isle(),          # the roots on the reef; boats from Grom'gol and Zoram Strand
+        "The Lower Boughs": dwlb.generate_lower_boughs(),          # the first tier, up the Root Stair (20 Nov 2026)
+        "The Knothollow": generate_knothollow(),                   # the cave into the trunk off the Lower Boughs' ledge
         # ===== FERALAS (44-49, docs/feralas_brief.md, 19 Nov 2026): three maps down the L, two towns, the hive =====
         "The High Wilderness": dfhw.generate_high_wilderness(),       # the east arm, in from the Aspen Wilderness
         "The Forgotten Coast": dffc.generate_forgotten_coast(),       # the corner and the south coast, the Fog Groves

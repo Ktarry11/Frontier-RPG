@@ -6606,6 +6606,86 @@
           "creatures": {}
         }
       }
+    },
+    "The Lower Boughs": {
+      "name": "The Lower Boughs",
+      "open_zone": {
+        "name": "The Lower Boughs",
+        "creatures": {
+          "Mossback Skink": 4,
+          "Glimmerwing Moth": 3,
+          "Bough Python": 1
+        }
+      },
+      "subzones": {
+        "The Trunk Ledge": {
+          "name": "The Trunk Ledge",
+          "creatures": {
+            "Mossback Skink": 5,
+            "Glimmerwing Moth": 5,
+            "Bough Python": 1
+          }
+        },
+        "The Greenwater Bough": {
+          "name": "The Greenwater Bough",
+          "creatures": {
+            "Bough Python": 5,
+            "Amberdrip Ooze": 5,
+            "Glimmerwing Moth": 2,
+            "Mossback Skink": 1,
+            "Sunscale": 0
+          }
+        },
+        "The Howling Bough": {
+          "name": "The Howling Bough",
+          "creatures": {
+            "Canopy Howler": 6,
+            "Sap-Drunk Silverback": 5,
+            "Mossback Skink": 1,
+            "Old Goldtooth": 0
+          }
+        },
+        "The Silkwood": {
+          "name": "The Silkwood",
+          "creatures": {
+            "Silkwood Weaver": 6,
+            "Silkwood Stalker": 5,
+            "Glimmerwing Moth": 1,
+            "Mother Lattice": 0
+          }
+        },
+        "The Climbers' Cut": {
+          "name": "The Climbers' Cut",
+          "creatures": {
+            "Bloodscalp Ropecutter": 5,
+            "Bloodscalp Skull-Taker": 4,
+            "Bloodscalp Spear-Hurler": 4,
+            "Bloodscalp Reaver": 4,
+            "Bloodscalp Bough-Shaman": 3,
+            "Bloodscalp Hexer": 3,
+            "Ropemaster Vaz'jin": 0
+          }
+        },
+        "Mossroof": {
+          "name": "Mossroof",
+          "safe": true,
+          "creatures": {}
+        }
+      },
+      "caves": {
+        "The Knothollow": {
+          "name": "The Knothollow",
+          "creatures": {
+            "Knothollow Borer": 4,
+            "Borer Grub": 4,
+            "Sapwell Ooze": 4,
+            "Hollow Weaver": 4,
+            "Knotrot Swarm": 4,
+            "Gnawmother Ixx": 0,
+            "The Amber Glut": 0
+          }
+        }
+      }
     }
   }
 }

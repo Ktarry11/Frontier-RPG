@@ -206,6 +206,8 @@ ZONE_BACKGROUND = {
     "West Azshara": "fantasy_forest",             # Azshara's autumn forest (until its own background)
     "Talrendis Landing": "coast",                 # the salvage camp on the bay
     "Rootwater Isle": "coast",                    # the World Tree's roots on the reef (until its own background)
+    "The Lower Boughs": "jungle",                 # the World Tree's first tier, over the canopy
+    "The Knothollow": "jungle",                   # the cave into the trunk
     "The High Wilderness": "mossy_forest",        # Feralas's giant forest (until its own background)
     "The Forgotten Coast": "mossy_forest",
     "The Twin Colossals": "mossy_forest",

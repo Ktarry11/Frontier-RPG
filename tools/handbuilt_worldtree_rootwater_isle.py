@@ -15,14 +15,15 @@ and in the north-east the bark has started to rot.
     Sapwash Beach ......... the south-east root: the Bloodsail's sap camp
     The Bloodscalp Climb .. the north-west root: the Bloodscalp war camp
     The Saproot Thicket ... the north-east root: where the bark is rotting
-    The Root Stair ........ against the trunk's east side (114,42): the way up to the Lower Boughs (its door opens
+    The Root Stair ........ against the trunk's east side (114,42): the way up to the Lower Boughs (opened 20 Nov
                             when they're built)
 
 Kyle, 19 Nov 2026: "Lets start building the world tree", the boat from Grom'gol, and "Let's also connect Zoram Strand
 to Rootwater". Ground: ROOTWATER_SHEET in tools/bake_ashenvale.py (Kyle's sheet W1). Props and landmarks: W2, W4, W5.
 
 HARD CONTRACTS (world/portal_manager.py)
-  portals  Grom'gol (170,92) <-> its west beach (the boat); Zoram Strand (14,46) <-> its pier's T-head (the boat)
+  portals  Grom'gol (170,92) <-> its west beach (the boat); Zoram Strand (14,46) <-> its pier's T-head (the boat);
+           The Lower Boughs (114,46) <-> the top of the Root Stair
 """
 import numpy as np
 
@@ -36,9 +37,9 @@ WTP = "assets/tiles/worldtree/props/"
 SP = "assets/tiles/stranglethorn/props/"
 BLD = "assets/buildings/"
 
-PORTALS = {(170, 92): "Grom'gol", (14, 46): "Zoram Strand"}
-ARRIVALS = [(167, 92), (17, 46)]
-LATER_PORTALS = {(114, 46): "The Lower Boughs"}      # the Root Stair: its door opens when the Lower Boughs are built
+PORTALS = {(170, 92): "Grom'gol", (14, 46): "Zoram Strand", (114, 46): "The Lower Boughs"}
+ARRIVALS = [(167, 92), (17, 46), (114, 49)]
+LATER_PORTALS = {}
 START = (90, 80)       # the landing: everything must be reachable from here
 
 #: the trunk's footprint (cx, cy, rx, ry): a cliff of bark from below

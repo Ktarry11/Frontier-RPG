@@ -85165,6 +85165,952 @@
           "attack_power": 36
         }
       }
+    ],
+    "mossback_skink": [
+      {
+        "name": "Bite",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Darting Snap",
+        "kind": "damage",
+        "amount": 146,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Festering Bite",
+        "kind": "dot",
+        "amount": 45,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "glimmerwing_moth": [
+      {
+        "name": "Glittering Dust",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Wingbeat Gust",
+        "kind": "damage",
+        "amount": 142,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Dust in the Eyes",
+        "kind": "dot",
+        "amount": 45,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "bough_python": [
+      {
+        "name": "Constrict",
+        "kind": "damage",
+        "amount": 178,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Coiled Lunge",
+        "kind": "damage",
+        "amount": 142,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Squeezed",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -20
+        }
+      }
+    ],
+    "amberdrip_ooze": [
+      {
+        "name": "Smother",
+        "kind": "damage",
+        "amount": 178,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Amber Splash",
+        "kind": "damage",
+        "amount": 142,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Gummed",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -20
+        }
+      }
+    ],
+    "sunscale": [
+      {
+        "name": "Sunlit Coils",
+        "kind": "damage",
+        "amount": 250,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Thrashing Tail",
+        "kind": "damage",
+        "amount": 200,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Wrapped and Squeezed",
+        "kind": "damage",
+        "amount": 212,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Sunlit Coils, Again",
+        "kind": "damage",
+        "amount": 425,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Basking Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 37
+        }
+      }
+    ],
+    "canopy_howler": [
+      {
+        "name": "Pummel",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Howling Leap",
+        "kind": "damage",
+        "amount": 146,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Torn Ear",
+        "kind": "dot",
+        "amount": 45,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "sap_drunk_silverback": [
+      {
+        "name": "Fist Slam",
+        "kind": "damage",
+        "amount": 178,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Chest-Beat Shockwave",
+        "kind": "damage",
+        "amount": 142,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Rattled",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -20
+        }
+      }
+    ],
+    "old_goldtooth": [
+      {
+        "name": "Golden Fist",
+        "kind": "damage",
+        "amount": 250,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bough Shaker",
+        "kind": "damage",
+        "amount": 200,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Thrown From the Branch",
+        "kind": "damage",
+        "amount": 212,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Golden Fist, Again",
+        "kind": "damage",
+        "amount": 425,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Drunk on Sap",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 37
+        }
+      }
+    ],
+    "silkwood_weaver": [
+      {
+        "name": "Venom Bite",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Web Spray",
+        "kind": "damage",
+        "amount": 146,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Weaver's Venom",
+        "kind": "dot",
+        "amount": 45,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "silkwood_stalker": [
+      {
+        "name": "Lunging Bite",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Drop From the Web",
+        "kind": "damage",
+        "amount": 146,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hardened Carapace",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 180
+        },
+        "self_only": true
+      }
+    ],
+    "mother_lattice": [
+      {
+        "name": "Lattice Fangs",
+        "kind": "damage",
+        "amount": 250,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Web of the Mother",
+        "kind": "damage",
+        "amount": 200,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Cocooned",
+        "kind": "damage",
+        "amount": 212,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Lattice Fangs, Again",
+        "kind": "damage",
+        "amount": 425,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Every Strand Hers",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 37
+        }
+      }
+    ],
+    "bloodscalp_ropecutter": [
+      {
+        "name": "Hooked Knife",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Swing on the Rope",
+        "kind": "damage",
+        "amount": 146,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Climber's Grip",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 180
+        },
+        "self_only": true
+      }
+    ],
+    "bloodscalp_skull_taker": [
+      {
+        "name": "Thrown Spear",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Marked for a Trophy",
+        "kind": "damage",
+        "amount": 146,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Barbed Point",
+        "kind": "dot",
+        "amount": 45,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "bloodscalp_spear_hurler": [
+      {
+        "name": "Hurled Spear",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Two Spears",
+        "kind": "damage",
+        "amount": 146,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Pinned",
+        "kind": "dot",
+        "amount": 45,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "bloodscalp_reaver": [
+      {
+        "name": "Cleaving Axe",
+        "kind": "damage",
+        "amount": 178,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Reaving Sweep",
+        "kind": "damage",
+        "amount": 142,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Knocked Off Balance",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -20
+        }
+      }
+    ],
+    "bloodscalp_bough_shaman": [
+      {
+        "name": "Lightning Bolt",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Storm Through the Leaves",
+        "kind": "damage",
+        "amount": 142,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Static Hex",
+        "kind": "dot",
+        "amount": 45,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "bloodscalp_hexer": [
+      {
+        "name": "Shadow Bolt",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Hex Smoke",
+        "kind": "damage",
+        "amount": 142,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "is_aoe": true
+      },
+      {
+        "name": "Hexer's Curse",
+        "kind": "dot",
+        "amount": 45,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "dispel_type": "curse"
+      }
+    ],
+    "ropemaster_vazjin": [
+      {
+        "name": "Rope Knife",
+        "kind": "damage",
+        "amount": 250,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Swung From Below",
+        "kind": "damage",
+        "amount": 200,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Cut Loose",
+        "kind": "damage",
+        "amount": 212,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Rope Knife, Again",
+        "kind": "damage",
+        "amount": 425,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Vaz'jin's Climb",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 37
+        }
+      }
+    ],
+    "knothollow_borer": [
+      {
+        "name": "Boring Mandibles",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Chew Through",
+        "kind": "damage",
+        "amount": 146,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bark-Hard Shell",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 180
+        },
+        "self_only": true
+      }
+    ],
+    "borer_grub": [
+      {
+        "name": "Gnaw",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Squirming Lunge",
+        "kind": "damage",
+        "amount": 146,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Grub Bile",
+        "kind": "dot",
+        "amount": 45,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "sapwell_ooze": [
+      {
+        "name": "Engulf",
+        "kind": "damage",
+        "amount": 178,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Burst of Sap",
+        "kind": "damage",
+        "amount": 142,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Stuck Fast",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -20
+        }
+      }
+    ],
+    "hollow_weaver": [
+      {
+        "name": "Fang",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Web in the Dark",
+        "kind": "damage",
+        "amount": 146,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Hollow Venom",
+        "kind": "dot",
+        "amount": 45,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "knotrot_swarm": [
+      {
+        "name": "Rot Spores",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Choking Rot",
+        "kind": "damage",
+        "amount": 142,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Spore-Sick",
+        "kind": "dot",
+        "amount": 45,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "gnawmother_ixx": [
+      {
+        "name": "Mother's Mandibles",
+        "kind": "damage",
+        "amount": 250,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature",
+        "boss_rework": 1
+      },
+      {
+        "name": "Borer Venom",
+        "kind": "damage",
+        "amount": 220,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Mother's Mandibles, Twice",
+        "kind": "damage",
+        "amount": 325,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Call the Brood",
+        "kind": "damage",
+        "amount": 175,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "The Wood Gives Way",
+        "kind": "damage",
+        "amount": 275,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Borer Venom, Deep",
+        "kind": "dot",
+        "amount": 112,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "dispel_type": "poison"
+      },
+      {
+        "name": "Feed on the Brood",
+        "kind": "heal",
+        "amount": 275,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Last Stand",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.3,
+        "stat_mods": {
+          "attack_power": 100
+        }
+      }
+    ],
+    "the_amber_glut": [
+      {
+        "name": "Amber Fist",
+        "kind": "damage",
+        "amount": 250,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature",
+        "boss_rework": 1
+      },
+      {
+        "name": "Smothering Sap",
+        "kind": "damage",
+        "amount": 220,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Amber Fist, Twice",
+        "kind": "damage",
+        "amount": 325,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Sap Flood",
+        "kind": "damage",
+        "amount": 175,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Swallowed Whole",
+        "kind": "damage",
+        "amount": 275,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Smothering Sap, Deep",
+        "kind": "dot",
+        "amount": 112,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "dispel_type": "poison"
+      },
+      {
+        "name": "Everything Turns to Amber",
+        "kind": "damage",
+        "amount": 450,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Last Stand",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.3,
+        "stat_mods": {
+          "attack_power": 100
+        }
+      }
     ]
   }
 }

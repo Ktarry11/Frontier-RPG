@@ -5,7 +5,7 @@ data/world/secrets.json and never touches an older secret.
     PYTHONPATH=. python3 tools/build_new_zone_secrets.py [--check]
 
 Kyle, 19 Nov 2026: "Dont forget we need complete zones, so include secrets, gatherables etc." Rootwater Isle gets its
-secrets, and so do Feralas's three open maps, which went in without any. The standing rules hold: hidden is truly
+secrets, and so do Feralas's three open maps, which went in without any, and every tier of the tree after it. The standing rules hold: hidden is truly
 hidden (world/secrets.py: the way in still looks like the rock or trees it's cut from), nothing touches a portal, an
 NPC, a road or an older secret, and Kyle is never told where. This prints counts only.
 
@@ -25,7 +25,31 @@ import build_secrets_pass3 as P3  # noqa: E402
 
 TAG = "new_zones"
 #: map -> how many secrets it should hold
-WANT = {"Rootwater Isle": 2, "The High Wilderness": 2, "The Forgotten Coast": 2, "The Twin Colossals": 2}
+WANT = {"Rootwater Isle": 2, "The Lower Boughs": 2, "The High Wilderness": 2, "The Forgotten Coast": 2, "The Twin Colossals": 2}
+
+
+#: maps that stand over a drop (a module with DROP): their collision is mostly the void, and a hidden place cut into
+#: that would be a room of open air. On these a secret has to be cut into the tree itself.
+OVER_THE_DROP = {"The Lower Boughs": "tools.handbuilt_worldtree_lower_boughs"}
+
+
+def _tiles(c):
+    out = []
+    for key in ("passage", "area", "mask"):
+        for t in c.get(key) or []:
+            if isinstance(t, (list, tuple)) and len(t) >= 2 and all(isinstance(a, int) for a in t[:2]):
+                out.append((t[0], t[1]))
+    return out
+
+
+def solid_ground(zone, c):
+    """False when any tile of the candidate hangs over the drop."""
+    mod = OVER_THE_DROP.get(zone)
+    if not mod:
+        return True
+    import importlib
+    m = importlib.import_module(mod)
+    return all(m.sea(x + 0.5, y + 0.5) <= 0 for (x, y) in _tiles(c))
 
 
 def main():
@@ -44,7 +68,8 @@ def main():
             continue
         for i in range(sum(1 for s in secrets if s["zone"] == zone), n):
             taken = P3.taken_tiles(secrets, zone)
-            cands = P3.glades(tm, taken) or P3.nooks(tm, taken)
+            cands = [c for c in (P3.glades(tm, taken) or []) if solid_ground(zone, c)] or \
+                [c for c in (P3.nooks(tm, taken) or []) if solid_ground(zone, c)]
             if not cands:
                 short.append(zone)
                 break

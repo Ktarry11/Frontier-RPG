@@ -1,0 +1,145 @@
+{
+  "_notes": "Boss loot for the Knothollow (the World Tree's trunk, 44-45). ONE item per kill from the boss's four; item_level = boss level + 2. Hand-authored in tools/build_lower_boughs_content.py.",
+  "Gnawmother Ixx": [
+    {
+      "name": "Borer-Chitin Breastplate",
+      "slot": "chest",
+      "item_level": 47,
+      "rarity": "rare",
+      "required_level": 44,
+      "primary_stats": {
+        "strength": 19,
+        "stamina": 19
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 370,
+      "stat_template": "str_physical",
+      "item_id": "khi_borer_chitin_breastplate"
+    },
+    {
+      "name": "Gnawmother's Silk Leggings",
+      "slot": "legs",
+      "item_level": 47,
+      "rarity": "rare",
+      "required_level": 44,
+      "primary_stats": {
+        "intellect": 13,
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "spell_power": 17
+      },
+      "armor_type": "cloth",
+      "armor_value": 77,
+      "stat_template": "int_caster",
+      "item_id": "khi_gnawmothers_silk_leggings"
+    },
+    {
+      "name": "Bored-Through Bracers",
+      "slot": "wrist",
+      "item_level": 47,
+      "rarity": "rare",
+      "required_level": 44,
+      "primary_stats": {
+        "agility": 13,
+        "spirit": 13
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 106,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "khi_bored_through_bracers"
+    },
+    {
+      "name": "Mandible Shiv",
+      "slot": "main_hand",
+      "item_level": 47,
+      "rarity": "rare",
+      "required_level": 44,
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "strength": 13,
+        "agility": 13
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 83,
+      "weapon_damage_max": 113,
+      "attack_speed": 1.7,
+      "stat_template": "agi_physical",
+      "item_id": "khi_mandible_shiv"
+    }
+  ],
+  "The Amber Glut": [
+    {
+      "name": "Amber-Sealed Hauberk",
+      "slot": "chest",
+      "item_level": 47,
+      "rarity": "rare",
+      "required_level": 44,
+      "primary_stats": {
+        "strength": 19,
+        "intellect": 19
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 246,
+      "stat_template": "str_int_hybrid",
+      "item_id": "khi_amber_sealed_hauberk"
+    },
+    {
+      "name": "Heartwood Staff",
+      "slot": "two_hand",
+      "item_level": 47,
+      "rarity": "rare",
+      "required_level": 44,
+      "weapon_type": "staff",
+      "primary_stats": {
+        "stamina": 20,
+        "intellect": 20
+      },
+      "secondary_stats": {
+        "healing_power": 34
+      },
+      "weapon_damage_min": 46,
+      "weapon_damage_max": 62,
+      "attack_speed": 3.2,
+      "stat_template": "spi_healer",
+      "item_id": "khi_heartwood_staff"
+    },
+    {
+      "name": "Sap-Gilded Cowl",
+      "slot": "head",
+      "item_level": 47,
+      "rarity": "rare",
+      "required_level": 44,
+      "primary_stats": {
+        "intellect": 9,
+        "spirit": 9
+      },
+      "secondary_stats": {
+        "healing_power": 25
+      },
+      "armor_type": "cloth",
+      "armor_value": 65,
+      "stat_template": "spi_healer",
+      "item_id": "khi_sap_gilded_cowl"
+    },
+    {
+      "name": "Glut-Glazed Treads",
+      "slot": "feet",
+      "item_level": 47,
+      "rarity": "rare",
+      "required_level": 44,
+      "primary_stats": {
+        "agility": 13,
+        "stamina": 13
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 106,
+      "stat_template": "agi_physical",
+      "item_id": "khi_glut_glazed_treads"
+    }
+  ]
+}

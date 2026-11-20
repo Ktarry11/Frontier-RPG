@@ -10,7 +10,7 @@ THE THREADS:
   The falling sky: a bronze wing in the sand that nobody on the ground could have made. Fizzle can't place it; Marta,
     who came over from our world, can't either. It's the first piece of the thread that ends at the Crown.
   Out by both boats: word to Grom'gol's troll attache, and a letter across the sea to Zoram Strand.
-  Up: the Root Stair, whose door opens with the Lower Boughs.
+  Up: the Root Stair to the Lower Boughs, and Zula's word to Elder Tal'vani in Mossroof at the top.
 
 VOICE (Kyle): whole sentences the way a person says them, contractions, no dashes, no sentence of one or two words,
 the useful thing first, every kill target named, no count beside an objective word. Earth comes up from Marta.
@@ -100,7 +100,6 @@ def Q(qid, title, giver, lo, hi, prefix, desc, objs, accept, done, rewards=None,
 
 # ------------------------------------------------------------------------------ places (walkable, on the roads)
 WING_SAND = (62, 36)            # the bronze wing on the north-west root's shoulder
-STAIR_FOOT = (114, 48)          # the foot of the Root Stair
 LAGOON_HOLE = (46, 107)         # the lagoon's deep hole
 SOUTH_TIP = (89, 144)           # the end of the long south root
 NE_TIP = (166, 14)              # the end of the north-east root
@@ -427,13 +426,14 @@ def build():
     # =================================================================================== 7. UP
     A(Q("rwq_the_root_stair", "The Root Stair", ZULA, 44, 44, "Highbough",
         "Headwoman Zula says you've earned the climb. The Root Stair runs up the trunk's east side to the Lower "
-        "Boughs, and the first step is to stand at its foot.",
-        [explore(*STAIR_FOOT, "Stand at the foot of the Root Stair")],
+        "Boughs, and Elder Tal'vani in Mossroof, the first village up the tree, should hear about you from her.",
+        [deliver("rw_q_word_to_mossroof", "Climb the Root Stair and take Zula's word to Elder Tal'vani in Mossroof")],
         "You've done more for this landing than most who come through. The Root Stair goes up the trunk on the east "
-        "side, and it's the only way to the Lower Boughs that doesn't need a lift. Go and stand at the foot of it, "
-        "and look up.",
-        "Now you've seen it. It goes up further than you can see, and then further than that.\n\nThe tribes in the "
-        "Lower Boughs will want to meet you, and the High Chieftain after them. When the way up's open, you'll be "
-        "one of the first we send.",
-        requires_quests=["rwq_the_rot_mother", "rwq_tapmaster_grell"]))
+        "side, all the way to the Lower Boughs. Climb it, and take my word to Elder Tal'vani in Mossroof at the top.",
+        "Zula sent you up? Then you're welcome in Mossroof before you've said a word.\n\nYou'll find the boughs "
+        "wider than the roots and the falls a great deal longer. Rest a while, and then I'll have work for you.",
+        turn_in_npc_id="lb_elder",
+        requires_quests=["rwq_the_rot_mother", "rwq_tapmaster_grell"],
+        grant_items=carry("rw_q_word_to_mossroof", "Zula's Word to Mossroof", "A strip of bark painted in the "
+                          "Highbough's teal, from the headwoman at the roots to the elder of the first village up.")))
     return out

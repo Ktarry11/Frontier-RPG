@@ -2927,24 +2927,33 @@
       "zone": "rootwater_isle",
       "level_min": 44,
       "level_max": 44,
-      "description": "Headwoman Zula says you've earned the climb. The Root Stair runs up the trunk's east side to the Lower Boughs, and the first step is to stand at its foot.",
+      "description": "Headwoman Zula says you've earned the climb. The Root Stair runs up the trunk's east side to the Lower Boughs, and Elder Tal'vani in Mossroof, the first village up the tree, should hear about you from her.",
       "objectives": [
         {
-          "type": "explore",
-          "target": "rootwater_isle",
-          "target_x": 114,
-          "target_y": 48,
-          "radius": 4,
-          "label": "Stand at the foot of the Root Stair"
+          "type": "deliver",
+          "target": "rw_q_word_to_mossroof",
+          "count": 1,
+          "label": "Climb the Root Stair and take Zula's word to Elder Tal'vani in Mossroof"
         }
       ],
-      "accept_text": "You've done more for this landing than most who come through. The Root Stair goes up the trunk on the east side, and it's the only way to the Lower Boughs that doesn't need a lift. Go and stand at the foot of it, and look up.",
-      "turn_in_text": "Now you've seen it. It goes up further than you can see, and then further than that.\n\nThe tribes in the Lower Boughs will want to meet you, and the High Chieftain after them. When the way up's open, you'll be one of the first we send.",
+      "accept_text": "You've done more for this landing than most who come through. The Root Stair goes up the trunk on the east side, all the way to the Lower Boughs. Climb it, and take my word to Elder Tal'vani in Mossroof at the top.",
+      "turn_in_text": "Zula sent you up? Then you're welcome in Mossroof before you've said a word.\n\nYou'll find the boughs wider than the roots and the falls a great deal longer. Rest a while, and then I'll have work for you.",
       "next_quest_id": null,
+      "turn_in_npc_id": "lb_elder",
       "requires_quests": [
         "rwq_the_rot_mother",
         "rwq_tapmaster_grell"
       ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "rw_q_word_to_mossroof",
+            "name": "Zula's Word to Mossroof",
+            "description": "A strip of bark painted in the Highbough's teal, from the headwoman at the roots to the elder of the first village up.",
+            "count": 1
+          }
+        ]
+      },
       "reward_exp": 3160,
       "reward_gold": 12600,
       "unique_item_defs": [

@@ -83,8 +83,15 @@ The tree is the road up; the sky is a hub with spokes.
 **Doors for later (like Moonglade's):** a dungeon in the Middle Boughs' heartwood (what's eating the tree), a dungeon in
 an Aetherian sky-forge in the Firmament (55-60), and a raid door in the Firmament. Built later, each its own call.
 
-**Towns.** Two cities, each its own map with an inn, a flight path, a bank, an auction house, mail and trainers: the
-Great Settlement (the tree) and Aurelion (the sky). Rootwater Isle, the Crown and the Spires get small groups of quest
+**Into the tree (Kyle, 19 Nov 2026: "We likely will need a 'Dungeon' and some 'caves' where these are just going deeper
+into the world tree a bit").** The tiers get caves that go into the wood itself: hollows in the trunk, tunnels the
+borers have eaten, sap chambers. One cave a tier: the Lower Boughs' goes into the trunk off the ledge, and the Middle and
+Upper Boughs each get theirs. The dungeon is the Middle Boughs' heartwood, deeper into the tree than any cave.
+
+**Towns.** Kyle, 19 Nov 2026: "The sky continents will get 3 capital cities. Great settlement will be large but not
+capital city large." So the sky has three capitals, one for each people: Aurelion (the Aetherians), a Veyr city in the
+Talon Spires and a Kharad city in the Elder Citadels, each with an inn, a flight path, a bank, an auction house, mail and
+trainers. The Great Settlement is the tree's town, big and full, with the same services, but sized below a capital. Rootwater Isle, the Lower Boughs and the Crown get small groups of quest
 givers, not towns. One flight path a zone at most.
 
 ## The peoples
