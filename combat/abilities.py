@@ -4931,8 +4931,11 @@ class Ability:
                 # a rank may carry its own shield size (recruit abilities grow at 15/30/45/60)
                 shield_amt = int(self.current_rank.get("absorb", self.absorb) or 0)
                 if self.absorb_pct_max_health:
+                    # ability_<id>_potency scales a shield's size like it scales stat_mods (Arcane Shielding on Mana
+                    # Shield, 20 Nov 2026, when Mana Shield became a real absorb)
+                    pot = self._talent(caster, f"ability_{self.ability_id}_potency") if caster is not None else 0.0
                     shield_amt = max(1, int(getattr(recipient, "health", 0)
-                                            * self.absorb_pct_max_health))
+                                            * self.absorb_pct_max_health * (1.0 + (pot or 0.0))))
                     # a shield on somebody else is healing-shaped (combat/heal_formula.shield_size)
                     from combat import heal_formula as _hf
                     from combat import ability_scaling as _as

@@ -179,7 +179,8 @@ def check(aid, field, a):
             return (f"{aid} is effect_type '{a.get('effect_type')}' - it does "
                     f"not heal")
     elif field == "potency":
-        if not has_stat_mods(a):
+        # a shield's size scales with potency too (combat/abilities.py, 20 Nov 2026: Mana Shield's absorb)
+        if not has_stat_mods(a) and not a.get("absorb_pct_max_health"):
             return (f"{aid} carries no stat_mods, so there is no potency to "
                     f"scale")
     elif field == "duration":

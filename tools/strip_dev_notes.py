@@ -66,7 +66,7 @@ DESCRIPTIONS = {
     "mage_icy_veins": "Increases your casting speed for a short time.",
     "mage_combustion": "Your spells burn hotter, increasing Spell Critical Strike chance for a few turns.",
     "mage_cold_snap": "A shock of cold clears your mind, instantly resetting all of your ability cooldowns.",
-    "mage_mana_shield": "Wraps you in raw mana, reducing the damage you take for a short time.",
+    "mage_mana_shield": "Wraps you in raw mana, absorbing damage for a short time.",
     "mage_counterspell": "Disrupts the target's concentration, heavily reducing their spell hit chance for 1 turn.",
 
     # --- Paladin ---

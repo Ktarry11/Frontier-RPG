@@ -828,16 +828,26 @@
       "resource_type": "mana",
       "cooldown": 6,
       "effect_type": "buff",
-      "duration": 2,
-      "stat_mods": {
-        "damage_taken_pct": -0.25
-      },
-      "description": "Wraps you in raw mana, reducing the damage you take for a short time.",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Wraps you in raw mana, absorbing damage for a short time.",
       "ranks": [
         {
           "rank": 1,
           "level_req": 20,
-          "cost": 0,
+          "cost": 40,
+          "effect_value": 100
+        },
+        {
+          "rank": 2,
+          "level_req": 36,
+          "cost": 60,
+          "effect_value": 100
+        },
+        {
+          "rank": 3,
+          "level_req": 52,
+          "cost": 85,
           "effect_value": 100
         }
       ],
@@ -845,7 +855,8 @@
       "is_instant": true,
       "icon_id": null,
       "buff_scope": "combat",
-      "_design_note": "PLACEHOLDER (no absorb-shield mechanic exists): real WOTLK Mana Shield absorbs incoming damage using Mana instead of Health - here it's a temporary damage-reduction buff instead."
+      "absorb_pct_max_health": 0.15,
+      "_source": "REAL ABSORB (20 Nov 2026, fix-up after the levelling run): Mana Shield was a placeholder -25% damage taken for 2 turns because no absorb mechanic existed; one does now (Ice Barrier's absorb_pct_max_health). It absorbs 15% of your health for up to 3 turns (Classic's top rank, 570, was about that share of a level-60 mage's health), against Ice Barrier's talented 18%. The mana-per-point drain isn't modelled, so it costs mana up front, ranked like Ice Barrier. Arcane Shielding's potency scales the absorb. Measured: against mobs three levels up, Fire and Arcane ended fights on 48-55% health at 60 against a median of 88%, while Frost (with Ice Barrier) ended on 97%."
     },
     {
       "ability_id": "mage_counterspell",

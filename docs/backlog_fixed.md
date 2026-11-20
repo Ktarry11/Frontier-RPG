@@ -14,6 +14,9 @@ Secrets stay counts and names only here too.
 | `qa_factions` failed on the Forsaken (Exalted at 60% of its quest pool) | The Forsaken's boss-quest rep 225 to 175; Exalted is now 64% of the pool | `qa_factions` |
 | Kolkar Raider (then 15-17) killed the warrior and the mage over and over at 11-15 | Its range is 14-17 and the Taurajo raider quest sends you at 14-16 (it had been 12-15) | `tools/build_northern_barrens_content.py` FIXES, `qa_low_level_difficulty` |
 | The levelling sim fought dungeon, cave and hidden bosses solo (Ragefire's bosses among them) | `tools/sim_campaign.py` counts a quest whose target is only in a dungeon, a hidden place or is a boss as a dungeon quest | |
+| Named quest bosses walled every solo levelling spec | They weren't bosses: the sim fought dungeon bosses solo (above), a Razor Hill quest's crates dropped from the 14-17 Kolkar Raider (now Kolkar Crag's 8-12 centaurs, quest 8-11), the Scuttle Coast rolled Silverpine's 16-18 Drowned Deckhand (Durotar's level_overrides, 7-10), and the sim fought objectives in the wrong zone | `qa_quest_target_levels` |
+| The levelling and group sims never used defensive cooldowns; the matrix sim froze on every pet's turn and recast ticking DoTs | `sim_viability.fight` casts defensives under 60%; `sim_matrix.fight` runs pet turns, skips a live DoT, keeps a form's buttons. The fire mage's 400 deaths to 60 became about 20 | |
+| Mana Shield was a placeholder (-25% damage taken for 2 turns) | A real absorb, 15% of health for 3 turns, ranked 20/36/52; Arcane Shielding's potency scales it | `qa_ability_scoped_fields` |
 
 ## 19 Nov 2026
 
