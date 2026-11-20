@@ -38,7 +38,7 @@ in their history, and they don't think much of it.
 (The Aetherians' scholars hunt for what the Integration was. They never get close to the cause; nothing up here hints
 at it.)
 
-## The road: 11 maps, 42 to 60
+## The road: 12 maps, 42 to 60
 
 The tree is the road up; the sky is a hub with spokes.
 
@@ -52,7 +52,9 @@ The tree is the road up; the sky is a hub with spokes.
                     The Middle Boughs (45-47)
                          | root stairs
                     The Upper Boughs (47-48)
-                         | through the cloud
+                         | the rope ladder
+                    The Cloudbreak (48)            the climb through the cloud
+                         |
                     The Sunward Crown (48-49)      first contact
                          |
                     The Celestial Expanse (49-51)
@@ -138,6 +140,39 @@ takes you in; the rest are your fights.
 
 In the Elder Citadels (54-57). The ancient ruins of the Celestial Expanse are theirs, from long before the Aetherians.
 The old machinery waking up there is theirs too.
+
+## The ascent: from Azeroth to the sky (Kyle, 19 Nov 2026: "Do NOT skip out on design of going from azeroth to the sky")
+
+The climb is the zone's spine: you should feel every step of height between the reef and the sun. Five things change
+together as you go up, tier by tier, so no step is a jump cut.
+
+| Where | Levels | Under your feet | What you see below the edge | The light | What lives here | The falling-sky thread |
+|---|---|---|---|---|---|---|
+| Rootwater Isle | 42-44 | sand, lagoon, root bark | the sea | jungle daylight | sap-drunk beasts, Bloodsail, Bloodscalp | a bronze wing in the sand; nobody knows what made it |
+| The Lower Boughs | 44-45 | branches as wide as roads | the jungle canopy far below (W1 row 4) | green-gold, dappled | apes, spiders, pythons, Bloodscalp climbers | more pieces, caught in the branches; the trolls call them sky-bones |
+| The Great Settlement | city | heartwood, plank and stone | the lower tiers through the lanterns | lantern gold, waterfalls | the Highbough Tribes | the city's scholars buy every piece; a broken construct in the market |
+| The Middle Boughs | 45-47 | the heartwood, hollows, old troll stone | mist below the branches; the canopy gone | hazy, cooler | the rot, harpies in the hollows | a crashed scout construct, still twitching |
+| The Upper Boughs | 47-48 | pale wind-scoured bark | the cloud tops, close (W1 row 6) | white, windy, the first gold from above | wyverns, harpies, gust elementals, storm wisps | the Fallen Skiff across two branches: a ship, made by someone |
+| **The Cloudbreak** | 48 | a rope ladder and the last branches | nothing: inside the cloud | grey-white, then blinding | none: a climb, not a fight | the ladder ends in the light |
+| The Sunward Crown | 48-49 | gold-lit branches and cloud | **the cloud sea** (BK1, scrolling) | **the golden sun** (BK6) for the first time | sky beasts, storm elementals; the Aetherian survey ship | first contact: they've been watching the tree grow |
+
+**The Cloudbreak** is its own short map: the top of the Upper Boughs, where the branches climb into the cloud layer.
+One way up, a rope ladder and branches in thick white fog that thins as you climb, no monsters, no quests to do in it
+(a few voices of trolls who climbed before you, whatever they left on the way). At its top you step out into sunlight,
+the zone's panorama card (BK7, the troll lookout over the cloud sea) shows once, and you're on the Crown. It's the one
+map in the game built only to be walked through, and that's the point: the moment the ground ends.
+
+**After the Crown, travel is by air.** You can't walk off the tree: the sky's islands are reached by the Aetherian
+survey skiff, offered once first contact is made, then by sky-skiffs between the islands (each sky zone's flight
+path), and the airships at Aurelion's dock. Going home is the Great Settlement's bat roost or the skiffs back to the
+Crown: the climb itself only ever goes up once.
+
+**What the renderer needs** (built with the tree's maps, not before): the drop layer painted per tier (the W1 drop
+tiles, then BK1's cloud sea scrolling slower than the ground for parallax), a light overlay that strengthens with height
+(none on the island, BK6's sun faint at the Upper Boughs, full on the Crown), and the panorama card on first entry.
+
+**Rules it keeps**: no map changes with quests (every run sees the same world); nothing built from Earth; the
+Aetherians hunt for what the Integration was and never get close to its cause.
 
 ## How it's drawn (making the sky gorgeous in a top-down game)
 
