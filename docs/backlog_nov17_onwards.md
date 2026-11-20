@@ -66,7 +66,7 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
   panoramas), sliced: 132 tiles, 144 props, 216 buildings, 27 landmarks, 108 creatures, 6 sky layers. Still to come:
   nothing: SK17B (SK17's missing twelve plus 36 spares) and the tree's W1 to W6 landed the same night (48 tree tiles,
   72 props, 45 buildings and landmarks, 36 creatures). Next: build the tree on existing art (like Feralas) while the sheets
-  are made. Kyle, 19 Nov: all three sky peoples get factions (four new factions with the trolls). Kyle to say: the names marked as Rafa's, the Aetherian split.
+  are made. Kyle, 19 Nov: all three sky peoples get factions (four new factions with the trolls). Names and the Aetherian split settled ("This is good"). Next: build Rootwater Isle.
 - **Saved for after:** a sky race's starting zone, 1-24 over four maps, ending at their capital with airships to
   Orgrimmar or the Undercity (the brief's last section).
 - The Zukk'ash Hive (Feralas's silithid hive, Kyle's "writhing deep") tunnels through to the Dry Deep under the Abyssal Sands (Kyle: "the

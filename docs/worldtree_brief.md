@@ -207,7 +207,8 @@ exclusivity:
 The rival Veyr clans and the Ascendancy are who you fight. Gaining with one never costs standing with another: no
 opposed reputations.
 
-## For Kyle to say
-- The names marked as Rafa's: Rootwater Isle, the Lower, Middle and Upper Boughs, Aurelion, the Talon Spires, the Elder
-  Citadels, the Fading Firmament, the Highbough Tribes, High Chieftain Zan'kaji, the Ascendancy.
-- The Aetherian split (scholars as the faction, the Ascendancy as the enemy).
+## Settled (Kyle, 19 Nov 2026: "This is good")
+- The names: Rootwater Isle, the Lower, Middle and Upper Boughs, the Great Settlement, Aurelion, the Talon Spires, the
+  Elder Citadels, the Fading Firmament, the Highbough Tribes, High Chieftain Zan'kaji, the Ascendancy, Kyr'vahl the
+  Last Updraft, Ul'Kharad the First Stone.
+- The Aetherian split: rep with the scholar houses, the Ascendancy is the enemy.
