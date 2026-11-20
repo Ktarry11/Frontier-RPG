@@ -56,7 +56,7 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - **Feralas: built without art (Kyle, 19-20 Nov 2026), `docs/feralas_build_log.md`.** Three maps, Camp Mojache,
   Feathermoon Stronghold, the Zukk'ash Hive and its tunnel to the Dry Deep, 83 quests, the Feathermoon Sentinels.
   Open: Kyle's nine art sheets (`docs/feralas_art_prompts.md`), then the swap-over in the build log's last section;
-  the cave's name (the Plaguelands already have "The Writhing Deep"); Dire Maul at 55-60.
+  Dire Maul at 55-60. (Names approved, Zukk'ash Hive included: Kyle, "Names are fine".)
 - `docs/feralas_worldtree_brief.md`: Feralas 44-49 (classic L shape, largely untouched by the Integration), and a
   home-brew World Tree off Northern Stranglethorn's coast: island 42-44, lived-on tiers 44-48, a town halfway up, two
   sky zones at the crown (46-49, 48-51), two new factions. Names and peoples still to settle.

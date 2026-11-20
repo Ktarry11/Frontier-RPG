@@ -24,7 +24,7 @@ the silithids are digging....", and "Let's build feralas first" (before the Worl
 
 **The cave's name.** Kyle asked for "the writhing deep in Feralas", but the Plaguelands already have a cave called The
 Writhing Deep (the spiders under South Western Plaguelands), and two maps can't share a name. So Feralas's hive is **the
-Zukk'ash Hive** (the classic hive's own name) until Kyle picks another.
+Zukk'ash Hive** (the classic hive's own name). Kyle, 19 Nov 2026: "Names are fine".
 
 **Built before the art (Kyle, 19 Nov 2026: "Build without art for now").** Everything stands on art already in the game:
 Ashenvale's and Stonetalon's ground and trees, the tauren and night elf buildings from Camp Taurajo, Moonglade and

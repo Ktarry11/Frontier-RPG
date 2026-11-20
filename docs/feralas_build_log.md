@@ -35,7 +35,7 @@ its back out into the Dry Deep's Brine Seep (3,37). Dire Maul's gate stands with
 later).
 
 **The cave's name:** "The Writhing Deep" is already the Plaguelands' spider cave, so Feralas's hive is the Zukk'ash
-Hive (the classic hive's name) until Kyle picks another.
+Hive (the classic hive's name). Kyle approved it and every other new name, 19 Nov 2026: "Names are fine".
 
 ## The people (`tools/build_feralas_towns.py`)
 
