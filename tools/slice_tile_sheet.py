@@ -374,7 +374,7 @@ def _sky_tile_sets():
     sys.path.insert(0, str(ROOT / "tools"))
     import write_sky_art_prompts as SKY
     rows = {"SK1": [0, 182, 352, 512, 672, 840, 1024], "SK2": [0, 182, 353, 511, 693, 864, 1024],
-            "SK17": [0, 180, 362, 543, 724, 905, 1086]}
+            "SK17": [0, 180, 362, 543, 724, 905, 1086], "SK17B": [0, 192, 374, 512, 650, 836, 1024]}
     for s in SKY.SHEETS:
         if s["kind"] == "tiles" and s["key"] in rows:
             ids = [i for _t, items in s["rows"] for _x, i in items]
@@ -388,6 +388,25 @@ def _sky_tile_sets():
 
 
 _sky_tile_sets()
+
+
+# THE WORLD TREE (docs/worldtree_art_prompts.md, Kyle's sheet W1, 19 Nov 2026). Names from the doc's slice table.
+def _md_slice_names(doc, sheet_key):
+    text = (ROOT / doc).read_text(encoding="utf-8")
+    i = text.index(f"## SHEET {sheet_key}:")
+    j = text.index("### Slice order", i)
+    out = []
+    for line in text[j:].splitlines()[3:]:
+        if not line.startswith("|") or line.startswith(("|---", "| row")):
+            if out:
+                break
+            continue
+        out += [c.strip() for c in line.strip("|").split("|")[1:]]
+    return out
+
+
+_set("worldtree_w1", 8, 6, "tools/building_sheets/worldtree_w1.png", "assets/tiles/worldtree/ground",
+     " ".join(_md_slice_names("docs/worldtree_art_prompts.md", "W1")), rows_y=[0, 187, 363, 512, 663, 836, 1024])
 
 
 if __name__ == "__main__":

@@ -514,7 +514,8 @@ SOFT = {"sk_cloud_bank", "sk_cloud_wisp", "sk_mist_fountain", "sk_float_falls", 
         "sk_sky_lilies", "sk_broken_channel", "sk_tree_crown", "vy_talon_arch", "kh_first_temple", "ae_great_forge",
         "sk_wellspring", "vy_thunder_peak", "kh_ancestor_vault", "kh_chained_stone", "sk_lighthouse",
         "sk_observatory_ruin", "ae_city_falls", "ae_aqueduct", "ae_cooling_tower", "sk_cloud_elemental",
-        "sk_gust_sprite", "sk_gale_elemental", "sk_fading_wisp"}
+        "sk_gust_sprite", "sk_gale_elemental", "sk_fading_wisp", "wt_branch_falls", "wt_cloud_way", "gs_heart_palace",
+        "wt_gust_elemental", "gs_waterfall_shrine", "wt_storm_wisp", "wt_spore_swarm"}
 #: Light beams to cut away: name -> (fraction of the width from the left, fraction of the height from the top).
 DROP_BEAM = {"sk_lighthouse": (0.38, 0.19)}
 #: Drawn as squares filling their cells (no magenta round them), so two neighbours touch and weld into one blob: cut
@@ -704,6 +705,28 @@ def _sky_sets():
 
 
 _sky_sets()
+
+
+# THE WORLD TREE (docs/worldtree_art_prompts.md, Kyle's sheets W2 to W6, 19 Nov 2026). Names from the doc's slice tables.
+def _worldtree_sets():
+    text = (ROOT / "docs/worldtree_art_prompts.md").read_text(encoding="utf-8")
+    outs = {"W2": "assets/tiles/worldtree/props", "W3": "assets/buildings", "W4": "assets/tiles/worldtree/props",
+            "W5": "assets/buildings", "W6": "assets/creatures"}
+    for key, out in outs.items():
+        i = text.index(f"## SHEET {key}:")
+        j = text.index("### Slice order", i)
+        names = []
+        for line in text[j:].splitlines()[3:]:
+            if not line.startswith("|") or line.startswith(("|---", "| row")):
+                if names:
+                    break
+                continue
+            names += [c.strip() for c in line.strip("|").split("|")[1:]]
+        n = 3 if key == "W5" else 6
+        _set(f"worldtree_{key.lower()}", n, n, out, " ".join(names))
+
+
+_worldtree_sets()
 
 
 if __name__ == "__main__":

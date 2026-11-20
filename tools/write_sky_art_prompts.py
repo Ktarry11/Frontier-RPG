@@ -104,7 +104,8 @@ SHEETS = []
 #: Sheets Kyle has sent, sliced (tools/slice_tile_sheet.py sky_sk1/sky_sk2, tools/slice_building_sheet.py sky_sk3 to
 #: sky_sk10; the raw sheets are tools/building_sheets/sky_sk<N>.png).
 BK_LANDED = {"BK1", "BK6", "BK7", "BK8", "BK9", "BK10", "BK11", "BK12"}
-LANDED = {**{f"SK{i}": "19 Nov" for i in range(1, 20)}, "SK17": "19 Nov (36 of 48: the rest is in SK17B)"}
+LANDED = {**{f"SK{i}": "19 Nov" for i in range(1, 20)}, "SK17": "19 Nov (36 of 48: the rest is in SK17B)",
+          "SK17B": "19 Nov"}
 
 
 def sheet(key, kind, title, out, refs, setting, scale, rows, redo_of=None):

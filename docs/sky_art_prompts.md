@@ -27,7 +27,7 @@ Every prompt below is complete on its own: paste one block and nothing else. Not
 | SK17 | 48 interiors, decks and the glowing heart | 2048x1536 | 8 x 6 (256 x 256) | **NO magenta** | 19 Nov (36 of 48: the rest is in SK17B) |
 | SK18 | 36 rune circles, glass and the glowing heart | 2048x2048 | 6 x 6 (about 341 x 341) | magenta | 19 Nov |
 | SK19 | 36 airships, decks and rooms | 2048x2048 | 6 x 6 (about 341 x 341) | magenta | 19 Nov |
-| SK17B | 48 SK17's missing twelve and 36 spares | 2048x1536 | 8 x 6 (256 x 256) | **NO magenta** |  |
+| SK17B | 48 SK17's missing twelve and 36 spares | 2048x1536 | 8 x 6 (256 x 256) | **NO magenta** | 19 Nov |
 
 **Priority:** SK1 and SK2 (the ground is most of the look), BK1 and BK6 (the sky and the sun), SK3, SK5, SK15 and SK16 (Aurelion), SK10, then the rest in any order. Kyle's pictures: `docs/zone_refs/aurelion_ref_spires.png` and `aurelion_ref_domes.png` (Aurelion), `docs/zone_refs/sky_moodboard.jpg` (the mood board, twenty scenes: SK17 to SK19 come from it).
 

@@ -17,6 +17,8 @@ cell numbered row by row. Nothing built from our world appears anywhere.
 | W5 | 9 giant landmarks | 2048x2048 | 3 x 3 (about 682 x 682) | magenta |
 | W6 | 36 creatures of the island and the tree | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |
 
+**Landed 19 Nov 2026: all six (W1 to W6), sliced** (`tools/slice_tile_sheet.py worldtree_w1`, `tools/slice_building_sheet.py worldtree_w2` to `w6`; names come from the slice tables below).
+
 **Priority:** W1 first (the ground is most of the look), then W3 (the city), W2, W5. W4 and W6 can follow while the maps
 are built.
 
