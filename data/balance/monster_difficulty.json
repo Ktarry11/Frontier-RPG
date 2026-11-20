@@ -47,7 +47,8 @@
       ]
     ],
     "_why": "An open-world rare, split off the field-boss row (Kyle, 19 Nov 2026: \"split the rares from boss and tune the difficulty\"; \"rares should be around 75-90% win rate. If you get jumped while half health... well that's on you... most were soloable\"). On the field-boss row (3x health, 3x damage, as a dungeon boss) a Protection Warrior beat its own level's rares 28% of the time, a Holy Priest 24% and a Fire Mage 7%. Each rare's own damage factor (boss_damage.json) still evens out its kit. by_level is [level, health, damage], read between the points: a little more bite in the low teens, where the census found them softest, and a little less near 60, where the tank's losses bunched.",
-    "_measured": "tools/sim_campaign.py --rares-only, 19 Nov 2026, 246 open-world rares, 5 fights each at the rare's level, geared and talented: Protection Warrior wins 94% (half its health left), Holy Priest 94%, Fire Mage 71% (the mage's own squishiness, for the class pass). Before, on the field-boss row: 28%, 24% and 7%."
+    "_measured": "tools/sim_campaign.py --rares-only, 19 Nov 2026, 246 open-world rares, 5 fights each at the rare's level, geared and talented: Protection Warrior wins 94% (half its health left), Holy Priest 94%, Fire Mage 71% (the mage's own squishiness, for the class pass). Before, on the field-boss row: 28%, 24% and 7%.",
+    "_per_rare": "ON TOP: every open-world rare carries its own damage factor (data/balance/rare_tune.json, tools/tune_rares.py, 20 Nov 2026, Kyle: 'Fix that next'), fitted so the weakest of a Protection Warrior, a Holy Priest and a Fire Mage wins 75% or more and nobody walks through it. Census after it (16 fights each): warrior 99%, priest 97%, mage 91%, no rare any of the three wins under 60% (85 before: the sims never cast defensives or stuns, ranked area spells on one target at full value, and Mana Shield and Frost Nova were stand-ins)."
   },
   "endgame_boss": {
     "damage": 1.25,

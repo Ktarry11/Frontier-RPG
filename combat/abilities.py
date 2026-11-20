@@ -2770,12 +2770,19 @@ class Ability:
                 # to the 30-minute real-time clock meant for long player buffs, so every one of these
                 # stuns lasted half an hour and the target never acted again (Kyle, 14 Nov 2026:
                 # "arm of thorin stun is a 30min debuff bro").
-                victim._effects().append(StatusEffect(
+                stun = StatusEffect(
                     f"{self.ability_id}_stun", self.name, "debuff",
                     max(1, self.duration), is_stun=True, source_name=self.name,
-                    real_time_seconds=None))
-                if hasattr(victim, "_on_status_effects_changed"):
-                    victim._on_status_effects_changed()
+                    real_time_seconds=None)
+                # THROUGH apply_status_effect, so a stun rider diminishes like any other stun (20 Nov 2026): appended
+                # straight onto the effects list it skipped the boss rule (one turn, then immune for four) and the
+                # half-then-immune window, so a damage-and-stun ability could hold a rare or a boss down.
+                if hasattr(victim, "apply_status_effect"):
+                    victim.apply_status_effect(stun)
+                else:
+                    victim._effects().append(stun)
+                    if hasattr(victim, "_on_status_effects_changed"):
+                        victim._on_status_effects_changed()
 
         # "taunt" in stat_mods (CoA tank cooldowns: Dreadfall Tank, Test of
         # Pride, Command, Injunction, Nature's Call, Vile Sting, Locust

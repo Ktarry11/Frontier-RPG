@@ -115,15 +115,6 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
   N): Kyle to veto any.
 - **Shelved by Kyle:** an hp5 tank (a tank built round health regeneration).
 - **From the 19 Nov levelling run (after the rares were split from bosses):**
-  - **Mage squishiness, what's left after the 20 Nov fix-up** (the sim now casts defensives, Mana Shield is a real
-    absorb): the fire mage levels to 60 with about 20 deaths, down from 400. Against mobs three levels up, Fire and
-    Arcane still end fights on 45-65% health at 60 where the median spec ends on 88%; Frost ends on 96% (Ice Barrier
-    and its slows). A mob's hit is about a third of a mage's health. **Kyle's call:** make Frost Nova actually freeze
-    (a turn where a melee mob can't hit you, the Classic way to solo a mage), or raise the mage's health (its
-    stamina per level is 0.3, the lowest of any class; the priest's is 0.5).
-  - **The rare census** (5 fights a spec at the rare's level): 76 of 258 subzone rares are beaten under 60% of the time
-    by at least one of the warrior, the priest and the mage, often one spec at 0% while the others win easily. Needs
-    a look rare by rare: which kits hard-counter one role.
   - **XP pacing** is Kyle's call: kill XP is about twice quest XP from the 30s on, so a quester out-levels the zones.
 
 ## 5. UI

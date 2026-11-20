@@ -118,8 +118,34 @@ def boss_damage(name):
     return float(_BOSS_DAMAGE.get(name, 1.0))
 
 
+_RARE_TUNE = None
+
+
+def rare_tune(name):
+    """An open-world rare's own damage factor, on top of the rare row and its boss_damage factor
+    (data/balance/rare_tune.json, tools/tune_rares.py). Kyle, 19 Nov 2026: "rares should be around 75-90% win rate...
+    Some rares would fucking clap you so hard.... but most were soloable"; 20 Nov: "Fix that next", the census's rares
+    that one class couldn't beat. Fitted per rare against a Protection Warrior, a Holy Priest and a Fire Mage at the
+    rare's level, so no class is hard-countered and none walks through it. 1.0 for an unfitted rare, or with
+    FRONTIER_RARE_TUNE=off (what the tool measures under)."""
+    global _RARE_TUNE
+    if _RARE_TUNE is None:
+        import os
+        if os.environ.get("FRONTIER_RARE_TUNE", "").lower() == "off":
+            _RARE_TUNE = {}
+        else:
+            try:
+                _RARE_TUNE = json.loads((_PATH.parent / "rare_tune.json").read_text(encoding="utf-8")).get(
+                    "rares") or {}
+            except (OSError, ValueError):
+                _RARE_TUNE = {}
+    return float(_RARE_TUNE.get(name, 1.0))
+
+
 def factor(monster, what):
     f = float((table().get(kind_of(monster)) or {}).get(what, 1.0))
+    if what == "damage" and kind_of(monster) == "rare":
+        f *= rare_tune(getattr(monster, "name", None))
     # Hidden places keep their own rows (qa_hidden_zones holds them to it): they are brutal on purpose, so only the
     # dungeon and field bosses come onto the healing formula's reference.
     if what == "damage" and getattr(monster, "is_boss", False) and kind_of(monster) in BOSS_DAMAGE_KINDS:

@@ -475,38 +475,42 @@
       "ability_id": "mage_frost_nova",
       "name": "Frost Nova",
       "resource_type": "mana",
-      "cooldown": 3,
-      "effect_type": "debuff",
-      "duration": 3,
-      "stat_mods": {
-        "haste": -20,
-        "dodge": -10
-      },
-      "description": "Freezes the target in place, slowing it for 3 turns.",
+      "cooldown": 6,
+      "effect_type": "spell_damage",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Blasts the enemies in front of you with frost, freezing them in place for 2 turns.",
       "ranks": [
         {
           "rank": 1,
           "level_req": 10,
           "cost": 35,
-          "effect_value": 43
+          "effect_value": 22
         },
         {
           "rank": 2,
           "level_req": 26,
           "cost": 53,
-          "effect_value": 71
+          "effect_value": 36
         },
         {
           "rank": 3,
           "level_req": 46,
           "cost": 71,
-          "effect_value": 100
+          "effect_value": 50
+        },
+        {
+          "rank": 4,
+          "level_req": 56,
+          "cost": 85,
+          "effect_value": 58
         }
       ],
       "icon_id": null,
       "target_type": "enemy_aoe",
       "damage_school": "frost",
-      "buff_scope": "combat"
+      "is_stun": true,
+      "_source": "FROST NOVA FREEZES (Kyle, 20 Nov 2026, chose 'Frost Nova freezes' for the mage's survival). It was a 3-turn slow (-20 haste) on a 3-turn cooldown and kept nothing off you. Now it hits one row for a little frost damage (about half an Arcane Explosion, like Classic) and freezes it: a frozen enemy loses its turns, the turn-based form of Classic's root that a melee mob can't reach you through. 2 turns on a 6-turn cooldown (Classic's 25 seconds); it's crowd control, so it costs the turn. Stuns diminish (combat/status_effects.py): a rare or a boss is frozen one turn and can't be frozen again for four. Breaking on damage has no hook, so it holds."
     },
     {
       "ability_id": "mage_pyroblast",

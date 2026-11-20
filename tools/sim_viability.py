@@ -225,7 +225,11 @@ def fight(chars, roles, enemies):
                 if not foes:
                     break
                 live = {getattr(fx, "effect_id", None) for fx in foes[0]._effects()} if hasattr(foes[0], "_effects") else set()
-                for a in attacks:
+                from tools.sim_class_balance import stun_now
+                st = stun_now(attacks, foes[0])
+                if st is not None and engine.execute_ability(actor, st.ability_id, foes[0])[0]:
+                    acted = True
+                for a in ([] if acted else attacks):
                     if a.effect_type in ("dot", "spell_dot") and a.ability_id in live:
                         continue
                     if engine.execute_ability(actor, a.ability_id, foes[0])[0]:

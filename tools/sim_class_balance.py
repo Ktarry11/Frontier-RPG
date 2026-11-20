@@ -294,6 +294,12 @@ def plan(char):
         if res == "energy" and (a.cost or 0) > 0:
             regen = float(getattr(char, "ENERGY_PER_TURN", 25) or 25)
             turns = max(turns, (a.cost or 0) / regen)
+        # AN AREA SPELL ON ONE TARGET (20 Nov 2026): the engine lands it at AOE_DAMAGE_MULTIPLIER (0.6) of its number,
+        # and this ranking never applied that, so a Warrior under 20 opened every fight with Thunder Clap (115 a hit)
+        # over Heroic Strike (195), and the Arcane Mage cast Arcane Explosion at a single target, at 14, 45 and 60.
+        # Nineteen spec-levels in all had an area spell at the top of their single-target list.
+        if getattr(a, "target_type", None) in ("enemy_aoe", "all_enemies"):
+            per *= getattr(a, "AOE_DAMAGE_MULTIPLIER", 0.6)
         return per * (1.0 + bonus) / turns
 
     # DEFENSIVE COOLDOWNS, which this planner collected nowhere. A
@@ -843,4 +849,24 @@ def mana_move(char, engine, tools, target=None):
         if engine.execute_ability(char, high.ability_id, char)[0]:
             return True
     return False
+
+
+def stun_now(attacks, target):
+    """The stun to open with, or None. A player freezes, knocks down or bashes a dangerous enemy first and spends the
+    free turns hitting it (20 Nov 2026, when Frost Nova became a freeze): the fight loops ranked only by damage, so a
+    stun with little damage on it was never cast. Skips a target already stunned, and one the diminishing-returns
+    window would shrug it off (combat/status_effects.py: a boss is immune for STUN_DR_BOSS turns after a stun, anyone
+    else after two stuns inside STUN_DR_WINDOW)."""
+    if target is None or getattr(target, "is_stunned", False):
+        return None
+    from combat.status_effects import STUN_DR_BOSS, STUN_DR_WINDOW
+    now = getattr(target, "_turns_taken", 0)
+    boss = bool(getattr(target, "is_boss", False))
+    recent = [t for t in (getattr(target, "_stun_history", None) or []) if now - t < (STUN_DR_BOSS if boss else STUN_DR_WINDOW)]
+    if (boss and recent) or len(recent) >= 2:
+        return None
+    for a in attacks:
+        if getattr(a, "is_stun", False) and (getattr(a, "turns_remaining", 0) or 0) <= 0:
+            return a                       # the engine refuses one the target's kind is immune to; the loop moves on
+    return None
 

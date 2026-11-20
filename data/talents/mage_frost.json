@@ -170,7 +170,7 @@
     {
       "talent_id": "mage_frost_permafrost",
       "name": "Permafrost",
-      "description": "Increases the duration of your Blizzard and Frost Nova by 1 turn per rank.",
+      "description": "Increases the duration of your Blizzard by 1 turn per rank.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -178,10 +178,9 @@
       "hex_x": 3,
       "hex_y": -4,
       "effects": {
-        "ability_mage_blizzard_duration": 1,
-        "ability_mage_frost_nova_duration": 1
+        "ability_mage_blizzard_duration": 1
       },
-      "_source": "WotLK row 1: 'Increases the duration of your Chill effects by 1-3 secs, reduces the target's speed by an additional 4%-10%.' DEPARTURE - there are no Chill effects and no movement speed. Delivered as duration on the tree's two control spells, which is the nearest real reading. ability_<id>_duration is FLAT turns and POSITIVE EXTENDS. Kept from the outgoing tree.",
+      "_source": "WotLK row 1: 'Increases the duration of your Chill effects by 1-3 secs, reduces the target's speed by an additional 4%-10%.' DEPARTURE - there are no Chill effects and no movement speed. Delivered as duration on the tree's two control spells, which is the nearest real reading. ability_<id>_duration is FLAT turns and POSITIVE EXTENDS. Kept from the outgoing tree. FROST NOVA TAKEN OFF (20 Nov 2026): Nova is now a freeze, and three more turns of freeze on top of its two was a lockdown; Ice Floes still shortens its cooldown.",
       "connected_to": [
         "mage_frost_ice_floes"
       ]

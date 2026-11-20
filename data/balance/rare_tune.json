@@ -1,0 +1,10110 @@
+{
+ "_about": "Per-rare damage factor on top of the rare row and boss_damage.json, fitted so the weakest of a Protection Warrior, a Holy Priest and a Fire Mage wins 75% or more and nobody walks through it. Written by tools/tune_rares.py; read by world/difficulty.rare_tune.",
+ "rule": {
+  "specs": [
+   "warrior_protection",
+   "priest_holy",
+   "mage_fire"
+  ],
+  "floor_win": 0.75,
+  "soft_hp": 0.55,
+  "raise_win": 0.8,
+  "raise_hp": 0.45,
+  "down": [
+   0.85,
+   0.72,
+   0.6,
+   0.5
+  ],
+  "up": [
+   1.15,
+   1.3,
+   1.45,
+   1.6,
+   1.8
+  ],
+  "fights": 20
+ },
+ "rares": {
+  "Abbot Varenne": 1.8,
+  "Antilus the Soarer": 0.85,
+  "Archivist Thelun, Unlisted": 1.8,
+  "Axleback": 1.8,
+  "Baron Ashbury": 1.6,
+  "Berard the Forgotten": 1.3,
+  "Bethor Iceshard": 1.3,
+  "Bloodmaw the Alpha": 1.45,
+  "Bloodtide Harpooner": 1.15,
+  "Borrik the Unhoused": 0.72,
+  "Bosun Harlow": 1.8,
+  "Bramblequeen Durga": 1.45,
+  "Bristlehide the Wintered": 0.85,
+  "Broodmother Sarrix": 0.72,
+  "Capgorger": 1.6,
+  "Captain Saltspray": 0.6,
+  "Captain's Ghost": 1.8,
+  "Cartmaster Corin": 1.8,
+  "Chief Grik": 1.8,
+  "Crusader Brennic": 0.72,
+  "Cult Overseer Thaddeus": 1.45,
+  "Deathguard Captain": 0.85,
+  "Drowned Ferryman": 1.6,
+  "Dustmaw the Rift-Lurker": 1.6,
+  "Elder Timberling": 1.8,
+  "Engineer Whirleygig": 0.85,
+  "Foreman Durn the Castout": 0.72,
+  "Foreman Grubb Deepdelver": 1.45,
+  "Foreman Harrow": 0.6,
+  "Gaffer Thorne": 1.3,
+  "Gahrron the Withered": 1.45,
+  "Gash'tok the Gatekeeper": 0.85,
+  "Gatekeeper Azgaroth": 0.72,
+  "Gavin the Fence": 1.3,
+  "Gearjaw": 0.72,
+  "Gillfin the Net-Cutter": 0.85,
+  "Gorbash the Thick": 1.3,
+  "Gorbuk the Shelf-King": 0.85,
+  "Grimfang": 0.85,
+  "Harbinger Veska": 1.15,
+  "Hargol Bloodhorn": 0.85,
+  "Hask'zar the Scarred": 0.85,
+  "High Inquisitor Faulk": 1.6,
+  "Hollowcrust": 0.85,
+  "Ironbark the Blighted": 1.45,
+  "Keeper Rustveil": 1.8,
+  "Longcollapse": 0.85,
+  "Longleg the Stalker": 1.3,
+  "Looter-Chief Bazz": 0.5,
+  "Lord Godfrey's Remnant": 1.6,
+  "Maeve the Weeping": 1.45,
+  "Magister Quillfire": 1.8,
+  "Magistrate Andor": 1.8,
+  "Marrowmaw": 0.6,
+  "Marsh-Mother Ysmil": 1.8,
+  "Matron Shrieka": 1.8,
+  "Matron Sowbelly": 0.85,
+  "Meven Korgal": 0.6,
+  "Mistvale Longjaw": 1.45,
+  "Mother Venomweb": 0.72,
+  "Murk the Bloated": 1.3,
+  "Old Barnacle-Beard": 1.3,
+  "Old Bonepicker": 0.5,
+  "Old Gillrot": 1.3,
+  "Old Grizzlegut": 0.72,
+  "Old Gulpjaw": 0.72,
+  "Old Hob": 0.72,
+  "Old Icehide": 1.6,
+  "Old Riser": 0.72,
+  "Old Seven-Point": 0.72,
+  "Old Tusk": 0.6,
+  "Oldcrest": 1.8,
+  "Overseer Mull": 0.85,
+  "Paneater": 1.45,
+  "Pathfinder Harrok": 0.85,
+  "Queen Skitterwing": 0.85,
+  "Ranger-Lord Saelith": 1.8,
+  "Redrock Matriarch": 1.15,
+  "Ressan the Needler": 0.72,
+  "Rootbound": 1.8,
+  "Rustcoat": 1.3,
+  "Saltjaw": 0.72,
+  "Sergeant Ironbeard": 1.6,
+  "Shatterlight": 1.8,
+  "Shellcrusher Kragg": 1.45,
+  "Skinwalker Garn": 1.45,
+  "Skull-Taker Murg": 0.72,
+  "Skyfang the Plunderer": 0.72,
+  "Skyshriek Matron": 1.8,
+  "Sow-Mother Grunka": 1.45,
+  "Stillwater": 1.8,
+  "Stormhide Patriarch": 0.85,
+  "Supervisor Lugwizzle": 0.85,
+  "The Alpha Cur": 0.6,
+  "The Bloodvenom Rot": 1.8,
+  "The Cargo": 0.72,
+  "The Dalson Ghost": 1.8,
+  "The Fungal Mass": 1.3,
+  "The Gloomcap Elder": 1.8,
+  "The Groundskeeper": 0.72,
+  "The Half-Written": 1.3,
+  "The Last Kodo": 1.8,
+  "The Last Tenant": 0.85,
+  "The Saltquern": 1.6,
+  "The Terror of the Dale": 1.8,
+  "The Thermal": 0.5,
+  "The Thing in the Throat": 1.8,
+  "The Tidewrack": 1.8,
+  "Ursal the Mauler": 1.6,
+  "Vexa the Tunnel-Queen": 1.6,
+  "Vrexx the Hornbreaker": 0.85,
+  "Wall-Watcher Teague": 1.8,
+  "Warbringer Gorrak": 0.85,
+  "What Walks in the Dim": 0.6
+ },
+ "measured": {
+  "Ancient Curse-Beast": {
+   "level": 21,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.662
+     ],
+     "priest_holy": [
+      1.0,
+      0.851
+     ],
+     "mage_fire": [
+      1.0,
+      0.527
+     ]
+    }
+   }
+  },
+  "Antilus the Soarer": {
+   "level": 48,
+   "t": 0.85,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.718
+     ],
+     "priest_holy": [
+      0.95,
+      0.841
+     ],
+     "mage_fire": [
+      0.7,
+      0.291
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.766
+     ],
+     "priest_holy": [
+      1.0,
+      0.892
+     ],
+     "mage_fire": [
+      0.8,
+      0.361
+     ]
+    }
+   }
+  },
+  "Abbot Varenne": {
+   "level": 59,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.878
+     ],
+     "priest_holy": [
+      1.0,
+      0.917
+     ],
+     "mage_fire": [
+      1.0,
+      0.76
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.859
+     ],
+     "priest_holy": [
+      1.0,
+      0.942
+     ],
+     "mage_fire": [
+      1.0,
+      0.688
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.841
+     ],
+     "priest_holy": [
+      1.0,
+      0.928
+     ],
+     "mage_fire": [
+      1.0,
+      0.698
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.823
+     ],
+     "priest_holy": [
+      1.0,
+      0.891
+     ],
+     "mage_fire": [
+      1.0,
+      0.668
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.804
+     ],
+     "priest_holy": [
+      1.0,
+      0.923
+     ],
+     "mage_fire": [
+      1.0,
+      0.647
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.78
+     ],
+     "priest_holy": [
+      1.0,
+      0.935
+     ],
+     "mage_fire": [
+      1.0,
+      0.571
+     ]
+    }
+   }
+  },
+  "Archivist Thelun, Unlisted": {
+   "level": 37,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.895
+     ],
+     "priest_holy": [
+      1.0,
+      0.869
+     ],
+     "mage_fire": [
+      1.0,
+      0.697
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.879
+     ],
+     "priest_holy": [
+      1.0,
+      0.836
+     ],
+     "mage_fire": [
+      1.0,
+      0.669
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.864
+     ],
+     "priest_holy": [
+      1.0,
+      0.862
+     ],
+     "mage_fire": [
+      1.0,
+      0.617
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.849
+     ],
+     "priest_holy": [
+      1.0,
+      0.904
+     ],
+     "mage_fire": [
+      1.0,
+      0.579
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.832
+     ],
+     "priest_holy": [
+      1.0,
+      0.918
+     ],
+     "mage_fire": [
+      0.95,
+      0.532
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.811
+     ],
+     "priest_holy": [
+      0.95,
+      0.763
+     ],
+     "mage_fire": [
+      1.0,
+      0.584
+     ]
+    }
+   }
+  },
+  "Azurewing": {
+   "level": 57,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.66
+     ],
+     "priest_holy": [
+      1.0,
+      0.964
+     ],
+     "mage_fire": [
+      1.0,
+      0.517
+     ]
+    }
+   }
+  },
+  "Axleback": {
+   "level": 45,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.868
+     ],
+     "priest_holy": [
+      1.0,
+      0.883
+     ],
+     "mage_fire": [
+      1.0,
+      0.662
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.846
+     ],
+     "priest_holy": [
+      1.0,
+      0.84
+     ],
+     "mage_fire": [
+      1.0,
+      0.662
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.824
+     ],
+     "priest_holy": [
+      1.0,
+      0.794
+     ],
+     "mage_fire": [
+      0.9,
+      0.602
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.801
+     ],
+     "priest_holy": [
+      1.0,
+      0.853
+     ],
+     "mage_fire": [
+      0.9,
+      0.587
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.78
+     ],
+     "priest_holy": [
+      0.85,
+      0.788
+     ],
+     "mage_fire": [
+      0.9,
+      0.502
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.745
+     ],
+     "priest_holy": [
+      0.8,
+      0.576
+     ],
+     "mage_fire": [
+      0.85,
+      0.605
+     ]
+    }
+   }
+  },
+  "Bethor Iceshard": {
+   "level": 10,
+   "t": 1.3,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.56
+     ],
+     "priest_holy": [
+      1.0,
+      0.884
+     ],
+     "mage_fire": [
+      1.0,
+      0.712
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.499
+     ],
+     "priest_holy": [
+      1.0,
+      0.805
+     ],
+     "mage_fire": [
+      1.0,
+      0.695
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.431
+     ],
+     "priest_holy": [
+      1.0,
+      0.798
+     ],
+     "mage_fire": [
+      1.0,
+      0.601
+     ]
+    }
+   }
+  },
+  "Berard the Forgotten": {
+   "level": 19,
+   "t": 1.3,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.941
+     ],
+     "priest_holy": [
+      1.0,
+      0.898
+     ],
+     "mage_fire": [
+      1.0,
+      0.862
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.932
+     ],
+     "priest_holy": [
+      1.0,
+      0.928
+     ],
+     "mage_fire": [
+      1.0,
+      0.819
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.923
+     ],
+     "priest_holy": [
+      0.8,
+      0.63
+     ],
+     "mage_fire": [
+      1.0,
+      0.803
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.915
+     ],
+     "priest_holy": [
+      0.65,
+      0.535
+     ],
+     "mage_fire": [
+      1.0,
+      0.802
+     ]
+    }
+   }
+  },
+  "Bloodhoof the Lamed": {
+   "level": 12,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.514
+     ],
+     "priest_holy": [
+      1.0,
+      0.846
+     ],
+     "mage_fire": [
+      0.95,
+      0.471
+     ]
+    }
+   }
+  },
+  "Baron Ashbury": {
+   "level": 22,
+   "t": 1.6,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.838
+     ],
+     "priest_holy": [
+      1.0,
+      0.879
+     ],
+     "mage_fire": [
+      1.0,
+      0.688
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.811
+     ],
+     "priest_holy": [
+      1.0,
+      0.828
+     ],
+     "mage_fire": [
+      1.0,
+      0.704
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.769
+     ],
+     "priest_holy": [
+      1.0,
+      0.897
+     ],
+     "mage_fire": [
+      1.0,
+      0.631
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.739
+     ],
+     "priest_holy": [
+      1.0,
+      0.792
+     ],
+     "mage_fire": [
+      1.0,
+      0.593
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.712
+     ],
+     "priest_holy": [
+      1.0,
+      0.803
+     ],
+     "mage_fire": [
+      1.0,
+      0.559
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.676
+     ],
+     "priest_holy": [
+      0.55,
+      0.405
+     ],
+     "mage_fire": [
+      1.0,
+      0.539
+     ]
+    }
+   }
+  },
+  "Bloodtide Harpooner": {
+   "level": 25,
+   "t": 1.15,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.832
+     ],
+     "priest_holy": [
+      1.0,
+      0.882
+     ],
+     "mage_fire": [
+      1.0,
+      0.632
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.803
+     ],
+     "priest_holy": [
+      0.85,
+      0.744
+     ],
+     "mage_fire": [
+      1.0,
+      0.636
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.774
+     ],
+     "priest_holy": [
+      0.7,
+      0.56
+     ],
+     "mage_fire": [
+      1.0,
+      0.601
+     ]
+    }
+   }
+  },
+  "Bloodmaw the Alpha": {
+   "level": 20,
+   "t": 1.45,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.864
+     ],
+     "priest_holy": [
+      1.0,
+      0.756
+     ],
+     "mage_fire": [
+      1.0,
+      0.68
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.842
+     ],
+     "priest_holy": [
+      1.0,
+      0.742
+     ],
+     "mage_fire": [
+      1.0,
+      0.649
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.82
+     ],
+     "priest_holy": [
+      0.95,
+      0.699
+     ],
+     "mage_fire": [
+      1.0,
+      0.612
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.797
+     ],
+     "priest_holy": [
+      0.85,
+      0.591
+     ],
+     "mage_fire": [
+      1.0,
+      0.598
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.777
+     ],
+     "priest_holy": [
+      0.65,
+      0.463
+     ],
+     "mage_fire": [
+      1.0,
+      0.529
+     ]
+    }
+   }
+  },
+  "Borrik the Unhoused": {
+   "level": 54,
+   "t": 0.72,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.759
+     ],
+     "priest_holy": [
+      1.0,
+      0.715
+     ],
+     "mage_fire": [
+      0.7,
+      0.243
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.82
+     ],
+     "priest_holy": [
+      1.0,
+      0.775
+     ],
+     "mage_fire": [
+      0.7,
+      0.318
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      1.0,
+      0.852
+     ],
+     "priest_holy": [
+      1.0,
+      0.854
+     ],
+     "mage_fire": [
+      0.9,
+      0.374
+     ]
+    }
+   }
+  },
+  "Bramblethorn the Ancient": {
+   "level": 5,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.534
+     ],
+     "priest_holy": [
+      1.0,
+      0.815
+     ],
+     "mage_fire": [
+      1.0,
+      0.723
+     ]
+    }
+   }
+  },
+  "Bramblequeen Durga": {
+   "level": 22,
+   "t": 1.45,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.877
+     ],
+     "priest_holy": [
+      1.0,
+      0.894
+     ],
+     "mage_fire": [
+      1.0,
+      0.795
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.858
+     ],
+     "priest_holy": [
+      1.0,
+      0.857
+     ],
+     "mage_fire": [
+      1.0,
+      0.76
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.838
+     ],
+     "priest_holy": [
+      1.0,
+      0.845
+     ],
+     "mage_fire": [
+      1.0,
+      0.704
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.818
+     ],
+     "priest_holy": [
+      0.95,
+      0.785
+     ],
+     "mage_fire": [
+      0.95,
+      0.731
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.799
+     ],
+     "priest_holy": [
+      0.75,
+      0.68
+     ],
+     "mage_fire": [
+      0.95,
+      0.713
+     ]
+    }
+   }
+  },
+  "Bosun Harlow": {
+   "level": 26,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.696
+     ],
+     "priest_holy": [
+      1.0,
+      0.813
+     ],
+     "mage_fire": [
+      1.0,
+      0.643
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.646
+     ],
+     "priest_holy": [
+      1.0,
+      0.83
+     ],
+     "mage_fire": [
+      1.0,
+      0.662
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.601
+     ],
+     "priest_holy": [
+      1.0,
+      0.79
+     ],
+     "mage_fire": [
+      1.0,
+      0.511
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.551
+     ],
+     "priest_holy": [
+      1.0,
+      0.808
+     ],
+     "mage_fire": [
+      0.95,
+      0.491
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.506
+     ],
+     "priest_holy": [
+      0.95,
+      0.738
+     ],
+     "mage_fire": [
+      0.95,
+      0.457
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.439
+     ],
+     "priest_holy": [
+      0.95,
+      0.709
+     ],
+     "mage_fire": [
+      0.9,
+      0.411
+     ]
+    }
+   }
+  },
+  "Bristlehide the Wintered": {
+   "level": 30,
+   "t": 0.85,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.712
+     ],
+     "priest_holy": [
+      0.9,
+      0.756
+     ],
+     "mage_fire": [
+      0.65,
+      0.185
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.76
+     ],
+     "priest_holy": [
+      0.95,
+      0.785
+     ],
+     "mage_fire": [
+      0.8,
+      0.156
+     ]
+    }
+   }
+  },
+  "Broadpaw": {
+   "level": 28,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.799
+     ],
+     "priest_holy": [
+      1.0,
+      0.884
+     ],
+     "mage_fire": [
+      1.0,
+      0.504
+     ]
+    }
+   }
+  },
+  "Brontus": {
+   "level": 24,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.624
+     ],
+     "priest_holy": [
+      1.0,
+      0.893
+     ],
+     "mage_fire": [
+      1.0,
+      0.438
+     ]
+    }
+   }
+  },
+  "Captain Dargol": {
+   "level": 10,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.496
+     ],
+     "priest_holy": [
+      1.0,
+      0.829
+     ],
+     "mage_fire": [
+      0.85,
+      0.415
+     ]
+    }
+   }
+  },
+  "Captain Melrache": {
+   "level": 10,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.9,
+      0.246
+     ],
+     "priest_holy": [
+      0.85,
+      0.576
+     ],
+     "mage_fire": [
+      0.95,
+      0.67
+     ]
+    }
+   }
+  },
+  "Broodmother Sarrix": {
+   "level": 5,
+   "t": 0.72,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.372
+     ],
+     "priest_holy": [
+      0.45,
+      0.306
+     ],
+     "mage_fire": [
+      0.25,
+      0.039
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.47
+     ],
+     "priest_holy": [
+      0.95,
+      0.671
+     ],
+     "mage_fire": [
+      0.6,
+      0.131
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      1.0,
+      0.557
+     ],
+     "priest_holy": [
+      1.0,
+      0.82
+     ],
+     "mage_fire": [
+      0.9,
+      0.22
+     ]
+    }
+   }
+  },
+  "Captain Morrow": {
+   "level": 14,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.473
+     ],
+     "priest_holy": [
+      0.85,
+      0.675
+     ],
+     "mage_fire": [
+      0.9,
+      0.383
+     ]
+    }
+   }
+  },
+  "Captain Orlee Vantch": {
+   "level": 42,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.636
+     ],
+     "priest_holy": [
+      1.0,
+      0.948
+     ],
+     "mage_fire": [
+      0.8,
+      0.382
+     ]
+    }
+   }
+  },
+  "Captain Redpath's Shade": {
+   "level": 58,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.806
+     ],
+     "priest_holy": [
+      1.0,
+      0.894
+     ],
+     "mage_fire": [
+      0.9,
+      0.4
+     ]
+    }
+   }
+  },
+  "Capgorger": {
+   "level": 35,
+   "t": 1.6,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.719
+     ],
+     "priest_holy": [
+      1.0,
+      0.927
+     ],
+     "mage_fire": [
+      1.0,
+      0.634
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.676
+     ],
+     "priest_holy": [
+      1.0,
+      0.953
+     ],
+     "mage_fire": [
+      1.0,
+      0.596
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.635
+     ],
+     "priest_holy": [
+      1.0,
+      0.9
+     ],
+     "mage_fire": [
+      0.95,
+      0.506
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.592
+     ],
+     "priest_holy": [
+      1.0,
+      0.863
+     ],
+     "mage_fire": [
+      1.0,
+      0.493
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.548
+     ],
+     "priest_holy": [
+      1.0,
+      0.799
+     ],
+     "mage_fire": [
+      0.95,
+      0.43
+     ]
+    }
+   }
+  },
+  "Captain Vachon": {
+   "level": 11,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.9,
+      0.18
+     ],
+     "priest_holy": [
+      1.0,
+      0.803
+     ],
+     "mage_fire": [
+      1.0,
+      0.496
+     ]
+    }
+   }
+  },
+  "Captain Ssarith": {
+   "level": 58,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.821
+     ],
+     "priest_holy": [
+      1.0,
+      0.897
+     ],
+     "mage_fire": [
+      0.9,
+      0.421
+     ]
+    }
+   }
+  },
+  "Captain Saltspray": {
+   "level": 17,
+   "t": 0.6,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.65,
+      0.159
+     ],
+     "priest_holy": [
+      0.2,
+      0.131
+     ],
+     "mage_fire": [
+      0.55,
+      0.132
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      0.75,
+      0.221
+     ],
+     "priest_holy": [
+      0.9,
+      0.637
+     ],
+     "mage_fire": [
+      0.6,
+      0.174
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      1.0,
+      0.345
+     ],
+     "priest_holy": [
+      1.0,
+      0.758
+     ],
+     "mage_fire": [
+      0.7,
+      0.22
+     ]
+    },
+    "0.6": {
+     "warrior_protection": [
+      1.0,
+      0.461
+     ],
+     "priest_holy": [
+      1.0,
+      0.788
+     ],
+     "mage_fire": [
+      0.75,
+      0.292
+     ]
+    }
+   }
+  },
+  "Captain's Ghost": {
+   "level": 22,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.73
+     ],
+     "priest_holy": [
+      1.0,
+      0.835
+     ],
+     "mage_fire": [
+      1.0,
+      0.671
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.688
+     ],
+     "priest_holy": [
+      1.0,
+      0.812
+     ],
+     "mage_fire": [
+      1.0,
+      0.657
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.646
+     ],
+     "priest_holy": [
+      1.0,
+      0.8
+     ],
+     "mage_fire": [
+      1.0,
+      0.615
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.604
+     ],
+     "priest_holy": [
+      1.0,
+      0.866
+     ],
+     "mage_fire": [
+      0.95,
+      0.562
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.559
+     ],
+     "priest_holy": [
+      0.9,
+      0.785
+     ],
+     "mage_fire": [
+      0.9,
+      0.581
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.504
+     ],
+     "priest_holy": [
+      0.8,
+      0.624
+     ],
+     "mage_fire": [
+      0.85,
+      0.483
+     ]
+    }
+   }
+  },
+  "Chief Grik": {
+   "level": 25,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.854
+     ],
+     "priest_holy": [
+      1.0,
+      0.926
+     ],
+     "mage_fire": [
+      1.0,
+      0.86
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.831
+     ],
+     "priest_holy": [
+      1.0,
+      0.9
+     ],
+     "mage_fire": [
+      1.0,
+      0.8
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.809
+     ],
+     "priest_holy": [
+      1.0,
+      0.891
+     ],
+     "mage_fire": [
+      1.0,
+      0.758
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.786
+     ],
+     "priest_holy": [
+      1.0,
+      0.875
+     ],
+     "mage_fire": [
+      1.0,
+      0.738
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.764
+     ],
+     "priest_holy": [
+      1.0,
+      0.861
+     ],
+     "mage_fire": [
+      1.0,
+      0.713
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.735
+     ],
+     "priest_holy": [
+      0.9,
+      0.789
+     ],
+     "mage_fire": [
+      1.0,
+      0.672
+     ]
+    }
+   }
+  },
+  "Cartmaster Corin": {
+   "level": 57,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.888
+     ],
+     "priest_holy": [
+      1.0,
+      0.91
+     ],
+     "mage_fire": [
+      1.0,
+      0.799
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.871
+     ],
+     "priest_holy": [
+      1.0,
+      0.881
+     ],
+     "mage_fire": [
+      1.0,
+      0.776
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.853
+     ],
+     "priest_holy": [
+      1.0,
+      0.912
+     ],
+     "mage_fire": [
+      1.0,
+      0.729
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.837
+     ],
+     "priest_holy": [
+      1.0,
+      0.916
+     ],
+     "mage_fire": [
+      1.0,
+      0.727
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.819
+     ],
+     "priest_holy": [
+      1.0,
+      0.932
+     ],
+     "mage_fire": [
+      1.0,
+      0.702
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.798
+     ],
+     "priest_holy": [
+      1.0,
+      0.92
+     ],
+     "mage_fire": [
+      1.0,
+      0.604
+     ]
+    }
+   }
+  },
+  "Chieftain Grimpelt": {
+   "level": 55,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.806
+     ],
+     "priest_holy": [
+      1.0,
+      0.778
+     ],
+     "mage_fire": [
+      0.8,
+      0.282
+     ]
+    }
+   }
+  },
+  "Crusader Brennic": {
+   "level": 10,
+   "t": 0.72,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.2,
+      0.012
+     ],
+     "priest_holy": [
+      1.0,
+      0.748
+     ],
+     "mage_fire": [
+      0.65,
+      0.179
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      0.55,
+      0.063
+     ],
+     "priest_holy": [
+      1.0,
+      0.784
+     ],
+     "mage_fire": [
+      0.65,
+      0.228
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      1.0,
+      0.249
+     ],
+     "priest_holy": [
+      1.0,
+      0.819
+     ],
+     "mage_fire": [
+      0.9,
+      0.322
+     ]
+    }
+   }
+  },
+  "Deathguard Captain": {
+   "level": 18,
+   "t": 0.85,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.7,
+      0.174
+     ],
+     "priest_holy": [
+      1.0,
+      0.881
+     ],
+     "mage_fire": [
+      0.8,
+      0.315
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      0.85,
+      0.247
+     ],
+     "priest_holy": [
+      1.0,
+      0.843
+     ],
+     "mage_fire": [
+      0.85,
+      0.45
+     ]
+    }
+   }
+  },
+  "Drumhide": {
+   "level": 37,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.767
+     ],
+     "priest_holy": [
+      1.0,
+      0.921
+     ],
+     "mage_fire": [
+      0.9,
+      0.27
+     ]
+    }
+   }
+  },
+  "Cult Overseer Thaddeus": {
+   "level": 12,
+   "t": 1.45,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.705
+     ],
+     "priest_holy": [
+      1.0,
+      0.89
+     ],
+     "mage_fire": [
+      1.0,
+      0.796
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.663
+     ],
+     "priest_holy": [
+      1.0,
+      0.891
+     ],
+     "mage_fire": [
+      1.0,
+      0.774
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.62
+     ],
+     "priest_holy": [
+      1.0,
+      0.838
+     ],
+     "mage_fire": [
+      1.0,
+      0.761
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.57
+     ],
+     "priest_holy": [
+      1.0,
+      0.702
+     ],
+     "mage_fire": [
+      1.0,
+      0.729
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.529
+     ],
+     "priest_holy": [
+      0.65,
+      0.403
+     ],
+     "mage_fire": [
+      1.0,
+      0.718
+     ]
+    }
+   }
+  },
+  "Echo of the Fallen Warrior": {
+   "level": 15,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.599
+     ],
+     "priest_holy": [
+      1.0,
+      0.904
+     ],
+     "mage_fire": [
+      0.95,
+      0.4
+     ]
+    }
+   }
+  },
+  "Drowned Ferryman": {
+   "level": 18,
+   "t": 1.6,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.654
+     ],
+     "priest_holy": [
+      1.0,
+      0.889
+     ],
+     "mage_fire": [
+      1.0,
+      0.811
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.606
+     ],
+     "priest_holy": [
+      1.0,
+      0.908
+     ],
+     "mage_fire": [
+      1.0,
+      0.783
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.551
+     ],
+     "priest_holy": [
+      1.0,
+      0.855
+     ],
+     "mage_fire": [
+      1.0,
+      0.749
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.498
+     ],
+     "priest_holy": [
+      1.0,
+      0.857
+     ],
+     "mage_fire": [
+      1.0,
+      0.699
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.444
+     ],
+     "priest_holy": [
+      1.0,
+      0.897
+     ],
+     "mage_fire": [
+      1.0,
+      0.709
+     ]
+    }
+   }
+  },
+  "Engineer Whirleygig": {
+   "level": 19,
+   "t": 0.85,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.663
+     ],
+     "priest_holy": [
+      1.0,
+      0.866
+     ],
+     "mage_fire": [
+      0.4,
+      0.098
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.716
+     ],
+     "priest_holy": [
+      1.0,
+      0.879
+     ],
+     "mage_fire": [
+      0.75,
+      0.239
+     ]
+    }
+   }
+  },
+  "Farmer Felstone": {
+   "level": 52,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.745
+     ],
+     "priest_holy": [
+      0.95,
+      0.831
+     ],
+     "mage_fire": [
+      0.9,
+      0.256
+     ]
+    }
+   }
+  },
+  "Dustmaw the Rift-Lurker": {
+   "level": 20,
+   "t": 1.6,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.792
+     ],
+     "priest_holy": [
+      1.0,
+      0.856
+     ],
+     "mage_fire": [
+      1.0,
+      0.713
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.76
+     ],
+     "priest_holy": [
+      1.0,
+      0.78
+     ],
+     "mage_fire": [
+      1.0,
+      0.614
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.736
+     ],
+     "priest_holy": [
+      1.0,
+      0.847
+     ],
+     "mage_fire": [
+      1.0,
+      0.609
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.712
+     ],
+     "priest_holy": [
+      1.0,
+      0.744
+     ],
+     "mage_fire": [
+      1.0,
+      0.496
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.678
+     ],
+     "priest_holy": [
+      0.85,
+      0.609
+     ],
+     "mage_fire": [
+      1.0,
+      0.447
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.626
+     ],
+     "priest_holy": [
+      0.55,
+      0.386
+     ],
+     "mage_fire": [
+      1.0,
+      0.48
+     ]
+    }
+   }
+  },
+  "Elder Timberling": {
+   "level": 26,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.847
+     ],
+     "priest_holy": [
+      1.0,
+      0.897
+     ],
+     "mage_fire": [
+      1.0,
+      0.72
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.824
+     ],
+     "priest_holy": [
+      1.0,
+      0.87
+     ],
+     "mage_fire": [
+      1.0,
+      0.671
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.797
+     ],
+     "priest_holy": [
+      1.0,
+      0.868
+     ],
+     "mage_fire": [
+      1.0,
+      0.667
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.784
+     ],
+     "priest_holy": [
+      1.0,
+      0.847
+     ],
+     "mage_fire": [
+      1.0,
+      0.676
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.761
+     ],
+     "priest_holy": [
+      1.0,
+      0.839
+     ],
+     "mage_fire": [
+      1.0,
+      0.568
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.717
+     ],
+     "priest_holy": [
+      1.0,
+      0.809
+     ],
+     "mage_fire": [
+      0.95,
+      0.522
+     ]
+    }
+   }
+  },
+  "Felstalker": {
+   "level": 23,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.769
+     ],
+     "priest_holy": [
+      1.0,
+      0.867
+     ],
+     "mage_fire": [
+      0.9,
+      0.321
+     ]
+    }
+   }
+  },
+  "Field Marshal Calder": {
+   "level": 24,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.772
+     ],
+     "priest_holy": [
+      1.0,
+      0.931
+     ],
+     "mage_fire": [
+      0.95,
+      0.421
+     ]
+    }
+   }
+  },
+  "Foreman Durn the Castout": {
+   "level": 52,
+   "t": 0.72,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.705
+     ],
+     "priest_holy": [
+      1.0,
+      0.827
+     ],
+     "mage_fire": [
+      0.5,
+      0.116
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.711
+     ],
+     "priest_holy": [
+      1.0,
+      0.866
+     ],
+     "mage_fire": [
+      0.4,
+      0.158
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      1.0,
+      0.759
+     ],
+     "priest_holy": [
+      1.0,
+      0.879
+     ],
+     "mage_fire": [
+      0.85,
+      0.248
+     ]
+    }
+   }
+  },
+  "Foreman Grubb Deepdelver": {
+   "level": 21,
+   "t": 1.45,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.775
+     ],
+     "priest_holy": [
+      1.0,
+      0.87
+     ],
+     "mage_fire": [
+      1.0,
+      0.673
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.74
+     ],
+     "priest_holy": [
+      1.0,
+      0.831
+     ],
+     "mage_fire": [
+      0.95,
+      0.567
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.702
+     ],
+     "priest_holy": [
+      1.0,
+      0.867
+     ],
+     "mage_fire": [
+      1.0,
+      0.604
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.664
+     ],
+     "priest_holy": [
+      0.9,
+      0.682
+     ],
+     "mage_fire": [
+      1.0,
+      0.547
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.629
+     ],
+     "priest_holy": [
+      0.65,
+      0.408
+     ],
+     "mage_fire": [
+      1.0,
+      0.525
+     ]
+    }
+   }
+  },
+  "Foreman Harrow": {
+   "level": 55,
+   "t": 0.6,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.712
+     ],
+     "priest_holy": [
+      1.0,
+      0.811
+     ],
+     "mage_fire": [
+      0.55,
+      0.191
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.748
+     ],
+     "priest_holy": [
+      1.0,
+      0.826
+     ],
+     "mage_fire": [
+      0.7,
+      0.297
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      1.0,
+      0.782
+     ],
+     "priest_holy": [
+      1.0,
+      0.853
+     ],
+     "mage_fire": [
+      0.7,
+      0.23
+     ]
+    },
+    "0.6": {
+     "warrior_protection": [
+      1.0,
+      0.824
+     ],
+     "priest_holy": [
+      1.0,
+      0.906
+     ],
+     "mage_fire": [
+      0.85,
+      0.387
+     ]
+    }
+   }
+  },
+  "Gaharrz the Drowned": {
+   "level": 17,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.95,
+      0.338
+     ],
+     "priest_holy": [
+      1.0,
+      0.831
+     ],
+     "mage_fire": [
+      0.95,
+      0.399
+     ]
+    }
+   }
+  },
+  "Gaffer Thorne": {
+   "level": 6,
+   "t": 1.3,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.714
+     ],
+     "priest_holy": [
+      1.0,
+      0.853
+     ],
+     "mage_fire": [
+      1.0,
+      0.553
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.671
+     ],
+     "priest_holy": [
+      1.0,
+      0.822
+     ],
+     "mage_fire": [
+      1.0,
+      0.477
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.624
+     ],
+     "priest_holy": [
+      0.95,
+      0.647
+     ],
+     "mage_fire": [
+      1.0,
+      0.39
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.583
+     ],
+     "priest_holy": [
+      0.6,
+      0.435
+     ],
+     "mage_fire": [
+      1.0,
+      0.257
+     ]
+    }
+   }
+  },
+  "Gash'tok the Gatekeeper": {
+   "level": 46,
+   "t": 0.85,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.693
+     ],
+     "priest_holy": [
+      1.0,
+      0.888
+     ],
+     "mage_fire": [
+      0.45,
+      0.14
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.746
+     ],
+     "priest_holy": [
+      1.0,
+      0.854
+     ],
+     "mage_fire": [
+      0.8,
+      0.232
+     ]
+    }
+   }
+  },
+  "Gatekeeper Vorthas": {
+   "level": 58,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.848
+     ],
+     "priest_holy": [
+      1.0,
+      0.937
+     ],
+     "mage_fire": [
+      0.95,
+      0.436
+     ]
+    }
+   }
+  },
+  "Gaunt the Scarecrow-King": {
+   "level": 15,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.493
+     ],
+     "priest_holy": [
+      1.0,
+      0.857
+     ],
+     "mage_fire": [
+      1.0,
+      0.296
+     ]
+    }
+   }
+  },
+  "Gahrron the Withered": {
+   "level": 56,
+   "t": 1.45,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.747
+     ],
+     "priest_holy": [
+      1.0,
+      0.936
+     ],
+     "mage_fire": [
+      1.0,
+      0.583
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.707
+     ],
+     "priest_holy": [
+      1.0,
+      0.893
+     ],
+     "mage_fire": [
+      1.0,
+      0.566
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.677
+     ],
+     "priest_holy": [
+      1.0,
+      0.898
+     ],
+     "mage_fire": [
+      1.0,
+      0.498
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.59
+     ],
+     "priest_holy": [
+      1.0,
+      0.893
+     ],
+     "mage_fire": [
+      0.9,
+      0.432
+     ]
+    }
+   }
+  },
+  "Gatekeeper Azgaroth": {
+   "level": 57,
+   "t": 0.72,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.674
+     ],
+     "priest_holy": [
+      1.0,
+      0.932
+     ],
+     "mage_fire": [
+      0.5,
+      0.137
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.727
+     ],
+     "priest_holy": [
+      1.0,
+      0.916
+     ],
+     "mage_fire": [
+      0.7,
+      0.174
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      1.0,
+      0.769
+     ],
+     "priest_holy": [
+      1.0,
+      0.951
+     ],
+     "mage_fire": [
+      0.8,
+      0.335
+     ]
+    }
+   }
+  },
+  "General Twinbraid": {
+   "level": 24,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.608
+     ],
+     "priest_holy": [
+      1.0,
+      0.837
+     ],
+     "mage_fire": [
+      1.0,
+      0.51
+     ]
+    }
+   }
+  },
+  "Gearjaw": {
+   "level": 38,
+   "t": 0.72,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.729
+     ],
+     "priest_holy": [
+      1.0,
+      0.804
+     ],
+     "mage_fire": [
+      0.6,
+      0.19
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.773
+     ],
+     "priest_holy": [
+      1.0,
+      0.84
+     ],
+     "mage_fire": [
+      0.7,
+      0.224
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      1.0,
+      0.813
+     ],
+     "priest_holy": [
+      1.0,
+      0.9
+     ],
+     "mage_fire": [
+      0.95,
+      0.347
+     ]
+    }
+   }
+  },
+  "Gillfin the Net-Cutter": {
+   "level": 11,
+   "t": 0.85,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.441
+     ],
+     "priest_holy": [
+      1.0,
+      0.835
+     ],
+     "mage_fire": [
+      0.55,
+      0.173
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.527
+     ],
+     "priest_holy": [
+      1.0,
+      0.924
+     ],
+     "mage_fire": [
+      0.85,
+      0.318
+     ]
+    }
+   }
+  },
+  "Gavin the Fence": {
+   "level": 26,
+   "t": 1.3,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.799
+     ],
+     "priest_holy": [
+      1.0,
+      0.841
+     ],
+     "mage_fire": [
+      1.0,
+      0.608
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.767
+     ],
+     "priest_holy": [
+      0.9,
+      0.744
+     ],
+     "mage_fire": [
+      1.0,
+      0.565
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.737
+     ],
+     "priest_holy": [
+      1.0,
+      0.724
+     ],
+     "mage_fire": [
+      0.95,
+      0.523
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.705
+     ],
+     "priest_holy": [
+      0.75,
+      0.579
+     ],
+     "mage_fire": [
+      1.0,
+      0.483
+     ]
+    }
+   }
+  },
+  "Gilnean Wall-Warden": {
+   "level": 20,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.704
+     ],
+     "priest_holy": [
+      1.0,
+      0.833
+     ],
+     "mage_fire": [
+      1.0,
+      0.533
+     ]
+    }
+   }
+  },
+  "Gnawbone the Foreman": {
+   "level": 18,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.382
+     ],
+     "priest_holy": [
+      1.0,
+      0.831
+     ],
+     "mage_fire": [
+      1.0,
+      0.568
+     ]
+    }
+   }
+  },
+  "Glasswall Warden": {
+   "level": 46,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.683
+     ],
+     "priest_holy": [
+      1.0,
+      0.871
+     ],
+     "mage_fire": [
+      0.9,
+      0.331
+     ]
+    }
+   }
+  },
+  "Gnawheart": {
+   "level": 31,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.87
+     ],
+     "priest_holy": [
+      1.0,
+      0.879
+     ],
+     "mage_fire": [
+      1.0,
+      0.546
+     ]
+    }
+   }
+  },
+  "Goldcrown": {
+   "level": 28,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.677
+     ],
+     "priest_holy": [
+      1.0,
+      0.901
+     ],
+     "mage_fire": [
+      0.9,
+      0.266
+     ]
+    }
+   }
+  },
+  "Goldfang": {
+   "level": 5,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.663
+     ],
+     "priest_holy": [
+      1.0,
+      0.81
+     ],
+     "mage_fire": [
+      1.0,
+      0.41
+     ]
+    }
+   }
+  },
+  "Goodman Solliden": {
+   "level": 8,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.607
+     ],
+     "priest_holy": [
+      1.0,
+      0.897
+     ],
+     "mage_fire": [
+      1.0,
+      0.518
+     ]
+    }
+   }
+  },
+  "Grandfather Burl": {
+   "level": 32,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.78
+     ],
+     "priest_holy": [
+      1.0,
+      0.871
+     ],
+     "mage_fire": [
+      1.0,
+      0.511
+     ]
+    }
+   }
+  },
+  "Gorbuk the Shelf-King": {
+   "level": 36,
+   "t": 0.85,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.711
+     ],
+     "priest_holy": [
+      1.0,
+      0.873
+     ],
+     "mage_fire": [
+      0.7,
+      0.226
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.739
+     ],
+     "priest_holy": [
+      1.0,
+      0.868
+     ],
+     "mage_fire": [
+      0.95,
+      0.406
+     ]
+    }
+   }
+  },
+  "Gorbash the Thick": {
+   "level": 27,
+   "t": 1.3,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.749
+     ],
+     "priest_holy": [
+      1.0,
+      0.817
+     ],
+     "mage_fire": [
+      1.0,
+      0.596
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.71
+     ],
+     "priest_holy": [
+      1.0,
+      0.876
+     ],
+     "mage_fire": [
+      1.0,
+      0.579
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.671
+     ],
+     "priest_holy": [
+      1.0,
+      0.762
+     ],
+     "mage_fire": [
+      1.0,
+      0.431
+     ]
+    }
+   }
+  },
+  "Grandfather Hollowbark": {
+   "level": 53,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.761
+     ],
+     "priest_holy": [
+      1.0,
+      0.953
+     ],
+     "mage_fire": [
+      1.0,
+      0.453
+     ]
+    }
+   }
+  },
+  "Hagg Taurenbane": {
+   "level": 22,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.813
+     ],
+     "priest_holy": [
+      0.95,
+      0.829
+     ],
+     "mage_fire": [
+      1.0,
+      0.453
+     ]
+    }
+   }
+  },
+  "Gruln Stonejaw": {
+   "level": 32,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.66
+     ],
+     "priest_holy": [
+      0.9,
+      0.659
+     ],
+     "mage_fire": [
+      0.9,
+      0.382
+     ]
+    }
+   }
+  },
+  "Grimfang": {
+   "level": 46,
+   "t": 0.85,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.743
+     ],
+     "priest_holy": [
+      1.0,
+      0.764
+     ],
+     "mage_fire": [
+      0.7,
+      0.207
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.784
+     ],
+     "priest_holy": [
+      1.0,
+      0.9
+     ],
+     "mage_fire": [
+      0.85,
+      0.239
+     ]
+    }
+   }
+  },
+  "Harbinger Veska": {
+   "level": 32,
+   "t": 1.15,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.842
+     ],
+     "priest_holy": [
+      1.0,
+      0.882
+     ],
+     "mage_fire": [
+      1.0,
+      0.597
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.817
+     ],
+     "priest_holy": [
+      1.0,
+      0.872
+     ],
+     "mage_fire": [
+      0.9,
+      0.407
+     ]
+    }
+   }
+  },
+  "Hargol Bloodhorn": {
+   "level": 29,
+   "t": 0.85,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.772
+     ],
+     "priest_holy": [
+      1.0,
+      0.798
+     ],
+     "mage_fire": [
+      0.6,
+      0.181
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.814
+     ],
+     "priest_holy": [
+      1.0,
+      0.891
+     ],
+     "mage_fire": [
+      0.8,
+      0.428
+     ]
+    }
+   }
+  },
+  "High Priestess Naz'eth": {
+   "level": 59,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.788
+     ],
+     "priest_holy": [
+      1.0,
+      0.959
+     ],
+     "mage_fire": [
+      1.0,
+      0.454
+     ]
+    }
+   }
+  },
+  "Hask'zar the Scarred": {
+   "level": 53,
+   "t": 0.85,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.562
+     ],
+     "priest_holy": [
+      1.0,
+      0.948
+     ],
+     "mage_fire": [
+      0.35,
+      0.071
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.637
+     ],
+     "priest_holy": [
+      1.0,
+      0.939
+     ],
+     "mage_fire": [
+      0.85,
+      0.236
+     ]
+    }
+   }
+  },
+  "Hive Champion Khix'ar": {
+   "level": 53,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.727
+     ],
+     "priest_holy": [
+      1.0,
+      0.846
+     ],
+     "mage_fire": [
+      0.95,
+      0.449
+     ]
+    }
+   }
+  },
+  "Hive Queen Zil'kesh": {
+   "level": 53,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.593
+     ],
+     "priest_holy": [
+      1.0,
+      0.862
+     ],
+     "mage_fire": [
+      0.9,
+      0.277
+     ]
+    }
+   }
+  },
+  "Hollowhorn": {
+   "level": 16,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.524
+     ],
+     "priest_holy": [
+      1.0,
+      0.836
+     ],
+     "mage_fire": [
+      1.0,
+      0.736
+     ]
+    }
+   }
+  },
+  "Hollowcrust": {
+   "level": 39,
+   "t": 0.85,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.681
+     ],
+     "priest_holy": [
+      0.8,
+      0.758
+     ],
+     "mage_fire": [
+      0.65,
+      0.177
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.791
+     ],
+     "priest_holy": [
+      1.0,
+      0.911
+     ],
+     "mage_fire": [
+      0.85,
+      0.234
+     ]
+    }
+   }
+  },
+  "Interrogator Vishas": {
+   "level": 12,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.95,
+      0.274
+     ],
+     "priest_holy": [
+      1.0,
+      0.738
+     ],
+     "mage_fire": [
+      0.85,
+      0.219
+     ]
+    }
+   }
+  },
+  "Houndmaster Kraygh": {
+   "level": 13,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.556
+     ],
+     "priest_holy": [
+      1.0,
+      0.877
+     ],
+     "mage_fire": [
+      1.0,
+      0.573
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      0.95,
+      0.47
+     ],
+     "priest_holy": [
+      0.7,
+      0.606
+     ],
+     "mage_fire": [
+      0.95,
+      0.386
+     ]
+    }
+   }
+  },
+  "High Inquisitor Faulk": {
+   "level": 56,
+   "t": 1.6,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.787
+     ],
+     "priest_holy": [
+      1.0,
+      0.906
+     ],
+     "mage_fire": [
+      1.0,
+      0.645
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.755
+     ],
+     "priest_holy": [
+      1.0,
+      0.869
+     ],
+     "mage_fire": [
+      1.0,
+      0.628
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.731
+     ],
+     "priest_holy": [
+      1.0,
+      0.885
+     ],
+     "mage_fire": [
+      1.0,
+      0.578
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.7
+     ],
+     "priest_holy": [
+      1.0,
+      0.866
+     ],
+     "mage_fire": [
+      0.9,
+      0.488
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.621
+     ],
+     "priest_holy": [
+      1.0,
+      0.815
+     ],
+     "mage_fire": [
+      0.9,
+      0.414
+     ]
+    }
+   }
+  },
+  "Ka'tesh the Last Stairkeeper": {
+   "level": 34,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.641
+     ],
+     "priest_holy": [
+      0.95,
+      0.689
+     ],
+     "mage_fire": [
+      0.95,
+      0.301
+     ]
+    }
+   }
+  },
+  "Karrath the Ventlord": {
+   "level": 58,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.77
+     ],
+     "priest_holy": [
+      1.0,
+      0.924
+     ],
+     "mage_fire": [
+      1.0,
+      0.381
+     ]
+    }
+   }
+  },
+  "Khan Saltmane": {
+   "level": 33,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.779
+     ],
+     "priest_holy": [
+      1.0,
+      0.864
+     ],
+     "mage_fire": [
+      0.8,
+      0.296
+     ]
+    }
+   }
+  },
+  "Kragg the Wall-Breaker": {
+   "level": 17,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.286
+     ],
+     "priest_holy": [
+      0.95,
+      0.8
+     ],
+     "mage_fire": [
+      1.0,
+      0.498
+     ]
+    }
+   }
+  },
+  "Lady Szaressa": {
+   "level": 49,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.603
+     ],
+     "priest_holy": [
+      1.0,
+      0.902
+     ],
+     "mage_fire": [
+      0.8,
+      0.306
+     ]
+    }
+   }
+  },
+  "Ironbark the Blighted": {
+   "level": 55,
+   "t": 1.45,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.884
+     ],
+     "priest_holy": [
+      1.0,
+      0.942
+     ],
+     "mage_fire": [
+      1.0,
+      0.583
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.864
+     ],
+     "priest_holy": [
+      1.0,
+      0.931
+     ],
+     "mage_fire": [
+      1.0,
+      0.552
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.843
+     ],
+     "priest_holy": [
+      1.0,
+      0.934
+     ],
+     "mage_fire": [
+      1.0,
+      0.498
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.823
+     ],
+     "priest_holy": [
+      1.0,
+      0.945
+     ],
+     "mage_fire": [
+      0.95,
+      0.424
+     ]
+    }
+   }
+  },
+  "Keeper Rustveil": {
+   "level": 28,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.91
+     ],
+     "priest_holy": [
+      1.0,
+      0.911
+     ],
+     "mage_fire": [
+      1.0,
+      0.794
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.895
+     ],
+     "priest_holy": [
+      1.0,
+      0.915
+     ],
+     "mage_fire": [
+      1.0,
+      0.77
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.88
+     ],
+     "priest_holy": [
+      1.0,
+      0.898
+     ],
+     "mage_fire": [
+      1.0,
+      0.744
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.865
+     ],
+     "priest_holy": [
+      1.0,
+      0.871
+     ],
+     "mage_fire": [
+      1.0,
+      0.694
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.852
+     ],
+     "priest_holy": [
+      1.0,
+      0.894
+     ],
+     "mage_fire": [
+      1.0,
+      0.647
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.831
+     ],
+     "priest_holy": [
+      1.0,
+      0.823
+     ],
+     "mage_fire": [
+      1.0,
+      0.644
+     ]
+    }
+   }
+  },
+  "Longcollapse": {
+   "level": 47,
+   "t": 0.85,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.704
+     ],
+     "priest_holy": [
+      0.9,
+      0.76
+     ],
+     "mage_fire": [
+      0.4,
+      0.117
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.753
+     ],
+     "priest_holy": [
+      1.0,
+      0.881
+     ],
+     "mage_fire": [
+      0.75,
+      0.238
+     ]
+    }
+   }
+  },
+  "Longleg the Stalker": {
+   "level": 17,
+   "t": 1.3,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.59
+     ],
+     "priest_holy": [
+      1.0,
+      0.834
+     ],
+     "mage_fire": [
+      1.0,
+      0.759
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.525
+     ],
+     "priest_holy": [
+      1.0,
+      0.781
+     ],
+     "mage_fire": [
+      1.0,
+      0.719
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.46
+     ],
+     "priest_holy": [
+      1.0,
+      0.812
+     ],
+     "mage_fire": [
+      0.95,
+      0.646
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.396
+     ],
+     "priest_holy": [
+      0.7,
+      0.554
+     ],
+     "mage_fire": [
+      0.95,
+      0.61
+     ]
+    }
+   }
+  },
+  "Lord Malgan": {
+   "level": 25,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.751
+     ],
+     "priest_holy": [
+      1.0,
+      0.898
+     ],
+     "mage_fire": [
+      0.95,
+      0.385
+     ]
+    }
+   }
+  },
+  "Looter-Chief Bazz": {
+   "level": 14,
+   "t": 0.5,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.8,
+      0.292
+     ],
+     "priest_holy": [
+      0.0,
+      0.0
+     ],
+     "mage_fire": [
+      0.55,
+      0.227
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      0.95,
+      0.393
+     ],
+     "priest_holy": [
+      0.0,
+      0.0
+     ],
+     "mage_fire": [
+      0.8,
+      0.258
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      0.95,
+      0.481
+     ],
+     "priest_holy": [
+      0.05,
+      0.031
+     ],
+     "mage_fire": [
+      1.0,
+      0.241
+     ]
+    },
+    "0.6": {
+     "warrior_protection": [
+      0.95,
+      0.507
+     ],
+     "priest_holy": [
+      0.35,
+      0.287
+     ],
+     "mage_fire": [
+      1.0,
+      0.454
+     ]
+    },
+    "0.5": {
+     "warrior_protection": [
+      1.0,
+      0.654
+     ],
+     "priest_holy": [
+      0.95,
+      0.778
+     ],
+     "mage_fire": [
+      1.0,
+      0.56
+     ]
+    }
+   }
+  },
+  "Maggot Eye": {
+   "level": 10,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.8,
+      0.279
+     ],
+     "priest_holy": [
+      1.0,
+      0.847
+     ],
+     "mage_fire": [
+      0.85,
+      0.3
+     ]
+    }
+   }
+  },
+  "Maeve the Weeping": {
+   "level": 16,
+   "t": 1.45,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.584
+     ],
+     "priest_holy": [
+      1.0,
+      0.915
+     ],
+     "mage_fire": [
+      1.0,
+      0.843
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.519
+     ],
+     "priest_holy": [
+      1.0,
+      0.903
+     ],
+     "mage_fire": [
+      1.0,
+      0.822
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.465
+     ],
+     "priest_holy": [
+      1.0,
+      0.9
+     ],
+     "mage_fire": [
+      1.0,
+      0.765
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.401
+     ],
+     "priest_holy": [
+      1.0,
+      0.871
+     ],
+     "mage_fire": [
+      1.0,
+      0.782
+     ]
+    }
+   }
+  },
+  "Lord Godfrey's Remnant": {
+   "level": 19,
+   "t": 1.6,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.821
+     ],
+     "priest_holy": [
+      1.0,
+      0.824
+     ],
+     "mage_fire": [
+      1.0,
+      0.83
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.832
+     ],
+     "priest_holy": [
+      1.0,
+      0.834
+     ],
+     "mage_fire": [
+      1.0,
+      0.733
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.808
+     ],
+     "priest_holy": [
+      1.0,
+      0.839
+     ],
+     "mage_fire": [
+      1.0,
+      0.725
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.827
+     ],
+     "priest_holy": [
+      1.0,
+      0.808
+     ],
+     "mage_fire": [
+      1.0,
+      0.689
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.81
+     ],
+     "priest_holy": [
+      1.0,
+      0.807
+     ],
+     "mage_fire": [
+      0.95,
+      0.665
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.737
+     ],
+     "priest_holy": [
+      0.75,
+      0.554
+     ],
+     "mage_fire": [
+      0.95,
+      0.616
+     ]
+    }
+   }
+  },
+  "Magus Valethion": {
+   "level": 58,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.784
+     ],
+     "priest_holy": [
+      1.0,
+      0.963
+     ],
+     "mage_fire": [
+      1.0,
+      0.549
+     ]
+    }
+   }
+  },
+  "Magister Quillfire": {
+   "level": 20,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.891
+     ],
+     "priest_holy": [
+      1.0,
+      0.829
+     ],
+     "mage_fire": [
+      1.0,
+      0.778
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.875
+     ],
+     "priest_holy": [
+      1.0,
+      0.8
+     ],
+     "mage_fire": [
+      1.0,
+      0.757
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.861
+     ],
+     "priest_holy": [
+      1.0,
+      0.779
+     ],
+     "mage_fire": [
+      1.0,
+      0.736
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.845
+     ],
+     "priest_holy": [
+      1.0,
+      0.783
+     ],
+     "mage_fire": [
+      1.0,
+      0.682
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.829
+     ],
+     "priest_holy": [
+      1.0,
+      0.841
+     ],
+     "mage_fire": [
+      1.0,
+      0.639
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.804
+     ],
+     "priest_holy": [
+      1.0,
+      0.783
+     ],
+     "mage_fire": [
+      1.0,
+      0.603
+     ]
+    }
+   }
+  },
+  "Marrowmaw": {
+   "level": 43,
+   "t": 0.6,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.77
+     ],
+     "priest_holy": [
+      0.55,
+      0.476
+     ],
+     "mage_fire": [
+      0.35,
+      0.078
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.808
+     ],
+     "priest_holy": [
+      0.85,
+      0.641
+     ],
+     "mage_fire": [
+      0.5,
+      0.142
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      1.0,
+      0.84
+     ],
+     "priest_holy": [
+      1.0,
+      0.785
+     ],
+     "mage_fire": [
+      0.65,
+      0.222
+     ]
+    },
+    "0.6": {
+     "warrior_protection": [
+      1.0,
+      0.871
+     ],
+     "priest_holy": [
+      1.0,
+      0.853
+     ],
+     "mage_fire": [
+      0.95,
+      0.372
+     ]
+    }
+   }
+  },
+  "Magistrate Andor": {
+   "level": 54,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.824
+     ],
+     "priest_holy": [
+      1.0,
+      0.921
+     ],
+     "mage_fire": [
+      1.0,
+      0.639
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.798
+     ],
+     "priest_holy": [
+      1.0,
+      0.906
+     ],
+     "mage_fire": [
+      1.0,
+      0.568
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.771
+     ],
+     "priest_holy": [
+      1.0,
+      0.906
+     ],
+     "mage_fire": [
+      1.0,
+      0.559
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.744
+     ],
+     "priest_holy": [
+      1.0,
+      0.89
+     ],
+     "mage_fire": [
+      0.95,
+      0.483
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.716
+     ],
+     "priest_holy": [
+      1.0,
+      0.933
+     ],
+     "mage_fire": [
+      0.95,
+      0.457
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.681
+     ],
+     "priest_holy": [
+      1.0,
+      0.927
+     ],
+     "mage_fire": [
+      0.95,
+      0.496
+     ]
+    }
+   }
+  },
+  "Matron Sowbelly": {
+   "level": 10,
+   "t": 0.85,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.7,
+      0.124
+     ],
+     "priest_holy": [
+      0.9,
+      0.68
+     ],
+     "mage_fire": [
+      0.65,
+      0.127
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      0.85,
+      0.223
+     ],
+     "priest_holy": [
+      1.0,
+      0.781
+     ],
+     "mage_fire": [
+      0.8,
+      0.212
+     ]
+    }
+   }
+  },
+  "Marsh-Mother Ysmil": {
+   "level": 36,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.83
+     ],
+     "priest_holy": [
+      1.0,
+      0.963
+     ],
+     "mage_fire": [
+      1.0,
+      0.632
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.804
+     ],
+     "priest_holy": [
+      1.0,
+      0.893
+     ],
+     "mage_fire": [
+      1.0,
+      0.577
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.779
+     ],
+     "priest_holy": [
+      1.0,
+      0.84
+     ],
+     "mage_fire": [
+      1.0,
+      0.538
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.752
+     ],
+     "priest_holy": [
+      1.0,
+      0.799
+     ],
+     "mage_fire": [
+      1.0,
+      0.511
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.727
+     ],
+     "priest_holy": [
+      1.0,
+      0.733
+     ],
+     "mage_fire": [
+      1.0,
+      0.481
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.692
+     ],
+     "priest_holy": [
+      0.95,
+      0.74
+     ],
+     "mage_fire": [
+      1.0,
+      0.495
+     ]
+    }
+   }
+  },
+  "Mawgrin the Gaunt": {
+   "level": 3,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.517
+     ],
+     "priest_holy": [
+      1.0,
+      0.827
+     ],
+     "mage_fire": [
+      1.0,
+      0.408
+     ]
+    }
+   }
+  },
+  "Matron Shrieka": {
+   "level": 29,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.921
+     ],
+     "priest_holy": [
+      1.0,
+      0.895
+     ],
+     "mage_fire": [
+      1.0,
+      0.82
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.91
+     ],
+     "priest_holy": [
+      1.0,
+      0.884
+     ],
+     "mage_fire": [
+      1.0,
+      0.796
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.899
+     ],
+     "priest_holy": [
+      1.0,
+      0.885
+     ],
+     "mage_fire": [
+      1.0,
+      0.768
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.886
+     ],
+     "priest_holy": [
+      1.0,
+      0.897
+     ],
+     "mage_fire": [
+      1.0,
+      0.767
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.875
+     ],
+     "priest_holy": [
+      1.0,
+      0.852
+     ],
+     "mage_fire": [
+      1.0,
+      0.683
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.859
+     ],
+     "priest_holy": [
+      1.0,
+      0.833
+     ],
+     "mage_fire": [
+      1.0,
+      0.683
+     ]
+    }
+   }
+  },
+  "Mog'grak the Twice-Born": {
+   "level": 57,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.761
+     ],
+     "priest_holy": [
+      1.0,
+      0.833
+     ],
+     "mage_fire": [
+      0.85,
+      0.324
+     ]
+    }
+   }
+  },
+  "Meven Korgal": {
+   "level": 9,
+   "t": 0.6,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.25,
+      0.005
+     ],
+     "priest_holy": [
+      1.0,
+      0.768
+     ],
+     "mage_fire": [
+      0.65,
+      0.196
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      0.3,
+      0.044
+     ],
+     "priest_holy": [
+      1.0,
+      0.781
+     ],
+     "mage_fire": [
+      0.9,
+      0.331
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      0.55,
+      0.079
+     ],
+     "priest_holy": [
+      1.0,
+      0.89
+     ],
+     "mage_fire": [
+      0.95,
+      0.442
+     ]
+    },
+    "0.6": {
+     "warrior_protection": [
+      0.85,
+      0.177
+     ],
+     "priest_holy": [
+      1.0,
+      0.892
+     ],
+     "mage_fire": [
+      1.0,
+      0.532
+     ]
+    }
+   }
+  },
+  "Mother Canopy": {
+   "level": 53,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.846
+     ],
+     "priest_holy": [
+      1.0,
+      0.893
+     ],
+     "mage_fire": [
+      0.95,
+      0.738
+     ]
+    }
+   }
+  },
+  "Mother of the Haunt": {
+   "level": 53,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.75
+     ],
+     "priest_holy": [
+      1.0,
+      0.955
+     ],
+     "mage_fire": [
+      0.9,
+      0.367
+     ]
+    }
+   }
+  },
+  "Mistvale Longjaw": {
+   "level": 33,
+   "t": 1.45,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.805
+     ],
+     "priest_holy": [
+      1.0,
+      0.844
+     ],
+     "mage_fire": [
+      1.0,
+      0.587
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.773
+     ],
+     "priest_holy": [
+      1.0,
+      0.789
+     ],
+     "mage_fire": [
+      0.95,
+      0.555
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.743
+     ],
+     "priest_holy": [
+      0.95,
+      0.714
+     ],
+     "mage_fire": [
+      1.0,
+      0.546
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.71
+     ],
+     "priest_holy": [
+      0.95,
+      0.709
+     ],
+     "mage_fire": [
+      0.85,
+      0.34
+     ]
+    }
+   }
+  },
+  "Mourning Wren": {
+   "level": 5,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.612
+     ],
+     "priest_holy": [
+      1.0,
+      0.84
+     ],
+     "mage_fire": [
+      1.0,
+      0.495
+     ]
+    }
+   }
+  },
+  "Muckmaw": {
+   "level": 16,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.9,
+      0.318
+     ],
+     "priest_holy": [
+      1.0,
+      0.842
+     ],
+     "mage_fire": [
+      1.0,
+      0.539
+     ]
+    }
+   }
+  },
+  "Mother Venomweb": {
+   "level": 11,
+   "t": 0.72,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.7,
+      0.129
+     ],
+     "priest_holy": [
+      0.1,
+      0.062
+     ],
+     "mage_fire": [
+      0.75,
+      0.235
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.405
+     ],
+     "priest_holy": [
+      0.45,
+      0.311
+     ],
+     "mage_fire": [
+      0.8,
+      0.323
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      1.0,
+      0.496
+     ],
+     "priest_holy": [
+      1.0,
+      0.78
+     ],
+     "mage_fire": [
+      0.95,
+      0.364
+     ]
+    }
+   }
+  },
+  "Nineteen Mile": {
+   "level": 43,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.752
+     ],
+     "priest_holy": [
+      0.95,
+      0.859
+     ],
+     "mage_fire": [
+      0.75,
+      0.221
+     ]
+    }
+   }
+  },
+  "Old Ashback the Basilisk": {
+   "level": 51,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.685
+     ],
+     "priest_holy": [
+      1.0,
+      0.806
+     ],
+     "mage_fire": [
+      0.8,
+      0.305
+     ]
+    }
+   }
+  },
+  "Murk the Bloated": {
+   "level": 7,
+   "t": 1.3,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.591
+     ],
+     "priest_holy": [
+      1.0,
+      0.804
+     ],
+     "mage_fire": [
+      1.0,
+      0.641
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.511
+     ],
+     "priest_holy": [
+      1.0,
+      0.772
+     ],
+     "mage_fire": [
+      1.0,
+      0.598
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.449
+     ],
+     "priest_holy": [
+      1.0,
+      0.69
+     ],
+     "mage_fire": [
+      1.0,
+      0.412
+     ]
+    }
+   }
+  },
+  "Old Darrowjaw": {
+   "level": 53,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.858
+     ],
+     "priest_holy": [
+      1.0,
+      0.938
+     ],
+     "mage_fire": [
+      0.9,
+      0.352
+     ]
+    }
+   }
+  },
+  "Old Barnacle-Beard": {
+   "level": 13,
+   "t": 1.3,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.737
+     ],
+     "priest_holy": [
+      1.0,
+      0.871
+     ],
+     "mage_fire": [
+      1.0,
+      0.818
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.693
+     ],
+     "priest_holy": [
+      1.0,
+      0.9
+     ],
+     "mage_fire": [
+      1.0,
+      0.815
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.649
+     ],
+     "priest_holy": [
+      1.0,
+      0.81
+     ],
+     "mage_fire": [
+      1.0,
+      0.771
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.611
+     ],
+     "priest_holy": [
+      0.65,
+      0.509
+     ],
+     "mage_fire": [
+      1.0,
+      0.778
+     ]
+    }
+   }
+  },
+  "Old Gillrot": {
+   "level": 9,
+   "t": 1.3,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.615
+     ],
+     "priest_holy": [
+      1.0,
+      0.92
+     ],
+     "mage_fire": [
+      1.0,
+      0.568
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.556
+     ],
+     "priest_holy": [
+      1.0,
+      0.89
+     ],
+     "mage_fire": [
+      1.0,
+      0.501
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.501
+     ],
+     "priest_holy": [
+      1.0,
+      0.88
+     ],
+     "mage_fire": [
+      1.0,
+      0.418
+     ]
+    }
+   }
+  },
+  "Old Greyhide": {
+   "level": 28,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.803
+     ],
+     "priest_holy": [
+      1.0,
+      0.909
+     ],
+     "mage_fire": [
+      0.95,
+      0.498
+     ]
+    }
+   }
+  },
+  "Old Bonepicker": {
+   "level": 39,
+   "t": 0.5,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.602
+     ],
+     "priest_holy": [
+      0.55,
+      0.434
+     ],
+     "mage_fire": [
+      0.25,
+      0.053
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.669
+     ],
+     "priest_holy": [
+      0.95,
+      0.826
+     ],
+     "mage_fire": [
+      0.4,
+      0.104
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      1.0,
+      0.727
+     ],
+     "priest_holy": [
+      1.0,
+      0.895
+     ],
+     "mage_fire": [
+      0.65,
+      0.178
+     ]
+    },
+    "0.6": {
+     "warrior_protection": [
+      1.0,
+      0.78
+     ],
+     "priest_holy": [
+      1.0,
+      0.903
+     ],
+     "mage_fire": [
+      0.7,
+      0.23
+     ]
+    },
+    "0.5": {
+     "warrior_protection": [
+      1.0,
+      0.851
+     ],
+     "priest_holy": [
+      1.0,
+      0.907
+     ],
+     "mage_fire": [
+      0.8,
+      0.24
+     ]
+    }
+   }
+  },
+  "Old Gulpjaw": {
+   "level": 4,
+   "t": 0.72,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.594
+     ],
+     "priest_holy": [
+      0.35,
+      0.193
+     ],
+     "mage_fire": [
+      0.35,
+      0.109
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.66
+     ],
+     "priest_holy": [
+      0.85,
+      0.563
+     ],
+     "mage_fire": [
+      0.5,
+      0.161
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      1.0,
+      0.714
+     ],
+     "priest_holy": [
+      1.0,
+      0.709
+     ],
+     "mage_fire": [
+      0.75,
+      0.202
+     ]
+    }
+   }
+  },
+  "Old Grizzlegut": {
+   "level": 46,
+   "t": 0.72,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.743
+     ],
+     "priest_holy": [
+      1.0,
+      0.82
+     ],
+     "mage_fire": [
+      0.7,
+      0.317
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.797
+     ],
+     "priest_holy": [
+      1.0,
+      0.89
+     ],
+     "mage_fire": [
+      0.7,
+      0.292
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      1.0,
+      0.816
+     ],
+     "priest_holy": [
+      1.0,
+      0.94
+     ],
+     "mage_fire": [
+      0.95,
+      0.292
+     ]
+    }
+   }
+  },
+  "Old Marris": {
+   "level": 56,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.811
+     ],
+     "priest_holy": [
+      1.0,
+      0.952
+     ],
+     "mage_fire": [
+      0.9,
+      0.411
+     ]
+    }
+   }
+  },
+  "Old Hob": {
+   "level": 14,
+   "t": 0.72,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.666
+     ],
+     "priest_holy": [
+      0.05,
+      0.043
+     ],
+     "mage_fire": [
+      1.0,
+      0.77
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.718
+     ],
+     "priest_holy": [
+      0.65,
+      0.418
+     ],
+     "mage_fire": [
+      1.0,
+      0.796
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      1.0,
+      0.763
+     ],
+     "priest_holy": [
+      1.0,
+      0.798
+     ],
+     "mage_fire": [
+      1.0,
+      0.825
+     ]
+    }
+   }
+  },
+  "Old Mire-Maw": {
+   "level": 17,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.416
+     ],
+     "priest_holy": [
+      1.0,
+      0.859
+     ],
+     "mage_fire": [
+      1.0,
+      0.753
+     ]
+    }
+   }
+  },
+  "Old Mossback": {
+   "level": 52,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.786
+     ],
+     "priest_holy": [
+      1.0,
+      0.874
+     ],
+     "mage_fire": [
+      0.85,
+      0.257
+     ]
+    }
+   }
+  },
+  "Old Mother Longhorn": {
+   "level": 20,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.692
+     ],
+     "priest_holy": [
+      1.0,
+      0.799
+     ],
+     "mage_fire": [
+      0.9,
+      0.376
+     ]
+    }
+   }
+  },
+  "Old Redtooth": {
+   "level": 11,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.369
+     ],
+     "priest_holy": [
+      0.8,
+      0.527
+     ],
+     "mage_fire": [
+      0.95,
+      0.365
+     ]
+    }
+   }
+  },
+  "Old Icehide": {
+   "level": 24,
+   "t": 1.6,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.819
+     ],
+     "priest_holy": [
+      1.0,
+      0.927
+     ],
+     "mage_fire": [
+      1.0,
+      0.746
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.794
+     ],
+     "priest_holy": [
+      1.0,
+      0.909
+     ],
+     "mage_fire": [
+      1.0,
+      0.704
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.759
+     ],
+     "priest_holy": [
+      1.0,
+      0.892
+     ],
+     "mage_fire": [
+      1.0,
+      0.608
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.734
+     ],
+     "priest_holy": [
+      0.8,
+      0.692
+     ],
+     "mage_fire": [
+      1.0,
+      0.617
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.699
+     ],
+     "priest_holy": [
+      0.85,
+      0.673
+     ],
+     "mage_fire": [
+      0.95,
+      0.618
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.66
+     ],
+     "priest_holy": [
+      0.55,
+      0.357
+     ],
+     "mage_fire": [
+      0.95,
+      0.498
+     ]
+    }
+   }
+  },
+  "Old Scoria": {
+   "level": 57,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.806
+     ],
+     "priest_holy": [
+      1.0,
+      0.929
+     ],
+     "mage_fire": [
+      0.95,
+      0.375
+     ]
+    }
+   }
+  },
+  "Old Riser": {
+   "level": 47,
+   "t": 0.72,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.763
+     ],
+     "priest_holy": [
+      0.95,
+      0.838
+     ],
+     "mage_fire": [
+      0.7,
+      0.222
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.807
+     ],
+     "priest_holy": [
+      1.0,
+      0.889
+     ],
+     "mage_fire": [
+      0.7,
+      0.208
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      1.0,
+      0.845
+     ],
+     "priest_holy": [
+      1.0,
+      0.901
+     ],
+     "mage_fire": [
+      0.95,
+      0.361
+     ]
+    }
+   }
+  },
+  "Old Stormhide": {
+   "level": 55,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.711
+     ],
+     "priest_holy": [
+      1.0,
+      0.939
+     ],
+     "mage_fire": [
+      1.0,
+      0.516
+     ]
+    }
+   }
+  },
+  "Old Sunhide": {
+   "level": 14,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.428
+     ],
+     "priest_holy": [
+      1.0,
+      0.843
+     ],
+     "mage_fire": [
+      1.0,
+      0.723
+     ]
+    }
+   }
+  },
+  "Old Seven-Point": {
+   "level": 47,
+   "t": 0.72,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.682
+     ],
+     "priest_holy": [
+      0.95,
+      0.847
+     ],
+     "mage_fire": [
+      0.55,
+      0.122
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.744
+     ],
+     "priest_holy": [
+      1.0,
+      0.898
+     ],
+     "mage_fire": [
+      0.55,
+      0.2
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      1.0,
+      0.784
+     ],
+     "priest_holy": [
+      1.0,
+      0.869
+     ],
+     "mage_fire": [
+      1.0,
+      0.388
+     ]
+    }
+   }
+  },
+  "Old Thondroril": {
+   "level": 55,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.881
+     ],
+     "priest_holy": [
+      1.0,
+      0.961
+     ],
+     "mage_fire": [
+      0.9,
+      0.444
+     ]
+    }
+   }
+  },
+  "Old Three-Heads": {
+   "level": 58,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.875
+     ],
+     "priest_holy": [
+      1.0,
+      0.9
+     ],
+     "mage_fire": [
+      0.95,
+      0.384
+     ]
+    }
+   }
+  },
+  "Orchardkeeper Gnarl": {
+   "level": 16,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.75,
+      0.137
+     ],
+     "priest_holy": [
+      1.0,
+      0.837
+     ],
+     "mage_fire": [
+      1.0,
+      0.426
+     ]
+    }
+   }
+  },
+  "Ossric the Unburied": {
+   "level": 4,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.633
+     ],
+     "priest_holy": [
+      1.0,
+      0.83
+     ],
+     "mage_fire": [
+      1.0,
+      0.473
+     ]
+    }
+   }
+  },
+  "Old Tusk": {
+   "level": 3,
+   "t": 0.6,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.75,
+      0.187
+     ],
+     "priest_holy": [
+      0.7,
+      0.43
+     ],
+     "mage_fire": [
+      0.45,
+      0.116
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      0.85,
+      0.286
+     ],
+     "priest_holy": [
+      1.0,
+      0.716
+     ],
+     "mage_fire": [
+      0.3,
+      0.115
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      0.9,
+      0.374
+     ],
+     "priest_holy": [
+      1.0,
+      0.781
+     ],
+     "mage_fire": [
+      0.65,
+      0.115
+     ]
+    },
+    "0.6": {
+     "warrior_protection": [
+      1.0,
+      0.484
+     ],
+     "priest_holy": [
+      1.0,
+      0.825
+     ],
+     "mage_fire": [
+      0.95,
+      0.301
+     ]
+    }
+   }
+  },
+  "Overseer Mull": {
+   "level": 32,
+   "t": 0.85,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.681
+     ],
+     "priest_holy": [
+      1.0,
+      0.801
+     ],
+     "mage_fire": [
+      0.7,
+      0.227
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.74
+     ],
+     "priest_holy": [
+      1.0,
+      0.845
+     ],
+     "mage_fire": [
+      0.85,
+      0.287
+     ]
+    }
+   }
+  },
+  "Panglass": {
+   "level": 34,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.638
+     ],
+     "priest_holy": [
+      1.0,
+      0.835
+     ],
+     "mage_fire": [
+      0.85,
+      0.313
+     ]
+    }
+   }
+  },
+  "Oldcrest": {
+   "level": 32,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.814
+     ],
+     "priest_holy": [
+      1.0,
+      0.934
+     ],
+     "mage_fire": [
+      1.0,
+      0.76
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.786
+     ],
+     "priest_holy": [
+      1.0,
+      0.912
+     ],
+     "mage_fire": [
+      1.0,
+      0.734
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.758
+     ],
+     "priest_holy": [
+      1.0,
+      0.914
+     ],
+     "mage_fire": [
+      1.0,
+      0.729
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.729
+     ],
+     "priest_holy": [
+      1.0,
+      0.812
+     ],
+     "mage_fire": [
+      1.0,
+      0.667
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.701
+     ],
+     "priest_holy": [
+      1.0,
+      0.821
+     ],
+     "mage_fire": [
+      1.0,
+      0.686
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.665
+     ],
+     "priest_holy": [
+      1.0,
+      0.753
+     ],
+     "mage_fire": [
+      1.0,
+      0.657
+     ]
+    }
+   }
+  },
+  "Pit Lord Emissary": {
+   "level": 25,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.735
+     ],
+     "priest_holy": [
+      1.0,
+      0.853
+     ],
+     "mage_fire": [
+      0.9,
+      0.188
+     ]
+    }
+   }
+  },
+  "Pathfinder Harrok": {
+   "level": 46,
+   "t": 0.85,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.713
+     ],
+     "priest_holy": [
+      0.95,
+      0.766
+     ],
+     "mage_fire": [
+      0.6,
+      0.127
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.764
+     ],
+     "priest_holy": [
+      1.0,
+      0.824
+     ],
+     "mage_fire": [
+      0.75,
+      0.183
+     ]
+    }
+   }
+  },
+  "Prince Aelvorn the Unmade": {
+   "level": 54,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.819
+     ],
+     "priest_holy": [
+      1.0,
+      0.909
+     ],
+     "mage_fire": [
+      1.0,
+      0.478
+     ]
+    }
+   }
+  },
+  "Paneater": {
+   "level": 40,
+   "t": 1.45,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.829
+     ],
+     "priest_holy": [
+      1.0,
+      0.944
+     ],
+     "mage_fire": [
+      1.0,
+      0.875
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.804
+     ],
+     "priest_holy": [
+      1.0,
+      0.912
+     ],
+     "mage_fire": [
+      1.0,
+      0.852
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.779
+     ],
+     "priest_holy": [
+      0.9,
+      0.728
+     ],
+     "mage_fire": [
+      1.0,
+      0.848
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.752
+     ],
+     "priest_holy": [
+      0.95,
+      0.78
+     ],
+     "mage_fire": [
+      1.0,
+      0.756
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.727
+     ],
+     "priest_holy": [
+      0.55,
+      0.473
+     ],
+     "mage_fire": [
+      1.0,
+      0.765
+     ]
+    }
+   }
+  },
+  "Pyrrhax the Fallen Star": {
+   "level": 55,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.687
+     ],
+     "priest_holy": [
+      1.0,
+      0.961
+     ],
+     "mage_fire": [
+      0.95,
+      0.394
+     ]
+    }
+   }
+  },
+  "Queen Thistlewing": {
+   "level": 25,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.907
+     ],
+     "priest_holy": [
+      0.95,
+      0.72
+     ],
+     "mage_fire": [
+      1.0,
+      0.757
+     ]
+    }
+   }
+  },
+  "Queen Skitterwing": {
+   "level": 15,
+   "t": 0.85,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.458
+     ],
+     "priest_holy": [
+      0.25,
+      0.134
+     ],
+     "mage_fire": [
+      0.45,
+      0.226
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.544
+     ],
+     "priest_holy": [
+      0.85,
+      0.563
+     ],
+     "mage_fire": [
+      0.75,
+      0.31
+     ]
+    }
+   }
+  },
+  "Rage Scar Old Bull": {
+   "level": 49,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.826
+     ],
+     "priest_holy": [
+      1.0,
+      0.829
+     ],
+     "mage_fire": [
+      0.75,
+      0.274
+     ]
+    }
+   }
+  },
+  "Rathorian": {
+   "level": 17,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.75,
+      0.076
+     ],
+     "priest_holy": [
+      1.0,
+      0.925
+     ],
+     "mage_fire": [
+      0.9,
+      0.433
+     ]
+    }
+   }
+  },
+  "Reaper-Lord Aldous": {
+   "level": 9,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.394
+     ],
+     "priest_holy": [
+      1.0,
+      0.876
+     ],
+     "mage_fire": [
+      1.0,
+      0.327
+     ]
+    }
+   }
+  },
+  "Razorbeak the Nestbreaker": {
+   "level": 23,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.806
+     ],
+     "priest_holy": [
+      0.9,
+      0.668
+     ],
+     "mage_fire": [
+      0.9,
+      0.484
+     ]
+    }
+   }
+  },
+  "Redrock Matriarch": {
+   "level": 15,
+   "t": 1.15,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.571
+     ],
+     "priest_holy": [
+      1.0,
+      0.818
+     ],
+     "mage_fire": [
+      1.0,
+      0.692
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.503
+     ],
+     "priest_holy": [
+      1.0,
+      0.702
+     ],
+     "mage_fire": [
+      0.9,
+      0.535
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.433
+     ],
+     "priest_holy": [
+      0.7,
+      0.406
+     ],
+     "mage_fire": [
+      0.95,
+      0.564
+     ]
+    }
+   }
+  },
+  "Ressan the Needler": {
+   "level": 7,
+   "t": 0.72,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.462
+     ],
+     "priest_holy": [
+      0.05,
+      0.042
+     ],
+     "mage_fire": [
+      0.9,
+      0.293
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.565
+     ],
+     "priest_holy": [
+      0.25,
+      0.211
+     ],
+     "mage_fire": [
+      0.8,
+      0.238
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      1.0,
+      0.638
+     ],
+     "priest_holy": [
+      0.95,
+      0.783
+     ],
+     "mage_fire": [
+      1.0,
+      0.516
+     ]
+    }
+   }
+  },
+  "Rumblejaw": {
+   "level": 12,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.498
+     ],
+     "priest_holy": [
+      1.0,
+      0.801
+     ],
+     "mage_fire": [
+      0.9,
+      0.352
+     ]
+    }
+   }
+  },
+  "Ranger-Lord Saelith": {
+   "level": 59,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.883
+     ],
+     "priest_holy": [
+      1.0,
+      0.97
+     ],
+     "mage_fire": [
+      1.0,
+      0.746
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.866
+     ],
+     "priest_holy": [
+      1.0,
+      0.95
+     ],
+     "mage_fire": [
+      1.0,
+      0.693
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.848
+     ],
+     "priest_holy": [
+      1.0,
+      0.931
+     ],
+     "mage_fire": [
+      1.0,
+      0.671
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.83
+     ],
+     "priest_holy": [
+      1.0,
+      0.892
+     ],
+     "mage_fire": [
+      1.0,
+      0.626
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.812
+     ],
+     "priest_holy": [
+      1.0,
+      0.94
+     ],
+     "mage_fire": [
+      1.0,
+      0.596
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.789
+     ],
+     "priest_holy": [
+      1.0,
+      0.907
+     ],
+     "mage_fire": [
+      1.0,
+      0.539
+     ]
+    }
+   }
+  },
+  "Saberfang the Elder": {
+   "level": 53,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.924
+     ],
+     "priest_holy": [
+      1.0,
+      0.947
+     ],
+     "mage_fire": [
+      1.0,
+      0.513
+     ]
+    }
+   }
+  },
+  "Rustcoat": {
+   "level": 38,
+   "t": 1.3,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.825
+     ],
+     "priest_holy": [
+      1.0,
+      0.851
+     ],
+     "mage_fire": [
+      1.0,
+      0.742
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.809
+     ],
+     "priest_holy": [
+      1.0,
+      0.865
+     ],
+     "mage_fire": [
+      1.0,
+      0.691
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.784
+     ],
+     "priest_holy": [
+      1.0,
+      0.817
+     ],
+     "mage_fire": [
+      1.0,
+      0.655
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.758
+     ],
+     "priest_holy": [
+      0.65,
+      0.604
+     ],
+     "mage_fire": [
+      1.0,
+      0.738
+     ]
+    }
+   }
+  },
+  "Saltjaw": {
+   "level": 44,
+   "t": 0.72,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.75
+     ],
+     "priest_holy": [
+      1.0,
+      0.891
+     ],
+     "mage_fire": [
+      0.45,
+      0.111
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.795
+     ],
+     "priest_holy": [
+      1.0,
+      0.863
+     ],
+     "mage_fire": [
+      0.7,
+      0.216
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      1.0,
+      0.843
+     ],
+     "priest_holy": [
+      1.0,
+      0.948
+     ],
+     "mage_fire": [
+      0.95,
+      0.319
+     ]
+    }
+   }
+  },
+  "Rootbound": {
+   "level": 48,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.812
+     ],
+     "priest_holy": [
+      1.0,
+      0.916
+     ],
+     "mage_fire": [
+      1.0,
+      0.835
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.782
+     ],
+     "priest_holy": [
+      1.0,
+      0.938
+     ],
+     "mage_fire": [
+      1.0,
+      0.801
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.755
+     ],
+     "priest_holy": [
+      1.0,
+      0.922
+     ],
+     "mage_fire": [
+      1.0,
+      0.764
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.723
+     ],
+     "priest_holy": [
+      1.0,
+      0.902
+     ],
+     "mage_fire": [
+      1.0,
+      0.735
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.696
+     ],
+     "priest_holy": [
+      1.0,
+      0.904
+     ],
+     "mage_fire": [
+      1.0,
+      0.709
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.656
+     ],
+     "priest_holy": [
+      1.0,
+      0.89
+     ],
+     "mage_fire": [
+      1.0,
+      0.708
+     ]
+    }
+   }
+  },
+  "Sandfang": {
+   "level": 5,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.642
+     ],
+     "priest_holy": [
+      1.0,
+      0.598
+     ],
+     "mage_fire": [
+      1.0,
+      0.302
+     ]
+    }
+   }
+  },
+  "Saw-Boss Brakka": {
+   "level": 32,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.79
+     ],
+     "priest_holy": [
+      1.0,
+      0.882
+     ],
+     "mage_fire": [
+      0.75,
+      0.222
+     ]
+    }
+   }
+  },
+  "Scourbite": {
+   "level": 36,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.829
+     ],
+     "priest_holy": [
+      0.95,
+      0.841
+     ],
+     "mage_fire": [
+      0.85,
+      0.468
+     ]
+    }
+   }
+  },
+  "Scout-Captain Vrek": {
+   "level": 17,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.95,
+      0.445
+     ],
+     "priest_holy": [
+      0.75,
+      0.505
+     ],
+     "mage_fire": [
+      1.0,
+      0.612
+     ]
+    }
+   }
+  },
+  "Seer Sshara": {
+   "level": 13,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.541
+     ],
+     "priest_holy": [
+      1.0,
+      0.833
+     ],
+     "mage_fire": [
+      1.0,
+      0.778
+     ]
+    }
+   }
+  },
+  "Serena Bloodfeather": {
+   "level": 20,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.75
+     ],
+     "priest_holy": [
+      1.0,
+      0.791
+     ],
+     "mage_fire": [
+      1.0,
+      0.519
+     ]
+    }
+   }
+  },
+  "Sergeant Halbrook": {
+   "level": 6,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.9,
+      0.336
+     ],
+     "priest_holy": [
+      0.95,
+      0.697
+     ],
+     "mage_fire": [
+      0.75,
+      0.305
+     ]
+    }
+   }
+  },
+  "Sergeant Ironvein": {
+   "level": 23,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.741
+     ],
+     "priest_holy": [
+      1.0,
+      0.826
+     ],
+     "mage_fire": [
+      0.95,
+      0.445
+     ]
+    }
+   }
+  },
+  "Sergeant Ironbeard": {
+   "level": 27,
+   "t": 1.6,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.738
+     ],
+     "priest_holy": [
+      1.0,
+      0.81
+     ],
+     "mage_fire": [
+      1.0,
+      0.654
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.697
+     ],
+     "priest_holy": [
+      1.0,
+      0.827
+     ],
+     "mage_fire": [
+      1.0,
+      0.601
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.654
+     ],
+     "priest_holy": [
+      1.0,
+      0.743
+     ],
+     "mage_fire": [
+      1.0,
+      0.583
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.613
+     ],
+     "priest_holy": [
+      0.95,
+      0.757
+     ],
+     "mage_fire": [
+      1.0,
+      0.53
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.572
+     ],
+     "priest_holy": [
+      1.0,
+      0.726
+     ],
+     "mage_fire": [
+      1.0,
+      0.469
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.519
+     ],
+     "priest_holy": [
+      0.65,
+      0.417
+     ],
+     "mage_fire": [
+      0.95,
+      0.364
+     ]
+    }
+   }
+  },
+  "Silas Quickfinger": {
+   "level": 18,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.519
+     ],
+     "priest_holy": [
+      0.95,
+      0.756
+     ],
+     "mage_fire": [
+      1.0,
+      0.635
+     ]
+    }
+   }
+  },
+  "Shatterlight": {
+   "level": 48,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.894
+     ],
+     "priest_holy": [
+      1.0,
+      0.989
+     ],
+     "mage_fire": [
+      1.0,
+      0.845
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.878
+     ],
+     "priest_holy": [
+      1.0,
+      0.979
+     ],
+     "mage_fire": [
+      1.0,
+      0.832
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.863
+     ],
+     "priest_holy": [
+      1.0,
+      0.95
+     ],
+     "mage_fire": [
+      1.0,
+      0.813
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.846
+     ],
+     "priest_holy": [
+      1.0,
+      0.963
+     ],
+     "mage_fire": [
+      1.0,
+      0.763
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.831
+     ],
+     "priest_holy": [
+      1.0,
+      0.931
+     ],
+     "mage_fire": [
+      1.0,
+      0.73
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.808
+     ],
+     "priest_holy": [
+      1.0,
+      0.952
+     ],
+     "mage_fire": [
+      1.0,
+      0.695
+     ]
+    }
+   }
+  },
+  "Shellcrusher Kragg": {
+   "level": 12,
+   "t": 1.45,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.61
+     ],
+     "priest_holy": [
+      1.0,
+      0.854
+     ],
+     "mage_fire": [
+      1.0,
+      0.694
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.547
+     ],
+     "priest_holy": [
+      1.0,
+      0.747
+     ],
+     "mage_fire": [
+      1.0,
+      0.675
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.495
+     ],
+     "priest_holy": [
+      0.95,
+      0.748
+     ],
+     "mage_fire": [
+      0.85,
+      0.56
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.437
+     ],
+     "priest_holy": [
+      0.85,
+      0.608
+     ],
+     "mage_fire": [
+      1.0,
+      0.65
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.373
+     ],
+     "priest_holy": [
+      0.4,
+      0.244
+     ],
+     "mage_fire": [
+      0.95,
+      0.514
+     ]
+    }
+   }
+  },
+  "Silt-Mother Ooga": {
+   "level": 36,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.895
+     ],
+     "priest_holy": [
+      1.0,
+      0.903
+     ],
+     "mage_fire": [
+      0.95,
+      0.461
+     ]
+    }
+   }
+  },
+  "Skyfang the Plunderer": {
+   "level": 18,
+   "t": 0.72,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.95,
+      0.369
+     ],
+     "priest_holy": [
+      0.0,
+      0.0
+     ],
+     "mage_fire": [
+      0.55,
+      0.115
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.437
+     ],
+     "priest_holy": [
+      0.55,
+      0.417
+     ],
+     "mage_fire": [
+      0.65,
+      0.129
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      1.0,
+      0.528
+     ],
+     "priest_holy": [
+      1.0,
+      0.728
+     ],
+     "mage_fire": [
+      1.0,
+      0.35
+     ]
+    }
+   }
+  },
+  "Skull-Taker Murg": {
+   "level": 47,
+   "t": 0.72,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.703
+     ],
+     "priest_holy": [
+      0.85,
+      0.617
+     ],
+     "mage_fire": [
+      0.15,
+      0.065
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.758
+     ],
+     "priest_holy": [
+      1.0,
+      0.876
+     ],
+     "mage_fire": [
+      0.55,
+      0.191
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      1.0,
+      0.805
+     ],
+     "priest_holy": [
+      1.0,
+      0.868
+     ],
+     "mage_fire": [
+      0.75,
+      0.276
+     ]
+    }
+   }
+  },
+  "Skyreach": {
+   "level": 32,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.73
+     ],
+     "priest_holy": [
+      1.0,
+      0.806
+     ],
+     "mage_fire": [
+      0.95,
+      0.472
+     ]
+    }
+   }
+  },
+  "Skinwalker Garn": {
+   "level": 21,
+   "t": 1.45,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.852
+     ],
+     "priest_holy": [
+      1.0,
+      0.872
+     ],
+     "mage_fire": [
+      1.0,
+      0.755
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.828
+     ],
+     "priest_holy": [
+      1.0,
+      0.85
+     ],
+     "mage_fire": [
+      1.0,
+      0.702
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.807
+     ],
+     "priest_holy": [
+      1.0,
+      0.797
+     ],
+     "mage_fire": [
+      1.0,
+      0.703
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.783
+     ],
+     "priest_holy": [
+      1.0,
+      0.777
+     ],
+     "mage_fire": [
+      1.0,
+      0.691
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.759
+     ],
+     "priest_holy": [
+      0.75,
+      0.496
+     ],
+     "mage_fire": [
+      0.95,
+      0.547
+     ]
+    }
+   }
+  },
+  "Smolderhide": {
+   "level": 6,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.538
+     ],
+     "priest_holy": [
+      1.0,
+      0.838
+     ],
+     "mage_fire": [
+      0.9,
+      0.31
+     ]
+    }
+   }
+  },
+  "Sootwing": {
+   "level": 55,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.754
+     ],
+     "priest_holy": [
+      1.0,
+      0.92
+     ],
+     "mage_fire": [
+      1.0,
+      0.335
+     ]
+    }
+   }
+  },
+  "Ssaren the Salvage-Taker": {
+   "level": 41,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.724
+     ],
+     "priest_holy": [
+      1.0,
+      0.976
+     ],
+     "mage_fire": [
+      1.0,
+      0.395
+     ]
+    }
+   }
+  },
+  "Skyshriek Matron": {
+   "level": 23,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.887
+     ],
+     "priest_holy": [
+      1.0,
+      0.921
+     ],
+     "mage_fire": [
+      1.0,
+      0.836
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.869
+     ],
+     "priest_holy": [
+      1.0,
+      0.932
+     ],
+     "mage_fire": [
+      1.0,
+      0.807
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.851
+     ],
+     "priest_holy": [
+      1.0,
+      0.956
+     ],
+     "mage_fire": [
+      1.0,
+      0.781
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.833
+     ],
+     "priest_holy": [
+      1.0,
+      0.868
+     ],
+     "mage_fire": [
+      1.0,
+      0.754
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.817
+     ],
+     "priest_holy": [
+      1.0,
+      0.875
+     ],
+     "mage_fire": [
+      1.0,
+      0.762
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.792
+     ],
+     "priest_holy": [
+      1.0,
+      0.824
+     ],
+     "mage_fire": [
+      1.0,
+      0.751
+     ]
+    }
+   }
+  },
+  "Sow-Mother Grunka": {
+   "level": 17,
+   "t": 1.45,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.635
+     ],
+     "priest_holy": [
+      1.0,
+      0.886
+     ],
+     "mage_fire": [
+      1.0,
+      0.84
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.577
+     ],
+     "priest_holy": [
+      1.0,
+      0.855
+     ],
+     "mage_fire": [
+      1.0,
+      0.796
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.514
+     ],
+     "priest_holy": [
+      0.95,
+      0.758
+     ],
+     "mage_fire": [
+      1.0,
+      0.753
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.456
+     ],
+     "priest_holy": [
+      0.9,
+      0.706
+     ],
+     "mage_fire": [
+      1.0,
+      0.763
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.404
+     ],
+     "priest_holy": [
+      0.6,
+      0.453
+     ],
+     "mage_fire": [
+      1.0,
+      0.724
+     ]
+    }
+   }
+  },
+  "Stormhide Patriarch": {
+   "level": 12,
+   "t": 0.85,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.5,
+      0.068
+     ],
+     "priest_holy": [
+      1.0,
+      0.826
+     ],
+     "mage_fire": [
+      0.8,
+      0.244
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      0.9,
+      0.181
+     ],
+     "priest_holy": [
+      1.0,
+      0.876
+     ],
+     "mage_fire": [
+      0.95,
+      0.405
+     ]
+    }
+   }
+  },
+  "Stormwing the Skyrider": {
+   "level": 15,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.501
+     ],
+     "priest_holy": [
+      1.0,
+      0.861
+     ],
+     "mage_fire": [
+      1.0,
+      0.694
+     ]
+    }
+   }
+  },
+  "Thaka the Unburied": {
+   "level": 43,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.825
+     ],
+     "priest_holy": [
+      1.0,
+      0.834
+     ],
+     "mage_fire": [
+      0.9,
+      0.439
+     ]
+    }
+   }
+  },
+  "Supervisor Lugwizzle": {
+   "level": 18,
+   "t": 0.85,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.95,
+      0.353
+     ],
+     "priest_holy": [
+      1.0,
+      0.925
+     ],
+     "mage_fire": [
+      0.5,
+      0.138
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.399
+     ],
+     "priest_holy": [
+      1.0,
+      0.868
+     ],
+     "mage_fire": [
+      0.8,
+      0.165
+     ]
+    }
+   }
+  },
+  "Stillwater": {
+   "level": 49,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.854
+     ],
+     "priest_holy": [
+      1.0,
+      0.942
+     ],
+     "mage_fire": [
+      1.0,
+      0.686
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.831
+     ],
+     "priest_holy": [
+      1.0,
+      0.913
+     ],
+     "mage_fire": [
+      1.0,
+      0.625
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.809
+     ],
+     "priest_holy": [
+      1.0,
+      0.966
+     ],
+     "mage_fire": [
+      1.0,
+      0.601
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.787
+     ],
+     "priest_holy": [
+      1.0,
+      0.958
+     ],
+     "mage_fire": [
+      1.0,
+      0.57
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.765
+     ],
+     "priest_holy": [
+      1.0,
+      0.89
+     ],
+     "mage_fire": [
+      1.0,
+      0.569
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.736
+     ],
+     "priest_holy": [
+      1.0,
+      0.876
+     ],
+     "mage_fire": [
+      0.95,
+      0.465
+     ]
+    }
+   }
+  },
+  "The Blackwood Drowner": {
+   "level": 57,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.876
+     ],
+     "priest_holy": [
+      1.0,
+      0.974
+     ],
+     "mage_fire": [
+      0.9,
+      0.392
+     ]
+    }
+   }
+  },
+  "The Barge-Eater": {
+   "level": 54,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.794
+     ],
+     "priest_holy": [
+      1.0,
+      0.846
+     ],
+     "mage_fire": [
+      0.8,
+      0.33
+     ]
+    }
+   }
+  },
+  "The Bloated One": {
+   "level": 18,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.47
+     ],
+     "priest_holy": [
+      1.0,
+      0.841
+     ],
+     "mage_fire": [
+      0.95,
+      0.459
+     ]
+    }
+   }
+  },
+  "The Alpha Cur": {
+   "level": 22,
+   "t": 0.6,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.679
+     ],
+     "priest_holy": [
+      0.55,
+      0.426
+     ],
+     "mage_fire": [
+      0.45,
+      0.1
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.729
+     ],
+     "priest_holy": [
+      0.95,
+      0.709
+     ],
+     "mage_fire": [
+      0.4,
+      0.062
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      1.0,
+      0.775
+     ],
+     "priest_holy": [
+      1.0,
+      0.776
+     ],
+     "mage_fire": [
+      0.7,
+      0.266
+     ]
+    },
+    "0.6": {
+     "warrior_protection": [
+      1.0,
+      0.816
+     ],
+     "priest_holy": [
+      1.0,
+      0.884
+     ],
+     "mage_fire": [
+      0.8,
+      0.373
+     ]
+    }
+   }
+  },
+  "The Bone Colossus": {
+   "level": 60,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.805
+     ],
+     "priest_holy": [
+      1.0,
+      0.839
+     ],
+     "mage_fire": [
+      0.8,
+      0.294
+     ]
+    }
+   }
+  },
+  "The Cargo": {
+   "level": 40,
+   "t": 0.72,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.59
+     ],
+     "priest_holy": [
+      0.05,
+      0.05
+     ],
+     "mage_fire": [
+      0.35,
+      0.097
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.615
+     ],
+     "priest_holy": [
+      0.8,
+      0.327
+     ],
+     "mage_fire": [
+      0.65,
+      0.176
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      1.0,
+      0.634
+     ],
+     "priest_holy": [
+      0.95,
+      0.457
+     ],
+     "mage_fire": [
+      0.8,
+      0.265
+     ]
+    }
+   }
+  },
+  "The Bloodvenom Rot": {
+   "level": 54,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.782
+     ],
+     "priest_holy": [
+      1.0,
+      0.87
+     ],
+     "mage_fire": [
+      1.0,
+      0.729
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.751
+     ],
+     "priest_holy": [
+      1.0,
+      0.891
+     ],
+     "mage_fire": [
+      1.0,
+      0.678
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.716
+     ],
+     "priest_holy": [
+      1.0,
+      0.921
+     ],
+     "mage_fire": [
+      1.0,
+      0.644
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.684
+     ],
+     "priest_holy": [
+      1.0,
+      0.903
+     ],
+     "mage_fire": [
+      1.0,
+      0.604
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.651
+     ],
+     "priest_holy": [
+      1.0,
+      0.912
+     ],
+     "mage_fire": [
+      1.0,
+      0.592
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.615
+     ],
+     "priest_holy": [
+      1.0,
+      0.903
+     ],
+     "mage_fire": [
+      1.0,
+      0.52
+     ]
+    }
+   }
+  },
+  "The Dread Matriarch": {
+   "level": 48,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.615
+     ],
+     "priest_holy": [
+      1.0,
+      0.895
+     ],
+     "mage_fire": [
+      0.9,
+      0.375
+     ]
+    }
+   }
+  },
+  "The Drowned Purser": {
+   "level": 44,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.814
+     ],
+     "priest_holy": [
+      1.0,
+      0.839
+     ],
+     "mage_fire": [
+      1.0,
+      0.372
+     ]
+    }
+   }
+  },
+  "The First Down": {
+   "level": 45,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.806
+     ],
+     "priest_holy": [
+      1.0,
+      0.906
+     ],
+     "mage_fire": [
+      0.85,
+      0.306
+     ]
+    }
+   }
+  },
+  "The Dalson Ghost": {
+   "level": 53,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.872
+     ],
+     "priest_holy": [
+      1.0,
+      0.923
+     ],
+     "mage_fire": [
+      1.0,
+      0.649
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.853
+     ],
+     "priest_holy": [
+      1.0,
+      0.939
+     ],
+     "mage_fire": [
+      1.0,
+      0.643
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.833
+     ],
+     "priest_holy": [
+      1.0,
+      0.934
+     ],
+     "mage_fire": [
+      1.0,
+      0.647
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.815
+     ],
+     "priest_holy": [
+      1.0,
+      0.912
+     ],
+     "mage_fire": [
+      1.0,
+      0.616
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.796
+     ],
+     "priest_holy": [
+      1.0,
+      0.938
+     ],
+     "mage_fire": [
+      1.0,
+      0.557
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.769
+     ],
+     "priest_holy": [
+      1.0,
+      0.939
+     ],
+     "mage_fire": [
+      1.0,
+      0.551
+     ]
+    }
+   }
+  },
+  "The Forsaken Watchman": {
+   "level": 16,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.411
+     ],
+     "priest_holy": [
+      1.0,
+      0.841
+     ],
+     "mage_fire": [
+      1.0,
+      0.598
+     ]
+    }
+   }
+  },
+  "The Fungal Mass": {
+   "level": 57,
+   "t": 1.3,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.85
+     ],
+     "priest_holy": [
+      1.0,
+      0.945
+     ],
+     "mage_fire": [
+      1.0,
+      0.551
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.822
+     ],
+     "priest_holy": [
+      1.0,
+      0.858
+     ],
+     "mage_fire": [
+      1.0,
+      0.562
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.796
+     ],
+     "priest_holy": [
+      1.0,
+      0.908
+     ],
+     "mage_fire": [
+      0.9,
+      0.358
+     ]
+    }
+   }
+  },
+  "The Groundskeeper": {
+   "level": 54,
+   "t": 0.72,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.76
+     ],
+     "priest_holy": [
+      1.0,
+      0.861
+     ],
+     "mage_fire": [
+      0.7,
+      0.233
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.8
+     ],
+     "priest_holy": [
+      1.0,
+      0.904
+     ],
+     "mage_fire": [
+      0.7,
+      0.279
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      1.0,
+      0.835
+     ],
+     "priest_holy": [
+      1.0,
+      0.957
+     ],
+     "mage_fire": [
+      1.0,
+      0.456
+     ]
+    }
+   }
+  },
+  "The Gloomcap Elder": {
+   "level": 52,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.774
+     ],
+     "priest_holy": [
+      1.0,
+      0.896
+     ],
+     "mage_fire": [
+      1.0,
+      0.695
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.739
+     ],
+     "priest_holy": [
+      1.0,
+      0.903
+     ],
+     "mage_fire": [
+      1.0,
+      0.654
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.701
+     ],
+     "priest_holy": [
+      1.0,
+      0.883
+     ],
+     "mage_fire": [
+      1.0,
+      0.629
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.652
+     ],
+     "priest_holy": [
+      1.0,
+      0.925
+     ],
+     "mage_fire": [
+      1.0,
+      0.592
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.655
+     ],
+     "priest_holy": [
+      1.0,
+      0.898
+     ],
+     "mage_fire": [
+      1.0,
+      0.573
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.611
+     ],
+     "priest_holy": [
+      1.0,
+      0.884
+     ],
+     "mage_fire": [
+      1.0,
+      0.539
+     ]
+    }
+   }
+  },
+  "The Half-Written": {
+   "level": 37,
+   "t": 1.3,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.882
+     ],
+     "priest_holy": [
+      1.0,
+      0.932
+     ],
+     "mage_fire": [
+      1.0,
+      0.565
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.864
+     ],
+     "priest_holy": [
+      1.0,
+      0.935
+     ],
+     "mage_fire": [
+      1.0,
+      0.575
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.848
+     ],
+     "priest_holy": [
+      1.0,
+      0.874
+     ],
+     "mage_fire": [
+      0.8,
+      0.387
+     ]
+    }
+   }
+  },
+  "The Last Lurker": {
+   "level": 52,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.66
+     ],
+     "priest_holy": [
+      1.0,
+      0.924
+     ],
+     "mage_fire": [
+      0.95,
+      0.412
+     ]
+    }
+   }
+  },
+  "The Last Kodo": {
+   "level": 27,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.803
+     ],
+     "priest_holy": [
+      1.0,
+      0.826
+     ],
+     "mage_fire": [
+      1.0,
+      0.693
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.784
+     ],
+     "priest_holy": [
+      1.0,
+      0.843
+     ],
+     "mage_fire": [
+      1.0,
+      0.614
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.753
+     ],
+     "priest_holy": [
+      1.0,
+      0.781
+     ],
+     "mage_fire": [
+      1.0,
+      0.572
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.726
+     ],
+     "priest_holy": [
+      1.0,
+      0.738
+     ],
+     "mage_fire": [
+      1.0,
+      0.516
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.681
+     ],
+     "priest_holy": [
+      1.0,
+      0.771
+     ],
+     "mage_fire": [
+      1.0,
+      0.561
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.641
+     ],
+     "priest_holy": [
+      0.9,
+      0.604
+     ],
+     "mage_fire": [
+      1.0,
+      0.472
+     ]
+    }
+   }
+  },
+  "The Last Tenant": {
+   "level": 42,
+   "t": 0.85,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.807
+     ],
+     "priest_holy": [
+      0.85,
+      0.74
+     ],
+     "mage_fire": [
+      0.7,
+      0.107
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.841
+     ],
+     "priest_holy": [
+      1.0,
+      0.911
+     ],
+     "mage_fire": [
+      0.85,
+      0.237
+     ]
+    }
+   }
+  },
+  "The Old Walker": {
+   "level": 49,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.633
+     ],
+     "priest_holy": [
+      1.0,
+      0.948
+     ],
+     "mage_fire": [
+      1.0,
+      0.491
+     ]
+    }
+   }
+  },
+  "The Plaguewood Matriarch": {
+   "level": 58,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.8
+     ],
+     "priest_holy": [
+      1.0,
+      0.922
+     ],
+     "mage_fire": [
+      0.95,
+      0.336
+     ]
+    }
+   }
+  },
+  "The Razorjaw": {
+   "level": 14,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.41
+     ],
+     "priest_holy": [
+      1.0,
+      0.798
+     ],
+     "mage_fire": [
+      1.0,
+      0.748
+     ]
+    }
+   }
+  },
+  "The Ring Warden": {
+   "level": 36,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.674
+     ],
+     "priest_holy": [
+      1.0,
+      0.875
+     ],
+     "mage_fire": [
+      1.0,
+      0.502
+     ]
+    }
+   }
+  },
+  "The Risen Hunter": {
+   "level": 29,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.658
+     ],
+     "priest_holy": [
+      1.0,
+      0.92
+     ],
+     "mage_fire": [
+      0.95,
+      0.453
+     ]
+    }
+   }
+  },
+  "The Terror of the Dale": {
+   "level": 57,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.886
+     ],
+     "priest_holy": [
+      1.0,
+      0.94
+     ],
+     "mage_fire": [
+      1.0,
+      0.822
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.868
+     ],
+     "priest_holy": [
+      1.0,
+      0.941
+     ],
+     "mage_fire": [
+      1.0,
+      0.796
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.851
+     ],
+     "priest_holy": [
+      1.0,
+      0.918
+     ],
+     "mage_fire": [
+      1.0,
+      0.772
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.833
+     ],
+     "priest_holy": [
+      1.0,
+      0.889
+     ],
+     "mage_fire": [
+      1.0,
+      0.764
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.816
+     ],
+     "priest_holy": [
+      1.0,
+      0.887
+     ],
+     "mage_fire": [
+      1.0,
+      0.676
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.793
+     ],
+     "priest_holy": [
+      1.0,
+      0.872
+     ],
+     "mage_fire": [
+      0.95,
+      0.674
+     ]
+    }
+   }
+  },
+  "The Saltquern": {
+   "level": 39,
+   "t": 1.6,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.804
+     ],
+     "priest_holy": [
+      1.0,
+      0.884
+     ],
+     "mage_fire": [
+      1.0,
+      0.729
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.774
+     ],
+     "priest_holy": [
+      1.0,
+      0.79
+     ],
+     "mage_fire": [
+      1.0,
+      0.709
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.731
+     ],
+     "priest_holy": [
+      1.0,
+      0.787
+     ],
+     "mage_fire": [
+      1.0,
+      0.637
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.7
+     ],
+     "priest_holy": [
+      0.85,
+      0.672
+     ],
+     "mage_fire": [
+      1.0,
+      0.605
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.65
+     ],
+     "priest_holy": [
+      0.8,
+      0.502
+     ],
+     "mage_fire": [
+      1.0,
+      0.554
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.604
+     ],
+     "priest_holy": [
+      0.65,
+      0.449
+     ],
+     "mage_fire": [
+      1.0,
+      0.523
+     ]
+    }
+   }
+  },
+  "The Thermal": {
+   "level": 32,
+   "t": 0.5,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.64
+     ],
+     "priest_holy": [
+      0.2,
+      0.096
+     ],
+     "mage_fire": [
+      0.35,
+      0.063
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.667
+     ],
+     "priest_holy": [
+      0.6,
+      0.363
+     ],
+     "mage_fire": [
+      0.4,
+      0.077
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      1.0,
+      0.69
+     ],
+     "priest_holy": [
+      0.85,
+      0.55
+     ],
+     "mage_fire": [
+      0.5,
+      0.125
+     ]
+    },
+    "0.6": {
+     "warrior_protection": [
+      1.0,
+      0.712
+     ],
+     "priest_holy": [
+      1.0,
+      0.551
+     ],
+     "mage_fire": [
+      0.65,
+      0.184
+     ]
+    },
+    "0.5": {
+     "warrior_protection": [
+      1.0,
+      0.73
+     ],
+     "priest_holy": [
+      1.0,
+      0.624
+     ],
+     "mage_fire": [
+      0.85,
+      0.234
+     ]
+    }
+   }
+  },
+  "The Thousandth Shard": {
+   "level": 36,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.666
+     ],
+     "priest_holy": [
+      1.0,
+      0.922
+     ],
+     "mage_fire": [
+      0.95,
+      0.413
+     ]
+    }
+   }
+  },
+  "The Thing in the Throat": {
+   "level": 46,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.889
+     ],
+     "priest_holy": [
+      1.0,
+      0.904
+     ],
+     "mage_fire": [
+      1.0,
+      0.742
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.871
+     ],
+     "priest_holy": [
+      1.0,
+      0.892
+     ],
+     "mage_fire": [
+      1.0,
+      0.706
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.854
+     ],
+     "priest_holy": [
+      1.0,
+      0.886
+     ],
+     "mage_fire": [
+      1.0,
+      0.672
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.838
+     ],
+     "priest_holy": [
+      1.0,
+      0.921
+     ],
+     "mage_fire": [
+      1.0,
+      0.643
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.82
+     ],
+     "priest_holy": [
+      1.0,
+      0.939
+     ],
+     "mage_fire": [
+      1.0,
+      0.604
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.796
+     ],
+     "priest_holy": [
+      1.0,
+      0.861
+     ],
+     "mage_fire": [
+      1.0,
+      0.549
+     ]
+    }
+   }
+  },
+  "The Crow King": {
+   "level": 58,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.569
+     ],
+     "priest_holy": [
+      0.85,
+      0.733
+     ],
+     "mage_fire": [
+      0.95,
+      0.342
+     ]
+    }
+   }
+  },
+  "The Wagon Driver": {
+   "level": 56,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.673
+     ],
+     "priest_holy": [
+      1.0,
+      0.977
+     ],
+     "mage_fire": [
+      0.9,
+      0.378
+     ]
+    }
+   }
+  },
+  "The Weeping Duchess": {
+   "level": 59,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.796
+     ],
+     "priest_holy": [
+      1.0,
+      0.972
+     ],
+     "mage_fire": [
+      1.0,
+      0.476
+     ]
+    }
+   }
+  },
+  "The Tidewrack": {
+   "level": 26,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.909
+     ],
+     "priest_holy": [
+      1.0,
+      0.882
+     ],
+     "mage_fire": [
+      1.0,
+      0.819
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.895
+     ],
+     "priest_holy": [
+      1.0,
+      0.843
+     ],
+     "mage_fire": [
+      1.0,
+      0.787
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.88
+     ],
+     "priest_holy": [
+      1.0,
+      0.808
+     ],
+     "mage_fire": [
+      1.0,
+      0.767
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.868
+     ],
+     "priest_holy": [
+      1.0,
+      0.855
+     ],
+     "mage_fire": [
+      1.0,
+      0.726
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.853
+     ],
+     "priest_holy": [
+      1.0,
+      0.801
+     ],
+     "mage_fire": [
+      1.0,
+      0.67
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.835
+     ],
+     "priest_holy": [
+      1.0,
+      0.802
+     ],
+     "mage_fire": [
+      1.0,
+      0.654
+     ]
+    }
+   }
+  },
+  "The Wide Sink Mother": {
+   "level": 46,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.734
+     ],
+     "priest_holy": [
+      1.0,
+      0.929
+     ],
+     "mage_fire": [
+      0.8,
+      0.223
+     ]
+    }
+   }
+  },
+  "Thrumbone the Ancient": {
+   "level": 21,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.861
+     ],
+     "priest_holy": [
+      1.0,
+      0.894
+     ],
+     "mage_fire": [
+      0.95,
+      0.734
+     ]
+    }
+   }
+  },
+  "Thirstjaw": {
+   "level": 47,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.771
+     ],
+     "priest_holy": [
+      1.0,
+      0.812
+     ],
+     "mage_fire": [
+      0.95,
+      0.331
+     ]
+    }
+   }
+  },
+  "Thurman Agamand": {
+   "level": 10,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.407
+     ],
+     "priest_holy": [
+      1.0,
+      0.851
+     ],
+     "mage_fire": [
+      1.0,
+      0.547
+     ]
+    }
+   }
+  },
+  "Tidelord Ssaravel": {
+   "level": 48,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.667
+     ],
+     "priest_holy": [
+      1.0,
+      0.908
+     ],
+     "mage_fire": [
+      0.8,
+      0.298
+     ]
+    }
+   }
+  },
+  "Tusk-Mother Gorra": {
+   "level": 17,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.391
+     ],
+     "priest_holy": [
+      0.95,
+      0.68
+     ],
+     "mage_fire": [
+      0.75,
+      0.228
+     ]
+    }
+   }
+  },
+  "Twilight Overseer": {
+   "level": 25,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.687
+     ],
+     "priest_holy": [
+      1.0,
+      0.863
+     ],
+     "mage_fire": [
+      0.95,
+      0.496
+     ]
+    }
+   }
+  },
+  "Underlight": {
+   "level": 47,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.737
+     ],
+     "priest_holy": [
+      1.0,
+      0.9
+     ],
+     "mage_fire": [
+      0.95,
+      0.348
+     ]
+    }
+   }
+  },
+  "Ursa Mossjaw": {
+   "level": 53,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.866
+     ],
+     "priest_holy": [
+      1.0,
+      0.947
+     ],
+     "mage_fire": [
+      0.95,
+      0.471
+     ]
+    }
+   }
+  },
+  "Verog the Dervish": {
+   "level": 19,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.757
+     ],
+     "priest_holy": [
+      1.0,
+      0.724
+     ],
+     "mage_fire": [
+      0.9,
+      0.304
+     ]
+    }
+   }
+  },
+  "Voidcaller Veshra": {
+   "level": 16,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.463
+     ],
+     "priest_holy": [
+      1.0,
+      0.837
+     ],
+     "mage_fire": [
+      1.0,
+      0.708
+     ]
+    }
+   }
+  },
+  "Vrexx the Hornbreaker": {
+   "level": 55,
+   "t": 0.85,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.608
+     ],
+     "priest_holy": [
+      1.0,
+      0.914
+     ],
+     "mage_fire": [
+      0.5,
+      0.12
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.682
+     ],
+     "priest_holy": [
+      1.0,
+      0.937
+     ],
+     "mage_fire": [
+      0.75,
+      0.26
+     ]
+    }
+   }
+  },
+  "Ursal the Mauler": {
+   "level": 28,
+   "t": 1.6,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.763
+     ],
+     "priest_holy": [
+      1.0,
+      0.932
+     ],
+     "mage_fire": [
+      1.0,
+      0.555
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.699
+     ],
+     "priest_holy": [
+      1.0,
+      0.894
+     ],
+     "mage_fire": [
+      1.0,
+      0.464
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.686
+     ],
+     "priest_holy": [
+      1.0,
+      0.894
+     ],
+     "mage_fire": [
+      1.0,
+      0.472
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.651
+     ],
+     "priest_holy": [
+      1.0,
+      0.846
+     ],
+     "mage_fire": [
+      0.9,
+      0.478
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.63
+     ],
+     "priest_holy": [
+      1.0,
+      0.832
+     ],
+     "mage_fire": [
+      0.8,
+      0.323
+     ]
+    }
+   }
+  },
+  "Vexa the Tunnel-Queen": {
+   "level": 24,
+   "t": 1.6,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.875
+     ],
+     "priest_holy": [
+      1.0,
+      0.92
+     ],
+     "mage_fire": [
+      1.0,
+      0.675
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.859
+     ],
+     "priest_holy": [
+      1.0,
+      0.88
+     ],
+     "mage_fire": [
+      1.0,
+      0.598
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.839
+     ],
+     "priest_holy": [
+      1.0,
+      0.859
+     ],
+     "mage_fire": [
+      0.95,
+      0.592
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.819
+     ],
+     "priest_holy": [
+      0.95,
+      0.869
+     ],
+     "mage_fire": [
+      1.0,
+      0.617
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.799
+     ],
+     "priest_holy": [
+      0.9,
+      0.795
+     ],
+     "mage_fire": [
+      0.95,
+      0.54
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.776
+     ],
+     "priest_holy": [
+      0.7,
+      0.557
+     ],
+     "mage_fire": [
+      0.95,
+      0.533
+     ]
+    }
+   }
+  },
+  "Wardchief Thulg": {
+   "level": 16,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.9,
+      0.342
+     ],
+     "priest_holy": [
+      1.0,
+      0.844
+     ],
+     "mage_fire": [
+      1.0,
+      0.589
+     ]
+    }
+   }
+  },
+  "Warbringer Gorrak": {
+   "level": 17,
+   "t": 0.85,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.8,
+      0.236
+     ],
+     "priest_holy": [
+      0.9,
+      0.716
+     ],
+     "mage_fire": [
+      0.7,
+      0.209
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      1.0,
+      0.372
+     ],
+     "priest_holy": [
+      1.0,
+      0.779
+     ],
+     "mage_fire": [
+      0.75,
+      0.336
+     ]
+    }
+   }
+  },
+  "Warden Ilthae": {
+   "level": 20,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.426
+     ],
+     "priest_holy": [
+      1.0,
+      0.871
+     ],
+     "mage_fire": [
+      0.9,
+      0.431
+     ]
+    }
+   }
+  },
+  "Warden Ssaleth": {
+   "level": 14,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.9,
+      0.284
+     ],
+     "priest_holy": [
+      1.0,
+      0.736
+     ],
+     "mage_fire": [
+      1.0,
+      0.613
+     ]
+    }
+   }
+  },
+  "Warlord Krellian": {
+   "level": 12,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.95,
+      0.25
+     ],
+     "priest_holy": [
+      0.85,
+      0.588
+     ],
+     "mage_fire": [
+      0.8,
+      0.268
+     ]
+    }
+   }
+  },
+  "Warlord Seth'rak": {
+   "level": 57,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.644
+     ],
+     "priest_holy": [
+      1.0,
+      0.945
+     ],
+     "mage_fire": [
+      1.0,
+      0.491
+     ]
+    }
+   }
+  },
+  "Wall-Watcher Teague": {
+   "level": 27,
+   "t": 1.8,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.765
+     ],
+     "priest_holy": [
+      1.0,
+      0.795
+     ],
+     "mage_fire": [
+      1.0,
+      0.637
+     ]
+    },
+    "1.15": {
+     "warrior_protection": [
+      1.0,
+      0.729
+     ],
+     "priest_holy": [
+      1.0,
+      0.833
+     ],
+     "mage_fire": [
+      1.0,
+      0.586
+     ]
+    },
+    "1.3": {
+     "warrior_protection": [
+      1.0,
+      0.687
+     ],
+     "priest_holy": [
+      1.0,
+      0.758
+     ],
+     "mage_fire": [
+      1.0,
+      0.552
+     ]
+    },
+    "1.45": {
+     "warrior_protection": [
+      1.0,
+      0.649
+     ],
+     "priest_holy": [
+      1.0,
+      0.739
+     ],
+     "mage_fire": [
+      1.0,
+      0.458
+     ]
+    },
+    "1.6": {
+     "warrior_protection": [
+      1.0,
+      0.612
+     ],
+     "priest_holy": [
+      0.8,
+      0.574
+     ],
+     "mage_fire": [
+      0.95,
+      0.44
+     ]
+    },
+    "1.8": {
+     "warrior_protection": [
+      1.0,
+      0.562
+     ],
+     "priest_holy": [
+      0.85,
+      0.569
+     ],
+     "mage_fire": [
+      0.95,
+      0.401
+     ]
+    }
+   }
+  },
+  "Wreck-Captain Vess'ira": {
+   "level": 56,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.686
+     ],
+     "priest_holy": [
+      1.0,
+      0.837
+     ],
+     "mage_fire": [
+      0.95,
+      0.463
+     ]
+    }
+   }
+  },
+  "Yard Boss Krizzle": {
+   "level": 28,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.731
+     ],
+     "priest_holy": [
+      1.0,
+      0.839
+     ],
+     "mage_fire": [
+      0.85,
+      0.31
+     ]
+    }
+   }
+  },
+  "Xelnaz": {
+   "level": 17,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.95,
+      0.235
+     ],
+     "priest_holy": [
+      0.95,
+      0.705
+     ],
+     "mage_fire": [
+      0.9,
+      0.328
+     ]
+    }
+   }
+  },
+  "Zul'Mashar the Last": {
+   "level": 59,
+   "t": 1.0,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      1.0,
+      0.848
+     ],
+     "priest_holy": [
+      1.0,
+      0.965
+     ],
+     "mage_fire": [
+      1.0,
+      0.414
+     ]
+    }
+   }
+  },
+  "What Walks in the Dim": {
+   "level": 37,
+   "t": 0.6,
+   "tried": {
+    "1.0": {
+     "warrior_protection": [
+      0.95,
+      0.413
+     ],
+     "priest_holy": [
+      1.0,
+      0.797
+     ],
+     "mage_fire": [
+      0.5,
+      0.165
+     ]
+    },
+    "0.85": {
+     "warrior_protection": [
+      0.95,
+      0.507
+     ],
+     "priest_holy": [
+      1.0,
+      0.929
+     ],
+     "mage_fire": [
+      0.5,
+      0.131
+     ]
+    },
+    "0.72": {
+     "warrior_protection": [
+      1.0,
+      0.587
+     ],
+     "priest_holy": [
+      1.0,
+      0.865
+     ],
+     "mage_fire": [
+      0.6,
+      0.182
+     ]
+    },
+    "0.6": {
+     "warrior_protection": [
+      1.0,
+      0.657
+     ],
+     "priest_holy": [
+      1.0,
+      0.877
+     ],
+     "mage_fire": [
+      0.9,
+      0.328
+     ]
+    }
+   }
+  }
+ }
+}

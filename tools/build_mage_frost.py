@@ -185,11 +185,9 @@ T.node("precision", "Elemental Precision",
               "REDUCTION and FLIPS to points inside a status effect.")
 
 T.node("permafrost", "Permafrost",
-       "Increases the duration of your Blizzard and Frost Nova by 1 turn "
-       "per rank.",
+       "Increases the duration of your Blizzard by 1 turn per rank.",
        1, 3, 3,
-       effects={"ability_mage_blizzard_duration": 1,
-                "ability_mage_frost_nova_duration": 1},
+       effects={"ability_mage_blizzard_duration": 1},
        connected_to=["ice_floes"],
        source="WotLK row 1: 'Increases the duration of your Chill effects "
               "by 1-3 secs, reduces the target's speed by an additional "
@@ -197,7 +195,10 @@ T.node("permafrost", "Permafrost",
               "movement speed. Delivered as duration on the tree's two "
               "control spells, which is the nearest real reading. "
               "ability_<id>_duration is FLAT turns and POSITIVE EXTENDS. "
-              "Kept from the outgoing tree.")
+              "Kept from the outgoing tree. FROST NOVA TAKEN OFF (20 Nov "
+              "2026): Nova is now a freeze, and three more turns of freeze "
+              "on top of its two was a lockdown; Ice Floes still shortens "
+              "its cooldown.")
 
 # ----------------------------------------------------------------- tier 2
 T.node("arctic_reach", "Arctic Reach",

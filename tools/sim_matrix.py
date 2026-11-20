@@ -266,7 +266,11 @@ def fight(char, foe, rng):
                 # without this guard the Balance Druid cast Moonfire every turn, refreshing it before it paid out,
                 # and took 25 turns to kill what others kill in 3. sim_viability.fight has always had this guard.
                 live = {getattr(fx, "effect_id", None) for fx in foe._effects()} if hasattr(foe, "_effects") else set()
-                for a in attacks:
+                from tools.sim_class_balance import stun_now
+                st = stun_now(attacks, foe)
+                if st is not None and engine.execute_ability(char, st.ability_id, foe)[0]:
+                    acted = True
+                for a in ([] if acted else attacks):
                     if a.effect_type in ("dot", "spell_dot") and a.ability_id in live:
                         continue
                     if engine.execute_ability(char, a.ability_id, foe)[0]:
