@@ -33,7 +33,7 @@ STYLE = ("Painterly semi-realistic WoW Classic style: strong readable silhouette
          "shapes legible at small size, consistent soft lighting from the top-left.")
 
 HEAD = {
-    "tiles": ("Generate ONE texture sheet image, 2048x1536, laid out as a strict 8 columns x 6 rows grid = 48 separate "
+    "tiles": ("Generate ONE texture sheet image, {W}x{H}, laid out as a strict {C} columns x {R} rows grid = {N} separate "
               "seamless ground, water and wall textures, each cell exactly 256x256. Each cell is COMPLETELY FILLED by "
               "its texture, edge to edge, touching its neighbours with no gap. No border, no background colour, no "
               "magenta, no frames, no gutters, no grid lines, no text, no labels, no numbers. Every texture must TILE "
@@ -101,11 +101,13 @@ NOUN = {"tiles": "Tiles", "props": "Props", "buildings": "Sprites", "landmarks":
 SHEETS = []
 #: Sheets Kyle has sent, sliced (tools/slice_tile_sheet.py sky_sk1/sky_sk2, tools/slice_building_sheet.py sky_sk3 to
 #: sky_sk10; the raw sheets are tools/building_sheets/sky_sk<N>.png).
-LANDED = {f"SK{i}": "19 Nov" for i in range(1, 11)}
+BK_LANDED = {"BK1", "BK6", "BK7", "BK8", "BK9", "BK10", "BK11", "BK12"}
+LANDED = {**{f"SK{i}": "19 Nov" for i in range(1, 20)}, "SK17": "19 Nov (36 of 48: the rest is SK20)"}
 
 
-def sheet(key, kind, title, out, refs, setting, scale, rows):
-    SHEETS.append(dict(key=key, kind=kind, title=title, out=out, refs=refs, setting=setting, scale=scale, rows=rows))
+def sheet(key, kind, title, out, refs, setting, scale, rows, redo_of=None):
+    SHEETS.append(dict(key=key, kind=kind, title=title, out=out, refs=refs, setting=setting, scale=scale, rows=rows,
+                       redo_of=redo_of))
 
 
 # ===================================================================================== GROUND
@@ -1123,6 +1125,22 @@ sheet("SK19", "buildings", "airships, decks and rooms", "assets/buildings/",
           ("a fountain of light rising from a gold basin", "ae_light_fountain"),
           ("a tall arched window frame with gold tracery, sky beyond (seen as a wall piece)", "ae_arched_window")])])
 
+# SK17 came back 6 x 6 (19 Nov 2026): the first 36 of its 48, in order. These are the 12 it left out.
+_sk17 = next(x for x in SHEETS if x["key"] == "SK17")
+_sk17_cells = [cell for _t, items in _sk17["rows"] for cell in items]
+sheet("SK20", "tiles", "the storm walls and the mountain temple (what SK17 left out)", "assets/tiles/sky/ground/",
+      ["assets/tiles/sky/ground/vy_rune_platform.png", "assets/tiles/sky/ground/sk_ruined_platform.png",
+       "docs/zone_refs/sky_moodboard.jpg"],
+      "These are the last floors and walls of the set: storm platforms above the clouds, and a mountain temple island "
+      "of grey flagstones, red-brown steps, raked gravel and plaster walls above the cloud sea. Palette: storm grey with "
+      "blue rune light, pale and weathered wood, grey temple stone, red-brown, white gravel, mountain green with white "
+      "and gold blossoms.",
+      None,
+      [("STORM PLATFORMS", _sk17_cells[36:40]),
+       ("THE MOUNTAIN TEMPLE ISLAND", _sk17_cells[40:44]),
+       ("THE MOUNTAIN TEMPLE ISLAND, CONTINUED", _sk17_cells[44:48])],
+      redo_of="SK17")
+
 # ===================================================================================== BACKDROPS AND LIGHT
 #: Not grids: one image each. How they're drawn: the cloud layers scroll behind the islands, slower than the ground (the
 #: drop gets real depth); the light overlay is added over the screen; the panoramas are each zone's entry card.
@@ -1269,6 +1287,9 @@ def render():
            "| Sheet | What | Image | Grid (cell) | Key | Landed |", "|---|---|---|---|---|---|"]
     for s in SHEETS:
         img, grid, key = SIZE[s["kind"]]
+        if s["kind"] == "tiles" and len(s["rows"]) != 6:
+            c, r = len(s["rows"][0][1]), len(s["rows"])
+            img, grid = f"{c * 256}x{r * 256}", f"{c} x {r} (256 x 256)"
         n = sum(len(items) for _t, items in s["rows"])
         out.append(f"| {s['key']} | {n} {s['title']} | {img} | {grid} | {key} | {LANDED.get(s['key'], '')} |")
     out += ["", "**Priority:** SK1 and SK2 (the ground is most of the look), BK1 and BK6 (the sky and the sun), "
@@ -1282,8 +1303,15 @@ def render():
     out.append("")
     for s in SHEETS:
         kind = s["kind"]
+        head = HEAD[kind]
+        if kind == "tiles":
+            c, r = len(s["rows"][0][1]), len(s["rows"])
+            head = head.replace("{W}", str(c * 256)).replace("{H}", str(r * 256)).replace("{C}", str(c)) \
+                .replace("{R}", str(r)).replace("{N}", str(c * r))
+        if s.get("redo_of"):
+            out += ["---", "", f"*{s['key']} redraws what {s['redo_of']} left out; slice its cells under the same names.*"]
         out += ["---", "", f"## SHEET {s['key']}: {sum(len(i) for _t, i in s['rows'])} {s['title']} "
-                f"({'NO magenta' if kind == 'tiles' else 'MAGENTA KEY'})", "", "```", HEAD[kind], "",
+                f"({'NO magenta' if kind == 'tiles' else 'MAGENTA KEY'})", "", "```", head, "",
                 f"Setting: {SKY} {s['setting']}"]
         if s["scale"]:
             out += ["", s["scale"]]
@@ -1312,17 +1340,20 @@ def render():
             "screen: the golden sun in the distance. BK7 to BK12 are each zone's entry card, the view people remember.",
             ""]
     for key, title, path, prompt in BACKDROPS:
-        out += [f"### {key}: {title} (`{path}`)", "", "```", prompt, "```", ""]
+        out += [f"### {key}: {title} (`{path}`)" + (" (landed 19 Nov)" if key in BK_LANDED else ""), "", "```", prompt,
+                "```", ""]
     return "\n".join(out)
 
 
 def check():
-    ids = [i for s in SHEETS for _t, items in s["rows"] for _x, i in items]
+    ids = [i for s in SHEETS if not s.get("redo_of") for _t, items in s["rows"] for _x, i in items]
     dup = {i for i in ids if ids.count(i) > 1}
     assert not dup, f"duplicate ids: {sorted(dup)}"
     want = {"tiles": (6, 8), "props": (6, 6), "buildings": (6, 6), "landmarks": (3, 3), "creatures": (6, 6)}
     for s in SHEETS:
         rows, cols = want[s["kind"]]
+        if s.get("redo_of"):
+            rows, cols = len(s["rows"]), len(s["rows"][0][1])
         assert len(s["rows"]) == rows, (s["key"], len(s["rows"]))
         for t, items in s["rows"]:
             assert len(items) == cols, (s["key"], t, len(items))

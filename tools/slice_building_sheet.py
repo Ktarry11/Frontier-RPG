@@ -511,7 +511,12 @@ MIN_PART = 60
 #: wisp, 19 Nov 2026). These are re-keyed on the assumption that the thing itself is neutral (white, grey, foam): any
 #: magenta left in a pixel is background showing through, and comes out as transparency instead of colour.
 SOFT = {"sk_cloud_bank", "sk_cloud_wisp", "sk_mist_fountain", "sk_float_falls", "sk_edge_falls", "sk_cascade",
-        "sk_sky_lilies", "sk_broken_channel", "sk_tree_crown", "vy_talon_arch", "kh_first_temple", "ae_great_forge"}
+        "sk_sky_lilies", "sk_broken_channel", "sk_tree_crown", "vy_talon_arch", "kh_first_temple", "ae_great_forge",
+        "sk_wellspring", "vy_thunder_peak", "kh_ancestor_vault", "kh_chained_stone", "sk_lighthouse",
+        "sk_observatory_ruin", "ae_city_falls", "ae_aqueduct", "ae_cooling_tower", "sk_cloud_elemental",
+        "sk_gust_sprite", "sk_gale_elemental", "sk_fading_wisp"}
+#: Light beams to cut away: name -> (fraction of the width from the left, fraction of the height from the top).
+DROP_BEAM = {"sk_lighthouse": (0.38, 0.19)}
 #: Drawn as squares filling their cells (no magenta round them), so two neighbours touch and weld into one blob: cut
 #: these on their cell's arithmetic bounds instead (SK3's two waterfalls).
 CELL_CUT = {"sk_edge_falls", "sk_cascade"}
@@ -590,6 +595,11 @@ def slice_sheet(which, sheet_path, out_dir=None, preview=None):
         cut = rgba[y0:y1, x0:x1].copy()
         if name in SOFT:
             cut = _soft_key(np.asarray(im).astype(np.float64)[y0:y1, x0:x1], cut[..., 3])
+        if name in DROP_BEAM:
+            # a light beam drawn fading into the magenta can't be keyed clean (it comes out pink and green): drop it,
+            # the game draws the lamp's light itself
+            fx, fy = DROP_BEAM[name]
+            cut[: int(cut.shape[0] * fy), : int(cut.shape[1] * fx), 3] = 0
         cut[..., 3] *= mask[y0:y1, x0:x1]         # drop a neighbour bleeding into this bounding box
         if name in DESPILL_TOP:
             cut = _despill_plume(cut, DESPILL_TOP[name])

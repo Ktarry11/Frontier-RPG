@@ -40,13 +40,13 @@ BLEND = 22            # width of the seamless edge blend, in output pixels
 SETS = {}
 
 
-def _set(key, cols, rows, sheet, out_dir, names, rows_y=None, drop=(), gutters=False, seam="blend"):
+def _set(key, cols, rows, sheet, out_dir, names, rows_y=None, drop=(), gutters=False, seam="blend", out_px=OUT_PX):
     """names: whitespace-separated, cols*rows of them. `drop` names are sliced past but not written.
     gutters: the tiles sit apart on magenta, so each one's edges are found rather than divided out."""
     names = names.split()
     assert len(names) == cols * rows, (key, len(names), cols * rows)
     SETS[key] = dict(cols=cols, rows=rows, sheet=sheet, out=out_dir, names=names,
-                     rows_y=rows_y, drop=set(drop), gutters=gutters, seam=seam)
+                     rows_y=rows_y, drop=set(drop), gutters=gutters, seam=seam, out_px=out_px)
 
 
 def _gutter_runs(sheet, axis, want):
@@ -204,10 +204,10 @@ def slice_set(key, preview=None):
             # Inset before resizing - see the module docstring on why the arithmetic bounds are not safe.
             cell = sheet.crop((x0 + INSET, y0 + INSET, x1 - INSET, y1 - INSET))
             if s.get("seam") == "overlap":
-                cell = make_seamless_overlap(cell, seed=r * cols + c).resize((OUT_PX, OUT_PX), Image.LANCZOS)
+                cell = make_seamless_overlap(cell, seed=r * cols + c).resize((s["out_px"], s["out_px"]), Image.LANCZOS)
                 cell.save(out_dir / f"{name}.png")
             else:
-                cell = cell.resize((OUT_PX, OUT_PX), Image.LANCZOS)
+                cell = cell.resize((s["out_px"], s["out_px"]), Image.LANCZOS)
                 make_seamless(cell).save(out_dir / f"{name}.png")
             written.append(name)
 
@@ -373,12 +373,18 @@ _set("zukkash_hive", 8, 6, "tools/building_sheets/feralas_hive_tiles.png", "asse
 def _sky_tile_sets():
     sys.path.insert(0, str(ROOT / "tools"))
     import write_sky_art_prompts as SKY
-    rows = {"SK1": [0, 182, 352, 512, 672, 840, 1024], "SK2": [0, 182, 353, 511, 693, 864, 1024]}
+    rows = {"SK1": [0, 182, 352, 512, 672, 840, 1024], "SK2": [0, 182, 353, 511, 693, 864, 1024],
+            "SK17": [0, 180, 362, 543, 724, 905, 1086]}
     for s in SKY.SHEETS:
         if s["kind"] == "tiles" and s["key"] in rows:
-            ids = " ".join(i for _t, items in s["rows"] for _x, i in items)
-            _set(f"sky_{s['key'].lower()}", 8, 6, f"tools/building_sheets/sky_{s['key'].lower()}.png",
-                 s["out"].rstrip("/"), ids, rows_y=rows[s["key"]])
+            ids = [i for _t, items in s["rows"] for _x, i in items]
+            # SK17 came back as 6 x 6 (36 of the 48 asked for, in order): the last 12 are still to draw
+            cols = 6 if s["key"] == "SK17" else 8
+            _set(f"sky_{s['key'].lower()}", cols, 6, f"tools/building_sheets/sky_{s['key'].lower()}.png",
+                 s["out"].rstrip("/"), " ".join(ids[:cols * 6]), rows_y=rows[s["key"]])
+    # BK1, the sky layers: six 512px cells, kept at 512 (they're stretched behind whole screens)
+    _set("sky_bk1", 3, 2, "tools/building_sheets/sky_bk1.png", "assets/tiles/sky/backdrop",
+         "sky_far_gold sky_far_day sky_far_storm sky_far_dusk sky_far_dawn sky_wisps", out_px=512)
 
 
 _sky_tile_sets()

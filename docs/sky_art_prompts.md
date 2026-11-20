@@ -18,15 +18,16 @@ Every prompt below is complete on its own: paste one block and nothing else. Not
 | SK8 | 36 the Kharad, the Cloud Giants | 2048x2048 | 6 x 6 (about 341 x 341) | magenta | 19 Nov |
 | SK9 | 36 the Fading Firmament and the war | 2048x2048 | 6 x 6 (about 341 x 341) | magenta | 19 Nov |
 | SK10 | 9 the sky's great places, part 1 | 2048x2048 | 3 x 3 (about 682 x 682) | magenta | 19 Nov |
-| SK11 | 9 the sky's great places, part 2 (doors and wonders) | 2048x2048 | 3 x 3 (about 682 x 682) | magenta |  |
-| SK12 | 36 the Aetherians and the Ascendancy | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |  |
-| SK13 | 36 the Veyr and the Kharad | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |  |
-| SK14 | 36 the sky's beasts, elementals and critters | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |  |
-| SK15 | 36 Aurelion's grandeur | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |  |
-| SK16 | 9 the wonders of Aurelion | 2048x2048 | 3 x 3 (about 682 x 682) | magenta |  |
-| SK17 | 48 interiors, decks and the glowing heart | 2048x1536 | 8 x 6 (256 x 256) | **NO magenta** |  |
-| SK18 | 36 rune circles, glass and the glowing heart | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |  |
-| SK19 | 36 airships, decks and rooms | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |  |
+| SK11 | 9 the sky's great places, part 2 (doors and wonders) | 2048x2048 | 3 x 3 (about 682 x 682) | magenta | 19 Nov |
+| SK12 | 36 the Aetherians and the Ascendancy | 2048x2048 | 6 x 6 (about 341 x 341) | magenta | 19 Nov |
+| SK13 | 36 the Veyr and the Kharad | 2048x2048 | 6 x 6 (about 341 x 341) | magenta | 19 Nov |
+| SK14 | 36 the sky's beasts, elementals and critters | 2048x2048 | 6 x 6 (about 341 x 341) | magenta | 19 Nov |
+| SK15 | 36 Aurelion's grandeur | 2048x2048 | 6 x 6 (about 341 x 341) | magenta | 19 Nov |
+| SK16 | 9 the wonders of Aurelion | 2048x2048 | 3 x 3 (about 682 x 682) | magenta | 19 Nov |
+| SK17 | 48 interiors, decks and the glowing heart | 2048x1536 | 8 x 6 (256 x 256) | **NO magenta** | 19 Nov (36 of 48: the rest is SK20) |
+| SK18 | 36 rune circles, glass and the glowing heart | 2048x2048 | 6 x 6 (about 341 x 341) | magenta | 19 Nov |
+| SK19 | 36 airships, decks and rooms | 2048x2048 | 6 x 6 (about 341 x 341) | magenta | 19 Nov |
+| SK20 | 12 the storm walls and the mountain temple (what SK17 left out) | 1024x768 | 4 x 3 (256 x 256) | **NO magenta** |  |
 
 **Priority:** SK1 and SK2 (the ground is most of the look), BK1 and BK6 (the sky and the sun), SK3, SK5, SK15 and SK16 (Aurelion), SK10, then the rest in any order. Kyle's pictures: `docs/zone_refs/aurelion_ref_spires.png` and `aurelion_ref_domes.png` (Aurelion), `docs/zone_refs/sky_moodboard.jpg` (the mood board, twenty scenes: SK17 to SK19 come from it).
 
@@ -50,6 +51,7 @@ Every prompt below is complete on its own: paste one block and nothing else. Not
 - SK17: `docs/zone_refs/sky_moodboard.jpg`, `docs/zone_refs/aurelion_ref_spires.png`, `assets/tiles/sky/ground/ae_marble_bronze.png`
 - SK18: `docs/zone_refs/sky_moodboard.jpg`, `assets/tiles/sky/props/sk_crystal_blue.png`, `assets/tiles/worldtree/props/wt_knot_hole.png`
 - SK19: `docs/zone_refs/sky_moodboard.jpg`, `docs/zone_refs/aurelion_ref_spires.png`, `assets/buildings/ae_survey_skiff.png`
+- SK20: `assets/tiles/sky/ground/vy_rune_platform.png`, `assets/tiles/sky/ground/sk_ruined_platform.png`, `docs/zone_refs/sky_moodboard.jpg`
 
 ---
 
@@ -787,11 +789,42 @@ THE THRONE ROOM: 31 a gold-edged dais with three steps; 32 a tall pillar of whit
 
 ---
 
+*SK20 redraws what SK17 left out; slice its cells under the same names.*
+---
+
+## SHEET SK20: 12 the storm walls and the mountain temple (what SK17 left out) (NO magenta)
+
+```
+Generate ONE texture sheet image, 1024x768, laid out as a strict 4 columns x 3 rows grid = 12 separate seamless ground, water and wall textures, each cell exactly 256x256. Each cell is COMPLETELY FILLED by its texture, edge to edge, touching its neighbours with no gap. No border, no background colour, no magenta, no frames, no gutters, no grid lines, no text, no labels, no numbers. Every texture must TILE SEAMLESSLY with itself on all four sides: no single large feature that would obviously repeat, no emblem, rune or pattern repeated in every tile, no lighting gradient across the cell, flat even illumination, no vignette, no baked shadows, no objects or props standing on the ground. Straight top-down view, no perspective. Nothing built by people from our world.
+
+Match the attached reference tiles EXACTLY in style, scale of detail and level of saturation: they are from the same set. Painterly semi-realistic WoW Classic ground texture style, rich and luminous but not neon, readable at small size, not too busy.
+
+Setting: THE SKY above Azeroth: a whole world above the clouds that nobody on the ground knew existed, continents and islands of floating stone and solid cloud adrift on an endless sea of cloud under a huge bright sun. Three peoples live there. The AETHERIANS: tall, imposing humanoids with pale blue-grey or bronze skin, luminous eyes and natural crystal growths along their bodies; ancient floating cities of titan-scale pale stone and bronze, enormous sky-forges and crystal-powered engines, magitech and gravity manipulation; titan architecture mixed with gnomish engineering but much grander; highly structured, scholarly, imperial. The VEYR: avian humanoids with feathered arms, powerful talons and hooked beaks; cities carved into impossibly high stone spires and built across enormous natural arches; wind machinery, lightning batteries and storm-forged weapons; clan-based, honour-driven, militaristic and predatory. The KHARAD: cloud giants, broad and huge, with stone-like skin, cloud-white hair and mineral growths; massive floating citadels, suspended bridges and enormous temples; gravity stones and ancient elemental machinery; a civilization older than any kingdom on the ground. Their world is dying: its crystal engines are failing and its islands are breaking apart and falling. Above everything else this art must be BREATHTAKING: luminous, airy, full of light and depth, beautiful. These are the last floors and walls of the set: storm platforms above the clouds, and a mountain temple island of grey flagstones, red-brown steps, raked gravel and plaster walls above the cloud sea. Palette: storm grey with blue rune light, pale and weathered wood, grey temple stone, red-brown, white gravel, mountain green with white and gold blossoms.
+
+Tiles are numbered row by row, left to right, top to bottom:
+
+STORM PLATFORMS: 1 broken wooden boards over stone, torn up; 2 swirling cloud around a golden glow (unwalkable, a vortex seen from above); 3 a storm platform's edge wall of rune-cut stone, seen straight on; 4 sheer storm-cloud wall, dark and lit by flashes (unwalkable edge).
+
+THE MOUNTAIN TEMPLE ISLAND: 5 worn grey temple flagstones with moss; 6 red-brown temple steps' stone, smooth; 7 raked white gravel of a temple garden; 8 mountain grass with small white and gold blossoms fallen in it.
+
+THE MOUNTAIN TEMPLE ISLAND, CONTINUED: 9 bare mountain rock with lichen; 10 a temple garden pond, clear water with gold fish shapes faint below; 11 a mountain cliff of grey rock with gold-lit ledges, seen straight on; 12 a temple wall of plaster and dark timber, seen straight on.
+```
+
+### Slice order (`assets/tiles/sky/ground/`)
+
+| row | 1 | 2 | 3 | 4 |
+|---|---|---|---|---|
+| 1 | sk_torn_boards | sk_vortex | vy_rune_wall | vy_storm_wall |
+| 2 | sk_temple_flags | sk_temple_steps | sk_raked_gravel | sk_blossom_grass |
+| 3 | sk_mountain_rock | sk_temple_pond | sk_mountain_cliff | sk_temple_wall |
+
+---
+
 ## BACKDROPS AND LIGHT (one image each, not grids)
 
 How they're drawn: BK1's first five cells are the far cloud sea, scrolled behind the islands slower than the ground so the drop has real depth (one per mood: gold for the Crown and Aurelion, day for the Expanse, storm for the Spires, dusk for the Firmament, dawn for a quiet start). Its sixth cell, the wisps, drifts over that a little faster. BK6 is added over the whole screen: the golden sun in the distance. BK7 to BK12 are each zone's entry card, the view people remember.
 
-### BK1: the sky layers: five cloud seas and the drifting wisps, one sheet (was BK1 to BK5) (`assets/tiles/sky/backdrop/`)
+### BK1: the sky layers: five cloud seas and the drifting wisps, one sheet (was BK1 to BK5) (`assets/tiles/sky/backdrop/`) (landed 19 Nov)
 
 ```
 Generate ONE texture sheet image, 1536x1024, laid out as a strict 3 columns x 2 rows grid = 6 separate square textures, each cell 512x512. Each cell is COMPLETELY FILLED by its texture, edge to edge, touching its neighbours with no gap. No border, no magenta, no frames, no gutters, no grid lines, no text, no labels, no numbers. EVERY CELL IS ITS OWN SEAMLESS TILEABLE TEXTURE: it must tile with itself on all four sides, with no single feature that obviously repeats, no vignette, no lighting gradient across the cell. All six are seen from STRAIGHT ABOVE, from very high up, looking down on cloud: no horizon, no sky above, no perspective, no islands, no birds, no objects, only cloud. Painterly semi-realistic, soft and luminous, matching a WoW Classic painted style.
@@ -803,25 +836,25 @@ Row 1: 1 THE GOLDEN CLOUD SEA: soft rolling billows of white and pale gold cloud
 Row 2: 4 THE DYING SKY: thin lavender and grey billows in a failing violet dusk, torn in places onto a deep violet-black void with faint stars, beautiful and sad; 5 THE DAWN CLOUD SEA: pale silver-blue billows in cool early light with a faint gold edge on their tops; 6 DRIFTING WISPS on PURE BLACK: soft white and pale gold cloud wisps and thin veils of mist scattered across a black cell, covering about a third of it, continuing across all four edges (this one is blended over the others, so black means clear).
 ```
 
-### BK6: the golden sunlight overlay (`assets/tiles/sky/backdrop/sun_rays.png`)
+### BK6: the golden sunlight overlay (`assets/tiles/sky/backdrop/sun_rays.png`) (landed 19 Nov)
 
 ```
 Generate ONE wide image, 2048x1152, on a PURE BLACK background: warm golden sunlight streaming in from a low sun just beyond the TOP-RIGHT corner: a soft gold glow in that corner, long soft light shafts and rays fanning down and left across the image, fading out before the bottom-left, a little drifting golden haze and a few soft lens-glow circles. No sun disc fully inside the image, no objects, no clouds, no text. (This is added over the screen, so black means no light.)
 ```
 
-### BK7: the Sunward Crown, panorama (`assets/tiles/sky/panorama/pano_sunward_crown.png`)
+### BK7: the Sunward Crown, panorama (`assets/tiles/sky/panorama/pano_sunward_crown.png`) (landed 19 Nov)
 
 ```
 Generate ONE wide landscape painting, 1536x1024. The view from the crown of a colossal World Tree that has burst up through the clouds: in the foreground golden-leafed branches as wide as roads and a glimpse of a jungle troll lookout; beyond, an endless sea of white and gold cloud stretching to the horizon, and a huge golden sun low in the sky in the distance, its light pouring across the clouds; far away, the silhouettes of floating islands with waterfalls falling off them, and the faint shape of a graceful bronze-and-white airship approaching. Breathtaking, warm, hopeful. Painterly semi-realistic, in the style of WoW Classic loading-screen art. No people in focus, no text, no logo.
 ```
 
-### BK8: the Celestial Expanse, panorama (`assets/tiles/sky/panorama/pano_celestial_expanse.png`)
+### BK8: the Celestial Expanse, panorama (`assets/tiles/sky/panorama/pano_celestial_expanse.png`) (landed 19 Nov)
 
 ```
 Generate ONE wide landscape painting, 1536x1024. A sky full of floating islands of pale stone and gold grass at different heights, sky rivers flowing between them and falling off their edges as waterfalls into the cloud sea far below; on the nearest island the colossal ruins of an ancient giant civilization, toppled columns and a great half-buried machine starting to glow blue-white; a golden sun in the distance; huge serene sky whales swimming through the clouds far off. Breathtaking, airy, ancient. Painterly semi-realistic, in the style of WoW Classic loading-screen art. No text, no logo.
 ```
 
-### BK9: Aurelion, panorama (`assets/tiles/sky/panorama/pano_aurelion.png`)
+### BK9: Aurelion, panorama (`assets/tiles/sky/panorama/pano_aurelion.png`) (landed 19 Nov)
 
 ```
 Generate ONE wide landscape painting, 1536x1024, matching the two attached pictures of the city in architecture, palette and grandeur. Painterly semi-realistic fantasy art in the style of a World of Warcraft loading screen: rich detail, soft painted edges, glowing light. No text, no logo, no watermark, no frame, nothing from our real world, no pink or magenta anywhere.
@@ -853,19 +886,19 @@ A QUIET SIGN OF TROUBLE (small, far side, not dominating): one of the outermost 
 THE FEELING: breathtaking, radiant and proud, the most beautiful place in the world, with the faint sadness of something beginning to fail. Titan architecture mixed with gnomish engineering, but far grander.
 ```
 
-### BK10: the Talon Spires, panorama (`assets/tiles/sky/panorama/pano_talon_spires.png`)
+### BK10: the Talon Spires, panorama (`assets/tiles/sky/panorama/pano_talon_spires.png`) (landed 19 Nov)
 
 ```
 Generate ONE wide landscape painting, 1536x1024. Impossibly tall dark stone spires rising out of a storm-cloud sea, cities carved into their faces and built across enormous natural stone arches between them, great woven nests and red and gold banners whipping in the wind; avian warriors with feathered arms diving between the spires; lightning striking a copper-crowned temple on the highest peak; the golden sun breaking through the storm in the distance. Fierce and dramatic. Painterly semi-realistic, in the style of WoW Classic loading-screen art. No text, no logo.
 ```
 
-### BK11: the Elder Citadels, panorama (`assets/tiles/sky/panorama/pano_elder_citadels.png`)
+### BK11: the Elder Citadels, panorama (`assets/tiles/sky/panorama/pano_elder_citadels.png`) (landed 19 Nov)
 
 ```
 Generate ONE wide landscape painting, 1536x1024. Massive floating citadels of cloud-white marble and grey granite hanging in a cold clear sky, joined by suspended bridges on chains, colossal temples and statues of giant ancestors, gravity stones floating in cradles of stone arms; cloud giants with stone-like skin and cloud-white hair walking a bridge, tiny by comparison to their works; a pale golden sun in the distance. Ancient, vast, awe-inspiring. Painterly semi-realistic, in the style of WoW Classic loading-screen art. No text, no logo.
 ```
 
-### BK12: the Fading Firmament, panorama (`assets/tiles/sky/panorama/pano_fading_firmament.png`)
+### BK12: the Fading Firmament, panorama (`assets/tiles/sky/panorama/pano_fading_firmament.png`) (landed 19 Nov)
 
 ```
 Generate ONE wide landscape painting, 1536x1024. The dying heart of a sky civilization at violet dusk: floating islands breaking apart and falling, a dark crystal engine cracked in two, abandoned towers of pale stone and bronze leaning, a tear in the sky opening onto violet void with cloud pouring down into it; a few warships of white and bronze still in the air; one small island with a single living green tree; a dim golden sun sinking in the distance. Beautiful and tragic. Painterly semi-realistic, in the style of WoW Classic loading-screen art. No text, no logo.
