@@ -66,6 +66,9 @@ def B(level):
 
 
 #: name -> (template, lo, hi, rare multiplier or None, sprite, kit shape, school, [three ability names])
+#: The rare census (tools/sim_campaign.py --zones, 19 Nov 2026) put Pathfinder Harrok at 0% for a warrior while he hit
+#: in nature (it skips armour) and Antilus at 0% for a priest on the fast beasts' chassis: Harrok hits physical now
+#: and Antilus stands on the large beasts' like every other beast rare.
 ROSTER = {
     # ---------------------------------------------------------------- The High Wilderness
     "Longtooth Runner":      ("beast_fast", 44, 45, None, "fe_longtooth_wolf", "beast", "physical",
@@ -114,7 +117,7 @@ ROSTER = {
                               ["Spiked Club", "Alpha's Howl", "Pinned Down", "Pack Fury"]),
     "Old Grizzlegut":        ("beast_large", 46, 46, 2.2, "fe_ironfur_bear", "rare", "physical",
                               ["Grizzled Maul", "Roar", "Bear Hug", "Old Fury"]),
-    "Pathfinder Harrok":     ("humanoid_warrior", 46, 46, 2.2, "st_grim_elder", "rare", "nature",
+    "Pathfinder Harrok":     ("humanoid_warrior", 46, 46, 2.2, "st_grim_elder", "rare", "physical",
                               ["Stolen Totem Strike", "Earthshock Wave", "Rooted", "Grimtotem Pride"]),
     "Gash'tok the Gatekeeper": ("humanoid_warrior", 46, 46, 2.2, "fe_gordunni_lord", "rare", "physical",
                                 ["Gatekeeper's Cudgel", "Shake the Gate", "Stomped Flat", "Nobody Gets In"]),
@@ -157,7 +160,7 @@ ROSTER = {
                               ["Tidal Lance", "The Isle Floods", "Dragged Under", "Sardor's Ward"]),
     "The Dread Matriarch":   ("beast_large", 48, 48, 2.2, "fe_chimaera_matriarch", "rare", "nature",
                               ["Matriarch's Bite", "Venom Breath", "Wing Pin", "Nest Fury"]),
-    "Antilus the Soarer":    ("beast_fast", 48, 48, 2.2, "fe_skystalker", "rare", "physical",
+    "Antilus the Soarer":    ("beast_large", 48, 48, 2.2, "fe_skystalker", "rare", "physical",
                               ["Soaring Talon", "Stoop", "Carried Off", "Highland Fury"]),
     # ---------------------------------------------------------------- The Twin Colossals
     "Colossal Land Walker":  ("elemental_bruiser", 48, 49, None, "fe_forest_giant", "bruiser", "nature",
