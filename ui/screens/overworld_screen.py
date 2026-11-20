@@ -391,6 +391,10 @@ class OverworldScreen(BaseScreen):
                     self.state_manager.transition_to(GameState.QUEST_DIALOG, current_quest_npc=vendor)
                 elif recruit:
                     self.state_manager.transition_to(GameState.RECRUIT_DIALOG, current_recruit_npc=recruit)
+                elif ambient_npc and getattr(ambient_npc, "plays_cutscene", None):
+                    # the fallen piece of the mural (docs/crown_cutscene.md): the cutscene again, and you stay put
+                    self.state_manager.transition_to(GameState.CUTSCENE, current_cutscene=ambient_npc.plays_cutscene,
+                                                     cutscene_replay=True)
                 elif ambient_npc and getattr(ambient_npc, "is_mailbox", False):
                     # a mailbox doesn't talk: it opens (world/mail.py, ui/screens/mail_screen.py)
                     self.state_manager.transition_to(GameState.MAIL)

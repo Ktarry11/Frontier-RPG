@@ -681,6 +681,59 @@ GREAT_SETTLEMENT_SHEET = {
     "av_corrupt_ground": _wt("wt_carved_bark"),
     "av_satyr_earth":    _wt("wt_carved_bark"),
 }
+#: The Sunward Crown (Kyle's sheets SK1-SK19): the first sky map. Gold grass and gold moss on the crown's canopy, gold
+#: roots and fallen gold leaves, gold flowers ("bluebell"), white stone and old slabs on the stones, the seal and the
+#: Ascendancy's decks ("paved"), deck planks on the chains ("plaza"), dew pools; the walkable cloud of the shelf
+#: ("satyr", from the module's satyr_field) and the Stormbank's dark cloud ("burned"); and the islands' undersides for
+#: the rock under every edge that isn't cloud (tools/bake_ashenvale.sky_cut: the drop itself is cut out).
+CROWN_SHEET = {
+    "av_forest_floor":   _sk("sk_gold_grass"),
+    "av_forest_grass":   _sk("sk_gold_grass"),
+    "av_fern_floor":     _sk("sk_gold_moss"),
+    "av_root_earth":     _sk("sk_gold_roots"),
+    "av_needle_mulch":   _sk("sk_gold_leaves"),
+    "av_bluebell":       _sk("sk_gold_flowers"),
+    "av_road_centre":    _sk("sk_pale_path"),
+    "av_road_edge":      _sk("sk_crown_bark"),
+    "av_elven_paving":   _sk("sk_white_stone"),
+    "av_mossy_cobble":   _sk("sk_ancient_slabs"),
+    "av_plaza_stone":    _sk("sk_deck_planks"),
+    "av_rocky_ground":   _sk("sk_gold_roots"),
+    "av_stream_bed":     _sk("sk_falls_rocks"),
+    "av_lake_mud":       _sk("sk_lake_sand"),
+    "av_lake_shallow":   _sk("sk_sky_pool"),
+    "av_lake_deep":      _sk("sk_lake_deep"),
+    "av_moon_water":     _sk("sk_sky_pool"),
+    "av_moon_deep":      _sk("sk_lake_deep"),
+    "av_moon_rim":       _sk("sk_lake_sand"),
+    "av_cliff_a":        _sk("sk_island_underside"),
+    "av_cliff_b":        _sk("sk_island_cliff"),
+    "av_canopy":         _sk("sk_gold_leaves", extra="canopy"),
+    "av_beach":          _sk("sk_gold_leaves"),
+    "av_wet_sand":       _sk("sk_gold_roots"),
+    "av_sea_shallow":    _sk("sk_cloud_sun"),
+    "av_sea_deep":       _sk("sk_cloud_sun"),
+    "av_scorched":       _sk("sk_cloud_storm"),
+    "av_burned_forest":  _sk("sk_cloud_storm"),
+    "av_fel_earth":      _sk("sk_gold_tips"),
+    "av_corrupt_ground": _sk("sk_crown_bark"),
+    "av_satyr_earth":    _sk("sk_cloud_solid"),
+}
+#: Lenswatch (sheets SK): the survey's anchored island. Bare island rock with gold grass where it's caught soil, white
+#: stone where the camp is paved ("paved"), pale deck on the gangways and the ship ("plaza"), the court's pools, and
+#: the rock underside hanging below (sky_cut).
+LENSWATCH_SHEET = dict(CROWN_SHEET)
+LENSWATCH_SHEET.update({
+    "av_forest_floor":   _sk("sk_island_rock"),
+    "av_root_earth":     _sk("sk_island_rock"),
+    "av_rocky_ground":   _sk("sk_island_rock"),
+    "av_needle_mulch":   _sk("sk_gold_moss"),
+    "av_beach":          _sk("sk_island_rock"),
+    "av_wet_sand":       _sk("sk_island_rock"),
+    "av_road_centre":    _sk("sk_white_stone"),
+    "av_road_edge":      _sk("sk_island_rock"),
+    "av_plaza_stone":    _sk("sk_deck_pale"),
+})
 WPL_SHEET = _plague_sheet(east=False)
 EPL_SHEET = _plague_sheet(east=True)
 ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_SHEET, "epl_east": EPL_SHEET, "felwood_north": NORTH_SHEET, "stonetalon_east": STONETALON_SHEET,
@@ -696,6 +749,8 @@ ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_S
                "worldtree_middle_boughs": MIDDLE_BOUGHS_SHEET,
                "worldtree_upper_boughs": UPPER_BOUGHS_SHEET,
                "worldtree_cloudbreak": CLOUDBREAK_SHEET,
+               "worldtree_sunward_crown": CROWN_SHEET,
+               "worldtree_lenswatch": LENSWATCH_SHEET,
                "worldtree_great_settlement": GREAT_SETTLEMENT_SHEET}
 
 def _recolour(a, hue, sat, val):
@@ -866,6 +921,8 @@ def build_scores(P, M):
     burn = [P.blob(*b, 0.8, wp) for b in getattr(M, "BURNED_PATCHES", [])]
     cm = np.maximum.reduce(cor) if cor else np.zeros_like(n_big)
     bm = np.maximum.reduce(burn) if burn else np.zeros_like(n_big)
+    if getattr(M, "burned_field", None):         # a map can paint its "burned" ground from a field (the Stormbank)
+        bm = np.maximum(bm, M.burned_field(P, wp))
     P.fields["cm"] = cm.astype(np.float32)
     lush = getattr(M, "LUSH", 0.0)       # South Felwood: Kyle, 14 Nov: "make southern more vibrant"
     if lush:
@@ -936,6 +993,14 @@ def build_scores(P, M):
         S[k] = (S[k] - 14.0 * knock).astype(np.float32)
     S["lake_s"] = (S["lake_s"] - 6.0 * near_ford * np.clip(1 - np.maximum(sw, 0) * 1.5, 0, 1)).astype(np.float32)
 
+    # a sky map's walkable cloud (the Sunward Crown): the ground's own materials don't show on it at all
+    sup = getattr(M, "ground_suppress", None)
+    if sup is not None:
+        m = sup(gx, gy)
+        for k in ("floor", "grass", "fern", "root", "mulch", "bell", "rocky", "corrupt", "fel", "road", "verge",
+                  "beach", "wet", "mud", "moonrim"):
+            S[k] = (S[k] - 3.0 * m).astype(np.float32)
+
     # -------- cliffs (rock) and the dense-woods canopy (both impassable, drawn differently)
     depth_dark = smoothstep(2.0, 9.0, d_cliff_in)
     cs = 1.6 + 12 * cliff_f
@@ -984,18 +1049,28 @@ def sky_cut(rgb, X, Y, P):
     """A sky map's drop, cut out (M.SKY; docs/worldtree_brief.md, "How it's drawn"). The ground stays where the land is,
     the drop goes clear so the renderer's cloud sea shows through, and under each island's southern edge its rock
     underside hangs down into the void, darkening and thinning away (the camera looks a little north, so the south
-    face is the one you see): "Edges sell the height." Returns (rgb, alpha 0..1)."""
+    face is the one you see): "Edges sell the height." Where the land is walkable cloud (SKY["cloud"], a function of
+    tile x, y giving 0..1; the Sunward Crown's shelf), there's no rock under it: the cloud's edge is soft, and what
+    hangs below it is a short, pale billow fading out. Returns (rgb, alpha 0..1)."""
     sky = P.sky_spec
     sea = sky["sea"]
+    cloud_fn = sky.get("cloud")
     gx, gy = X / TILE_PX, Y / TILE_PX
     s = sea(gx, gy)
-    land = 1 - smoothstep(-0.35, 0.25, s)
+    cl_here = cloud_fn(gx, gy) if cloud_fn else np.zeros_like(s)
+    land = 1 - smoothstep(-0.35 - 0.9 * cl_here, 0.25, s)
     depth = float(sky.get("underside", 4.0))
+    depth_c = float(sky.get("cloud_underside", 2.2))
     under = np.zeros_like(s)
+    under_c = np.zeros_like(s)
     for d in np.linspace(0.35, depth, 10):
         above = 1 - smoothstep(-0.3, 0.3, sea(gx, gy - d))               # land d tiles north of here
         under = np.maximum(under, above * (1 - d / depth) ** 0.8)
+        if cloud_fn is not None and d <= depth_c:
+            under_c = np.maximum(under_c, above * np.clip(1 - d / depth_c, 0, 1) ** 1.6)
     under = under * (1 - land)
+    under_c = under_c * (1 - land)
+    cl_above = cloud_fn(gx, gy - 1.0) if cloud_fn else np.zeros_like(s)
     # the rock: the map's cliff stone stretched down the face, banded, with a few roots and drips hanging lower
     tex = P.tex(sky.get("rock") or MATERIALS["cliff_a"][0])
     sx = (X % TEX).astype(np.int32)
@@ -1005,9 +1080,21 @@ def sky_cut(rgb, X, Y, P):
     rock = rock * band[..., None] * (0.38 + 0.55 * under)[..., None]
     roots = smoothstep(0.62, 0.80, P.sample_field(P.noise(1.3, "roots", octaves=1), X * 4.0, Y * 0.25))
     under_a = np.clip(under * 1.15 + roots * under * 0.5, 0, 1)
+    if cloud_fn is not None:
+        # the cloud's underside: its own texture squashed down, a little shadowed and blue, fading to nothing
+        ctex = P.tex(sky.get("cloud_tex") or MATERIALS["satyr"][0])
+        csy = ((Y * 0.6) % TEX).astype(np.int32)
+        puff = ctex[csy, sx].astype(np.float32) * (0.72 + 0.22 * under_c)[..., None]
+        puff = puff * np.array([0.96, 0.98, 1.04], np.float32)
+        k = cl_above[..., None]
+        rock = rock * (1 - k) + puff * k
+        under_a = under_a * (1 - cl_above) + np.clip(under_c * 0.9, 0, 1) * cl_above
     rgb = rgb * land[..., None] + rock * (1 - land)[..., None]
     rim = smoothstep(-1.0, 0.0, s) * land                                 # the lip darkens where it rounds over
-    rgb = rgb * (1 - 0.30 * rim)[..., None]
+    rgb = rgb * (1 - 0.30 * rim * (1 - cl_here) + 0.06 * rim * cl_here)[..., None]
+    lift = float(sky.get("cloud_lift", 0.0))     # walkable cloud lit brighter than the ground's shading leaves it
+    if lift:
+        rgb = rgb * (1 + lift * cl_here * land)[..., None]
     alpha = np.maximum(land, under_a)
     return rgb, alpha
 
@@ -1151,7 +1238,7 @@ def main():
     if "--preview" in sys.argv:
         preview = sys.argv[sys.argv.index("--preview") + 1]
     sc = int(sys.argv[sys.argv.index("--scale") + 1]) if "--scale" in sys.argv else 4
-    zone = next((z for z in ("worldtree_cloudbreak", "worldtree_upper_boughs", "worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
+    zone = next((z for z in ("worldtree_lenswatch", "worldtree_sunward_crown", "worldtree_cloudbreak", "worldtree_upper_boughs", "worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
     only = None
     if "--region" in sys.argv:       # x0,y0,x1,y1 in tiles: bake only the 20x20 chunks touching it (fast look-dev)
         x0, y0, x1, y1 = map(int, sys.argv[sys.argv.index("--region") + 1].split(","))

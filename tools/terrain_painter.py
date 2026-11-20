@@ -238,15 +238,17 @@ class Painter:
                 sky = getattr(self, "sky", None)
                 if sky:
                     # A SKY MAP (docs/worldtree_brief.md, "How it's drawn"): the drop is see-through, so the renderer's
-                    # cloud sea scrolls behind the islands; the chunk is a PNG with alpha (tools/bake_ashenvale.sky_cut)
+                    # cloud sea scrolls behind the islands; the chunk is a WebP with alpha (tools/bake_ashenvale.sky_cut):
+                    # a tenth the size of a PNG, which mattered at 93 MB for the Sunward Crown alone
                     rgb, alpha = sky(rgb, X, Y, self)
                     rgba = np.dstack([np.clip(rgb, 0, 255), np.clip(alpha * 255, 0, 255)]).astype(np.uint8)
                     img = Image.fromarray(rgba, "RGBA")
-                    fn = out_dir / f"{prefix}_{cx}_{cy}.png"
-                    img.save(fn, optimize=True)
-                    stale = out_dir / f"{prefix}_{cx}_{cy}.jpg"
-                    if stale.exists():
-                        stale.unlink()
+                    fn = out_dir / f"{prefix}_{cx}_{cy}.webp"
+                    img.save(fn, "WEBP", quality=88, method=6, alpha_quality=90)
+                    for ext in ("jpg", "png"):
+                        stale = out_dir / f"{prefix}_{cx}_{cy}.{ext}"
+                        if stale.exists():
+                            stale.unlink()
                 else:
                     img = Image.fromarray(np.clip(rgb, 0, 255).astype(np.uint8))
                     fn = out_dir / f"{prefix}_{cx}_{cy}.jpg"

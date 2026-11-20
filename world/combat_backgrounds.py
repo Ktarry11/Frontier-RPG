@@ -213,6 +213,8 @@ ZONE_BACKGROUND = {
     "The Upper Boughs": "jungle",                 # the top of the tree, over the cloud tops
     "The Stormsplit": "jungle",                   # the lightning split in the trunk
     "The Cloudbreak": "jungle",                   # the last branches (no fights)
+    "The Sunward Crown": "sky",                   # above the cloud, in full sun
+    "Lenswatch": "sky",                           # the survey's island (a town: no fights)
     "The Great Settlement": "jungle",             # the troll city in the tree's heart
     "The High Wilderness": "mossy_forest",        # Feralas's giant forest (until its own background)
     "The Forgotten Coast": "mossy_forest",

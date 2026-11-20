@@ -222,6 +222,17 @@ RACE_OPTIONS = [
         available=False,      # NPC-only: the Bridge Echo, in Deadwind Pass
     ),
     RaceOption(
+        race_id="aetherian",
+        label="Aetherian",
+        race_folder="aetherian",
+        # Kyle's P6 sheet (docs/player_sprite_prompts.md): five men, drawn as player looks. NPC-only until the
+        # Aetherian start zone (Kyle, 20 Nov 2026: "we will open up an Aetherian start zone"); the women aren't drawn
+        # yet, so for now an Aetherian NPC is a man (docs/art_backlog_2026_11_20.md).
+        genders=[GenderOption("male", "Male", "", [f"aetherian_p{i}" for i in range(1, 6)]),
+                 GenderOption("female", "Female", "", [f"aetherian_p{i}" for i in range(1, 6)])],
+        available=False,      # NPC-only for now: the survey at the Sunward Crown and Lenswatch
+    ),
+    RaceOption(
         race_id="troll",
         label="Troll",
         race_folder="troll",

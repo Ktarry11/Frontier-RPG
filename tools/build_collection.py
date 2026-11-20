@@ -568,6 +568,16 @@ for _rid, _k in _KEEP.items():
         {"recruit_id": _rid, "from": _RECRUITS[_rid]["name"]},
         _k["icon"] if (ROOT / "assets/icons/collection" / f"{_k['icon']}.png").exists() else _k["stand_in"])
     ITEMS[-1].update(found_only=True, source=f"sworn:{_rid}", art=_k["icon"])
+# Kyle, 20 Nov 2026: "can we have a little trigger or item that can be used to view the cutscene again if we want to"
+# (docs/crown_cutscene.md). The account learns it the first time any character sees the Crown's cutscene
+# (world/cutscenes.KEEPSAKES); using it plays the cutscene again, wherever you are, and moves you nowhere.
+add("keepsake_mural_shard", "Mural Shard", "keepsake", 0, "epic",
+    "A flake of old painted stone from the mural at the top of the World Tree, with a little of the golden sun still "
+    "on it. Hold it up to the light and you're back in that chamber, watching the wall come down.",
+    {"from": "the mural at the top of the World Tree", "cutscene": "crown"},
+    "col_keepsake_mural_shard" if (ROOT / "assets/icons/collection/col_keepsake_mural_shard.png").exists()
+    else "qi_tablet", needs_art=True)
+ITEMS[-1].update(found_only=True, source="cutscene:crown")
 
 # ---------------------------------------------------------------- the icons (Sheet D, delivered 18 Nov 2026)
 UNIQUE_REINS = {"bone_white_kodo": "kodo", "steamwheedle_runabout": "runabout", "tidecaller_sea_turtle": "turtle",

@@ -10,8 +10,8 @@ puts you when it ends. ZoneManager.move_player asks on_step() after every step; 
 trigger tile the cutscene is marked seen (saved with the character, like found secrets) and handed to the overworld,
 which plays it. Escape skips.
 
-WHERE IT ENDS. The Crown's cutscene ends on the Sunward Crown. Until that map exists it ends where it started, in the
-Cloudbreak's chamber, with the mural broken open behind the way through.
+WHERE IT ENDS. The Crown's cutscene ends on the Sunward Crown, at the Mural Gate (tools/handbuilt_worldtree_sunward_
+crown.py). After that the broken mural is the way through, both ways.
 
 PROPS THAT CHANGE. A landmark can carry "cutscene_hide" (drawn until a cutscene is seen) or "cutscene_show" (drawn only
 after): the Cloudbreak's mural, whole and then broken open (ui/tilemap_renderer.py asks shown()).
@@ -32,9 +32,25 @@ CUTSCENES = {
             (CS + "cs5_looking_down.png", 5.0, (0.1, 0.0, 0.8, 0.8), (0.1, 0.2, 0.8, 0.8), {}),
             (CS + "cs6_islands.png", 7.0, (0.0, 0.12, 0.75, 0.75), (0.25, 0.12, 0.75, 0.75), {}),
         ],
-        then=("The Sunward Crown", None, None),       # its arrival, once the map exists
+        then=("The Sunward Crown", 100, 169),         # the Mural Gate: south of the gate, facing the Lookdown
     ),
 }
+
+#: cutscene id -> the Collection keepsake that plays it again (docs/crown_cutscene.md, "Watching it again"): the account
+#: learns it the first time any character sees the cutscene
+KEEPSAKES = {"crown": "keepsake_mural_shard"}
+
+
+def _learn_keepsake(cid, commit=True):
+    kid = KEEPSAKES.get(cid)
+    if not kid:
+        return
+    try:
+        from world import collection as C
+        C.grant(kid, commit=commit)
+    except Exception:
+        pass
+
 
 #: zone -> [(cutscene id, trigger tiles)]: filled by the maps that hold them (tools/handbuilt_worldtree_cloudbreak.py)
 TRIGGERS = {}
@@ -54,6 +70,7 @@ class CutsceneManager:
         for cid, tiles in TRIGGERS.get(zone_name, ()):
             if (x, y) in tiles and cid not in self.seen:
                 self.seen.add(cid)
+                _learn_keepsake(cid)
                 return cid
         return None
 
@@ -88,6 +105,8 @@ class CutsceneManager:
     def load_dict(self, data):
         self.seen = set((data or {}).get("seen") or [])
         self.pending = None
+        for cid in self.seen:              # a character who saw it before the keepsake existed still earns it
+            _learn_keepsake(cid, commit=False)
 
 
 _cutscenes = None

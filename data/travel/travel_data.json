@@ -501,6 +501,16 @@
         146
       ],
       "continent": "eastern_kingdoms"
+    },
+    "lenswatch": {
+      "name": "Lenswatch",
+      "zone": "Lenswatch",
+      "master": "lw_skiffmaster",
+      "pos": [
+        -30,
+        140
+      ],
+      "continent": "eastern_kingdoms"
     }
   },
   "flight_cost": {
@@ -801,6 +811,12 @@
     ],
     "gs_auctioneer": [
       "auction"
+    ],
+    "lw_innkeeper": [
+      "inn"
+    ],
+    "lw_skiffmaster": [
+      "flight"
     ]
   }
 }

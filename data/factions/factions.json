@@ -305,7 +305,9 @@
           "fe_goldthorn_for_the_fever",
           "fe_spears_at_the_wind_riders",
           "fe_word_to_hadoken",
-          "gsq_horde_ground"
+          "gsq_horde_ground",
+          "scq_both_sides_of_the_stones",
+          "scq_carry_it_to_the_war_leader"
         ]
       },
       "kill_rep": {
@@ -3394,7 +3396,22 @@
           "mbq_moths_in_the_ropes",
           "mbq_up_the_root_stair",
           "mbq_pythons_in_the_lichen",
-          "mbq_counting_nests"
+          "mbq_counting_nests",
+          "scq_every_spear",
+          "scq_spears_on_the_crown",
+          "scq_count_the_lancers",
+          "scq_humming_poles",
+          "scq_centurion_valeth_krane",
+          "scq_rays_over_the_islets",
+          "scq_mother_greatfin",
+          "scq_eels_at_the_falls",
+          "scq_old_sunantler",
+          "scq_spirits_in_the_light",
+          "scq_what_the_loa_wont_say",
+          "scq_two_brothers",
+          "scq_the_dewdrinker",
+          "scq_what_hezza_saw",
+          "scq_lend_him_the_lens"
         ]
       },
       "rewards": {
@@ -3432,6 +3449,50 @@
           "TBC-style shelf (tools/build_highbough_tribes.py, 20 Nov 2026): friendly the tribes' Heartsap Tonic, honored a neck piece and a pattern, revered six ilvl 67 blues and a pattern, exalted three ilvl 73 epics and two recipes. And the Cloudtop Wyvern at Exalted."
         ],
         "quests": {}
+      }
+    },
+    "aetherians": {
+      "name": "The Aetherians",
+      "description": "The scholar houses of Aurelion, the Masters of the Upper Sky, and the survey the House of the Patient Lens sent down to the World Tree.",
+      "home_zone": "aurelion",
+      "home_name": "Aurelion, the city of the Aetherians, above the cloud",
+      "leader": {
+        "title": "First Speaker of the Council",
+        "name": "Aldren Sorvaine",
+        "location": "The Council Hall in Aurelion",
+        "line": "The houses have argued for a hundred years about what the ground is worth. We're about to find out, because we can't hold up the sky without it."
+      },
+      "_lore_note": "Kyle, 19-20 Nov 2026: the Aetherian split (rep with the scholar houses, the Ascendancy is the enemy), Aurelion ruled by a council of houses, the houses divided on what's killing their world. docs/worldtree_brief.md. The leader has no npc_id until Aurelion is built.",
+      "lore": [
+        "Above the clouds there's a world nobody on the ground knew about, and the Aetherians have ruled the upper sky for as long as their records go back. They're tall and pale, with crystal growing along their arms and light in their eyes, and their cities float on engines of crystal older than any kingdom below.",
+        "Since the world changed, their sky has been dying. The engines are failing, islands are falling, and the council of the scholar houses can't agree on why. Some houses say the World Tree is draining the sky and should be studied before anyone touches it. The Ascendancy, their army, says the tree is the only thing still rising and should simply be taken.",
+        "The House of the Patient Lens sent a survey down to the tree to talk to the people living on it. It's the first time in their history the Aetherians have come down to meet the ground, and most of them still think the ground is primitive. The ones who've met it are starting to change their minds."
+      ],
+      "quest_rep": {
+        "_comment": "Per quest, paid by giver (tools/build_sunward_crown_quests.py).",
+        "default": 200,
+        "boss": 250,
+        "capstones": {},
+        "zones": [
+          "sunward_crown",
+          "lenswatch"
+        ],
+        "also": [
+          "scq_orders_under_seal",
+          "scq_a_guest_of_the_house",
+          "scq_what_the_ground_thinks",
+          "scq_the_stolen_copy",
+          "scq_mark_the_rifts",
+          "scq_storm_readings",
+          "scq_the_hollow_storm",
+          "scq_guns_on_the_chainhold",
+          "scq_wolves_on_the_cloud",
+          "scq_keep_it_shut",
+          "scq_the_stone_that_woke",
+          "scq_the_light_under_the_stones",
+          "scq_bigger_than_the_ascendancy",
+          "scq_lance_captain_varos_thale"
+        ]
       }
     }
   }

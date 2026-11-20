@@ -533,12 +533,16 @@ def register_baked(zone, baked_dir, W, H, chunk=20):
     for cy in range(0, H, chunk):
         for cx in range(0, W, chunk):
             fn = f"{baked_dir}/ground_{cx}_{cy}.jpg"
-            if os.path.exists(f"{baked_dir}/ground_{cx}_{cy}.png"):     # a sky map's see-through ground
-                fn = f"{baked_dir}/ground_{cx}_{cy}.png"
+            for ext in ("png", "webp"):                                    # a sky map's see-through ground
+                if os.path.exists(f"{baked_dir}/ground_{cx}_{cy}.{ext}"):
+                    fn = f"{baked_dir}/ground_{cx}_{cy}.{ext}"
             if not os.path.exists(fn):
                 raise FileNotFoundError(f"{fn} - run the zone's baker")
             w, h = min(chunk, W - cx), min(chunk, H - cy)
             zone.add_ground_chunk(fn, cx, cy, w, h)
             zone.ground_chunks[-1]["exact"] = True
             zone.add_water_chunk(fn, cx, cy, w, h)
-            zone.add_obstacle_chunk(fn, cx, cy, w, h)
+            if fn.endswith(".jpg"):
+                # A sky map's "cliff" tiles are the drop, where the chunk is see-through: an obstacle copy of the
+                # chunk blitted again on every one of them doubled the soft edge into tile-shaped steps.
+                zone.add_obstacle_chunk(fn, cx, cy, w, h)

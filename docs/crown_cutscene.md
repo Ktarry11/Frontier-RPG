@@ -60,7 +60,7 @@ the Integration was or why it happened. It's three peoples and a sun.
 - Tested headless: all six frames load and play through in about 27 seconds, Escape skips, the trigger fires once, and
   the mural swaps.
 
-## Watching it again (to build with the Sunward Crown)
+## Watching it again (built 20 Nov 2026, with the Sunward Crown)
 
 Kyle, 20 Nov 2026: "when we build Sunward Crown, can we have a little trigger or item that can be used to view the
 cutscene again if we want to".
@@ -72,6 +72,12 @@ cutscene again if we want to".
 - **A replay never moves you and never changes anything.** It plays the shots and hands you back where you stood: no
   trip to the Crown's arrival, no seen flag set, and the walls stay as they are. `CutsceneScreen.start` needs a
   `replay=True` that skips the `then` move.
+
+Built: `world/cutscenes.KEEPSAKES` gives the account `keepsake_mural_shard` the first time the cutscene is seen (and to
+anyone who saw it before the keepsake existed, on load); the Collection's Keepsakes tab has a Watch button for it; the
+fallen piece is `sc_mural_piece` by the Mural Gate (an ambient "thing" drawn as a prop, `plays_cutscene`); and both
+start the cutscene with `cutscene_replay=True`, which `ui/screens/cutscene_screen.py` honours by skipping the move. The
+shard's icon is a stand-in (qi_tablet) until its art lands.
 
 ## Art: sheet CS (landed 20 Nov 2026)
 

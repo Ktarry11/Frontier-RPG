@@ -45,12 +45,15 @@ def main():
         check(rid in recruits, f"{rid}: not a recruit")
         check(C.keepsake_of(rid) in tab, f"{rid}: keepsake not on the tab")
         check(k.get("name") and k.get("blurb") and k.get("icon") and k.get("stand_in"), f"{rid}: keepsake incomplete")
-    check(len(tab) == len(keep), f"{len(tab)} on the tab, {len(keep)} written")
+    # the recruits' keepsakes, plus the ones a moment gives (the Mural Shard, the first time the Crown's cutscene is
+    # seen: docs/crown_cutscene.md), which are found only too
+    sworn = {cid for cid in tab if (C.get_entry(cid).get("source") or "").startswith("sworn:")}
+    check(len(sworn) == len(keep), f"{len(sworn)} recruit keepsakes on the tab, {len(keep)} written")
 
     # 2
     for cid in tab:
         e = C.get_entry(cid)
-        check(e.get("found_only") and e.get("source", "").startswith("sworn:"), f"{cid}: can be sold")
+        check(e.get("found_only") and e.get("source", "").startswith(("sworn:", "cutscene:")), f"{cid}: can be sold")
     src = (ROOT / "world/market/market.py").read_text(encoding="utf-8")
     check('not e.get("found_only")' in src, "traders can list found-only collectables")
 

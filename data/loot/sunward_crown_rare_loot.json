@@ -1,0 +1,483 @@
+{
+  "_notes": "The Sunward Crown's open-world rares (49). ONE item per kill from the rare's four; item_level = the rare's level + 3. Hand-authored in tools/build_sunward_crown_content.py.",
+  "Old Sunantler": [
+    {
+      "name": "Sunantler Crown",
+      "slot": "head",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "primary_stats": {
+        "intellect": 10,
+        "spirit": 10
+      },
+      "secondary_stats": {
+        "healing_power": 28
+      },
+      "armor_type": "leather",
+      "armor_value": 144,
+      "stat_template": "spi_healer",
+      "item_id": "sci_sunantler_crown"
+    },
+    {
+      "name": "Gold-Velvet Cloak",
+      "slot": "back",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "primary_stats": {
+        "intellect": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "spell_power": 11
+      },
+      "stat_template": "int_caster",
+      "item_id": "sci_gold_velvet_cloak"
+    },
+    {
+      "name": "Stag-Hide Leggings",
+      "slot": "legs",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "primary_stats": {
+        "agility": 20,
+        "stamina": 20
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 170,
+      "stat_template": "agi_physical",
+      "item_id": "sci_stag_hide_leggings"
+    },
+    {
+      "name": "Herd King's Hooves",
+      "slot": "feet",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "primary_stats": {
+        "strength": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 283,
+      "stat_template": "str_physical",
+      "item_id": "sci_herd_kings_hooves"
+    }
+  ],
+  "The Dewdrinker": [
+    {
+      "name": "Dewdrinker's Coils",
+      "slot": "waist",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "primary_stats": {
+        "agility": 14,
+        "spirit": 14
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 189,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "sci_dewdrinkers_coils"
+    },
+    {
+      "name": "Falls-Wet Robe",
+      "slot": "chest",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "primary_stats": {
+        "intellect": 12,
+        "spirit": 12
+      },
+      "secondary_stats": {
+        "healing_power": 33
+      },
+      "armor_type": "cloth",
+      "armor_value": 85,
+      "stat_template": "spi_healer",
+      "item_id": "sci_falls_wet_robe"
+    },
+    {
+      "name": "Eelskin Gloves",
+      "slot": "hands",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "primary_stats": {
+        "strength": 14,
+        "agility": 14
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 118,
+      "stat_template": "agi_physical",
+      "item_id": "sci_eelskin_gloves"
+    },
+    {
+      "name": "Held-Under Band",
+      "slot": "ring",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "primary_stats": {
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "spell_power": 19,
+        "crit_chance_spell": 5
+      },
+      "stat_template": "int_caster",
+      "item_id": "sci_held_under_band"
+    }
+  ],
+  "Centurion Valeth Krane": [
+    {
+      "name": "Centurion's Crested Helm",
+      "slot": "head",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "primary_stats": {
+        "strength": 17,
+        "stamina": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 346,
+      "stat_template": "str_physical",
+      "item_id": "sci_centurions_crested_helm"
+    },
+    {
+      "name": "Line-Holder's Shield",
+      "slot": "off_hand",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 23
+      },
+      "armor_value": 106,
+      "block_value": 132,
+      "stat_template": "str_int_hybrid",
+      "item_id": "sci_line_holders_shield"
+    },
+    {
+      "name": "Ascendancy Officer's Gladius",
+      "slot": "main_hand",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "strength": 12,
+        "stamina": 16
+      },
+      "secondary_stats": {
+        "defense_rating": 9
+      },
+      "weapon_damage_min": 91,
+      "weapon_damage_max": 124,
+      "attack_speed": 2.4,
+      "stat_template": "str_physical",
+      "item_id": "sci_ascendancy_officers_gladius"
+    },
+    {
+      "name": "Orders in Crystal",
+      "slot": "neck",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "primary_stats": {
+        "intellect": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "spell_power": 11
+      },
+      "stat_template": "int_caster",
+      "item_id": "sci_orders_in_crystal"
+    }
+  ],
+  "Lance-Captain Varos Thale": [
+    {
+      "name": "Chainhold Lance",
+      "slot": "two_hand",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 30,
+        "stamina": 41
+      },
+      "secondary_stats": {
+        "defense_rating": 23
+      },
+      "weapon_damage_min": 124,
+      "weapon_damage_max": 167,
+      "attack_speed": 3.3,
+      "stat_template": "str_physical",
+      "item_id": "sci_chainhold_lance"
+    },
+    {
+      "name": "Lance-Captain's Pauldrons",
+      "slot": "shoulder",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "primary_stats": {
+        "agility": 17,
+        "spirit": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 231,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "sci_lance_captains_pauldrons"
+    },
+    {
+      "name": "Rider's Crystal Bracers",
+      "slot": "wrist",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 118,
+      "stat_template": "agi_physical",
+      "item_id": "sci_riders_crystal_bracers"
+    },
+    {
+      "name": "Captain's Signet",
+      "slot": "ring",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "primary_stats": {
+        "intellect": 8,
+        "spirit": 8
+      },
+      "secondary_stats": {
+        "healing_power": 20
+      },
+      "stat_template": "spi_healer",
+      "item_id": "sci_captains_signet"
+    }
+  ],
+  "The Stone That Woke": [
+    {
+      "name": "Seal-Warden's Girdle",
+      "slot": "waist",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "primary_stats": {
+        "strength": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 283,
+      "stat_template": "str_physical",
+      "item_id": "sci_seal_wardens_girdle"
+    },
+    {
+      "name": "Kharad Runestone",
+      "slot": "off_hand",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 9
+      },
+      "secondary_stats": {
+        "spell_power": 24,
+        "crit_chance_spell": 6
+      },
+      "stat_template": "int_caster",
+      "item_id": "sci_kharad_runestone"
+    },
+    {
+      "name": "Stone-Woken Gauntlets",
+      "slot": "hands",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "primary_stats": {
+        "strength": 14,
+        "intellect": 14
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 189,
+      "stat_template": "str_int_hybrid",
+      "item_id": "sci_stone_woken_gauntlets"
+    },
+    {
+      "name": "Ring-Carved Maul",
+      "slot": "two_hand",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 40,
+        "stamina": 40
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 124,
+      "weapon_damage_max": 167,
+      "attack_speed": 3.6,
+      "stat_template": "str_physical",
+      "item_id": "sci_ring_carved_maul"
+    }
+  ],
+  "The Hollow Storm": [
+    {
+      "name": "Eye of the Hollow Storm",
+      "slot": "trinket",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "primary_stats": {
+        "intellect": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "spell_power": 11
+      },
+      "stat_template": "int_caster",
+      "item_id": "sci_eye_of_the_hollow_storm"
+    },
+    {
+      "name": "Stormbank Shroud",
+      "slot": "shoulder",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "primary_stats": {
+        "intellect": 10,
+        "spirit": 10
+      },
+      "secondary_stats": {
+        "healing_power": 28
+      },
+      "armor_type": "cloth",
+      "armor_value": 72,
+      "stat_template": "spi_healer",
+      "item_id": "sci_stormbank_shroud"
+    },
+    {
+      "name": "Thunderstruck Vest",
+      "slot": "chest",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "primary_stats": {
+        "agility": 20,
+        "stamina": 20
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 170,
+      "stat_template": "agi_physical",
+      "item_id": "sci_thunderstruck_vest"
+    },
+    {
+      "name": "Charged Chain Leggings",
+      "slot": "legs",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "primary_stats": {
+        "agility": 20,
+        "spirit": 20
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 273,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "sci_charged_chain_leggings"
+    }
+  ],
+  "Mother Greatfin": [
+    {
+      "name": "Greatfin Mantle",
+      "slot": "back",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "primary_stats": {
+        "strength": 13,
+        "stamina": 13
+      },
+      "secondary_stats": {},
+      "stat_template": "str_physical",
+      "item_id": "sci_greatfin_mantle"
+    },
+    {
+      "name": "Song of the Deep Sky",
+      "slot": "neck",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "primary_stats": {
+        "intellect": 8,
+        "spirit": 8
+      },
+      "secondary_stats": {
+        "healing_power": 20
+      },
+      "stat_template": "spi_healer",
+      "item_id": "sci_song_of_the_deep_sky"
+    },
+    {
+      "name": "Whalebone Staff",
+      "slot": "two_hand",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 22,
+        "stamina": 22
+      },
+      "secondary_stats": {
+        "spell_power": 28
+      },
+      "weapon_damage_min": 50,
+      "weapon_damage_max": 68,
+      "attack_speed": 3.2,
+      "stat_template": "int_caster",
+      "item_id": "sci_whalebone_staff"
+    },
+    {
+      "name": "Cloudskin Boots",
+      "slot": "feet",
+      "item_level": 52,
+      "rarity": "rare",
+      "required_level": 49,
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 118,
+      "stat_template": "agi_physical",
+      "item_id": "sci_cloudskin_boots"
+    }
+  ]
+}

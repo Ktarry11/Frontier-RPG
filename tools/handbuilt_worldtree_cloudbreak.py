@@ -11,14 +11,15 @@ mural of three peoples under a golden sun. Walk up to it, and the game's first c
 
     The Cloud Way's top .. the bottom of the map (32,120): back down to the Upper Boughs
     The Mural ............ the stone wall at the top (32,9); the cutscene's trigger is the ground in front of it
-    the way through ...... behind the mural once it's broken: the Sunward Crown, when it's built
+    the way through ...... in front of the broken mural (32,13): the Sunward Crown. The cutscene takes you through
+                           the first time (the portal stands in the cutscene's trigger, so both land you at the gate)
 
 THE CLOUD. The drop is the module's sea field, painted as cloud, and the ground is painted foggy at the bottom and
 gold-lit at the top, so the climb goes from white to light.
 
 HARD CONTRACTS (world/portal_manager.py)
   portals  The Upper Boughs (32,120) <-> the Cloud Way (90,52)
-  later    The Sunward Crown (32,9), through the broken mural
+           The Sunward Crown (32,13) <-> the Mural Gate (100,164), through the broken mural
 """
 import numpy as np
 
@@ -30,9 +31,9 @@ W, H = 64, 124
 WTP = "assets/tiles/worldtree/props/"
 BLD = "assets/buildings/"
 
-PORTALS = {(32, 120): "The Upper Boughs"}
-ARRIVALS = [(32, 116)]
-LATER_PORTALS = {(32, 9): "The Sunward Crown"}
+PORTALS = {(32, 120): "The Upper Boughs", (32, 13): "The Sunward Crown"}
+ARRIVALS = [(32, 116), (32, 16)]
+LATER_PORTALS = {}
 START = (32, 116)
 
 #: the stone wall the mural is painted on, along the top

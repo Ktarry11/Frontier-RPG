@@ -96,6 +96,10 @@ class CollectionScreen(BaseScreen):
         """(line, colour, [(label, action)]) for one card."""
         from world import collection as C
         cid, kind = e["id"], e["kind"]
+        if kind == "keepsake" and e["effect"].get("cutscene"):
+            if not C.learned(cid):
+                return "You'll find it at the top of the World Tree.", DIM, []
+            return "Watch it again, wherever you are. It won't move you.", GREEN, [("Watch", "cutscene")]
         if kind == "keepsake":
             who = e["effect"]["from"].split()[0]
             if not C.learned(cid):
@@ -153,6 +157,8 @@ class CollectionScreen(BaseScreen):
         e = C.get_entry(cid)
         tm = self._travel()
         sm = self.state_manager
+        if action == "cutscene":
+            return sm.transition_to(GameState.CUTSCENE, current_cutscene=e["effect"]["cutscene"], cutscene_replay=True)
         if action == "ride":
             ok, msg = tm.choose_mount(cid, self._in_cave())
             return self._say(True, msg)

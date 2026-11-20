@@ -61,6 +61,7 @@ ZONE_POOLS = {
     "lower_boughs": ("pool_river", "pool_jungle"),         # the river down the Great Bough (20 Nov 2026)
     "middle_boughs": ("pool_fresh",),                      # rain held in hollows of the bark (20 Nov 2026)
     "upper_boughs": ("pool_fresh",),                       # rain caught in the forks (20 Nov 2026)
+    "sunward_crown": ("pool_fresh",),                      # dew pools in the golden canopy (20 Nov 2026)
     "raincatch": ("pool_fresh", "pool_reeds"),
     "kapok_crowns": ("pool_river", "pool_jungle"),
     "high_wilderness": ("pool_river", "pool_fresh"),       # Feralas's east arm: forest rivers and pools

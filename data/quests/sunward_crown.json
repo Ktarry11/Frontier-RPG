@@ -1,0 +1,3769 @@
+{
+  "quests": [
+    {
+      "quest_id": "scq_every_spear",
+      "title": "Every Spear He Can Get",
+      "giver_npc_id": "sc_gatewatch",
+      "zone": "sunward_crown",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "Gatewatcher Zul'mo counts every climber who comes up through the old wall. War-Leader Rakkuzi wants every one of them who can fight sent west to Spearhold.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "sc_q_gate_tally",
+          "count": 1,
+          "label": "Take Zul'mo's tally to War-Leader Rakkuzi at Spearhold"
+        }
+      ],
+      "accept_text": "I tie a knot in this cord for every climber who comes up through the wall, and the war-leader wants to know how many spears he's got. Take him the tally, and take yourself with it. Spearhold's west of here, at the back of the crown.",
+      "turn_in_text": "So that's every knot Zul'mo's tied, and you're the newest one.\n\nThat's good, because the sky people's soldiers fell on our parley, and they're sitting on the north arm of our tree like it's theirs. I need every spear I can get.",
+      "next_quest_id": "scq_spears_on_the_crown",
+      "turn_in_npc_id": "sc_warleader",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "sc_q_gate_tally",
+            "name": "Gatewatcher's Tally",
+            "description": "A knotted cord of bark fibre. Every knot is a climber who came up through the old wall.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Gatewatcher's Shield",
+          "slot": "off_hand",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 17,
+            "haste": 5
+          },
+          "armor_value": 382,
+          "required_level": 48,
+          "sell_price": 6520,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_shield_05",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 44
+        },
+        {
+          "name": "Gatewatcher's Greaves",
+          "slot": "feet",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 151,
+          "required_level": 48,
+          "sell_price": 5297,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_plate_03"
+        },
+        {
+          "name": "Gatewatcher's Robe",
+          "slot": "chest",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 10,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "healing_power": 27
+          },
+          "armor_value": 61,
+          "required_level": 48,
+          "sell_price": 8150,
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_chest_cloth_47"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_spears_on_the_crown",
+      "title": "Spears on the Crown",
+      "giver_npc_id": "sc_warleader",
+      "zone": "sunward_crown",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "War-Leader Rakkuzi wants the Ascendancy to learn what the Highbough's spears feel like. Every Ascendancy Legionary they could spare is holding the line across the north arm.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Ascendancy Legionary",
+          "count": 8,
+          "zone": "sunward_crown"
+        }
+      ],
+      "accept_text": "Every Ascendancy Legionary on the north arm is standing in one line with his shield locked, like the tree is a wall they're guarding. Go up the arm and break that line. I want them to know the Highbough doesn't ask politely.",
+      "turn_in_text": "They bleed like anyone else, then, and I'd been wondering.\n\nThe envoy from Orgrimmar will tell you that was a mistake. Go and listen to him if you want, but come back to me when he's finished.",
+      "next_quest_id": "scq_both_sides_of_the_stones",
+      "requires_quests": [
+        "scq_every_spear"
+      ],
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Spearhold Shield",
+          "slot": "off_hand",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 8,
+            "strength": 3
+          },
+          "secondary_stats": {
+            "block_value": 8
+          },
+          "armor_value": 382,
+          "required_level": 48,
+          "sell_price": 6520,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_16",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 44
+        },
+        {
+          "name": "Spearhold Breeches",
+          "slot": "legs",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 15,
+            "agility": 10
+          },
+          "secondary_stats": {
+            "dodge_rating": 8
+          },
+          "armor_value": 122,
+          "required_level": 48,
+          "sell_price": 8150,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_10"
+        },
+        {
+          "name": "Spearhold Gloves",
+          "slot": "hands",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "arcane_spell_power": 26
+          },
+          "armor_value": 42,
+          "required_level": 48,
+          "sell_price": 5297,
+          "identity": "arcane",
+          "icon_id": "gear_inv_gauntlets_30"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_count_the_lancers",
+      "title": "Count the Lancers",
+      "giver_npc_id": "sc_spear_scout",
+      "zone": "sunward_crown",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "Scout Jinra has counted the Ascendancy's lancers twice and come back with a bigger number each time. She wants someone to go right up to their fort on the Taken Crown and look.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "sunward_crown",
+          "target_x": 136,
+          "target_y": 42,
+          "radius": 4,
+          "label": "Get inside the Ascendancy's fort on the Taken Crown and count what's there"
+        }
+      ],
+      "accept_text": "I can't get past the humming poles without them seeing me, but you might. Go up the north arm to their fort on the Taken Crown and get a proper look. Count the tents and count the guns, and don't stop to fight anything that doesn't stop you first.",
+      "turn_in_text": "Six tents and two of the lightning guns, and a standard as tall as a hut.\n\nThat's more than I counted the second time. They're not raiding us, they're moving in.",
+      "next_quest_id": "scq_humming_poles",
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Lancer-Counter's Spear",
+          "slot": "main_hand",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 19,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 48
+          },
+          "armor_value": 0,
+          "required_level": 48,
+          "sell_price": 10187,
+          "identity": "strength",
+          "icon_id": "gear_inv_spear_03",
+          "weapon_damage_min": 89,
+          "weapon_damage_max": 121,
+          "attack_speed": 3.3,
+          "block_value": 0
+        },
+        {
+          "name": "Lancer-Counter's Hood",
+          "slot": "head",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 52,
+          "required_level": 48,
+          "sell_price": 6520,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_61"
+        },
+        {
+          "name": "Lancer-Counter's Grips",
+          "slot": "hands",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 7,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 85,
+          "required_level": 48,
+          "sell_price": 5297,
+          "identity": "feral",
+          "icon_id": "gear_inv_gauntlets_10"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_humming_poles",
+      "title": "The Humming Poles",
+      "giver_npc_id": "sc_spear_scout",
+      "zone": "sunward_crown",
+      "level_min": 48,
+      "level_max": 49,
+      "description": "The Ascendancy Shield Drones hold up the shields on the Taken Crown. Jinra thinks the crystal lenses inside them are what make the poles hum.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sc_q_shield_focus",
+          "count": 5
+        }
+      ],
+      "accept_text": "The poles hum because of the Ascendancy Shield Drones floating round them, and every drone carries a lens of blue crystal. Bring me those Shield Foci. If I know how they work, I'll find out how to make them stop.",
+      "turn_in_text": "They're still humming, even in my hand.\n\nI'll give these to the witch doctor. If anyone can work out how to make a shield go quiet, it's Zanshi.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "scq_count_the_lancers"
+      ],
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "unique_item_defs": [
+        {
+          "name": "Polebreaker's Legguards",
+          "slot": "legs",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "nature_spell_power": 27,
+            "haste": 9
+          },
+          "armor_value": 200,
+          "required_level": 48,
+          "sell_price": 8503,
+          "identity": "storm",
+          "icon_id": "gear_inv_pants_10"
+        },
+        {
+          "name": "Polebreaker's Cloak",
+          "slot": "back",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 19
+          },
+          "armor_value": 38,
+          "required_level": 48,
+          "sell_price": 4677,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_10"
+        },
+        {
+          "name": "Polebreaker's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 273,
+          "required_level": 48,
+          "sell_price": 6802,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_03"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_centurion_valeth_krane",
+      "title": "Centurion Valeth Krane",
+      "giver_npc_id": "sc_warleader",
+      "zone": "sunward_crown",
+      "level_min": 49,
+      "level_max": 49,
+      "description": "The officer who holds the Taken Crown is Centurion Valeth Krane, and his soldiers won't give ground while he's alive. Rakkuzi has heard what the orders say, and he wants Krane dead anyway.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Centurion Valeth Krane",
+          "count": 1,
+          "zone": "sunward_crown"
+        }
+      ],
+      "accept_text": "Your envoy proved the scholars didn't call the soldiers down, and fine, I believe him. They're still on my tree. Centurion Valeth Krane holds the north arm, and while he stands, his line stands. Go up there and put him down.",
+      "turn_in_text": "Krane's dead, and his line's falling back to the tip of the arm.\n\nZan'kaji will hear about this tonight. We don't have the north arm back yet, but now they know we're coming for it.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "scq_carry_it_to_the_war_leader"
+      ],
+      "reward_exp": 4628,
+      "reward_gold": 18330,
+      "unique_item_defs": [
+        {
+          "name": "Centurion's Bane Staff",
+          "slot": "main_hand",
+          "item_level": 51,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 25,
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "attack_power": 63
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 16620,
+          "identity": "agility",
+          "icon_id": "gear_inv_staff_30",
+          "weapon_damage_min": 121,
+          "weapon_damage_max": 164,
+          "attack_speed": 3.6,
+          "block_value": 0
+        },
+        {
+          "name": "Centurion's Bane Belt",
+          "slot": "waist",
+          "item_level": 51,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 11,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 115,
+          "required_level": 49,
+          "sell_price": 7313,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_27"
+        },
+        {
+          "name": "Centurion's Bane Band",
+          "slot": "ring",
+          "item_level": 51,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 7978,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_ring_24"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "scq_rays_over_the_islets",
+      "title": "Rays Over the Islets",
+      "giver_npc_id": "sc_wyvern_rider",
+      "zone": "sunward_crown",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "Rider Taz'kal's wyverns won't fly anywhere near the Driftlets. The Drift Rays and Cloud Jellies that drift over the islets have them shaking in their roosts.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Drift Ray",
+          "count": 7,
+          "zone": "sunward_crown"
+        },
+        {
+          "type": "kill",
+          "target": "Cloud Jelly",
+          "count": 5,
+          "zone": "sunward_crown"
+        }
+      ],
+      "accept_text": "My wyverns won't go near the Driftlets, the islets chained off the south side of the cloud. The Drift Rays glide round them like they own the sky, and every Cloud Jelly stings anything that comes close. Thin them out, and maybe my wyverns will remember they're wyverns.",
+      "turn_in_text": "One of them flew over the first islet this morning, and she came back proud of herself.\n\nThere's something bigger out there that they're still scared of, though. I've seen its shadow on the cloud.",
+      "next_quest_id": "scq_mother_greatfin",
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Islet Rider's Breastplate",
+          "slot": "chest",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 33
+          },
+          "armor_value": 295,
+          "required_level": 48,
+          "sell_price": 8150,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_chest_plate16"
+        },
+        {
+          "name": "Islet Rider's Slippers",
+          "slot": "feet",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 21
+          },
+          "armor_value": 42,
+          "required_level": 48,
+          "sell_price": 5297,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_04"
+        },
+        {
+          "name": "Islet Rider's Wristguards",
+          "slot": "wrist",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 16
+          },
+          "armor_value": 136,
+          "required_level": 48,
+          "sell_price": 4075,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_bracer_07"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_mother_greatfin",
+      "title": "Mother Greatfin",
+      "giver_npc_id": "sc_wyvern_rider",
+      "zone": "sunward_crown",
+      "level_min": 49,
+      "level_max": 49,
+      "description": "A sky whale bigger than any of the others glides round the Driftlets, and Taz'kal's wyverns won't fly while it's in the sky. He calls her Mother Greatfin.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Mother Greatfin",
+          "count": 1,
+          "zone": "sunward_crown"
+        }
+      ],
+      "accept_text": "There's a whale out over the Driftlets the size of a longhouse, and the others follow her like calves. I call her Mother Greatfin. My wyverns won't leave their roosts while she's singing. Go out over the chains and bring her down.",
+      "turn_in_text": "The song's stopped, and every wyvern in Spearhold's in the air.\n\nI'm sorry it had to be her. She's the biggest living thing I've ever seen, and I hope there are more like her somewhere out there.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "scq_rays_over_the_islets"
+      ],
+      "reward_exp": 4628,
+      "reward_gold": 18330,
+      "unique_item_defs": [
+        {
+          "name": "Greatfin Longbow",
+          "slot": "ranged",
+          "item_level": 51,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 9,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 10637,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_10",
+          "weapon_damage_min": 76,
+          "weapon_damage_max": 103,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Greatfin Coif",
+          "slot": "head",
+          "item_level": 51,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 36
+          },
+          "armor_value": 239,
+          "required_level": 49,
+          "sell_price": 10637,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_30"
+        },
+        {
+          "name": "Greatfin Leggings",
+          "slot": "legs",
+          "item_level": 51,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 18
+          },
+          "secondary_stats": {
+            "spell_power": 42
+          },
+          "armor_value": 98,
+          "required_level": 49,
+          "sell_price": 13296,
+          "identity": "caster",
+          "icon_id": "gear_inv_pants_03"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "scq_eels_at_the_falls",
+      "title": "Eels at the Falls",
+      "giver_npc_id": "sc_wyvern_rider",
+      "zone": "sunward_crown",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "The Falls Eels and Mossback Tortoises at the Falls of Light have been taking the wyverns when they come down to drink.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Falls Eel",
+          "count": 8,
+          "zone": "sunward_crown"
+        },
+        {
+          "type": "kill",
+          "target": "Mossback Tortoise",
+          "count": 4,
+          "zone": "sunward_crown"
+        }
+      ],
+      "accept_text": "My wyverns drink at the Falls of Light on the south side of the crown, and the Falls Eels have already taken two of them off the bank. The Mossback Tortoises are worse, because they'll sit in the water and wait. Clear the bank, so my wyverns can drink.",
+      "turn_in_text": "That bank's safe again, for now.\n\nDak'zin hunts down there. He'll have heard you, and he'll want to talk to you about the big eel.",
+      "next_quest_id": "scq_the_dewdrinker",
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Fallswatcher's Knife",
+          "slot": "main_hand",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 48,
+          "sell_price": 7742,
+          "identity": "agility",
+          "icon_id": "gear_inv_throwingknife_02",
+          "weapon_damage_min": 66,
+          "weapon_damage_max": 90,
+          "attack_speed": 1.7,
+          "block_value": 0
+        },
+        {
+          "name": "Fallswatcher's Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 104,
+          "required_level": 48,
+          "sell_price": 6520,
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_25"
+        },
+        {
+          "name": "Fallswatcher's Sabatons",
+          "slot": "feet",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 204,
+          "required_level": 48,
+          "sell_price": 5297,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_plate_01"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_old_sunantler",
+      "title": "Old Sunantler",
+      "giver_npc_id": "sc_wyvern_rider",
+      "zone": "sunward_crown",
+      "level_min": 49,
+      "level_max": 49,
+      "description": "The Sunlit Stags of the Goldenwood follow an old king with antlers like a crown of light. Taz'kal says no rider on the crown has earned a trophy yet, and he wants the first one to be that stag's.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Old Sunantler",
+          "count": 1,
+          "zone": "sunward_crown"
+        }
+      ],
+      "accept_text": "Up in the Goldenwood on the north arm there's a stag the others won't walk in front of. His antlers catch the sun and throw it back at you, and the trolls who've seen him call him Old Sunantler. Every rider on the crown wants him. I want you to get him first.",
+      "turn_in_text": "That's a trophy no one at the Settlement will believe.\n\nWe'll hang the antlers over the war-leader's fire. He'll pretend he doesn't like them.",
+      "next_quest_id": null,
+      "reward_exp": 4628,
+      "reward_gold": 18330,
+      "unique_item_defs": [
+        {
+          "name": "Sunantler Tome",
+          "slot": "off_hand",
+          "item_level": 51,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 9,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 39
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 7978,
+          "identity": "healer",
+          "icon_id": "gear_inv_tome_5",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        },
+        {
+          "name": "Sunantler Handguards",
+          "slot": "hands",
+          "item_level": 51,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 16,
+            "strength": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 13
+          },
+          "armor_value": 417,
+          "required_level": 49,
+          "sell_price": 8642,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_24"
+        },
+        {
+          "name": "Sunantler Girdle",
+          "slot": "waist",
+          "item_level": 51,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 10,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 185,
+          "required_level": 49,
+          "sell_price": 7313,
+          "identity": "hunter",
+          "icon_id": "gear_inv_belt_12"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "scq_spirits_in_the_light",
+      "title": "Spirits in the Light",
+      "giver_npc_id": "sc_witchdoctor",
+      "zone": "sunward_crown",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "Witch Doctor Zanshi sees a light rising through the cloud where the old stones sink into it, and things are coming up with it. The Seal-Touched Shades round the ring frighten her.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Seal-Touched Shade",
+          "count": 6,
+          "zone": "sunward_crown"
+        }
+      ],
+      "accept_text": "There's a ring of old stone out on the cloud, north-east of the stones where the parley was. Light's leaking up out of the middle of it, and Seal-Touched Shades are coming up with the light. They're not spirits I know, and the loa go quiet when I ask about them. Send them back where they came from.",
+      "turn_in_text": "They came apart like smoke, and there was nothing behind them.\n\nThe loa still won't talk to me about that ring, and I've never known them to be scared of anything.",
+      "next_quest_id": "scq_what_the_loa_wont_say",
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Light-Watcher's Mace",
+          "slot": "main_hand",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 0,
+          "required_level": 48,
+          "sell_price": 7742,
+          "identity": "healer",
+          "icon_id": "gear_inv_mace_16",
+          "weapon_damage_min": 66,
+          "weapon_damage_max": 90,
+          "attack_speed": 2.6,
+          "block_value": 0
+        },
+        {
+          "name": "Light-Watcher's Jerkin",
+          "slot": "chest",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 12,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 122,
+          "required_level": 48,
+          "sell_price": 8150,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_02"
+        },
+        {
+          "name": "Light-Watcher's Pendant",
+          "slot": "neck",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 19
+          },
+          "armor_value": 0,
+          "required_level": 48,
+          "sell_price": 4890,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_amulet_04"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_what_the_loa_wont_say",
+      "title": "What the Loa Won't Say",
+      "giver_npc_id": "sc_witchdoctor",
+      "zone": "sunward_crown",
+      "level_min": 48,
+      "level_max": 49,
+      "description": "The guardians round the old ring are covered in runes nobody on the tree can read. Zanshi swallows her pride and sends you to the Aetherian archivist who's been studying the stones.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sc_q_rune_shard",
+          "count": 5
+        }
+      ],
+      "accept_text": "If the loa won't tell me what that ring is, then I'll ask someone who can read it. The Waking Guardians round it are cut all over with old runes. Bring Rune-Cut Shards off them to the pale archivist who sits by the ring, and tell him a troll witch doctor sent you. I'd like to see his face.",
+      "turn_in_text": "A troll witch doctor sent you, did she? I'll admit I didn't expect that.\n\nThese are the same runes that are cut into the ring. They're Kharad, older than my people, and every one of them is a warning. Your witch doctor was right to be frightened.",
+      "next_quest_id": "scq_keep_it_shut",
+      "turn_in_npc_id": "sc_seal_watcher",
+      "requires_quests": [
+        "scq_spirits_in_the_light"
+      ],
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "unique_item_defs": [
+        {
+          "name": "Runereader's Greatsword",
+          "slot": "main_hand",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 19,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 49
+          },
+          "armor_value": 0,
+          "required_level": 48,
+          "sell_price": 10629,
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_14",
+          "weapon_damage_min": 91,
+          "weapon_damage_max": 123,
+          "attack_speed": 3.4,
+          "block_value": 0
+        },
+        {
+          "name": "Runereader's Bracers",
+          "slot": "wrist",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 86,
+          "required_level": 48,
+          "sell_price": 4251,
+          "identity": "agility",
+          "icon_id": "gear_inv_bracer_13"
+        },
+        {
+          "name": "Runereader's Hood",
+          "slot": "head",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "spell_power": 26
+          },
+          "armor_value": 53,
+          "required_level": 48,
+          "sell_price": 6802,
+          "identity": "caster",
+          "icon_id": "gear_inv_helmet_03"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_two_brothers",
+      "title": "Two Brothers",
+      "giver_npc_id": "sc_line_scout",
+      "zone": "sunward_crown",
+      "level_min": 48,
+      "level_max": 49,
+      "description": "Scout Muzza lost his two brothers to the sky lancers on the Taken Crown. The lancers took their spears as trophies, and Muzza wants them back.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sc_q_brothers_spear",
+          "count": 2
+        }
+      ],
+      "accept_text": "My brothers went past the humming poles before any of us knew what the lancers could do. The Ascendancy Sky Lancers took their spears and carry them like prizes. Bring them back to me. I want to give them to our mother, because she'll never get anything else.",
+      "turn_in_text": "That's Jaz'ri's spear, and that's Tok's. Tok painted the haft badly, and he never let anyone fix it.\n\nThank you. I'll take them down the tree myself when this is over.",
+      "next_quest_id": null,
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "unique_item_defs": [
+        {
+          "name": "Brother's Hauberk",
+          "slot": "chest",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 10,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "attack_power": 31
+          },
+          "armor_value": 238,
+          "required_level": 48,
+          "sell_price": 8503,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_09"
+        },
+        {
+          "name": "Brother's Sash",
+          "slot": "waist",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 21
+          },
+          "armor_value": 43,
+          "required_level": 48,
+          "sell_price": 4677,
+          "identity": "caster",
+          "icon_id": "gear_inv_belt_35"
+        },
+        {
+          "name": "Brother's Sabatons",
+          "slot": "feet",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 10
+          },
+          "armor_value": 312,
+          "required_level": 48,
+          "sell_price": 5527,
+          "identity": "tank",
+          "icon_id": "gear_inv_boots_01"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_the_dewdrinker",
+      "title": "The Dewdrinker",
+      "giver_npc_id": "sc_falls_hunter",
+      "zone": "sunward_crown",
+      "level_min": 49,
+      "level_max": 49,
+      "description": "Hunter Dak'zin has hunted the falls for weeks and seen the same eel every time, bigger than a canoe and coiled under the spring. He calls it the Dewdrinker.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Dewdrinker",
+          "count": 1,
+          "zone": "sunward_crown"
+        }
+      ],
+      "accept_text": "There's an eel in the Falls of Light as long as a canoe, and it drinks from the spring like it's been doing it for a hundred years. I call it the Dewdrinker. I've had my spear in it twice, and twice it pulled me under. Go and finish what I started.",
+      "turn_in_text": "So that's where you put the spear in one of these.\n\nI'll remember it. Every hunter on this crown is going to want to know.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "scq_eels_at_the_falls"
+      ],
+      "reward_exp": 4628,
+      "reward_gold": 18330,
+      "unique_item_defs": [
+        {
+          "name": "Dewdrinker Grips",
+          "slot": "hands",
+          "item_level": 51,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 11,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 115,
+          "required_level": 49,
+          "sell_price": 8642,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_04"
+        },
+        {
+          "name": "Dewdrinker Spaulders",
+          "slot": "shoulder",
+          "item_level": 51,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 36
+          },
+          "armor_value": 239,
+          "required_level": 49,
+          "sell_price": 10637,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_shoulder_24"
+        },
+        {
+          "name": "Dewdrinker Pendant",
+          "slot": "neck",
+          "item_level": 51,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 26
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 7978,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_necklace_04"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "scq_both_sides_of_the_stones",
+      "title": "Both Sides of the Stones",
+      "giver_npc_id": "sc_envoy",
+      "zone": "sunward_crown",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "Envoy Garrok Blackmane was sent by the Warchief to keep the Horde out of a war it doesn't understand. He wants to hear from the troll who stood at the parley, Speaker Hezza.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "sc_q_envoys_token",
+          "count": 1,
+          "label": "Take the envoy's token to Speaker Hezza at the Parley Stones"
+        }
+      ],
+      "accept_text": "The war-leader says the scholars called their soldiers down on the parley. The scholars say they didn't. Only one troll was standing on those stones when it happened, and that's Speaker Hezza. Take her my token so she knows I sent you, and hear what she has to say.",
+      "turn_in_text": "That's Orgrimmar's token, so somebody's finally asking me instead of shouting.\n\nI was standing right here when the ship came down, and I saw the pale one's face across from me. He was as surprised as I was.",
+      "next_quest_id": "scq_what_hezza_saw",
+      "turn_in_npc_id": "sc_parley_troll",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "sc_q_envoys_token",
+            "name": "Envoy's Token",
+            "description": "An iron disc stamped with the Horde's mark, the sort an envoy gives to show who sent you.",
+            "count": 1
+          }
+        ]
+      },
+      "requires_quests": [
+        "scq_spears_on_the_crown"
+      ],
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Envoy's Cloak",
+          "slot": "back",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21,
+            "hit_rating": 5
+          },
+          "armor_value": 37,
+          "required_level": 48,
+          "sell_price": 4482,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_21"
+        },
+        {
+          "name": "Envoy's Cuffs",
+          "slot": "wrist",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 25
+          },
+          "armor_value": 42,
+          "required_level": 48,
+          "sell_price": 4075,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_09"
+        },
+        {
+          "name": "Envoy's Legplates",
+          "slot": "legs",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 30
+          },
+          "armor_value": 317,
+          "required_level": 48,
+          "sell_price": 8150,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_14"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_what_hezza_saw",
+      "title": "What Hezza Saw",
+      "giver_npc_id": "sc_parley_troll",
+      "zone": "sunward_crown",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "Speaker Hezza says the Ascendancy war skiff that came down on the parley carries its own soldiers' marks. She wants you to look at the wreck, and then tell the scholar who stood across from her.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "sunward_crown",
+          "target_x": 182,
+          "target_y": 116,
+          "radius": 4,
+          "label": "Look over the burnt war skiff at the Parley Stones"
+        }
+      ],
+      "accept_text": "Look at the ship that came down on us, the burnt one at the edge of the stones. The marks on its side are the soldiers' marks, not the scholars'. When you've seen them, go and tell Ilaren Vey, the pale one standing over there. He'll read them better than either of us.",
+      "turn_in_text": "You've been to the wreck. I saw you standing at it.\n\nThose are the Ascendancy's marks, and the skiff was fitted to fire before it ever came down. They didn't come to keep the peace. They came to break it, and they weren't fussy about who was standing on the stones.",
+      "next_quest_id": "scq_orders_under_seal",
+      "turn_in_npc_id": "sc_parley_scholar",
+      "requires_quests": [
+        "scq_both_sides_of_the_stones"
+      ],
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Speaker's Cap",
+          "slot": "head",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 12,
+            "agility": 9
+          },
+          "secondary_stats": {
+            "dodge_rating": 7
+          },
+          "armor_value": 123,
+          "required_level": 48,
+          "sell_price": 6520,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_38"
+        },
+        {
+          "name": "Speaker's Band",
+          "slot": "ring",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 5,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "healing_power": 23
+          },
+          "armor_value": 0,
+          "required_level": 48,
+          "sell_price": 4890,
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_ring_22"
+        },
+        {
+          "name": "Speaker's Gauntlets",
+          "slot": "hands",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 7,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 19
+          },
+          "armor_value": 136,
+          "required_level": 48,
+          "sell_price": 5297,
+          "identity": "earthen",
+          "icon_id": "gear_inv_gauntlets_05"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_orders_under_seal",
+      "title": "Orders Under Seal",
+      "giver_npc_id": "sc_parley_scholar",
+      "zone": "sunward_crown",
+      "level_min": 48,
+      "level_max": 49,
+      "description": "Ilaren Vey says every Ascendancy Legionary carries a copy of his orders, sealed in crystal. If he can read them, he can prove who sent the soldiers to the parley.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sc_q_legion_orders",
+          "count": 3
+        }
+      ],
+      "accept_text": "Every Ascendancy Legionary carries his orders sealed in crystal, so he can't forget them and can't change them. The legionaries on the Taken Crown will have the orders for the parley. Bring me their Sealed Legion Orders, and I'll show your envoy what my own people meant to do.",
+      "turn_in_text": "Here, in the second plate, it's plain enough. Strike the parley, and take the crown while both sides blame each other.\n\nThey meant to kill me too. I knew it when the ship came down, but it's different reading it.",
+      "next_quest_id": "scq_carry_it_to_the_war_leader",
+      "requires_quests": [
+        "scq_what_hezza_saw"
+      ],
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "unique_item_defs": [
+        {
+          "name": "Patient Lens Staff",
+          "slot": "main_hand",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 21
+          },
+          "secondary_stats": {
+            "spell_power": 47
+          },
+          "armor_value": 0,
+          "required_level": 48,
+          "sell_price": 10629,
+          "identity": "caster",
+          "icon_id": "gear_inv_staff_09",
+          "weapon_damage_min": 37,
+          "weapon_damage_max": 50,
+          "attack_speed": 3.2,
+          "block_value": 0
+        },
+        {
+          "name": "Patient Lens Jerkin",
+          "slot": "chest",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 31
+          },
+          "armor_value": 125,
+          "required_level": 48,
+          "sell_price": 8503,
+          "identity": "strength",
+          "icon_id": "gear_inv_chest_leather_04"
+        },
+        {
+          "name": "Patient Lens Waistguard",
+          "slot": "waist",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 23
+          },
+          "armor_value": 208,
+          "required_level": 48,
+          "sell_price": 4677,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_belt_30"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_carry_it_to_the_war_leader",
+      "title": "Carry It to the War-Leader",
+      "giver_npc_id": "sc_envoy",
+      "zone": "sunward_crown",
+      "level_min": 49,
+      "level_max": 49,
+      "description": "Ilaren Vey's reading of the legion's orders proves the survey didn't call the soldiers down. Garrok wants the war-leader to hear it from someone who fought on the Taken Crown.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "sc_q_read_orders",
+          "count": 1,
+          "label": "Take Ilaren's reading of the orders to War-Leader Rakkuzi"
+        }
+      ],
+      "accept_text": "The scholar didn't call his soldiers down, and here's the proof in his own writing. Rakkuzi won't take it from me, because I'm Orgrimmar's and he thinks I want to stop his war. He might take it from you, though, because you've bled on that arm. Take it to him.",
+      "turn_in_text": "So the pale one didn't call them down, and his own people meant to kill him too.\n\nAll right, I'll stop calling the scholars liars. That doesn't put the soldiers off my tree, and it doesn't stop my war.",
+      "next_quest_id": "scq_centurion_valeth_krane",
+      "turn_in_npc_id": "sc_warleader",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "sc_q_read_orders",
+            "name": "Ilaren's Reading of the Orders",
+            "description": "A sheet of fine Aetherian paper in Ilaren Vey's careful hand, with the legion's orders written out in a language you can read.",
+            "count": 1
+          }
+        ]
+      },
+      "requires_quests": [
+        "scq_orders_under_seal"
+      ],
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "unique_item_defs": [
+        {
+          "name": "Truthbearer's Mantle",
+          "slot": "shoulder",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "spell_power": 26
+          },
+          "armor_value": 72,
+          "required_level": 49,
+          "sell_price": 6802,
+          "identity": "caster",
+          "icon_id": "gear_inv_shoulder_22"
+        },
+        {
+          "name": "Truthbearer's Breeches",
+          "slot": "legs",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 31
+          },
+          "armor_value": 125,
+          "required_level": 49,
+          "sell_price": 8503,
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_06"
+        },
+        {
+          "name": "Truthbearer's Vambraces",
+          "slot": "wrist",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 10
+          },
+          "armor_value": 224,
+          "required_level": 49,
+          "sell_price": 4251,
+          "identity": "tank",
+          "icon_id": "gear_inv_bracer_02"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_a_guest_of_the_house",
+      "title": "A Guest of the House",
+      "giver_npc_id": "sc_dockhand",
+      "zone": "sunward_crown",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "Dockmaster Saren Holt keeps the gangway to Lenswatch, the survey's camp. The surveyor wants to meet everyone who comes up the tree, and you're next.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "sc_q_dock_pass",
+          "count": 1,
+          "label": "Cross the gangway and give the pass to Surveyor-Captain Destren in Lenswatch"
+        }
+      ],
+      "accept_text": "The surveyor's asked to meet every climber who comes up through the wall, and you're the one I've got. Take this pass over the gangway to Lenswatch and give it to Surveyor-Captain Destren in the court. They'll give you a bed there, which is more than the trolls will.",
+      "turn_in_text": "You came, then. Sit down, please, and don't mind the lens.\n\nI've spent a year watching your world through it, and now you're standing in front of me. You're shorter than I expected, and much louder.",
+      "next_quest_id": "scq_what_the_ground_thinks",
+      "turn_in_npc_id": "lw_surveyor",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "sc_q_dock_pass",
+            "name": "Dockmaster's Pass",
+            "description": "A slip of white card stamped with the eye of the House of the Patient Lens.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Guest's Shield",
+          "slot": "off_hand",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 17,
+            "haste": 5
+          },
+          "armor_value": 382,
+          "required_level": 48,
+          "sell_price": 6520,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_shield_18",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 44
+        },
+        {
+          "name": "Guest's Greaves",
+          "slot": "feet",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 136,
+          "required_level": 48,
+          "sell_price": 5297,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_08"
+        },
+        {
+          "name": "Guest's Robe",
+          "slot": "chest",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 10,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "healing_power": 27
+          },
+          "armor_value": 61,
+          "required_level": 48,
+          "sell_price": 8150,
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_shirt_11"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_what_the_ground_thinks",
+      "title": "What the Ground Thinks",
+      "giver_npc_id": "lw_surveyor",
+      "zone": "sunward_crown",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "Surveyor-Captain Destren wants to understand the crown, starting with the sungrass that grows on it. No plant in the upper sky stores light the way the tree's does.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "herb_sungrass",
+          "count": 6,
+          "label": "Gather sungrass on the crown"
+        }
+      ],
+      "accept_text": "Your herbalists call it sungrass, and it does something no plant in the upper sky can do. It holds the day's light and gives it back at dusk. Gather me some off the crown. I'd like to know why the tree can make something my whole people can't.",
+      "turn_in_text": "It's warm, even in the shade of the court.\n\nWe make light out of crystal and we spend it. Your tree makes light out of nothing and saves it for later. I'll be writing about this for a month.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "scq_a_guest_of_the_house"
+      ],
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Surveyor's Shield",
+          "slot": "off_hand",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 8,
+            "strength": 3
+          },
+          "secondary_stats": {
+            "block_value": 8
+          },
+          "armor_value": 382,
+          "required_level": 48,
+          "sell_price": 6520,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_13",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 44
+        },
+        {
+          "name": "Surveyor's Breeches",
+          "slot": "legs",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 15,
+            "agility": 10
+          },
+          "secondary_stats": {
+            "dodge_rating": 8
+          },
+          "armor_value": 122,
+          "required_level": 48,
+          "sell_price": 8150,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_11"
+        },
+        {
+          "name": "Surveyor's Gloves",
+          "slot": "hands",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "arcane_spell_power": 26
+          },
+          "armor_value": 42,
+          "required_level": 48,
+          "sell_price": 5297,
+          "identity": "arcane",
+          "icon_id": "gear_inv_gauntlets_17"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_the_stolen_copy",
+      "title": "The Stolen Copy",
+      "giver_npc_id": "lw_archivist",
+      "zone": "sunward_crown",
+      "level_min": 48,
+      "level_max": 49,
+      "description": "Archivist Tavian Rell writes everything down twice. The Ascendancy took his first copy when they came down on the stones, and their Bombardiers and Artillerists on the Chainhold have been passing the pages round.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sc_q_survey_page",
+          "count": 6
+        }
+      ],
+      "accept_text": "When the soldiers came down on the stones they took my first copy of everything we'd learned, and now it's on the Chainhold, the islet chained off the north edge of the cloud. The Ascendancy Bombardiers and Artillerists there carry the pages folded up in their packs. Bring me my Stolen Survey Pages, every one you can find.",
+      "turn_in_text": "They've been reading them, look, there are notes in the margins.\n\nEvery note's about the old ring in the cloud. They weren't after our measurements of the tree at all. They wanted to know what we'd learned about the seal.",
+      "next_quest_id": null,
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "unique_item_defs": [
+        {
+          "name": "Archivist's Spear",
+          "slot": "main_hand",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 19,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 49
+          },
+          "armor_value": 0,
+          "required_level": 48,
+          "sell_price": 10629,
+          "identity": "strength",
+          "icon_id": "gear_inv_weapon_halberd_09",
+          "weapon_damage_min": 91,
+          "weapon_damage_max": 123,
+          "attack_speed": 3.3,
+          "block_value": 0
+        },
+        {
+          "name": "Archivist's Hood",
+          "slot": "head",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 53,
+          "required_level": 48,
+          "sell_price": 6802,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_57"
+        },
+        {
+          "name": "Archivist's Grips",
+          "slot": "hands",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 7,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 86,
+          "required_level": 48,
+          "sell_price": 5527,
+          "identity": "feral",
+          "icon_id": "gear_inv_gauntlets_11"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_mark_the_rifts",
+      "title": "Mark the Rifts",
+      "giver_npc_id": "lw_lensmaster",
+      "zone": "sunward_crown",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "Lensmaster Coryn Aldaer can see a coin on the ground from Lenswatch, but he can't see where the cloud is too thin to stand on. He wants three of the tears in the shelf marked for the lens.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "sunward_crown",
+          "target_x": 230,
+          "target_y": 104,
+          "radius": 4,
+          "label": "Mark the tear north of the Annex"
+        },
+        {
+          "type": "explore",
+          "target": "sunward_crown",
+          "target_x": 197,
+          "target_y": 146,
+          "radius": 4,
+          "label": "Mark the tear west of the Annex"
+        },
+        {
+          "type": "explore",
+          "target": "sunward_crown",
+          "target_x": 262,
+          "target_y": 154,
+          "radius": 4,
+          "label": "Mark the tear south of the Survey Dock"
+        }
+      ],
+      "accept_text": "The great lens looks straight through cloud, and that's the trouble, because it can't tell me where the cloud stops holding you up. There are three tears in the shelf I want marked, one north of the Annex, one west of it and one south of the dock. Stand at the edge of each one so I can fix it in the lens.",
+      "turn_in_text": "I watched you at every one of them. You stood far closer to the edge than I'd have dared.\n\nThe tears are wider than they were a month ago. The cloud's thinning, and I don't know why.",
+      "next_quest_id": null,
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Riftmarker's Legguards",
+          "slot": "legs",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "nature_spell_power": 30,
+            "haste": 8
+          },
+          "armor_value": 196,
+          "required_level": 48,
+          "sell_price": 8150,
+          "identity": "storm",
+          "icon_id": "gear_inv_pants_09"
+        },
+        {
+          "name": "Riftmarker's Cloak",
+          "slot": "back",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 19
+          },
+          "armor_value": 51,
+          "required_level": 48,
+          "sell_price": 4482,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_19"
+        },
+        {
+          "name": "Riftmarker's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 280,
+          "required_level": 48,
+          "sell_price": 6520,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_24"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_storm_readings",
+      "title": "Storm Readings",
+      "giver_npc_id": "lw_lensmaster",
+      "zone": "sunward_crown",
+      "level_min": 48,
+      "level_max": 49,
+      "description": "The Stormbank, the dark cloud south-east of the shelf, has been getting heavier. Coryn wants Charged Motes from the Bolt-Born Elementals to read how much lightning it's holding.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sc_q_charged_mote",
+          "count": 6
+        },
+        {
+          "type": "kill",
+          "target": "Stormbank Thunderbird",
+          "count": 5,
+          "zone": "sunward_crown"
+        }
+      ],
+      "accept_text": "The Stormbank's been getting darker every day, and the lens can't see into it at all. The Bolt-Born Elementals in it leave Charged Motes when they come apart, and each mote holds a little of the storm's charge. Bring me some, and while you're in there, keep the Stormbank Thunderbirds off you. They're drawn to anyone carrying a mote.",
+      "turn_in_text": "There's twice as much charge in these as there should be.\n\nSomething in the middle of the Stormbank is pulling the lightning in and holding it. I'd very much like to know what it is.",
+      "next_quest_id": "scq_the_hollow_storm",
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "unique_item_defs": [
+        {
+          "name": "Stormreader's Staff",
+          "slot": "main_hand",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 19,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 49
+          },
+          "armor_value": 0,
+          "required_level": 48,
+          "sell_price": 10629,
+          "identity": "agility",
+          "icon_id": "gear_inv_staff_13",
+          "weapon_damage_min": 91,
+          "weapon_damage_max": 123,
+          "attack_speed": 3.6,
+          "block_value": 0
+        },
+        {
+          "name": "Stormreader's Belt",
+          "slot": "waist",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 102,
+          "required_level": 48,
+          "sell_price": 4677,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_13"
+        },
+        {
+          "name": "Stormreader's Band",
+          "slot": "ring",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 48,
+          "sell_price": 5102,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_ring_04"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_the_hollow_storm",
+      "title": "The Hollow Storm",
+      "giver_npc_id": "lw_lensmaster",
+      "zone": "sunward_crown",
+      "level_min": 49,
+      "level_max": 49,
+      "description": "At the heart of the Stormbank there's a storm with an eye in it, and it's pulling all the lightning toward itself. Coryn calls it the Hollow Storm.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Hollow Storm",
+          "count": 1,
+          "zone": "sunward_crown"
+        }
+      ],
+      "accept_text": "There's a storm in the middle of the Stormbank with an eye in the middle of it, and every bolt in the bank goes into that eye. I'm calling it the Hollow Storm, because that's all I can see of it. If it keeps pulling the lightning in, sooner or later it'll let it all go at once. Put it out before it does.",
+      "turn_in_text": "The whole bank flashed white when it went, and then it was only cloud.\n\nI've written down what you did, though I don't think the council will believe it.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "scq_storm_readings"
+      ],
+      "reward_exp": 4628,
+      "reward_gold": 18330,
+      "unique_item_defs": [
+        {
+          "name": "Hollow Storm Breastplate",
+          "slot": "chest",
+          "item_level": 51,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "healing_power": 43
+          },
+          "armor_value": 401,
+          "required_level": 49,
+          "sell_price": 13296,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_chest_plate10"
+        },
+        {
+          "name": "Hollow Storm Slippers",
+          "slot": "feet",
+          "item_level": 51,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "spell_power": 29
+          },
+          "armor_value": 57,
+          "required_level": 49,
+          "sell_price": 8642,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_plate_06"
+        },
+        {
+          "name": "Hollow Storm Wristguards",
+          "slot": "wrist",
+          "item_level": 51,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 11,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 185,
+          "required_level": 49,
+          "sell_price": 6648,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_bracer_05"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "scq_guns_on_the_chainhold",
+      "title": "Guns on the Chainhold",
+      "giver_npc_id": "lw_shipwright",
+      "zone": "sunward_crown",
+      "level_min": 48,
+      "level_max": 49,
+      "description": "Shipmaster Corin Haldane's survey ship has been shelled from the Chainhold twice. He wants the Ascendancy Artillerists and Ascendancy Bombardiers on the islet silenced.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Ascendancy Artillerist",
+          "count": 7,
+          "zone": "sunward_crown"
+        },
+        {
+          "type": "kill",
+          "target": "Ascendancy Bombardier",
+          "count": 5,
+          "zone": "sunward_crown"
+        }
+      ],
+      "accept_text": "Twice now they've fired on my ship from the Chainhold, and the second time they took a strip off her hull. She's the oldest ship in the House's fleet, and she's our only way home. Cross the chains onto the islet, and silence the Ascendancy Artillerists and Ascendancy Bombardiers working the guns.",
+      "turn_in_text": "No shells today, and the crew's sleeping on deck again.\n\nThe soldiers will bring more guns, because they always do. But they'll think twice before they point them at my ship.",
+      "next_quest_id": null,
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "unique_item_defs": [
+        {
+          "name": "Shipmaster's Longbow",
+          "slot": "ranged",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 48,
+          "sell_price": 6802,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_02",
+          "weapon_damage_min": 57,
+          "weapon_damage_max": 78,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Shipmaster's Coif",
+          "slot": "head",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 28
+          },
+          "armor_value": 169,
+          "required_level": 48,
+          "sell_price": 6802,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_64"
+        },
+        {
+          "name": "Shipmaster's Leggings",
+          "slot": "legs",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "spell_power": 31
+          },
+          "armor_value": 62,
+          "required_level": 48,
+          "sell_price": 8503,
+          "identity": "caster",
+          "icon_id": "gear_inv_pants_wolf"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_wolves_on_the_cloud",
+      "title": "Wolves on the Cloud",
+      "giver_npc_id": "lw_shipwright",
+      "zone": "sunward_crown",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "The Cloudrunner Wolves and Shelf Stalkers on the shelf have started following the survey's porters right up to the gangway.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Cloudrunner Wolf",
+          "count": 8,
+          "zone": "sunward_crown"
+        },
+        {
+          "type": "kill",
+          "target": "Shelf Stalker",
+          "count": 5,
+          "zone": "sunward_crown"
+        }
+      ],
+      "accept_text": "My porters carry the ship's stores across the cloud, and every Cloudrunner Wolf on the shelf has learned to follow them. The Shelf Stalkers are worse, because you can't see them in the mist until they're on you. Thin them out so my porters can work without a guard on every one.",
+      "turn_in_text": "They walked the whole shelf this morning and nothing followed them.\n\nI'd never seen a wolf until I came down here. I can't say I've missed them.",
+      "next_quest_id": null,
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Cloudwalker's Knife",
+          "slot": "main_hand",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 48,
+          "sell_price": 7742,
+          "identity": "agility",
+          "icon_id": "gear_inv_weapon_shortblade_02",
+          "weapon_damage_min": 66,
+          "weapon_damage_max": 90,
+          "attack_speed": 1.7,
+          "block_value": 0
+        },
+        {
+          "name": "Cloudwalker's Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 104,
+          "required_level": 48,
+          "sell_price": 6520,
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_31"
+        },
+        {
+          "name": "Cloudwalker's Sabatons",
+          "slot": "feet",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 204,
+          "required_level": 48,
+          "sell_price": 5297,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_plate_02"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_ask_them_yourself",
+      "title": "Ask Them Yourself",
+      "giver_npc_id": "sc_annex_lead",
+      "zone": "sunward_crown",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "Matias Arrieta has lived with the Aetherians for three years, and in all that time nobody's told him whether the Earth people are allowed to leave. He wants someone else to ask the Warden.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "sc_q_matias_letter",
+          "count": 1,
+          "label": "Take Matias's letter to Warden Sellis Varn in Lenswatch"
+        }
+      ],
+      "accept_text": "I've asked Warden Varn twice if we're free to go, and twice he's told me it's complicated. He's kind about it, and that's the worst part. Take him this letter. You're not one of his guests, so maybe he'll give you a straight answer.",
+      "turn_in_text": "Matias wrote this, I'd know his hand anywhere. He's asking whether they can leave.\n\nThe true answer is yes, they can, and the honest answer is that I've no idea where they'd go. I've never had the courage to say both at once. You can tell him I said it.",
+      "next_quest_id": "scq_the_two_they_took",
+      "turn_in_npc_id": "lw_warden",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "sc_q_matias_letter",
+            "name": "Matias's Letter",
+            "description": "A folded letter in Spanish and then in careful Aetherian, the same question twice.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Earthborn Tome",
+          "slot": "off_hand",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 29
+          },
+          "armor_value": 0,
+          "required_level": 48,
+          "sell_price": 4890,
+          "identity": "healer",
+          "icon_id": "gear_inv_tome_1",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        },
+        {
+          "name": "Earthborn Handguards",
+          "slot": "hands",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 12,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_value": 204,
+          "required_level": 48,
+          "sell_price": 5297,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_15"
+        },
+        {
+          "name": "Earthborn Girdle",
+          "slot": "waist",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 136,
+          "required_level": 48,
+          "sell_price": 4482,
+          "identity": "hunter",
+          "icon_id": "gear_inv_belt_25"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_the_two_they_took",
+      "title": "The Two They Took",
+      "giver_npc_id": "sc_annex_lead",
+      "zone": "sunward_crown",
+      "level_min": 49,
+      "level_max": 49,
+      "description": "When the Ascendancy came down on the stones they took two of the Earthborn back to the Chainhold. Matias found out where, and the Construct Hounds guarding the hangar are all that's in the way.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Construct Hound",
+          "count": 6,
+          "zone": "sunward_crown"
+        },
+        {
+          "type": "explore",
+          "target": "sunward_crown",
+          "target_x": 240,
+          "target_y": 34,
+          "radius": 4,
+          "label": "Find the two Earthborn the Ascendancy took, in the Chainhold's hangar"
+        }
+      ],
+      "accept_text": "The soldiers took two of ours when they hit the stones, Lise and Tomasz. I found out they're being kept in the hangar on the Chainhold, and the Construct Hounds guard it. Get through the hounds and get into that hangar. They'll follow you out if they see a face that isn't Aetherian.",
+      "turn_in_text": "They're here, they're both here. Lise hasn't stopped shaking and Tomasz hasn't stopped talking.\n\nThe soldiers wanted to know where we came from. They asked over and over, and they didn't believe a word of the answer. Thank you.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "scq_ask_them_yourself"
+      ],
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "unique_item_defs": [
+        {
+          "name": "Annexwarden's Mace",
+          "slot": "main_hand",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 8078,
+          "identity": "healer",
+          "icon_id": "gear_inv_mace_08",
+          "weapon_damage_min": 67,
+          "weapon_damage_max": 91,
+          "attack_speed": 2.6,
+          "block_value": 0
+        },
+        {
+          "name": "Annexwarden's Jerkin",
+          "slot": "chest",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 12,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 125,
+          "required_level": 49,
+          "sell_price": 8503,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_04"
+        },
+        {
+          "name": "Annexwarden's Pendant",
+          "slot": "neck",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 5102,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_necklace_02"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_two_kinds_of_guest",
+      "title": "Two Kinds of Guest",
+      "giver_npc_id": "sc_annex_lead",
+      "zone": "sunward_crown",
+      "level_min": 49,
+      "level_max": 49,
+      "description": "Matias doesn't trust Ilaren Vey, and he says so, but Ilaren is the only scholar who comes to the Annex without a notebook. Matias sends him something from the Annex.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "sc_q_annex_bread",
+          "count": 1,
+          "label": "Take the Annex's bread to Ilaren Vey at the Parley Stones"
+        }
+      ],
+      "accept_text": "Ilaren Vey's the only one of them who comes to the Annex without a notebook, and he eats what Beatriz cooks. I still don't trust him, because I've never trusted any of them. But he stood on the stones when the soldiers came, and he's still here. Take him this, from the Annex.",
+      "turn_in_text": "This is Beatriz's bread, which means Matias sent it, and he doesn't like me.\n\nHe's right not to, mostly. My house kept his people for three years and called it kindness. Tell him I said thank you, and that I'll come and eat it at the Annex, if he'll have me.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "sc_parley_scholar",
+      "requires_quests": [
+        "scq_the_two_they_took"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "sc_q_annex_bread",
+            "name": "Bread From the Annex",
+            "description": "A round loaf baked by Beatriz Lobo out of sky grain and stubbornness. It smells like a bakery on a street a world away.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "unique_item_defs": [
+        {
+          "name": "Guestfriend's Greatsword",
+          "slot": "main_hand",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 19,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 49
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 10629,
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_29",
+          "weapon_damage_min": 91,
+          "weapon_damage_max": 123,
+          "attack_speed": 3.4,
+          "block_value": 0
+        },
+        {
+          "name": "Guestfriend's Bracers",
+          "slot": "wrist",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 86,
+          "required_level": 49,
+          "sell_price": 4251,
+          "identity": "agility",
+          "icon_id": "gear_inv_bracer_14"
+        },
+        {
+          "name": "Guestfriend's Hood",
+          "slot": "head",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "spell_power": 26
+          },
+          "armor_value": 53,
+          "required_level": 49,
+          "sell_price": 6802,
+          "identity": "caster",
+          "icon_id": "gear_inv_helmet_65"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_sky_medicine",
+      "title": "Sky Medicine",
+      "giver_npc_id": "sc_annex_doctor",
+      "zone": "sunward_crown",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "Dr. Rania Azar is the only doctor for thirty Earth people on a cloud. She's learning which of the crown's herbs can do what her medicines used to.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "herb_khadgar",
+          "count": 6,
+          "label": "Gather khadgar's whisker on the crown"
+        }
+      ],
+      "accept_text": "I ran out of real medicine in my first year up here, so now I make it. The trolls showed me a herb that grows on the crown, khadgar's whisker, that brings down a fever better than anything I had in Beirut. Gather some for me, please, and I'll show you what I make of it.",
+      "turn_in_text": "That's enough to treat the whole Annex through the next fever, and the trolls at Spearhold too.\n\nThe scholars watched me grind the first batch and wrote down every step. I've started explaining as I go. It's easier than being stared at.",
+      "next_quest_id": "scq_gold_dust_salve",
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Medic's Hauberk",
+          "slot": "chest",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 10,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 31
+          },
+          "armor_value": 196,
+          "required_level": 48,
+          "sell_price": 8150,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_09"
+        },
+        {
+          "name": "Medic's Sash",
+          "slot": "waist",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 21
+          },
+          "armor_value": 42,
+          "required_level": 48,
+          "sell_price": 4482,
+          "identity": "caster",
+          "icon_id": "gear_inv_belt_28"
+        },
+        {
+          "name": "Medic's Sabatons",
+          "slot": "feet",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 12,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_value": 240,
+          "required_level": 48,
+          "sell_price": 5297,
+          "identity": "tank",
+          "icon_id": "gear_inv_boots_plate_03"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_gold_dust_salve",
+      "title": "Gold Dust Salve",
+      "giver_npc_id": "sc_annex_doctor",
+      "zone": "sunward_crown",
+      "level_min": 49,
+      "level_max": 49,
+      "description": "Dr. Azar has found that the dust off a Gilded Moth's wings numbs pain. She wants enough to make a salve for the wounded at Spearhold and the Annex both.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sc_q_gold_dust",
+          "count": 6
+        }
+      ],
+      "accept_text": "The Gilded Moths in the Goldenwood shed a dust that numbs whatever it touches. I've tried it on a burn, and it works. Bring me Pinches of Gold Dust and I'll make a salve, enough for the Annex and for the trolls at Spearhold. They're bleeding as much as we are.",
+      "turn_in_text": "This will make three jars, and one of them's going to Spearhold whether the war-leader wants it or not.\n\nI took an oath to treat whoever's in front of me. Up here, that's everybody.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "scq_sky_medicine"
+      ],
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "unique_item_defs": [
+        {
+          "name": "Salvemaker's Grips",
+          "slot": "hands",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 86,
+          "required_level": 49,
+          "sell_price": 5527,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_07"
+        },
+        {
+          "name": "Salvemaker's Spaulders",
+          "slot": "shoulder",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 28
+          },
+          "armor_value": 169,
+          "required_level": 49,
+          "sell_price": 6802,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_shoulder_17"
+        },
+        {
+          "name": "Salvemaker's Pendant",
+          "slot": "neck",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 19
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 5102,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_necklace_11"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_hound_gyros",
+      "title": "Hound Gyros",
+      "giver_npc_id": "sc_annex_engineer",
+      "zone": "sunward_crown",
+      "level_min": 48,
+      "level_max": 49,
+      "description": "Pavel Novak designed bridges in Brno, and now the survey wants his opinion on engines that hold cities in the sky. He wants to see how the Ascendancy's Construct Hounds keep their balance.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sc_q_hound_gyro",
+          "count": 5
+        }
+      ],
+      "accept_text": "The Construct Hounds on the Chainhold run on cloud, on chains, on anything, and they don't ever fall over. Something in their chests keeps them upright. Bring me those Hound Gyros. If I can understand how they balance a dog, I might understand how they balance an island.",
+      "turn_in_text": "Look at it, it's still spinning. There's no motor in it at all.\n\nIt's not engineering the way I learned it, but it's not magic either. It's something in between, and I think I can learn it.",
+      "next_quest_id": "scq_how_to_anchor_an_island",
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "unique_item_defs": [
+        {
+          "name": "Engineer's Cloak",
+          "slot": "back",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 23,
+            "hit_rating": 5
+          },
+          "armor_value": 131,
+          "required_level": 48,
+          "sell_price": 4677,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_09"
+        },
+        {
+          "name": "Engineer's Cuffs",
+          "slot": "wrist",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 26
+          },
+          "armor_value": 43,
+          "required_level": 48,
+          "sell_price": 4251,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_06"
+        },
+        {
+          "name": "Engineer's Legplates",
+          "slot": "legs",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 31
+          },
+          "armor_value": 301,
+          "required_level": 48,
+          "sell_price": 8503,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_06"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_how_to_anchor_an_island",
+      "title": "How to Anchor an Island",
+      "giver_npc_id": "sc_annex_engineer",
+      "zone": "sunward_crown",
+      "level_min": 49,
+      "level_max": 49,
+      "description": "Pavel wants to see the gravity anchor that holds Lenswatch in place, now that he understands the gyros.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "lenswatch",
+          "target_x": 104,
+          "target_y": 56,
+          "radius": 4,
+          "label": "Look at the gravity anchor holding Lenswatch in place"
+        }
+      ],
+      "accept_text": "Lenswatch is an island that floats, and it's held still by one anchor and a chain. I've asked to see it three times and three times they've said later. You're a guest of the House, so walk over to it, look at it properly, and come back and tell me everything you saw.",
+      "turn_in_text": "A crystal the size of a bathtub, turning on its own, and a chain that goes down into the cloud and doesn't come back up.\n\nThe chain isn't holding the island up. It's holding it down. That changes everything I thought I knew about this place.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "scq_hound_gyros"
+      ],
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "unique_item_defs": [
+        {
+          "name": "Anchorwright's Cap",
+          "slot": "head",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 13,
+            "agility": 9
+          },
+          "secondary_stats": {
+            "dodge_rating": 7
+          },
+          "armor_value": 125,
+          "required_level": 49,
+          "sell_price": 6802,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_65"
+        },
+        {
+          "name": "Anchorwright's Band",
+          "slot": "ring",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 5,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "healing_power": 25
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 5102,
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_ring_09"
+        },
+        {
+          "name": "Anchorwright's Gauntlets",
+          "slot": "hands",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 7,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 19
+          },
+          "armor_value": 138,
+          "required_level": 49,
+          "sell_price": 5527,
+          "identity": "earthen",
+          "icon_id": "gear_inv_gauntlets_24"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_every_islet",
+      "title": "Every Islet",
+      "giver_npc_id": "sc_climber",
+      "zone": "sunward_crown",
+      "level_min": 48,
+      "level_max": 49,
+      "description": "Ewan Docherty climbed the whole World Tree from the roots up. Now he wants to stand on every islet off the crown, starting with the two at the end of the Driftlets' chains.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "sunward_crown",
+          "target_x": 187,
+          "target_y": 224,
+          "radius": 4,
+          "label": "Stand on the second Driftlet"
+        },
+        {
+          "type": "explore",
+          "target": "sunward_crown",
+          "target_x": 158,
+          "target_y": 227,
+          "radius": 4,
+          "label": "Stand on the third Driftlet"
+        }
+      ],
+      "accept_text": "I climbed this tree from the roots so I could be first to the top, and I wasn't. So now I'm going to stand on everything up here that anyone's ever named. The Driftlets are chained off the south side of the cloud, and the two at the far end of the chains are the ones nobody's walked. Walk them for me.",
+      "turn_in_text": "Two more for the list, then. I'll walk them myself tomorrow, but you were first, and I'll write that down.\n\nIt's daft, I know. But the first time I stood on that cloud, I cried. I'd like to keep feeling that way about this place.",
+      "next_quest_id": null,
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "unique_item_defs": [
+        {
+          "name": "Islet-Walker's Staff",
+          "slot": "main_hand",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 21
+          },
+          "secondary_stats": {
+            "spell_power": 47
+          },
+          "armor_value": 0,
+          "required_level": 48,
+          "sell_price": 10629,
+          "identity": "caster",
+          "icon_id": "gear_inv_staff_19",
+          "weapon_damage_min": 37,
+          "weapon_damage_max": 50,
+          "attack_speed": 3.2,
+          "block_value": 0
+        },
+        {
+          "name": "Islet-Walker's Jerkin",
+          "slot": "chest",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 31
+          },
+          "armor_value": 148,
+          "required_level": 48,
+          "sell_price": 8503,
+          "identity": "strength",
+          "icon_id": "gear_inv_chest_leather_05"
+        },
+        {
+          "name": "Islet-Walker's Waistguard",
+          "slot": "waist",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 23
+          },
+          "armor_value": 208,
+          "required_level": 48,
+          "sell_price": 4677,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_belt_33"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_lend_him_the_lens",
+      "title": "Lend Him the Lens",
+      "giver_npc_id": "sc_lookdown",
+      "zone": "sunward_crown",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "Old Ranjo comes to the Lookdown every morning to make sure his village is still down there. He's heard the survey's lens can see a coin on the ground.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "sc_q_ranjo_charm",
+          "count": 1,
+          "label": "Take Ranjo's charm to Lensmaster Coryn Aldaer in Lenswatch"
+        }
+      ],
+      "accept_text": "The village I was born in is down there in Stranglethorn, and from here it's only a smudge. They say the sky people's lens can see a coin on the ground. Take this charm to whoever keeps the lens and ask him to look for my village. It's carved with the shape of the river bend we live on.",
+      "turn_in_text": "A river bend, with a fallen temple on the north bank? I've seen it, I've seen it many times.\n\nThere's smoke from the cookfires every morning, and children in the river every afternoon. Tell your friend his village is still there.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "lw_lensmaster",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "sc_q_ranjo_charm",
+            "name": "Ranjo's Charm",
+            "description": "A flat piece of jungle wood carved with the curve of a river and a little broken temple on its bank.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Lookdown Mantle",
+          "slot": "shoulder",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 26
+          },
+          "armor_value": 52,
+          "required_level": 48,
+          "sell_price": 6520,
+          "identity": "caster",
+          "icon_id": "gear_inv_shoulder_26"
+        },
+        {
+          "name": "Lookdown Breeches",
+          "slot": "legs",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 30
+          },
+          "armor_value": 144,
+          "required_level": 48,
+          "sell_price": 8150,
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_05"
+        },
+        {
+          "name": "Lookdown Vambraces",
+          "slot": "wrist",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 12,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_value": 204,
+          "required_level": 48,
+          "sell_price": 4075,
+          "identity": "tank",
+          "icon_id": "gear_inv_bracer_09"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_keep_it_shut",
+      "title": "Keep It Shut",
+      "giver_npc_id": "sc_seal_watcher",
+      "zone": "sunward_crown",
+      "level_min": 49,
+      "level_max": 49,
+      "description": "Archivist Elyon Sarre has read enough of the old ring to know its guardians are waking. The Waking Guardians and Unbound Storms round the seal are getting stronger every time the guns fire.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Waking Guardian",
+          "count": 7,
+          "zone": "sunward_crown"
+        },
+        {
+          "type": "kill",
+          "target": "Unbound Storm",
+          "count": 5,
+          "zone": "sunward_crown"
+        }
+      ],
+      "accept_text": "Every word I can read on this ring means keep it shut. The Waking Guardians were set here to do exactly that, and they've woken up wrong, the way a sleeper wakes up fighting. The Unbound Storms were chained in the stones, and now they're coming loose. Put them both down before the ring shakes itself apart.",
+      "turn_in_text": "The ring's quieter, and I can hear myself think.\n\nIt won't stay quiet, though. Every time the soldiers fire their guns on the north arm, the light under the seal gets brighter.",
+      "next_quest_id": "scq_the_stone_that_woke",
+      "requires_quests": [
+        "scq_what_the_loa_wont_say"
+      ],
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "unique_item_defs": [
+        {
+          "name": "Sealwarden's Shield",
+          "slot": "off_hand",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 18,
+            "haste": 5
+          },
+          "armor_value": 390,
+          "required_level": 49,
+          "sell_price": 6802,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_shield_16",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 45
+        },
+        {
+          "name": "Sealwarden's Greaves",
+          "slot": "feet",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 138,
+          "required_level": 49,
+          "sell_price": 5527,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_plate_09"
+        },
+        {
+          "name": "Sealwarden's Robe",
+          "slot": "chest",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 10,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "healing_power": 29
+          },
+          "armor_value": 85,
+          "required_level": 49,
+          "sell_price": 8503,
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_chest_cloth_24"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_the_stone_that_woke",
+      "title": "The Stone That Woke",
+      "giver_npc_id": "sc_seal_watcher",
+      "zone": "sunward_crown",
+      "level_min": 49,
+      "level_max": 49,
+      "description": "One of the ring's wardens has stood up. Elyon says the Stone That Woke is the oldest guardian of the seal, and it's attacking anything that comes near it, including the seal itself.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Stone That Woke",
+          "count": 1,
+          "zone": "sunward_crown"
+        }
+      ],
+      "accept_text": "The biggest of the ring's wardens has stood up off its plinth. The Kharad cut its name into its chest, and I think it means the stone that keeps watch, but it's not keeping watch now. It's tearing at the seal it was made to guard. Stop it before it opens the thing for us.",
+      "turn_in_text": "It fought you right up until the end, and then it knelt facing the seal.\n\nI think it knew. I think it woke because something on the other side of the seal was pushing, and it couldn't hold it any more.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "scq_keep_it_shut"
+      ],
+      "reward_exp": 4628,
+      "reward_gold": 18330,
+      "unique_item_defs": [
+        {
+          "name": "Stonewaker Shield",
+          "slot": "off_hand",
+          "item_level": 51,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 4
+          },
+          "secondary_stats": {
+            "block_value": 10
+          },
+          "armor_value": 520,
+          "required_level": 49,
+          "sell_price": 10637,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_12",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 60
+        },
+        {
+          "name": "Stonewaker Breeches",
+          "slot": "legs",
+          "item_level": 51,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 21,
+            "agility": 14
+          },
+          "secondary_stats": {
+            "dodge_rating": 10
+          },
+          "armor_value": 182,
+          "required_level": 49,
+          "sell_price": 13296,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_04"
+        },
+        {
+          "name": "Stonewaker Gloves",
+          "slot": "hands",
+          "item_level": 51,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "arcane_spell_power": 35
+          },
+          "armor_value": 57,
+          "required_level": 49,
+          "sell_price": 8642,
+          "identity": "arcane",
+          "icon_id": "gear_inv_gauntlets_28"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "scq_the_light_under_the_stones",
+      "title": "The Light Under the Stones",
+      "giver_npc_id": "sc_parley_scholar",
+      "zone": "sunward_crown",
+      "level_min": 49,
+      "level_max": 49,
+      "description": "Ilaren Vey wants every side of this fight to see the seal before it's too late. He's asked the war-leader, the envoy and the archivist to meet at the old ring, and he wants you there too.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "sunward_crown",
+          "target_x": 176,
+          "target_y": 66,
+          "radius": 4,
+          "label": "Stand at the seal in the middle of the old ring"
+        }
+      ],
+      "accept_text": "Krane's dead and the stone's down, and the light under the seal's brighter than it's ever been. I've asked Rakkuzi, your envoy and Elyon to meet me at the ring, and to everyone's surprise they've all said yes. Come and stand with us. Whatever happens next, someone from every side should see it.",
+      "turn_in_text": "You were there. You felt it go.\n\nThe guns on the north arm fired, the ground shook, and the seal split down the middle. Something underneath it breathed out. Rakkuzi dropped his spear, and I've never seen a troll drop his spear. Whatever's under that seal is older than the Ascendancy and older than my people, and it's awake.",
+      "next_quest_id": "scq_bigger_than_the_ascendancy",
+      "requires_quests": [
+        "scq_the_stone_that_woke",
+        "scq_centurion_valeth_krane"
+      ],
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "unique_item_defs": [
+        {
+          "name": "Sealsworn Spear",
+          "slot": "main_hand",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 19,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 49
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 10629,
+          "identity": "strength",
+          "icon_id": "gear_inv_weapon_halberd_02",
+          "weapon_damage_min": 91,
+          "weapon_damage_max": 123,
+          "attack_speed": 3.3,
+          "block_value": 0
+        },
+        {
+          "name": "Sealsworn Hood",
+          "slot": "head",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 53,
+          "required_level": 49,
+          "sell_price": 6802,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_11"
+        },
+        {
+          "name": "Sealsworn Grips",
+          "slot": "hands",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 7,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 86,
+          "required_level": 49,
+          "sell_price": 5527,
+          "identity": "feral",
+          "icon_id": "gear_inv_gauntlets_28"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_bigger_than_the_ascendancy",
+      "title": "Bigger Than the Ascendancy",
+      "giver_npc_id": "sc_parley_scholar",
+      "zone": "sunward_crown",
+      "level_min": 49,
+      "level_max": 49,
+      "description": "Ilaren Vey has written down everything that happened at the seal. He wants the surveyor to send it to the council in Aurelion today.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "sc_q_ilarens_report",
+          "count": 1,
+          "label": "Take Ilaren's report to Surveyor-Captain Destren in Lenswatch"
+        }
+      ],
+      "accept_text": "My house has argued for a hundred years about whether the ground is worth talking to. We were arguing about the wrong thing. Take this to the surveyor, and tell him I said to send it to the council tonight, not tomorrow. The Ascendancy isn't the worst thing in the sky any more.",
+      "turn_in_text": "I read it twice, and then I sent it to the council before I'd finished reading it a third time.\n\nThey'll have it before dawn. I don't know what they'll do, but I know what I'd do. I'd open the gates.",
+      "next_quest_id": "scq_lance_captain_varos_thale",
+      "turn_in_npc_id": "lw_surveyor",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "sc_q_ilarens_report",
+            "name": "Ilaren's Report",
+            "description": "Six pages in Ilaren Vey's hand, written fast, with the seal of the House of the Patient Lens pressed into the last one.",
+            "count": 1
+          }
+        ]
+      },
+      "requires_quests": [
+        "scq_the_light_under_the_stones"
+      ],
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "unique_item_defs": [
+        {
+          "name": "Truthsworn Legguards",
+          "slot": "legs",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "nature_spell_power": 27,
+            "haste": 9
+          },
+          "armor_value": 223,
+          "required_level": 49,
+          "sell_price": 8503,
+          "identity": "storm",
+          "icon_id": "gear_inv_pants_07"
+        },
+        {
+          "name": "Truthsworn Cloak",
+          "slot": "back",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 19
+          },
+          "armor_value": 38,
+          "required_level": 49,
+          "sell_price": 4677,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_07"
+        },
+        {
+          "name": "Truthsworn Pauldrons",
+          "slot": "shoulder",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 254,
+          "required_level": 49,
+          "sell_price": 6802,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_31"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "scq_lance_captain_varos_thale",
+      "title": "Lance-Captain Varos Thale",
+      "giver_npc_id": "lw_surveyor",
+      "zone": "sunward_crown",
+      "level_min": 49,
+      "level_max": 49,
+      "description": "The council has answered. Aurelion will open its gates to the ground, and the council's own skiff is coming down to fetch the survey's guests. Lance-Captain Varos Thale holds the Chainhold, and the skiff can't come down while he does.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Lance-Captain Varos Thale",
+          "count": 1,
+          "zone": "sunward_crown"
+        }
+      ],
+      "accept_text": "The council's answered, and it's the answer I hoped for. Aurelion will open its gates to the ground for the first time in our history, and they're sending their own skiff down to the crown. But Lance-Captain Varos Thale holds the Chainhold, and he'll shoot it out of the sky. Cross the chains and put him down.",
+      "turn_in_text": "The Chainhold's quiet, and the council's skiff is already on its way down.\n\nYou'll be on it, and so will Matias and Ilaren, whether they like sitting next to each other or not. Aurelion's open to you. I hope it's everything I've told you it is, and I'm afraid it's falling apart a little faster than I told you.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "scq_bigger_than_the_ascendancy"
+      ],
+      "reward_exp": 4628,
+      "reward_gold": 18330,
+      "unique_item_defs": [
+        {
+          "name": "Gatesworn Staff",
+          "slot": "main_hand",
+          "item_level": 51,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 25,
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "attack_power": 63
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 16620,
+          "identity": "agility",
+          "icon_id": "gear_inv_staff_09",
+          "weapon_damage_min": 121,
+          "weapon_damage_max": 164,
+          "attack_speed": 3.6,
+          "block_value": 0
+        },
+        {
+          "name": "Gatesworn Belt",
+          "slot": "waist",
+          "item_level": 51,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 11,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 125,
+          "required_level": 49,
+          "sell_price": 7313,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_17"
+        },
+        {
+          "name": "Gatesworn Band",
+          "slot": "ring",
+          "item_level": 51,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 7978,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_ring_27"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "rare"
+    }
+  ]
+}

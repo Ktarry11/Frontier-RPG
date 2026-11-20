@@ -57,6 +57,9 @@ class AmbientNPC:
         #: person: `prop` is the image (assets/ui/auction/icons/mailbox_<culture>.png until Kyle's prop sheet).
         self.is_mailbox = bool(data.get("is_mailbox", False))
         self.prop = data.get("prop")
+        #: A thing you walk up to that plays a cutscene again (docs/crown_cutscene.md, "Watching it again"): the fallen
+        #: piece of the mural on the Sunward Crown. A replay never moves you and never marks anything seen.
+        self.plays_cutscene = data.get("plays_cutscene")
 
 
 class AmbientNPCManager:

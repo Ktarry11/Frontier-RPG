@@ -779,6 +779,14 @@ class PortalManager:
             },
             "The Cloudbreak": {
                 (32, 120): ("The Upper Boughs", 90, 57),            # back down the Cloud Way: arrive (90,55) on the ring
+                (32, 13): ("The Sunward Crown", 100, 171),          # through the broken mural: arrive (100,169) at the gate
+            },
+            "The Sunward Crown": {
+                (100, 164): ("The Cloudbreak", 32, 18),             # back down through the mural: arrive (32,16)
+                (295, 130): ("Lenswatch", 7, 48),                   # over the gangway: arrive (7,46) on the Landing
+            },
+            "Lenswatch": {
+                (2, 46): ("The Sunward Crown", 289, 132),           # back over the gangway: arrive (289,130) at the dock
             },
             # ===== FERALAS (docs/feralas_brief.md, 19 Nov 2026): the arrival is always two tiles north of the target =====
             "The High Wilderness": {

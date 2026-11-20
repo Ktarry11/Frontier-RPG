@@ -254,8 +254,66 @@ Charm-Tree); the weather (Ingrid's readings, the Gale's harpies and Gale Queen S
 
 **Secrets:** 2, cut into the tree.
 
+## The Sunward Crown (48-49) and Lenswatch, built 20 Nov 2026
+
+Kyle: "Lets build cloud and floating island zones? Our home bre aetherian sky continent", "So these places can be
+large! Don't hold back right bro", "the first zone players get into is where tension is super fucking high", and,
+when the first draft came out as limbs off a hub again, "Stop reusing the same shape....clouds can be walked on too".
+The story is Kyle's twenty answers (`docs/worldtree_brief.md`, "Twenty questions").
+
+**The sky renderer.** A map with a `SKY` dict bakes see-through PNG chunks (`tools/bake_ashenvale.sky_cut`): the drop is
+cut out, rock hangs under the land's south edges, and walkable cloud gets soft billows under it instead of rock (the
+module's `SKY["cloud"]`). The renderer (`ui/tilemap_renderer._draw_sky`, `_draw_sun`) paints the far cloud sea with
+parallax and drift, near wisps, and the sun's rays over everything. A sky map registers no obstacle copy of its chunks
+(that doubled the soft edges into tile-shaped steps), and its "cliff" marker tiles aren't drawn.
+
+**The Crown** (`tools/handbuilt_worldtree_sunward_crown.py`, 300x240, the biggest map in the game, about 43,800
+walkable tiles): a horseshoe of golden canopy curled round the Hollow, the open heart where you look down the tree; its
+mouth opens east onto the Cloud Shelf, walkable cloud torn by rifts, with the Stormbank's dark cloud in its south-east.
+On the cloud: the Parley Stones, the Sunken Seal in its moat of open sky, the Annex, the Survey Dock. Off it: the
+Chainhold and the Driftlets, on chains. Subzones: the Mural Gate, the Lookdown, Spearhold, the Goldenwood, the Taken
+Crown, the Falls of Light, the Parley Stones, the Sunken Seal, the Chainhold, the Cloud Shelf, the Annex, the Survey
+Dock, the Stormbank, the Driftlets. The fields are cached on a quarter-tile grid, so the bake takes minutes, not an hour.
+
+**Lenswatch** (`tools/handbuilt_worldtree_lenswatch.py`, 130x96): the survey's town, an anchored island with the
+Skiff Roost and the Lens Hall on islets of their own. Gangway on the west (it lies east of the dock). The inn and the
+Crown's one flight path (the skiffs).
+
+**The links.** The Cloudbreak's broken mural (32,13) <-> the Mural Gate (100,164); the cutscene's end puts you at the
+gate. The Survey Dock (295,130) <-> Lenswatch (2,46).
+
+**People** (`tools/build_sunward_crown_people.py`): 31 people and one thing. Spearhold's trolls under War-Leader
+Rakkuzi and Envoy Garrok Blackmane from Orgrimmar; the survey's Aetherians (Surveyor-Captain Ilvaro Destren and
+Lenswatch's keepers); the Annex's Earthborn (Matias Arrieta, Dr. Rania Azar, Pavel Novak, Ewan Docherty, Beatriz Lobo);
+the two allies, Ilaren Vey and Matias. Aetherian is an NPC-only race now (`world/race_registry.py`); only the men are
+drawn, so every Aetherian NPC is a man until the women's sheet lands.
+
+**Creatures** (`tools/build_sunward_crown_content.py`): 32, seven of them rares (Old Sunantler, the Dewdrinker,
+Centurion Valeth Krane, Lance-Captain Varos Thale, the Stone That Woke, the Hollow Storm, Mother Greatfin), 28 rare
+items, gathering and fishing at 48-49. The sky sheets SK12 to SK14 are registered in `creature_sprites.py`; what the
+Crown doesn't wear yet is parked for the zones it's for.
+
+**The Aetherians** (`tools/build_aetherians_faction.py`): the faction, home Aurelion, leader the council's First
+Speaker; the shelf comes with Aurelion.
+
+**Quests** (`tools/sunward_crown_quests.py`, `tools/build_sunward_crown_quests.py`): 39, 28 of them from the three hubs.
+The war, the proof (who called the soldiers down), the survey, the Earthborn, and the seal: it cracks with every side
+standing at the ring, the council opens Aurelion to the ground, and the Chainhold's lance-captain goes so the council's
+skiff can come down. Reputation: the Highbough Tribes 15, the Aetherians 14, Orgrimmar 2; the Earthborn pay nobody.
+
+**Watching the cutscene again** (`docs/crown_cutscene.md`): the Mural Shard keepsake (learned the first time any
+character sees it) and the fallen piece of the mural by the Mural Gate. A replay never moves you.
+
+**Secrets:** three on the Crown, placed blind (counts only).
+
+**QA** passed: portals, arrivals, NPC tiles and props, encounter tables, creature sprites and reachability, rares,
+nodes, gathering, fishing pools, flight paths, town services, factions, faction rewards, vendors and stock, collection,
+keepsakes, secrets, hidden zones, quest givers, hubs, levels and objectives, combat backgrounds, text encoding, start
+zones, exits. qa_prop_overlap still counts 137 props cleared across the world against its cap of 120; the Crown and
+Lenswatch clear none.
+
 ## Next
 
-The sky renderer, then the sky maps, starting with the Sunward Crown so the cutscene has somewhere to land (the
-broken mural's way through is already reserved on the Cloudbreak). The Heartwood Hollow is the tree's dungeon when
-Kyle calls it. See `docs/worldtree_brief.md` for the whole road.
+The Celestial Expanse (49-51), then Aurelion, whose gates the Crown's last quest opens. The Celestial raid waits behind
+the cracked seal (three concepts in the brief, Kyle to pick). The Heartwood Hollow is the tree's dungeon when Kyle calls
+it. See `docs/worldtree_brief.md` for the whole road.

@@ -4,6 +4,9 @@ Plays a cutscene's shots one after another: each a painting with a slow pan or p
 eases from a start framing to an end framing), crossfading into the next. A shot can shake, flood with gold-white light
 toward its end, or open out of that light. No figure is ever drawn and no words are spoken. Escape, Enter or Space skips
 to the end. When it's over the overworld takes back, and the player is wherever the cutscene leaves them.
+
+A REPLAY (the Mural Shard keepsake, or the fallen piece of the mural on the Crown: docs/crown_cutscene.md) is started
+with cutscene_replay=True. It plays the same shots and hands you back exactly where you stood: no move, nothing marked.
 """
 import math
 import random
@@ -31,11 +34,13 @@ class CutsceneScreen(BaseScreen):
         self.t = 0.0
         self.total = 0.0
         self.done = False
+        self.replay = False
 
     # ------------------------------------------------------------------ setup
     def start(self, cid):
         from world.cutscenes import CUTSCENES
         self.cid = cid
+        self.replay = bool(getattr(self.state_manager, "cutscene_replay", False))
         self.shots = list(CUTSCENES[cid]["shots"])
         self.images = {}
         for (path, *_rest) in self.shots:
@@ -72,7 +77,9 @@ class CutsceneScreen(BaseScreen):
         zm = getattr(sm, "zone_manager", None)
         cid, self.cid = self.cid, None
         sm.current_cutscene = None
-        if zm is not None and cid:
+        replay, self.replay = self.replay, False
+        sm.cutscene_replay = False
+        if zm is not None and cid and not replay:
             from world.cutscenes import get_cutscenes
             dest = get_cutscenes().destination(cid, getattr(zm, "zones", {}))
             if dest:

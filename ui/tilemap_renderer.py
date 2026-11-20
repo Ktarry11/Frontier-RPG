@@ -744,6 +744,11 @@ class TilemapRenderer:
                     # because those screenshots happened to frame mostly
                     # lake/boss-room close-ups where walls were a small
                     # fraction of the shot, not a wide-open corridor view.
+                    # On a sky map the "cliff" on the collision layer is the drop itself (the open sky the baker
+                    # cut out): it's a movement-blocker only, and its autotiled edges drew pale blocks hugging
+                    # every edge of the land over the cloud sea.
+                    if layer_tile == "cliff" and _sky:
+                        continue
                     if layer_tile in ("cliff", "wall", "rock"):
                         obstacle_chunk = tilemap.get_obstacle_chunk_at(x, y)
                         if obstacle_chunk is not None:

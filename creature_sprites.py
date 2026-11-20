@@ -41,6 +41,10 @@ SHEETS = {
     'feralas_creatures': ['fe_boss_deep_mother', 'fe_chimaera', 'fe_chimaera_matriarch', 'fe_coast_hydra', 'fe_feralas_stalker', 'fe_forest_giant', 'fe_gordunni_brute', 'fe_gordunni_lord', 'fe_gordunni_mage', 'fe_gordunni_mauler', 'fe_gordunni_shaman', 'fe_gordunni_warlord', 'fe_hyena', 'fe_ironfur_bear', 'fe_longtooth_wolf', 'fe_makrura', 'fe_naga_digger', 'fe_naga_guardian', 'fe_naga_priestess', 'fe_naga_raider', 'fe_rage_scar_matriarch', 'fe_rage_scar_yeti', 'fe_resin_spitter', 'fe_roosevelt_elk', 'fe_sea_giant', 'fe_silithid_ravager', 'fe_silithid_swarmer', 'fe_silithid_tunneler', 'fe_silithid_warrior', 'fe_skystalker', 'fe_windwing', 'fe_woodpaw_alpha', 'fe_woodpaw_brute', 'fe_woodpaw_mystic', 'fe_woodpaw_reaver', 'fe_woodpaw_trapper'],
     # ---- the World Tree (Kyle's sheet W6, 19 Nov 2026; docs/worldtree_art_prompts.md, tools/build_rootwater_isle_content.py)
     'worldtree_creatures': ['wt_sap_crocolisk', 'wt_root_murloc', 'wt_reef_crab', 'wt_sap_tapper', 'wt_cutthroat', 'wt_powder_monkey', 'wt_bloodscalp_headhunter', 'wt_bloodscalp_shaman', 'wt_bloodscalp_axe_thrower', 'wt_bloodscalp_berserker', 'wt_bloodscalp_climber', 'wt_bloodscalp_witch_doctor', 'wt_sap_silverback', 'wt_canopy_ape', 'wt_canopy_spider', 'wt_tree_python', 'wt_bark_lizard', 'wt_leafwing_moth', 'wt_rot_treant', 'wt_rot_crawler', 'wt_bark_borer', 'wt_sap_ooze', 'wt_spore_swarm', 'wt_blighted_harpy', 'wt_wyvern', 'wt_wyvern_matriarch', 'wt_tempest_harpy', 'wt_harpy_windcaller', 'wt_gust_elemental', 'wt_thunderhawk', 'wt_scout_construct', 'wt_gear_drone', 'wt_crystal_sentinel', 'wt_storm_wisp', 'wt_rare_rootmaw', 'wt_rare_rot_mother'],
+    # ---- the sky (Kyle's sheets SK12, SK13 and SK14, 19 Nov 2026; docs/sky_art_prompts.md, tools/build_sunward_crown_content.py)
+    'sky_aetherians': ['ae_sky_lancer', 'ae_legionary', 'ae_bombardier', 'ae_artillerist', 'ae_gravity_binder', 'ae_officer', 'ae_warden', 'ae_crystal_weaver', 'ae_storm_caller', 'ae_lancer_mounted', 'ae_inquisitor', 'ae_high_commander', 'ae_scout_construct', 'ae_construct_hound', 'ae_bomber_construct', 'ae_repair_drone', 'ae_sentinel', 'ae_crystal_golem', 'ae_siege_walker', 'ae_construct_titan', 'ae_gunship', 'ae_shield_drone', 'ae_broken_construct', 'ae_storm_construct', 'ae_scholar', 'ae_magister', 'ae_engineer', 'ae_envoy', 'ae_city_guard', 'ae_merchant', 'ae_refugee', 'ae_sage', 'ae_child', 'ae_healer', 'ae_pilot', 'ae_forge_worker'],
+    'sky_veyr_kharad': ['vy_warrior', 'vy_wind_archer', 'vy_dive_bomber', 'vy_thunder_priest', 'vy_talon_rider', 'vy_scout', 'vy_clan_chief', 'vy_storm_shaman', 'vy_veteran', 'vy_hunter', 'vy_elder', 'vy_fledgling', 'vy_war_bird', 'vy_storm_hawk', 'vy_raptor_bird', 'vy_stormfeather_rare', 'vy_bound_elemental', 'vy_champion', 'kh_infantry', 'kh_thunder_mage', 'kh_stonewarden', 'kh_temple_guardian', 'kh_mason', 'kh_elder', 'kh_gravity_golem', 'kh_ancestral_spirit', 'kh_siege_engineer', 'kh_bound_storm', 'kh_mineral_elemental', 'kh_youngling', 'kh_champion', 'kh_high_priest', 'kh_waking_guardian', 'kh_king', 'kh_sentinel_construct', 'kh_unbound_core_rare'],
+    'sky_beasts': ['sk_sky_whale', 'sk_sky_ray', 'sk_cloud_serpent', 'sk_thunderbird', 'sk_sky_eel', 'sk_wind_wyrm', 'sk_sky_lion', 'sk_cloud_stalker', 'sk_gale_hawk', 'sk_crystal_boar', 'sk_sky_moth', 'sk_cloud_jelly', 'sk_storm_elemental', 'sk_cloud_elemental', 'sk_lightning_elemental', 'sk_gale_elemental', 'sk_crystal_elemental', 'sk_gold_wisp', 'sk_void_touched', 'sk_fading_wisp', 'sk_rift_crawler', 'sk_hollow_storm', 'sk_falling_star', 'sk_last_whale_rare', 'sk_cloud_sheep', 'sk_sky_goat', 'sk_meadow_fowl', 'sk_sky_hare', 'sk_puffball', 'sk_golden_stag', 'sk_young_boar', 'sk_sky_crab', 'sk_gust_sprite', 'sk_thistle_beetle', 'sk_cloud_wolf', 'sk_moss_tortoise'],
     # ---- the Plaguelands (Kyle's sheets 6, 7 and 8, 16 Nov; tools/slice_building_sheet.py, docs/plaguelands_art_prompts.md)
     'plaguelands_creatures': ['pl_plague_eruptor', 'pl_flesh_golem', 'pl_gargoyle', 'pl_crypt_fiend', 'pl_death_knight', 'pl_skeletal_warhorse', 'pl_plaguebat', 'pl_plaguehound', 'pl_carrion_grub', 'pl_frenzied_ghoul', 'pl_skeletal_mage', 'pl_wailing_spirit', 'pl_cult_neophyte', 'pl_cult_plaguebringer', 'pl_necrolyte', 'pl_cauldron_tender', 'pl_dark_caster', 'pl_cult_lieutenant', 'pl_diseased_bear', 'pl_plagued_wolf', 'pl_carrion_vulture', 'pl_blighted_stag', 'pl_plague_slime', 'pl_plaguewood_spider', 'pl_forsaken_apothecary', 'pl_deathguard', 'ad_crusader', 'ad_priestess', 'pl_darrowshire_ghost', 'zm_troll_warrior', 'pl_boss_abomination_farmer', 'pl_boss_lich_magistrate', 'pl_boss_brood_queen', 'pl_boss_bone_colossus', 'pl_rare_plague_rider', 'pl_rare_arch_necromancer'],
     'plaguelands_scarlet': ['sc_monk', 'sc_zealot', 'sc_adept', 'sc_chaplain', 'sc_myrmidon', 'sc_centurion', 'sc_knight', 'sc_inquisitor', 'sc_judicator', 'sc_arcanist', 'sc_war_hound', 'sc_cavalier', 'sc_tp_crusader', 'sc_tp_sniper', 'sc_tp_drill_sergeant', 'sc_tp_inquisitor', 'sc_tp_champion', 'sc_tp_cleric', 'pf_rory_callahan', 'pf_knight', 'pf_chaplain', 'pf_scout', 'pf_sentry', 'pf_quartermaster', 'hg_boss_gatewarden', 'hg_boss_quartermaster', 'hg_boss_pyre_sisters', 'hg_boss_drillmaster', 'hg_boss_high_inquisitor', 'hg_boss_kennelmaster', 'hg_boss_arcanist', 'hg_boss_lady_marden', 'hg_boss_crimson_choir', 'hg_boss_volkov', 'hg_boss_victor_hale', 'hg_scarlet_charger'],
@@ -321,6 +325,40 @@ _RULES = [
     (r"^archivist\ nine$", "fz_boss_archivist"),
     (r"^the\ stopped\ man$", "fz_boss_stopped_man"),
     (r"^the\ wound's\ heart$", "fz_boss_wound_heart"),
+    # THE SUNWARD CROWN (generated by tools/build_sunward_crown_content.py; do not edit by hand)
+    (r"^crown\ goat$", "sk_sky_goat"),
+    (r"^thistle\ beetle$", "sk_thistle_beetle"),
+    (r"^cloudrunner\ wolf$", "sk_cloud_wolf"),
+    (r"^shelf\ stalker$", "sk_cloud_stalker"),
+    (r"^sunlit\ stag$", "sk_golden_stag"),
+    (r"^gold\ wisp$", "sk_gold_wisp"),
+    (r"^gilded\ moth$", "sk_sky_moth"),
+    (r"^old\ sunantler$", "sk_golden_stag"),
+    (r"^falls\ eel$", "sk_sky_eel"),
+    (r"^mossback\ tortoise$", "sk_moss_tortoise"),
+    (r"^the\ dewdrinker$", "sk_sky_eel"),
+    (r"^ascendancy\ legionary$", "ae_legionary"),
+    (r"^ascendancy\ sky\ lancer$", "ae_sky_lancer"),
+    (r"^ascendancy\ storm\-caller$", "ae_storm_caller"),
+    (r"^ascendancy\ shield\ drone$", "ae_shield_drone"),
+    (r"^centurion\ valeth\ krane$", "ae_officer"),
+    (r"^ascendancy\ artillerist$", "ae_artillerist"),
+    (r"^ascendancy\ bombardier$", "ae_bombardier"),
+    (r"^construct\ hound$", "ae_construct_hound"),
+    (r"^lance\-captain\ varos\ thale$", "ae_lancer_mounted"),
+    (r"^waking\ guardian$", "kh_waking_guardian"),
+    (r"^unbound\ storm$", "kh_bound_storm"),
+    (r"^seal\-touched\ shade$", "sk_void_touched"),
+    (r"^the\ stone\ that\ woke$", "kh_stonewarden"),
+    (r"^stormbank\ elemental$", "sk_storm_elemental"),
+    (r"^bolt\-born\ elemental$", "sk_lightning_elemental"),
+    (r"^stormbank\ thunderbird$", "sk_thunderbird"),
+    (r"^the\ hollow\ storm$", "sk_hollow_storm"),
+    (r"^drift\ ray$", "sk_sky_ray"),
+    (r"^cloud\ jelly$", "sk_cloud_jelly"),
+    (r"^sky\ whale$", "sk_sky_whale"),
+    (r"^mother\ greatfin$", "sk_last_whale_rare"),
+    # END THE SUNWARD CROWN
     # THE UPPER BOUGHS (generated by tools/build_upper_boughs_content.py; do not edit by hand)
     (r"^windscour\ skink$", "wt_bark_lizard"),
     (r"^gale\ moth$", "wt_leafwing_moth"),
@@ -1420,6 +1458,14 @@ for _sid in ("ps_finnish_scientist", "ps_elf_ranger", "ps_elf_quartermaster"):
 # through their own NPC races (assets/npcs/ogre, assets/npcs/echo), never by a hostile
 for _sid in ("dw_twice_ogre", "dw_echo"):
     SPARE.setdefault(_sid, "a Deadwind figure worn by a named person (Grull, the Bridge Echo), not by a creature")
+
+# THE SKY (Kyle's sheets SK12 to SK14, 19 Nov 2026): the Sunward Crown wears the first of it
+# (tools/build_sunward_crown_content.py). The rest waits for the Celestial Expanse, Aurelion, the Anchorfields, the
+# Ascendant Bastions, the Firmament and the Veyr and Kharad continents, and comes off this list as each is built.
+for _sid in SHEETS["sky_aetherians"] + SHEETS["sky_veyr_kharad"] + SHEETS["sky_beasts"]:
+    SPARE.setdefault(_sid, "a sky figure, parked until the sky zone it's for is built")
+for _sid in [s for (_r, s, *_o) in RULES]:
+    SPARE.pop(_sid, None)
 
 DEFAULT = "bandit_human"
 
