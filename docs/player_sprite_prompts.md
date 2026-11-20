@@ -293,7 +293,48 @@ Sliced by `PYTHONPATH=. python3 tools/asset_pipeline/slice_player_sheet.py SHEET
 
 ---------------------------------------------------------------------
 
-## After them
+## WALK CYCLES: one sheet a race, from its turnaround sheet
 
-Walk cycles on these 35 looks, three a sheet (the rules in `claude/walk_cycle_prompts.md`), then the women's looks
-when Kyle wants them.
+Kyle, 20 Nov 2026: "when i upload to chatgpt i can only upload 3 pics....so can we bunch these characters up". The
+race's own turnaround sheet already has all five men turned four ways in ONE picture, so it's the only reference
+needed. The game walks left foot, stand, right foot, stand, and the stand is the turnaround's own frame, so each
+direction needs just two new frames; walking left is walking right mirrored. Five men, three directions, two steps:
+30 figures on one sheet.
+
+**Attach ONE image: that race's turnaround sheet** (the one ChatGPT made you), and paste this, putting the race's name
+where it says RACE:
+
+```
+Generate ONE sprite sheet image, 1024x1536 (portrait), a grid of 5 columns x 6 rows = 30 separate full-body character sprites. Flat pure #FF00FF magenta background everywhere. Each figure sits fully inside its own cell with a wide margin and does NOT touch or overlap its neighbours or the image edge. No ground, no ground shadow, no text, no labels, no numbers, no grid lines, no frames. Never use magenta or pink on the characters.
+
+The attached image is a turnaround sheet of five RACE men: each COLUMN is one man, shown from the front, his left side, his right side and his back. Redraw the SAME five men, in the SAME column order, EXACTLY as they appear there: same face, hair, skin, fur or feathers, clothes, colours, proportions, height and painterly style. Nothing about them changes except that now they are WALKING.
+
+Their hands stay EMPTY: nothing held, nothing carried, no weapons anywhere. Arms swing naturally and opposite to the legs, a relaxed walking stride, not a run, not a march.
+
+Each column is one man; the six rows are six frames of him walking:
+Row 1 - walking TOWARD the viewer (facing front, as in his front view), LEFT foot stepping forward, right arm swinging forward.
+Row 2 - walking TOWARD the viewer (facing front), RIGHT foot stepping forward, left arm swinging forward.
+Row 3 - walking AWAY from the viewer (seen from behind, as in his back view), LEFT foot stepping forward, right arm swinging forward.
+Row 4 - walking AWAY from the viewer (seen from behind), RIGHT foot stepping forward, left arm swinging forward.
+Row 5 - walking to the RIGHT (side profile facing right, as in his right-facing view), LEFT foot stepping forward, right arm swinging forward.
+Row 6 - walking to the RIGHT (side profile facing right), RIGHT foot stepping forward, left arm swinging forward.
+
+Every figure the same height as he is in the attached sheet, centred in his cell, the planted foot on the same baseline near the bottom of the cell. Keep the stride small and readable so the frames loop smoothly with his standing pose between them.
+
+Before you finish, check the image: five columns, the same five men in the attached order; rows 1-2 face front, rows 3-4 show their backs, rows 5-6 face right; in each pair one frame has the left foot forward and the other the right; and nobody is holding anything. Redraw any column that breaks a rule.
+```
+
+| Race | Attach | Slice |
+|---|---|---|
+| Human | `tools/building_sheets/player_p1_human.png` | `slice_walk_rows.py SHEET.png human/male/male_p1 human/male/male_p2 human/male/male_p3 human/male/male_p4 human/male/male_p5` |
+| Orc | `player_p2_orc.png` | `slice_walk_rows.py SHEET.png orc/orc_p1 orc/orc_p2 orc/orc_p3 orc/orc_p4 orc/orc_p5` |
+| Blood Elf | `player_p3_blood_elf.png` | `slice_walk_rows.py SHEET.png blood_elf/blood_elf_p1 ... blood_elf/blood_elf_p5` |
+| Forsaken | `player_p4_forsaken.png` | `slice_walk_rows.py SHEET.png forsaken/forsaken_p1 ... forsaken/forsaken_p5` |
+| Tauren | `player_p5_tauren.png` | `slice_walk_rows.py SHEET.png tauren/tauren_p1 ... tauren/tauren_p5` |
+| Aetherian | `player_p6_aetherian.png` | `slice_walk_rows.py SHEET.png aetherian/aetherian_p1 ... aetherian/aetherian_p5` |
+| Veyr | `player_p7_veyr.png` | `slice_walk_rows.py SHEET.png veyr/veyr_p1 ... veyr/veyr_p5` |
+
+(`PYTHONPATH=. python3 tools/asset_pipeline/slice_walk_rows.py`, which writes `walk_<down|up|right|left>_<1|2|3>.png` into
+each look's folder; frame 2 is the standing turnaround frame.)
+
+Then the women's looks, when Kyle wants them.

@@ -206,7 +206,10 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
   playable races are to be orcs, tauren, Forsaken, Aetherians, humans and blood elves; an Aetherian start zone and a
   blood elf one come later. When the sheets land, the new looks go on the END of each male list in
   `world/race_registry.py` (saves store a place in that list) and the creator offers only the new five. Women later.
-- **Walk cycles**: parked until the player sprites are in, then drawn on those (claude/walk_cycle_prompts.md).
+- **Player sprites landed 20 Nov** (all seven races) and are in the creator; the barber's chair catches any save whose
+  look is gone.
+- **Walk cycles**: one sheet a race, drawn from that race's turnaround sheet as the single reference
+  (`docs/player_sprite_prompts.md`, "Walk cycles"; sliced by `tools/asset_pipeline/slice_walk_rows.py`).
 - **The recoloured T0 set versions** are plain hue turns (some gold sets come out lime). Kyle's eye.
 
 ## 11. Tools
