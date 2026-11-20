@@ -114,15 +114,12 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - **Recruit kit text I changed** because the game has no such thing (the list in playtest_backlog_2026_11_10, group
   N): Kyle to veto any.
 - **Shelved by Kyle:** an hp5 tank (a tank built round health regeneration).
-- **`qa_factions` fails on the Forsaken** (Exalted at 60% of its quest pool): already failing before Feralas, found
-  19 Nov 2026. Lower the Forsaken's per-quest rate or give it more territory.
 - **From the 19 Nov levelling run (after the rares were split from bosses):**
   - **Mage squishiness** is the class pass's job: the fire mage still loses to more rares than the warrior or the
     priest, and from 51 it ends fights on about two thirds health and rests after a third of them.
-  - **Kolkar Raider** is the one open-world outlier at 11-15: it kills the warrior and the mage over and over. Look at
-    its kit and level before the class pass.
   - **Named quest bosses that wall a solo levelling run** (they killed every spec six times in a row) need a look:
-    which of them are meant to be group quests, and which are tuned like dungeon bosses by mistake.
+    which of them are meant to be group quests, and which are tuned like dungeon bosses by mistake. Part of it was the
+    sim fighting dungeon and cave bosses solo (fixed 20 Nov); the re-run says what's left.
   - **XP pacing** is Kyle's call: kill XP is about twice quest XP from the 30s on, so a quester out-levels the zones.
 
 ## 5. UI

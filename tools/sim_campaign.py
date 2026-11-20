@@ -312,9 +312,12 @@ def do_quest(h, q, world, zone):
             names = [target] + list(o.get("alt_targets") or [])
             name = next((n for n in names if n in world.where), None)
             if name is None:
-                if is_dungeon(q.get("zone") or "") or (target in world.cm.creatures
-                                                       and world.cm.creatures[target].get("is_boss")
-                                                       and t == "kill_boss"):
+                # NOT IN THE OPEN WORLD: a dungeon's or a cave's boss, or something from a hidden place. A solo
+                # open-world run doesn't fight those (19 Nov 2026: Ragefire Chasm's bosses, sent for by Orgrimmar's
+                # quests, were being fought alone and counted as walls).
+                from world.hidden_zones import creature_kinds
+                if is_dungeon(q.get("zone") or "") or target in creature_kinds() or (
+                        target in world.cm.creatures and world.cm.creatures[target].get("is_boss")):
                     return "dungeon"
                 if target not in world.cm.creatures:
                     continue                                 # a target the sim can't spawn: not counted

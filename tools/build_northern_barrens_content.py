@@ -75,7 +75,7 @@ FIXES = {
     "Slug": {"level_range": [15, 17], "ability_kit": "slug"},
     "Bog Creature": {"level_range": [15, 18], "ability_kit": "bog_creature"},
     "Road Bandit": {"level_range": [14, 16]},
-    "Kolkar Raider": {"level_range": [15, 17]},
+    "Kolkar Raider": {"level_range": [14, 17]},   # 19 Nov 2026: the Taurajo raider quests start at 13-14
     "Southsea Brigand": {"level_range": [13, 16], "ability_kit": "southsea_brigand"},
     "Southsea Cannoneer": {"level_range": [14, 17], "ability_kit": "southsea_cannoneer"},
     "Witchwing Harpy": {"level_range": [19, 21], "ability_kit": "witchwing_harpy"},

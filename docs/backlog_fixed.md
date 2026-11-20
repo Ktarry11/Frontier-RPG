@@ -7,6 +7,14 @@ seems broken again, the guard named beside it is the first place to look.
 
 Secrets stay counts and names only here too.
 
+## 20 Nov 2026
+
+| Was | Fixed by | Guarded by |
+|---|---|---|
+| `qa_factions` failed on the Forsaken (Exalted at 60% of its quest pool) | The Forsaken's boss-quest rep 225 to 175; Exalted is now 64% of the pool | `qa_factions` |
+| Kolkar Raider (then 15-17) killed the warrior and the mage over and over at 11-15 | Its range is 14-17 and the Taurajo raider quest sends you at 14-16 (it had been 12-15) | `tools/build_northern_barrens_content.py` FIXES, `qa_low_level_difficulty` |
+| The levelling sim fought dungeon, cave and hidden bosses solo (Ragefire's bosses among them) | `tools/sim_campaign.py` counts a quest whose target is only in a dungeon, a hidden place or is a boss as a dungeon quest | |
+
 ## 19 Nov 2026
 
 | Was | Fixed by | Guarded by |
