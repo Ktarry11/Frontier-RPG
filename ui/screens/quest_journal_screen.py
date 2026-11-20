@@ -536,22 +536,29 @@ class QuestJournalScreen(BaseScreen):
             self.selected_faction_id = None
             self.renderer.draw_button(screen, self.back_button, "Back")
             return
+        painted = False
         if not getattr(f, "secret", False):
-            self._draw_faction_background(screen, self.selected_faction_id)
+            painted = self._draw_faction_background(screen, self.selected_faction_id)
         self.renderer.draw_button(screen, self.back_button, "Back")
+        if painted:
+            # the text sits on its own dark card on the left and the painting is left clear on the right (Kyle,
+            # 19 Nov 2026: "make the text easier to read bro...its still blending into the background")
+            self._draw_card(screen, pygame.Rect(8, 66, self.FACTION_CARD_W, SCREEN_HEIGHT - 66 - 34))
+            self._draw_card(screen, pygame.Rect(SCREEN_WIDTH - 436, 68, 424, 70))
+        text = self._shadowed_text if painted else self.renderer.draw_text
 
         tier = f.tier
         colour = self.TIER_COLOURS.get(tier["id"], COLOR_WHITE)
-        self.renderer.draw_text(screen, f.name, (20, 76), color=COLOR_WHITE, size="large")
+        text(screen, f.name, (20, 76), color=COLOR_WHITE, size="large")
         if f.home_name:
-            self.renderer.draw_text(screen, f.home_name, (20, 112), color=(140, 140, 150), font_size=16)
+            text(screen, f.home_name, (20, 112), color=(196, 196, 206), font_size=16)
         led = f.leader or {}
         if led.get("name"):
             who = " ".join(x for x in (led.get("title"), led.get("name")) if x)
             where = led.get("location")
-            self.renderer.draw_text(screen, who, (20, 136), color=(205, 180, 130), font_size=18)
+            text(screen, who, (20, 136), color=(232, 204, 150), font_size=18)
             if where:
-                self.renderer.draw_text(screen, where, (20, 158), color=(130, 130, 140), font_size=15)
+                text(screen, where, (20, 158), color=(186, 186, 198), font_size=15)
             # A faction can be led by somebody standing in for an absent leader. Rendered as its own line
             # rather than buried in the lore, because "who actually runs this" and "whose chair it is" are
             # different questions and the tauren are currently the whole reason the distinction exists.
@@ -559,8 +566,8 @@ class QuestJournalScreen(BaseScreen):
             if act.get("name"):
                 for_who = " ".join(x for x in (act.get("title"), act.get("name")) if x)
                 note = act.get("status", "")
-                self.renderer.draw_text(screen, f"acting for {for_who}" + (f" - {note}" if note else ""),
-                                        (20, 178), color=(150, 130, 115), font_size=15)
+                text(screen, f"acting for {for_who}" + (f" - {note}" if note else ""),
+                     (20, 178), color=(190, 168, 148), font_size=15)
 
         if getattr(f, "secret", False):
             # a secret faction's page is its name and where you stand: no bar, no numbers, no background
@@ -572,7 +579,7 @@ class QuestJournalScreen(BaseScreen):
                                         color=(150, 140, 165), line_height=24)
             return
         into, span = f.progress()
-        self.renderer.draw_text(screen, tier["name"], (SCREEN_WIDTH - 420, 80), color=colour)
+        text(screen, tier["name"], (SCREEN_WIDTH - 420, 80), color=colour)
         bar = pygame.Rect(SCREEN_WIDTH - 420, 108, 300, 16)
         pygame.draw.rect(screen, (18, 18, 22), bar)
         fill = int(bar.width * max(0.0, min(1.0, into / span)))
@@ -580,13 +587,17 @@ class QuestJournalScreen(BaseScreen):
             pygame.draw.rect(screen, colour, pygame.Rect(bar.x, bar.y, fill, bar.height))
         pygame.draw.rect(screen, (90, 90, 100), bar, 1)
         label = f"{f.standing}" if f.next_tier is None else f"{into} / {span}"
-        self.renderer.draw_text(screen, label, (bar.right + 12, 106), color=(170, 170, 180), font_size=16)
+        text(screen, label, (bar.right + 12, 106), color=(206, 206, 216), font_size=16)
 
         top = 206 if (f.leader or {}).get("acting_for") else 186
         bottom = SCREEN_HEIGHT - 50
-        viewport = pygame.Rect(20, top, SCREEN_WIDTH - 40, bottom - top)
+        if painted:
+            viewport = pygame.Rect(20, top, self.FACTION_CARD_W - 16, bottom - top)
+            width = self.FACTION_CARD_W - 64
+        else:
+            viewport = pygame.Rect(20, top, SCREEN_WIDTH - 40, bottom - top)
+            width = SCREEN_WIDTH - 90
         self._list_viewport = viewport
-        width = SCREEN_WIDTH - 90
 
         scratch = pygame.Surface((1, 1))
         content_height = self._draw_faction_body(scratch, f, 0, width) + 20
@@ -594,7 +605,7 @@ class QuestJournalScreen(BaseScreen):
         self.scroll_offset = max(0, min(self.scroll_offset, max(0, content_height - viewport.height)))
 
         screen.set_clip(viewport)
-        self._draw_faction_body(screen, f, top - self.scroll_offset, width)
+        self._draw_faction_body(screen, f, top - self.scroll_offset, width, shadow=painted)
         screen.set_clip(None)
         self._render_scrollbar(screen, viewport, content_height)
 
@@ -622,34 +633,52 @@ class QuestJournalScreen(BaseScreen):
                     ox, oy = (img.get_width() - area_w) // 2, (img.get_height() - area_h) // 3
                     surf = pygame.Surface((area_w, area_h))
                     surf.blit(img, (-ox, -oy))
+                    # a light, even dim; the text gets its own card (_draw_card), so the painting can stay strong
                     shade = pygame.Surface((area_w, area_h), pygame.SRCALPHA)
-                    for yy in range(area_h):
-                        t = yy / max(1, area_h - 1)
-                        # the header strip and the body are shaded for text; the painting shows through between
-                        # the text sits in the top half: shaded evenly there, then the painting comes through
-                        a = 168 if t < 0.52 else int(168 - 118 * min(1.0, (t - 0.52) / 0.30))
-                        pygame.draw.line(shade, (8, 8, 12, min(200, a)), (0, yy), (area_w, yy))
+                    shade.fill((6, 6, 10, 70))
                     surf.blit(shade, (0, 0))
                 except (pygame.error, OSError):
                     surf = None
             self._faction_bg_cache[key] = surf
-        if surf is not None:
-            screen.blit(surf, (0, 60))
+        if surf is None:
+            return False
+        screen.blit(surf, (0, 60))
+        return True
 
-    def _draw_faction_body(self, screen, f, y, width):
+    #: the width of the dark card the faction's text sits on when its painting is behind the page
+    FACTION_CARD_W = 760
+
+    @staticmethod
+    def _draw_card(screen, rect):
+        """A dark, nearly solid panel with a thin gold edge, for text over a painting."""
+        card = pygame.Surface(rect.size, pygame.SRCALPHA)
+        pygame.draw.rect(card, (10, 10, 14, 226), card.get_rect(), border_radius=10)
+        pygame.draw.rect(card, (150, 128, 80, 150), card.get_rect(), 1, border_radius=10)
+        screen.blit(card, rect.topleft)
+
+    def _shadowed_text(self, screen, text, pos, color=COLOR_WHITE, **kw):
+        """draw_text with a 2px black shadow under it."""
+        x, y = pos
+        self.renderer.draw_text(screen, text, (x + 2, y + 2), color=(0, 0, 0), **kw)
+        self.renderer.draw_text(screen, text, (x, y), color=color, **kw)
+
+    def _draw_faction_body(self, screen, f, y, width, shadow=False):
         """Lay out the faction's background. Called twice per frame - once on a scratch surface to
         measure, once on the real one to draw - so it must be free of side effects."""
         line = (f.leader or {}).get("line")
         if line:
             y = self._draw_wrapped_text(screen, f'"{line}"', (20, y), max_width=width,
-                                        color=(190, 175, 140), line_height=24)
+                                        color=(232, 212, 165) if shadow else (190, 175, 140), line_height=24,
+                                        shadow=shadow)
             y += 18
         if f.lore:
-            self.renderer.draw_text(screen, "Background", (20, y), color=COLOR_GOLD)
+            (self._shadowed_text if shadow else self.renderer.draw_text)(screen, "Background", (20, y),
+                                                                         color=COLOR_GOLD)
             y += 30
             for para in f.lore:
                 y = self._draw_wrapped_text(screen, para, (20, y), max_width=width,
-                                            color=(185, 185, 190), line_height=22)
+                                            color=(226, 226, 232) if shadow else (185, 185, 190), line_height=22,
+                                            shadow=shadow)
                 y += 12
             y += 10
 
@@ -870,7 +899,8 @@ class QuestJournalScreen(BaseScreen):
             self._draw_wrapped_text(screen, "  ".join(stats), (rect.x + 8, y), max_width=rect.width - 16,
                                     line_height=19, font_size=15)
 
-    def _draw_wrapped_text(self, screen, text, pos, max_width, color=COLOR_WHITE, line_height=24, font_size=None):
+    def _draw_wrapped_text(self, screen, text, pos, max_width, color=COLOR_WHITE, line_height=24, font_size=None,
+                           shadow=False):
         """Word-wrap text at pos; returns the y just below the last line (pos[1] if text is empty)."""
         x, y = pos
         if not text:
@@ -892,10 +922,11 @@ class QuestJournalScreen(BaseScreen):
         if current:
             lines.append(current)
 
+        draw = self._shadowed_text if shadow else self.renderer.draw_text
         for line in lines:
             if font_size:
-                self.renderer.draw_text(screen, line, (x, y), color=color, font_size=font_size)
+                draw(screen, line, (x, y), color=color, font_size=font_size)
             else:
-                self.renderer.draw_text(screen, line, (x, y), color=color)
+                draw(screen, line, (x, y), color=color)
             y += line_height
         return y
