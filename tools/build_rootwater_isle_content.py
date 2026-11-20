@@ -185,11 +185,11 @@ POOLS = {
 }
 
 #: gathering at 42-44 on a jungle reef: the 40s herbs (Khadgar's Whisker, Goldthorn, Fadeleaf, Purple Lotus, a little
-#: Sungrass), mithril with a little truesilver, and the jungle's woods. Fishing: the warm reef's fish.
+#: Sungrass), mithril, and the jungle's woods. Fishing: the warm reef's fish.
 NODES = {"rootwater_isle": {"slots": 26, "active_percent": 0.42, "table": {
     "herb_khadgar": 3, "herb_goldthorn": 3, "herb_fadeleaf": 3, "herb_purple_lotus": 2, "herb_sungrass": 1,
     "herb_liferoot": 2,
-    "ore_mithril": 4, "ore_truesilver": 1, "ore_verdant_iron": 2,
+    "ore_mithril": 5, "ore_verdant_iron": 2,
     "wood_bloodroot_stump": 3, "wood_driftwood_stump": 2, "wood_thornveil_stump": 2},
     "fishing": {"slots": 8, "active_percent": 0.6, "table": {
         "fish_stonescale_eel": 3, "fish_spotted_yellowtail": 3, "fish_nightfin_snapper": 2, "fish_redgill": 2,

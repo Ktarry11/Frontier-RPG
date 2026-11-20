@@ -57,6 +57,22 @@ MAP_MODULES = {HW: "handbuilt_feralas_high_wilderness", FC: "handbuilt_feralas_f
                TC: "handbuilt_feralas_twin_colossals"}
 
 
+
+def fishing_for(key):
+    """The map's fishing table, chosen by its own level the way tools/build_fishing.py does: the four best fish whose
+    skill fits the zone's window. (It used to copy Glittervein's table, which put a fish too hard for 44-46 in the High
+    Wilderness; tools/qa_fishing.py caught it.)"""
+    from tools.build_fishing import FISH, window
+    from world.zone_keys import zone_key
+    lv = {zone_key(k): v for k, v in json.loads((ROOT / "data/zones/zone_levels.json").read_text(
+        encoding="utf-8"))["zones"].items()}.get(zone_key(key))
+    if lv is None:
+        return None
+    s_lo, s_hi = window(*lv)
+    fits = sorted([(fid, sk) for fid, _n, sk, _i, _d in FISH if s_lo <= sk <= s_hi], key=lambda f: -f[1])[:4]
+    return {"slots": 4, "active_percent": 0.6, "table": {fid: 3 if n else 2 for n, (fid, _s) in enumerate(fits)}} \
+        if fits else None
+
 def T(level):
     return 4 * level - 10
 
@@ -497,8 +513,8 @@ def main():
                           encoding="utf-8")
     np_path = ROOT / "data/gathering/node_pools.json"
     nd = json.loads(np_path.read_text(encoding="utf-8"))
-    fish = (nd["zones"].get("glittervein") or {}).get("fishing")
     for key, pool in NODES.items():
+        fish = fishing_for(key)
         nd["zones"][key] = dict(pool, **({"fishing": fish} if fish else {}))
     np_path.write_text(json.dumps(nd, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     out = {"_notes": ("Feralas's open-world rares (46-49). ONE item per kill from the rare's four; item_level = the "

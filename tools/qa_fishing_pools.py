@@ -56,7 +56,9 @@ def main():
             bad.append(f"{n}: {int(pink.sum())} bright pink pixels left")
 
     pools = json.loads((ROOT / "data/gathering/node_pools.json").read_text(encoding="utf-8"))["zones"]
-    fishing = [k for k, v in pools.items() if isinstance(v, dict) and v.get("fishing")]
+    # keys the way the game reads them (world/gathering_manager.py normalises node_pools' keys with zone_key)
+    from world.zone_keys import zone_key
+    fishing = sorted({zone_key(k) for k, v in pools.items() if isinstance(v, dict) and v.get("fishing")})
     for k in fishing:
         if k not in FP.ZONE_POOLS:
             bad.append(f"{k} has fishing and no pool chosen for it")

@@ -58,6 +58,9 @@ ZONE_POOLS = {
     "deadwind_east": ("pool_river", "pool_glowing"),     # the gorge's river and the seep's glow
     "moonwell_hollow": ("pool_moonlit", "pool_glowing"),
     "rootwater_isle": ("pool_coast", "pool_jungle"),       # the World Tree's reef and its lagoons (19 Nov 2026)
+    "high_wilderness": ("pool_river", "pool_fresh"),       # Feralas's east arm: forest rivers and pools
+    "forgotten_coast": ("pool_coast", "pool_deep_sea"),    # Feralas's coast and the sound off Feathermoon
+    "twin_colossals": ("pool_river", "pool_reeds"),        # the falls under the Colossals and the fog groves' fens
     "aspen_wilderness": ("pool_river", "pool_reeds"),
     "crystalline_underdark": ("pool_glowing", "pool_cave"),
     "drowning_floor": ("pool_deep_sea", "pool_cave"),

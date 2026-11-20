@@ -58,7 +58,8 @@ def main():
     levels = {zone_key(k): v for k, v in json.load(open("data/zones/zone_levels.json", encoding="utf-8"))["zones"].items()}
     fish = {k: v for k, v in mats.items() if v.get("material_type") == "fish"}
     check(len(fish) == 22, f"expected 22 fish before 60, found {len(fish)}")
-    with_pool = {k: p["fishing"] for k, p in pools.items() if p.get("fishing")}
+    # keys the way the game reads them (world/gathering_manager.py normalises node_pools' keys with zone_key)
+    with_pool = {zone_key(k): p["fishing"] for k, p in pools.items() if p.get("fishing")}
     check(len(with_pool) >= 20, f"only {len(with_pool)} zones have fishing")
     for key, fp in with_pool.items():
         lo, hi = levels[key]

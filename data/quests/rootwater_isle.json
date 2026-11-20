@@ -1,0 +1,3023 @@
+{
+  "quests": [
+    {
+      "quest_id": "rwq_off_the_boat",
+      "title": "Off the Boat",
+      "giver_npc_id": "rw_ferryman_east",
+      "zone": "rootwater_isle",
+      "level_min": 42,
+      "level_max": 42,
+      "description": "Boatman Grik'zul rows the crossing from Grom'gol, and every passenger he brings over is supposed to report to Headwoman Zula at the landing. He's given you the manifest to carry up.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "rw_q_manifest",
+          "count": 1,
+          "label": "Take Grik'zul's manifest to Headwoman Zula Rootcaller at Rootwater Landing"
+        }
+      ],
+      "accept_text": "Everybody who comes off my boat goes up to the headwoman first, so she knows who's on her island. Take her the manifest, she's at the landing under the trunk, and you can't miss the trunk.",
+      "turn_in_text": "You're the one Grik'zul wrote down as \"looks useful\". He doesn't write that often.\n\nWelcome to Rootwater, where the tree drinks the sea. Since the worlds came together we've had more newcomers off that boat than we know what to do with, and every one of them's going up eventually. Before you go up, I'll want your help down here.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "rw_chieftain",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "rw_q_manifest",
+            "name": "Grik'zul's Manifest",
+            "description": "A list of everyone who crossed from Grom'gol this week, in a careful hand, with a remark beside each name.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3000,
+      "reward_gold": 12000,
+      "unique_item_defs": [
+        {
+          "name": "Boatman's Breastplate",
+          "slot": "chest",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "healing_power": 42
+          },
+          "armor_value": 277,
+          "required_level": 42,
+          "sell_price": 6195,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_chest_plate01"
+        },
+        {
+          "name": "Boatman's Slippers",
+          "slot": "feet",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 19
+          },
+          "armor_value": 50,
+          "required_level": 42,
+          "sell_price": 4026,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_07"
+        },
+        {
+          "name": "Boatman's Wristguards",
+          "slot": "wrist",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 15
+          },
+          "armor_value": 119,
+          "required_level": 42,
+          "sell_price": 3097,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_bracer_19"
+        }
+      ],
+      "gear_reward_gear_level": 43,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_crocs_at_the_pier",
+      "title": "Crocs at the Pier",
+      "giver_npc_id": "rw_ferryman_east",
+      "zone": "rootwater_isle",
+      "level_min": 42,
+      "level_max": 43,
+      "description": "The Sap-Drunk Crocolisks have started coming up under the Grom'gol pier, and one of them took an oar clean out of Grik'zul's hands last week.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Sap-Drunk Crocolisk",
+          "count": 7,
+          "zone": "rootwater_isle"
+        }
+      ],
+      "accept_text": "The Sap-Drunk Crocolisks have lost their fear of the boat. One took my oar right out of my hands, and I'd rather it was the oar than the hands next time. Thin them out round the lagoons.",
+      "turn_in_text": "That's quieter water already. I'll row a little easier tonight.\n\nThey weren't like this before the tree came up out of nowhere. A croc used to be a croc. These ones look at you like they're deciding something.",
+      "next_quest_id": null,
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "unique_item_defs": [
+        {
+          "name": "Oarsman's Longbow",
+          "slot": "ranged",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "attack_power": 15
+          },
+          "armor_value": 0,
+          "required_level": 42,
+          "sell_price": 5201,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_08",
+          "weapon_damage_min": 51,
+          "weapon_damage_max": 69,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Oarsman's Coif",
+          "slot": "head",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 36
+          },
+          "armor_value": 166,
+          "required_level": 42,
+          "sell_price": 5201,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_23"
+        },
+        {
+          "name": "Oarsman's Leggings",
+          "slot": "legs",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "spell_power": 27
+          },
+          "armor_value": 55,
+          "required_level": 42,
+          "sell_price": 6501,
+          "identity": "caster",
+          "icon_id": "gear_inv_pants_09"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_from_the_other_coast",
+      "title": "From the Other Coast",
+      "giver_npc_id": "rw_ferryman_west",
+      "zone": "rootwater_isle",
+      "level_min": 42,
+      "level_max": 43,
+      "description": "Boatwoman Zaela rows the long crossing to Zoram Strand on Ashenvale's coast. The night elves there want to know what the tree is, and the headwoman has written them an answer.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "rw_q_letter_to_zoram",
+          "count": 1,
+          "label": "Take Zula's letter to Boatwright Illyen at Zoram Strand"
+        }
+      ],
+      "accept_text": "The night elves at Zoram keep asking my passengers what this tree is, and none of them can say. The headwoman's written them a proper answer. Take it across with me and give it to Boatwright Illyen on the pier.",
+      "turn_in_text": "A letter from the trolls on the tree. I wondered when they'd write.\n\nWe see it from here on a clear evening, you know, a dark shape on the sea where the sun goes down. The Sentinels argue about whether it's a tree at all. I'll tell them it is, and that the people living in it are polite.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "zoram_boatwright",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "rw_q_letter_to_zoram",
+            "name": "Zula's Letter to Zoram",
+            "description": "A letter sealed with a smear of gold sap, addressed to whoever's in charge on the night elves' pier.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "unique_item_defs": [
+        {
+          "name": "Ferrywoman's Knife",
+          "slot": "main_hand",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 0,
+          "required_level": 42,
+          "sell_price": 6176,
+          "identity": "agility",
+          "icon_id": "gear_inv_weapon_shortblade_24",
+          "weapon_damage_min": 60,
+          "weapon_damage_max": 81,
+          "attack_speed": 1.7,
+          "block_value": 0
+        },
+        {
+          "name": "Ferrywoman's Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 110,
+          "required_level": 42,
+          "sell_price": 5201,
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_24"
+        },
+        {
+          "name": "Ferrywoman's Sabatons",
+          "slot": "feet",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 183,
+          "required_level": 42,
+          "sell_price": 4226,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_plate_09"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_murlocs_under_the_oars",
+      "title": "Murlocs Under the Oars",
+      "giver_npc_id": "rw_ferryman_west",
+      "zone": "rootwater_isle",
+      "level_min": 42,
+      "level_max": 43,
+      "description": "The Rootbound Murlocs have taken to following Zaela's boat out of the lagoons and grabbing at the oars. They aren't strong, but there are a lot of them, and the roots in them make them hard to shake off.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Rootbound Murloc",
+          "count": 8,
+          "zone": "rootwater_isle"
+        }
+      ],
+      "accept_text": "The Rootbound Murlocs follow my boat out and hang off the oars, and they've got roots growing through them that make them heavy. Clear them out of the lagoons for me before somebody goes over the side.",
+      "turn_in_text": "Good riddance to them. The poor things.\n\nI pulled one off the oar last week and the root in its arm was still growing. Whatever's in that sap, I'm glad I don't drink it.",
+      "next_quest_id": null,
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "unique_item_defs": [
+        {
+          "name": "Rower's Tome",
+          "slot": "off_hand",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 25
+          },
+          "armor_value": 0,
+          "required_level": 42,
+          "sell_price": 3901,
+          "identity": "healer",
+          "icon_id": "gear_inv_tome_1",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        },
+        {
+          "name": "Rower's Handguards",
+          "slot": "hands",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 8
+          },
+          "armor_value": 183,
+          "required_level": 42,
+          "sell_price": 4226,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_05"
+        },
+        {
+          "name": "Rower's Girdle",
+          "slot": "waist",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 122,
+          "required_level": 42,
+          "sell_price": 3576,
+          "identity": "hunter",
+          "icon_id": "gear_inv_belt_17"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_twice_their_size",
+      "title": "Twice Their Size",
+      "giver_npc_id": "rw_hunter",
+      "zone": "rootwater_isle",
+      "level_min": 42,
+      "level_max": 42,
+      "description": "Huntress Ka'lisa has watched the lagoon crocolisks double in size since they started drinking the sap that seeps out of the roots, and they've stopped being afraid of the trolls.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Sap-Drunk Crocolisk",
+          "count": 8,
+          "zone": "rootwater_isle"
+        }
+      ],
+      "accept_text": "The Sap-Drunk Crocolisks in the lagoons are twice the size they were last year, and they've stopped running from us. A croc that isn't scared of you is a croc that's going to try something. Teach them to be scared again.",
+      "turn_in_text": "That'll do for now. They'll keep growing, though, as long as they keep drinking.\n\nI don't blame them, really. If the sea round you started tasting of gold, you'd drink it too.",
+      "next_quest_id": null,
+      "reward_exp": 3000,
+      "reward_gold": 12000,
+      "unique_item_defs": [
+        {
+          "name": "Lagoon-Stalker's Mace",
+          "slot": "main_hand",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 28
+          },
+          "armor_value": 0,
+          "required_level": 42,
+          "sell_price": 5885,
+          "identity": "healer",
+          "icon_id": "gear_inv_mace_05",
+          "weapon_damage_min": 59,
+          "weapon_damage_max": 80,
+          "attack_speed": 2.6,
+          "block_value": 0
+        },
+        {
+          "name": "Lagoon-Stalker's Jerkin",
+          "slot": "chest",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 10,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 107,
+          "required_level": 42,
+          "sell_price": 6195,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_07"
+        },
+        {
+          "name": "Lagoon-Stalker's Pendant",
+          "slot": "neck",
+          "item_level": 43,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 6,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 16
+          },
+          "armor_value": 0,
+          "required_level": 42,
+          "sell_price": 3717,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_amulet_05"
+        }
+      ],
+      "gear_reward_gear_level": 43,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_lizard_hides",
+      "title": "Lizard Hides",
+      "giver_npc_id": "rw_hunter",
+      "zone": "rootwater_isle",
+      "level_min": 42,
+      "level_max": 43,
+      "description": "Bark Lizards live all over the island, and their hides look exactly like the bark they sleep on. Ka'lisa wants them for quivers before the climb.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "rw_q_lizard_hide",
+          "count": 8
+        }
+      ],
+      "accept_text": "Every hunter who goes up the tree needs a quiver that won't slip, and Bark Lizard hide grips like nothing else. You'll have to look hard for the lizards, because they're the colour of the bark. Bring me their hides.",
+      "turn_in_text": "These are perfect. Half the climbers these days are newcomers who'd never held a bow before they crossed over, and nobody's going to drop an arrow off a branch with a quiver like this.\n\nThat matters more than you'd think. Up there, anything you drop, you don't see again.",
+      "next_quest_id": null,
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "unique_item_defs": [
+        {
+          "name": "Barkskin Greatsword",
+          "slot": "main_hand",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 0,
+          "required_level": 42,
+          "sell_price": 8126,
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_36",
+          "weapon_damage_min": 81,
+          "weapon_damage_max": 110,
+          "attack_speed": 3.4,
+          "block_value": 0
+        },
+        {
+          "name": "Barkskin Bracers",
+          "slot": "wrist",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 7,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 90,
+          "required_level": 42,
+          "sell_price": 3250,
+          "identity": "agility",
+          "icon_id": "gear_inv_bracer_12"
+        },
+        {
+          "name": "Barkskin Hood",
+          "slot": "head",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 23
+          },
+          "armor_value": 63,
+          "required_level": 42,
+          "sell_price": 5201,
+          "identity": "caster",
+          "icon_id": "gear_inv_helmet_60"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_moths_round_the_lanterns",
+      "title": "Moths Round the Lanterns",
+      "giver_npc_id": "rw_hunter",
+      "zone": "rootwater_isle",
+      "level_min": 42,
+      "level_max": 43,
+      "description": "The Leafwing Moths come to the landing's lanterns at night, and their wing dust makes people itch for days. They're bigger than they should be too.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Leafwing Moth",
+          "count": 8,
+          "zone": "rootwater_isle"
+        }
+      ],
+      "accept_text": "The Leafwing Moths come for our lanterns every night, and they're the size of dogs now. Their wing dust gets into everything. Knock them down wherever you find them on the island.",
+      "turn_in_text": "That's a few nights without the itch, at least.\n\nA moth the size of a dog. I keep thinking I'll get used to this place, and then something else grows.",
+      "next_quest_id": null,
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "unique_item_defs": [
+        {
+          "name": "Lanternwatch Hauberk",
+          "slot": "chest",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 9,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 27
+          },
+          "armor_value": 176,
+          "required_level": 42,
+          "sell_price": 6501,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain"
+        },
+        {
+          "name": "Lanternwatch Sash",
+          "slot": "waist",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 19
+          },
+          "armor_value": 38,
+          "required_level": 42,
+          "sell_price": 3576,
+          "identity": "caster",
+          "icon_id": "gear_inv_belt_15"
+        },
+        {
+          "name": "Lanternwatch Sabatons",
+          "slot": "feet",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 8
+          },
+          "armor_value": 183,
+          "required_level": 42,
+          "sell_price": 4226,
+          "identity": "tank",
+          "icon_id": "gear_inv_boots_plate_03"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_the_bloodscalp_climb",
+      "title": "The Bloodscalp Climb",
+      "giver_npc_id": "rw_hunter",
+      "zone": "rootwater_isle",
+      "level_min": 43,
+      "level_max": 44,
+      "description": "The Bloodscalp have made a war camp out on the north-west root, and their headhunters and axe-throwers come down it at night to take trolls off the edge of the landing.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bloodscalp Headhunter",
+          "count": 6,
+          "zone": "rootwater_isle"
+        },
+        {
+          "type": "kill",
+          "target": "Bloodscalp Axe-Thrower",
+          "count": 6,
+          "zone": "rootwater_isle"
+        }
+      ],
+      "accept_text": "The Bloodscalp never forgave the tribes who climbed this tree without them, and now they're after it for themselves. Their Bloodscalp Headhunters and Bloodscalp Axe-Throwers come down the north-west root at night. Go up the root and break their hunting parties.",
+      "turn_in_text": "They'll think twice before they come down that root again.\n\nSome of the Highbough were Bloodscalp once. They left to climb the tree, and their old tribe calls them traitors. It's a family fight, which is the worst kind.",
+      "next_quest_id": null,
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "unique_item_defs": [
+        {
+          "name": "Rootclimber's Grips",
+          "slot": "hands",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 19
+          },
+          "armor_value": 78,
+          "required_level": 43,
+          "sell_price": 4430,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_01"
+        },
+        {
+          "name": "Rootclimber's Spaulders",
+          "slot": "shoulder",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 37
+          },
+          "armor_value": 152,
+          "required_level": 43,
+          "sell_price": 5452,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_shoulder_28"
+        },
+        {
+          "name": "Rootclimber's Pendant",
+          "slot": "neck",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 17
+          },
+          "armor_value": 0,
+          "required_level": 43,
+          "sell_price": 4089,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_amulet_01"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_measuring_the_sap",
+      "title": "Measuring the Sap",
+      "giver_npc_id": "rw_herbalist",
+      "zone": "rootwater_isle",
+      "level_min": 42,
+      "level_max": 43,
+      "description": "Sapwatcher Uzo measures the World Tree's sap the way a healer measures a fever. He needs blood from the creatures that drink it most, to see how much of it they're carrying.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "rw_q_sap_blood",
+          "count": 6
+        }
+      ],
+      "accept_text": "The sap's the tree's blood, and I measure it, because somebody has to. The Sap-Drunk Crocolisks drink more of it than anything. Bring me their blood in gourds and I'll see how much gold's in it.",
+      "turn_in_text": "Look at that. It doesn't clot, and it shouldn't be this colour.\n\nA little sap heals a cut. A cup makes a man strong. These beasts are drinking it by the barrel, and I don't think anything was meant to.",
+      "next_quest_id": "rwq_rootbound",
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "unique_item_defs": [
+        {
+          "name": "Sapwatcher's Cloak",
+          "slot": "back",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 18,
+            "hit_rating": 5
+          },
+          "armor_value": 33,
+          "required_level": 42,
+          "sell_price": 3576,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_20"
+        },
+        {
+          "name": "Sapwatcher's Cuffs",
+          "slot": "wrist",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 5,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "healing_power": 24
+          },
+          "armor_value": 38,
+          "required_level": 42,
+          "sell_price": 3250,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_03"
+        },
+        {
+          "name": "Sapwatcher's Legplates",
+          "slot": "legs",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 27
+          },
+          "armor_value": 265,
+          "required_level": 42,
+          "sell_price": 6501,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_02"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_rootbound",
+      "title": "Rootbound",
+      "giver_npc_id": "rw_herbalist",
+      "zone": "rootwater_isle",
+      "level_min": 42,
+      "level_max": 43,
+      "description": "The murlocs in the lagoons have roots growing through them now. Uzo wants to know whether the tree is feeding them or feeding on them.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "rw_q_root_fin",
+          "count": 6
+        }
+      ],
+      "accept_text": "The Rootbound Murlocs have roots growing right through their fins. I've got to know whether the tree is feeding them or feeding on them, and the only way to tell is to look at the roots. Bring me some of their fins.",
+      "turn_in_text": "The roots are alive, and they're drinking from the murloc, not the other way round.\n\nThat's the first time I've seen the tree take instead of give. Tazjin will want to hear this, and he won't like it.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "rwq_measuring_the_sap"
+      ],
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "unique_item_defs": [
+        {
+          "name": "Rootbound Cap",
+          "slot": "head",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "agility": 8
+          },
+          "secondary_stats": {
+            "dodge_rating": 6
+          },
+          "armor_value": 93,
+          "required_level": 42,
+          "sell_price": 5201,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_46"
+        },
+        {
+          "name": "Rootbound Band",
+          "slot": "ring",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 5,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "healing_power": 20
+          },
+          "armor_value": 0,
+          "required_level": 42,
+          "sell_price": 3901,
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_ring_01"
+        },
+        {
+          "name": "Rootbound Gauntlets",
+          "slot": "hands",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 6,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 18
+          },
+          "armor_value": 122,
+          "required_level": 42,
+          "sell_price": 4226,
+          "identity": "earthen",
+          "icon_id": "gear_inv_gauntlets_08"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_whiskers_for_the_draught",
+      "title": "Whiskers for the Draught",
+      "giver_npc_id": "rw_herbalist",
+      "zone": "rootwater_isle",
+      "level_min": 42,
+      "level_max": 44,
+      "description": "Uzo cuts the tree's sap with Khadgar's Whisker to make a draught that heals without making anyone grow. The herb grows on the island's roots and among the jungle.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "herb_khadgar",
+          "count": 8,
+          "label": "Gather Khadgar's Whisker"
+        }
+      ],
+      "accept_text": "I cut the sap with Khadgar's Whisker so it heals without doing anything else to you. It grows all over the island, along the roots and under the jungle. Bring me what you can pick and I'll keep the climbers supplied.",
+      "turn_in_text": "That's a good pile. I'll have draughts ready by tomorrow.\n\nEvery troll going up takes three. Nobody's ever needed more than two, but they all want three.",
+      "next_quest_id": null,
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "unique_item_defs": [
+        {
+          "name": "Herbalist's Staff",
+          "slot": "main_hand",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 19
+          },
+          "secondary_stats": {
+            "spell_power": 43
+          },
+          "armor_value": 0,
+          "required_level": 42,
+          "sell_price": 8519,
+          "identity": "caster",
+          "icon_id": "gear_inv_staff_32",
+          "weapon_damage_min": 33,
+          "weapon_damage_max": 45,
+          "attack_speed": 3.2,
+          "block_value": 0
+        },
+        {
+          "name": "Herbalist's Jerkin",
+          "slot": "chest",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 112,
+          "required_level": 42,
+          "sell_price": 6815,
+          "identity": "strength",
+          "icon_id": "gear_inv_chest_leather_02"
+        },
+        {
+          "name": "Herbalist's Waistguard",
+          "slot": "waist",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 31
+          },
+          "armor_value": 201,
+          "required_level": 42,
+          "sell_price": 3748,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_belt_33"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_what_the_bloodsail_want",
+      "title": "What the Bloodsail Want",
+      "giver_npc_id": "rw_herbalist",
+      "zone": "rootwater_isle",
+      "level_min": 43,
+      "level_max": 44,
+      "description": "The Bloodsail aren't tapping the roots for their own use. Uzo wants their ledgers, to find out who's buying the sap and what they're doing with it.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "rw_q_tap_ledger",
+          "count": 4
+        }
+      ],
+      "accept_text": "The Bloodsail Sap-Tappers write everything down, every barrel and every buyer. Get me their ledgers. I want to know who's buying the tree's blood by the barrel, and what they think it's going to do for them.",
+      "turn_in_text": "Booty Bay, Ratchet, and a buyer they only call \"the Doctor\". That last one takes more than the others together.\n\nNobody needs that much sap for healing. Somebody's growing something, and I'd give a lot to know what.",
+      "next_quest_id": null,
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "unique_item_defs": [
+        {
+          "name": "Sap-Thief's Mantle",
+          "slot": "shoulder",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 23
+          },
+          "armor_value": 64,
+          "required_level": 43,
+          "sell_price": 5452,
+          "identity": "caster",
+          "icon_id": "gear_inv_shoulder_07"
+        },
+        {
+          "name": "Sap-Thief's Breeches",
+          "slot": "legs",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 11,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 112,
+          "required_level": 43,
+          "sell_price": 6815,
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_09"
+        },
+        {
+          "name": "Sap-Thief's Vambraces",
+          "slot": "wrist",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_value": 201,
+          "required_level": 43,
+          "sell_price": 3408,
+          "identity": "tank",
+          "icon_id": "gear_inv_bracer_18"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_the_hungry_loa",
+      "title": "The Hungry Loa",
+      "giver_npc_id": "rw_witch_doctor",
+      "zone": "rootwater_isle",
+      "level_min": 42,
+      "level_max": 43,
+      "description": "Witch Doctor Tazjin says the loa of the tree has been hungry since the bark began to rot on the north-east root. He wants someone to go and see the rot for him.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "rootwater_isle",
+          "target_x": 146,
+          "target_y": 22,
+          "radius": 4,
+          "label": "See the rot at the heart of the Saproot Thicket"
+        }
+      ],
+      "accept_text": "The loa of this tree answered us when the world broke and nothing else did, and I listen for it every night. Lately it's hungry. The bark's rotting out on the north-east root, past the Root Stair. Go and look at it for me and tell me what you see.",
+      "turn_in_text": "Black blossoms and a smell like an old wound. That's what I was afraid of.\n\nA tree this size can lose a branch and not notice. This isn't a branch. It's starting at the root, and the root is where the tree drinks.",
+      "next_quest_id": "rwq_rot_on_the_root",
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "unique_item_defs": [
+        {
+          "name": "Loa-Listener's Shield",
+          "slot": "off_hand",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "spell_power": 15,
+            "haste": 5
+          },
+          "armor_value": 343,
+          "required_level": 42,
+          "sell_price": 5201,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_shield_06",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 40
+        },
+        {
+          "name": "Loa-Listener's Greaves",
+          "slot": "feet",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 122,
+          "required_level": 42,
+          "sell_price": 4226,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_06"
+        },
+        {
+          "name": "Loa-Listener's Robe",
+          "slot": "chest",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 9,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "healing_power": 24
+          },
+          "armor_value": 55,
+          "required_level": 42,
+          "sell_price": 6501,
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_chest_cloth_38"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_rot_on_the_root",
+      "title": "Rot on the Root",
+      "giver_npc_id": "rw_witch_doctor",
+      "zone": "rootwater_isle",
+      "level_min": 43,
+      "level_max": 44,
+      "description": "Things live in the rot now, eating the bark from the inside. Tazjin wants them cleared before the rot spreads up the trunk.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Rot Crawler",
+          "count": 7,
+          "zone": "rootwater_isle"
+        },
+        {
+          "type": "kill",
+          "target": "Bark-Borer Beetle",
+          "count": 7,
+          "zone": "rootwater_isle"
+        }
+      ],
+      "accept_text": "The Rot Crawlers and the Bark-Borer Beetles are eating the tree from the inside where the bark's gone soft. The rot spreads wherever they chew. Clear them off the north-east root before it reaches the trunk.",
+      "turn_in_text": "That slows it. It doesn't stop it, but it slows it.\n\nThe crawlers and the beetles didn't start the rot. They're just fat on it. Something else started it, and we'll have to find out what.",
+      "next_quest_id": "rwq_living_sap",
+      "requires_quests": [
+        "rwq_the_hungry_loa"
+      ],
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "unique_item_defs": [
+        {
+          "name": "Rotbane Shield",
+          "slot": "off_hand",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 12,
+            "strength": 4
+          },
+          "secondary_stats": {
+            "block_value": 11
+          },
+          "armor_value": 351,
+          "required_level": 43,
+          "sell_price": 5452,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_20",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 40
+        },
+        {
+          "name": "Rotbane Breeches",
+          "slot": "legs",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 14,
+            "agility": 9
+          },
+          "secondary_stats": {
+            "dodge_rating": 7
+          },
+          "armor_value": 112,
+          "required_level": 43,
+          "sell_price": 6815,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_14"
+        },
+        {
+          "name": "Rotbane Gloves",
+          "slot": "hands",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "arcane_spell_power": 23
+          },
+          "armor_value": 39,
+          "required_level": 43,
+          "sell_price": 4430,
+          "identity": "arcane",
+          "icon_id": "gear_inv_gauntlets_15"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_living_sap",
+      "title": "Living Sap",
+      "giver_npc_id": "rw_witch_doctor",
+      "zone": "rootwater_isle",
+      "level_min": 43,
+      "level_max": 44,
+      "description": "Out in the rot, the sap has started moving on its own. Tazjin wants a piece of the Goldensap Ooze, to understand what's waking up in the tree.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "rw_q_living_sap",
+          "count": 4
+        }
+      ],
+      "accept_text": "The sap in the rot has started crawling about on its own. The Goldensap Oozes are what the tree bleeds when it's sick, and I need to know what's alive in them. Bring me clots of it in a closed jar, and don't look at them too long.",
+      "turn_in_text": "It's still moving. I'm going to put it in the dark for now.\n\nThe loa's in there, a little. Something's feeding on the tree's sickness and growing on it, and I think it's a mother of some kind.",
+      "next_quest_id": "rwq_the_rot_mother",
+      "requires_quests": [
+        "rwq_rot_on_the_root"
+      ],
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "unique_item_defs": [
+        {
+          "name": "Goldensap Spear",
+          "slot": "main_hand",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 0,
+          "required_level": 43,
+          "sell_price": 8519,
+          "identity": "strength",
+          "icon_id": "gear_inv_spear_05",
+          "weapon_damage_min": 83,
+          "weapon_damage_max": 112,
+          "attack_speed": 3.3,
+          "block_value": 0
+        },
+        {
+          "name": "Goldensap Hood",
+          "slot": "head",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 29
+          },
+          "armor_value": 47,
+          "required_level": 43,
+          "sell_price": 5452,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_46"
+        },
+        {
+          "name": "Goldensap Grips",
+          "slot": "hands",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 6,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 78,
+          "required_level": 43,
+          "sell_price": 4430,
+          "identity": "feral",
+          "icon_id": "gear_inv_gauntlets_14"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_the_rot_mother",
+      "title": "The Rot-Mother",
+      "giver_npc_id": "rw_witch_doctor",
+      "zone": "rootwater_isle",
+      "level_min": 44,
+      "level_max": 44,
+      "description": "At the heart of the rot, something has grown big on the tree's sickness. Tazjin calls it the Rot-Mother, and he wants it cut out of the tree.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Rot-Mother",
+          "count": 1,
+          "zone": "rootwater_isle"
+        }
+      ],
+      "accept_text": "There's something at the heart of the rot that's grown big on the tree's sickness, and everything else in there's one of its children. The Rot-Mother has to be cut out. Find her on the north-east root and kill her.",
+      "turn_in_text": "It's done now, and I felt the loa ease when she fell, as clear as a fever breaking.\n\nThe rot will heal now, slowly. Thank you. The tree will remember it, and so will the tribes.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "rwq_living_sap"
+      ],
+      "reward_exp": 4108,
+      "reward_gold": 16380,
+      "unique_item_defs": [
+        {
+          "name": "Rot-Mother's Legguards",
+          "slot": "legs",
+          "item_level": 46,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "nature_spell_power": 36,
+            "haste": 10
+          },
+          "armor_value": 255,
+          "required_level": 44,
+          "sell_price": 10706,
+          "identity": "storm",
+          "icon_id": "gear_inv_pants_13"
+        },
+        {
+          "name": "Rot-Mother's Cloak",
+          "slot": "back",
+          "item_level": 46,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 23
+          },
+          "armor_value": 46,
+          "required_level": 44,
+          "sell_price": 5888,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_03"
+        },
+        {
+          "name": "Rot-Mother's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 46,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 32
+          },
+          "armor_value": 317,
+          "required_level": 44,
+          "sell_price": 8564,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_27"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "rwq_the_bloodsail_tap",
+      "title": "The Bloodsail Tap",
+      "giver_npc_id": "rw_chieftain",
+      "zone": "rootwater_isle",
+      "level_min": 42,
+      "level_max": 43,
+      "description": "The Bloodsail have set up on the south-east root and hammered spigots into it. They're bleeding the tree for sap to sell, and Headwoman Zula wants them gone.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bloodsail Sap-Tapper",
+          "count": 7,
+          "zone": "rootwater_isle"
+        },
+        {
+          "type": "kill",
+          "target": "Bloodsail Cutthroat",
+          "count": 5,
+          "zone": "rootwater_isle"
+        }
+      ],
+      "accept_text": "The Bloodsail are hammering spigots into the south-east root and selling what runs out. Every barrel they fill's the tree bleeding. Kill their Bloodsail Sap-Tappers, and the Bloodsail Cutthroats who guard them.",
+      "turn_in_text": "That'll cost them a few barrels. They'll be back, because sap pays, but they'll come back fewer.\n\nThe tree gave itself to us, and we don't sell it. That's the difference between a tribe and a crew.",
+      "next_quest_id": "rwq_tapmaster_grell",
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "unique_item_defs": [
+        {
+          "name": "Rootcaller's Staff",
+          "slot": "main_hand",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 0,
+          "required_level": 42,
+          "sell_price": 8126,
+          "identity": "agility",
+          "icon_id": "gear_inv_staff_05",
+          "weapon_damage_min": 81,
+          "weapon_damage_max": 110,
+          "attack_speed": 3.6,
+          "block_value": 0
+        },
+        {
+          "name": "Rootcaller's Belt",
+          "slot": "waist",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 7,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 76,
+          "required_level": 42,
+          "sell_price": 3576,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_27"
+        },
+        {
+          "name": "Rootcaller's Band",
+          "slot": "ring",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 16
+          },
+          "armor_value": 0,
+          "required_level": 42,
+          "sell_price": 3901,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_ring_18"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_tapmaster_grell",
+      "title": "Tapmaster Grell",
+      "giver_npc_id": "rw_chieftain",
+      "zone": "rootwater_isle",
+      "level_min": 44,
+      "level_max": 44,
+      "description": "The Bloodsail's sap camp is run by a man called Grell, who taps the roots himself and knows exactly how deep to go. As long as he's there, the camp will keep coming back.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Tapmaster Grell",
+          "count": 1,
+          "zone": "rootwater_isle"
+        }
+      ],
+      "accept_text": "Tapmaster Grell runs the Bloodsail camp, and he's the one who knows how to bleed a root without killing it. Without him they'd hit nothing but bark. Find him on the south-east root and end him.",
+      "turn_in_text": "Grell's done, and the camp's going to be a lot less sure of itself.\n\nI'll have the tribes pull the spigots out tomorrow and seal the holes with clay. The tree heals faster than you'd think.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "rwq_the_bloodsail_tap"
+      ],
+      "reward_exp": 4108,
+      "reward_gold": 16380,
+      "unique_item_defs": [
+        {
+          "name": "Tapmaster's Breastplate",
+          "slot": "chest",
+          "item_level": 46,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "healing_power": 59
+          },
+          "armor_value": 376,
+          "required_level": 44,
+          "sell_price": 10706,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_chest_plate11"
+        },
+        {
+          "name": "Tapmaster's Slippers",
+          "slot": "feet",
+          "item_level": 46,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "spell_power": 26
+          },
+          "armor_value": 61,
+          "required_level": 44,
+          "sell_price": 6959,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_plate_02"
+        },
+        {
+          "name": "Tapmaster's Wristguards",
+          "slot": "wrist",
+          "item_level": 46,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 10,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 167,
+          "required_level": 44,
+          "sell_price": 5353,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_bracer_12"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "rwq_word_to_gromgol",
+      "title": "Word to Grom'gol",
+      "giver_npc_id": "rw_chieftain",
+      "zone": "rootwater_isle",
+      "level_min": 42,
+      "level_max": 43,
+      "description": "The Highbough Tribes aren't the Horde's, but Grom'gol is across the water and its Darkspear attache is family to half the landing. Zula wants Grom'gol to know what's happening on the tree.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "rw_q_word_to_gromgol",
+          "count": 1,
+          "label": "Take Zula's word to Attache Zul'jana in Grom'gol"
+        }
+      ],
+      "accept_text": "We don't answer to the Horde, but Grom'gol's across the water and Zul'jana's family to half of us. She should hear about the Bloodsail and the Bloodscalp from us, not from rumours. Take her this, and take the boat.",
+      "turn_in_text": "Zula always did write like she was carving it in stone.\n\nThe Bloodsail tapping the tree, and the Bloodscalp climbing it. Grom'gol will keep an eye on the water between here and there. Tell her the Darkspear haven't forgotten who went up first, three years back when the tree came out of the reef.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "gromgol_troll_attache",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "rw_q_word_to_gromgol",
+            "name": "Zula's Word to Grom'gol",
+            "description": "A message on a strip of bark, painted in the Highbough's teal, for the Darkspear attache in Grom'gol.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "unique_item_defs": [
+        {
+          "name": "Tribal Envoy's Longbow",
+          "slot": "ranged",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "attack_power": 15
+          },
+          "armor_value": 0,
+          "required_level": 42,
+          "sell_price": 5201,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_03",
+          "weapon_damage_min": 51,
+          "weapon_damage_max": 69,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Tribal Envoy's Coif",
+          "slot": "head",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 36
+          },
+          "armor_value": 166,
+          "required_level": 42,
+          "sell_price": 5201,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_64"
+        },
+        {
+          "name": "Tribal Envoy's Leggings",
+          "slot": "legs",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "spell_power": 27
+          },
+          "armor_value": 55,
+          "required_level": 42,
+          "sell_price": 6501,
+          "identity": "caster",
+          "icon_id": "gear_inv_pants_11"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_paid_in_sap",
+      "title": "Paid in Sap",
+      "giver_npc_id": "rw_dockhand",
+      "zone": "rootwater_isle",
+      "level_min": 42,
+      "level_max": 43,
+      "description": "Fizzle Brasswinch built the tree's lifts and got paid in sap. Then the Bloodsail worked out what the sap is worth, and their powder monkeys blew up his best winch.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bloodsail Powder Monkey",
+          "count": 8,
+          "zone": "rootwater_isle"
+        }
+      ],
+      "accept_text": "I built every lift on this tree, and the trolls paid me in sap. It was the best deal of my life, until the Bloodsail noticed. Their Bloodsail Powder Monkeys blew my best winch to splinters last night. Go and return the favour, and I'll owe you one.",
+      "turn_in_text": "Ha, I'd have paid to watch that.\n\nThose monkeys are smarter than half the crews I've hired. Somebody taught them to light fuses, and I'd love to know who.",
+      "next_quest_id": null,
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "unique_item_defs": [
+        {
+          "name": "Winchwright's Knife",
+          "slot": "main_hand",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 0,
+          "required_level": 42,
+          "sell_price": 6176,
+          "identity": "agility",
+          "icon_id": "gear_inv_weapon_shortblade_14",
+          "weapon_damage_min": 60,
+          "weapon_damage_max": 81,
+          "attack_speed": 1.7,
+          "block_value": 0
+        },
+        {
+          "name": "Winchwright's Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 93,
+          "required_level": 42,
+          "sell_price": 5201,
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_18"
+        },
+        {
+          "name": "Winchwright's Sabatons",
+          "slot": "feet",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 183,
+          "required_level": 42,
+          "sell_price": 4226,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_plate_02"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_cable_for_the_winch",
+      "title": "Cable for the Winch",
+      "giver_npc_id": "rw_dockhand",
+      "zone": "rootwater_isle",
+      "level_min": 42,
+      "level_max": 44,
+      "description": "Fizzle needs mithril for a new winch cable, because rope doesn't last on a lift that climbs a tree this size. There are veins of it in the rock between the roots.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "ore_mithril",
+          "count": 6,
+          "label": "Gather Mithril Ore"
+        }
+      ],
+      "accept_text": "Rope rots, and on a lift this high, rotten rope means a long fall. I want mithril for a new cable. There's ore in the rock between the roots if you've got a pick. Bring me some and I'll have the lift running again.",
+      "turn_in_text": "That's enough for a cable and a spare. I'll have the winch turning by the end of the week. Since the merge, half my parts come from places I can't pronounce, so it's nice to have good honest mithril.\n\nNobody up there thinks about the cable until it's gone, and then it's all they think about, for about four seconds.",
+      "next_quest_id": null,
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "unique_item_defs": [
+        {
+          "name": "Brasswinch Tome",
+          "slot": "off_hand",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 26
+          },
+          "armor_value": 0,
+          "required_level": 42,
+          "sell_price": 4089,
+          "identity": "healer",
+          "icon_id": "gear_inv_tome_4",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        },
+        {
+          "name": "Brasswinch Handguards",
+          "slot": "hands",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_value": 187,
+          "required_level": 42,
+          "sell_price": 4430,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_14"
+        },
+        {
+          "name": "Brasswinch Girdle",
+          "slot": "waist",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 125,
+          "required_level": 42,
+          "sell_price": 3748,
+          "identity": "hunter",
+          "icon_id": "gear_inv_belt_26"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_the_wing_in_the_sand",
+      "title": "The Wing in the Sand",
+      "giver_npc_id": "rw_dockhand",
+      "zone": "rootwater_isle",
+      "level_min": 42,
+      "level_max": 43,
+      "description": "Something fell out of the sky onto the north-west root a few nights ago, a piece of bronze shaped like a wing, with a blue crystal next to it. Fizzle wants someone to go and look before the Bloodscalp find it.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "rootwater_isle",
+          "target_x": 62,
+          "target_y": 36,
+          "radius": 4,
+          "label": "Find what fell on the north-west root"
+        }
+      ],
+      "accept_text": "Something came down out of the sky a few nights ago, out past where the Zoram road bends north. The trolls say it's a bronze wing. I say nobody makes wings out of bronze, so go and look at it before the Bloodscalp do.",
+      "turn_in_text": "So it's a wing after all. Bronze, engraved, and that crystal next to it was still humming when you got there.\n\nHere's the thing. I'm a goblin, and I know every workshop between Undermine and Gadgetzan. Nobody I know made that. Nobody I know could.",
+      "next_quest_id": "rwq_not_goblin_work",
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "unique_item_defs": [
+        {
+          "name": "Skyward Mace",
+          "slot": "main_hand",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 0,
+          "required_level": 42,
+          "sell_price": 6176,
+          "identity": "healer",
+          "icon_id": "gear_inv_mace_15",
+          "weapon_damage_min": 60,
+          "weapon_damage_max": 81,
+          "attack_speed": 2.6,
+          "block_value": 0
+        },
+        {
+          "name": "Skyward Jerkin",
+          "slot": "chest",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 11,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 110,
+          "required_level": 42,
+          "sell_price": 6501,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_07"
+        },
+        {
+          "name": "Skyward Pendant",
+          "slot": "neck",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 16
+          },
+          "armor_value": 0,
+          "required_level": 42,
+          "sell_price": 3901,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_necklace_05"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_not_goblin_work",
+      "title": "Not Goblin Work",
+      "giver_npc_id": "rw_dockhand",
+      "zone": "rootwater_isle",
+      "level_min": 43,
+      "level_max": 43,
+      "description": "Fizzle can't place the bronze wing. Marta Kowalczyk, who came over on the Zoram boat, built ships in our world before the merge, and Fizzle wants her opinion.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "rw_q_bronze_scrap",
+          "count": 1,
+          "label": "Show the bronze scrap to Marta Kowalczyk at the landing"
+        }
+      ],
+      "accept_text": "Marta built ships, back where she comes from, real ones with engines. If anybody on this island's seen something like that wing, it's her. Show her this piece I broke off it.",
+      "turn_in_text": "This isn't from my world either, if that's what Fizzle's hoping.\n\nWe never made anything like it. The joins are too fine, and there's no seam where the crystal sits. Whoever made this was better than us, and better than the goblins. And it fell from up there.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "rw_settler",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "rw_q_bronze_scrap",
+            "name": "Engraved Bronze Scrap",
+            "description": "A piece of the fallen wing, engraved with lines too fine to have been cut by hand. It's warm.",
+            "count": 1
+          }
+        ]
+      },
+      "requires_quests": [
+        "rwq_the_wing_in_the_sand"
+      ],
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "unique_item_defs": [
+        {
+          "name": "Starfallen Greatsword",
+          "slot": "main_hand",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 0,
+          "required_level": 43,
+          "sell_price": 8126,
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_31",
+          "weapon_damage_min": 81,
+          "weapon_damage_max": 110,
+          "attack_speed": 3.4,
+          "block_value": 0
+        },
+        {
+          "name": "Starfallen Bracers",
+          "slot": "wrist",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 7,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 76,
+          "required_level": 43,
+          "sell_price": 3250,
+          "identity": "agility",
+          "icon_id": "gear_inv_bracer_12"
+        },
+        {
+          "name": "Starfallen Hood",
+          "slot": "head",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 23
+          },
+          "armor_value": 46,
+          "required_level": 43,
+          "sell_price": 5201,
+          "identity": "caster",
+          "icon_id": "gear_inv_helmet_21"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_the_view_from_here",
+      "title": "The View from Here",
+      "giver_npc_id": "rw_settler",
+      "zone": "rootwater_isle",
+      "level_min": 42,
+      "level_max": 43,
+      "description": "Marta came over on the Zoram boat to see the tree, and she never got back on. She wants someone to walk out to the ends of the roots with her, to see how far the tree has reached.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "rootwater_isle",
+          "target_x": 89,
+          "target_y": 144,
+          "radius": 4,
+          "label": "Walk to the end of the long south root"
+        },
+        {
+          "type": "explore",
+          "target": "rootwater_isle",
+          "target_x": 166,
+          "target_y": 14,
+          "radius": 4,
+          "label": "Walk to the end of the north-east root"
+        }
+      ],
+      "accept_text": "I came over to see the tree everybody was talking about, and I never left. I've been all over the landing, but I've never been out to the ends of the roots. Walk out along the south one and the north-east one for me, and tell me what you see.",
+      "turn_in_text": "Sea on every side, and the roots still going under it.\n\nWhen I was a girl in Gdansk I used to watch the cranes at the shipyard and think they were the biggest things in the world. I'd love to bring my father here. I don't know where he is now, or if he came through at all.",
+      "next_quest_id": null,
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "unique_item_defs": [
+        {
+          "name": "Wanderer's Hauberk",
+          "slot": "chest",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 9,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 27
+          },
+          "armor_value": 176,
+          "required_level": 42,
+          "sell_price": 6501,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_04"
+        },
+        {
+          "name": "Wanderer's Sash",
+          "slot": "waist",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 19
+          },
+          "armor_value": 38,
+          "required_level": 42,
+          "sell_price": 3576,
+          "identity": "caster",
+          "icon_id": "gear_inv_belt_33"
+        },
+        {
+          "name": "Wanderer's Sabatons",
+          "slot": "feet",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 8
+          },
+          "armor_value": 183,
+          "required_level": 42,
+          "sell_price": 4226,
+          "identity": "tank",
+          "icon_id": "gear_inv_boots_09"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_cages_on_the_root",
+      "title": "Cages on the Root",
+      "giver_npc_id": "rw_settler",
+      "zone": "rootwater_isle",
+      "level_min": 43,
+      "level_max": 44,
+      "description": "The Bloodscalp keep cages on the north-west root, and Marta's sure there's someone in one of them. Their war-climbers guard the camp from the branches above.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "rootwater_isle",
+          "target_x": 44,
+          "target_y": 30,
+          "radius": 4,
+          "label": "Look into the Bloodscalp's cages on the north-west root"
+        },
+        {
+          "type": "kill",
+          "target": "Bloodscalp War-Climber",
+          "count": 6,
+          "zone": "rootwater_isle"
+        }
+      ],
+      "accept_text": "There are cages up at the Bloodscalp camp, and last night I swear I heard someone calling for help in Polish. I know how that sounds. The Bloodscalp War-Climbers watch the camp from above. Go up there, kill them, and look in the cages. I'll owe you.",
+      "turn_in_text": "The cages were empty, but somebody had scratched words into the bamboo, and they're words I know.\n\nWhoever it was got out, or got taken somewhere else. I'm not going to stop looking. Somebody from home was on this island, and I'd like to know who.",
+      "next_quest_id": null,
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "unique_item_defs": [
+        {
+          "name": "Cagebreaker's Grips",
+          "slot": "hands",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 19
+          },
+          "armor_value": 111,
+          "required_level": 43,
+          "sell_price": 4430,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_26"
+        },
+        {
+          "name": "Cagebreaker's Spaulders",
+          "slot": "shoulder",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 37
+          },
+          "armor_value": 152,
+          "required_level": 43,
+          "sell_price": 5452,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_shoulder_13"
+        },
+        {
+          "name": "Cagebreaker's Pendant",
+          "slot": "neck",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 17
+          },
+          "armor_value": 0,
+          "required_level": 43,
+          "sell_price": 4089,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_necklace_05"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_censers_and_hexes",
+      "title": "Censers and Hexes",
+      "giver_npc_id": "rw_settler",
+      "zone": "rootwater_isle",
+      "level_min": 43,
+      "level_max": 44,
+      "description": "The Bloodscalp's witch doctors and shamans burn something in their censers that makes the landing's trolls sick, and the smoke drifts down the root at night.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bloodscalp Witch Doctor",
+          "count": 5,
+          "zone": "rootwater_isle"
+        },
+        {
+          "type": "kill",
+          "target": "Bloodscalp Shaman",
+          "count": 5,
+          "zone": "rootwater_isle"
+        }
+      ],
+      "accept_text": "The Bloodscalp Witch Doctors burn something in their censers that comes down the root on the night wind, and half the landing's been coughing for a week. Their Bloodscalp Shamans keep the fires going. Put them out, all of them.",
+      "turn_in_text": "The wind's clean tonight. Everybody's sleeping without coughing for the first time in days.\n\nThe trolls took me in when I didn't have anything. This is the least I can do for them.",
+      "next_quest_id": null,
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "unique_item_defs": [
+        {
+          "name": "Hexbreaker's Cloak",
+          "slot": "back",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 19,
+            "hit_rating": 5
+          },
+          "armor_value": 34,
+          "required_level": 43,
+          "sell_price": 3748,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_04"
+        },
+        {
+          "name": "Hexbreaker's Cuffs",
+          "slot": "wrist",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 5,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "healing_power": 25
+          },
+          "armor_value": 53,
+          "required_level": 43,
+          "sell_price": 3408,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_18"
+        },
+        {
+          "name": "Hexbreaker's Legplates",
+          "slot": "legs",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 271,
+          "required_level": 43,
+          "sell_price": 6815,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_07"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_zulgash_the_climber",
+      "title": "Zul'gash the Climber",
+      "giver_npc_id": "rw_settler",
+      "zone": "rootwater_isle",
+      "level_min": 44,
+      "level_max": 44,
+      "description": "The Bloodscalp war camp answers to Zul'gash, who climbed the north-west root first and means to climb the trunk next. As long as he lives, the Bloodscalp will keep coming up.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Zul'gash the Climber",
+          "count": 1,
+          "zone": "rootwater_isle"
+        }
+      ],
+      "accept_text": "Zul'gash the Climber leads the Bloodscalp on the north-west root, and the trolls say he means to go up the trunk next. If he does, there won't be a landing to come back to. Find him at the war camp and stop him.",
+      "turn_in_text": "Zul'gash is dead, and the Bloodscalp will spend a while arguing about who climbs first now.\n\nThe headwoman says I can call myself one of the tribes if I want to. I think I might.",
+      "next_quest_id": null,
+      "reward_exp": 4108,
+      "reward_gold": 16380,
+      "unique_item_defs": [
+        {
+          "name": "Climber's Cap",
+          "slot": "head",
+          "item_level": 46,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 15,
+            "agility": 11
+          },
+          "secondary_stats": {
+            "dodge_rating": 8
+          },
+          "armor_value": 280,
+          "required_level": 44,
+          "sell_price": 8564,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_08"
+        },
+        {
+          "name": "Climber's Band",
+          "slot": "ring",
+          "item_level": 46,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 29
+          },
+          "armor_value": 0,
+          "required_level": 44,
+          "sell_price": 6423,
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_ring_14"
+        },
+        {
+          "name": "Climber's Gauntlets",
+          "slot": "hands",
+          "item_level": 46,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 9,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 167,
+          "required_level": 44,
+          "sell_price": 6959,
+          "identity": "earthen",
+          "icon_id": "gear_inv_gauntlets_22"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "rwq_the_plan_to_climb",
+      "title": "The Plan to Climb",
+      "giver_npc_id": "item:rw_q_climbing_plan",
+      "zone": "rootwater_isle",
+      "level_min": 43,
+      "level_max": 44,
+      "description": "A Bloodscalp war-climber was carrying a strip of hide painted with the tree's roots and a line of red handprints going up the north-west one. It's a raid plan, and the headwoman should see it.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "rw_q_climbing_plan",
+          "count": 1,
+          "label": "Bring the Bloodscalp climbing plan to Headwoman Zula at the landing"
+        }
+      ],
+      "accept_text": "The hide shows the north-west root and a line of red handprints climbing it, past the landing and up the trunk. It's a raid plan, and you'd better get it to the headwoman at the landing.",
+      "turn_in_text": "Up the north-west root, round the landing in the dark, and onto the trunk where the old stair was.\n\nWe'll put guards where these handprints are. You've just saved a lot of trolls a long fall.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "rw_chieftain",
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "unique_item_defs": [
+        {
+          "name": "War-Plan Staff",
+          "slot": "main_hand",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 19
+          },
+          "secondary_stats": {
+            "spell_power": 43
+          },
+          "armor_value": 0,
+          "required_level": 43,
+          "sell_price": 8519,
+          "identity": "caster",
+          "icon_id": "gear_inv_staff_17",
+          "weapon_damage_min": 33,
+          "weapon_damage_max": 45,
+          "attack_speed": 3.2,
+          "block_value": 0
+        },
+        {
+          "name": "War-Plan Jerkin",
+          "slot": "chest",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 112,
+          "required_level": 43,
+          "sell_price": 6815,
+          "identity": "strength",
+          "icon_id": "gear_inv_chest_leather_05"
+        },
+        {
+          "name": "War-Plan Waistguard",
+          "slot": "waist",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 31
+          },
+          "armor_value": 201,
+          "required_level": 43,
+          "sell_price": 3748,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_belt_35"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_what_drinks_the_sap",
+      "title": "What Drinks the Sap",
+      "giver_npc_id": "rw_scout_lagoons",
+      "zone": "rootwater_isle",
+      "level_min": 42,
+      "level_max": 43,
+      "description": "Scout Jinzo watches the lagoons from the south-west road. He wants someone to wade out to the deep hole in the lagoon, where the sap pools, and see what's living there.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "rootwater_isle",
+          "target_x": 46,
+          "target_y": 107,
+          "radius": 4,
+          "label": "Wade out to the deep hole in the lagoon"
+        },
+        {
+          "type": "kill",
+          "target": "Reef Shellcrusher",
+          "count": 6,
+          "zone": "rootwater_isle"
+        }
+      ],
+      "accept_text": "The sap pools in the deep hole out in the lagoon, and everything that's thirsty comes to drink there. Wade out and look at it for me. The Reef Shellcrushers will come at you in the shallows, so kill them as you go.",
+      "turn_in_text": "So it's still there, and it's still growing. I can see the gold in the water from here at night.\n\nThe Rootmaw drinks there. The oldest croc on the island. If you're going to stay, you'll meet him eventually.",
+      "next_quest_id": "rwq_the_rootmaw",
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "unique_item_defs": [
+        {
+          "name": "Lagoonwatch Mantle",
+          "slot": "shoulder",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 23
+          },
+          "armor_value": 46,
+          "required_level": 42,
+          "sell_price": 5201,
+          "identity": "caster",
+          "icon_id": "gear_inv_shoulder_11"
+        },
+        {
+          "name": "Lagoonwatch Breeches",
+          "slot": "legs",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 11,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 27
+          },
+          "armor_value": 130,
+          "required_level": 42,
+          "sell_price": 6501,
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_04"
+        },
+        {
+          "name": "Lagoonwatch Vambraces",
+          "slot": "wrist",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 8
+          },
+          "armor_value": 183,
+          "required_level": 42,
+          "sell_price": 3250,
+          "identity": "tank",
+          "icon_id": "gear_inv_bracer_19"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_shells_for_the_scouts",
+      "title": "Shells for the Scouts",
+      "giver_npc_id": "rw_scout_lagoons",
+      "zone": "rootwater_isle",
+      "level_min": 42,
+      "level_max": 43,
+      "description": "The scouts eat out of Reef Shellcrusher shells, and the shells out here have roots growing through them. Jinzo wants a few clean ones for the new scouts.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "rw_q_rooted_shell",
+          "count": 6
+        }
+      ],
+      "accept_text": "Every scout on the island eats out of a Reef Shellcrusher shell, and we're short of them. The crabs are all over the lagoon shallows. Bring me their shells, roots and all, and I'll scrape them clean.",
+      "turn_in_text": "These will do. The roots come out with a good knife and some patience.\n\nThe old scouts say a shell with roots in it's lucky. The new ones say it's creepy. They're both right, and that's the trouble.",
+      "next_quest_id": null,
+      "reward_exp": 3080,
+      "reward_gold": 12300,
+      "unique_item_defs": [
+        {
+          "name": "Shellscout's Shield",
+          "slot": "off_hand",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "spell_power": 15,
+            "haste": 5
+          },
+          "armor_value": 343,
+          "required_level": 42,
+          "sell_price": 5201,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_shield_06",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 40
+        },
+        {
+          "name": "Shellscout's Greaves",
+          "slot": "feet",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 122,
+          "required_level": 42,
+          "sell_price": 4226,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_plate_07"
+        },
+        {
+          "name": "Shellscout's Robe",
+          "slot": "chest",
+          "item_level": 44,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 9,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "healing_power": 24
+          },
+          "armor_value": 188,
+          "required_level": 42,
+          "sell_price": 6501,
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_chest_cloth_49"
+        }
+      ],
+      "gear_reward_gear_level": 44,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "rwq_the_rootmaw",
+      "title": "The Rootmaw",
+      "giver_npc_id": "rw_scout_lagoons",
+      "zone": "rootwater_isle",
+      "level_min": 44,
+      "level_max": 44,
+      "description": "The Rootmaw is the oldest crocolisk on the island, and it's been drinking from the roots since the tree first split the reef. It's covered in barnacles and roots now, and it's started taking trolls.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Rootmaw",
+          "count": 1,
+          "zone": "rootwater_isle"
+        }
+      ],
+      "accept_text": "The Rootmaw was the first thing on this island to drink the sap, and it's been drinking ever since. It took two of our fishers last month. Find it in the Root Lagoons and kill it, before it gets any bigger.",
+      "turn_in_text": "The Rootmaw's dead. I watched it go under from here, and it didn't come back up.\n\nThree years drinking from the roots. I almost feel sorry for it, but only almost.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "rwq_what_drinks_the_sap"
+      ],
+      "reward_exp": 4108,
+      "reward_gold": 16380,
+      "unique_item_defs": [
+        {
+          "name": "Rootmaw's Shield",
+          "slot": "off_hand",
+          "item_level": 46,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 16,
+            "strength": 6
+          },
+          "secondary_stats": {
+            "block_value": 14
+          },
+          "armor_value": 469,
+          "required_level": 44,
+          "sell_price": 8564,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_12",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 54
+        },
+        {
+          "name": "Rootmaw's Breeches",
+          "slot": "legs",
+          "item_level": 46,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 20,
+            "agility": 12
+          },
+          "secondary_stats": {
+            "dodge_rating": 9
+          },
+          "armor_value": 150,
+          "required_level": 44,
+          "sell_price": 10706,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_13"
+        },
+        {
+          "name": "Rootmaw's Gloves",
+          "slot": "hands",
+          "item_level": 46,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "arcane_spell_power": 31
+          },
+          "armor_value": 61,
+          "required_level": 44,
+          "sell_price": 6959,
+          "identity": "arcane",
+          "icon_id": "gear_inv_gauntlets_29"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "rwq_the_root_stair",
+      "title": "The Root Stair",
+      "giver_npc_id": "rw_chieftain",
+      "zone": "rootwater_isle",
+      "level_min": 44,
+      "level_max": 44,
+      "description": "Headwoman Zula says you've earned the climb. The Root Stair runs up the trunk's east side to the Lower Boughs, and the first step is to stand at its foot.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "rootwater_isle",
+          "target_x": 114,
+          "target_y": 48,
+          "radius": 4,
+          "label": "Stand at the foot of the Root Stair"
+        }
+      ],
+      "accept_text": "You've done more for this landing than most who come through. The Root Stair goes up the trunk on the east side, and it's the only way to the Lower Boughs that doesn't need a lift. Go and stand at the foot of it, and look up.",
+      "turn_in_text": "Now you've seen it. It goes up further than you can see, and then further than that.\n\nThe tribes in the Lower Boughs will want to meet you, and the High Chieftain after them. When the way up's open, you'll be one of the first we send.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "rwq_the_rot_mother",
+        "rwq_tapmaster_grell"
+      ],
+      "reward_exp": 3160,
+      "reward_gold": 12600,
+      "unique_item_defs": [
+        {
+          "name": "Highbough Spear",
+          "slot": "main_hand",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 0,
+          "required_level": 44,
+          "sell_price": 8519,
+          "identity": "strength",
+          "icon_id": "gear_inv_weapon_halberd_04",
+          "weapon_damage_min": 83,
+          "weapon_damage_max": 112,
+          "attack_speed": 3.3,
+          "block_value": 0
+        },
+        {
+          "name": "Highbough Hood",
+          "slot": "head",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 29
+          },
+          "armor_value": 47,
+          "required_level": 44,
+          "sell_price": 5452,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_44"
+        },
+        {
+          "name": "Highbough Grips",
+          "slot": "hands",
+          "item_level": 45,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 6,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 78,
+          "required_level": 44,
+          "sell_price": 4430,
+          "identity": "feral",
+          "icon_id": "gear_inv_gauntlets_19"
+        }
+      ],
+      "gear_reward_gear_level": 45,
+      "gear_reward_rarity": "uncommon"
+    }
+  ]
+}
