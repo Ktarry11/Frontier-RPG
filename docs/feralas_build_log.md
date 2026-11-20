@@ -85,3 +85,9 @@ recipes on their real level-60 ingredients. Rep: Feathermoon's people and the Se
    (`tools/bake_zukkash_hive.py`).
 3. Swap the props and buildings in the five map modules' `dress()`.
 4. `tools/build_feralas_openworld.py` and `tools/build_zukkash_hive_content.py` (the sprites switch themselves).
+
+## Checked (20 Nov 2026)
+- Every link walked both ways from the built zones: each lands on open ground, never on a portal.
+- The levelling run (`tools/sim_campaign.py`) with Feralas in: all three specs reach 60, nothing in Feralas killed any
+  of them, and the 46-50 band now does 113-116 quests (it was 105-109). The rare census for Feralas alone (`--zones`):
+  the warrior and the priest win 60-100% against every rare, the mage 20-40% (the class pass's, as everywhere).
