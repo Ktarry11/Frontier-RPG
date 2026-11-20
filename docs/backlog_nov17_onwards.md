@@ -57,11 +57,15 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
   Feathermoon Stronghold, the Zukk'ash Hive and its tunnel to the Dry Deep, 83 quests, the Feathermoon Sentinels.
   Open: Kyle's nine art sheets (`docs/feralas_art_prompts.md`), then the swap-over in the build log's last section;
   Dire Maul at 55-60. (Names approved, Zukk'ash Hive included: Kyle, "Names are fine".)
-- `docs/feralas_worldtree_brief.md`: Feralas 44-49 (classic L shape, largely untouched by the Integration), and a
-  home-brew World Tree off Northern Stranglethorn's coast: island 42-44, lived-on tiers 44-48, a town halfway up, two
-  sky zones at the crown, two new factions. Kyle, 19 Nov 2026: the middle town is the Great Settlement, the crown is
-  cloud continents, the sky zones are the Sunward Crown (48-49) and the Celestial Expanse (49-51); four reference
-  pictures in `docs/zone_refs/world_tree_*.jpg`. The tree's, island's and factions' names and the peoples still to settle.
+- **The World Tree and the Sky, 42 to 60 (started 19 Nov 2026): `docs/worldtree_brief.md`.** Kyle: boat from
+  Grom'gol, the island 42-44, three tier maps 44-48 with a massive troll city (the Great Settlement, the Highbough
+  Tribes) in the middle, then the sky all the way to 60: the Sunward Crown, the Celestial Expanse, Aurelion (the
+  Aetherian capital), the Talon Spires (the Veyr), the Elder Citadels (the Kharad), the Fading Firmament. First
+  contact with the Aetherians, whose world is dying. Art stock written: `docs/worldtree_art_prompts.md` (W1-W6) and
+  `docs/sky_art_prompts.md` (SK1-SK19, BK1-BK12). Next: build the tree on existing art (like Feralas) while the sheets
+  are made. Kyle to say: the names marked as Rafa's, Veyr/Kharad factions, the Aetherian split.
+- **Saved for after:** a sky race's starting zone, 1-24 over four maps, ending at their capital with airships to
+  Orgrimmar or the Undercity (the brief's last section).
 - The Zukk'ash Hive (Feralas's silithid hive, Kyle's "writhing deep") tunnels through to the Dry Deep under the Abyssal Sands (Kyle: "the
   silithids are digging").
 

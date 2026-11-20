@@ -19,6 +19,8 @@ sinkholes drop into. So the two are one dig, and the Dry Deep gets a second way 
 
 ## The World Tree, 42 to 51 (home-brew)
 
+**Superseded 19 Nov 2026 by `docs/worldtree_brief.md` (now 42 to 60).** The notes below are the first pass.
+
 Kyle: "a new home brew off the coast of Northern Stranglethorn. Where the island is 42-44, then a massive tree ascends
 up with actual layers that span from 44-48 (each tier has people living on it (the world tree)) - it started to grow
 when the integration happened and it hasn't stopped. At the top of the tree is two zones that are level 46-49 and
