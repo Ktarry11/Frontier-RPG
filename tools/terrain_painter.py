@@ -235,8 +235,21 @@ class Painter:
                     rgb += Wt[i][..., None] * cols[i]
                 if post:
                     rgb = post(rgb, X, Y, self)
-                img = Image.fromarray(np.clip(rgb, 0, 255).astype(np.uint8))
-                fn = out_dir / f"{prefix}_{cx}_{cy}.jpg"
-                img.save(fn, quality=quality, optimize=True)
+                sky = getattr(self, "sky", None)
+                if sky:
+                    # A SKY MAP (docs/worldtree_brief.md, "How it's drawn"): the drop is see-through, so the renderer's
+                    # cloud sea scrolls behind the islands; the chunk is a PNG with alpha (tools/bake_ashenvale.sky_cut)
+                    rgb, alpha = sky(rgb, X, Y, self)
+                    rgba = np.dstack([np.clip(rgb, 0, 255), np.clip(alpha * 255, 0, 255)]).astype(np.uint8)
+                    img = Image.fromarray(rgba, "RGBA")
+                    fn = out_dir / f"{prefix}_{cx}_{cy}.png"
+                    img.save(fn, optimize=True)
+                    stale = out_dir / f"{prefix}_{cx}_{cy}.jpg"
+                    if stale.exists():
+                        stale.unlink()
+                else:
+                    img = Image.fromarray(np.clip(rgb, 0, 255).astype(np.uint8))
+                    fn = out_dir / f"{prefix}_{cx}_{cy}.jpg"
+                    img.save(fn, quality=quality, optimize=True)
                 written.append((fn, cx, cy, wpx // TILE_PX, hpx // TILE_PX))
         return written

@@ -502,6 +502,9 @@ class TilemapRenderer:
         
         # Draw viewport background
         pygame.draw.rect(screen, (20, 20, 20), viewport_rect)
+        _sky = getattr(tilemap, "sky", None)
+        if _sky:
+            self._draw_sky(screen, camera, viewport_rect, _sky)
 
         # Kyle's 3-layer model: (1) collision/pass-block - untouched by
         # any of this, handled per-tile below as always; (2) baseline
@@ -1221,9 +1224,68 @@ class TilemapRenderer:
         # a hidden seller or a hidden cache is behind it (world/secrets.py), so they really are hidden;
         # and see-through when the player is behind it, so you can still see yourself back there.
         self._draw_occluders(screen, camera, viewport_rect, tilemap, player_pos, vendors)
+        if _sky:
+            self._draw_sun(screen, viewport_rect, _sky)
 
         # Draw viewport border
         pygame.draw.rect(screen, (100, 150, 100), viewport_rect, 2)
+
+    # ------------------------------------------------------------------ the sky
+    # docs/worldtree_brief.md, "How it's drawn": a sky map stands over the cloud sea. Its baked ground is see-through
+    # where the land ends (tools/bake_ashenvale.sky_cut), and under it the renderer paints three layers: the far cloud
+    # sea (one of BK1's five moods), scrolled slower than the camera so the islands hang high above it and drifting a
+    # little on its own; the near wisps, blended over it a little faster; and, over everything, BK6's golden sun from
+    # the top-right corner. tilemap.sky = {"far": "sky_far_gold", "parallax": 0.35, "drift": 6, "wisps": 0.55,
+    # "sun": 0.55, "far_tiles": 10}; every key optional.
+    SKY_DIR = "assets/tiles/sky/backdrop/"
+    _sky_cache = {}
+
+    def _sky_layer(self, name, size, strength=1.0):
+        key = (name, size, round(strength, 2))
+        surf = self._sky_cache.get(key)
+        if surf is None and key not in self._sky_cache:
+            surf = get_landmark_sprite(f"{self.SKY_DIR}{name}.png", size[0], size[1])
+            if surf is not None and strength < 0.999:
+                surf = surf.copy()
+                k = int(255 * max(0.0, strength))
+                surf.fill((k, k, k), special_flags=pygame.BLEND_MULT)    # dimmer light: black stays black
+            self._sky_cache[key] = surf
+        return surf
+
+    def _tile_layer(self, screen, viewport_rect, surf, ox, oy, flags=0):
+        w, h = surf.get_size()
+        x0 = viewport_rect.x - int(ox % w)
+        y0 = viewport_rect.y - int(oy % h)
+        for y in range(y0, viewport_rect.bottom, h):
+            for x in range(x0, viewport_rect.right, w):
+                screen.blit(surf, (x, y), special_flags=flags)
+
+    def _draw_sky(self, screen, camera, viewport_rect, sky):
+        cam_left, cam_top = camera.get_viewport_bounds()[:2]
+        t = pygame.time.get_ticks() / 1000.0
+        size = int(self.tile_size * sky.get("far_tiles", 10))
+        prev = screen.get_clip()
+        screen.set_clip(viewport_rect)
+        far = self._sky_layer(sky.get("far", "sky_far_gold"), (size, size))
+        if far is not None:
+            par = sky.get("parallax", 0.35)
+            self._tile_layer(screen, viewport_rect, far, cam_left * par + t * sky.get("drift", 6.0), cam_top * par)
+        wisps = sky.get("wisps", 0.55)
+        if wisps:
+            wl = self._sky_layer("sky_wisps", (int(size * 1.3), int(size * 1.3)), wisps)
+            if wl is not None:
+                par = sky.get("wisp_parallax", 0.6)
+                self._tile_layer(screen, viewport_rect, wl, cam_left * par + t * sky.get("wisp_drift", 14.0),
+                                 cam_top * par + t * 2.0, flags=pygame.BLEND_ADD)
+        screen.set_clip(prev)
+
+    def _draw_sun(self, screen, viewport_rect, sky):
+        sun = sky.get("sun", 0.55)
+        if not sun:
+            return
+        surf = self._sky_layer("sun_rays", (viewport_rect.width, viewport_rect.height), sun)
+        if surf is not None:
+            screen.blit(surf, viewport_rect.topleft, special_flags=pygame.BLEND_ADD)
 
     def _draw_occluders(self, screen, camera, viewport_rect, tilemap, player_pos, vendors):
         from world import npc_clearance as NC

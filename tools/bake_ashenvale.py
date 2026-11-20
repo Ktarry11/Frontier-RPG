@@ -28,7 +28,7 @@ sys.path.insert(0, str(ROOT))
 os.chdir(ROOT)
 os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 
-from tools.terrain_painter import Painter, smoothstep, TILE_PX  # noqa: E402
+from tools.terrain_painter import Painter, smoothstep, TILE_PX, TEX  # noqa: E402
 
 REAL_DIR = ROOT / "assets/tiles/ashenvale/materials"
 T = ROOT / "assets/tiles"
@@ -980,6 +980,38 @@ def drop_depth(rgb, X, Y, drop):
     return rgb
 
 
+def sky_cut(rgb, X, Y, P):
+    """A sky map's drop, cut out (M.SKY; docs/worldtree_brief.md, "How it's drawn"). The ground stays where the land is,
+    the drop goes clear so the renderer's cloud sea shows through, and under each island's southern edge its rock
+    underside hangs down into the void, darkening and thinning away (the camera looks a little north, so the south
+    face is the one you see): "Edges sell the height." Returns (rgb, alpha 0..1)."""
+    sky = P.sky_spec
+    sea = sky["sea"]
+    gx, gy = X / TILE_PX, Y / TILE_PX
+    s = sea(gx, gy)
+    land = 1 - smoothstep(-0.35, 0.25, s)
+    depth = float(sky.get("underside", 4.0))
+    under = np.zeros_like(s)
+    for d in np.linspace(0.35, depth, 10):
+        above = 1 - smoothstep(-0.3, 0.3, sea(gx, gy - d))               # land d tiles north of here
+        under = np.maximum(under, above * (1 - d / depth) ** 0.8)
+    under = under * (1 - land)
+    # the rock: the map's cliff stone stretched down the face, banded, with a few roots and drips hanging lower
+    tex = P.tex(sky.get("rock") or MATERIALS["cliff_a"][0])
+    sx = (X % TEX).astype(np.int32)
+    sy = ((Y * 0.45) % TEX).astype(np.int32)
+    rock = tex[sy, sx].astype(np.float32)
+    band = 0.80 + 0.20 * np.sin(Y / TILE_PX * 2.3 + P.sample_field(P.noise(5.0, "strata"), X, Y) * 3.0)
+    rock = rock * band[..., None] * (0.38 + 0.55 * under)[..., None]
+    roots = smoothstep(0.62, 0.80, P.sample_field(P.noise(1.3, "roots", octaves=1), X * 4.0, Y * 0.25))
+    under_a = np.clip(under * 1.15 + roots * under * 0.5, 0, 1)
+    rgb = rgb * land[..., None] + rock * (1 - land)[..., None]
+    rim = smoothstep(-1.0, 0.0, s) * land                                 # the lip darkens where it rounds over
+    rgb = rgb * (1 - 0.30 * rim)[..., None]
+    alpha = np.maximum(land, under_a)
+    return rgb, alpha
+
+
 def post(rgb, X, Y, P):
     f = P.fields
     sf = lambda a: P.sample_field(a.astype(np.float32), X, Y)
@@ -1092,6 +1124,11 @@ def bake(zone="west", preview=None, scale=4, only=None):
     P.lift = getattr(M, "LIFT", None)
     P.light = getattr(M, "LIGHT", None)
     P.drop = dict(getattr(M, "DROP"), sea=M.sea) if getattr(M, "DROP", None) else None
+    if getattr(M, "SKY", None):
+        # a sky map: the drop is cut out and the cloud sea is the renderer's (ui/tilemap_renderer._draw_sky)
+        P.sky_spec = dict(M.SKY, sea=M.sea)
+        P.sky = sky_cut
+        P.drop = None
     scores = build_scores(P, M)
     out = ROOT / M.BAKED_DIR
     written = P.bake(MATERIALS, scores, out, chunk_tiles=20, post=post, only=only)
@@ -1099,7 +1136,12 @@ def bake(zone="west", preview=None, scale=4, only=None):
     if preview:
         full = Image.new("RGB", (M.W * TILE_PX, M.H * TILE_PX))
         for fn, cx, cy, w, h in written:
-            full.paste(Image.open(fn), (cx * TILE_PX, cy * TILE_PX))
+            im = Image.open(fn)
+            if im.mode == "RGBA":          # a sky map: preview it over a flat sky blue so the cut reads
+                bg = Image.new("RGBA", im.size, (150, 185, 225, 255))
+                bg.alpha_composite(im)
+                im = bg.convert("RGB")
+            full.paste(im, (cx * TILE_PX, cy * TILE_PX))
         full.resize((M.W * scale, M.H * scale), Image.LANCZOS).save(preview)
         print("preview", preview)
 

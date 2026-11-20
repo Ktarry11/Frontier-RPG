@@ -533,6 +533,8 @@ def register_baked(zone, baked_dir, W, H, chunk=20):
     for cy in range(0, H, chunk):
         for cx in range(0, W, chunk):
             fn = f"{baked_dir}/ground_{cx}_{cy}.jpg"
+            if os.path.exists(f"{baked_dir}/ground_{cx}_{cy}.png"):     # a sky map's see-through ground
+                fn = f"{baked_dir}/ground_{cx}_{cy}.png"
             if not os.path.exists(fn):
                 raise FileNotFoundError(f"{fn} - run the zone's baker")
             w, h = min(chunk, W - cx), min(chunk, H - cy)
