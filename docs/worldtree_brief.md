@@ -201,14 +201,13 @@ exclusivity:
 |---|---|---|---|---|
 | **The Highbough Tribes** | the tree's trolls | the Great Settlement | Rootwater Isle, the three Boughs, the city | hunters, shamans and shadow-hunters' kit; mail and leather lean |
 | **The Aetherians** | the scholar houses and the first-contact survey (the Ascendancy, their military, is the enemy) | Aurelion | the Crown, the Expanse, Aurelion, the Firmament | arcane, crystal and engineering; cloth and plate lean |
-| **The Veyr** (working name: **the Stormtalon Clan**, the one clan that takes you in) | the Stormborn | the Talon Spires | the Spires | storm, speed and the hunt; agility and lightning lean |
-| **The Kharad** (working name: **the Elder Houses**) | the Cloud Giants | the Elder Citadels | the Citadels | stone, ancestry and endurance; tank and strength lean |
+| **Kyr'vahl, the Last Updraft** (the Veyr clan that takes you in; Kyle's pick, 19 Nov 2026) | the Stormborn | the Talon Spires | the Spires | storm, speed and the hunt; agility and lightning lean |
+| **Ul'Kharad, the First Stone** (the oldest Kharad house; Kyle's pick, 19 Nov 2026) | the Cloud Giants | the Elder Citadels | the Citadels | stone, ancestry and endurance; tank and strength lean |
 
 The rival Veyr clans and the Ascendancy are who you fight. Gaining with one never costs standing with another: no
 opposed reputations.
 
 ## For Kyle to say
 - The names marked as Rafa's: Rootwater Isle, the Lower, Middle and Upper Boughs, Aurelion, the Talon Spires, the Elder
-  Citadels, the Fading Firmament, the Highbough Tribes, High Chieftain Zan'kaji, the Ascendancy, the Stormtalon Clan,
-  the Elder Houses.
+  Citadels, the Fading Firmament, the Highbough Tribes, High Chieftain Zan'kaji, the Ascendancy.
 - The Aetherian split (scholars as the faction, the Ascendancy as the enemy).
