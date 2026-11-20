@@ -38,12 +38,14 @@ in their history, and they don't think much of it.
 (The Aetherians' scholars hunt for what the Integration was. They never get close to the cause; nothing up here hints
 at it.)
 
-## The road: 42 to 60, the tree and three sky continents
+## The road: 42 to 60, the tree and the Aetherian continent
 
 The tree is the road up. The sky is three continents, each with its capital, as far apart as Kalimdor and the Eastern
 Kingdoms (Kyle, 20 Nov 2026: "The sky gets 3. We can think of the distance between them will be similar to how kalimdor
-and EK is"). You don't walk or skiff between them: the long airship routes cross the open sky the way the zeppelins
-cross the sea, and each continent has room to grow more zones later.
+and EK is"). **Only one is built now** (Kyle: "We will only be building one. The other two get added as the game
+expands"): the Aetherian continent, the one the tree's crown reaches, and it carries the whole road from 48 to 60 ("All
+Aetherian"). The Veyr's continent and the Kharad's come later, each with its capital, reached by long airship the way
+the zeppelins cross the sea.
 
 ```
  Grom'gol --boat--> Rootwater Isle (42-44)
@@ -58,24 +60,22 @@ cross the sea, and each continent has room to grow more zones later.
                          | the rope ladder
                     The Cloudbreak (48)            the climb through the cloud
                          |
- ======== THE AETHERIAN CONTINENT (the one the tree's crown reaches) ========
+ =========== THE AETHERIAN CONTINENT (built now) ===========
                     The Sunward Crown (48-49)      first contact
                          |
                     The Celestial Expanse (49-51)
                          | sky-bridge
-                    AURELION (capital)  ---------- The Fading Firmament (57-60), the dying heart
-                      |         \
-              long airship    long airship
-                      |           \
- == THE VEYR CONTINENT ==      == THE KHARAD CONTINENT ==
-   The Talon Spires (51-54)      The Elder Citadels (54-57)
-   the Veyr capital              the Kharad capital
-            \_______ long airship _______/
-```
+                    AURELION (capital)
+                    /                   \
+     The Anchorfields (51-54)     The Ascendant Bastions (54-57)
+     the engines that hold        the Ascendancy's fortresses
+     the islands up                         |
+                                  The Fading Firmament (57-60)
+                                  the dying heart
 
-The levelling road crosses the sky and comes back: the Aetherian continent to 51, the Veyr continent to 54, the Kharad
-continent to 57, then home to the Aetherian continent's dying heart for 57 to 60, the way a ground character crosses
-between Kalimdor and the Eastern Kingdoms.
+ Later, by long airship from Aurelion's dock: the Veyr continent (the Talon Spires and the
+ Veyr capital) and the Kharad continent (the Elder Citadels and the Kharad capital).
+```
 
 | Map | Levels | What it is | Threat |
 |---|---|---|---|
@@ -87,8 +87,8 @@ between Kalimdor and the Eastern Kingdoms.
 | **The Sunward Crown** | 48-49 | The tree's crown above the cloud sea (reference: crown island): sunlit branches, golden forests, waterfalls pouring off into a sea of cloud. **First contact**: an Aetherian survey ship lands, and the trolls meet the sky | The threat from above: an Ascendancy landing to take the crown; storm elementals |
 | **The Celestial Expanse** | 49-51 | Floating islands, sky rivers that fall from island to island, and ancient aerial ruins older than anyone up here remembers | The old sky ruins wake (Kharad-age machinery, sky-golems); Ascendancy patrols; sky beasts |
 | **Aurelion** | city | The Aetherian city: a suspended city of titan-scale stone and arcane engines anchored on crystal, half its outer rings already falling. The sky's hub, with an inn and a flight path | (a city: safe, but dying) |
-| **The Talon Spires** | 51-54 | The Veyr homeland: impossibly high stone spires rising out of the cloud sea, cities carved into them and built across enormous natural arches | Veyr clans at war over the shrinking sky; storms the Veyr themselves call down |
-| **The Elder Citadels** | 54-57 | The Kharad's realm: massive floating citadels, suspended bridges between them, temples on a scale nothing on the ground matches | The Kharad wake their ancient elemental machinery to hold their citadels up, and it isn't theirs to command any more |
+| **The Anchorfields** (name proposed) | 51-54 | The engine country: islands held up by crystal anchors and gravity engines the size of towers, the scholar houses' estates and observatories among them, and the first anchors failing, islands tilting and dropping | The engines wake wrong (constructs, arcane overload, gravity gone strange); the Ascendancy seizing the anchors; the sky's own storms |
+| **The Ascendant Bastions** (name proposed) | 54-57 | The Ascendancy's own ground: suspended fortresses and storm-artillery platforms chained between islands, lancer barracks, the shipyards where the ships that will take the tree are being built | The Ascendancy at home: sky lancers, storm artillery, arcane bombardiers, mechanical flying constructs |
 | **The Fading Firmament** | 57-60 | The dying heart of the Aetherian world: sky-forges going dark, crystal engines failing, islands breaking apart and falling into the void below the clouds | The Ascendancy's last push to seize the tree; the sky itself coming apart |
 
 **Doors for later (like Moonglade's):** a dungeon in the Middle Boughs' heartwood (what's eating the tree), a dungeon in
@@ -100,8 +100,8 @@ borers have eaten, sap chambers. One cave a tier: the Lower Boughs' goes into th
 Upper Boughs each get theirs. The dungeon is the Middle Boughs' heartwood, deeper into the tree than any cave.
 
 **Towns.** Kyle, 19 Nov 2026: "The sky continents will get 3 capital cities. Great settlement will be large but not
-capital city large." So the sky has three capitals, one for each people: Aurelion (the Aetherians), a Veyr city in the
-Talon Spires and a Kharad city in the Elder Citadels, each on its own continent with a long-airship dock, an inn, a flight path, a bank, an auction house, mail and
+capital city large." So the sky has three capitals, one for each people, each on its own continent with a long-airship dock: Aurelion (the
+Aetherians, built now), and a Veyr city and a Kharad city when their continents are built. Each capital has an inn, a flight path, a bank, an auction house, mail and
 trainers. The Great Settlement is the tree's town, big and full, with the same services, but sized below a capital. Rootwater Isle, the Lower Boughs and the Crown get small groups of quest
 givers, not towns. One flight path a zone at most.
 
@@ -144,8 +144,8 @@ friends, and they can't be all enemies if they're the faction. So they're split:
 - **Military**: dive bombers, wind archers, thunder priests, talon cavalry.
 - **Aesthetic**: a more militaristic, predatory sky civilization.
 
-In the Talon Spires (51-54). As the sky shrinks the clans fight each other for the spires that are left. One clan
-takes you in; the rest are your fights.
+Their homeland is the Talon Spires, on the Veyr continent, which comes later. As the sky shrinks the clans fight each
+other for the spires that are left. One clan takes you in; the rest are your fights.
 
 ### The Kharad, the Cloud Giants (Kyle's description)
 - **Appearance**: large, broad humanoids with stone-like skin, cloud-white hair, and naturally occurring mineral
@@ -156,8 +156,8 @@ takes you in; the rest are your fights.
 - **Military**: giant infantry, siege platforms, thunder mages.
 - **Aesthetic**: a civilization that feels like it predates most surface kingdoms.
 
-In the Elder Citadels (54-57). The ancient ruins of the Celestial Expanse are theirs, from long before the Aetherians.
-The old machinery waking up there is theirs too.
+Their realm is the Elder Citadels, on the Kharad continent, which comes later. The ancient ruins of the Celestial
+Expanse are theirs, from long before the Aetherians, and the old machinery waking up there is theirs too.
 
 ## The ascent: from Azeroth to the sky (Kyle, 19 Nov 2026: "Do NOT skip out on design of going from azeroth to the sky")
 
@@ -182,8 +182,8 @@ map in the game built only to be walked through, and that's the point: the momen
 
 **After the Crown, travel is by air.** You can't walk off the tree: the Aetherian continent's islands are reached by the
 Aetherian survey skiff, offered once first contact is made, then by sky-skiffs between the islands (each sky zone's
-flight path). The other two continents are a long way off, as far as Kalimdor is from the Eastern Kingdoms: the long
-airships at the three capitals' docks make those crossings, like the zeppelins. Going home is the Great Settlement's bat roost or the skiffs back to the
+flight path). The other two continents, when they're built, are a long way off, as far as Kalimdor is from the Eastern
+Kingdoms: the long airships at the capitals' docks make those crossings, like the zeppelins. Going home is the Great Settlement's bat roost or the skiffs back to the
 Crown: the climb itself only ever goes up once.
 
 **What the renderer needs** (built with the tree's maps, not before): the drop layer painted per tier (the W1 drop
@@ -202,7 +202,7 @@ Aetherians hunt for what the Integration was and never get close to its cause.
   the edges into the clouds, and branches end in leaves that fall away into the haze. The tree's tiers show the trunk
   as a cliff-sized wall of bark with the branches as roads.
 - **Light by height.** The island is jungle light, the boughs green-gold and dappled, the city lantern-gold, the Crown
-  full sun, the Expanse clear blue, the Spires stormlit, the Citadels pale and cold, and the Firmament a failing violet
+  full sun, the Expanse clear blue, the Anchorfields crystal-lit, the Bastions stormlit, and the Firmament a failing violet
   dusk.
 - **Above the clouds, with the golden sun in the distance** (Kyle: "Can we get beautiful above the cloud look and
   golden sun in the distance"). A top-down camera has no horizon, so the sun comes from three layers
@@ -241,24 +241,27 @@ is the sky finding the ground.
    Great Settlement). The sky's sheets follow once the zone plan is settled.
 2. **The tree** (42-48): Rootwater Isle, the Lower Boughs, the Great Settlement, the Middle Boughs, the Upper Boughs,
    built on art already in the game first, like Feralas, then swapped when the sheets land.
-3. **The sky** (48-60): the Crown and the Expanse, then Aurelion, then the Spires, the Citadels and the Firmament.
+3. **The sky** (48-60): the Crown and the Expanse, then Aurelion, then the Anchorfields, the Ascendant Bastions and the
+   Firmament. The Veyr and Kharad continents later, as the game expands.
 4. The factions' shelves, the quests (about 30 or more a zone, ~70% from hubs, chains out to Stranglethorn, Grom'gol and
    Orgrimmar), the creatures and rares, the doors.
 
 ## The factions (Kyle, 19 Nov 2026: "all 3 species get factions, yes")
 
-Four new factions on the road from 42 to 60, each with its own quartermaster and the TBC shelf (Friendly supplies,
+Four new factions, each with its own quartermaster and the TBC shelf (Friendly supplies,
 Honored recipes, Revered ilvl 67 blues, Exalted ilvl 73 epics and an Exalted mount), and gear with a direction, never
 exclusivity:
 
 | Faction | Who | Home | Rep from | Gear's direction |
 |---|---|---|---|---|
 | **The Highbough Tribes** | the tree's trolls | the Great Settlement | Rootwater Isle, the three Boughs, the city | hunters, shamans and shadow-hunters' kit; mail and leather lean |
-| **The Aetherians** | the scholar houses and the first-contact survey (the Ascendancy, their military, is the enemy) | Aurelion | the Crown, the Expanse, Aurelion, the Firmament | arcane, crystal and engineering; cloth and plate lean |
-| **Kyr'vahl, the Last Updraft** (the Veyr clan that takes you in; Kyle's pick, 19 Nov 2026) | the Stormborn | the Talon Spires | the Spires | storm, speed and the hunt; agility and lightning lean |
-| **Ul'Kharad, the First Stone** (the oldest Kharad house; Kyle's pick, 19 Nov 2026) | the Cloud Giants | the Elder Citadels | the Citadels | stone, ancestry and endurance; tank and strength lean |
+| **The Aetherians** | the scholar houses and the first-contact survey (the Ascendancy, their military, is the enemy) | Aurelion | the Crown, the Expanse, Aurelion, the Anchorfields, the Bastions, the Firmament | arcane, crystal and engineering; cloth and plate lean |
+| **Kyr'vahl, the Last Updraft** (the Veyr clan that takes you in; Kyle's pick, 19 Nov 2026). **Comes with the Veyr continent** | the Stormborn | the Talon Spires | the Veyr continent | storm, speed and the hunt; agility and lightning lean |
+| **Ul'Kharad, the First Stone** (the oldest Kharad house; Kyle's pick, 19 Nov 2026). **Comes with the Kharad continent** | the Cloud Giants | the Elder Citadels | the Kharad continent | stone, ancestry and endurance; tank and strength lean |
 
-The rival Veyr clans and the Ascendancy are who you fight. Gaining with one never costs standing with another: no
+On the road built now, the Highbough Tribes and the Aetherians are the two you earn standing with (Kyle, 20 Nov 2026:
+"All Aetherian"); Kyr'vahl and Ul'Kharad, their faction pages and their art wait for their continents. The Ascendancy,
+and later the rival Veyr clans, are who you fight. Gaining with one never costs standing with another: no
 opposed reputations.
 
 ## Every map is a complete zone (Kyle, 19 Nov 2026: "Dont forget we need complete zones, so include secrets, gatherables etc.")
@@ -287,3 +290,7 @@ No map is done until it has all of this, checked by the QA tools rather than ass
   Elder Citadels, the Fading Firmament, the Highbough Tribes, High Chieftain Zan'kaji, the Ascendancy, Kyr'vahl the
   Last Updraft, Ul'Kharad the First Stone.
 - The Aetherian split: rep with the scholar houses, the Ascendancy is the enemy.
+- One sky continent now, the Aetherians' (Kyle, 20 Nov 2026: "We will only be building one. The other two get added as
+  the game expands"), carrying 48 to 60 with all-Aetherian zones ("All Aetherian"). The other two are as far off as
+  Kalimdor is from the Eastern Kingdoms. Still to name: the two new zones, proposed as the Anchorfields (51-54) and the
+  Ascendant Bastions (54-57).
