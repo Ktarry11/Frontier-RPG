@@ -208,6 +208,8 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
   `world/race_registry.py` (saves store a place in that list) and the creator offers only the new five. Women later.
 - **Player sprites landed 20 Nov** (all seven races) and are in the creator; the barber's chair catches any save whose
   look is gone.
+- **Mounts get no gait sheets** (Kyle, 20 Nov 2026: "nah, we have too many mounts"): the rider sits on the standing
+  frame and the mount bobs while moving (`TilemapRenderer._ride_bob`).
 - **Walk cycles**: one sheet a race, drawn from that race's turnaround sheet as the single reference
   (`docs/player_sprite_prompts.md`, "Walk cycles"; sliced by `tools/asset_pipeline/slice_walk_rows.py`).
 - **The recoloured T0 set versions** are plain hue turns (some gold sets come out lime). Kyle's eye.
