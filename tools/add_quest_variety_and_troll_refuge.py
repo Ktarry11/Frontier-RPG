@@ -151,8 +151,8 @@ RAZOR_HILL_QUESTS = [
             "good one. Pleasure doing business, genuinely."
         ),
         "next_quest_id": None,
-        "level_min": 6,
-        "level_max": 9
+        "level_min": 8,
+        "level_max": 11
     },
     {
         "quest_id": "razorhill_troll_refuge",
@@ -218,9 +218,12 @@ def main():
         "description": "A long, sun-bleached feather, remarkably free of scorch marks.",
         "chance": 0.55
     })
-    if "Kolkar Raider" not in qd_data["drops"]:
-        qd_data["drops"]["Kolkar Raider"] = []
-    qd_data["drops"]["Kolkar Raider"].append({
+    # THE CRATES ARE IN DUROTAR (20 Nov 2026): they dropped from the Kolkar Raider, a 14-17 centaur in the Northern
+    # Barrens, for a Razor Hill quest; the levelling run died to it over and over at 11. Kolkar Crag's Wranglers and
+    # Outrunners (8-12) carry them now, and data/creatures/quest_drops.json was moved by hand to match.
+    if "Kolkar Wrangler" not in qd_data["drops"]:
+        qd_data["drops"]["Kolkar Wrangler"] = []
+    qd_data["drops"]["Kolkar Wrangler"].append({
         "item_id": "salvaged_caravan_crate",
         "name": "Salvaged Caravan Crate",
         "category": "quest",

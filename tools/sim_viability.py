@@ -153,7 +153,7 @@ def fight(chars, roles, enemies):
     prepull(chars, engine)
     plans = {}
     for c in chars:
-        h, att, _s, _d = plan(c)
+        h, att, _s, dfs = plan(c)
         if M.real_role(getattr(c, "_matrix_spec", ""), roles[id(c)]) in ("melee_dps", "tank"):
             att = [a for a in att if not getattr(a, "requires_ranged_weapon", None)] or att
         form = getattr(c, "current_form", None)
@@ -167,10 +167,12 @@ def fight(chars, roles, enemies):
                     return form in rf or a.ability_id.endswith("_attack")
                 att = [a for a in att if in_form(a)] or att
                 h = [a for a in h if in_form(a)]
-        plans[id(c)] = (h, att)
+                dfs = [a for a in dfs if not getattr(a, "requires_form", None) or in_form(a)]
+        plans[id(c)] = (h, att, dfs)
     from tools.sim_class_balance import mana_tools
     tools_of = {id(c): mana_tools(c) for c in chars}
     turns = 0
+    last_def = {}
     for _ in range(MAX_TICKS):
         with quiet():
             engine.update(TICK)
@@ -189,7 +191,7 @@ def fight(chars, roles, enemies):
                     engine._end_turn(actor)
             continue
         turns += 1
-        heals, attacks = plans[id(actor)]
+        heals, attacks, defensives = plans[id(actor)]
         living = [c for c in chars if c.current_health > 0]
         if not living:
             break
@@ -202,6 +204,16 @@ def fight(chars, roles, enemies):
                 for h in heals:
                     if engine.execute_ability(actor, h.ability_id, hurt)[0]:
                         acted = True
+                        break
+            # DEFENSIVE COOLDOWNS (20 Nov 2026): a player under 60% reaches for Mana Shield, Ice Barrier, Shield
+            # Wall. This loop never did (sim_matrix.fight always has), so every solo and group run here measured
+            # the squishy classes without the buttons that keep them alive. Same rationing as sim_matrix.
+            me = actor.current_health / max(1, actor.health)
+            if not acted and defensives and me < 0.6 and turns - last_def.get(id(actor), -99) >= 4:
+                for d in defensives:
+                    if engine.execute_ability(actor, d.ability_id, actor)[0]:
+                        acted = True
+                        last_def[id(actor)] = turns
                         break
             if not acted:
                 from tools.sim_class_balance import mana_move

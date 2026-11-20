@@ -210,6 +210,20 @@ def fight(char, foe, rng):
         engine = CombatEngine(char, foe, party=Party(char))
         R.precast_stances(char, engine)
     heals, attacks, _setup, defensives = plan(char)
+    # A FORM THAT ISN'T ON MANA KEEPS ITS OWN BUTTONS (20 Nov 2026, same filter as sim_viability.fight): a Feral
+    # Druid in cat form cast Moonfire and Wrath, shifting out of form to do it.
+    form = getattr(char, "current_form", None)
+    if form:
+        from combat.forms import resource_for_form
+        from combat.abilities import ResourceType
+        if resource_for_form(form) not in (None, ResourceType.MANA):
+            def in_form(a):
+                rf = getattr(a, "requires_form", None)
+                rf = rf if isinstance(rf, (list, tuple)) else ([rf] if rf else [])
+                return form in rf or a.ability_id.endswith("_attack")
+            attacks = [a for a in attacks if in_form(a)] or attacks
+            heals = [a for a in heals if in_form(a)]
+            defensives = [a for a in defensives if not getattr(a, "requires_form", None) or in_form(a)]
     m0 = mana_of(char)
     turns, last_heal, last_def = 0, -3, -4
     for _ in range(MAX_TICKS):
@@ -221,8 +235,17 @@ def fight(char, foe, rng):
         if actor is None:
             continue
         if actor is not char:
+            # THE PET TAKES ITS OWN TURN. build() summons the pet-screen pet, and handing a pet's turn to
+            # execute_monster_action left it the current actor forever: the loop ran out its ticks with neither side
+            # dead, and every pet spec read as 0% wins in a single turn (found 20 Nov 2026; sim_viability.fight
+            # already did this).
             with quiet():
-                engine.execute_monster_action()
+                if getattr(actor, "is_monster", False) or actor is foe:
+                    engine.execute_monster_action()
+                elif hasattr(engine, "execute_pet_action"):
+                    engine.execute_pet_action()
+                else:
+                    engine._end_turn(actor)
             continue
         turns += 1
         acted = False
@@ -239,7 +262,13 @@ def fight(char, foe, rng):
                         acted, last_def = True, turns
                         break
             if not acted:
+                # A DoT STILL TICKING ISN'T RECAST (20 Nov 2026): the planner ranks a DoT by its whole total, so
+                # without this guard the Balance Druid cast Moonfire every turn, refreshing it before it paid out,
+                # and took 25 turns to kill what others kill in 3. sim_viability.fight has always had this guard.
+                live = {getattr(fx, "effect_id", None) for fx in foe._effects()} if hasattr(foe, "_effects") else set()
                 for a in attacks:
+                    if a.effect_type in ("dot", "spell_dot") and a.ability_id in live:
+                        continue
                     if engine.execute_ability(char, a.ability_id, foe)[0]:
                         acted = True
                         break

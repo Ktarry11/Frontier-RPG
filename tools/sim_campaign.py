@@ -322,8 +322,14 @@ def do_quest(h, q, world, zone):
                 if target not in world.cm.creatures:
                     continue                                 # a target the sim can't spawn: not counted
                 name = target
-            z = next((p[0] for p in world.where.get(name, []) if p[0] == zone), None) or \
+            # THE OBJECTIVE'S OWN ZONE FIRST (20 Nov 2026): a quest given in a town ("sepulcher") names where its
+            # targets are on the objective ("silverpine_north"). Without it the run took the creature's first zone in
+            # the encounter file, and the Sepulcher's Corrupted Treants (12-15 there) were fought at Ashenvale's 24-27.
+            oz = world.zone_for(o) if o.get("zone") else None
+            z = next((p[0] for p in world.where.get(name, []) if p[0] in (oz, zone) and p[0]), None) or \
                 (world.where.get(name) or [(zone, None, None)])[0][0]
+            if oz and any(p[0] == oz for p in world.where.get(name, [])):
+                z = oz
             for _ in range(count):
                 if not fight_until(h, lambda: world.spawn(name, z), f"{q['title']}: {name}"):
                     return "failed"

@@ -270,10 +270,13 @@ LEVEL_PATCH = {
     "Kolkar Outrunner": (8, 12), "Kolkar Pack Runner": (8, 12),
     "Kolkar Windchaser": (8, 12), "Kolkar Wrangler": (8, 12),
     "Coastal Murloc": (7, 10), "Murloc Tidehunter": (7, 10), "Murloc Oracle": (7, 10),
-    "Drowned Deckhand": (7, 10),
     "Searing Blade Scout": (8, 12), "Searing Blade Raider": (8, 12), "Coastal Harpy": (8, 11),
 }
 BOSS_LEVEL_PATCH = {"Warlord Krellian": 12, "Stormhide Patriarch": 12}
+# SHARED WITH SILVERPINE: the Drowned Deckhand is the Decrepit Ferry's (16-18), so a global patch here was overwritten
+# and the Scuttle Coast had a 16-18 undead among its 7-10 murlocs (20 Nov 2026). Durotar's level goes in the zone's
+# level_overrides instead, which creature_manager.spawn_creature reads per zone.
+LEVEL_OVERRIDES = {"Drowned Deckhand": [7, 10]}
 
 ENCOUNTERS = {
     "open_zone": {"name": "The Red Wastes", "creatures": {
@@ -320,6 +323,7 @@ def main():
     z = data["zones"]["Durotar"]
     z["open_zone"] = ENCOUNTERS["open_zone"]
     z["subzones"] = ENCOUNTERS["subzones"]
+    z.setdefault("level_overrides", {}).update(LEVEL_OVERRIDES)
     p.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
 
     out = {"_notes": "Durotar open-world named-rare + boss loot (2026-10-21). One item drops per "
