@@ -35,7 +35,8 @@ WHAT IT CHECKS, and why each one is worth a line:
 
 Exits non-zero on any finding, except check 5, which only warns - it is a backlog, not a
 regression, and failing the build on it would mean nobody can use this file for the thing it was
-written to guard.
+written to guard. Held items and relics (tools/quest_weapon_damage.HELD) are never inert, and that tool
+fills any swung weapon's damage off the generator's curve.
 """
 import json
 import re
@@ -133,6 +134,7 @@ def main():
                 f"{fname}: {qid} prose says {hit!r} but the quest hands over no gear"
             )
 
+    from tools.quest_weapon_damage import HELD
     # ---- 5. zero-damage weapons (warning only, see the module docstring) --------------------
     # A SHIELD IS NOT A DAMAGE WEAPON. The first version of this check flagged all 46 reward
     # shields as broken because they carry no weapon_damage - they are not supposed to. What a
@@ -146,6 +148,8 @@ def main():
                 continue
             if wt == "shield":
                 broken = not item.get("block_value")
+            elif wt in HELD:
+                broken = False          # a tome, orb or relic is held for its stats, never swung (20 Nov 2026)
             else:
                 broken = not (item.get("weapon_damage_max") and item.get("attack_speed"))
             if broken:

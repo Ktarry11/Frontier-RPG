@@ -100,7 +100,40 @@ can't place it); and the Great Lift, once Vaz'jin and the Gnawmother are dead.
 **Kyle's calls, 19 Nov, in the brief:** three capitals in the sky, one for each people; the Great Settlement big but
 below a capital; caves into the tree, one a tier, and the dungeon in the Middle Boughs' heartwood.
 
+## The Great Settlement (44-48) and the Highbough Tribes, done 20 Nov 2026
+
+**The city** (`tools/handbuilt_worldtree_great_settlement.py`, 184x160): the Highbough Tribes' home, a town but not a
+capital (Kyle, 19 Nov: "Great settlement will be large but not capital city large"). Six districts on lobed shelves of
+bough joined by bridges over the drop: the market, the trades, the Lantern Ward, the Roost, the falls and the garden
+terrace, with Zan'kaji's Heart Palace on the Chieftain's Rise. The Great Lift comes up from the Lower Boughs; a second
+lift waits for the Middle Boughs. Walk-tested: all 12,630 walkable tiles reachable from the lift, every person standing
+somewhere you can reach. Kyle, 20 Nov: "Let's have a bit more land mass for gs", so the shelves were widened.
+
+**Services:** inn, flight path (the bat Roost), auction house, bank, mailbox, a class trainer for every class and seven
+pairs of profession trainers. 31 people and the mailbox (`tools/build_great_settlement.py`).
+
+**The Highbough Tribes** (`tools/build_highbough_tribes.py`): the shelf at the quartermaster, the TBC way: Heartsap
+Tonic at Friendly, a neck piece and a pattern at Honored, six ilvl 67 blues and a pattern at Revered, three ilvl 73 epics
+and two recipes at Exalted, and a teal and red tabard. The mount waits for its art.
+
+**The quests:** 12, every one given in the city, 9 paying the tribes and 1 paying Orgrimmar. Threads: the audience
+(Ozenna's pass to Zan'kaji, then the Bloodscalp war leaders below); Horde ground (the envoy's year-long wait ends, and
+Zan'kaji's answer goes to Thrall); sky-bones (the scholars' wall, the spiders' web-hall, and Tel'zan's record, which
+says the pieces are getting bigger); the ward (Ozai's lanterns, a bat lost in the webs, the loa's Goldthorn, soil for
+the terrace); and two transplants, Kofi Mensah from Accra cooking for market day and Hana Sato from a Kyoto tea house.
+
+**Found on the way, and fixed for every zone:**
+- **Kills and explores in every "The ..." zone could never count.** The game reports where you are as
+  `the_lower_boughs`, quests were written `lower_boughs`, and the quest manager compared them raw. 46 explores and every
+  zone-tied kill across Feralas's three regions, the Lower Boughs and the Knothollow were impossible to finish. Both
+  sides now go through `zone_key` (`same_zone` in `world/quest_manager.py`), and `tools/audit_quests.py` judges the way
+  the game does: 180 blocking problems to 0.
+- **20 quest-reward weapons hit for 0-0.** Older hand-written rewards had no damage; `tools/quest_weapon_damage.py` gives
+  them the generator's numbers, and the reward audit no longer counts tomes, orbs and relics, which aren't swung.
+- **Two stale builders.** The Ashenvale quest builders are older than their data, and rerunning one undid the voice pass
+  and the loot ratings. They now refuse to run without `--force`.
+
 ## Next
 
-The Great Settlement and the Highbough shelf, the Middle and Upper Boughs (each with its cave) and the Cloudbreak, the
+The Middle and Upper Boughs (each with its cave) and the Cloudbreak, the
 sky renderer, then the sky maps. See `docs/worldtree_brief.md` for the whole road.

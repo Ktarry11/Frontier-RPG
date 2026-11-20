@@ -16,6 +16,20 @@ from pathlib import Path
 from world.quest import Quest, QuestObjective, QuestStatus, ObjectiveType
 
 
+
+def same_zone(target, zone):
+    """Does an explore objective's target name the zone the player is in?
+
+    Both sides go through world.zone_keys.zone_key, the one rule for comparing zones. The overworld passes the
+    unstripped slug ("the_lower_boughs") and quests have been written both ways ("the_crystalline_underdark",
+    "lower_boughs"); comparing them raw left 46 explores in every "The ..." zone added after Nov 18 impossible to
+    finish (found by tools/audit_quests.py, 20 Nov 2026).
+    """
+    if not target or not zone:
+        return False
+    from world.zone_keys import zone_key
+    return target == zone or zone_key(target) == zone_key(zone)
+
 class QuestManager:
     def __init__(self):
         self.quests = {}              # quest_id -> Quest (authored definition + live state)
@@ -459,7 +473,7 @@ class QuestManager:
                     continue
                 if not objective.matches_target(monster_name):
                     continue
-                if objective.zone and objective.zone != zone:
+                if objective.zone and not same_zone(objective.zone, zone):
                     continue
                 if objective.is_complete():
                     continue
@@ -500,7 +514,7 @@ class QuestManager:
             for objective in quest.objectives:
                 if objective.objective_type != ObjectiveType.EXPLORE:
                     continue
-                if objective.target != zone:
+                if not same_zone(objective.target, zone):
                     continue
                 if objective.target_x is not None:
                     continue  # position-gated - handled by record_position_reached
@@ -527,7 +541,7 @@ class QuestManager:
             for objective in quest.objectives:
                 if objective.objective_type != ObjectiveType.EXPLORE:
                     continue
-                if objective.target != zone or objective.target_x is None:
+                if objective.target_x is None or not same_zone(objective.target, zone):
                     continue
                 if objective.is_complete():
                     continue

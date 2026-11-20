@@ -279,6 +279,12 @@ quest("bfd_aku_mai", "Aku'mai the Devourer", "zoram_sentinel", "zoram_strand", 2
 
 
 def main():
+    # STALE (20 Nov 2026): later passes edited this file's output in place (giver splits, loot ratings, the voice
+    # rewrite, recipe rewards, reward weapon damage via tools/quest_weapon_damage.py), so a rerun would undo them.
+    # Edit the data, or bring those passes in here first.
+    if "--force" not in sys.argv:
+        print("refusing: this builder is older than its data (see the note above main); --force to run anyway")
+        return 1
     out = ROOT / "data/quests/ashenvale_dungeons.json"
     ids = [q["quest_id"] for q in QUESTS]
     assert len(ids) == len(set(ids)), "duplicate quest ids"

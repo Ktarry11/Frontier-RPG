@@ -1,0 +1,1156 @@
+{
+  "quests": [
+    {
+      "quest_id": "gsq_an_audience",
+      "title": "An Audience",
+      "giver_npc_id": "gs_liftkeeper",
+      "zone": "great_settlement",
+      "level_min": 45,
+      "level_max": 45,
+      "description": "Liftwarden Ozenna keeps the top of the Great Lift. Anyone the elders below send up is meant to present themselves to the High Chieftain, and she's written you a pass for the guards on the Rise.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "gs_q_lift_pass",
+          "count": 1,
+          "label": "Present Ozenna's pass to High Chieftain Zan'kaji on the Chieftain's Rise"
+        }
+      ],
+      "accept_text": "Tal'vani sent word you were coming up. Everybody she sends goes to the High Chieftain first, so take this pass and go along the ledge to the Heart Palace. You'll know it, it's the one wrapped round the trunk.",
+      "turn_in_text": "Ozenna's pass, and Tal'vani's word before it. The tribes have been talking about you since Mossroof.\n\nMy name's Zan'kaji, and I hold this tree for the tribes who climbed it, and I don't hand out trust for a good story. Show me what you can do and we'll talk about what the tribes can do for you.",
+      "next_quest_id": "gsq_the_war_below",
+      "turn_in_npc_id": "gs_zankaji",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "gs_q_lift_pass",
+            "name": "Liftwarden's Pass",
+            "description": "A strip of painted bark with Ozenna's mark on it, for the guards on the Chieftain's Rise.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "unique_item_defs": [
+        {
+          "name": "Liftwarden's Staff",
+          "slot": "main_hand",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 19
+          },
+          "secondary_stats": {
+            "spell_power": 44
+          },
+          "armor_value": 0,
+          "required_level": 45,
+          "sell_price": 8921,
+          "identity": "caster",
+          "icon_id": "gear_inv_staff_19",
+          "weapon_damage_min": 34,
+          "weapon_damage_max": 46,
+          "attack_speed": 3.2,
+          "block_value": 0
+        },
+        {
+          "name": "Liftwarden's Jerkin",
+          "slot": "chest",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 115,
+          "required_level": 45,
+          "sell_price": 7137,
+          "identity": "strength",
+          "icon_id": "gear_inv_chest_leather_07"
+        },
+        {
+          "name": "Liftwarden's Waistguard",
+          "slot": "waist",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 205,
+          "required_level": 45,
+          "sell_price": 3925,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_belt_22"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gsq_the_war_below",
+      "title": "The War Below",
+      "giver_npc_id": "gs_zankaji",
+      "zone": "great_settlement",
+      "level_min": 45,
+      "level_max": 45,
+      "description": "High Chieftain Zan'kaji wants the Bloodscalp who climb onto the Great Bough broken, and their war leaders with them, before he trusts you with the tribes' business.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bloodscalp Reaver",
+          "count": 6,
+          "zone": "lower_boughs"
+        },
+        {
+          "type": "kill",
+          "target": "Bloodscalp Bough-Shaman",
+          "count": 4,
+          "zone": "lower_boughs"
+        }
+      ],
+      "accept_text": "The Bloodscalp come up the ropes at the Climbers' Cut, down on the Lower Boughs, and their Bloodscalp Reavers lead every climb. Their Bloodscalp Bough-Shamans call the storm down on anyone who's in their way. Go down and break them, and come back and tell me how it went.",
+      "turn_in_text": "That's the kind of story I like, one with the ending already done.\n\nThe tribes will hear about this. From now on, when the Settlement needs something done, my people will come to you first.",
+      "next_quest_id": "gsq_horde_ground",
+      "requires_quests": [
+        "gsq_an_audience"
+      ],
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "unique_item_defs": [
+        {
+          "name": "Chieftain's Mantle",
+          "slot": "shoulder",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 24
+          },
+          "armor_value": 48,
+          "required_level": 45,
+          "sell_price": 5710,
+          "identity": "caster",
+          "icon_id": "gear_inv_shoulder_22"
+        },
+        {
+          "name": "Chieftain's Breeches",
+          "slot": "legs",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 11,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 115,
+          "required_level": 45,
+          "sell_price": 7137,
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_01"
+        },
+        {
+          "name": "Chieftain's Vambraces",
+          "slot": "wrist",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 4
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_value": 191,
+          "required_level": 45,
+          "sell_price": 3569,
+          "identity": "tank",
+          "icon_id": "gear_inv_bracer_09"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gsq_horde_ground",
+      "title": "Horde Ground",
+      "giver_npc_id": "gs_orc_envoy",
+      "zone": "great_settlement",
+      "level_min": 45,
+      "level_max": 46,
+      "description": "Envoy Grukk has waited a year for Zan'kaji's answer to Orgrimmar. The High Chieftain has finally given it, and Grukk would rather it went to Thrall with someone who's earned the tribes' trust.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "gs_q_zankajis_answer",
+          "count": 1,
+          "label": "Carry Zan'kaji's answer to Thrall in Orgrimmar"
+        }
+      ],
+      "accept_text": "A year I've sat on this terrace waiting, and he gives me his answer the week you turn up. I'd carry it myself, but I've been told to wait for the next one. Take it to Thrall in Grommash Hold, and take the bats from the Roost, they're faster than the boats.",
+      "turn_in_text": "The tree isn't Horde ground, and it isn't Alliance ground either. It's theirs, and they'll stand with us when we stand with them.\n\nThat's a better answer than most I get. Tell Zan'kaji that Orgrimmar heard him, and that the Horde remembers who held the line when the world broke.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "org_thrall",
+      "requires_quests": [
+        "gsq_the_war_below"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "gs_q_zankajis_answer",
+            "name": "Zan'kaji's Answer",
+            "description": "A sealed letter on bark, painted with the Highbough's teal and red, for the Warchief.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "unique_item_defs": [
+        {
+          "name": "Envoy's Shield",
+          "slot": "off_hand",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 16,
+            "haste": 5
+          },
+          "armor_value": 366,
+          "required_level": 45,
+          "sell_price": 5973,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_shield_21",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 42
+        },
+        {
+          "name": "Envoy's Greaves",
+          "slot": "feet",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 145,
+          "required_level": 45,
+          "sell_price": 4853,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_09"
+        },
+        {
+          "name": "Envoy's Robe",
+          "slot": "chest",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 10,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "healing_power": 26
+          },
+          "armor_value": 58,
+          "required_level": 45,
+          "sell_price": 7467,
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_chest_cloth_37"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gsq_the_wall_of_fallen_things",
+      "title": "The Wall of Fallen Things",
+      "giver_npc_id": "gs_scholar",
+      "zone": "great_settlement",
+      "level_min": 45,
+      "level_max": 46,
+      "description": "Scholar Yenvaa keeps the wall in the market where the scholars show what's fallen from the clouds. The spiders below have been wrapping crystal chips in silk, and she wants them for the wall.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "gs_q_webbed_crystal",
+          "count": 5
+        }
+      ],
+      "accept_text": "Every piece on this wall's fallen out of the sky and caught in the branches. The Silkwood Weavers down in the Silkwood on the Lower Boughs have been wrapping the crystal chips up like prey. Get me some of them, silk and all.",
+      "turn_in_text": "Look at the cut on these. Every one the same angle, and every one still warm.\n\nThey're not jewels. They're parts of something, and whatever it is, it was running when it broke.",
+      "next_quest_id": "gsq_into_the_web_hall",
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "unique_item_defs": [
+        {
+          "name": "Skywatcher's Shield",
+          "slot": "off_hand",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 12,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "block_value": 11
+          },
+          "armor_value": 366,
+          "required_level": 45,
+          "sell_price": 5973,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_20",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 42
+        },
+        {
+          "name": "Skywatcher's Breeches",
+          "slot": "legs",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 15,
+            "agility": 10
+          },
+          "secondary_stats": {
+            "dodge_rating": 7
+          },
+          "armor_value": 152,
+          "required_level": 45,
+          "sell_price": 7467,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_06"
+        },
+        {
+          "name": "Skywatcher's Gloves",
+          "slot": "hands",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "arcane_spell_power": 25
+          },
+          "armor_value": 40,
+          "required_level": 45,
+          "sell_price": 4853,
+          "identity": "arcane",
+          "icon_id": "gear_inv_gauntlets_27"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gsq_into_the_web_hall",
+      "title": "Into the Web-Hall",
+      "giver_npc_id": "gs_scholar",
+      "zone": "great_settlement",
+      "level_min": 46,
+      "level_max": 46,
+      "description": "Yenvaa's sure the biggest pieces are in the spiders' web-hall at the far end of the Silkwood, and she wants someone to go and look.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "lower_boughs",
+          "target_x": 164,
+          "target_y": 104,
+          "radius": 4,
+          "label": "Search the spiders' web-hall at the end of the Silkwood"
+        },
+        {
+          "type": "kill",
+          "target": "Silkwood Stalker",
+          "count": 5,
+          "zone": "lower_boughs"
+        }
+      ],
+      "accept_text": "The biggest pieces must be in the web-hall at the far end of the Silkwood, where the spiders keep what they can't eat. Go and look for me. The Silkwood Stalkers will drop on you from the webs, so watch above you.",
+      "turn_in_text": "A whole crystal, bigger than my fist, in a cocoon of silk. The spiders were guarding it like an egg.\n\nTel'zan in the scholars' hall will want to write this down. Everything that comes off this wall, he writes down.",
+      "next_quest_id": "gsq_the_record",
+      "requires_quests": [
+        "gsq_the_wall_of_fallen_things"
+      ],
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "unique_item_defs": [
+        {
+          "name": "Webcutter's Spear",
+          "slot": "main_hand",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 0,
+          "required_level": 46,
+          "sell_price": 9333,
+          "identity": "strength",
+          "icon_id": "gear_inv_weapon_halberd_07",
+          "weapon_damage_min": 86,
+          "weapon_damage_max": 117,
+          "attack_speed": 3.3,
+          "block_value": 0
+        },
+        {
+          "name": "Webcutter's Hood",
+          "slot": "head",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 49,
+          "required_level": 46,
+          "sell_price": 5973,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_23"
+        },
+        {
+          "name": "Webcutter's Grips",
+          "slot": "hands",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 7,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 81,
+          "required_level": 46,
+          "sell_price": 4853,
+          "identity": "feral",
+          "icon_id": "gear_inv_gauntlets_17"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gsq_the_record",
+      "title": "The Record",
+      "giver_npc_id": "gs_scholar",
+      "zone": "great_settlement",
+      "level_min": 46,
+      "level_max": 46,
+      "description": "Yenvaa wants the crystal from the web-hall entered into the scholars' record. Archivist Tel'zan keeps it in the scholars' hall at the Roost.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "gs_q_great_crystal",
+          "count": 1,
+          "label": "Take the crystal to Archivist Tel'zan in the scholars' hall at the Roost"
+        }
+      ],
+      "accept_text": "Tel'zan keeps the record of everything that's fallen from the sky, and he'll want to see this before it goes on the wall. Take it across the bridge to the scholars' hall at the Roost.",
+      "turn_in_text": "That's the biggest piece anyone's brought me, and the record's three years long.\n\nThe pieces are getting bigger every month. Whatever's up there, it's coming apart faster than it was, and one day something a lot bigger than a crystal is going to fall on this city.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "gs_scholar_hall",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "gs_q_great_crystal",
+            "name": "Cocooned Crystal",
+            "description": "A blue crystal as big as a fist, still wrapped in spider silk. It hums very softly.",
+            "count": 1
+          }
+        ]
+      },
+      "requires_quests": [
+        "gsq_into_the_web_hall"
+      ],
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "unique_item_defs": [
+        {
+          "name": "Archivist's Legguards",
+          "slot": "legs",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "nature_spell_power": 27,
+            "haste": 8
+          },
+          "armor_value": 188,
+          "required_level": 46,
+          "sell_price": 7467,
+          "identity": "storm",
+          "icon_id": "gear_inv_pants_wolf"
+        },
+        {
+          "name": "Archivist's Cloak",
+          "slot": "back",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 18
+          },
+          "armor_value": 36,
+          "required_level": 46,
+          "sell_price": 4107,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_06"
+        },
+        {
+          "name": "Archivist's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 257,
+          "required_level": 46,
+          "sell_price": 5973,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_04"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gsq_the_wards_lanterns",
+      "title": "The Ward's Lanterns",
+      "giver_npc_id": "gs_ward_elder",
+      "zone": "great_settlement",
+      "level_min": 45,
+      "level_max": 46,
+      "description": "Grandmother Ozai's ward burns glimmer dust in its lanterns, which gives the light its gold. The lamplighters have run short, and the moths on the tiers below are the only place it comes from.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "gs_q_lantern_dust",
+          "count": 8
+        }
+      ],
+      "accept_text": "Our lanterns burn with a pinch of glimmer dust in the oil, and that's why the ward glows gold at night. Little Jinto's run out. The Glimmerwing Moths along the trunk ledge below Mossroof carry it on their wings, so bring some back for him.",
+      "turn_in_text": "That'll keep the ward gold for a month.\n\nJinto says if a lantern goes out, the loa can't find its way home. I told him that myself, when he was small. I'm not sure I believed it then, but I do now.",
+      "next_quest_id": null,
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "unique_item_defs": [
+        {
+          "name": "Lamplighter's Staff",
+          "slot": "main_hand",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 0,
+          "required_level": 45,
+          "sell_price": 9333,
+          "identity": "agility",
+          "icon_id": "gear_inv_staff_11",
+          "weapon_damage_min": 86,
+          "weapon_damage_max": 117,
+          "attack_speed": 3.6,
+          "block_value": 0
+        },
+        {
+          "name": "Lamplighter's Belt",
+          "slot": "waist",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 81,
+          "required_level": 45,
+          "sell_price": 4107,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_26"
+        },
+        {
+          "name": "Lamplighter's Band",
+          "slot": "ring",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 18
+          },
+          "armor_value": 0,
+          "required_level": 45,
+          "sell_price": 4480,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_ring_27"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gsq_a_bat_in_the_webs",
+      "title": "A Bat in the Webs",
+      "giver_npc_id": "gs_flight_master",
+      "zone": "great_settlement",
+      "level_min": 45,
+      "level_max": 46,
+      "description": "One of Bat Handler Ruzkah's bats flew down into the Silkwood in a storm and hasn't come back. She can hear it from the Roost at night, caught somewhere in the webs.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Silkwood Weaver",
+          "count": 7,
+          "zone": "lower_boughs"
+        }
+      ],
+      "accept_text": "One of my bats went down into the Silkwood in last week's storm, and I can hear it calling at night from the webs. The Silkwood Weavers will have it wrapped by now if they haven't eaten it. Clear them out of the Silkwood and I'll go down and cut it loose.",
+      "turn_in_text": "I found her this morning, wrapped up tight and furious about it. She bit me, which means she's fine.\n\nBats don't forget. She'll fly you anywhere you like, and she'll fly faster for you than she does for me.",
+      "next_quest_id": null,
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "unique_item_defs": [
+        {
+          "name": "Batwing Breastplate",
+          "slot": "chest",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "healing_power": 45
+          },
+          "armor_value": 283,
+          "required_level": 45,
+          "sell_price": 7467,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_chest_plate03"
+        },
+        {
+          "name": "Batwing Slippers",
+          "slot": "feet",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 20
+          },
+          "armor_value": 40,
+          "required_level": 45,
+          "sell_price": 4853,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_03"
+        },
+        {
+          "name": "Batwing Wristguards",
+          "slot": "wrist",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 16
+          },
+          "armor_value": 154,
+          "required_level": 45,
+          "sell_price": 3733,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_bracer_01"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gsq_offerings_for_the_loa",
+      "title": "Offerings for the Loa",
+      "giver_npc_id": "gs_loa_priest",
+      "zone": "great_settlement",
+      "level_min": 45,
+      "level_max": 46,
+      "description": "Loa-Speaker Vashi lays Goldthorn at the feet of the loa every new moon, because it's the herb the trolls carried up the tree on the first climb.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "herb_goldthorn",
+          "count": 6,
+          "label": "Gather Goldthorn on the boughs"
+        }
+      ],
+      "accept_text": "The first trolls who climbed this tree carried Goldthorn up with them, and we lay it at the loa's feet every new moon to remember them. It grows out on the boughs below. Bring me what you can pick.",
+      "turn_in_text": "The loa will be pleased. The tree's been restless this month, and an offering never hurts.\n\nSince the world broke, the loa have been quiet everywhere but here. This one still answers, and we mean to keep it answering.",
+      "next_quest_id": null,
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "unique_item_defs": [
+        {
+          "name": "Loa-Speaker's Longbow",
+          "slot": "ranged",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "attack_power": 18
+          },
+          "armor_value": 0,
+          "required_level": 45,
+          "sell_price": 5973,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_02",
+          "weapon_damage_min": 54,
+          "weapon_damage_max": 73,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Loa-Speaker's Coif",
+          "slot": "head",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 39
+          },
+          "armor_value": 177,
+          "required_level": 45,
+          "sell_price": 5973,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_12"
+        },
+        {
+          "name": "Loa-Speaker's Leggings",
+          "slot": "legs",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "spell_power": 29
+          },
+          "armor_value": 58,
+          "required_level": 45,
+          "sell_price": 7467,
+          "identity": "caster",
+          "icon_id": "gear_inv_pants_09"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gsq_soil_for_the_terrace",
+      "title": "Soil for the Terrace",
+      "giver_npc_id": "gs_gardener",
+      "zone": "great_settlement",
+      "level_min": 45,
+      "level_max": 46,
+      "description": "Gardener Ula'ni grows the ward's food on the garden terrace, and the soil wears thin. Bloodroot from the boughs, worked into the beds, brings it back.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "wood_bloodroot_stump",
+          "count": 5,
+          "label": "Gather Bloodroot Wood on the boughs"
+        }
+      ],
+      "accept_text": "Every basket of soil on this terrace came up the lift, and it wears thin in a season. Bloodroot wood from the boughs, chipped and worked in, brings it back. Bring me some and the ward'll eat well this winter.",
+      "turn_in_text": "That's good wood. I'll have it chipped and in the beds by tomorrow.\n\nOne of the newcomers in the market told me they used to do this with coffee grounds, wherever she's from. I tried it. The trolls drank the coffee instead.",
+      "next_quest_id": null,
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "unique_item_defs": [
+        {
+          "name": "Gardener's Knife",
+          "slot": "main_hand",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 45,
+          "sell_price": 7093,
+          "identity": "agility",
+          "icon_id": "gear_inv_throwingknife_05",
+          "weapon_damage_min": 64,
+          "weapon_damage_max": 86,
+          "attack_speed": 1.7,
+          "block_value": 0
+        },
+        {
+          "name": "Gardener's Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 117,
+          "required_level": 45,
+          "sell_price": 5973,
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_21"
+        },
+        {
+          "name": "Gardener's Sabatons",
+          "slot": "feet",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 195,
+          "required_level": 45,
+          "sell_price": 4853,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_06"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gsq_a_taste_of_home",
+      "title": "A Taste of Home",
+      "giver_npc_id": "gs_transplant_a",
+      "zone": "great_settlement",
+      "level_min": 45,
+      "level_max": 46,
+      "description": "Kofi Mensah ran a market stall in Accra before the merge, and he wants to cook something that tastes like home for the Settlement's market day. The closest thing up here is the river fish below.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "fish_redgill",
+          "count": 6,
+          "label": "Catch Redgill in the Great Bough's river"
+        }
+      ],
+      "accept_text": "Back home I'd grill tilapia with pepper and onions every market day, and the whole street would come. The Redgill in the river on the Great Bough below Mossroof is close enough. Catch me some and I'll show these trolls what a market day smells like.",
+      "turn_in_text": "That's exactly what I needed, and I've got the peppers from Provisioner Juno'ka and onions from the terrace.\n\nIt won't be the same. Nothing is, three years on. But when the smoke goes up and people start to queue, it feels close enough for an afternoon.",
+      "next_quest_id": null,
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "unique_item_defs": [
+        {
+          "name": "Market Tome",
+          "slot": "off_hand",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 28
+          },
+          "armor_value": 0,
+          "required_level": 45,
+          "sell_price": 4480,
+          "identity": "healer",
+          "icon_id": "gear_inv_tome_8",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        },
+        {
+          "name": "Market Handguards",
+          "slot": "hands",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_value": 195,
+          "required_level": 45,
+          "sell_price": 4853,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_10"
+        },
+        {
+          "name": "Market Girdle",
+          "slot": "waist",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 130,
+          "required_level": 45,
+          "sell_price": 4107,
+          "identity": "hunter",
+          "icon_id": "gear_inv_belt_25"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gsq_a_leaf_for_tea",
+      "title": "A Leaf for Tea",
+      "giver_npc_id": "gs_transplant_b",
+      "zone": "great_settlement",
+      "level_min": 45,
+      "level_max": 46,
+      "description": "Hana Sato's family kept a tea house in Kyoto for four generations. She's run out of the leaf she's been brewing up here, and she thinks Khadgar's Whisker might do instead.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "herb_khadgar",
+          "count": 6,
+          "label": "Gather Khadgar's Whisker on the boughs"
+        }
+      ],
+      "accept_text": "I've been brewing a leaf the trolls grow in the gardens, and it's gone. Khadgar's Whisker might take its place, it's bitter in the right way. It grows out on the boughs below. Bring me some and I'll try a pot.",
+      "turn_in_text": "Oh, that's close. It's not sencha, but it's close.\n\nMy grandmother said a tea house is wherever you pour the tea properly. I didn't understand that until I was pouring it in a tree for trolls.",
+      "next_quest_id": null,
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "unique_item_defs": [
+        {
+          "name": "Tea-Master's Mace",
+          "slot": "main_hand",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 0,
+          "required_level": 45,
+          "sell_price": 7093,
+          "identity": "healer",
+          "icon_id": "gear_inv_mace_08",
+          "weapon_damage_min": 64,
+          "weapon_damage_max": 86,
+          "attack_speed": 2.6,
+          "block_value": 0
+        },
+        {
+          "name": "Tea-Master's Jerkin",
+          "slot": "chest",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 11,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 117,
+          "required_level": 45,
+          "sell_price": 7467,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_10"
+        },
+        {
+          "name": "Tea-Master's Pendant",
+          "slot": "neck",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 18
+          },
+          "armor_value": 0,
+          "required_level": 45,
+          "sell_price": 4480,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_necklace_05"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    }
+  ]
+}

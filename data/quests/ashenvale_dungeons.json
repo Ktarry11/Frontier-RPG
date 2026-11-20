@@ -250,7 +250,10 @@
             "agility": 9,
             "stamina": 5
           },
-          "weapon_type": "bow"
+          "weapon_type": "bow",
+          "weapon_damage_min": 28,
+          "weapon_damage_max": 38,
+          "attack_speed": 2.8
         }
       ]
     },
@@ -498,7 +501,10 @@
             "strength": 10,
             "stamina": 7
           },
-          "weapon_type": "axe_1h"
+          "weapon_type": "axe_1h",
+          "weapon_damage_min": 53,
+          "weapon_damage_max": 72,
+          "attack_speed": 2.6
         }
       ]
     },
@@ -960,7 +966,10 @@
             "stamina": 7
           },
           "weapon_type": "polearm",
-          "secondary_stats": {}
+          "secondary_stats": {},
+          "weapon_damage_min": 70,
+          "weapon_damage_max": 95,
+          "attack_speed": 3.3
         }
       ]
     }

@@ -36,7 +36,10 @@
           },
           "secondary_stats": {
             "attack_power": 3
-          }
+          },
+          "weapon_damage_min": 34,
+          "weapon_damage_max": 46,
+          "attack_speed": 3.3
         }
       ]
     },
@@ -305,7 +308,10 @@
           },
           "secondary_stats": {
             "crit_chance_physical": 5
-          }
+          },
+          "weapon_damage_min": 23,
+          "weapon_damage_max": 31,
+          "attack_speed": 2.6
         }
       ]
     },
@@ -404,7 +410,8 @@
           "secondary_stats": {},
           "weapon_damage_min": 28,
           "weapon_damage_max": 39,
-          "stat_template": "agi_physical"
+          "stat_template": "agi_physical",
+          "attack_speed": 1.7
         }
       ]
     },
@@ -606,7 +613,10 @@
           },
           "secondary_stats": {
             "crit_chance_physical": 5
-          }
+          },
+          "weapon_damage_min": 30,
+          "weapon_damage_max": 40,
+          "attack_speed": 1.8
         }
       ]
     },
@@ -647,7 +657,8 @@
           },
           "weapon_damage_min": 21,
           "weapon_damage_max": 29,
-          "stat_template": "int_caster"
+          "stat_template": "int_caster",
+          "attack_speed": 3.2
         }
       ],
       "reward_recipe": "lw_verdant_scale_gloves"

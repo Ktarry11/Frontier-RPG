@@ -381,6 +381,12 @@ DROPS = {
 
 
 def main():
+    # STALE (20 Nov 2026): later passes edited this file's output in place (giver splits, loot ratings, the voice
+    # rewrite, recipe rewards, reward weapon damage via tools/quest_weapon_damage.py), so a rerun would undo them.
+    # Edit the data, or bring those passes in here first.
+    if "--force" not in sys.argv:
+        print("refusing: this builder is older than its data (see the note above main); --force to run anyway")
+        return 1
     data = json.loads(QP.read_text(encoding="utf-8"))
     qs = {q["quest_id"]: q for q in data["quests"]}
     for qid, rw in REWRITE.items():

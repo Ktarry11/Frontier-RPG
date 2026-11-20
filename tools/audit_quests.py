@@ -163,6 +163,8 @@ class World:
         self.quest_drops = load_json("data/creatures/quest_drops.json")["drops"]
         # Gathering nodes are the other way an item legitimately reaches a bag - see item_sources.
         self.gather_pools = load_json("data/gathering/node_pools.json")["zones"]
+        hf = load_json("data/gathering/harvest_finds.json")
+        self.harvest_finds = [f for v in hf.values() if isinstance(v, list) for f in v if isinstance(f, dict)]
 
         self.ambient = {n["npc_id"] for n in
                         load_json("data/npcs/ambient_npcs.json")["npcs"]}
@@ -278,6 +280,17 @@ class World:
         look wrong under --no-zones and be fine."""
         return set(self.zones) if self.zones else set(self.reach)
 
+    def live(self, key):
+        """The slug the overworld really passes for a zone an objective names, or None.
+
+        The game compares zones through world.zone_keys.zone_key on both sides (QuestManager.same_zone, 20 Nov
+        2026), so "lower_boughs" and "the_lower_boughs" are one zone. This finds the map's own slug for either."""
+        from world.zone_keys import zone_key
+        if not key:
+            return None
+        k = zone_key(key)
+        return next((z for z in sorted(self.zone_keys | set(self.reach)) if zone_key(z) == k), None)
+
     def is_boss(self, creature):
         return bool(self.creatures.get(creature, {}).get("is_boss"))
 
@@ -299,6 +312,11 @@ class World:
                if any(d.get("item_id") == item_id for d in drops)]
         out += [f"gathered:{zone}" for zone, z in self.gather_pools.items()
                 if item_id in (z.get("table") or {})]
+        # fish come off a zone's fishing table, not its nodes (tools/build_fishing.py)
+        out += [f"fished:{zone}" for zone, z in self.gather_pools.items()
+                if item_id in ((z.get("fishing") or {}).get("table") or {})]
+        # a harvest find turns up while gathering and starts its own quest (world/harvest_finds.py, 18 Nov 2026)
+        out += [f"found:{f.get('trade')}" for f in self.harvest_finds if f.get("item_id") == item_id]
         return out
 
     def npc_exists(self, npc_id):
@@ -416,7 +434,7 @@ def resolve_objectives(world, rows):
 
                 zone = o.get("zone")
                 if zone:
-                    zkey = slug(zone)
+                    zkey = world.live(slug(zone)) or slug(zone)
                     if zkey not in world.zone_keys:
                         findings.append(("broken", qid, fname,
                                          f"{where} is restricted to zone {zkey!r}, "
@@ -456,7 +474,7 @@ def resolve_objectives(world, rows):
                                         f" which no explore hook reads)" if o.get("zone")
                                         else "")))
                     continue
-                tkey = slug(target)
+                tkey = world.live(slug(target)) or slug(target)
                 if tkey not in world.zone_keys:
                     findings.append(("broken", qid, fname,
                                      f"{where} explores {tkey!r}, which is not a live "
@@ -839,8 +857,9 @@ def _satisfy(world, mgr, player, quest, o, ObjectiveType, add_loot_item):
         # map exists (in which case the objective is already reported).
         zone = o.zone
         if zone:
+            live = world.live(zone)
             real = [zk for zk in world.reach
-                    if zk == zone and name in world.reach[zk]]
+                    if zk == live and name in world.reach[zk]]
             zone = real[0] if real else o.zone
         else:
             candidates = [zk for zk, names in world.reach.items() if name in names]
@@ -858,7 +877,7 @@ def _satisfy(world, mgr, player, quest, o, ObjectiveType, add_loot_item):
         # record_zone_entered the objective's own target string would make
         # every explore objective pass by construction, including the six
         # that cannot be finished in play.
-        key = slug(o.target) if o.target else None
+        key = world.live(slug(o.target)) if o.target else None
         if key in world.zone_keys:
             if o.target_x is None:
                 mgr.record_zone_entered(key)
