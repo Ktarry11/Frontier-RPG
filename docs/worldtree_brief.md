@@ -207,6 +207,27 @@ exclusivity:
 The rival Veyr clans and the Ascendancy are who you fight. Gaining with one never costs standing with another: no
 opposed reputations.
 
+## Every map is a complete zone (Kyle, 19 Nov 2026: "Dont forget we need complete zones, so include secrets, gatherables etc.")
+
+No map is done until it has all of this, checked by the QA tools rather than assumed:
+- **Gathering**: herbs, ore veins (with their gems and crystals) and wood at the zone's level band, from the existing
+  ladders weighted for the zone, never a high-tier material before 60 (pure-60 rule); none in towns.
+- **Fishing**: pools big and easy to see, fish that feed cooking and alchemy; fish tracking works.
+- **Chests**: at the zone's level, a low chance to respawn in the open world.
+- **Creatures**: subzone tables at 90% their own mobs, one rare per subzone that has one (rares only in subzones), each
+  rare with its own drops; mob-dropped crafting materials that say where they drop; vendor trash and coin by type.
+- **Secrets**: hidden things worth finding, for exploring off the path. Placed blind and never written down where, and
+  never told to Kyle (counts only, `world.hidden_zones.registry()` checked before any place is named).
+- **Quests**: about 30 a zone, ~70% from hubs, varied (not just kill and fetch), givers not standing at their targets,
+  chains out to other zones, monster-drop starters and the odd mail quest, Earth references climbing with the levels.
+- **Towns** (the two cities): inn, flight path, bank, auction house, mail together; one class trainer and paired
+  profession trainers where their trades are; level-right shops that fit who's selling; every NPC with a purpose.
+- **Recipes**: found as well as trained (drops, rares, the factions' shelves, a hidden vendor or two).
+- **Doors and portals**: real entrance art in front of every way in or out, nothing right in front of an arrival.
+- **Factions**: rep from the zone's quests and kills, the shelf on its quartermaster, the Exalted mount.
+- **Checked**: the walk both ways through every link, the levelling run with the zone in, the rare census, prop and
+  NPC clearance, encounter tables, gathering and fishing placement, and a look at every dressed map.
+
 ## Settled (Kyle, 19 Nov 2026: "This is good")
 - The names: Rootwater Isle, the Lower, Middle and Upper Boughs, the Great Settlement, Aurelion, the Talon Spires, the
   Elder Citadels, the Fading Firmament, the Highbough Tribes, High Chieftain Zan'kaji, the Ascendancy, Kyr'vahl the
