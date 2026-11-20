@@ -121,6 +121,12 @@ def author_rewards(q, used):
             o["armor_type"] = typ
         rid = ITEM_PREFIX + re.sub(r"[^a-z0-9]+", "_", name.lower()).strip("_")
         d = C.author(rid, {"name": name, "output": o}, ident, "")
+        # onto the curve, the way rare and boss loot is (tools/audit_item_curve.py): the crafted identities left
+        # about one reward in eight too weak (two-handers) or too strong (heads, shoulders, shields)
+        from entities.item_budget import budget_ratio, fit_to_curve
+        r = budget_ratio(d)
+        if r is not None and not 0.65 <= r <= 1.45:
+            fit_to_curve(d)
         bad += C.audit_item("quest", rid, d)
         d.pop("flavor_text", None)
         d["required_level"] = q["level_min"]

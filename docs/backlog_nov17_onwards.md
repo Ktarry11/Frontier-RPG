@@ -162,6 +162,13 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
   when the whole zone is on screen.
 
 ## 8. Items, gear and economy
+- **Quest rewards off the item curve** (found 20 Nov 2026 by `audit_item_curve`, which has been failing with 1,441
+  off-curve items): the crafted-identity reward maker leaves about one quest reward in eight outside 0.65-1.45 of its
+  slot's budget (two-handers weak; heads, shoulders and shields strong). Fixed for the World Tree's four quest
+  builders (they now call `fit_to_curve`). Still off: Feralas, Moonglade, Azshara, Deadwind, Stonetalon and the other
+  builders with `author_rewards`, plus older hand-written files. Re-running those changes shipped rewards' stats, so
+  it waits for a look at which builders are still safe to re-run (two Ashenvale ones aren't: they refuse without
+  `--force`).
 - **Gear sets** (parked by Kyle): 6-piece and 8-piece bonuses, drop tables for the T0 sets (waiting on the 50-60
   dungeons), T0.5, and 3- and 5-piece sets.
 - **Isle epics** are in the global pool, not isle-only. Fire resistance gear waits on the player-side resistance
