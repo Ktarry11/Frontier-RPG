@@ -64,7 +64,7 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
   contact with the Aetherians, whose world is dying. Art stock written: `docs/worldtree_art_prompts.md` (W1-W6) and
   `docs/sky_art_prompts.md` (SK1-SK19; BK1, the sky layers in one sheet, and BK6-BK12). **Landed 19 Nov: the whole sky stock** (SK1 to SK19, the sky layers BK1, the sun overlay BK6 and all six
   panoramas), sliced: 132 tiles, 144 props, 216 buildings, 27 landmarks, 108 creatures, 6 sky layers. Still to come:
-  SK20 (the 12 tiles SK17 left out) and the tree's W1 to W6. Next: build the tree on existing art (like Feralas) while the sheets
+  SK17B (the 12 tiles SK17 left out, plus 36 spares) and the tree's W1 to W6. Next: build the tree on existing art (like Feralas) while the sheets
   are made. Kyle to say: the names marked as Rafa's, Veyr/Kharad factions, the Aetherian split.
 - **Saved for after:** a sky race's starting zone, 1-24 over four maps, ending at their capital with airships to
   Orgrimmar or the Undercity (the brief's last section).

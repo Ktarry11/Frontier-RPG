@@ -34,7 +34,9 @@ STYLE = ("Painterly semi-realistic WoW Classic style: strong readable silhouette
 
 HEAD = {
     "tiles": ("Generate ONE texture sheet image, {W}x{H}, laid out as a strict {C} columns x {R} rows grid = {N} separate "
-              "seamless ground, water and wall textures, each cell exactly 256x256. Each cell is COMPLETELY FILLED by "
+              "seamless ground, water and wall textures, each cell exactly 256x256. COUNT THEM: exactly {C} across "
+              "and {R} down, {N} cells in all; never fewer cells, never a different grid, even if the image comes out "
+              "a different size (then the cells shrink, the count stays). Each cell is COMPLETELY FILLED by "
               "its texture, edge to edge, touching its neighbours with no gap. No border, no background colour, no "
               "magenta, no frames, no gutters, no grid lines, no text, no labels, no numbers. Every texture must TILE "
               "SEAMLESSLY with itself on all four sides: no single large feature that would obviously repeat, no "
@@ -102,7 +104,7 @@ SHEETS = []
 #: Sheets Kyle has sent, sliced (tools/slice_tile_sheet.py sky_sk1/sky_sk2, tools/slice_building_sheet.py sky_sk3 to
 #: sky_sk10; the raw sheets are tools/building_sheets/sky_sk<N>.png).
 BK_LANDED = {"BK1", "BK6", "BK7", "BK8", "BK9", "BK10", "BK11", "BK12"}
-LANDED = {**{f"SK{i}": "19 Nov" for i in range(1, 20)}, "SK17": "19 Nov (36 of 48: the rest is SK20)"}
+LANDED = {**{f"SK{i}": "19 Nov" for i in range(1, 20)}, "SK17": "19 Nov (36 of 48: the rest is in SK17B)"}
 
 
 def sheet(key, kind, title, out, refs, setting, scale, rows, redo_of=None):
@@ -1125,20 +1127,62 @@ sheet("SK19", "buildings", "airships, decks and rooms", "assets/buildings/",
           ("a fountain of light rising from a gold basin", "ae_light_fountain"),
           ("a tall arched window frame with gold tracery, sky beyond (seen as a wall piece)", "ae_arched_window")])])
 
-# SK17 came back 6 x 6 (19 Nov 2026): the first 36 of its 48, in order. These are the 12 it left out.
+# SK17 came back 6 x 6 (19 Nov 2026): the first 36 of its 48, in order. Kyle: "redo SK17 with the 12 tiles and an
+# additional 36 for spares". So SK17B is a full 48: the 12 it left out (same names), then 36 spare floors and walls.
 _sk17 = next(x for x in SHEETS if x["key"] == "SK17")
 _sk17_cells = [cell for _t, items in _sk17["rows"] for cell in items]
-sheet("SK20", "tiles", "the storm walls and the mountain temple (what SK17 left out)", "assets/tiles/sky/ground/",
-      ["assets/tiles/sky/ground/vy_rune_platform.png", "assets/tiles/sky/ground/sk_ruined_platform.png",
-       "docs/zone_refs/sky_moodboard.jpg"],
-      "These are the last floors and walls of the set: storm platforms above the clouds, and a mountain temple island "
-      "of grey flagstones, red-brown steps, raked gravel and plaster walls above the cloud sea. Palette: storm grey with "
-      "blue rune light, pale and weathered wood, grey temple stone, red-brown, white gravel, mountain green with white "
-      "and gold blossoms.",
+sheet("SK17B", "tiles", "SK17's missing twelve and 36 spares", "assets/tiles/sky/ground/",
+      ["assets/tiles/sky/ground/vy_rune_platform.png", "assets/tiles/sky/ground/ae_palace_marble.png",
+       "assets/tiles/sky/ground/sk_gold_grass.png"],
+      "These finish the set and add spares: storm platforms and a mountain temple island (grey flagstones, red-brown "
+      "steps, raked gravel, plaster walls), then more ground for every part of the sky: Aurelion's streets, the golden "
+      "Crown, the Expanse's ruins and sky rivers, the Veyr's and the Kharad's halls, the dying Firmament and the World "
+      "Tree's glowing heart. Palette: white marble, gold and sky-blue crystal; warm golden grass and moss; pale stone and "
+      "turquoise water; storm grey, slate and clan red; cloud-white granite with mineral veins; violet, ash and black "
+      "void; glowing teal and prismatic light.",
       None,
-      [("STORM PLATFORMS", _sk17_cells[36:40]),
-       ("THE MOUNTAIN TEMPLE ISLAND", _sk17_cells[40:44]),
-       ("THE MOUNTAIN TEMPLE ISLAND, CONTINUED", _sk17_cells[44:48])],
+      [("STORM PLATFORMS AND THE MOUNTAIN TEMPLE", _sk17_cells[36:44]),
+       ("THE MOUNTAIN TEMPLE, THEN AURELION'S STREETS", _sk17_cells[44:48] + [
+           ("a broad avenue of white marble with a narrow gold border along one edge", "ae_avenue_marble"),
+           ("small white marble cobbles with thin gold joints", "ae_marble_cobbles"),
+           ("pale stone with broken fragments of curved gold inlay in no repeating order", "ae_gold_fragments"),
+           ("a trimmed terrace lawn, fine and bright green", "ae_terrace_lawn")]),
+       ("THE GOLDEN CROWN", [
+          ("golden moss scattered with fallen white petals", "sk_petal_moss"),
+          ("gold-barked roots running over sunlit grass", "sk_gold_roots"),
+          ("a marsh of golden reeds in shallow water", "sk_gold_reeds"),
+          ("a shallow pool of glowing honey-gold sap", "sk_gold_sap"),
+          ("warm sandstone with thin gold veins", "sk_gold_sandstone"),
+          ("a forest floor of small golden mushrooms and leaves", "sk_gold_mushroom_floor"),
+          ("tall wild grass, gold at the tips", "sk_gold_tips"),
+          ("a sunlit cliff of pale gold rock, seen straight on", "sk_gold_cliff")]),
+       ("THE EXPANSE AND THE RUINS", [
+          ("a sky river with pale lily pads floating on it", "sk_lily_river"),
+          ("a mossy ancient bronze grating", "sk_moss_grating"),
+          ("an ancient floor of blue inlaid stone, broken and lifted", "sk_broken_inlay"),
+          ("pale fluffy cloud-moss, soft and white-green", "sk_cloud_moss"),
+          ("glittering sand of crushed blue crystal", "sk_crystal_sand"),
+          ("wet dark rocks at the foot of a waterfall", "sk_falls_rocks"),
+          ("a meadow of small pale blue sky-flowers", "sk_skyflower_meadow"),
+          ("an ancient wall of pale blocks with hanging moss, seen straight on", "sk_moss_wall")]),
+       ("THE VEYR AND THE KHARAD", [
+          ("a floor of woven reeds and storm grass", "vy_reed_floor"),
+          ("slate marked with smears of red clan paint", "vy_painted_slate"),
+          ("a soft floor of shed down and feathers", "vy_down_floor"),
+          ("cold granite with large quartz crystals set in it", "kh_quartz_granite"),
+          ("polished white stone veined with gold", "kh_gold_marble"),
+          ("rock split by gravity, chips floating just above the cracks", "kh_gravity_cracks"),
+          ("a spire wall of slate with woven nests on its ledges, seen straight on", "vy_nest_wall"),
+          ("a Kharad wall of giant white blocks studded with bronze, seen straight on", "kh_bronze_wall")]),
+       ("THE FIRMAMENT AND THE GLOWING HEART", [
+          ("ash-grey cobbles, cracked and sinking", "ff_ash_cobbles"),
+          ("a field of violet crystal shards", "ff_violet_shards"),
+          ("grey dead bark, dry and split", "ff_dead_bark"),
+          ("burnt bronze plates, warped by heat", "ff_burnt_bronze"),
+          ("the void (unwalkable): black with faint stars and small crumbs of floating rock", "ff_void_crumbs"),
+          ("glowing teal moss around small pools of aqua water", "wt_glow_pools"),
+          ("a floor of fallen prismatic glass shards in moss", "wt_prism_shards"),
+          ("pale sand lit violet and gold by a dying sunset", "ff_dusk_sand")])],
       redo_of="SK17")
 
 # ===================================================================================== BACKDROPS AND LIGHT
@@ -1309,7 +1353,8 @@ def render():
             head = head.replace("{W}", str(c * 256)).replace("{H}", str(r * 256)).replace("{C}", str(c)) \
                 .replace("{R}", str(r)).replace("{N}", str(c * r))
         if s.get("redo_of"):
-            out += ["---", "", f"*{s['key']} redraws what {s['redo_of']} left out; slice its cells under the same names.*"]
+            out += ["---", "", f"*{s['key']} redraws what {s['redo_of']} left out (sliced under the same names) and adds "
+                    "spares.*"]
         out += ["---", "", f"## SHEET {s['key']}: {sum(len(i) for _t, i in s['rows'])} {s['title']} "
                 f"({'NO magenta' if kind == 'tiles' else 'MAGENTA KEY'})", "", "```", head, "",
                 f"Setting: {SKY} {s['setting']}"]
@@ -1347,6 +1392,10 @@ def render():
 
 def check():
     ids = [i for s in SHEETS if not s.get("redo_of") for _t, items in s["rows"] for _x, i in items]
+    for s in SHEETS:
+        if s.get("redo_of"):
+            src = {i for x in SHEETS if x["key"] == s["redo_of"] for _t, items in x["rows"] for _y, i in items}
+            ids += [i for _t, items in s["rows"] for _x, i in items if i not in src]
     dup = {i for i in ids if ids.count(i) > 1}
     assert not dup, f"duplicate ids: {sorted(dup)}"
     want = {"tiles": (6, 8), "props": (6, 6), "buildings": (6, 6), "landmarks": (3, 3), "creatures": (6, 6)}

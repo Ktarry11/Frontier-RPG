@@ -24,10 +24,10 @@ Every prompt below is complete on its own: paste one block and nothing else. Not
 | SK14 | 36 the sky's beasts, elementals and critters | 2048x2048 | 6 x 6 (about 341 x 341) | magenta | 19 Nov |
 | SK15 | 36 Aurelion's grandeur | 2048x2048 | 6 x 6 (about 341 x 341) | magenta | 19 Nov |
 | SK16 | 9 the wonders of Aurelion | 2048x2048 | 3 x 3 (about 682 x 682) | magenta | 19 Nov |
-| SK17 | 48 interiors, decks and the glowing heart | 2048x1536 | 8 x 6 (256 x 256) | **NO magenta** | 19 Nov (36 of 48: the rest is SK20) |
+| SK17 | 48 interiors, decks and the glowing heart | 2048x1536 | 8 x 6 (256 x 256) | **NO magenta** | 19 Nov (36 of 48: the rest is in SK17B) |
 | SK18 | 36 rune circles, glass and the glowing heart | 2048x2048 | 6 x 6 (about 341 x 341) | magenta | 19 Nov |
 | SK19 | 36 airships, decks and rooms | 2048x2048 | 6 x 6 (about 341 x 341) | magenta | 19 Nov |
-| SK20 | 12 the storm walls and the mountain temple (what SK17 left out) | 1024x768 | 4 x 3 (256 x 256) | **NO magenta** |  |
+| SK17B | 48 SK17's missing twelve and 36 spares | 2048x1536 | 8 x 6 (256 x 256) | **NO magenta** |  |
 
 **Priority:** SK1 and SK2 (the ground is most of the look), BK1 and BK6 (the sky and the sun), SK3, SK5, SK15 and SK16 (Aurelion), SK10, then the rest in any order. Kyle's pictures: `docs/zone_refs/aurelion_ref_spires.png` and `aurelion_ref_domes.png` (Aurelion), `docs/zone_refs/sky_moodboard.jpg` (the mood board, twenty scenes: SK17 to SK19 come from it).
 
@@ -51,14 +51,14 @@ Every prompt below is complete on its own: paste one block and nothing else. Not
 - SK17: `docs/zone_refs/sky_moodboard.jpg`, `docs/zone_refs/aurelion_ref_spires.png`, `assets/tiles/sky/ground/ae_marble_bronze.png`
 - SK18: `docs/zone_refs/sky_moodboard.jpg`, `assets/tiles/sky/props/sk_crystal_blue.png`, `assets/tiles/worldtree/props/wt_knot_hole.png`
 - SK19: `docs/zone_refs/sky_moodboard.jpg`, `docs/zone_refs/aurelion_ref_spires.png`, `assets/buildings/ae_survey_skiff.png`
-- SK20: `assets/tiles/sky/ground/vy_rune_platform.png`, `assets/tiles/sky/ground/sk_ruined_platform.png`, `docs/zone_refs/sky_moodboard.jpg`
+- SK17B: `assets/tiles/sky/ground/vy_rune_platform.png`, `assets/tiles/sky/ground/ae_palace_marble.png`, `assets/tiles/sky/ground/sk_gold_grass.png`
 
 ---
 
 ## SHEET SK1: 48 the cloud sea, the sunlit islands and the sky meadows (NO magenta)
 
 ```
-Generate ONE texture sheet image, 2048x1536, laid out as a strict 8 columns x 6 rows grid = 48 separate seamless ground, water and wall textures, each cell exactly 256x256. Each cell is COMPLETELY FILLED by its texture, edge to edge, touching its neighbours with no gap. No border, no background colour, no magenta, no frames, no gutters, no grid lines, no text, no labels, no numbers. Every texture must TILE SEAMLESSLY with itself on all four sides: no single large feature that would obviously repeat, no emblem, rune or pattern repeated in every tile, no lighting gradient across the cell, flat even illumination, no vignette, no baked shadows, no objects or props standing on the ground. Straight top-down view, no perspective. Nothing built by people from our world.
+Generate ONE texture sheet image, 2048x1536, laid out as a strict 8 columns x 6 rows grid = 48 separate seamless ground, water and wall textures, each cell exactly 256x256. COUNT THEM: exactly 8 across and 6 down, 48 cells in all; never fewer cells, never a different grid, even if the image comes out a different size (then the cells shrink, the count stays). Each cell is COMPLETELY FILLED by its texture, edge to edge, touching its neighbours with no gap. No border, no background colour, no magenta, no frames, no gutters, no grid lines, no text, no labels, no numbers. Every texture must TILE SEAMLESSLY with itself on all four sides: no single large feature that would obviously repeat, no emblem, rune or pattern repeated in every tile, no lighting gradient across the cell, flat even illumination, no vignette, no baked shadows, no objects or props standing on the ground. Straight top-down view, no perspective. Nothing built by people from our world.
 
 Match the attached reference tiles EXACTLY in style, scale of detail and level of saturation: they are from the same set. Painterly semi-realistic WoW Classic ground texture style, rich and luminous but not neon, readable at small size, not too busy.
 
@@ -95,7 +95,7 @@ STORM, SUN AND THE CROWN: 41 dark storm-wet rock, shining; 42 rock scorched glas
 ## SHEET SK2: 48 the three peoples' ground and the dying sky (NO magenta)
 
 ```
-Generate ONE texture sheet image, 2048x1536, laid out as a strict 8 columns x 6 rows grid = 48 separate seamless ground, water and wall textures, each cell exactly 256x256. Each cell is COMPLETELY FILLED by its texture, edge to edge, touching its neighbours with no gap. No border, no background colour, no magenta, no frames, no gutters, no grid lines, no text, no labels, no numbers. Every texture must TILE SEAMLESSLY with itself on all four sides: no single large feature that would obviously repeat, no emblem, rune or pattern repeated in every tile, no lighting gradient across the cell, flat even illumination, no vignette, no baked shadows, no objects or props standing on the ground. Straight top-down view, no perspective. Nothing built by people from our world.
+Generate ONE texture sheet image, 2048x1536, laid out as a strict 8 columns x 6 rows grid = 48 separate seamless ground, water and wall textures, each cell exactly 256x256. COUNT THEM: exactly 8 across and 6 down, 48 cells in all; never fewer cells, never a different grid, even if the image comes out a different size (then the cells shrink, the count stays). Each cell is COMPLETELY FILLED by its texture, edge to edge, touching its neighbours with no gap. No border, no background colour, no magenta, no frames, no gutters, no grid lines, no text, no labels, no numbers. Every texture must TILE SEAMLESSLY with itself on all four sides: no single large feature that would obviously repeat, no emblem, rune or pattern repeated in every tile, no lighting gradient across the cell, flat even illumination, no vignette, no baked shadows, no objects or props standing on the ground. Straight top-down view, no perspective. Nothing built by people from our world.
 
 Match the attached reference tiles EXACTLY in style, scale of detail and level of saturation: they are from the same set. Painterly semi-realistic WoW Classic ground texture style, rich and luminous but not neon, readable at small size, not too busy.
 
@@ -673,7 +673,7 @@ Row 3: 7 THE UNDERSPIRE ENGINE, the city's heart seen from below: a colossal cry
 ## SHEET SK17: 48 interiors, decks and the glowing heart (NO magenta)
 
 ```
-Generate ONE texture sheet image, 2048x1536, laid out as a strict 8 columns x 6 rows grid = 48 separate seamless ground, water and wall textures, each cell exactly 256x256. Each cell is COMPLETELY FILLED by its texture, edge to edge, touching its neighbours with no gap. No border, no background colour, no magenta, no frames, no gutters, no grid lines, no text, no labels, no numbers. Every texture must TILE SEAMLESSLY with itself on all four sides: no single large feature that would obviously repeat, no emblem, rune or pattern repeated in every tile, no lighting gradient across the cell, flat even illumination, no vignette, no baked shadows, no objects or props standing on the ground. Straight top-down view, no perspective. Nothing built by people from our world.
+Generate ONE texture sheet image, 2048x1536, laid out as a strict 8 columns x 6 rows grid = 48 separate seamless ground, water and wall textures, each cell exactly 256x256. COUNT THEM: exactly 8 across and 6 down, 48 cells in all; never fewer cells, never a different grid, even if the image comes out a different size (then the cells shrink, the count stays). Each cell is COMPLETELY FILLED by its texture, edge to edge, touching its neighbours with no gap. No border, no background colour, no magenta, no frames, no gutters, no grid lines, no text, no labels, no numbers. Every texture must TILE SEAMLESSLY with itself on all four sides: no single large feature that would obviously repeat, no emblem, rune or pattern repeated in every tile, no lighting gradient across the cell, flat even illumination, no vignette, no baked shadows, no objects or props standing on the ground. Straight top-down view, no perspective. Nothing built by people from our world.
 
 Match the attached reference tiles EXACTLY in style, scale of detail and level of saturation: they are from the same set. Painterly semi-realistic WoW Classic ground texture style, rich and luminous but not neon, readable at small size, not too busy.
 
@@ -789,34 +789,43 @@ THE THRONE ROOM: 31 a gold-edged dais with three steps; 32 a tall pillar of whit
 
 ---
 
-*SK20 redraws what SK17 left out; slice its cells under the same names.*
+*SK17B redraws what SK17 left out (sliced under the same names) and adds spares.*
 ---
 
-## SHEET SK20: 12 the storm walls and the mountain temple (what SK17 left out) (NO magenta)
+## SHEET SK17B: 48 SK17's missing twelve and 36 spares (NO magenta)
 
 ```
-Generate ONE texture sheet image, 1024x768, laid out as a strict 4 columns x 3 rows grid = 12 separate seamless ground, water and wall textures, each cell exactly 256x256. Each cell is COMPLETELY FILLED by its texture, edge to edge, touching its neighbours with no gap. No border, no background colour, no magenta, no frames, no gutters, no grid lines, no text, no labels, no numbers. Every texture must TILE SEAMLESSLY with itself on all four sides: no single large feature that would obviously repeat, no emblem, rune or pattern repeated in every tile, no lighting gradient across the cell, flat even illumination, no vignette, no baked shadows, no objects or props standing on the ground. Straight top-down view, no perspective. Nothing built by people from our world.
+Generate ONE texture sheet image, 2048x1536, laid out as a strict 8 columns x 6 rows grid = 48 separate seamless ground, water and wall textures, each cell exactly 256x256. COUNT THEM: exactly 8 across and 6 down, 48 cells in all; never fewer cells, never a different grid, even if the image comes out a different size (then the cells shrink, the count stays). Each cell is COMPLETELY FILLED by its texture, edge to edge, touching its neighbours with no gap. No border, no background colour, no magenta, no frames, no gutters, no grid lines, no text, no labels, no numbers. Every texture must TILE SEAMLESSLY with itself on all four sides: no single large feature that would obviously repeat, no emblem, rune or pattern repeated in every tile, no lighting gradient across the cell, flat even illumination, no vignette, no baked shadows, no objects or props standing on the ground. Straight top-down view, no perspective. Nothing built by people from our world.
 
 Match the attached reference tiles EXACTLY in style, scale of detail and level of saturation: they are from the same set. Painterly semi-realistic WoW Classic ground texture style, rich and luminous but not neon, readable at small size, not too busy.
 
-Setting: THE SKY above Azeroth: a whole world above the clouds that nobody on the ground knew existed, continents and islands of floating stone and solid cloud adrift on an endless sea of cloud under a huge bright sun. Three peoples live there. The AETHERIANS: tall, imposing humanoids with pale blue-grey or bronze skin, luminous eyes and natural crystal growths along their bodies; ancient floating cities of titan-scale pale stone and bronze, enormous sky-forges and crystal-powered engines, magitech and gravity manipulation; titan architecture mixed with gnomish engineering but much grander; highly structured, scholarly, imperial. The VEYR: avian humanoids with feathered arms, powerful talons and hooked beaks; cities carved into impossibly high stone spires and built across enormous natural arches; wind machinery, lightning batteries and storm-forged weapons; clan-based, honour-driven, militaristic and predatory. The KHARAD: cloud giants, broad and huge, with stone-like skin, cloud-white hair and mineral growths; massive floating citadels, suspended bridges and enormous temples; gravity stones and ancient elemental machinery; a civilization older than any kingdom on the ground. Their world is dying: its crystal engines are failing and its islands are breaking apart and falling. Above everything else this art must be BREATHTAKING: luminous, airy, full of light and depth, beautiful. These are the last floors and walls of the set: storm platforms above the clouds, and a mountain temple island of grey flagstones, red-brown steps, raked gravel and plaster walls above the cloud sea. Palette: storm grey with blue rune light, pale and weathered wood, grey temple stone, red-brown, white gravel, mountain green with white and gold blossoms.
+Setting: THE SKY above Azeroth: a whole world above the clouds that nobody on the ground knew existed, continents and islands of floating stone and solid cloud adrift on an endless sea of cloud under a huge bright sun. Three peoples live there. The AETHERIANS: tall, imposing humanoids with pale blue-grey or bronze skin, luminous eyes and natural crystal growths along their bodies; ancient floating cities of titan-scale pale stone and bronze, enormous sky-forges and crystal-powered engines, magitech and gravity manipulation; titan architecture mixed with gnomish engineering but much grander; highly structured, scholarly, imperial. The VEYR: avian humanoids with feathered arms, powerful talons and hooked beaks; cities carved into impossibly high stone spires and built across enormous natural arches; wind machinery, lightning batteries and storm-forged weapons; clan-based, honour-driven, militaristic and predatory. The KHARAD: cloud giants, broad and huge, with stone-like skin, cloud-white hair and mineral growths; massive floating citadels, suspended bridges and enormous temples; gravity stones and ancient elemental machinery; a civilization older than any kingdom on the ground. Their world is dying: its crystal engines are failing and its islands are breaking apart and falling. Above everything else this art must be BREATHTAKING: luminous, airy, full of light and depth, beautiful. These finish the set and add spares: storm platforms and a mountain temple island (grey flagstones, red-brown steps, raked gravel, plaster walls), then more ground for every part of the sky: Aurelion's streets, the golden Crown, the Expanse's ruins and sky rivers, the Veyr's and the Kharad's halls, the dying Firmament and the World Tree's glowing heart. Palette: white marble, gold and sky-blue crystal; warm golden grass and moss; pale stone and turquoise water; storm grey, slate and clan red; cloud-white granite with mineral veins; violet, ash and black void; glowing teal and prismatic light.
 
 Tiles are numbered row by row, left to right, top to bottom:
 
-STORM PLATFORMS: 1 broken wooden boards over stone, torn up; 2 swirling cloud around a golden glow (unwalkable, a vortex seen from above); 3 a storm platform's edge wall of rune-cut stone, seen straight on; 4 sheer storm-cloud wall, dark and lit by flashes (unwalkable edge).
+STORM PLATFORMS AND THE MOUNTAIN TEMPLE: 1 broken wooden boards over stone, torn up; 2 swirling cloud around a golden glow (unwalkable, a vortex seen from above); 3 a storm platform's edge wall of rune-cut stone, seen straight on; 4 sheer storm-cloud wall, dark and lit by flashes (unwalkable edge); 5 worn grey temple flagstones with moss; 6 red-brown temple steps' stone, smooth; 7 raked white gravel of a temple garden; 8 mountain grass with small white and gold blossoms fallen in it.
 
-THE MOUNTAIN TEMPLE ISLAND: 5 worn grey temple flagstones with moss; 6 red-brown temple steps' stone, smooth; 7 raked white gravel of a temple garden; 8 mountain grass with small white and gold blossoms fallen in it.
+THE MOUNTAIN TEMPLE, THEN AURELION'S STREETS: 9 bare mountain rock with lichen; 10 a temple garden pond, clear water with gold fish shapes faint below; 11 a mountain cliff of grey rock with gold-lit ledges, seen straight on; 12 a temple wall of plaster and dark timber, seen straight on; 13 a broad avenue of white marble with a narrow gold border along one edge; 14 small white marble cobbles with thin gold joints; 15 pale stone with broken fragments of curved gold inlay in no repeating order; 16 a trimmed terrace lawn, fine and bright green.
 
-THE MOUNTAIN TEMPLE ISLAND, CONTINUED: 9 bare mountain rock with lichen; 10 a temple garden pond, clear water with gold fish shapes faint below; 11 a mountain cliff of grey rock with gold-lit ledges, seen straight on; 12 a temple wall of plaster and dark timber, seen straight on.
+THE GOLDEN CROWN: 17 golden moss scattered with fallen white petals; 18 gold-barked roots running over sunlit grass; 19 a marsh of golden reeds in shallow water; 20 a shallow pool of glowing honey-gold sap; 21 warm sandstone with thin gold veins; 22 a forest floor of small golden mushrooms and leaves; 23 tall wild grass, gold at the tips; 24 a sunlit cliff of pale gold rock, seen straight on.
+
+THE EXPANSE AND THE RUINS: 25 a sky river with pale lily pads floating on it; 26 a mossy ancient bronze grating; 27 an ancient floor of blue inlaid stone, broken and lifted; 28 pale fluffy cloud-moss, soft and white-green; 29 glittering sand of crushed blue crystal; 30 wet dark rocks at the foot of a waterfall; 31 a meadow of small pale blue sky-flowers; 32 an ancient wall of pale blocks with hanging moss, seen straight on.
+
+THE VEYR AND THE KHARAD: 33 a floor of woven reeds and storm grass; 34 slate marked with smears of red clan paint; 35 a soft floor of shed down and feathers; 36 cold granite with large quartz crystals set in it; 37 polished white stone veined with gold; 38 rock split by gravity, chips floating just above the cracks; 39 a spire wall of slate with woven nests on its ledges, seen straight on; 40 a Kharad wall of giant white blocks studded with bronze, seen straight on.
+
+THE FIRMAMENT AND THE GLOWING HEART: 41 ash-grey cobbles, cracked and sinking; 42 a field of violet crystal shards; 43 grey dead bark, dry and split; 44 burnt bronze plates, warped by heat; 45 the void (unwalkable): black with faint stars and small crumbs of floating rock; 46 glowing teal moss around small pools of aqua water; 47 a floor of fallen prismatic glass shards in moss; 48 pale sand lit violet and gold by a dying sunset.
 ```
 
 ### Slice order (`assets/tiles/sky/ground/`)
 
-| row | 1 | 2 | 3 | 4 |
-|---|---|---|---|---|
-| 1 | sk_torn_boards | sk_vortex | vy_rune_wall | vy_storm_wall |
-| 2 | sk_temple_flags | sk_temple_steps | sk_raked_gravel | sk_blossom_grass |
-| 3 | sk_mountain_rock | sk_temple_pond | sk_mountain_cliff | sk_temple_wall |
+| row | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---|---|---|---|---|---|---|---|---|
+| 1 | sk_torn_boards | sk_vortex | vy_rune_wall | vy_storm_wall | sk_temple_flags | sk_temple_steps | sk_raked_gravel | sk_blossom_grass |
+| 2 | sk_mountain_rock | sk_temple_pond | sk_mountain_cliff | sk_temple_wall | ae_avenue_marble | ae_marble_cobbles | ae_gold_fragments | ae_terrace_lawn |
+| 3 | sk_petal_moss | sk_gold_roots | sk_gold_reeds | sk_gold_sap | sk_gold_sandstone | sk_gold_mushroom_floor | sk_gold_tips | sk_gold_cliff |
+| 4 | sk_lily_river | sk_moss_grating | sk_broken_inlay | sk_cloud_moss | sk_crystal_sand | sk_falls_rocks | sk_skyflower_meadow | sk_moss_wall |
+| 5 | vy_reed_floor | vy_painted_slate | vy_down_floor | kh_quartz_granite | kh_gold_marble | kh_gravity_cracks | vy_nest_wall | kh_bronze_wall |
+| 6 | ff_ash_cobbles | ff_violet_shards | ff_dead_bark | ff_burnt_bronze | ff_void_crumbs | wt_glow_pools | wt_prism_shards | ff_dusk_sand |
 
 ---
 
