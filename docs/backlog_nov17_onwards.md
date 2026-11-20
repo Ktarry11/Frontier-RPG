@@ -201,7 +201,12 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
   never shown; the looks are held off the AH (`HELD_LOOKS` in `tools/build_collection.py`) until this is decided.
 - **The professions screen's own art**: tab art, frames and station art.
 - **Keepsake icons, 98**: landed 20 Nov (K1 to K3).
-- **Walk cycles**: rolling out sheet by sheet by playable race (claude/walk_cycle_prompts.md).
+- **Player sprites** (Kyle, 20 Nov 2026): five male looks for each playable race, four facings, empty hands
+  (`docs/player_sprite_prompts.md`, sheets P1 to P6; sliced by `tools/asset_pipeline/slice_player_sheet.py`). The
+  playable races are to be orcs, tauren, Forsaken, Aetherians, humans and blood elves; an Aetherian start zone and a
+  blood elf one come later. When the sheets land, the new looks go on the END of each male list in
+  `world/race_registry.py` (saves store a place in that list) and the creator offers only the new five. Women later.
+- **Walk cycles**: parked until the player sprites are in, then drawn on those (claude/walk_cycle_prompts.md).
 - **The recoloured T0 set versions** are plain hue turns (some gold sets come out lime). Kyle's eye.
 
 ## 11. Tools

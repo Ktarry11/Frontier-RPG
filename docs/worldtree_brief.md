@@ -241,6 +241,10 @@ down to Orgrimmar or the Undercity; the people become a playable race. Not built
 or Kharad) is his call. It squares with the tree's story: a ground character finds the sky at 48, and a sky character
 is the sky finding the ground.
 
+**Kyle's call, 20 Nov 2026: the Aetherians.** "So we will open up an Aetherian start zone and blood elf one too
+eventually", and the playable races are to be "orcs, tauren, undead, aetherian, humans, and belfs". Their player looks
+are written with the others (`docs/player_sprite_prompts.md`, sheet P6). Still after.
+
 ## Order of work
 
 1. **This brief and the tree's art sheets** (`docs/worldtree_art_prompts.md`, stage 1: the island, the tiers and the
