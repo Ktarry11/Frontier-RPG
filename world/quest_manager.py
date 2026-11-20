@@ -291,6 +291,10 @@ class QuestManager:
                 self.last_error = "Your bag is full - make room for the quest item first."
                 return False
         quest.status = QuestStatus.ACTIVE
+        # TESTING (world/testing.py, Kyle 20 Nov 2026): every objective filled on accept, to walk a chain.
+        from world import testing as _testing
+        if _testing.on("auto_quests"):
+            _testing.fill_objectives(quest)
         # A STORY objective with no real condition completes the instant
         # the quest is accepted, so the quest becomes turn-in-ready right
         # away rather than needing an external trigger that may never fire.
@@ -565,6 +569,8 @@ class QuestManager:
         progress is always accurate to current bag contents, not whatever
         it was last time a kill/zone-entry event fired."""
         from entities.loot_item import count_loot_items
+        from world import testing as _testing
+        auto_quests = _testing.on("auto_quests")
         for quest in self.quests.values():
             if quest.status not in (QuestStatus.ACTIVE, QuestStatus.READY_TO_TURN_IN):
                 continue
@@ -578,6 +584,8 @@ class QuestManager:
                 if objective.objective_type not in (ObjectiveType.GATHER, ObjectiveType.FETCH, ObjectiveType.DELIVER):
                     continue
                 have = count_loot_items(player, objective.target)
+                if auto_quests and objective.progress >= objective.count:
+                    continue        # filled by the testing switch, with nothing in the bag to count
                 objective.progress = min(have, objective.count)
             # Recompute status both ways - READY_TO_TURN_IN if everything
             # is now complete, but back down to ACTIVE if the player sold

@@ -177,7 +177,8 @@ class BondManager:
         top = len(STAGES) - 1 if "goal_done" in b.flags else len(STAGES) - 2
         while b.stage < top and b.trust >= THRESHOLDS[b.stage + 1]:
             b.stage += 1
-            self.log.append((b.rid, f"[{self.name_of(b.rid)} is now a {STAGE_NAMES[b.stage_key]}.]"))
+            st = STAGE_NAMES[b.stage_key]
+            self.log.append((b.rid, f"[{self.name_of(b.rid)} is now {'an' if st[0] in 'AEIOU' else 'a'} {st}.]"))
             if b.stage_key == "sworn":
                 self._give_keepsake(b)
                 self._give_sworn_skill(b)

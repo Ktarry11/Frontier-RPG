@@ -18,6 +18,13 @@ CLAIMS:
      be crafted from the materials the menu gives.
   5. Materials: "Everything" gives every material in the game; a group gives only that group.
   6. The screen draws every tab and its buttons work by clicking.
+  7. Kyle, 20 Nov 2026, the switches: with "quests complete on accept" on, a kill quest and a fetch quest are ready
+     to hand in the moment they're accepted, the fetch one stays ready after the bag is counted, and both hand in;
+     off, a quest starts empty. With "one-hit kills" on, the party's hit kills, an enemy's hit on an enemy doesn't,
+     and a phased boss stops at its next phase.
+  8. The Collection: a learned thing can be removed for the account, and "Remove everything" empties it.
+  9. Friendship: a recruit steps up through the stages to Friend, Make Sworn gives the keepsake, and two recruits
+     can be moved to friendly, close friends, grating and rivals.
 """
 import contextlib
 import io
@@ -129,7 +136,8 @@ def main():
     # 6
     ts = sm.states[GameState.TESTING]
     ts.start()
-    for key, _label in [("travel", 0), ("recruits", 0), ("gold", 0), ("professions", 0), ("materials", 0)]:
+    from ui.screens.testing_screen import TABS
+    for key, _label in TABS:
         ts._switch(key)
         ts.render(screen)
         check(ts.hits, f"the {key} tab draws no buttons")
@@ -140,6 +148,8 @@ def main():
     ts.handle_event(pygame.event.Event(pygame.MOUSEBUTTONDOWN, pos=gold_btn.center, button=1))
     check(party.copper > before, f"clicking a gold button gave nothing: {ts.message}")
 
+    switches(check)
+
     print(f"{len(towns)} towns, {len(zones)} zones, {len(rows)} recruits, {len(profs)} professions, "
           f"{len(hero.known_recipes)} recipes, {len(hero.materials)} material stacks")
     if bad:
@@ -149,6 +159,96 @@ def main():
         return 1
     print("testing menu OK")
     return 0
+
+
+def switches(check):
+    """Claims 7-9, against scratch copies of the switch file and the Collection so the real ones aren't touched."""
+    import tempfile
+    from world import testing as T
+    from world.quest import QuestStatus, ObjectiveType
+    from world.quest_manager import QuestManager
+    from entities import account_collection as AC
+    from entities.character import Character
+    from world import collection as C
+    tmp = Path(tempfile.mkdtemp())
+    T.FLAGS_PATH, T._flags = tmp / "flags.json", None
+    old_col = AC.use_path(tmp / "collection.json")
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            qm = QuestManager()
+            hero = Character("Tester", "warrior", 60)
+
+        def pick(t):
+            return next(q for q in qm.quests.values() if q.status == QuestStatus.NOT_STARTED and q.objectives
+                        and not (q.grant_items or {}).get("on_accept") and all(o.objective_type == t for o in q.objectives))
+
+        class _P:
+            members, bench, player = [hero], [], hero
+
+            def award_experience(self, x):
+                pass
+
+            def add_currency(self, g):
+                pass
+
+        T.toggle("auto_quests")
+        kq, fq = pick(ObjectiveType.KILL), pick(ObjectiveType.FETCH)
+        for q in (kq, fq):
+            qm.accept_quest(q.quest_id, player=hero)
+            check(q.status == QuestStatus.READY_TO_TURN_IN, f"{q.quest_id} wasn't ready on accept with the switch on")
+        qm.refresh_gather_progress(hero)
+        check(fq.status == QuestStatus.READY_TO_TURN_IN, "the bag count undid a fetch quest the switch filled")
+        with contextlib.redirect_stdout(io.StringIO()):
+            check(qm.turn_in_quest(kq.quest_id, hero, _P()) and qm.turn_in_quest(fq.quest_id, hero, _P()),
+                  "a quest the switch filled wouldn't hand in")
+        T.toggle("auto_quests")
+        q3 = pick(ObjectiveType.KILL)
+        qm.accept_quest(q3.quest_id, player=hero)
+        check(q3.status == QuestStatus.ACTIVE, "a quest finished on accept with the switch off")
+        T.complete_active_quests()
+
+        from world.creature_manager import CreatureManager
+        with contextlib.redirect_stdout(io.StringIO()):
+            cm = CreatureManager()
+            a, b = cm.spawn_creature("Old Thunderbeak", level=48), cm.spawn_creature("Old Thunderbeak", level=48)
+        T.toggle("one_hit")
+        b.take_damage(1, "physical", 48, attacker=a)
+        check(b.current_health > 0, "one-hit kills worked for an enemy hitting an enemy")
+        a.take_damage(1, "physical", 60, attacker=hero)
+        check(a.current_health == 0, f"one-hit kills left an enemy on {a.current_health}")
+        a.current_health, a.max_health = 1000, 1000
+        a.phases, a.phase_index = [{"at_pct": 50, "text": "test"}], 0
+        a._enter_phase = lambda: setattr(a, "_phase_due", False)
+        a.take_damage(1, "physical", 60, attacker=hero)
+        check(a.current_health == 500, f"one-hit kills skipped a phase (health {a.current_health}, wanted 500)")
+        T.toggle("one_hit")
+        check(not T.any_on(), "a switch stayed on after being turned off")
+
+        ids = [e["id"] for e in C.entries()[:3]]
+        for cid in ids:
+            C.grant(cid, commit=False)
+        T.remove_collectable(ids[0])
+        check(not C.learned(ids[0]) and C.learned(ids[1]), "removing one thing from the Collection didn't")
+        T.remove_all_collectables()
+        check(not T.learned_collectables(), "Remove everything left things in the Collection")
+
+        rows = T.bonded()
+        rid, other = rows[0][0], rows[1][0]
+        for _ in range(4):
+            T.raise_stage(rid)
+        check(T.stage_name(rows[0][2]) == "Friend", f"Next stage stopped at {T.stage_name(rows[0][2])}, not Friend")
+        T.make_sworn(rid)
+        check(T.stage_name(rows[0][2]) == "Sworn" and C.learned(C.keepsake_of(rid)),
+              "Make Sworn didn't swear them or give the keepsake")
+        seen = []
+        for step in (1, 1, -1, -1, -1, -1):
+            T.nudge_pair(rid, other, step)
+            seen.append(T.pair_state(rid, other)[0])
+        for want in ("Friendly", "Close friends", "Grating", "Rivals"):
+            check(want in seen, f"two recruits never reached {want} ({seen})")
+    finally:
+        AC.use_path(old_col)
+        T.FLAGS_PATH, T._flags = Path(T.__file__).resolve().parent.parent / "data" / "saves" / "testing_flags.json", None
 
 
 if __name__ == "__main__":

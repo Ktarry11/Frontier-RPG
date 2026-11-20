@@ -996,7 +996,10 @@ class OverworldScreen(BaseScreen):
             test_rect = pygame.Rect(self.tab_column_x, y, self.tab_w, self.tab_h)
             # the Testing menu (Kyle, 14 Nov 2026): travel, recruits, gold and levels,
             # professions, materials. +5 levels lives on in its Gold & Levels tab.
-            self.renderer.draw_button(screen, test_rect, "TEST (F10)", color=(90, 60, 130))
+            # red while a testing switch (quests on accept, one-hit kills) is on, so one never gets left on
+            from world import testing as _testing
+            self.renderer.draw_button(screen, test_rect, "TEST (F10)",
+                                      color=(150, 60, 60) if _testing.any_on() else (90, 60, 130))
             self.tab_rects["test_levels"] = test_rect
     
     def _open_soul(self):

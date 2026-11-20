@@ -1127,6 +1127,17 @@ class Monster(StatusEffectMixin):
             if damage_type != cast_as and isinstance(damage_type, str):
                 self.landed_as = damage_type
 
+        # TESTING (world/testing.py, Kyle 20 Nov 2026): one-hit kills. Our side's hit takes everything that's left,
+        # past dodge, shields and anything that would hold it at 1. Phases still happen: the blow stops on the next
+        # phase's line, so a phased boss takes one hit a phase.
+        from world import testing as _testing
+        if amount > 0 and _testing.on("one_hit") and _testing.on_our_side(attacker):
+            actual = self._phase_cap(max(1, int(self.current_health)))
+            self.current_health = max(0, self.current_health - actual)
+            if getattr(self, "_phase_due", False):
+                self._enter_phase()
+            return actual
+
         # Attacker penetration, matching Character.take_damage. The docstring
         # above used to say Monster "has no use for" the attacker and only
         # accepted it for call-signature parity - but armor penetration is

@@ -218,3 +218,233 @@ def give_materials(character, category="all", count=20):
             character.add_material(m)
         n += 1
     return f"Topped up {n} materials to {count} each."
+
+
+# ------------------------------------------------------------------ switches
+# Kyle, 20 Nov 2026: "automatically complete quests when you pick them up (toggled off/on in testing) so if i go to
+# talk to someone who wants me to kill 4 boars, when i accept the quest i have 4/4 boars killed - this is so i can
+# test quest chains. Also, the option to kill in one hit (toggle on/off)".
+#
+# The switches live outside every save slot, next to the Collection (data/saves/testing_flags.json), so they stay as
+# you left them across characters and restarts. The overworld's TEST button turns red while any of them is on, so
+# one never gets left on by accident.
+import json as _json
+from pathlib import Path as _Path
+
+FLAGS_PATH = _Path(__file__).resolve().parent.parent / "data" / "saves" / "testing_flags.json"
+SWITCHES = {
+    "auto_quests": ("Quests complete when you accept them",
+                    "Every objective is filled the moment you accept a quest, so you can walk a chain from giver to "
+                    "giver. Turn-ins, rewards and the next quest in the chain all work as normal."),
+    "one_hit": ("One-hit kills",
+                "Any hit from you, your party or your pets kills an enemy outright: no dodge, no shield, no "
+                "last stand. A boss with phases still goes through each one, one hit per phase."),
+}
+_flags = None
+
+
+def flags():
+    global _flags
+    if _flags is None:
+        try:
+            _flags = dict(_json.loads(FLAGS_PATH.read_text(encoding="utf-8")))
+        except (OSError, ValueError):
+            _flags = {}
+    return _flags
+
+
+def on(name):
+    """True if a testing switch is on. Cheap: the game asks this on every quest accepted and every hit landed."""
+    return bool(flags().get(name))
+
+
+def any_on():
+    return any(on(k) for k in SWITCHES)
+
+
+def toggle(name):
+    f = flags()
+    f[name] = not f.get(name)
+    try:
+        FLAGS_PATH.parent.mkdir(parents=True, exist_ok=True)
+        FLAGS_PATH.write_text(_json.dumps(f, indent=1), encoding="utf-8")
+    except OSError:
+        pass
+    return f"{SWITCHES[name][0]}: {'ON' if f[name] else 'off'}."
+
+
+def fill_objectives(quest):
+    """Every objective of `quest` done, and the quest ready to hand in."""
+    from world.quest import QuestStatus
+    for o in quest.objectives:
+        o.progress = o.count
+        if getattr(o, "topics", None):
+            o.topics_asked = list(o.topics)
+    if quest.status == QuestStatus.ACTIVE:
+        quest.status = QuestStatus.READY_TO_TURN_IN
+
+
+def complete_active_quests():
+    """Every quest you have now, done (for quests picked up before the switch was on)."""
+    from world.quest import QuestStatus
+    from world.quest_manager import get_quest_manager
+    n = 0
+    for q in get_quest_manager().quests.values():
+        if q.status in (QuestStatus.ACTIVE, QuestStatus.READY_TO_TURN_IN):
+            if q.status == QuestStatus.ACTIVE:
+                n += 1
+            fill_objectives(q)
+    return f"{n} quests are ready to hand in." if n else "You have no unfinished quests."
+
+
+def on_our_side(attacker):
+    """The player, a recruit or a pet: whatever one-hit kills is for (an enemy hitting an enemy doesn't count)."""
+    from entities.character import Character
+    if isinstance(attacker, Character):
+        return True
+    try:
+        from entities.pet import Pet
+        return isinstance(attacker, Pet)
+    except Exception:
+        return False
+
+
+# ------------------------------------------------------------------ the Collection
+# Kyle, 20 Nov 2026: "a very important one is the option to REMOVE collection items (right now if i experiment and
+# buy them, they are saved ot everyone)". Removing is the one thing the Collection never lets a player do; this is
+# the test-only way back.
+def learned_collectables():
+    from world import collection as C
+    return sorted(C.learned_entries(), key=lambda e: (e["kind"], e["name"]))
+
+
+def remove_collectable(cid):
+    """Unlearn `cid` for the whole account. Whatever the character being played was using it for (riding it,
+    wearing it as a form or a title) is put down too. A feather's flight paths and a vault's bank tab stay where
+    they are, because taking a bank tab away could take the things in it with it."""
+    from world import collection as C
+    col = C.collection()
+    e = C.get_entry(cid)
+    if cid not in col.learned:
+        return "That isn't learned."
+    del col.learned[cid]
+    for k, v in list(col.prefs.items()):
+        if v == cid:
+            del col.prefs[k]
+    col.save()
+    try:
+        from world.travel_manager import get_travel_manager
+        tm = get_travel_manager()
+        if getattr(tm, "active_mount", None) == cid:
+            tm.mounted = False
+            tm.active_mount = next((m for m in getattr(tm, "owned_mounts", []) if m != cid), None)
+        if getattr(tm, "active_form", None) == cid:
+            tm.active_form = None
+        if getattr(tm, "active_title", None) == cid:
+            tm.active_title = None
+    except Exception:
+        pass
+    return f"Removed {e['name'] if e else cid} from the Collection, for every character."
+
+
+def remove_all_collectables():
+    ids = [e["id"] for e in learned_collectables()]
+    for cid in ids:
+        remove_collectable(cid)
+    return f"Removed all {len(ids)} things from the Collection." if ids else "The Collection is already empty."
+
+
+# ------------------------------------------------------------------ friendship
+# Kyle, 20 Nov 2026: "i'd like the option to raise peoples friendship levels with myself and others to test their
+# interactions". Trust with you goes through the bond's own rule (world/bond_manager.py), so a new stage logs its
+# line, and Sworn hands over the keepsake and the Sworn skill. How two recruits get on goes through the relationship's
+# own rule (world/relationship_manager.py), so crossing into friendly, close, grating or rivals plays that moment.
+def bonded():
+    """[(rid, name, Bond)] for everyone with friendship, sorted by name."""
+    from world.bond_manager import get_bond_manager
+    bm = get_bond_manager()
+    return sorted(((rid, bm.name_of(rid), b) for rid, b in bm.bonds.items()), key=lambda t: t[1])
+
+
+def stage_name(b):
+    from world.bond_manager import STAGE_NAMES
+    return STAGE_NAMES[b.stage_key]
+
+
+def raise_stage(rid, party=None):
+    """Trust up to the next stage. Sworn also needs their personal quest done; use make_sworn for that."""
+    from world.bond_manager import get_bond_manager, THRESHOLDS, STAGES
+    bm = get_bond_manager()
+    b = bm.get(rid)
+    if b is None:
+        return "No friendship for them."
+    if party is not None:
+        bm.party = party
+    top = len(STAGES) - 1 if "goal_done" in b.flags else len(STAGES) - 2
+    if b.stage >= top:
+        return (f"{bm.name_of(rid)} is already {stage_name(b)}." if b.stage == len(STAGES) - 1 else
+                f"{bm.name_of(rid)} is a Friend. Sworn needs their personal quest done: use Make Sworn.")
+    b.trust = THRESHOLDS[b.stage + 1]
+    bm._trust(b, 0)
+    st = stage_name(b)
+    return f"{bm.name_of(rid)} is now {'an' if st[0] in 'AEIOU' else 'a'} {st} (trust {int(b.trust)})."
+
+
+def make_sworn(rid, party=None):
+    """Their personal quest counted as done, and trust all the way: the keepsake and the Sworn skill come with it."""
+    from world.bond_manager import get_bond_manager, THRESHOLDS
+    bm = get_bond_manager()
+    b = bm.get(rid)
+    if b is None:
+        return "No friendship for them."
+    if party is not None:
+        bm.party = party
+    if "goal_done" not in b.flags:
+        b.flags.append("goal_done")
+    b.trust = max(b.trust, THRESHOLDS[-1])
+    bm._trust(b, 0)
+    return f"{bm.name_of(rid)} is Sworn."
+
+
+def fill_mood(rid):
+    from world.bond_manager import get_bond_manager
+    bm = get_bond_manager()
+    b = bm.get(rid)
+    if b is None:
+        return "No friendship for them."
+    b.mood, b.warned, b.leave_cause, b.angry, b.needs_talk = 100, None, None, False, False
+    return f"{bm.name_of(rid)} is happy to be here (mood 100), and won't leave over anything that happened."
+
+
+def raise_everyone(party=None):
+    out = [raise_stage(rid, party) for rid, _n, _b in bonded()]
+    return f"Everyone up a stage where they could go ({sum(1 for s in out if 'is now' in s)} moved)."
+
+
+def pair_state(a, b):
+    from world.bond_manager import get_bond_manager
+    from world.relationship_manager import STATE_NAMES
+    rm = get_bond_manager().rel
+    r = rm.rels.get(rm.key(a, b))
+    return STATE_NAMES[rm.state(a, b)], (r.affinity if r else 0.0)
+
+
+def nudge_pair(a, b, step):
+    """Move two recruits to the next state up (step > 0) or down: friendly, close friends, or grating, rivals.
+    The moment that goes with crossing into it is queued for the banter panel, which says it back in the world."""
+    from world.bond_manager import get_bond_manager
+    from world.relationship_manager import FRIENDLY, CLOSE, GRATING, RIVALS, STATE_NAMES
+    bm = get_bond_manager()
+    rm = bm.rel
+    r = rm.rel(a, b)
+    ladder = [RIVALS - 2, GRATING - 2, 0, FRIENDLY + 2, CLOSE + 2]
+    if step > 0:
+        target = next((v for v in ladder if v > r.affinity + 0.5), ladder[-1])
+    else:
+        target = next((v for v in reversed(ladder) if v < r.affinity - 0.5), ladder[0])
+    if r.state == "strangers":
+        r.met_said = True
+    key = rm._move(r, target - r.affinity)
+    rm._milestone(r, key)
+    return (f"{bm.name_of(a)} and {bm.name_of(b)}: {STATE_NAMES[r.state]} (affinity {int(r.affinity)}). "
+            f"Their moment plays in the banter panel back in the world.")
