@@ -9,7 +9,7 @@ nothing else during a render.
     python3 tools/shot_screen.py cast  /tmp/cast.png  [--class Primalist] [--level 1]
 
 Screens: cast, party[_tab], inventory[_discard|_confirm|_companion], journal,
-combat, quest_offer, quest_menu, character_sheet.
+combat, quest_offer, quest_menu, character_sheet, faction [--faction <id>].
 """
 import os
 import sys
@@ -216,6 +216,13 @@ def main():
         for q in spread:
             q.status = QuestStatus.ACTIVE
         scr = QuestJournalScreen(sm)
+    elif which == "faction":
+        # one faction's page, with its background painting (--faction <id>, default orgrimmar)
+        from ui.screens.quest_journal_screen import QuestJournalScreen
+        scr = QuestJournalScreen(sm)
+        scr.active_tab = "reputation"
+        scr.selected_faction_id = (sys.argv[sys.argv.index("--faction") + 1] if "--faction" in sys.argv
+                                   else "orgrimmar")
     elif which == "combat":
         # Needs a real fight behind it, or the screen renders its "combat
         # over" scrim instead of the thing we want to look at.

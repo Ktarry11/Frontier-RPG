@@ -531,11 +531,14 @@ class QuestJournalScreen(BaseScreen):
         no scrollbar.
         """
         from world.faction_manager import get_faction_manager
-        self.renderer.draw_button(screen, self.back_button, "Back")
         f = get_faction_manager().get(self.selected_faction_id)
         if f is None:
             self.selected_faction_id = None
+            self.renderer.draw_button(screen, self.back_button, "Back")
             return
+        if not getattr(f, "secret", False):
+            self._draw_faction_background(screen, self.selected_faction_id)
+        self.renderer.draw_button(screen, self.back_button, "Back")
 
         tier = f.tier
         colour = self.TIER_COLOURS.get(tier["id"], COLOR_WHITE)
@@ -594,6 +597,44 @@ class QuestJournalScreen(BaseScreen):
         self._draw_faction_body(screen, f, top - self.scroll_offset, width)
         screen.set_clip(None)
         self._render_scrollbar(screen, viewport, content_height)
+
+    _faction_bg_cache = {}
+
+    def _draw_faction_background(self, screen, faction_id):
+        """The faction's own painting behind its page (Kyle, 19 Nov 2026: "like a 'background card' but on the
+        faction page, very opaque and unique for each one"; docs/faction_art_prompts.md). Drawn solid and cropped to
+        cover the page, with a dark band from the top and a darker one over the body so the text reads; the painting
+        stays strong in between. A faction with no painting yet keeps the plain page; the secret one never gets one."""
+        from pathlib import Path
+        key = (faction_id, SCREEN_WIDTH, SCREEN_HEIGHT)
+        surf = self._faction_bg_cache.get(key)
+        if surf is None and key not in self._faction_bg_cache:
+            path = Path(__file__).resolve().parent.parent.parent / "assets" / "ui" / "factions" / f"bg_{faction_id}.png"
+            surf = None
+            if path.exists():
+                try:
+                    img = pygame.image.load(str(path)).convert()
+                    top = 60
+                    area_w, area_h = SCREEN_WIDTH, SCREEN_HEIGHT - top
+                    scale = max(area_w / img.get_width(), area_h / img.get_height())
+                    img = pygame.transform.smoothscale(img, (int(img.get_width() * scale) + 1,
+                                                             int(img.get_height() * scale) + 1))
+                    ox, oy = (img.get_width() - area_w) // 2, (img.get_height() - area_h) // 3
+                    surf = pygame.Surface((area_w, area_h))
+                    surf.blit(img, (-ox, -oy))
+                    shade = pygame.Surface((area_w, area_h), pygame.SRCALPHA)
+                    for yy in range(area_h):
+                        t = yy / max(1, area_h - 1)
+                        # the header strip and the body are shaded for text; the painting shows through between
+                        # the text sits in the top half: shaded evenly there, then the painting comes through
+                        a = 168 if t < 0.52 else int(168 - 118 * min(1.0, (t - 0.52) / 0.30))
+                        pygame.draw.line(shade, (8, 8, 12, min(200, a)), (0, yy), (area_w, yy))
+                    surf.blit(shade, (0, 0))
+                except (pygame.error, OSError):
+                    surf = None
+            self._faction_bg_cache[key] = surf
+        if surf is not None:
+            screen.blit(surf, (0, 60))
 
     def _draw_faction_body(self, screen, f, y, width):
         """Lay out the faction's background. Called twice per frame - once on a scratch surface to
