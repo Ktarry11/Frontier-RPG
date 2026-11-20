@@ -75,9 +75,9 @@ def main():
                 short.append(zone)
                 break
             c = max(cands, key=lambda c: c["depth"])
-            sid = f"secret_nz_{zone.lower().replace(' ', '_').replace(chr(39), '')}_{i + 1}"
-            if sid in have:
-                continue
+            # the first free name: a secret re-placed after a layout change keeps the numbering whole
+            stem = f"secret_nz_{zone.lower().replace(' ', '_').replace(chr(39), '')}_"
+            sid = next(f"{stem}{j}" for j in range(1, 99) if f"{stem}{j}" not in have)
             spot = c["spot"]
             secrets.append({"id": sid, "zone": zone, "kind": "glade", "passage": c["passage"], "area": c["area"],
                             "mask": c["mask"], "ground": c["ground"], "vendor": None, "door": None,
