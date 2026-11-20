@@ -390,6 +390,20 @@ class TilemapRenderer:
             return 2
         return self.WALK_CYCLE[(self._walk_step - 1) % 4]
 
+    #: the mount's gait: how high it rises (a share of a tile) and how fast, while the player is moving
+    RIDE_BOB = 0.07
+    RIDE_BOB_MS = 95.0
+
+    def _ride_bob(self):
+        """Pixels the mount (and the rider on it) rise this frame: a quick rise and fall while moving, nothing at
+        rest. Mounts are drawn four ways with no gait frames, so this is what makes one look like it's running
+        rather than sliding. Keyed to the same step clock as the walk cycle (_walk_frame)."""
+        import math
+        now = pygame.time.get_ticks()
+        if now - getattr(self, "_walk_t", -10**9) > self.WALK_IDLE_MS:
+            return 0
+        return int(round(abs(math.sin(now / self.RIDE_BOB_MS)) * self.tile_size * self.RIDE_BOB))
+
     _PROPS = {}
 
     def _prop_sprite(self, path, height):
@@ -857,8 +871,16 @@ class TilemapRenderer:
                     getattr(player, "appearance_variant", 0))
                 if base_path:
                     th = int(self.tile_size * self.npc_sprite_scale)
-                    frame = self._walk_frame(player_pos)
-                    sprite = get_walk_sprite(base_path, player_facing, frame, th) if frame else None
+                    frame = self._walk_frame(player_pos)       # always, so a mount's gait keeps time too
+                    # RIDING, THE RIDER SITS (Kyle, 20 Nov 2026: "when we mount up, we still 'walk'... our character
+                    # moves and the wolf slides around"): the standing frame on the saddle, and the mount carries the
+                    # motion (_ride_bob)
+                    try:
+                        from world.travel_manager import get_travel_manager as _gtm
+                        _riding = bool(_gtm().mounted and _gtm().current_mount())
+                    except Exception:
+                        _riding = False
+                    sprite = get_walk_sprite(base_path, player_facing, frame, th) if frame and not _riding else None
                     if sprite is None:
                         sprite = get_npc_sprite(base_path, player_facing, tile_height=th)
             # A CLASS SHAPESHIFT FORM (Bear, Cat, Tree of Life, Spider...): out of combat a shifter walks the map as
@@ -909,7 +931,7 @@ class TilemapRenderer:
                 # legs hidden (cut at the seat) so they read as sitting rather than standing on the animal.
                 mount, seat = mount_art
                 mx = screen_x + (self.tile_size - mount.get_width()) // 2
-                my = screen_y + self.tile_size - mount.get_height() + self.tile_size // 6
+                my = screen_y + self.tile_size - mount.get_height() + self.tile_size // 6 - self._ride_bob()
                 screen.blit(mount, (mx, my))
                 seat_y = my + mount.get_height() - int(mount.get_height() * seat)
                 vis_h = max(1, int(sprite.get_height() * 0.74))
