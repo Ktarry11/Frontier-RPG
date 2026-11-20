@@ -7160,6 +7160,22 @@
       "needs_art": false
     },
     {
+      "id": "form_ps_fen_owl",
+      "name": "Charm of Hushwing",
+      "kind": "form",
+      "price": 5260000,
+      "rarity": "epic",
+      "blurb": "Walk the map as Hushwing, which most people only ever see at the end of a dungeon.",
+      "effect": {
+        "form_id": "form_ps_fen_owl",
+        "form_name": "Hushwing",
+        "sprite": "assets/creatures/ps_fen_owl.png"
+      },
+      "icon_id": "col_charm_wolf",
+      "art": "col_form_ps_fen_owl",
+      "needs_art": false
+    },
+    {
       "id": "form_quilboar_1",
       "name": "Charm of the Bristleback Raider",
       "kind": "form",
@@ -10053,6 +10069,582 @@
       },
       "icon_id": "col_charm_spirit",
       "art": "col_form_wraith_pale",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_bark_borer",
+      "name": "Charm of the Bark-Borer Beetle",
+      "kind": "form",
+      "price": 1800000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Bark-Borer Beetle.",
+      "effect": {
+        "form_id": "form_wt_bark_borer",
+        "form_name": "Bark-Borer Beetle",
+        "sprite": "assets/creatures/wt_bark_borer.png"
+      },
+      "icon_id": "col_charm_insect",
+      "art": "col_form_wt_bark_borer",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_bark_lizard",
+      "name": "Charm of the Bark Lizard",
+      "kind": "form",
+      "price": 1870000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Bark Lizard.",
+      "effect": {
+        "form_id": "form_wt_bark_lizard",
+        "form_name": "Bark Lizard",
+        "sprite": "assets/creatures/wt_bark_lizard.png"
+      },
+      "icon_id": "col_charm_serpent",
+      "art": "col_form_wt_bark_lizard",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_blighted_harpy",
+      "name": "Charm of the Brood-Harpy",
+      "kind": "form",
+      "price": 1260000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Brood-Harpy.",
+      "effect": {
+        "form_id": "form_wt_blighted_harpy",
+        "form_name": "Brood-Harpy",
+        "sprite": "assets/creatures/wt_blighted_harpy.png"
+      },
+      "icon_id": "col_charm_bird",
+      "art": "col_form_wt_blighted_harpy",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_bloodscalp_axe_thrower",
+      "name": "Charm of the Bloodscalp Axe-Thrower",
+      "kind": "form",
+      "price": 2090000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Bloodscalp Axe-Thrower.",
+      "effect": {
+        "form_id": "form_wt_bloodscalp_axe_thrower",
+        "form_name": "Bloodscalp Axe-Thrower",
+        "sprite": "assets/creatures/wt_bloodscalp_axe_thrower.png"
+      },
+      "icon_id": "col_charm_wolf",
+      "art": "col_form_wt_bloodscalp_axe_thrower",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_bloodscalp_berserker",
+      "name": "Charm of the Bloodscalp Berserker",
+      "kind": "form",
+      "price": 1520000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Bloodscalp Berserker.",
+      "effect": {
+        "form_id": "form_wt_bloodscalp_berserker",
+        "form_name": "Bloodscalp Berserker",
+        "sprite": "assets/creatures/wt_bloodscalp_berserker.png"
+      },
+      "icon_id": "col_charm_wolf",
+      "art": "col_form_wt_bloodscalp_berserker",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_bloodscalp_climber",
+      "name": "Charm of the Bloodscalp War-Climber",
+      "kind": "form",
+      "price": 1430000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Bloodscalp War-Climber.",
+      "effect": {
+        "form_id": "form_wt_bloodscalp_climber",
+        "form_name": "Bloodscalp War-Climber",
+        "sprite": "assets/creatures/wt_bloodscalp_climber.png"
+      },
+      "icon_id": "col_charm_wolf",
+      "art": "col_form_wt_bloodscalp_climber",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_bloodscalp_headhunter",
+      "name": "Charm of the Bloodscalp Headhunter",
+      "kind": "form",
+      "price": 2010000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Bloodscalp Headhunter.",
+      "effect": {
+        "form_id": "form_wt_bloodscalp_headhunter",
+        "form_name": "Bloodscalp Headhunter",
+        "sprite": "assets/creatures/wt_bloodscalp_headhunter.png"
+      },
+      "icon_id": "col_charm_humanoid",
+      "art": "col_form_wt_bloodscalp_headhunter",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_bloodscalp_shaman",
+      "name": "Charm of the Bloodscalp Shaman",
+      "kind": "form",
+      "price": 1230000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Bloodscalp Shaman.",
+      "effect": {
+        "form_id": "form_wt_bloodscalp_shaman",
+        "form_name": "Bloodscalp Shaman",
+        "sprite": "assets/creatures/wt_bloodscalp_shaman.png"
+      },
+      "icon_id": "col_charm_humanoid",
+      "art": "col_form_wt_bloodscalp_shaman",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_bloodscalp_witch_doctor",
+      "name": "Charm of the Bloodscalp Witch Doctor",
+      "kind": "form",
+      "price": 2120000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Bloodscalp Witch Doctor.",
+      "effect": {
+        "form_id": "form_wt_bloodscalp_witch_doctor",
+        "form_name": "Bloodscalp Witch Doctor",
+        "sprite": "assets/creatures/wt_bloodscalp_witch_doctor.png"
+      },
+      "icon_id": "col_charm_humanoid",
+      "art": "col_form_wt_bloodscalp_witch_doctor",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_canopy_ape",
+      "name": "Charm of the Canopy Howler",
+      "kind": "form",
+      "price": 1700000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Canopy Howler.",
+      "effect": {
+        "form_id": "form_wt_canopy_ape",
+        "form_name": "Canopy Howler",
+        "sprite": "assets/creatures/wt_canopy_ape.png"
+      },
+      "icon_id": "col_charm_bird",
+      "art": "col_form_wt_canopy_ape",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_canopy_spider",
+      "name": "Charm of the Hollow Weaver",
+      "kind": "form",
+      "price": 1250000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Hollow Weaver.",
+      "effect": {
+        "form_id": "form_wt_canopy_spider",
+        "form_name": "Hollow Weaver",
+        "sprite": "assets/creatures/wt_canopy_spider.png"
+      },
+      "icon_id": "col_charm_wolf",
+      "art": "col_form_wt_canopy_spider",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_crystal_sentinel",
+      "name": "Charm of the Skiff Sentinel",
+      "kind": "form",
+      "price": 1230000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Skiff Sentinel.",
+      "effect": {
+        "form_id": "form_wt_crystal_sentinel",
+        "form_name": "Skiff Sentinel",
+        "sprite": "assets/creatures/wt_crystal_sentinel.png"
+      },
+      "icon_id": "col_charm_wolf",
+      "art": "col_form_wt_crystal_sentinel",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_cutthroat",
+      "name": "Charm of the Bloodsail Cutthroat",
+      "kind": "form",
+      "price": 1820000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Bloodsail Cutthroat.",
+      "effect": {
+        "form_id": "form_wt_cutthroat",
+        "form_name": "Bloodsail Cutthroat",
+        "sprite": "assets/creatures/wt_cutthroat.png"
+      },
+      "icon_id": "col_charm_wolf",
+      "art": "col_form_wt_cutthroat",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_gear_drone",
+      "name": "Charm of the Scuttling Gear-Drone",
+      "kind": "form",
+      "price": 1990000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Scuttling Gear-Drone.",
+      "effect": {
+        "form_id": "form_wt_gear_drone",
+        "form_name": "Scuttling Gear-Drone",
+        "sprite": "assets/creatures/wt_gear_drone.png"
+      },
+      "icon_id": "col_charm_wolf",
+      "art": "col_form_wt_gear_drone",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_gust_elemental",
+      "name": "Charm of the Trapped Gust",
+      "kind": "form",
+      "price": 1870000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Trapped Gust.",
+      "effect": {
+        "form_id": "form_wt_gust_elemental",
+        "form_name": "Trapped Gust",
+        "sprite": "assets/creatures/wt_gust_elemental.png"
+      },
+      "icon_id": "col_charm_wolf",
+      "art": "col_form_wt_gust_elemental",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_harpy_windcaller",
+      "name": "Charm of the Gale Windcaller",
+      "kind": "form",
+      "price": 2090000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Gale Windcaller.",
+      "effect": {
+        "form_id": "form_wt_harpy_windcaller",
+        "form_name": "Gale Windcaller",
+        "sprite": "assets/creatures/wt_harpy_windcaller.png"
+      },
+      "icon_id": "col_charm_wolf",
+      "art": "col_form_wt_harpy_windcaller",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_leafwing_moth",
+      "name": "Charm of the Leafwing Moth",
+      "kind": "form",
+      "price": 1650000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Leafwing Moth.",
+      "effect": {
+        "form_id": "form_wt_leafwing_moth",
+        "form_name": "Leafwing Moth",
+        "sprite": "assets/creatures/wt_leafwing_moth.png"
+      },
+      "icon_id": "col_charm_bird",
+      "art": "col_form_wt_leafwing_moth",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_powder_monkey",
+      "name": "Charm of the Bloodsail Powder Monkey",
+      "kind": "form",
+      "price": 1740000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Bloodsail Powder Monkey.",
+      "effect": {
+        "form_id": "form_wt_powder_monkey",
+        "form_name": "Bloodsail Powder Monkey",
+        "sprite": "assets/creatures/wt_powder_monkey.png"
+      },
+      "icon_id": "col_charm_wolf",
+      "art": "col_form_wt_powder_monkey",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_rare_rootmaw",
+      "name": "Charm of The Rootmaw",
+      "kind": "form",
+      "price": 6210000,
+      "rarity": "epic",
+      "blurb": "Walk the map as The Rootmaw, which most people only ever see at the end of a dungeon.",
+      "effect": {
+        "form_id": "form_wt_rare_rootmaw",
+        "form_name": "The Rootmaw",
+        "sprite": "assets/creatures/wt_rare_rootmaw.png"
+      },
+      "icon_id": "col_charm_plant",
+      "art": "col_form_wt_rare_rootmaw",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_rare_rot_mother",
+      "name": "Charm of The Rot-Mother",
+      "kind": "form",
+      "price": 5910000,
+      "rarity": "epic",
+      "blurb": "Walk the map as The Rot-Mother, which most people only ever see at the end of a dungeon.",
+      "effect": {
+        "form_id": "form_wt_rare_rot_mother",
+        "form_name": "The Rot-Mother",
+        "sprite": "assets/creatures/wt_rare_rot_mother.png"
+      },
+      "icon_id": "col_charm_bird",
+      "art": "col_form_wt_rare_rot_mother",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_reef_crab",
+      "name": "Charm of the Reef Shellcrusher",
+      "kind": "form",
+      "price": 1270000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Reef Shellcrusher.",
+      "effect": {
+        "form_id": "form_wt_reef_crab",
+        "form_name": "Reef Shellcrusher",
+        "sprite": "assets/creatures/wt_reef_crab.png"
+      },
+      "icon_id": "col_charm_drowned",
+      "art": "col_form_wt_reef_crab",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_root_murloc",
+      "name": "Charm of the Rootbound Murloc",
+      "kind": "form",
+      "price": 2040000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Rootbound Murloc.",
+      "effect": {
+        "form_id": "form_wt_root_murloc",
+        "form_name": "Rootbound Murloc",
+        "sprite": "assets/creatures/wt_root_murloc.png"
+      },
+      "icon_id": "col_charm_murloc",
+      "art": "col_form_wt_root_murloc",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_rot_crawler",
+      "name": "Charm of the Rot Crawler",
+      "kind": "form",
+      "price": 1220000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Rot Crawler.",
+      "effect": {
+        "form_id": "form_wt_rot_crawler",
+        "form_name": "Rot Crawler",
+        "sprite": "assets/creatures/wt_rot_crawler.png"
+      },
+      "icon_id": "col_charm_insect",
+      "art": "col_form_wt_rot_crawler",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_rot_treant",
+      "name": "Charm of the Rotheart Treant",
+      "kind": "form",
+      "price": 1240000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Rotheart Treant.",
+      "effect": {
+        "form_id": "form_wt_rot_treant",
+        "form_name": "Rotheart Treant",
+        "sprite": "assets/creatures/wt_rot_treant.png"
+      },
+      "icon_id": "col_charm_plant",
+      "art": "col_form_wt_rot_treant",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_sap_crocolisk",
+      "name": "Charm of the Sap-Drunk Crocolisk",
+      "kind": "form",
+      "price": 1660000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Sap-Drunk Crocolisk.",
+      "effect": {
+        "form_id": "form_wt_sap_crocolisk",
+        "form_name": "Sap-Drunk Crocolisk",
+        "sprite": "assets/creatures/wt_sap_crocolisk.png"
+      },
+      "icon_id": "col_charm_serpent",
+      "art": "col_form_wt_sap_crocolisk",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_sap_ooze",
+      "name": "Charm of the Goldensap Ooze",
+      "kind": "form",
+      "price": 1780000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Goldensap Ooze.",
+      "effect": {
+        "form_id": "form_wt_sap_ooze",
+        "form_name": "Goldensap Ooze",
+        "sprite": "assets/creatures/wt_sap_ooze.png"
+      },
+      "icon_id": "col_charm_elemental",
+      "art": "col_form_wt_sap_ooze",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_sap_silverback",
+      "name": "Charm of the Sap-Drunk Silverback",
+      "kind": "form",
+      "price": 1760000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Sap-Drunk Silverback.",
+      "effect": {
+        "form_id": "form_wt_sap_silverback",
+        "form_name": "Sap-Drunk Silverback",
+        "sprite": "assets/creatures/wt_sap_silverback.png"
+      },
+      "icon_id": "col_charm_wolf",
+      "art": "col_form_wt_sap_silverback",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_sap_tapper",
+      "name": "Charm of the Bloodsail Sap-Tapper",
+      "kind": "form",
+      "price": 1400000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Bloodsail Sap-Tapper.",
+      "effect": {
+        "form_id": "form_wt_sap_tapper",
+        "form_name": "Bloodsail Sap-Tapper",
+        "sprite": "assets/creatures/wt_sap_tapper.png"
+      },
+      "icon_id": "col_charm_wolf",
+      "art": "col_form_wt_sap_tapper",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_scout_construct",
+      "name": "Charm of the Twitching Scout",
+      "kind": "form",
+      "price": 1870000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Twitching Scout.",
+      "effect": {
+        "form_id": "form_wt_scout_construct",
+        "form_name": "Twitching Scout",
+        "sprite": "assets/creatures/wt_scout_construct.png"
+      },
+      "icon_id": "col_charm_humanoid",
+      "art": "col_form_wt_scout_construct",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_spore_swarm",
+      "name": "Charm of the Rot-Spore Swarm",
+      "kind": "form",
+      "price": 1420000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Rot-Spore Swarm.",
+      "effect": {
+        "form_id": "form_wt_spore_swarm",
+        "form_name": "Rot-Spore Swarm",
+        "sprite": "assets/creatures/wt_spore_swarm.png"
+      },
+      "icon_id": "col_charm_wolf",
+      "art": "col_form_wt_spore_swarm",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_storm_wisp",
+      "name": "Charm of the Split Wisp",
+      "kind": "form",
+      "price": 2130000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Split Wisp.",
+      "effect": {
+        "form_id": "form_wt_storm_wisp",
+        "form_name": "Split Wisp",
+        "sprite": "assets/creatures/wt_storm_wisp.png"
+      },
+      "icon_id": "col_charm_spirit",
+      "art": "col_form_wt_storm_wisp",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_tempest_harpy",
+      "name": "Charm of the Gale-Rider Harpy",
+      "kind": "form",
+      "price": 1500000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Gale-Rider Harpy.",
+      "effect": {
+        "form_id": "form_wt_tempest_harpy",
+        "form_name": "Gale-Rider Harpy",
+        "sprite": "assets/creatures/wt_tempest_harpy.png"
+      },
+      "icon_id": "col_charm_bird",
+      "art": "col_form_wt_tempest_harpy",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_thunderhawk",
+      "name": "Charm of the Thunderhawk",
+      "kind": "form",
+      "price": 1980000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Thunderhawk.",
+      "effect": {
+        "form_id": "form_wt_thunderhawk",
+        "form_name": "Thunderhawk",
+        "sprite": "assets/creatures/wt_thunderhawk.png"
+      },
+      "icon_id": "col_charm_bird",
+      "art": "col_form_wt_thunderhawk",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_tree_python",
+      "name": "Charm of the Bough Python",
+      "kind": "form",
+      "price": 1580000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Bough Python.",
+      "effect": {
+        "form_id": "form_wt_tree_python",
+        "form_name": "Bough Python",
+        "sprite": "assets/creatures/wt_tree_python.png"
+      },
+      "icon_id": "col_charm_wolf",
+      "art": "col_form_wt_tree_python",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_wyvern",
+      "name": "Charm of the Cloudtop Wyvern",
+      "kind": "form",
+      "price": 2120000,
+      "rarity": "rare",
+      "blurb": "Walk the map as a Cloudtop Wyvern.",
+      "effect": {
+        "form_id": "form_wt_wyvern",
+        "form_name": "Cloudtop Wyvern",
+        "sprite": "assets/creatures/wt_wyvern.png"
+      },
+      "icon_id": "col_charm_bird",
+      "art": "col_form_wt_wyvern",
+      "needs_art": false
+    },
+    {
+      "id": "form_wt_wyvern_matriarch",
+      "name": "Charm of Old Charwing",
+      "kind": "form",
+      "price": 6080000,
+      "rarity": "epic",
+      "blurb": "Walk the map as Old Charwing, which most people only ever see at the end of a dungeon.",
+      "effect": {
+        "form_id": "form_wt_wyvern_matriarch",
+        "form_name": "Old Charwing",
+        "sprite": "assets/creatures/wt_wyvern_matriarch.png"
+      },
+      "icon_id": "col_charm_wolf",
+      "art": "col_form_wt_wyvern_matriarch",
       "needs_art": false
     },
     {
@@ -15968,7 +16560,7 @@
         "drops_from": "Stormhide Patriarch",
         "drop_chance": 0.05
       },
-      "icon_id": "col_reins_cinder_salamander",
+      "icon_id": "col_reins_stormhide_thunder_lizard",
       "art": "col_stormhide_thunder_lizard",
       "needs_art": false,
       "found_only": true,
@@ -15988,7 +16580,7 @@
         "drops_from": "Old Mother Longhorn",
         "drop_chance": 0.05
       },
-      "icon_id": "col_reins_hawkstrider",
+      "icon_id": "col_reins_plainstrider_matriarch",
       "art": "col_plainstrider_matriarch",
       "needs_art": false,
       "found_only": true,
@@ -16008,7 +16600,7 @@
         "drops_from": "Mistvale Longjaw",
         "drop_chance": 0.05
       },
-      "icon_id": "col_reins_abyssal_lurker",
+      "icon_id": "col_reins_ironback_crocolisk",
       "art": "col_ironback_crocolisk",
       "needs_art": false,
       "found_only": true,
@@ -16028,7 +16620,7 @@
         "drops_from": "Antilus the Soarer",
         "drop_chance": 0.05
       },
-      "icon_id": "col_reins_dawn",
+      "icon_id": "col_reins_moonfeather_hippogryph",
       "art": "col_moonfeather_hippogryph",
       "needs_art": false,
       "found_only": true,
@@ -16048,7 +16640,7 @@
         "drops_from": "Hive Champion Khix'ar",
         "drop_chance": 0.05
       },
-      "icon_id": "col_reins_ruby_scorpid",
+      "icon_id": "col_reins_sandreaver_silithid",
       "art": "col_sandreaver_silithid",
       "needs_art": false,
       "found_only": true,
@@ -16068,7 +16660,7 @@
         "drops_from": "Marrowmaw",
         "drop_chance": 0.05
       },
-      "icon_id": "col_reins_coinscale_raptor",
+      "icon_id": "col_reins_ashmane_hyena",
       "art": "col_ashmane_hyena",
       "needs_art": false,
       "found_only": true,
@@ -16088,7 +16680,7 @@
         "drops_from": "Old Icehide",
         "drop_chance": 0.05
       },
-      "icon_id": "col_reins_jadehorn_elk",
+      "icon_id": "col_reins_highpeak_ramgoat",
       "art": "col_highpeak_ramgoat",
       "needs_art": false,
       "found_only": true,
@@ -16108,7 +16700,7 @@
         "drops_from": "Old Mire-Maw",
         "drop_chance": 0.05
       },
-      "icon_id": "col_reins_glimmer_frog",
+      "icon_id": "col_reins_mudback_hydra",
       "art": "col_mudback_hydra",
       "needs_art": false,
       "found_only": true,
@@ -16128,7 +16720,7 @@
         "drops_from": "Brontus",
         "drop_chance": 0.05
       },
-      "icon_id": "col_reins_kodo",
+      "icon_id": "col_reins_thunderhorn_bull",
       "art": "col_thunderhorn_bull",
       "needs_art": false,
       "found_only": true,
@@ -16148,7 +16740,7 @@
         "drops_from": "Old Bonepicker",
         "drop_chance": 0.05
       },
-      "icon_id": "col_reins_twilight",
+      "icon_id": "col_reins_carrion_strider",
       "art": "col_carrion_strider",
       "needs_art": false,
       "found_only": true,
@@ -16168,7 +16760,7 @@
         "drops_from": "Old Ashback the Basilisk",
         "drop_chance": 0.05
       },
-      "icon_id": "col_reins_goldtusk_boar",
+      "icon_id": "col_reins_emberquill_porcupine",
       "art": "col_emberquill_porcupine",
       "needs_art": false,
       "found_only": true,
@@ -16188,7 +16780,7 @@
         "drops_from": "Old Mossback",
         "drop_chance": 0.05
       },
-      "icon_id": "col_reins_spring",
+      "icon_id": "col_reins_shellback_snail",
       "art": "col_shellback_snail",
       "needs_art": false,
       "found_only": true,
@@ -16207,7 +16799,7 @@
         "tier": 1,
         "exalted_mount_of": "crimson_codex"
       },
-      "icon_id": "col_reins_rose",
+      "icon_id": "col_reins_crimson_codex_spellbound_construct",
       "art": "col_crimson_codex_spellbound_construct",
       "needs_art": false,
       "found_only": true,
@@ -16226,7 +16818,7 @@
         "tier": 1,
         "exalted_mount_of": "orgrimmar"
       },
-      "icon_id": "col_reins_platinum_direwolf",
+      "icon_id": "col_reins_orgrimmar_redstone_warwolf",
       "art": "col_orgrimmar_redstone_warwolf",
       "needs_art": false,
       "found_only": true,
@@ -16245,7 +16837,7 @@
         "tier": 1,
         "exalted_mount_of": "darkspear_tribe"
       },
-      "icon_id": "col_reins_coinscale_raptor",
+      "icon_id": "col_reins_darkspear_voodoo_raptor",
       "art": "col_darkspear_voodoo_raptor",
       "needs_art": false,
       "found_only": true,
@@ -16264,7 +16856,7 @@
         "tier": 1,
         "exalted_mount_of": "the_forsaken"
       },
-      "icon_id": "col_reins_nightmare",
+      "icon_id": "col_reins_forsaken_war_bat",
       "art": "col_forsaken_war_bat",
       "needs_art": false,
       "found_only": true,
@@ -16283,7 +16875,7 @@
         "tier": 1,
         "exalted_mount_of": "steamwheedle_cartel"
       },
-      "icon_id": "col_reins_runabout",
+      "icon_id": "col_reins_steamwheedle_trike",
       "art": "col_steamwheedle_trike",
       "needs_art": false,
       "found_only": true,
@@ -16302,7 +16894,7 @@
         "tier": 1,
         "exalted_mount_of": "thunder_bluff"
       },
-      "icon_id": "col_reins_kodo",
+      "icon_id": "col_reins_thunder_bluff_totem_kodo",
       "art": "col_thunder_bluff_totem_kodo",
       "needs_art": false,
       "found_only": true,
@@ -16321,7 +16913,7 @@
         "tier": 1,
         "exalted_mount_of": "booty_bay_authority"
       },
-      "icon_id": "col_reins_tide",
+      "icon_id": "col_reins_booty_bay_great_parrot",
       "art": "col_booty_bay_great_parrot",
       "needs_art": false,
       "found_only": true,
@@ -16340,7 +16932,7 @@
         "tier": 1,
         "exalted_mount_of": "the_ashclaim"
       },
-      "icon_id": "col_reins_cinder_salamander",
+      "icon_id": "col_reins_ashclaim_core_hound",
       "art": "col_ashclaim_core_hound",
       "needs_art": false,
       "found_only": true,
@@ -16359,7 +16951,7 @@
         "tier": 1,
         "exalted_mount_of": "emerald_reclamation"
       },
-      "icon_id": "col_reins_jade",
+      "icon_id": "col_reins_emerald_bark_strider",
       "art": "col_emerald_bark_strider",
       "needs_art": false,
       "found_only": true,
@@ -16378,7 +16970,7 @@
         "tier": 1,
         "exalted_mount_of": "pale_flame"
       },
-      "icon_id": "col_reins_dawn",
+      "icon_id": "col_reins_pale_flame_lion",
       "art": "col_pale_flame_lion",
       "needs_art": false,
       "found_only": true,
@@ -16397,7 +16989,7 @@
         "tier": 1,
         "exalted_mount_of": "argent_dawn"
       },
-      "icon_id": "col_reins_gilded_bone_steed",
+      "icon_id": "col_reins_argent_charger",
       "art": "col_argent_charger",
       "needs_art": false,
       "found_only": true,
@@ -16416,7 +17008,7 @@
         "tier": 1,
         "exalted_mount_of": "timbermaw_hold"
       },
-      "icon_id": "col_reins_crowned_grizzly",
+      "icon_id": "col_reins_timbermaw_great_badger",
       "art": "col_timbermaw_great_badger",
       "needs_art": false,
       "found_only": true,
@@ -16435,7 +17027,7 @@
         "tier": 1,
         "exalted_mount_of": "sunreach_conclave"
       },
-      "icon_id": "col_reins_hawkstrider",
+      "icon_id": "col_reins_sunreach_dragonhawk",
       "art": "col_sunreach_dragonhawk",
       "needs_art": false,
       "found_only": true,
@@ -16454,7 +17046,7 @@
         "tier": 1,
         "exalted_mount_of": "the_liquidators"
       },
-      "icon_id": "col_reins_golden_dromedary",
+      "icon_id": "col_reins_liquidators_hazard_mule",
       "art": "col_liquidators_hazard_mule",
       "needs_art": false,
       "found_only": true,
@@ -16473,7 +17065,7 @@
         "tier": 1,
         "exalted_mount_of": "cenarion_circle"
       },
-      "icon_id": "col_reins_twilight",
+      "icon_id": "col_reins_cenarion_stormcrow",
       "art": "col_cenarion_stormcrow",
       "needs_art": false,
       "found_only": true,
@@ -16492,11 +17084,49 @@
         "tier": 1,
         "exalted_mount_of": "the_wakened"
       },
-      "icon_id": "col_reins_spring",
+      "icon_id": "col_reins_wakened_dream_jackalope",
       "art": "col_wakened_dream_jackalope",
       "needs_art": false,
       "found_only": true,
       "source": "exalted:the_wakened"
+    },
+    {
+      "id": "feathermoon_war_owl",
+      "name": "Reins of the Feathermoon War Owl",
+      "kind": "mount",
+      "price": 1000000,
+      "rarity": "epic",
+      "blurb": "A snowy owl as big as a horse, in violet and silver barding with crescent moons on its chest. Sold at Exalted with The Feathermoon Sentinels.",
+      "effect": {
+        "mount_id": "feathermoon_war_owl",
+        "mount_name": "Feathermoon War Owl",
+        "tier": 1,
+        "exalted_mount_of": "feathermoon_sentinels"
+      },
+      "icon_id": "col_reins_feathermoon_war_owl",
+      "art": "col_feathermoon_war_owl",
+      "needs_art": false,
+      "found_only": true,
+      "source": "exalted:feathermoon_sentinels"
+    },
+    {
+      "id": "highbough_cloudtop_wyvern",
+      "name": "Reins of the Cloudtop Wyvern",
+      "kind": "mount",
+      "price": 1000000,
+      "rarity": "epic",
+      "blurb": "A wild wyvern off the Upper Boughs, tamed the way Gu'lok tames them, in teal and red with a heartwood saddle. Sold at Exalted with The Highbough Tribes.",
+      "effect": {
+        "mount_id": "highbough_cloudtop_wyvern",
+        "mount_name": "Cloudtop Wyvern",
+        "tier": 1,
+        "exalted_mount_of": "highbough_tribes"
+      },
+      "icon_id": "col_reins_highbough_cloudtop_wyvern",
+      "art": "col_highbough_cloudtop_wyvern",
+      "needs_art": false,
+      "found_only": true,
+      "source": "exalted:highbough_tribes"
     },
     {
       "id": "keepsake_kesten_the_catalogued",
@@ -16509,7 +17139,7 @@
         "recruit_id": "kesten_the_catalogued",
         "from": "Kesten Ambrose"
       },
-      "icon_id": "col_book_master",
+      "icon_id": "col_keepsake_kesten",
       "art": "col_keepsake_kesten",
       "needs_art": false,
       "found_only": true,
@@ -16526,7 +17156,7 @@
         "recruit_id": "adrian_templar",
         "from": "Adrián Mendoza"
       },
-      "icon_id": "col_peddler_bell",
+      "icon_id": "col_keepsake_adrian",
       "art": "col_keepsake_adrian",
       "needs_art": false,
       "found_only": true,
@@ -16543,7 +17173,7 @@
         "recruit_id": "tarek_templar",
         "from": "Tarek Mansour"
       },
-      "icon_id": "col_title_common",
+      "icon_id": "col_keepsake_tarek",
       "art": "col_keepsake_tarek",
       "needs_art": false,
       "found_only": true,
@@ -16560,7 +17190,7 @@
         "recruit_id": "freja_priest",
         "from": "Freja Lindqvist"
       },
-      "icon_id": "col_courier_horn",
+      "icon_id": "col_keepsake_freja",
       "art": "col_keepsake_freja",
       "needs_art": false,
       "found_only": true,
@@ -16577,7 +17207,7 @@
         "recruit_id": "diego_tinker",
         "from": "Diego Salazar"
       },
-      "icon_id": "col_book_professions",
+      "icon_id": "col_keepsake_diego",
       "art": "col_keepsake_diego",
       "needs_art": false,
       "found_only": true,
@@ -16594,7 +17224,7 @@
         "recruit_id": "ama_priest",
         "from": "Ama Boateng"
       },
-      "icon_id": "col_hearthstone_2",
+      "icon_id": "col_keepsake_ama",
       "art": "col_keepsake_ama",
       "needs_art": false,
       "found_only": true,
@@ -16611,7 +17241,7 @@
         "recruit_id": "marcus_stormbringer",
         "from": "Marcus Okafor"
       },
-      "icon_id": "col_feather_eastern",
+      "icon_id": "col_keepsake_marcus",
       "art": "col_keepsake_marcus",
       "needs_art": false,
       "found_only": true,
@@ -16628,7 +17258,7 @@
         "recruit_id": "sondre_stormbringer",
         "from": "Sondre Haugen"
       },
-      "icon_id": "col_satchel_reagents",
+      "icon_id": "col_keepsake_sondre",
       "art": "col_keepsake_sondre",
       "needs_art": false,
       "found_only": true,
@@ -16645,7 +17275,7 @@
         "recruit_id": "sebastian_bloodmage",
         "from": "Sebastián Cruz"
       },
-      "icon_id": "col_tome_hearth",
+      "icon_id": "col_keepsake_sebastian",
       "art": "col_keepsake_sebastian",
       "needs_art": false,
       "found_only": true,
@@ -16662,7 +17292,7 @@
         "recruit_id": "marco_paladin",
         "from": "Marco Rossi"
       },
-      "icon_id": "col_satchel_bank",
+      "icon_id": "col_keepsake_marco",
       "art": "col_keepsake_marco",
       "needs_art": false,
       "found_only": true,
@@ -16679,7 +17309,7 @@
         "recruit_id": "sophia_mage",
         "from": "Sophia Dias"
       },
-      "icon_id": "col_book_master",
+      "icon_id": "col_keepsake_sophia",
       "art": "col_keepsake_sophia",
       "needs_art": false,
       "found_only": true,
@@ -16696,7 +17326,7 @@
         "recruit_id": "carolina_shaman",
         "from": "Carolina Santos"
       },
-      "icon_id": "col_feather_kalimdor",
+      "icon_id": "col_keepsake_carolina",
       "art": "col_keepsake_carolina",
       "needs_art": false,
       "found_only": true,
@@ -16713,7 +17343,7 @@
         "recruit_id": "ryan_warlock",
         "from": "Ryan Murphy"
       },
-      "icon_id": "col_hearthstone_2",
+      "icon_id": "col_keepsake_ryan",
       "art": "col_keepsake_ryan",
       "needs_art": false,
       "found_only": true,
@@ -16730,7 +17360,7 @@
         "recruit_id": "hana_shaman",
         "from": "Hana Tamihana"
       },
-      "icon_id": "col_heirloom_head",
+      "icon_id": "col_keepsake_hana",
       "art": "col_keepsake_hana",
       "needs_art": false,
       "found_only": true,
@@ -16747,7 +17377,7 @@
         "recruit_id": "esteban_bloodmage",
         "from": "Esteban Ruiz"
       },
-      "icon_id": "col_satchel_reagents",
+      "icon_id": "col_keepsake_esteban",
       "art": "col_keepsake_esteban",
       "needs_art": false,
       "found_only": true,
@@ -16764,7 +17394,7 @@
         "recruit_id": "berat_tinker",
         "from": "Berat Yilmaz"
       },
-      "icon_id": "col_book_professions",
+      "icon_id": "col_keepsake_berat",
       "art": "col_keepsake_berat",
       "needs_art": false,
       "found_only": true,
@@ -16781,7 +17411,7 @@
         "recruit_id": "dan_warrior",
         "from": "Dan Okafor"
       },
-      "icon_id": "col_heirloom_chest",
+      "icon_id": "col_keepsake_dan",
       "art": "col_keepsake_dan",
       "needs_art": false,
       "found_only": true,
@@ -16798,7 +17428,7 @@
         "recruit_id": "marisol_priest",
         "from": "Marisol Quintero"
       },
-      "icon_id": "col_book_master",
+      "icon_id": "col_keepsake_marisol",
       "art": "col_keepsake_marisol",
       "needs_art": false,
       "found_only": true,
@@ -16815,7 +17445,7 @@
         "recruit_id": "silas_rogue",
         "from": "Silas Vance"
       },
-      "icon_id": "col_satchel_bank",
+      "icon_id": "col_keepsake_silas",
       "art": "col_keepsake_silas",
       "needs_art": false,
       "found_only": true,
@@ -16832,7 +17462,7 @@
         "recruit_id": "rosa_hunter",
         "from": "Rosa Delgado"
       },
-      "icon_id": "col_feather_kalimdor",
+      "icon_id": "col_keepsake_rosa",
       "art": "col_keepsake_rosa",
       "needs_art": false,
       "found_only": true,
@@ -16849,7 +17479,7 @@
         "recruit_id": "pavlo_knight",
         "from": "Pavlo Hryn"
       },
-      "icon_id": "col_satchel_reagents",
+      "icon_id": "col_keepsake_pavlo",
       "art": "col_keepsake_pavlo",
       "needs_art": false,
       "found_only": true,
@@ -16866,7 +17496,7 @@
         "recruit_id": "amber_druid",
         "from": "Amber Whitehorse"
       },
-      "icon_id": "col_charm_plant",
+      "icon_id": "col_keepsake_amber",
       "art": "col_keepsake_amber",
       "needs_art": false,
       "found_only": true,
@@ -16883,7 +17513,7 @@
         "recruit_id": "ivan_warrior",
         "from": "Ivan Petrov"
       },
-      "icon_id": "col_satchel_bank",
+      "icon_id": "col_keepsake_ivan",
       "art": "col_keepsake_ivan",
       "needs_art": false,
       "found_only": true,
@@ -16900,7 +17530,7 @@
         "recruit_id": "haruto_runemaster",
         "from": "Haruto Nakamura"
       },
-      "icon_id": "col_book_master",
+      "icon_id": "col_keepsake_haruto",
       "art": "col_keepsake_haruto",
       "needs_art": false,
       "found_only": true,
@@ -16917,7 +17547,7 @@
         "recruit_id": "marta_tinker",
         "from": "Marta Kowalski"
       },
-      "icon_id": "col_satchel_reagents",
+      "icon_id": "col_keepsake_marta",
       "art": "col_keepsake_marta",
       "needs_art": false,
       "found_only": true,
@@ -16934,7 +17564,7 @@
         "recruit_id": "lucia_suncleric",
         "from": "Lúcia Ferreira"
       },
-      "icon_id": "col_title_common",
+      "icon_id": "col_keepsake_lucia",
       "art": "col_keepsake_lucia",
       "needs_art": false,
       "found_only": true,
@@ -16951,7 +17581,7 @@
         "recruit_id": "minh_chronomancer",
         "from": "Minh Tran"
       },
-      "icon_id": "col_courier_horn",
+      "icon_id": "col_keepsake_minh",
       "art": "col_keepsake_minh",
       "needs_art": false,
       "found_only": true,
@@ -16968,7 +17598,7 @@
         "recruit_id": "bakyt_hunter",
         "from": "Bakyt Asanov"
       },
-      "icon_id": "col_charm_bird",
+      "icon_id": "col_keepsake_bakyt",
       "art": "col_keepsake_bakyt",
       "needs_art": false,
       "found_only": true,
@@ -16985,7 +17615,7 @@
         "recruit_id": "matias_reaper",
         "from": "Matías Fuentes"
       },
-      "icon_id": "col_satchel_bank",
+      "icon_id": "col_keepsake_matias",
       "art": "col_keepsake_matias",
       "needs_art": false,
       "found_only": true,
@@ -17002,7 +17632,7 @@
         "recruit_id": "tomas_warrior",
         "from": "Tomas Havel"
       },
-      "icon_id": "col_satchel_reagents",
+      "icon_id": "col_keepsake_tomas",
       "art": "col_keepsake_tomas",
       "needs_art": false,
       "found_only": true,
@@ -17019,7 +17649,7 @@
         "recruit_id": "cristobal_knight",
         "from": "Cristóbal Muñoz"
       },
-      "icon_id": "col_heirloom_head",
+      "icon_id": "col_keepsake_cristobal",
       "art": "col_keepsake_cristobal",
       "needs_art": false,
       "found_only": true,
@@ -17036,7 +17666,7 @@
         "recruit_id": "callum_venomancer",
         "from": "Callum Reid"
       },
-      "icon_id": "col_charm_serpent",
+      "icon_id": "col_keepsake_callum",
       "art": "col_keepsake_callum",
       "needs_art": false,
       "found_only": true,
@@ -17053,7 +17683,7 @@
         "recruit_id": "giorgi_primalist",
         "from": "Giorgi Beridze"
       },
-      "icon_id": "col_peddler_bell",
+      "icon_id": "col_keepsake_giorgi",
       "art": "col_keepsake_giorgi",
       "needs_art": false,
       "found_only": true,
@@ -17070,7 +17700,7 @@
         "recruit_id": "camille_ranger",
         "from": "Camille Roussel"
       },
-      "icon_id": "col_satchel_reagents",
+      "icon_id": "col_keepsake_camille",
       "art": "col_keepsake_camille",
       "needs_art": false,
       "found_only": true,
@@ -17087,7 +17717,7 @@
         "recruit_id": "liam_suncleric",
         "from": "Liam Hartigan"
       },
-      "icon_id": "col_satchel_bank",
+      "icon_id": "col_keepsake_liam",
       "art": "col_keepsake_liam",
       "needs_art": false,
       "found_only": true,
@@ -17104,7 +17734,7 @@
         "recruit_id": "anjali_druid",
         "from": "Anjali Nair"
       },
-      "icon_id": "col_book_professions",
+      "icon_id": "col_keepsake_anjali",
       "art": "col_keepsake_anjali",
       "needs_art": false,
       "found_only": true,
@@ -17121,7 +17751,7 @@
         "recruit_id": "orlando_witchdoctor",
         "from": "Orlando Rivera"
       },
-      "icon_id": "col_satchel_bank",
+      "icon_id": "col_keepsake_orlando",
       "art": "col_keepsake_orlando",
       "needs_art": false,
       "found_only": true,
@@ -17138,7 +17768,7 @@
         "recruit_id": "owen_cultist",
         "from": "Owen Pryce"
       },
-      "icon_id": "col_courier_horn",
+      "icon_id": "col_keepsake_owen",
       "art": "col_keepsake_owen",
       "needs_art": false,
       "found_only": true,
@@ -17155,7 +17785,7 @@
         "recruit_id": "emre_rogue",
         "from": "Emre Kaya"
       },
-      "icon_id": "col_satchel_reagents",
+      "icon_id": "col_keepsake_emre",
       "art": "col_keepsake_emre",
       "needs_art": false,
       "found_only": true,
@@ -17172,7 +17802,7 @@
         "recruit_id": "saoirse_starcaller",
         "from": "Saoirse Ni Bhraonain"
       },
-      "icon_id": "col_charm_beast",
+      "icon_id": "col_keepsake_saoirse",
       "art": "col_keepsake_saoirse",
       "needs_art": false,
       "found_only": true,
@@ -17189,7 +17819,7 @@
         "recruit_id": "pasang_primalist",
         "from": "Pasang Lama"
       },
-      "icon_id": "col_heirloom_two_hand",
+      "icon_id": "col_keepsake_pasang",
       "art": "col_keepsake_pasang",
       "needs_art": false,
       "found_only": true,
@@ -17206,7 +17836,7 @@
         "recruit_id": "nicolas_bloodmage",
         "from": "Nicolás Arce"
       },
-      "icon_id": "col_satchel_reagents",
+      "icon_id": "col_keepsake_nicolas",
       "art": "col_keepsake_nicolas",
       "needs_art": false,
       "found_only": true,
@@ -17223,7 +17853,7 @@
         "recruit_id": "iker_guardian",
         "from": "Iker Etxeberria"
       },
-      "icon_id": "col_heirloom_head",
+      "icon_id": "col_keepsake_iker",
       "art": "col_keepsake_iker",
       "needs_art": false,
       "found_only": true,
@@ -17240,7 +17870,7 @@
         "recruit_id": "mateo_starcaller",
         "from": "Mateo Rojas"
       },
-      "icon_id": "col_feather_eastern",
+      "icon_id": "col_keepsake_mateo",
       "art": "col_keepsake_mateo",
       "needs_art": false,
       "found_only": true,
@@ -17257,7 +17887,7 @@
         "recruit_id": "imelda_primalist",
         "from": "Imelda Salonga"
       },
-      "icon_id": "col_charm_humanoid",
+      "icon_id": "col_keepsake_imelda",
       "art": "col_keepsake_imelda",
       "needs_art": false,
       "found_only": true,
@@ -17274,7 +17904,7 @@
         "recruit_id": "ileana_necromancer",
         "from": "Ileana Dragomir"
       },
-      "icon_id": "col_charm_undead",
+      "icon_id": "col_keepsake_ileana",
       "art": "col_keepsake_ileana",
       "needs_art": false,
       "found_only": true,
@@ -17291,7 +17921,7 @@
         "recruit_id": "rhys_ranger",
         "from": "Rhys Morgan"
       },
-      "icon_id": "col_peddler_bell",
+      "icon_id": "col_keepsake_rhys",
       "art": "col_keepsake_rhys",
       "needs_art": false,
       "found_only": true,
@@ -17308,7 +17938,7 @@
         "recruit_id": "henrik_mage",
         "from": "Henrik Dahl"
       },
-      "icon_id": "col_book_master",
+      "icon_id": "col_keepsake_henrik",
       "art": "col_keepsake_henrik",
       "needs_art": false,
       "found_only": true,
@@ -17325,7 +17955,7 @@
         "recruit_id": "eino_barbarian",
         "from": "Eino Virtanen"
       },
-      "icon_id": "col_charm_plant",
+      "icon_id": "col_keepsake_eino",
       "art": "col_keepsake_eino",
       "needs_art": false,
       "found_only": true,
@@ -17342,7 +17972,7 @@
         "recruit_id": "driss_shaman",
         "from": "Driss Alaoui"
       },
-      "icon_id": "col_satchel_bank",
+      "icon_id": "col_keepsake_driss",
       "art": "col_keepsake_driss",
       "needs_art": false,
       "found_only": true,
@@ -17359,7 +17989,7 @@
         "recruit_id": "thiago_paladin",
         "from": "Thiago Macedo"
       },
-      "icon_id": "col_satchel_reagents",
+      "icon_id": "col_keepsake_thiago",
       "art": "col_keepsake_thiago",
       "needs_art": false,
       "found_only": true,
@@ -17376,7 +18006,7 @@
         "recruit_id": "junseo_reaper",
         "from": "Jun-seo Park"
       },
-      "icon_id": "col_heirloom_head",
+      "icon_id": "col_keepsake_junseo",
       "art": "col_keepsake_junseo",
       "needs_art": false,
       "found_only": true,
@@ -17393,7 +18023,7 @@
         "recruit_id": "skye_pyromancer",
         "from": "Skye Donnelly"
       },
-      "icon_id": "col_hearthstone_2",
+      "icon_id": "col_keepsake_skye",
       "art": "col_keepsake_skye",
       "needs_art": false,
       "found_only": true,
@@ -17410,7 +18040,7 @@
         "recruit_id": "enzo_cultist",
         "from": "Enzo Marchetti"
       },
-      "icon_id": "col_heirloom_chest",
+      "icon_id": "col_keepsake_enzo",
       "art": "col_keepsake_enzo",
       "needs_art": false,
       "found_only": true,
@@ -17427,7 +18057,7 @@
         "recruit_id": "alonso_pyromancer",
         "from": "Alonso Vega"
       },
-      "icon_id": "col_heirloom_head",
+      "icon_id": "col_keepsake_alonso",
       "art": "col_keepsake_alonso",
       "needs_art": false,
       "found_only": true,
@@ -17444,7 +18074,7 @@
         "recruit_id": "vuk_knight",
         "from": "Vuk Jovanović"
       },
-      "icon_id": "col_satchel_bank",
+      "icon_id": "col_keepsake_vuk",
       "art": "col_keepsake_vuk",
       "needs_art": false,
       "found_only": true,
@@ -17461,7 +18091,7 @@
         "recruit_id": "gunnar_barbarian",
         "from": "Gunnar Sigurðsson"
       },
-      "icon_id": "col_book_professions",
+      "icon_id": "col_keepsake_gunnar",
       "art": "col_keepsake_gunnar",
       "needs_art": false,
       "found_only": true,
@@ -17478,7 +18108,7 @@
         "recruit_id": "kourosh_mage",
         "from": "Kourosh Behzadi"
       },
-      "icon_id": "col_book_master",
+      "icon_id": "col_keepsake_kourosh",
       "art": "col_keepsake_kourosh",
       "needs_art": false,
       "found_only": true,
@@ -17495,7 +18125,7 @@
         "recruit_id": "hector_witchdoctor",
         "from": "Héctor Salinas"
       },
-      "icon_id": "col_charm_humanoid",
+      "icon_id": "col_keepsake_hector",
       "art": "col_keepsake_hector",
       "needs_art": false,
       "found_only": true,
@@ -17512,7 +18142,7 @@
         "recruit_id": "ziad_felsworn",
         "from": "Ziad Haddad"
       },
-      "icon_id": "col_satchel_reagents",
+      "icon_id": "col_keepsake_ziad",
       "art": "col_keepsake_ziad",
       "needs_art": false,
       "found_only": true,
@@ -17529,7 +18159,7 @@
         "recruit_id": "ratih_ranger",
         "from": "Ratih Pranoto"
       },
-      "icon_id": "col_satchel_bank",
+      "icon_id": "col_keepsake_ratih",
       "art": "col_keepsake_ratih",
       "needs_art": false,
       "found_only": true,
@@ -17546,7 +18176,7 @@
         "recruit_id": "fiona_witchhunter",
         "from": "Fiona Strachan"
       },
-      "icon_id": "col_peddler_bell",
+      "icon_id": "col_keepsake_fiona",
       "art": "col_keepsake_fiona",
       "needs_art": false,
       "found_only": true,
@@ -17563,7 +18193,7 @@
         "recruit_id": "khalid_hunter",
         "from": "Khalid Al Suwaidi"
       },
-      "icon_id": "col_charm_bird",
+      "icon_id": "col_keepsake_khalid",
       "art": "col_keepsake_khalid",
       "needs_art": false,
       "found_only": true,
@@ -17580,7 +18210,7 @@
         "recruit_id": "delroy_witchdoctor",
         "from": "Delroy Beckford"
       },
-      "icon_id": "col_heirloom_chest",
+      "icon_id": "col_keepsake_delroy",
       "art": "col_keepsake_delroy",
       "needs_art": false,
       "found_only": true,
@@ -17597,7 +18227,7 @@
         "recruit_id": "karim_felsworn",
         "from": "Karim Haddad"
       },
-      "icon_id": "col_satchel_reagents",
+      "icon_id": "col_keepsake_karim",
       "art": "col_keepsake_karim",
       "needs_art": false,
       "found_only": true,
@@ -17614,7 +18244,7 @@
         "recruit_id": "osvaldo_warlock",
         "from": "Osvaldo Beltrán"
       },
-      "icon_id": "col_satchel_bank",
+      "icon_id": "col_keepsake_osvaldo",
       "art": "col_keepsake_osvaldo",
       "needs_art": false,
       "found_only": true,
@@ -17631,7 +18261,7 @@
         "recruit_id": "bashir_witchhunter",
         "from": "Bashir Khalidi"
       },
-      "icon_id": "col_satchel_reagents",
+      "icon_id": "col_keepsake_bashir",
       "art": "col_keepsake_bashir",
       "needs_art": false,
       "found_only": true,
@@ -17648,7 +18278,7 @@
         "recruit_id": "pieter_guardian",
         "from": "Pieter Malan"
       },
-      "icon_id": "col_satchel_bank",
+      "icon_id": "col_keepsake_pieter",
       "art": "col_keepsake_pieter",
       "needs_art": false,
       "found_only": true,
@@ -17665,7 +18295,7 @@
         "recruit_id": "gianluca_guardian",
         "from": "Gianluca Ferri"
       },
-      "icon_id": "col_book_professions",
+      "icon_id": "col_keepsake_gianluca",
       "art": "col_keepsake_gianluca",
       "needs_art": false,
       "found_only": true,
@@ -17682,7 +18312,7 @@
         "recruit_id": "camila_venomancer",
         "from": "Camila Ortega"
       },
-      "icon_id": "col_heirloom_head",
+      "icon_id": "col_keepsake_camila",
       "art": "col_keepsake_camila",
       "needs_art": false,
       "found_only": true,
@@ -17699,7 +18329,7 @@
         "recruit_id": "elias_suncleric",
         "from": "Elias Peralta"
       },
-      "icon_id": "col_book_professions",
+      "icon_id": "col_keepsake_elias",
       "art": "col_keepsake_elias",
       "needs_art": false,
       "found_only": true,
@@ -17716,7 +18346,7 @@
         "recruit_id": "kiet_rogue",
         "from": "Kiet Somsak"
       },
-      "icon_id": "col_satchel_reagents",
+      "icon_id": "col_keepsake_kiet",
       "art": "col_keepsake_kiet",
       "needs_art": false,
       "found_only": true,
@@ -17733,7 +18363,7 @@
         "recruit_id": "rui_cultist",
         "from": "Rui Almeida"
       },
-      "icon_id": "col_satchel_reagents",
+      "icon_id": "col_keepsake_rui",
       "art": "col_keepsake_rui",
       "needs_art": false,
       "found_only": true,
@@ -17750,7 +18380,7 @@
         "recruit_id": "stelios_necromancer",
         "from": "Stelios Dukas"
       },
-      "icon_id": "col_title_common",
+      "icon_id": "col_keepsake_stelios",
       "art": "col_keepsake_stelios",
       "needs_art": false,
       "found_only": true,
@@ -17767,7 +18397,7 @@
         "recruit_id": "nizar_chronomancer",
         "from": "Nizar Haddad"
       },
-      "icon_id": "col_hearthstone_2",
+      "icon_id": "col_keepsake_nizar",
       "art": "col_keepsake_nizar",
       "needs_art": false,
       "found_only": true,
@@ -17784,7 +18414,7 @@
         "recruit_id": "yusuf_venomancer",
         "from": "Yusuf Al-Rawi"
       },
-      "icon_id": "col_satchel_bank",
+      "icon_id": "col_keepsake_yusuf",
       "art": "col_keepsake_yusuf",
       "needs_art": false,
       "found_only": true,
@@ -17801,7 +18431,7 @@
         "recruit_id": "reka_necromancer",
         "from": "Réka Farkas"
       },
-      "icon_id": "col_charm_humanoid",
+      "icon_id": "col_keepsake_reka",
       "art": "col_keepsake_reka",
       "needs_art": false,
       "found_only": true,
@@ -17818,7 +18448,7 @@
         "recruit_id": "ramiro_primalist",
         "from": "Ramiro Quispe"
       },
-      "icon_id": "col_hearthstone_2",
+      "icon_id": "col_keepsake_ramiro",
       "art": "col_keepsake_ramiro",
       "needs_art": false,
       "found_only": true,
@@ -17835,7 +18465,7 @@
         "recruit_id": "graham_warlock",
         "from": "Graham Ashworth"
       },
-      "icon_id": "col_hearthstone_2",
+      "icon_id": "col_keepsake_graham",
       "art": "col_keepsake_graham",
       "needs_art": false,
       "found_only": true,
@@ -17852,7 +18482,7 @@
         "recruit_id": "elie_bloodmage",
         "from": "Elie Khoury"
       },
-      "icon_id": "col_satchel_reagents",
+      "icon_id": "col_keepsake_elie",
       "art": "col_keepsake_elie",
       "needs_art": false,
       "found_only": true,
@@ -17869,7 +18499,7 @@
         "recruit_id": "bruno_templar",
         "from": "Bruno Teixeira"
       },
-      "icon_id": "col_charm_humanoid",
+      "icon_id": "col_keepsake_bruno",
       "art": "col_keepsake_bruno",
       "needs_art": false,
       "found_only": true,
@@ -17886,7 +18516,7 @@
         "recruit_id": "joaquin_suncleric",
         "from": "Joaquín Duarte"
       },
-      "icon_id": "col_satchel_reagents",
+      "icon_id": "col_keepsake_joaquin",
       "art": "col_keepsake_joaquin",
       "needs_art": false,
       "found_only": true,
@@ -17903,7 +18533,7 @@
         "recruit_id": "astrid_starcaller",
         "from": "Astrid Nyström"
       },
-      "icon_id": "col_feather_eastern",
+      "icon_id": "col_keepsake_astrid",
       "art": "col_keepsake_astrid",
       "needs_art": false,
       "found_only": true,
@@ -17920,7 +18550,7 @@
         "recruit_id": "luka_stormbringer",
         "from": "Luka Perić"
       },
-      "icon_id": "col_courier_horn",
+      "icon_id": "col_keepsake_luka",
       "art": "col_keepsake_luka",
       "needs_art": false,
       "found_only": true,
@@ -17937,7 +18567,7 @@
         "recruit_id": "zofia_cultist",
         "from": "Zofia Nowak"
       },
-      "icon_id": "col_satchel_reagents",
+      "icon_id": "col_keepsake_zofia",
       "art": "col_keepsake_zofia",
       "needs_art": false,
       "found_only": true,
@@ -17954,7 +18584,7 @@
         "recruit_id": "omar_venomancer",
         "from": "Sherif Gamal"
       },
-      "icon_id": "col_charm_insect",
+      "icon_id": "col_keepsake_omar",
       "art": "col_keepsake_omar",
       "needs_art": false,
       "found_only": true,
@@ -17971,7 +18601,7 @@
         "recruit_id": "santiago_runemaster",
         "from": "Santiago Ríos"
       },
-      "icon_id": "col_satchel_bank",
+      "icon_id": "col_keepsake_santiago",
       "art": "col_keepsake_santiago",
       "needs_art": false,
       "found_only": true,
@@ -17988,7 +18618,7 @@
         "recruit_id": "emiliano_pyromancer",
         "from": "Emiliano Vargas"
       },
-      "icon_id": "col_satchel_reagents",
+      "icon_id": "col_keepsake_emiliano",
       "art": "col_keepsake_emiliano",
       "needs_art": false,
       "found_only": true,
@@ -18005,7 +18635,7 @@
         "recruit_id": "mohammed_chronomancer",
         "from": "Mohammed Saleh"
       },
-      "icon_id": "col_satchel_bank",
+      "icon_id": "col_keepsake_mohammed",
       "art": "col_keepsake_mohammed",
       "needs_art": false,
       "found_only": true,
@@ -18022,7 +18652,7 @@
         "recruit_id": "tobias_paladin",
         "from": "Tobias Keller"
       },
-      "icon_id": "col_book_professions",
+      "icon_id": "col_keepsake_tobias",
       "art": "col_keepsake_tobias",
       "needs_art": false,
       "found_only": true,
@@ -18039,7 +18669,7 @@
         "recruit_id": "isla_witchhunter",
         "from": "Isla Fraser"
       },
-      "icon_id": "col_heirloom_chest",
+      "icon_id": "col_keepsake_isla",
       "art": "col_keepsake_isla",
       "needs_art": false,
       "found_only": true,
@@ -18056,7 +18686,7 @@
         "recruit_id": "taras_witchhunter",
         "from": "Taras Kovalenko"
       },
-      "icon_id": "col_charm_undead",
+      "icon_id": "col_keepsake_taras",
       "art": "col_keepsake_taras",
       "needs_art": false,
       "found_only": true,
@@ -18073,7 +18703,7 @@
         "recruit_id": "mariana_priest",
         "from": "Mariana Treviño"
       },
-      "icon_id": "col_peddler_bell",
+      "icon_id": "col_keepsake_mariana",
       "art": "col_keepsake_mariana",
       "needs_art": false,
       "found_only": true,
@@ -18090,7 +18720,7 @@
         "recruit_id": "dale_reaper",
         "from": "Dale Brekke"
       },
-      "icon_id": "col_charm_plant",
+      "icon_id": "col_keepsake_dale",
       "art": "col_keepsake_dale",
       "needs_art": false,
       "found_only": true,
@@ -18107,7 +18737,7 @@
         "recruit_id": "wes_warrior",
         "from": "Wes Dahlberg"
       },
-      "icon_id": "col_heirloom_head",
+      "icon_id": "col_keepsake_wes",
       "art": "col_keepsake_wes",
       "needs_art": false,
       "found_only": true,
@@ -18124,7 +18754,7 @@
         "recruit_id": "neil_felsworn",
         "from": "Neil Hartley"
       },
-      "icon_id": "col_title_common",
+      "icon_id": "col_keepsake_neil",
       "art": "col_keepsake_neil",
       "needs_art": false,
       "found_only": true,
@@ -18141,7 +18771,7 @@
         "recruit_id": "valentina_starcaller",
         "from": "Valentina Soto"
       },
-      "icon_id": "col_feather_kalimdor",
+      "icon_id": "col_keepsake_valentina",
       "art": "col_keepsake_valentina",
       "needs_art": false,
       "found_only": true,
@@ -18158,7 +18788,7 @@
         "recruit_id": "faris_shaman",
         "from": "Faris Al-Tamimi"
       },
-      "icon_id": "col_charm_serpent",
+      "icon_id": "col_keepsake_faris",
       "art": "col_keepsake_faris",
       "needs_art": false,
       "found_only": true,

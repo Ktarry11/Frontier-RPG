@@ -542,6 +542,12 @@ EXALTED_MOUNTS = (
      "A crow as tall as a horse, glossy blue-black, silver moons on its harness."),
     ("the_wakened", "wakened_dream_jackalope", "Dream Jackalope",
      "A sleepy giant rabbit with small antlers and glowing flowers in its fur."),
+    # sheet H14 (20 Nov 2026): the factions that came after H11 to H13. The same sheet drew the Aetherians' Lumen Stag,
+    # Kyr'vahl's Galestrider and Ul'Kharad's Stoneback Aurochs (assets/mounts); they join this list with their factions.
+    ("feathermoon_sentinels", "feathermoon_war_owl", "Feathermoon War Owl",
+     "A snowy owl as big as a horse, in violet and silver barding with crescent moons on its chest."),
+    ("highbough_tribes", "highbough_cloudtop_wyvern", "Cloudtop Wyvern",
+     "A wild wyvern off the Upper Boughs, tamed the way Gu'lok tames them, in teal and red with a heartwood saddle."),
 )
 for fid, cid, name, blurb in EXALTED_MOUNTS:
     add(cid, f"Reins of the {name}", "mount", 100, "epic", f"{blurb} Sold at Exalted with {_FACTIONS[fid]['name']}.",

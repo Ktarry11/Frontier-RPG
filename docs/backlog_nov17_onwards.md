@@ -189,17 +189,18 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
   the first was used) and I1 (an icon per look), H9 and H10 (the twelve wild mounts: each drops at 5% from one
   open-world rare that fits it, `tools/build_collection.py` WILD_MOUNTS) and H11 to H13 (sixteen Exalted mounts, 100g
   each from the faction's first quartermaster once you're Exalted; bound to the buyer like every rep item).
-- **Still waiting on**: I2 (the mounts' own reins; all 28 show a stand-in reins picture until then) and M2 (Master
-  crafting icons).
-- **The Feathermoon Sentinels have no Exalted mount** (they joined after H11 to H13 were written). Needs a mount and
-  its prompt: one sheet-cell in the H11 style.
+- **Landed 20 Nov (the art backlog, `docs/art_backlog_2026_11_20.md`)**: I2 (28 reins), M2 (36 Master crafting icons), H14
+  (the Feathermoon War Owl and the Cloudtop Wyvern at Exalted, and the Aetherians', Kyr'vahl's and Ul'Kharad's mounts
+  drawn and waiting for their factions), I3 (their reins and five tabards) and K1 to K3 (all 98 keepsakes). Two
+  keepsakes came back as the wrong object and can be re-rolled any time: Esteban's radiation badge (drawn as a sheriff's
+  star) and Emre's first lock pick (drawn as a pickaxe).
+- **The Feathermoon Sentinels' Exalted mount**: done (the Feathermoon War Owl, sheet H14).
 - **Class forms in combat**: since 18 Nov a shifter walks the map as their form (assets/forms); the combat screen
   still shows the person. Kyle asked for "out of combat" only, so this is a question, not a bug. The Tinker's
   Mechsuit is only ever worn inside a fight, so its picture and its three looks (sheet F9, 20 Nov) are drawn but
   never shown; the looks are held off the AH (`HELD_LOOKS` in `tools/build_collection.py`) until this is decided.
 - **The professions screen's own art**: tab art, frames and station art.
-- **Keepsake icons, 98** (one per recruit, `data/npcs/keepsakes.json` names each `col_keepsake_<name>`): every one
-  shows a stand-in. The prompt sheets aren't written yet (about three sheets of 36).
+- **Keepsake icons, 98**: landed 20 Nov (K1 to K3).
 - **Walk cycles**: rolling out sheet by sheet by playable race (claude/walk_cycle_prompts.md).
 - **The recoloured T0 set versions** are plain hue turns (some gold sets come out lime). Kyle's eye.
 

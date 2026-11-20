@@ -13,8 +13,8 @@ tools/build_lower_boughs_quests.py), which write the faction's `also` list; writ
 
 The quartermaster (gs_quartermaster, tools/build_great_settlement.py) gives and takes no quests, so she can move.
 
-THE MOUNT isn't here yet: the Exalted mounts were drawn before the tribes existed (sheets H11 to H13), like the
-Sentinels'. It needs its own sheet cell (docs/backlog_nov17_onwards.md, section 10).
+THE MOUNT is the Cloudtop Wyvern (sheet H14, 20 Nov 2026), listed with the other Exalted mounts in
+tools/build_collection.py.
 """
 import copy
 import json
@@ -138,7 +138,7 @@ def main():
         "Gates, not a displayed ladder (the faction panel stays information only).",
         "TBC-style shelf (tools/build_highbough_tribes.py, 20 Nov 2026): friendly the tribes' Heartsap Tonic, honored "
         "a neck piece and a pattern, revered six ilvl 67 blues and a pattern, exalted three ilvl 73 epics and two "
-        "recipes. The Exalted mount waits for its art."]
+        "recipes, and the Cloudtop Wyvern at Exalted."]
     BM.save("data/factions/factions.json", fd)
     BM.save("data/items/faction_rewards.json", fr)
     BM.save("data/items/crafted_icons.json", picks)

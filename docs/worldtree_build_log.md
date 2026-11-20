@@ -114,7 +114,7 @@ pairs of profession trainers. 31 people and the mailbox (`tools/build_great_sett
 
 **The Highbough Tribes** (`tools/build_highbough_tribes.py`): the shelf at the quartermaster, the TBC way: Heartsap
 Tonic at Friendly, a neck piece and a pattern at Honored, six ilvl 67 blues and a pattern at Revered, three ilvl 73 epics
-and two recipes at Exalted, and a teal and red tabard. The mount waits for its art.
+and two recipes at Exalted, and a teal and red tabard. The mount is the Cloudtop Wyvern (sheet H14).
 
 **The quests:** 12, every one given in the city, 9 paying the tribes and 1 paying Orgrimmar. Threads: the audience
 (Ozenna's pass to Zan'kaji, then the Bloodscalp war leaders below); Horde ground (the envoy's year-long wait ends, and

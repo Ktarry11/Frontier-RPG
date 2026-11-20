@@ -1,5 +1,8 @@
 # Frontier art backlog (20 Nov 2026)
 
+**Landed 20 Nov, the same afternoon: H14, I3, I2, M2 and K1 to K3, all sliced and in the game.** What's left is the new
+player sprites (`docs/player_sprite_prompts.md`), then walk cycles on them.
+
 Everything waiting on art, ready to paste into ChatGPT one sheet at a time. Each sheet says what to attach as the style
 reference, the block to paste, and how it's sliced when it comes back (send the sheets back here and I'll slice and
 wire them).

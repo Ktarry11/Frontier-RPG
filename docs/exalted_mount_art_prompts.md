@@ -6,7 +6,7 @@ as the other mount sheets. Slice with `tools/asset_pipeline/slice_mount_sheet.py
 `war_kodo_left.png` and `rune_saber_down.png` as the style reference.
 
 ---------------------------------------------------------------------
-**Landed 20 Nov 2026**: H11 to H13 are sliced (`assets/mounts`) and built: 100g from each faction's first quartermaster at Exalted. I2 (reins) is still to come. The Feathermoon Sentinels, added after these sheets, have no mount yet.
+**Landed 20 Nov 2026**: H11 to H13 are sliced (`assets/mounts`) and built: 100g from each faction's first quartermaster at Exalted. I2 (reins) landed 20 Nov too, and sheet H14 drew the factions that came after (`docs/art_backlog_2026_11_20.md`). The Feathermoon Sentinels, added after these sheets, have no mount yet.
 
 ## SHEET H11: Exalted mounts, part 1  (paste this whole block)
 
