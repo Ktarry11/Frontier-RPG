@@ -180,6 +180,12 @@ One way up, a rope ladder and branches in thick white fog that thins as you clim
 the zone's panorama card (BK7, the troll lookout over the cloud sea) shows once, and you're on the Crown. It's the one
 map in the game built only to be walked through, and that's the point: the moment the ground ends.
 
+**The mural and the Crown** (Kyle, 20 Nov 2026): the ladder ends in a chamber of living wood closed by an old stone wall
+painted with the three sky peoples under a golden sun. Walking up to it plays the game's first cutscene, once per
+character: the mural crumbles, golden light floods the room, you step out onto the crown, look over the edge at a tiny
+Stranglethorn miles below, then turn to see the countless islands and the capital. That replaces the panorama card
+here. The design, the shots and the art prompts (sheet CS) are in `docs/crown_cutscene.md`.
+
 **After the Crown, travel is by air.** You can't walk off the tree: the Aetherian continent's islands are reached by the
 Aetherian survey skiff, offered once first contact is made, then by sky-skiffs between the islands (each sky zone's
 flight path). The other two continents, when they're built, are a long way off, as far as Kalimdor is from the Eastern
