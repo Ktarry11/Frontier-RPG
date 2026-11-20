@@ -299,7 +299,9 @@ Sliced by `PYTHONPATH=. python3 tools/asset_pipeline/slice_player_sheet.py SHEET
 cycles for every human, orc, blood elf, Forsaken and tauren look (`tools/building_sheets/walk_*.png`). The references were
 each race's turnaround cut into its first three and last two men, one picture each. Blood elves 1 to 3 came back with
 five rows, missing the last walking-right step, so they walk front and back and stand still sideways until that
-sheet is re-rolled. The Veyr and the Aetherians are next.
+sheet is re-rolled. The Veyr and the Aetherians landed the same afternoon: all five Veyr walk every way; Aetherians 4
+and 5 do too, and Aetherians 1 to 3 walk front and back (their first walking-right row came back cut off at the knees,
+so their side walk is left out until that sheet is re-rolled).
 
 Kyle, 20 Nov 2026: "when i upload to chatgpt i can only upload 3 pics....so can we bunch these characters up". The
 race's own turnaround sheet already has all five men turned four ways in ONE picture, so it's the only reference
