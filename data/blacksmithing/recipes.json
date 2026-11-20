@@ -13207,6 +13207,57 @@
           "block_value": 0
         }
       }
+    },
+    "rep_fms_island_gauntlets": {
+      "name": "Island Plate Gauntlets",
+      "inputs": {
+        "bar_frostforged_silver": 6,
+        "flux_strong": 1
+      },
+      "skill_required": 305,
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "stat_template": "str_physical",
+        "item_level": 66,
+        "rarity": "rare",
+        "material_tier": "frostforged_silver",
+        "identity": "tank",
+        "flavor": "Feathermoon's armoury makes these for the Sentinels who hold the gate, pale and heavy and sure.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "plate",
+        "item": {
+          "name": "Island Plate Gauntlets",
+          "slot": "hands",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 21,
+            "strength": 9
+          },
+          "secondary_stats": {
+            "defense_rating": 18
+          },
+          "armor_value": 407,
+          "required_level": 60,
+          "sell_price": 14852,
+          "flavor_text": "Feathermoon's armoury makes these for the Sentinels who hold the gate, pale and heavy and sure.",
+          "identity": "tank",
+          "icon_id": "gear_wow_hands_104_2"
+        }
+      },
+      "skill_range": [
+        308,
+        313,
+        318,
+        323
+      ],
+      "source": "vendor",
+      "faction": "feathermoon_sentinels"
     }
   }
 }

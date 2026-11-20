@@ -83,14 +83,16 @@ def main():
     import build_sunreach_conclave as SC          # the Sunreach Conclave (18 Nov 2026)
     import build_liquidators as LQ          # Deadwind's Liquidators (18 Nov 2026)
     import build_moonglade as MGF           # Moonglade's Cenarion Circle and the Wakened (18 Nov 2026)
-    QMS = {**B.QM, **PR.QM, TM.FID: TM.QM_ID, SC.FID: SC.QM, LQ.FID: LQ.QM, **MGF.QM}
+    import build_feathermoon_sentinels as FMS   # Feralas's Feathermoon Sentinels (19 Nov 2026)
+    QMS = {**B.QM, **PR.QM, TM.FID: TM.QM_ID, SC.FID: SC.QM, LQ.FID: LQ.QM, **MGF.QM, **FMS.QM}
     REVERED = {**B.REVERED, **PR.REVERED, TM.FID: TM.REVERED, SC.FID: SC.REVERED, LQ.FID: LQ.REVERED,
-               **MGF.REVERED}
+               **MGF.REVERED, **FMS.REVERED}
     EXALTED = {**B.EXALTED, **PR.EXALTED, TM.FID: TM.EXALTED, SC.FID: SC.EXALTED, LQ.FID: LQ.EXALTED,
-               **MGF.EXALTED}
+               **MGF.EXALTED, **FMS.EXALTED}
     EXALTED_RECIPES = {**B.EXALTED_RECIPES, **PR.EXALTED_RECIPES, TM.FID: TM.EXALTED_RECIPES,
                        SC.FID: [r[:8] for r in SC.EXALTED_RECIPES], LQ.FID: [r[:8] for r in LQ.EXALTED_RECIPES],
-                       **{f: [r[:8] for r in v] for f, v in MGF.EXALTED_RECIPES.items()}}
+                       **{f: [r[:8] for r in v] for f, v in MGF.EXALTED_RECIPES.items()},
+                       **{f: [r[:8] for r in v] for f, v in FMS.EXALTED_RECIPES.items()}}
     shelved = {fid for fid, f in fd.items() if not f.get("secret") and (f.get("rewards") or {}).get("vendor_stock")}
     check(shelved <= set(QMS), f"factions with a shelf this check doesn't know: {sorted(shelved - set(QMS))}")
     totals = {"blue": 0, "epic": 0, "recipes": 0}

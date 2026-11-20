@@ -3684,6 +3684,256 @@
       "block_value": 0,
       "price": 3000000,
       "faction": "the_wakened"
+    },
+    "fms_feathermoon_crescent": {
+      "name": "Feathermoon Crescent",
+      "slot": "neck",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "attack_power": 35
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 42500,
+      "flavor_text": "A silver crescent on a cord of braided hippogryph feather. Every Sentinel on the walls wears one.",
+      "identity": "agility",
+      "icon_id": "gear_inv_jewelry_necklace_07",
+      "price": 340000,
+      "faction": "feathermoon_sentinels"
+    },
+    "fms_huntress_jerkin": {
+      "name": "Feathermoon Huntress Jerkin",
+      "slot": "chest",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 22,
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "attack_power": 57
+      },
+      "armor_value": 216,
+      "required_level": 60,
+      "sell_price": 72500,
+      "flavor_text": "Cut close for running the coast at night, and dyed the deep violet of the island's banners.",
+      "identity": "agility",
+      "icon_id": "gear_inv_chest_leather_06",
+      "price": 580000,
+      "faction": "feathermoon_sentinels"
+    },
+    "fms_moonsilk_cowl": {
+      "name": "Sentinel's Moonsilk Cowl",
+      "slot": "head",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 21
+      },
+      "secondary_stats": {
+        "spell_power": 49
+      },
+      "armor_value": 91,
+      "required_level": 60,
+      "sell_price": 65000,
+      "flavor_text": "Worn by the priestesses who keep the moonwell, with a hood deep enough to hide the face in a storm.",
+      "identity": "caster",
+      "icon_id": "gear_inv_helmet_19",
+      "price": 520000,
+      "faction": "feathermoon_sentinels"
+    },
+    "fms_tidewatch_greaves": {
+      "name": "Tidewatch Greaves",
+      "slot": "legs",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 32,
+        "strength": 13
+      },
+      "secondary_stats": {
+        "defense_rating": 25
+      },
+      "armor_value": 540,
+      "required_level": 60,
+      "sell_price": 70000,
+      "flavor_text": "Pale plate for the Sentinels who hold the sandbar to Sardor Isle, built to stand in the surf.",
+      "identity": "tank",
+      "icon_id": "gear_inv_pants_13",
+      "price": 560000,
+      "faction": "feathermoon_sentinels"
+    },
+    "fms_owlfeather_spaulders": {
+      "name": "Owlfeather Spaulders",
+      "slot": "shoulder",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "agility": 16,
+        "intellect": 13
+      },
+      "secondary_stats": {
+        "attack_power": 49
+      },
+      "armor_value": 293,
+      "required_level": 60,
+      "sell_price": 65000,
+      "flavor_text": "Mail trimmed with owl feathers, so a huntress can turn her head without a sound.",
+      "identity": "hunter",
+      "icon_id": "gear_inv_shoulder_31",
+      "price": 520000,
+      "faction": "feathermoon_sentinels"
+    },
+    "fms_band_of_the_island": {
+      "name": "Band of the Island",
+      "slot": "ring",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 10,
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "healing_power": 43
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 60000,
+      "flavor_text": "Carved from the pale stone of Feathermoon's walls. It's said the island never lets its sisters drown.",
+      "identity": "healer",
+      "icon_id": "gear_inv_jewelry_ring_26",
+      "price": 480000,
+      "faction": "feathermoon_sentinels"
+    },
+    "fms_sardor_watch_bracers": {
+      "name": "Sardor Watch Bracers",
+      "slot": "wrist",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 13
+      },
+      "secondary_stats": {
+        "healing_power": 62
+      },
+      "armor_value": 253,
+      "required_level": 60,
+      "sell_price": 57500,
+      "flavor_text": "The healers who wade out to the sandbar wear these, so the sea can't take the tools from their hands.",
+      "identity": "tide_healer",
+      "icon_id": "gear_inv_bracer_07",
+      "price": 460000,
+      "faction": "feathermoon_sentinels"
+    },
+    "fms_feathermoon_greatbow": {
+      "name": "Feathermoon Moonbolt Crossbow",
+      "slot": "ranged",
+      "item_level": 68,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "crossbow",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 17
+      },
+      "secondary_stats": {
+        "attack_power": 46,
+        "crit_chance_physical": 17
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 375000,
+      "flavor_text": "The Sentinels on the walls of Feathermoon keep these for the long shots out over the water, where a bow can't reach.",
+      "identity": "hunter_crit",
+      "icon_id": "gear_inv_weapon_crossbow_08",
+      "weapon_damage_min": 129,
+      "weapon_damage_max": 174,
+      "attack_speed": 2.4,
+      "block_value": 0,
+      "price": 3000000,
+      "faction": "feathermoon_sentinels"
+    },
+    "fms_crescent_glaive": {
+      "name": "Crescent Moonblade",
+      "slot": "main_hand",
+      "item_level": 68,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "sword_1h",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 24
+      },
+      "secondary_stats": {
+        "attack_power": 61,
+        "crit_chance_physical": 24
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 362500,
+      "flavor_text": "A curved Sentinel blade, light enough to throw and balanced to come back to the hand that knows it.",
+      "identity": "rogue_crit",
+      "icon_id": "gear_inv_sword_47",
+      "weapon_damage_min": 151,
+      "weapon_damage_max": 205,
+      "attack_speed": 2.4,
+      "block_value": 0,
+      "price": 2900000,
+      "faction": "feathermoon_sentinels"
+    },
+    "fms_staff_of_the_watchful_moon": {
+      "name": "Staff of the Watchful Moon",
+      "slot": "main_hand",
+      "item_level": 68,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "staff",
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 35,
+        "spirit": 28
+      },
+      "secondary_stats": {
+        "healing_power": 156
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 387500,
+      "flavor_text": "Kindal Moonweaver's own staff, or one cut to the same pattern. It hums when the tide turns.",
+      "identity": "high_healer",
+      "icon_id": "gear_epic_staff_3",
+      "weapon_damage_min": 83,
+      "weapon_damage_max": 112,
+      "attack_speed": 3.2,
+      "block_value": 0,
+      "price": 3100000,
+      "faction": "feathermoon_sentinels"
     }
   }
 }

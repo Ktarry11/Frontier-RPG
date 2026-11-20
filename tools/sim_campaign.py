@@ -414,6 +414,7 @@ def main():
     ap.add_argument("--json")
     ap.add_argument("--rares-only", action="store_true")
     ap.add_argument("--no-rares", action="store_true")
+    ap.add_argument("--zones", help="census only the rares of these zones, comma separated (e.g. a new zone's maps)")
     args = ap.parse_args()
     import pygame
     pygame.init()
@@ -422,6 +423,9 @@ def main():
         gen = LootGenerator()
     world = World()
     specs = [tuple(s.split(":")) for s in args.specs.split(",")]
+    if args.zones:
+        keep = set(args.zones.split(","))
+        world.rares = [r for r in world.rares if r[1] in keep]
     print(f"{len(world.quests)} quests ({world.hidden_quests} in hidden places left out), "
           f"{len(world.enc)} open-world zones, {len(world.rares)} subzone rares")
     out = {"runs": {}, "rares": []}

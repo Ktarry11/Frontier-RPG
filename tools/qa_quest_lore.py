@@ -133,7 +133,11 @@ LORE = re.compile(
     r"back home in\b|where we came from|\bin (1954|1957|1986|1987)\b|"
     # Moonglade's Wakened (18 Nov 2026) name where they came from and the languages they dream in
     r"\b(Trondheim|Isle of Lewis|Buffalo|Lagos|Porto|Chengdu|Sichuanese|Mandarin|Norwegian|Yoruba)\b|"
-    r"the worlds came together", re.I)
+    r"the worlds came together|"
+    # "The merge" is the natives' word for it (Feralas, 19 Nov 2026: "since the merge", "before the merge"), and the
+    # settlers of Cedar Hollow name the Pacific Northwest they came from
+    r"\bthe merge\b|\b(Olympic National Park|Forks, Washington|Tacoma|Portland State|Pacific Northwest|"
+    r"North America|Washington)\b", re.I)
 
 #: Named by claude/quest_writing_guide.md as the tics that make quest text read as filler.
 TICS = {

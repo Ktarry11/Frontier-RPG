@@ -3481,6 +3481,24 @@
       "stat_bonuses": {
         "spirit": 25
       }
+    },
+    {
+      "consumable_id": "fms_sentinel_draught",
+      "name": "Sentinel's Draught",
+      "consumable_type": "elixir",
+      "description": "The bitter moonberry draught the Sentinels drink before a night on the walls. +20 Agility for 30 minutes. Battle elixir: one at a time.",
+      "effect_value": 0,
+      "effect_duration": 1800,
+      "level_multiplier": 0.0,
+      "required_level": 46,
+      "cooldown_seconds": 5,
+      "stack_limit": 20,
+      "vendor_price": 0,
+      "sell_price": 80,
+      "buff_category": "battle",
+      "stat_bonuses": {
+        "agility": 20
+      }
     }
   ],
   "food": [

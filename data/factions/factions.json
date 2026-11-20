@@ -267,7 +267,44 @@
           "az_orgrimmars_hand",
           "az_boars_for_the_hold",
           "az_the_moonguard_revenant",
-          "dw_the_runners_cart"
+          "dw_the_runners_cart",
+          "fe_down_off_the_mountain",
+          "fe_wolves_on_the_trail",
+          "fe_twice_the_mouths",
+          "fe_more_bedrolls_than_beds",
+          "fe_the_nine_names",
+          "fe_what_the_grimtotem_took",
+          "fe_harroks_totem",
+          "fe_raise_it_here",
+          "fe_the_list",
+          "fe_the_crossed_off_names",
+          "fe_woodpaw_in_the_hills",
+          "fe_snares_on_the_trail",
+          "fe_the_rattles_go_quiet",
+          "fe_grimfang",
+          "fe_belly_hides",
+          "fe_old_grizzlegut",
+          "fe_khadgars_whisker",
+          "fe_darters_at_the_roost",
+          "fe_ogres_on_the_arm_road",
+          "fe_what_the_mages_carry",
+          "fe_the_gate",
+          "fe_report_to_orgrimmar",
+          "fe_gashtok",
+          "fe_mounds_in_the_forest",
+          "fe_resin_for_sale",
+          "fe_where_the_line_goes",
+          "fe_into_the_hive",
+          "fe_the_deep_mother",
+          "fe_the_dig_head",
+          "fe_through_to_the_other_side",
+          "fe_down_from_the_hold",
+          "fe_what_drove_them_out",
+          "fe_the_old_bull",
+          "fe_a_lesson_in_the_wilds",
+          "fe_goldthorn_for_the_fever",
+          "fe_spears_at_the_wind_riders",
+          "fe_word_to_hadoken"
         ]
       },
       "kill_rep": {
@@ -3102,6 +3139,105 @@
         "_comment": [
           "Gates, not a displayed ladder (the faction panel stays information only).",
           "TBC-style shelf (tools/build_moonglade.py, 18 Nov 2026): friendly the faction's supply, honored a neck piece and a pattern, revered six ilvl 67 blues and a pattern, exalted three ilvl 73 epics and two recipes."
+        ],
+        "quests": {}
+      }
+    },
+    "feathermoon_sentinels": {
+      "name": "The Feathermoon Sentinels",
+      "description": "The night elf Sentinels of Feathermoon Stronghold, holding Feralas's coast from their island since long before the merge.",
+      "home_zone": "feathermoon_stronghold",
+      "home_name": "Feathermoon Stronghold, on its island off the Forgotten Coast",
+      "leader": {
+        "title": "General",
+        "name": "Shandris Feathermoon",
+        "npc_id": "fm_shandris",
+        "location": "Before the great hall, Feathermoon Stronghold",
+        "line": "I've held this island through wars that would have ended your world twice over. If you're here to help, there's work, and the Sentinels remember who helped."
+      },
+      "_lore_note": "Kyle, 19 Nov 2026: Feralas gets the Feathermoon Sentinels as its new faction; Mojache pays Orgrimmar. docs/feralas_brief.md.",
+      "lore": [
+        "The Sentinels have kept Feathermoon Stronghold on its island off the Forgotten Coast for longer than most nations on Earth have existed. Shandris Feathermoon, General of the Sentinel Army, commands it herself.",
+        "When the worlds merged, a forest from somewhere else grew up on the coast in a single night, and a few of the people who came with it built a hollow under its trees. The Sentinels watched them from the walls for two years before they decided what to make of them.",
+        "Now the Hatecrest naga come up the beaches at night to dig in the old Highborne ruins, the Gordunni dig at Isildien, and the Sentinels have more coast to hold than they have sisters to hold it. Transplants are factionless, so Shandris lets them land and work, and remembers who does it well."
+      ],
+      "quest_rep": {
+        "_comment": "Per quest, paid by giver (tools/build_feralas_quests.py).",
+        "default": 225,
+        "boss": 250,
+        "capstones": {},
+        "zones": [],
+        "also": [
+          "fe_the_crossing",
+          "fe_the_hatecrest_shore",
+          "fe_sardor_isle",
+          "fe_orders_for_the_watch",
+          "fe_night_diggers",
+          "fe_makrura_on_the_beach",
+          "fe_tidelord_ssaravel",
+          "fe_hydras_on_sardor",
+          "fe_what_isildien_was",
+          "fe_ogres_in_the_dome",
+          "fe_pages_from_the_dome",
+          "fe_the_diggers",
+          "fe_trees_that_dont_answer",
+          "fe_vouching_for_the_hollow",
+          "fe_the_hippogryphs_are_restless",
+          "fe_antilus_the_soarer",
+          "fe_chimaeras_and_the_boats",
+          "fe_what_drove_them",
+          "fe_skull_taker_murg",
+          "fe_lotus_for_the_draughts",
+          "fe_ravenwinds_diggers",
+          "fe_guardians_of_the_ruin",
+          "fe_lady_szaressa",
+          "fe_warm_roots",
+          "fe_darters_at_the_bough",
+          "fe_walkers_under_the_arches",
+          "fe_tell_moonglade",
+          "fe_the_old_walker",
+          "fe_makrura_for_the_pot",
+          "fe_smoked_elk_for_the_inn",
+          "fe_highland_nests",
+          "fe_watch_fires",
+          "fe_stalkers_on_the_north_coast",
+          "fe_windwings_over_the_arches",
+          "fe_the_road_under_ravenwind"
+        ]
+      },
+      "rewards": {
+        "vendor_stock": {
+          "fm_quartermaster": {
+            "friendly": [
+              "unique:tabard_feathermoon_sentinels",
+              "fms_sentinel_draught"
+            ],
+            "honored": [
+              "flask_mending",
+              "unique:fms_feathermoon_crescent",
+              "rep_fms_tidewatch_bracers"
+            ],
+            "revered": [
+              "unique:fms_huntress_jerkin",
+              "unique:fms_moonsilk_cowl",
+              "unique:fms_tidewatch_greaves",
+              "unique:fms_owlfeather_spaulders",
+              "unique:fms_band_of_the_island",
+              "unique:fms_sardor_watch_bracers",
+              "rep_fms_island_gauntlets"
+            ],
+            "exalted": [
+              "unique:fms_feathermoon_greatbow",
+              "unique:fms_crescent_glaive",
+              "unique:fms_staff_of_the_watchful_moon",
+              "rep_fms_shadowhide_vest",
+              "rep_fms_moonweavers_robe"
+            ]
+          }
+        },
+        "_comment": [
+          "Gates, not a displayed ladder (the faction panel stays information only).",
+          "TBC-style shelf (tools/build_feathermoon_sentinels.py, 19 Nov 2026): friendly the Sentinels' draught, honored a neck piece and a pattern, revered six ilvl 67 blues and a pattern, exalted three ilvl 73 epics and two recipes."
         ],
         "quests": {}
       }

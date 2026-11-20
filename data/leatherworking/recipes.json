@@ -12745,6 +12745,110 @@
           "icon_id": "gear_m60_chimera_wildstalker_tunic"
         }
       }
+    },
+    "rep_fms_shadowhide_vest": {
+      "name": "Sentinel's Shadowhide Vest",
+      "inputs": {
+        "leather_chimera": 12,
+        "leather_manticore": 4,
+        "thread_silken": 2,
+        "gem_sylvan_emerald": 1
+      },
+      "skill_required": 320,
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "stat_template": "agi_physical",
+        "item_level": 68,
+        "rarity": "epic",
+        "material_tier": "chimera",
+        "identity": "agility",
+        "flavor": "The Sentinels' own pattern for a night patrol, dark as the coast without a moon.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "leather",
+        "item": {
+          "name": "Sentinel's Shadowhide Vest",
+          "slot": "chest",
+          "item_level": 68,
+          "rarity": "epic",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 32,
+            "stamina": 19
+          },
+          "secondary_stats": {
+            "attack_power": 83
+          },
+          "armor_value": 288,
+          "required_level": 60,
+          "sell_price": 42167,
+          "flavor_text": "The Sentinels' own pattern for a night patrol, dark as the coast without a moon.",
+          "identity": "agility",
+          "icon_id": "gear_wow_chest_leather_02_1"
+        }
+      },
+      "skill_range": [
+        323,
+        328,
+        333,
+        338
+      ],
+      "source": "vendor",
+      "faction": "feathermoon_sentinels"
+    },
+    "rep_fms_tidewatch_bracers": {
+      "name": "Tidewatch Bracers",
+      "inputs": {
+        "leather_manticore": 4,
+        "thread_silken": 1
+      },
+      "skill_required": 305,
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "stat_template": "agi_physical",
+        "item_level": 66,
+        "rarity": "rare",
+        "material_tier": "manticore",
+        "identity": "agility",
+        "flavor": "Salt-cured leather that stays supple in the surf, the first thing a Feathermoon tanner learns.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "leather",
+        "item": {
+          "name": "Tidewatch Bracers",
+          "slot": "wrist",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 15,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "attack_power": 40
+          },
+          "armor_value": 163,
+          "required_level": 60,
+          "sell_price": 11424,
+          "flavor_text": "Salt-cured leather that stays supple in the surf, the first thing a Feathermoon tanner learns.",
+          "identity": "agility",
+          "icon_id": "gear_wow_wrist_80_1"
+        }
+      },
+      "skill_range": [
+        308,
+        313,
+        318,
+        323
+      ],
+      "source": "vendor",
+      "faction": "feathermoon_sentinels"
     }
   }
 }

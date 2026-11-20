@@ -53,9 +53,10 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - The Cenarion Circle and the Wakened only reach Friendly on quests; the dungeons are the road past it.
 
 ## 1e. Filling 44 to 51: Feralas and the World Tree (Kyle, 19 Nov 2026)
-- **Feralas is first (Kyle, 19 Nov 2026), in progress.** Decisions in `docs/feralas_brief.md`; nine art sheets
-  written in `docs/feralas_art_prompts.md`, waiting on Kyle. The data side (creatures, tables, people, faction, quests)
-  is being built while the art comes.
+- **Feralas: built without art (Kyle, 19-20 Nov 2026), `docs/feralas_build_log.md`.** Three maps, Camp Mojache,
+  Feathermoon Stronghold, the Zukk'ash Hive and its tunnel to the Dry Deep, 83 quests, the Feathermoon Sentinels.
+  Open: Kyle's nine art sheets (`docs/feralas_art_prompts.md`), then the swap-over in the build log's last section;
+  the cave's name (the Plaguelands already have "The Writhing Deep"); Dire Maul at 55-60.
 - `docs/feralas_worldtree_brief.md`: Feralas 44-49 (classic L shape, largely untouched by the Integration), and a
   home-brew World Tree off Northern Stranglethorn's coast: island 42-44, lived-on tiers 44-48, a town halfway up, two
   sky zones at the crown (46-49, 48-51), two new factions. Names and peoples still to settle.
@@ -113,6 +114,8 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - **Recruit kit text I changed** because the game has no such thing (the list in playtest_backlog_2026_11_10, group
   N): Kyle to veto any.
 - **Shelved by Kyle:** an hp5 tank (a tank built round health regeneration).
+- **`qa_factions` fails on the Forsaken** (Exalted at 60% of its quest pool): already failing before Feralas, found
+  19 Nov 2026. Lower the Forsaken's per-quest rate or give it more territory.
 - **From the 19 Nov levelling run (after the rares were split from bosses):**
   - **Mage squishiness** is the class pass's job: the fire mage still loses to more rares than the warrior or the
     priest, and from 51 it ends fights on about two thirds health and rests after a third of them.

@@ -13669,6 +13669,59 @@
             "kind": "material",
             "material_id": "bolt_chronoweave"
           }
+        },
+        "rep_fms_moonweavers_robe": {
+          "name": "Moonweaver's Robe",
+          "inputs": {
+            "bolt_chronoweave": 10,
+            "bolt_dreamsilk": 4,
+            "thread_silken": 2,
+            "gem_glacier_sapphire": 1
+          },
+          "skill_required": 320,
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "stat_template": "spi_healer",
+            "item_level": 68,
+            "rarity": "epic",
+            "material_tier": "chronoweave",
+            "identity": "spirit_healer",
+            "flavor": "Kindal Moonweaver's pattern, woven with moonsilk and blessed in the island's moonwell.",
+            "fixed_item_level": true,
+            "required_level": 60,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Moonweaver's Robe",
+              "slot": "chest",
+              "item_level": 68,
+              "rarity": "epic",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 28,
+                "intellect": 28
+              },
+              "secondary_stats": {
+                "healing_power": 74
+              },
+              "armor_value": 144,
+              "required_level": 60,
+              "sell_price": 42167,
+              "flavor_text": "Kindal Moonweaver's pattern, woven with moonsilk and blessed in the island's moonwell.",
+              "identity": "spirit_healer",
+              "icon_id": "gear_inv_chest_cloth_40"
+            }
+          },
+          "skill_range": [
+            323,
+            328,
+            333,
+            338
+          ],
+          "source": "vendor",
+          "faction": "feathermoon_sentinels"
         }
       }
     },

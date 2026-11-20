@@ -44,6 +44,7 @@ COLOURS = {
     "the_liquidators": ((230, 190, 30), (40, 40, 40)),
     "cenarion_circle": ((70, 130, 70), (120, 80, 160)),
     "the_wakened": ((150, 170, 210), (240, 230, 160)),
+    "feathermoon_sentinels": ((80, 55, 140), (205, 205, 225)),
 }
 
 
