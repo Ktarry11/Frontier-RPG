@@ -589,6 +589,62 @@ MIDDLE_BOUGHS_SHEET = {
     "av_corrupt_ground": _wt("wt_rot_bark"),
     "av_satyr_earth":    _wt("wt_shade_bark"),
 }
+#: The Upper Boughs (Kyle's sheets W1 and SK): pale wind-scoured bark, lichen, storm-black bark where the lightning
+#: struck ("burned"), the wind-stripped tips ("corrupt"), gold where the light first comes down from above ("bluebell"),
+#: lashed planks on the skiff's deck and the rope walk ("plaza"), the trunk as the column in the middle, and the drop as
+#: the tops of the clouds, close below.
+def _sk(name, off=0.5, rec=None, extra=None):
+    return (_WT.parent.parent / "sky/ground" / f"{name}.png", off, rec, extra)
+
+
+UPPER_BOUGHS_SHEET = {
+    "av_forest_floor":   _wt("wt_wind_bark"),
+    "av_forest_grass":   _wt("wt_lichen_bark"),
+    "av_fern_floor":     _wt("wt_wind_bark"),
+    "av_root_earth":     _wt("wt_wind_bark"),
+    "av_needle_mulch":   _wt("wt_lichen_bark"),
+    "av_bluebell":       _sk("sk_gold_leaves"),
+    "av_road_centre":    _wt("wt_branch_bark"),
+    "av_road_edge":      _wt("wt_carved_bark"),
+    "av_elven_paving":   _wt("wt_lashed_planks"),
+    "av_mossy_cobble":   _wt("wt_lashed_planks"),
+    "av_plaza_stone":    _wt("wt_lashed_planks"),
+    "av_rocky_ground":   _wt("wt_lichen_bark"),
+    "av_stream_bed":     _wt("wt_wind_bark"),
+    "av_lake_mud":       _wt("wt_wind_bark"),
+    "av_lake_shallow":   _wt("wt_rain_pool"),
+    "av_lake_deep":      _wt("wt_rain_pool"),
+    "av_moon_water":     _wt("wt_rain_pool"),
+    "av_moon_deep":      _wt("wt_rain_pool"),
+    "av_moon_rim":       _wt("wt_wind_bark"),
+    "av_cliff_a":        _wt("wt_high_trunk_wall"),
+    "av_cliff_b":        _wt("wt_high_trunk_wall"),
+    "av_canopy":         _wt("wt_wind_bark", extra="canopy"),
+    "av_beach":          _wt("wt_wind_bark"),
+    "av_wet_sand":       _wt("wt_lichen_bark"),
+    "av_sea_shallow":    _sk("sk_cloud_sun"),
+    "av_sea_deep":       _sk("sk_cloud_solid"),
+    "av_scorched":       _wt("wt_scorched_bark"),
+    "av_burned_forest":  _wt("wt_storm_bark"),
+    "av_fel_earth":      _sk("sk_gold_tips"),
+    "av_corrupt_ground": _wt("wt_wind_bark"),
+    "av_satyr_earth":    _wt("wt_wind_bark"),
+}
+#: The Cloudbreak (sheets W1 and SK): wind-scoured bark on the last branches, hung with fog low down ("corrupt") and lit
+#: gold near the top ("bluebell"), the rope ladders' rungs ("plaza"), the chamber's heartwood floor ("paved"), the old
+#: stone wall the mural is painted on (the cliff), and cloud all round, thick enough that the drop doesn't show.
+CLOUDBREAK_SHEET = dict(UPPER_BOUGHS_SHEET)
+CLOUDBREAK_SHEET.update({
+    "av_corrupt_ground": _sk("sk_cloud_moss"),
+    "av_fel_earth":      _sk("sk_cloud_moss"),
+    "av_bluebell":       _sk("sk_crown_bark"),
+    "av_elven_paving":   _wt("wt_heartwood_floor"),
+    "av_mossy_cobble":   _wt("wt_heartwood_floor"),
+    "av_cliff_a":        _sk("sk_ancient_wall"),
+    "av_cliff_b":        _sk("sk_ancient_wall_vines"),
+    "av_sea_shallow":    _sk("sk_cloud_solid"),
+    "av_sea_deep":       _sk("sk_cloud_solid"),
+})
 #: The Great Settlement (Kyle's sheet W1, the city row): heartwood floors and market planks on the platforms, the Rise's
 #: stone, the Trades' red clay yards, carved bark between the Lantern Ward's homes, the trunk as the north wall, and the
 #: hollow inside the tree (the module's sea field) painted as lantern-lit depths with the lower tiers far below.
@@ -638,6 +694,8 @@ ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_S
                "moonglade": MOONGLADE_SHEET, "worldtree_rootwater_isle": ROOTWATER_SHEET,
                "worldtree_lower_boughs": LOWER_BOUGHS_SHEET,
                "worldtree_middle_boughs": MIDDLE_BOUGHS_SHEET,
+               "worldtree_upper_boughs": UPPER_BOUGHS_SHEET,
+               "worldtree_cloudbreak": CLOUDBREAK_SHEET,
                "worldtree_great_settlement": GREAT_SETTLEMENT_SHEET}
 
 def _recolour(a, hue, sat, val):
@@ -969,6 +1027,10 @@ def post(rgb, X, Y, P):
         sat, val = lift
         lum = rgb.mean(axis=2, keepdims=True)
         rgb = (lum + (rgb - lum) * sat) * val
+    light = getattr(P, "light", None)
+    if light:
+        # a map's own light, last of all (the Cloudbreak: fog at the foot of the climb, gold at the top)
+        rgb = light(rgb, X / TILE_PX, Y / TILE_PX)
     return rgb
 
 
@@ -1028,6 +1090,7 @@ def bake(zone="west", preview=None, scale=4, only=None):
     P.sealed_water = getattr(L, "sealed_water", [])
     P.grade = getattr(M, "GRADE", None)
     P.lift = getattr(M, "LIFT", None)
+    P.light = getattr(M, "LIGHT", None)
     P.drop = dict(getattr(M, "DROP"), sea=M.sea) if getattr(M, "DROP", None) else None
     scores = build_scores(P, M)
     out = ROOT / M.BAKED_DIR
@@ -1046,7 +1109,7 @@ def main():
     if "--preview" in sys.argv:
         preview = sys.argv[sys.argv.index("--preview") + 1]
     sc = int(sys.argv[sys.argv.index("--scale") + 1]) if "--scale" in sys.argv else 4
-    zone = next((z for z in ("worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
+    zone = next((z for z in ("worldtree_cloudbreak", "worldtree_upper_boughs", "worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
     only = None
     if "--region" in sys.argv:       # x0,y0,x1,y1 in tiles: bake only the 20x20 chunks touching it (fast look-dev)
         x0, y0, x1, y1 = map(int, sys.argv[sys.argv.index("--region") + 1].split(","))

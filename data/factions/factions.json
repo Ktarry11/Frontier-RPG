@@ -3262,7 +3262,7 @@
         "They call the tree a loa that answered them when nothing else would. The Highbough Tribes hold it now, allied to the Horde without answering to it, and they remember who helps them keep it."
       ],
       "quest_rep": {
-        "_comment": "Per quest, paid by giver (tools/build_rootwater_quests.py, tools/build_lower_boughs_quests.py, tools/build_great_settlement_quests.py, tools/build_middle_boughs_quests.py).",
+        "_comment": "Per quest, paid by giver (tools/build_rootwater_quests.py, tools/build_lower_boughs_quests.py, tools/build_great_settlement_quests.py, tools/build_middle_boughs_quests.py, tools/build_upper_boughs_quests.py).",
         "default": 200,
         "boss": 250,
         "capstones": {},
@@ -3272,7 +3272,9 @@
           "knothollow",
           "great_settlement",
           "middle_boughs",
-          "shriekhollow"
+          "shriekhollow",
+          "upper_boughs",
+          "stormsplit"
         ],
         "also": [
           "rwq_off_the_boat",
@@ -3341,6 +3343,30 @@
           "gsq_offerings_for_the_loa",
           "gsq_soil_for_the_terrace",
           "gsq_up_the_high_lift",
+          "ubq_gusts_on_the_storm_bough",
+          "ubq_rope_for_the_ladder",
+          "ubq_where_ruktan_turned_back",
+          "ubq_the_wall_in_the_cloud",
+          "ubq_wild_wyverns",
+          "ubq_crest_feathers",
+          "ubq_stormcrest",
+          "ubq_old_charwing",
+          "ubq_crackling_wisps",
+          "ubq_storm_glass",
+          "ubq_the_lightning_eater",
+          "ubq_the_caught_storm",
+          "ubq_a_boat_with_no_water",
+          "ubq_the_skiffs_guards",
+          "ubq_the_skiff_warden",
+          "ubq_the_skiffs_log",
+          "ubq_thunderhawks",
+          "ubq_old_thunderbeak",
+          "ubq_quills_for_a_charm",
+          "ubq_a_charm_for_zelji",
+          "ubq_moths_on_the_stair",
+          "ubq_skinks_at_the_knots",
+          "ubq_counting_the_flock",
+          "ubq_humming_crystals",
           "mbq_what_comes_up",
           "mbq_the_rots_heart",
           "mbq_old_barkrot",
@@ -3366,6 +3392,7 @@
           "mbq_the_climbers_names",
           "mbq_hushwing",
           "mbq_moths_in_the_ropes",
+          "mbq_up_the_root_stair",
           "mbq_pythons_in_the_lichen",
           "mbq_counting_nests"
         ]

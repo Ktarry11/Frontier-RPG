@@ -69,6 +69,8 @@ ZONES = {
     "worldtree_rootwater_isle": "tools.handbuilt_worldtree_rootwater_isle",
     "worldtree_lower_boughs": "tools.handbuilt_worldtree_lower_boughs",
     "worldtree_middle_boughs": "tools.handbuilt_worldtree_middle_boughs",
+    "worldtree_upper_boughs": "tools.handbuilt_worldtree_upper_boughs",
+    "worldtree_cloudbreak": "tools.handbuilt_worldtree_cloudbreak",
     "worldtree_great_settlement": "tools.handbuilt_worldtree_great_settlement",
     "feralas_high_wilderness": "tools.handbuilt_feralas_high_wilderness",
     "feralas_forgotten_coast": "tools.handbuilt_feralas_forgotten_coast",

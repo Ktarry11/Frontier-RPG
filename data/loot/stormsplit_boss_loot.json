@@ -1,0 +1,143 @@
+{
+  "_notes": "Boss loot for the Stormsplit (the World Tree's trunk, 47-48). ONE item per kill from the boss's four; item_level = boss level + 2. Hand-authored in tools/build_upper_boughs_content.py.",
+  "Old Charwing": [
+    {
+      "name": "Charwing's Scorched Hide",
+      "slot": "chest",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "primary_stats": {
+        "agility": 20,
+        "stamina": 20
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 164,
+      "stat_template": "agi_physical",
+      "item_id": "ssi_charwings_scorched_hide"
+    },
+    {
+      "name": "Nest-Burned Gauntlets",
+      "slot": "hands",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "primary_stats": {
+        "strength": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 272,
+      "stat_template": "str_physical",
+      "item_id": "ssi_nest_burned_gauntlets"
+    },
+    {
+      "name": "Sting of the Old Mother",
+      "slot": "main_hand",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "strength": 14,
+        "agility": 14
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 88,
+      "weapon_damage_max": 120,
+      "attack_speed": 1.7,
+      "stat_template": "agi_physical",
+      "item_id": "ssi_sting_of_the_old_mother"
+    },
+    {
+      "name": "Ash-Feather Mantle",
+      "slot": "shoulder",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "primary_stats": {
+        "intellect": 10,
+        "spirit": 10
+      },
+      "secondary_stats": {
+        "healing_power": 27
+      },
+      "armor_type": "cloth",
+      "armor_value": 69,
+      "stat_template": "spi_healer",
+      "item_id": "ssi_ash_feather_mantle"
+    }
+  ],
+  "The Caught Storm": [
+    {
+      "name": "Heart of the Caught Storm",
+      "slot": "two_hand",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 21,
+        "stamina": 21
+      },
+      "secondary_stats": {
+        "spell_power": 27
+      },
+      "weapon_damage_min": 48,
+      "weapon_damage_max": 66,
+      "attack_speed": 3.2,
+      "stat_template": "int_caster",
+      "item_id": "ssi_heart_of_the_caught_storm"
+    },
+    {
+      "name": "Thunder Hall Hauberk",
+      "slot": "chest",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "primary_stats": {
+        "strength": 20,
+        "intellect": 20
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 262,
+      "stat_template": "str_int_hybrid",
+      "item_id": "ssi_thunder_hall_hauberk"
+    },
+    {
+      "name": "Lightning-Split Legplates",
+      "slot": "legs",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "primary_stats": {
+        "strength": 20,
+        "stamina": 20
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 393,
+      "stat_template": "str_physical",
+      "item_id": "ssi_lightning_split_legplates"
+    },
+    {
+      "name": "Static-Charged Leggings",
+      "slot": "legs",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "primary_stats": {
+        "agility": 20,
+        "spirit": 20
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 164,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "ssi_static_charged_leggings"
+    }
+  ]
+}

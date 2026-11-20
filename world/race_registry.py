@@ -407,6 +407,7 @@ ZONE_POPULATION_MIX = {
     "rootwater_isle": [("troll", 80), ("goblin", 10), ("human", 10)],
     "lower_boughs": [("troll", 85), ("goblin", 5), ("human", 10)],
     "middle_boughs": [("troll", 90), ("human", 10)],
+    "upper_boughs": [("troll", 90), ("human", 10)],
     "great_settlement": [("troll", 78), ("goblin", 8), ("human", 8), ("orc", 6)],
     "camp_mojache": [("tauren", 85), ("orc", 10), ("goblin", 5)],
     "feathermoon_stronghold": [("night_elf", 100)],

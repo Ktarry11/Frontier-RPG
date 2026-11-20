@@ -389,6 +389,18 @@ def build():
         "One day a rope's going to go with a full basket on it. Knock the moths out of the air along the terraces.",
         "I've checked every rope from top to bottom, and they're clean.\n\nOne of the newcomers told me there's a "
         "moth back where she's from that eats clothes. I didn't believe her until I saw these."))
+    A(Q("mbq_up_the_root_stair", "Up the Root Stair", DEZZA, 47, 47, "Rootstair",
+        "Ropehand Dezza hears everything that comes up and down the tree. Windwarden Kazra'jin, who keeps Highrest on "
+        "the Upper Boughs, has asked Heartwatch for someone who can fight in the wind.",
+        [deliver("mb_q_dezzas_knot", "Climb the Root Stair and give Dezza's knot to Windwarden Kazra'jin at Highrest")],
+        "Kazra'jin keeps Highrest, the last camp before the cloud, and he's asked Heartwatch for a fighter. After "
+        "what you did at the Hollow there's nobody else I'd send. Take him my knot so he knows it's me who sent you. "
+        "The Root Stair climbs the trunk above Heartwatch, and it doesn't stop till Highrest.",
+        "That's Dezza's knot, and she only ties that one for people she'd trust with a rope.\n\nWelcome to Highrest. Mind the "
+        "wind, because it doesn't care who you are. Sit, eat, and then I'll tell you what we need.",
+        turn_in_npc_id="ub_windwarden", requires_quests=["mbq_sealed_for_now"],
+        grant_items=carry("mb_q_dezzas_knot", "Dezza's Knot", "A short length of lift rope tied in a knot only Dezza "
+                          "uses, three loops and a twist, hard as wood.")))
     A(Q("mbq_pythons_in_the_lichen", "Pythons in the Lichen", MAHU, 45, 46, "Lichenstalker's",
         "Scout Mahu watches the Lichen Reach, and the Mistcoil Pythons lie flat in the lichen where nobody sees them "
         "until they're stepped on.",

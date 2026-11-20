@@ -6861,6 +6861,83 @@
           }
         }
       }
+    },
+    "The Upper Boughs": {
+      "name": "The Upper Boughs",
+      "open_zone": {
+        "name": "The Upper Boughs",
+        "creatures": {
+          "Windscour Skink": 4,
+          "Gale Moth": 3
+        }
+      },
+      "subzones": {
+        "The Trunk Ring": {
+          "name": "The Trunk Ring",
+          "creatures": {
+            "Windscour Skink": 5,
+            "Gale Moth": 5
+          }
+        },
+        "The Wyvern Roosts": {
+          "name": "The Wyvern Roosts",
+          "creatures": {
+            "Cloudtop Wyvern": 6,
+            "Gale Moth": 1,
+            "Stormcrest": 0
+          }
+        },
+        "The Storm Bough": {
+          "name": "The Storm Bough",
+          "creatures": {
+            "Crackling Wisp": 5,
+            "Galebound Gust": 5,
+            "The Lightning-Eater": 0
+          }
+        },
+        "The Gale": {
+          "name": "The Gale",
+          "creatures": {
+            "Gale-Rider Harpy": 6,
+            "Gale Windcaller": 4,
+            "Gale Queen Skirra": 0
+          }
+        },
+        "The Thunderhawk Reach": {
+          "name": "The Thunderhawk Reach",
+          "creatures": {
+            "Thunderhawk": 6,
+            "Windscour Skink": 1,
+            "Old Thunderbeak": 0
+          }
+        },
+        "The Skiff Wreck": {
+          "name": "The Skiff Wreck",
+          "creatures": {
+            "Skiff Sentinel": 5,
+            "Wreck Drone": 5,
+            "The Skiff Warden": 0
+          }
+        },
+        "Highrest": {
+          "name": "Highrest",
+          "safe": true,
+          "creatures": {}
+        }
+      },
+      "caves": {
+        "The Stormsplit": {
+          "name": "The Stormsplit",
+          "creatures": {
+            "Split Wisp": 4,
+            "Trapped Gust": 4,
+            "Stormstruck Wyvern": 4,
+            "Charred Borer": 4,
+            "Old Charwing": 0,
+            "The Caught Storm": 0
+          }
+        }
+      }
     }
   }
 }

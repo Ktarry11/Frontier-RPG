@@ -9,7 +9,7 @@ the trunk that goes down into the heartwood, where something is eating the tree.
 over a drop that's all mist now, the canopy long gone below it.
 
     The High Lift ......... the ledge's south end (16,128): down to the Great Settlement
-    The Root Stair ........ the ledge's north end (16,18): on up to the Upper Boughs (opens when they're built)
+    The Root Stair ........ the ledge's north end (16,18): on up to the Upper Boughs
     The Heartwood Hollow .. the split in the trunk behind Heartwatch (16,46): the dungeon (a door for later)
     Shriekhollow .......... a hollow in the trunk off the Rotting Bough's root (16,82): the harpies' nest, the cave
     Heartwatch ............ the shadow hunters' stone outpost on the terraces (safe)
@@ -40,10 +40,10 @@ WTP = "assets/tiles/worldtree/props/"
 SP = "assets/tiles/stranglethorn/props/"
 BLD = "assets/buildings/"
 
-PORTALS = {(16, 128): "The Great Settlement", (16, 82): "Shriekhollow"}
-ARRIVALS = [(20, 128), (20, 82)]
+PORTALS = {(16, 128): "The Great Settlement", (16, 82): "Shriekhollow", (16, 18): "The Upper Boughs"}
+ARRIVALS = [(20, 128), (20, 82), (20, 18)]
 #: drawn now, opened later: the stair on up the trunk and the dungeon in the heartwood
-LATER_PORTALS = {(16, 18): "The Upper Boughs", (16, 46): "The Heartwood Hollow"}
+LATER_PORTALS = {(16, 46): "The Heartwood Hollow"}
 START = (34, 50)        # Heartwatch: everything must be reachable from here
 
 #: the trunk: a wall of bark along the west edge
@@ -346,9 +346,10 @@ def dress(L):
     G("wt_stone_tower", 24, 40, 12)
     G("wt_stone_tower_squat", 44, 40, 8)
     G("wt_old_shrine", 46, 58, 7)
-    B("gs_loa_totem", 34, 50, 6, road_ok=True)
-    B("gs_brazier", 30, 46, 4)
-    B("gs_brazier", 38, 46, 4)
+    # the totem and the fires guard the sealed split, not the middle of the platform
+    B("gs_loa_totem", 22, 52, 6)
+    B("gs_brazier", 21, 40, 4)
+    B("gs_brazier", 22, 49, 4)
     B("gs_prayer_streamers", 36, 38, 5)
     B("gs_lantern_post", 26, 60, 4)
     B("gs_lantern_post", 42, 62, 4)
@@ -371,7 +372,7 @@ def dress(L):
     G("wt_bronze_scrap", 144, 26, 4)
     G("wt_engine_housing", 158, 15, 5)
     G("wt_crystal_shard", 140, 18, 4)
-    G("wt_wind_charms", 80, 26, 4)
+    G("wt_wind_charms", 65, 21, 4)               # an offering hung beside the old shrine
     # ---- the Rotting Bough: rot pits, sacs, sap split open, and a treant gone wrong in it
     G("wt_rot_pit", 116, 70, 6)
     G("wt_rot_sac", 124, 76, 4)

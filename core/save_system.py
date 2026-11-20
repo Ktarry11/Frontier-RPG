@@ -100,6 +100,8 @@ class SaveSystem:
             state["chests"] = chests.to_dict()
         from world.secrets import get_secrets
         state["secrets"] = get_secrets().to_dict()
+        from world.cutscenes import get_cutscenes
+        state["cutscenes"] = get_cutscenes().to_dict()
         return state
 
     # ------------------------------------------------------------------

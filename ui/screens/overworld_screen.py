@@ -1451,6 +1451,15 @@ class OverworldScreen(BaseScreen):
                 if found:
                     self.zone_manager.last_secret_found = None
                     self._notify(found, (230, 200, 120))
+                # a cutscene's trigger (world/cutscenes.py): hand the screen over to it
+                cs = getattr(self.zone_manager, "pending_cutscene", None)
+                if cs:
+                    self.zone_manager.pending_cutscene = None
+                    for k in self.keys_pressed:
+                        self.keys_pressed[k] = False
+                    self.state_manager.zone_manager = self.zone_manager
+                    self.state_manager.transition_to(GameState.CUTSCENE, current_cutscene=cs)
+                    return
                 self.seconds_since_last_move = 0.0
 
                 # Out-of-combat resource regen/decay, once per tile actually

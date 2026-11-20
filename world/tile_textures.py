@@ -376,6 +376,8 @@ ZONE_BIOME = {
     "Rootwater Isle": "coast",                    # the World Tree's island: painted ground (baked)
     "The Lower Boughs": "tropical",               # the World Tree's first tier: painted ground (baked)
     "The Middle Boughs": "tropical",              # the tree's heart: painted ground (baked)
+    "The Upper Boughs": "tropical",               # the top of the tree: painted ground (baked)
+    "The Cloudbreak": "tropical",                 # the last branches: painted ground (baked)
     "The Great Settlement": "tropical",           # the troll city in the tree's heart: painted ground (baked)
     "The High Wilderness": "mythical_forest",     # Feralas: painted ground (baked); the biome only names the fallback
     "The Forgotten Coast": "mythical_forest",

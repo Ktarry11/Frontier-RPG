@@ -87591,6 +87591,864 @@
         "mana_cost": 0,
         "school": "physical"
       }
+    ],
+    "windscour_skink": [
+      {
+        "name": "Bite",
+        "kind": "damage",
+        "amount": 178,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Wind-Quick Snap",
+        "kind": "damage",
+        "amount": 153,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Grit in the Eyes",
+        "kind": "dot",
+        "amount": 48,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "gale_moth": [
+      {
+        "name": "Dust on the Wind",
+        "kind": "damage",
+        "amount": 178,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Gust of Wings",
+        "kind": "damage",
+        "amount": 149,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Itching Dust",
+        "kind": "dot",
+        "amount": 48,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "cloudtop_wyvern": [
+      {
+        "name": "Talons",
+        "kind": "damage",
+        "amount": 182,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Diving Strike",
+        "kind": "damage",
+        "amount": 156,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Wyvern Sting",
+        "kind": "dot",
+        "amount": 49,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "stormcrest": [
+      {
+        "name": "Crest-Rake",
+        "kind": "damage",
+        "amount": 280,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Out of the Cloud",
+        "kind": "damage",
+        "amount": 224,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Pinned to the Bough",
+        "kind": "damage",
+        "amount": 238,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Crest-Rake, Again",
+        "kind": "damage",
+        "amount": 476,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Old Bull's Fury",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 42
+        }
+      }
+    ],
+    "crackling_wisp": [
+      {
+        "name": "Spark",
+        "kind": "damage",
+        "amount": 182,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Chain of Sparks",
+        "kind": "damage",
+        "amount": 152,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Static",
+        "kind": "dot",
+        "amount": 49,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "galebound_gust": [
+      {
+        "name": "Buffet",
+        "kind": "damage",
+        "amount": 190,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Downdraft",
+        "kind": "damage",
+        "amount": 152,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Knocked Off Balance",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -20
+        }
+      }
+    ],
+    "the_lightning_eater": [
+      {
+        "name": "Swallowed Bolt",
+        "kind": "damage",
+        "amount": 280,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Thunderclap",
+        "kind": "damage",
+        "amount": 224,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Struck Still",
+        "kind": "damage",
+        "amount": 238,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Swallowed Bolt, Again",
+        "kind": "damage",
+        "amount": 476,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Full of the Storm",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 42
+        }
+      }
+    ],
+    "gale_rider_harpy": [
+      {
+        "name": "Raking Talons",
+        "kind": "damage",
+        "amount": 182,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Ride the Gust",
+        "kind": "damage",
+        "amount": 156,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Wind-Hardened",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 180
+        },
+        "self_only": true
+      }
+    ],
+    "gale_windcaller": [
+      {
+        "name": "Cutting Wind",
+        "kind": "damage",
+        "amount": 182,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Squall",
+        "kind": "damage",
+        "amount": 152,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Wind-Sick",
+        "kind": "dot",
+        "amount": 49,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "gale_queen_skirra": [
+      {
+        "name": "Queen's Talons",
+        "kind": "damage",
+        "amount": 280,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "The Whole Gale",
+        "kind": "damage",
+        "amount": 224,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Thrown on the Wind",
+        "kind": "damage",
+        "amount": 238,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Queen's Talons, Again",
+        "kind": "damage",
+        "amount": 476,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Queen of the Gale",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 42
+        }
+      }
+    ],
+    "thunderhawk": [
+      {
+        "name": "Beak",
+        "kind": "damage",
+        "amount": 182,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Thunder Dive",
+        "kind": "damage",
+        "amount": 156,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Crackling Wound",
+        "kind": "dot",
+        "amount": 49,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "old_thunderbeak": [
+      {
+        "name": "Thunder Beak",
+        "kind": "damage",
+        "amount": 280,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Storm Wings",
+        "kind": "damage",
+        "amount": 224,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Struck From Above",
+        "kind": "damage",
+        "amount": 238,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Thunder Beak, Again",
+        "kind": "damage",
+        "amount": 476,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "The Old Bird's Anger",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 42
+        }
+      }
+    ],
+    "skiff_sentinel": [
+      {
+        "name": "Crystal Fist",
+        "kind": "damage",
+        "amount": 182,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Shard Burst",
+        "kind": "damage",
+        "amount": 156,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Crystal Ward",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 180
+        },
+        "self_only": true
+      }
+    ],
+    "wreck_drone": [
+      {
+        "name": "Clamp",
+        "kind": "damage",
+        "amount": 190,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Spinning Blades",
+        "kind": "damage",
+        "amount": 152,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Sparking",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -20
+        }
+      }
+    ],
+    "the_skiff_warden": [
+      {
+        "name": "Warden's Beam",
+        "kind": "damage",
+        "amount": 280,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Crystal Pulse",
+        "kind": "damage",
+        "amount": 224,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      },
+      {
+        "name": "Held in Place",
+        "kind": "damage",
+        "amount": 238,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Warden's Beam, Again",
+        "kind": "damage",
+        "amount": 476,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "The Ship Is Mine",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 336,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "split_wisp": [
+      {
+        "name": "Arc",
+        "kind": "damage",
+        "amount": 182,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Forked Arc",
+        "kind": "damage",
+        "amount": 152,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Charged",
+        "kind": "dot",
+        "amount": 49,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "trapped_gust": [
+      {
+        "name": "Slam",
+        "kind": "damage",
+        "amount": 190,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Whirl",
+        "kind": "damage",
+        "amount": 152,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Thrown Back",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -20
+        }
+      }
+    ],
+    "stormstruck_wyvern": [
+      {
+        "name": "Scorched Talons",
+        "kind": "damage",
+        "amount": 182,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Lunge",
+        "kind": "damage",
+        "amount": 156,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Burning Sting",
+        "kind": "dot",
+        "amount": 49,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "charred_borer": [
+      {
+        "name": "Mandibles",
+        "kind": "damage",
+        "amount": 182,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Chew Through",
+        "kind": "damage",
+        "amount": 156,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Charred Shell",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 180
+        },
+        "self_only": true
+      }
+    ],
+    "old_charwing": [
+      {
+        "name": "Charred Talons",
+        "kind": "damage",
+        "amount": 280,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature",
+        "boss_rework": 1
+      },
+      {
+        "name": "Venom Like Fire",
+        "kind": "damage",
+        "amount": 246,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Charred Talons, Twice",
+        "kind": "damage",
+        "amount": 364,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Every Wyvern in the Split",
+        "kind": "damage",
+        "amount": 196,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Pinned to the Nest",
+        "kind": "damage",
+        "amount": 308,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Venom Like Fire, Deep",
+        "kind": "dot",
+        "amount": 126,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "dispel_type": "poison"
+      },
+      {
+        "name": "Fed on the Storm",
+        "kind": "heal",
+        "amount": 308,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Last Stand",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.3,
+        "stat_mods": {
+          "attack_power": 112
+        }
+      }
+    ],
+    "the_caught_storm": [
+      {
+        "name": "Bolt",
+        "kind": "damage",
+        "amount": 280,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature",
+        "boss_rework": 1
+      },
+      {
+        "name": "Thunder in the Trunk",
+        "kind": "damage",
+        "amount": 246,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Bolt, Twice",
+        "kind": "damage",
+        "amount": 364,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "The Storm Breaks Loose",
+        "kind": "damage",
+        "amount": 196,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Struck Down",
+        "kind": "damage",
+        "amount": 308,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Thunder in the Trunk, Deep",
+        "kind": "dot",
+        "amount": 126,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "dispel_type": "poison"
+      },
+      {
+        "name": "Lightning Through the Trunk",
+        "kind": "damage",
+        "amount": 504,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Last Stand",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.3,
+        "stat_mods": {
+          "attack_power": 112
+        }
+      }
     ]
   }
 }

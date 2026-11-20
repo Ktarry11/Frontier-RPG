@@ -747,7 +747,11 @@ class TilemapRenderer:
         # "landmark" collision tile's flat-color fallback underneath it.
         # See Tilemap.add_landmark's docstring for why these aren't routed
         # through the normal per-tile texture pipeline.
+        from world.cutscenes import get_cutscenes
+        _cs = get_cutscenes()
         for lm in getattr(tilemap, "landmarks", []):
+            if (lm.get("cutscene_hide") or lm.get("cutscene_show")) and not _cs.shown(lm):
+                continue        # a prop a cutscene changes (the Cloudbreak's mural, whole and then broken)
             lm_screen_x, lm_screen_y = camera.world_to_screen(
                 lm["anchor_x"], lm["anchor_y"], self.tile_size)
             lm_screen_x += viewport_rect.x

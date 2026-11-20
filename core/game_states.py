@@ -35,6 +35,7 @@ class GameState(Enum):
     SOUL = "soul"
     TESTING = "testing"
     TRAVEL = "travel"
+    CUTSCENE = "cutscene"
     COLLECTION = "collection"
     PAUSED = "paused"
     QUIT = "quit"

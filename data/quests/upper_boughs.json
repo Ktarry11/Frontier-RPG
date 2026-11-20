@@ -1,0 +1,2581 @@
+{
+  "quests": [
+    {
+      "quest_id": "ubq_gusts_on_the_storm_bough",
+      "title": "Gusts on the Storm Bough",
+      "giver_npc_id": "ub_windwarden",
+      "zone": "upper_boughs",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "Windwarden Kazra'jin keeps Highrest and the way up. The Galebound Gusts on the Storm Bough have started coming up the trunk, and they throw anyone they catch off the tree.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Galebound Gust",
+          "count": 7,
+          "zone": "upper_boughs"
+        }
+      ],
+      "accept_text": "The Galebound Gusts live out on the Storm Bough, and lately they've been drifting up round the trunk. One picked a climber off the ring last week and dropped him into the cloud. Break them up before they do it again.",
+      "turn_in_text": "That's quieter, and you can hear the wind again instead of the gusts howling in it.\n\nBefore the merge nobody lived this high, so the tree had nobody to throw off. I think it's still getting used to us.",
+      "next_quest_id": "ubq_rope_for_the_ladder",
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "unique_item_defs": [
+        {
+          "name": "Windwarden's Hauberk",
+          "slot": "chest",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 10,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 30
+          },
+          "armor_value": 192,
+          "required_level": 47,
+          "sell_price": 7804,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_11"
+        },
+        {
+          "name": "Windwarden's Sash",
+          "slot": "waist",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 21
+          },
+          "armor_value": 41,
+          "required_level": 47,
+          "sell_price": 4292,
+          "identity": "caster",
+          "icon_id": "gear_inv_belt_18"
+        },
+        {
+          "name": "Windwarden's Sabatons",
+          "slot": "feet",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_value": 200,
+          "required_level": 47,
+          "sell_price": 5073,
+          "identity": "tank",
+          "icon_id": "gear_inv_boots_plate_02"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ubq_rope_for_the_ladder",
+      "title": "Rope for the Ladder",
+      "giver_npc_id": "ub_windwarden",
+      "zone": "upper_boughs",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "Kazra'jin sends new rope up to Ladderkeeper Vosh at the foot of the Cloud Way every month, because the wind frays the old knots faster than anyone can tie them.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "ub_q_highrest_rope",
+          "count": 1,
+          "label": "Take the coil of rope to Ladderkeeper Vosh at the foot of the Cloud Way"
+        }
+      ],
+      "accept_text": "Vosh keeps the bottom of the ladders on the Cloud Way, and his grandfather hung the top ones. He's due fresh rope, and I'd rather it went up with someone who can fight. Take this coil to him at the foot of the Cloud Way.",
+      "turn_in_text": "Good rope, and it's dry. Kazra'jin always sends the good rope.\n\nIf he's sending it with you, he's thinking of sending you up. He's only done that twice before, and only one of them came back.",
+      "next_quest_id": "ubq_where_ruktan_turned_back",
+      "turn_in_npc_id": "ub_ladderkeeper",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "ub_q_highrest_rope",
+            "name": "Coil of Highrest Rope",
+            "description": "A heavy coil of tarred rope, plaited from wyvern sinew and bark fibre, for the ladders on the Cloud Way.",
+            "count": 1
+          }
+        ]
+      },
+      "requires_quests": [
+        "ubq_gusts_on_the_storm_bough"
+      ],
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "unique_item_defs": [
+        {
+          "name": "Ropewarden's Grips",
+          "slot": "hands",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 98,
+          "required_level": 47,
+          "sell_price": 5073,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_11"
+        },
+        {
+          "name": "Ropewarden's Spaulders",
+          "slot": "shoulder",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 27
+          },
+          "armor_value": 163,
+          "required_level": 47,
+          "sell_price": 6243,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_shoulder_15"
+        },
+        {
+          "name": "Ropewarden's Pendant",
+          "slot": "neck",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 18
+          },
+          "armor_value": 0,
+          "required_level": 47,
+          "sell_price": 4683,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_necklace_02"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ubq_where_ruktan_turned_back",
+      "title": "Where Ruk'tan Turned Back",
+      "giver_npc_id": "ub_windwarden",
+      "zone": "upper_boughs",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "Kazra'jin wants to know if you can stand the cloud before he lets you climb it. The Cloud Way goes up into the Cloudbreak, and there's a cairn at the foot of it where Ruk'tan turned back.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "cloudbreak",
+          "target_x": 32,
+          "target_y": 104,
+          "radius": 4,
+          "label": "Climb the Cloud Way into the Cloudbreak and find Ruk'tan's cairn"
+        }
+      ],
+      "accept_text": "Climb the Cloud Way and walk into the Cloudbreak, as far as Ruk'tan's cairn. You won't see the drop in the cloud, and that's the hard part, because your feet stop believing in the branch. Come back and tell me how it felt.",
+      "turn_in_text": "You came back, and you came back walking. Ruk'tan didn't, he came back crawling.\n\nHe was the best climber of his age, and the cloud beat him. It doesn't seem to have beaten you.",
+      "next_quest_id": "ubq_the_wall_in_the_cloud",
+      "requires_quests": [
+        "ubq_rope_for_the_ladder"
+      ],
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Cloudwalker's Cloak",
+          "slot": "back",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21,
+            "hit_rating": 5
+          },
+          "armor_value": 37,
+          "required_level": 48,
+          "sell_price": 4482,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_18"
+        },
+        {
+          "name": "Cloudwalker's Cuffs",
+          "slot": "wrist",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 25
+          },
+          "armor_value": 57,
+          "required_level": 48,
+          "sell_price": 4075,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_02"
+        },
+        {
+          "name": "Cloudwalker's Legplates",
+          "slot": "legs",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 30
+          },
+          "armor_value": 295,
+          "required_level": 48,
+          "sell_price": 8150,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_06"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ubq_the_wall_in_the_cloud",
+      "title": "The Wall in the Cloud",
+      "giver_npc_id": "ub_windwarden",
+      "zone": "upper_boughs",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "Kazra'jin has climbed into the cloud three times and come back down three times. He wants someone to go all the way to the top of the Cloudbreak, to the old stone wall the climbers talk about.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "cloudbreak",
+          "target_x": 32,
+          "target_y": 21,
+          "radius": 4,
+          "label": "Climb to the top of the Cloudbreak, where the branches meet below the old wall"
+        }
+      ],
+      "accept_text": "Above the cloud the branches meet, and there's a wall up there older than the tree. I've seen it three times, and three times I couldn't make myself walk up to it. I'm too old to be ashamed of that. You're not, so go all the way up and stand where I couldn't.",
+      "turn_in_text": "So it's still there, and you've stood in front of it.\n\nSomebody had to go and stand where I couldn't, and I'm glad it was somebody I sent. I've carried that wall around long enough.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ubq_where_ruktan_turned_back"
+      ],
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Cloudbreaker's Cap",
+          "slot": "head",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 12,
+            "agility": 9
+          },
+          "secondary_stats": {
+            "dodge_rating": 7
+          },
+          "armor_value": 104,
+          "required_level": 48,
+          "sell_price": 6520,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_47"
+        },
+        {
+          "name": "Cloudbreaker's Band",
+          "slot": "ring",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 5,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "healing_power": 23
+          },
+          "armor_value": 0,
+          "required_level": 48,
+          "sell_price": 4890,
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_ring_32"
+        },
+        {
+          "name": "Cloudbreaker's Gauntlets",
+          "slot": "hands",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 7,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 19
+          },
+          "armor_value": 136,
+          "required_level": 48,
+          "sell_price": 5297,
+          "identity": "earthen",
+          "icon_id": "gear_inv_gauntlets_16"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ubq_wild_wyverns",
+      "title": "Wild Wyverns",
+      "giver_npc_id": "ub_wyvern_tamer",
+      "zone": "upper_boughs",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "Wyvern-Tamer Gu'lok wants a mount from the Wyvern Roosts, and the wild Cloudtop Wyverns won't let anyone near the flock until it's been thinned.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Cloudtop Wyvern",
+          "count": 7,
+          "zone": "upper_boughs"
+        }
+      ],
+      "accept_text": "The Cloudtop Wyverns roost all along the bough past the ring, and they're mean the way only wild things are. A flock that big doesn't let you near the young. Thin it, and the rest will start to watch me instead of chasing me off.",
+      "turn_in_text": "They're watching me now, and that's how it starts.\n\nI've lost two fingers learning this. The wyverns back in the Barrens were gentler, but they'd been tamed for a hundred years.",
+      "next_quest_id": "ubq_crest_feathers",
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "unique_item_defs": [
+        {
+          "name": "Wyvernhand's Staff",
+          "slot": "main_hand",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 20
+          },
+          "secondary_stats": {
+            "spell_power": 46
+          },
+          "armor_value": 0,
+          "required_level": 47,
+          "sell_price": 9755,
+          "identity": "caster",
+          "icon_id": "gear_inv_staff_06",
+          "weapon_damage_min": 35,
+          "weapon_damage_max": 48,
+          "attack_speed": 3.2,
+          "block_value": 0
+        },
+        {
+          "name": "Wyvernhand's Jerkin",
+          "slot": "chest",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 120,
+          "required_level": 47,
+          "sell_price": 7804,
+          "identity": "strength",
+          "icon_id": "gear_inv_chest_leather_07"
+        },
+        {
+          "name": "Wyvernhand's Waistguard",
+          "slot": "waist",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 200,
+          "required_level": 47,
+          "sell_price": 4292,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_belt_18"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ubq_crest_feathers",
+      "title": "Crest-Feathers",
+      "giver_npc_id": "ub_wyvern_tamer",
+      "zone": "upper_boughs",
+      "level_min": 47,
+      "level_max": 48,
+      "description": "Gu'lok says a wild wyvern will follow the smell of its own flock's crest-feathers, and he wants a harness woven with them.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "ub_q_crest_feather",
+          "count": 6
+        }
+      ],
+      "accept_text": "A wild wyvern trusts what smells like its flock. If I weave Cloudtop Crest-Feathers into the harness, the young ones won't fight it as hard. The Cloudtop Wyverns on the roosts carry them, so bring me what you can pull off them.",
+      "turn_in_text": "These are good, they're long and stiff and they've still got the oil in them.\n\nOne harness, and then the only thing between me and a mount is the queen of that flock.",
+      "next_quest_id": "ubq_stormcrest",
+      "requires_quests": [
+        "ubq_wild_wyverns"
+      ],
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Crestbearer's Mantle",
+          "slot": "shoulder",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 26
+          },
+          "armor_value": 71,
+          "required_level": 47,
+          "sell_price": 6520,
+          "identity": "caster",
+          "icon_id": "gear_inv_shoulder_19"
+        },
+        {
+          "name": "Crestbearer's Breeches",
+          "slot": "legs",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 30
+          },
+          "armor_value": 122,
+          "required_level": 47,
+          "sell_price": 8150,
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_03"
+        },
+        {
+          "name": "Crestbearer's Vambraces",
+          "slot": "wrist",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 12,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_value": 204,
+          "required_level": 47,
+          "sell_price": 4075,
+          "identity": "tank",
+          "icon_id": "gear_inv_bracer_15"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ubq_stormcrest",
+      "title": "Stormcrest",
+      "giver_npc_id": "ub_wyvern_tamer",
+      "zone": "upper_boughs",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "The Cloudtop flock follows a great crested female Gu'lok calls Stormcrest. While she flies, no wyvern on the roosts will take a rider.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Stormcrest",
+          "count": 1,
+          "zone": "upper_boughs"
+        }
+      ],
+      "accept_text": "There's a queen on the roosts with a crest like a thundercloud, and the flock goes where she goes. I've named her Stormcrest, because that's all I've ever seen of her, flying over. She won't let one of hers be ridden. Bring her down, and the flock is mine to tame.",
+      "turn_in_text": "The whole flock was in the air when she fell, and then they came down, one by one, and sat.\n\nI'll have a wyvern under a saddle before the month's out. You'll ride the first one, if you want it.",
+      "next_quest_id": "ubq_old_charwing",
+      "requires_quests": [
+        "ubq_crest_feathers"
+      ],
+      "reward_exp": 4524,
+      "reward_gold": 17940,
+      "unique_item_defs": [
+        {
+          "name": "Stormcrest Shield",
+          "slot": "off_hand",
+          "item_level": 50,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 22,
+            "haste": 7
+          },
+          "armor_value": 510,
+          "required_level": 48,
+          "sell_price": 10203,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_shield_06",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 59
+        },
+        {
+          "name": "Stormcrest Greaves",
+          "slot": "feet",
+          "item_level": 50,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 9,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 181,
+          "required_level": 48,
+          "sell_price": 8290,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_04"
+        },
+        {
+          "name": "Stormcrest Robe",
+          "slot": "chest",
+          "item_level": 50,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 14,
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "healing_power": 35
+          },
+          "armor_value": 82,
+          "required_level": 48,
+          "sell_price": 12754,
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_shirt_green_01"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ubq_old_charwing",
+      "title": "Old Charwing",
+      "giver_npc_id": "ub_wyvern_tamer",
+      "zone": "upper_boughs",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "An old wyvern nested in the Stormsplit's crack before the lightning came back for it. Gu'lok says it's still down there, burned and mad, and the Stormstruck Wyverns that followed it in are no better.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Stormstruck Wyvern",
+          "count": 5,
+          "zone": "stormsplit"
+        },
+        {
+          "type": "kill_boss",
+          "target": "Old Charwing",
+          "count": 1,
+          "zone": "stormsplit"
+        }
+      ],
+      "accept_text": "The oldest wyvern I ever saw nested in the Stormsplit, right in the crack. Then the lightning hit the same place twice, and it came out burned and wrong. Old Charwing still nests down the side split, and the Stormstruck Wyverns followed it in. Go into the Stormsplit and end it, because it's suffering.",
+      "turn_in_text": "It's done, and it's resting. That's kinder than what the lightning left it.\n\nI'll name the first wyvern I tame after it. That seems right.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ubq_stormcrest"
+      ],
+      "reward_exp": 4524,
+      "reward_gold": 17940,
+      "unique_item_defs": [
+        {
+          "name": "Charwing Shield",
+          "slot": "off_hand",
+          "item_level": 50,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 4
+          },
+          "secondary_stats": {
+            "block_value": 10
+          },
+          "armor_value": 510,
+          "required_level": 48,
+          "sell_price": 10203,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_11",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 59
+        },
+        {
+          "name": "Charwing Breeches",
+          "slot": "legs",
+          "item_level": 50,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 20,
+            "agility": 14
+          },
+          "secondary_stats": {
+            "dodge_rating": 10
+          },
+          "armor_value": 164,
+          "required_level": 48,
+          "sell_price": 12754,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_01"
+        },
+        {
+          "name": "Charwing Gloves",
+          "slot": "hands",
+          "item_level": 50,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "arcane_spell_power": 34
+          },
+          "armor_value": 56,
+          "required_level": 48,
+          "sell_price": 8290,
+          "identity": "arcane",
+          "icon_id": "gear_inv_gauntlets_28"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ubq_crackling_wisps",
+      "title": "Crackling Wisps",
+      "giver_npc_id": "ub_storm_shaman",
+      "zone": "upper_boughs",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "Stormcaller Ixi says the Crackling Wisps on the Storm Bough are pieces of lightning that never reached the ground, and they're building into something bigger.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Crackling Wisp",
+          "count": 8,
+          "zone": "upper_boughs"
+        }
+      ],
+      "accept_text": "The Crackling Wisps are lightning that didn't finish striking. They drift out on the Storm Bough, and every week there are more and they're brighter. Break them before they find each other.",
+      "turn_in_text": "Good, they've gone dim. The bough's quiet for a while.\n\nThe tree pulls lightning in like it's thirsty for it. Ingrid says the mountains on Earth do that too.",
+      "next_quest_id": "ubq_storm_glass",
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "unique_item_defs": [
+        {
+          "name": "Stormcaller's Spear",
+          "slot": "main_hand",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 19,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 47
+          },
+          "armor_value": 0,
+          "required_level": 47,
+          "sell_price": 9755,
+          "identity": "strength",
+          "icon_id": "gear_inv_spear_04",
+          "weapon_damage_min": 88,
+          "weapon_damage_max": 119,
+          "attack_speed": 3.3,
+          "block_value": 0
+        },
+        {
+          "name": "Stormcaller's Hood",
+          "slot": "head",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 31
+          },
+          "armor_value": 50,
+          "required_level": 47,
+          "sell_price": 6243,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_29"
+        },
+        {
+          "name": "Stormcaller's Grips",
+          "slot": "hands",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 7,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 83,
+          "required_level": 47,
+          "sell_price": 5073,
+          "identity": "feral",
+          "icon_id": "gear_inv_gauntlets_23"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ubq_storm_glass",
+      "title": "Storm-Glass",
+      "giver_npc_id": "ub_storm_shaman",
+      "zone": "upper_boughs",
+      "level_min": 47,
+      "level_max": 48,
+      "description": "Where a Crackling Wisp spends itself against the bark, it leaves a twist of dark glass. Ixi reads the storm in it.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "ub_q_storm_glass",
+          "count": 6
+        }
+      ],
+      "accept_text": "When a Crackling Wisp breaks, it leaves Storm-Glass behind. It's a twist of dark glass with the storm still in it, and I read the weather in it the way Ganjo reads the tree. Bring me the shards from the wisps on the Storm Bough.",
+      "turn_in_text": "Hold one up to the light and you'll see it, a little fork of lightning frozen in the middle.\n\nThey're all pointing the same way. Something on the bough is eating the storm, and getting fat on it.",
+      "next_quest_id": "ubq_the_lightning_eater",
+      "requires_quests": [
+        "ubq_crackling_wisps"
+      ],
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Glasscaller's Legguards",
+          "slot": "legs",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "nature_spell_power": 30,
+            "haste": 8
+          },
+          "armor_value": 218,
+          "required_level": 47,
+          "sell_price": 8150,
+          "identity": "storm",
+          "icon_id": "gear_inv_pants_03"
+        },
+        {
+          "name": "Glasscaller's Cloak",
+          "slot": "back",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 19
+          },
+          "armor_value": 37,
+          "required_level": 47,
+          "sell_price": 4482,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_04"
+        },
+        {
+          "name": "Glasscaller's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 249,
+          "required_level": 47,
+          "sell_price": 6520,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_17"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ubq_the_lightning_eater",
+      "title": "The Lightning-Eater",
+      "giver_npc_id": "ub_storm_shaman",
+      "zone": "upper_boughs",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "The Storm-Glass points to the end of the Storm Bough, where something has been swallowing the lightning before the wisps can form. Ixi calls it the Lightning-Eater.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "upper_boughs",
+          "target_x": 98,
+          "target_y": 140,
+          "radius": 4,
+          "label": "Find where the storm is going at the end of the Storm Bough"
+        },
+        {
+          "type": "kill_boss",
+          "target": "The Lightning-Eater",
+          "count": 1,
+          "zone": "upper_boughs"
+        }
+      ],
+      "accept_text": "Every shard points to the end of the Storm Bough. Something at the end of it swallows lightning as fast as the sky throws it, and it's getting bigger. Go out to the end of the bough, find the Lightning-Eater, and let the storm out of it.",
+      "turn_in_text": "The sky over the Storm Bough lit up like noon when it broke.\n\nThat was one. There's a bigger one in the trunk, and that one's been trapped for longer than I've been alive.",
+      "next_quest_id": "ubq_the_caught_storm",
+      "requires_quests": [
+        "ubq_storm_glass"
+      ],
+      "reward_exp": 4524,
+      "reward_gold": 17940,
+      "unique_item_defs": [
+        {
+          "name": "Lightning-Eater's Staff",
+          "slot": "main_hand",
+          "item_level": 50,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 24,
+            "stamina": 15
+          },
+          "secondary_stats": {
+            "attack_power": 62
+          },
+          "armor_value": 0,
+          "required_level": 48,
+          "sell_price": 15943,
+          "identity": "agility",
+          "icon_id": "gear_inv_staff_13",
+          "weapon_damage_min": 119,
+          "weapon_damage_max": 162,
+          "attack_speed": 3.6,
+          "block_value": 0
+        },
+        {
+          "name": "Lightning-Eater's Belt",
+          "slot": "waist",
+          "item_level": 50,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 11,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 113,
+          "required_level": 48,
+          "sell_price": 7015,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_18"
+        },
+        {
+          "name": "Lightning-Eater's Band",
+          "slot": "ring",
+          "item_level": 50,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 0,
+          "required_level": 48,
+          "sell_price": 7653,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_ring_01"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ubq_the_caught_storm",
+      "title": "The Caught Storm",
+      "giver_npc_id": "ub_storm_shaman",
+      "zone": "upper_boughs",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "Lightning split the trunk open and the storm crawled into the crack. Ixi has heard it thinking down there for years, and the Split Wisps that leak out of it are getting stronger.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Split Wisp",
+          "count": 6,
+          "zone": "stormsplit"
+        },
+        {
+          "type": "kill_boss",
+          "target": "The Caught Storm",
+          "count": 1,
+          "zone": "stormsplit"
+        }
+      ],
+      "accept_text": "The bolt that made the Stormsplit didn't leave. It's down at the bottom in Thunder Hall, and I can hear it at night, turning over and over. The Split Wisps leaking out of the crack are pieces of it. Go down through the Stormsplit and set the Caught Storm free.",
+      "turn_in_text": "I felt it go. Everyone at Highrest felt it, the hair on their arms stood up and then lay down.\n\nThe tree's quieter. I didn't know it could be.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ubq_the_lightning_eater"
+      ],
+      "reward_exp": 4524,
+      "reward_gold": 17940,
+      "unique_item_defs": [
+        {
+          "name": "Caught Storm Breastplate",
+          "slot": "chest",
+          "item_level": 50,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "healing_power": 42
+          },
+          "armor_value": 393,
+          "required_level": 48,
+          "sell_price": 12754,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_chest_plate06"
+        },
+        {
+          "name": "Caught Storm Slippers",
+          "slot": "feet",
+          "item_level": 50,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "spell_power": 28
+          },
+          "armor_value": 56,
+          "required_level": 48,
+          "sell_price": 8290,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_06"
+        },
+        {
+          "name": "Caught Storm Wristguards",
+          "slot": "wrist",
+          "item_level": 50,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 11,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 181,
+          "required_level": 48,
+          "sell_price": 6377,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_bracer_17"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ubq_a_boat_with_no_water",
+      "title": "A Boat with No Water",
+      "giver_npc_id": "ub_skywatcher",
+      "zone": "upper_boughs",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "Something fell out of the sky onto the high boughs a season ago: a boat, lying across two branch tips with no water under it. Skywatcher Tal'mae wants someone to walk its deck.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "upper_boughs",
+          "target_x": 146,
+          "target_y": 40,
+          "radius": 4,
+          "label": "Walk the deck of the Fallen Skiff"
+        }
+      ],
+      "accept_text": "There's a boat lying across two branch tips past the ring. A boat, up here, with no water under it. Tel'zan calls it the Fallen Skiff. I've only seen it from the trunk, so walk its deck for me and tell me what it's made of.",
+      "turn_in_text": "No nails, no tar, and the wood's grown into shape rather than cut? I don't know any shipwright who works like that, and I've met a few since the merge.\n\nSomebody built that to sail the sky, and that means somebody's up there.",
+      "next_quest_id": null,
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "unique_item_defs": [
+        {
+          "name": "Skywatcher's Longbow",
+          "slot": "ranged",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "attack_power": 18
+          },
+          "armor_value": 0,
+          "required_level": 47,
+          "sell_price": 6243,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_11",
+          "weapon_damage_min": 55,
+          "weapon_damage_max": 75,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Skywatcher's Coif",
+          "slot": "head",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 27
+          },
+          "armor_value": 163,
+          "required_level": 47,
+          "sell_price": 6243,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_50"
+        },
+        {
+          "name": "Skywatcher's Leggings",
+          "slot": "legs",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "spell_power": 30
+          },
+          "armor_value": 60,
+          "required_level": 47,
+          "sell_price": 7804,
+          "identity": "caster",
+          "icon_id": "gear_inv_pants_11"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ubq_the_skiffs_guards",
+      "title": "The Skiff's Guards",
+      "giver_npc_id": "ub_skywatcher",
+      "zone": "upper_boughs",
+      "level_min": 47,
+      "level_max": 48,
+      "description": "The Fallen Skiff came down with guardians, Skiff Sentinels of crystal and metal, and the Wreck Drones that crawl over the deck. They keep anyone from boarding.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Skiff Sentinel",
+          "count": 5,
+          "zone": "upper_boughs"
+        },
+        {
+          "type": "kill",
+          "target": "Wreck Drone",
+          "count": 6,
+          "zone": "upper_boughs"
+        }
+      ],
+      "accept_text": "The Skiff Sentinels walk the deck and the Wreck Drones crawl over the hull, mending it, I think. Neither of them lets anyone near. Clear enough of them that I can climb aboard and look for the boat's log.",
+      "turn_in_text": "The drones were mending a ship that's never going to sail again. They didn't know how to stop.\n\nThere's one guardian left, and it's the one that matters.",
+      "next_quest_id": "ubq_the_skiff_warden",
+      "requires_quests": [
+        "ubq_a_boat_with_no_water"
+      ],
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Wreckwarden's Knife",
+          "slot": "main_hand",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 47,
+          "sell_price": 7742,
+          "identity": "agility",
+          "icon_id": "gear_inv_weapon_shortblade_04",
+          "weapon_damage_min": 66,
+          "weapon_damage_max": 90,
+          "attack_speed": 1.7,
+          "block_value": 0
+        },
+        {
+          "name": "Wreckwarden's Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 104,
+          "required_level": 47,
+          "sell_price": 6520,
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_25"
+        },
+        {
+          "name": "Wreckwarden's Sabatons",
+          "slot": "feet",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 204,
+          "required_level": 47,
+          "sell_price": 5297,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_07"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ubq_the_skiff_warden",
+      "title": "The Skiff Warden",
+      "giver_npc_id": "ub_skywatcher",
+      "zone": "upper_boughs",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "One guardian stands at the Fallen Skiff's helm and hasn't moved since the boat came down. Tal'mae calls it the Skiff Warden, and the log is under its feet.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Skiff Warden",
+          "count": 1,
+          "zone": "upper_boughs"
+        }
+      ],
+      "accept_text": "The Skiff Warden stands at the helm of the Fallen Skiff, and it's standing on a box I'd give a lot to open. It hasn't moved since the boat came down, not once, not in the worst storm. Go and move it off that box.",
+      "turn_in_text": "It fell over like a statue, and the box was right where I hoped. The log's inside.\n\nI can't read a word of it. Tel'zan might, down in the Settlement.",
+      "next_quest_id": "ubq_the_skiffs_log",
+      "requires_quests": [
+        "ubq_the_skiffs_guards"
+      ],
+      "reward_exp": 4524,
+      "reward_gold": 17940,
+      "unique_item_defs": [
+        {
+          "name": "Skiffwarden Tome",
+          "slot": "off_hand",
+          "item_level": 50,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 9,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 38
+          },
+          "armor_value": 0,
+          "required_level": 48,
+          "sell_price": 7653,
+          "identity": "healer",
+          "icon_id": "gear_inv_tome_2",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        },
+        {
+          "name": "Skiffwarden Handguards",
+          "slot": "hands",
+          "item_level": 50,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 16,
+            "strength": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 13
+          },
+          "armor_value": 272,
+          "required_level": 48,
+          "sell_price": 8290,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_27"
+        },
+        {
+          "name": "Skiffwarden Girdle",
+          "slot": "waist",
+          "item_level": 50,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 9,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 181,
+          "required_level": 48,
+          "sell_price": 7015,
+          "identity": "hunter",
+          "icon_id": "gear_inv_belt_26"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ubq_the_skiffs_log",
+      "title": "The Skiff's Log",
+      "giver_npc_id": "ub_skywatcher",
+      "zone": "upper_boughs",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "The Fallen Skiff's log is written in a script nobody at Highrest can read. Tal'mae wants it in Archivist Tel'zan's hands in the Great Settlement.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "ub_q_skiffs_log",
+          "count": 1,
+          "label": "Take the Skiff's log down to Archivist Tel'zan in the Great Settlement"
+        }
+      ],
+      "accept_text": "Tel'zan keeps the record of everything that's fallen on the tree since the merge, and this belongs in it. It's a long way down, and I'm not leaving my post. Take the log to the Great Settlement and put it in his hands, nobody else's.",
+      "turn_in_text": "A ship's log, from the sky. And the Surveyor's core before it, and both of them came down on this tree.\n\nI can read a little of this. They were sailing toward the tree, not past it. They meant to come here.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "gs_scholar_hall",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "ub_q_skiffs_log",
+            "name": "The Skiff's Log",
+            "description": "A slim book bound in something like pale leather, its pages covered in a looping script. The ink shines when it's tilted.",
+            "count": 1
+          }
+        ]
+      },
+      "requires_quests": [
+        "ubq_the_skiff_warden"
+      ],
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Logkeeper's Mace",
+          "slot": "main_hand",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 0,
+          "required_level": 48,
+          "sell_price": 7742,
+          "identity": "healer",
+          "icon_id": "gear_inv_mace_09",
+          "weapon_damage_min": 66,
+          "weapon_damage_max": 90,
+          "attack_speed": 2.6,
+          "block_value": 0
+        },
+        {
+          "name": "Logkeeper's Jerkin",
+          "slot": "chest",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 12,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 122,
+          "required_level": 48,
+          "sell_price": 8150,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_08"
+        },
+        {
+          "name": "Logkeeper's Pendant",
+          "slot": "neck",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 19
+          },
+          "armor_value": 0,
+          "required_level": 48,
+          "sell_price": 4890,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_necklace_09"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ubq_thunderhawks",
+      "title": "Thunderhawks",
+      "giver_npc_id": "ub_old_climber",
+      "zone": "upper_boughs",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "Old Muzzi climbed with Ruk'tan and Zel'ji when they were young. He says the Thunderhawks on the Thunderhawk Reach have got bolder every year since, and now they take people off the branches.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Thunderhawk",
+          "count": 7,
+          "zone": "upper_boughs"
+        }
+      ],
+      "accept_text": "The Thunderhawks nest on the Reach, and when I was young they'd only take a climber who'd fallen asleep. Now they'll come for anyone on the branch. Go out on the Thunderhawk Reach and knock them down.",
+      "turn_in_text": "They'll remember that. Hawks have long memories, and so do I.\n\nWhen I was a boy this was just a tree. Then the merge came, and the sky came closer.",
+      "next_quest_id": null,
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "unique_item_defs": [
+        {
+          "name": "Hawkcatcher's Greatsword",
+          "slot": "main_hand",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 19,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 47
+          },
+          "armor_value": 0,
+          "required_level": 47,
+          "sell_price": 9755,
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_07",
+          "weapon_damage_min": 88,
+          "weapon_damage_max": 119,
+          "attack_speed": 3.4,
+          "block_value": 0
+        },
+        {
+          "name": "Hawkcatcher's Bracers",
+          "slot": "wrist",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 83,
+          "required_level": 47,
+          "sell_price": 3902,
+          "identity": "agility",
+          "icon_id": "gear_inv_bracer_15"
+        },
+        {
+          "name": "Hawkcatcher's Hood",
+          "slot": "head",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 25
+          },
+          "armor_value": 50,
+          "required_level": 47,
+          "sell_price": 6243,
+          "identity": "caster",
+          "icon_id": "gear_inv_helmet_28"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ubq_old_thunderbeak",
+      "title": "Old Thunderbeak",
+      "giver_npc_id": "ub_old_climber",
+      "zone": "upper_boughs",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "The biggest of the Thunderhawks nests at the end of the Thunderhawk Reach. Old Muzzi calls it Old Thunderbeak, and it took two of his fingers sixty years ago.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "upper_boughs",
+          "target_x": 112,
+          "target_y": 8,
+          "radius": 4,
+          "label": "Climb to the end of the Thunderhawk Reach"
+        },
+        {
+          "type": "kill_boss",
+          "target": "Old Thunderbeak",
+          "count": 1,
+          "zone": "upper_boughs"
+        }
+      ],
+      "accept_text": "Old Thunderbeak took two fingers off this hand when I was younger than you. It's still out at the end of the Reach, bigger than ever and twice as mean. I can't climb out there anymore, so go out to the end of the Reach and bring it down for me.",
+      "turn_in_text": "Sixty years, and it's done. I thought I'd feel something bigger.\n\nI just feel old. That's all right, I've earned it.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ubq_thunderhawks"
+      ],
+      "reward_exp": 4524,
+      "reward_gold": 17940,
+      "unique_item_defs": [
+        {
+          "name": "Thunderbeak Hauberk",
+          "slot": "chest",
+          "item_level": 50,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 14,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "attack_power": 41
+          },
+          "armor_value": 262,
+          "required_level": 48,
+          "sell_price": 12754,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_04"
+        },
+        {
+          "name": "Thunderbeak Sash",
+          "slot": "waist",
+          "item_level": 50,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "spell_power": 28
+          },
+          "armor_value": 66,
+          "required_level": 48,
+          "sell_price": 7015,
+          "identity": "caster",
+          "icon_id": "gear_inv_belt_30"
+        },
+        {
+          "name": "Thunderbeak Sabatons",
+          "slot": "feet",
+          "item_level": 50,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 16,
+            "strength": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 13
+          },
+          "armor_value": 272,
+          "required_level": 48,
+          "sell_price": 8290,
+          "identity": "tank",
+          "icon_id": "gear_inv_boots_04"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ubq_quills_for_a_charm",
+      "title": "Quills for a Charm",
+      "giver_npc_id": "ub_old_climber",
+      "zone": "upper_boughs",
+      "level_min": 47,
+      "level_max": 48,
+      "description": "Old Muzzi is making a wind charm for Zel'ji, who climbed into the cloud and never came back down. A climber's charm is tied with Thunderhawk quills, for luck.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "ub_q_thunderhawk_quill",
+          "count": 5
+        }
+      ],
+      "accept_text": "Zel'ji went up into the cloud with her rope and didn't come back. Every climber who's gone up since has tied a charm for her on the way. I never did, because I was angry with her. I'm not angry anymore. Bring me Thunderhawk Quills from the Reach, and I'll make her one.",
+      "turn_in_text": "These will do. They're strong, they'll ring in the wind.\n\nGive me a night to tie it. I've forgotten how, and my fingers are slower than they were.",
+      "next_quest_id": "ubq_a_charm_for_zelji",
+      "requires_quests": [
+        "ubq_thunderhawks"
+      ],
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Quillwright's Grips",
+          "slot": "hands",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 85,
+          "required_level": 47,
+          "sell_price": 5297,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_13"
+        },
+        {
+          "name": "Quillwright's Spaulders",
+          "slot": "shoulder",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "healing_power": 39
+          },
+          "armor_value": 166,
+          "required_level": 47,
+          "sell_price": 6520,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_shoulder_15"
+        },
+        {
+          "name": "Quillwright's Pendant",
+          "slot": "neck",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 19
+          },
+          "armor_value": 0,
+          "required_level": 47,
+          "sell_price": 4890,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_necklace_06"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ubq_a_charm_for_zelji",
+      "title": "A Charm for Zel'ji",
+      "giver_npc_id": "ub_old_climber",
+      "zone": "upper_boughs",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "Old Muzzi has tied a wind charm for Zel'ji, and it belongs on the Charm-Tree in the Cloudbreak with all the others. He can't climb that far now.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "cloudbreak",
+          "target_x": 28,
+          "target_y": 68,
+          "radius": 4,
+          "label": "Tie Muzzi's charm on the Charm-Tree in the Cloudbreak"
+        }
+      ],
+      "accept_text": "Here's the charm. There's a bent branch halfway up the Cloudbreak, past Zel'ji's rope, and every climber who's gone up has tied something to it. Tie this one there for me. You'll hear it, because they all ring together.",
+      "turn_in_text": "You heard them? That's every climber who went up. They're all still ringing.\n\nThank you. I'll sleep tonight, and that's not happened in a long time.",
+      "next_quest_id": null,
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "ub_q_muzzis_charm",
+            "name": "Muzzi's Charm",
+            "description": "A wind charm of bone beads and banded Thunderhawk quills, tied with an old climber's knot. It rings when you move.",
+            "count": 1
+          }
+        ]
+      },
+      "requires_quests": [
+        "ubq_quills_for_a_charm"
+      ],
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Charm-Tree Cloak",
+          "slot": "back",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21,
+            "hit_rating": 5
+          },
+          "armor_value": 37,
+          "required_level": 48,
+          "sell_price": 4482,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_07"
+        },
+        {
+          "name": "Charm-Tree Cuffs",
+          "slot": "wrist",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 25
+          },
+          "armor_value": 42,
+          "required_level": 48,
+          "sell_price": 4075,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_14"
+        },
+        {
+          "name": "Charm-Tree Legplates",
+          "slot": "legs",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 30
+          },
+          "armor_value": 295,
+          "required_level": 48,
+          "sell_price": 8150,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_13"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ubq_reading_the_wind",
+      "title": "Reading the Wind",
+      "giver_npc_id": "ub_transplant",
+      "zone": "upper_boughs",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "Ingrid Haugen is a mountaineer and a meteorologist from Tromso, and she's measuring the weather the tree makes. She needs readings from the ends of the Gale's two branches, where the wind comes in first.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "upper_boughs",
+          "target_x": 16,
+          "target_y": 28,
+          "radius": 4,
+          "label": "Take a reading at the end of the Gale's upper branch"
+        },
+        {
+          "type": "explore",
+          "target": "upper_boughs",
+          "target_x": 16,
+          "target_y": 108,
+          "radius": 4,
+          "label": "Take a reading at the end of the Gale's lower branch"
+        }
+      ],
+      "accept_text": "Back home in Tromso I'd put an anemometer on a peak and leave it for a season. I can't do that here, because the harpies steal them. The wind hits the Gale first, so go out to the end of each of its branches and tell me how it feels on your face.",
+      "turn_in_text": "Cold on the upper branch, warm and wet on the lower one? Then the tree's pulling air up its own trunk like a chimney.\n\nIt makes its own weather. I knew it did. I just needed someone to stand out there and feel it.",
+      "next_quest_id": "ubq_the_gale_riders",
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "unique_item_defs": [
+        {
+          "name": "Windreader's Cap",
+          "slot": "head",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 14,
+            "agility": 8
+          },
+          "secondary_stats": {
+            "dodge_rating": 6
+          },
+          "armor_value": 101,
+          "required_level": 47,
+          "sell_price": 6243,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_06"
+        },
+        {
+          "name": "Windreader's Band",
+          "slot": "ring",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 5,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "healing_power": 23
+          },
+          "armor_value": 0,
+          "required_level": 47,
+          "sell_price": 4683,
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_ring_04"
+        },
+        {
+          "name": "Windreader's Gauntlets",
+          "slot": "hands",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 7,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 18
+          },
+          "armor_value": 148,
+          "required_level": 47,
+          "sell_price": 5073,
+          "identity": "earthen",
+          "icon_id": "gear_inv_gauntlets_19"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ubq_the_gale_riders",
+      "title": "The Gale-Riders",
+      "giver_npc_id": "ub_transplant",
+      "zone": "upper_boughs",
+      "level_min": 47,
+      "level_max": 48,
+      "description": "The harpies of the Gale ride the wind the tree makes. The Gale-Rider Harpies dive on anyone on the branches, and the Gale Windcallers whip the wind up for them.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Gale-Rider Harpy",
+          "count": 7,
+          "zone": "upper_boughs"
+        },
+        {
+          "type": "kill",
+          "target": "Gale Windcaller",
+          "count": 4,
+          "zone": "upper_boughs"
+        }
+      ],
+      "accept_text": "Every Gale-Rider Harpy rides the updraught off the trunk, and the Gale Windcallers make it stronger when they want to hunt. They've stolen every instrument I've put out. Break their flight so I can get some numbers that last longer than an afternoon.",
+      "turn_in_text": "My barometer's been on that branch since morning, and it's still there.\n\nOn Earth I chased storms for a living. Here the storms chase me, and it's a nice change to win one.",
+      "next_quest_id": "ubq_gale_queen_skirra",
+      "requires_quests": [
+        "ubq_reading_the_wind"
+      ],
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Galebreaker's Staff",
+          "slot": "main_hand",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 21
+          },
+          "secondary_stats": {
+            "spell_power": 46
+          },
+          "armor_value": 0,
+          "required_level": 47,
+          "sell_price": 10187,
+          "identity": "caster",
+          "icon_id": "gear_inv_staff_27",
+          "weapon_damage_min": 36,
+          "weapon_damage_max": 49,
+          "attack_speed": 3.2,
+          "block_value": 0
+        },
+        {
+          "name": "Galebreaker's Jerkin",
+          "slot": "chest",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 30
+          },
+          "armor_value": 122,
+          "required_level": 47,
+          "sell_price": 8150,
+          "identity": "strength",
+          "icon_id": "gear_inv_chest_leather_09"
+        },
+        {
+          "name": "Galebreaker's Waistguard",
+          "slot": "waist",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 23
+          },
+          "armor_value": 204,
+          "required_level": 47,
+          "sell_price": 4482,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_belt_15"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ubq_gale_queen_skirra",
+      "title": "Gale Queen Skirra",
+      "giver_npc_id": "ub_transplant",
+      "zone": "upper_boughs",
+      "level_min": 48,
+      "level_max": 48,
+      "description": "The Gale's harpies follow a queen who calls the wind down like a hammer. Ingrid has watched her flatten a branch's worth of lichen in one stroke.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Gale Queen Skirra",
+          "count": 1,
+          "zone": "upper_boughs"
+        }
+      ],
+      "accept_text": "Gale Queen Skirra rules the Gale, and when she's angry she pulls the wind down out of the sky and drops it on you. I watched her strip a branch bare with one stroke. She's the reason the harpies are bold. Bring her down.",
+      "turn_in_text": "The wind dropped the moment she fell. My instruments all went still at once.\n\nThat's the strangest reading I've ever taken, here or on Earth. The weather up here has a will, or it did.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ubq_the_gale_riders"
+      ],
+      "reward_exp": 4524,
+      "reward_gold": 17940,
+      "unique_item_defs": [
+        {
+          "name": "Skirra's Mantle",
+          "slot": "shoulder",
+          "item_level": 50,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 15
+          },
+          "secondary_stats": {
+            "spell_power": 35
+          },
+          "armor_value": 69,
+          "required_level": 48,
+          "sell_price": 10203,
+          "identity": "caster",
+          "icon_id": "gear_inv_shoulder_08"
+        },
+        {
+          "name": "Skirra's Breeches",
+          "slot": "legs",
+          "item_level": 50,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 16,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "attack_power": 41
+          },
+          "armor_value": 164,
+          "required_level": 48,
+          "sell_price": 12754,
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_04"
+        },
+        {
+          "name": "Skirra's Vambraces",
+          "slot": "wrist",
+          "item_level": 50,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 16,
+            "strength": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 13
+          },
+          "armor_value": 272,
+          "required_level": 48,
+          "sell_price": 6377,
+          "identity": "tank",
+          "icon_id": "gear_inv_bracer_04"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ubq_moths_on_the_stair",
+      "title": "Moths on the Stair",
+      "giver_npc_id": "ub_stairwarden",
+      "zone": "upper_boughs",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "Stairwarden Rhoka keeps the root stair down to Heartwatch, and the Gale Moths cluster on it where it's out of the wind. They panic in swarms when anyone climbs past.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Gale Moth",
+          "count": 8,
+          "zone": "upper_boughs"
+        }
+      ],
+      "accept_text": "The Gale Moths shelter on the root stair and round the trunk ring, out of the wind. When somebody climbs past they all go up at once, right in your face, and twice now somebody's lost their footing. Clear them off the ring.",
+      "turn_in_text": "I counted everybody up and everybody down today, and the numbers matched.\n\nThat hasn't happened since the newcomers started coming up.",
+      "next_quest_id": null,
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "unique_item_defs": [
+        {
+          "name": "Stairwarden's Shield",
+          "slot": "off_hand",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 17,
+            "haste": 5
+          },
+          "armor_value": 374,
+          "required_level": 47,
+          "sell_price": 6243,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_shield_18",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 43
+        },
+        {
+          "name": "Stairwarden's Greaves",
+          "slot": "feet",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 133,
+          "required_level": 47,
+          "sell_price": 5073,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_06"
+        },
+        {
+          "name": "Stairwarden's Robe",
+          "slot": "chest",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 10,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "healing_power": 27
+          },
+          "armor_value": 60,
+          "required_level": 47,
+          "sell_price": 7804,
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_chest_cloth_01"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ubq_skinks_at_the_knots",
+      "title": "Skinks at the Knots",
+      "giver_npc_id": "ub_ladderkeeper",
+      "zone": "upper_boughs",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "Ladderkeeper Vosh keeps the foot of the ladders on the Cloud Way. The Windscour Skinks on the trunk ring like the salt in the tarred rope, and they chew the knots.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Windscour Skink",
+          "count": 8,
+          "zone": "upper_boughs"
+        }
+      ],
+      "accept_text": "The Windscour Skinks love the salt in tarred rope, and they've been chewing my knots at night. If a knot goes on the Cloud Way, somebody goes with it. Clear them off the trunk ring for me.",
+      "turn_in_text": "Every knot's whole this morning. Grandfather would've been pleased.\n\nHe hung the last ladder, you know, the one at the very top. Nobody's climbed past it since the merge but him.",
+      "next_quest_id": null,
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "unique_item_defs": [
+        {
+          "name": "Knotkeeper's Shield",
+          "slot": "off_hand",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 8,
+            "strength": 3
+          },
+          "secondary_stats": {
+            "block_value": 8
+          },
+          "armor_value": 374,
+          "required_level": 47,
+          "sell_price": 6243,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_10",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 43
+        },
+        {
+          "name": "Knotkeeper's Breeches",
+          "slot": "legs",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 14,
+            "agility": 10
+          },
+          "secondary_stats": {
+            "dodge_rating": 8
+          },
+          "armor_value": 120,
+          "required_level": 47,
+          "sell_price": 7804,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_07"
+        },
+        {
+          "name": "Knotkeeper's Gloves",
+          "slot": "hands",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "arcane_spell_power": 25
+          },
+          "armor_value": 41,
+          "required_level": 47,
+          "sell_price": 5073,
+          "identity": "arcane",
+          "icon_id": "gear_inv_gauntlets_21"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ubq_counting_the_flock",
+      "title": "Counting the Flock",
+      "giver_npc_id": "ub_scout_roosts",
+      "zone": "upper_boughs",
+      "level_min": 47,
+      "level_max": 48,
+      "description": "Scout Tazzo watches the Wyvern Roosts for Gu'lok. The flock has spread to the far end of the bough, and he needs someone to go and see how far.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "upper_boughs",
+          "target_x": 166,
+          "target_y": 100,
+          "radius": 4,
+          "label": "Walk to the far end of the Wyvern Roosts"
+        }
+      ],
+      "accept_text": "The roosts go further than anyone thinks, and Gu'lok wants to know how many there are. I can't go out there without the big one with the crest seeing me. Walk out to the far end of the roosts and count what you see on the way.",
+      "turn_in_text": "That's more than I've ever counted, so the flock's been breeding up there all season.\n\nGu'lok's going to want every one of them, and he's going to need a bigger camp.",
+      "next_quest_id": null,
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Flockwatcher's Spear",
+          "slot": "main_hand",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 19,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 48
+          },
+          "armor_value": 0,
+          "required_level": 47,
+          "sell_price": 10187,
+          "identity": "strength",
+          "icon_id": "gear_inv_weapon_halberd_05",
+          "weapon_damage_min": 89,
+          "weapon_damage_max": 121,
+          "attack_speed": 3.3,
+          "block_value": 0
+        },
+        {
+          "name": "Flockwatcher's Hood",
+          "slot": "head",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 52,
+          "required_level": 47,
+          "sell_price": 6520,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_59"
+        },
+        {
+          "name": "Flockwatcher's Grips",
+          "slot": "hands",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 7,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 85,
+          "required_level": 47,
+          "sell_price": 5297,
+          "identity": "feral",
+          "icon_id": "gear_inv_gauntlets_12"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ubq_humming_crystals",
+      "title": "Humming Crystals",
+      "giver_npc_id": "ub_scout_wreck",
+      "zone": "upper_boughs",
+      "level_min": 47,
+      "level_max": 48,
+      "description": "Scout Neema has watched the Skiff Sentinels for nine days. Each one hums one low note, and she thinks the note comes from the crystal in its chest.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "ub_q_humming_crystal",
+          "count": 5
+        }
+      ],
+      "accept_text": "Every Skiff Sentinel hums one low note, and they all hum it together. I think it's the crystal in their chests, and I think it's how they talk. Bring me the Humming Crystals out of the sentinels on the wreck, and we'll see if they stop singing.",
+      "turn_in_text": "Hold one to your ear. It's the same note, even out of the sentinel.\n\nTal'mae will want to hear this. So will Tel'zan, down in the Settlement.",
+      "next_quest_id": null,
+      "reward_exp": 3480,
+      "reward_gold": 13800,
+      "unique_item_defs": [
+        {
+          "name": "Crystalwatcher's Legguards",
+          "slot": "legs",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "nature_spell_power": 30,
+            "haste": 8
+          },
+          "armor_value": 196,
+          "required_level": 47,
+          "sell_price": 8150,
+          "identity": "storm",
+          "icon_id": "gear_inv_pants_wolf"
+        },
+        {
+          "name": "Crystalwatcher's Cloak",
+          "slot": "back",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 19
+          },
+          "armor_value": 37,
+          "required_level": 47,
+          "sell_price": 4482,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_20"
+        },
+        {
+          "name": "Crystalwatcher's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 49,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 268,
+          "required_level": 47,
+          "sell_price": 6520,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_26"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "uncommon"
+    }
+  ]
+}

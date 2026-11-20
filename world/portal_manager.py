@@ -764,9 +764,21 @@ class PortalManager:
             "The Middle Boughs": {
                 (16, 128): ("The Great Settlement", 162, 20),       # down the High Lift: arrive (162,18) at its foot
                 (16, 82): ("Shriekhollow", 40, 6),                  # into the hollow: arrive (40,4) inside the split
+                (16, 18): ("The Upper Boughs", 76, 91),             # up the Root Stair: arrive (76,89) on the ring
             },
             "Shriekhollow": {
                 (40, 2): ("The Middle Boughs", 20, 84),             # out of the hollow: arrive (20,82) on the terraces
+            },
+            "The Upper Boughs": {
+                (74, 86): ("The Middle Boughs", 20, 20),            # down the Root Stair: arrive (20,18) on the terraces
+                (68, 66): ("The Stormsplit", 40, 6),                # into the lightning split: arrive (40,4)
+                (90, 52): ("The Cloudbreak", 32, 118),              # up the Cloud Way: arrive (32,116) on the last branches
+            },
+            "The Stormsplit": {
+                (40, 2): ("The Upper Boughs", 65, 70),              # out of the split: arrive (65,68) on the ring
+            },
+            "The Cloudbreak": {
+                (32, 120): ("The Upper Boughs", 90, 57),            # back down the Cloud Way: arrive (90,55) on the ring
             },
             # ===== FERALAS (docs/feralas_brief.md, 19 Nov 2026): the arrival is always two tiles north of the target =====
             "The High Wilderness": {

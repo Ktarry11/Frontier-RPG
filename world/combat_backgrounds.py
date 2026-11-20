@@ -210,6 +210,9 @@ ZONE_BACKGROUND = {
     "The Knothollow": "jungle",                   # the cave into the trunk
     "The Middle Boughs": "jungle",                # the tree's heart above the city
     "Shriekhollow": "jungle",                     # the harpies' hollow in the trunk
+    "The Upper Boughs": "jungle",                 # the top of the tree, over the cloud tops
+    "The Stormsplit": "jungle",                   # the lightning split in the trunk
+    "The Cloudbreak": "jungle",                   # the last branches (no fights)
     "The Great Settlement": "jungle",             # the troll city in the tree's heart
     "The High Wilderness": "mossy_forest",        # Feralas's giant forest (until its own background)
     "The Forgotten Coast": "mossy_forest",

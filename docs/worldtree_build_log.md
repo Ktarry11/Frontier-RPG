@@ -202,7 +202,60 @@ redrawn before anything shipped.
 fresh write): re-running it for this pair had put 32 boss kits, 11 bosses' loot and 17 quests back to how they were first
 written. `tools/build_new_zone_secrets.py` cuts the doors for hidden zones on the maps it covers.
 
+## The Upper Boughs, the Stormsplit and the Cloudbreak (20 Nov 2026)
+
+Kyle: "So finish up the upper layers if not done".
+
+**The Upper Boughs** (47-48, 180x150, `tools/handbuilt_worldtree_upper_boughs.py`): a pinwheel. The trunk stands in
+the middle as a solid column with a walkable ring round it (the loa face carved into it, a tower house and a stair
+cut into the bark), and six long boughs curve out from the ring like the arms of a storm: the Wyvern Roosts, the
+Storm Bough, the Gale (two arms, joined by an old rope walk across the drop), the Thunderhawk Reach, and the Skiff
+Wreck, where the Fallen Skiff lies across two branch tips as a deck over the gap. Highrest, the Windwardens' camp,
+sits on a shelf below the ring. The drop is cloud, white and close. Ground: pale wind-scoured bark, lichen on the
+sheltered side, storm bark only where lightning has burned it, and the first gold leaves at the tips.
+
+Kyle, mid-build: "dont just drop shit on ub randomly", then "i mean like dropping totems in the middle of the thing or
+on a branch isnt. greenery is fine". Greenery scatters; objects don't. Highrest is laid out as a camp (brazier at the
+middle, lean-to, hammock, sap barrels, the lookout and the loa totem at the edge, wind charms on the rim), rope posts
+stand in pairs at the rope walk's ends, nests and lightning stumps are where the creatures and the storms are. The
+same pass moved the Middle Boughs' totem and braziers to guard the sealed Heartwood Hollow and put a stray charm by its
+shrine, and clustered the Cloudbreak's charms round the Charm-Tree.
+
+**The Stormsplit** (cave, 84x100, `tools/handbuilt_stormsplit.py`): the line of the lightning that split the trunk.
+Kyle: "less zig zag for the tunnel, thatd be annoying to run up". Two long straight legs with one kink where the bolt
+first struck, Thunder Hall at the bottom with the lightning still crawling across its floor (it lights the hall), and
+a narrower split off the kink down to the Scorched Nest. Bosses: Old Charwing (the nest) and the Caught Storm (the
+hall).
+
+**The Cloudbreak** (48, 64x124, `tools/handbuilt_worldtree_cloudbreak.py`): built only to be walked through. The last
+branches rise nearly straight through the cloud (straightened for the same note) with two short rope ladders across
+the gaps, from fog at the foot to gold at the top (the map's `LIGHT`, a new baker hook), and end on a platform of
+living heartwood against an old stone wall with the mural on it. No monsters, no quest givers; the places are named
+for the climbers who went before (Where Ruk'tan Turned Back, Zel'ji's Rope, the Charm-Tree, Old Vosh's Ladder).
+
+**The first cutscene** (`world/cutscenes.py`, `ui/screens/cutscene_screen.py`, `docs/crown_cutscene.md`): walking up
+to the mural plays the six Crown shots once per character (pan, zoom, crossfade, shake, the gold flood), then the
+mural on the map is broken open for good. Escape, Enter or Space skips. Seen flags save with the character. When the
+Sunward Crown exists, the cutscene ends with you standing on it; until then it hands you back to the Cloudbreak.
+
+**The people:** Highrest's Windwarden Kazra'jin, Wyvern-Tamer Gu'lok, Stormcaller Ixi, Skywatcher Tal'mae, Old Muzzi
+(who climbed with Ruk'tan and Zel'ji), and Ingrid Haugen, a mountaineer and meteorologist from Tromso. Two traders,
+the Stairwarden at the root stair, Ladderkeeper Vosh at the foot of the Cloud Way (grandson of the Vosh who hung the
+last ladder), and two scouts.
+
+**The creatures:** 15 in the open (5 rares) and 6 in the Stormsplit (2 bosses), wearing the last of sheet W6.
+
+**The quests:** 27, 23 given at Highrest, plus Ropehand Dezza's hand-off up from the Middle Boughs. Threads: the
+ascent (Kazra'jin's chain ends at the top of the Cloudbreak, in front of the wall; it stops there, and the wall is the
+cutscene's); the wyverns (to Stormcrest and to Old Charwing in the cave); the storm (storm-glass, the Lightning-Eater,
+the Caught Storm); the boat with no water (the Fallen Skiff's guardians and warden, and its log down to Tel'zan: they
+were sailing toward the tree, not past it); the climbers (Old Thunderbeak, and Muzzi's charm for Zel'ji tied on the
+Charm-Tree); the weather (Ingrid's readings, the Gale's harpies and Gale Queen Skirra).
+
+**Secrets:** 2, cut into the tree.
+
 ## Next
 
-The Upper Boughs (with its cave) and the Cloudbreak, the sky renderer, then the sky maps. The Heartwood Hollow is the
-tree's dungeon when Kyle calls it. See `docs/worldtree_brief.md` for the whole road.
+The sky renderer, then the sky maps, starting with the Sunward Crown so the cutscene has somewhere to land (the
+broken mural's way through is already reserved on the Cloudbreak). The Heartwood Hollow is the tree's dungeon when
+Kyle calls it. See `docs/worldtree_brief.md` for the whole road.

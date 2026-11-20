@@ -297,6 +297,12 @@ class ZoneManager:
         if found:
             self.last_secret_found = found
 
+        # A cutscene's trigger, stepped on for the first time by this character (world/cutscenes.py).
+        from world.cutscenes import get_cutscenes
+        cs = get_cutscenes().on_step(self.current_zone.name, new_x, new_y)
+        if cs:
+            self.pending_cutscene = cs
+
         # Hearthstone cooldown is counted in overworld steps.
         from world.travel_manager import get_travel_manager
         get_travel_manager().on_step()

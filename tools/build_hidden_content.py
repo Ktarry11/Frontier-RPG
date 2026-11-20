@@ -2415,7 +2415,7 @@ def worldtree_quests():
           "lived on the lips between them ever since. The Mossback Snappers lie in the moss at the water's edge, and the Stilt-Leg Herons spear "
           "anything that sits still too long. Thin them out, so an old woman can walk her own terraces.",
           "The snappers lie in the moss along every lip. The herons stand in the shallows, very still.",
-          "I walked from the bottom pool to the top this morning and nothing bit me. That hasn't happened in years.\n\nYou came "
+          "I walked from the bottom pool to the top this morning and nothing bit me. That hasn't happened since the merge.\n\nYou came "
           "a long way to find a pond. I'd like to show you why it's worth finding.",
           R(_RC[0], ("Mossrim Walker's Boots", "feet", "of the Monkey", "leather", None, "Leather Boots (Agi/Sta)"),
             ("Rain-Soaked Gloves", "hands", "of the Owl", "cloth", None, "Cloth Gloves (Int/Spi)"),
@@ -2455,7 +2455,7 @@ def worldtree_quests():
           "and for years I didn't mind her, because she ate the eels.\n\nNow she's eating the herons, and the "
           "snappers, and last week she had a go at me. I'm too old to be eaten by a toad. Please see to it.",
           "The lily shallows fill the top pool, under the low crown. She looks like a mossy rock until she opens her mouth.",
-          "She's gone, and the lilies are already opening where she used to sit.\n\nI'll miss her singing at night, "
+          "She's gone, and the lilies are already opening where she used to sit.\n\nShe was singing here long before the merge. I'll miss her singing at night, "
           "a little. Don't tell anyone I said that.",
           R(_RC[1], ("Lily-Shallows Glaive", "main_hand", "of the Monkey", None, "polearm", "Polearm (Agi/Sta)"),
             ("Pondskin Bracers", "wrist", "of the Owl", "mail", None, "Mail Bracers (Int/Spi)"),
@@ -2511,7 +2511,7 @@ def worldtree_quests():
           "make it quick.",
           "The emergent is the tallest crown, north east of the flood. She lies up in the branches in the heat.",
           "It's done, then.\n\nI'll draw her tonight, the way she was in the mornings, before she noticed me. "
-          "Somebody from home should remember her. Take something with you, you've earned it.",
+          "Somebody from Earth should remember her. Take something with you, you've earned it.",
           R(_KC[1], ("Emergent-Stalker's Spear", "main_hand", "of the Monkey", None, "polearm", "Polearm (Agi/Sta)"),
             ("Rosette Bracers", "wrist", "of the Owl", "mail", None, "Mail Bracers (Int/Spi)"),
             ("Kapok-Bark Sabatons", "feet", "of the Champion", "plate", None, "Plate Boots (Str/Sta/Def)"))),

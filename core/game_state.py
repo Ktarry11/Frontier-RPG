@@ -30,6 +30,7 @@ from ui.screens.soul_screen import SoulScreen
 from ui.screens.collection_screen import CollectionScreen
 from ui.screens.testing_screen import TestingScreen
 from ui.screens.travel_service_screen import TravelServiceScreen
+from ui.screens.cutscene_screen import CutsceneScreen
 from config import save_slot_filename
 
 
@@ -113,6 +114,7 @@ class GameStateManager:
             GameState.COLLECTION: CollectionScreen(self, icon_ui_helper=self.icon_ui_helper),
             GameState.TESTING: TestingScreen(self),
             GameState.TRAVEL: TravelServiceScreen(self),
+            GameState.CUTSCENE: CutsceneScreen(self),     # world/cutscenes.py
             # VendorScreen is created dynamically when entering vendor state
         }
 
@@ -454,6 +456,8 @@ class GameStateManager:
                                    for n, e in zone_manager.zones.items()})
             # Secrets this character has found: the map stops lying about those, and only those.
             from world.secrets import get_secrets
+            from world.cutscenes import get_cutscenes
+            get_cutscenes().load_dict((world or {}).get("cutscenes"))
             get_secrets().load_dict((world or {}).get("secrets"),
                                     {n: (e["tilemap"] if isinstance(e, dict) else e)
                                      for n, e in zone_manager.zones.items()})

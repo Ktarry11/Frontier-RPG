@@ -1,0 +1,350 @@
+{
+  "_notes": "The Upper Boughs' open-world rares (48). ONE item per kill from the rare's four; item_level = the rare's level + 3. Hand-authored in tools/build_upper_boughs_content.py.",
+  "Stormcrest": [
+    {
+      "name": "Stormcrest Scale Mantle",
+      "slot": "shoulder",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "primary_stats": {
+        "agility": 17,
+        "spirit": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 226,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "ubi_stormcrest_scale_mantle"
+    },
+    {
+      "name": "Crest-Bone Band",
+      "slot": "ring",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "primary_stats": {
+        "strength": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {},
+      "stat_template": "str_physical",
+      "item_id": "ubi_crest_bone_band"
+    },
+    {
+      "name": "Cloudtop Rider's Gloves",
+      "slot": "hands",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 115,
+      "stat_template": "agi_physical",
+      "item_id": "ubi_cloudtop_riders_gloves"
+    },
+    {
+      "name": "Wyvern-Sting Wand",
+      "slot": "ranged",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 7
+      },
+      "secondary_stats": {
+        "spell_power": 19,
+        "crit_chance_spell": 5
+      },
+      "weapon_damage_min": 76,
+      "weapon_damage_max": 103,
+      "attack_speed": 1.9,
+      "stat_template": "int_caster",
+      "item_id": "ubi_wyvern_sting_wand"
+    }
+  ],
+  "The Lightning-Eater": [
+    {
+      "name": "Bolt-Swallower's Robe",
+      "slot": "chest",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "primary_stats": {
+        "intellect": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {
+        "spell_power": 18
+      },
+      "armor_type": "cloth",
+      "armor_value": 83,
+      "stat_template": "int_caster",
+      "item_id": "ubi_bolt_swallowers_robe"
+    },
+    {
+      "name": "Grounded Greaves",
+      "slot": "legs",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "primary_stats": {
+        "strength": 20,
+        "stamina": 20
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 401,
+      "stat_template": "str_physical",
+      "item_id": "ubi_grounded_greaves"
+    },
+    {
+      "name": "Stormstruck Bracers",
+      "slot": "wrist",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "primary_stats": {
+        "intellect": 8,
+        "spirit": 8
+      },
+      "secondary_stats": {
+        "healing_power": 22
+      },
+      "armor_type": "leather",
+      "armor_value": 115,
+      "stat_template": "spi_healer",
+      "item_id": "ubi_stormstruck_bracers"
+    },
+    {
+      "name": "Thunderclap Maul",
+      "slot": "two_hand",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 31,
+        "stamina": 39
+      },
+      "secondary_stats": {
+        "defense_rating": 23
+      },
+      "weapon_damage_min": 121,
+      "weapon_damage_max": 164,
+      "attack_speed": 3.6,
+      "stat_template": "str_physical",
+      "item_id": "ubi_thunderclap_maul"
+    }
+  ],
+  "Gale Queen Skirra": [
+    {
+      "name": "Gale Queen's Plume",
+      "slot": "head",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "primary_stats": {
+        "intellect": 10,
+        "spirit": 10
+      },
+      "secondary_stats": {
+        "healing_power": 27
+      },
+      "armor_type": "cloth",
+      "armor_value": 70,
+      "stat_template": "spi_healer",
+      "item_id": "ubi_gale_queens_plume"
+    },
+    {
+      "name": "Windrider's Leggings",
+      "slot": "legs",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "primary_stats": {
+        "agility": 20,
+        "stamina": 20
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 167,
+      "stat_template": "agi_physical",
+      "item_id": "ubi_windriders_leggings"
+    },
+    {
+      "name": "Queen's Talon",
+      "slot": "main_hand",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "strength": 14,
+        "agility": 14
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 90,
+      "weapon_damage_max": 122,
+      "attack_speed": 1.7,
+      "stat_template": "agi_physical",
+      "item_id": "ubi_queens_talon"
+    },
+    {
+      "name": "Squall-Chain Belt",
+      "slot": "waist",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "primary_stats": {
+        "strength": 14,
+        "intellect": 14
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 185,
+      "stat_template": "str_int_hybrid",
+      "item_id": "ubi_squall_chain_belt"
+    }
+  ],
+  "Old Thunderbeak": [
+    {
+      "name": "Thunderbeak Cloak",
+      "slot": "back",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "primary_stats": {
+        "agility": 12,
+        "spirit": 12
+      },
+      "secondary_stats": {},
+      "stat_template": "agi_physical",
+      "item_id": "ubi_thunderbeak_cloak"
+    },
+    {
+      "name": "Storm-Feather Shoulderpads",
+      "slot": "shoulder",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "primary_stats": {
+        "intellect": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {
+        "spell_power": 15
+      },
+      "armor_type": "cloth",
+      "armor_value": 70,
+      "stat_template": "int_caster",
+      "item_id": "ubi_storm_feather_shoulderpads"
+    },
+    {
+      "name": "Hawk-Eye Longbow",
+      "slot": "ranged",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "weapon_type": "bow",
+      "primary_stats": {
+        "agility": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 76,
+      "weapon_damage_max": 103,
+      "attack_speed": 2.8,
+      "stat_template": "agi_physical",
+      "item_id": "ubi_hawk_eye_longbow"
+    },
+    {
+      "name": "Thunder-Hide Boots",
+      "slot": "feet",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "primary_stats": {
+        "strength": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 278,
+      "stat_template": "str_physical",
+      "item_id": "ubi_thunder_hide_boots"
+    }
+  ],
+  "The Skiff Warden": [
+    {
+      "name": "Warden's Crystal Focus",
+      "slot": "off_hand",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 9
+      },
+      "secondary_stats": {
+        "spell_power": 23,
+        "crit_chance_spell": 6
+      },
+      "stat_template": "int_caster",
+      "item_id": "ubi_wardens_crystal_focus"
+    },
+    {
+      "name": "Skiff-Plate Breastplate",
+      "slot": "chest",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "primary_stats": {
+        "strength": 20,
+        "intellect": 20
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 401,
+      "stat_template": "str_int_hybrid",
+      "item_id": "ubi_skiff_plate_breastplate"
+    },
+    {
+      "name": "Brass-Bound Helm",
+      "slot": "head",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "primary_stats": {
+        "agility": 17,
+        "spirit": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 226,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "ubi_brass_bound_helm"
+    },
+    {
+      "name": "Crystal-Lens Ring",
+      "slot": "ring",
+      "item_level": 51,
+      "rarity": "rare",
+      "required_level": 48,
+      "primary_stats": {
+        "intellect": 7,
+        "spirit": 7
+      },
+      "secondary_stats": {
+        "healing_power": 20
+      },
+      "stat_template": "spi_healer",
+      "item_id": "ubi_crystal_lens_ring"
+    }
+  ]
+}

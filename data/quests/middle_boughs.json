@@ -2790,6 +2790,111 @@
       "gear_reward_rarity": "uncommon"
     },
     {
+      "quest_id": "mbq_up_the_root_stair",
+      "title": "Up the Root Stair",
+      "giver_npc_id": "mb_liftkeeper",
+      "zone": "middle_boughs",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "Ropehand Dezza hears everything that comes up and down the tree. Windwarden Kazra'jin, who keeps Highrest on the Upper Boughs, has asked Heartwatch for someone who can fight in the wind.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "mb_q_dezzas_knot",
+          "count": 1,
+          "label": "Climb the Root Stair and give Dezza's knot to Windwarden Kazra'jin at Highrest"
+        }
+      ],
+      "accept_text": "Kazra'jin keeps Highrest, the last camp before the cloud, and he's asked Heartwatch for a fighter. After what you did at the Hollow there's nobody else I'd send. Take him my knot so he knows it's me who sent you. The Root Stair climbs the trunk above Heartwatch, and it doesn't stop till Highrest.",
+      "turn_in_text": "That's Dezza's knot, and she only ties that one for people she'd trust with a rope.\n\nWelcome to Highrest. Mind the wind, because it doesn't care who you are. Sit, eat, and then I'll tell you what we need.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "ub_windwarden",
+      "requires_quests": [
+        "mbq_sealed_for_now"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "mb_q_dezzas_knot",
+            "name": "Dezza's Knot",
+            "description": "A short length of lift rope tied in a knot only Dezza uses, three loops and a twist, hard as wood.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "unique_item_defs": [
+        {
+          "name": "Rootstair Staff",
+          "slot": "main_hand",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 20
+          },
+          "secondary_stats": {
+            "spell_power": 46
+          },
+          "armor_value": 0,
+          "required_level": 47,
+          "sell_price": 9755,
+          "identity": "caster",
+          "icon_id": "gear_inv_staff_28",
+          "weapon_damage_min": 35,
+          "weapon_damage_max": 48,
+          "attack_speed": 3.2,
+          "block_value": 0
+        },
+        {
+          "name": "Rootstair Jerkin",
+          "slot": "chest",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 120,
+          "required_level": 47,
+          "sell_price": 7804,
+          "identity": "strength",
+          "icon_id": "gear_inv_chest_leather_08"
+        },
+        {
+          "name": "Rootstair Waistguard",
+          "slot": "waist",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 200,
+          "required_level": 47,
+          "sell_price": 4292,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_belt_06"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
       "quest_id": "mbq_pythons_in_the_lichen",
       "title": "Pythons in the Lichen",
       "giver_npc_id": "mb_scout_reach",
@@ -2812,69 +2917,66 @@
       "reward_gold": 13200,
       "unique_item_defs": [
         {
-          "name": "Lichenstalker's Staff",
-          "slot": "main_hand",
+          "name": "Lichenstalker's Mantle",
+          "slot": "shoulder",
           "item_level": 47,
           "rarity": "uncommon",
-          "armor_type": null,
-          "weapon_type": "staff",
+          "armor_type": "cloth",
+          "weapon_type": null,
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 20
+            "intellect": 11
           },
           "secondary_stats": {
-            "spell_power": 45
+            "spell_power": 25
           },
-          "armor_value": 0,
+          "armor_value": 49,
           "required_level": 45,
-          "sell_price": 9333,
+          "sell_price": 5973,
           "identity": "caster",
-          "icon_id": "gear_inv_staff_04",
-          "weapon_damage_min": 35,
-          "weapon_damage_max": 47,
-          "attack_speed": 3.2,
-          "block_value": 0
+          "icon_id": "gear_inv_shoulder_06"
         },
         {
-          "name": "Lichenstalker's Jerkin",
-          "slot": "chest",
+          "name": "Lichenstalker's Breeches",
+          "slot": "legs",
           "item_level": 47,
           "rarity": "uncommon",
           "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "str_physical",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "strength": 11,
+            "agility": 11,
             "stamina": 7
           },
           "secondary_stats": {
             "attack_power": 29
           },
-          "armor_value": 117,
+          "armor_value": 138,
           "required_level": 45,
           "sell_price": 7467,
-          "identity": "strength",
-          "icon_id": "gear_inv_chest_leather_09"
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_12"
         },
         {
-          "name": "Lichenstalker's Waistguard",
-          "slot": "waist",
+          "name": "Lichenstalker's Vambraces",
+          "slot": "wrist",
           "item_level": 47,
           "rarity": "uncommon",
           "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "spi_healer",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "intellect": 7
+            "stamina": 11,
+            "strength": 5
           },
           "secondary_stats": {
-            "healing_power": 31
+            "defense_rating": 9
           },
           "armor_value": 195,
           "required_level": 45,
-          "sell_price": 4107,
-          "identity": "plate_healer",
-          "icon_id": "gear_inv_belt_07"
+          "sell_price": 3733,
+          "identity": "tank",
+          "icon_id": "gear_inv_bracer_12"
         }
       ],
       "gear_reward_gear_level": 47,
@@ -2913,66 +3015,71 @@
       "reward_gold": 13200,
       "unique_item_defs": [
         {
-          "name": "Nestcounter's Mantle",
-          "slot": "shoulder",
+          "name": "Nestcounter's Shield",
+          "slot": "off_hand",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 16,
+            "haste": 5
+          },
+          "armor_value": 366,
+          "required_level": 46,
+          "sell_price": 5973,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_shield_02",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 42
+        },
+        {
+          "name": "Nestcounter's Greaves",
+          "slot": "feet",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 130,
+          "required_level": 46,
+          "sell_price": 4853,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_fabric_01"
+        },
+        {
+          "name": "Nestcounter's Robe",
+          "slot": "chest",
           "item_level": 47,
           "rarity": "uncommon",
           "armor_type": "cloth",
           "weapon_type": null,
-          "stat_template": "int_caster",
+          "stat_template": "spi_healer",
           "primary_stats": {
-            "intellect": 11
+            "spirit": 10,
+            "intellect": 10
           },
           "secondary_stats": {
-            "spell_power": 25
+            "healing_power": 26
           },
-          "armor_value": 67,
-          "required_level": 46,
-          "sell_price": 5973,
-          "identity": "caster",
-          "icon_id": "gear_inv_shoulder_15"
-        },
-        {
-          "name": "Nestcounter's Breeches",
-          "slot": "legs",
-          "item_level": 47,
-          "rarity": "uncommon",
-          "armor_type": "leather",
-          "weapon_type": null,
-          "stat_template": "agi_physical",
-          "primary_stats": {
-            "agility": 11,
-            "stamina": 7
-          },
-          "secondary_stats": {
-            "attack_power": 29
-          },
-          "armor_value": 138,
+          "armor_value": 58,
           "required_level": 46,
           "sell_price": 7467,
-          "identity": "agility",
-          "icon_id": "gear_inv_pants_01"
-        },
-        {
-          "name": "Nestcounter's Vambraces",
-          "slot": "wrist",
-          "item_level": 47,
-          "rarity": "uncommon",
-          "armor_type": "plate",
-          "weapon_type": null,
-          "stat_template": "str_physical",
-          "primary_stats": {
-            "stamina": 11,
-            "strength": 5
-          },
-          "secondary_stats": {
-            "defense_rating": 9
-          },
-          "armor_value": 195,
-          "required_level": 46,
-          "sell_price": 3733,
-          "identity": "tank",
-          "icon_id": "gear_inv_bracer_18"
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_chest_cloth_46"
         }
       ],
       "gear_reward_gear_level": 47,

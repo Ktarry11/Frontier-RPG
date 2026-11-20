@@ -94,8 +94,10 @@ def faction_base():
     rec["leader"]["location"] = "The Heart Palace, on the Chieftain's Rise in the Great Settlement"
     qr = rec.setdefault("quest_rep", {})
     qr["_comment"] = ("Per quest, paid by giver (tools/build_rootwater_quests.py, tools/build_lower_boughs_quests.py, "
-                      "tools/build_great_settlement_quests.py, tools/build_middle_boughs_quests.py).")
-    qr["zones"] = ["rootwater_isle", "lower_boughs", "knothollow", "great_settlement", "middle_boughs", "shriekhollow"]
+                      "tools/build_great_settlement_quests.py, tools/build_middle_boughs_quests.py, "
+                      "tools/build_upper_boughs_quests.py).")
+    qr["zones"] = ["rootwater_isle", "lower_boughs", "knothollow", "great_settlement", "middle_boughs", "shriekhollow",
+                   "upper_boughs", "stormsplit"]
     return rec
 
 

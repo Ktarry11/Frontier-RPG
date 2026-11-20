@@ -48,6 +48,18 @@ the Integration was or why it happened. It's three peoples and a sun.
   the player is moved to the Sunward Crown's arrival.
 - The two mural props on the Cloudbreak (intact, then broken open), swapped by the same flag.
 
+## Built (20 Nov 2026)
+
+- The player is `ui/screens/cutscene_screen.py` (`GameState.CUTSCENE`); the shots, triggers and seen flags are
+  `world/cutscenes.py`, saved with the character (`state["cutscenes"]`).
+- The trigger is the two rows of ground in front of the mural on the Cloudbreak (`tools/handbuilt_worldtree_cloudbreak.py`,
+  `TRIGGER`), registered when the map is generated. It fires once per character.
+- The mural props carry `cutscene_hide` / `cutscene_show`, and the renderer swaps them on the seen flag.
+- When it ends, the player is moved to the Sunward Crown's arrival if the Crown is built. Until then they're handed
+  back to the Cloudbreak, in front of the broken wall. The way through the wall is reserved there (`LATER_PORTALS`).
+- Tested headless: all six frames load and play through in about 27 seconds, Escape skips, the trigger fires once, and
+  the mural swaps.
+
 ## Art: sheet CS (landed 20 Nov 2026)
 
 All seven came in on 20 Nov: the six frames are saved to `assets/ui/cutscenes/crown/` (cs1_chamber, cs2_touch,
