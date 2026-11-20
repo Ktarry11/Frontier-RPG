@@ -592,6 +592,55 @@ def _preview(written, out_dir, path):
     print(f"preview -> {path}")
 
 
+#: FERALAS (docs/feralas_art_prompts.md sheets 2 to 7 and 9, Kyle 19 Nov 2026). Sheet 9 came twice; the first is used
+#: (tools/building_sheets/feralas_hive_props.png, the other kept as _alt).
+_set("feralas_nature", 6, 6, "assets/tiles/feralas/props", """
+    fe_giant_tree fe_giant_tree_hollow fe_vine_giant fe_root_bridge_tree fe_moss_curtain_tree fe_fallen_giant
+    fe_coast_redwood fe_sitka_spruce fe_red_cedar fe_bigleaf_maple fe_swordferns fe_nurse_log
+    fe_tree_fern fe_bigleaf_bush fe_vine_tangle fe_giant_mushrooms fe_moss_boulder fe_flower_shrub
+    fe_reeds fe_river_boulders fe_small_falls fe_driftwood fe_sea_stack fe_tide_pool
+    fe_granite_outcrop fe_highland_flowers fe_dead_snag fe_hippogryph_nest fe_fern_rocks fe_shelf_stump
+    fe_dig_mound fe_resin_tree fe_dark_sand_drift fe_dream_flowers fe_dream_sapling fe_elk_skull""")
+_set("feralas_mojache", 6, 6, "assets/buildings", """
+    moj_inn moj_chief_lodge moj_tent_lodge moj_tent_medium moj_tent_small moj_lean_to
+    moj_windrider_roost moj_trader_stall moj_forge moj_leather_frame moj_herbalist_tent moj_trainer_shelter
+    moj_great_totem moj_totem_pair moj_memorial_pole moj_spirit_fire moj_drum_circle moj_kodo_pen
+    moj_bedrolls moj_cookfire moj_packs moj_travois moj_water_skins moj_baskets
+    moj_palisade moj_palisade_corner moj_gate moj_watchtower moj_stakes moj_trophy_rack
+    moj_mailbox moj_well moj_firewood moj_hide_frame moj_lantern_pole moj_wind_chimes""")
+_set("feralas_feathermoon", 6, 6, "assets/buildings", """
+    fm_great_hall fm_sentinel_tower fm_wall fm_wall_tower fm_gate fm_barracks
+    fm_inn fm_hippogryph_roost fm_moonwell fm_armoury fm_bowyer fm_quartermaster
+    fm_pier fm_pier_end fm_small_boat fm_crossing_boat fm_cargo fm_boathouse
+    fm_moon_lantern fm_tree_house fm_moon_garden fm_huntress_statue fm_owl_pillar fm_archery_range
+    fm_glaive_rack fm_bow_rack fm_nightsaber_stable fm_field_tent fm_silver_brazier fm_banner
+    fm_mailbox fm_bench fm_well fm_vine_arch fm_tree_lookout fm_arrow_supplies""")
+_set("feralas_camps", 6, 6, "assets/tiles/feralas/props", """
+    fe_ogre_hut fe_ogre_tent fe_ogre_bonfire fe_ogre_spit fe_ogre_skull_totem fe_ogre_gate
+    fe_gnoll_hut fe_gnoll_tent fe_gnoll_totem fe_bone_pile fe_gnoll_snare fe_gnoll_lookout
+    fe_naga_shrine fe_naga_tent fe_clam_basin fe_coral_totem fe_dug_relics fe_coral_brazier
+    fe_highborne_arch fe_fallen_column fe_ivy_column fe_statue_head fe_broken_stair fe_ruin_window
+    fe_cabin fe_small_cabin fe_rail_fence fe_woodpile fe_garden_bed fe_smokehouse
+    fe_hive_mound fe_resin_spire fe_egg_cluster fe_trench_edge fe_sinking_tree fe_shed_husk""")
+_set("feralas_landmarks", 3, 3, "assets/buildings", """
+    fe_twin_colossal fe_dire_maul_gate fe_writhing_deep_mouth
+    fe_dream_bough fe_aspen_pass fe_feathermoon_landing
+    fe_rage_scar_mouth fe_dread_tower fe_isildien_dome""")
+_set("feralas_creatures", 6, 6, "assets/creatures/_src/feralas", """
+    fe_gordunni_brute fe_gordunni_mage fe_gordunni_shaman fe_gordunni_warlord fe_gordunni_mauler fe_gordunni_lord
+    fe_woodpaw_reaver fe_woodpaw_trapper fe_woodpaw_mystic fe_woodpaw_alpha fe_woodpaw_brute fe_hyena
+    fe_naga_raider fe_naga_digger fe_naga_priestess fe_coast_hydra fe_makrura fe_naga_guardian
+    fe_forest_giant fe_sea_giant fe_chimaera fe_chimaera_matriarch fe_skystalker fe_windwing
+    fe_rage_scar_yeti fe_rage_scar_matriarch fe_longtooth_wolf fe_ironfur_bear fe_feralas_stalker fe_roosevelt_elk
+    fe_silithid_tunneler fe_silithid_warrior fe_silithid_swarmer fe_silithid_ravager fe_resin_spitter fe_boss_deep_mother""")
+_set("feralas_hive_props", 6, 6, "assets/tiles/feralas/writhing_deep_props", """
+    wd_wall_root wd_root_curtain wd_dirt_heap wd_dug_boulder wd_trickle_stone wd_collapsed_burrow
+    wd_resin_pillar wd_resin_column wd_egg_cluster wd_glow_egg wd_cocoon wd_chitin_pile
+    wd_resin_mound wd_larva_basin wd_bone_heap wd_web_strands wd_resin_node wd_broken_resin_wall
+    wd_egg_throne wd_spire_ring wd_old_carapace wd_gold_pool wd_cracked_eggs wd_chitin_totem
+    wd_tunnel_support wd_sand_drift wd_blue_mushrooms wd_violet_mushrooms wd_buried_block wd_scored_boulder
+    wd_tunnel_mouth wd_sealed_passage wd_fungus_sand_mound wd_digging_limb wd_black_basin wd_fungus_bones""")
+
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     if len(args) < 2 or args[0] not in SETS:

@@ -59,7 +59,9 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
   Dire Maul at 55-60. (Names approved, Zukk'ash Hive included: Kyle, "Names are fine".)
 - `docs/feralas_worldtree_brief.md`: Feralas 44-49 (classic L shape, largely untouched by the Integration), and a
   home-brew World Tree off Northern Stranglethorn's coast: island 42-44, lived-on tiers 44-48, a town halfway up, two
-  sky zones at the crown (46-49, 48-51), two new factions. Names and peoples still to settle.
+  sky zones at the crown, two new factions. Kyle, 19 Nov 2026: the middle town is the Great Settlement, the crown is
+  cloud continents, the sky zones are the Sunward Crown (48-49) and the Celestial Expanse (49-51); four reference
+  pictures in `docs/zone_refs/world_tree_*.jpg`. The tree's, island's and factions' names and the peoples still to settle.
 - The Zukk'ash Hive (Feralas's silithid hive, Kyle's "writhing deep") tunnels through to the Dry Deep under the Abyssal Sands (Kyle: "the
   silithids are digging").
 
@@ -157,19 +159,19 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - **Higher-end frontier dusts, essences and shards** (later).
 
 ## 10. Art (prompts written; waiting on sheets, or on slicing)
-- **Recipe-scroll sheet RC1** (claude/enchanting_recipe_art_prompts.md): Blacksmithing, Leatherworking, Tailoring and
-  Woodworking's first three. Kyle, 17 Nov: "just missing blacksmithing - add that to backlog". Until it lands those
-  scrolls keep their one picture per profession. (The 18 Nov drop sent RC2 again instead; its Woodworking epic was
-  used.)
-- **Still to paste from the 18 Nov prompt run** (Kyle: "you can backlog the others"):
-  - `docs/form_art_prompts.md` F6 and F7 (the twelve AH forms in four facings; they're in now as one picture each),
-    F8, F9 and F10 (looks for the dire bear, void monstrosity, shadowform, mechsuit, weaver and vizier), and I1 (an
-    icon per look; the 18 looks in now share three family charms until it lands).
-  - `docs/rare_mount_art_prompts.md` H9 and H10 (twelve wild mounts; not built yet, where each comes from is open).
-  - `docs/exalted_mount_art_prompts.md` H11 to H13 (one Exalted mount per faction; not built yet, the
-    quartermasters sell them at Exalted) and I2 (their reins and the wild mounts').
+- **Landed 20 Nov ("lol go wild")**: RC1 (36 recipe scrolls; the second RC1 in the drop came back garbled and was
+  set aside), F6 and F7 (the twelve AH forms now turn four ways on the map), F8 to F10 (18 class-form looks; of two F8s
+  the first was used) and I1 (an icon per look), H9 and H10 (the twelve wild mounts: each drops at 5% from one
+  open-world rare that fits it, `tools/build_collection.py` WILD_MOUNTS) and H11 to H13 (sixteen Exalted mounts, 100g
+  each from the faction's first quartermaster once you're Exalted; bound to the buyer like every rep item).
+- **Still waiting on**: I2 (the mounts' own reins; all 28 show a stand-in reins picture until then) and M2 (Master
+  crafting icons).
+- **The Feathermoon Sentinels have no Exalted mount** (they joined after H11 to H13 were written). Needs a mount and
+  its prompt: one sheet-cell in the H11 style.
 - **Class forms in combat**: since 18 Nov a shifter walks the map as their form (assets/forms); the combat screen
-  still shows the person. Kyle asked for "out of combat" only, so this is a question, not a bug.
+  still shows the person. Kyle asked for "out of combat" only, so this is a question, not a bug. The Tinker's
+  Mechsuit is only ever worn inside a fight, so its picture and its three looks (sheet F9, 20 Nov) are drawn but
+  never shown; the looks are held off the AH (`HELD_LOOKS` in `tools/build_collection.py`) until this is decided.
 - **The professions screen's own art**: tab art, frames and station art.
 - **Keepsake icons, 98** (one per recruit, `data/npcs/keepsakes.json` names each `col_keepsake_<name>`): every one
   shows a stand-in. The prompt sheets aren't written yet (about three sheets of 36).

@@ -36,6 +36,7 @@ DESC = ("The Zukk'ash hive under Feralas, dug down from the forest floor along o
 STP = "assets/tiles/stonetalon/props/"
 DP = "assets/tiles/dungeon_props/"
 ENT = "assets/tiles/cave_entrances/"
+WDP = "assets/tiles/feralas/writhing_deep_props/"
 
 PORTAL = (52, 2)                  # up to the High Wilderness
 THROUGH = (52, 121)               # on through the tunnel to the Dry Deep
@@ -119,26 +120,30 @@ def build_zukkash_hive_baked():
 
 
 def dress(zone, L):
-    def P(name, x, y, h, where=STP, **kw):
+    """Kyle's Zukk'ash Hive props (docs/feralas_art_prompts.md sheet 9, 19 Nov 2026); Stonetalon's stood in before."""
+    def P(name, x, y, h, where=WDP, **kw):
         p = _near_walkable(zone, x, y, rad=3)
         return L.prop(name, p[0], p[1], h, where=where, **kw) if p else L.skipped.append((name, x, y, "no floor"))
     # the way in, and the way through, both with their own mouths
     P("ent_exit_cave_daylight", PORTAL[0], PORTAL[1] + 2, 5, where=ENT, near_ok=True)
-    P("ent_exit_kobold_tunnel", THROUGH[0], THROUGH[1] - 1, 5, where=ENT, near_ok=True)
+    P("wd_tunnel_mouth", THROUGH[0], THROUGH[1] - 1, 5, near_ok=True)
     # the gallery: roots through the walls near the top, where the forest is still overhead
-    P("st_nurse_log", 46, 16, 3, solid="core")
-    P("st_moss_boulder", 58, 28, 3, solid="core")
-    P("st_redwood_burl", 46, 38, 3, solid="core")
+    P("wd_wall_root", 46, 16, 4, solid="core")
+    P("wd_dug_boulder", 58, 28, 3, solid="core")
+    P("wd_root_curtain", 46, 38, 4, solid="core")
     # the brood cells' eggs, and the queen's chamber
-    for (_s, _l, cell) in BROOD:
-        P("st_pumice_pile", cell[0] + 4, cell[1] - 1, 3, solid="core")
-    P("st_sequoia_rootplate", CHAMBER[0], CHAMBER[1] - 7, 5, solid="core")
-    P("st_pumice_pile", CHAMBER[0] - 10, CHAMBER[1] + 2, 3, solid="core")
-    P("st_pumice_pile", CHAMBER[0] + 10, CHAMBER[1] + 2, 3, solid="core")
+    for (_s, _l, cell), egg in zip(BROOD, ("wd_egg_cluster", "wd_cocoon", "wd_cracked_eggs")):
+        P(egg, cell[0] + 4, cell[1] - 1, 3, solid="core")
+    P("wd_egg_throne", CHAMBER[0], CHAMBER[1] - 7, 5, solid="core")
+    P("wd_resin_pillar", CHAMBER[0] - 10, CHAMBER[1] + 2, 5, solid="core")
+    P("wd_resin_column", CHAMBER[0] + 10, CHAMBER[1] + 2, 5, solid="core")
+    P("wd_glow_egg", CHAMBER[0] - 4, CHAMBER[1] + 4, 3, solid="core")
     # the dig: spoil heaps and the diggers' leavings, drying to sand
-    P("st_sawdust_pile", 80, 86, 3, solid="core")
-    P("st_obsidian_boulder", 70, 100, 3, solid="core")
-    P("st_pumice_pile", 62, 106, 3, solid="core")
+    P("wd_dirt_heap", 80, 86, 3, solid="core")
+    P("wd_scored_boulder", 70, 100, 3, solid="core")
+    P("wd_tunnel_support", 62, 106, 4, solid="core")
+    P("wd_sand_drift", 58, 116, 3, solid="core")
+    P("wd_blue_mushrooms", 64, 104, 3, solid=False)
 
 
 def generate_zukkash_hive():

@@ -7,6 +7,8 @@ Sheet C: 6 columns x 4 rows, 1536x1024, magenta key, no rider. Slice with
 `rune_saber_down.png` as the style reference.
 
 ---------------------------------------------------------------------
+**Landed 20 Nov 2026**: H9 and H10 are sliced (`assets/mounts`) and built: each mount drops at 5% from one open-world rare that fits it (`tools/build_collection.py` WILD_MOUNTS). Their reins wait on I2.
+
 ## SHEET H9: six rare wild mounts  (paste this whole block)
 
 Ids in order: `stormhide_thunder_lizard plainstrider_matriarch ironback_crocolisk moonfeather_hippogryph sandreaver_silithid ashmane_hyena`

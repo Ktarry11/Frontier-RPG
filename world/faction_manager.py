@@ -339,10 +339,18 @@ class FactionManager:
         """Extra stock this vendor offers at the player's current standing."""
         extra = []
         for f in self.factions.values():
-            table = f.rewards.get("vendor_stock", {}).get(vendor_id, {})
+            stock = f.rewards.get("vendor_stock", {})
+            table = stock.get(vendor_id, {})
             for tier_id, items in table.items():
                 if f.at_least(tier_id):
                     extra.extend(items)
+            # THE FACTION'S MOUNT, at Exalted, from its (first) quartermaster (sheets H11 to H13, 19 Nov 2026)
+            if table and vendor_id == next(iter(stock)) and f.at_least("exalted"):
+                from world.collection import exalted_mount_of
+                fid = next((k for k, v in self.factions.items() if v is f), None)
+                cid = exalted_mount_of(fid) if fid else None
+                if cid:
+                    extra.append(f"collection:{cid}")
         return extra
 
     def quest_requirement_met(self, quest_id):

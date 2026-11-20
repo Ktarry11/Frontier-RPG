@@ -91,3 +91,17 @@ recipes on their real level-60 ingredients. Rep: Feathermoon's people and the Se
 - The levelling run (`tools/sim_campaign.py`) with Feralas in: all three specs reach 60, nothing in Feralas killed any
   of them, and the 46-50 band now does 113-116 quests (it was 105-109). The rare census for Feralas alone (`--zones`):
   the warrior and the priest win 60-100% against every rare, the mage 20-40% (the class pass's, as everywhere).
+
+## The art landed (20 Nov 2026)
+All ten Feralas sheets are sliced and in: ground (`assets/tiles/feralas/ground`, `fe_*`), nature, Mojache, Feathermoon,
+camps and ruins, landmarks, creatures (`assets/creatures/fe_*`, the sprite rules switched when the builders re-ran) and
+the hive's tiles and props (`assets/tiles/feralas/writhing_deep*`). Of the two sheet 9s the first was used.
+- **Ground**: `FERALAS_SHEET` and its coast, north, Mojache and Feathermoon variants in `tools/bake_ashenvale.py`. The
+  baker's colour grade is off for all five Feralas maps (`GRADE = None`): the sheet already carries the look. Inland
+  rivers bank on gravel and mud, not beach sand; coast redwoods (orange-barked) stand only in the Fog Groves.
+- **Trees and collisions** (Kyle: "Keep in mind the number of collisions (Trees) in feralas"): the scatter keeps half
+  the grove trees (`grove_keep=0.5`, was 0.8). Tree sprites: High Wilderness 760 to 592, Forgotten Coast 587 to 437,
+  Twin Colossals 650 to 403. Every layout places every prop (nothing skipped).
+- **Towns**: Mojache and Feathermoon use their own buildings (`moj_*`, `fm_*`). Feathermoon's pier is brown pier boards
+  starting at the beach.
+- **The hive**: re-baked on the `wd_*` ground with its own props; the blue mushrooms are walk-through.

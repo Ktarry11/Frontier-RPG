@@ -95,7 +95,30 @@ def make_item(cid):
               required_level=1, sell_price=max(1, e["price"] // 40), icon_id=e["icon_id"],
               flavor_text=e["blurb"])
     it.collection_id = cid
+    # what a seller asks for it (a quartermaster's Exalted mount; ui/screens/vendor_screen._unit_price)
+    it.vendor_price = int(e["price"])
     return it
+
+
+# ------------------------------------------------------------------ found in the world
+def rare_drop(creature_name, rng=None):
+    """The Collection id a kill of this open-world rare drops, or None (sheets H9 and H10, 19 Nov 2026: each wild
+    mount drops, rarely, from one rare that fits it; tools/build_collection.py WILD_MOUNTS)."""
+    import random
+    roll = (rng or random).random
+    for e in entries():
+        eff = e.get("effect") or {}
+        if eff.get("drops_from") == creature_name and roll() < float(eff.get("drop_chance", 0.0)):
+            return e["id"]
+    return None
+
+
+def exalted_mount_of(faction_id):
+    """The Collection id of the mount a faction's quartermaster sells at Exalted (sheets H11 to H13), or None."""
+    for e in entries():
+        if (e.get("effect") or {}).get("exalted_mount_of") == faction_id:
+            return e["id"]
+    return None
 
 
 def art_ready(cid):
@@ -182,6 +205,15 @@ def form_sprite_path(form_id):
     """The one picture a form is drawn with (ui/sprite_loader.get_form_sprite), relative to the game root."""
     e = get_entry(form_id) or {}
     return (e.get("effect") or {}).get("sprite")
+
+
+def form_facing_path(form_id, facing):
+    """A Collection form turned the way it's walking (sheets F6 and F7 turned the auction house's forms four ways,
+    19 Nov 2026), relative to the game root, or None when it only has its one picture."""
+    base = ((get_entry(form_id) or {}).get("effect") or {}).get("facings")
+    if base and facing in ("down", "left", "right", "up") and (ROOT / f"{base}_{facing}.png").exists():
+        return f"{base}_{facing}.png"
+    return None
 
 
 # ------------------------------------------------------------------ titles

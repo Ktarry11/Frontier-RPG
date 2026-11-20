@@ -7,6 +7,9 @@ Every prompt below is complete on its own: paste one block and nothing else. Eac
 cell size, the background, the margin, the style, the camera, the scale rule, the negatives, the never-magenta line,
 the Earth line, and every cell numbered row by row.
 
+**Landed 20 Nov 2026**: all nine sheets are sliced and in the game. Sheet 9 came back twice; the first was used and the
+second is kept as `tools/building_sheets/feralas_hive_props_alt.png` (unsliced).
+
 **The Earth line.** Feralas's Integration touch is the Pacific Northwest rainforest grafted into the giant forest, so
 Earth's TREES, PLANTS and ANIMALS are fine where a cell names them. Nothing BUILT from Earth: no buildings, roads,
 fences, machines or tools of our world. The settlers' cabins are hand-built from local timber.

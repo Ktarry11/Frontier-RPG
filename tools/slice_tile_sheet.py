@@ -347,6 +347,27 @@ _set("moonglade", 8, 6, "tools/building_sheets/moonglade_ground.png", "assets/ti
     mg_dream_grass mg_dream_flowers mg_barrow_earth mg_barrow_flags mg_root_floor mg_bramble_earth mg_island_sand mg_black_pool
 """, rows_y=[0, 182, 356, 511, 668, 831, 1024])
 
+# FERALAS (docs/feralas_art_prompts.md sheets 1 and 8, Kyle 19 Nov 2026). The ground sheet came back 1536x1024 with
+# uneven rows, measured on the seams (180/359/512/666/829); the Zukk'ash Hive's is 1448x1086 and even. The hive's
+# tiles keep the wd_ ids and folder the prompts named before the cave was renamed (the Writhing Deep is the
+# Plaguelands' spider cave; these are only file names).
+_set("feralas", 8, 6, "tools/building_sheets/feralas_ground.png", "assets/tiles/feralas/ground", """
+    fe_forest_floor fe_loam_roots fe_lush_grass fe_fern_floor fe_moss fe_leaf_litter fe_mud_trail fe_deep_shade
+    fe_redwood_duff fe_swordfern fe_sorrel_moss fe_fog_duff fe_nurse_rot fe_moss_stones fe_needle_path fe_mist_moss
+    fe_river_mud fe_marsh_grass fe_river_shallow fe_river_deep fe_reed_water fe_river_gravel fe_stream fe_falls_foam
+    fe_beach_sand fe_wet_sand fe_sea_shallow fe_sea_mid fe_sea_deep fe_tide_rock fe_shingle fe_sea_cliff
+    fe_granite fe_granite_cliff fe_marble_moss fe_inlay_ruin fe_ogre_dirt fe_gnoll_dirt fe_cave_grit fe_highland_meadow
+    fe_dug_earth fe_resin_crust fe_deep_sand fe_blight_grass fe_dream_grass fe_dream_flowers fe_camp_earth fe_elven_paving
+""", rows_y=[0, 180, 359, 512, 666, 829, 1024])
+_set("zukkash_hive", 8, 6, "tools/building_sheets/feralas_hive_tiles.png", "assets/tiles/feralas/writhing_deep", """
+    wd_earth wd_root_earth wd_moss_earth wd_burrow wd_chitin_earth wd_mud wd_root_wall wd_resin_wall
+    wd_resin wd_resin_pools wd_egg_floor wd_webbing wd_dug_ridges wd_chitin_floor wd_honeycomb_wall wd_chitin_wall
+    wd_old_resin wd_gold_veins wd_egg_shells wd_larval_slime wd_stained_earth wd_bone_floor wd_pillar_wall wd_pit_edge
+    wd_water_shallow wd_water_deep wd_resin_water wd_seep wd_wet_stone wd_moss_stone wd_wet_wall wd_scum_water
+    wd_tunnel_dug wd_earth_to_sand wd_dark_sand wd_sand_mushrooms wd_sand_blocks wd_claw_tracks wd_gouged_wall wd_sand_wall
+    wd_blue_fungus_sand wd_violet_fungus_sand wd_ash_stone wd_cracked_ash wd_fungal_mat wd_resin_chunks wd_fungus_wall wd_buried_wall
+""")
+
 if __name__ == "__main__":
     pv = sys.argv[sys.argv.index("--preview") + 1] if "--preview" in sys.argv else None
     keys = [a for a in sys.argv[1:] if a in SETS] or list(SETS)

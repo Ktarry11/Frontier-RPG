@@ -111,7 +111,7 @@ BURNED_PATCHES = []
 BLUEBELL_PATCHES = [(100, 128, 12, 8), (196, 82, 8, 6), (60, 90, 8, 6)]      # wildflowers in the Wilds and below the pass
 PAVED_PATCHES = [(84, 70, 7, 5)]          # the Highborne paving at the gate
 LUSH = 1.2
-GRADE = (1.24, 1.10)
+GRADE = None           # Kyle's own ground (19 Nov 2026) is rich already; the lift was for the borrowed Ashenvale ground
 
 GAPS = [
     ("ell", 216, 80, 8, 7), ("ell", 4, 110, 8, 7), ("ell", 160, 86, 7, 6), ("ell", 176, 142, 6, 5),
@@ -151,11 +151,13 @@ SUBZONES = [   # (table_key, x, y, w, h, display_name) - later registrations win
     ("Gordunni Outpost", 20, 36, 42, 40, None),
 ]
 
+#: Kyle's Feralas nature sheet (docs/feralas_art_prompts.md sheet 2, 19 Nov 2026): the giant trees of the east arm.
+FE = "assets/tiles/feralas/props/"
 TREES = {
-    "big":   [(AV + "large_canopy_tree.png", 11), (STP + "st_sequoia_great.png", 13), (AV + "ash_giant_ash_tree.png", 12)],
-    "mid":   [(AV + "medium_canopy_tree.png", 9), (STP + "st_sequoia_mature.png", 10), (AV + "canopy_tree_cluster.png", 9)],
-    "small": [(STP + "st_sequoia_young.png", 7), (AV + "medium_canopy_tree.png", 7)],
-    "woods": [(AV + "large_canopy_tree.png", 11), (STP + "st_sequoia_great.png", 13), (AV + "canopy_tree_cluster.png", 10)],
+    "big":   [(FE + "fe_giant_tree.png", 13), (FE + "fe_giant_tree_hollow.png", 13), (FE + "fe_vine_giant.png", 12)],
+    "mid":   [(FE + "fe_moss_curtain_tree.png", 10), (FE + "fe_root_bridge_tree.png", 10), (FE + "fe_bigleaf_maple.png", 9)],
+    "small": [(FE + "fe_tree_fern.png", 6), (FE + "fe_bigleaf_maple.png", 7)],
+    "woods": [(FE + "fe_giant_tree.png", 13), (FE + "fe_vine_giant.png", 12), (FE + "fe_moss_curtain_tree.png", 11)],
 }
 
 
@@ -173,7 +175,7 @@ def build_layout():
     for lm in L.z.landmarks:
         ax, ay, w, h = lm["anchor_x"], lm["anchor_y"], lm["width_tiles"], lm["height_tiles"]
         L.free_mask[max(0, ay):ay + h + 1, max(0, ax - 1):ax + w + 1] = False
-    E.scatter_trees(L, TREES, seed=4401, spacing=5.6, grove_keep=0.8)
+    E.scatter_trees(L, TREES, seed=4401, spacing=5.6, grove_keep=0.5)          # Kyle, 19 Nov 2026: "Keep in mind the number of collisions (Trees) in feralas" (0.8 before: a quarter fewer groves)
     sprinkle(L)
     E.seal_unreachable(L, START)
     chests(L)
@@ -218,11 +220,9 @@ def chests(L):
 
 
 def dress(L):
-    P = L.prop
     A = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=AV, **kw)                       # noqa: E731
     S = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=STP, **kw)                      # noqa: E731
-    N = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=ENT, **kw)                      # noqa: E731
-    F = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir="assets/tiles/felwood/props/", **kw)  # noqa: E731
+    G = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=FE, **kw)                       # noqa: E731
     B = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir="assets/buildings/", **kw)      # noqa: E731
 
     # ---- the roads: signposts at the forks
@@ -230,25 +230,29 @@ def dress(L):
     A("ash_signpost", 112, 98, 4)
     A("ash_signpost", 50, 104, 4)
     # ---- the Aspen Descent: the pass out of the range, the aspens giving way to the giant trees
-    N("ent_gate_pass_cairns", 216, 76, 7, solid=False, road_ok=True)
-    S("st_rim_cairn", 206, 74, 4, solid="core")
-    S("st_giant_snag", 196, 72, 7, solid="core")
+    B("fe_aspen_pass", 216, 76, 9, solid=False, road_ok=True)
+    G("fe_granite_outcrop", 206, 72, 4, solid="core")
+    G("fe_dead_snag", 196, 72, 6, solid="core")
     # ---- Camp Mojache's gate: the camp is its own map behind it
-    N("ent_town_tauren_totems", 160, 82, 8, solid=False, road_ok=True)
-    B("mg_tauren_totem", 152, 84, 6, solid="core")
-    B("mg_tauren_totem", 168, 84, 6, solid="core")
-    # ---- Woodpaw Hills: the gnolls' huts and bones (Stonetalon's Grimtotem rough camp pieces stand in)
-    S("st_grim_tent", 166, 34, 5, solid="core")
-    S("st_grim_tent", 182, 30, 5, solid="core")
-    S("st_grim_hide_rack", 176, 46, 4, solid="core")
-    S("st_harpy_nest", 186, 44, 4, solid="core")
+    B("moj_gate", 160, 82, 7, solid=False, road_ok=True)
+    B("moj_great_totem", 152, 84, 6, solid="core")
+    B("moj_totem_pair", 168, 84, 5, solid="core")
+    # ---- Woodpaw Hills: the gnolls' huts, snares and bones
+    G("fe_gnoll_hut", 166, 34, 5, solid="core")
+    G("fe_gnoll_tent", 182, 30, 5, solid="core")
+    G("fe_gnoll_totem", 176, 46, 5, solid="core")
+    G("fe_bone_pile", 186, 44, 3, solid="core")
+    G("fe_gnoll_lookout", 190, 36, 6, solid="core")
+    G("fe_gnoll_snare", 170, 44, 3, solid="core")
     # ---- the Hive Fields: the dig breaking the surface, and the Zukk'ash Hive's mouth
-    N("ent_root_cave", 176, 138, 7, solid=False, road_ok=True)
-    S("st_pumice_pile", 164, 128, 4, solid="core")
-    S("st_pumice_pile", 186, 124, 4, solid="core")
-    S("st_giant_snag", 158, 138, 7, solid="core")
-    S("st_sawdust_pile", 190, 140, 3, solid="core")
-    # ---- the Grimtotem Compound: the Grimtotem's own camp
+    B("fe_writhing_deep_mouth", 176, 138, 8, solid=False, road_ok=True)
+    G("fe_hive_mound", 164, 128, 5, solid="core")
+    G("fe_dig_mound", 186, 124, 3, solid="core")
+    G("fe_resin_tree", 158, 138, 6, solid="core")
+    G("fe_dark_sand_drift", 190, 140, 3, solid="core")
+    G("fe_resin_spire", 168, 144, 5, solid="core")
+    G("fe_sinking_tree", 184, 132, 5, solid="core")
+    # ---- the Grimtotem Compound: the Grimtotem's own camp (Stonetalon's Grimtotem pieces are theirs)
     S("st_grim_palisade", 102, 34, 5, solid="core")
     S("st_grim_palisade", 122, 34, 5, solid="core")
     S("st_grim_war_totem", 112, 36, 7, solid="core")
@@ -256,21 +260,23 @@ def dress(L):
     S("st_grim_drum", 120, 48, 3, solid="core")
     S("st_grim_tent", 98, 44, 5, solid="core")
     # ---- the Gate of Dire Maul: Highborne stone, barricaded by ogres; the dungeon comes later
-    N("ent_elven_ruin_arch", 84, 62, 10, solid=False, road_ok=True)
-    F("fw_highborne_arch", 72, 70, 8, solid="core")
-    F("fw_fallen_statue", 98, 72, 6, solid="core")
-    A("ash_elven_ruin_wall", 70, 62, 5, solid="core")
-    A("ash_elven_ruin_wall", 98, 62, 5, solid="core")
-    B("dw_ogre_gate", 84, 74, 6, solid=False, road_ok=True)
+    B("fe_dire_maul_gate", 84, 62, 11, solid=False, road_ok=True)
+    G("fe_highborne_arch", 70, 70, 7, solid="core")
+    G("fe_statue_head", 98, 72, 4, solid="core")
+    G("fe_ivy_column", 70, 62, 6, solid="core")
+    G("fe_ruin_window", 98, 62, 6, solid="core")
+    G("fe_ogre_gate", 84, 74, 6, solid=False, road_ok=True)
+    G("fe_ogre_bonfire", 92, 78, 3, solid="core")
     # ---- the Gordunni Outpost: the ogres' forward camp
-    N("ent_ogre_mound", 34, 50, 6, solid="core")
-    S("st_grim_hide_rack", 46, 52, 4, solid="core")
-    A("ash_orc_trophy_pole", 40, 64, 5, solid="core")
-    A("ash_log_pile", 30, 62, 3, solid="core")
+    G("fe_ogre_hut", 34, 50, 6, solid="core")
+    G("fe_ogre_tent", 46, 52, 5, solid="core")
+    G("fe_ogre_skull_totem", 40, 64, 5, solid="core")
+    G("fe_ogre_spit", 30, 62, 3, solid="core")
     # ---- the Lower Wilds: reeds and old stones in the marsh
-    A("ash_stream_bed", 100, 140, 3, solid=False)
-    A("rock_outcrop_large", 118, 146, 5, solid="core")
-    A("ash_overgrown_steps", 78, 122, 4, solid="core")
+    G("fe_reeds", 100, 140, 3, solid=False)
+    G("fe_river_boulders", 118, 146, 4, solid="core")
+    G("fe_broken_stair", 78, 122, 4, solid="core")
+    G("fe_fallen_giant", 92, 132, 4, solid="core", nudge=8)
 
 
 def register_baked(zone):

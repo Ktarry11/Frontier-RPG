@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
-"""Slice Kyle's enchanting sheets (EN1-EN4) and recipe-scroll sheets (RC2, RC3) and point the game at them. Idempotent.
+"""Slice Kyle's enchanting sheets (EN1-EN4) and recipe-scroll sheets (RC1-RC3) and point the game at them. Idempotent.
 
     PYTHONPATH=. python3 tools/slice_enchant_recipe_sheets.py
 
 The cell lists are tools/enchant_recipe_art.py's (docs/enchanting_recipe_art_prompts.md). Kyle delivered EN1-EN4,
-RC2 and RC3 on 17 Nov 2026; RC1 (Blacksmithing, Leatherworking, Tailoring and Woodworking's first three) is in the
-backlog, and those scrolls keep their profession's one picture until it lands.
+RC2 and RC3 on 17 Nov 2026, and RC1 (Blacksmithing, Leatherworking, Tailoring and Woodworking's first three) on 19 Nov.
 
 WHERE THEY GO
   enchant scrolls   assets/gathering_nodes/enchanting/<stem>.png (96px), and each enchant's material icon_id in
@@ -131,6 +130,11 @@ def slice_recipes():
         for s in stems:
             im.save(RECIPES / f"{s}.png")
             done.append(s)
+    sheet = Image.open(SHEETS / "recipes_rc1.png").convert("RGB")
+    clear, boxes = sheet_clear(sheet), objects(sheet, 6, 6)
+    for k, (stem, _d) in enumerate(ART.recipe_cells()[0]):
+        cut(sheet, boxes[(k % 6, k // 6)], clear).save(RECIPES / f"{stem}.png")
+        done.append(stem)
     sheet = Image.open(SHEETS / "recipes_rc3.png").convert("RGB")
     clear, boxes = sheet_clear(sheet), objects(sheet, 6, 6)
     for k, (stem, _d) in enumerate(ART.recipe_cells()[2]):

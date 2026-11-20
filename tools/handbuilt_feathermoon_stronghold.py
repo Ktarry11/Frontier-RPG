@@ -36,7 +36,7 @@ DESC = ("The Sentinels' fortress on its island off the Forgotten Coast: pale sto
 REGION = "Kalimdor - Feralas"
 W, H = 124, 104
 BAKED_DIR = "assets/tiles/feralas/baked_feathermoon"
-SHEET = "feralas_forgotten_coast"
+SHEET = "feralas_feathermoon"
 PORTALS = {(116, 52): "The Forgotten Coast"}
 ARRIVALS = [(111, 52)]
 START = (104, 52)
@@ -56,12 +56,12 @@ PAVED_PATCHES = [(60, 52, 16, 13)]
 #: the whole island is open ground (the woods would paint over the sea); the trees are placed in dress()
 CLEARINGS = [(62, 52, 46, 36), (62, 52, 90, 80)]
 ROCKS = []
-DECKS = [(100.0, 120.0, 49.5, 54.5),          # the harbour pier, out to the boat
+DECKS = [(104.0, 120.0, 49.5, 54.5),          # the harbour pier, from the beach out to the boat
          (104.0, 108.0, 54.5, 62.0)]          # the boathouse's slip
-DECK_MAT = "pl_elf"
+DECK_MAT = "pl_pier"                          # weathered brown boards: Ashenvale's violet elf planks read as a slab here
 SEA_DEEP = 5.0
 CLEARING_GRASS = True
-GRADE = (1.22, 1.10)
+GRADE = None
 EXTRA_PATCHES = {"rocky": [(20, 30, 8, 6, 0.9), (30, 80, 6, 5, 0.9)]}
 
 
@@ -97,45 +97,48 @@ CHESTS = []
 
 
 def dress(L):
+    """Kyle's Feathermoon sheet (docs/feralas_art_prompts.md sheet 4, 19 Nov 2026); Felwood's Sentinel hall and
+    Moonglade's houses stood in before it."""
     A, B, V = L.p, L.b, L.v
     # ---- the harbour
     V("dock_lantern_post", 118, 49, 4)
     V("fish_crates_traps", 104, 47, 3)
-    B("bd_boat_shed", 106, 66, 7)
-    A("ash_supply_crates", 92, 58, 3)
-    A("ash_moon_barrels", 88, 46, 3)
-    B("mg_elf_inn", 96, 36, 9)
+    B("fm_boathouse", 106, 66, 7)
+    B("fm_cargo", 92, 58, 3)
+    B("fm_arrow_supplies", 88, 46, 3)
+    B("fm_inn", 96, 36, 9)
     # ---- the fortress: the great hall, walls and towers, the moonwell
-    B("fw_sentinel_hall", 60, 40, 11)
-    B("sentinel_outpost_hall", 76, 34, 9)
-    B("fw_sentinel_tower", 34, 34, 11)
-    B("moon_guard_tower", 84, 70, 10)
-    B("fw_sentinel_tower", 34, 72, 11)
-    B("mg_moonwell", 60, 66, 5)
-    A("ash_elune_statue", 60, 58, 7)
-    A("ash_moon_lantern", 50, 52, 4)
-    A("ash_moon_lantern", 70, 52, 4)
-    B("mg_elf_house", 44, 76, 8)
-    B("nightelf_house_small", 26, 54, 7)
-    B("mg_elf_cottage", 30, 64, 7)
-    B("mg_herb_stall", 72, 78, 5)
-    A("ash_sentinel_weapon_rack", 80, 58, 3)
-    A("ash_sentinel_banner", 50, 34, 5)
-    A("ash_sentinel_banner", 70, 34, 5)
+    B("fm_great_hall", 60, 40, 11)
+    B("fm_barracks", 76, 34, 9)
+    B("fm_sentinel_tower", 34, 34, 11)
+    B("fm_wall_tower", 84, 72, 10)
+    B("fm_sentinel_tower", 34, 72, 11)
+    B("fm_moonwell", 60, 66, 5)
+    B("fm_huntress_statue", 60, 58, 7)
+    B("fm_moon_lantern", 50, 52, 4)
+    B("fm_moon_lantern", 70, 52, 4)
+    B("fm_quartermaster", 44, 78, 7)
+    B("fm_bowyer", 26, 54, 7)
+    B("fm_tree_house", 30, 66, 8)
+    B("fm_moon_garden", 72, 80, 4)
+    B("fm_armoury", 84, 60, 7)
+    B("fm_banner", 50, 34, 5)
+    B("fm_banner", 70, 34, 5)
+    B("fm_owl_pillar", 40, 46, 5)
     # ---- the roost on the north rise
-    B("fw_hippogryph_roost", 62, 14, 10, nudge=3)
-    A("ash_hippogryph_perch", 74, 18, 5)
+    B("fm_hippogryph_roost", 62, 12, 10, nudge=6)
+    B("fm_silver_brazier", 74, 18, 4)
     # ---- the archery ground on the south
-    A("ash_archery_butts", 52, 88, 4)
-    A("ash_archery_butts", 62, 90, 4)
-    B("fw_sentinel_tent", 72, 88, 6)
+    B("fm_archery_range", 56, 90, 4)
+    B("fm_field_tent", 72, 88, 6)
+    B("fm_glaive_rack", 46, 88, 3)
     # ---- the island's trees, round the walls
-    for (x, y, n, h) in [(20, 40, "large_canopy_tree", 12), (24, 70, "medium_canopy_tree", 10), (40, 88, "canopy_tree_cluster", 11),
-                         (86, 84, "large_canopy_tree", 12), (94, 24, "medium_canopy_tree", 10), (36, 18, "large_canopy_tree", 12),
-                         (84, 14, "canopy_tree_cluster", 11), (16, 56, "medium_canopy_tree", 10), (100, 76, "medium_canopy_tree", 9)]:
+    for (x, y, n, h) in [(20, 40, "fe_giant_tree", 12), (24, 70, "fe_moss_curtain_tree", 10), (40, 92, "fe_vine_giant", 11),
+                         (90, 84, "fe_giant_tree", 12), (94, 24, "fe_moss_curtain_tree", 10), (36, 18, "fe_giant_tree", 12),
+                         (84, 14, "fe_vine_giant", 11), (16, 56, "fe_bigleaf_maple", 9), (100, 76, "fe_bigleaf_maple", 9)]:
         A(n, x, y, h)
-    A("ash_moonstone_crystals", 22, 30, 4)
-    A("rock_outcrop_small", 28, 82, 4)
+    A("fe_moss_boulder", 22, 30, 4)
+    A("fe_fern_rocks", 28, 82, 4)
 
 
 AK.install(sys.modules[__name__])

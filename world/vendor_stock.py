@@ -80,6 +80,10 @@ def resolve_vendor_item(item_id, consumable_manager=None, gathering_manager=None
     # data/items/secret_uniques.json, the same shape as a boss's fixed drop.
     if isinstance(item_id, str) and item_id.startswith("unique:"):
         return make_unique(item_id[len("unique:"):])
+    # A COLLECTABLE (a quartermaster's Exalted mount, world/faction_manager.vendor_unlocks)
+    if isinstance(item_id, str) and item_id.startswith("collection:"):
+        from world.collection import make_item as make_collectable
+        return make_collectable(item_id[len("collection:"):])
 
     if consumable_manager.has_consumable(item_id):
         return consumable_manager.get_consumable(item_id, quantity=1)

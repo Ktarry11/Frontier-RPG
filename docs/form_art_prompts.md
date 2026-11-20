@@ -17,6 +17,8 @@ Today a class form doesn't change how the character looks, and a Collection form
 four facings is the hook-up once the art lands (backlog).
 
 ---------------------------------------------------------------------
+**Landed 20 Nov 2026**: F6 to F10 and I1 are sliced and in (F8 came back twice; the first was used). Earlier: F1 to F5.
+
 ## SHEET F1: the class forms, part 1  (paste this whole block)
 
 Ids in order: `form_bear form_dire_bear form_cat form_moonkin form_tree_of_life form_shadowform`

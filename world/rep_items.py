@@ -69,6 +69,15 @@ def _table():
                             if name:
                                 rep.add(name)
                             rep.add("crafted_" + entry)
+    # a faction's Exalted mount (sheets H11 to H13): bought for standing, so never sold on or mailed
+    try:
+        for e in (_load("data/collection/collectables.json").get("collectables") or []):
+            fid = (e.get("effect") or {}).get("exalted_mount_of")
+            if fid:
+                for key in (f"collectable_{e['id']}", e["name"]):
+                    need[key] = (fid, "exalted")
+    except Exception:                                            # noqa: BLE001
+        pass
     return need, frozenset(rep)
 
 

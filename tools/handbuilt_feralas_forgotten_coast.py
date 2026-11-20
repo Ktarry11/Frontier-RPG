@@ -93,13 +93,14 @@ CLEARINGS = [
     (176, 56, 12, 10),          # Frayfeather Highlands
     (186, 110, 9, 7),           # the east road in
     (112, 12, 9, 8),            # the north road out
+    (40, 178, 8, 6),            # the Isle of Dread's tower ground (the giant trees filled the island, 19 Nov 2026)
 ]
 #: the Fog Groves (the graft): painted as "corrupt" ground, which FERALAS_COAST_SHEET maps to redwood duff
 CORRUPT_PATCHES = [(150, 150, 30, 26), (124, 168, 14, 12), (176, 136, 12, 14)]
 BLUEBELL_PATCHES = [(146, 170, 10, 7), (130, 140, 8, 6), (178, 140, 6, 6)]   # redwood sorrel in the groves
 PAVED_PATCHES = [(118, 62, 9, 7)]                                    # Isildien's paving
 LUSH = 1.2
-GRADE = (1.22, 1.10)
+GRADE = None           # Kyle's own ground (19 Nov 2026) is rich already; the lift was for the borrowed Ashenvale ground
 
 GAPS = [
     ("ell", 196, 110, 8, 7), ("ell", 112, 4, 7, 7), ("ell", 62, 118, 6, 5), ("ell", 150, 152, 10, 8),
@@ -167,11 +168,14 @@ SUBZONES = [   # (table_key, x, y, w, h, display_name) - later registrations win
     ("The Isle of Dread", 20, 164, 40, 30, None),
 ]
 
+#: Kyle's Feralas nature sheet (docs/feralas_art_prompts.md sheet 2, 19 Nov 2026): the giant forest. The coast
+#: redwoods and cedars came over from our world, so they stand in the Fog Groves only (dress()); the spruce has spread.
+FE = "assets/tiles/feralas/props/"
 TREES = {
-    "big":   [(AV + "large_canopy_tree.png", 11), (STP + "st_redwood_giant.png", 13), (AV + "ash_giant_ash_tree.png", 12)],
-    "mid":   [(AV + "medium_canopy_tree.png", 9), (STP + "st_redwood_twin.png", 11), (AV + "canopy_tree_cluster.png", 9)],
-    "small": [(STP + "st_redwood_young.png", 7), (AV + "medium_canopy_tree.png", 7)],
-    "woods": [(AV + "large_canopy_tree.png", 11), (STP + "st_redwood_giant.png", 13), (AV + "canopy_tree_cluster.png", 10)],
+    "big":   [(FE + "fe_giant_tree.png", 13), (FE + "fe_giant_tree_hollow.png", 13), (FE + "fe_vine_giant.png", 12)],
+    "mid":   [(FE + "fe_moss_curtain_tree.png", 10), (FE + "fe_sitka_spruce.png", 11), (FE + "fe_bigleaf_maple.png", 9)],
+    "small": [(FE + "fe_tree_fern.png", 6), (FE + "fe_bigleaf_maple.png", 7)],
+    "woods": [(FE + "fe_giant_tree.png", 13), (FE + "fe_vine_giant.png", 12), (FE + "fe_moss_curtain_tree.png", 11)],
 }
 
 
@@ -189,7 +193,7 @@ def build_layout():
     for lm in L.z.landmarks:
         ax, ay, w, h = lm["anchor_x"], lm["anchor_y"], lm["width_tiles"], lm["height_tiles"]
         L.free_mask[max(0, ay):ay + h + 1, max(0, ax - 1):ax + w + 1] = False
-    E.scatter_trees(L, TREES, seed=4601, spacing=5.8, grove_keep=0.8)
+    E.scatter_trees(L, TREES, seed=4601, spacing=5.8, grove_keep=0.5)          # Kyle, 19 Nov 2026: "Keep in mind the number of collisions (Trees) in feralas" (0.8 before: a quarter fewer groves)
     sprinkle(L)
     E.seal_unreachable(L, START)
     chests(L)
@@ -233,55 +237,60 @@ def chests(L):
 
 def dress(L):
     A = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=AV, **kw)                       # noqa: E731
-    S = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=STP, **kw)                      # noqa: E731
-    N = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=ENT, **kw)                      # noqa: E731
-    F = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir="assets/tiles/felwood/props/", **kw)  # noqa: E731
+    G = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=FE, **kw)                       # noqa: E731
     B = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=BLD, **kw)                      # noqa: E731
 
     A("ash_horde_signpost", 156, 106, 5)
     A("ash_signpost", 104, 106, 4)
-    # ---- the Fog Groves: the redwoods that came over, standing in their own fog
-    for (x, y, n, h) in [(132, 136, "st_redwood_giant", 13), (166, 128, "st_redwood_twin", 12),
-                         (172, 166, "st_sequoia_great", 13), (128, 176, "st_redwood_hollow", 11),
-                         (186, 150, "st_redwood_giant", 13), (118, 150, "st_redwood_twin", 12),
-                         (160, 182, "st_redwood_ring", 10)]:
-        S(n, x, y, h, solid="core")
+    # ---- the Fog Groves: the redwoods and cedars that came over, standing in their own fog
+    for (x, y, n, h) in [(132, 136, "fe_coast_redwood", 14), (166, 128, "fe_red_cedar", 12),
+                         (172, 166, "fe_coast_redwood", 14), (128, 176, "fe_red_cedar", 11),
+                         (186, 150, "fe_coast_redwood", 14), (118, 150, "fe_red_cedar", 12),
+                         (160, 182, "fe_red_cedar", 11)]:
+        G(n, x, y, h, solid="core", nudge=6)
+    G("fe_nurse_log", 148, 176, 4, solid="core")
+    G("fe_swordferns", 136, 166, 3, solid=False)
+    G("fe_swordferns", 178, 140, 3, solid=False)
     # ---- Cedar Hollow: the settlers' cabins, built by hand from what was lying about
-    B("mg_cabin", 142, 146, 6, solid="core")
-    B("mg_cabin", 160, 146, 6, solid="core")
-    B("ek_cottage_small", 152, 160, 6, solid="core")
-    S("st_log_deck", 140, 160, 3, solid="core")
-    A("ash_log_pile", 158, 158, 3, solid="core")
-    A("ash_herb_rack", 146, 158, 3, solid="core")
+    G("fe_cabin", 142, 146, 6, solid="core")
+    G("fe_small_cabin", 160, 146, 5, solid="core")
+    G("fe_smokehouse", 152, 160, 5, solid="core")
+    G("fe_garden_bed", 140, 160, 3, solid="core")
+    G("fe_woodpile", 158, 158, 3, solid="core")
+    G("fe_rail_fence", 146, 158, 3, solid="core")
     # ---- the Ruins of Isildien: the broken dome, the Gordunni digging it out
-    F("fw_highborne_arch", 118, 56, 9, solid="core")
-    A("ash_elven_ruin_wall", 106, 60, 5, solid="core")
-    A("ash_elven_ruin_wall", 130, 60, 5, solid="core")
-    F("fw_fallen_statue", 110, 72, 6, solid="core")
-    A("ash_ivy_pillar", 128, 72, 6, solid="core")
-    A("ash_elf_statue_head", 104, 68, 4, solid="core")
-    S("st_climbing_rig", 124, 52, 6, solid="core")
+    B("fe_isildien_dome", 118, 56, 10, solid="core", nudge=9)
+    G("fe_ruin_window", 106, 60, 5, solid="core")
+    G("fe_highborne_arch", 130, 60, 6, solid="core")
+    G("fe_statue_head", 110, 72, 4, solid="core")
+    G("fe_ivy_column", 128, 72, 6, solid="core")
+    G("fe_fallen_column", 104, 68, 3, solid="core")
+    G("fe_ogre_tent", 124, 46, 5, solid="core")
     # ---- the Hatecrest Shore: the naga's camp on the beach
-    N("ent_naga_temple_door", 66, 38, 7, solid="core")
-    A("ash_moonstone_crystals", 76, 48, 4, solid="core")
-    A("ash_elven_ruin_wall", 62, 52, 4, solid="core")
+    G("fe_naga_shrine", 66, 38, 6, solid="core")
+    G("fe_coral_brazier", 76, 48, 4, solid="core")
+    G("fe_naga_tent", 62, 52, 5, solid="core")
+    G("fe_dug_relics", 72, 30, 3, solid="core")
     # ---- Feathermoon Landing: the Sentinels' pier; the boat goes to the island
-    N("ent_dock_nightelf", 60, 118, 6, solid=False, road_ok=True)
-    A("ash_sentinel_tent", 76, 112, 5, solid="core")
-    A("ash_sentinel_banner", 70, 110, 5, solid="core")
-    A("ash_moon_lantern", 66, 124, 4, solid="core")
-    A("ash_supply_crates", 78, 122, 3, solid="core")
+    B("fe_feathermoon_landing", 60, 118, 8, solid=False, road_ok=True)
+    B("fm_field_tent", 76, 112, 5, solid="core")
+    B("fm_banner", 70, 110, 5, solid="core")
+    B("fm_moon_lantern", 66, 124, 4, solid="core")
+    B("fm_cargo", 78, 122, 3, solid="core")
     # ---- Frayfeather Highlands: nests on the crags
-    S("st_harpy_nest", 170, 46, 4, solid="core")
-    S("st_harpy_nest", 184, 62, 4, solid="core")
-    A("ash_hippogryph_perch", 166, 64, 5, solid="core")
-    S("st_wind_spire", 190, 48, 8, solid="core")
+    G("fe_hippogryph_nest", 170, 46, 4, solid="core")
+    G("fe_hippogryph_nest", 184, 62, 4, solid="core")
+    G("fe_highland_flowers", 166, 64, 3, solid=False)
+    G("fe_granite_outcrop", 190, 48, 5, solid="core")
     # ---- Sardor Isle and the Isle of Dread
-    A("ash_elven_ruin_wall", 22, 54, 5, solid="core")
-    N("ent_naga_temple_door", 26, 50, 7, solid="core")
-    A("ash_mossy_spire", 34, 176, 9, solid="core")
-    S("st_harpy_nest", 44, 172, 4, solid="core")
-    A("rock_outcrop_large", 30, 182, 5, solid="core")
+    G("fe_ruin_window", 22, 54, 5, solid="core")
+    G("fe_naga_shrine", 26, 50, 6, solid="core")
+    B("fe_dread_tower", 32, 180, 8, solid="core", nudge=4)
+    G("fe_hippogryph_nest", 44, 172, 4, solid="core")
+    G("fe_sea_stack", 30, 182, 5, solid="core")
+    # ---- the shore
+    G("fe_driftwood", 54, 140, 3, solid="core")
+    G("fe_tide_pool", 48, 92, 3, solid=False, shore_ok=True, nudge=6)
 
 
 def register_baked(zone):

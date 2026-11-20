@@ -880,10 +880,13 @@ class TilemapRenderer:
                 from world.travel_manager import get_travel_manager
                 _form = get_travel_manager().active_form
                 if _form and not get_travel_manager().mounted:
-                    from world.collection import form_sprite_path, art_ready
+                    from world.collection import form_sprite_path, form_facing_path, art_ready
                     from ui.sprite_loader import get_form_sprite
                     if art_ready(_form):
-                        _fs = get_form_sprite(form_sprite_path(_form), player_facing,
+                        # turned four ways where it's drawn so (the picture already faces the right way: never
+                        # mirrored), else its one picture, mirrored when walking left
+                        _turned = form_facing_path(_form, player_facing)
+                        _fs = get_form_sprite(_turned or form_sprite_path(_form), "down" if _turned else player_facing,
                                               int(self.tile_size * self.npc_sprite_scale))
                         if _fs is not None:
                             sprite = _fs

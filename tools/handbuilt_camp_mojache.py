@@ -34,7 +34,7 @@ DESC = ("The tauren camp in Feralas's giant forest, twice the size it was. The o
 REGION = "Kalimdor - Feralas"
 W, H = 124, 96
 BAKED_DIR = "assets/tiles/feralas/baked_mojache"
-SHEET = "feralas_high_wilderness"
+SHEET = "feralas_mojache"
 PORTALS = {(62, 95): "The High Wilderness"}
 ARRIVALS = [(62, 91)]
 START = (62, 88)
@@ -58,7 +58,7 @@ CLEARINGS = [(62, 48, 50, 34), (62, 84, 14, 12), (24, 24, 16, 12), (100, 20, 16,
 ROCKS = [(8, 60, 5, 5), (116, 30, 4, 6)]
 DECKS = []
 CLEARING_GRASS = True
-GRADE = (1.22, 1.10)
+GRADE = None
 EXTRA_PATCHES = {"satyr": [(24, 24, 14, 9, 1.2), (100, 20, 12, 8, 1.0)], "mud": [(62, 44, 18, 13, 0.9)],
                  "scorch": [(98, 50, 3, 2, 1.0)]}
 
@@ -86,43 +86,51 @@ CHESTS = []
 
 
 def dress(L):
+    """Kyle's Camp Mojache sheet (docs/feralas_art_prompts.md sheet 3, 19 Nov 2026); Camp Taurajo's and Moonglade's
+    tauren pieces stood in before it. The collapsed lodge stays: it's the refugees' shelter."""
     A, B, V = L.p, L.b, L.v
     # ---- the gate and the travellers' ground
-    A("ent_town_tauren_totems", 62, 92, 7, solid=False, road_ok=True)
-    B("tau_hearth_lodge", 34, 72, 10)
-    B("tl_wind_rider_roost", 92, 70, 11)
+    B("moj_gate", 62, 89, 7, solid=False, road_ok=True)   # north of the arrival (62,91), so it stands on the road
+    B("moj_inn", 34, 72, 10)
+    B("moj_windrider_roost", 92, 70, 11)
     A("tau_hitching_post", 70, 84, 3)
     A("ash_horde_signpost", 68, 80, 4)
+    B("moj_watchtower", 80, 88, 7, nudge=6)
+    B("moj_lantern_pole", 56, 84, 4)
+    B("moj_firewood", 22, 76, 3)
     # ---- the old camp: the great totem in the middle, the lodges round it
-    A("mg_tauren_totem", 62, 46, 9)
-    A("mg_tauren_cookfire", 62, 52, 3)
-    B("tau_elder_lodge", 62, 22, 10)
-    B("tau_great_lodge", 80, 34, 9)
-    B("tau_spirit_lodge", 44, 38, 9)
-    B("mg_tauren_lodge", 46, 58, 8)
-    B("tau_longhouse", 80, 56, 8)
-    A("tau_totem_carved", 52, 30, 6)
-    A("tau_totem_carved", 72, 30, 6)
+    B("moj_great_totem", 62, 46, 9)
+    B("moj_spirit_fire", 62, 52, 3)
+    B("moj_chief_lodge", 62, 22, 10)
+    B("moj_tent_lodge", 80, 34, 9)
+    B("moj_tent_medium", 44, 38, 8)
+    B("moj_trainer_shelter", 46, 58, 7)
+    B("moj_tent_lodge", 80, 56, 8)
+    B("moj_totem_pair", 52, 30, 6)
+    B("moj_totem_pair", 72, 30, 6)
     # ---- the refugees' quarter: patched tents, bedrolls, the memorial pole for Thunder Bluff
-    A("mg_tauren_memorial", 30, 36, 7)
-    A("mg_tauren_tent", 18, 22, 6)
-    A("mg_tauren_tent", 32, 18, 6)
-    A("tau_hide_tent_small", 14, 32, 5)
-    A("tau_hide_tent_small", 24, 14, 5)
+    B("moj_memorial_pole", 30, 36, 7)
+    B("moj_tent_medium", 18, 22, 6)
+    B("moj_tent_small", 32, 18, 6)
+    B("moj_lean_to", 14, 32, 5)
+    B("moj_tent_small", 24, 14, 5)
     A("tau_lodge_collapsed", 40, 16, 6)
-    A("tau_cook_fire", 22, 28, 3)
+    B("moj_cookfire", 22, 28, 3)
+    B("moj_bedrolls", 34, 26, 3)
     # ---- the trades
-    B("tau_storehouse", 98, 34, 7)
-    A("tau_drying_rack", 112, 42, 4)
-    B("hide_tanners_hut", 114, 54, 7)
-    B("tau_herb_hut", 90, 50, 7)
-    A("tau_timber_stack", 104, 62, 4)
-    A("st_grim_drum", 70, 66, 3)
+    B("moj_trader_stall", 98, 34, 7)
+    B("moj_baskets", 106, 30, 3)
+    B("moj_leather_frame", 112, 42, 4)
+    B("moj_hide_frame", 116, 54, 4)
+    B("moj_forge", 104, 64, 7)
+    B("moj_herbalist_tent", 90, 50, 7)
+    B("moj_drum_circle", 70, 66, 3)
+    B("moj_well", 54, 70, 4)
     # ---- the kodo pen and the hunters' ground
-    B("taurajo_stables", 100, 14, 8)
-    A("st_grim_hide_rack", 88, 18, 4)
-    A("tau_drying_rack", 108, 24, 4)
-    L.edge_canopy(seed=4411, names=(("large_canopy_tree", 12), ("medium_canopy_tree", 10), ("st_sequoia_mature", 11)))
+    B("moj_kodo_pen", 100, 14, 6)
+    B("moj_trophy_rack", 88, 18, 4)
+    B("moj_travois", 108, 24, 3)
+    L.edge_canopy(seed=4411, names=(("fe_giant_tree", 12), ("fe_moss_curtain_tree", 10), ("fe_vine_giant", 11)))
 
 
 AK.install(sys.modules[__name__])

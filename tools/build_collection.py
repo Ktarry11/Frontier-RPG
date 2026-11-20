@@ -363,8 +363,11 @@ AH_FORMS = (
     ("goldtooth_pirate_ghost", "Goldtooth Pirate Ghost", "A ghostly pirate captain with a grin full of gold."),
 )
 for cid, name, blurb in AH_FORMS:
-    add(cid, f"Charm of the {name}", "form", 700, "epic", blurb,
-        {"form_id": cid, "form_name": name, "sprite": f"assets/collection/forms/{cid}.png"}, f"col_charm_{cid}")
+    _fx = {"form_id": cid, "form_name": name, "sprite": f"assets/collection/forms/{cid}.png"}
+    # sheets F6 and F7 (19 Nov 2026) turned each one four ways: walked in its facings once they're on disk
+    if all((ROOT / f"assets/forms/{cid}_{d}.png").exists() for d in ("down", "left", "right", "up")):
+        _fx["facings"] = f"assets/forms/{cid}"
+    add(cid, f"Charm of the {name}", "form", 700, "epic", blurb, _fx, f"col_charm_{cid}")
     ITEMS[-1].update(source="auction_house")
 
 # SHAPESHIFT LOOKS (sheets F3 to F5, 18 Nov 2026: "We need each form - Bears, beetles, cats, tree of life, spiders.
@@ -393,11 +396,45 @@ FORM_LOOKS = (
     ("moonkin_snowy", "moonkin", "Snowy Moonkin", "common", "Moonkin Form in white feathers."),
     ("moonkin_dusk", "moonkin", "Dusk Moonkin", "uncommon", "Moonkin Form in slate and violet."),
     ("moonkin_solar", "moonkin", "Solar Moonkin", "rare", "Moonkin Form in glowing golden feathers."),
+    # sheets F8 to F10 (19 Nov 2026)
+    ("dire_bear_brown", "dire_bear", "Brown Dire Bear", "common", "Dire Bear Form as a huge brown bear with a torn ear."),
+    ("dire_bear_thornhide", "dire_bear", "Thornhide Dire Bear", "uncommon",
+     "Dire Bear Form grown over with thorns and briar, red berries and all."),
+    ("dire_bear_ancient", "dire_bear", "Ancient Guardian", "rare",
+     "Dire Bear Form in moss and stone, green runes glowing on its shoulders."),
+    ("void_monstrosity_drowned", "void_monstrosity", "Drowned Horror", "common",
+     "The Void Monstrosity slick and grey-green, crusted with barnacles."),
+    ("void_monstrosity_ashen", "void_monstrosity", "Ashen Horror", "uncommon",
+     "The Void Monstrosity in cracked black stone, red light in the cracks."),
+    ("void_monstrosity_starving", "void_monstrosity", "Starving Dark", "rare",
+     "The Void Monstrosity made of a starfield, and far too many eyes."),
+    ("shadowform_grey", "shadowform", "Grey Shade", "common", "Shadowform as thin grey smoke."),
+    ("shadowform_ember", "shadowform", "Ember Shade", "uncommon", "Shadowform in black smoke with embers drifting through it."),
+    ("shadowform_eclipse", "shadowform", "Eclipse Shade", "rare", "Shadowform with an eclipse's ring of light behind its hood."),
+    ("mechsuit_rustbucket", "mechsuit", "Rustbucket Mechsuit", "common", "The Mechsuit patched with rusty, mismatched plates."),
+    ("mechsuit_cobalt", "mechsuit", "Cobalt Mechsuit", "uncommon", "The Mechsuit in clean cobalt enamel with a blue core."),
+    ("mechsuit_goldplated", "mechsuit", "Gold-Plated Mechsuit", "rare", "The Mechsuit in polished gold with ruby rivets."),
+    ("weaver_dusk", "weaver", "Dusk Weaver", "common", "Weaver Form in dull brown chitin, spinning grey silk."),
+    ("weaver_silkmother", "weaver", "Silkmother Weaver", "uncommon", "Weaver Form robed in fine white silk."),
+    ("weaver_spectral", "weaver", "Spectral Weaver", "rare", "Weaver Form made of pale blue ghost light."),
+    ("vizier_bronze", "vizier_form", "Bronze Vizier", "common", "Vizier Form in bronze chitin and plain brown robes."),
+    ("vizier_obsidian", "vizier_form", "Obsidian Vizier", "uncommon", "Vizier Form in black chitin and crimson robes."),
+    ("vizier_royal", "vizier_form", "Royal Vizier", "rare", "Vizier Form in royal purple and gold, emeralds in its crown."),
 )
+LOOK_ICON.update({"dire_bear": "col_charm_beast", "void_monstrosity": "col_charm_drowned", "shadowform": "col_charm_spirit",
+                  "mechsuit": "col_charm_beast", "weaver": "col_charm_insect", "vizier_form": "col_charm_insect"})
+#: Looks drawn (sheet F9) for something that isn't a form you walk the map in: the Tinker's Mechsuit is a timed buff
+#: inside a fight, and the combat screen still draws the person (backlog section 10, "Class forms in combat"). Held
+#: off the AH until a fight draws forms, so nobody buys a look that never shows. Their art stays in assets/forms.
+HELD_LOOKS = {"mechsuit"}
+
 for cid, base, name, rar, blurb in FORM_LOOKS:
+    if base in HELD_LOOKS:
+        continue
+    # each look's own icon from sheet I1 (19 Nov 2026), the family charm until then
+    _icon = f"col_look_{cid}" if (ROOT / f"assets/icons/collection/col_look_{cid}.png").exists() else LOOK_ICON[base]
     add(f"look_{cid}", f"Look: {name}", "form", LOOK_PRICE[rar], rar, blurb,
-        {"form_id": f"look_{cid}", "form_name": name, "look_of": base, "facings": f"assets/forms/{cid}"},
-        LOOK_ICON[base])
+        {"form_id": f"look_{cid}", "form_name": name, "look_of": base, "facings": f"assets/forms/{cid}"}, _icon)
 
 # ---------------------------------------------------------------- Exalted titles
 # Kyle, 18 Nov 2026: "each faction should get a title for reaching exalted with them." Learned the moment a faction
@@ -421,6 +458,7 @@ EXALTED_TITLES = {
     "cenarion_circle": "{name}, Guardian of Cenarius",
     "the_wakened": "{name} the Wakeful",
     "the_unnamed": "{name} the Unwritten",
+    "feathermoon_sentinels": "{name}, Sentinel of Feathermoon",
 }
 _FACTIONS = json.loads((ROOT / "data/factions/factions.json").read_text(encoding="utf-8"))["factions"]
 for _fid, _fmt in EXALTED_TITLES.items():
@@ -429,6 +467,88 @@ for _fid, _fmt in EXALTED_TITLES.items():
         f"Shown with your name: {_fmt.replace('{name}', 'You')}. Earned at Exalted with {_FACTIONS[_fid]['name']}.",
         {"title": _fmt}, "col_title_rare")
     ITEMS[-1].update(found_only=True, source=f"exalted:{_fid}")
+
+# ---------------------------------------------------------------- wild mounts (sheets H9 and H10, 19 Nov 2026)
+# Kyle, 18 Nov 2026: "Hit me with as much as you can!" Twelve mounts for the wild: each drops, rarely, from one
+# open-world rare that fits it (world/collection.rare_drop, RARE_MOUNT_CHANCE a kill). FOUND ONLY: no trader lists
+# them. Their reins wear a stand-in icon until sheet I2 (docs/exalted_mount_art_prompts.md).
+RARE_MOUNT_CHANCE = 0.05
+WILD_MOUNTS = (
+    ("stormhide_thunder_lizard", "Stormhide Thunder Lizard", "Stormhide Patriarch",
+     "A blue-grey thunder lizard with lightning crackling down the plates of its back."),
+    ("plainstrider_matriarch", "Plainstrider Matriarch", "Old Mother Longhorn",
+     "A huge plainstrider hen with a red and white crest, and opinions about where you're going."),
+    ("ironback_crocolisk", "Ironback Crocolisk", "Mistvale Longjaw",
+     "A long, low crocolisk armoured in iron-grey scutes. Slower than it looks, and it looks slow."),
+    ("moonfeather_hippogryph", "Moonfeather Hippogryph", "Antilus the Soarer",
+     "A white and silver hippogryph with small antlers and a calm gold eye."),
+    ("sandreaver_silithid", "Sandreaver Silithid", "Hive Champion Khix'ar",
+     "A desert silithid broken to the saddle. Nobody is sure how, least of all the silithid."),
+    ("ashmane_hyena", "Ashmane Hyena", "Marrowmaw",
+     "A hyena the size of a horse, with an ash-black mane and a grin it never puts away."),
+    ("highpeak_ramgoat", "Highpeak Ramgoat", "Old Icehide",
+     "A shaggy mountain goat with spiralling horns and a bell that never stops ringing."),
+    ("mudback_hydra", "Mudback Hydra", "Old Mire-Maw",
+     "A squat swamp hydra with two heads that rarely agree on a direction."),
+    ("thunderhorn_bull", "Thunderhorn Bull", "Brontus",
+     "A massive plains bull with a hump of dark wool and a tauren saddle of painted hide."),
+    ("carrion_strider", "Carrion Strider", "Old Bonepicker",
+     "A walking vulture as tall as a horse. It smells exactly as you'd expect."),
+    ("emberquill_porcupine", "Emberquill Porcupine", "Old Ashback the Basilisk",
+     "A porcupine the size of a kodo whose quills glow at the tips like embers."),
+    ("shellback_snail", "Shellback Snail", "Old Mossback",
+     "A giant snail with a garden growing on its shell and a lantern hung from a pole."),
+)
+for cid, name, rare, blurb in WILD_MOUNTS:
+    add(cid, f"Reins of the {name}", "mount", 600, "epic", blurb,
+        {"mount_id": cid, "mount_name": name, "tier": 1, "drops_from": rare, "drop_chance": RARE_MOUNT_CHANCE},
+        f"col_reins_{cid}" if (ROOT / f"assets/icons/collection/col_reins_{cid}.png").exists() else "qi_trophy_cord",
+        needs_art=True)
+    ITEMS[-1].update(found_only=True, source=f"rare:{rare}")
+
+# ---------------------------------------------------------------- Exalted mounts (sheets H11 to H13, 19 Nov 2026)
+# One per faction, sold by its quartermaster once you're Exalted (world/faction_manager.vendor_unlocks puts it on the
+# shelf; world/rep_items keeps it off the auction house and out of the mail). FOUND ONLY: no trader lists them.
+EXALTED_MOUNTS = (
+    ("crimson_codex", "crimson_codex_spellbound_construct", "Spellbound Construct",
+     "A steed of carved red sandstone and gold, crimson runes turning round it."),
+    ("orgrimmar", "orgrimmar_redstone_warwolf", "Redstone War Wolf",
+     "A black war wolf in red-painted iron, a Horde banner rising behind the saddle."),
+    ("darkspear_tribe", "darkspear_voodoo_raptor", "Voodoo Raptor",
+     "A teal and purple raptor in a carved voodoo mask, hung with fetishes."),
+    ("the_forsaken", "forsaken_war_bat", "Forsaken War Bat",
+     "A giant bat in dark iron with green plague-glass vials on its harness."),
+    ("steamwheedle_cartel", "steamwheedle_trike", "Steamwheedle Trike",
+     "A riveted brass three-wheeler with ram-horn handlebars. It smokes. It's meant to."),
+    ("thunder_bluff", "thunder_bluff_totem_kodo", "Totem Kodo",
+     "A grey kodo in mourning paint, carrying a carved totem pole for a city that isn't there."),
+    ("booty_bay_authority", "booty_bay_great_parrot", "Great Harbour Parrot",
+     "A parrot as big as a horse, in a little tricorn hat and a gold earring."),
+    ("the_ashclaim", "ashclaim_core_hound", "Ashclaim Core Hound",
+     "A two-headed lava hound in dark iron plate, smoke rising off its back."),
+    ("emerald_reclamation", "emerald_bark_strider", "Bark Strider",
+     "A four-legged beast grown from living wood, moss and ferns along its back."),
+    ("pale_flame", "pale_flame_lion", "Pale Flame Lion",
+     "A white lion whose mane is pale holy fire that burns without smoke."),
+    ("argent_dawn", "argent_charger", "Argent Charger",
+     "A white warhorse in silver plate and a blue and white caparison."),
+    ("timbermaw_hold", "timbermaw_great_badger", "Great Badger",
+     "A badger the size of a bear, hung with furbolg totems and wooden beads."),
+    ("sunreach_conclave", "sunreach_dragonhawk", "Sunreach Dragonhawk",
+     "A flame-red and gold dragonhawk in elven barding and a gold filigree saddle."),
+    ("the_liquidators", "liquidators_hazard_mule", "Hazard Mule",
+     "A big armoured mule in lead plate and hazard stripes, a gas mask hanging off the saddle."),
+    ("cenarion_circle", "cenarion_stormcrow", "Cenarion Stormcrow",
+     "A crow as tall as a horse, glossy blue-black, silver moons on its harness."),
+    ("the_wakened", "wakened_dream_jackalope", "Dream Jackalope",
+     "A sleepy giant rabbit with small antlers and glowing flowers in its fur."),
+)
+for fid, cid, name, blurb in EXALTED_MOUNTS:
+    add(cid, f"Reins of the {name}", "mount", 100, "epic", f"{blurb} Sold at Exalted with {_FACTIONS[fid]['name']}.",
+        {"mount_id": cid, "mount_name": name, "tier": 1, "exalted_mount_of": fid},
+        f"col_reins_{cid}" if (ROOT / f"assets/icons/collection/col_reins_{cid}.png").exists() else "qi_trophy_cord",
+        needs_art=True)
+    ITEMS[-1].update(found_only=True, source=f"exalted:{fid}")
 
 # ---------------------------------------------------------------- keepsakes
 # Kyle, 19 Nov 2026: "a new collection tab. Each sworn member will give something that goes there. it's personal to
@@ -450,6 +570,21 @@ UNIQUE_REINS = {"bone_white_kodo": "kodo", "steamwheedle_runabout": "runabout", 
                 "brine_crab": "brine_crab", "river_otter": "river_otter", "glimmer_frog": "glimmer_frog",
                 "rimefin_walrus": "rimefin_walrus", "cinder_salamander": "cinder_salamander",
                 "abyssal_lurker": "abyssal_lurker",
+                # the wild and Exalted mounts (sheets H9 to H13, 19 Nov 2026): the nearest drawn reins until sheet I2
+                # gives each its own (it then wins, above)
+                "stormhide_thunder_lizard": "cinder_salamander", "plainstrider_matriarch": "hawkstrider",
+                "ironback_crocolisk": "abyssal_lurker", "moonfeather_hippogryph": "dawn",
+                "sandreaver_silithid": "ruby_scorpid", "ashmane_hyena": "coinscale_raptor",
+                "highpeak_ramgoat": "jadehorn_elk", "mudback_hydra": "glimmer_frog", "thunderhorn_bull": "kodo",
+                "carrion_strider": "twilight", "emberquill_porcupine": "goldtusk_boar", "shellback_snail": "spring",
+                "crimson_codex_spellbound_construct": "rose", "orgrimmar_redstone_warwolf": "platinum_direwolf",
+                "darkspear_voodoo_raptor": "coinscale_raptor", "forsaken_war_bat": "nightmare",
+                "steamwheedle_trike": "runabout", "thunder_bluff_totem_kodo": "kodo",
+                "booty_bay_great_parrot": "tide", "ashclaim_core_hound": "cinder_salamander",
+                "emerald_bark_strider": "jade", "pale_flame_lion": "dawn", "argent_charger": "gilded_bone_steed",
+                "timbermaw_great_badger": "crowned_grizzly", "sunreach_dragonhawk": "hawkstrider",
+                "liquidators_hazard_mule": "golden_dromedary", "cenarion_stormcrow": "twilight",
+                "wakened_dream_jackalope": "spring",
                 }
 SERVICE_ICON = {"bank": "col_satchel_bank", "peddler": "col_peddler_bell", "mail": "col_courier_horn",
                 "class_trainer": "col_book_master", "profession_trainer": "col_book_professions",

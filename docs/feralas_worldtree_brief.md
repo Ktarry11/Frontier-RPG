@@ -35,8 +35,26 @@ tree is basically sunlight, clouds, etc....and another new faction."
 - It began to grow at the Integration and hasn't stopped.
 - Two new factions: the town's, and the crown's.
 
+**Kyle, 19 Nov 2026 (evening), names and the crown:** "The Middle Town — The Great Settlement" — "so the top will be
+actual cloud continents".
+
+| Zone | Level | Theme (Kyle's) |
+|---|---|---|
+| The Sunward Crown | 48-49 | Sunlit branches, golden forests, cloud seas |
+| The Celestial Expanse | 49-51 | Floating islands, sky rivers, ancient aerial ruins |
+
+- **The Great Settlement** is the tree's middle town.
+- **The crown is cloud continents**: land made of cloud, not just branches.
+- The sky zones' levels are now 48-49 and 49-51 (the first pass had 46-49 and 48-51).
+
+Kyle's reference pictures (`docs/zone_refs/`): `world_tree_crown_island.jpg` (the tree on a floating island, waterfalls
+pouring off it into a sea of cloud, a golden sunset), `world_tree_trunk_city.jpg` (a city of small stone towers built
+up the trunk, rope bridges between the branches), `world_tree_treehouse_tiers.jpg` (timber treehouses with moss roofs on
+platforms, ladders and rope walkways, a river below), `world_tree_great_settlement.jpg` (a lantern-lit town on bridges
+between giant trunks, pagoda roofs, waterfalls, market awnings, gold light).
+
 ## Still to settle with Kyle
-- Names: the tree, the island, the town, the two sky zones, both factions.
+- Names: the tree, the island, the tiers, both factions (the town is the Great Settlement; the sky zones are named).
 - Who lives on each tier (the people), and what's wrong up there (every zone needs its threat).
 - How you get there from Northern Stranglethorn (boat, portal, flight master), and how you climb between tiers.
 - Feralas's towns and who holds them now, and what the Integration did change there.

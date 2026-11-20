@@ -168,8 +168,8 @@ def scroll_icon(profession: str, recipe: dict) -> str:
     """The recipe scroll's picture: the profession's scroll at the recipe's skill grade, found (a drop) or bought (a
     vendor's or a faction's), or its epic scroll for an epic. Kyle, 17 Nov 2026: "They dont need to be unique but they
     should be similar.....like each professions get about 6-8 unique ones". Falls back, in order, to the same grade
-    the other way, the profession's one old picture, and the default scroll, so a sheet still to come (RC1) changes
-    nothing."""
+    the other way, the profession's one old picture, and the default scroll, so a missing picture never shows blank
+    (every sheet, RC1 included, has landed since 20 Nov 2026)."""
     folder = Path(__file__).parent.parent / "assets" / "icons" / "recipes"
     prof = "woodworking" if profession == "woodcutting" else profession
     out = recipe.get("output", {})

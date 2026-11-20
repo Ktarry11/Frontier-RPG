@@ -397,45 +397,91 @@ MOONGLADE_SHEET = {
     "av_corrupt_ground": _mg("mg_bramble_earth"),
     "av_satyr_earth":    _mg("mg_barrow_earth"),
 }
-#: FERALAS (docs/feralas_brief.md), built before Kyle's Feralas sheet (Kyle, 19 Nov 2026: "Build without art for
-#: now"): Ashenvale's deep green floor, grass and ferns with Stonetalon's moss, canopy floor and granite, so the giant
-#: forest reads greener and wetter than Ashenvale. The Hive Fields' dug ground is the "corrupt" stem, the Gordunni's
-#: trampled camps the "satyr" stem. When docs/feralas_art_prompts.md sheet 1 is sliced, these point at it instead.
-_AVM = T / "ashenvale" / "materials"
+#: FERALAS (docs/feralas_brief.md). Kyle's Feralas ground sheet (docs/feralas_art_prompts.md sheet 1, sliced to
+#: assets/tiles/feralas/ground, 19 Nov 2026; until then the maps stood on Ashenvale's and Stonetalon's ground): the giant
+#: forest's moss, loam and ferns, the rivers and the Lower Wilds' marsh, granite and the highland meadow (the bluebell
+#: layer, its blue and yellow flowers), the Highborne marble at Dire Maul's gate, the Hive Fields' churned earth (the
+#: corrupt layer) and the camps' trampled dirt (the satyr layer).
+_FE = T / "feralas" / "ground"
 
 
-def _avm(name, off=0.5, rec=None, extra=None):
-    return (_AVM / f"{name}.png", off, rec, extra)
+def _fe(name, off=0.5, rec=None, extra=None):
+    return (_FE / f"{name}.png", off, rec, extra)
 
 
 FERALAS_SHEET = {
-    "av_forest_floor":   _avm("av_forest_floor"),
-    "av_forest_grass":   _avm("av_forest_grass"),
-    "av_fern_floor":     _avm("av_fern_floor"),
-    "av_root_earth":     _st("st_wet_moss"),
-    "av_needle_mulch":   _avm("av_root_earth"),
-    "av_canopy":         _st("st_canopy_floor", extra="canopy"),
-    "av_rocky_ground":   _st("st_granite_lichen"),
-    "av_cliff_a":        _st("st_granite_cliff"),
-    "av_cliff_b":        _st("st_granite_cliff", off=0.2),
-    "av_corrupt_ground": _st("st_mudflow"),
-    "av_satyr_earth":    _st("st_grimtotem_earth"),
-    "av_lake_mud":       _st("st_mossy_roots"),
+    "av_forest_floor":   _fe("fe_forest_floor"),
+    "av_forest_grass":   _fe("fe_lush_grass"),
+    "av_fern_floor":     _fe("fe_fern_floor"),
+    "av_root_earth":     _fe("fe_loam_roots"),
+    "av_needle_mulch":   _fe("fe_leaf_litter"),
+    "av_bluebell":       _fe("fe_highland_meadow"),
+    "av_road_centre":    _fe("fe_mud_trail"),
+    "av_road_edge":      _fe("fe_loam_roots"),
+    "av_elven_paving":   _fe("fe_elven_paving"),
+    "av_mossy_cobble":   _fe("fe_marble_moss"),
+    "av_plaza_stone":    _fe("fe_marble_moss"),
+    "av_rocky_ground":   _fe("fe_granite"),
+    "av_stream_bed":     _fe("fe_river_gravel"),
+    "av_lake_mud":       _fe("fe_river_mud"),
+    "av_lake_shallow":   _fe("fe_river_shallow"),
+    "av_lake_deep":      _fe("fe_river_deep"),
+    "av_moon_water":     _fe("fe_stream"),
+    "av_moon_deep":      _fe("fe_river_deep"),
+    "av_moon_rim":       _fe("fe_moss_stones"),
+    "av_cliff_a":        _fe("fe_granite_cliff"),
+    "av_cliff_b":        _fe("fe_granite_cliff", off=0.2),
+    "av_canopy":         _fe("fe_fern_floor", extra="canopy"),
+    "av_beach":          _fe("fe_river_gravel"),      # inland, a river's shore is gravel and mud, not sand
+    "av_wet_sand":       _fe("fe_river_mud"),
+    "av_sea_shallow":    _fe("fe_sea_shallow"),
+    "av_sea_deep":       _fe("fe_sea_deep"),
+    "av_scorched":       _fe("fe_ogre_dirt"),
+    "av_burned_forest":  _fe("fe_blight_grass"),
+    "av_fel_earth":      _fe("fe_dream_grass"),
+    "av_corrupt_ground": _fe("fe_dug_earth"),
+    "av_satyr_earth":    _fe("fe_gnoll_dirt"),
 }
-#: The Forgotten Coast: the same forest, and the Fog Groves (the graft from our world) are the "corrupt" patches,
-#: painted with Stonetalon's redwood duff; the sorrel is the "bluebell" stem there.
+#: The Forgotten Coast: the same forest, and the Fog Groves (the graft from our world) are the "corrupt" patches: coast
+#: redwood duff, with redwood sorrel and moss as the "bluebell" stem there; the trail is a needle path, and the cliffs
+#: over the sea are sea cliff.
 FERALAS_COAST_SHEET = dict(FERALAS_SHEET)
 FERALAS_COAST_SHEET.update({
-    "av_corrupt_ground": _st("st_redwood_duff"),
-    "av_bluebell":       _st("st_redwood_sorrel"),
+    "av_beach":          _fe("fe_beach_sand"),
+    "av_wet_sand":       _fe("fe_wet_sand"),
+    "av_corrupt_ground": _fe("fe_redwood_duff"),
+    "av_bluebell":       _fe("fe_sorrel_moss"),
+    "av_road_centre":    _fe("fe_needle_path"),
+    "av_cliff_b":        _fe("fe_sea_cliff"),
+    "av_rocky_ground":   _fe("fe_tide_rock"),
+})
+#: Camp Mojache's trodden camp earth, and Feathermoon's silver night elf paving (their own maps, tools/bake_ashenvale_towns.py).
+FERALAS_MOJACHE_SHEET = dict(FERALAS_SHEET)
+FERALAS_MOJACHE_SHEET.update({
+    "av_road_centre":    _fe("fe_camp_earth"),
+    "av_plaza_stone":    _fe("fe_camp_earth"),
+    "av_satyr_earth":    _fe("fe_camp_earth"),
+})
+FERALAS_FEATHERMOON_SHEET = dict(FERALAS_COAST_SHEET)
+FERALAS_FEATHERMOON_SHEET.update({
+    "av_road_centre":    _fe("fe_elven_paving"),
+    "av_road_edge":      _fe("fe_moss_stones"),
+    "av_plaza_stone":    _fe("fe_elven_paving"),
+})
+#: The Twin Colossals: higher and colder ground under the giants.
+FERALAS_NORTH_SHEET = dict(FERALAS_SHEET)
+FERALAS_NORTH_SHEET.update({
+    "av_needle_mulch":   _fe("fe_moss_stones"),
+    "av_forest_grass":   _fe("fe_highland_meadow"),
 })
 WPL_SHEET = _plague_sheet(east=False)
 EPL_SHEET = _plague_sheet(east=True)
 ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_SHEET, "epl_east": EPL_SHEET, "felwood_north": NORTH_SHEET, "stonetalon_east": STONETALON_SHEET,
                "stonetalon_west": STONETALON_WEST_SHEET, "sun_rock": SUN_ROCK_SHEET,
                "azshara_west": AZSHARA_SHEET,
-               "feralas_high_wilderness": FERALAS_SHEET, "feralas_twin_colossals": FERALAS_SHEET,
-               "feralas_forgotten_coast": FERALAS_COAST_SHEET, "timbermaw_hold": TIMBERMAW_HOLD_SHEET,
+               "feralas_high_wilderness": FERALAS_SHEET, "feralas_twin_colossals": FERALAS_NORTH_SHEET,
+               "feralas_forgotten_coast": FERALAS_COAST_SHEET, "feralas_mojache": FERALAS_MOJACHE_SHEET,
+               "feralas_feathermoon": FERALAS_FEATHERMOON_SHEET, "timbermaw_hold": TIMBERMAW_HOLD_SHEET,
                "azshara_central": AZSHARA_CENTRAL_SHEET, "azshara_east": AZSHARA_EAST_SHEET,
                "deadwind_west": DEADWIND_SHEET, "deadwind_east": DEADWIND_EAST_SHEET, "ariden_watch": ARIDEN_SHEET,
                "moonglade": MOONGLADE_SHEET}

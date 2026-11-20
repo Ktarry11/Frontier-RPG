@@ -1265,6 +1265,19 @@ class CombatEngine:
                             f"{enemy.name} dropped {scroll.name}, but your bags are full!")
                         self.loot_missed.insert(0, scroll.name)
 
+            # A WILD MOUNT, rarely, from the one open-world rare that fits it (sheets H9 and H10, 19 Nov 2026;
+            # world/collection.rare_drop). It's a Collection item, so it can be learned, sold or mailed like any.
+            from world.collection import rare_drop, make_item as _make_collectable
+            _mount_id = rare_drop(enemy.name) if getattr(enemy, "is_boss", False) else None
+            _mount = _make_collectable(_mount_id) if _mount_id else None
+            if _mount is not None:
+                if self.player.add_to_inventory(_mount):
+                    self.loot_gained.append(_mount)
+                    self.combat_log.append(f"{enemy.name} dropped: {_mount.name}!")
+                else:
+                    self.combat_log.append(f"{enemy.name} dropped {_mount.name}, but your bags are full!")
+                    self.loot_missed.insert(0, _mount.name)
+
             # Per-creature LootItem drops (quest items, materials, trash)
             # - a real drop table, separate from the gear roll above.
             # Added specifically to close the Sagewood Petal gap Kyle

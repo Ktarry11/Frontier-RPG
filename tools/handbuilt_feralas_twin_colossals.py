@@ -85,7 +85,7 @@ CLEARINGS = [
 BLUEBELL_PATCHES = [(146, 34, 12, 9)]       # the Dream Bough's flowers
 PAVED_PATCHES = [(60, 34, 8, 6)]            # Ravenwind's Highborne paving
 LUSH = 1.15
-GRADE = (1.22, 1.10)
+GRADE = None           # Kyle's own ground (19 Nov 2026) is rich already; the lift was for the borrowed Ashenvale ground
 
 GAPS = [("ell", 112, 216, 8, 7), ("ell", 110, 188, 10, 8), ("ell", 98, 120, 10, 9), ("ell", 146, 34, 9, 8),
         ("ell", 150, 120, 9, 7), ("ell", 60, 34, 9, 7)]
@@ -128,11 +128,13 @@ SUBZONES = [
     ("The Sentinels' Watch", 94, 174, 32, 26, None),
 ]
 
+#: Kyle's Feralas nature sheet (docs/feralas_art_prompts.md sheet 2, 19 Nov 2026): the giant forest's north coast.
+FE = "assets/tiles/feralas/props/"
 TREES = {
-    "big":   [(AV + "large_canopy_tree.png", 11), (STP + "st_sequoia_great.png", 13), (AV + "ash_giant_ash_tree.png", 12)],
-    "mid":   [(AV + "medium_canopy_tree.png", 9), (STP + "st_sequoia_mature.png", 10), (AV + "canopy_tree_cluster.png", 9)],
-    "small": [(STP + "st_sequoia_young.png", 7), (AV + "medium_canopy_tree.png", 7)],
-    "woods": [(AV + "large_canopy_tree.png", 11), (STP + "st_sequoia_great.png", 13), (AV + "canopy_tree_cluster.png", 10)],
+    "big":   [(FE + "fe_giant_tree.png", 13), (FE + "fe_vine_giant.png", 12), (FE + "fe_giant_tree_hollow.png", 13)],
+    "mid":   [(FE + "fe_root_bridge_tree.png", 10), (FE + "fe_sitka_spruce.png", 11), (FE + "fe_bigleaf_maple.png", 9)],
+    "small": [(FE + "fe_tree_fern.png", 6), (FE + "fe_sitka_spruce.png", 7)],
+    "woods": [(FE + "fe_giant_tree.png", 13), (FE + "fe_vine_giant.png", 12), (FE + "fe_sitka_spruce.png", 11)],
 }
 
 
@@ -150,7 +152,7 @@ def build_layout():
     for lm in L.z.landmarks:
         ax, ay, w, h = lm["anchor_x"], lm["anchor_y"], lm["width_tiles"], lm["height_tiles"]
         L.free_mask[max(0, ay):ay + h + 1, max(0, ax - 1):ax + w + 1] = False
-    E.scatter_trees(L, TREES, seed=4701, spacing=5.8, grove_keep=0.8)
+    E.scatter_trees(L, TREES, seed=4701, spacing=5.8, grove_keep=0.5)          # Kyle, 19 Nov 2026: "Keep in mind the number of collisions (Trees) in feralas" (0.8 before: a quarter fewer groves)
     sprinkle(L)
     E.seal_unreachable(L, START)
     chests(L)
@@ -193,38 +195,37 @@ def chests(L):
 
 def dress(L):
     A = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=AV, **kw)                       # noqa: E731
-    S = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=STP, **kw)                      # noqa: E731
-    N = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=ENT, **kw)                      # noqa: E731
-    F = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir="assets/tiles/felwood/props/", **kw)  # noqa: E731
+    G = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=FE, **kw)                       # noqa: E731
+    B = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=BLD, **kw)                      # noqa: E731
 
     A("ash_signpost", 104, 168, 4)
     A("ash_signpost", 100, 86, 4)
     # ---- the Sentinels' Watch: a camp, not a town
-    A("ash_sentinel_tent", 102, 182, 5, solid="core")
-    A("ash_sentinel_tent", 120, 182, 5, solid="core")
-    A("ash_watch_platform", 112, 178, 7, solid="core")
-    A("ash_sentinel_banner", 108, 192, 5, solid="core")
-    A("ash_sentinel_weapon_rack", 118, 192, 3, solid="core")
-    # ---- the Twin Colossals: the arches over the granite (Stonetalon's wind arch until sheet 6)
-    S("st_wind_arch", 76, 126, 14, solid="core")
-    S("st_wind_arch", 120, 86, 14, solid="core")
-    S("st_wind_spire", 68, 150, 10, solid="core")
-    S("st_wind_spire", 128, 108, 10, solid="core")
+    B("fm_field_tent", 102, 182, 5, solid="core", nudge=10)
+    B("fm_field_tent", 120, 182, 5, solid="core", nudge=10)
+    B("fm_tree_lookout", 112, 178, 7, solid="core", nudge=10)
+    B("fm_banner", 108, 192, 5, solid="core", nudge=10)
+    B("fm_glaive_rack", 118, 192, 3, solid="core", nudge=10)
+    # ---- the Twin Colossals: the two great arches over the granite
+    B("fe_twin_colossal", 76, 126, 14, solid="core", nudge=10)
+    B("fe_twin_colossal", 120, 86, 14, solid="core", nudge=10)
+    G("fe_granite_outcrop", 68, 150, 6, solid="core", nudge=10)
+    G("fe_granite_outcrop", 128, 108, 6, solid="core", nudge=10)
     # ---- Rage Scar Hold: the yetis' hollow in the east hills
-    N("ent_savanna_cave", 158, 114, 6, solid="core")
-    A("ash_log_pile", 146, 126, 3, solid="core")
-    S("st_giant_snag", 160, 128, 7, solid="core")
+    B("fe_rage_scar_mouth", 158, 114, 8, solid="core", nudge=10)
+    G("fe_bone_pile", 146, 126, 3, solid="core", nudge=10)
+    G("fe_dead_snag", 160, 128, 6, solid="core", nudge=10)
     # ---- Ruins of Ravenwind: Highborne stone on the coast, the naga digging in it
-    F("fw_highborne_arch", 60, 28, 8, solid="core")
-    A("ash_elven_ruin_wall", 50, 36, 5, solid="core")
-    A("ash_ivy_pillar", 70, 38, 6, solid="core")
-    N("ent_naga_temple_door", 54, 22, 7, solid="core")
+    G("fe_highborne_arch", 60, 28, 7, solid="core", nudge=10)
+    G("fe_ruin_window", 50, 36, 5, solid="core", nudge=10)
+    G("fe_ivy_column", 70, 38, 6, solid="core", nudge=10)
+    G("fe_naga_shrine", 54, 22, 6, solid="core", nudge=10)
+    G("fe_dug_relics", 64, 44, 3, solid="core", nudge=10)
     # ---- the Dream Bough: the great tree, and the shimmer between its roots
-    S("st_sequoia_great", 150, 24, 15, solid="core")
-    N("ent_moonlit_arch", 150, 30, 7, solid="core")
-    A("ash_glow_mushroom_ring", 138, 44, 3, solid=False)
-    A("ash_nightbloom_bush", 158, 42, 3, solid="core")
-    A("ash_moonstone_crystals", 136, 32, 4, solid="core")
+    B("fe_dream_bough", 150, 30, 15, solid="core", nudge=10)
+    G("fe_dream_flowers", 138, 44, 3, solid=False, nudge=10)
+    G("fe_dream_sapling", 160, 42, 5, solid="core", nudge=10)
+    G("fe_dream_flowers", 164, 34, 3, solid=False, nudge=10)
 
 
 def register_baked(zone):
