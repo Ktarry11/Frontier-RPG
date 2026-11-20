@@ -19,6 +19,7 @@ north wall, with a ledge along its foot that carries the two lifts and the High 
     THE TRADES TERRACE (east): the forge, the alchemist, the tanner, the herbalist, the cook, and the trainers' lodge
     THE LANTERN WARD (south-west): homes packed together on the biggest of the lower platforms
     THE ROOST (south-east): the bat roost (the flight path) and the scholars' hall
+    THE GARDENS (west of the Market): the terrace where the ward grows its food
     THE FALLS (south): a waterfall pours through the city from the branches above into a pool, and off the platform's
       edge into the hollow; the waterfall shrine beside it
 
@@ -53,14 +54,17 @@ TRUNK_DEPTH = 11
 #: the districts, each a platform over the hollow built out in lobes (never one round blob; Kyle on earlier maps: "Still
 #: doing a lot of circular blobs"): a list of (cx, cy, rx, ry) ellipses whose union is the platform
 DISTRICTS = {
-    "market":  [(92, 70, 26, 13), (76, 80, 14, 10), (110, 62, 14, 9), (104, 82, 12, 8)],
-    "trades":  [(150, 56, 18, 10), (166, 64, 10, 9), (142, 66, 10, 6)],
-    "lantern": [(36, 100, 20, 11), (24, 114, 12, 10), (50, 114, 12, 8)],
-    "roost":   [(146, 110, 16, 9), (158, 120, 10, 8), (138, 118, 8, 6)],
-    "falls":   [(92, 128, 14, 9), (84, 138, 8, 6), (102, 136, 7, 5)],
+    "market":  [(92, 70, 31, 16), (74, 82, 18, 12), (112, 62, 18, 12), (106, 84, 16, 10), (92, 90, 14, 8)],
+    "trades":  [(152, 56, 22, 13), (168, 66, 13, 11), (142, 68, 13, 8), (152, 44, 12, 7)],
+    "lantern": [(36, 100, 24, 14), (22, 116, 15, 12), (50, 116, 16, 10), (40, 86, 15, 8)],
+    "roost":   [(146, 112, 20, 12), (160, 122, 13, 10), (136, 122, 11, 8), (152, 100, 13, 7)],
+    "falls":   [(92, 130, 18, 12), (82, 142, 11, 7), (104, 140, 10, 7)],
+    # Kyle, 20 Nov 2026: "Let's have a bit more land mass for gs": a garden terrace between the Liftfoot's bridge and
+    # the Market, where the ward grows its food
+    "gardens": [(54, 56, 15, 11), (44, 66, 10, 7)],
 }
 #: the ledge along the trunk's foot
-LEDGE = ([(4, 20), (40, 22), (92, 24), (140, 22), (180, 20)], 9.5)
+LEDGE = ([(4, 21), (40, 23), (92, 25), (140, 23), (180, 21)], 12.0)
 #: plank bridges over the hollow: (points, half-width)
 BRIDGES = [
     ([(92, 32), (92, 54)], 4.0),                        # the Rise's great stair down to the Market
@@ -113,7 +117,7 @@ PAVED_PATCHES = [(92, 72, 24, 14), (92, 24, 18, 5), (24, 21, 8, 4), (162, 21, 8,
                  (92, 128, 12, 8)]
 CORRUPT_PATCHES = [(38, 104, 20, 13)]                  # the Lantern Ward's carved bark between the homes
 BURNED_PATCHES = [(154, 58, 16, 10)]                   # the Trades Terrace's red clay yards
-BLUEBELL_PATCHES = [(30, 112, 6, 4), (52, 98, 5, 3)]   # garden soil by the homes
+BLUEBELL_PATCHES = [(30, 112, 6, 4), (52, 98, 5, 3), (54, 58, 11, 7), (44, 66, 7, 4)]   # garden soil: homes, the Gardens
 LUSH = 0.0
 GRADE = None
 DROP = {"haze": (70, 54, 30), "fade": 0.16, "sat": 1.0, "shadow": (2.5, 4.0)}
@@ -181,6 +185,8 @@ NPC_POSITIONS = {
     "gs_scholar_hall":    (160, 125),    # the scholars' hall
     # ---- the Falls
     "gs_falls_keeper":    (82, 130),     # the waterfall shrine
+    # ---- the Gardens
+    "gs_gardener":        (56, 62),      # the ward's gardener
 }
 
 
@@ -322,6 +328,29 @@ def dress(L):
     B("gs_waterfall_shrine", 82, 127, 11)
     B("gs_lantern_post", 104, 128, 5)
     G("wt_pool_reeds", 100, 135, 4, solid=False)
+    # ---- the Gardens: plots, planters and the gardener's hut
+    B("gs_hut_round", 48, 52, 9)
+    B("gs_herbalist", 62, 52, 8)
+    for (x, y) in [(50, 60), (58, 58), (46, 66), (62, 62), (54, 66)]:
+        B("gs_planter", x, y, 4)
+    G("wt_blossoms", 40, 64, 3, solid=False)
+    # ---- the wider ledge: more homes on the trunk
+    B("gs_balcony_house", 12, 31, 9)
+    B("gs_house_medium", 140, 30, 9)
+    B("gs_trunk_tower_house", 104, 14, 12)
+    # ---- the Market's south end
+    B("gs_stall_spice", 84, 93, 6)
+    B("gs_stall_red", 100, 93, 6)
+    # ---- the Lantern Ward and the Roost, grown
+    B("gs_house_large", 40, 84, 11)
+    B("gs_hut_round", 12, 120, 8)
+    B("gs_balcony_house", 58, 120, 9)
+    B("gs_house_medium", 150, 98, 9)
+    B("gs_hut_round", 166, 128, 8)
+    B("gs_house_medium", 130, 126, 8)
+    # ---- the Falls, grown: a tea house by the water
+    B("gs_tea_house", 106, 142, 8)
+    B("gs_lantern_post", 80, 144, 5)
     # ---- lanterns down the bridges and the ledge
     for (x, y) in [(88, 40), (96, 48), (126, 64), (36, 28), (128, 28), (170, 28)]:
         B("gs_lantern_post", x, y, 5)

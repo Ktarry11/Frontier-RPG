@@ -149,6 +149,10 @@ AMBIENT = {
     "gs_scholar_hall": ("Archivist Tel'zan", "troll", M, 12, "down",
                         "The scholars' hall keeps a record of everything that's fallen from the sky. The record gets "
                         "longer every week, and the pieces get bigger."),
+    # ---- the Gardens
+    "gs_gardener": ("Gardener Ula'ni", "troll", F, 11, "down",
+                    "Everything the ward eats that isn't fish grows on this terrace. The soil came up the lift a "
+                    "basket at a time, and the tree's sap makes it give twice what it would on the ground."),
     # ---- the Falls
     "gs_falls_keeper": ("Watersinger Ya'nela", "troll", F, 10, "right",
                         "The water falls from a branch so high nobody's climbed to it. It's never stopped, not once, "
