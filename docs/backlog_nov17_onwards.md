@@ -97,6 +97,14 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 - **The Gilded Vale** (a skull zone) leading to **the Emberwild** (its frontier), painted with the Azshara autumn
   set, "elsewhere in the world". The parent zone is chosen blind and never written down.
 
+## 3b. Tier 1: four raids (Kyle, 20 Nov 2026, `docs/raid_tier1_design.md`)
+- The Fallen Bluff (14), a Celestial raid in the sky's Expanse (about 7), a Tempest raid rising off the Tempest
+  Isles (4), an Underdark raid under Kael's Bastion (3). All drop item level 68; Cairne Unmade alone drops 71.
+- Sets: one per class (30 x 6 = 180 pieces: head, shoulders, chest, hands, legs, feet), a version per spec with
+  its own name, stats and 2/4/6 bonuses, swapped free at an Artifact Keeper like T0; icons shared per class.
+- Attunement chains to unlock each raid, kept on the character; a rare AH item makes an unlock account-wide.
+- Open: the three new raids' names and themes, slot split between raids, the AH item's price.
+
 ## 3a. Heroic dungeons (stage 1 built 18 Nov 2026, `docs/heroic_design.md`)
 - **Stage 2:** a badge from every heroic boss and a badge vendor selling 66 gear; one heroic-only rare 66 per dungeon
   from its last boss.
@@ -114,6 +122,9 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
   numbers when it's built.
 
 ## 4. Classes, combat and balance
+- **The turn timeline** (Kyle, 20 Nov 2026): a turn-order bar on the right of combat, allies right and enemies left,
+  time running down, with a ghost of where a spell would drop you when you hover it, so Haste and cast speed
+  can be seen and planned. Needs a cast-speed pass over every class first. `docs/turn_timeline_design.md`.
 - **Tanks on the new armour curve**: the caster/tank shield split isn't built; tank abilities and block, dodge and
   parry haven't been re-tuned to carry more of the load. Look at it once Kyle has played a tank.
 - **Primalist talents**: 18 talents point at abilities unlocked in another tree (`validate_class`). Kyle: "hold off on

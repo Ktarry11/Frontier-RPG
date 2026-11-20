@@ -48,7 +48,11 @@ the Integration was or why it happened. It's three peoples and a sun.
   the player is moved to the Sunward Crown's arrival.
 - The two mural props on the Cloudbreak (intact, then broken open), swapped by the same flag.
 
-## Art: sheet CS (Kyle's next batch)
+## Art: sheet CS (landed 20 Nov 2026)
+
+All seven came in on 20 Nov: the six frames are saved to `assets/ui/cutscenes/crown/` (cs1_chamber, cs2_touch,
+cs3_crumble, cs4_crown, cs5_looking_down, cs6_islands) and the two props are sliced to `assets/buildings/` (the sheet is
+kept at `tools/building_sheets/crown_mural_props.png`). The prompts stay below as the record.
 
 Six paintings at 1536x1024, the same size as the panoramas, plus one small sheet with the two mural props. Paste each
 prompt as its own image. The frames save to `assets/ui/cutscenes/crown/`; the props slice to `assets/buildings/`.
