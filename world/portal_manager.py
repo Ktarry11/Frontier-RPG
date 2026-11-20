@@ -752,6 +752,10 @@ class PortalManager:
             "The Lower Boughs": {
                 (40, 16): ("Rootwater Isle", 114, 51),              # down the Root Stair: arrive (114,49) at its foot
                 (62, 16): ("The Knothollow", 40, 6),                # into the trunk: arrive (40,4) inside the knot
+                (130, 16): ("The Great Settlement", 24, 20),        # up the Great Lift: arrive (24,18) at the Liftfoot
+            },
+            "The Great Settlement": {
+                (24, 14): ("The Lower Boughs", 130, 22),            # down the Great Lift: arrive (130,20) on the ledge
             },
             "The Knothollow": {
                 (40, 2): ("The Lower Boughs", 62, 22),              # out of the knot: arrive (62,20) on the ledge

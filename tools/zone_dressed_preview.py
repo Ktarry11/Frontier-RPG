@@ -68,6 +68,7 @@ ZONES = {
     "talrendis_landing": "tools.handbuilt_talrendis_landing",
     "worldtree_rootwater_isle": "tools.handbuilt_worldtree_rootwater_isle",
     "worldtree_lower_boughs": "tools.handbuilt_worldtree_lower_boughs",
+    "worldtree_great_settlement": "tools.handbuilt_worldtree_great_settlement",
     "feralas_high_wilderness": "tools.handbuilt_feralas_high_wilderness",
     "feralas_forgotten_coast": "tools.handbuilt_feralas_forgotten_coast",
     "feralas_twin_colossals": "tools.handbuilt_feralas_twin_colossals",

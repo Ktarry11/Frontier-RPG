@@ -11740,6 +11740,362 @@
       "race": "troll",
       "appearance_variant": 12,
       "facing": "down"
+    },
+    {
+      "npc_id": "gs_zankaji",
+      "name": "High Chieftain Zan'kaji",
+      "zone": "great_settlement",
+      "x": 92,
+      "y": 22,
+      "greeting": "The tree answered us when the world broke. We climbed it, and we'll keep it. Help us and you're one of the tribes, whatever you were born.",
+      "gender": "male",
+      "race": "troll",
+      "appearance_variant": 14,
+      "facing": "down"
+    },
+    {
+      "npc_id": "gs_loa_priest",
+      "name": "Loa-Speaker Vashi",
+      "zone": "great_settlement",
+      "x": 68,
+      "y": 24,
+      "greeting": "This temple is the loa's ear. Every tribe that climbed the tree left something at its feet, and the tree remembers every one of them.",
+      "gender": "female",
+      "race": "troll",
+      "appearance_variant": 9,
+      "facing": "down"
+    },
+    {
+      "npc_id": "gs_orc_envoy",
+      "name": "Envoy Grukk Ironjaw",
+      "zone": "great_settlement",
+      "x": 110,
+      "y": 24,
+      "greeting": "Orgrimmar sent me to ask the High Chieftain to call the tree Horde ground. He gave me a room, a view and a very long wait. I'm starting to like the view.",
+      "gender": "male",
+      "race": "orc",
+      "appearance_variant": 5,
+      "facing": "left"
+    },
+    {
+      "npc_id": "gs_liftkeeper",
+      "name": "Liftwarden Ozenna",
+      "zone": "great_settlement",
+      "x": 30,
+      "y": 19,
+      "greeting": "The Great Lift goes down to Mossroof and the Lower Boughs. Grizzik built it and I keep it, which means I'm the one he shouts at when it squeaks.",
+      "gender": "female",
+      "race": "troll",
+      "appearance_variant": 4,
+      "facing": "down"
+    },
+    {
+      "npc_id": "gs_gate_guard",
+      "name": "Gatewarden Krosh'ta",
+      "zone": "great_settlement",
+      "x": 52,
+      "y": 26,
+      "greeting": "Welcome to the Great Settlement. Keep your weapons sheathed, keep to the bridges, and don't lean over the rails, it's a long way down to Mossroof.",
+      "gender": "male",
+      "race": "troll",
+      "appearance_variant": 11,
+      "facing": "down"
+    },
+    {
+      "npc_id": "gs_highlift_keeper",
+      "name": "Liftwarden Tagu",
+      "zone": "great_settlement",
+      "x": 156,
+      "y": 19,
+      "greeting": "The High Lift goes on up to the Middle Boughs, where the old shrines are. The air's colder up there, and the bark isn't as healthy as it ought to be.",
+      "gender": "male",
+      "race": "troll",
+      "appearance_variant": 6,
+      "facing": "down"
+    },
+    {
+      "npc_id": "gs_innkeeper",
+      "name": "Innkeeper Ma'kali",
+      "zone": "great_settlement",
+      "x": 70,
+      "y": 73,
+      "greeting": "Beds upstairs, stew down here, and the best view in the tree from the back balcony. Rest a while and I'll mark you as one of mine.",
+      "gender": "female",
+      "race": "troll",
+      "appearance_variant": 2,
+      "facing": "down"
+    },
+    {
+      "npc_id": "gs_banker",
+      "name": "MerchantTusk",
+      "zone": "great_settlement",
+      "x": 84,
+      "y": 86,
+      "greeting": "Dere is only one bank, mon, and dere is only one me, even way up in a tree. Do not ask how dat works. Hand me ya things and go be a hero.",
+      "gender": "male",
+      "race": "troll",
+      "appearance_variant": 3,
+      "facing": "down",
+      "is_banker": true,
+      "sprite_scale": 2.0
+    },
+    {
+      "npc_id": "gs_auctioneer",
+      "name": "Auctioneer Kezzik Boltbelly",
+      "zone": "great_settlement",
+      "x": 106,
+      "y": 86,
+      "greeting": "Put it on the block and the whole Horde can bid, even from down on the ground. The house takes its cut, the lift takes its cut, and you get what's left.",
+      "gender": "male",
+      "race": "goblin",
+      "appearance_variant": 5,
+      "facing": "down"
+    },
+    {
+      "npc_id": "gs_scholar",
+      "name": "Scholar Yenvaa",
+      "zone": "great_settlement",
+      "x": 86,
+      "y": 61,
+      "greeting": "Every piece on this wall fell out of the clouds. Bronze, crystal, gears finer than any goblin makes. Somebody up there's losing a great deal of something.",
+      "gender": "female",
+      "race": "troll",
+      "appearance_variant": 12,
+      "facing": "right"
+    },
+    {
+      "npc_id": "gs_transplant_a",
+      "name": "Kofi Mensah",
+      "zone": "great_settlement",
+      "x": 104,
+      "y": 67,
+      "greeting": "I ran a stall at Makola Market in Accra, back home, before the merge. A market's a market, whether the customers have tusks or not. These ones haggle better.",
+      "gender": "male",
+      "race": "human",
+      "appearance_variant": 2,
+      "facing": "down"
+    },
+    {
+      "npc_id": "gs_transplant_b",
+      "name": "Hana Sato",
+      "zone": "great_settlement",
+      "x": 66,
+      "y": 86,
+      "greeting": "My family kept a tea house in Kyoto for four generations. The trolls had never had green tea until I came. Now half the Settlement starts the day here.",
+      "gender": "female",
+      "race": "human",
+      "appearance_variant": 1,
+      "facing": "down"
+    },
+    {
+      "npc_id": "ct_great_settlement",
+      "name": "Trainer Zal'jin",
+      "zone": "great_settlement",
+      "x": 166,
+      "y": 61,
+      "greeting": "Warrior, healer, hunter or something stranger, the tribes take everybody. Tell me what you are and I'll show you what comes next.",
+      "gender": "male",
+      "race": "troll",
+      "appearance_variant": 10,
+      "facing": "down",
+      "trains_class": "*"
+    },
+    {
+      "npc_id": "pt_gs_forge",
+      "name": "Forgehand Bok'ra",
+      "zone": "great_settlement",
+      "x": 138,
+      "y": 60,
+      "greeting": "Mining and the forge. The ore comes up from the stones caught in the boughs, and I teach you to find it and to make it into something.",
+      "gender": "male",
+      "race": "troll",
+      "appearance_variant": 13,
+      "facing": "down",
+      "trains_profession": [
+        "mining",
+        "blacksmithing"
+      ]
+    },
+    {
+      "npc_id": "pt_gs_gems",
+      "name": "Tinkerer Sprazzle",
+      "zone": "great_settlement",
+      "x": 160,
+      "y": 71,
+      "greeting": "Gems and gadgets, jewelcrafting and engineering. The sky keeps dropping parts on us, and somebody has to learn what to do with them.",
+      "gender": "female",
+      "race": "goblin",
+      "appearance_variant": 3,
+      "facing": "down",
+      "trains_profession": [
+        "jewelcrafting",
+        "engineering"
+      ]
+    },
+    {
+      "npc_id": "pt_gs_hide",
+      "name": "Hidewright Sen'jo",
+      "zone": "great_settlement",
+      "x": 141,
+      "y": 70,
+      "greeting": "Skinning and leatherworking. Python skin, ape hide and the odd spider's carapace, it all comes through my hands before it goes on somebody's back.",
+      "gender": "male",
+      "race": "troll",
+      "appearance_variant": 7,
+      "facing": "down",
+      "trains_profession": [
+        "skinning",
+        "leatherworking"
+      ]
+    },
+    {
+      "npc_id": "pt_gs_herbs",
+      "name": "Brewer Ya'tali",
+      "zone": "great_settlement",
+      "x": 171,
+      "y": 71,
+      "greeting": "Herbalism and alchemy. Half of what grows on the tree doesn't grow anywhere else, and the other half grows faster here than it should.",
+      "gender": "female",
+      "race": "troll",
+      "appearance_variant": 5,
+      "facing": "down",
+      "trains_profession": [
+        "herbalism",
+        "alchemy"
+      ]
+    },
+    {
+      "npc_id": "pt_gs_cloth",
+      "name": "Weaver Mazala",
+      "zone": "great_settlement",
+      "x": 160,
+      "y": 66,
+      "greeting": "Tailoring and enchanting. The silk from the Silkwood takes an enchantment better than any cloth I've ever worked.",
+      "gender": "female",
+      "race": "troll",
+      "appearance_variant": 8,
+      "facing": "down",
+      "trains_profession": [
+        "tailoring",
+        "enchanting"
+      ]
+    },
+    {
+      "npc_id": "pt_gs_wood",
+      "name": "Carver Hekta",
+      "zone": "great_settlement",
+      "x": 166,
+      "y": 64,
+      "greeting": "Woodcutting and woodworking. We never cut the living tree, only what it drops, and it drops a great deal.",
+      "gender": "male",
+      "race": "troll",
+      "appearance_variant": 4,
+      "facing": "down",
+      "trains_profession": [
+        "woodcutting",
+        "woodworking"
+      ]
+    },
+    {
+      "npc_id": "pt_gs_cook",
+      "name": "Cook Tum'bo",
+      "zone": "great_settlement",
+      "x": 137,
+      "y": 70,
+      "greeting": "Cooking and fishing. The falls pool has fish nobody can name, and every one of them is good in a stew.",
+      "gender": "male",
+      "race": "troll",
+      "appearance_variant": 9,
+      "facing": "down",
+      "trains_profession": [
+        "cooking",
+        "fishing"
+      ]
+    },
+    {
+      "npc_id": "gs_ward_elder",
+      "name": "Grandmother Ozai",
+      "zone": "great_settlement",
+      "x": 30,
+      "y": 108,
+      "greeting": "I was the first to sleep in this ward, when it was three huts and a rope. Now look at it. The young ones don't remember the jungle, and I'm glad.",
+      "gender": "female",
+      "race": "troll",
+      "appearance_variant": 15,
+      "facing": "down"
+    },
+    {
+      "npc_id": "gs_ward_child",
+      "name": "Lamplighter Jinto",
+      "zone": "great_settlement",
+      "x": 56,
+      "y": 109,
+      "greeting": "I light every lantern in the ward at dusk, and I've never missed one. Grandmother Ozai says if one goes out, the loa can't find its way home.",
+      "gender": "male",
+      "race": "troll",
+      "appearance_variant": 1,
+      "facing": "down"
+    },
+    {
+      "npc_id": "gs_ward_weaver",
+      "name": "Weaver Kesha",
+      "zone": "great_settlement",
+      "x": 24,
+      "y": 115,
+      "greeting": "The streamers on the Rise are mine, every one, and so are half the awnings in the market. Red for the tribes, teal for the tree, gold for the loa.",
+      "gender": "female",
+      "race": "troll",
+      "appearance_variant": 6,
+      "facing": "right"
+    },
+    {
+      "npc_id": "gs_flight_master",
+      "name": "Bat Handler Ruzkah",
+      "zone": "great_settlement",
+      "x": 140,
+      "y": 112,
+      "greeting": "The bats fly down to Grom'gol and out across the Horde's roads. They don't like the dark under the tree, so they fly fast, and you'll want to hold on.",
+      "gender": "female",
+      "race": "troll",
+      "appearance_variant": 7,
+      "facing": "down"
+    },
+    {
+      "npc_id": "gs_scholar_hall",
+      "name": "Archivist Tel'zan",
+      "zone": "great_settlement",
+      "x": 160,
+      "y": 125,
+      "greeting": "The scholars' hall keeps a record of everything that's fallen from the sky. The record gets longer every week, and the pieces get bigger.",
+      "gender": "male",
+      "race": "troll",
+      "appearance_variant": 12,
+      "facing": "down"
+    },
+    {
+      "npc_id": "gs_falls_keeper",
+      "name": "Watersinger Ya'nela",
+      "zone": "great_settlement",
+      "x": 82,
+      "y": 130,
+      "greeting": "The water falls from a branch so high nobody's climbed to it. It's never stopped, not once, and it tastes a little sweet, like sap.",
+      "gender": "female",
+      "race": "troll",
+      "appearance_variant": 10,
+      "facing": "right"
+    },
+    {
+      "npc_id": "mailbox_gs_innkeeper",
+      "name": "Mailbox",
+      "zone": "great_settlement",
+      "x": 95,
+      "y": 85,
+      "facing": "down",
+      "race": "troll",
+      "appearance_variant": 0,
+      "is_mailbox": true,
+      "prop": "assets/tiles/market/props/mailbox_troll.png",
+      "greeting": "The Settlement's mailbox, between the bank and the auction hall. Innkeeper Ma'kali sorts the letters, the parcels and whatever the auction hall owes you."
     }
   ]
 }

@@ -10,7 +10,7 @@ come up over the far end of the Great Bough on ropes from the jungle below.
 
     The Root Stair ........ the ledge's west end (40,16): down to Rootwater Isle
     The Knothollow ........ a great knot in the trunk off the ledge (62,16): the cave into the wood
-    The Great Lift ........ the ledge's east end (130,16): up to the Great Settlement (opens when it's built)
+    The Great Lift ........ the ledge's east end (130,16): up to the Great Settlement
     Mossroof .............. the trolls' village at the foot of the Great Bough (safe)
     The Trunk Ledge ....... the ledge along the trunk's foot
     The Greenwater Bough .. the Great Bough and its river
@@ -27,7 +27,8 @@ Kyle, 19 Nov 2026: the tree is the road up, built tier by tier ("Do NOT skip out
 sky"). Ground: LOWER_BOUGHS_SHEET in tools/bake_ashenvale.py (Kyle's sheet W1). Props and landmarks: W2, W4, W5.
 
 HARD CONTRACTS (world/portal_manager.py)
-  portals  Rootwater Isle (40,16) <-> the Root Stair's foot on the island; The Knothollow (62,16) <-> its mouth
+  portals  Rootwater Isle (40,16) <-> the Root Stair's foot on the island; The Knothollow (62,16) <-> its mouth;
+           The Great Settlement (130,16) <-> the city's Liftfoot (24,14)
 """
 import numpy as np
 
@@ -40,9 +41,9 @@ WTP = "assets/tiles/worldtree/props/"
 SP = "assets/tiles/stranglethorn/props/"
 BLD = "assets/buildings/"
 
-PORTALS = {(40, 16): "Rootwater Isle", (62, 16): "The Knothollow"}
-ARRIVALS = [(40, 20), (62, 20)]
-LATER_PORTALS = {(130, 16): "The Great Settlement"}   # the Great Lift: its door opens when the city is built
+PORTALS = {(40, 16): "Rootwater Isle", (62, 16): "The Knothollow", (130, 16): "The Great Settlement"}
+ARRIVALS = [(40, 20), (62, 20), (130, 20)]
+LATER_PORTALS = {}
 START = (92, 30)        # Mossroof: everything must be reachable from here
 
 #: the trunk: a wall of bark along the north edge (the rock rim, painted with W1's trunk wall)

@@ -37,7 +37,10 @@ from world.zone_keys import zone_key  # noqa: E402
 #: walkable". Both sides of the lookup go through zone_key now, which is
 #: the invariant world/zone_keys.py is for, and a lookup miss is reported
 #: as a miss rather than as a different failure.
-MAJOR_CITIES = {zone_key(z) for z in ("Orgrimmar", "Undercity", "Freewind Post")}
+#: Timbermaw Hold joined on 17 Nov 2026 (Kyle: "an actual capital city... similar to how org is", with a bank), and the
+#: Great Settlement on 20 Nov 2026 (docs/worldtree_brief.md: the tree's city has a bank, an auction house and mail).
+MAJOR_CITIES = {zone_key(z) for z in ("Orgrimmar", "Undercity", "Freewind Post", "Timbermaw Hold",
+                                      "The Great Settlement")}
 
 
 def main():

@@ -491,6 +491,16 @@
         120
       ],
       "continent": "kalimdor"
+    },
+    "great_settlement": {
+      "name": "The Great Settlement",
+      "zone": "The Great Settlement",
+      "master": "gs_flight_master",
+      "pos": [
+        -34,
+        146
+      ],
+      "continent": "eastern_kingdoms"
     }
   },
   "flight_cost": {
@@ -782,6 +792,15 @@
     ],
     "fm_flight_master": [
       "flight"
+    ],
+    "gs_innkeeper": [
+      "inn"
+    ],
+    "gs_flight_master": [
+      "flight"
+    ],
+    "gs_auctioneer": [
+      "auction"
     ]
   }
 }

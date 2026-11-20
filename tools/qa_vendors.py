@@ -63,6 +63,7 @@ TOWN_REGION = {
     "timbermaw_hold": "West Azshara",
     "ariden_watch": "Deadwind West",
     "moonglade": "Moonglade",                  # a town map with its own band (55-60), no open zone outside
+    "great_settlement": "The Lower Boughs",    # the tree's city outfits climbers for the tiers round it (44-48)
     "lights_hope_chapel": "Eastern Plaguelands East",
     "undercity": "Undercity",
     "sepulcher": "Silverpine North",

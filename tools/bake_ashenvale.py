@@ -552,6 +552,42 @@ LOWER_BOUGHS_SHEET = {
     "av_corrupt_ground": _wt("wt_dappled_bark"),
     "av_satyr_earth":    _wt("wt_shade_bark"),
 }
+#: The Great Settlement (Kyle's sheet W1, the city row): heartwood floors and market planks on the platforms, the Rise's
+#: stone, the Trades' red clay yards, carved bark between the Lantern Ward's homes, the trunk as the north wall, and the
+#: hollow inside the tree (the module's sea field) painted as lantern-lit depths with the lower tiers far below.
+GREAT_SETTLEMENT_SHEET = {
+    "av_forest_floor":   _wt("wt_market_planks"),
+    "av_forest_grass":   _wt("wt_heartwood_floor"),
+    "av_fern_floor":     _wt("wt_heartwood_floor"),
+    "av_root_earth":     _wt("wt_carved_bark"),
+    "av_needle_mulch":   _wt("wt_market_planks"),
+    "av_bluebell":       _wt("wt_garden_soil"),
+    "av_road_centre":    _wt("wt_city_stone"),
+    "av_road_edge":      _wt("wt_market_planks"),
+    "av_elven_paving":   _wt("wt_city_plaza"),
+    "av_mossy_cobble":   _wt("wt_city_stone"),
+    "av_plaza_stone":    _wt("wt_city_plaza"),
+    "av_rocky_ground":   _wt("wt_lashed_planks"),
+    "av_stream_bed":     _wt("wt_city_stone"),
+    "av_lake_mud":       _wt("wt_city_stone"),
+    "av_lake_shallow":   _wt("wt_city_pool"),
+    "av_lake_deep":      _wt("wt_city_pool"),
+    "av_moon_water":     _wt("wt_city_pool"),
+    "av_moon_deep":      _wt("wt_city_pool"),
+    "av_moon_rim":       _wt("wt_city_stone"),
+    "av_cliff_a":        _wt("wt_trunk_wall"),
+    "av_cliff_b":        _wt("wt_trunk_moss_wall"),
+    "av_canopy":         _wt("wt_heartwood_floor", extra="canopy"),
+    "av_beach":          _wt("wt_lashed_planks"),
+    "av_wet_sand":       _wt("wt_carved_bark"),
+    "av_sea_shallow":    _wt("wt_drop_lanterns"),
+    "av_sea_deep":       _wt("wt_drop_lanterns"),
+    "av_scorched":       _wt("wt_red_clay"),
+    "av_burned_forest":  _wt("wt_red_clay"),
+    "av_fel_earth":      _wt("wt_sap_seep"),
+    "av_corrupt_ground": _wt("wt_carved_bark"),
+    "av_satyr_earth":    _wt("wt_carved_bark"),
+}
 WPL_SHEET = _plague_sheet(east=False)
 EPL_SHEET = _plague_sheet(east=True)
 ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_SHEET, "epl_east": EPL_SHEET, "felwood_north": NORTH_SHEET, "stonetalon_east": STONETALON_SHEET,
@@ -563,7 +599,8 @@ ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_S
                "azshara_central": AZSHARA_CENTRAL_SHEET, "azshara_east": AZSHARA_EAST_SHEET,
                "deadwind_west": DEADWIND_SHEET, "deadwind_east": DEADWIND_EAST_SHEET, "ariden_watch": ARIDEN_SHEET,
                "moonglade": MOONGLADE_SHEET, "worldtree_rootwater_isle": ROOTWATER_SHEET,
-               "worldtree_lower_boughs": LOWER_BOUGHS_SHEET}
+               "worldtree_lower_boughs": LOWER_BOUGHS_SHEET,
+               "worldtree_great_settlement": GREAT_SETTLEMENT_SHEET}
 
 def _recolour(a, hue, sat, val):
     """a float 0..1 HxWx3 -> luminance-preserving tint."""
@@ -827,7 +864,7 @@ def drop_depth(rgb, X, Y, drop):
     """Make the drop read as a long way down (docs/worldtree_brief.md, "How it's drawn"): what's far below fades toward
     the haze of height, the boughs throw a soft shadow down onto it from the top-left light, and the bark darkens where
     each bough rounds away at its edge. drop = {"sea": the module's sea field, "haze": RGB, "fade": 0..1,
-    "shadow": (dx, dy) in tiles}."""
+    "shadow": (dx, dy) in tiles, "sat": how much colour distance leaves (0.55 by default; the city keeps its lanterns)}."""
     sea = drop["sea"]
     gx, gy = X / TILE_PX, Y / TILE_PX
     s = sea(gx, gy)
@@ -836,7 +873,7 @@ def drop_depth(rgb, X, Y, drop):
     haze = np.array(drop.get("haze", (104, 142, 128)), np.float32)
     k = (drop.get("fade", 0.42) + 0.18 * far) * below
     lum = rgb.mean(axis=2, keepdims=True)
-    flat = lum + (rgb - lum) * 0.55                                      # distance takes the colour out
+    flat = lum + (rgb - lum) * drop.get("sat", 0.55)                  # distance takes the colour out
     rgb = rgb * (1 - below[..., None]) + flat * below[..., None]
     rgb = rgb * (1 - k[..., None]) + haze * k[..., None]
     dx, dy = drop.get("shadow", (3.0, 5.0))
@@ -971,7 +1008,7 @@ def main():
     if "--preview" in sys.argv:
         preview = sys.argv[sys.argv.index("--preview") + 1]
     sc = int(sys.argv[sys.argv.index("--scale") + 1]) if "--scale" in sys.argv else 4
-    zone = next((z for z in ("worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
+    zone = next((z for z in ("worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
     only = None
     if "--region" in sys.argv:       # x0,y0,x1,y1 in tiles: bake only the 20x20 chunks touching it (fast look-dev)
         x0, y0, x1, y1 = map(int, sys.argv[sys.argv.index("--region") + 1].split(","))
