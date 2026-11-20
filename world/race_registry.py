@@ -36,6 +36,9 @@ class GenderOption:
     label: str               # display label in the creation UI
     sprite_dir: str          # subfolder under assets/npcs/<race_folder>/
     variants: list = field(default_factory=list)  # folder names, e.g. ["male_1", "maleA_3"]
+    #: the places in `variants` the character creator and the barber offer, or None for all of them. Old looks stay
+    #: in `variants` so every save keeps its face (a save stores a place in this list); only the offer changes.
+    offer: list = None
 
 
 @dataclass
@@ -465,3 +468,53 @@ def pick_random_race_for_zone(zone_key, rng=None):
     if rng is not None:
         return rng.choices(races, weights=weights, k=1)[0]
     return _random.choices(races, weights=weights, k=1)[0]
+
+
+# ------------------------------------------------------------------ the new player looks
+# Kyle, 20 Nov 2026: "about 5 sprites from each race the player can pick from", male first, four facings, empty hands
+# (docs/player_sprite_prompts.md, sheets P1 to P5; tools/asset_pipeline/slice_player_sheet.py). They go on the END of
+# each race's male list, which is its own list now (male and female shared one for every race but humans), and the
+# creator and the barber offer only them. Women keep the old looks until theirs are drawn. The Aetherian (P6) and Veyr
+# (P7) looks are on disk for when those races are playable.
+NEW_MALE_LOOKS = {"human": "male_p", "orc": "orc_p", "blood_elf": "blood_elf_p", "forsaken": "forsaken_p",
+                  "tauren": "tauren_p"}
+
+
+def _add_new_male_looks():
+    for race_id, prefix in NEW_MALE_LOOKS.items():
+        g = get_gender(race_id, "male")
+        if g is None or any(v.startswith(prefix) for v in g.variants):
+            continue
+        g.variants = list(g.variants) + [f"{prefix}{i}" for i in range(1, 6)]
+        g.offer = list(range(len(g.variants) - 5, len(g.variants)))
+
+
+_add_new_male_looks()
+
+
+# ------------------------------------------------------------------ the barber's chair
+# Kyle, 20 Nov 2026: "lets make a barber choice if the sprite is gone". A save stores its look as a place in its race and
+# gender's list (Character.appearance_variant), so a look can go two ways: its pictures deleted, or the list shortened
+# so the number points past the end (get_variant_folder clamps that to the last look rather than crash). Either way the
+# character loads with somebody else's face, or none; ui/screens/barber_screen.py lets them pick a new one once.
+def look_is_missing(race_id, gender_id, variant_index):
+    """True if this saved look can't be drawn as itself: no such race or gender, a place past the end of the list,
+    or no front picture on disk."""
+    import os
+    gender = get_gender(race_id, gender_id)
+    if gender is None or not gender.variants:
+        return True
+    if not 0 <= int(variant_index or 0) < len(gender.variants):
+        return True
+    base = sprite_base_path(race_id, gender_id, variant_index)
+    return not base or not os.path.exists(os.path.join(base, "down.png"))
+
+
+def pickable_looks(race_id, gender_id):
+    """The places in this race and gender's list a player can pick: every look whose pictures are on disk. (When the
+    new player sprites land, the creator and the barber offer only those; see docs/player_sprite_prompts.md.)"""
+    gender = get_gender(race_id, gender_id)
+    if gender is None:
+        return []
+    places = gender.offer if gender.offer is not None else range(len(gender.variants))
+    return [i for i in places if not look_is_missing(race_id, gender_id, i)]

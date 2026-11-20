@@ -300,7 +300,14 @@ class MenuScreen(BaseScreen):
                 return
             if self.state_manager.load_game(filename):
                 self.slot_mode = None
-                self.state_manager.transition_to(GameState.OVERWORLD)
+                # a character whose look is gone (its pictures deleted, or its place in the list removed) sits in
+                # the barber's chair first and picks a new face (Kyle, 20 Nov 2026)
+                barber = self.state_manager.states.get(GameState.BARBER)
+                if barber is not None and barber.needed(self.state_manager.player):
+                    barber.start(GameState.OVERWORLD, forced=True)
+                    self.state_manager.transition_to(GameState.BARBER)
+                else:
+                    self.state_manager.transition_to(GameState.OVERWORLD)
             else:
                 self._notify(f"Slot {slot_number} could not be loaded.", (230, 140, 140))
         elif self.slot_mode == "save":

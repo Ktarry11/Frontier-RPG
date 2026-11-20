@@ -258,6 +258,10 @@ class TestingScreen(BaseScreen):
                      lambda: self._do(T.complete_active_quests), (60, 90, 70))
         self.renderer.draw_text(screen, "For quests you picked up before the switch was on.", (460, y + 12),
                                 color=(170, 170, 185))
+        y += 74
+        self._button(screen, pygame.Rect(20, y, 420, 44), "Sit in the barber's chair", self._barber, BTN)
+        self.renderer.draw_text(screen, "What a character sees on loading when their look is gone. Escape leaves it.",
+                                (460, y + 12), color=(170, 170, 185))
 
     def _tab_collection(self, screen):
         from world import testing as T
@@ -329,6 +333,12 @@ class TestingScreen(BaseScreen):
             self.renderer.draw_text(screen, f"Showing {self.pair_scroll * cols + 1}-"
                                             f"{self.pair_scroll * cols + len(shown)} of {len(others)}: scroll for more",
                                     (x, SCREEN_HEIGHT - 76), color=(150, 140, 170))
+
+    def _barber(self):
+        barber = self.state_manager.states.get(GameState.BARBER)
+        if barber is not None:
+            barber.start(GameState.TESTING, forced=False)
+            self.state_manager.transition_to(GameState.BARBER)
 
     def _pick_friend(self, rid):
         self.friend, self.message, self.pair_scroll = rid, "", 0

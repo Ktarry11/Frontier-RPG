@@ -1,14 +1,21 @@
 # Player sprites: five male looks a race, four facings each
 
+**Landed 20 Nov 2026, all seven sheets** (`tools/building_sheets/player_p1_human.png` to `player_p7_veyr.png`), sliced
+into `<race>/<race>_p1` to `_p5` (`human/male/male_p1`...). Five of the seven drew both side rows facing right, so their
+left is the right mirrored; the Tauren and Veyr drew a real left (in the other row). The new looks are on the end of each
+male list in `world/race_registry.py` (`NEW_MALE_LOOKS`), and the creator and the barber offer only them. The Aetherian
+and Veyr looks wait on disk for those races to be playable.
+
 Kyle, 20 Nov 2026: "So lets have orcs, tauren, undead, aetherian, humans, and belfs" as the playable races, with an
-Aetherian start zone and a blood elf one to come. Six sheets (P1 to P6).
+Aetherian start zone and a blood elf one to come; then "Lets get the 5 birds as well" (the Veyr). Seven sheets
+(P1 to P7).
 
 Kyle, 20 Nov 2026: "Walk cycles will come after better sprites. I am thinking just doing about 5 sprites from each race
 the player can pick from and then adding walk cyles to these later", "ensure that the sprites have 4 degrees of
 movement. Start with male only, none of my friends play female", and "Ensure they dont carry stuff in their hands,
 that fucks with movement as we saw".
 
-Six sheets, one per playable race: five men across, each turned four ways down the column (front, left, right,
+Seven sheets, one per race: five men across, each turned four ways down the column (front, left, right,
 back), the same layout as the mount sheets. Empty hands and no weapons anywhere, so the walk cycles can be drawn on
 these later without anything floating.
 
@@ -233,6 +240,8 @@ Standing neutral in every row: feet slightly apart, weight even, no stride yet. 
 
 Before you finish, check the image: every column shows one man from the front, then his left side, then his right side, then his back, and nobody is holding anything. If any column shows the same view twice, or anyone holds something, redraw that column.
 
+WHAT AN AETHERIAN LOOKS LIKE (match the attached Aetherian exactly in these): taller and longer-limbed than a human, slender and upright, with a narrow, slightly elongated skull and long, swept-back pointed ears. Skin smooth like polished stone, either pale blue-grey or warm bronze. Eyes glow evenly with no visible pupil. Natural crystals GROW out of them like geodes breaking through the skin: always a crown of crystal points rising from the top of the head, and on some, smaller crystals along the brow, the cheekbones, the shoulders or the backs of the hands. Their clothes are high-collared and fitted, white, blue and cream trimmed with gold, with small bronze fittings and a crystal set at the chest; elegant and a little imperial. They are NOT birds and have no feathers or beaks.
+
 Columns, left to right (the same five Aetherian men in every row, each turned according to that row's rule):
 1. A tall Aetherian man with pale blue-grey skin, short silver-white hair swept back, luminous pale-blue eyes, small blue crystals growing along his brow and cheekbones, a proud, strikingly handsome face; a long-sleeved white and gold tunic to mid-thigh with a high collar, a slim gold belt, fitted grey trousers, soft white boots.
 2. A tall Aetherian man with warm bronze skin, a shaved head, luminous gold eyes, a ridge of small amber crystals along the top of his skull and the backs of his hands, a strong, very handsome face; a royal blue tunic with gold filigree at the hem, a white sash, dark trousers, bronze-buckled boots.
@@ -245,7 +254,46 @@ Sliced by `PYTHONPATH=. python3 tools/asset_pipeline/slice_player_sheet.py SHEET
 
 ---------------------------------------------------------------------
 
+## SHEET P7: VEYR men  (paste this whole block)
+
+Attach `assets/npcs/recruits/wes_warrior/down.png`, `assets/npcs/recruits/dale_reaper/down.png` (style) and `assets/creatures/vy_scout.png` (what a Veyr looks like; the blades he holds are NOT wanted).
+
+```
+Generate ONE sprite sheet image, 1024x1536 (portrait), a grid of 5 columns x 4 rows = 20 separate full-body character sprites. Flat pure #FF00FF magenta background everywhere. Each figure sits fully inside its own cell with a wide margin and does NOT touch or overlap its neighbours or the image edge. No ground, no ground shadow, no text, no labels, no numbers, no grid lines, no frames. Painterly semi-realistic WoW Classic art style matching the attached style references exactly in outline, shading and level of detail, a slight 3/4 top-down camera, consistent soft lighting from the top-left, crisp clean edges. Never use magenta or pink on the characters.
+
+THESE ARE THE LOOKS A PLAYER PICKS FOR THEIR OWN CHARACTER, so each is one ordinary Veyr man in plain, class-neutral starting clothes from his own people's culture (no armour, no robes of any one class), handsome and strong in a grounded, lived-in way: good bone structure, good posture, clear features, not airbrushed, not exaggerated.
+
+HANDS ARE EMPTY. Nothing is held, nothing is carried, and there is no weapon ANYWHERE: not in the hands, not on the back, not on the belt, no staff, no shield, no bag, no torch. Arms hang relaxed at the sides with open hands. No long cloak or loose cape (it fights with walking later); a short mantle or a sash is fine. The game draws walking on these later, and anything held breaks it.
+
+THE MOST IMPORTANT PART OF THIS IMAGE IS THAT EACH COLUMN SHOWS ONE MAN TURNED FOUR DIFFERENT WAYS. Each COLUMN is one character. The four ROWS of that column are that same man ROTATED ON THE SPOT and seen from four different directions. If a column looks like the same picture four times, the image is wrong. Read these four rules before drawing anything:
+
+Row 1 - FACING THE VIEWER (walking down the screen). You see his whole face, both eyes, his chest, and the toes of both feet pointing at the camera.
+
+Row 2 - FACING LEFT, a full side profile. His beak points to the LEFT edge of his cell and the back of his head to the right. You see one eye, one side of his body, the near arm in front of the body, and both legs in profile. You do NOT see his chest front-on or both eyes.
+
+Row 3 - FACING RIGHT, a full side profile. His beak points to the RIGHT edge of his cell. DRAW this side, don't mirror row 2: anything worn on one side (a bead, a band, a shoulder piece, a scar) stays on the same side of his body, so it's on the far side here.
+
+Row 4 - FACING AWAY (walking up the screen), seen from directly behind. You see the back of his head and crest, his back, his tail feathers and the heels of both feet. You CANNOT see his face, his eyes, his beak or his chest.
+
+Standing neutral in every row: feet slightly apart, weight even, no stride yet. Every figure is the SAME height as the others of his race, centred in his cell, feet on the same baseline near the bottom of the cell, filling about 80% of the cell's height. Keep each man's head, plumage, clothes, colours and proportions identical across his four rows.
+
+Before you finish, check the image: every column shows one man from the front, then his left side, then his right side, then his back, and nobody is holding anything. If any column shows the same view twice, or anyone holds something, redraw that column.
+
+WHAT A VEYR LOOKS LIKE (match the attached Veyr exactly in these): an avian humanoid, a man's height and build but a bird of prey above the shoulders. A hawk's or eagle's head with a strong hooked beak and sharp, bright eyes, a crest of long feathers sweeping back from the crown. Feathers cover the head, neck and shoulders and run down the outside of each forearm in a short fringe of flight feathers (folded close to the arm, never spread like wings). Hands are four-fingered and clawed, and EMPTY. Legs bend like a bird's and end in big scaled talons, no boots. A short fan of tail feathers. Lean and muscular, proud and predatory. They dress light for flying: leather harnesses and chest straps, short kilts or wrapped trousers, copper and storm-blue fittings, clan beads and feathers. They are NOT Aetherians and have no crystals.
+
+Columns, left to right (the same five Veyr men in every row, each turned according to that row's rule):
+1. A Veyr man with an eagle's head, a vivid red crest and a white face, a golden beak, amber eyes; a brown leather chest harness with copper buckles, a red and brown clan kilt, copper bands on his upper arms.
+2. A Veyr man with a slate-grey storm hawk's head, a crest of storm-blue feathers, a dark grey beak, pale yellow eyes, grey barred plumage; a dark blue sleeveless jerkin, a wide belt with lightning-bolt copper studs, wrapped grey trousers.
+3. A Veyr man with a golden-brown hawk's head, a cream throat and a barred chest, a short tawny crest, a black-tipped yellow beak, dark eyes; a light leather vest laced at the front, a green sash, a short leather kilt.
+4. A Veyr man with a glossy black raven-like head and a heavy black beak, a ragged black crest with one silver bead tied in it, grey eyes; a black and silver harness over bare feathers, a dark kilt, a silver ring on each forearm.
+5. A Veyr man with a white falcon's head speckled with grey, a short white crest, a pale blue-grey beak, dark eyes, white plumage down his arms; a cream tunic cut short with a storm-blue border, a braided leather belt, wrapped cream trousers.
+```
+
+Sliced by `PYTHONPATH=. python3 tools/asset_pipeline/slice_player_sheet.py SHEET.png veyr/veyr_p1 veyr/veyr_p2 veyr/veyr_p3 veyr/veyr_p4 veyr/veyr_p5`. The Veyr aren't a playable race yet; the folder and the race entry are made when they are.
+
+---------------------------------------------------------------------
+
 ## After them
 
-Walk cycles on these 30 looks, three a sheet (the rules in `claude/walk_cycle_prompts.md`), then the women's looks
+Walk cycles on these 35 looks, three a sheet (the rules in `claude/walk_cycle_prompts.md`), then the women's looks
 when Kyle wants them.

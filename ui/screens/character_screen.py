@@ -199,6 +199,25 @@ class CharacterCreationScreen(BaseScreen):
         idx = min(self.selected_gender_index, len(race.genders) - 1)
         return race.genders[idx]
 
+    def _looks(self):
+        """The places in this race and gender's list the creator offers (world/race_registry.pickable_looks)."""
+        from world.race_registry import pickable_looks
+        g = self._current_gender_option()
+        if g is None:
+            return []
+        return pickable_looks(self._current_race().race_id, g.gender_id) or list(range(len(g.variants)))
+
+    def _first_look(self):
+        looks = self._looks()
+        return looks[0] if looks else 0
+
+    def _step_look(self, d):
+        looks = self._looks()
+        if not looks:
+            return
+        i = looks.index(self.selected_variant) if self.selected_variant in looks else 0
+        self.selected_variant = looks[(i + d) % len(looks)]
+
     def _sync_gender_buttons(self):
         """Rebuild gender button rects for whichever race is currently
         selected - race count of gender options isn't fixed (a future
@@ -215,7 +234,7 @@ class CharacterCreationScreen(BaseScreen):
                 base_x + i * (gender_btn_w + 8), self.appearance_y, gender_btn_w, gender_btn_h
             ))
         self.selected_gender_index = min(self.selected_gender_index, max(0, len(race.genders) - 1))
-        self.selected_variant = 0  # reset variant when race/gender changes - stale index from a
+        self.selected_variant = self._first_look()  # reset variant when race/gender changes - stale index from a
         # different pool would silently pick the wrong appearance rather than erroring, so
         # resetting to a known-good 0 is safer than trying to carry it over.
     
@@ -253,18 +272,17 @@ class CharacterCreationScreen(BaseScreen):
             for i, btn in enumerate(self.gender_buttons):
                 if btn.collidepoint(mouse_pos):
                     self.selected_gender_index = i
-                    self.selected_variant = 0
+                    self.selected_variant = self._first_look()
                     return
 
             # Variant cycle arrows
             gender_option = self._current_gender_option()
             if gender_option and gender_option.variants:
-                variant_count = len(gender_option.variants)
                 if self.variant_prev_button.collidepoint(mouse_pos):
-                    self.selected_variant = (self.selected_variant - 1) % variant_count
+                    self._step_look(-1)
                     return
                 if self.variant_next_button.collidepoint(mouse_pos):
-                    self.selected_variant = (self.selected_variant + 1) % variant_count
+                    self._step_look(1)
                     return
             
             # Clicking the name field focuses it; clicking anywhere else does not.
@@ -442,12 +460,15 @@ class CharacterCreationScreen(BaseScreen):
         pygame.draw.rect(screen, (90, 90, 100), self.preview_rect, 2)
         if gender_option and gender_option.variants:
             base_path = sprite_base_path(self._current_race().race_id, gender_option.gender_id, self.selected_variant)
-            sprite = get_npc_sprite(base_path, "down", tile_width=self.preview_rect.width - 20)
+            # by height, so the taller new looks (docs/player_sprite_prompts.md) fit the box instead of spilling out of it
+            sprite = get_npc_sprite(base_path, "down", tile_height=self.preview_rect.height - 12)
             if sprite is not None:
                 sx = self.preview_rect.centerx - sprite.get_width() // 2
                 sy = self.preview_rect.bottom - sprite.get_height() - 5
                 screen.blit(sprite, (sx, sy))
-            variant_label = f"{self.selected_variant + 1}/{len(gender_option.variants)}"
+            looks = self._looks()
+            pos = looks.index(self.selected_variant) + 1 if self.selected_variant in looks else 1
+            variant_label = f"{pos}/{len(looks)}"
             label_w = self.renderer.font_normal.size(variant_label)[0]
             self.renderer.draw_text(
                 screen, variant_label,

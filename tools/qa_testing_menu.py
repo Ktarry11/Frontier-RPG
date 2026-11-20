@@ -25,6 +25,9 @@ CLAIMS:
   8. The Collection: a learned thing can be removed for the account, and "Remove everything" empties it.
   9. Friendship: a recruit steps up through the stages to Friend, Make Sworn gives the keepsake, and two recruits
      can be moved to friendly, close friends, grating and rivals.
+ 10. The barber's chair (Kyle, 20 Nov 2026: "lets make a barber choice if the sprite is gone"): a saved look past the
+     end of its list, or one whose pictures are gone, is missing and sends the character to the chair; a look that's
+     there doesn't; picking one in the chair fixes it.
 """
 import contextlib
 import io
@@ -246,6 +249,21 @@ def switches(check):
             seen.append(T.pair_state(rid, other)[0])
         for want in ("Friendly", "Close friends", "Grating", "Rivals"):
             check(want in seen, f"two recruits never reached {want} ({seen})")
+        from world import race_registry as RR
+        from ui.screens.barber_screen import BarberScreen
+        check(not RR.look_is_missing("orc", "male", 0), "orc look 1 counted as missing")
+        check(RR.look_is_missing("orc", "male", 999), "a look past the end of the list wasn't missing")
+        g = RR.get_gender("orc", "male")
+        g.variants.append("orc_gone_qa")
+        try:
+            check(RR.look_is_missing("orc", "male", len(g.variants) - 1), "a look with no pictures wasn't missing")
+            check(len(g.variants) - 1 not in RR.pickable_looks("orc", "male"), "the barber offered a look with no pictures")
+        finally:
+            g.variants.remove("orc_gone_qa")
+        hero.race, hero.gender, hero.appearance_variant = "orc", "male", 999
+        check(BarberScreen.needed(hero), "a character whose look is gone isn't sent to the barber")
+        hero.appearance_variant = 3
+        check(not BarberScreen.needed(hero), "a character with a good look is sent to the barber")
     finally:
         AC.use_path(old_col)
         T.FLAGS_PATH, T._flags = Path(T.__file__).resolve().parent.parent / "data" / "saves" / "testing_flags.json", None

@@ -31,6 +31,7 @@ from ui.screens.collection_screen import CollectionScreen
 from ui.screens.testing_screen import TestingScreen
 from ui.screens.travel_service_screen import TravelServiceScreen
 from ui.screens.cutscene_screen import CutsceneScreen
+from ui.screens.barber_screen import BarberScreen
 from config import save_slot_filename
 
 
@@ -114,7 +115,8 @@ class GameStateManager:
             GameState.COLLECTION: CollectionScreen(self, icon_ui_helper=self.icon_ui_helper),
             GameState.TESTING: TestingScreen(self),
             GameState.TRAVEL: TravelServiceScreen(self),
-            GameState.CUTSCENE: CutsceneScreen(self),     # world/cutscenes.py
+            GameState.CUTSCENE: CutsceneScreen(self),
+            GameState.BARBER: BarberScreen(self),         # a new face when the old look is gone     # world/cutscenes.py
             # VendorScreen is created dynamically when entering vendor state
         }
 

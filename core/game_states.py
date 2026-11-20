@@ -36,6 +36,7 @@ class GameState(Enum):
     TESTING = "testing"
     TRAVEL = "travel"
     CUTSCENE = "cutscene"
+    BARBER = "barber"            # ui/screens/barber_screen.py: a new face when the old look is gone
     COLLECTION = "collection"
     PAUSED = "paused"
     QUIT = "quit"
