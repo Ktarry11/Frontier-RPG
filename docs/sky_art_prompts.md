@@ -6,27 +6,27 @@ Kyle, 19 Nov 2026: "Lets build up a stock of tiles and props for these future zo
 
 Every prompt below is complete on its own: paste one block and nothing else. Nothing built from our world appears anywhere.
 
-| Sheet | What | Image | Grid (cell) | Key |
-|---|---|---|---|---|
-| SK1 | 48 the cloud sea, the sunlit islands and the sky meadows | 2048x1536 | 8 x 6 (256 x 256) | **NO magenta** |
-| SK2 | 48 the three peoples' ground and the dying sky | 2048x1536 | 8 x 6 (256 x 256) | **NO magenta** |
-| SK3 | 36 sky nature | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |
-| SK4 | 36 the ancient ruins | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |
-| SK5 | 36 Aurelion, the Aetherian city (the city's services and homes) | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |
-| SK6 | 36 the Ascendancy, the sky-forges and the engines | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |
-| SK7 | 36 the Veyr, the Stormborn | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |
-| SK8 | 36 the Kharad, the Cloud Giants | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |
-| SK9 | 36 the Fading Firmament and the war | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |
-| SK10 | 9 the sky's great places, part 1 | 2048x2048 | 3 x 3 (about 682 x 682) | magenta |
-| SK11 | 9 the sky's great places, part 2 (doors and wonders) | 2048x2048 | 3 x 3 (about 682 x 682) | magenta |
-| SK12 | 36 the Aetherians and the Ascendancy | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |
-| SK13 | 36 the Veyr and the Kharad | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |
-| SK14 | 36 the sky's beasts, elementals and critters | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |
-| SK15 | 36 Aurelion's grandeur | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |
-| SK16 | 9 the wonders of Aurelion | 2048x2048 | 3 x 3 (about 682 x 682) | magenta |
-| SK17 | 48 interiors, decks and the glowing heart | 2048x1536 | 8 x 6 (256 x 256) | **NO magenta** |
-| SK18 | 36 rune circles, glass and the glowing heart | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |
-| SK19 | 36 airships, decks and rooms | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |
+| Sheet | What | Image | Grid (cell) | Key | Landed |
+|---|---|---|---|---|---|
+| SK1 | 48 the cloud sea, the sunlit islands and the sky meadows | 2048x1536 | 8 x 6 (256 x 256) | **NO magenta** | 19 Nov |
+| SK2 | 48 the three peoples' ground and the dying sky | 2048x1536 | 8 x 6 (256 x 256) | **NO magenta** | 19 Nov |
+| SK3 | 36 sky nature | 2048x2048 | 6 x 6 (about 341 x 341) | magenta | 19 Nov |
+| SK4 | 36 the ancient ruins | 2048x2048 | 6 x 6 (about 341 x 341) | magenta | 19 Nov |
+| SK5 | 36 Aurelion, the Aetherian city (the city's services and homes) | 2048x2048 | 6 x 6 (about 341 x 341) | magenta | 19 Nov |
+| SK6 | 36 the Ascendancy, the sky-forges and the engines | 2048x2048 | 6 x 6 (about 341 x 341) | magenta | 19 Nov |
+| SK7 | 36 the Veyr, the Stormborn | 2048x2048 | 6 x 6 (about 341 x 341) | magenta | 19 Nov |
+| SK8 | 36 the Kharad, the Cloud Giants | 2048x2048 | 6 x 6 (about 341 x 341) | magenta | 19 Nov |
+| SK9 | 36 the Fading Firmament and the war | 2048x2048 | 6 x 6 (about 341 x 341) | magenta | 19 Nov |
+| SK10 | 9 the sky's great places, part 1 | 2048x2048 | 3 x 3 (about 682 x 682) | magenta | 19 Nov |
+| SK11 | 9 the sky's great places, part 2 (doors and wonders) | 2048x2048 | 3 x 3 (about 682 x 682) | magenta |  |
+| SK12 | 36 the Aetherians and the Ascendancy | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |  |
+| SK13 | 36 the Veyr and the Kharad | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |  |
+| SK14 | 36 the sky's beasts, elementals and critters | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |  |
+| SK15 | 36 Aurelion's grandeur | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |  |
+| SK16 | 9 the wonders of Aurelion | 2048x2048 | 3 x 3 (about 682 x 682) | magenta |  |
+| SK17 | 48 interiors, decks and the glowing heart | 2048x1536 | 8 x 6 (256 x 256) | **NO magenta** |  |
+| SK18 | 36 rune circles, glass and the glowing heart | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |  |
+| SK19 | 36 airships, decks and rooms | 2048x2048 | 6 x 6 (about 341 x 341) | magenta |  |
 
 **Priority:** SK1 and SK2 (the ground is most of the look), BK1, BK5 and BK6 (the sky and the sun), SK3, SK5, SK15 and SK16 (Aurelion), SK10, then the rest in any order. Kyle's pictures: `docs/zone_refs/aurelion_ref_spires.png` and `aurelion_ref_domes.png` (Aurelion), `docs/zone_refs/sky_moodboard.jpg` (the mood board, twenty scenes: SK17 to SK19 come from it).
 

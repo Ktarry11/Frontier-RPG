@@ -506,6 +506,33 @@ MIN_BLOB = 1500
 MIN_PART = 60
 
 
+#: SOFT SPRITES: cloud, mist, foam and spray drawn half see-through over the magenta. The key above measures distance
+#: from pure #FF00FF, so a cloud that came out pinkish-white reads as solid and keeps its pink (the sky's cloud bank and
+#: wisp, 19 Nov 2026). These are re-keyed on the assumption that the thing itself is neutral (white, grey, foam): any
+#: magenta left in a pixel is background showing through, and comes out as transparency instead of colour.
+SOFT = {"sk_cloud_bank", "sk_cloud_wisp", "sk_mist_fountain", "sk_float_falls", "sk_edge_falls", "sk_cascade",
+        "sk_sky_lilies", "sk_broken_channel", "sk_tree_crown", "vy_talon_arch", "kh_first_temple", "ae_great_forge"}
+#: Drawn as squares filling their cells (no magenta round them), so two neighbours touch and weld into one blob: cut
+#: these on their cell's arithmetic bounds instead (SK3's two waterfalls).
+CELL_CUT = {"sk_edge_falls", "sk_cascade"}
+
+
+def _soft_key(rgb, alpha):
+    """Neutral-subject un-mix: alpha from how much magenta is left in the pixel, colour with the magenta taken out."""
+    spill = np.clip(np.minimum(rgb[..., 0], rgb[..., 2]) - rgb[..., 1], 0, 255)
+    a = np.clip(1.0 - spill / 255.0, 0.0, 1.0)
+    a = np.where(a < 0.08, 0.0, a)
+    a = np.minimum(a, alpha / 255.0) if alpha is not None else a
+    mag = np.array([255.0, 0.0, 255.0])
+    safe = np.maximum(a, 1e-3)[..., None]
+    clean = np.clip((rgb - (1.0 - a[..., None]) * mag) / safe, 0, 255)
+    # the generator's anti-aliasing leaves a green rim against magenta; a neutral subject has no green cast
+    soft_edge = a < 0.98
+    clean[..., 1] = np.where(soft_edge, np.minimum(clean[..., 1], np.maximum(clean[..., 0], clean[..., 2])),
+                             clean[..., 1])
+    return np.dstack([np.where(a[..., None] > 0, clean, 0.0), a * 255.0])
+
+
 def slice_sheet(which, sheet_path, out_dir=None, preview=None):
     COLS, ROWS, default_out, NAMES = SETS[which]
     from scipy import ndimage
@@ -540,6 +567,17 @@ def slice_sheet(which, sheet_path, out_dir=None, preview=None):
     problems, written = [], []
     for idx, name in enumerate(NAMES):
         r, c = divmod(idx, COLS)
+        if name in CELL_CUT:
+            y0, y1 = int(r * ch) + 2, int((r + 1) * ch) - 2
+            x0, x1 = int(c * cw) + 2, int((c + 1) * cw) - 2
+            raw = np.asarray(im).astype(np.float64)[y0:y1, x0:x1]
+            cut = _soft_key(raw, rgba[y0:y1, x0:x1, 3]) if name in SOFT else rgba[y0:y1, x0:x1].copy()
+            ys, xs = np.where(cut[..., 3] > 24)
+            cut = cut[ys.min():ys.max() + 1, xs.min():xs.max() + 1]
+            img = Image.fromarray(cut.astype(np.uint8), "RGBA")
+            img.save(out_dir / f"{name}.png")
+            written.append((name, img.size))
+            continue
         blobs = cells.get((r, c))
         if not blobs:
             problems.append(f"{name}: no building found in cell r{r} c{c}")
@@ -550,6 +588,8 @@ def slice_sheet(which, sheet_path, out_dir=None, preview=None):
         ys, xs = np.where(mask)
         y0, y1, x0, x1 = ys.min(), ys.max() + 1, xs.min(), xs.max() + 1
         cut = rgba[y0:y1, x0:x1].copy()
+        if name in SOFT:
+            cut = _soft_key(np.asarray(im).astype(np.float64)[y0:y1, x0:x1], cut[..., 3])
         cut[..., 3] *= mask[y0:y1, x0:x1]         # drop a neighbour bleeding into this bounding box
         if name in DESPILL_TOP:
             cut = _despill_plume(cut, DESPILL_TOP[name])
@@ -640,6 +680,21 @@ _set("feralas_hive_props", 6, 6, "assets/tiles/feralas/writhing_deep_props", """
     wd_egg_throne wd_spire_ring wd_old_carapace wd_gold_pool wd_cracked_eggs wd_chitin_totem
     wd_tunnel_support wd_sand_drift wd_blue_mushrooms wd_violet_mushrooms wd_buried_block wd_scored_boulder
     wd_tunnel_mouth wd_sealed_passage wd_fungus_sand_mound wd_digging_limb wd_black_basin wd_fungus_bones""")
+
+# THE SKY (docs/sky_art_prompts.md, written by tools/write_sky_art_prompts.py; Kyle's sheets from 19 Nov 2026 on).
+# Every non-tile sheet is a set named sky_sk<N>, its names taken from the prompt script so the two can't drift.
+def _sky_sets():
+    sys.path.insert(0, str(ROOT / "tools"))
+    import write_sky_art_prompts as SKY
+    for s in SKY.SHEETS:
+        if s["kind"] != "tiles":
+            ids = " ".join(i for _t, items in s["rows"] for _x, i in items)
+            n = len(s["rows"])
+            _set(f"sky_{s['key'].lower()}", n, n, s["out"].rstrip("/"), ids)
+
+
+_sky_sets()
+
 
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("--")]

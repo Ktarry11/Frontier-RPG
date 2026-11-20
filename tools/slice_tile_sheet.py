@@ -368,6 +368,22 @@ _set("zukkash_hive", 8, 6, "tools/building_sheets/feralas_hive_tiles.png", "asse
     wd_blue_fungus_sand wd_violet_fungus_sand wd_ash_stone wd_cracked_ash wd_fungal_mat wd_resin_chunks wd_fungus_wall wd_buried_wall
 """)
 
+# THE SKY (docs/sky_art_prompts.md, written by tools/write_sky_art_prompts.py; Kyle's sheets SK1 and SK2, 19 Nov 2026).
+# The names come from the prompt script, so the slice can't drift from what was asked for. Seam rows measured.
+def _sky_tile_sets():
+    sys.path.insert(0, str(ROOT / "tools"))
+    import write_sky_art_prompts as SKY
+    rows = {"SK1": [0, 182, 352, 512, 672, 840, 1024], "SK2": [0, 182, 353, 511, 693, 864, 1024]}
+    for s in SKY.SHEETS:
+        if s["kind"] == "tiles" and s["key"] in rows:
+            ids = " ".join(i for _t, items in s["rows"] for _x, i in items)
+            _set(f"sky_{s['key'].lower()}", 8, 6, f"tools/building_sheets/sky_{s['key'].lower()}.png",
+                 s["out"].rstrip("/"), ids, rows_y=rows[s["key"]])
+
+
+_sky_tile_sets()
+
+
 if __name__ == "__main__":
     pv = sys.argv[sys.argv.index("--preview") + 1] if "--preview" in sys.argv else None
     keys = [a for a in sys.argv[1:] if a in SETS] or list(SETS)

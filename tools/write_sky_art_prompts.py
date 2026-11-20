@@ -99,6 +99,9 @@ NOUN = {"tiles": "Tiles", "props": "Props", "buildings": "Sprites", "landmarks":
 
 # key, kind, title, out dir, refs, setting, scale line (or None), rows [(row title, [(text, id), ...]), ...]
 SHEETS = []
+#: Sheets Kyle has sent, sliced (tools/slice_tile_sheet.py sky_sk1/sky_sk2, tools/slice_building_sheet.py sky_sk3 to
+#: sky_sk10; the raw sheets are tools/building_sheets/sky_sk<N>.png).
+LANDED = {f"SK{i}": "19 Nov" for i in range(1, 11)}
 
 
 def sheet(key, kind, title, out, refs, setting, scale, rows):
@@ -1220,11 +1223,11 @@ def render():
            "race's 1-24 start ending at their capital with airships to Orgrimmar or the Undercity).", "",
            "Every prompt below is complete on its own: paste one block and nothing else. Nothing built from our world "
            "appears anywhere.", "",
-           "| Sheet | What | Image | Grid (cell) | Key |", "|---|---|---|---|---|"]
+           "| Sheet | What | Image | Grid (cell) | Key | Landed |", "|---|---|---|---|---|---|"]
     for s in SHEETS:
         img, grid, key = SIZE[s["kind"]]
         n = sum(len(items) for _t, items in s["rows"])
-        out.append(f"| {s['key']} | {n} {s['title']} | {img} | {grid} | {key} |")
+        out.append(f"| {s['key']} | {n} {s['title']} | {img} | {grid} | {key} | {LANDED.get(s['key'], '')} |")
     out += ["", "**Priority:** SK1 and SK2 (the ground is most of the look), BK1, BK5 and BK6 (the sky and the sun), "
             "SK3, SK5, SK15 and SK16 (Aurelion), SK10, then the rest in any order. Kyle's pictures: "
             "`docs/zone_refs/aurelion_ref_spires.png` and `aurelion_ref_domes.png` (Aurelion), "
