@@ -36,7 +36,30 @@ def write_cycle(dst, walk):
     def bbox(im):
         return im.getbbox() or (0, 0, im.width, im.height)
 
+    def clean(im):
+        # a scrap of a neighbour (the boots of the man in the row above) can ride along with a cut; anything not joined
+        # to the man that sits wholly above or below him goes
+        import numpy as np
+        from scipy import ndimage
+        a = np.asarray(im).copy()
+        solid = a[..., 3] > 20
+        lab, n = ndimage.label(solid, structure=np.ones((3, 3)))
+        if n < 2:
+            return im
+        sizes = ndimage.sum(solid, lab, range(1, n + 1))
+        main = int(np.argmax(sizes)) + 1
+        ys = np.where(lab == main)[0]
+        top, bot = ys.min(), ys.max()
+        for i in range(1, n + 1):
+            if i == main:
+                continue
+            py = np.where(lab == i)[0]
+            if py.max() < top + 4 or py.min() > bot - 4:
+                a[lab == i, 3] = 0
+        return Image.fromarray(a, "RGBA")
+
     def trim(im):
+        im = clean(im)
         return im.crop(bbox(im))
 
     stand = {d: trim(Image.open(dst / f"{d}.png").convert("RGBA")) for d in ("down", "up", "right")}

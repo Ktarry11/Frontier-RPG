@@ -92,7 +92,19 @@ def _grid_cut(rgb, hard, strength, content, ids, dry):
             if not n:
                 raise SystemExit(f"cell row {ri + 1} col {ci + 1} is empty")
             sizes = ndimage.sum(cell, lab, range(1, n + 1))
-            keep = [i + 1 for i in range(n) if sizes[i] >= max(MIN_BLOB / 6, sizes.max() * 0.04)]
+            # the figure is the biggest piece; another piece stays only if it's big enough AND touches the figure's own
+            # box (a dropped hand, a tail tip), so a neighbour's boots poking over the cut line are left out
+            main = int(np.argmax(sizes)) + 1
+            my_, mx_ = np.where(lab == main)
+            box = (mx_.min() - 6, my_.min() - 6, mx_.max() + 6, my_.max() + 6)
+            keep = [main]
+            for i in range(n):
+                if i + 1 == main or sizes[i] < max(MIN_BLOB / 6, sizes.max() * 0.04):
+                    continue
+                py, px = np.where(lab == i + 1)
+                cy, cx = py.mean(), px.mean()
+                if box[0] <= cx <= box[2] and box[1] + 6 <= cy <= box[3] - 6:      # its middle inside the figure's box
+                    keep.append(i + 1)
             mine = ndimage.binary_dilation(np.isin(lab, keep), structure=np.ones((3, 3)))
             ys, xs = np.where(mine)
             a, b, c, d = xs.min(), ys.min(), xs.max(), ys.max()

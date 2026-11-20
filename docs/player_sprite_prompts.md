@@ -298,8 +298,8 @@ Sliced by `PYTHONPATH=. python3 tools/asset_pipeline/slice_player_sheet.py SHEET
 **Landed 20 Nov 2026 (Kyle tried three men a sheet, then two: "could i maybe have 3 figures side by side?"):** walk
 cycles for every human, orc, blood elf, Forsaken and tauren look (`tools/building_sheets/walk_*.png`). The references were
 each race's turnaround cut into its first three and last two men, one picture each. Blood elves 1 to 3 came back with
-five rows, missing the last walking-right step, so they walk front and back and stand still sideways until that
-sheet is re-rolled. The Veyr and the Aetherians landed the same afternoon: all five Veyr walk every way; Aetherians 4
+five rows the first time; the re-roll (`walk_blood_elf_a2.png`) had six but cut its first side row off at the knees,
+so their side walk takes the left-foot step from the first sheet and the right-foot step from the re-roll. The Veyr and the Aetherians landed the same afternoon: all five Veyr walk every way; Aetherians 4
 and 5 do too, and Aetherians 1 to 3 walk front and back (their first walking-right row came back cut off at the knees,
 so their side walk is left out until that sheet is re-rolled).
 
