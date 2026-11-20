@@ -1127,33 +1127,28 @@ sheet("SK19", "buildings", "airships, decks and rooms", "assets/buildings/",
 #: Not grids: one image each. How they're drawn: the cloud layers scroll behind the islands, slower than the ground (the
 #: drop gets real depth); the light overlay is added over the screen; the panoramas are each zone's entry card.
 BACKDROPS = [
-    ("BK1", "the far cloud sea, golden afternoon", "assets/tiles/sky/backdrop/sky_far_gold.png",
-     "Generate ONE square image, 2048x2048: a SEAMLESS TILEABLE texture of a sea of cloud seen from straight above, "
-     "from very high up, in warm golden afternoon sunlight. Soft rolling billows of white and pale gold cloud, gentle "
-     "blue shadows between them, a few deeper gaps showing hazy blue far below. It must tile seamlessly on all four "
-     "sides: no single feature that obviously repeats, no vignette, no frame, no text. Painterly semi-realistic, soft "
-     "and luminous, matching a WoW Classic painted style. No islands, no birds, no objects: only cloud."),
-    ("BK2", "the far cloud sea, midday", "assets/tiles/sky/backdrop/sky_far_day.png",
-     "Generate ONE square image, 2048x2048: a SEAMLESS TILEABLE texture of a sea of cloud seen from straight above, "
-     "from very high up, in bright clear midday light. Brilliant white billows, crisp soft blue shadows, a few gaps "
-     "showing deep blue sky far below. It must tile seamlessly on all four sides: no single feature that obviously "
-     "repeats, no vignette, no frame, no text. Painterly semi-realistic, matching a WoW Classic painted style. No "
-     "islands, no birds, no objects: only cloud."),
-    ("BK3", "the far cloud sea, storm", "assets/tiles/sky/backdrop/sky_far_storm.png",
-     "Generate ONE square image, 2048x2048: a SEAMLESS TILEABLE texture of a storm-cloud sea seen from straight above: "
-     "dark grey-blue billows lit from inside here and there by soft blue lightning glow, rain-dark gaps. It must tile "
-     "seamlessly on all four sides: no single feature that obviously repeats, no vignette, no frame, no text. "
-     "Painterly semi-realistic, matching a WoW Classic painted style. Only cloud."),
-    ("BK4", "the far cloud sea, the dying sky", "assets/tiles/sky/backdrop/sky_far_dusk.png",
-     "Generate ONE square image, 2048x2048: a SEAMLESS TILEABLE texture of a sea of cloud seen from straight above in a "
-     "failing violet dusk: thin lavender and grey billows, torn in places onto a deep violet-black void with faint "
-     "stars. Beautiful and sad. It must tile seamlessly on all four sides: no single feature that obviously repeats, "
-     "no vignette, no frame, no text. Painterly semi-realistic, matching a WoW Classic painted style. Only cloud."),
-    ("BK5", "drifting cloud wisps (near layer)", "assets/tiles/sky/backdrop/sky_wisps.png",
-     "Generate ONE square image, 2048x2048, on a PURE BLACK background: soft white and pale gold cloud wisps and thin "
-     "veils of mist scattered across it, seen from above, as a SEAMLESS TILEABLE layer (the wisps continue across all "
-     "four edges). Mostly black with the wisps covering about a third of the image. No hard edges, no objects, no "
-     "text. Painterly, soft and luminous. (This layer is screen-blended over the cloud sea, so black means clear.)"),
+    # Kyle, 19 Nov 2026: "merge the BK tileables to one prompt". The five tileable layers (first written as BK1 to BK5)
+    # are one sheet of six cells now; BK6 to BK12 keep their numbers.
+    ("BK1", "the sky layers: five cloud seas and the drifting wisps, one sheet (was BK1 to BK5)",
+     "assets/tiles/sky/backdrop/",
+     "Generate ONE texture sheet image, 1536x1024, laid out as a strict 3 columns x 2 rows grid = 6 separate square "
+     "textures, each cell 512x512. Each cell is COMPLETELY FILLED by its texture, edge to edge, touching its neighbours "
+     "with no gap. No border, no magenta, no frames, no gutters, no grid lines, no text, no labels, no numbers. EVERY "
+     "CELL IS ITS OWN SEAMLESS TILEABLE TEXTURE: it must tile with itself on all four sides, with no single feature "
+     "that obviously repeats, no vignette, no lighting gradient across the cell. All six are seen from STRAIGHT ABOVE, "
+     "from very high up, looking down on cloud: no horizon, no sky above, no perspective, no islands, no birds, no "
+     "objects, only cloud. Painterly semi-realistic, soft and luminous, matching a WoW Classic painted style.\n\n"
+     "Cells are numbered row by row, left to right, top to bottom:\n\n"
+     "Row 1: 1 THE GOLDEN CLOUD SEA: soft rolling billows of white and pale gold cloud in warm golden afternoon "
+     "sunlight, gentle blue shadows between them, a few deeper gaps showing hazy blue far below; 2 THE MIDDAY CLOUD "
+     "SEA: brilliant white billows in clear noon light, crisp soft blue shadows, a few gaps onto deep blue sky far "
+     "below; 3 THE STORM CLOUD SEA: dark grey-blue billows lit from inside here and there by soft blue lightning glow, "
+     "rain-dark gaps.\n\n"
+     "Row 2: 4 THE DYING SKY: thin lavender and grey billows in a failing violet dusk, torn in places onto a deep "
+     "violet-black void with faint stars, beautiful and sad; 5 THE DAWN CLOUD SEA: pale silver-blue billows in cool "
+     "early light with a faint gold edge on their tops; 6 DRIFTING WISPS on PURE BLACK: soft white and pale gold cloud "
+     "wisps and thin veils of mist scattered across a black cell, covering about a third of it, continuing across all "
+     "four edges (this one is blended over the others, so black means clear)."),
     ("BK6", "the golden sunlight overlay", "assets/tiles/sky/backdrop/sun_rays.png",
      "Generate ONE wide image, 2048x1152, on a PURE BLACK background: warm golden sunlight streaming in from a low sun "
      "just beyond the TOP-RIGHT corner: a soft gold glow in that corner, long soft light shafts and rays fanning down "
@@ -1228,7 +1223,7 @@ def render():
         img, grid, key = SIZE[s["kind"]]
         n = sum(len(items) for _t, items in s["rows"])
         out.append(f"| {s['key']} | {n} {s['title']} | {img} | {grid} | {key} | {LANDED.get(s['key'], '')} |")
-    out += ["", "**Priority:** SK1 and SK2 (the ground is most of the look), BK1, BK5 and BK6 (the sky and the sun), "
+    out += ["", "**Priority:** SK1 and SK2 (the ground is most of the look), BK1 and BK6 (the sky and the sun), "
             "SK3, SK5, SK15 and SK16 (Aurelion), SK10, then the rest in any order. Kyle's pictures: "
             "`docs/zone_refs/aurelion_ref_spires.png` and `aurelion_ref_domes.png` (Aurelion), "
             "`docs/zone_refs/sky_moodboard.jpg` (the mood board, twenty scenes: SK17 to SK19 come from it).", "", "**References to attach** (at most 3 per sheet; a path to a piece of another sheet means attach it "
@@ -1262,9 +1257,10 @@ def render():
             out.append(f"| {r + 1} | " + " | ".join(i for _x, i in items) + " |")
         out.append("")
     out += ["---", "", "## BACKDROPS AND LIGHT (one image each, not grids)", "",
-            "How they're drawn: BK1 to BK4 are the far cloud sea, scrolled behind the islands slower than the ground "
-            "so the drop has real depth (one per mood: gold for the Crown and Aurelion, day for the Expanse, storm for "
-            "the Spires, dusk for the Firmament). BK5 drifts over it a little faster. BK6 is added over the whole "
+            "How they're drawn: BK1's first five cells are the far cloud sea, scrolled behind the islands slower than the "
+            "ground so the drop has real depth (one per mood: gold for the Crown and Aurelion, day for the Expanse, "
+            "storm for the Spires, dusk for the Firmament, dawn for a quiet start). Its sixth cell, the wisps, drifts "
+            "over that a little faster. BK6 is added over the whole "
             "screen: the golden sun in the distance. BK7 to BK12 are each zone's entry card, the view people remember.",
             ""]
     for key, title, path, prompt in BACKDROPS:

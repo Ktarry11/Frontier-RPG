@@ -152,7 +152,7 @@ The old machinery waking up there is theirs too.
   dusk.
 - **Above the clouds, with the golden sun in the distance** (Kyle: "Can we get beautiful above the cloud look and
   golden sun in the distance"). A top-down camera has no horizon, so the sun comes from three layers
-  (`docs/sky_art_prompts.md`, BK1 to BK12): a far cloud sea scrolled slower than the islands (so they hang high
+  (`docs/sky_art_prompts.md`, BK1 and BK6 to BK12): a far cloud sea scrolled slower than the islands (so they hang high
   above it, one per mood), a near layer of drifting wisps, and a golden sunlight overlay of rays and haze from the
   sun's corner of the screen. Each zone also gets a panorama painting for its entry card, with the golden sun on the
   horizon. The renderer needs the parallax layer and the overlay; that's built with the first sky map.
@@ -169,7 +169,7 @@ The old machinery waking up there is theirs too.
 ## The art stock
 - `docs/worldtree_art_prompts.md`: the tree, sheets W1 to W6 (the island, the tiers, the Great Settlement).
 - `docs/sky_art_prompts.md` (written by `tools/write_sky_art_prompts.py`): the sky, sheets SK1 to SK19 and the
-  backdrops BK1 to BK12. Kyle, 19 Nov 2026: "Lets build up a stock of tiles and props for these future zones since
+  backdrops BK1 and BK6 to BK12. Kyle, 19 Nov 2026: "Lets build up a stock of tiles and props for these future zones since
   chatgpt works best in massive batches". Sized to cover a quiet sky starting zone too (meadows, farms, orchards,
   gentle animals).
 
