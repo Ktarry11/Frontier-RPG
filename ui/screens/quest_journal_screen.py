@@ -540,12 +540,13 @@ class QuestJournalScreen(BaseScreen):
         if not getattr(f, "secret", False):
             painted = self._draw_faction_background(screen, self.selected_faction_id)
         self.renderer.draw_button(screen, self.back_button, "Back")
-        if painted:
-            # the text sits on its own dark card on the left and the painting is left clear on the right (Kyle,
-            # 19 Nov 2026: "make the text easier to read bro...its still blending into the background")
-            self._draw_card(screen, pygame.Rect(8, 66, self.FACTION_CARD_W, SCREEN_HEIGHT - 66 - 34))
-            self._draw_card(screen, pygame.Rect(SCREEN_WIDTH - 436, 68, 424, 70))
         text = self._shadowed_text if painted else self.renderer.draw_text
+        if painted:
+            # the painting is shaded where the text is, header included, and comes through at full strength below it
+            # (Kyle, 19 Nov 2026: "I like this style better....just need to ensure it's readable")
+            t0 = 206 if (f.leader or {}).get("acting_for") else 186
+            body_h = self._draw_faction_body(pygame.Surface((1, 1)), f, 0, SCREEN_WIDTH - 90) + 20
+            self._shade_text_region(screen, min(SCREEN_HEIGHT - 50, t0 - self.scroll_offset + body_h))
 
         tier = f.tier
         colour = self.TIER_COLOURS.get(tier["id"], COLOR_WHITE)
@@ -591,12 +592,8 @@ class QuestJournalScreen(BaseScreen):
 
         top = 206 if (f.leader or {}).get("acting_for") else 186
         bottom = SCREEN_HEIGHT - 50
-        if painted:
-            viewport = pygame.Rect(20, top, self.FACTION_CARD_W - 16, bottom - top)
-            width = self.FACTION_CARD_W - 64
-        else:
-            viewport = pygame.Rect(20, top, SCREEN_WIDTH - 40, bottom - top)
-            width = SCREEN_WIDTH - 90
+        viewport = pygame.Rect(20, top, SCREEN_WIDTH - 40, bottom - top)
+        width = SCREEN_WIDTH - 90
         self._list_viewport = viewport
 
         scratch = pygame.Surface((1, 1))
@@ -633,9 +630,9 @@ class QuestJournalScreen(BaseScreen):
                     ox, oy = (img.get_width() - area_w) // 2, (img.get_height() - area_h) // 3
                     surf = pygame.Surface((area_w, area_h))
                     surf.blit(img, (-ox, -oy))
-                    # a light, even dim; the text gets its own card (_draw_card), so the painting can stay strong
+                    # a light, even dim; the text region gets its own shade each frame (_shade_text_region)
                     shade = pygame.Surface((area_w, area_h), pygame.SRCALPHA)
-                    shade.fill((6, 6, 10, 70))
+                    shade.fill((6, 6, 10, 40))
                     surf.blit(shade, (0, 0))
                 except (pygame.error, OSError):
                     surf = None
@@ -645,21 +642,34 @@ class QuestJournalScreen(BaseScreen):
         screen.blit(surf, (0, 60))
         return True
 
-    #: the width of the dark card the faction's text sits on when its painting is behind the page
-    FACTION_CARD_W = 760
+    _text_shade_cache = {}
 
-    @staticmethod
-    def _draw_card(screen, rect):
-        """A dark, nearly solid panel with a thin gold edge, for text over a painting."""
-        card = pygame.Surface(rect.size, pygame.SRCALPHA)
-        pygame.draw.rect(card, (10, 10, 14, 226), card.get_rect(), border_radius=10)
-        pygame.draw.rect(card, (150, 128, 80, 150), card.get_rect(), 1, border_radius=10)
-        screen.blit(card, rect.topleft)
+    def _shade_text_region(self, screen, text_bottom):
+        """Darken the painting from the header down to just past the text, then fade it out over 140px, so the text
+        reads and the painting below it stays bright."""
+        text_bottom = max(200, int(text_bottom) + 16)
+        key = (text_bottom, SCREEN_WIDTH)
+        surf = self._text_shade_cache.get(key)
+        if surf is None:
+            fade = 140
+            h = min(SCREEN_HEIGHT - 60, text_bottom - 60 + fade)
+            surf = pygame.Surface((SCREEN_WIDTH, h), pygame.SRCALPHA)
+            for yy in range(h):
+                gy = 60 + yy
+                a = 150 if gy <= text_bottom else int(150 * max(0.0, 1 - (gy - text_bottom) / fade))
+                pygame.draw.line(surf, (6, 6, 10, a), (0, yy), (SCREEN_WIDTH, yy))
+            if len(self._text_shade_cache) > 64:
+                self._text_shade_cache.clear()
+            self._text_shade_cache[key] = surf
+        screen.blit(surf, (0, 60))
 
     def _shadowed_text(self, screen, text, pos, color=COLOR_WHITE, **kw):
-        """draw_text with a 2px black shadow under it."""
+        """draw_text with a dark outline all round and a soft drop shadow, for text over a painting."""
         x, y = pos
-        self.renderer.draw_text(screen, text, (x + 2, y + 2), color=(0, 0, 0), **kw)
+        dark = (0, 0, 0)
+        self.renderer.draw_text(screen, text, (x + 2, y + 3), color=dark, **kw)
+        for dx, dy in ((-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (1, -1), (-1, 1), (1, 1)):
+            self.renderer.draw_text(screen, text, (x + dx, y + dy), color=dark, **kw)
         self.renderer.draw_text(screen, text, (x, y), color=color, **kw)
 
     def _draw_faction_body(self, screen, f, y, width, shadow=False):
