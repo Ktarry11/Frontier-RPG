@@ -57,6 +57,7 @@ ZONE_POOLS = {
     "deadwind_west": ("pool_plagued", "pool_swamp"),     # the Black Tarn and the Sickwater
     "deadwind_east": ("pool_river", "pool_glowing"),     # the gorge's river and the seep's glow
     "moonwell_hollow": ("pool_moonlit", "pool_glowing"),
+    "rootwater_isle": ("pool_coast", "pool_jungle"),       # the World Tree's reef and its lagoons (19 Nov 2026)
     "aspen_wilderness": ("pool_river", "pool_reeds"),
     "crystalline_underdark": ("pool_glowing", "pool_cave"),
     "drowning_floor": ("pool_deep_sea", "pool_cave"),

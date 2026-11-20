@@ -7640,6 +7640,62 @@
         "mana_potion_dreamfoil",
         "barbed_arrows"
       ]
+    },
+    {
+      "vendor_id": "rw_provisioner",
+      "name": "Provisioner Mojo'tu",
+      "zone": "rootwater_isle",
+      "x": 80,
+      "y": 84,
+      "tile_sprite": "npc",
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 43,
+      "sells_gear": false,
+      "race": "troll",
+      "gender": "male",
+      "appearance_variant": 6,
+      "facing": "down",
+      "greeting": "Fish from the lagoons, fruit off the low branches, and a stew that's been going since the landing was built. Nobody climbs the tree hungry, mon.",
+      "sells": [
+        "meal_kodo_ribs",
+        "meal_saltback_roast",
+        "hunters_brace_platter",
+        "drink_birch_wine",
+        "drink_deepwell_cordial",
+        "cook_flour",
+        "cook_spice",
+        "cook_fruit",
+        "cook_roots"
+      ]
+    },
+    {
+      "vendor_id": "rw_outfitter",
+      "name": "Trader Sen'kaa",
+      "zone": "rootwater_isle",
+      "x": 96,
+      "y": 86,
+      "tile_sprite": "npc",
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 43,
+      "sells_gear": false,
+      "race": "troll",
+      "gender": "female",
+      "appearance_variant": 9,
+      "facing": "down",
+      "greeting": "Everything that comes up the boats from Grom'gol or Zoram goes through my hands first. What you need for the climb, I've got.",
+      "sells": [
+        "healing_potion_mega",
+        "mana_potion_mega",
+        "kit_field_repair",
+        "broadhead_arrows",
+        "quarrel_bolts",
+        "shot_mithril",
+        "parchment",
+        "beast_lure",
+        "vial_crystal"
+      ]
     }
   ]
 }

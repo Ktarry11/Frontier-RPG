@@ -196,6 +196,11 @@ M = [
     ("mob_veinlight_mote", "Veinlight Mote", "A drifting mote of light from Glittervein's crystal veins.",
      "vt_mote_arcane_t2", 48, [("Glittervein", r"vein-lit|shatterlight|lattice-grown|shardback")], 0.30,
      [("enchanting", 2, 1, ""), ("tailoring", 2, 1, "robe|mantle|hood")]),
+    # THE WORLD TREE (docs/worldtree_brief.md, 19 Nov 2026): its sap, off the beasts that drink it and the ooze that is it
+    ("mob_world_tree_sap", "Golden Tree-Sap", "A clot of the World Tree's sap, gold and faintly warm. Whatever "
+     "drinks it grows.", "recolor:mob_hive_resin:42:1.1:1.15", 43,
+     [("Rootwater Isle", r"sap-drunk|goldensap|rootbound|the rootmaw")], 0.30,
+     [("alchemy", 2, 1, "elixir|potion"), ("woodworking", 2, 1, "staff|bow|wand")]),
     ("mob_ironbark_heartwood", "Ironbark Heartwood", "A billet of heartwood off an old treant, hard as iron and "
      "twice as old.", "vt_bark_t3", 52, [("South Felwood", r"treant|hollowbark"),
                                           ("North Felwood", r"ironbark")], 0.30,

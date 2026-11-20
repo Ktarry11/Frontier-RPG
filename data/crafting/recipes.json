@@ -1009,8 +1009,7 @@
           "inputs": {
             "herb_goldthorn": 3,
             "herb_blindweed": 1,
-            "vial_crystal": 1,
-            "mob_basilisk_eye": 1
+            "vial_crystal": 1
           },
           "output": {
             "kind": "consumable",
@@ -1633,7 +1632,7 @@
             "herb_goldthorn": 2,
             "herb_blindweed": 1,
             "vial_leaded": 1,
-            "mob_saltpan_crystal": 1
+            "mob_vent_vapour": 1
           },
           "output": {
             "kind": "consumable",
@@ -1717,8 +1716,7 @@
           "source": "drop",
           "inputs": {
             "herb_bruiseweed": 2,
-            "vial_empty": 1,
-            "mob_tidewater_core": 1
+            "vial_empty": 1
           },
           "output": {
             "kind": "consumable",
@@ -1804,8 +1802,7 @@
           "inputs": {
             "herb_khadgar": 2,
             "herb_goldthorn": 1,
-            "vial_leaded": 1,
-            "mob_vent_vapour": 1
+            "vial_leaded": 1
           },
           "output": {
             "kind": "consumable",
@@ -2085,8 +2082,7 @@
           "inputs": {
             "herb_goldthorn": 2,
             "herb_sungrass": 1,
-            "vial_leaded": 1,
-            "mob_vent_vapour": 1
+            "vial_leaded": 1
           },
           "output": {
             "kind": "consumable",
@@ -2163,8 +2159,7 @@
           "inputs": {
             "herb_dreamfoil": 2,
             "herb_blindweed": 1,
-            "vial_crystal": 1,
-            "mob_fel_seepage": 1
+            "vial_crystal": 1
           },
           "output": {
             "kind": "consumable",
@@ -3568,7 +3563,8 @@
           "inputs": {
             "herb_blindweed": 2,
             "herb_khadgar": 1,
-            "vial_crystal": 1
+            "vial_crystal": 1,
+            "mob_fel_seepage": 1
           },
           "skill_required": 245,
           "skill_range": [
@@ -3864,7 +3860,8 @@
           "name": "Strong Mana Potion",
           "inputs": {
             "herb_mageroyal": 2,
-            "vial_empty": 1
+            "vial_empty": 1,
+            "mob_tidewater_core": 1
           },
           "skill_required": 65,
           "skill_range": [
@@ -3921,7 +3918,8 @@
           "name": "Fine Healing Potion",
           "inputs": {
             "herb_kingsblood": 2,
-            "vial_leaded": 1
+            "vial_leaded": 1,
+            "mob_saltpan_crystal": 1
           },
           "skill_required": 140,
           "skill_range": [
@@ -3940,7 +3938,8 @@
           "name": "Fine Mana Potion",
           "inputs": {
             "herb_kingsblood": 2,
-            "vial_leaded": 1
+            "vial_leaded": 1,
+            "mob_vent_vapour": 1
           },
           "skill_required": 140,
           "skill_range": [
@@ -4158,7 +4157,8 @@
           "inputs": {
             "herb_khadgar": 2,
             "herb_stranglekelp": 1,
-            "vial_leaded": 1
+            "vial_leaded": 1,
+            "mob_world_tree_sap": 1
           },
           "skill_required": 195,
           "skill_range": [
@@ -4198,7 +4198,8 @@
           "inputs": {
             "herb_khadgar": 2,
             "herb_stranglekelp": 1,
-            "vial_leaded": 1
+            "vial_leaded": 1,
+            "mob_world_tree_sap": 1
           },
           "skill_required": 195,
           "skill_range": [
@@ -4318,7 +4319,8 @@
           "inputs": {
             "herb_khadgar": 2,
             "herb_stranglekelp": 1,
-            "vial_leaded": 1
+            "vial_leaded": 1,
+            "mob_basilisk_eye": 1
           },
           "skill_required": 195,
           "skill_range": [
@@ -11948,8 +11950,7 @@
           "source": "vendor",
           "inputs": {
             "bolt_starweave": 8,
-            "thread_silken": 1,
-            "mob_veinlight_mote": 1
+            "thread_silken": 1
           },
           "output": {
             "kind": "armor",
@@ -12041,8 +12042,7 @@
           "name": "Grisle's Wool Belt",
           "inputs": {
             "bolt_wool": 2,
-            "thread_coarse": 1,
-            "mob_ghoul_sinew": 1
+            "thread_coarse": 1
           },
           "skill_required": 60,
           "output": {
@@ -12299,8 +12299,7 @@
           "source": "vendor",
           "inputs": {
             "bolt_emberweave": 6,
-            "thread_fine": 1,
-            "mob_saltscale_pearl": 1
+            "thread_fine": 1
           },
           "output": {
             "kind": "armor",
@@ -12449,8 +12448,7 @@
           "source": "vendor",
           "inputs": {
             "bolt_emberweave": 6,
-            "thread_fine": 1,
-            "mob_saltscale_pearl": 1
+            "thread_fine": 1
           },
           "output": {
             "kind": "armor",
@@ -12541,8 +12539,7 @@
           "name": "Ferryless's Silk Cloak",
           "inputs": {
             "bolt_silk": 2,
-            "thread_fine": 1,
-            "mob_thick_yeti_fur": 1
+            "thread_fine": 1
           },
           "skill_required": 105,
           "output": {
@@ -20962,7 +20959,8 @@
           "inputs": {
             "plank_bloodroot": 7,
             "resin": 1,
-            "stick_lacquered": 1
+            "stick_lacquered": 1,
+            "mob_world_tree_sap": 1
           },
           "output": {
             "kind": "weapon",
@@ -23569,7 +23567,8 @@
           "inputs": {
             "plank_bloodroot": 8,
             "stick_lacquered": 1,
-            "resin": 1
+            "resin": 1,
+            "mob_world_tree_sap": 1
           },
           "skill_required": 200,
           "output": {
@@ -28835,8 +28834,7 @@
           "inputs": {
             "bar_bronze": 2,
             "part_glass_lens": 2,
-            "part_bronze_framework": 1,
-            "mob_stormbinder_spark": 1
+            "part_bronze_framework": 1
           },
           "output": {
             "kind": "armor",
@@ -28926,8 +28924,7 @@
           "inputs": {
             "bar_bronze": 3,
             "part_sight_glass": 2,
-            "part_bronze_framework": 1,
-            "mob_rock_core": 1
+            "part_bronze_framework": 1
           },
           "output": {
             "kind": "armor",
@@ -29573,8 +29570,7 @@
           "inputs": {
             "bar_bronze": 3,
             "part_copper_bolts": 2,
-            "crystal_azure": 1,
-            "mob_rock_core": 1
+            "crystal_azure": 1
           },
           "output": {
             "kind": "armor",
@@ -30700,7 +30696,7 @@
             "bar_dark_iron": 8,
             "part_steel_barrel": 2,
             "part_unstable_trigger": 1,
-            "mob_hive_resin": 1
+            "mob_forge_slag_core": 1
           },
           "output": {
             "kind": "weapon",
@@ -30750,8 +30746,7 @@
           "source": "trainer",
           "inputs": {
             "bar_thorium": 6,
-            "part_iron_casing": 2,
-            "mob_forge_slag_core": 1
+            "part_iron_casing": 2
           },
           "output": {
             "kind": "armor",
@@ -31043,8 +31038,7 @@
           "inputs": {
             "bar_dark_iron": 1,
             "part_unstable_trigger": 1,
-            "part_iron_casing": 1,
-            "mob_forge_slag_core": 1
+            "part_iron_casing": 1
           },
           "output": {
             "kind": "consumable",
@@ -31719,8 +31713,7 @@
             "bar_iron": 4,
             "part_steel_barrel": 1,
             "part_wooden_stock": 1,
-            "part_unstable_trigger": 1,
-            "mob_elkhorn_antler": 1
+            "part_unstable_trigger": 1
           },
           "output": {
             "kind": "weapon",
@@ -31882,8 +31875,7 @@
             "bar_iron": 4,
             "part_steel_barrel": 1,
             "part_wooden_stock": 1,
-            "part_unstable_trigger": 1,
-            "mob_kobold_candle": 1
+            "part_unstable_trigger": 1
           },
           "output": {
             "kind": "weapon",
@@ -31985,8 +31977,7 @@
           "source": "vendor",
           "inputs": {
             "bar_thorium": 6,
-            "part_iron_casing": 2,
-            "mob_forge_slag_core": 1
+            "part_iron_casing": 2
           },
           "output": {
             "kind": "armor",
@@ -32037,8 +32028,7 @@
           "inputs": {
             "bar_truesilver": 6,
             "part_steel_barrel": 1,
-            "part_precision_sight": 1,
-            "mob_hive_resin": 1
+            "part_precision_sight": 1
           },
           "output": {
             "kind": "weapon",
@@ -32092,8 +32082,7 @@
           "inputs": {
             "bar_thorium": 5,
             "part_glass_lens": 2,
-            "part_gear_assembly": 1,
-            "mob_scoria_heart": 1
+            "part_gear_assembly": 1
           },
           "output": {
             "kind": "armor",
@@ -33113,7 +33102,8 @@
           "inputs": {
             "leather_rugged": 4,
             "gem_blue_sapphire": 2,
-            "part_precision_sight": 1
+            "part_precision_sight": 1,
+            "mob_forge_slag_core": 1
           },
           "skill_required": 250,
           "skill_range": [
@@ -34183,7 +34173,8 @@
             "bar_copper": 4,
             "part_bronze_tube": 1,
             "part_wooden_stock": 1,
-            "part_bronze_framework": 1
+            "part_bronze_framework": 1,
+            "mob_stormbinder_spark": 1
           },
           "skill_required": 45,
           "skill_range": [
@@ -34442,7 +34433,8 @@
             "bar_bronze": 4,
             "part_bronze_tube": 1,
             "part_wooden_stock": 1,
-            "part_gear_assembly": 1
+            "part_gear_assembly": 1,
+            "mob_rock_core": 1
           },
           "skill_required": 75,
           "skill_range": [
@@ -34956,7 +34948,8 @@
             "bar_thorium": 4,
             "part_steel_barrel": 1,
             "part_wooden_stock": 1,
-            "gem_blue_sapphire": 1
+            "gem_blue_sapphire": 1,
+            "mob_hive_resin": 1
           },
           "skill_required": 245,
           "skill_range": [
@@ -35006,7 +34999,8 @@
           "name": "Spring-Loaded Bracers",
           "inputs": {
             "bar_bronze": 3,
-            "part_gear_assembly": 2
+            "part_gear_assembly": 2,
+            "mob_rock_core": 1
           },
           "skill_required": 75,
           "skill_range": [
@@ -37025,8 +37019,7 @@
           "skill_required": 55,
           "inputs": {
             "fish_bristle_whisker_catfish": 1,
-            "cook_water": 1,
-            "mob_murloc_fin": 1
+            "cook_water": 1
           },
           "source": "trainer",
           "skill_range": [
@@ -37392,8 +37385,7 @@
           "skill_required": 55,
           "inputs": {
             "fish_bristle_whisker_catfish": 1,
-            "cook_water": 1,
-            "mob_murloc_fin": 1
+            "cook_water": 1
           },
           "source": "vendor",
           "skill_range": [
@@ -37804,7 +37796,8 @@
           "name": "Roadside Fisher's Pie",
           "inputs": {
             "fish_bristle_whisker_catfish": 2,
-            "cook_flour": 1
+            "cook_flour": 1,
+            "mob_murloc_fin": 1
           },
           "skill_required": 55,
           "skill_range": [

@@ -3241,6 +3241,37 @@
         ],
         "quests": {}
       }
+    },
+    "highbough_tribes": {
+      "name": "The Highbough Tribes",
+      "description": "The trolls who climbed the World Tree and made it their home, from the landing at its roots to the Great Settlement in its heart.",
+      "home_zone": "the_great_settlement",
+      "home_name": "The Great Settlement, in the heart of the World Tree",
+      "leader": {
+        "title": "High Chieftain",
+        "name": "Zan'kaji",
+        "location": "The Great Settlement, in the heart of the World Tree",
+        "line": "The tree answered us when the world broke. We climbed it, and we'll keep it. Help us and you're one of the tribes."
+      },
+      "_lore_note": "Kyle, 19 Nov 2026: the World Tree's town and faction are the trolls'. docs/worldtree_brief.md.",
+      "lore": [
+        "Three years ago a seed split the reef off Stranglethorn's west coast, and the tree that came out of it has never stopped growing. Its roots drink the sea, its branches carry whole villages, and its crown has gone up through the clouds.",
+        "Stranglethorn's trolls, squeezed between Grom'gol, the Bloodsail and their own feuding tribes, were the first to climb it. Darkspear kin and the tribes who'd broken with the Gurubashi feuds, with a few Skullsplitter and Bloodscalp who turned their backs on their own, built a landing at its roots and a city in its heart.",
+        "They call the tree a loa that answered them when nothing else would. The Highbough Tribes hold it now, allied to the Horde without answering to it, and they remember who helps them keep it."
+      ],
+      "quest_rep": {
+        "_comment": "Per quest, paid by giver (tools/build_rootwater_isle_quests.py).",
+        "default": 200,
+        "boss": 250,
+        "capstones": {},
+        "zones": [],
+        "also": []
+      },
+      "rewards": {
+        "vendor_stock": {},
+        "_comment": "The shelf comes with the Great Settlement's quartermaster.",
+        "quests": {}
+      }
     }
   }
 }

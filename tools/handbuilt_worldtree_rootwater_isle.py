@@ -201,7 +201,6 @@ NPC_POSITIONS = {
     "rw_provisioner":   (80, 84),     # food and drink
     "rw_outfitter":     (96, 86),     # the landing's trader
     "rw_herbalist":     (86, 86),     # sap and herbs
-    "rw_mailbox":       (92, 84),
     "rw_settler":       (104, 76),    # a transplant who came over on the Zoram boat
     "rw_ferryman_east": (162, 90),    # at the Grom'gol pier
     "rw_ferryman_west": (22, 44),     # at the Zoram pier
