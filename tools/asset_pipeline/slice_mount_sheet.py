@@ -71,11 +71,22 @@ def _grid_cut(rgb, hard, strength, content, ids, dry):
     pieces big enough to be part of its sprite, and nothing from the neighbours."""
     keyed = _key(rgb, hard, strength)
     H, W, _ = rgb.shape
-    cw, ch = W / COLS, H / ROWS
+
+    def lines(profile, n, size):
+        # cut at the emptiest line near each nominal edge, not on the arithmetic: a generator's rows aren't evenly
+        # spaced (the walk sheets squeeze their side rows), and an even cut takes a neighbour's feet with it
+        out = [0]
+        for k in range(1, n):
+            c = int(size * k / n)
+            lo, hi = max(1, c - int(size / n / 3)), min(size - 1, c + int(size / n / 3))
+            out.append(lo + int(np.argmin(profile[lo:hi])))
+        return out + [size]
+
+    xs_cut, ys_cut = lines(content.sum(axis=0), COLS, W), lines(content.sum(axis=1), ROWS, H)
     wrote = []
     for ri in range(ROWS):
         for ci in range(COLS):
-            x0, y0, x1, y1 = int(ci * cw), int(ri * ch), int((ci + 1) * cw), int((ri + 1) * ch)
+            x0, y0, x1, y1 = xs_cut[ci], ys_cut[ri], xs_cut[ci + 1], ys_cut[ri + 1]
             cell = content[y0:y1, x0:x1]
             lab, n = ndimage.label(ndimage.binary_closing(cell, structure=np.ones((9, 9))))
             if not n:

@@ -295,6 +295,12 @@ Sliced by `PYTHONPATH=. python3 tools/asset_pipeline/slice_player_sheet.py SHEET
 
 ## WALK CYCLES: one sheet a race, from its turnaround sheet
 
+**Landed 20 Nov 2026 (Kyle tried three men a sheet, then two: "could i maybe have 3 figures side by side?"):** walk
+cycles for every human, orc, blood elf, Forsaken and tauren look (`tools/building_sheets/walk_*.png`). The references were
+each race's turnaround cut into its first three and last two men, one picture each. Blood elves 1 to 3 came back with
+five rows, missing the last walking-right step, so they walk front and back and stand still sideways until that
+sheet is re-rolled. The Veyr and the Aetherians are next.
+
 Kyle, 20 Nov 2026: "when i upload to chatgpt i can only upload 3 pics....so can we bunch these characters up". The
 race's own turnaround sheet already has all five men turned four ways in ONE picture, so it's the only reference
 needed. The game walks left foot, stand, right foot, stand, and the stand is the turnaround's own frame, so each
