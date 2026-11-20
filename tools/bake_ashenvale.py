@@ -474,6 +474,49 @@ FERALAS_NORTH_SHEET.update({
     "av_needle_mulch":   _fe("fe_moss_stones"),
     "av_forest_grass":   _fe("fe_highland_meadow"),
 })
+#: THE WORLD TREE (docs/worldtree_brief.md). Kyle's sheet W1 (docs/worldtree_art_prompts.md, sliced to
+#: assets/tiles/worldtree/ground, 19 Nov 2026). Rootwater Isle: jungle by the shore, root bark near the trunk (the
+#: "corrupt" layer), the rot in the north-east (the "burned" layer), the lagoons, and the trunk itself as the cliff.
+_WT = T / "worldtree" / "ground"
+
+
+def _wt(name, off=0.5, rec=None, extra=None):
+    return (_WT / f"{name}.png", off, rec, extra)
+
+
+ROOTWATER_SHEET = {
+    "av_forest_floor":   _wt("wt_jungle_floor"),
+    "av_forest_grass":   _wt("wt_jungle_grass"),
+    "av_fern_floor":     _wt("wt_root_moss"),
+    "av_root_earth":     _wt("wt_root_mud"),
+    "av_needle_mulch":   _wt("wt_bark_leaves"),
+    "av_bluebell":       _wt("wt_bark_ferns"),
+    "av_road_centre":    _wt("wt_root_bark"),
+    "av_road_edge":      _wt("wt_root_moss"),
+    "av_elven_paving":   _wt("wt_lashed_planks"),
+    "av_mossy_cobble":   _wt("wt_lashed_planks"),
+    "av_plaza_stone":    _wt("wt_lashed_planks"),
+    "av_rocky_ground":   _wt("wt_root_mat"),
+    "av_stream_bed":     _wt("wt_root_sand"),
+    "av_lake_mud":       _wt("wt_root_sand"),
+    "av_lake_shallow":   _wt("wt_lagoon_shallow"),
+    "av_lake_deep":      _wt("wt_lagoon_deep"),
+    "av_moon_water":     _wt("wt_lagoon_shallow"),
+    "av_moon_deep":      _wt("wt_lagoon_deep"),
+    "av_moon_rim":       _wt("wt_root_mat"),
+    "av_cliff_a":        _wt("wt_trunk_wall"),
+    "av_cliff_b":        _wt("wt_trunk_moss_wall"),
+    "av_canopy":         _wt("wt_jungle_floor", extra="canopy"),
+    "av_beach":          _wt("wt_reef_sand"),
+    "av_wet_sand":       _wt("wt_root_sand"),
+    "av_sea_shallow":    _wt("wt_lagoon_shallow"),
+    "av_sea_deep":       _wt("wt_sea"),
+    "av_scorched":       _wt("wt_root_mud"),
+    "av_burned_forest":  _wt("wt_rot_bark"),
+    "av_fel_earth":      _wt("wt_sap_seep"),
+    "av_corrupt_ground": _wt("wt_root_bark"),
+    "av_satyr_earth":    _wt("wt_root_mud"),
+}
 WPL_SHEET = _plague_sheet(east=False)
 EPL_SHEET = _plague_sheet(east=True)
 ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_SHEET, "epl_east": EPL_SHEET, "felwood_north": NORTH_SHEET, "stonetalon_east": STONETALON_SHEET,
@@ -484,7 +527,7 @@ ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_S
                "feralas_feathermoon": FERALAS_FEATHERMOON_SHEET, "timbermaw_hold": TIMBERMAW_HOLD_SHEET,
                "azshara_central": AZSHARA_CENTRAL_SHEET, "azshara_east": AZSHARA_EAST_SHEET,
                "deadwind_west": DEADWIND_SHEET, "deadwind_east": DEADWIND_EAST_SHEET, "ariden_watch": ARIDEN_SHEET,
-               "moonglade": MOONGLADE_SHEET}
+               "moonglade": MOONGLADE_SHEET, "worldtree_rootwater_isle": ROOTWATER_SHEET}
 
 def _recolour(a, hue, sat, val):
     """a float 0..1 HxWx3 -> luminance-preserving tint."""
@@ -824,7 +867,7 @@ def bake(zone="west", preview=None, scale=4, only=None):
     elif zone == "deadwind_east":
         # Deadwind East: the gorge, broken time, Karazhan's crag and the rupture under the wheel (DEADWIND_EAST_SHEET)
         from tools import handbuilt_deadwind_east as M
-    elif zone.startswith("feralas_"):
+    elif zone.startswith(("feralas_", "worldtree_")):
         # Feralas (docs/feralas_brief.md): the three open maps, FERALAS_SHEET / FERALAS_COAST_SHEET
         import importlib
         M = importlib.import_module(f"tools.handbuilt_{zone}")
@@ -860,7 +903,7 @@ def main():
     if "--preview" in sys.argv:
         preview = sys.argv[sys.argv.index("--preview") + 1]
     sc = int(sys.argv[sys.argv.index("--scale") + 1]) if "--scale" in sys.argv else 4
-    zone = next((z for z in ("feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
+    zone = next((z for z in ("worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
     only = None
     if "--region" in sys.argv:       # x0,y0,x1,y1 in tiles: bake only the 20x20 chunks touching it (fast look-dev)
         x0, y0, x1, y1 = map(int, sys.argv[sys.argv.index("--region") + 1].split(","))

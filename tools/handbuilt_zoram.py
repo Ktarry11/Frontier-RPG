@@ -23,8 +23,9 @@ DESC = "A rocky coastline on Ashenvale's western edge, boats bound for distant s
 REGION = "Kalimdor - Western Forest"
 W, H = 60, 50
 BAKED_DIR = "assets/tiles/zoram_strand/baked"
-PORTALS = {(50, 25): "Ashenvale West"}
-ARRIVALS = [(50, 23)]
+PORTALS = {(50, 25): "Ashenvale West",
+           (4, 19): "Rootwater Isle"}                  # the boat from the pier's T-head to the World Tree (19 Nov 2026)
+ARRIVALS = [(50, 23), (4, 21)]
 START = (48, 25)
 
 ROADS = {

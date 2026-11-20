@@ -205,6 +205,7 @@ ZONE_BACKGROUND = {
     "Southshore": "coast",                        # the Alliance harbour town, its own map
     "West Azshara": "fantasy_forest",             # Azshara's autumn forest (until its own background)
     "Talrendis Landing": "coast",                 # the salvage camp on the bay
+    "Rootwater Isle": "coast",                    # the World Tree's roots on the reef (until its own background)
     "The High Wilderness": "mossy_forest",        # Feralas's giant forest (until its own background)
     "The Forgotten Coast": "mossy_forest",
     "The Twin Colossals": "mossy_forest",

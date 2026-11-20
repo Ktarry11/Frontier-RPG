@@ -373,6 +373,7 @@ ZONE_BIOME = {
     "Timbermaw Tunnel": "mythical_forest",
     "West Azshara": "mythical_forest",       # painted ground (baked); the biome only names the fallback
     "Talrendis Landing": "mythical_forest",
+    "Rootwater Isle": "coast",                    # the World Tree's island: painted ground (baked)
     "The High Wilderness": "mythical_forest",     # Feralas: painted ground (baked); the biome only names the fallback
     "The Forgotten Coast": "mythical_forest",
     "The Twin Colossals": "mythical_forest",

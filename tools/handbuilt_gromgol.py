@@ -43,8 +43,9 @@ W, H = 64, 56
 BAKED_DIR = "assets/tiles/gromgol/baked"
 IS_TOWN = True
 BASE_TILE = "grass"
-PORTALS = {(32, 4): "Zeppelin Tower", (32, 53): "Northern Stranglethorn"}
-ARRIVALS = [(32, 6), (32, 51)]
+PORTALS = {(32, 4): "Zeppelin Tower", (32, 53): "Northern Stranglethorn",
+           (10, 33): "Rootwater Isle"}                 # the boat to the World Tree off the coast (19 Nov 2026)
+ARRIVALS = [(32, 6), (32, 51), (12, 33)]
 START = (32, 8)
 
 ROADS = {

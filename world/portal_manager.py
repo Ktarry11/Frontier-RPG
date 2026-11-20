@@ -304,6 +304,7 @@ class PortalManager:
             "Grom'gol": {
                 (32, 4): ("Grom'gol Zeppelin Tower", 32, 57),   # up the stair: arrival (32,55)
                 (32, 53): ("Northern Stranglethorn", 54, 96),
+                (10, 33): ("Rootwater Isle", 167, 94),              # the boat to the World Tree: arrive (167,92)
             },
             "Northern Stranglethorn": {
                 (54, 96): ("Grom'gol", 32, 53),
@@ -696,6 +697,7 @@ class PortalManager:
             },
             "Zoram Strand": {
                 (50, 25): ("Ashenvale West", 15, 30),
+                (4, 19): ("Rootwater Isle", 17, 48),                # the boat to the World Tree: arrive (17,46)
             },
             "Moonwell Hollow": {
                 (42, 66): ("Ashenvale West", 110, 82),
@@ -740,6 +742,11 @@ class PortalManager:
                 (90, 196): ("North Felwood", 94, 9),                # arrive (94,7), at the foot of the tunnel
                 (177, 152): ("Timbermaw Hold", 4, 110),             # the East Passage: arrive (4,108), in the Hold
                 (12, 34): ("Moonglade", 156, 167),                  # the Moonglade passage: arrive (156,165)
+            },
+            # ===== THE WORLD TREE (docs/worldtree_brief.md, 19 Nov 2026): the island, by boat from either continent =====
+            "Rootwater Isle": {
+                (170, 92): ("Grom'gol", 12, 35),                    # the boat back to Stranglethorn: arrive (12,33)
+                (14, 46): ("Zoram Strand", 4, 23),                  # the boat across to Ashenvale: arrive (4,21)
             },
             # ===== FERALAS (docs/feralas_brief.md, 19 Nov 2026): the arrival is always two tiles north of the target =====
             "The High Wilderness": {

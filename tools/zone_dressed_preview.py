@@ -66,6 +66,7 @@ ZONES = {
     "azshara_central": "tools.handbuilt_azshara_central",
     "azshara_east": "tools.handbuilt_azshara_east",
     "talrendis_landing": "tools.handbuilt_talrendis_landing",
+    "worldtree_rootwater_isle": "tools.handbuilt_worldtree_rootwater_isle",
     "feralas_high_wilderness": "tools.handbuilt_feralas_high_wilderness",
     "feralas_forgotten_coast": "tools.handbuilt_feralas_forgotten_coast",
     "feralas_twin_colossals": "tools.handbuilt_feralas_twin_colossals",
