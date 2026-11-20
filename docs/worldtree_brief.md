@@ -245,6 +245,94 @@ is the sky finding the ground.
 eventually", and the playable races are to be "orcs, tauren, undead, aetherian, humans, and belfs". Their player looks
 are written with the others (`docs/player_sprite_prompts.md`, sheet P6). Still after.
 
+Why it's canon (Kyle, 20 Nov 2026): the sky arc ends with the Aetherians joining the Horde ("Twenty questions", 20),
+"This is what allows the Aether starting zone (cannonically)".
+
+## Twenty questions: the sky continent's story (Kyle, 20 Nov 2026)
+
+Kyle: "So these places can be large! Don't hold back right bro", and "the first zone players get into is where tension
+is super fucking high as its the first azeroth / aetherian / earth people meet fully". Then a game of twenty questions:
+
+| # | Question | Kyle's answer |
+|---|---|---|
+| 1 | What's already gone wrong when the player reaches the Crown | **The Ascendancy crashes the parley.** The military lands in the middle of the talks, and each side thinks the other set it up |
+| 2 | Earth people who woke up on sky islands | **Kept, new canon: the Aetherians found them.** The scholar houses keep them as wards and curiosities, guests who can't leave |
+| 3 | How the scholar houses see the ground peoples | **Split down the middle**: one house respects the ground, the rest think it's gone soft |
+| 4 | What Earth people are to the Aetherians | "**Something to study, smart.** Aetherians are either incredibly smart or great military; most earth people respect them for something" |
+| 5 | Who rules Aurelion | **A council of the scholar houses**, and the Ascendancy is getting too strong for it to control |
+| 6 | What the Aetherians believe is killing their world | **The houses disagree.** The scholars say study the tree; the Ascendancy says take it |
+| 7 | Who leads the Ascendancy | **A scholar gone military**: once one of the houses' brightest, she decided study was too slow and took the army with her |
+| 8 | How hard the Ascendancy hits the Crown | **Both, escalating**: a beachhead on a chained islet early on, and later quests take you into the lobes of the crown they've taken. (The map doesn't change with quests: both are there from the start, and the quests walk you deeper) |
+| 9 | The Crown's size | **"Even bigger"** than 240x200: about 300x240, the biggest map in the game |
+| 10 | Where players rest | **The Aetherian survey camp**: you're the guest of the people who study you. A town, so its own map, with an inn and the zone's one flight path |
+| 11 | Where the trolls stand | **The trolls want war.** Zan'kaji's people see invaders on their tree; the Orgrimmar envoy is the one trying to stop it turning into one |
+| 12 | The Crown's big moment | "**A seal cracks and the Aetherians realize that there are bigger threats.** This opens up their capital city and sets the stage for the T1 raid happening up here" |
+| 13 | What's behind the seal | "It will have about **7 bosses**....so we can get creative... its only T1" (the Celestial raid; three concepts pitched below) |
+| 14 | What cracks it | **The fighting**: storm artillery and troll magic hammering the crown break it by accident, so everyone's to blame |
+| 15 | Why the seal opens Aurelion | **They need allies.** Aurelion lifts its ban on ground folk because it can't face this alone: proud, ugly and desperate |
+| 16 | Where the Celestial raid is | **Behind the seal.** You come back to the Crown at 60 and go in through the crack |
+| 17 | What kind of place the raid is | Rafa pitches three concepts, Kyle picks |
+| 18 | The Anchorfields (51-54) and the Ascendant Bastions (54-57) | **Both approved** |
+| 19 | The player's ally through the whole arc | **A pair**: a scholar of the split house and an Earthborn who's lived three years with the Aetherians, who don't fully trust each other |
+| 20 | How the arc ends at 60 | "**They integrate themselves more in with the horde** as they realize the world is bigger than they thought and changing fast." Kyle: "This is what allows the Aether starting zone (canonically)" |
+
+What this settles:
+- **The order at the Crown**: first contact, the parley, the Ascendancy's landing, the fight spreading across the crown,
+  and the seal cracking under it. The Aetherians realize the Ascendancy isn't the worst thing in the sky, and Aurelion
+  opens its gates to the ground. The cutscene (`docs/crown_cutscene.md`) is still where the player arrives.
+- **The Celestial raid** (`docs/raid_tier1_design.md`) sits behind the crack in the Crown, seven bosses, and its chain
+  opens once Aurelion is unlocked.
+- **The Earthborn camp** at the Crown is the Earth people the survey brought along, standing between the scholars who
+  keep them and the transplant climbers who came up the tree.
+- **The Aetherian playable race is canon from the ending**: by 60 the Aetherians are joining the Horde, and that's why
+  an Aetherian can start a character (the start zone in "Saved for after").
+- The Aetherians still only hunt for what the Integration was, and never get close to its cause. Nothing in the seal,
+  the raid or the ending points at it.
+
+### The Celestial raid: three concepts (Rafa, 20 Nov 2026; Kyle picks)
+
+Seven bosses behind the cracked seal, T1 (item level 68, `docs/raid_tier1_design.md`). Every boss has something that
+kills you if it's ignored (Kyle: no "buffing / debuffing / punching bags").
+
+**A. The Stillwind Gaol.** A Kharad prison older than Aurelion, where the Cloud Giants locked away what they couldn't
+kill. Seven cells, seven prisoners, and the jailer last.
+1. **Lockstone, the Jailer Construct**: still on duty, it chains a player in place every few turns; break the chain
+   before it lands the crush.
+2. **Hrossa, the Chained Leviathan**: a sky whale caged for swallowing a city. It breathes in and drags the raid toward
+   its mouth, and whoever reaches it is swallowed and has to fight their way out from inside.
+3. **The Hollow Choir**: six Veyr traitors bound into one storm. Their song stacks every turn, and killing them out of
+   order heals the rest.
+4. **The Unweighted**: gravity is wrong in its cell. The floor flips every few turns, and anyone on the wrong side falls.
+5. **Mother Murk**: a living cloud that eats light. The raid keeps the cell's lanterns lit or takes stacking shadow.
+6. **The Twins in the Glass**: two Aetherians caged before Aurelion was built. Proof the Kharad once jailed
+   Aetherians, which the houses would rather nobody saw. (Optional lore: it's a big claim to make about the Aetherians)
+7. **Warden-King Oskhar**: the Kharad who locked himself in to hold the seal shut, mad after ages alone. He uses the
+   powers of every prisoner you killed. It also sets up the Kharad continent for later.
+
+**B. The Court of the Bound Sun.** A second sun the Kharad pulled out of the sky and buried under the crown, with its
+court still serving it.
+1. **The Herald of Noon**: its glare blinds whoever is facing it.
+2. **The Gale Choir**: winds push the raid toward the edge of the platform.
+3. **Sunscale, the Court Hound**: it hunts the healer with the most threat.
+4. **The Regents of Dawn and Dusk**: one heals the other unless both die within a few turns of each other.
+5. **The Lightning Chancellor**: chain lightning that punishes anyone standing too close together.
+6. **The Veiled Consort**: she charms a player to fight for her.
+7. **Aur'kesh, the Bound Sun**: three phases (chained, half-free, unbound), and the arena burns more as it frees.
+
+**C. The Underforge of the First House.** The Aetherians' buried sin: their ancestors' war-forge, where they built a
+weapon out of living storm and sealed the smiths in with it. The council needs allies, and it also needs this to stay
+secret.
+1. **The Foundry Sentinel**: it stamps the floor into molten lanes.
+2. **The Crucible**: molten crystal that hardens on whoever it touches until they shatter.
+3. **Lancer Prime**: a construct copy of their greatest hero, and it copies the tank's abilities.
+4. **The Bombardier Wing**: flying constructs bombing the platform while the raid fights on it.
+5. **The Grafted**: Aetherian smiths fused with crystal and still alive.
+6. **Forgemaster Ilvane**: her ghost still runs the forge and rebuilds whatever you break.
+7. **The Engine That Hungers**: the storm weapon itself.
+
+**Rafa's pick: A.** Seven fights that each play differently, a final boss that pays off all six before him, and the
+Kharad set up for later. C has the best politics, though, and the scholar-general would want what's in it.
+
 ## Order of work
 
 1. **This brief and the tree's art sheets** (`docs/worldtree_art_prompts.md`, stage 1: the island, the tiers and the
