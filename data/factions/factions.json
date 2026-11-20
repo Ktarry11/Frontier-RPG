@@ -3262,7 +3262,7 @@
         "They call the tree a loa that answered them when nothing else would. The Highbough Tribes hold it now, allied to the Horde without answering to it, and they remember who helps them keep it."
       ],
       "quest_rep": {
-        "_comment": "Per quest, paid by giver (tools/build_rootwater_quests.py, tools/build_lower_boughs_quests.py).",
+        "_comment": "Per quest, paid by giver (tools/build_rootwater_quests.py, tools/build_lower_boughs_quests.py, tools/build_great_settlement_quests.py, tools/build_middle_boughs_quests.py).",
         "default": 200,
         "boss": 250,
         "capstones": {},
@@ -3270,7 +3270,9 @@
           "rootwater_isle",
           "lower_boughs",
           "knothollow",
-          "great_settlement"
+          "great_settlement",
+          "middle_boughs",
+          "shriekhollow"
         ],
         "also": [
           "rwq_off_the_boat",
@@ -3329,6 +3331,33 @@
           "lbq_down_to_fizzle",
           "lbq_the_shrine_on_the_west_bough",
           "lbq_the_great_lift",
+          "mbq_what_comes_up",
+          "mbq_the_rots_heart",
+          "mbq_old_barkrot",
+          "mbq_sealed_for_now",
+          "mbq_listening_to_the_tree",
+          "mbq_spores_on_the_wind",
+          "mbq_pale_dust",
+          "mbq_lotus_for_the_shrine",
+          "mbq_bad_sap",
+          "mbq_splints_for_the_bark",
+          "mbq_splinters_for_the_doctor",
+          "mbq_talons_on_the_hollow_bough",
+          "mbq_feather_knives",
+          "mbq_old_raggedwing",
+          "mbq_into_shriekhollow",
+          "mbq_still_twitching",
+          "mbq_drone_cogs",
+          "mbq_scouts_without_masters",
+          "mbq_the_wakened_surveyor",
+          "mbq_the_surveyors_core",
+          "mbq_owls_on_the_terraces",
+          "mbq_skinks_in_the_stonework",
+          "mbq_the_climbers_names",
+          "mbq_hushwing",
+          "mbq_moths_in_the_ropes",
+          "mbq_pythons_in_the_lichen",
+          "mbq_counting_nests",
           "gsq_an_audience",
           "gsq_the_war_below",
           "gsq_the_wall_of_fallen_things",
@@ -3337,7 +3366,8 @@
           "gsq_the_wards_lanterns",
           "gsq_a_bat_in_the_webs",
           "gsq_offerings_for_the_loa",
-          "gsq_soil_for_the_terrace"
+          "gsq_soil_for_the_terrace",
+          "gsq_up_the_high_lift"
         ]
       },
       "rewards": {

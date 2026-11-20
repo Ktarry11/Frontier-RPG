@@ -756,9 +756,17 @@ class PortalManager:
             },
             "The Great Settlement": {
                 (24, 14): ("The Lower Boughs", 130, 22),            # down the Great Lift: arrive (130,20) on the ledge
+                (162, 14): ("The Middle Boughs", 20, 130),          # up the High Lift: arrive (20,128) on the terraces
             },
             "The Knothollow": {
                 (40, 2): ("The Lower Boughs", 62, 22),              # out of the knot: arrive (62,20) on the ledge
+            },
+            "The Middle Boughs": {
+                (16, 128): ("The Great Settlement", 162, 20),       # down the High Lift: arrive (162,18) at its foot
+                (16, 82): ("Shriekhollow", 40, 6),                  # into the hollow: arrive (40,4) inside the split
+            },
+            "Shriekhollow": {
+                (40, 2): ("The Middle Boughs", 20, 84),             # out of the hollow: arrive (20,82) on the terraces
             },
             # ===== FERALAS (docs/feralas_brief.md, 19 Nov 2026): the arrival is always two tiles north of the target =====
             "The High Wilderness": {

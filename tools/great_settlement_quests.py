@@ -27,11 +27,13 @@ ORG = "orgrimmar"
 OZENNA, ZANKAJI, GRUKK, YENVAA, TELZAN = "gs_liftkeeper", "gs_zankaji", "gs_orc_envoy", "gs_scholar", "gs_scholar_hall"
 OZAI, RUZKAH, KOFI, HANA, VASHI = "gs_ward_elder", "gs_flight_master", "gs_transplant_a", "gs_transplant_b", "gs_loa_priest"
 ULANI = "gs_gardener"
+TAGU = "gs_highlift_keeper"      # at the High Lift, not in the hub
 # ---- elsewhere (turn-ins only)
 THRALL = "org_thrall"
+VOKRA = "mb_shadowhunter"
 
 HUB_GIVERS = {OZENNA, ZANKAJI, GRUKK, YENVAA, TELZAN, OZAI, RUZKAH, KOFI, HANA, VASHI, ULANI}
-TRIBE_GIVERS = HUB_GIVERS - {KOFI, HANA, GRUKK}
+TRIBE_GIVERS = HUB_GIVERS - {KOFI, HANA, GRUKK} | {TAGU}
 
 
 def k(target, n, zone=LB):
@@ -221,4 +223,19 @@ def build():
         "place, it's bitter in the right way. It grows out on the boughs below. Bring me some and I'll try a pot.",
         "Oh, that's close. It's not sencha, but it's close.\n\nMy grandmother said a tea house is wherever you pour "
         "the tea properly. I didn't understand that until I was pouring it in a tree for trolls."))
+
+    # =================================================================================== 6. ON UP
+    A(Q("gsq_up_the_high_lift", "Up the High Lift", TAGU, 45, 45, "Highlift",
+        "Liftwarden Tagu works the bottom of the High Lift. The shadow hunters at Heartwatch, up in the Middle Boughs, "
+        "have asked the city for anyone who can fight, and Zan'kaji's been telling people about you.",
+        [deliver("gs_q_tagus_token", "Ride the High Lift and give Tagu's token to Shadow Hunter Vokra at Heartwatch")],
+        "Shadow Hunter Vokra's asked the city for fighters, and after the Bloodscalp business your name's the one "
+        "everybody says. Take my token up the High Lift so Dezza at the top knows I sent you, and find Vokra at "
+        "Heartwatch. Nobody's asked us for fighters since the merge.",
+        "Tagu's token, and the High Chieftain's word before it. We've needed somebody like you for a month.\n\n"
+        "Welcome to Heartwatch. The air's thin, the bark's sick, and there's a door behind me we don't open. Let me "
+        "tell you why.",
+        turn_in_npc_id=VOKRA, requires_quests=["gsq_the_war_below"],
+        grant_items=carry("gs_q_tagus_token", "Tagu's Lift Token", "A disc of carved heartwood with the High Lift's "
+                          "mark on it, for whoever works the top.")))
     return out

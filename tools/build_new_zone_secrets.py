@@ -25,12 +25,13 @@ import build_secrets_pass3 as P3  # noqa: E402
 
 TAG = "new_zones"
 #: map -> how many secrets it should hold
-WANT = {"Rootwater Isle": 2, "The Lower Boughs": 2, "The High Wilderness": 2, "The Forgotten Coast": 2, "The Twin Colossals": 2}
+WANT = {"Rootwater Isle": 2, "The Lower Boughs": 2, "The Middle Boughs": 2, "The High Wilderness": 2, "The Forgotten Coast": 2, "The Twin Colossals": 2}
 
 
 #: maps that stand over a drop (a module with DROP): their collision is mostly the void, and a hidden place cut into
 #: that would be a room of open air. On these a secret has to be cut into the tree itself.
-OVER_THE_DROP = {"The Lower Boughs": "tools.handbuilt_worldtree_lower_boughs"}
+OVER_THE_DROP = {"The Lower Boughs": "tools.handbuilt_worldtree_lower_boughs",
+                 "The Middle Boughs": "tools.handbuilt_worldtree_middle_boughs"}
 
 
 def _tiles(c):

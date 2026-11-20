@@ -1,0 +1,280 @@
+{
+  "_notes": "The Middle Boughs' open-world rares (46-47). ONE item per kill from the rare's four; item_level = the rare's level + 3. Hand-authored in tools/build_middle_boughs_content.py.",
+  "Hushwing": [
+    {
+      "name": "Hushwing Feather Cloak",
+      "slot": "back",
+      "item_level": 49,
+      "rarity": "rare",
+      "required_level": 46,
+      "primary_stats": {
+        "agility": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {},
+      "stat_template": "agi_physical",
+      "item_id": "mbi_hushwing_feather_cloak"
+    },
+    {
+      "name": "Silent Hunter's Wraps",
+      "slot": "wrist",
+      "item_level": 49,
+      "rarity": "rare",
+      "required_level": 46,
+      "primary_stats": {
+        "intellect": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "spell_power": 12
+      },
+      "armor_type": "cloth",
+      "armor_value": 55,
+      "stat_template": "int_caster",
+      "item_id": "mbi_silent_hunters_wraps"
+    },
+    {
+      "name": "Owl-Talon Gauntlets",
+      "slot": "hands",
+      "item_level": 49,
+      "rarity": "rare",
+      "required_level": 46,
+      "primary_stats": {
+        "strength": 13,
+        "stamina": 13
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 267,
+      "stat_template": "str_physical",
+      "item_id": "mbi_owl_talon_gauntlets"
+    },
+    {
+      "name": "Mistfeather Mantle",
+      "slot": "shoulder",
+      "item_level": 49,
+      "rarity": "rare",
+      "required_level": 46,
+      "primary_stats": {
+        "intellect": 10,
+        "spirit": 10
+      },
+      "secondary_stats": {
+        "healing_power": 26
+      },
+      "armor_type": "leather",
+      "armor_value": 136,
+      "stat_template": "spi_healer",
+      "item_id": "mbi_mistfeather_mantle"
+    }
+  ],
+  "The Wakened Surveyor": [
+    {
+      "name": "Surveyor's Lens",
+      "slot": "off_hand",
+      "item_level": 49,
+      "rarity": "rare",
+      "required_level": 46,
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 9
+      },
+      "secondary_stats": {
+        "spell_power": 22,
+        "crit_chance_spell": 6
+      },
+      "stat_template": "int_caster",
+      "item_id": "mbi_surveyors_lens"
+    },
+    {
+      "name": "Bronze-Plated Vambraces",
+      "slot": "wrist",
+      "item_level": 49,
+      "rarity": "rare",
+      "required_level": 46,
+      "primary_stats": {
+        "strength": 13,
+        "intellect": 13
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 267,
+      "stat_template": "str_int_hybrid",
+      "item_id": "mbi_bronze_plated_vambraces"
+    },
+    {
+      "name": "Arc-Wired Chain Leggings",
+      "slot": "legs",
+      "item_level": 49,
+      "rarity": "rare",
+      "required_level": 46,
+      "primary_stats": {
+        "agility": 19,
+        "spirit": 19
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 257,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "mbi_arc_wired_chain_leggings"
+    },
+    {
+      "name": "Overcharged Coil Ring",
+      "slot": "ring",
+      "item_level": 49,
+      "rarity": "rare",
+      "required_level": 46,
+      "primary_stats": {
+        "intellect": 8,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "spell_power": 11
+      },
+      "stat_template": "int_caster",
+      "item_id": "mbi_overcharged_coil_ring"
+    }
+  ],
+  "Old Barkrot": [
+    {
+      "name": "Barkrot Bracers",
+      "slot": "wrist",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 113,
+      "stat_template": "agi_physical",
+      "item_id": "mbi_barkrot_bracers"
+    },
+    {
+      "name": "Rot-Root Staff",
+      "slot": "two_hand",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "weapon_type": "staff",
+      "primary_stats": {
+        "stamina": 21,
+        "intellect": 21
+      },
+      "secondary_stats": {
+        "healing_power": 36
+      },
+      "weapon_damage_min": 48,
+      "weapon_damage_max": 66,
+      "attack_speed": 3.2,
+      "stat_template": "spi_healer",
+      "item_id": "mbi_rot_root_staff"
+    },
+    {
+      "name": "Mouldered Heartwood Greaves",
+      "slot": "legs",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "primary_stats": {
+        "strength": 20,
+        "stamina": 20
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 393,
+      "stat_template": "str_physical",
+      "item_id": "mbi_mouldered_heartwood_greaves"
+    },
+    {
+      "name": "Sporecap Hood",
+      "slot": "head",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "primary_stats": {
+        "intellect": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {
+        "spell_power": 15
+      },
+      "armor_type": "cloth",
+      "armor_value": 69,
+      "stat_template": "int_caster",
+      "item_id": "mbi_sporecap_hood"
+    }
+  ],
+  "Old Raggedwing": [
+    {
+      "name": "Raggedwing's Talon",
+      "slot": "main_hand",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "strength": 14,
+        "agility": 14
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 88,
+      "weapon_damage_max": 120,
+      "attack_speed": 1.8,
+      "stat_template": "agi_physical",
+      "item_id": "mbi_raggedwings_talon"
+    },
+    {
+      "name": "Flock-Elder's Shoulderguards",
+      "slot": "shoulder",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "primary_stats": {
+        "strength": 17,
+        "intellect": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 222,
+      "stat_template": "str_int_hybrid",
+      "item_id": "mbi_flock_elders_shoulderguards"
+    },
+    {
+      "name": "Plucked-Feather Sandals",
+      "slot": "feet",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "primary_stats": {
+        "intellect": 8,
+        "spirit": 8
+      },
+      "secondary_stats": {
+        "healing_power": 22
+      },
+      "armor_type": "cloth",
+      "armor_value": 56,
+      "stat_template": "spi_healer",
+      "item_id": "mbi_plucked_feather_sandals"
+    },
+    {
+      "name": "Hollow-Roost Jerkin",
+      "slot": "chest",
+      "item_level": 50,
+      "rarity": "rare",
+      "required_level": 47,
+      "primary_stats": {
+        "agility": 20,
+        "spirit": 20
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 164,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "mbi_hollow_roost_jerkin"
+    }
+  ]
+}

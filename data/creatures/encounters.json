@@ -6686,6 +6686,77 @@
           }
         }
       }
+    },
+    "The Middle Boughs": {
+      "name": "The Middle Boughs",
+      "open_zone": {
+        "name": "The Middle Boughs",
+        "creatures": {
+          "Terrace Skink": 4,
+          "Lichenwing Moth": 3,
+          "Mistfeather Owl": 1
+        }
+      },
+      "subzones": {
+        "The Old Terraces": {
+          "name": "The Old Terraces",
+          "creatures": {
+            "Terrace Skink": 5,
+            "Lichenwing Moth": 4,
+            "Mistfeather Owl": 3,
+            "Hushwing": 0
+          }
+        },
+        "The Lichen Reach": {
+          "name": "The Lichen Reach",
+          "creatures": {
+            "Scuttling Gear-Drone": 5,
+            "Twitching Scout": 4,
+            "Mistcoil Python": 4,
+            "Mistfeather Owl": 2,
+            "The Wakened Surveyor": 0
+          }
+        },
+        "The Rotting Bough": {
+          "name": "The Rotting Bough",
+          "creatures": {
+            "Rotheart Treant": 4,
+            "Blightgrub": 5,
+            "Rotspore Cloud": 4,
+            "Sap-Blight Ooze": 4,
+            "Old Barkrot": 0
+          }
+        },
+        "The Hollow Bough": {
+          "name": "The Hollow Bough",
+          "creatures": {
+            "Blighted Harpy": 5,
+            "Hollow Screecher": 4,
+            "Hollow Talon": 4,
+            "Hollow Windcaller": 3,
+            "Old Raggedwing": 0
+          }
+        },
+        "Heartwatch": {
+          "name": "Heartwatch",
+          "safe": true,
+          "creatures": {}
+        }
+      },
+      "caves": {
+        "Shriekhollow": {
+          "name": "Shriekhollow",
+          "creatures": {
+            "Brood-Harpy": 4,
+            "Shriekhollow Screamer": 4,
+            "Roost Talonguard": 4,
+            "Rotdark Crawler": 4,
+            "Rotdark Spores": 4,
+            "Matron Vyssa": 0,
+            "Old Splinterheart": 0
+          }
+        }
+      }
     }
   }
 }

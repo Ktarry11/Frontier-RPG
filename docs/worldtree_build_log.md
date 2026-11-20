@@ -133,7 +133,55 @@ the terrace); and two transplants, Kofi Mensah from Accra cooking for market day
 - **Two stale builders.** The Ashenvale quest builders are older than their data, and rerunning one undid the voice pass
   and the loot ratings. They now refuse to run without `--force`.
 
+## The Middle Boughs (45-47) and Shriekhollow, done 20 Nov 2026
+
+The tree's heart above the city, up the High Lift (the city's High Lift opened the same day).
+
+| Piece | Where |
+|---|---|
+| Map (180x150) | `tools/handbuilt_worldtree_middle_boughs.py`, baked to `assets/tiles/worldtree/baked_middle_boughs` |
+| The cave (84x100) | `tools/handbuilt_shriekhollow.py`, baked by `tools/bake_shriekhollow.py` |
+| Creatures, rares, cave bosses, loot, encounters, gathering, fishing | `tools/build_middle_boughs_content.py` |
+| People | `tools/build_middle_boughs_people.py` |
+| Quests | `tools/middle_boughs_quests.py` (text), `tools/build_middle_boughs_quests.py` (builder and audits) |
+
+**The shape:** you've climbed round the trunk, so it's the **west** wall now. The ledge at its foot is the Old Terraces,
+the first climbers' stone: towers, cairns and shrines carried up a tree a block at a time. Heartwatch, the shadow
+hunters' outpost, stands on a stone platform built out over the drop. Three boughs run east: the Lichen Reach (pale
+lichen, an old shrine, and the construct that fell out of the sky across its tip), the Rotting Bough (rot pits, sap
+blight, the things that live in the rot) and the Hollow Bough (the harpies' nests in the hollows of the bark). Four
+plank bridges join them. The drop is mist now, the canopy long gone below it (`DROP` haze cool grey).
+
+**The doors in the trunk:** the High Lift down to the city (16,128); Shriekhollow, the harpies' hollow (16,82); and two
+drawn and waiting: the Root Stair on up to the Upper Boughs (16,18), and **the Heartwood Hollow** behind Heartwatch
+(16,46), the dungeon door (the brief: "a door for later, its own call"). The shadow hunters keep it sealed.
+
+**Shriekhollow:** grown, not eaten. The Roost is a ring of ledges round the Well, where the hollow's floor drops away;
+the Throat climbs on with nests hung in side hollows; Matron Vyssa keeps the Eyrie at the top; past it the Rotdark goes
+down to Old Splinterheart, a treant that grew in the dark on the rot, fed by the harpies (optional).
+
+**The creatures:** 14 kinds in the open and 4 rares (Hushwing, the Wakened Surveyor, Old Barkrot, Old Raggedwing), 5 in
+the cave with its 2 bosses, 24 items. W6's rot treant, blighted harpy, scout construct and gear drone are in use now;
+the harpies and owls borrow older figures under their own names.
+
+**The people:** Heartwatch is a small group, not a town: Shadow Hunter Vokra, Loa-Speaker Ganjo, Bark-Doctor Ezzi,
+Huntmaster Raz'gul, Stonekeeper Jo'than, Scholar Nyara from the Settlement, and Dr. Priya Raman, a plant pathologist
+from Bengaluru who came up to study the rot. Two traders, the ropehand at the lift and two scouts.
+
+**The quests:** 31, 27 given at Heartwatch. Threads: the watch (the rot pushed back to Old Barkrot, then listening at the
+sealed Heartwood Hollow: chewing, slow and steady); the tree's voice (Ganjo listening at the first climbers' stones);
+the cure (Ezzi cutting out the rot, Priya working out that it's a fungus that feeds like an animal and goes down, not
+out, into Shriekhollow to Old Splinterheart, her notes to Vokra); the harpies (to Old Raggedwing and Matron Vyssa); the
+fallen construct (the falling-sky thread: the Wakened Surveyor's core is full of measurements of the tree, some made
+before it was this tall, and Tel'zan writes "someone up there has been watching it grow"); the first climbers'
+names (one is cut higher up the trunk than anyone has been). The city's Liftwarden Tagu sends you up.
+
+**Secrets:** 2, cut into the tree.
+
+**Found on the way:** the tree scatter and the rope posts were plugging the plank bridges (the baker painted the cut-off
+planks as canopy, which is how it showed). Bridges and Heartwatch's stone now keep their tiles clear.
+
 ## Next
 
-The Middle and Upper Boughs (each with its cave) and the Cloudbreak, the
-sky renderer, then the sky maps. See `docs/worldtree_brief.md` for the whole road.
+The Upper Boughs (with its cave) and the Cloudbreak, the sky renderer, then the sky maps. The Heartwood Hollow is the
+tree's dungeon when Kyle calls it. See `docs/worldtree_brief.md` for the whole road.

@@ -552,6 +552,43 @@ LOWER_BOUGHS_SHEET = {
     "av_corrupt_ground": _wt("wt_dappled_bark"),
     "av_satyr_earth":    _wt("wt_shade_bark"),
 }
+#: The Middle Boughs (Kyle's sheet W1): lichen bark and moss on the boughs, the rot as the "corrupt" patches with its
+#: mushrooms as the "fel" speckle, sap blight as the "burned" ones, harpy litter as the "bluebell" ones, the first
+#: climbers' stone as paving, lashed planks on the bridges (the "plaza" layer), the trunk as the west wall, and the drop
+#: as mist, the canopy gone below it.
+MIDDLE_BOUGHS_SHEET = {
+    "av_forest_floor":   _wt("wt_lichen_bark"),
+    "av_forest_grass":   _wt("wt_bark_moss"),
+    "av_fern_floor":     _wt("wt_lichen_bark"),
+    "av_root_earth":     _wt("wt_shade_bark"),
+    "av_needle_mulch":   _wt("wt_bark_leaves"),
+    "av_bluebell":       _wt("wt_nest_litter"),
+    "av_road_centre":    _wt("wt_branch_bark"),
+    "av_road_edge":      _wt("wt_carved_bark"),
+    "av_elven_paving":   _wt("wt_city_stone"),
+    "av_mossy_cobble":   _wt("wt_city_stone"),
+    "av_plaza_stone":    _wt("wt_lashed_planks"),
+    "av_rocky_ground":   _wt("wt_shade_bark"),
+    "av_stream_bed":     _wt("wt_shade_bark"),
+    "av_lake_mud":       _wt("wt_shade_bark"),
+    "av_lake_shallow":   _wt("wt_rain_pool"),
+    "av_lake_deep":      _wt("wt_rain_pool"),
+    "av_moon_water":     _wt("wt_rain_pool"),
+    "av_moon_deep":      _wt("wt_rain_pool"),
+    "av_moon_rim":       _wt("wt_shade_bark"),
+    "av_cliff_a":        _wt("wt_trunk_wall"),
+    "av_cliff_b":        _wt("wt_trunk_moss_wall"),
+    "av_canopy":         _wt("wt_bark_moss", extra="canopy"),
+    "av_beach":          _wt("wt_lichen_bark"),
+    "av_wet_sand":       _wt("wt_shade_bark"),
+    "av_sea_shallow":    _wt("wt_drop_mist"),
+    "av_sea_deep":       _wt("wt_drop_mist"),
+    "av_scorched":       _wt("wt_sap_seep"),
+    "av_burned_forest":  _wt("wt_sap_seep"),
+    "av_fel_earth":      _wt("wt_rot_mushrooms"),
+    "av_corrupt_ground": _wt("wt_rot_bark"),
+    "av_satyr_earth":    _wt("wt_shade_bark"),
+}
 #: The Great Settlement (Kyle's sheet W1, the city row): heartwood floors and market planks on the platforms, the Rise's
 #: stone, the Trades' red clay yards, carved bark between the Lantern Ward's homes, the trunk as the north wall, and the
 #: hollow inside the tree (the module's sea field) painted as lantern-lit depths with the lower tiers far below.
@@ -600,6 +637,7 @@ ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_S
                "deadwind_west": DEADWIND_SHEET, "deadwind_east": DEADWIND_EAST_SHEET, "ariden_watch": ARIDEN_SHEET,
                "moonglade": MOONGLADE_SHEET, "worldtree_rootwater_isle": ROOTWATER_SHEET,
                "worldtree_lower_boughs": LOWER_BOUGHS_SHEET,
+               "worldtree_middle_boughs": MIDDLE_BOUGHS_SHEET,
                "worldtree_great_settlement": GREAT_SETTLEMENT_SHEET}
 
 def _recolour(a, hue, sat, val):
@@ -1008,7 +1046,7 @@ def main():
     if "--preview" in sys.argv:
         preview = sys.argv[sys.argv.index("--preview") + 1]
     sc = int(sys.argv[sys.argv.index("--scale") + 1]) if "--scale" in sys.argv else 4
-    zone = next((z for z in ("worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
+    zone = next((z for z in ("worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
     only = None
     if "--region" in sys.argv:       # x0,y0,x1,y1 in tiles: bake only the 20x20 chunks touching it (fast look-dev)
         x0, y0, x1, y1 = map(int, sys.argv[sys.argv.index("--region") + 1].split(","))

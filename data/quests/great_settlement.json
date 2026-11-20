@@ -1151,6 +1151,112 @@
       ],
       "gear_reward_gear_level": 47,
       "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "gsq_up_the_high_lift",
+      "title": "Up the High Lift",
+      "giver_npc_id": "gs_highlift_keeper",
+      "zone": "great_settlement",
+      "level_min": 45,
+      "level_max": 45,
+      "description": "Liftwarden Tagu works the bottom of the High Lift. The shadow hunters at Heartwatch, up in the Middle Boughs, have asked the city for anyone who can fight, and Zan'kaji's been telling people about you.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "gs_q_tagus_token",
+          "count": 1,
+          "label": "Ride the High Lift and give Tagu's token to Shadow Hunter Vokra at Heartwatch"
+        }
+      ],
+      "accept_text": "Shadow Hunter Vokra's asked the city for fighters, and after the Bloodscalp business your name's the one everybody says. Take my token up the High Lift so Dezza at the top knows I sent you, and find Vokra at Heartwatch. Nobody's asked us for fighters since the merge.",
+      "turn_in_text": "Tagu's token, and the High Chieftain's word before it. We've needed somebody like you for a month.\n\nWelcome to Heartwatch. The air's thin, the bark's sick, and there's a door behind me we don't open. Let me tell you why.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "mb_shadowhunter",
+      "requires_quests": [
+        "gsq_the_war_below"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "gs_q_tagus_token",
+            "name": "Tagu's Lift Token",
+            "description": "A disc of carved heartwood with the High Lift's mark on it, for whoever works the top.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "unique_item_defs": [
+        {
+          "name": "Highlift Greatsword",
+          "slot": "main_hand",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 0,
+          "required_level": 45,
+          "sell_price": 8921,
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_17",
+          "weapon_damage_min": 85,
+          "weapon_damage_max": 115,
+          "attack_speed": 3.4,
+          "block_value": 0
+        },
+        {
+          "name": "Highlift Bracers",
+          "slot": "wrist",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 93,
+          "required_level": 45,
+          "sell_price": 3569,
+          "identity": "agility",
+          "icon_id": "gear_inv_bracer_06"
+        },
+        {
+          "name": "Highlift Hood",
+          "slot": "head",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 24
+          },
+          "armor_value": 48,
+          "required_level": 45,
+          "sell_price": 5710,
+          "identity": "caster",
+          "icon_id": "gear_inv_helmet_28"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
     }
   ]
 }

@@ -1,0 +1,2982 @@
+{
+  "quests": [
+    {
+      "quest_id": "mbq_what_comes_up",
+      "title": "What Comes Up",
+      "giver_npc_id": "mb_shadowhunter",
+      "zone": "middle_boughs",
+      "level_min": 45,
+      "level_max": 46,
+      "description": "Shadow Hunter Vokra holds Heartwatch because of the Heartwood Hollow behind it. The rot climbs up out of the heartwood and along the Rotting Bough, and the Blightgrubs come up with it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Blightgrub",
+          "count": 8,
+          "zone": "middle_boughs"
+        }
+      ],
+      "accept_text": "The rot comes up out of the heartwood and spreads along the Rotting Bough, and the Blightgrubs ride it like a tide. They eat the soft wood and leave the rot room to grow, so it's spreading faster every week. Go out on the bough and kill them.",
+      "turn_in_text": "Good, that's the first push. They'll come back, but slower.\n\nBefore the merge the shadow hunters didn't come up here at all. Now we've got a watch, and a door we don't open.",
+      "next_quest_id": "mbq_the_rots_heart",
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "unique_item_defs": [
+        {
+          "name": "Heartwatch Legguards",
+          "slot": "legs",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "nature_spell_power": 27,
+            "haste": 8
+          },
+          "armor_value": 209,
+          "required_level": 45,
+          "sell_price": 7467,
+          "identity": "storm",
+          "icon_id": "gear_inv_pants_03"
+        },
+        {
+          "name": "Heartwatch Cloak",
+          "slot": "back",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 18
+          },
+          "armor_value": 36,
+          "required_level": 45,
+          "sell_price": 4107,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_18"
+        },
+        {
+          "name": "Heartwatch Pauldrons",
+          "slot": "shoulder",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 239,
+          "required_level": 45,
+          "sell_price": 5973,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_05"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mbq_the_rots_heart",
+      "title": "The Rot's Heart",
+      "giver_npc_id": "mb_shadowhunter",
+      "zone": "middle_boughs",
+      "level_min": 46,
+      "level_max": 46,
+      "description": "Vokra wants to know where the rot on the Rotting Bough is worst, and she wants the Rotheart Treants there cut down before they spread it any further.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "middle_boughs",
+          "target_x": 118,
+          "target_y": 72,
+          "radius": 4,
+          "label": "Find where the rot is worst on the Rotting Bough"
+        },
+        {
+          "type": "kill",
+          "target": "Rotheart Treant",
+          "count": 5,
+          "zone": "middle_boughs"
+        }
+      ],
+      "accept_text": "Somewhere out along the Rotting Bough the rot's thickest, and the Rotheart Treants stand in it like they're guarding it. Find the place and cut them down. I need to know how bad it's got.",
+      "turn_in_text": "The bark's gone soft right through, you say, and there's sap coming up black. That's worse than I'd hoped.\n\nSomething down in the heartwood is feeding it. The rot isn't the sickness, it's the sign of it.",
+      "next_quest_id": "mbq_old_barkrot",
+      "requires_quests": [
+        "mbq_what_comes_up"
+      ],
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "unique_item_defs": [
+        {
+          "name": "Rotwarden's Staff",
+          "slot": "main_hand",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 0,
+          "required_level": 46,
+          "sell_price": 9333,
+          "identity": "agility",
+          "icon_id": "gear_inv_staff_11",
+          "weapon_damage_min": 86,
+          "weapon_damage_max": 117,
+          "attack_speed": 3.6,
+          "block_value": 0
+        },
+        {
+          "name": "Rotwarden's Belt",
+          "slot": "waist",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 81,
+          "required_level": 46,
+          "sell_price": 4107,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_06"
+        },
+        {
+          "name": "Rotwarden's Band",
+          "slot": "ring",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 18
+          },
+          "armor_value": 0,
+          "required_level": 46,
+          "sell_price": 4480,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_ring_10"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mbq_old_barkrot",
+      "title": "Old Barkrot",
+      "giver_npc_id": "mb_shadowhunter",
+      "zone": "middle_boughs",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "The oldest of the rotting treants has rooted itself in the worst of the rot on the Rotting Bough. The shadow hunters call it Old Barkrot, and the rot spreads fastest round it.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Old Barkrot",
+          "count": 1,
+          "zone": "middle_boughs"
+        }
+      ],
+      "accept_text": "There's one treant on the Rotting Bough older and bigger than the rest, and the rot spreads fastest round it. We call it Old Barkrot. It's put down roots in the rot, and it won't move unless something makes it.",
+      "turn_in_text": "Old Barkrot's down, and the bough already smells cleaner.\n\nThat buys us time. Now I want you to see the door we're watching, so you understand what the time's for.",
+      "next_quest_id": "mbq_sealed_for_now",
+      "requires_quests": [
+        "mbq_the_rots_heart"
+      ],
+      "reward_exp": 4420,
+      "reward_gold": 17550,
+      "unique_item_defs": [
+        {
+          "name": "Barkrot Breastplate",
+          "slot": "chest",
+          "item_level": 49,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "healing_power": 63
+          },
+          "armor_value": 385,
+          "required_level": 47,
+          "sell_price": 12224,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_chest_plate15"
+        },
+        {
+          "name": "Barkrot Slippers",
+          "slot": "feet",
+          "item_level": 49,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "spell_power": 28
+          },
+          "armor_value": 55,
+          "required_level": 47,
+          "sell_price": 7946,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_09"
+        },
+        {
+          "name": "Barkrot Wristguards",
+          "slot": "wrist",
+          "item_level": 49,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 11,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 178,
+          "required_level": 47,
+          "sell_price": 6112,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_bracer_09"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "mbq_sealed_for_now",
+      "title": "Sealed for Now",
+      "giver_npc_id": "mb_shadowhunter",
+      "zone": "middle_boughs",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "Vokra wants you to stand at the Heartwood Hollow behind Heartwatch and listen, so you know what the watch is for. The shadow hunters sealed it, and nobody goes in until the tribes say so.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "middle_boughs",
+          "target_x": 20,
+          "target_y": 46,
+          "radius": 4,
+          "label": "Stand at the Heartwood Hollow and listen"
+        }
+      ],
+      "accept_text": "Go and stand at the split behind me and put your ear to the seal. Don't touch it. Just listen, and then come back and tell me what you heard.",
+      "turn_in_text": "Chewing, slow and steady, and something breathing between the bites. Yes, that's what we hear too.\n\nWe don't go in until the High Chieftain says we're ready. When he does, I'll want you with us.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "mbq_old_barkrot"
+      ],
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "unique_item_defs": [
+        {
+          "name": "Sealwarden's Longbow",
+          "slot": "ranged",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "attack_power": 18
+          },
+          "armor_value": 0,
+          "required_level": 47,
+          "sell_price": 6243,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_10",
+          "weapon_damage_min": 55,
+          "weapon_damage_max": 75,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Sealwarden's Coif",
+          "slot": "head",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 40
+          },
+          "armor_value": 163,
+          "required_level": 47,
+          "sell_price": 6243,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_19"
+        },
+        {
+          "name": "Sealwarden's Leggings",
+          "slot": "legs",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "spell_power": 30
+          },
+          "armor_value": 60,
+          "required_level": 47,
+          "sell_price": 7804,
+          "identity": "caster",
+          "icon_id": "gear_inv_pants_14"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mbq_listening_to_the_tree",
+      "title": "Listening to the Tree",
+      "giver_npc_id": "mb_loa_speaker",
+      "zone": "middle_boughs",
+      "level_min": 45,
+      "level_max": 46,
+      "description": "Loa-Speaker Ganjo hears the tree groaning at night, and he wants to know where it hurts. The first climbers built their shrines where the tree spoke loudest.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "middle_boughs",
+          "target_x": 62,
+          "target_y": 24,
+          "radius": 4,
+          "label": "Listen at the old shrine on the Lichen Reach"
+        },
+        {
+          "type": "explore",
+          "target": "middle_boughs",
+          "target_x": 26,
+          "target_y": 100,
+          "radius": 4,
+          "label": "Listen at the old tower on the south terraces"
+        },
+        {
+          "type": "explore",
+          "target": "middle_boughs",
+          "target_x": 146,
+          "target_y": 80,
+          "radius": 4,
+          "label": "Listen at the far end of the Rotting Bough"
+        }
+      ],
+      "accept_text": "The first climbers put their shrines where the tree's voice was loudest. Go and stand at the old shrine on the Lichen Reach, the old tower on the south terraces, and the far end of the Rotting Bough, and listen.",
+      "turn_in_text": "Quiet at the shrine, quiet at the tower, and a groan at the end of the Rotting Bough that you felt in your feet. That's where it hurts.\n\nThe tree's groaned like that every night since the merge, and it's getting louder.",
+      "next_quest_id": "mbq_spores_on_the_wind",
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "unique_item_defs": [
+        {
+          "name": "Loa-Listener's Knife",
+          "slot": "main_hand",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 45,
+          "sell_price": 7093,
+          "identity": "agility",
+          "icon_id": "gear_inv_throwingknife_02",
+          "weapon_damage_min": 64,
+          "weapon_damage_max": 86,
+          "attack_speed": 1.7,
+          "block_value": 0
+        },
+        {
+          "name": "Loa-Listener's Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 99,
+          "required_level": 45,
+          "sell_price": 5973,
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_04"
+        },
+        {
+          "name": "Loa-Listener's Sabatons",
+          "slot": "feet",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 195,
+          "required_level": 45,
+          "sell_price": 4853,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_plate_01"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mbq_spores_on_the_wind",
+      "title": "Spores on the Wind",
+      "giver_npc_id": "mb_loa_speaker",
+      "zone": "middle_boughs",
+      "level_min": 46,
+      "level_max": 46,
+      "description": "Ganjo says the Rotspore Clouds drifting off the Rotting Bough carry the rot from branch to branch, and the wind's been blowing them toward the terraces.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Rotspore Cloud",
+          "count": 7,
+          "zone": "middle_boughs"
+        }
+      ],
+      "accept_text": "The Rotspore Clouds drift off the Rotting Bough and settle wherever the wind drops them, and that's how the rot jumps from branch to branch. The wind's been blowing toward Heartwatch all week. Scatter them before they settle here.",
+      "turn_in_text": "The air's clearer already. I can smell the lichen again instead of the rot.\n\nThe loa don't like the spores either. They went quiet when the clouds came, and they've started talking again.",
+      "next_quest_id": "mbq_pale_dust",
+      "requires_quests": [
+        "mbq_listening_to_the_tree"
+      ],
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "unique_item_defs": [
+        {
+          "name": "Sporeward Tome",
+          "slot": "off_hand",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 28
+          },
+          "armor_value": 0,
+          "required_level": 46,
+          "sell_price": 4480,
+          "identity": "healer",
+          "icon_id": "gear_inv_tome_5",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        },
+        {
+          "name": "Sporeward Handguards",
+          "slot": "hands",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_value": 195,
+          "required_level": 46,
+          "sell_price": 4853,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_14"
+        },
+        {
+          "name": "Sporeward Girdle",
+          "slot": "waist",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 130,
+          "required_level": 46,
+          "sell_price": 4107,
+          "identity": "hunter",
+          "icon_id": "gear_inv_belt_25"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mbq_pale_dust",
+      "title": "Pale Dust",
+      "giver_npc_id": "mb_loa_speaker",
+      "zone": "middle_boughs",
+      "level_min": 46,
+      "level_max": 46,
+      "description": "Ganjo burns the dust off Lichenwing Moths at the old shrines, because the smoke smells of rain and the loa like it. He wants enough to burn at every stone on the terraces.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "mb_q_pale_dust",
+          "count": 6
+        }
+      ],
+      "accept_text": "The Lichenwing Moths along the terraces carry a pale dust on their wings, and when it burns it smells like rain. The loa like it. Bring me some, and I'll burn it at every stone the first climbers left.",
+      "turn_in_text": "That's plenty, and it smells right.\n\nThe tree likes it too, I think. Last night was the first night in a month it didn't groan till dawn.",
+      "next_quest_id": "mbq_lotus_for_the_shrine",
+      "requires_quests": [
+        "mbq_spores_on_the_wind"
+      ],
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "unique_item_defs": [
+        {
+          "name": "Lichenward Mace",
+          "slot": "main_hand",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 0,
+          "required_level": 46,
+          "sell_price": 7093,
+          "identity": "healer",
+          "icon_id": "gear_inv_mace_12",
+          "weapon_damage_min": 64,
+          "weapon_damage_max": 86,
+          "attack_speed": 2.6,
+          "block_value": 0
+        },
+        {
+          "name": "Lichenward Jerkin",
+          "slot": "chest",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 11,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 117,
+          "required_level": 46,
+          "sell_price": 7467,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_09"
+        },
+        {
+          "name": "Lichenward Pendant",
+          "slot": "neck",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 18
+          },
+          "armor_value": 0,
+          "required_level": 46,
+          "sell_price": 4480,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_amulet_04"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mbq_lotus_for_the_shrine",
+      "title": "Lotus for the Shrine",
+      "giver_npc_id": "mb_loa_speaker",
+      "zone": "middle_boughs",
+      "level_min": 46,
+      "level_max": 47,
+      "description": "Ganjo lays Purple Lotus at the old shrine on the Lichen Reach, as the first climbers did. Since the rot came, it's the only offering the tree takes.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "herb_purple_lotus",
+          "count": 6,
+          "label": "Gather Purple Lotus on the boughs"
+        }
+      ],
+      "accept_text": "The first climbers left Purple Lotus at their shrines, and since the rot came it's the only thing the tree seems to take. It grows out on the boughs. Bring me what you can and I'll lay it at the shrine on the Reach.",
+      "turn_in_text": "The flowers wilt by morning now, every time. The first climbers wrote that they used to last a week.\n\nThe tree takes the offering. It's just hungrier than it was.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "mbq_pale_dust"
+      ],
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "unique_item_defs": [
+        {
+          "name": "Shrinekeeping Greatsword",
+          "slot": "main_hand",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 0,
+          "required_level": 46,
+          "sell_price": 9755,
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_32",
+          "weapon_damage_min": 88,
+          "weapon_damage_max": 119,
+          "attack_speed": 3.4,
+          "block_value": 0
+        },
+        {
+          "name": "Shrinekeeping Bracers",
+          "slot": "wrist",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 83,
+          "required_level": 46,
+          "sell_price": 3902,
+          "identity": "agility",
+          "icon_id": "gear_inv_bracer_05"
+        },
+        {
+          "name": "Shrinekeeping Hood",
+          "slot": "head",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 25
+          },
+          "armor_value": 68,
+          "required_level": 46,
+          "sell_price": 6243,
+          "identity": "caster",
+          "icon_id": "gear_inv_helmet_34"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mbq_bad_sap",
+      "title": "Bad Sap",
+      "giver_npc_id": "mb_bark_doctor",
+      "zone": "middle_boughs",
+      "level_min": 45,
+      "level_max": 46,
+      "description": "Bark-Doctor Ezzi cuts the rot out of the bark where she can, but the Sap-Blight Oozes on the Rotting Bough seep back into every cut she makes.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Sap-Blight Ooze",
+          "count": 7,
+          "zone": "middle_boughs"
+        }
+      ],
+      "accept_text": "Every time I cut a soft spot out of the bark, the Sap-Blight Oozes on the Rotting Bough seep into the wound and the rot comes back worse. Clear them out so the cuts can close and the bark's got a chance.",
+      "turn_in_text": "The cuts I made yesterday are still clean this morning, and that's the first time in a month.\n\nIt's not a cure, but it's a start, and starts are what a doctor lives on.",
+      "next_quest_id": "mbq_splints_for_the_bark",
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "unique_item_defs": [
+        {
+          "name": "Bark-Doctor's Hauberk",
+          "slot": "chest",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 10,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 188,
+          "required_level": 45,
+          "sell_price": 7467,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_07"
+        },
+        {
+          "name": "Bark-Doctor's Sash",
+          "slot": "waist",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 20
+          },
+          "armor_value": 40,
+          "required_level": 45,
+          "sell_price": 4107,
+          "identity": "caster",
+          "icon_id": "gear_inv_belt_15"
+        },
+        {
+          "name": "Bark-Doctor's Sabatons",
+          "slot": "feet",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_value": 195,
+          "required_level": 45,
+          "sell_price": 4853,
+          "identity": "tank",
+          "icon_id": "gear_inv_boots_05"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mbq_splints_for_the_bark",
+      "title": "Splints for the Bark",
+      "giver_npc_id": "mb_bark_doctor",
+      "zone": "middle_boughs",
+      "level_min": 46,
+      "level_max": 46,
+      "description": "Ezzi packs the wounds she cuts in the bark with clean wood, so the tree grows over them instead of rotting. Thornveil from the boughs is the cleanest wood up here.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "wood_thornveil_stump",
+          "count": 5,
+          "label": "Gather Thornveil Wood on the boughs"
+        }
+      ],
+      "accept_text": "When I cut the rot out, I pack the hole with clean wood so the tree heals over it. Thornveil's the cleanest wood on the boughs, and nothing rots it. Bring me some and I'll get to work.",
+      "turn_in_text": "That's good wood, and it'll hold.\n\nThe newcomer doctor says a tree back where she's from heals the same way, it just doesn't take a whole bough to do it.",
+      "next_quest_id": "mbq_splinters_for_the_doctor",
+      "requires_quests": [
+        "mbq_bad_sap"
+      ],
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "unique_item_defs": [
+        {
+          "name": "Splintwright's Grips",
+          "slot": "hands",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 81,
+          "required_level": 46,
+          "sell_price": 4853,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_17"
+        },
+        {
+          "name": "Splintwright's Spaulders",
+          "slot": "shoulder",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 39
+          },
+          "armor_value": 159,
+          "required_level": 46,
+          "sell_price": 5973,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_shoulder_10"
+        },
+        {
+          "name": "Splintwright's Pendant",
+          "slot": "neck",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 18
+          },
+          "armor_value": 0,
+          "required_level": 46,
+          "sell_price": 4480,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_amulet_07"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mbq_splinters_for_the_doctor",
+      "title": "Splinters for the Doctor",
+      "giver_npc_id": "mb_bark_doctor",
+      "zone": "middle_boughs",
+      "level_min": 46,
+      "level_max": 47,
+      "description": "Ezzi wants splinters of rotted heartwood from the Rotheart Treants on the Rotting Bough taken to Dr. Priya Raman, who's been trying to work out what the rot is.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "mb_q_rot_splinter",
+          "count": 6
+        }
+      ],
+      "accept_text": "Priya's been asking for proper samples of the rot, deep ones. The Rotheart Treants on the Rotting Bough are rotten right through, so their splinters will do. Bring them to her, not me, she knows what to look for.",
+      "turn_in_text": "These are perfect, and look at the white threads running through them.\n\nThat's mycelium, all of it. It's a fungus, or something that grows like one. Ezzi was right to send these to me.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "mb_transplant",
+      "requires_quests": [
+        "mbq_splints_for_the_bark"
+      ],
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "unique_item_defs": [
+        {
+          "name": "Heartsplinter Cloak",
+          "slot": "back",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 20,
+            "hit_rating": 5
+          },
+          "armor_value": 59,
+          "required_level": 46,
+          "sell_price": 4292,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_10"
+        },
+        {
+          "name": "Heartsplinter Cuffs",
+          "slot": "wrist",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 25
+          },
+          "armor_value": 41,
+          "required_level": 46,
+          "sell_price": 3902,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_18"
+        },
+        {
+          "name": "Heartsplinter Legplates",
+          "slot": "legs",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 289,
+          "required_level": 46,
+          "sell_price": 7804,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_13"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mbq_spore_samples",
+      "title": "Spore Samples",
+      "giver_npc_id": "mb_transplant",
+      "zone": "middle_boughs",
+      "level_min": 46,
+      "level_max": 46,
+      "description": "Dr. Priya Raman is a plant pathologist from Bengaluru, and she wants spores from the Rotspore Clouds to see how the rot travels.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "mb_q_spore_sac",
+          "count": 6
+        }
+      ],
+      "accept_text": "Back home in Bengaluru I'd culture the spores to find out what I'm dealing with. I haven't got a lab up here, but I've got eyes and a lot of patience. The Rotspore Clouds on the Rotting Bough carry sacs of them. Bring me some and don't squeeze them.",
+      "turn_in_text": "Thank you, and you didn't squeeze them, which is more than the last person managed.\n\nOn Earth this would be a fungus. Here it's a fungus that's hungry, and that's not a thing fungi are supposed to be.",
+      "next_quest_id": "mbq_where_its_spreading",
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "unique_item_defs": [
+        {
+          "name": "Pathologist's Cap",
+          "slot": "head",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 13,
+            "agility": 8
+          },
+          "secondary_stats": {
+            "dodge_rating": 6
+          },
+          "armor_value": 117,
+          "required_level": 46,
+          "sell_price": 5973,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_27"
+        },
+        {
+          "name": "Pathologist's Band",
+          "slot": "ring",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 5,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "healing_power": 22
+          },
+          "armor_value": 0,
+          "required_level": 46,
+          "sell_price": 4480,
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_ring_09"
+        },
+        {
+          "name": "Pathologist's Gauntlets",
+          "slot": "hands",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 7,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 18
+          },
+          "armor_value": 130,
+          "required_level": 46,
+          "sell_price": 4853,
+          "identity": "earthen",
+          "icon_id": "gear_inv_gauntlets_32"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mbq_where_its_spreading",
+      "title": "Where It's Spreading",
+      "giver_npc_id": "mb_transplant",
+      "zone": "middle_boughs",
+      "level_min": 46,
+      "level_max": 47,
+      "description": "Priya wants to see the rot's far end on the Rotting Bough for herself, but she's not a fighter. She'd like someone to go first and tell her what's there.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "middle_boughs",
+          "target_x": 146,
+          "target_y": 80,
+          "radius": 4,
+          "label": "Look at the rot's far end on the Rotting Bough"
+        },
+        {
+          "type": "kill",
+          "target": "Sap-Blight Ooze",
+          "count": 5,
+          "zone": "middle_boughs"
+        }
+      ],
+      "accept_text": "Back home in Bengaluru I'd have a field team for this. Here I've got you, and I need to know if the rot's spreading out along the bough or just deeper into it. I'd go myself, but the Sap-Blight Oozes out there would have me for lunch. Go to the far end of the Rotting Bough, clear it, and tell me what the edge of the rot looks like.",
+      "turn_in_text": "Deeper, not wider. It's going straight down into the bough, toward the trunk.\n\nThat's not how a rot spreads. That's how something feeds.",
+      "next_quest_id": "mbq_what_the_harpies_feed",
+      "requires_quests": [
+        "mbq_spore_samples"
+      ],
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "unique_item_defs": [
+        {
+          "name": "Fieldwork Staff",
+          "slot": "main_hand",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 20
+          },
+          "secondary_stats": {
+            "spell_power": 46
+          },
+          "armor_value": 0,
+          "required_level": 46,
+          "sell_price": 9755,
+          "identity": "caster",
+          "icon_id": "gear_inv_staff_27",
+          "weapon_damage_min": 35,
+          "weapon_damage_max": 48,
+          "attack_speed": 3.2,
+          "block_value": 0
+        },
+        {
+          "name": "Fieldwork Jerkin",
+          "slot": "chest",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 120,
+          "required_level": 46,
+          "sell_price": 7804,
+          "identity": "strength",
+          "icon_id": "gear_inv_chest_leather_04"
+        },
+        {
+          "name": "Fieldwork Waistguard",
+          "slot": "waist",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 200,
+          "required_level": 46,
+          "sell_price": 4292,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_belt_14"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mbq_what_the_harpies_feed",
+      "title": "What the Harpies Feed",
+      "giver_npc_id": "mb_transplant",
+      "zone": "middle_boughs",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "Priya thinks the rot is coming from somewhere inside the trunk. The harpies in Shriekhollow have been carrying grubs down into the hollow, and Scout Ree'na says they won't go past the eyrie.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Rotdark Crawler",
+          "count": 6,
+          "zone": "shriekhollow"
+        },
+        {
+          "type": "kill_boss",
+          "target": "Old Splinterheart",
+          "count": 1,
+          "zone": "shriekhollow"
+        }
+      ],
+      "accept_text": "The harpies carry grubs down into Shriekhollow and drop them past the eyrie, but they never follow. Something's at the bottom they're feeding. Go down past the eyrie, through the Rotdark Crawlers, and find out what it is. If it's what I think, Old Splinterheart is what the scouts have been calling it.",
+      "turn_in_text": "A treant that grew inside the trunk, in the dark, on the rot, and the harpies kept it fed.\n\nOn Earth I'd have called it an opportunist. It wasn't the cause, I don't think. It was a symptom that got big enough to have a name.",
+      "next_quest_id": "mbq_notes_for_the_watch",
+      "requires_quests": [
+        "mbq_where_its_spreading"
+      ],
+      "reward_exp": 4420,
+      "reward_gold": 17550,
+      "unique_item_defs": [
+        {
+          "name": "Rotdark Mantle",
+          "slot": "shoulder",
+          "item_level": 49,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 15
+          },
+          "secondary_stats": {
+            "spell_power": 34
+          },
+          "armor_value": 80,
+          "required_level": 47,
+          "sell_price": 9780,
+          "identity": "caster",
+          "icon_id": "gear_inv_shoulder_17"
+        },
+        {
+          "name": "Rotdark Breeches",
+          "slot": "legs",
+          "item_level": 49,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 16,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "attack_power": 39
+          },
+          "armor_value": 353,
+          "required_level": 47,
+          "sell_price": 12224,
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_wolf"
+        },
+        {
+          "name": "Rotdark Vambraces",
+          "slot": "wrist",
+          "item_level": 49,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 16,
+            "strength": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 12
+          },
+          "armor_value": 267,
+          "required_level": 47,
+          "sell_price": 6112,
+          "identity": "tank",
+          "icon_id": "gear_inv_bracer_19"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "mbq_notes_for_the_watch",
+      "title": "Notes for the Watch",
+      "giver_npc_id": "mb_transplant",
+      "zone": "middle_boughs",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "Priya has written up everything she knows about the rot, and she wants it in Shadow Hunter Vokra's hands before the tribes decide what to do about the Heartwood Hollow.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "mb_q_priyas_notes",
+          "count": 1,
+          "label": "Take Priya's notes to Shadow Hunter Vokra at Heartwatch"
+        }
+      ],
+      "accept_text": "I've written down everything, the spores, the splinters, the way it goes down instead of out. Vokra's the one who'll have to go through that door one day. Take her my notes, she'll want them more than I do.",
+      "turn_in_text": "A fungus that eats like an animal, feeding something under the heartwood. I hoped the newcomer doctor would tell me I was wrong.\n\nThis goes to the High Chieftain tonight. Thank you for carrying it, and thank her for writing it.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "mb_shadowhunter",
+      "requires_quests": [
+        "mbq_what_the_harpies_feed",
+        "mbq_sealed_for_now"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "mb_q_priyas_notes",
+            "name": "Priya's Notes on the Rot",
+            "description": "Pages of small, neat handwriting with sketches of spores and splinters, and one line underlined twice: it goes down, not out.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "unique_item_defs": [
+        {
+          "name": "Watchkeeper's Shield",
+          "slot": "off_hand",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 17,
+            "haste": 5
+          },
+          "armor_value": 374,
+          "required_level": 47,
+          "sell_price": 6243,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_shield_18",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 43
+        },
+        {
+          "name": "Watchkeeper's Greaves",
+          "slot": "feet",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 133,
+          "required_level": 47,
+          "sell_price": 5073,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_plate_01"
+        },
+        {
+          "name": "Watchkeeper's Robe",
+          "slot": "chest",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 10,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "healing_power": 27
+          },
+          "armor_value": 60,
+          "required_level": 47,
+          "sell_price": 7804,
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_shirt_orange_01"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mbq_talons_on_the_hollow_bough",
+      "title": "Talons on the Hollow Bough",
+      "giver_npc_id": "mb_huntmaster",
+      "zone": "middle_boughs",
+      "level_min": 46,
+      "level_max": 46,
+      "description": "Huntmaster Raz'gul says the harpies on the Hollow Bough have got bold since they started eating the rot's grubs. The Blighted Harpies and the Hollow Screechers lead every raid on the terraces.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Blighted Harpy",
+          "count": 7,
+          "zone": "middle_boughs"
+        },
+        {
+          "type": "kill",
+          "target": "Hollow Screecher",
+          "count": 5,
+          "zone": "middle_boughs"
+        }
+      ],
+      "accept_text": "The harpies came up from the coast after the merge and found the hollows in the south bough. Since they started eating the rot's grubs, every Blighted Harpy has got big and the Hollow Screechers have got loud. Thin them out on the Hollow Bough.",
+      "turn_in_text": "That'll teach them the terraces aren't theirs.\n\nThey'll be back, they always are. But they'll come back fewer, and they'll come back careful.",
+      "next_quest_id": "mbq_feather_knives",
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "unique_item_defs": [
+        {
+          "name": "Hollowhunter's Shield",
+          "slot": "off_hand",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 12,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "block_value": 11
+          },
+          "armor_value": 366,
+          "required_level": 46,
+          "sell_price": 5973,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_19",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 42
+        },
+        {
+          "name": "Hollowhunter's Breeches",
+          "slot": "legs",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 15,
+            "agility": 10
+          },
+          "secondary_stats": {
+            "dodge_rating": 7
+          },
+          "armor_value": 117,
+          "required_level": 46,
+          "sell_price": 7467,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_09"
+        },
+        {
+          "name": "Hollowhunter's Gloves",
+          "slot": "hands",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "arcane_spell_power": 25
+          },
+          "armor_value": 40,
+          "required_level": 46,
+          "sell_price": 4853,
+          "identity": "arcane",
+          "icon_id": "gear_inv_gauntlets_15"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mbq_feather_knives",
+      "title": "Feather-Knives",
+      "giver_npc_id": "mb_huntmaster",
+      "zone": "middle_boughs",
+      "level_min": 46,
+      "level_max": 47,
+      "description": "The Hollow Talons throw knives of hardened feather from the hollows, and the Hollow Windcallers whip up the wind to carry them. Raz'gul wants both cut down.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Hollow Talon",
+          "count": 6,
+          "zone": "middle_boughs"
+        },
+        {
+          "type": "kill",
+          "target": "Hollow Windcaller",
+          "count": 4,
+          "zone": "middle_boughs"
+        }
+      ],
+      "accept_text": "The Hollow Talons throw knives cut from their own feathers, hard as bone, and the Hollow Windcallers call up a gust behind every throw. My scouts can't get near the hollows on the Hollow Bough, south-east of here. Take both down so they can.",
+      "turn_in_text": "Ree'na got close enough to count the nests this morning, and she didn't come back bleeding for once.\n\nThat's the kind of progress I'll take.",
+      "next_quest_id": "mbq_old_raggedwing",
+      "requires_quests": [
+        "mbq_talons_on_the_hollow_bough"
+      ],
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "unique_item_defs": [
+        {
+          "name": "Featherbane Spear",
+          "slot": "main_hand",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 0,
+          "required_level": 46,
+          "sell_price": 9755,
+          "identity": "strength",
+          "icon_id": "gear_inv_weapon_halberd_04",
+          "weapon_damage_min": 88,
+          "weapon_damage_max": 119,
+          "attack_speed": 3.3,
+          "block_value": 0
+        },
+        {
+          "name": "Featherbane Hood",
+          "slot": "head",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 31
+          },
+          "armor_value": 50,
+          "required_level": 46,
+          "sell_price": 6243,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_61"
+        },
+        {
+          "name": "Featherbane Grips",
+          "slot": "hands",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 7,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 83,
+          "required_level": 46,
+          "sell_price": 5073,
+          "identity": "feral",
+          "icon_id": "gear_inv_gauntlets_27"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mbq_old_raggedwing",
+      "title": "Old Raggedwing",
+      "giver_npc_id": "mb_huntmaster",
+      "zone": "middle_boughs",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "The oldest harpy on the Hollow Bough is half bald and twice as mean, and the flock follows her. Raz'gul calls her Old Raggedwing.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Old Raggedwing",
+          "count": 1,
+          "zone": "middle_boughs"
+        }
+      ],
+      "accept_text": "There's an old harpy on the Hollow Bough with half her feathers gone, and every raid on the terraces starts with her screaming. The others call her something we can't say. We call her Old Raggedwing, and I want her dead.",
+      "turn_in_text": "Old Raggedwing's dead. The flock's been circling all afternoon and they can't decide what to do.\n\nThat's what I wanted. Now we go into the hollow while they're still arguing.",
+      "next_quest_id": "mbq_into_shriekhollow",
+      "requires_quests": [
+        "mbq_feather_knives"
+      ],
+      "reward_exp": 4420,
+      "reward_gold": 17550,
+      "unique_item_defs": [
+        {
+          "name": "Raggedwing Legguards",
+          "slot": "legs",
+          "item_level": 49,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "nature_spell_power": 36,
+            "haste": 11
+          },
+          "armor_value": 271,
+          "required_level": 47,
+          "sell_price": 12224,
+          "identity": "storm",
+          "icon_id": "gear_inv_pants_wolf"
+        },
+        {
+          "name": "Raggedwing Cloak",
+          "slot": "back",
+          "item_level": 49,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 25
+          },
+          "armor_value": 58,
+          "required_level": 47,
+          "sell_price": 6723,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_12"
+        },
+        {
+          "name": "Raggedwing Pauldrons",
+          "slot": "shoulder",
+          "item_level": 49,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 13,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 34
+          },
+          "armor_value": 338,
+          "required_level": 47,
+          "sell_price": 9780,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_10"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "mbq_into_shriekhollow",
+      "title": "Into Shriekhollow",
+      "giver_npc_id": "mb_huntmaster",
+      "zone": "middle_boughs",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "The harpies' matron, Matron Vyssa, keeps her eyrie inside the trunk in a hollow the trolls call Shriekhollow. With Old Raggedwing dead, Raz'gul wants the matron next.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Brood-Harpy",
+          "count": 6,
+          "zone": "shriekhollow"
+        },
+        {
+          "type": "kill_boss",
+          "target": "Matron Vyssa",
+          "count": 1,
+          "zone": "shriekhollow"
+        }
+      ],
+      "accept_text": "Shriekhollow's in the trunk off the terraces, south of Heartwatch. Every Brood-Harpy roosts on the ledges inside, and Matron Vyssa keeps the eyrie at the top of the hollow's throat. Kill her and the flock breaks.",
+      "turn_in_text": "Vyssa's dead and the hollow's gone quiet, which is a sound I've never heard from it.\n\nYou've done what we couldn't in a year. The terraces are ours again, and that's thanks to you.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "mbq_old_raggedwing"
+      ],
+      "reward_exp": 4420,
+      "reward_gold": 17550,
+      "unique_item_defs": [
+        {
+          "name": "Shriekhollow Staff",
+          "slot": "main_hand",
+          "item_level": 49,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 13,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 34
+          },
+          "armor_value": 0,
+          "required_level": 47,
+          "sell_price": 15281,
+          "identity": "agility",
+          "icon_id": "gear_inv_staff_10",
+          "weapon_damage_min": 117,
+          "weapon_damage_max": 159,
+          "attack_speed": 3.6,
+          "block_value": 0
+        },
+        {
+          "name": "Shriekhollow Belt",
+          "slot": "waist",
+          "item_level": 49,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 11,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 111,
+          "required_level": 47,
+          "sell_price": 6723,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_27"
+        },
+        {
+          "name": "Shriekhollow Band",
+          "slot": "ring",
+          "item_level": 49,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 0,
+          "required_level": 47,
+          "sell_price": 7335,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_ring_25"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "mbq_still_twitching",
+      "title": "Still Twitching",
+      "giver_npc_id": "mb_scholar",
+      "zone": "middle_boughs",
+      "level_min": 45,
+      "level_max": 46,
+      "description": "Scholar Nyara came up from the Settlement to study the thing that fell on the Lichen Reach a month ago. It hasn't stopped moving, and the Scuttling Gear-Drones keep crawling out of it.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "middle_boughs",
+          "target_x": 148,
+          "target_y": 20,
+          "radius": 4,
+          "label": "Find the fallen construct at the end of the Lichen Reach"
+        },
+        {
+          "type": "kill",
+          "target": "Scuttling Gear-Drone",
+          "count": 8,
+          "zone": "middle_boughs"
+        }
+      ],
+      "accept_text": "Something fell out of the clouds onto the end of the Lichen Reach, and it's still twitching. Little Scuttling Gear-Drones keep crawling out of it and going somewhere. Go and look at it for me, and stop the drones while you're there.",
+      "turn_in_text": "Bronze, crystal and wire, and none of it made by anyone on the ground. It fell, it broke, and it kept working.\n\nThe drones were carrying pieces of bark back to it. It's been collecting the tree.",
+      "next_quest_id": "mbq_drone_cogs",
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "unique_item_defs": [
+        {
+          "name": "Skyfall Breastplate",
+          "slot": "chest",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "healing_power": 45
+          },
+          "armor_value": 283,
+          "required_level": 45,
+          "sell_price": 7467,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_chest_plate03"
+        },
+        {
+          "name": "Skyfall Slippers",
+          "slot": "feet",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 20
+          },
+          "armor_value": 40,
+          "required_level": 45,
+          "sell_price": 4853,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_06"
+        },
+        {
+          "name": "Skyfall Wristguards",
+          "slot": "wrist",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 16
+          },
+          "armor_value": 130,
+          "required_level": 45,
+          "sell_price": 3733,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_bracer_02"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mbq_drone_cogs",
+      "title": "Drone-Cogs",
+      "giver_npc_id": "mb_scholar",
+      "zone": "middle_boughs",
+      "level_min": 46,
+      "level_max": 46,
+      "description": "Nyara wants cogs from the Scuttling Gear-Drones on the Lichen Reach, so she can see how they're made before the scholars in the Settlement start arguing about it.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "mb_q_bronze_cog",
+          "count": 6
+        }
+      ],
+      "accept_text": "Tel'zan will want to know how these things are built, and I want to know first. The Scuttling Gear-Drones on the Lichen Reach are full of little bronze cogs. Bring me some, and try not to bend them.",
+      "turn_in_text": "Every tooth on every cog is cut exactly the same, to the width of a hair. No smith in the Settlement could do this.\n\nWhoever made these was making them long before any of us climbed this tree.",
+      "next_quest_id": "mbq_scouts_without_masters",
+      "requires_quests": [
+        "mbq_still_twitching"
+      ],
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "unique_item_defs": [
+        {
+          "name": "Cogwright's Longbow",
+          "slot": "ranged",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "attack_power": 18
+          },
+          "armor_value": 0,
+          "required_level": 46,
+          "sell_price": 5973,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_03",
+          "weapon_damage_min": 54,
+          "weapon_damage_max": 73,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Cogwright's Coif",
+          "slot": "head",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 39
+          },
+          "armor_value": 177,
+          "required_level": 46,
+          "sell_price": 5973,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_01"
+        },
+        {
+          "name": "Cogwright's Leggings",
+          "slot": "legs",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "spell_power": 29
+          },
+          "armor_value": 79,
+          "required_level": 46,
+          "sell_price": 7467,
+          "identity": "caster",
+          "icon_id": "gear_inv_pants_04"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mbq_scouts_without_masters",
+      "title": "Scouts Without Masters",
+      "giver_npc_id": "mb_scout_reach",
+      "zone": "middle_boughs",
+      "level_min": 46,
+      "level_max": 47,
+      "description": "Scout Mahu watches the wreck for Nyara. The bigger constructs on the Lichen Reach walk the bough and spark at anything that comes close. He calls them Twitching Scouts, and Nyara can't get near the wreck while they're there.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Twitching Scout",
+          "count": 6,
+          "zone": "middle_boughs"
+        }
+      ],
+      "accept_text": "The Twitching Scouts walk up and down the Lichen Reach as if somebody told them to guard it and then never came back. They spark at anything that moves, and they won't let Nyara near it. Bring them down.",
+      "turn_in_text": "Nyara got all the way to the wreck this morning. There's a sort of eye in the middle of it, she says, and it watched her the whole time.\n\nThe biggest one's still out there, and it's the one doing the watching.",
+      "next_quest_id": "mbq_the_wakened_surveyor",
+      "requires_quests": [
+        "mbq_drone_cogs"
+      ],
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "unique_item_defs": [
+        {
+          "name": "Arcwarden's Knife",
+          "slot": "main_hand",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 0,
+          "required_level": 46,
+          "sell_price": 7414,
+          "identity": "agility",
+          "icon_id": "gear_inv_weapon_shortblade_26",
+          "weapon_damage_min": 65,
+          "weapon_damage_max": 88,
+          "attack_speed": 1.7,
+          "block_value": 0
+        },
+        {
+          "name": "Arcwarden's Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 31
+          },
+          "armor_value": 101,
+          "required_level": 46,
+          "sell_price": 6243,
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_11"
+        },
+        {
+          "name": "Arcwarden's Sabatons",
+          "slot": "feet",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 200,
+          "required_level": 46,
+          "sell_price": 5073,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_plate_02"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mbq_the_wakened_surveyor",
+      "title": "The Wakened Surveyor",
+      "giver_npc_id": "mb_scholar",
+      "zone": "middle_boughs",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "The largest construct on the Lichen Reach woke when the wreck fell and has been walking the bough ever since, turning a beam of light on the trunk. Nyara calls it the Wakened Surveyor.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Wakened Surveyor",
+          "count": 1,
+          "zone": "middle_boughs"
+        }
+      ],
+      "accept_text": "The big one on the Reach, the one I call the Wakened Surveyor, turns a beam of light on the trunk and holds it there, like it's measuring something. Stop it, and bring me back whatever's left of its core.",
+      "turn_in_text": "You've brought its core back, and it's still warm. Hold it up to the light and you can see marks scratched inside the crystal.\n\nThey're measurements, hundreds of them, and every single one is of the tree.",
+      "next_quest_id": "mbq_the_surveyors_core",
+      "requires_quests": [
+        "mbq_scouts_without_masters"
+      ],
+      "reward_exp": 4420,
+      "reward_gold": 17550,
+      "unique_item_defs": [
+        {
+          "name": "Surveyor's Tome",
+          "slot": "off_hand",
+          "item_level": 49,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 9,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 36
+          },
+          "armor_value": 0,
+          "required_level": 47,
+          "sell_price": 7335,
+          "identity": "healer",
+          "icon_id": "gear_inv_tome_4",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        },
+        {
+          "name": "Surveyor's Handguards",
+          "slot": "hands",
+          "item_level": 49,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 16,
+            "strength": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 12
+          },
+          "armor_value": 267,
+          "required_level": 47,
+          "sell_price": 7946,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_01"
+        },
+        {
+          "name": "Surveyor's Girdle",
+          "slot": "waist",
+          "item_level": 49,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 9,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 178,
+          "required_level": 47,
+          "sell_price": 6723,
+          "identity": "hunter",
+          "icon_id": "gear_inv_belt_26"
+        }
+      ],
+      "gear_reward_gear_level": 49,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "mbq_the_surveyors_core",
+      "title": "The Surveyor's Core",
+      "giver_npc_id": "mb_scholar",
+      "zone": "middle_boughs",
+      "level_min": 47,
+      "level_max": 47,
+      "description": "Nyara wants the Wakened Surveyor's core taken down to Archivist Tel'zan in the scholars' hall in the Great Settlement, for the record of everything that's fallen from the sky.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "mb_q_surveyors_core",
+          "count": 1,
+          "label": "Take the Surveyor's core to Archivist Tel'zan in the Great Settlement"
+        }
+      ],
+      "accept_text": "Tel'zan keeps the record of everything that's fallen out of the sky, and he's going to want this more than anything he's got. Take it down the High Lift to the scholars' hall at the Roost.",
+      "turn_in_text": "Measurements of the tree, all of them, and the oldest ones scratched in long before the tree was this tall.\n\nSomeone up there has been watching it grow. I've never written a worse line in the record.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "gs_scholar_hall",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "mb_q_surveyors_core",
+            "name": "The Surveyor's Core",
+            "description": "A fist of crystal from the Wakened Surveyor's chest, still warm. Fine marks are scratched inside it, row after row.",
+            "count": 1
+          }
+        ]
+      },
+      "requires_quests": [
+        "mbq_the_wakened_surveyor"
+      ],
+      "reward_exp": 3400,
+      "reward_gold": 13500,
+      "unique_item_defs": [
+        {
+          "name": "Record-Keeper's Mace",
+          "slot": "main_hand",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 31
+          },
+          "armor_value": 0,
+          "required_level": 47,
+          "sell_price": 7414,
+          "identity": "healer",
+          "icon_id": "gear_inv_mace_11",
+          "weapon_damage_min": 65,
+          "weapon_damage_max": 88,
+          "attack_speed": 2.6,
+          "block_value": 0
+        },
+        {
+          "name": "Record-Keeper's Jerkin",
+          "slot": "chest",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 12,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 120,
+          "required_level": 47,
+          "sell_price": 7804,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_01"
+        },
+        {
+          "name": "Record-Keeper's Pendant",
+          "slot": "neck",
+          "item_level": 48,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 18
+          },
+          "armor_value": 0,
+          "required_level": 47,
+          "sell_price": 4683,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_necklace_07"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mbq_owls_on_the_terraces",
+      "title": "Owls on the Terraces",
+      "giver_npc_id": "mb_stonekeeper",
+      "zone": "middle_boughs",
+      "level_min": 45,
+      "level_max": 45,
+      "description": "Stonekeeper Jo'than keeps the first climbers' terraces swept, and the Mistfeather Owls that nest in the old towers have started taking the outpost's birds.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Mistfeather Owl",
+          "count": 7,
+          "zone": "middle_boughs"
+        }
+      ],
+      "accept_text": "The Mistfeather Owls nest in the old towers along the terraces, and they've started taking Heartwatch's message birds out of the air. I've got nothing against an owl, but those birds are how we talk to the city. Thin them out along the terraces.",
+      "turn_in_text": "The birds made it down to the Settlement and back today, both of them.\n\nThe owls are older up here than we are. I don't like killing them, but I like losing birds less.",
+      "next_quest_id": null,
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "unique_item_defs": [
+        {
+          "name": "Stonekeeper's Greatsword",
+          "slot": "main_hand",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 0,
+          "required_level": 45,
+          "sell_price": 8921,
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_02",
+          "weapon_damage_min": 85,
+          "weapon_damage_max": 115,
+          "attack_speed": 3.4,
+          "block_value": 0
+        },
+        {
+          "name": "Stonekeeper's Bracers",
+          "slot": "wrist",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 79,
+          "required_level": 45,
+          "sell_price": 3569,
+          "identity": "agility",
+          "icon_id": "gear_inv_bracer_05"
+        },
+        {
+          "name": "Stonekeeper's Hood",
+          "slot": "head",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 24
+          },
+          "armor_value": 66,
+          "required_level": 45,
+          "sell_price": 5710,
+          "identity": "caster",
+          "icon_id": "gear_inv_helmet_10"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mbq_skinks_in_the_stonework",
+      "title": "Skinks in the Stonework",
+      "giver_npc_id": "mb_stonekeeper",
+      "zone": "middle_boughs",
+      "level_min": 45,
+      "level_max": 46,
+      "description": "The Terrace Skinks dig their nests between the old stones, and every nest loosens a block the first climbers set by hand.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Terrace Skink",
+          "count": 8,
+          "zone": "middle_boughs"
+        }
+      ],
+      "accept_text": "The Terrace Skinks dig in between the stones to nest, and every nest they dig loosens a block. These terraces were carried up a tree a block at a time, and I won't lose them to lizards. Clear them off.",
+      "turn_in_text": "I've reset four blocks this afternoon and none of them wobbled.\n\nThe first climbers would have sat on that wall and laughed at me for fussing. I fuss anyway, because they can't.",
+      "next_quest_id": "mbq_the_climbers_names",
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "unique_item_defs": [
+        {
+          "name": "Mason's Hauberk",
+          "slot": "chest",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 10,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 188,
+          "required_level": 45,
+          "sell_price": 7467,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_07"
+        },
+        {
+          "name": "Mason's Sash",
+          "slot": "waist",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 20
+          },
+          "armor_value": 55,
+          "required_level": 45,
+          "sell_price": 4107,
+          "identity": "caster",
+          "icon_id": "gear_inv_belt_16"
+        },
+        {
+          "name": "Mason's Sabatons",
+          "slot": "feet",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_value": 229,
+          "required_level": 45,
+          "sell_price": 4853,
+          "identity": "tank",
+          "icon_id": "gear_inv_boots_06"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mbq_the_climbers_names",
+      "title": "The Climbers' Names",
+      "giver_npc_id": "mb_stonekeeper",
+      "zone": "middle_boughs",
+      "level_min": 46,
+      "level_max": 46,
+      "description": "Jo'than keeps the names of the first climbers, cut in the stones they left up and down the terraces. Some of them are wearing away, and he wants them read while they still can be.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "middle_boughs",
+          "target_x": 30,
+          "target_y": 32,
+          "radius": 4,
+          "label": "Read the names on the cairn on the north terraces"
+        },
+        {
+          "type": "explore",
+          "target": "middle_boughs",
+          "target_x": 20,
+          "target_y": 18,
+          "radius": 4,
+          "label": "Read the names at the foot of the Root Stair"
+        },
+        {
+          "type": "explore",
+          "target": "middle_boughs",
+          "target_x": 26,
+          "target_y": 100,
+          "radius": 4,
+          "label": "Read the names on the tower on the south terraces"
+        }
+      ],
+      "accept_text": "The first climbers cut their names in the stones they set. There's a cairn on the north terraces, the foot of the Root Stair going on up the trunk, and the old tower on the south terraces. Read me what's still there, and I'll cut it fresh.",
+      "turn_in_text": "Some of those names I'd lost already, and you've brought them back. Most of them were cut long before the merge.\n\nThe one at the stair goes on past where the stair does now. Somebody climbed higher than we've ever been, and cut their name on the way.",
+      "next_quest_id": "mbq_hushwing",
+      "requires_quests": [
+        "mbq_skinks_in_the_stonework"
+      ],
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "unique_item_defs": [
+        {
+          "name": "Namekeeper's Grips",
+          "slot": "hands",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 81,
+          "required_level": 46,
+          "sell_price": 4853,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_27"
+        },
+        {
+          "name": "Namekeeper's Spaulders",
+          "slot": "shoulder",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 39
+          },
+          "armor_value": 159,
+          "required_level": 46,
+          "sell_price": 5973,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_shoulder_15"
+        },
+        {
+          "name": "Namekeeper's Pendant",
+          "slot": "neck",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 18
+          },
+          "armor_value": 0,
+          "required_level": 46,
+          "sell_price": 4480,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_amulet_07"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mbq_hushwing",
+      "title": "Hushwing",
+      "giver_npc_id": "mb_stonekeeper",
+      "zone": "middle_boughs",
+      "level_min": 46,
+      "level_max": 46,
+      "description": "The oldest owl on the terraces is bigger than a troll and makes no sound at all. The first climbers carved her on their stones, and she's started hunting the outpost's people.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Hushwing",
+          "count": 1,
+          "zone": "middle_boughs"
+        }
+      ],
+      "accept_text": "There's an owl on the terraces the first climbers carved on their stones, and she's still alive, if you can believe it. We call her Hushwing. She's never troubled us, but last week she took a hunter off the south terraces. Whatever's wrong with the tree, it's got into her too. Put her down.",
+      "turn_in_text": "She was old when the first climbers came, and she'd have been old when the tree was small.\n\nI'll cut her on the cairn beside them. She was one of the terraces, in her way.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "mbq_the_climbers_names"
+      ],
+      "reward_exp": 4316,
+      "reward_gold": 17160,
+      "unique_item_defs": [
+        {
+          "name": "Hushwing Cloak",
+          "slot": "back",
+          "item_level": 48,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 26,
+            "hit_rating": 7
+          },
+          "armor_value": 48,
+          "required_level": 46,
+          "sell_price": 6439,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_15"
+        },
+        {
+          "name": "Hushwing Cuffs",
+          "slot": "wrist",
+          "item_level": 48,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 33
+          },
+          "armor_value": 64,
+          "required_level": 46,
+          "sell_price": 5853,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_04"
+        },
+        {
+          "name": "Hushwing Legplates",
+          "slot": "legs",
+          "item_level": 48,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 15,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "attack_power": 39
+          },
+          "armor_value": 392,
+          "required_level": 46,
+          "sell_price": 11706,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_04"
+        }
+      ],
+      "gear_reward_gear_level": 48,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "mbq_moths_in_the_ropes",
+      "title": "Moths in the Ropes",
+      "giver_npc_id": "mb_liftkeeper",
+      "zone": "middle_boughs",
+      "level_min": 45,
+      "level_max": 45,
+      "description": "Ropehand Dezza works the top of the High Lift, and the Lichenwing Moths have been laying eggs in its ropes. The grubs that hatch eat the fibres.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Lichenwing Moth",
+          "count": 8,
+          "zone": "middle_boughs"
+        }
+      ],
+      "accept_text": "The Lichenwing Moths lay their eggs in the High Lift's ropes, and the grubs eat the fibres from the inside. One day a rope's going to go with a full basket on it. Knock the moths out of the air along the terraces.",
+      "turn_in_text": "I've checked every rope from top to bottom, and they're clean.\n\nOne of the newcomers told me there's a moth back where she's from that eats clothes. I didn't believe her until I saw these.",
+      "next_quest_id": null,
+      "reward_exp": 3240,
+      "reward_gold": 12900,
+      "unique_item_defs": [
+        {
+          "name": "Ropehand's Cap",
+          "slot": "head",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 12,
+            "agility": 8
+          },
+          "secondary_stats": {
+            "dodge_rating": 6
+          },
+          "armor_value": 97,
+          "required_level": 45,
+          "sell_price": 5710,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_24"
+        },
+        {
+          "name": "Ropehand's Band",
+          "slot": "ring",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 5,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "healing_power": 22
+          },
+          "armor_value": 0,
+          "required_level": 45,
+          "sell_price": 4282,
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_ring_08"
+        },
+        {
+          "name": "Ropehand's Gauntlets",
+          "slot": "hands",
+          "item_level": 46,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 7,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 16
+          },
+          "armor_value": 127,
+          "required_level": 45,
+          "sell_price": 4639,
+          "identity": "earthen",
+          "icon_id": "gear_inv_gauntlets_05"
+        }
+      ],
+      "gear_reward_gear_level": 46,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mbq_pythons_in_the_lichen",
+      "title": "Pythons in the Lichen",
+      "giver_npc_id": "mb_scout_reach",
+      "zone": "middle_boughs",
+      "level_min": 45,
+      "level_max": 46,
+      "description": "Scout Mahu watches the Lichen Reach, and the Mistcoil Pythons lie flat in the lichen where nobody sees them until they're stepped on.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Mistcoil Python",
+          "count": 7,
+          "zone": "middle_boughs"
+        }
+      ],
+      "accept_text": "The Mistcoil Pythons lie flat in the lichen on the Reach, grey on grey, and you don't see one until it's got your leg. I've been bitten twice this month. Clear them off the Reach so I can watch the wreck in peace.",
+      "turn_in_text": "I walked the whole Reach this morning without looking at my feet once.\n\nNow I can watch the wreck properly. It's still twitching, if you were wondering.",
+      "next_quest_id": null,
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "unique_item_defs": [
+        {
+          "name": "Lichenstalker's Staff",
+          "slot": "main_hand",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 20
+          },
+          "secondary_stats": {
+            "spell_power": 45
+          },
+          "armor_value": 0,
+          "required_level": 45,
+          "sell_price": 9333,
+          "identity": "caster",
+          "icon_id": "gear_inv_staff_04",
+          "weapon_damage_min": 35,
+          "weapon_damage_max": 47,
+          "attack_speed": 3.2,
+          "block_value": 0
+        },
+        {
+          "name": "Lichenstalker's Jerkin",
+          "slot": "chest",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 117,
+          "required_level": 45,
+          "sell_price": 7467,
+          "identity": "strength",
+          "icon_id": "gear_inv_chest_leather_09"
+        },
+        {
+          "name": "Lichenstalker's Waistguard",
+          "slot": "waist",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 31
+          },
+          "armor_value": 195,
+          "required_level": 45,
+          "sell_price": 4107,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_belt_07"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "mbq_counting_nests",
+      "title": "Counting Nests",
+      "giver_npc_id": "mb_scout_hollows",
+      "zone": "middle_boughs",
+      "level_min": 46,
+      "level_max": 46,
+      "description": "Scout Ree'na counts the harpies' nests for Raz'gul, so he knows how big the flock's got. She needs someone to look into the great hollow on the fork and the roosts along the Hollow Bough.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "middle_boughs",
+          "target_x": 128,
+          "target_y": 108,
+          "radius": 4,
+          "label": "Look into the harpies' great hollow on the fork"
+        },
+        {
+          "type": "explore",
+          "target": "middle_boughs",
+          "target_x": 88,
+          "target_y": 132,
+          "radius": 4,
+          "label": "Count the roosts along the Hollow Bough"
+        }
+      ],
+      "accept_text": "Raz'gul wants a count of the nests, and I can't get close without being seen. Look into the great hollow out east on the fork and walk the roosts along the Hollow Bough, and tell me how many you see.",
+      "turn_in_text": "That's twice what I counted last month. They're breeding on the rot's grubs.\n\nRaz'gul's not going to like this, and I'm the one who has to tell him.",
+      "next_quest_id": null,
+      "reward_exp": 3320,
+      "reward_gold": 13200,
+      "unique_item_defs": [
+        {
+          "name": "Nestcounter's Mantle",
+          "slot": "shoulder",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 25
+          },
+          "armor_value": 67,
+          "required_level": 46,
+          "sell_price": 5973,
+          "identity": "caster",
+          "icon_id": "gear_inv_shoulder_15"
+        },
+        {
+          "name": "Nestcounter's Breeches",
+          "slot": "legs",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 11,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 138,
+          "required_level": 46,
+          "sell_price": 7467,
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_01"
+        },
+        {
+          "name": "Nestcounter's Vambraces",
+          "slot": "wrist",
+          "item_level": 47,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_value": 195,
+          "required_level": 46,
+          "sell_price": 3733,
+          "identity": "tank",
+          "icon_id": "gear_inv_bracer_18"
+        }
+      ],
+      "gear_reward_gear_level": 47,
+      "gear_reward_rarity": "uncommon"
+    }
+  ]
+}

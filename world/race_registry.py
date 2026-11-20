@@ -406,6 +406,7 @@ ZONE_POPULATION_MIX = {
     # the World Tree (19 Nov 2026): the trolls who climbed it, a goblin or two who built the lifts, a few transplants
     "rootwater_isle": [("troll", 80), ("goblin", 10), ("human", 10)],
     "lower_boughs": [("troll", 85), ("goblin", 5), ("human", 10)],
+    "middle_boughs": [("troll", 90), ("human", 10)],
     "great_settlement": [("troll", 78), ("goblin", 8), ("human", 8), ("orc", 6)],
     "camp_mojache": [("tauren", 85), ("orc", 10), ("goblin", 5)],
     "feathermoon_stronghold": [("night_elf", 100)],

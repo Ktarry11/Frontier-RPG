@@ -208,6 +208,8 @@ ZONE_BACKGROUND = {
     "Rootwater Isle": "coast",                    # the World Tree's roots on the reef (until its own background)
     "The Lower Boughs": "jungle",                 # the World Tree's first tier, over the canopy
     "The Knothollow": "jungle",                   # the cave into the trunk
+    "The Middle Boughs": "jungle",                # the tree's heart above the city
+    "Shriekhollow": "jungle",                     # the harpies' hollow in the trunk
     "The Great Settlement": "jungle",             # the troll city in the tree's heart
     "The High Wilderness": "mossy_forest",        # Feralas's giant forest (until its own background)
     "The Forgotten Coast": "mossy_forest",

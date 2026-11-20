@@ -86111,6 +86111,950 @@
           "attack_power": 100
         }
       }
+    ],
+    "terrace_skink": [
+      {
+        "name": "Bite",
+        "kind": "damage",
+        "amount": 174,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Skittering Snap",
+        "kind": "damage",
+        "amount": 149,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Grit in the Wound",
+        "kind": "dot",
+        "amount": 46,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "lichenwing_moth": [
+      {
+        "name": "Pale Dust",
+        "kind": "damage",
+        "amount": 174,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Wingbeat Flurry",
+        "kind": "damage",
+        "amount": 146,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Lichen Rash",
+        "kind": "dot",
+        "amount": 46,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "mistfeather_owl": [
+      {
+        "name": "Talon Rake",
+        "kind": "damage",
+        "amount": 174,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Silent Swoop",
+        "kind": "damage",
+        "amount": 149,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Torn Feathers",
+        "kind": "dot",
+        "amount": 46,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "hushwing": [
+      {
+        "name": "Hushed Talons",
+        "kind": "damage",
+        "amount": 260,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Out of the Mist",
+        "kind": "damage",
+        "amount": 208,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Carried Off",
+        "kind": "damage",
+        "amount": 221,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Hushed Talons, Again",
+        "kind": "damage",
+        "amount": 442,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Old Hunter's Patience",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 39
+        }
+      }
+    ],
+    "scuttling_gear_drone": [
+      {
+        "name": "Clamp",
+        "kind": "damage",
+        "amount": 174,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Whirring Charge",
+        "kind": "damage",
+        "amount": 149,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bronze Plating",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 180
+        },
+        "self_only": true
+      }
+    ],
+    "twitching_scout": [
+      {
+        "name": "Arc Spark",
+        "kind": "damage",
+        "amount": 174,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Discharge",
+        "kind": "damage",
+        "amount": 146,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      },
+      {
+        "name": "Static Lock",
+        "kind": "dot",
+        "amount": 46,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 3,
+        "dispel_type": "magic"
+      }
+    ],
+    "mistcoil_python": [
+      {
+        "name": "Constrict",
+        "kind": "damage",
+        "amount": 182,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Coiled Strike",
+        "kind": "damage",
+        "amount": 146,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Winded",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -20
+        }
+      }
+    ],
+    "the_wakened_surveyor": [
+      {
+        "name": "Surveying Beam",
+        "kind": "damage",
+        "amount": 260,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Arcane Pulse",
+        "kind": "damage",
+        "amount": 208,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      },
+      {
+        "name": "Held in the Light",
+        "kind": "damage",
+        "amount": 221,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Surveying Beam, Again",
+        "kind": "damage",
+        "amount": 442,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Overcharged Core",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 312,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "rotheart_treant": [
+      {
+        "name": "Rotten Limb",
+        "kind": "damage",
+        "amount": 186,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Shower of Rot",
+        "kind": "damage",
+        "amount": 149,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Mouldering",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -20
+        }
+      }
+    ],
+    "blightgrub": [
+      {
+        "name": "Gnaw",
+        "kind": "damage",
+        "amount": 178,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Burrowing Lunge",
+        "kind": "damage",
+        "amount": 153,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Blight Bile",
+        "kind": "dot",
+        "amount": 48,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "rotspore_cloud": [
+      {
+        "name": "Rotspores",
+        "kind": "damage",
+        "amount": 178,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Choking Cloud",
+        "kind": "damage",
+        "amount": 149,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Spore Fever",
+        "kind": "dot",
+        "amount": 48,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "sap_blight_ooze": [
+      {
+        "name": "Blighted Engulf",
+        "kind": "damage",
+        "amount": 186,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Burst of Bad Sap",
+        "kind": "damage",
+        "amount": 149,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Gummed Fast",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -20
+        }
+      }
+    ],
+    "old_barkrot": [
+      {
+        "name": "Barkrot Fist",
+        "kind": "damage",
+        "amount": 270,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "The Bough Sags",
+        "kind": "damage",
+        "amount": 216,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Rooted in Rot",
+        "kind": "damage",
+        "amount": 229,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Barkrot Fist, Again",
+        "kind": "damage",
+        "amount": 459,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Rotten to the Core",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 40
+        }
+      }
+    ],
+    "blighted_harpy": [
+      {
+        "name": "Raking Claws",
+        "kind": "damage",
+        "amount": 178,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Diving Rake",
+        "kind": "damage",
+        "amount": 153,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Blight-Hardened",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 180
+        },
+        "self_only": true
+      }
+    ],
+    "hollow_screecher": [
+      {
+        "name": "Talon Slash",
+        "kind": "damage",
+        "amount": 178,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Screech",
+        "kind": "damage",
+        "amount": 153,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Festering Scratch",
+        "kind": "dot",
+        "amount": 48,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "hollow_talon": [
+      {
+        "name": "Thrown Feather-Knife",
+        "kind": "damage",
+        "amount": 178,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Volley From Above",
+        "kind": "damage",
+        "amount": 153,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Barbed Feather",
+        "kind": "dot",
+        "amount": 48,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "hollow_windcaller": [
+      {
+        "name": "Gust",
+        "kind": "damage",
+        "amount": 178,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Cutting Wind",
+        "kind": "damage",
+        "amount": 149,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Wind-Sick",
+        "kind": "dot",
+        "amount": 48,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "old_raggedwing": [
+      {
+        "name": "Ragged Talons",
+        "kind": "damage",
+        "amount": 270,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Wings Like Knives",
+        "kind": "damage",
+        "amount": 216,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Dragged Off the Bough",
+        "kind": "damage",
+        "amount": 229,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Ragged Talons, Again",
+        "kind": "damage",
+        "amount": 459,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Last of the Old Flock",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 40
+        }
+      }
+    ],
+    "brood_harpy": [
+      {
+        "name": "Brood Claws",
+        "kind": "damage",
+        "amount": 178,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Mobbing Rake",
+        "kind": "damage",
+        "amount": 153,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hardened by the Rot",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 180
+        },
+        "self_only": true
+      }
+    ],
+    "shriekhollow_screamer": [
+      {
+        "name": "Shriek",
+        "kind": "damage",
+        "amount": 178,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Scream Through the Hollow",
+        "kind": "damage",
+        "amount": 149,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Ringing Ears",
+        "kind": "dot",
+        "amount": 48,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "dispel_type": "magic"
+      }
+    ],
+    "roost_talonguard": [
+      {
+        "name": "Talon Guard",
+        "kind": "damage",
+        "amount": 186,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Sweep of Wings",
+        "kind": "damage",
+        "amount": 149,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Off Your Feet",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -20
+        }
+      }
+    ],
+    "rotdark_crawler": [
+      {
+        "name": "Gnaw in the Dark",
+        "kind": "damage",
+        "amount": 178,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Squirming Lunge",
+        "kind": "damage",
+        "amount": 153,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Rotdark Bile",
+        "kind": "dot",
+        "amount": 48,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "rotdark_spores": [
+      {
+        "name": "Dark Spores",
+        "kind": "damage",
+        "amount": 178,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Choking Rot",
+        "kind": "damage",
+        "amount": 149,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Spore-Blind",
+        "kind": "dot",
+        "amount": 48,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "matron_vyssa": [
+      {
+        "name": "Matron's Talons",
+        "kind": "damage",
+        "amount": 270,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature",
+        "boss_rework": 1
+      },
+      {
+        "name": "Blighted Shriek",
+        "kind": "damage",
+        "amount": 237,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Matron's Talons, Twice",
+        "kind": "damage",
+        "amount": 351,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Every Harpy Screams",
+        "kind": "damage",
+        "amount": 189,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Snatched Up",
+        "kind": "damage",
+        "amount": 297,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Blighted Shriek, Deep",
+        "kind": "dot",
+        "amount": 121,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "dispel_type": "poison"
+      },
+      {
+        "name": "Fed by the Flock",
+        "kind": "heal",
+        "amount": 297,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Last Stand",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.3,
+        "stat_mods": {
+          "attack_power": 108
+        }
+      }
+    ],
+    "old_splinterheart": [
+      {
+        "name": "Splintered Fist",
+        "kind": "damage",
+        "amount": 270,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature",
+        "boss_rework": 1
+      },
+      {
+        "name": "Rot in the Wood",
+        "kind": "damage",
+        "amount": 237,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Splintered Fist, Twice",
+        "kind": "damage",
+        "amount": 351,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "The Rot Comes Up",
+        "kind": "damage",
+        "amount": 189,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Crushed Under Bark",
+        "kind": "damage",
+        "amount": 297,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "nature",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Rot in the Wood, Deep",
+        "kind": "dot",
+        "amount": 121,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 4,
+        "dispel_type": "poison"
+      },
+      {
+        "name": "The Whole Hollow Rots",
+        "kind": "damage",
+        "amount": 486,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Last Stand",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.3,
+        "stat_mods": {
+          "attack_power": 108
+        }
+      }
     ]
   }
 }

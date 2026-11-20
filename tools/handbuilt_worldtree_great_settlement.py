@@ -12,7 +12,7 @@ north wall, with a ledge along its foot that carries the two lifts and the High 
 
     THE LIFTFOOT (the ledge's west end): the Great Lift up from the Lower Boughs comes in here, behind the city gate
     THE CHIEFTAIN'S RISE (the ledge's middle): the Heart Palace wrapped round the trunk, the loa temple, Zan'kaji
-    THE HIGH LIFT (the ledge's east end): the lift on up to the Middle Boughs (opens when they're built)
+    THE HIGH LIFT (the ledge's east end): the lift on up to the Middle Boughs
     THE MARKET (the great middle platform): the inn, the bank and the auction house with the mail between them (Kyle,
       17 Nov 2026: "an auction house, a bank, and a mailbox close together"), the stalls, the tea house, the
       quartermaster, and the sky-bone wall where the scholars show what's fallen from the clouds
@@ -44,9 +44,9 @@ WTP = "assets/tiles/worldtree/props/"
 BLD = "assets/buildings/"
 SP = "assets/tiles/stranglethorn/props/"
 
-PORTALS = {(24, 14): "The Lower Boughs"}
-ARRIVALS = [(24, 18)]
-LATER_PORTALS = {(162, 14): "The Middle Boughs"}   # the High Lift: its door opens when the Middle Boughs are built
+PORTALS = {(24, 14): "The Lower Boughs", (162, 14): "The Middle Boughs"}
+ARRIVALS = [(24, 18), (162, 18)]
+LATER_PORTALS = {}
 START = (92, 70)        # the Market: everything must be reachable from here
 
 TRUNK_DEPTH = 11
