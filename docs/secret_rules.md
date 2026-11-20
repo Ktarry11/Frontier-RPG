@@ -14,6 +14,14 @@ The rules every secret, hidden seller, hidden zone and Easter egg follows. Build
   hung over the drop (`OVER_THE_DROP` in tools/build_new_zone_secrets.py).
 - **Check the registry** (`world.hidden_zones.registry()`) before naming any place.
 
+## Kyle sees the shapes, never the places (20 Nov 2026)
+Kyle: "I still want to see the structure of skull and frontier zones. Just not where they are. Prevents you from making
+everything blobs."
+- **Show the structure:** every new skull or frontier map goes in front of Kyle as its shape, on a sheet beside every
+  hidden map that already exists. Names and shapes only, never the parent, the door or anything that points at either.
+- **No two the same topology.** Check the sheet before anything ships. The tree's first cut copied two existing shapes
+  (a ring round a lake; pods on necks) and was redrawn.
+
 ## Hidden sellers
 - Rare pieces, no flavour text (flavour is for epics and up), at three quarters of the old price, from a pool of seven
   with four on the shelf at a time, turning over every twelve market hours (Kyle, 17 Nov 2026).
