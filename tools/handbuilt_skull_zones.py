@@ -858,6 +858,128 @@ SPECS["The Long Winter"] = dict(
 )
 
 
+# ============================================================================ THE WORLD TREE (20 Nov 2026)
+# Kyle: "Yeah please do" (a skull zone and a frontier for the tree). Not to be told where either is.
+WTG = "worldtree/ground/"
+WTP_ = "assets/tiles/worldtree/props/"
+
+# THE RAINCATCH. A basin in the bark where the rain has pooled for longer than the trolls have been climbing: a rim of
+# moss round a lake of rainwater, the first climbers' rain-shrine drowned in the middle of it, lilies on the east
+# shallows, and a crown of leaves hanging so low over the north rim that it touches the water.
+SPECS["The Raincatch"] = dict(
+    slug="raincatch", W=100, H=92, region="The Lower Boughs", seed=961,
+    desc="Terraces of rain pools stepping down the bark, each held behind a lip of moss, where the rain has pooled "
+         "for longer than anyone's been climbing. A drowned shrine on the middle terrace, and a crown of leaves over "
+         "the top pool.",
+    mode="islands", shore_w=2.0,
+    # TERRACES, NOT A RING (Kyle: "Don't make all the shapes the same", and 20 Nov: "Prevents you from making
+    # everything blobs"; the first cut was a ring round a lake, which the Drowned Idols already are). Five curved lips
+    # of moss step down the map like rimstone dams, each holding back a pool, sagging downhill in the middle. You climb
+    # by switchbacks: each lip joins the next at alternate ends, and two pools have a shallow ford across them for
+    # whoever doesn't mind wet feet.
+    land=[(50, 85, 14, 5, 0), (50, 51, 9, 4.5, 0), (52, 15, 12, 4.5, 0), (24, 52, 6, 4, 0)],
+    atoll_poly=[([(22.0, 10.4), (29.8, 14.3), (37.5, 16.2), (45.2, 18.0), (53.0, 15.3), (60.8, 16.6), (68.5, 15.9), (76.2, 15.8), (84.0, 10.8), (76.2, 15.8), (68.5, 15.9), (60.8, 16.6), (53.0, 15.3), (45.2, 18.0), (37.5, 16.2), (29.8, 14.3)], 4.5, []), ([(8.0, 27.2), (18.5, 23.0), (29.0, 25.3), (39.5, 24.7), (50.0, 20.6), (60.5, 23.4), (71.0, 26.4), (81.5, 23.6), (92.0, 25.8), (81.5, 23.6), (71.0, 26.4), (60.5, 23.4), (50.0, 20.6), (39.5, 24.7), (29.0, 25.3), (18.5, 23.0)], 5.5, []), ([(10.0, 43.8), (20.0, 46.4), (30.0, 49.9), (40.0, 50.9), (50.0, 50.1), (60.0, 50.8), (70.0, 50.2), (80.0, 46.2), (90.0, 43.5), (80.0, 46.2), (70.0, 50.2), (60.0, 50.8), (50.0, 50.1), (40.0, 50.9), (30.0, 49.9), (20.0, 46.4)], 4.5, []), ([(8.0, 59.0), (17.2, 60.6), (26.5, 62.3), (35.8, 62.8), (45.0, 59.9), (54.2, 62.2), (63.5, 64.0), (72.8, 58.6), (82.0, 59.2), (72.8, 58.6), (63.5, 64.0), (54.2, 62.2), (45.0, 59.9), (35.8, 62.8), (26.5, 62.3), (17.2, 60.6)], 4.5, []), ([(14.0, 76.2), (23.8, 78.7), (33.5, 79.6), (43.2, 80.1), (53.0, 81.3), (62.8, 81.5), (72.5, 78.8), (82.2, 77.8), (92.0, 77.5), (82.2, 77.8), (72.5, 78.8), (62.8, 81.5), (53.0, 81.3), (43.2, 80.1), (33.5, 79.6), (23.8, 78.7)], 5.0, []), ([(83, 13), (90, 20), (91, 27), (90, 20)], 5.0, []), ([(9, 29), (12, 37), (11, 45), (12, 37)], 5.0, []), ([(89, 46), (86, 53), (81, 60), (86, 53)], 5.0, []), ([(9, 61), (13, 69), (15, 77), (13, 69)], 5.0, []), ([(50, 80), (50, 86)], 5.0, [])],
+    flats=[(30, 53, 3, 7), (64, 20, 13, 5), (70, 36, 3, 7), (40, 68, 3, 6)],
+    lakes=[], rivers=[], open=[], outline=[], passes=[],
+    # the basin's sides: the trunk's own bark closes the pools in at either end, top and bottom, so each pool is held
+    # between its lips and the walls instead of running off into open water
+    rocks=[(-5, 46, 10, 70), (105, 46, 10, 70), (50, -5, 72, 9), (50, 99, 72, 8)],
+    roads=[([(50, 89), (50, 82)], 1.6)],
+    portal=(50, 89),
+    giver=("hz_raincatch_maluu", (57, 85)),
+    subzones=[("The Mossrim", 0, 56, 100, 36), ("The Overflow", 72, 56, 28, 36), ("The Drowned Shrine", 34, 38, 32, 18),
+              ("The Lily Shallows", 50, 14, 50, 22), ("The Low Crown", 28, 0, 44, 18)],
+    materials={"land": (WTG + "wt_bark_moss", WTG + "wt_root_moss"),
+               "leaf": (WTG + "wt_gold_leaves", None),
+               "moss": (WTG + "wt_trunk_moss_wall", None),
+               "road": (WTG + "wt_lashed_planks", None),
+               "water_s": (WTG + "wt_branch_river", None),
+               "water_d": ("plaguelands/ground/pl_lake_water", None),
+               "rock": (WTG + "wt_trunk_wall", WTG + "wt_trunk_moss_wall")},
+    regions={"leaf": [(50, 11, 10, 4), (20, 62, 6, 3)], "moss": [(84, 76, 6, 3)]},
+    tint=(0.92, 1.0, 0.96), dark=0.06,
+    # the way on: a crown of leaves hanging so low over the top pool it touches the water, and a hollow behind it
+    great_tree=("wt_leaf_crown", WTP_, 52, 17, 13),
+    tree_leads_to="The Kapok Crowns",
+    scatter=[("wt_bromeliads", WTP_, 3, False, 18, "shore", 41, 5),
+             ("wt_ferns", WTP_, 3, False, 22, "land", 42, 5),
+             ("wt_moss_curtain", WTP_, 6, "core", 8, "land", 43, 12),
+             ("wt_pool_reeds", WTP_, 3, False, 18, "shore", 44, 5)],
+    props=[
+        # the drowned shrine on the middle terrace: the first climbers prayed for rain here, and got it
+        ("wt_old_shrine", WTP_, 50, 51, 6, "core"), ("wt_stone_cairn", WTP_, 43, 51, 4, "core"),
+        ("wt_stone_cairn", WTP_, 57, 51, 4, "core"),
+        # the bottom terrace, where you come in, and the old rain-priestess's lean-to
+        ("wt_bark_leanto", WTP_, 62, 85, 5, "core"), ("wt_hammock", WTP_, 40, 86, 4, "core"),
+        # where each pool spills over its lip into the next
+        ("wt_branch_falls", WTP_, 88, 79, 6, "core"), ("wt_branch_falls", WTP_, 12, 63, 6, "core"),
+        # the terraces' own life
+        ("wt_blossoms", WTP_, 24, 14, 3, False), ("wt_seed_pod", WTP_, 78, 15, 4, "core"),
+        ("wt_shelf_fungus", WTP_, 20, 46, 4, "core"), ("wt_knot_hole", WTP_, 82, 31, 5, "core"),
+        ("wt_vine_curtain", WTP_, 30, 79, 6, "core"), ("wt_fallen_branch", WTP_, 72, 63, 5, "core"),
+    ],
+)
+
+# THE KAPOK CROWNS. Behind the low crown, through the leaves: the tops of the Amazon's tallest trees, a stretch of the
+# canopy over the flooded forest below Manaus that came through the merge whole and caught in a bigger tree. One great
+# limb, forking and forking again out to its crowns, a fork drowned in a flood where the river's mother lives, and the
+# animals of the canopy, none of whom have any idea where they are.
+SPECS["The Kapok Crowns"] = dict(
+    slug="kapok_crowns", W=112, H=96, region="The Lower Boughs", seed=962,
+    desc="The crowns of the Amazon's tallest trees, caught in the World Tree with everything living in them. It "
+         "rains every afternoon, the howlers start every morning, and nothing here knows it's moved.",
+    mode="canyon", shore_w=2.4,
+    # A TREE FROM ABOVE, NOT PODS ON NECKS (the first cut was round crowns joined by branches, which the Saltgrave and
+    # the Tanglewood Shoals already are). One great limb comes up from where you arrive and forks, and forks again,
+    # each branch thinner than the one it grew from, out to crowns of leaves that aren't the same shape twice. Two
+    # branches touch near the top, so there's one loop; everything else is a choice of which way to climb. The west
+    # fork is drowned in a flood, a lake you walk round.
+    open=[(34, 58, 11, 8, -20), (14, 22, 10, 6, 25), (38, 13, 13, 5, -8), (80, 15, 11, 7, 18), (101, 30, 6, 10, 0),
+          (96, 50, 6, 5, 0), (56, 82, 9, 6, 0)],
+    passes=[([(56, 94), (56, 74)], 9), ([(56, 76), (36, 60)], 7), ([(56, 76), (78, 62)], 7),
+            ([(34, 56), (20, 44), (15, 26)], 5.5), ([(36, 56), (44, 40), (40, 16)], 4.5),
+            ([(78, 62), (96, 50), (101, 32)], 5), ([(78, 62), (70, 42), (79, 18)], 4.5),
+            ([(44, 40), (70, 42)], 3.5)],
+    outline=[],
+    lakes=[(33, 58, 6, 4, -20)],
+    rivers=[],
+    flats=[],
+    rocks=[],
+    roads=[],
+    portal=(56, 92),
+    giver=("hz_kapok_luana", (59, 84)),
+    subzones=[("The First Crown", 40, 66, 32, 30), ("The Flooded Crown", 20, 46, 28, 22), ("The Howler Crown", 2, 12, 26, 32),
+              ("The Spotted Crown", 26, 4, 28, 26), ("The Strangler Crown", 84, 20, 28, 42), ("The Emergent", 62, 4, 22, 36)],
+    materials={"land": (WTG + "wt_leaf_mat", WTG + "wt_jungle_grass"),
+               "bark": (WTG + "wt_branch_bark", None),
+               "bloom": (WTG + "wt_bark_ferns", None),
+               "water_s": (WTG + "wt_lagoon_shallow", None),
+               "water_d": (WTG + "wt_lagoon_deep", None),
+               "rock": (WTG + "wt_drop_canopy", WTG + "wt_drop_tiers")},
+    regions={"bark": [(56, 82, 3, 9), (46, 68, 6, 3), (67, 69, 6, 3), (26, 50, 3, 5), (40, 48, 3, 5), (86, 56, 5, 3),
+                      (74, 52, 3, 5), (57, 41, 8, 2)],
+             "bloom": [(14, 22, 6, 4), (80, 15, 6, 4)]},
+    tint=(0.96, 1.04, 0.94), dark=0.02,
+    scatter=[("wt_leaf_crown", WTP_, 8, "core", 18, "rock", 51, 9),
+             ("wt_bromeliads", WTP_, 3, False, 24, "land", 52, 5),
+             ("wt_vine_curtain", WTP_, 6, False, 8, "edge", 53, 9),
+             ("wt_blossoms", WTP_, 3, False, 12, "land", 54, 6)],
+    props=[
+        # the ecologist's camp at the foot of the limb: a lean-to and a hammock, both made of what's here
+        ("wt_bark_leanto", WTP_, 62, 80, 5, "core"), ("wt_hammock", WTP_, 50, 82, 4, "core"),
+        # the flooded fork: drowned branch-ends round the river's mother's water
+        ("wt_dead_stub", WTP_, 26, 62, 5, "core"), ("wt_mangrove_roots", WTP_, 42, 55, 5, "core"),
+        # the strangler crown: a fig that's eaten its host from the outside in
+        ("wt_side_branch", WTP_, 102, 26, 7, "core"), ("wt_vine_curtain", WTP_, 97, 52, 5, "core"),
+        # the emergent: the tallest crown, where the old jaguar lies up in the afternoon heat
+        ("wt_blossoms", WTP_, 84, 13, 3, False), ("wt_seed_pod", WTP_, 75, 17, 4, "core"),
+        # the howler crown and the spotted crown
+        ("wt_seed_pod", WTP_, 11, 22, 4, "core"), ("wt_bromeliads", WTP_, 34, 12, 3, False),
+        ("wt_moss_curtain", WTP_, 44, 13, 5, "core"),
+    ],
+)
+
+
 def fields(spec, gx, gy):
     gx = np.asarray(gx, float)
     gy = np.asarray(gy, float)

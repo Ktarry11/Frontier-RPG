@@ -60,6 +60,8 @@ ZONE_POOLS = {
     "rootwater_isle": ("pool_coast", "pool_jungle"),       # the World Tree's reef and its lagoons (19 Nov 2026)
     "lower_boughs": ("pool_river", "pool_jungle"),         # the river down the Great Bough (20 Nov 2026)
     "middle_boughs": ("pool_fresh",),                      # rain held in hollows of the bark (20 Nov 2026)
+    "raincatch": ("pool_fresh", "pool_reeds"),
+    "kapok_crowns": ("pool_river", "pool_jungle"),
     "high_wilderness": ("pool_river", "pool_fresh"),       # Feralas's east arm: forest rivers and pools
     "forgotten_coast": ("pool_coast", "pool_deep_sea"),    # Feralas's coast and the sound off Feathermoon
     "twin_colossals": ("pool_river", "pool_reeds"),        # the falls under the Colossals and the fog groves' fens

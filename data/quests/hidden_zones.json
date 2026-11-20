@@ -4599,6 +4599,668 @@
         }
       ],
       "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_raincatch_snappers",
+      "title": "Snappers in the Moss",
+      "giver_npc_id": "hz_raincatch_maluu",
+      "zone": "the_raincatch",
+      "level_min": 46,
+      "level_max": 48,
+      "elite": false,
+      "description": "The snappers lie in the moss along every lip. The herons stand in the shallows, very still.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Mossback Snapper",
+          "count": 8
+        },
+        {
+          "type": "kill",
+          "target": "Stilt-Leg Heron",
+          "count": 6
+        }
+      ],
+      "reward_exp": 5025,
+      "reward_gold": 19228,
+      "accept_text": "I'm Old Ma'luu, and I climbed up here to pray for rain when I was a girl, at the shrine the first climbers built. The rain came, and it never stopped, and the pools filled every step of the old terraces.\n\nI've lived on the lips between them ever since. The Mossback Snappers lie in the moss at the water's edge, and the Stilt-Leg Herons spear anything that sits still too long. Thin them out, so an old woman can walk her own terraces.",
+      "turn_in_text": "I walked from the bottom pool to the top this morning and nothing bit me. That hasn't happened in years.\n\nYou came a long way to find a pond. I'd like to show you why it's worth finding.",
+      "unique_item_defs": [
+        {
+          "name": "Mossrim Walker's Boots",
+          "slot": "feet",
+          "item_level": 50,
+          "rarity": "rare",
+          "required_level": 46,
+          "primary_stats": {
+            "agility": 14,
+            "stamina": 14
+          },
+          "armor_type": "leather",
+          "armor_value": 113,
+          "label": "Leather Boots (Agi/Sta)"
+        },
+        {
+          "name": "Rain-Soaked Gloves",
+          "slot": "hands",
+          "item_level": 50,
+          "rarity": "rare",
+          "required_level": 46,
+          "primary_stats": {
+            "intellect": 14,
+            "spirit": 14
+          },
+          "armor_type": "cloth",
+          "armor_value": 56,
+          "label": "Cloth Gloves (Int/Spi)"
+        },
+        {
+          "name": "Snapper-Shell Girdle",
+          "slot": "waist",
+          "item_level": 50,
+          "rarity": "rare",
+          "required_level": 46,
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 12
+          },
+          "secondary_stats": {
+            "defense_rating": 7
+          },
+          "armor_type": "plate",
+          "armor_value": 272,
+          "label": "Plate Belt (Str/Sta/Def)"
+        }
+      ],
+      "next_quest_id": "hz_raincatch_sparks"
+    },
+    {
+      "quest_id": "hz_raincatch_sparks",
+      "title": "Caught Rain",
+      "giver_npc_id": "hz_raincatch_maluu",
+      "zone": "the_raincatch",
+      "level_min": 47,
+      "level_max": 49,
+      "elite": false,
+      "description": "The darters flit over the drowned shrine on the middle terrace, halfway up the pools.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "rain_spark",
+          "count": 6
+        }
+      ],
+      "reward_exp": 5134,
+      "reward_gold": 19646,
+      "accept_text": "The Rain Darters over the drowned shrine are made of the rain, I'm sure of it. When one goes out, it leaves a drop behind that won't stop falling.\n\nBring me some. If I can hold the rain in my hands, maybe I can finally ask it to stop.",
+      "turn_in_text": "Look at them, every one still falling, toward the shrine.\n\nThe rain isn't just falling here. It's being called, and the one doing the calling is still down there.",
+      "unique_item_defs": [
+        {
+          "name": "Raindrop Pendant",
+          "slot": "neck",
+          "item_level": 51,
+          "rarity": "rare",
+          "required_level": 47,
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "spell_power": 19,
+            "crit_chance_spell": 5
+          },
+          "label": "Necklace (Int/SP/Crit)"
+        },
+        {
+          "name": "Shallows-Wader's Coif",
+          "slot": "head",
+          "item_level": 51,
+          "rarity": "rare",
+          "required_level": 47,
+          "primary_stats": {
+            "agility": 12,
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_type": "mail",
+          "armor_value": 226,
+          "label": "Mail Helm (Agi/Int/AP)"
+        },
+        {
+          "name": "Lily-Root Staff",
+          "slot": "main_hand",
+          "item_level": 51,
+          "rarity": "rare",
+          "required_level": 47,
+          "weapon_type": "staff",
+          "primary_stats": {
+            "stamina": 21,
+            "intellect": 21
+          },
+          "secondary_stats": {
+            "healing_power": 37
+          },
+          "weapon_damage_min": 49,
+          "weapon_damage_max": 67,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/Healing)"
+        }
+      ],
+      "next_quest_id": "hz_raincatch_priest"
+    },
+    {
+      "quest_id": "hz_raincatch_priest",
+      "title": "The Answered Prayer (Elite)",
+      "giver_npc_id": "hz_raincatch_maluu",
+      "zone": "the_raincatch",
+      "level_min": 47,
+      "level_max": 49,
+      "elite": true,
+      "description": "The drowned shrine stands on the middle terrace. Climb the switchbacks, or wade the fords if you're in a hurry.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "The Drowned Rain-Priest",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Rain Darter",
+          "count": 5
+        }
+      ],
+      "reward_exp": 8930,
+      "reward_gold": 35720,
+      "accept_text": "The priest who taught me prayed for rain at that shrine for forty years. When the rain came, he stayed to give thanks, and the water rose over him, and he went on praying. He's still down there, all moss and water, and he still thinks we want it to rain.\n\nThe Rain Darters circle him like moths. Go out to the shrine and let him stop. Take friends, because he won't want to.",
+      "turn_in_text": "It stopped raining. For the first time since I was a girl, it stopped.\n\nI cried a little, and then I laughed, because I'd forgotten what a dry afternoon was. Thank you, and thank him for me, if you can.",
+      "unique_item_defs": [
+        {
+          "name": "Shrine-Breaker Greatsword",
+          "slot": "main_hand",
+          "item_level": 51,
+          "rarity": "rare",
+          "required_level": 47,
+          "weapon_type": "sword_2h",
+          "primary_stats": {
+            "strength": 12
+          },
+          "secondary_stats": {
+            "attack_power": 24,
+            "hit_rating": 10
+          },
+          "weapon_damage_min": 121,
+          "weapon_damage_max": 164,
+          "attack_speed": 3.4,
+          "label": "Two-Handed Sword (Str/Crit)"
+        },
+        {
+          "name": "Drowned Acolyte's Hauberk",
+          "slot": "chest",
+          "item_level": 51,
+          "rarity": "rare",
+          "required_level": 47,
+          "primary_stats": {
+            "agility": 14,
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_type": "mail",
+          "armor_value": 267,
+          "label": "Mail Chest (Agi/Int/AP)"
+        },
+        {
+          "name": "Rim-Guard Pauldrons",
+          "slot": "shoulder",
+          "item_level": 51,
+          "rarity": "rare",
+          "required_level": 47,
+          "primary_stats": {
+            "stamina": 16
+          },
+          "secondary_stats": {
+            "defense_rating": 12,
+            "dodge_rating": 8
+          },
+          "armor_type": "plate",
+          "armor_value": 339,
+          "label": "Plate Shoulders (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Hood of the Long Rain",
+          "slot": "head",
+          "item_level": 51,
+          "rarity": "rare",
+          "required_level": 47,
+          "primary_stats": {
+            "intellect": 10,
+            "spirit": 10
+          },
+          "secondary_stats": {
+            "healing_power": 27
+          },
+          "armor_type": "cloth",
+          "armor_value": 70,
+          "label": "Cloth Helm (Int/Spi/Healing)"
+        },
+        {
+          "name": "Mosswalker's Leggings",
+          "slot": "legs",
+          "item_level": 51,
+          "rarity": "rare",
+          "required_level": 47,
+          "primary_stats": {
+            "agility": 20,
+            "spirit": 20
+          },
+          "armor_type": "leather",
+          "armor_value": 167,
+          "label": "Leather Legs (Agi/Spi)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_raincatch_croak",
+      "title": "Grandmother Croak",
+      "giver_npc_id": "hz_raincatch_maluu",
+      "zone": "the_raincatch",
+      "level_min": 47,
+      "level_max": 49,
+      "elite": false,
+      "description": "The lily shallows fill the top pool, under the low crown. She looks like a mossy rock until she opens her mouth.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Grandmother Croak",
+          "count": 1
+        }
+      ],
+      "reward_exp": 5134,
+      "reward_gold": 19646,
+      "accept_text": "There's a toad in the lily shallows of the top pool as big as my lean-to. I call her Grandmother Croak, and for years I didn't mind her, because she ate the eels.\n\nNow she's eating the herons, and the snappers, and last week she had a go at me. I'm too old to be eaten by a toad. Please see to it.",
+      "turn_in_text": "She's gone, and the lilies are already opening where she used to sit.\n\nI'll miss her singing at night, a little. Don't tell anyone I said that.",
+      "unique_item_defs": [
+        {
+          "name": "Lily-Shallows Glaive",
+          "slot": "main_hand",
+          "item_level": 51,
+          "rarity": "rare",
+          "required_level": 47,
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "agility": 17,
+            "stamina": 17
+          },
+          "weapon_damage_min": 121,
+          "weapon_damage_max": 164,
+          "attack_speed": 3.3,
+          "label": "Polearm (Agi/Sta)"
+        },
+        {
+          "name": "Pondskin Bracers",
+          "slot": "wrist",
+          "item_level": 51,
+          "rarity": "rare",
+          "required_level": 47,
+          "primary_stats": {
+            "intellect": 14,
+            "spirit": 14
+          },
+          "armor_type": "mail",
+          "armor_value": 185,
+          "label": "Mail Bracers (Int/Spi)"
+        },
+        {
+          "name": "Bark-Shod Sabatons",
+          "slot": "feet",
+          "item_level": 51,
+          "rarity": "rare",
+          "required_level": 47,
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "defense_rating": 7
+          },
+          "armor_type": "plate",
+          "armor_value": 278,
+          "label": "Plate Boots (Str/Sta/Def)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_kapok_howlers",
+      "title": "Morning Chorus",
+      "giver_npc_id": "hz_kapok_luana",
+      "zone": "the_kapok_crowns",
+      "level_min": 48,
+      "level_max": 50,
+      "elite": false,
+      "description": "The birdeaters hide in the bromeliads on the first crown. The howlers are everywhere you can hear them.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Goliath Birdeater",
+          "count": 7
+        },
+        {
+          "type": "kill",
+          "target": "Howler Monkey",
+          "count": 6
+        }
+      ],
+      "reward_exp": 5244,
+      "reward_gold": 20064,
+      "accept_text": "Dr. Luana Ferreira. I'm a canopy ecologist from Manaus, back home, and this is my canopy, the crowns of the kapok trees over the flooded forest. I climbed a tower one morning to count birds, and when I came down the tower was gone and the forest was here, in this tree, on this world.\n\nIt's a small piece of forest and it's getting crowded. The Goliath Birdeaters have run out of birds and started on everything else, and the Howler Monkeys have gone mad with it. Thin both out, please, gently if you can.",
+      "turn_in_text": "The howlers are quieter. Not quiet, they're never quiet, but quieter.\n\nBack home I'd have written a paper about all this. Here I write it in the margins of the only notebook I brought.",
+      "unique_item_defs": [
+        {
+          "name": "Canopy-Climber's Boots",
+          "slot": "feet",
+          "item_level": 52,
+          "rarity": "rare",
+          "required_level": 48,
+          "primary_stats": {
+            "agility": 14,
+            "stamina": 14
+          },
+          "armor_type": "leather",
+          "armor_value": 118,
+          "label": "Leather Boots (Agi/Sta)"
+        },
+        {
+          "name": "Kapok-Fluff Bracers",
+          "slot": "wrist",
+          "item_level": 52,
+          "rarity": "rare",
+          "required_level": 48,
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 21,
+            "crit_chance_spell": 6
+          },
+          "armor_type": "cloth",
+          "armor_value": 59,
+          "label": "Cloth Bracers (Int/SP/Crit)"
+        },
+        {
+          "name": "Branch-Grip Gauntlets",
+          "slot": "hands",
+          "item_level": 52,
+          "rarity": "rare",
+          "required_level": 48,
+          "primary_stats": {
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "defense_rating": 10,
+            "dodge_rating": 7
+          },
+          "armor_type": "plate",
+          "armor_value": 283,
+          "label": "Plate Gloves (Sta/Def/Dodge)"
+        }
+      ],
+      "next_quest_id": "hz_kapok_pods"
+    },
+    {
+      "quest_id": "hz_kapok_pods",
+      "title": "Seeds From Home",
+      "giver_npc_id": "hz_kapok_luana",
+      "zone": "the_kapok_crowns",
+      "level_min": 49,
+      "level_max": 51,
+      "elite": false,
+      "description": "The howlers carry the pods round the howler crown and the first crown. Look for the white fluff.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "kapok_pod",
+          "count": 6
+        }
+      ],
+      "reward_exp": 5353,
+      "reward_gold": 20482,
+      "accept_text": "The kapoks are seeding, and the seeds are the only proof I've got that this forest came from Earth. The Howler Monkeys steal the pods to line their beds.\n\nBring me some, and I'll plant them on the terraces below. If a kapok grows in this world's soil, then some part of home can live here too.",
+      "turn_in_text": "Six pods, and every one full of seed. I'll plant them on the terraces tonight.\n\nIf they grow, in a hundred years there'll be a kapok standing in the World Tree. I like that thought more than I can say.",
+      "unique_item_defs": [
+        {
+          "name": "Seed-Pod Locket",
+          "slot": "neck",
+          "item_level": 53,
+          "rarity": "rare",
+          "required_level": 49,
+          "primary_stats": {
+            "stamina": 9,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "healing_power": 15
+          },
+          "label": "Necklace (Int/Healing)"
+        },
+        {
+          "name": "Canopy Wanderer's Cloak",
+          "slot": "back",
+          "item_level": 53,
+          "rarity": "rare",
+          "required_level": 49,
+          "primary_stats": {
+            "strength": 13,
+            "agility": 13
+          },
+          "label": "Cloak (Str/Agi)"
+        },
+        {
+          "name": "Liana-Woven Girdle",
+          "slot": "waist",
+          "item_level": 53,
+          "rarity": "rare",
+          "required_level": 49,
+          "primary_stats": {
+            "agility": 10,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 17
+          },
+          "armor_type": "mail",
+          "armor_value": 192,
+          "label": "Mail Belt (Agi/Int/AP)"
+        }
+      ],
+      "next_quest_id": "hz_kapok_boiuna"
+    },
+    {
+      "quest_id": "hz_kapok_boiuna",
+      "title": "Mother of the River (Elite)",
+      "giver_npc_id": "hz_kapok_luana",
+      "zone": "the_kapok_crowns",
+      "level_min": 49,
+      "level_max": 51,
+      "elite": true,
+      "description": "The flooded crown is the west fork of the great limb, round the water. She looks like a log in the flood until she moves.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Boiuna",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Green Anaconda",
+          "count": 4
+        }
+      ],
+      "reward_exp": 9310,
+      "reward_gold": 37240,
+      "accept_text": "The west fork came through drowned in the flood, and something came with it. The people on the river back home tell stories about the Boiuna, a snake so big it's mistaken for an island, the mother of the river. I always thought it was a story.\n\nShe's not a story, and she's eating the crown. The Green Anacondas round the flood are her children. Please, go carefully, and take every friend you have.",
+      "turn_in_text": "My grandmother told me the Boiuna could never be killed, only sent back to sleep under the river.\n\nI think we sent her back to sleep. I'm going to choose to believe that. Thank you.",
+      "unique_item_defs": [
+        {
+          "name": "Floodwater Greataxe",
+          "slot": "main_hand",
+          "item_level": 53,
+          "rarity": "rare",
+          "required_level": 49,
+          "weapon_type": "axe_2h",
+          "primary_stats": {
+            "strength": 12
+          },
+          "secondary_stats": {
+            "attack_power": 25,
+            "hit_rating": 11
+          },
+          "weapon_damage_min": 126,
+          "weapon_damage_max": 170,
+          "attack_speed": 3.6,
+          "label": "Two-Handed Axe (Str/Crit)"
+        },
+        {
+          "name": "Mantle of the River's Children",
+          "slot": "shoulder",
+          "item_level": 53,
+          "rarity": "rare",
+          "required_level": 49,
+          "primary_stats": {
+            "intellect": 12,
+            "stamina": 12
+          },
+          "secondary_stats": {
+            "spell_power": 16
+          },
+          "armor_type": "cloth",
+          "armor_value": 73,
+          "label": "Cloth Shoulders (Int/SP)"
+        },
+        {
+          "name": "Anaconda-Scale Tunic",
+          "slot": "chest",
+          "item_level": 53,
+          "rarity": "rare",
+          "required_level": 49,
+          "primary_stats": {
+            "agility": 17
+          },
+          "secondary_stats": {
+            "hit_rating": 13,
+            "crit_chance_physical": 13
+          },
+          "armor_type": "leather",
+          "armor_value": 173,
+          "label": "Leather Chest (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Igapo Hauberk",
+          "slot": "chest",
+          "item_level": 53,
+          "rarity": "rare",
+          "required_level": 49,
+          "primary_stats": {
+            "intellect": 21,
+            "spirit": 21
+          },
+          "armor_type": "mail",
+          "armor_value": 278,
+          "label": "Mail Chest (Int/Spi)"
+        },
+        {
+          "name": "Flooded-Crown Breastplate",
+          "slot": "chest",
+          "item_level": 53,
+          "rarity": "rare",
+          "required_level": 49,
+          "primary_stats": {
+            "stamina": 19
+          },
+          "secondary_stats": {
+            "defense_rating": 15,
+            "dodge_rating": 10
+          },
+          "armor_type": "plate",
+          "armor_value": 417,
+          "label": "Plate Chest (Sta/Def/Dodge)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_kapok_jaguar",
+      "title": "The Old Jaguar",
+      "giver_npc_id": "hz_kapok_luana",
+      "zone": "the_kapok_crowns",
+      "level_min": 49,
+      "level_max": 51,
+      "elite": false,
+      "description": "The emergent is the tallest crown, north east of the flood. She lies up in the branches in the heat.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "The Old Jaguar",
+          "count": 1
+        }
+      ],
+      "reward_exp": 5353,
+      "reward_gold": 20482,
+      "accept_text": "There's a jaguar on the emergent crown, the tallest one, who's older than any jaguar I've ever seen. Grey round the muzzle, scarred all over, and clever. I've been watching her for a year.\n\nShe's started hunting the camp. I'd give anything not to ask you this, but I'd like to go on living. Please make it quick.",
+      "turn_in_text": "It's done, then.\n\nI'll draw her tonight, the way she was in the mornings, before she noticed me. Somebody from home should remember her. Take something with you, you've earned it.",
+      "unique_item_defs": [
+        {
+          "name": "Emergent-Stalker's Spear",
+          "slot": "main_hand",
+          "item_level": 53,
+          "rarity": "rare",
+          "required_level": 49,
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "agility": 18,
+            "stamina": 18
+          },
+          "weapon_damage_min": 126,
+          "weapon_damage_max": 170,
+          "attack_speed": 3.3,
+          "label": "Polearm (Agi/Sta)"
+        },
+        {
+          "name": "Rosette Bracers",
+          "slot": "wrist",
+          "item_level": 53,
+          "rarity": "rare",
+          "required_level": 49,
+          "primary_stats": {
+            "intellect": 14,
+            "spirit": 14
+          },
+          "armor_type": "mail",
+          "armor_value": 192,
+          "label": "Mail Bracers (Int/Spi)"
+        },
+        {
+          "name": "Kapok-Bark Sabatons",
+          "slot": "feet",
+          "item_level": 53,
+          "rarity": "rare",
+          "required_level": 49,
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "defense_rating": 8
+          },
+          "armor_type": "plate",
+          "armor_value": 289,
+          "label": "Plate Boots (Str/Sta/Def)"
+        }
+      ],
+      "next_quest_id": null
     }
   ]
 }

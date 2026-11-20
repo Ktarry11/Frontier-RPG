@@ -181,6 +181,27 @@ names (one is cut higher up the trunk than anyone has been). The city's Liftward
 **Found on the way:** the tree scatter and the rope posts were plugging the plank bridges (the baker painted the cut-off
 planks as canopy, which is how it showed). Bridges and Heartwatch's stone now keep their tiles clear.
 
+## The tree's hidden places (20 Nov 2026)
+
+Kyle: "Yeah please do" (a skull zone and a frontier for the tree), and "I still want to see the structure of skull and
+frontier zones. Just not where they are. Prevents you from making everything blobs". Names and shapes only; where they
+are isn't written anywhere.
+
+- **The Raincatch** (skull): terraced rain pools stepping down the bark, each held behind a curved lip of moss, with
+  switchbacks between the lips, two fords, a drowned shrine on the middle terrace, and the trunk's bark walling the
+  basin in. Old Ma'luu, who climbed up to pray for rain as a girl, and four quests (the third elite).
+- **The Kapok Crowns** (frontier, open): a stretch of the Amazon canopy that came through the merge, laid out as a tree
+  seen from above: one great limb forking and forking again out to its crowns, two branches touching to make one
+  loop, and a flooded fork where Boiuna lives. Dr. Luana Ferreira, a canopy ecologist from Manaus, and four quests.
+
+The first cut of each copied a shape that already existed (a ring round a lake, like the Drowned Idols; pods on
+necks, like the Saltgrave and the Tanglewood Shoals). Checked against a sheet of every skull and frontier map and
+redrawn before anything shipped.
+
+`tools/build_hidden_content.py` now keeps existing kits, loot and quests and only adds new ones (`--rebuild` for a
+fresh write): re-running it for this pair had put 32 boss kits, 11 bosses' loot and 17 quests back to how they were first
+written. `tools/build_new_zone_secrets.py` cuts the doors for hidden zones on the maps it covers.
+
 ## Next
 
 The Upper Boughs (with its cave) and the Cloudbreak, the sky renderer, then the sky maps. The Heartwood Hollow is the

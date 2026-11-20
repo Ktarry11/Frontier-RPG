@@ -87055,6 +87055,542 @@
           "attack_power": 108
         }
       }
+    ],
+    "hidden_mossback_snapper": [
+      {
+        "name": "Snap",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Jaws Like a Trap",
+        "kind": "damage",
+        "amount": 299,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Into the Shell",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 80
+        },
+        "self_only": true
+      }
+    ],
+    "hidden_stiltleg_heron": [
+      {
+        "name": "Spearing Beak",
+        "kind": "damage",
+        "amount": 200,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Strike From Still Water",
+        "kind": "damage",
+        "amount": 299,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Pinned Wing",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -16
+        }
+      }
+    ],
+    "hidden_raincatch_eel": [
+      {
+        "name": "Bite",
+        "kind": "damage",
+        "amount": 200,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Slime",
+        "kind": "dot",
+        "amount": 70,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      },
+      {
+        "name": "Wrapped and Pulled",
+        "kind": "damage",
+        "amount": 279,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "hidden_rain_darter": [
+      {
+        "name": "Spark of Rain",
+        "kind": "damage",
+        "amount": 200,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Drenched",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -14,
+          "intellect": -14
+        }
+      },
+      {
+        "name": "Downpour",
+        "kind": "damage",
+        "amount": 279,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic"
+      }
+    ],
+    "hidden_lily_strangler": [
+      {
+        "name": "Lily Lash",
+        "kind": "damage",
+        "amount": 200,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Thorned Stem",
+        "kind": "dot",
+        "amount": 80,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      },
+      {
+        "name": "Pulled Under",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -18
+        }
+      }
+    ],
+    "hidden_grandmother_croak": [
+      {
+        "name": "Tongue Like a Rope",
+        "kind": "damage",
+        "amount": 386,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Belly Flop",
+        "kind": "damage",
+        "amount": 386,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Swallowed",
+        "kind": "damage",
+        "amount": 733,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Toad Venom",
+        "kind": "dot",
+        "amount": 193,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 5
+      },
+      {
+        "name": "Puffed Up",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 90
+        },
+        "self_only": true
+      }
+    ],
+    "hidden_the_drowned_rainpriest": [
+      {
+        "name": "Rain on Command",
+        "kind": "damage",
+        "amount": 386,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "The Pool Rises",
+        "kind": "damage",
+        "amount": 386,
+        "cooldown": 5,
+        "mana_cost": 12,
+        "school": "magic"
+      },
+      {
+        "name": "Water in the Lungs",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -24,
+          "intellect": -24
+        }
+      },
+      {
+        "name": "Moss Takes Root",
+        "kind": "dot",
+        "amount": 212,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 5
+      },
+      {
+        "name": "Prayer Answered",
+        "kind": "damage",
+        "amount": 811,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic"
+      }
+    ],
+    "hidden_canopy_jaguar": [
+      {
+        "name": "Rake",
+        "kind": "damage",
+        "amount": 203,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Drop From the Branch",
+        "kind": "damage",
+        "amount": 305,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hamstring",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -18
+        }
+      }
+    ],
+    "hidden_black_jaguar": [
+      {
+        "name": "Skull Bite",
+        "kind": "damage",
+        "amount": 213,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Out of the Shade",
+        "kind": "damage",
+        "amount": 325,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Torn Open",
+        "kind": "dot",
+        "amount": 81,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "hidden_green_anaconda": [
+      {
+        "name": "Constrict",
+        "kind": "damage",
+        "amount": 203,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Squeezed",
+        "kind": "dot",
+        "amount": 91,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      },
+      {
+        "name": "Coiled",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 70
+        },
+        "self_only": true
+      }
+    ],
+    "hidden_howler_monkey": [
+      {
+        "name": "Bite",
+        "kind": "damage",
+        "amount": 201,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "The Howl",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -14,
+          "intellect": -14
+        }
+      },
+      {
+        "name": "Thrown Fruit",
+        "kind": "damage",
+        "amount": 262,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "hidden_goliath_birdeater": [
+      {
+        "name": "Fangs",
+        "kind": "damage",
+        "amount": 203,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Urticating Hairs",
+        "kind": "dot",
+        "amount": 81,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      },
+      {
+        "name": "Itching",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -16
+        }
+      }
+    ],
+    "hidden_strangler_fig": [
+      {
+        "name": "Root Squeeze",
+        "kind": "damage",
+        "amount": 203,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Wound Round",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -20,
+          "armor": -30
+        }
+      },
+      {
+        "name": "Hard as the Host",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 80
+        },
+        "self_only": true
+      }
+    ],
+    "hidden_boiuna": [
+      {
+        "name": "Mother's Coils",
+        "kind": "damage",
+        "amount": 387,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "The River Rises",
+        "kind": "damage",
+        "amount": 387,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Held Under",
+        "kind": "dot",
+        "amount": 213,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 5
+      },
+      {
+        "name": "Swallow the Light",
+        "kind": "damage",
+        "amount": 503,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Scales Like Old Gold",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 100
+        },
+        "self_only": true
+      },
+      {
+        "name": "The Whole Flood Moves",
+        "kind": "damage",
+        "amount": 851,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "hidden_the_old_jaguar": [
+      {
+        "name": "Rake",
+        "kind": "damage",
+        "amount": 387,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "From Above",
+        "kind": "damage",
+        "amount": 735,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Opened Up",
+        "kind": "dot",
+        "amount": 232,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      },
+      {
+        "name": "Eyes in the Leaves",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -26
+        }
+      },
+      {
+        "name": "Pounce",
+        "kind": "damage",
+        "amount": 503,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      }
     ]
   }
 }

@@ -428,6 +428,37 @@
       ],
       "multi_drop": 2,
       "epic_chance": 0.05
+    },
+    "The Raincatch": {
+      "kind": "skull",
+      "parent": "The Lower Boughs",
+      "levels": [
+        46,
+        47
+      ],
+      "region": null,
+      "bosses": [
+        "Grandmother Croak",
+        "The Drowned Rain-Priest"
+      ],
+      "multi_drop": 2,
+      "epic_chance": 0.05
+    },
+    "The Kapok Crowns": {
+      "kind": "frontier",
+      "parent": "The Raincatch",
+      "levels": [
+        48,
+        49
+      ],
+      "region": "The Lower Boughs",
+      "frontier_type": "open",
+      "bosses": [
+        "Boiuna",
+        "The Old Jaguar"
+      ],
+      "multi_drop": 2,
+      "epic_chance": 0.08
     }
   }
 }

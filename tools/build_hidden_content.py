@@ -1895,7 +1895,15 @@ def write_people():
                     "x": x, "y": y, "greeting": n["greeting"], "facing": "down", "race": n["race"],
                     "gender": n["gender"], "appearance_variant": 3})
     p.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    (DATA / "quests/hidden_zones.json").write_text(json.dumps({"quests": quests() + plaguelands_quests()}, indent=2, ensure_ascii=False) + "\n",
+    fresh = quests() + plaguelands_quests() + worldtree_quests()
+    try:
+        prev = json.loads((DATA / "quests/hidden_zones.json").read_text(encoding="utf-8"))["quests"]
+    except (OSError, ValueError, KeyError):
+        prev = []
+    if prev and not REBUILD:
+        have = {q["quest_id"] for q in prev}
+        fresh = prev + [q for q in fresh if q["quest_id"] not in have]
+    (DATA / "quests/hidden_zones.json").write_text(json.dumps({"quests": fresh}, indent=2, ensure_ascii=False) + "\n",
                                                   encoding="utf-8")
     p = DATA / "creatures/quest_drops.json"
     doc = json.loads(p.read_text(encoding="utf-8"))
@@ -2274,6 +2282,242 @@ def plaguelands_quests():
     ]
 
 
+
+# ============================================================================ THE WORLD TREE (20 Nov 2026)
+# Kyle: "Yeah please do" (a skull zone and a frontier for the tree). Not to be told where either is.
+_RC = (46, 47)         # The Raincatch
+_KC = (48, 49)         # The Kapok Crowns
+
+ZONES["The Raincatch"] = dict(
+    kind="skull", parent="The Lower Boughs", levels=_RC,
+    creatures={
+        "Mossback Snapper": _creature("beast_large", _RC[0] + 1, False, "turtle_snapping", DMG("Snap", 1.05),
+                                      DMG("Jaws Like a Trap", 1.5, 3), BUF("Into the Shell", armor=80)),
+        "Stilt-Leg Heron": _creature("beast_fast", _RC[0] + 1, False, "ps_reed_heron", DMG("Spearing Beak"),
+                                     DMG("Strike From Still Water", 1.5, 3), DEB("Pinned Wing", agility=-16)),
+        "Raincatch Eel": _creature("beast_fast", _RC[0] + 1, False, "ps_bog_eel", DMG("Bite"),
+                                   DOT("Slime", 0.35, sch="nature"), DMG("Wrapped and Pulled", 1.4, 3)),
+        "Rain Darter": _creature("elemental_caster", _RC[1], False, "sprite_darter", DMG("Spark of Rain", sch="magic"),
+                                 DEB("Drenched", agility=-14, intellect=-14), DMG("Downpour", 1.4, 3, "magic")),
+        "Lily Strangler": _creature("elemental_bruiser", _RC[1], False, "vine_strangler_2", DMG("Lily Lash"),
+                                    DOT("Thorned Stem", 0.4, sch="nature"), DEB("Pulled Under", agility=-18)),
+        "Grandmother Croak": _creature("beast_large", _RC[1], True, "toad_giant",
+            DMG("Tongue Like a Rope"), DMG("Belly Flop", 1.0, 5), DMG("Swallowed", 1.9, 4),
+            DOT("Toad Venom", 0.5, sch="nature", d=5), BUF("Puffed Up", armor=90)),
+        "The Drowned Rain-Priest": _creature("elemental_caster", _RC[1], True, "bog_lord_1",
+            DMG("Rain on Command", sch="magic"), DMG("The Pool Rises", 1.0, 5, "magic"),
+            DEB("Water in the Lungs", agility=-24, intellect=-24), DOT("Moss Takes Root", 0.55, sch="nature", d=5),
+            DMG("Prayer Answered", 2.1, 4, "magic")),
+    },
+    encounters=_skull_table("The Raincatch", {"Mossback Snapper": 2, "Stilt-Leg Heron": 2}, {
+        "The Mossrim": {"Mossback Snapper": 3, "Stilt-Leg Heron": 2, "Raincatch Eel": 1},
+        "The Drowned Shrine": {"Rain Darter": 3, "Raincatch Eel": 1, "The Drowned Rain-Priest": 0},
+        "The Lily Shallows": {"Lily Strangler": 3, "Stilt-Leg Heron": 2, "Grandmother Croak": 0},
+        "The Overflow": {"Raincatch Eel": 3, "Mossback Snapper": 1},
+        "The Low Crown": {"Rain Darter": 3, "Lily Strangler": 1}}),
+    weights={},
+    loot={
+        "Grandmother Croak": [
+            ("Croak's Lucky Stone", "neck", "of the Tiger", "Every toad in the Raincatch wants it, and none of them can say why.", None, None),
+            ("Lilypad Slippers", "feet", "of the Monkey", "You can stand on a lily in them, if it's a big lily.", "leather", None),
+            ("Toadskin Hauberk", "chest", "of the Hunt", "Warty, waterproof, and it smells of the pool.", "mail", None),
+            ("Pondweed Wraps", "wrist", "of the Owl", "Green and soft and always a little damp.", "cloth", None),
+            ("Belly-Flop Greaves", "legs", "of the Champion", "Dented in a shape you'd rather not think about.", "plate", None),
+        ],
+        "The Drowned Rain-Priest": [
+            ("Rod of the Answered Prayer", "main_hand", "of the Prophet", "They asked for rain. It never stopped.", None, "mace_1h", "epic"),
+            ("Drowned Shrine Vestments", "chest", "of the Invoker", "The first climbers' blue, faded to the colour of the water.", "cloth", None),
+            ("Moss-Grown Pauldrons", "shoulder", "of the Defender", "The moss is still alive, and it likes you.", "plate", None),
+            ("Rainspeaker's Hood", "head", "of the Physician", "You can hear the rain coming an hour before it does.", "leather", None),
+            ("Raincatch Ring", "ring", "of the Sorcerer", "A drop of the pool, held in a band of bark.", None, None),
+        ],
+    },
+)
+
+ZONES["The Kapok Crowns"] = dict(
+    kind="frontier", frontier_type="open", parent="The Raincatch", region="The Lower Boughs", levels=_KC,
+    creatures={
+        "Canopy Jaguar": _creature("beast_fast", _KC[0] + 1, False, "panther_4", DMG("Rake"),
+                                   DMG("Drop From the Branch", 1.5, 3), DEB("Hamstring", agility=-18)),
+        "Black Jaguar": _creature("beast_fast", _KC[1], False, "panther_2", DMG("Skull Bite", 1.05),
+                                  DMG("Out of the Shade", 1.6, 3), DOT("Torn Open", 0.4, sch="physical")),
+        "Green Anaconda": _creature("beast_large", _KC[1], False, "serpent_1", DMG("Constrict"),
+                                    DOT("Squeezed", 0.45, sch="physical"), BUF("Coiled", armor=70)),
+        "Howler Monkey": _creature("beast_fast", _KC[0], False, "wt_canopy_ape", DMG("Bite"),
+                                   DEB("The Howl", agility=-14, intellect=-14), DMG("Thrown Fruit", 1.3, 3)),
+        "Goliath Birdeater": _creature("beast_fast", _KC[0] + 1, False, "spider_2", DMG("Fangs"),
+                                       DOT("Urticating Hairs", 0.4, sch="nature"), DEB("Itching", agility=-16)),
+        "Strangler Fig": _creature("elemental_bruiser", _KC[1], False, "treant_1", DMG("Root Squeeze"),
+                                   DEB("Wound Round", agility=-20, armor=-30), BUF("Hard as the Host", armor=80)),
+        "Boiuna": _creature("beast_large", _KC[1], True, "serpent_2",
+            DMG("Mother's Coils"), DMG("The River Rises", 1.0, 5), DOT("Held Under", 0.55, sch="physical", d=5),
+            DMG("Swallow the Light", 1.3, 3), BUF("Scales Like Old Gold", armor=100),
+            DMG("The Whole Flood Moves", 2.2, 4)),
+        "The Old Jaguar": _creature("beast_fast", _KC[1], True, "panther_1",
+            DMG("Rake"), DMG("From Above", 1.9, 3), DOT("Opened Up", 0.6, sch="physical", d=4),
+            DEB("Eyes in the Leaves", agility=-26), DMG("Pounce", 1.3, 3)),
+    },
+    encounters=_skull_table("The Kapok Crowns", {"Howler Monkey": 2, "Goliath Birdeater": 2}, {
+        "The First Crown": {"Howler Monkey": 3, "Goliath Birdeater": 2},
+        "The Howler Crown": {"Howler Monkey": 3, "Canopy Jaguar": 2},
+        "The Strangler Crown": {"Strangler Fig": 3, "Goliath Birdeater": 1},
+        "The Flooded Crown": {"Green Anaconda": 3, "Strangler Fig": 1, "Boiuna": 0},
+        "The Spotted Crown": {"Canopy Jaguar": 3, "Black Jaguar": 1},
+        "The Emergent": {"Black Jaguar": 3, "Canopy Jaguar": 1, "The Old Jaguar": 0}}),
+    weights={},
+    loot={
+        "Boiuna": [
+            ("Scale of the River's Mother", "off_hand", "of the Defender", "Gold-black, as big as a shield, and warm from the sun on the water.", None, "shield", "epic"),
+            ("Flood-Season Robes", "chest", "of the Prophet", "The river rises every year. These have never once been dry.", "cloth", None),
+            ("Igapo Wader's Leggings", "legs", "of the Monkey", "Made for the flooded forest, where the river walks through the trees.", "leather", None),
+            ("Coil-Crushed Girdle", "waist", "of the Champion", "Bent in a shape nothing should have survived.", "plate", None),
+            ("River-Mother's Eye", "neck", "of the Sorcerer", "It still watches the water.", None, None),
+        ],
+        "The Old Jaguar": [
+            ("Rosette-Spotted Mantle", "shoulder", "of the Assassin", "Gold with black rosettes, every one a little different.", "leather", None, "epic"),
+            ("Emergent Hunter's Hauberk", "chest", "of the Hunt", "Made for the top of the tallest tree, where nothing hunts you.", "mail", None),
+            ("Claw of the Old Jaguar", "main_hand", "of the Tiger", "It's killed a caiman with one blow. It'll kill whatever you point it at.", None, "fist_weapon"),
+            ("Kapok-Silk Wraps", "wrist", "of the Physician", "Spun from the fluff in the kapok's pods, soft as a cloud.", "cloth", None),
+            ("Ring of the Long Afternoon Rain", "ring", "of the Bear", "It's always raining a little inside it.", None, None),
+        ],
+    },
+)
+
+NPCS["hz_raincatch_maluu"] = dict(name="Old Ma'luu", zone="The Raincatch", race="troll", gender="female",
+                                  greeting="Mind the moss at the edge, it's softer than it looks and the water's "
+                                           "deeper than you'd think. I came up here to pray for rain when I was "
+                                           "young. Look how that turned out.")
+NPCS["hz_kapok_luana"] = dict(name="Dr. Luana Ferreira", zone="The Kapok Crowns", race="human", gender="female",
+                              greeting="Keep your voice down, the howlers are deciding whether they like you. I "
+                                       "studied this canopy for twelve years from a tower outside Manaus, and one "
+                                       "morning the whole thing was somewhere else, and so was I.")
+
+DROPS["Rain Darter"] = ("rain_spark", "Spark of Caught Rain", "A drop of rain that won't stop falling, held in a "
+                                                            "darter's light. It's falling upward at the moment.", 0.75)
+DROPS["Howler Monkey"] = ("kapok_pod", "Kapok Seed-Pod", "A seed-pod from a kapok tree, split and spilling the "
+                                                          "soft white fluff the monkeys line their beds with.", 0.75)
+NODE_PARENT.update({"The Raincatch": "lower_boughs", "The Kapok Crowns": "lower_boughs"})
+
+
+def worldtree_quests():
+    """The giver speaks the story and the log gets the one plain line of where (Kyle, 14 Nov 2026, on the hidden
+    zones' first quests: the story sat in the log and the giver's line was a clipped direction)."""
+    def Qw(qid, title, giver, zone, lvl, objectives, speech, where, turn_in, rewards, **kw):
+        return Q(qid, title, giver, zone, lvl, objectives, where, speech, turn_in, rewards, **kw)
+
+    rc, kc = "the_raincatch", "the_kapok_crowns"
+    return [
+        # ------------------------------------------------------------------ The Raincatch
+        Qw("hz_raincatch_snappers", "Snappers in the Moss", "hz_raincatch_maluu", rc, _RC[0],
+          [{"type": "kill", "target": "Mossback Snapper", "count": 8}, {"type": "kill", "target": "Stilt-Leg Heron", "count": 6}],
+          "I'm Old Ma'luu, and I climbed up here to pray for rain when I was a girl, at the shrine the first climbers built. "
+          "The rain came, and it never stopped, and the pools filled every step of the old terraces.\n\nI've "
+          "lived on the lips between them ever since. The Mossback Snappers lie in the moss at the water's edge, and the Stilt-Leg Herons spear "
+          "anything that sits still too long. Thin them out, so an old woman can walk her own terraces.",
+          "The snappers lie in the moss along every lip. The herons stand in the shallows, very still.",
+          "I walked from the bottom pool to the top this morning and nothing bit me. That hasn't happened in years.\n\nYou came "
+          "a long way to find a pond. I'd like to show you why it's worth finding.",
+          R(_RC[0], ("Mossrim Walker's Boots", "feet", "of the Monkey", "leather", None, "Leather Boots (Agi/Sta)"),
+            ("Rain-Soaked Gloves", "hands", "of the Owl", "cloth", None, "Cloth Gloves (Int/Spi)"),
+            ("Snapper-Shell Girdle", "waist", "of the Champion", "plate", None, "Plate Belt (Str/Sta/Def)")),
+          nxt="hz_raincatch_sparks"),
+        Qw("hz_raincatch_sparks", "Caught Rain", "hz_raincatch_maluu", rc, _RC[0] + 1,
+          [{"type": "fetch", "target": "rain_spark", "count": 6}],
+          "The Rain Darters over the drowned shrine are made of the rain, I'm sure of it. When one goes out, it "
+          "leaves a drop behind that won't stop falling.\n\nBring me some. If I can hold the rain in my hands, "
+          "maybe I can finally ask it to stop.",
+          "The darters flit over the drowned shrine on the middle terrace, halfway up the pools.",
+          "Look at them, every one still falling, toward the shrine.\n\nThe rain isn't just falling here. It's "
+          "being called, and the one doing the calling is still down there.",
+          R(_RC[0] + 1, ("Raindrop Pendant", "neck", "of the Invoker", None, None, "Necklace (Int/SP/Crit)"),
+            ("Shallows-Wader's Coif", "head", "of the Hunt", "mail", None, "Mail Helm (Agi/Int/AP)"),
+            ("Lily-Root Staff", "main_hand", "of the Physician", None, "staff", "Staff (Int/Healing)")),
+          nxt="hz_raincatch_priest"),
+        Qw("hz_raincatch_priest", "The Answered Prayer", "hz_raincatch_maluu", rc, _RC[1],
+          [{"type": "kill", "target": "The Drowned Rain-Priest", "count": 1},
+           {"type": "kill", "target": "Rain Darter", "count": 5}],
+          "The priest who taught me prayed for rain at that shrine for forty years. When the rain came, he stayed "
+          "to give thanks, and the water rose over him, and he went on praying. He's still down there, all moss "
+          "and water, and he still thinks we want it to rain.\n\nThe Rain Darters circle him like moths. Go out "
+          "to the shrine and let him stop. Take friends, because he won't want to.",
+          "The drowned shrine stands on the middle terrace. Climb the switchbacks, or wade the fords if you're in a hurry.",
+          "It stopped raining. For the first time since I was a girl, it stopped.\n\nI cried a little, and then I "
+          "laughed, because I'd forgotten what a dry afternoon was. Thank you, and thank him for me, if you can.",
+          R(_RC[1], ("Shrine-Breaker Greatsword", "main_hand", "of the Vanquisher", None, "sword_2h", "Two-Handed Sword (Str/Crit)"),
+            ("Drowned Acolyte's Hauberk", "chest", "of the Hunt", "mail", None, "Mail Chest (Agi/Int/AP)"),
+            ("Rim-Guard Pauldrons", "shoulder", "of the Defender", "plate", None, "Plate Shoulders (Sta/Def/Dodge)"),
+            ("Hood of the Long Rain", "head", "of the Prophet", "cloth", None, "Cloth Helm (Int/Spi/Healing)"),
+            ("Mosswalker's Leggings", "legs", "of the Wolf", "leather", None, "Leather Legs (Agi/Spi)")),
+          elite=True),
+        Qw("hz_raincatch_croak", "Grandmother Croak", "hz_raincatch_maluu", rc, _RC[1],
+          [{"type": "kill", "target": "Grandmother Croak", "count": 1}],
+          "There's a toad in the lily shallows of the top pool as big as my lean-to. I call her Grandmother Croak, "
+          "and for years I didn't mind her, because she ate the eels.\n\nNow she's eating the herons, and the "
+          "snappers, and last week she had a go at me. I'm too old to be eaten by a toad. Please see to it.",
+          "The lily shallows fill the top pool, under the low crown. She looks like a mossy rock until she opens her mouth.",
+          "She's gone, and the lilies are already opening where she used to sit.\n\nI'll miss her singing at night, "
+          "a little. Don't tell anyone I said that.",
+          R(_RC[1], ("Lily-Shallows Glaive", "main_hand", "of the Monkey", None, "polearm", "Polearm (Agi/Sta)"),
+            ("Pondskin Bracers", "wrist", "of the Owl", "mail", None, "Mail Bracers (Int/Spi)"),
+            ("Bark-Shod Sabatons", "feet", "of the Champion", "plate", None, "Plate Boots (Str/Sta/Def)"))),
+        # ------------------------------------------------------------------ The Kapok Crowns
+        Qw("hz_kapok_howlers", "Morning Chorus", "hz_kapok_luana", kc, _KC[0],
+          [{"type": "kill", "target": "Goliath Birdeater", "count": 7}, {"type": "kill", "target": "Howler Monkey", "count": 6}],
+          "Dr. Luana Ferreira. I'm a canopy ecologist from Manaus, back home, and this is my canopy, the crowns of "
+          "the kapok trees over the flooded forest. I climbed a tower one morning to count birds, and when I came "
+          "down the tower was gone and the forest was here, in this tree, on this world.\n\nIt's a small piece of "
+          "forest and it's getting crowded. The Goliath Birdeaters have run out of birds and started on everything "
+          "else, and the Howler Monkeys have gone mad with it. Thin both out, please, gently if you can.",
+          "The birdeaters hide in the bromeliads on the first crown. The howlers are everywhere you can hear them.",
+          "The howlers are quieter. Not quiet, they're never quiet, but quieter.\n\nBack home I'd have written a "
+          "paper about all this. Here I write it in the margins of the only notebook I brought.",
+          R(_KC[0], ("Canopy-Climber's Boots", "feet", "of the Monkey", "leather", None, "Leather Boots (Agi/Sta)"),
+            ("Kapok-Fluff Bracers", "wrist", "of the Invoker", "cloth", None, "Cloth Bracers (Int/SP/Crit)"),
+            ("Branch-Grip Gauntlets", "hands", "of the Defender", "plate", None, "Plate Gloves (Sta/Def/Dodge)")),
+          nxt="hz_kapok_pods"),
+        Qw("hz_kapok_pods", "Seeds From Home", "hz_kapok_luana", kc, _KC[0] + 1,
+          [{"type": "fetch", "target": "kapok_pod", "count": 6}],
+          "The kapoks are seeding, and the seeds are the only proof I've got that this forest came from Earth. The "
+          "Howler Monkeys steal the pods to line their beds.\n\nBring me some, and I'll plant them on the "
+          "terraces below. If a kapok grows in this world's soil, then some part of home can live here too.",
+          "The howlers carry the pods round the howler crown and the first crown. Look for the white fluff.",
+          "Six pods, and every one full of seed. I'll plant them on the terraces tonight.\n\nIf they grow, in a "
+          "hundred years there'll be a kapok standing in the World Tree. I like that thought more than I can say.",
+          R(_KC[0] + 1, ("Seed-Pod Locket", "neck", "of the Physician", None, None, "Necklace (Int/Healing)"),
+            ("Canopy Wanderer's Cloak", "back", "of the Tiger", None, None, "Cloak (Str/Agi)"),
+            ("Liana-Woven Girdle", "waist", "of the Hunt", "mail", None, "Mail Belt (Agi/Int/AP)")),
+          nxt="hz_kapok_boiuna"),
+        Qw("hz_kapok_boiuna", "Mother of the River", "hz_kapok_luana", kc, _KC[1],
+          [{"type": "kill", "target": "Boiuna", "count": 1}, {"type": "kill", "target": "Green Anaconda", "count": 4}],
+          "The west fork came through drowned in the flood, and something came with it. The people "
+          "on the river back home tell stories about the Boiuna, a snake so big it's mistaken for an island, the "
+          "mother of the river. I always thought it was a story.\n\nShe's not a story, and she's eating the "
+          "crown. The Green Anacondas round the flood are her children. Please, go carefully, and take every "
+          "friend you have.",
+          "The flooded crown is the west fork of the great limb, round the water. She looks like a log in the flood until she moves.",
+          "My grandmother told me the Boiuna could never be killed, only sent back to sleep under the river.\n\nI "
+          "think we sent her back to sleep. I'm going to choose to believe that. Thank you.",
+          R(_KC[1], ("Floodwater Greataxe", "main_hand", "of the Vanquisher", None, "axe_2h", "Two-Handed Axe (Str/Crit)"),
+            ("Mantle of the River's Children", "shoulder", "of the Sorcerer", "cloth", None, "Cloth Shoulders (Int/SP)"),
+            ("Anaconda-Scale Tunic", "chest", "of the Assassin", "leather", None, "Leather Chest (Agi/Hit/Crit)"),
+            ("Igapo Hauberk", "chest", "of the Owl", "mail", None, "Mail Chest (Int/Spi)"),
+            ("Flooded-Crown Breastplate", "chest", "of the Defender", "plate", None, "Plate Chest (Sta/Def/Dodge)")),
+          elite=True),
+        Qw("hz_kapok_jaguar", "The Old Jaguar", "hz_kapok_luana", kc, _KC[1],
+          [{"type": "kill", "target": "The Old Jaguar", "count": 1}],
+          "There's a jaguar on the emergent crown, the tallest one, who's older than any jaguar I've ever seen. "
+          "Grey round the muzzle, scarred all over, and clever. I've been watching her for a year.\n\nShe's "
+          "started hunting the camp. I'd give anything not to ask you this, but I'd like to go on living. Please "
+          "make it quick.",
+          "The emergent is the tallest crown, north east of the flood. She lies up in the branches in the heat.",
+          "It's done, then.\n\nI'll draw her tonight, the way she was in the mornings, before she noticed me. "
+          "Somebody from home should remember her. Take something with you, you've earned it.",
+          R(_KC[1], ("Emergent-Stalker's Spear", "main_hand", "of the Monkey", None, "polearm", "Polearm (Agi/Sta)"),
+            ("Rosette Bracers", "wrist", "of the Owl", "mail", None, "Mail Bracers (Int/Spi)"),
+            ("Kapok-Bark Sabatons", "feet", "of the Champion", "plate", None, "Plate Boots (Str/Sta/Def)"))),
+    ]
+
+
 def write_node_pools():
     """Kyle: "I WANT to be rewarded for exploring." A skull zone's ground carries what its parent's
     does, half again as much of it, and more of it showing at once."""
@@ -2338,9 +2582,33 @@ def _check_names(creatures):
         raise SystemExit(f"hidden creatures share a name with ordinary ones, rename them: {clash}")
 
 
+#: KEEP WHAT'S THERE (20 Nov 2026). Later passes tune this builder's output in place: tools/fix_dungeon_boss_turns.py
+#: reworks boss kits ("boss_rework": "turns_pass"), loot and quest passes adjust items and text. Re-running this builder
+#: for a new zone used to put 32 boss kits, 11 bosses' loot and 17 quests back the way they were first written. So by
+#: default a kit, a boss's loot or a quest that already exists is left as it is and only new ones are added;
+#: --rebuild writes everything fresh, and then fix_dungeon_boss_turns.py has to run again.
+REBUILD = "--rebuild" in sys.argv
+
+
+def _keep_existing(new, old):
+    if REBUILD:
+        return new
+    out = dict(old)
+    for k, v in new.items():
+        out.setdefault(k, v)
+    return out
+
+
 def main():
     kits, creatures, loot, registry, enc = build()
     _check_names(creatures)
+    if not REBUILD:
+        have = json.loads((DATA / "creatures/ability_kits.json").read_text(encoding="utf-8"))["kits"]
+        kits = {k: v for k, v in kits.items() if k not in have}
+        try:
+            loot = _keep_existing(loot, json.loads((DATA / "loot/hidden_boss_loot.json").read_text(encoding="utf-8")))
+        except (OSError, ValueError):
+            pass
     merge_json(DATA / "creatures/ability_kits.json", "kits", kits, "kits")
     merge_json(DATA / "creatures/creatures.json", "creatures", creatures, "creatures")
     (DATA / "creatures/encounters.json").write_text(json.dumps(enc, indent=2, ensure_ascii=False) + "\n",

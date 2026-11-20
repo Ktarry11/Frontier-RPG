@@ -53,6 +53,41 @@ def solid_ground(zone, c):
     return all(m.sea(x + 0.5, y + 0.5) <= 0 for (x, y) in _tiles(c))
 
 
+def cut_doors(secrets, zones, have):
+    """The secret doors to hidden zones on these maps (world/hidden_zones.py): a room in the wall of the parent, cut the
+    way tools/build_secrets.py cuts them, and kept off the drop like every other secret here. A hidden zone reached
+    from inside another (behind a great tree) gets its door from that zone's layout. Counts only, never where."""
+    from tools.build_secrets import _hidden_doors, _placed_door_secrets, _is_frontier
+    n = 0
+    for zname, (parent, tx, ty) in _hidden_doors():
+        sid = "door_" + "".join(ch for ch in zname.lower().replace(" ", "_") if ch.isalnum() or ch == "_")
+        if parent not in WANT or sid in have or zones.get(parent) is None:
+            continue
+        tm = zones[parent]
+        taken = P3.taken_tiles(secrets, parent)
+        cands = [c for c in (P3.glades(tm, taken) or []) if solid_ground(parent, c)] or \
+            [c for c in (P3.nooks(tm, taken) or []) if solid_ground(parent, c)]
+        if not cands:
+            continue
+        c = max(cands, key=lambda c: c["depth"])
+        sx, sy = c["spot"]
+        secrets.append({"id": sid, "zone": parent, "kind": "glade", "passage": c["passage"], "area": c["area"],
+                        "mask": c.get("mask"), "cache": None, "vendor": None,
+                        "door": {"x": sx, "y": sy + 1, "to": zname, "tx": tx, "ty": ty},
+                        "found_text": ("The air changes. Nobody has ever stood where you're standing, and the way on "
+                                       "goes deeper than anything you know." if _is_frontier(zname) else
+                                       "There's a way down here. It goes a long way down."), TAG: True})
+        have.add(sid)
+        n += 1
+    for sec in _placed_door_secrets():
+        if sec["id"] not in have:
+            sec[TAG] = True
+            secrets.append(sec)
+            have.add(sec["id"])
+            n += 1
+    return n
+
+
 def main():
     check = "--check" in sys.argv
     rnd = random.Random(19)
@@ -85,8 +120,10 @@ def main():
                             "found_text": rnd.choice(P3.FOUND), TAG: True})
             have.add(sid)
             added += 1
+    doors = cut_doors(secrets, zones, have)
     if not check:
         P3.SECRETS.write_text(json.dumps(doc, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"{doors} hidden door(s) cut")
     print(f"{added} secrets added over {len(WANT)} maps{' (check only)' if check else ''}"
           + (f"; no room on {len(short)} map(s)" if short else "") + f"; {len(secrets)} secrets in all")
     return 0
