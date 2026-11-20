@@ -191,9 +191,24 @@ is the sky finding the ground.
 4. The factions' shelves, the quests (about 30 or more a zone, ~70% from hubs, chains out to Stranglethorn, Grom'gol and
    Orgrimmar), the creatures and rares, the doors.
 
+## The factions (Kyle, 19 Nov 2026: "all 3 species get factions, yes")
+
+Four new factions on the road from 42 to 60, each with its own quartermaster and the TBC shelf (Friendly supplies,
+Honored recipes, Revered ilvl 67 blues, Exalted ilvl 73 epics and an Exalted mount), and gear with a direction, never
+exclusivity:
+
+| Faction | Who | Home | Rep from | Gear's direction |
+|---|---|---|---|---|
+| **The Highbough Tribes** | the tree's trolls | the Great Settlement | Rootwater Isle, the three Boughs, the city | hunters, shamans and shadow-hunters' kit; mail and leather lean |
+| **The Aetherians** | the scholar houses and the first-contact survey (the Ascendancy, their military, is the enemy) | Aurelion | the Crown, the Expanse, Aurelion, the Firmament | arcane, crystal and engineering; cloth and plate lean |
+| **The Veyr** (working name: **the Stormtalon Clan**, the one clan that takes you in) | the Stormborn | the Talon Spires | the Spires | storm, speed and the hunt; agility and lightning lean |
+| **The Kharad** (working name: **the Elder Houses**) | the Cloud Giants | the Elder Citadels | the Citadels | stone, ancestry and endurance; tank and strength lean |
+
+The rival Veyr clans and the Ascendancy are who you fight. Gaining with one never costs standing with another: no
+opposed reputations.
+
 ## For Kyle to say
 - The names marked as Rafa's: Rootwater Isle, the Lower, Middle and Upper Boughs, Aurelion, the Talon Spires, the Elder
-  Citadels, the Fading Firmament, the Highbough Tribes, High Chieftain Zan'kaji, the Ascendancy.
-- Whether the Veyr and the Kharad get factions of their own (the one Veyr clan that takes you in; a Kharad house), or
-  stay peoples you quest with.
+  Citadels, the Fading Firmament, the Highbough Tribes, High Chieftain Zan'kaji, the Ascendancy, the Stormtalon Clan,
+  the Elder Houses.
 - The Aetherian split (scholars as the faction, the Ascendancy as the enemy).
