@@ -11,10 +11,10 @@ wire them).
 | **H14** | **New Exalted mounts** for the five new factions (Kyle, 20 Nov: "will need new mounts for new factions") | 5 | New |
 | **I3** | Their five reins, and the five new factions' tabards | 10 | New |
 | **K1, K2, K3** | Keepsake icons, one per recruit (what each gives you when they become Sworn) | 98 | New. All 98 show a stand-in |
-| **WALK** | Walk cycles for the playable looks, three characters a sheet | 122 looks, 41 sheets | 4 looks done; the queue is at the end |
+| **WALK** | Walk cycles | - | **Parked** (Kyle, 20 Nov: "Walk cycles will come after better sprites"). New player sprites first, about five a race, then walk cycles on those |
 
 **Order I'd paste them in:** H14 and I3 first (the Feathermoon Sentinels and the Highbough Tribes are in the game today
-with no mount at Exalted), then I2, M2 and the keepsakes, then walk sheets whenever you've got a spare minute.
+with no mount at Exalted), then I2, M2 and the keepsakes. Walk cycles wait for the new player sprites.
 
 **Not written yet** (tell me and I'll write them): the professions screen's own art (tab art, frames, station art);
 the faint per-zone backgrounds for the quest dialog (these could reuse each zone's combat background, so maybe no new
@@ -176,63 +176,10 @@ Sliced by `python3 tools/asset_pipeline/slice_collection_icons.py SHEET.png --co
 
 ---------------------------------------------------------------------
 
-## WALK CYCLES: the playable looks, three characters a sheet
+## WALK CYCLES: parked
 
-Kyle, 14 Nov 2026: "I want to eventually get motion in the game". Done so far: forsaken_1, orc_5, orc_10, tauren_6. **122 looks to go, 41 sheets.** The rules from the pilots: the references must be EMPTY-HANDED (erase anything held from the down.png before attaching it; a weapon worn on the back or belt is fine), and you can attach three at most, so three characters a sheet. The left side is drawn rather than mirrored, so a braid or a shoulder pad stays on its own side.
-
-For each sheet, attach the three `down.png` files listed (from `assets/npcs/<folder>/down.png`), in that order, and paste this block:
-
-```
-Generate ONE sprite sheet image, 2048x2048, a 6 columns x 6 rows grid = 36 equal square cells. Flat pure #FF00FF magenta background everywhere. It shows the THREE attached characters, in the order attached: character 1 on rows 1 and 2, character 2 on rows 3 and 4, character 3 on rows 5 and 6. Redraw each character EXACTLY as in its reference image - same face, hair, skin, tattoos, clothes, colours, proportions and pixel-art style - only the pose changes. They carry NOTHING: no weapon, no staff, nothing in their hands; hands empty and relaxed, arms swinging naturally. A weapon worn on the back or the belt stays there and moves with the body.
-
-Each character's FIRST row: cells 1-3 facing the viewer (walking down), cells 4-6 facing away (walking up, we see their back). Each character's SECOND row: cells 1-3 facing right (side view, walking right), cells 4-6 facing left (side view, walking left; draw it, don't mirror it, so anything worn on one side stays on that side of the body). In every group of three: left foot forward, standing neutral, right foot forward. A small, readable stride; arms swing opposite to the legs.
-
-Every figure the same height as its own reference, centred in its cell, feet on the same baseline near the bottom of the cell, with a wide margin so no figure touches its neighbours or the cell edge. Chunky pixel-art style matching the references, consistent soft lighting from the top-left. No ground, no shadow, no text, no labels, no numbers, no grid lines, no frames. Never use magenta or pink on the characters.
-```
-
-If a sheet only has two characters (the last one), ask for 1536x1024, 6 columns x 4 rows, with the same two rows each.
-
-| Sheet | Attach, in this order | Slice |
-|---|---|---|
-| W1 | `orc/orc_1`, `orc/orc_2`, `orc/orc_3` | `tools/slice_walk_sheet.py SHEET r1=orc/orc_1 r2=orc/orc_2 r3=orc/orc_3` |
-| W2 | `orc/orc_4`, `orc/orc_6`, `orc/orc_7` | `tools/slice_walk_sheet.py SHEET r1=orc/orc_4 r2=orc/orc_6 r3=orc/orc_7` |
-| W3 | `orc/orc_8`, `orc/orc_9`, `orc/orc_11` | `tools/slice_walk_sheet.py SHEET r1=orc/orc_8 r2=orc/orc_9 r3=orc/orc_11` |
-| W4 | `orc/orc_12`, `orc/orc_13`, `orc/orc_14` | `tools/slice_walk_sheet.py SHEET r1=orc/orc_12 r2=orc/orc_13 r3=orc/orc_14` |
-| W5 | `orc/orc_15`, `orc/orc_16`, `orc/orc_17` | `tools/slice_walk_sheet.py SHEET r1=orc/orc_15 r2=orc/orc_16 r3=orc/orc_17` |
-| W6 | `orc/orc_18`, `orc/orc_19`, `orc/orc_20` | `tools/slice_walk_sheet.py SHEET r1=orc/orc_18 r2=orc/orc_19 r3=orc/orc_20` |
-| W7 | `orc/orc_21`, `orc/orc_22`, `orc/orc_armored_1` | `tools/slice_walk_sheet.py SHEET r1=orc/orc_21 r2=orc/orc_22 r3=orc/orc_armored_1` |
-| W8 | `orc/orc_brute_1`, `orc/orc_elite_brute_1`, `orc/orc_pack2_1` | `tools/slice_walk_sheet.py SHEET r1=orc/orc_brute_1 r2=orc/orc_elite_brute_1 r3=orc/orc_pack2_1` |
-| W9 | `orc/orc_pack2_2`, `orc/orc_pack2_3`, `orc/orc_pack2_4` | `tools/slice_walk_sheet.py SHEET r1=orc/orc_pack2_2 r2=orc/orc_pack2_3 r3=orc/orc_pack2_4` |
-| W10 | `orc/orc_pack2_5`, `orc/orc_pack2_6`, `orc/orc_pack2_7` | `tools/slice_walk_sheet.py SHEET r1=orc/orc_pack2_5 r2=orc/orc_pack2_6 r3=orc/orc_pack2_7` |
-| W11 | `orc/orc_pack2_8`, `orc/orc_ranger_1`, `orc/orc_unarmored_1` | `tools/slice_walk_sheet.py SHEET r1=orc/orc_pack2_8 r2=orc/orc_ranger_1 r3=orc/orc_unarmored_1` |
-| W12 | `tauren/tauren_1`, `tauren/tauren_2`, `tauren/tauren_3` | `tools/slice_walk_sheet.py SHEET r1=tauren/tauren_1 r2=tauren/tauren_2 r3=tauren/tauren_3` |
-| W13 | `tauren/tauren_4`, `tauren/tauren_5`, `tauren/tauren_7` | `tools/slice_walk_sheet.py SHEET r1=tauren/tauren_4 r2=tauren/tauren_5 r3=tauren/tauren_7` |
-| W14 | `tauren/tauren_8`, `tauren/tauren_9`, `tauren/tauren_10` | `tools/slice_walk_sheet.py SHEET r1=tauren/tauren_8 r2=tauren/tauren_9 r3=tauren/tauren_10` |
-| W15 | `tauren/tauren_11`, `tauren/tauren_12`, `tauren/tauren_13` | `tools/slice_walk_sheet.py SHEET r1=tauren/tauren_11 r2=tauren/tauren_12 r3=tauren/tauren_13` |
-| W16 | `tauren/tauren_14`, `tauren/tauren_15`, `tauren/tauren_16` | `tools/slice_walk_sheet.py SHEET r1=tauren/tauren_14 r2=tauren/tauren_15 r3=tauren/tauren_16` |
-| W17 | `tauren/tauren_17`, `tauren/tauren_18`, `tauren/tauren_19` | `tools/slice_walk_sheet.py SHEET r1=tauren/tauren_17 r2=tauren/tauren_18 r3=tauren/tauren_19` |
-| W18 | `tauren/tauren_20`, `forsaken/forsaken_2`, `forsaken/forsaken_3` | `tools/slice_walk_sheet.py SHEET r1=tauren/tauren_20 r2=forsaken/forsaken_2 r3=forsaken/forsaken_3` |
-| W19 | `forsaken/forsaken_4`, `forsaken/forsaken_5`, `forsaken/forsaken_6` | `tools/slice_walk_sheet.py SHEET r1=forsaken/forsaken_4 r2=forsaken/forsaken_5 r3=forsaken/forsaken_6` |
-| W20 | `forsaken/forsaken_7`, `forsaken/forsaken_8`, `forsaken/forsaken_9` | `tools/slice_walk_sheet.py SHEET r1=forsaken/forsaken_7 r2=forsaken/forsaken_8 r3=forsaken/forsaken_9` |
-| W21 | `forsaken/forsaken_10`, `forsaken/forsaken_11`, `forsaken/forsaken_12` | `tools/slice_walk_sheet.py SHEET r1=forsaken/forsaken_10 r2=forsaken/forsaken_11 r3=forsaken/forsaken_12` |
-| W22 | `forsaken/forsaken_13`, `forsaken/forsaken_14`, `forsaken/forsaken_15` | `tools/slice_walk_sheet.py SHEET r1=forsaken/forsaken_13 r2=forsaken/forsaken_14 r3=forsaken/forsaken_15` |
-| W23 | `forsaken/forsaken_16`, `blood_elf/blood_elf_1`, `blood_elf/blood_elf_2` | `tools/slice_walk_sheet.py SHEET r1=forsaken/forsaken_16 r2=blood_elf/blood_elf_1 r3=blood_elf/blood_elf_2` |
-| W24 | `blood_elf/blood_elf_3`, `blood_elf/blood_elf_4`, `blood_elf/blood_elf_5` | `tools/slice_walk_sheet.py SHEET r1=blood_elf/blood_elf_3 r2=blood_elf/blood_elf_4 r3=blood_elf/blood_elf_5` |
-| W25 | `blood_elf/blood_elf_6`, `blood_elf/blood_elf_7`, `blood_elf/blood_elf_8` | `tools/slice_walk_sheet.py SHEET r1=blood_elf/blood_elf_6 r2=blood_elf/blood_elf_7 r3=blood_elf/blood_elf_8` |
-| W26 | `blood_elf/blood_elf_9`, `blood_elf/blood_elf_10`, `blood_elf/blood_elf_11` | `tools/slice_walk_sheet.py SHEET r1=blood_elf/blood_elf_9 r2=blood_elf/blood_elf_10 r3=blood_elf/blood_elf_11` |
-| W27 | `human/male/maleA_1`, `human/male/maleA_2`, `human/male/maleA_3` | `tools/slice_walk_sheet.py SHEET r1=human/male/maleA_1 r2=human/male/maleA_2 r3=human/male/maleA_3` |
-| W28 | `human/male/maleA_4`, `human/male/maleA_5`, `human/male/maleA_6` | `tools/slice_walk_sheet.py SHEET r1=human/male/maleA_4 r2=human/male/maleA_5 r3=human/male/maleA_6` |
-| W29 | `human/male/maleA_7`, `human/male/maleA_8`, `human/male/male_1` | `tools/slice_walk_sheet.py SHEET r1=human/male/maleA_7 r2=human/male/maleA_8 r3=human/male/male_1` |
-| W30 | `human/male/male_2`, `human/male/male_3`, `human/male/male_4` | `tools/slice_walk_sheet.py SHEET r1=human/male/male_2 r2=human/male/male_3 r3=human/male/male_4` |
-| W31 | `human/male/male_5`, `human/male/male_6`, `human/male/male_7` | `tools/slice_walk_sheet.py SHEET r1=human/male/male_5 r2=human/male/male_6 r3=human/male/male_7` |
-| W32 | `human/male/male_8`, `human/male/male_9`, `human/male/male_10` | `tools/slice_walk_sheet.py SHEET r1=human/male/male_8 r2=human/male/male_9 r3=human/male/male_10` |
-| W33 | `human/male/male_11`, `human/male/male_12`, `human/male/male_13` | `tools/slice_walk_sheet.py SHEET r1=human/male/male_11 r2=human/male/male_12 r3=human/male/male_13` |
-| W34 | `human/male/male_14`, `human/female/femaleA_1`, `human/female/femaleA_2` | `tools/slice_walk_sheet.py SHEET r1=human/male/male_14 r2=human/female/femaleA_1 r3=human/female/femaleA_2` |
-| W35 | `human/female/femaleA_3`, `human/female/femaleA_4`, `human/female/femaleA_5` | `tools/slice_walk_sheet.py SHEET r1=human/female/femaleA_3 r2=human/female/femaleA_4 r3=human/female/femaleA_5` |
-| W36 | `human/female/femaleA_6`, `human/female/femaleA_7`, `human/female/femaleA_8` | `tools/slice_walk_sheet.py SHEET r1=human/female/femaleA_6 r2=human/female/femaleA_7 r3=human/female/femaleA_8` |
-| W37 | `human/female/female_1`, `human/female/female_2`, `human/female/female_3` | `tools/slice_walk_sheet.py SHEET r1=human/female/female_1 r2=human/female/female_2 r3=human/female/female_3` |
-| W38 | `human/female/female_4`, `human/female/female_5`, `human/female/female_6` | `tools/slice_walk_sheet.py SHEET r1=human/female/female_4 r2=human/female/female_5 r3=human/female/female_6` |
-| W39 | `human/female/female_7`, `human/female/female_8`, `human/female/female_9` | `tools/slice_walk_sheet.py SHEET r1=human/female/female_7 r2=human/female/female_8 r3=human/female/female_9` |
-| W40 | `human/female/female_10`, `human/female/female_11`, `human/female/female_12` | `tools/slice_walk_sheet.py SHEET r1=human/female/female_10 r2=human/female/female_11 r3=human/female/female_12` |
-| W41 | `human/female/female_13`, `human/female/female_14` | `tools/slice_walk_sheet.py SHEET r1=human/female/female_13 r2=human/female/female_14` |
-
+Kyle, 20 Nov 2026: "Walk cycles will come after better sprites. I am thinking just doing about 5 sprites from each race
+the player can pick from and then adding walk cycles to these later." So the 41-sheet queue for the old looks is
+dropped: the new player sprites get drawn first, and their walk sheets are written against them. The walk-sheet rules
+from the pilots still hold (`claude/walk_cycle_prompts.md`): empty hands, three characters a sheet, the left side
+drawn rather than mirrored. Done on the old looks: forsaken_1, orc_5, orc_10, tauren_6.
