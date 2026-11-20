@@ -23,21 +23,28 @@ with speed s, the caster's meter is (meter - threshold x s), and the same sum sa
 
 ## The bar
 
-- A vertical line down the right side of the combat screen. **Now is at the top; time runs downward.**
-- Marks at 0, 0.25, 0.5, 0.75 and 1, and smaller ticks at every eighth.
+Kyle, 20 Nov 2026: "the order flows down like water. Whoever is at the top is last, whoever is at the bottom is moving
+next."
+
+- A vertical line down the right side of the combat screen. **The bottom is now: whoever is lowest moves next.** Every
+  marker drifts down as the meters fill, like water running down the bar, and acts when it reaches the bottom.
+- **Acting sends you back up**: after your turn your marker rises to where your next turn falls, and the further away
+  that turn is, the higher you go. The top is last.
+- Marks at 0 (the bottom), 0.25, 0.5, 0.75 and 1 (the top), and smaller ticks at every eighth.
 - **Allies' markers sit to the right of the line and enemies' to the left**, each a small portrait at the height of
-  their next turn. Whoever is nearest the top acts next.
+  their next turn.
 - **The scale:** 1 is one full turn at normal speed for the slowest living combatant, so the bar always shows at least
-  everyone's next turn; anything later than 1 (a slow cast on a slow character) sits at the bottom with an arrow, which
-  is what "pushes down to last" looks like.
-- It moves smoothly as the meters fill, so you can watch a hasted ally pull ahead.
+  everyone's next turn; anything later than 1 (a slow cast on a slow character) sits at the very top with an arrow,
+  which is what "pushes down to last" looks like.
+- Haste shows as speed: a hasted ally's marker falls faster than everyone else's.
 
 ## Hovering a spell
 
 Hovering an ability on the action bar (or a target, for spells that need one) draws a **ghost** of the current actor's
 marker where they'd land after casting it, with the other markers unmoved, so you can read off who you'd still beat.
-In Kyle's example: Earth Shock (quick) leaves the shaman just below the top, still above enemy 2; Lesser Healing Wave
-(normal) lands between enemy 1 and enemy 2; Greater Healing Wave (slow) drops to last. Nothing is spent until you cast.
+In Kyle's example: Earth Shock (quick) sends the shaman only a little way up, still below enemy 2, so the shaman
+moves before them; Lesser Healing Wave (normal) lands between enemy 1 and enemy 2; Greater Healing Wave (slow) sends
+the shaman to the top, last. Nothing is spent until you cast.
 
 What the ghost includes: the spell's cast speed, and any haste it changes on the caster (a self-haste buff moves the
 ghost up). What it doesn't promise: enemy stuns, slows and haste that haven't happened yet. The bar shows the future as
