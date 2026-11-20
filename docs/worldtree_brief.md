@@ -38,9 +38,12 @@ in their history, and they don't think much of it.
 (The Aetherians' scholars hunt for what the Integration was. They never get close to the cause; nothing up here hints
 at it.)
 
-## The road: 12 maps, 42 to 60
+## The road: 42 to 60, the tree and three sky continents
 
-The tree is the road up; the sky is a hub with spokes.
+The tree is the road up. The sky is three continents, each with its capital, as far apart as Kalimdor and the Eastern
+Kingdoms (Kyle, 20 Nov 2026: "The sky gets 3. We can think of the distance between them will be similar to how kalimdor
+and EK is"). You don't walk or skiff between them: the long airship routes cross the open sky the way the zeppelins
+cross the sea, and each continent has room to grow more zones later.
 
 ```
  Grom'gol --boat--> Rootwater Isle (42-44)
@@ -55,16 +58,24 @@ The tree is the road up; the sky is a hub with spokes.
                          | the rope ladder
                     The Cloudbreak (48)            the climb through the cloud
                          |
+ ======== THE AETHERIAN CONTINENT (the one the tree's crown reaches) ========
                     The Sunward Crown (48-49)      first contact
                          |
                     The Celestial Expanse (49-51)
                          | sky-bridge
-                    AURELION (the Aetherian city)
-                    /            |            \
-     The Talon Spires   The Elder Citadels   The Fading Firmament
-         (51-54)            (54-57)              (57-60)
-          Veyr              Kharad          the dying heart
+                    AURELION (capital)  ---------- The Fading Firmament (57-60), the dying heart
+                      |         \
+              long airship    long airship
+                      |           \
+ == THE VEYR CONTINENT ==      == THE KHARAD CONTINENT ==
+   The Talon Spires (51-54)      The Elder Citadels (54-57)
+   the Veyr capital              the Kharad capital
+            \_______ long airship _______/
 ```
+
+The levelling road crosses the sky and comes back: the Aetherian continent to 51, the Veyr continent to 54, the Kharad
+continent to 57, then home to the Aetherian continent's dying heart for 57 to 60, the way a ground character crosses
+between Kalimdor and the Eastern Kingdoms.
 
 | Map | Levels | What it is | Threat |
 |---|---|---|---|
@@ -90,7 +101,7 @@ Upper Boughs each get theirs. The dungeon is the Middle Boughs' heartwood, deepe
 
 **Towns.** Kyle, 19 Nov 2026: "The sky continents will get 3 capital cities. Great settlement will be large but not
 capital city large." So the sky has three capitals, one for each people: Aurelion (the Aetherians), a Veyr city in the
-Talon Spires and a Kharad city in the Elder Citadels, each with an inn, a flight path, a bank, an auction house, mail and
+Talon Spires and a Kharad city in the Elder Citadels, each on its own continent with a long-airship dock, an inn, a flight path, a bank, an auction house, mail and
 trainers. The Great Settlement is the tree's town, big and full, with the same services, but sized below a capital. Rootwater Isle, the Lower Boughs and the Crown get small groups of quest
 givers, not towns. One flight path a zone at most.
 
@@ -169,9 +180,10 @@ One way up, a rope ladder and branches in thick white fog that thins as you clim
 the zone's panorama card (BK7, the troll lookout over the cloud sea) shows once, and you're on the Crown. It's the one
 map in the game built only to be walked through, and that's the point: the moment the ground ends.
 
-**After the Crown, travel is by air.** You can't walk off the tree: the sky's islands are reached by the Aetherian
-survey skiff, offered once first contact is made, then by sky-skiffs between the islands (each sky zone's flight
-path), and the airships at Aurelion's dock. Going home is the Great Settlement's bat roost or the skiffs back to the
+**After the Crown, travel is by air.** You can't walk off the tree: the Aetherian continent's islands are reached by the
+Aetherian survey skiff, offered once first contact is made, then by sky-skiffs between the islands (each sky zone's
+flight path). The other two continents are a long way off, as far as Kalimdor is from the Eastern Kingdoms: the long
+airships at the three capitals' docks make those crossings, like the zeppelins. Going home is the Great Settlement's bat roost or the skiffs back to the
 Crown: the climb itself only ever goes up once.
 
 **What the renderer needs** (built with the tree's maps, not before): the drop layer painted per tier (the W1 drop
