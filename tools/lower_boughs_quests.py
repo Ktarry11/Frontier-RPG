@@ -69,11 +69,11 @@ FETCH_DROPS = {
     "Silkwood Weaver": [("lb_q_silk", "Spool of Silkwood Silk", "A spool of web silk, thick as twine and stronger "
                          "than rope."),
                         ("lb_q_wrapped_bronze", "Silk-Wrapped Bronze", "A piece of engraved bronze the spiders "
-                         "wrapped up like prey. It hums faintly through the silk.", 0.4)],
+                         "wrapped up like prey. It hums faintly through the silk.")],
     "Amberdrip Ooze": [("lb_q_amber_clot", "Clot of Amber Sap", "A clot of the ooze that's set hard as amber, with "
                         "a gnat caught in it.")],
     "Canopy Howler": [("lb_q_hoarded_crystal", "Ape-Hoarded Crystal", "A chip of blue crystal, worn smooth by an ape "
-                       "turning it over in its hands.", 0.5)],
+                       "turning it over in its hands.")],
     "Mossback Skink": [("lb_q_skink_hide", "Mossback Skink Hide", "A soft hide with a mossy green back. It makes "
                         "good harness leather.")],
 }
@@ -199,8 +199,8 @@ def build():
         [k("Canopy Howler", 8)],
         "The Canopy Howlers used to steal fruit and run. Now they steal and stay, and they've started fighting back. "
         "Go out on the Howling Bough and teach them to run again.",
-        "They'll think twice before they come onto the ledge.\n\nThe young ones are the worst. They've never known "
-        "the jungle without this tree in it.", nxt="lbq_the_silverbacks"))
+        "They'll think twice before they come onto the ledge.\n\nThe young ones are the worst. The tree came up out of "
+        "nowhere three years ago, and they've never known the jungle without it.", nxt="lbq_the_silverbacks"))
     A(Q("lbq_the_silverbacks", "The Silverbacks", RAKAZ, 44, 45, "Silverback",
         "The big Sap-Drunk Silverbacks lead the howlers, and they're the ones drinking the most sap. Rakaz wants them "
         "brought down before they get any bigger.",
@@ -234,7 +234,8 @@ def build():
          explore(*EAST_BRIDGE, "Walk the east bridge, from the east fork to the Silkwood")],
         "There are two bridges across the drop, one to the Howling Bough and one to the Silkwood. Walk them both for "
         "me and tell me if anything's moving that shouldn't. Don't look down, and if you do, don't look down for long.",
-        "The west one's fine. The east one has web all over its ropes, and that's not mine.\n\nThe spiders have "
+        "The west one's fine. The east one has web all over its ropes, and that's not mine. Half the people crossing it "
+        "these days are newcomers who've never seen a rope bridge, so it had better hold.\n\nThe spiders have "
         "started hanging their webs off my bridge. That's going to stop.", nxt="lbq_web_on_the_ropes"))
     A(Q("lbq_web_on_the_ropes", "Web on the Ropes", OZZU, 44, 45, "Webcutter's",
         "The Silkwood Stalkers have been dropping onto the east bridge from webs hung off its ropes, and taking "
@@ -258,7 +259,8 @@ def build():
         [fetch("lb_q_silk", 6)],
         "If the spiders are going to hang off my bridges, they can rope them too. Silkwood silk is stronger than "
         "any rope I can make, and it doesn't rot. Bring me spools of it off the Silkwood Weavers.",
-        "That's enough to rope the east bridge twice over.\n\nThere's a kind of justice in it. The spiders tried to "
+        "That's enough to rope the east bridge twice over.\n\nOne of the newcomers asked me if it was safe to cross a "
+        "bridge roped with spider silk. I told her it's safer than one roped with anything else. There's a kind of justice in it. The spiders tried to "
         "take my bridge, and now they're holding it up."))
 
     # =================================================================================== 5. THE RIVER AND THE SAP
@@ -286,7 +288,7 @@ def build():
         "Sunscale lies in the sun along the Great Bough, and it's been taking the fishers off the river one by one. "
         "It's drunk so much sap its scales have turned gold. Find it on the Greenwater Bough and kill it.",
         "Sunscale's dead, and the fishers can go back to the river.\n\nI'll miss seeing it in the sun, a little. "
-        "It was beautiful, in the way terrible things sometimes are."))
+        "Since the worlds came together everything up here is beautiful in the way terrible things sometimes are."))
     A(Q("lbq_the_amber_glut", "The Amber Glut", JINDA, 45, 45, "Amber Glut",
         "Jinda's followed the sap back into the trunk, down through the Knothollow to where the bark turns to "
         "heartwood. Something's pooled there and swollen, and the river's sap is coming from it.",
@@ -314,7 +316,7 @@ def build():
         "The borers broke into a vein of sap deep in the Knothollow, and that's where their mother sits, laying them "
         "in the gold. Gnawmother Ixx has to die, or the trunk under Mossroof will be hollow by the rains.",
         "The chewing's stopped. I slept all night for the first time this month.\n\nThe tree carried us up out of "
-        "the world when it broke. The least we can do is keep the bugs out of it."))
+        "the world when it broke, the year the worlds came together. The least we can do is keep the bugs out of it."))
 
     # =================================================================================== 7. SKY-BONES
     A(Q("lbq_sky_bones", "Sky-Bones", VELJANI, 44, 44, "Sky-Bone",
