@@ -3934,6 +3934,255 @@
       "block_value": 0,
       "price": 3100000,
       "faction": "feathermoon_sentinels"
+    },
+    "hbt_loa_tooth_necklace": {
+      "name": "Loa-Tooth Necklace",
+      "slot": "neck",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "attack_power": 35
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 42500,
+      "flavor_text": "A crocolisk's tooth from the lagoons, strung on braided bark fibre and painted with the tribes' teal. Every climber wears one.",
+      "identity": "agility",
+      "icon_id": "gear_inv_jewelry_amulet_01",
+      "price": 340000,
+      "faction": "highbough_tribes"
+    },
+    "hbt_bough_hunters_jerkin": {
+      "name": "Bough-Hunter's Jerkin",
+      "slot": "chest",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 22,
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "attack_power": 57
+      },
+      "armor_value": 237,
+      "required_level": 60,
+      "sell_price": 72500,
+      "flavor_text": "Python skin over ape hide, cut for running along a branch with nothing either side of you.",
+      "identity": "agility",
+      "icon_id": "gear_inv_chest_leather_02",
+      "price": 580000,
+      "faction": "highbough_tribes"
+    },
+    "hbt_rivercallers_kilt": {
+      "name": "Rivercaller's Scaled Kilt",
+      "slot": "legs",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 19
+      },
+      "secondary_stats": {
+        "healing_power": 89
+      },
+      "armor_value": 367,
+      "required_level": 60,
+      "sell_price": 70000,
+      "flavor_text": "Worn by the shamans who listen to the river on the Great Bough. The scales are from fish nobody can name.",
+      "identity": "tide_healer",
+      "icon_id": "gear_inv_pants_13",
+      "price": 560000,
+      "faction": "highbough_tribes"
+    },
+    "hbt_treetop_spaulders": {
+      "name": "Treetop Spaulders",
+      "slot": "shoulder",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "agility": 16,
+        "intellect": 13
+      },
+      "secondary_stats": {
+        "attack_power": 49
+      },
+      "armor_value": 293,
+      "required_level": 60,
+      "sell_price": 65000,
+      "flavor_text": "Mail trimmed with leaves that never wilt. A hunter in these disappears into the boughs.",
+      "identity": "hunter",
+      "icon_id": "gear_inv_shoulder_31",
+      "price": 520000,
+      "faction": "highbough_tribes"
+    },
+    "hbt_heartwood_guard_helm": {
+      "name": "Heartwood Guard Helm",
+      "slot": "head",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 27,
+        "strength": 11
+      },
+      "secondary_stats": {
+        "defense_rating": 21
+      },
+      "armor_value": 457,
+      "required_level": 60,
+      "sell_price": 70000,
+      "flavor_text": "The Settlement's gatewardens wear these, plate lined with heartwood that's harder than the iron over it.",
+      "identity": "tank",
+      "icon_id": "gear_inv_helmet_28",
+      "price": 560000,
+      "faction": "highbough_tribes"
+    },
+    "hbt_loa_speakers_cuffs": {
+      "name": "Loa-Speaker's Cuffs",
+      "slot": "wrist",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 18
+      },
+      "secondary_stats": {
+        "spell_power": 39
+      },
+      "armor_value": 74,
+      "required_level": 60,
+      "sell_price": 57500,
+      "flavor_text": "Woven in the loa temple from Silkwood silk, and blessed with a drop of sap from the tree's heart.",
+      "identity": "caster",
+      "icon_id": "gear_inv_bracer_15",
+      "price": 460000,
+      "faction": "highbough_tribes"
+    },
+    "hbt_band_of_the_high_chieftain": {
+      "name": "Band of the High Chieftain",
+      "slot": "ring",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 12
+      },
+      "secondary_stats": {
+        "attack_power": 31,
+        "crit_chance_physical": 12
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 60000,
+      "flavor_text": "Zan'kaji gives these to the ones he trusts with the bridges. It's carved from a single knot of the tree.",
+      "identity": "strength_crit",
+      "icon_id": "gear_inv_jewelry_ring_26",
+      "price": 480000,
+      "faction": "highbough_tribes"
+    },
+    "hbt_treetop_longbow": {
+      "name": "Treetop Longbow",
+      "slot": "ranged",
+      "item_level": 68,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "bow",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 17
+      },
+      "secondary_stats": {
+        "attack_power": 46,
+        "crit_chance_physical": 17
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 375000,
+      "flavor_text": "Strung with Silkwood silk and carved from a branch the tree let fall. It shoots farther than it should, the way everything from the tree grows bigger than it should.",
+      "identity": "hunter_crit",
+      "icon_id": "gear_epic_bow_2",
+      "weapon_damage_min": 129,
+      "weapon_damage_max": 174,
+      "attack_speed": 2.8,
+      "block_value": 0,
+      "price": 3000000,
+      "faction": "highbough_tribes"
+    },
+    "hbt_bough_breaker_greataxe": {
+      "name": "Bough-Breaker Greataxe",
+      "slot": "main_hand",
+      "item_level": 68,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "axe_2h",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 27,
+        "stamina": 16
+      },
+      "secondary_stats": {
+        "attack_power": 71
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 400000,
+      "flavor_text": "A troll war-axe with a haft of heartwood, made for the Highbough's champions and never once used on the tree.",
+      "identity": "strength",
+      "icon_id": "gear_inv_axe_11",
+      "weapon_damage_min": 204,
+      "weapon_damage_max": 277,
+      "attack_speed": 3.6,
+      "block_value": 0,
+      "price": 3200000,
+      "faction": "highbough_tribes"
+    },
+    "hbt_shadow_hunters_fetish": {
+      "name": "Shadow Hunter's Fetish",
+      "slot": "off_hand",
+      "item_level": 68,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "tome",
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 28
+      },
+      "secondary_stats": {
+        "spell_power": 65
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 350000,
+      "flavor_text": "A bundle of bone, feather and painted bark that the shadow hunters of the Settlement carry into the dark.",
+      "identity": "caster",
+      "icon_id": "gear_epic_tome_3",
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "price": 2800000,
+      "faction": "highbough_tribes"
     }
   }
 }

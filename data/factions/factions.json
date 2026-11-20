@@ -3261,11 +3261,16 @@
         "They call the tree a loa that answered them when nothing else would. The Highbough Tribes hold it now, allied to the Horde without answering to it, and they remember who helps them keep it."
       ],
       "quest_rep": {
-        "_comment": "Per quest, paid by giver (tools/build_rootwater_isle_quests.py).",
+        "_comment": "Per quest, paid by giver (tools/build_rootwater_quests.py, tools/build_lower_boughs_quests.py).",
         "default": 200,
         "boss": 250,
         "capstones": {},
-        "zones": [],
+        "zones": [
+          "rootwater_isle",
+          "lower_boughs",
+          "knothollow",
+          "great_settlement"
+        ],
         "also": [
           "rwq_off_the_boat",
           "rwq_crocs_at_the_pier",
@@ -3326,8 +3331,39 @@
         ]
       },
       "rewards": {
-        "vendor_stock": {},
-        "_comment": "The shelf comes with the Great Settlement's quartermaster.",
+        "vendor_stock": {
+          "gs_quartermaster": {
+            "friendly": [
+              "unique:tabard_highbough_tribes",
+              "hbt_heartsap_tonic"
+            ],
+            "honored": [
+              "flask_mending",
+              "unique:hbt_loa_tooth_necklace",
+              "rep_hbt_climbers_bracers"
+            ],
+            "revered": [
+              "unique:hbt_bough_hunters_jerkin",
+              "unique:hbt_rivercallers_kilt",
+              "unique:hbt_treetop_spaulders",
+              "unique:hbt_heartwood_guard_helm",
+              "unique:hbt_loa_speakers_cuffs",
+              "unique:hbt_band_of_the_high_chieftain",
+              "rep_hbt_lantern_ward_gauntlets"
+            ],
+            "exalted": [
+              "unique:hbt_treetop_longbow",
+              "unique:hbt_bough_breaker_greataxe",
+              "unique:hbt_shadow_hunters_fetish",
+              "rep_hbt_pythonscale_hauberk",
+              "rep_hbt_spiritweave_vestments"
+            ]
+          }
+        },
+        "_comment": [
+          "Gates, not a displayed ladder (the faction panel stays information only).",
+          "TBC-style shelf (tools/build_highbough_tribes.py, 20 Nov 2026): friendly the tribes' Heartsap Tonic, honored a neck piece and a pattern, revered six ilvl 67 blues and a pattern, exalted three ilvl 73 epics and two recipes. The Exalted mount waits for its art."
+        ],
         "quests": {}
       }
     }

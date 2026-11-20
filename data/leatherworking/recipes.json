@@ -12844,6 +12844,110 @@
       ],
       "source": "vendor",
       "faction": "feathermoon_sentinels"
+    },
+    "rep_hbt_pythonscale_hauberk": {
+      "name": "Pythonscale Hauberk",
+      "inputs": {
+        "leather_chimera": 12,
+        "leather_manticore": 4,
+        "thread_silken": 2,
+        "gem_sylvan_emerald": 1
+      },
+      "skill_required": 320,
+      "output": {
+        "kind": "armor",
+        "slot": "chest",
+        "stat_template": "agi_int_hybrid",
+        "item_level": 68,
+        "rarity": "epic",
+        "material_tier": "chimera",
+        "identity": "hunter",
+        "flavor": "The tribes' own pattern: Bough Python scales laid over mail, gold-green and supple as a living snake.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "mail",
+        "item": {
+          "name": "Pythonscale Hauberk",
+          "slot": "chest",
+          "item_level": 68,
+          "rarity": "epic",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 28,
+            "intellect": 23
+          },
+          "secondary_stats": {
+            "attack_power": 83
+          },
+          "armor_value": 482,
+          "required_level": 60,
+          "sell_price": 42167,
+          "flavor_text": "The tribes' own pattern: Bough Python scales laid over mail, gold-green and supple as a living snake.",
+          "identity": "hunter",
+          "icon_id": "gear_wow_chest_chain_12"
+        }
+      },
+      "skill_range": [
+        323,
+        328,
+        333,
+        338
+      ],
+      "source": "vendor",
+      "faction": "highbough_tribes"
+    },
+    "rep_hbt_climbers_bracers": {
+      "name": "Climber's Grip Bracers",
+      "inputs": {
+        "leather_manticore": 4,
+        "thread_silken": 1
+      },
+      "skill_required": 305,
+      "output": {
+        "kind": "armor",
+        "slot": "wrist",
+        "stat_template": "agi_physical",
+        "item_level": 66,
+        "rarity": "rare",
+        "material_tier": "manticore",
+        "identity": "agility",
+        "flavor": "The first thing a Highbough tanner learns: bracers that grip the bark when your hands can't.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "leather",
+        "item": {
+          "name": "Climber's Grip Bracers",
+          "slot": "wrist",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 15,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "attack_power": 40
+          },
+          "armor_value": 149,
+          "required_level": 60,
+          "sell_price": 11424,
+          "flavor_text": "The first thing a Highbough tanner learns: bracers that grip the bark when your hands can't.",
+          "identity": "agility",
+          "icon_id": "gear_epic_shoulder_leather_1"
+        }
+      },
+      "skill_range": [
+        308,
+        313,
+        318,
+        323
+      ],
+      "source": "vendor",
+      "faction": "highbough_tribes"
     }
   }
 }

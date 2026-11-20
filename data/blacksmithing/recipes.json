@@ -13257,6 +13257,57 @@
       ],
       "source": "vendor",
       "faction": "feathermoon_sentinels"
+    },
+    "rep_hbt_lantern_ward_gauntlets": {
+      "name": "Lantern Ward Gauntlets",
+      "inputs": {
+        "bar_frostforged_silver": 6,
+        "flux_strong": 1
+      },
+      "skill_required": 305,
+      "output": {
+        "kind": "armor",
+        "slot": "hands",
+        "stat_template": "str_physical",
+        "item_level": 66,
+        "rarity": "rare",
+        "material_tier": "frostforged_silver",
+        "identity": "tank",
+        "flavor": "Made at the Settlement's forge for the wardens of the Lantern Ward, heavy enough to hold a rope bridge.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "plate",
+        "item": {
+          "name": "Lantern Ward Gauntlets",
+          "slot": "hands",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 21,
+            "strength": 9
+          },
+          "secondary_stats": {
+            "defense_rating": 18
+          },
+          "armor_value": 359,
+          "required_level": 60,
+          "sell_price": 14852,
+          "flavor_text": "Made at the Settlement's forge for the wardens of the Lantern Ward, heavy enough to hold a rope bridge.",
+          "identity": "tank",
+          "icon_id": "gear_epic_shoulder_mail_1"
+        }
+      },
+      "skill_range": [
+        308,
+        313,
+        318,
+        323
+      ],
+      "source": "vendor",
+      "faction": "highbough_tribes"
     }
   }
 }

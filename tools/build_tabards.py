@@ -45,6 +45,7 @@ COLOURS = {
     "cenarion_circle": ((70, 130, 70), (120, 80, 160)),
     "the_wakened": ((150, 170, 210), (240, 230, 160)),
     "feathermoon_sentinels": ((80, 55, 140), (205, 205, 225)),
+    "highbough_tribes": ((30, 120, 120), (200, 70, 40)),
 }
 
 
