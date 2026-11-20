@@ -40,7 +40,10 @@ def main():
     from world.vendor_stock import make_unique
     items = json.loads(Path("data/items/secret_uniques.json").read_text(encoding="utf-8"))["items"]
     vm = VendorManager()
-    hidden = [v for v in vm.vendors.values() if getattr(v, "hidden", False) and not getattr(v, "barter", None)]
+    # Easter eggs (tools/build_easter_eggs.py, Kyle 20 Nov 2026) are hidden, but they're a joke with one piece, not a
+    # rotating shelf: they keep their own stock
+    hidden = [v for v in vm.vendors.values() if getattr(v, "hidden", False) and not getattr(v, "barter", None)
+              and not v.vendor_id.startswith("egg_")]
     pools = {v.vendor_id: [s for s in v.sells if s.startswith("unique:")] for v in hidden}
     gear = {k: p for k, p in pools.items() if p}
     # 1
