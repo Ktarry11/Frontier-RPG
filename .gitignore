@@ -13,3 +13,16 @@ data/saves/**/*.json
 
 # qa_save_slots backs the real saves up here while it runs, and restores them after
 data/_saves_qa_backup/
+
+# ART SOURCES LIVE ON THE art-sources BRANCH, NOT ON main (Kyle, 20 Nov 2026: "how is this 2.4gb....can we clean up
+# some old useless bloat"). The generated sheets the slicers cut from, and the material previews, are never read by
+# the game; they stay on disk for the slicers and are kept, all of them, on the art-sources branch.
+tools/building_sheets/
+tools/icon_sheets/
+tools/tile_sheets/
+tools/prop_sheets/
+tools/walk_sheets/
+assets/**/_src/
+assets/**/_sheets/
+assets/**/_previews/
+assets/npcs_staging/
