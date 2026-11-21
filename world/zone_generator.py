@@ -5579,6 +5579,16 @@ class ZoneGenerator:
                         zone.set_tile(x, y, fringe_scatter, "visual")
 
 
+def _firstlight_spire(mod):
+    """Firstlight Spire, with its light: a gold bloom off the spire and a few motes in the air
+    (docs/environment_effects_art_prompts.md)."""
+    z = mod.generate_firstlight_spire()
+    z.light = {"layer": "light_sun_bloom", "strength": 0.32, "breathe": 0.15}
+    z.particles = {"sprites": ["p_mote_holy", "p_leaf_aspen", "p_leaf_maple"], "count": 8, "size": 0.45,
+                   "fall": 16, "wind": 8, "sway": 18, "spin": 40}
+    return z
+
+
 def create_all_zones():
     """Create all zones: starter + expanded world zones."""
     from tools.zone_expansion_generators import (
@@ -5628,6 +5638,9 @@ def create_all_zones():
     from tools import handbuilt_azshara_central as dac
     from tools import handbuilt_azshara_east as dae
     from tools import handbuilt_talrendis_landing as dtl
+    from tools import handbuilt_dawnhaven_amberleaf as ddha
+    from tools import handbuilt_dawnhaven_duskfall as ddhd
+    from tools import handbuilt_firstlight_spire as dfls
     from tools import handbuilt_deadwind_west as ddww
     from tools import handbuilt_deadwind_east as ddwe
     from tools import handbuilt_ariden_watch as daw_watch
@@ -5825,6 +5838,10 @@ def create_all_zones():
         "Timbermaw Hold": dth.generate_timbermaw_hold(),        # the Timbermaw's caldera city, off the Ursolan pass
         "Central Azshara": dac.generate_azshara_central(),      # tools/handbuilt_azshara_central.py, 54-57
         "East Azshara": dae.generate_azshara_east(),            # tools/handbuilt_azshara_east.py, the coast, 56-59
+        # ===== DAWNHAVEN (1-9, docs/dawnhaven_brief.md, 21 Nov 2026): the blood elves' isle off Azshara =====
+        "Amberleaf Glade": ddha.generate_amberleaf_glade(),     # tools/handbuilt_dawnhaven_amberleaf.py, 1-6
+        "Duskfall Woods": ddhd.generate_duskfall_woods(),       # tools/handbuilt_dawnhaven_duskfall.py, 5-9
+        "Firstlight Spire": _firstlight_spire(dfls),            # the Sunreach Conclave's town, its own map
         # ===== DEADWIND PASS (55-60, docs/deadwind_brief.md, 18 Nov 2026): the leylines tore, and the wheel came through
         "Deadwind West": ddww.generate_deadwind_west(),         # tools/handbuilt_deadwind_west.py, 55-57
         "Deadwind East": ddwe.generate_deadwind_east(),         # tools/handbuilt_deadwind_east.py, 56-58
@@ -6075,6 +6092,9 @@ def create_all_zones():
     for _cave in plcaves.CAVES:
         zones[_cave] = plcaves.generate(_cave)
     from tools import handbuilt_azshara_caves as azcaves     # Azshara's two caves: Haldarr Den, Hetaera's Grotto
+    from tools import handbuilt_dawnhaven_caves as dhcaves   # Dawnhaven's four caves, two in each zone
+    for _cave in dhcaves.CAVES:
+        zones[_cave] = dhcaves.generate(_cave)
     for _cave in azcaves.CAVES:
         zones[_cave] = azcaves.generate(_cave)
     from tools.handbuilt_rotroot_deeps import generate_rotroot_deeps

@@ -89,6 +89,7 @@ class PortalManager:
 
             # ===== DUROTAR (core hub zone) =====
             "Durotar": {
+                (123, 86): ("Firstlight Spire", 94, 58),       # the Dawnhaven boat, off the north-east pier
                 # Was (100,192) - that's actually the Zeppelin Tower
                 # platform's own portal tile inside Orgrimmar's walls, 4
                 # rows north of the real south gate. Walking in from
@@ -607,6 +608,26 @@ class PortalManager:
             },
             # Azshara's caves: one door each, back out to the mouth (arrive two tiles north of it)
             "Haldarr Den": {(48, 97): ("West Azshara", 166, 154)},
+            # ===== DAWNHAVEN (docs/dawnhaven_brief.md, 21 Nov 2026): the blood elves' isle =====
+            "Amberleaf Glade": {
+                (75, 4): ("Duskfall Woods", 80, 133),          # arrive on the Glade road in
+                (126, 94): ("Brinecoil Grotto", 40, 79),       # the naga's sea cave
+                (34, 20): ("The Quiet Vault", 40, 85),         # the garrison crypt under the Silent Barrow
+            },
+            "Duskfall Woods": {
+                (80, 136): ("Amberleaf Glade", 75, 7),         # back down to the Glade
+                (80, 4): ("Firstlight Spire", 52, 86),         # inside the Spire's south gate
+                (20, 32): ("Saltspine Hollow", 46, 91),        # the naga's hold
+                (124, 44): ("The Lightwell Deep", 46, 87),     # under the Lightwell
+            },
+            "Firstlight Spire": {
+                (52, 90): ("Duskfall Woods", 80, 7),           # out of the gate, onto the Spire road
+                (98, 58): ("Durotar", 121, 86),                # the boat to Durotar's north-east pier
+            },
+            "Brinecoil Grotto": {(40, 81): ("Amberleaf Glade", 126, 97)},
+            "The Quiet Vault": {(40, 87): ("Amberleaf Glade", 34, 23)},
+            "Saltspine Hollow": {(46, 93): ("Duskfall Woods", 20, 35)},
+            "The Lightwell Deep": {(46, 89): ("Duskfall Woods", 124, 47)},
             "Hetaera's Grotto": {(50, 97): ("Central Azshara", 186, 58)},
             # ===== FELWOOD (claude/felwood_brief.md): north out of Ashenvale East =====
             "South Felwood": {

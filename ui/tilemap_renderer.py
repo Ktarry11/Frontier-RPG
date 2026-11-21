@@ -1232,8 +1232,18 @@ class TilemapRenderer:
         # a hidden seller or a hidden cache is behind it (world/secrets.py), so they really are hidden;
         # and see-through when the player is behind it, so you can still see yourself back there.
         self._draw_occluders(screen, camera, viewport_rect, tilemap, player_pos, vendors)
+        # ENVIRONMENT EFFECTS (docs/environment_effects_art_prompts.md): shade first (multiplied), then the scrolling
+        # weather and fog layers and the drifting particles, then light over everything
+        if getattr(tilemap, "shade", None):
+            self._draw_shade(screen, camera, viewport_rect, tilemap.shade)
+        for _layer in getattr(tilemap, "weather", None) or ():
+            self._draw_weather(screen, camera, viewport_rect, _layer)
+        if getattr(tilemap, "particles", None):
+            self._draw_particles(screen, viewport_rect, tilemap)
         if _sky:
             self._draw_sun(screen, viewport_rect, _sky)
+        elif getattr(tilemap, "light", None):
+            self._draw_light(screen, viewport_rect, tilemap.light)
 
         # Draw viewport border
         pygame.draw.rect(screen, (100, 150, 100), viewport_rect, 2)
@@ -1292,6 +1302,128 @@ class TilemapRenderer:
         if not sun:
             return
         surf = self._sky_layer("sun_rays", (viewport_rect.width, viewport_rect.height), sun)
+        if surf is not None:
+            screen.blit(surf, viewport_rect.topleft, special_flags=pygame.BLEND_ADD)
+
+    # LIGHT ON THE GROUND (Kyle, 21 Nov 2026: "I do like the sunbeams you're doing in the sky too. Are visual things like
+    # that in zones easy to do? They give a sense of depth"). Any map can carry tilemap.light = {"layer": "sun_rays",
+    # "strength": 0.35, "breathe": 0.15}: a screen-space light overlay from assets/tiles/sky/backdrop/, added over the
+    # world the way the sky maps' sun is, breathing slowly so the beams feel like weather and not a sticker.
+    EFFECTS_DIR = "assets/effects/"
+
+    def _effect(self, folder, name, size, strength=1.0, toward=(0, 0, 0)):
+        """An effect image at a size, faded toward black (light, added) or white (shade, multiplied) by strength."""
+        key = (folder, name, size, round(strength, 2), toward)
+        surf = self._sky_cache.get(key)
+        if surf is None and key not in self._sky_cache:
+            import os
+            path = f"{self.EFFECTS_DIR}{folder}/{name}.png"
+            if not os.path.exists(path):
+                path = f"{self.SKY_DIR}{name}.png"          # the sky's own sun rays live there
+            surf = get_landmark_sprite(path, size[0], size[1])
+            if surf is not None and strength < 0.999:
+                surf = surf.copy()
+                if toward == (0, 0, 0):
+                    k = int(255 * max(0.0, strength))
+                    surf.fill((k, k, k), special_flags=pygame.BLEND_MULT)
+                else:
+                    # toward white: s * img + (1 - s) * white
+                    k = int(255 * max(0.0, strength))
+                    surf.fill((k, k, k), special_flags=pygame.BLEND_MULT)
+                    w = 255 - k
+                    surf.fill((w, w, w), special_flags=pygame.BLEND_ADD)
+            self._sky_cache[key] = surf
+        return surf
+
+    def _draw_shade(self, screen, camera, viewport_rect, shade):
+        """tilemap.shade = {"layer": "shade_canopy_dapple", "strength": 0.5, "tile": 12, "drift": (3, 1)}: multiplied
+        over the screen. With "tile" (its size in tiles) it repeats across the ground and moves with it, drifting
+        slowly the way leaf shadow and cloud shadow do; without, it's a vignette fixed to the screen."""
+        import time
+        k = float(shade.get("strength", 0.5))
+        if shade.get("tile"):
+            size = int(self.tile_size * shade["tile"])
+            surf = self._effect("shade", shade["layer"], (size, int(size * 0.66)), k, toward=(255, 255, 255))
+            if surf is not None:
+                dx, dy = shade.get("drift", (2.0, 0.6))
+                t = time.time()
+                self._tile_layer(screen, viewport_rect, surf, camera.camera_x + t * dx, camera.camera_y + t * dy,
+                                 flags=pygame.BLEND_MULT)
+        else:
+            surf = self._effect("shade", shade["layer"], (viewport_rect.width, viewport_rect.height), k,
+                                toward=(255, 255, 255))
+            if surf is not None:
+                screen.blit(surf, viewport_rect.topleft, special_flags=pygame.BLEND_MULT)
+
+    def _draw_weather(self, screen, camera, viewport_rect, layer):
+        """One scrolling layer: {"layer": "wx_rain_light", "strength": 0.6, "tile": 14, "speed": (-60, 240),
+        "parallax": 1.0}. Added over the screen, scrolling at its own speed on top of the camera's."""
+        import time
+        size = int(self.tile_size * layer.get("tile", 14))
+        surf = self._effect("weather", layer["layer"], (size, int(size * 0.66)), float(layer.get("strength", 0.5)))
+        if surf is None:
+            return
+        sx, sy = layer.get("speed", (0, 0))
+        par = layer.get("parallax", 1.0)
+        t = time.time()
+        self._tile_layer(screen, viewport_rect, surf, camera.camera_x * par - t * sx, camera.camera_y * par - t * sy,
+                         flags=pygame.BLEND_ADD)
+
+    _particle_state = {}
+
+    def _draw_particles(self, screen, viewport_rect, tilemap):
+        """tilemap.particles = {"sprites": ["p_leaf_maple", ...], "count": 16, "size": 0.6, "fall": 40, "wind": 18,
+        "sway": 26, "spin": 90}: things drifting down the screen (leaves, petals, snow, motes). Sizes in tiles, speeds
+        in pixels a second. Screen-space, so they read as weather in the air above you."""
+        import math
+        import random
+        import time
+        cfg = tilemap.particles
+        now = time.time()
+        st = self._particle_state.get(tilemap.name)
+        w, h = viewport_rect.width, viewport_rect.height
+        if st is None or st.get("size") != (w, h):
+            rnd = random.Random(hash(tilemap.name) & 0xFFFF)
+            sprites = []
+            for name in cfg.get("sprites", []):
+                px = max(6, int(self.tile_size * cfg.get("size", 0.6)))
+                img = get_landmark_sprite(f"{self.EFFECTS_DIR}particles/{name}.png", px, px)
+                if img is not None:
+                    # eight turns of each sprite, made once
+                    sprites.append([pygame.transform.rotate(img, a) for a in range(0, 360, 45)])
+            parts = [[rnd.uniform(0, w), rnd.uniform(0, h), rnd.uniform(0, 6.28), rnd.uniform(0.7, 1.3),
+                      rnd.randrange(max(1, len(sprites)))] for _ in range(int(cfg.get("count", 16)))]
+            st = {"size": (w, h), "t": now, "sprites": sprites, "parts": parts}
+            self._particle_state[tilemap.name] = st
+        if not st["sprites"]:
+            return
+        clip = screen.get_clip()
+        screen.set_clip(viewport_rect)
+        dt = min(0.1, now - st["t"])
+        st["t"] = now
+        fall, wind, sway = cfg.get("fall", 40.0), cfg.get("wind", 18.0), cfg.get("sway", 26.0)
+        spin = cfg.get("spin", 90.0)
+        for p in st["parts"]:
+            p[2] += dt * 1.3 * p[3]
+            p[0] += (wind + math.sin(p[2]) * sway) * dt * p[3]
+            p[1] += fall * dt * p[3]
+            if p[1] > h + 20 or p[1] < -30 or p[0] < -30 or p[0] > w + 30:
+                # back in at the edge it's coming from: the top for things that fall, the bottom for things that rise
+                p[0], p[1] = random.uniform(-20, w), (-20 if fall >= 0 else h + 20)
+            turns = st["sprites"][p[4] % len(st["sprites"])]
+            img = turns[int((now * spin * p[3] / 45.0) + p[4]) % len(turns)]
+            screen.blit(img, (viewport_rect.x + p[0] - img.get_width() // 2, viewport_rect.y + p[1] - img.get_height() // 2))
+        screen.set_clip(clip)
+
+    def _draw_light(self, screen, viewport_rect, light):
+        import math
+        import time
+        base = float(light.get("strength", 0.35))
+        breathe = float(light.get("breathe", 0.15))
+        # eight steps of brightness, so the cache holds eight copies instead of one a frame
+        k = base * (1.0 - breathe * 0.5 * (1 + math.sin(time.time() * 0.35)))
+        k = round(k * 8) / 8 if base >= 0.5 else round(k * 16) / 16
+        surf = self._effect("light", light.get("layer", "sun_rays"), (viewport_rect.width, viewport_rect.height), k)
         if surf is not None:
             screen.blit(surf, viewport_rect.topleft, special_flags=pygame.BLEND_ADD)
 

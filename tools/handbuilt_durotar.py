@@ -16,8 +16,8 @@ HARD CONTRACTS (other zones reference these exact coordinates):
   portals  Orgrimmar (65,26)  Drygulch (95,25)  Zeppelin (112,35)  Skull Rock (118,60)
            Sunken Grotto (120,40)  Central Barrens (5,85)  Razor Hill (65,108)
            Dustwind (40,130)  Valley of Trials (28,150)  Echo Isles (110,150)
-           Tiragarde (95,178)  Thunder Ridge (55,45)
-  arrivals (105,150) Echo Isles south dock
+           Tiragarde (95,178)  Thunder Ridge (55,45)  Firstlight Spire's boat (123,86)
+  arrivals (105,150) Echo Isles south dock, (121,86) off the Dawnhaven boat
 """
 import math
 import os
@@ -41,8 +41,9 @@ PORTALS = {
     (5, 85): "Central Barrens", (65, 108): "Razor Hill", (40, 130): "Dustwind Cave",
     (28, 150): "Valley of Trials", (110, 150): "Echo Isles", (95, 178): "Tiragarde Keep",
     (55, 45): "Thunder Ridge",
+    (123, 86): "Firstlight Spire",     # the Dawnhaven boat's pier on the north-east coast (21 Nov 2026)
 }
-ARRIVALS = [(105, 150)]
+ARRIVALS = [(105, 150), (121, 86)]
 
 # ---------------------------------------------------------------- the plan
 # roads: waypoints (tile coords), width in tiles.  Every cave road ends one
@@ -315,6 +316,7 @@ CAVES = {   # portal tile -> (sprite, w, h)
     (95, 25): ("cave_entrance_plain", 6, 4),
     (120, 40): ("cave_entrance_plain", 6, 4),
     (118, 60): ("cave_entrance_banners", 7, 5),
+    (123, 86): ("ent_dock_pier", 7, 5),      # the pier the Dawnhaven boat ties up at (docs/dawnhaven_brief.md)
     (40, 130): ("cave_entrance_plain", 6, 4),
 }
 

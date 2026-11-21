@@ -420,6 +420,10 @@ ZONE_POPULATION_MIX = {
     # Moonglade (18 Nov 2026): the Circle's night elves and tauren in Nighthaven, the Wakened on the west shore
     "moonglade": [("night_elf", 45), ("tauren", 35), ("human", 20)],
     "west_azshara": [("orc", 50), ("blood_elf", 25), ("furbolg", 15), ("human", 10)],
+    # Dawnhaven (21 Nov 2026): the Sunreach Conclave's isle, its people and the transplants it took in
+    "amberleaf_glade": [("blood_elf", 80), ("human", 20)],
+    "duskfall_woods": [("blood_elf", 80), ("human", 20)],
+    "firstlight_spire": [("blood_elf", 82), ("human", 14), ("orc", 4)],
     # Feralas (19 Nov 2026): Mojache is tauren with Orgrimmar's few; Feathermoon is the Sentinels'; the settlers of the
     # Fog Groves are transplants
     # the World Tree (19 Nov 2026): the trolls who climbed it, a goblin or two who built the lifts, a few transplants

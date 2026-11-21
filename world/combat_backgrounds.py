@@ -205,6 +205,13 @@ ZONE_BACKGROUND = {
     "Southshore": "coast",                        # the Alliance harbour town, its own map
     "West Azshara": "fantasy_forest",             # Azshara's autumn forest (until its own background)
     "Talrendis Landing": "coast",                 # the salvage camp on the bay
+    "Amberleaf Glade": "fantasy_forest",          # Dawnhaven (docs/dawnhaven_brief.md): autumn woods to the shore
+    "Duskfall Woods": "fantasy_forest",
+    "Firstlight Spire": "fantasy_forest",
+    "Brinecoil Grotto": "dark_dungeon",
+    "The Quiet Vault": "dark_dungeon",
+    "Saltspine Hollow": "dark_dungeon",
+    "The Lightwell Deep": "dark_dungeon",
     "Rootwater Isle": "coast",                    # the World Tree's roots on the reef (until its own background)
     "The Lower Boughs": "jungle",                 # the World Tree's first tier, over the canopy
     "The Knothollow": "jungle",                   # the cave into the trunk

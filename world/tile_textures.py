@@ -373,6 +373,9 @@ ZONE_BIOME = {
     "Timbermaw Tunnel": "mythical_forest",
     "West Azshara": "mythical_forest",       # painted ground (baked); the biome only names the fallback
     "Talrendis Landing": "mythical_forest",
+    "Amberleaf Glade": "mythical_forest",      # Dawnhaven, painted (baked); the biome only names the fallback
+    "Duskfall Woods": "mythical_forest",
+    "Firstlight Spire": "mythical_forest",
     "Rootwater Isle": "coast",                    # the World Tree's island: painted ground (baked)
     "The Lower Boughs": "tropical",               # the World Tree's first tier: painted ground (baked)
     "The Middle Boughs": "tropical",              # the tree's heart: painted ground (baked)

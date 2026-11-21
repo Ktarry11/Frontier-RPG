@@ -59,6 +59,17 @@ START_ZONES = [
         suggested_for=["forsaken"],
         camp="the graves at Deathknell",
     ),
+    StartZone(
+        start_id="dawnhaven",
+        label="Dawnhaven",
+        zone_name="Amberleaf Glade",
+        # the Waking Shore, two tiles from Ranger-Captain Saelis Dawnbrook (78,108), who gives the first quest
+        # (docs/dawnhaven_brief.md, 21 Nov 2026)
+        x=75, y=110,
+        blurb="An island off Azshara. You wake on a gold shore, and the elves who found you are building a home.",
+        suggested_for=["blood_elf"],
+        camp="Amberwatch",
+    ),
 ]
 
 #: What ZoneManager falls back to with no character or no stored choice. Keeping the Valley as the

@@ -93,6 +93,9 @@ ZONE_POOLS = {
     "lanternmere": ("pool_swamp", "pool_reeds"),
     "long_winter": ("pool_ice_hole", "pool_river"),
     "sunward_waystation": ("pool_moonlit", "pool_fresh"),
+    # Dawnhaven (21 Nov 2026): the coast round the isle, the mere and the tarn
+    "amberleaf_glade": ("pool_coast", "pool_fresh"),
+    "duskfall_woods": ("pool_coast", "pool_moonlit"),
     # Caelora's hidden maps (21 Nov 2026): the wellstones' pools on the islands, never the cloud
     "stormroost": ("pool_storm", "pool_fresh"),
     "orrery": ("pool_fresh", "pool_glowing"),

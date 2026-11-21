@@ -222,6 +222,12 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
   sealed. The fix is one line, but it re-lights every zone baked with sealed tiles the next time each is baked, so it
   needs a before-and-after look at each of them.
 
+- **Environment effects** (Kyle, 21 Nov 2026: "We can add some of them in to old zones etc", then "whatever we don't
+  make now is backlogged and cleared later"). Ten sheets written (`docs/environment_effects_art_prompts.md`, EFX1 to
+  EFX10). The light overlay works (`tilemap.light`). Still to build as the sheets land: shade overlays (multiply),
+  scrolling weather and fog layers, particles, ambient life and flyover shadows, sky events. Then a pass over the
+  old zones with the doc's zone table.
+
 ## 12. Parked by Kyle (not anytime soon)
 - **The prestige constellation** (design only, docs/prestige_constellation.md).
 

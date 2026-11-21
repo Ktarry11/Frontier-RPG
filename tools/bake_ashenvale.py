@@ -862,11 +862,28 @@ FIRMAMENT_SHEET.update({
     "av_moon_rim":       _sk("ff_void_crumbs"),
     "av_fel_earth":      _sk("ff_violet_shards"),
 })
+#: DAWNHAVEN (docs/dawnhaven_brief.md, 21 Nov 2026): the blood elves' isle off Azshara, painted from Kyle's Azshara
+#: ground until its own sheet lands. Amberleaf Glade leans gold (gold leaf litter and gold grass under the trees);
+#: Duskfall Woods leans red (crimson brush and red leaf litter under a lower sun).
+AMBERLEAF_SHEET = dict(AZSHARA_SHEET)
+AMBERLEAF_SHEET.update({
+    "av_forest_floor":   _az("az_leaf_gold"),
+    "av_root_earth":     _az("az_grass_gold"),
+    "av_needle_mulch":   _az("az_leaf_floor"),
+})
+DUSKFALL_SHEET = dict(AZSHARA_SHEET)
+DUSKFALL_SHEET.update({
+    "av_forest_floor":   _az("az_leaf_floor"),
+    "av_forest_grass":   _az("az_crimson_brush"),
+    "av_root_earth":     _az("az_needle_leaf"),
+})
 WPL_SHEET = _plague_sheet(east=False)
 EPL_SHEET = _plague_sheet(east=True)
 ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_SHEET, "epl_east": EPL_SHEET, "felwood_north": NORTH_SHEET, "stonetalon_east": STONETALON_SHEET,
                "stonetalon_west": STONETALON_WEST_SHEET, "sun_rock": SUN_ROCK_SHEET,
                "azshara_west": AZSHARA_SHEET,
+               "dawnhaven_amberleaf": AMBERLEAF_SHEET, "dawnhaven_duskfall": DUSKFALL_SHEET,
+               "firstlight_spire": AMBERLEAF_SHEET,
                "feralas_high_wilderness": FERALAS_SHEET, "feralas_twin_colossals": FERALAS_NORTH_SHEET,
                "feralas_forgotten_coast": FERALAS_COAST_SHEET, "feralas_mojache": FERALAS_MOJACHE_SHEET,
                "feralas_feathermoon": FERALAS_FEATHERMOON_SHEET, "timbermaw_hold": TIMBERMAW_HOLD_SHEET,
@@ -1316,6 +1333,12 @@ def bake(zone="west", preview=None, scale=4, only=None):
     elif zone == "azshara_west":
         # West Azshara (docs/azshara_brief.md): autumn forest, Kyle's Azshara ground sheet (AZSHARA_SHEET)
         from tools import handbuilt_azshara_west as M
+    elif zone == "dawnhaven_amberleaf":
+        # Amberleaf Glade (docs/dawnhaven_brief.md): Dawnhaven's south, gold autumn (AMBERLEAF_SHEET)
+        from tools import handbuilt_dawnhaven_amberleaf as M
+    elif zone == "dawnhaven_duskfall":
+        # Duskfall Woods: Dawnhaven's north, red autumn (DUSKFALL_SHEET)
+        from tools import handbuilt_dawnhaven_duskfall as M
     elif zone == "azshara_east":
         # East Azshara (docs/azshara_brief.md): the drowned coast (AZSHARA_EAST_SHEET)
         from tools import handbuilt_azshara_east as M
@@ -1376,7 +1399,7 @@ def main():
     if "--preview" in sys.argv:
         preview = sys.argv[sys.argv.index("--preview") + 1]
     sc = int(sys.argv[sys.argv.index("--scale") + 1]) if "--scale" in sys.argv else 4
-    zone = next((z for z in ("worldtree_fading_firmament", "worldtree_ascendant_bastions", "worldtree_aurelion", "worldtree_anchorfields", "worldtree_celestial_expanse", "worldtree_lenswatch", "worldtree_sunward_crown", "worldtree_cloudbreak", "worldtree_upper_boughs", "worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
+    zone = next((z for z in ("worldtree_fading_firmament", "worldtree_ascendant_bastions", "worldtree_aurelion", "worldtree_anchorfields", "worldtree_celestial_expanse", "worldtree_lenswatch", "worldtree_sunward_crown", "worldtree_cloudbreak", "worldtree_upper_boughs", "worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "dawnhaven_amberleaf", "dawnhaven_duskfall", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
     only = None
     if "--region" in sys.argv:       # x0,y0,x1,y1 in tiles: bake only the 20x20 chunks touching it (fast look-dev)
         x0, y0, x1, y1 = map(int, sys.argv[sys.argv.index("--region") + 1].split(","))

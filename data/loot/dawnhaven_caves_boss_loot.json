@@ -1,0 +1,395 @@
+{
+  "_notes": "Boss loot for Dawnhaven's four caves. ONE item per kill from the boss's four; item_level = boss level + 2. Hand-authored in tools/build_dawnhaven_content.py.",
+  "Tidecaller Sszelith": [
+    {
+      "name": "Tidecaller's Coral Rod",
+      "slot": "main_hand",
+      "item_level": 7,
+      "rarity": "rare",
+      "required_level": 4,
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "intellect": 5
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 20,
+      "weapon_damage_max": 27,
+      "attack_speed": 2.6,
+      "stat_template": "int_caster",
+      "item_id": "dhc_tidecallers_coral_rod"
+    },
+    {
+      "name": "Brinecoil Scale Vest",
+      "slot": "chest",
+      "item_level": 7,
+      "rarity": "rare",
+      "required_level": 4,
+      "primary_stats": {
+        "agility": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 36,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "dhc_brinecoil_scale_vest"
+    },
+    {
+      "name": "Kelp-Woven Sandals",
+      "slot": "feet",
+      "item_level": 7,
+      "rarity": "rare",
+      "required_level": 4,
+      "primary_stats": {
+        "intellect": 2,
+        "spirit": 2
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 7,
+      "stat_template": "spi_healer",
+      "item_id": "dhc_kelp_woven_sandals"
+    },
+    {
+      "name": "Grotto Harpoon",
+      "slot": "two_hand",
+      "item_level": 7,
+      "rarity": "rare",
+      "required_level": 4,
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 5,
+        "agility": 5
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 22,
+      "weapon_damage_max": 30,
+      "attack_speed": 3.3,
+      "stat_template": "agi_physical",
+      "item_id": "dhc_grotto_harpoon"
+    }
+  ],
+  "Warden Isilien": [
+    {
+      "name": "Warden's Vault Key",
+      "slot": "neck",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "primary_stats": {
+        "stamina": 4
+      },
+      "secondary_stats": {},
+      "stat_template": "str_physical",
+      "item_id": "dhc_wardens_vault_key"
+    },
+    {
+      "name": "Cloister Robe",
+      "slot": "chest",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "primary_stats": {
+        "spirit": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 13,
+      "stat_template": "spi_healer",
+      "item_id": "dhc_cloister_robe"
+    },
+    {
+      "name": "Sentinel's Old Greaves",
+      "slot": "legs",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "primary_stats": {
+        "strength": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 63,
+      "stat_template": "str_physical",
+      "item_id": "dhc_sentinels_old_greaves"
+    },
+    {
+      "name": "Isilien's Moonbow",
+      "slot": "ranged",
+      "item_level": 8,
+      "rarity": "rare",
+      "required_level": 5,
+      "weapon_type": "bow",
+      "primary_stats": {
+        "agility": 4
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 18,
+      "weapon_damage_max": 25,
+      "attack_speed": 2.8,
+      "stat_template": "agi_physical",
+      "item_id": "dhc_isiliens_moonbow"
+    }
+  ],
+  "Sea-Witch Ilthessa": [
+    {
+      "name": "Sea-Witch's Coral Crown",
+      "slot": "head",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "primary_stats": {
+        "intellect": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 48,
+      "stat_template": "str_int_hybrid",
+      "item_id": "dhc_sea_witchs_coral_crown"
+    },
+    {
+      "name": "Saltspine Trident",
+      "slot": "two_hand",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 14
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 36,
+      "weapon_damage_max": 48,
+      "attack_speed": 3.3,
+      "stat_template": "str_physical",
+      "item_id": "dhc_saltspine_trident"
+    },
+    {
+      "name": "Black Water Wraps",
+      "slot": "wrist",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "primary_stats": {
+        "intellect": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 12,
+      "stat_template": "int_caster",
+      "item_id": "dhc_black_water_wraps"
+    },
+    {
+      "name": "Tide-Pearl Ring",
+      "slot": "ring",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "primary_stats": {
+        "intellect": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {},
+      "stat_template": "spi_healer",
+      "item_id": "dhc_tide_pearl_ring"
+    }
+  ],
+  "Old Saltspine": [
+    {
+      "name": "Saltspine Shell Spaulders",
+      "slot": "shoulder",
+      "item_level": 10,
+      "rarity": "rare",
+      "required_level": 7,
+      "primary_stats": {
+        "stamina": 7
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 66,
+      "stat_template": "str_physical",
+      "item_id": "dhc_saltspine_shell_spaulders"
+    },
+    {
+      "name": "Crab-Shell Bracers",
+      "slot": "wrist",
+      "item_level": 10,
+      "rarity": "rare",
+      "required_level": 7,
+      "primary_stats": {
+        "agility": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 22,
+      "stat_template": "agi_physical",
+      "item_id": "dhc_crab_shell_bracers"
+    },
+    {
+      "name": "Barnacle-Crusted Belt",
+      "slot": "waist",
+      "item_level": 10,
+      "rarity": "rare",
+      "required_level": 7,
+      "primary_stats": {
+        "strength": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 36,
+      "stat_template": "str_int_hybrid",
+      "item_id": "dhc_barnacle_crusted_belt"
+    },
+    {
+      "name": "Great Claw Knuckles",
+      "slot": "main_hand",
+      "item_level": 10,
+      "rarity": "rare",
+      "required_level": 7,
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "strength": 3,
+        "agility": 3
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 25,
+      "weapon_damage_max": 34,
+      "attack_speed": 1.8,
+      "stat_template": "agi_physical",
+      "item_id": "dhc_great_claw_knuckles"
+    }
+  ],
+  "The Starved Light": [
+    {
+      "name": "Shard of the Lightwell",
+      "slot": "off_hand",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 7
+      },
+      "secondary_stats": {},
+      "stat_template": "int_caster",
+      "item_id": "dhc_shard_of_the_lightwell"
+    },
+    {
+      "name": "Robe of the Rekindled Font",
+      "slot": "chest",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "primary_stats": {
+        "intellect": 4,
+        "spirit": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 18,
+      "stat_template": "spi_healer",
+      "item_id": "dhc_robe_of_the_rekindled_font"
+    },
+    {
+      "name": "Lightwarden's Gauntlets",
+      "slot": "hands",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "primary_stats": {
+        "strength": 6
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 59,
+      "stat_template": "str_physical",
+      "item_id": "dhc_lightwardens_gauntlets"
+    },
+    {
+      "name": "Hungerless Blade",
+      "slot": "main_hand",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "agility": 7
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 26,
+      "weapon_damage_max": 36,
+      "attack_speed": 2.4,
+      "stat_template": "agi_physical",
+      "item_id": "dhc_hungerless_blade"
+    }
+  ],
+  "Archivist Lorethas": [
+    {
+      "name": "Archivist's Last Ledger",
+      "slot": "off_hand",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "weapon_type": "tome",
+      "primary_stats": {
+        "spirit": 7
+      },
+      "secondary_stats": {},
+      "stat_template": "spi_healer",
+      "item_id": "dhc_archivists_last_ledger"
+    },
+    {
+      "name": "Inkstained Leggings",
+      "slot": "legs",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "primary_stats": {
+        "agility": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 36,
+      "stat_template": "agi_physical",
+      "item_id": "dhc_inkstained_leggings"
+    },
+    {
+      "name": "Underworks Hauberk",
+      "slot": "chest",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "primary_stats": {
+        "intellect": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 57,
+      "stat_template": "str_int_hybrid",
+      "item_id": "dhc_underworks_hauberk"
+    },
+    {
+      "name": "Lorethas's Quill-Staff",
+      "slot": "two_hand",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 13
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 14,
+      "weapon_damage_max": 19,
+      "attack_speed": 3.2,
+      "stat_template": "int_caster",
+      "item_id": "dhc_lorethass_quill_staff"
+    }
+  ]
+}

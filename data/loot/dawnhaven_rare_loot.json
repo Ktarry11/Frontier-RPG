@@ -1,0 +1,263 @@
+{
+  "_notes": "Dawnhaven's open-world rares (1-9). ONE item per kill from the rare's four; item_level = the rare's level + 3. Hand-authored in tools/build_dawnhaven_content.py.",
+  "Old Barnacle": [
+    {
+      "name": "Barnacled Shell Buckler",
+      "slot": "off_hand",
+      "item_level": 6,
+      "rarity": "rare",
+      "required_level": 3,
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 3
+      },
+      "armor_value": 12,
+      "block_value": 15,
+      "stat_template": "str_physical",
+      "item_id": "dhi_barnacled_shell_buckler"
+    },
+    {
+      "name": "Tidepool Waders",
+      "slot": "feet",
+      "item_level": 6,
+      "rarity": "rare",
+      "required_level": 3,
+      "primary_stats": {
+        "agility": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 13,
+      "stat_template": "agi_physical",
+      "item_id": "dhi_tidepool_waders"
+    },
+    {
+      "name": "Brine-Washed Cord",
+      "slot": "waist",
+      "item_level": 6,
+      "rarity": "rare",
+      "required_level": 3,
+      "primary_stats": {
+        "intellect": 2,
+        "spirit": 2
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 6,
+      "stat_template": "spi_healer",
+      "item_id": "dhi_brine_washed_cord"
+    },
+    {
+      "name": "Crab-Claw Cudgel",
+      "slot": "main_hand",
+      "item_level": 6,
+      "rarity": "rare",
+      "required_level": 3,
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "strength": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 18,
+      "weapon_damage_max": 25,
+      "attack_speed": 2.6,
+      "stat_template": "str_physical",
+      "item_id": "dhi_crab_claw_cudgel"
+    }
+  ],
+  "Goldmane": [
+    {
+      "name": "Goldmane Pelt Cloak",
+      "slot": "back",
+      "item_level": 7,
+      "rarity": "rare",
+      "required_level": 4,
+      "primary_stats": {
+        "agility": 3
+      },
+      "secondary_stats": {},
+      "stat_template": "agi_physical",
+      "item_id": "dhi_goldmane_pelt_cloak"
+    },
+    {
+      "name": "Lynx-Fang Dirk",
+      "slot": "main_hand",
+      "item_level": 7,
+      "rarity": "rare",
+      "required_level": 4,
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "strength": 2,
+        "agility": 2
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 20,
+      "weapon_damage_max": 27,
+      "attack_speed": 1.7,
+      "stat_template": "agi_physical",
+      "item_id": "dhi_lynx_fang_dirk"
+    },
+    {
+      "name": "Gold-Furred Gloves",
+      "slot": "hands",
+      "item_level": 7,
+      "rarity": "rare",
+      "required_level": 4,
+      "primary_stats": {
+        "intellect": 2,
+        "stamina": 2
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 25,
+      "stat_template": "str_int_hybrid",
+      "item_id": "dhi_gold_furred_gloves"
+    },
+    {
+      "name": "Leafwhisper Circlet",
+      "slot": "head",
+      "item_level": 7,
+      "rarity": "rare",
+      "required_level": 4,
+      "primary_stats": {
+        "intellect": 5
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 9,
+      "stat_template": "int_caster",
+      "item_id": "dhi_leafwhisper_circlet"
+    }
+  ],
+  "Ruddy, the Hollow King": [
+    {
+      "name": "Hollow King's Mantle",
+      "slot": "shoulder",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "primary_stats": {
+        "strength": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 73,
+      "stat_template": "str_physical",
+      "item_id": "dhi_hollow_kings_mantle"
+    },
+    {
+      "name": "Bear-Hide Jerkin",
+      "slot": "chest",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "primary_stats": {
+        "agility": 4,
+        "stamina": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 36,
+      "stat_template": "agi_physical",
+      "item_id": "dhi_bear_hide_jerkin"
+    },
+    {
+      "name": "Ruddy's Claw Necklace",
+      "slot": "neck",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "primary_stats": {
+        "agility": 3,
+        "spirit": 3
+      },
+      "secondary_stats": {},
+      "stat_template": "agi_int_hybrid",
+      "item_id": "dhi_ruddys_claw_necklace"
+    },
+    {
+      "name": "Redwood Greatclub",
+      "slot": "two_hand",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 14
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 36,
+      "weapon_damage_max": 48,
+      "attack_speed": 3.6,
+      "stat_template": "str_physical",
+      "item_id": "dhi_redwood_greatclub"
+    }
+  ],
+  "The Grieving Lady": [
+    {
+      "name": "Veil of the Grieving Lady",
+      "slot": "head",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "primary_stats": {
+        "intellect": 4,
+        "spirit": 4
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 15,
+      "stat_template": "spi_healer",
+      "item_id": "dhi_veil_of_the_grieving_lady"
+    },
+    {
+      "name": "Lament Wand",
+      "slot": "ranged",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 5
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 22,
+      "weapon_damage_max": 30,
+      "attack_speed": 1.9,
+      "stat_template": "int_caster",
+      "item_id": "dhi_lament_wand"
+    },
+    {
+      "name": "Mourning Band",
+      "slot": "ring",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "primary_stats": {
+        "spirit": 5
+      },
+      "secondary_stats": {},
+      "stat_template": "spi_healer",
+      "item_id": "dhi_mourning_band"
+    },
+    {
+      "name": "Black-Ribbon Wristguards",
+      "slot": "wrist",
+      "item_level": 11,
+      "rarity": "rare",
+      "required_level": 8,
+      "primary_stats": {
+        "intellect": 3,
+        "stamina": 3
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 39,
+      "stat_template": "str_int_hybrid",
+      "item_id": "dhi_black_ribbon_wristguards"
+    }
+  ]
+}
