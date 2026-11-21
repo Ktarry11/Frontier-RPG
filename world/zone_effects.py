@@ -60,6 +60,33 @@ ZONES["The Hollow Geode"] = dict(UNDERDARK, shade=[{"layer": "shade_cave_vignett
                                                    {"layer": "shade_night", "strength": 0.14}])
 ZONES["The Deep Bloom"] = ZONES["The Hollow Geode"]
 
+# Ashenvale: the night elves' twilight forest. Cool moonlight coming down through the canopy, leaf shadow on the floor,
+# a few fireflies in the dusk, and the moon lanterns, furbolg bonfires and camp fires lighting their clearings.
+ASHENVALE = {
+    "shade": {"layer": "shade_canopy_dapple", "strength": 0.24, "tile": 11, "drift": (1.2, 0.3)},
+    "weather": [{"layer": "atm_fireflies", "strength": 0.4, "floor": 0.15, "tile": 16, "speed": (-2, -1)}],
+    "glows": {"strength": 0.75},
+    "light": {"layer": "light_moonlight", "strength": 0.2, "breathe": 0.1},
+}
+# Azshara: forever autumn on the old high-elf coast. Warm low sun slanting through red leaves, leaf shadow, a few gold
+# motes hanging in the light, and the braziers and lanterns of the ruins and camps.
+AZSHARA = {
+    "shade": {"layer": "shade_canopy_dapple", "strength": 0.2, "tile": 11, "drift": (1.2, 0.3)},
+    "weather": [{"layer": "atm_golden_motes", "strength": 0.3, "floor": 0.15, "tile": 16, "speed": (-2, -1)}],
+    "glows": {"strength": 0.7},
+    "light": {"layer": "light_autumn_rays", "strength": 0.3, "breathe": 0.12},
+}
+#: towns keep the light and the glows, with less shadow and no motes, so the people and the buildings stay clear
+_town = lambda fx: dict(fx, shade=dict(fx["shade"], strength=fx["shade"]["strength"] * 0.5), weather=[])  # noqa: E731
+for _n in ("Ashenvale West", "Ashenvale East"):
+    ZONES[_n] = ASHENVALE
+for _n in ("Astranaar", "Zoram Strand", "Splintertree Post"):
+    ZONES[_n] = _town(ASHENVALE)
+for _n in ("West Azshara", "Central Azshara", "East Azshara"):
+    ZONES[_n] = AZSHARA
+for _n in ("Talrendis Landing", "Timbermaw Hold"):
+    ZONES[_n] = _town(AZSHARA)
+
 KEYS = ("shade", "weather", "glows", "particles", "life", "light")
 
 
