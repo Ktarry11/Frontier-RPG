@@ -67,6 +67,10 @@ class ZoneManager:
                 "tilemap": tilemap,
             }
 
+        # Light, shade, fog, drifting particles and passing birds (world/zone_effects.py).
+        from world.zone_effects import apply as apply_zone_effects
+        self.zones_with_effects = apply_zone_effects(all_zones)
+
         # Caves declare a parent zone in .region; overworld zones don't point
         # at another map. Used to tag encounters as location_type="cave".
         self.cave_names = {

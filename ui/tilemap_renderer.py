@@ -1234,12 +1234,17 @@ class TilemapRenderer:
         self._draw_occluders(screen, camera, viewport_rect, tilemap, player_pos, vendors)
         # ENVIRONMENT EFFECTS (docs/environment_effects_art_prompts.md): shade first (multiplied), then the scrolling
         # weather and fog layers and the drifting particles, then light over everything
-        if getattr(tilemap, "shade", None):
-            self._draw_shade(screen, camera, viewport_rect, tilemap.shade)
+        _shade = getattr(tilemap, "shade", None)
+        for _s in (_shade if isinstance(_shade, list) else [_shade] if _shade else ()):
+            self._draw_shade(screen, camera, viewport_rect, _s)
         for _layer in getattr(tilemap, "weather", None) or ():
             self._draw_weather(screen, camera, viewport_rect, _layer)
+        if getattr(tilemap, "glows", None):
+            self._draw_glows(screen, camera, viewport_rect, tilemap)
         if getattr(tilemap, "particles", None):
             self._draw_particles(screen, viewport_rect, tilemap)
+        if getattr(tilemap, "life", None):
+            self._draw_life(screen, viewport_rect, tilemap)
         if _sky:
             self._draw_sun(screen, viewport_rect, _sky)
         elif getattr(tilemap, "light", None):
@@ -1311,9 +1316,13 @@ class TilemapRenderer:
     # world the way the sky maps' sun is, breathing slowly so the beams feel like weather and not a sticker.
     EFFECTS_DIR = "assets/effects/"
 
-    def _effect(self, folder, name, size, strength=1.0, toward=(0, 0, 0)):
-        """An effect image at a size, faded toward black (light, added) or white (shade, multiplied) by strength."""
-        key = (folder, name, size, round(strength, 2), toward)
+    def _effect(self, folder, name, size, strength=1.0, toward=(0, 0, 0), floor=0.0):
+        """An effect image at a size, faded toward black (light, added) or white (shade, multiplied) by strength.
+
+        floor (0 to 1) takes that much off every pixel of an added layer first, so the faint haze between a fog's wisps
+        goes to nothing and only the wisps themselves are added. Kyle, 21 Nov 2026: weather effects "supplement zones
+        but NOT dominate them. They should complement the zone"; without a floor a fog layer greys the whole screen."""
+        key = (folder, name, size, round(strength, 2), toward, round(floor, 2))
         surf = self._sky_cache.get(key)
         if surf is None and key not in self._sky_cache:
             import os
@@ -1321,6 +1330,19 @@ class TilemapRenderer:
             if not os.path.exists(path):
                 path = f"{self.SKY_DIR}{name}.png"          # the sky's own sun rays live there
             surf = get_landmark_sprite(path, size[0], size[1])
+            if surf is not None and floor > 0 and toward == (0, 0, 0):
+                surf = surf.copy()
+                f = int(255 * min(1.0, floor))
+                surf.fill((f, f, f), special_flags=pygame.BLEND_SUB)
+                # stretch what's left back up, so the wisps keep their brightness
+                gain = 255.0 / max(1, 255 - f)
+                while gain > 1.01:
+                    step = min(gain, 2.0)
+                    copy = surf.copy()
+                    k = int(255 * (step - 1.0))
+                    copy.fill((k, k, k), special_flags=pygame.BLEND_MULT)
+                    surf.blit(copy, (0, 0), special_flags=pygame.BLEND_ADD)
+                    gain /= step
             if surf is not None and strength < 0.999:
                 surf = surf.copy()
                 if toward == (0, 0, 0):
@@ -1360,7 +1382,8 @@ class TilemapRenderer:
         "parallax": 1.0}. Added over the screen, scrolling at its own speed on top of the camera's."""
         import time
         size = int(self.tile_size * layer.get("tile", 14))
-        surf = self._effect("weather", layer["layer"], (size, int(size * 0.66)), float(layer.get("strength", 0.5)))
+        surf = self._effect(layer.get("folder", "weather"), layer["layer"], (size, int(size * 0.66)),
+                            float(layer.get("strength", 0.5)), floor=float(layer.get("floor", 0.0)))
         if surf is None:
             return
         sx, sy = layer.get("speed", (0, 0))
@@ -1413,6 +1436,131 @@ class TilemapRenderer:
             turns = st["sprites"][p[4] % len(st["sprites"])]
             img = turns[int((now * spin * p[3] / 45.0) + p[4]) % len(turns)]
             screen.blit(img, (viewport_rect.x + p[0] - img.get_width() // 2, viewport_rect.y + p[1] - img.get_height() // 2))
+        screen.set_clip(clip)
+
+    # LIGHT FROM THINGS THAT GIVE LIGHT. tilemap.glows = {"strength": 0.8}: every lantern, brazier, campfire, cauldron
+    # and lit window on the map throws a soft pool of its own colour, added over the gloom, so a dark zone has warm
+    # places in it. Which props glow and how is GLOW_KINDS, matched on the prop's art name, so new maps light themselves.
+    #: (words in the art name, colour, radius in tiles, how high up the prop the light sits, 0 top to 1 bottom)
+    GLOW_KINDS = (
+        (("fel_brazier", "fel_fire", "fel_crystal", "fel_lamp"), (90, 230, 60), 3.2, 0.35),
+        (("plague_cauldron", "plague_vat", "plague_brazier"), (140, 220, 50), 3.0, 0.45),
+        (("moon_lantern", "moonwell", "moon_lamp", "wisp_lamp"), (120, 170, 255), 3.0, 0.3),
+        (("glow_mushroom", "mushroom_ring", "glowcap"), (60, 220, 200), 2.4, 0.6),
+        (("lantern", "lamp_post", "lamppost", "sconce", "candle", "lamp"), (255, 180, 90), 2.6, 0.25),
+        (("brazier", "bonfire", "campfire", "fire_pit", "firepit", "pyre", "torch", "hearth", "forge", "beacon"),
+         (255, 140, 50), 3.4, 0.55),
+    )
+    _glow_tex = {}
+
+    @classmethod
+    def _glow_spec(cls, sprite_key):
+        name = sprite_key.rsplit("/", 1)[-1].lower()
+        for words, colour, radius, height in cls.GLOW_KINDS:
+            if any(w in name for w in words):
+                return colour, radius, height
+        return None
+
+    def _glow_surface(self, colour, radius_px, strength):
+        key = (colour, radius_px, round(strength, 2))
+        surf = self._glow_tex.get(key)
+        if surf is None:
+            import numpy as np
+            d = radius_px * 2
+            yy, xx = np.mgrid[0:d, 0:d].astype(np.float32)
+            r = np.sqrt((xx - radius_px) ** 2 + (yy - radius_px) ** 2) / radius_px
+            fall = np.clip(1.0 - r, 0.0, 1.0) ** 2.2 * strength            # bright at the source, gone at the rim
+            rgb = (fall[..., None] * np.array(colour, np.float32)[None, None, :]).astype(np.uint8)
+            surf = pygame.surfarray.make_surface(rgb.transpose(1, 0, 2))
+            self._glow_tex[key] = surf
+        return surf
+
+    def _draw_glows(self, screen, camera, viewport_rect, tilemap):
+        spots = getattr(tilemap, "_glow_spots", None)
+        if spots is None:
+            spots = []
+            for lm in getattr(tilemap, "landmarks", []):
+                spec = self._glow_spec(lm.get("sprite_key", ""))
+                if spec:
+                    colour, radius, height = spec
+                    spots.append((lm["anchor_x"] + lm["width_tiles"] / 2.0,
+                                  lm["anchor_y"] + lm["height_tiles"] * height, colour, radius))
+            tilemap._glow_spots = spots
+        if not spots:
+            return
+        k = float(tilemap.glows.get("strength", 0.8))
+        clip = screen.get_clip()
+        screen.set_clip(viewport_rect)
+        for gx, gy, colour, radius in spots:
+            sx, sy = camera.world_to_screen(gx, gy, self.tile_size)
+            rp = int(radius * self.tile_size)
+            x, y = viewport_rect.x + sx - rp, viewport_rect.y + sy - rp
+            if x > viewport_rect.right or y > viewport_rect.bottom or x + 2 * rp < viewport_rect.x \
+                    or y + 2 * rp < viewport_rect.y:
+                continue
+            screen.blit(self._glow_surface(colour, rp, k), (x, y), special_flags=pygame.BLEND_ADD)
+        screen.set_clip(clip)
+
+    # AMBIENT LIFE AND FLYOVER SHADOWS (EFX8). tilemap.life = {"flyers": ["life_crow", "shadow_hawk"], "every": (9, 20),
+    # "size": 1.4, "speed": 70}: now and then one thing crosses the screen, a bird over you or the shadow of something big
+    # much higher up. One at a time, so it stays a surprise. Shadows are drawn see-through; the creatures that are painted
+    # from above (UP_FACING) are turned to face where they're going, and the rest are flipped to.
+    LIFE_UP_FACING = {"shadow_dragon", "shadow_wyvern", "shadow_hawk", "life_vulture", "life_butterfly_blue",
+                      "life_monarch", "life_moth", "life_bats", "life_bees"}
+    #: a few of them together in one picture, so drawn bigger to keep each one readable
+    LIFE_GROUPS = {"life_bats", "life_bees", "life_geese", "life_parrots", "life_fish_school", "shadow_flock"}
+    _life_state = {}
+
+    def _draw_life(self, screen, viewport_rect, tilemap):
+        import math
+        import random
+        import time
+        cfg = tilemap.life
+        now = time.time()
+        st = self._life_state.get(tilemap.name)
+        if st is None:
+            # the first one is already on its way across when you arrive
+            st = {"next": now, "fly": None, "first": True}
+            self._life_state[tilemap.name] = st
+        w, h = viewport_rect.width, viewport_rect.height
+        if st["fly"] is None and now >= st["next"] and cfg.get("flyers"):
+            name = random.choice(cfg["flyers"])
+            shadow = name.startswith("shadow_")
+            size = self.tile_size * cfg.get("size", 1.4) * (2.6 if shadow else 1.5 if name in self.LIFE_GROUPS else 1.0)
+            img = get_landmark_sprite(f"{self.EFFECTS_DIR}life/{name}.png", int(size), int(size))
+            if img is not None:
+                left = random.random() < 0.5
+                y0, y1 = random.uniform(0.1, 0.9) * h, random.uniform(0.1, 0.9) * h
+                x0, x1 = (-size, w + size) if left else (w + size, -size)
+                ang = math.degrees(math.atan2(-(y1 - y0), x1 - x0))
+                if name in self.LIFE_UP_FACING:
+                    img = pygame.transform.rotate(img, ang - 90)
+                elif not left:
+                    img = pygame.transform.flip(img, True, False)
+                if shadow:
+                    img = img.copy()
+                    img.set_alpha(int(cfg.get("shadow_alpha", 95)))
+                speed = cfg.get("speed", 70.0) * (1.8 if shadow else 1.0)
+                dur = math.hypot(x1 - x0, y1 - y0) / max(1.0, speed)
+                start = now - (dur * 0.35 if st["first"] else 0.0)
+                st["fly"] = {"img": img, "a": (x0, y0), "b": (x1, y1), "t0": start, "dur": dur,
+                             "bob": 0.0 if shadow else 6.0}
+            st["first"] = False
+        fly = st["fly"]
+        if fly is None:
+            return
+        u = (now - fly["t0"]) / fly["dur"]
+        if u >= 1.0:
+            st["fly"] = None
+            lo, hi = cfg.get("every", (9, 20))
+            st["next"] = now + random.uniform(lo, hi)
+            return
+        x = fly["a"][0] + (fly["b"][0] - fly["a"][0]) * u
+        y = fly["a"][1] + (fly["b"][1] - fly["a"][1]) * u + math.sin(now * 3.0) * fly["bob"]
+        img = fly["img"]
+        clip = screen.get_clip()
+        screen.set_clip(viewport_rect)
+        screen.blit(img, (viewport_rect.x + x - img.get_width() // 2, viewport_rect.y + y - img.get_height() // 2))
         screen.set_clip(clip)
 
     def _draw_light(self, screen, viewport_rect, light):

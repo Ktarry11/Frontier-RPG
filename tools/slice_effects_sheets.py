@@ -68,16 +68,26 @@ INSET = 9
 
 
 def seamless(img):
-    """Cross-fade a half-offset copy over the seams, so the panel tiles on all four sides."""
+    """Cross-fade a half-offset copy over the seams, one axis at a time, so the panel tiles on all four sides.
+
+    Each pass rolls the panel half its width (or height) along ONE axis and fades it in toward that axis's edges only:
+    the rolled copy's own seam lands in the middle, where it isn't used at all. The first version rolled both axes at
+    once and faded by distance to any edge, which put the copy's seams back in along the middle of every edge as a
+    visible cross (found 21 Nov 2026, when the layers went out across Azeroth)."""
     a = np.asarray(img, np.float32)
     h, w = a.shape[:2]
-    b = np.roll(np.roll(a, h // 2, 0), w // 2, 1)
-    yy = np.abs(np.linspace(-1, 1, h))[:, None]
-    xx = np.abs(np.linspace(-1, 1, w))[None, :]
-    edge = np.clip(np.maximum(yy, xx) * 1.6 - 0.6, 0, 1)            # 0 in the middle, 1 at the edges
-    edge = edge[..., None] if a.ndim == 3 else edge
-    out = a * (1 - edge) + b * edge
-    return Image.fromarray(np.clip(out, 0, 255).astype(np.uint8), img.mode)
+
+    def ramp(n):
+        r = np.clip(np.abs(np.linspace(-1, 1, n)) * 1.6 - 0.6, 0, 1)     # 0 in the middle, 1 at the two ends
+        return r * r * (3 - 2 * r)                                          # smoothstep, so the fade has no edge
+
+    ex = ramp(w)[None, :]
+    ey = ramp(h)[:, None]
+    if a.ndim == 3:
+        ex, ey = ex[..., None], ey[..., None]
+    a = a * (1 - ex) + np.roll(a, w // 2, 1) * ex
+    a = a * (1 - ey) + np.roll(a, h // 2, 0) * ey
+    return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8), img.mode)
 
 
 def soft_key(img):
