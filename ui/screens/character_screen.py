@@ -10,7 +10,7 @@ from entities.character import Character
 from ui.screens.base_screen import BaseScreen
 from ui.sprite_loader import get_npc_sprite
 from world.race_registry import get_available_races, get_gender, sprite_base_path
-from world.start_zones import get_available_starts, suggested_start_for_race
+from world.start_zones import get_available_starts, get_start_cards, suggested_start_for_race
 
 
 class CharacterCreationScreen(BaseScreen):
@@ -141,28 +141,23 @@ class CharacterCreationScreen(BaseScreen):
         self.variant_prev_button = pygame.Rect(self.preview_rect.right + 8, appearance_y + 20, 30, 30)
         self.variant_next_button = pygame.Rect(self.variant_prev_button.right + 8, appearance_y + 20, 30, 30)
 
-        # START ZONE sits in the free span to the RIGHT of the appearance row rather than under it.
-        # The vertical budget here is genuinely spent - the preview box runs to y=550, this row starts
-        # at 560, and the Create button is at SCREEN_HEIGHT-70 - so another row would collide. The
-        # appearance controls end at variant_next_button.right (902 with five races), which leaves
-        # ~358px, and two 120px buttons fit it with room for the label.
+        # START ZONE. Kyle, 21 Nov 2026: "instead of clicking on the starting zones. We make a more prominent 'Starting
+        # zone' thing you click on to pick it. It has actual lore about the location and an image too." So the free span
+        # to the right of the appearance row holds one big card for the chosen start (its painting, name and where it
+        # is), and clicking it opens the picker: a card for every start, built or not, with its painting and lore. The
+        # vertical budget is the same as before (the preview runs to y=550, the name box starts at 598).
         start_x = self.variant_next_button.right + 28
-        # Three starts since Dawnhaven (21 Nov 2026), and three 120px buttons ran 18px off the edge. The
-        # buttons now share the span they have, up to 120px each, so a start fits until the labels stop fitting.
-        n_starts = max(1, len(self.available_starts))
-        start_btn_w = min(120, (SCREEN_WIDTH - 12 - start_x - 8 * (n_starts - 1)) // n_starts)
-        start_btn_h = 36
         self.start_x = start_x
-        self.start_buttons = [
-            pygame.Rect(start_x + i * (start_btn_w + 8), appearance_y, start_btn_w, start_btn_h)
-            for i, _ in enumerate(self.available_starts)
-        ]
-        if self.start_buttons and self.start_buttons[-1].right > SCREEN_WIDTH - 12:
-            # Loud rather than clipped. A third start, or a sixth race, pushes this off-screen and the
-            # row needs rethinking - silently drawing a button nobody can reach is the worse outcome.
-            raise ValueError(
-                f"start-zone buttons overflow SCREEN_WIDTH ({self.start_buttons[-1].right} > "
-                f"{SCREEN_WIDTH - 12}) - the appearance row is full; wrap it before adding more")
+        self.start_cards = get_start_cards()
+        self.start_card_rect = pygame.Rect(start_x, appearance_y - 6, SCREEN_WIDTH - 12 - start_x, 140)
+        self.start_buttons = [self.start_card_rect]     # qa_start_zones measures the row's right edge from these
+        self.start_picker_open = False
+        self._start_art = {}
+        n = len(self.start_cards)
+        gap, margin = 16, 36
+        card_w = (SCREEN_WIDTH - 2 * margin - gap * (n - 1)) // n
+        self.picker_cards = [pygame.Rect(margin + k * (card_w + gap), 100, card_w, 500) for k in range(n)]
+        self.picker_close = pygame.Rect(SCREEN_WIDTH - margin - 110, 52, 110, 40)
 
         self.create_button = pygame.Rect(
             SCREEN_WIDTH // 2 - BUTTON_WIDTH // 2,
@@ -175,6 +170,117 @@ class CharacterCreationScreen(BaseScreen):
 
         # Back button
         self.back_button = pygame.Rect(20, 20, 100, 50)
+
+    def _picker_event(self, event):
+        """The start picker is modal: a card picks its start and closes it; Close, Escape or a click off the cards
+        closes it; a locked card does nothing."""
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+            self.start_picker_open = False
+        elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+            if self.picker_close.collidepoint(event.pos):
+                self.start_picker_open = False
+                return
+            for sz, rect in zip(self.start_cards, self.picker_cards):
+                if rect.collidepoint(event.pos):
+                    if sz.available:
+                        ids = [a.start_id for a in self.available_starts]
+                        self.selected_start_index = ids.index(sz.start_id)
+                        self._start_touched = True   # race changes stop moving it from here on
+                        self.start_picker_open = False
+                    return
+            self.start_picker_open = False
+
+    def _art(self, sz, size):
+        """The start's painting cropped to fill `size`, or a painted stand-in (a dusk gradient and the start's name)
+        until its art lands. Cached per start and size."""
+        key = (sz.start_id, size)
+        if key in self._start_art:
+            return self._start_art[key]
+        import os
+        w, h = size
+        surf = None
+        if sz.art and os.path.exists(sz.art):
+            try:
+                img = pygame.image.load(sz.art).convert()
+                scale = max(w / img.get_width(), h / img.get_height())
+                img = pygame.transform.smoothscale(img, (max(w, int(img.get_width() * scale) + 1),
+                                                         max(h, int(img.get_height() * scale) + 1)))
+                surf = img.subsurface(pygame.Rect((img.get_width() - w) // 2, (img.get_height() - h) // 2, w, h)).copy()
+            except pygame.error:
+                surf = None
+        if surf is None:
+            tones = {"valley_of_trials": ((150, 60, 30), (60, 25, 15)), "deathknell": ((70, 80, 70), (20, 25, 25)),
+                     "dawnhaven": ((200, 120, 40), (90, 30, 25)), "white_expanse": ((150, 170, 200), (50, 60, 90))}
+            top, bottom = tones.get(sz.start_id, ((90, 90, 110), (30, 30, 40)))
+            surf = pygame.Surface((w, h))
+            for yy in range(h):
+                t = yy / max(1, h - 1)
+                surf.fill(tuple(int(a + (b - a) * t) for a, b in zip(top, bottom)), (0, yy, w, 1))
+            if sz.available:          # a locked card says "Not yet" over its art instead
+                label = self.renderer.font_bold.render(sz.label, True, (240, 230, 210))
+                surf.blit(label, label.get_rect(center=(w // 2, h // 2)))
+        self._start_art[key] = surf
+        return surf
+
+    def _draw_start_card(self, screen):
+        """The one big start button: the chosen start's painting, its name, where it is and its levels."""
+        r = self.start_card_rect
+        hover = r.collidepoint(pygame.mouse.get_pos())
+        self.renderer.draw_panel(screen, r, selected=hover)
+        sz = self._current_start()
+        tw, th = 136, 102
+        screen.blit(self._art(sz, (tw, th)), (r.x + 10, r.y + 10))
+        pygame.draw.rect(screen, (120, 100, 60), (r.x + 10, r.y + 10, tw, th), 1)
+        tx, tw2 = r.x + tw + 20, r.right - (r.x + tw + 20) - 10
+        self.renderer.draw_text(screen, "Starting zone", (tx, r.y + 8), color=(170, 160, 140), size="small")
+        self.renderer.draw_text(screen, sz.label, (tx, r.y + 26), color=COLOR_GOLD)
+        y = r.y + 52
+        for line in self.renderer.wrap_text(sz.region, tw2, size="small")[:2]:
+            self.renderer.draw_text(screen, line, (tx, y), color=(200, 200, 210), size="small")
+            y += 16
+        self.renderer.draw_text(screen, sz.levels, (tx, y), color=(160, 160, 170), size="small")
+        self.renderer.draw_text(screen, "Click to see every start and choose", (r.x + 10, r.bottom - 22),
+                                color=(220, 200, 130) if hover else (150, 140, 120), size="small")
+
+    def _draw_start_picker(self, screen):
+        """A card for every start: its painting, name, where it is, its levels and a paragraph of lore. A start that
+        isn't built yet is shown locked."""
+        dim = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
+        dim.fill((8, 8, 12, 225))
+        screen.blit(dim, (0, 0))
+        self.renderer.draw_text(screen, "Where do you wake up?", (SCREEN_WIDTH // 2, 40), color=COLOR_GOLD,
+                                size="large", center=True)
+        self.renderer.draw_button(screen, self.picker_close, "Close")
+        mouse = pygame.mouse.get_pos()
+        chosen = self._current_start().start_id
+        for sz, r in zip(self.start_cards, self.picker_cards):
+            hover = r.collidepoint(mouse) and sz.available
+            self.renderer.draw_panel(screen, r, selected=(sz.start_id == chosen or hover), disabled=not sz.available)
+            aw = r.width - 20
+            ah = aw * 3 // 4          # the paintings are 4:3 (docs/start_zone_art_prompts.md)
+            art = self._art(sz, (aw, ah))
+            screen.blit(art, (r.x + 10, r.y + 10))
+            if not sz.available:
+                veil = pygame.Surface((aw, ah), pygame.SRCALPHA)
+                veil.fill((0, 0, 0, 150))
+                screen.blit(veil, (r.x + 10, r.y + 10))
+                self.renderer.draw_text(screen, "Not yet", (r.centerx, r.y + 10 + ah // 2 - 10), color=(230, 230, 235),
+                                        center=True)
+            pygame.draw.rect(screen, (120, 100, 60), (r.x + 10, r.y + 10, aw, ah), 1)
+            y = r.y + ah + 20
+            self.renderer.draw_text(screen, sz.label, (r.x + 12, y), color=COLOR_GOLD if sz.available else (150, 150, 155))
+            y += 26
+            for line in self.renderer.wrap_text(sz.region, aw, size="small"):
+                self.renderer.draw_text(screen, line, (r.x + 12, y), color=(200, 200, 210), size="small")
+                y += 16
+            self.renderer.draw_text(screen, sz.levels or sz.locked_note, (r.x + 12, y), color=(160, 160, 170),
+                                    size="small")
+            y += 24
+            for line in self.renderer.wrap_text(sz.lore, aw - 4, size="small"):
+                if y > r.bottom - 44:
+                    break
+                self.renderer.draw_text(screen, line, (r.x + 12, y), color=(215, 210, 200), size="small")
+                y += 16
 
     def _suggest_start(self):
         """Move the start to the one this race suggests - unless the player has already chosen one.
@@ -244,6 +350,9 @@ class CharacterCreationScreen(BaseScreen):
     
     def handle_event(self, event):
         """Handle class selection and character creation."""
+        if self.start_picker_open:
+            self._picker_event(event)
+            return
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouse_pos = event.pos
             
@@ -265,12 +374,10 @@ class CharacterCreationScreen(BaseScreen):
                     self._suggest_start()
                     return
 
-            # Start zone
-            for i, btn in enumerate(self.start_buttons):
-                if btn.collidepoint(mouse_pos):
-                    self.selected_start_index = i
-                    self._start_touched = True   # race changes stop moving it from here on
-                    return
+            # Start zone: the card opens the picker
+            if self.start_card_rect.collidepoint(mouse_pos):
+                self.start_picker_open = True
+                return
 
             # Gender buttons
             for i, btn in enumerate(self.gender_buttons):
@@ -437,23 +544,8 @@ class CharacterCreationScreen(BaseScreen):
             color = (150, 200, 150) if i == self.selected_gender_index else COLOR_DARK_GRAY
             self.renderer.draw_button(screen, self.gender_buttons[i], gender.label, color=color)
 
-        # Start zone
-        self.renderer.draw_text(screen, "Start:", (self.start_x, self.appearance_y - 24),
-                                color=COLOR_GOLD)
-        for i, sz in enumerate(self.available_starts):
-            color = (150, 200, 150) if i == self.selected_start_index else COLOR_DARK_GRAY
-            self.renderer.draw_button(screen, self.start_buttons[i], sz.label, color=color)
-        # What the place actually is, so the choice means something before you take it.
-        # WRAPPED, because it did not fit: both blurbs run past the right edge of the screen on
-        # one line (Deathknell's by ~190px) and were being drawn straight off it. The width here
-        # is the real space between this column and the screen edge rather than a guess, so a
-        # longer blurb wraps instead of silently vanishing.
-        blurb_w = SCREEN_WIDTH - 12 - self.start_x
-        for i, line in enumerate(self.renderer.wrap_text(
-                self._current_start().blurb, blurb_w, size="small")):
-            self.renderer.draw_text(screen, line,
-                                    (self.start_x, self.appearance_y + 42 + i * 16),
-                                    color=(150, 150, 160), size="small")
+        # Start zone: the card (and, over everything, the picker when it's open)
+        self._draw_start_card(screen)
 
         # Variant cycle + live preview
         gender_option = self._current_gender_option()
@@ -510,3 +602,6 @@ class CharacterCreationScreen(BaseScreen):
         
         # Back button
         self.renderer.draw_button(screen, self.back_button, "Back")
+
+        if self.start_picker_open:
+            self._draw_start_picker(screen)

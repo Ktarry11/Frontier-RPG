@@ -84,7 +84,7 @@ NPC_POSITIONS = {
     "dh_innkeeper": (22, 52),
     "dh_flight_master": (14, 66),
     "dh_banker": (36, 64),
-    "mailbox_firstlight": (40, 60),
+    "mailbox_dh_innkeeper": (40, 60),
     # the trainers' row, east
     "ct_firstlight": (78, 44),
     "pt_firstlight_forge": (64, 74),

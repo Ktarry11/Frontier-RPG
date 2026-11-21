@@ -107,6 +107,20 @@ def main():
     if right > 1268:
         fails.append(f"appearance row overflows: {right} > 1268")
 
+    print("\n== every start has its card (Kyle, 21 Nov 2026: lore about the location and an image)")
+    from world.start_zones import get_start_cards
+    for sz in get_start_cards():
+        missing = [f for f in ("region", "lore", "art") if not getattr(sz, f)]
+        if sz.available and not sz.levels:
+            missing.append("levels")
+        if not sz.available and not sz.locked_note:
+            missing.append("locked_note")
+        print(f"  {sz.label:20s} {'open' if sz.available else 'locked'}  art {'in' if os.path.exists(sz.art) else 'stand-in'}")
+        if missing:
+            fails.append(f"{sz.start_id}: its card has no {', '.join(missing)}")
+    if len(sc.picker_cards) != len(get_start_cards()) or sc.picker_cards[-1].right > 1280:
+        fails.append("the start picker's cards don't fit across the screen")
+
     print()
     if fails:
         print(f"FAIL ({len(fails)})")

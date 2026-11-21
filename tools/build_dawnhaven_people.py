@@ -101,7 +101,7 @@ AMBIENT = {
     "dh_banker": (FS, "MerchantTusk", "troll", M, 3, "down",
                   "Dere is only one bank, mon, and dere is only one me, even out here on de elves' island. Do not ask "
                   "how dat works. Hand me ya things.", {"is_banker": True, "sprite_scale": 2.0}),
-    "mailbox_firstlight": (FS, "Mailbox", "blood_elf", M, 0, "down",
+    "mailbox_dh_innkeeper": (FS, "Mailbox", "blood_elf", M, 0, "down",
                            "The Spire's mailbox. The innkeeper sorts the letters and the parcels, and the boat brings the "
                            "rest from Durotar.", {"is_mailbox": True,
                                                   "prop": "assets/tiles/market/props/mailbox_orc_b.png"}),
