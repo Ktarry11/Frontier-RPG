@@ -179,7 +179,7 @@ def build():
         "himself from the gallery at the top of the Gravity Foundry, with those stones going round his head. Go in "
         "through the citadel's south gate and put him down, and take friends, because the whole foundry works for him.",
         "Cassor Vane is dead? Then nobody's going down to the pour tomorrow.\n\nI'm making a proper curry tonight, the way we "
-        "did it at home on a Friday. I've been saving the spice for something worth celebrating.",
+        "did it back home on a Friday. I've been saving the spice for something worth celebrating.",
         requires_quests=["abq_the_overseers"]))
     A(Q("abq_the_pourmasters", "The Pourmasters", SIOBHAN, 57, 57, "Burnsalver's",
         "Half the burns Siobhan Keane treats come out of the Gravity Foundry's quench halls. She wants Pourmaster Ilka "
@@ -189,7 +189,7 @@ def build():
         "they make the conscripts carry the crucibles by hand. I've had three people this month with molten crystal "
         "down their arms. You'll find them on the east side of the foundry, and you'll have to fight both of them at "
         "once.",
-        "You stopped both of them? Good, I'd have liked to see their faces.\n\nI was a ward nurse for twenty years "
+        "You stopped both of them? Good, I'd have liked to see their faces.\n\nI was a ward nurse in Galway for twenty years "
         "before all this. I've never wished anyone harm in my life, and I don't feel the least bit sorry.",
         requires_quests=["abq_medicine_run"]))
     A(Q("abq_the_warheart", "The Warheart", PELL, 58, 58, "Warheart-Breaker's",
@@ -465,7 +465,7 @@ def build():
         "I weld a seam weak, and two days later a Slipway Repair-Drone finds it and fixes it properly. They're "
         "patient, and they never stop. If they're gone, my seams stay the way I left them.",
         "The drones have stopped crawling over the hulls. I welded three seams weak today and nobody touched them.\n\n"
-        "You'd think I'd feel guilty about ruining good work, but I don't."))
+        "Back home I'd have been sacked for welding like that. Here, it's the best work I've ever done."))
     A(Q("abq_lay_no_more_keels", "Lay No More Keels", ROSA, 56, 56, "Keelbreaker's",
         "Each Keel Construct carries a governor that tells it which keel to lay next. Rosa Delgado wants the governors, "
         "so the yard can't start a new hull.",
@@ -473,8 +473,9 @@ def build():
         "The yard lays a new keel every month, and every Keel Construct carries the governor that knows the pattern. "
         "Bring me the governors. Without them, nobody here can start a new ship, and the five on the slipways are all "
         "they'll have.",
-        "Four governors, and the yard's only got six constructs.\n\nI'll take these apart tonight. I want to know how "
-        "they think, in case I ever need to make one think something else.",
+        "Four governors, and the yard's only got six constructs.\n\nI'll take these apart tonight. I used to strip down "
+        "pump controllers back home in Monterrey, and I want to know how these think, in case I ever need to make one "
+        "think something else.",
         requires_quests=["abq_the_drones_fix_it"]))
 
     # =================================================================================== 9. THE PENS (Siobhan)
@@ -497,7 +498,7 @@ def build():
         "the north-east holds rain inside it, clean rain, the cleanest on the Bastions. Bring me what you can wring "
         "out of them.",
         "It fizzes, but it's clean. I've tested it the only way I can, which is drinking it myself.\n\nI'll give it to "
-        "the sickest first. Thank you. You don't know what this means here.",
+        "the sickest first. Back home I'd have sent it to a lab first. Here, I'm the lab, and it's good enough.",
         requires_quests=["abq_medicine_run"]))
     A(Q("abq_the_hounds", "The Hounds", SIOBHAN, 56, 56, "Houndbreaker's",
         "The Causeway Construct Hound runs down conscripts who try to slip out of the pens. Siobhan Keane wants the "
@@ -515,8 +516,9 @@ def build():
         [k("Ascendancy Gunship", 6)],
         "I rigged every Ascendancy Gunship that flies the Firmament Road. I know where their sails are weakest, because "
         "I made them that way when I could. Bring them down. I'd like to know my knots did something useful.",
-        "Six of them. I remember rigging every one, you know. I remember the names they gave them.\n\nI'm not sorry. "
-        "I'm only telling you I remember."))
+        "Six of them. I remember rigging every one, you know. I remember the names they gave them.\n\nMy father taught "
+        "me to rig back home in Gdansk, and he'd have hated what I made here. I'm not sorry. I'm only telling you I "
+        "remember."))
     A(Q("abq_thunderbirds", "Thunderbirds", TOMASZ, 56, 57, "Stormwatcher's",
         "The Harvest Thunderbird nests on the Storm Harvest and tears through the warships' sails in the storms. "
         "Tomasz Bielecki has to mend every tear by hand, and the yard blames him for each one.",
@@ -545,7 +547,8 @@ def build():
         "Two hundred people, one pot and whatever the yard throws away. Every Cinder Ray out in the Ashwake has a "
         "fillet on it that's half cooked from the inside already. Bring me enough, and I'll feed the pens something "
         "they'll remember.",
-        "Look at these. I could open a restaurant with these.\n\nI'll do them in the pot with what spice I've got left. "
+        "Look at these. I could open a restaurant with these, and I had one, back home in Bradford.\n\nI'll do them in "
+        "the pot with what spice I've got left. "
         "Two hundred plates, and not one of them sent back. I'd put money on it."))
     A(Q("abq_spice_from_the_stores", "Spice From the Stores", HAMZA, 56, 57, "Forager's",
         "The Ascendancy feeds its soldiers properly. Each Bastion Legionary on the apron carries a ration tin with real "

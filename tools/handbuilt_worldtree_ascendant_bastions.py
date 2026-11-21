@@ -340,7 +340,7 @@ NPC_POSITIONS = {
     "ab_unsworn_scholar":  (34, 204),   # a scholar of the Patient Lens, here to watch her old student
     "ab_lancer_deserter":  (46, 206),   # a lancer who put his lance down
     "ab_wreck_surgeon":    (36, 210),   # the camp's surgeon
-    "ab_skiffmaster":      (30, 206),   # the flight path: the free skiffs, who land here and nowhere nearer
+    "ab_skiffmaster":      (36, 206),   # the flight path: the free skiffs, who land here and nowhere nearer
     "ab_provisioner":      (44, 212),   # food
     "ab_trader":           (50, 200),   # goods
     "ab_lookout":          (54, 196),   # watches the fort from the wreck's bow

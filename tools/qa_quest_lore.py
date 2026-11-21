@@ -141,7 +141,9 @@ LORE = re.compile(
     # the sky's Earthborn (20 Nov 2026) name the places they came from; the Aetherians call it "the change" and only
     # ever say they don't know what it was
     r"\b(Buenos Aires|Rio|Maui|Rovaniemi|Toronto|Tripoli|Westland|Earthborn|Krakow|Ibadan|Halifax|North Sea|Osaka)\b|"
-    r"since the change|the change came",
+    r"since the change|the change came|"
+    # the Bastions' conscripts in the Yard Pens (21 Nov 2026) name their homes
+    r"\b(Galway|Gdansk|Monterrey|Bradford)\b",
     re.I)
 
 #: Named by claude/quest_writing_guide.md as the tics that make quest text read as filler.
