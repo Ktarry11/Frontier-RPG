@@ -398,11 +398,15 @@ at a health line, and the take-damage hooks (death floor, reflect, damage-to-shi
 low-health shield or heal, DoT immunity). Each one still has the thing that kills you if you ignore it, and it's
 something the party can answer with its turns.
 
-**No fight can punish a damage school** (Kyle, 20 Nov 2026, on frost turning into armour: "no - this would cripple
-cryotherapist"). With 30 classes, some deal one school only, so a mechanic that makes a school useless, or feeds the
-boss off it, benches a whole class. A school can matter only where every school still has something right to hit (the
-Forge-Twins). The same goes for melee: Skarnvald's reflecting Shield-Wall lasts two turns at a time, so melee spend
-those turns on defensives and positioning their next burst, not sitting out the fight.
+**A fight can lean against a school, but never shut one out** (Kyle, 20 Nov 2026, on frost turning into armour: "no -
+this would cripple cryotherapist", then: "a fight can punish a elemental school. like bossing having max spell resist
+or high armor...but we have tools for it (spell pen or armor pen)"). Resistance and armour are fair: a frost elemental
+can sit at high frost resistance and a construct at heavy armour, because the player has a tool for each (spell
+penetration, 30 points of which cancels the 60 resistance cap; armour penetration) and gearing for the fight is part
+of the fight. What isn't fair is a mechanic with no answer: a school that feeds the boss shields or healing, or does
+nothing at all, benches a one-school class however it's geared. A school can feed a boss only where every school still
+has something right to hit (the Forge-Twins). The same goes for melee: Skarnvald's reflecting Shield-Wall lasts two
+turns at a time, so melee spend those turns on defensives and lining up their next burst, not sitting out the fight.
 
 1. **Skarnvald, the Gate-Thane** (rune-construct, physical). *Answer: stop meleeing on cue, and save a defensive.*
    Every few turns he raises **Shield-Wall**, a buff that reflects melee damage back at whoever hits him, so the melee
@@ -420,7 +424,8 @@ those turns on defensives and positioning their next burst, not sitting out the 
    **Storm-Song** is a magic DoT on the party, so the healers spend turns dispelling and the damage spends turns on
    singers, then breaks the ward between renewals. Below 30%, **Crescendo** hits the whole party every few turns until
    he dies.
-4. **Thrymgald, the Hail Colossus** (frost elemental). *Answer: dispel the healing cut, then burn the armour.* **Hail** hits
+4. **Thrymgald, the Hail Colossus** (frost elemental, high frost resistance: frost users bring spell penetration).
+   *Answer: dispel the healing cut, then burn the armour.* **Hail** hits
    the whole party every fourth turn. **Rime** rides his attacks: a magic debuff that cuts healing taken by a third,
    and a tank left rimed doesn't survive the next Hail, so it's the healers' dispel priority. **Frozen Solid** stuns.
    Below 30% he wraps himself in **Ice Armour**, a big absorb shield anything breaks, and Hail comes every other turn
