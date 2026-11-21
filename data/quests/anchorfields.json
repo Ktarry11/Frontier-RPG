@@ -1,0 +1,3508 @@
+{
+  "quests": [
+    {
+      "quest_id": "afq_walk_the_anchors",
+      "title": "Walk the Anchors",
+      "giver_npc_id": "af_warden_prime",
+      "zone": "anchorfields",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "Warden-Prime Aldric Sorne wants the council's help to see what the wardens see. He's asked you to walk to all three anchors before he tells you anything else.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "anchorfields",
+          "target_x": 190,
+          "target_y": 62,
+          "radius": 4,
+          "label": "Stand at the foot of the First Anchor"
+        },
+        {
+          "type": "explore",
+          "target": "anchorfields",
+          "target_x": 222,
+          "target_y": 128,
+          "radius": 4,
+          "label": "Look over the Ascendancy's camp at the Second Anchor"
+        },
+        {
+          "type": "explore",
+          "target": "anchorfields",
+          "target_x": 176,
+          "target_y": 192,
+          "radius": 4,
+          "label": "Stand at the foot of the Third Anchor"
+        }
+      ],
+      "accept_text": "I won't tell you about the anchors. You'll understand them better if you walk to them. Go to the First, then look at the Second from as close as the Ascendancy lets you, then stand under the Third. Come back and tell me which one frightened you.",
+      "turn_in_text": "The Third, then. Everyone says the Third.\n\nThe First has held for a thousand years and hums like it could hold for a thousand more. The Third has held for a thousand years too, and you can hear it now, the way you hear an old beam before it goes.",
+      "next_quest_id": null,
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "unique_item_defs": [
+        {
+          "name": "Anchorwalker's Staff",
+          "slot": "main_hand",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 21,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 51
+          },
+          "armor_value": 0,
+          "required_level": 51,
+          "sell_price": 11541,
+          "identity": "agility",
+          "icon_id": "gear_inv_staff_10",
+          "weapon_damage_min": 94,
+          "weapon_damage_max": 128,
+          "attack_speed": 3.6,
+          "block_value": 0
+        },
+        {
+          "name": "Anchorwalker's Belt",
+          "slot": "waist",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 90,
+          "required_level": 51,
+          "sell_price": 5078,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_31"
+        },
+        {
+          "name": "Anchorwalker's Band",
+          "slot": "ring",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 0,
+          "required_level": 51,
+          "sell_price": 5540,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_ring_25"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_the_bombers_over_keelstone",
+      "title": "Bombers Over Keelstone",
+      "giver_npc_id": "af_warden_prime",
+      "zone": "anchorfields",
+      "level_min": 52,
+      "level_max": 53,
+      "description": "The Ascendancy flies bomber constructs from the Second Anchor over Keelstone, to remind the wardens who holds it. The Warden-Prime wants every Ascendancy Bomber Construct that can still fly brought down.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Ascendancy Bomber Construct",
+          "count": 6,
+          "zone": "anchorfields"
+        }
+      ],
+      "accept_text": "Every Ascendancy Bomber Construct they launch from the Second Anchor flies right over my hold and drops its load on the chain-field. They say it's an exercise. Bring them down where they're parked, and we'll see how much they like exercising on foot.",
+      "turn_in_text": "No bombers over Keelstone this morning, and the chainwright's stopped flinching.\n\nThe Ascendancy will send word that I'm provoking them. I've been provoked for six years, so I'll survive it.",
+      "next_quest_id": null,
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "unique_item_defs": [
+        {
+          "name": "Keelguard's Breastplate",
+          "slot": "chest",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 36
+          },
+          "armor_value": 325,
+          "required_level": 52,
+          "sell_price": 9994,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_chest_plate06"
+        },
+        {
+          "name": "Keelguard's Slippers",
+          "slot": "feet",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 24
+          },
+          "armor_value": 63,
+          "required_level": 52,
+          "sell_price": 6496,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_wolf"
+        },
+        {
+          "name": "Keelguard's Wristguards",
+          "slot": "wrist",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 9,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 18
+          },
+          "armor_value": 150,
+          "required_level": 52,
+          "sell_price": 4997,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_bracer_13"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_anchor_marshal_corvan_sael",
+      "title": "Anchor-Marshal Corvan Sael",
+      "giver_npc_id": "af_warden_prime",
+      "zone": "anchorfields",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Anchor-Marshal Corvan Sael commands the Ascendancy at the Second Anchor. He took it from the wardens six years ago, and the Warden-Prime has the drift logs to prove he's letting it go.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Anchor-Marshal Corvan Sael",
+          "count": 1,
+          "zone": "anchorfields"
+        }
+      ],
+      "accept_text": "Anchor-Marshal Corvan Sael took the Second Anchor and told the council the wardens were too old and too slow to keep it. His own engineers' logs say it's drifted further in six years than in the six centuries before. I'm done writing letters about him. Go and take it back.",
+      "turn_in_text": "Sael's gone, and his soldiers are packing their tents.\n\nWe'll have wardens on the Second Anchor by nightfall. It'll take years to undo his six, but at least now the hands on it know what they're holding.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "afq_their_own_logs"
+      ],
+      "reward_exp": 5148,
+      "reward_gold": 20280,
+      "unique_item_defs": [
+        {
+          "name": "Marshal's Bane Longbow",
+          "slot": "ranged",
+          "item_level": 56,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 9,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 12945,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_02",
+          "weapon_damage_min": 83,
+          "weapon_damage_max": 112,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Marshal's Bane Coif",
+          "slot": "head",
+          "item_level": 56,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "healing_power": 40
+          },
+          "armor_value": 248,
+          "required_level": 54,
+          "sell_price": 12945,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_13"
+        },
+        {
+          "name": "Marshal's Bane Leggings",
+          "slot": "legs",
+          "item_level": 56,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 20
+          },
+          "secondary_stats": {
+            "spell_power": 46
+          },
+          "armor_value": 108,
+          "required_level": 54,
+          "sell_price": 16181,
+          "identity": "caster",
+          "icon_id": "gear_inv_pants_07"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "afq_the_keel_heart",
+      "title": "The Keel-Heart",
+      "giver_npc_id": "af_warden_prime",
+      "zone": "anchorfields",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "The Third Anchor is slipping because its keel is cracking, and something has grown out of the crack. The Warden-Prime wants it torn out before the keel splits in two.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Keel-Heart",
+          "count": 1,
+          "zone": "keel"
+        }
+      ],
+      "accept_text": "The engineer's found it. The keel's cracked, and something's grown out of the crack, feeding on the keel's own light. We call it the Keel-Heart because nobody's got a better word. Go down into the Keel and tear it out, before it eats the thing that's holding the shelf up.",
+      "turn_in_text": "The Third Anchor's stopped slipping. The engineer's been sitting by it all night, just listening.\n\nIt isn't mended, and it may never be. But it's holding, and I can write to the council and tell them the outer rings are safe. Aurelion will open the bridge for you. You've earned it twice over.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "afq_the_unmoored",
+        "afq_down_to_the_keel"
+      ],
+      "reward_exp": 5148,
+      "reward_gold": 20280,
+      "unique_item_defs": [
+        {
+          "name": "Keelsaver's Knife",
+          "slot": "main_hand",
+          "item_level": 56,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 13,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 33
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 15372,
+          "identity": "agility",
+          "icon_id": "gear_inv_weapon_shortblade_13",
+          "weapon_damage_min": 98,
+          "weapon_damage_max": 132,
+          "attack_speed": 1.7,
+          "block_value": 0
+        },
+        {
+          "name": "Keelsaver's Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 56,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 11,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "healing_power": 46
+          },
+          "armor_value": 169,
+          "required_level": 54,
+          "sell_price": 12945,
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_19"
+        },
+        {
+          "name": "Keelsaver's Sabatons",
+          "slot": "feet",
+          "item_level": 56,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 32
+          },
+          "armor_value": 316,
+          "required_level": 54,
+          "sell_price": 10518,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_06"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "afq_links_with_names",
+      "title": "Links With Names",
+      "giver_npc_id": "af_chainwright",
+      "zone": "anchorfields",
+      "level_min": 51,
+      "level_max": 52,
+      "description": "Every link in the First Anchor's chains has a name and a wright who forged it. The Chain-Wind Elemental that scours the chain-field wears the names off.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Chain-Wind Elemental",
+          "count": 8,
+          "zone": "anchorfields"
+        }
+      ],
+      "accept_text": "The wind's always blown across the chain-field, but a Chain-Wind Elemental is the wind with a grudge. They scour the links until the names cut into them are gone, and a link without a name is a link nobody's checked. Clear them off my chains.",
+      "turn_in_text": "I walked the chains this morning and read every name I could.\n\nHalvi, Orren, Ysmay the Elder. Some of those wrights died nine hundred years ago, and their links are still holding the shelf up. I'd like mine to do the same.",
+      "next_quest_id": null,
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "unique_item_defs": [
+        {
+          "name": "Chainwright's Tome",
+          "slot": "off_hand",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 31
+          },
+          "armor_value": 0,
+          "required_level": 51,
+          "sell_price": 5766,
+          "identity": "healer",
+          "icon_id": "gear_inv_tome_2",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        },
+        {
+          "name": "Chainwright's Handguards",
+          "slot": "hands",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 13,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 10
+          },
+          "armor_value": 221,
+          "required_level": 51,
+          "sell_price": 6246,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_13"
+        },
+        {
+          "name": "Chainwright's Girdle",
+          "slot": "waist",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 147,
+          "required_level": 51,
+          "sell_price": 5285,
+          "identity": "hunter",
+          "icon_id": "gear_inv_belt_11"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_anchorlight",
+      "title": "Anchorlight",
+      "giver_npc_id": "af_chainwright",
+      "zone": "anchorfields",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "The chainwright tempers new links in anchorlight, the gold light the First Anchor gives off. The Anchorlight Wisp is made of it, and the wardens have always taken their light from the wisps.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "af_q_anchorlight_mote",
+          "count": 6
+        }
+      ],
+      "accept_text": "Every Anchorlight Wisp in the chain-field is a little of the First Anchor's light that's wandered off. The wardens have always tempered new links in it, and the Third Anchor needs new links badly. Bring me the motes, and I'll forge what I can.",
+      "turn_in_text": "That's enough light for six links, maybe seven if I'm careful.\n\nThe Third needs forty. I'll start with these, because the oldest rule of the chain-field is that you never wait for enough.",
+      "next_quest_id": "afq_starfall",
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "unique_item_defs": [
+        {
+          "name": "Linkforger's Mace",
+          "slot": "main_hand",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 34
+          },
+          "armor_value": 0,
+          "required_level": 52,
+          "sell_price": 9129,
+          "identity": "healer",
+          "icon_id": "gear_inv_mace_05",
+          "weapon_damage_min": 71,
+          "weapon_damage_max": 96,
+          "attack_speed": 2.6,
+          "block_value": 0
+        },
+        {
+          "name": "Linkforger's Jerkin",
+          "slot": "chest",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 13,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 133,
+          "required_level": 52,
+          "sell_price": 9610,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_03"
+        },
+        {
+          "name": "Linkforger's Pendant",
+          "slot": "neck",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 0,
+          "required_level": 52,
+          "sell_price": 5766,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_necklace_07"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_starfall",
+      "title": "Starfall, the Burning Shard",
+      "giver_npc_id": "af_chainwright",
+      "zone": "anchorfields",
+      "level_min": 53,
+      "level_max": 53,
+      "description": "A shard of something burning fell into the First Anchor's chain-field a month ago and didn't go out. The wardens call it Starfall, the Burning Shard, and it's been melting links.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Starfall, the Burning Shard",
+          "count": 1,
+          "zone": "anchorfields"
+        }
+      ],
+      "accept_text": "Starfall, the Burning Shard came down out of the sky into my chain-field, and it's been drifting along the chains ever since, melting every link it touches. I've lost four this month. Put it out before it reaches the anchor.",
+      "turn_in_text": "It's out, and it's just a lump of black glass now.\n\nThe House of Measures says things have been falling out of the sky more often since the change. I don't know what's up there, and I don't think they do either.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "afq_anchorlight"
+      ],
+      "reward_exp": 5044,
+      "reward_gold": 19890,
+      "unique_item_defs": [
+        {
+          "name": "Starfall's Bane Greatsword",
+          "slot": "main_hand",
+          "item_level": 55,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 27,
+            "stamina": 15
+          },
+          "secondary_stats": {
+            "attack_power": 69
+          },
+          "armor_value": 0,
+          "required_level": 53,
+          "sell_price": 19476,
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_17",
+          "weapon_damage_min": 130,
+          "weapon_damage_max": 176,
+          "attack_speed": 3.4,
+          "block_value": 0
+        },
+        {
+          "name": "Starfall's Bane Bracers",
+          "slot": "wrist",
+          "item_level": 55,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 31
+          },
+          "armor_value": 124,
+          "required_level": 53,
+          "sell_price": 7790,
+          "identity": "agility",
+          "icon_id": "gear_inv_bracer_09"
+        },
+        {
+          "name": "Starfall's Bane Hood",
+          "slot": "head",
+          "item_level": 55,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 17
+          },
+          "secondary_stats": {
+            "spell_power": 38
+          },
+          "armor_value": 90,
+          "required_level": 53,
+          "sell_price": 12464,
+          "identity": "caster",
+          "icon_id": "gear_inv_helmet_63"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "afq_reading_the_third",
+      "title": "Reading the Third",
+      "giver_npc_id": "af_keel_engineer",
+      "zone": "anchorfields",
+      "level_min": 52,
+      "level_max": 53,
+      "description": "Engineer Pell Oravane reads the anchors the way a healer reads a pulse. He wants the Slipstone Elemental round the Third Anchor cleared so he can hear it properly.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Slipstone Elemental",
+          "count": 7,
+          "zone": "anchorfields"
+        }
+      ],
+      "accept_text": "The Third Anchor's stone has started coming loose, and every Slipstone Elemental round its foot is a piece of the shelf that's woken up and walked off. They grind so loud I can't hear the anchor. Break them up, and I'll listen.",
+      "turn_in_text": "Now I can hear it, and I wish I couldn't.\n\nThere's a crack in the keel, the crystal it's grown round. I can hear it widening, slowly, like ice on a pond in spring.",
+      "next_quest_id": "afq_out_of_the_crack",
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "unique_item_defs": [
+        {
+          "name": "Keelreader's Hauberk",
+          "slot": "chest",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 11,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "attack_power": 34
+          },
+          "armor_value": 216,
+          "required_level": 52,
+          "sell_price": 9994,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_04"
+        },
+        {
+          "name": "Keelreader's Sash",
+          "slot": "waist",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 24
+          },
+          "armor_value": 63,
+          "required_level": 52,
+          "sell_price": 5497,
+          "identity": "caster",
+          "icon_id": "gear_inv_belt_31"
+        },
+        {
+          "name": "Keelreader's Sabatons",
+          "slot": "feet",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 13,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 10
+          },
+          "armor_value": 225,
+          "required_level": 52,
+          "sell_price": 6496,
+          "identity": "tank",
+          "icon_id": "gear_inv_boots_06"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_out_of_the_crack",
+      "title": "Out of the Crack",
+      "giver_npc_id": "af_keel_engineer",
+      "zone": "anchorfields",
+      "level_min": 53,
+      "level_max": 54,
+      "description": "Things are coming up out of the cracks round the Third Anchor: the Keelcrack Crawler and the Void-Touched Wisp. Pell thinks they're coming from the keel itself.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Keelcrack Crawler",
+          "count": 7,
+          "zone": "anchorfields"
+        },
+        {
+          "type": "kill",
+          "target": "Void-Touched Wisp",
+          "count": 5,
+          "zone": "anchorfields"
+        }
+      ],
+      "accept_text": "Every Keelcrack Crawler and Void-Touched Wisp round the Third Anchor came up out of the cracks in the last few years. Before that, the old wardens' logs don't mention them once in a thousand years. Drive them back down, and I'll find out where they're coming from.",
+      "turn_in_text": "They're coming up from the keel. I'm sure of it now.\n\nAnd there's something bigger down there with them, something that lifts the stone round it like it weighs nothing.",
+      "next_quest_id": "afq_the_unmoored",
+      "requires_quests": [
+        "afq_reading_the_third"
+      ],
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "unique_item_defs": [
+        {
+          "name": "Crackwarden's Grips",
+          "slot": "hands",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 112,
+          "required_level": 53,
+          "sell_price": 6752,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_22"
+        },
+        {
+          "name": "Crackwarden's Spaulders",
+          "slot": "shoulder",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "healing_power": 44
+          },
+          "armor_value": 186,
+          "required_level": 53,
+          "sell_price": 8310,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_shoulder_12"
+        },
+        {
+          "name": "Crackwarden's Pendant",
+          "slot": "neck",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 53,
+          "sell_price": 6232,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_amulet_04"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_the_unmoored",
+      "title": "The Unmoored",
+      "giver_npc_id": "af_keel_engineer",
+      "zone": "anchorfields",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Something round the Third Anchor makes the stone near it lose its weight. Pell calls it the Unmoored, and every time it passes, the anchor slips a little further.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Unmoored",
+          "count": 1,
+          "zone": "anchorfields"
+        }
+      ],
+      "accept_text": "The Unmoored drifts round the Third Anchor, and wherever it goes, the stone forgets how heavy it is. That's the one thing an anchor can't stand. Find it and end it.",
+      "turn_in_text": "The stone's heavy again. I've never been so glad to drop a hammer on my foot.\n\nThe anchor's still slipping, but slower. Whatever's wrong now is down in the keel, and the Warden-Prime will want to talk to you about going down there.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "afq_out_of_the_crack"
+      ],
+      "reward_exp": 5148,
+      "reward_gold": 20280,
+      "unique_item_defs": [
+        {
+          "name": "Unmoored's Bane Cloak",
+          "slot": "back",
+          "item_level": 56,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 31,
+            "hit_rating": 8
+          },
+          "armor_value": 66,
+          "required_level": 54,
+          "sell_price": 8900,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_16"
+        },
+        {
+          "name": "Unmoored's Bane Cuffs",
+          "slot": "wrist",
+          "item_level": 56,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 9,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 39
+          },
+          "armor_value": 74,
+          "required_level": 54,
+          "sell_price": 8091,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_12"
+        },
+        {
+          "name": "Unmoored's Bane Legplates",
+          "slot": "legs",
+          "item_level": 56,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 18,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "attack_power": 46
+          },
+          "armor_value": 458,
+          "required_level": 54,
+          "sell_price": 16181,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_12"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "afq_count_their_wardens",
+      "title": "Count Their Wardens",
+      "giver_npc_id": "af_warden_scout",
+      "zone": "anchorfields",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "Scout Varen Ashby has watched the Ascendancy at the Second Anchor from the bridge for six years. He wants someone to get into their camp and count what's there.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "anchorfields",
+          "target_x": 222,
+          "target_y": 128,
+          "radius": 4,
+          "label": "Get into the Ascendancy's camp at the Second Anchor and count what's there"
+        }
+      ],
+      "accept_text": "I've counted their tents from the bridge so often I could draw them asleep. From the bridge I can't see what they're doing to the anchor. Get into their camp and look at it, and don't stop to fight anything that doesn't stop you first.",
+      "turn_in_text": "Two guns and a shield pylon round an anchor they don't know how to read.\n\nThey've got the chains tied off wrong. Any warden apprentice could tell them, and none of them would ask an apprentice.",
+      "next_quest_id": "afq_hold_the_line",
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "unique_item_defs": [
+        {
+          "name": "Seized Anchor Cap",
+          "slot": "head",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 14,
+            "agility": 9
+          },
+          "secondary_stats": {
+            "dodge_rating": 7
+          },
+          "armor_value": 112,
+          "required_level": 52,
+          "sell_price": 7688,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_05"
+        },
+        {
+          "name": "Seized Anchor Band",
+          "slot": "ring",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 23
+          },
+          "armor_value": 0,
+          "required_level": 52,
+          "sell_price": 5766,
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_ring_09"
+        },
+        {
+          "name": "Seized Anchor Gauntlets",
+          "slot": "hands",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 8,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 19
+          },
+          "armor_value": 147,
+          "required_level": 52,
+          "sell_price": 6246,
+          "identity": "earthen",
+          "icon_id": "gear_inv_gauntlets_13"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_hold_the_line",
+      "title": "Hold the Line",
+      "giver_npc_id": "af_warden_scout",
+      "zone": "anchorfields",
+      "level_min": 53,
+      "level_max": 54,
+      "description": "The Ascendancy Warden and the Ascendancy Crystal-Weaver hold the Second Anchor's camp. Varen wants them thinned before the wardens try to take it back.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Ascendancy Warden",
+          "count": 7,
+          "zone": "anchorfields"
+        },
+        {
+          "type": "kill",
+          "target": "Ascendancy Crystal-Weaver",
+          "count": 5,
+          "zone": "anchorfields"
+        }
+      ],
+      "accept_text": "Every Ascendancy Warden in that camp calls himself a warden, and not one of them's ever checked a chain. The Ascendancy Crystal-Weaver keeps the shield pylon up. Thin them both, and the real wardens can walk back in.",
+      "turn_in_text": "They've pulled back behind the pylon, and the camp's half empty.\n\nThe engineers are still there, though, writing down the anchor's drift like they're proud of it.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "afq_count_their_wardens"
+      ],
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "unique_item_defs": [
+        {
+          "name": "Lineholder's Staff",
+          "slot": "main_hand",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 23
+          },
+          "secondary_stats": {
+            "spell_power": 52
+          },
+          "armor_value": 0,
+          "required_level": 53,
+          "sell_price": 12984,
+          "identity": "caster",
+          "icon_id": "gear_inv_staff_04",
+          "weapon_damage_min": 40,
+          "weapon_damage_max": 55,
+          "attack_speed": 3.2,
+          "block_value": 0
+        },
+        {
+          "name": "Lineholder's Jerkin",
+          "slot": "chest",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 13,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 34
+          },
+          "armor_value": 138,
+          "required_level": 53,
+          "sell_price": 10387,
+          "identity": "strength",
+          "icon_id": "gear_inv_chest_leather_06"
+        },
+        {
+          "name": "Lineholder's Waistguard",
+          "slot": "waist",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 25
+          },
+          "armor_value": 229,
+          "required_level": 53,
+          "sell_price": 5713,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_belt_03"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_their_own_logs",
+      "title": "Their Own Logs",
+      "giver_npc_id": "af_warden_scout",
+      "zone": "anchorfields",
+      "level_min": 53,
+      "level_max": 54,
+      "description": "The Ascendancy Engineer at the Second Anchor keeps a log of its drift. Varen wants those logs, because they're the proof the council will listen to.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "af_q_drift_log",
+          "count": 5
+        }
+      ],
+      "accept_text": "The council won't believe a warden who says the Ascendancy's losing the anchor. They might believe the Ascendancy's own engineers. Every Ascendancy Engineer there carries a drift log. Bring me those logs.",
+      "turn_in_text": "Six years of drift, in their own hand, every line a little worse.\n\nI'll copy these for the council tonight. The Warden-Prime will want the anchor-marshal next, and now he can say why.",
+      "next_quest_id": null,
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "unique_item_defs": [
+        {
+          "name": "Logtaker's Mantle",
+          "slot": "shoulder",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "spell_power": 29
+          },
+          "armor_value": 58,
+          "required_level": 53,
+          "sell_price": 8310,
+          "identity": "caster",
+          "icon_id": "gear_inv_shoulder_17"
+        },
+        {
+          "name": "Logtaker's Breeches",
+          "slot": "legs",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 13,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 34
+          },
+          "armor_value": 138,
+          "required_level": 53,
+          "sell_price": 10387,
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_09"
+        },
+        {
+          "name": "Logtaker's Vambraces",
+          "slot": "wrist",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 13,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 11
+          },
+          "armor_value": 269,
+          "required_level": 53,
+          "sell_price": 5193,
+          "identity": "tank",
+          "icon_id": "gear_inv_bracer_04"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_word_for_word",
+      "title": "Word for Word",
+      "giver_npc_id": "af_old_warden",
+      "zone": "anchorfields",
+      "level_min": 51,
+      "level_max": 52,
+      "description": "Old Warden Ebbe Tharn carries the story of the island that fell the way it came down to him, word for word. He wants you to stand where it fell before he tells it.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "anchorfields",
+          "target_x": 30,
+          "target_y": 222,
+          "radius": 4,
+          "label": "Stand on the Dropfield, where the island fell"
+        }
+      ],
+      "accept_text": "My grandfather's grandfather saw an island fall, and the story's come down to me word for word. I won't tell it to someone who hasn't stood there. Go out onto the Dropfield and look at what's left, then come back.",
+      "turn_in_text": "Then I'll tell it to you the way it was told to me.\n\nThe anchor that held it was the Fourth. Its keel cracked, and the wardens went down to mend it, and they didn't come up, and three days later the island went. That's why there are three anchors now, and why the Third frightens us all.",
+      "next_quest_id": "afq_down_to_the_keel",
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "unique_item_defs": [
+        {
+          "name": "Rememberer's Shield",
+          "slot": "off_hand",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 20,
+            "haste": 5
+          },
+          "armor_value": 413,
+          "required_level": 51,
+          "sell_price": 7688,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_shield_08",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 48
+        },
+        {
+          "name": "Rememberer's Greaves",
+          "slot": "feet",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 147,
+          "required_level": 51,
+          "sell_price": 6246,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_06"
+        },
+        {
+          "name": "Rememberer's Robe",
+          "slot": "chest",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 11,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "healing_power": 29
+          },
+          "armor_value": 66,
+          "required_level": 51,
+          "sell_price": 9610,
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_chest_cloth_08"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_down_to_the_keel",
+      "title": "Down to the Keel",
+      "giver_npc_id": "af_old_warden",
+      "zone": "anchorfields",
+      "level_min": 53,
+      "level_max": 54,
+      "description": "The wardens who went down into the Third Anchor's keel a generation ago never came back up. The Keel is full of Ballast Golem and Hollowed Warden, and Ebbe wants the way down cleared.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Ballast Golem",
+          "count": 5,
+          "zone": "keel"
+        },
+        {
+          "type": "kill",
+          "target": "Hollowed Warden",
+          "count": 5,
+          "zone": "keel"
+        }
+      ],
+      "accept_text": "When the Third began to slip, a company of wardens went down into the Keel to tend it, and they're still down there. They're something else now, and we call each one a Hollowed Warden. The Ballast Golem that walks the halls was set there to keep the shelf level. Clear the way down so the rest of us can follow.",
+      "turn_in_text": "I knew some of them. I knew their names.\n\nTheir captain was Oris Hale, and if he's down there, he's still holding his post. That would be like him.",
+      "next_quest_id": "afq_warden_captain_oris_hale",
+      "requires_quests": [
+        "afq_word_for_word"
+      ],
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "unique_item_defs": [
+        {
+          "name": "Keelwalker's Shield",
+          "slot": "off_hand",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 10,
+            "strength": 3
+          },
+          "secondary_stats": {
+            "block_value": 8
+          },
+          "armor_value": 429,
+          "required_level": 53,
+          "sell_price": 8310,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_11",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 50
+        },
+        {
+          "name": "Keelwalker's Breeches",
+          "slot": "legs",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 17,
+            "agility": 11
+          },
+          "secondary_stats": {
+            "dodge_rating": 9
+          },
+          "armor_value": 138,
+          "required_level": 53,
+          "sell_price": 10387,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_14"
+        },
+        {
+          "name": "Keelwalker's Gloves",
+          "slot": "hands",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "arcane_spell_power": 28
+          },
+          "armor_value": 47,
+          "required_level": 53,
+          "sell_price": 6752,
+          "identity": "arcane",
+          "icon_id": "gear_inv_gauntlets_14"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_warden_captain_oris_hale",
+      "title": "Warden-Captain Oris Hale",
+      "giver_npc_id": "af_old_warden",
+      "zone": "anchorfields",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Warden-Captain Oris Hale led the company that went down into the Keel. Ebbe believes he's still holding the wardens' last post, and that he won't leave it until someone relieves him.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Warden-Captain Oris Hale",
+          "count": 1,
+          "zone": "keel"
+        }
+      ],
+      "accept_text": "Warden-Captain Oris Hale never left a post in his life without being relieved. If he's down there, he's still holding it, and he'll fight anyone who comes near, because nobody ever came to relieve him. Go and relieve him. You'll have to do it with a blade.",
+      "turn_in_text": "He's at rest, then. The post's empty for the first time in thirty years.\n\nI'll cut his name on the First Anchor's links, next to the wrights. He held a post a thousand years old, and that's what wardens do.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "afq_down_to_the_keel"
+      ],
+      "reward_exp": 5148,
+      "reward_gold": 20280,
+      "unique_item_defs": [
+        {
+          "name": "Last Post Spear",
+          "slot": "main_hand",
+          "item_level": 56,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 27,
+            "stamina": 16
+          },
+          "secondary_stats": {
+            "attack_power": 69
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 20227,
+          "identity": "strength",
+          "icon_id": "gear_inv_spear_04",
+          "weapon_damage_min": 132,
+          "weapon_damage_max": 179,
+          "attack_speed": 3.3,
+          "block_value": 0
+        },
+        {
+          "name": "Last Post Hood",
+          "slot": "head",
+          "item_level": 56,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 11,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "healing_power": 46
+          },
+          "armor_value": 77,
+          "required_level": 54,
+          "sell_price": 12945,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_57"
+        },
+        {
+          "name": "Last Post Grips",
+          "slot": "hands",
+          "item_level": 56,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 11,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "attack_power": 30
+          },
+          "armor_value": 138,
+          "required_level": 54,
+          "sell_price": 10518,
+          "identity": "feral",
+          "icon_id": "gear_inv_gauntlets_21"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "afq_carrion_over_the_skiffs",
+      "title": "Carrion Over the Skiffs",
+      "giver_npc_id": "af_skiffmaster",
+      "zone": "anchorfields",
+      "level_min": 52,
+      "level_max": 53,
+      "description": "The Carrion Gale Hawk nests on the Dropfield and hunts the skiff routes out of Keelstone. Skiffmaster Jorun Kell has lost two lines to them this month.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Carrion Gale Hawk",
+          "count": 7,
+          "zone": "anchorfields"
+        }
+      ],
+      "accept_text": "Every Carrion Gale Hawk on the Dropfield thinks my skiffs are big slow birds worth chasing. They're tearing the sail lines and fouling the crystal hoods. Thin them out where they nest, out on the fallen island.",
+      "turn_in_text": "The routes are clear, and the skiffs are flying on time, which is a first this season.\n\nYou'll always get a seat on one of mine. That's not a favour, it's a debt.",
+      "next_quest_id": null,
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "unique_item_defs": [
+        {
+          "name": "Skyroute Legguards",
+          "slot": "legs",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "nature_spell_power": 32,
+            "haste": 9
+          },
+          "armor_value": 216,
+          "required_level": 52,
+          "sell_price": 9994,
+          "identity": "storm",
+          "icon_id": "gear_inv_pants_11"
+        },
+        {
+          "name": "Skyroute Cloak",
+          "slot": "back",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 21
+          },
+          "armor_value": 56,
+          "required_level": 52,
+          "sell_price": 5497,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_13"
+        },
+        {
+          "name": "Skyroute Pauldrons",
+          "slot": "shoulder",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 296,
+          "required_level": 52,
+          "sell_price": 7995,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_31"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_a_bigger_ledger",
+      "title": "A Bigger Ledger",
+      "giver_npc_id": "af_measurer",
+      "zone": "anchorfields",
+      "level_min": 51,
+      "level_max": 52,
+      "description": "The House of Measures has written down the shelf's lean every night for a thousand years. Master Ivo Kestrel wants this year's figures taken to the Warden-Prime by hand.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "af_q_lean_figures",
+          "count": 1,
+          "label": "Take the house's figures to Warden-Prime Aldric Sorne at Keelstone"
+        }
+      ],
+      "accept_text": "For nine hundred years the number in our ledger barely moved. For the last forty it's moved every year, and since the change it's moved more than the forty before. Take these figures to the Warden-Prime, and put them in his hand yourself. He'll read them twice.",
+      "turn_in_text": "The house sends me its figures every year, and every year I read them twice.\n\nThis year I'll read them three times. Thank the master for me, and tell him I'm grateful and I hate it.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "af_warden_prime",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "af_q_lean_figures",
+            "name": "The Year's Lean Figures",
+            "description": "A folded sheet of the House of Measures' nightly figures for the year, each in the same careful hand, the last column circled.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "unique_item_defs": [
+        {
+          "name": "Measurer's Staff",
+          "slot": "main_hand",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 21,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 52
+          },
+          "armor_value": 0,
+          "required_level": 51,
+          "sell_price": 12012,
+          "identity": "agility",
+          "icon_id": "gear_inv_staff_21",
+          "weapon_damage_min": 96,
+          "weapon_damage_max": 130,
+          "attack_speed": 3.6,
+          "block_value": 0
+        },
+        {
+          "name": "Measurer's Belt",
+          "slot": "waist",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 92,
+          "required_level": 51,
+          "sell_price": 5285,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_16"
+        },
+        {
+          "name": "Measurer's Band",
+          "slot": "ring",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 0,
+          "required_level": 51,
+          "sell_price": 5766,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_ring_23"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_measure_the_lean",
+      "title": "Measure the Lean",
+      "giver_npc_id": "af_measurer",
+      "zone": "anchorfields",
+      "level_min": 52,
+      "level_max": 53,
+      "description": "The house's oldest survey marks are cut into the shelf at its far edges. Master Kestrel wants both read against the Observatory, the way the house has read them for a thousand years.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "anchorfields",
+          "target_x": 38,
+          "target_y": 44,
+          "radius": 4,
+          "label": "Read the house's old survey mark at the Estates' far edge"
+        },
+        {
+          "type": "explore",
+          "target": "anchorfields",
+          "target_x": 286,
+          "target_y": 192,
+          "radius": 4,
+          "label": "Read the survey mark at the Listing Isle's low tip"
+        }
+      ],
+      "accept_text": "Our oldest marks are cut into the shelf at its edges, one past the Estates and one on the Listing Isle. The house has read them every year since before my great-grandmother was born. I'm too old for the walk, so go and read them for me, and I'll compare.",
+      "turn_in_text": "The Estates' mark is where the ledger says. The Listing Isle's is six spans lower than it was ten years ago.\n\nThat's not a lean any more. That's a fall happening very slowly.",
+      "next_quest_id": null,
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "unique_item_defs": [
+        {
+          "name": "Plumbline Breastplate",
+          "slot": "chest",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 36
+          },
+          "armor_value": 325,
+          "required_level": 52,
+          "sell_price": 9994,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_chest_plate11"
+        },
+        {
+          "name": "Plumbline Slippers",
+          "slot": "feet",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 24
+          },
+          "armor_value": 63,
+          "required_level": 52,
+          "sell_price": 6496,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_05"
+        },
+        {
+          "name": "Plumbline Wristguards",
+          "slot": "wrist",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 9,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 18
+          },
+          "armor_value": 150,
+          "required_level": 52,
+          "sell_price": 4997,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_bracer_09"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_lights_that_move",
+      "title": "Lights That Move",
+      "giver_npc_id": "af_star_reader",
+      "zone": "anchorfields",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "Star-Reader Caelan Duir measures the islands' drift against the stars. The Lantern Puffball drifts across the shards at night and spoils every reading.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Lantern Puffball",
+          "count": 8,
+          "zone": "anchorfields"
+        }
+      ],
+      "accept_text": "The stars don't move, so when an island moves against them, I see it. Every Lantern Puffball on the shards glows just like a star and drifts just like an island, and it ruins my count. Pop them, please, so I can see what's actually moving.",
+      "turn_in_text": "Clear skies tonight, and nothing glowing that shouldn't.\n\nThe Listing Isle moved against the stars again. I'd hoped the puffballs had been fooling me about that one.",
+      "next_quest_id": "afq_clear_glass",
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "unique_item_defs": [
+        {
+          "name": "Stargazer's Longbow",
+          "slot": "ranged",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 0,
+          "required_level": 52,
+          "sell_price": 7688,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_08",
+          "weapon_damage_min": 60,
+          "weapon_damage_max": 82,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Stargazer's Coif",
+          "slot": "head",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 200,
+          "required_level": 52,
+          "sell_price": 7688,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_56"
+        },
+        {
+          "name": "Stargazer's Leggings",
+          "slot": "legs",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 15
+          },
+          "secondary_stats": {
+            "spell_power": 33
+          },
+          "armor_value": 66,
+          "required_level": 52,
+          "sell_price": 9610,
+          "identity": "caster",
+          "icon_id": "gear_inv_pants_06"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_clear_glass",
+      "title": "Clear Glass",
+      "giver_npc_id": "af_star_reader",
+      "zone": "anchorfields",
+      "level_min": 52,
+      "level_max": 53,
+      "description": "The Observatory's great lens has clouded with age. Caelan wants the clear glass that sets inside the Overflow Elemental in the Gearwork to grind a new one.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "af_q_star_glass",
+          "count": 5
+        }
+      ],
+      "accept_text": "Our great lens was ground before the house had its name, and it's gone cloudy. Every Overflow Elemental in the Gearwork sets into clear glass when it comes apart, the clearest there is. Bring me enough, and I'll grind a lens to see the drift properly.",
+      "turn_in_text": "This is beautiful glass. The light goes straight through it.\n\nIt'll take me a month to grind. When it's done, the house will see the shelf move more clearly than anyone has in a thousand years. I'm not sure I'm glad about that.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "afq_lights_that_move"
+      ],
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "unique_item_defs": [
+        {
+          "name": "Lensgrinder's Knife",
+          "slot": "main_hand",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 0,
+          "required_level": 52,
+          "sell_price": 9495,
+          "identity": "agility",
+          "icon_id": "gear_inv_weapon_shortblade_18",
+          "weapon_damage_min": 72,
+          "weapon_damage_max": 98,
+          "attack_speed": 1.7,
+          "block_value": 0
+        },
+        {
+          "name": "Lensgrinder's Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 35
+          },
+          "armor_value": 114,
+          "required_level": 52,
+          "sell_price": 7995,
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_26"
+        },
+        {
+          "name": "Lensgrinder's Sabatons",
+          "slot": "feet",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 225,
+          "required_level": 52,
+          "sell_price": 6496,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_04"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_three_hands",
+      "title": "Three Hands",
+      "giver_npc_id": "af_obs_archivist",
+      "zone": "anchorfields",
+      "level_min": 52,
+      "level_max": 53,
+      "description": "The House of Measures' oldest records were copied from stone plates nobody can read. Archivist Bram Iselworth thinks the island that fell carried more of them, and the Wreck-Rubble Elemental on the Dropfield is made of its stone.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "af_q_archive_plate",
+          "count": 4
+        }
+      ],
+      "accept_text": "Our oldest pages are copies of stone plates in a hand nobody in the house can read, and we've copied them faithfully for a thousand years anyway. The island that fell carried a library. Every Wreck-Rubble Elemental on the Dropfield is made of its stone, and some of them carry plates. Bring me what you find.",
+      "turn_in_text": "Look at this one. It isn't one hand at all, it's three, side by side, saying the same thing.\n\nThis column is old Aetherian, and I can almost read it. This one is cut in runes like the ones on the Kharad ruins in the Expanse. And this one's notation, like music, the way the Veyr write their songs. Three peoples wrote the first measure of this shelf together. My house has no story where that ever happened.",
+      "next_quest_id": "afq_the_first_measure",
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "unique_item_defs": [
+        {
+          "name": "Archivist's Tome",
+          "slot": "off_hand",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 0,
+          "required_level": 52,
+          "sell_price": 5997,
+          "identity": "healer",
+          "icon_id": "gear_inv_tome_3",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        },
+        {
+          "name": "Archivist's Handguards",
+          "slot": "hands",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 13,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 10
+          },
+          "armor_value": 242,
+          "required_level": 52,
+          "sell_price": 6496,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_06"
+        },
+        {
+          "name": "Archivist's Girdle",
+          "slot": "waist",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 150,
+          "required_level": 52,
+          "sell_price": 5497,
+          "identity": "hunter",
+          "icon_id": "gear_inv_belt_21"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_the_first_measure",
+      "title": "The First Measure",
+      "giver_npc_id": "af_obs_archivist",
+      "zone": "anchorfields",
+      "level_min": 53,
+      "level_max": 53,
+      "description": "Archivist Iselworth has made a rubbing of the three-handed plate. He wants Old Warden Ebbe Tharn to see it, because the wardens remember things the house never wrote down.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "af_q_plate_rubbing",
+          "count": 1,
+          "label": "Take the archivist's rubbing to Old Warden Ebbe Tharn at Keelstone"
+        }
+      ],
+      "accept_text": "The wardens don't write their history down. They keep it by mouth, word for word, and some of it's older than our ledger. Take this rubbing to Old Warden Ebbe Tharn and ask him if anything in his stories has three hands in it.",
+      "turn_in_text": "Three hands, yes, there's a line about that. It's the oldest line in the whole story, and I never knew what it meant.\n\n\"The first anchor was raised by three, and three kept it.\" I always thought it meant three wardens. I don't think it did.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "af_old_warden",
+      "requires_quests": [
+        "afq_three_hands"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "af_q_plate_rubbing",
+            "name": "Rubbing of the Three-Handed Plate",
+            "description": "A charcoal rubbing of a stone plate, three columns of writing side by side, none of them in the same script.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "unique_item_defs": [
+        {
+          "name": "Firstmeasure Mace",
+          "slot": "main_hand",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 35
+          },
+          "armor_value": 0,
+          "required_level": 53,
+          "sell_price": 9495,
+          "identity": "healer",
+          "icon_id": "gear_inv_mace_06",
+          "weapon_damage_min": 72,
+          "weapon_damage_max": 98,
+          "attack_speed": 2.6,
+          "block_value": 0
+        },
+        {
+          "name": "Firstmeasure Jerkin",
+          "slot": "chest",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 13,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 135,
+          "required_level": 53,
+          "sell_price": 9994,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_04"
+        },
+        {
+          "name": "Firstmeasure Pendant",
+          "slot": "neck",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 53,
+          "sell_price": 5997,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_necklace_08"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_four_degrees_and_climbing",
+      "title": "Four Degrees and Climbing",
+      "giver_npc_id": "af_tilt_lead",
+      "zone": "anchorfields",
+      "level_min": 52,
+      "level_max": 53,
+      "description": "The Earthborn at Tiltside drive marker stakes into the Listing Isle to track its tilt. The Tiltside Goat knocks them over faster than they can be set.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Tiltside Goat",
+          "count": 7,
+          "zone": "anchorfields"
+        }
+      ],
+      "accept_text": "We drive a stake every morning to see how far the island's leaned overnight, and every Tiltside Goat on the isle thinks a stake is something to butt. I kept rigs standing in the North Sea, and I never had a goat problem. Clear them off the stakes.",
+      "turn_in_text": "The stakes are standing, and the reading's clean for once.\n\nFour degrees and a quarter. It was four even last week. Nobody in Keelstone will come over here and look at it.",
+      "next_quest_id": "afq_old_hornback",
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "unique_item_defs": [
+        {
+          "name": "Tiltside Greatsword",
+          "slot": "main_hand",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 20,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 54
+          },
+          "armor_value": 0,
+          "required_level": 52,
+          "sell_price": 12493,
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_31",
+          "weapon_damage_min": 98,
+          "weapon_damage_max": 132,
+          "attack_speed": 3.4,
+          "block_value": 0
+        },
+        {
+          "name": "Tiltside Bracers",
+          "slot": "wrist",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 93,
+          "required_level": 52,
+          "sell_price": 4997,
+          "identity": "agility",
+          "icon_id": "gear_inv_bracer_17"
+        },
+        {
+          "name": "Tiltside Hood",
+          "slot": "head",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "spell_power": 28
+          },
+          "armor_value": 57,
+          "required_level": 52,
+          "sell_price": 7995,
+          "identity": "caster",
+          "icon_id": "gear_inv_helmet_01"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_old_hornback",
+      "title": "Old Hornback",
+      "giver_npc_id": "af_tilt_lead",
+      "zone": "anchorfields",
+      "level_min": 53,
+      "level_max": 53,
+      "description": "The biggest goat on the Listing Isle is Old Hornback, and he's been charging the camp. Margit has two people with bruised ribs and one with a broken stake through her tent.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Old Hornback",
+          "count": 1,
+          "zone": "anchorfields"
+        }
+      ],
+      "accept_text": "Old Hornback isn't like the others. He charges anything that stands on his island, and he's decided the whole camp's standing on it. Two of my people have cracked ribs. Make him stop.",
+      "turn_in_text": "He's down, and I'm a little sorry. My aunt kept goats back home in Norway, and none of them had his nerve.\n\nWe'll keep the stakes, though. Somebody has to keep measuring this.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "afq_four_degrees_and_climbing"
+      ],
+      "reward_exp": 5044,
+      "reward_gold": 19890,
+      "unique_item_defs": [
+        {
+          "name": "Hornbreaker's Hauberk",
+          "slot": "chest",
+          "item_level": 55,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 15,
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "attack_power": 45
+          },
+          "armor_value": 288,
+          "required_level": 53,
+          "sell_price": 15580,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_04"
+        },
+        {
+          "name": "Hornbreaker's Sash",
+          "slot": "waist",
+          "item_level": 55,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "spell_power": 31
+          },
+          "armor_value": 73,
+          "required_level": 53,
+          "sell_price": 8569,
+          "identity": "caster",
+          "icon_id": "gear_inv_belt_28"
+        },
+        {
+          "name": "Hornbreaker's Sabatons",
+          "slot": "feet",
+          "item_level": 55,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 17,
+            "strength": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 14
+          },
+          "armor_value": 310,
+          "required_level": 53,
+          "sell_price": 10127,
+          "identity": "tank",
+          "icon_id": "gear_inv_boots_plate_08"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "afq_stakes_in_the_ground",
+      "title": "Stakes in the Ground",
+      "giver_npc_id": "af_tilt_surveyor",
+      "zone": "anchorfields",
+      "level_min": 52,
+      "level_max": 53,
+      "description": "Bartosz Wierzbicki measures the Listing Isle's tilt from both ends. He wants his marks at the high end and the low tip read the same morning.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "anchorfields",
+          "target_x": 280,
+          "target_y": 132,
+          "radius": 4,
+          "label": "Read Bartosz's mark at the Listing Isle's high end"
+        },
+        {
+          "type": "explore",
+          "target": "anchorfields",
+          "target_x": 286,
+          "target_y": 192,
+          "radius": 4,
+          "label": "Read Bartosz's mark at the Listing Isle's low tip"
+        }
+      ],
+      "accept_text": "I measured land in Krakow for twenty years, and you always take both ends the same morning. The isle's high end is up by the leaning tower, and the low tip's at the south. Read my marks at both, and I'll do the sum.",
+      "turn_in_text": "Four degrees, eighteen minutes. It's a quarter of a degree a month.\n\nAt that rate the low tip goes under the cloud in six years. I'll write it down for the house, and they'll write it in their ledger, and then we'll both know.",
+      "next_quest_id": "afq_pins_for_the_marks",
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "unique_item_defs": [
+        {
+          "name": "Surveyor's Grips",
+          "slot": "hands",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 93,
+          "required_level": 52,
+          "sell_price": 6496,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_31"
+        },
+        {
+          "name": "Surveyor's Spaulders",
+          "slot": "shoulder",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 31
+          },
+          "armor_value": 204,
+          "required_level": 52,
+          "sell_price": 7995,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_shoulder_02"
+        },
+        {
+          "name": "Surveyor's Pendant",
+          "slot": "neck",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 52,
+          "sell_price": 5997,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_amulet_04"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_pins_for_the_marks",
+      "title": "Pins for the Marks",
+      "giver_npc_id": "af_tilt_surveyor",
+      "zone": "anchorfields",
+      "level_min": 53,
+      "level_max": 53,
+      "description": "Bartosz wants proper survey pins in the Listing Isle instead of wooden stakes. Truesilver doesn't rust or shift, and it's in the shelf's stone.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "ore_truesilver",
+          "count": 5,
+          "label": "Mine Truesilver from the shelf"
+        }
+      ],
+      "accept_text": "Wooden stakes move, and goats eat them, and I'm tired of both. Back home in Krakow I'd have had steel pins. Truesilver doesn't rust and doesn't shift, and there's some in the shelf's stone. Mine me enough, and I'll set pins that'll still be there when my grandchildren measure this.",
+      "turn_in_text": "That's proper survey metal. I'll have pins in by tonight.\n\nThe Aetherians made their anchors to last a thousand years. My pins only need to last until somebody believes me.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "afq_stakes_in_the_ground"
+      ],
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "unique_item_defs": [
+        {
+          "name": "Pinsetter's Cloak",
+          "slot": "back",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 23,
+            "hit_rating": 6
+          },
+          "armor_value": 41,
+          "required_level": 53,
+          "sell_price": 5497,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_06"
+        },
+        {
+          "name": "Pinsetter's Cuffs",
+          "slot": "wrist",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 63,
+          "required_level": 53,
+          "sell_price": 4997,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_10"
+        },
+        {
+          "name": "Pinsetter's Legplates",
+          "slot": "legs",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 13,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 34
+          },
+          "armor_value": 325,
+          "required_level": 53,
+          "sell_price": 9994,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_12"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_dust_in_the_lungs",
+      "title": "Dust in the Lungs",
+      "giver_npc_id": "af_tilt_medic",
+      "zone": "anchorfields",
+      "level_min": 52,
+      "level_max": 53,
+      "description": "Dr. Ngozi Eze has half the camp coughing. The Cliffside Moth sheds a dust over the Listing Isle that settles in people's lungs.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Cliffside Moth",
+          "count": 7,
+          "zone": "anchorfields"
+        }
+      ],
+      "accept_text": "Every Cliffside Moth on the isle sheds a fine dust when it flies, and it settles in everybody's chest. Half the camp's coughing, and I've run out of things that help. Back home in Ibadan I'd have a pharmacy down the road. Clear them off the isle, and I'll do the rest.",
+      "turn_in_text": "Nobody coughed in the night for the first time in weeks.\n\nThat's the best medicine I've had to give since I got here, and you made it.",
+      "next_quest_id": null,
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "unique_item_defs": [
+        {
+          "name": "Medic's Cap",
+          "slot": "head",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 15,
+            "agility": 9
+          },
+          "secondary_stats": {
+            "dodge_rating": 7
+          },
+          "armor_value": 114,
+          "required_level": 52,
+          "sell_price": 7995,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_61"
+        },
+        {
+          "name": "Medic's Band",
+          "slot": "ring",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 25
+          },
+          "armor_value": 0,
+          "required_level": 52,
+          "sell_price": 5997,
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_ring_07"
+        },
+        {
+          "name": "Medic's Gauntlets",
+          "slot": "hands",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 8,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 150,
+          "required_level": 52,
+          "sell_price": 6496,
+          "identity": "earthen",
+          "icon_id": "gear_inv_gauntlets_11"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_sprains_and_salves",
+      "title": "Sprains and Salves",
+      "giver_npc_id": "af_tilt_medic",
+      "zone": "anchorfields",
+      "level_min": 52,
+      "level_max": 53,
+      "description": "Everyone at Tiltside walks on a slope, and Ngozi has more sprained ankles than she can bind. Khadgar's Whisker grows on the shards, and she's learned to make a salve from it.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "herb_khadgar",
+          "count": 6,
+          "label": "Gather Khadgar's Whisker on the shards"
+        }
+      ],
+      "accept_text": "An Aetherian herbalist showed me how to make a salve from Khadgar's Whisker, and it works better than anything I had in Ibadan. Everyone here walks on a slope, so everyone here sprains something. Gather me some, and I'll make enough for the camp.",
+      "turn_in_text": "That's a month of salve, maybe two if people watch their feet.\n\nThey won't, but I'll tell them to anyway. That's half of being a doctor.",
+      "next_quest_id": null,
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "unique_item_defs": [
+        {
+          "name": "Salvemaker's Staff",
+          "slot": "main_hand",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 23
+          },
+          "secondary_stats": {
+            "spell_power": 51
+          },
+          "armor_value": 0,
+          "required_level": 52,
+          "sell_price": 12493,
+          "identity": "caster",
+          "icon_id": "gear_inv_staff_06",
+          "weapon_damage_min": 39,
+          "weapon_damage_max": 54,
+          "attack_speed": 3.2,
+          "block_value": 0
+        },
+        {
+          "name": "Salvemaker's Jerkin",
+          "slot": "chest",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 13,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 34
+          },
+          "armor_value": 135,
+          "required_level": 52,
+          "sell_price": 9994,
+          "identity": "strength",
+          "icon_id": "gear_inv_chest_leather_08"
+        },
+        {
+          "name": "Salvemaker's Waistguard",
+          "slot": "waist",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 25
+          },
+          "armor_value": 225,
+          "required_level": 52,
+          "sell_price": 5497,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_belt_26"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_the_clocks_still_need_winding",
+      "title": "The Clocks Still Need Winding",
+      "giver_npc_id": "af_steward",
+      "zone": "anchorfields",
+      "level_min": 51,
+      "level_max": 52,
+      "description": "Steward Olin Varrow keeps House Vaelith's estate for a family that left for Aurelion. The house's Estate Sentinel no longer knows him, and it won't let him into his own clock tower.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Estate Sentinel",
+          "count": 7,
+          "zone": "anchorfields"
+        }
+      ],
+      "accept_text": "The house's sentinels have guarded this estate for six hundred years, and they've always known me. Since the shelf began to lean, every Estate Sentinel has forgotten who belongs here. They won't let me wind the clocks, and a house this old doesn't like its clocks stopped.",
+      "turn_in_text": "The clocks are wound, and the house sounds like itself again.\n\nThe family won't come back. I know that. But somebody should keep the house the way they left it, in case they're wrong.",
+      "next_quest_id": null,
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "unique_item_defs": [
+        {
+          "name": "Steward's Mantle",
+          "slot": "shoulder",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "spell_power": 28
+          },
+          "armor_value": 76,
+          "required_level": 51,
+          "sell_price": 7688,
+          "identity": "caster",
+          "icon_id": "gear_inv_shoulder_17"
+        },
+        {
+          "name": "Steward's Breeches",
+          "slot": "legs",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 13,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 33
+          },
+          "armor_value": 133,
+          "required_level": 51,
+          "sell_price": 9610,
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_14"
+        },
+        {
+          "name": "Steward's Vambraces",
+          "slot": "wrist",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 13,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 10
+          },
+          "armor_value": 221,
+          "required_level": 51,
+          "sell_price": 4805,
+          "identity": "tank",
+          "icon_id": "gear_inv_bracer_17"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_the_garden_gone_wild",
+      "title": "The Garden Gone Wild",
+      "giver_npc_id": "af_steward",
+      "zone": "anchorfields",
+      "level_min": 51,
+      "level_max": 52,
+      "description": "The estate's garden drones were built to tend the lawns, and the Orchard Fowl were brought in to eat the grubs. Now the Garden Repair-Drone prunes anything that moves, and the fowl have eaten the orchard bare.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Garden Repair-Drone",
+          "count": 6,
+          "zone": "anchorfields"
+        },
+        {
+          "type": "kill",
+          "target": "Orchard Fowl",
+          "count": 5,
+          "zone": "anchorfields"
+        }
+      ],
+      "accept_text": "Every Garden Repair-Drone on the estate has decided that anything moving is a branch that needs cutting. The Orchard Fowl were brought in to eat the grubs, and they've eaten the fruit, the seed and half a hedge. Clear both off the lawns.",
+      "turn_in_text": "The lawn's quiet, and the orchard's got a chance.\n\nThe heir will tell you the drones were built by his great grandmother's great grandmother. He's right about that, and she'd have hated what they've become.",
+      "next_quest_id": null,
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "unique_item_defs": [
+        {
+          "name": "Groundskeeper's Shield",
+          "slot": "off_hand",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 20,
+            "haste": 5
+          },
+          "armor_value": 413,
+          "required_level": 51,
+          "sell_price": 7688,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_shield_21",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 48
+        },
+        {
+          "name": "Groundskeeper's Greaves",
+          "slot": "feet",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 147,
+          "required_level": 51,
+          "sell_price": 6246,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_plate_02"
+        },
+        {
+          "name": "Groundskeeper's Robe",
+          "slot": "chest",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 11,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "healing_power": 29
+          },
+          "armor_value": 66,
+          "required_level": 51,
+          "sell_price": 9610,
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_shirt_red_01"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_the_gardener",
+      "title": "The Gardener",
+      "giver_npc_id": "af_house_heir",
+      "zone": "anchorfields",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "The estate's oldest construct is the Gardener, built to tend House Vaelith's grounds a thousand years ago. Corwen Vaelith says it's started tending the people on them, the way it tends weeds.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Gardener",
+          "count": 1,
+          "zone": "anchorfields"
+        }
+      ],
+      "accept_text": "The Gardener's been tending these grounds since before my family had a name in Aurelion. It planted the orchard my grandmother's grandmother walked in. Now it's pulling up anything it doesn't recognise, and it doesn't recognise anyone any more. I can't do it myself, so please do it for me.",
+      "turn_in_text": "It's still, and the grounds are mine again, for whatever that's worth on a shelf that's leaning.\n\nI'll plant something where it fell. It would have wanted something planted.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "afq_the_garden_gone_wild"
+      ],
+      "reward_exp": 4940,
+      "reward_gold": 19500,
+      "unique_item_defs": [
+        {
+          "name": "Gardener's Bane Shield",
+          "slot": "off_hand",
+          "item_level": 54,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 4
+          },
+          "secondary_stats": {
+            "block_value": 11
+          },
+          "armor_value": 550,
+          "required_level": 52,
+          "sell_price": 11993,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_14",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 64
+        },
+        {
+          "name": "Gardener's Bane Breeches",
+          "slot": "legs",
+          "item_level": 54,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 22,
+            "agility": 15
+          },
+          "secondary_stats": {
+            "dodge_rating": 11
+          },
+          "armor_value": 177,
+          "required_level": 52,
+          "sell_price": 14992,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_08"
+        },
+        {
+          "name": "Gardener's Bane Gloves",
+          "slot": "hands",
+          "item_level": 54,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "arcane_spell_power": 37
+          },
+          "armor_value": 61,
+          "required_level": 52,
+          "sell_price": 9744,
+          "identity": "arcane",
+          "icon_id": "gear_inv_gauntlets_07"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "afq_sounds_i_dont_know",
+      "title": "Sounds I Don't Know",
+      "giver_npc_id": "af_gear_tender",
+      "zone": "anchorfields",
+      "level_min": 52,
+      "level_max": 53,
+      "description": "Engine-Tender Halvard Cree knows every engine in the Gearwork by its sound. The Overloaded Construct and the Scrap-Walker are making sounds he's never heard.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Overloaded Construct",
+          "count": 7,
+          "zone": "anchorfields"
+        },
+        {
+          "type": "kill",
+          "target": "Scrap-Walker",
+          "count": 5,
+          "zone": "anchorfields"
+        }
+      ],
+      "accept_text": "These engines have fed the anchors since before the houses had names, and the constructs that tend them have always been quiet, but they aren't now. Every Overloaded Construct is crackling now, and every Scrap-Walker is grinding itself apart and walking anyway. Break them down before they break the engines.",
+      "turn_in_text": "That's better, and I can hear the engines again under all that racket.\n\nOne of them's still wrong, though, the seventh. It's louder than all the rest put together.",
+      "next_quest_id": "afq_engine_seven",
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "unique_item_defs": [
+        {
+          "name": "Enginetender's Spear",
+          "slot": "main_hand",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 20,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 54
+          },
+          "armor_value": 0,
+          "required_level": 52,
+          "sell_price": 12493,
+          "identity": "strength",
+          "icon_id": "gear_inv_spear_01",
+          "weapon_damage_min": 98,
+          "weapon_damage_max": 132,
+          "attack_speed": 3.3,
+          "block_value": 0
+        },
+        {
+          "name": "Enginetender's Hood",
+          "slot": "head",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 35
+          },
+          "armor_value": 57,
+          "required_level": 52,
+          "sell_price": 7995,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_28"
+        },
+        {
+          "name": "Enginetender's Grips",
+          "slot": "hands",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 93,
+          "required_level": 52,
+          "sell_price": 6496,
+          "identity": "feral",
+          "icon_id": "gear_inv_gauntlets_13"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_engine_seven",
+      "title": "Engine Seven",
+      "giver_npc_id": "af_gear_tender",
+      "zone": "anchorfields",
+      "level_min": 53,
+      "level_max": 53,
+      "description": "The seventh engine in the Gearwork got up and walked off its mount. Halvard calls it Engine Seven, and it's tearing the other engines apart.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Engine Seven",
+          "count": 1,
+          "zone": "anchorfields"
+        }
+      ],
+      "accept_text": "Engine Seven fed the Third Anchor for nine hundred years. Last month it pulled itself off its mount and started walking, and now it's tearing into the others like it's looking for something. Stop it, before it reaches the First Anchor's feed.",
+      "turn_in_text": "It's stopped, and I'll have the others back to their proper sound in a week.\n\nI looked inside it afterwards. It was full of the Third Anchor's crystal, grown right through its works. It was trying to get back to the keel.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "afq_sounds_i_dont_know"
+      ],
+      "reward_exp": 5044,
+      "reward_gold": 19890,
+      "unique_item_defs": [
+        {
+          "name": "Enginebreaker's Legguards",
+          "slot": "legs",
+          "item_level": 55,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "nature_spell_power": 43,
+            "haste": 12
+          },
+          "armor_value": 288,
+          "required_level": 53,
+          "sell_price": 15580,
+          "identity": "storm",
+          "icon_id": "gear_inv_pants_05"
+        },
+        {
+          "name": "Enginebreaker's Cloak",
+          "slot": "back",
+          "item_level": 55,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "spell_power": 28
+          },
+          "armor_value": 65,
+          "required_level": 53,
+          "sell_price": 8569,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_20"
+        },
+        {
+          "name": "Enginebreaker's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 55,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 15,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 38
+          },
+          "armor_value": 366,
+          "required_level": 53,
+          "sell_price": 12464,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_18"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "afq_sirans_report",
+      "title": "Siran's Report",
+      "giver_npc_id": "af_slip_watcher",
+      "zone": "anchorfields",
+      "level_min": 52,
+      "level_max": 52,
+      "description": "Warden Siran Holt is posted at the Third Anchor to watch it slip. He's written down what he's seen this week, and he wants it in the engineer's hands.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "af_q_sirans_report",
+          "count": 1,
+          "label": "Take Siran's report to Engineer Pell Oravane at Keelstone"
+        }
+      ],
+      "accept_text": "I write down everything the Third Anchor does, every hour, and I take it to the engineer once a week. This week I can't leave it, because it slipped twice in one night. Take my report to Pell at Keelstone for me.",
+      "turn_in_text": "Twice in one night. He's right to stay.\n\nI'll go out myself tomorrow. Tell Siran he's doing exactly what a warden should, and that I'm bringing him something hot to drink.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "af_keel_engineer",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "af_q_sirans_report",
+            "name": "Siran's Report",
+            "description": "A week of hourly notes on the Third Anchor in a warden's cramped hand. Two lines near the end are underlined twice.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3800,
+      "reward_gold": 15000,
+      "unique_item_defs": [
+        {
+          "name": "Watchman's Staff",
+          "slot": "main_hand",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 21,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 52
+          },
+          "armor_value": 0,
+          "required_level": 52,
+          "sell_price": 12012,
+          "identity": "agility",
+          "icon_id": "gear_inv_staff_11",
+          "weapon_damage_min": 96,
+          "weapon_damage_max": 130,
+          "attack_speed": 3.6,
+          "block_value": 0
+        },
+        {
+          "name": "Watchman's Belt",
+          "slot": "waist",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 92,
+          "required_level": 52,
+          "sell_price": 5285,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_05"
+        },
+        {
+          "name": "Watchman's Band",
+          "slot": "ring",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 0,
+          "required_level": 52,
+          "sell_price": 5766,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_ring_02"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_the_best_wreck_ive_ever_been_on",
+      "title": "The Best Wreck I've Ever Been On",
+      "giver_npc_id": "af_drop_scavenger",
+      "zone": "anchorfields",
+      "level_min": 52,
+      "level_max": 53,
+      "description": "Wade Prentiss is picking over the island that fell, centuries after anyone else stopped. The Dropfield Stalker and the Wreck-Rubble Elemental keep driving him off it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Dropfield Stalker",
+          "count": 7,
+          "zone": "anchorfields"
+        },
+        {
+          "type": "kill",
+          "target": "Wreck-Rubble Elemental",
+          "count": 5,
+          "zone": "anchorfields"
+        }
+      ],
+      "accept_text": "I salvaged wrecks off Halifax for fifteen years, and this is the best wreck I've ever been on. Every Dropfield Stalker on it thinks I'm dinner, and every Wreck-Rubble Elemental thinks I'm stealing, which is fair. Clear them off long enough for me to work.",
+      "turn_in_text": "That's the best day's salvage I've had up here. There's a whole house under that rubble, still furnished.\n\nThere's something down in the middle that won't let me near, though. It's big, and it doesn't move unless you touch what it's sitting on.",
+      "next_quest_id": "afq_old_ballast",
+      "reward_exp": 3880,
+      "reward_gold": 15300,
+      "unique_item_defs": [
+        {
+          "name": "Salvager's Breastplate",
+          "slot": "chest",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 36
+          },
+          "armor_value": 325,
+          "required_level": 52,
+          "sell_price": 9994,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_chest_plate16"
+        },
+        {
+          "name": "Salvager's Slippers",
+          "slot": "feet",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 24
+          },
+          "armor_value": 46,
+          "required_level": 52,
+          "sell_price": 6496,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_plate_08"
+        },
+        {
+          "name": "Salvager's Wristguards",
+          "slot": "wrist",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 9,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 18
+          },
+          "armor_value": 150,
+          "required_level": 52,
+          "sell_price": 4997,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_bracer_19"
+        }
+      ],
+      "gear_reward_gear_level": 54,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "afq_old_ballast",
+      "title": "Old Ballast",
+      "giver_npc_id": "af_drop_scavenger",
+      "zone": "anchorfields",
+      "level_min": 53,
+      "level_max": 53,
+      "description": "In the middle of the Dropfield sits a stone guardian the size of a house, on top of the fallen island's heaviest wreck. Wade calls it Old Ballast.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Old Ballast",
+          "count": 1,
+          "zone": "anchorfields"
+        }
+      ],
+      "accept_text": "Old Ballast was a weight, once, hung under the island that fell to keep it level. When the island went, it came down with it, and it's been sitting on the wreck ever since, guarding it. I want what's under it. Back home in Halifax I'd have hired a crane, and up here I've got you.",
+      "turn_in_text": "It's off, and you won't believe what was under it.\n\nIt's the anchor's chain, the Fourth Anchor's, still fastened to the island's keel. Whatever held the other end let go first. The wardens are going to want to see this.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "afq_the_best_wreck_ive_ever_been_on"
+      ],
+      "reward_exp": 5044,
+      "reward_gold": 19890,
+      "unique_item_defs": [
+        {
+          "name": "Ballastbreaker's Longbow",
+          "slot": "ranged",
+          "item_level": 55,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 9,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 0,
+          "required_level": 53,
+          "sell_price": 12464,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_04",
+          "weapon_damage_min": 82,
+          "weapon_damage_max": 111,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Ballastbreaker's Coif",
+          "slot": "head",
+          "item_level": 55,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "healing_power": 39
+          },
+          "armor_value": 258,
+          "required_level": 53,
+          "sell_price": 12464,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_57"
+        },
+        {
+          "name": "Ballastbreaker's Leggings",
+          "slot": "legs",
+          "item_level": 55,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 20
+          },
+          "secondary_stats": {
+            "spell_power": 45
+          },
+          "armor_value": 90,
+          "required_level": 53,
+          "sell_price": 15580,
+          "identity": "caster",
+          "icon_id": "gear_inv_pants_04"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "rare"
+    }
+  ]
+}

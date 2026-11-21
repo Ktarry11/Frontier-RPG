@@ -765,6 +765,21 @@ EXPANSE_SHEET.update({
     "av_corrupt_ground": _sk("sk_ruin_moss"),
     "av_fel_earth":      _sk("sk_crystal_sand"),
 })
+#: The Anchorfields (sheets SK and AE): the engine country at dawn. Dew and wind grass on the shards, clover and
+#: sky-flowers on the Estates' lawns ("bluebell"), marble cobbles where the estate and Keelstone are paved, cracked
+#: engine paving round the Gearwork and the Seized Anchor ("burned"), crystal ash where the Slipping Anchor bleeds
+#: ("corrupt"), island rock at the rims, old stone on the bridges ("plaza").
+ANCHOR_SHEET = dict(EXPANSE_SHEET)
+ANCHOR_SHEET.update({
+    "av_forest_floor":   _sk("sk_dew_grass"),
+    "av_forest_grass":   _sk("sk_wind_grass"),
+    "av_fern_floor":     _sk("sk_spring_grass"),
+    "av_elven_paving":   _sk("ae_marble_cobbles"),
+    "av_scorched":       _sk("ae_cracked_paving"),
+    "av_burned_forest":  _sk("ae_cracked_paving"),
+    "av_corrupt_ground": _sk("ff_crystal_ash"),
+    "av_mossy_cobble":   _sk("ae_engraved_stone"),
+})
 WPL_SHEET = _plague_sheet(east=False)
 EPL_SHEET = _plague_sheet(east=True)
 ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_SHEET, "epl_east": EPL_SHEET, "felwood_north": NORTH_SHEET, "stonetalon_east": STONETALON_SHEET,
@@ -783,6 +798,7 @@ ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_S
                "worldtree_sunward_crown": CROWN_SHEET,
                "worldtree_lenswatch": LENSWATCH_SHEET,
                "worldtree_celestial_expanse": EXPANSE_SHEET,
+               "worldtree_anchorfields": ANCHOR_SHEET,
                "worldtree_great_settlement": GREAT_SETTLEMENT_SHEET}
 
 def _recolour(a, hue, sat, val):
@@ -1270,7 +1286,7 @@ def main():
     if "--preview" in sys.argv:
         preview = sys.argv[sys.argv.index("--preview") + 1]
     sc = int(sys.argv[sys.argv.index("--scale") + 1]) if "--scale" in sys.argv else 4
-    zone = next((z for z in ("worldtree_celestial_expanse", "worldtree_lenswatch", "worldtree_sunward_crown", "worldtree_cloudbreak", "worldtree_upper_boughs", "worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
+    zone = next((z for z in ("worldtree_anchorfields", "worldtree_celestial_expanse", "worldtree_lenswatch", "worldtree_sunward_crown", "worldtree_cloudbreak", "worldtree_upper_boughs", "worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
     only = None
     if "--region" in sys.argv:       # x0,y0,x1,y1 in tiles: bake only the 20x20 chunks touching it (fast look-dev)
         x0, y0, x1, y1 = map(int, sys.argv[sys.argv.index("--region") + 1].split(","))

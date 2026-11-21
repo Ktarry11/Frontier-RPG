@@ -579,6 +579,20 @@ def build():
         "Go on up to the foot of the bridge and look. I've stood guard on it for twelve years, and I've never let "
         "anyone from the ground walk on it. I want to see what your face does.",
         "That's what everyone's face does, the first time.\n\nAurelion's eight rings, seven of them still turning, "
-        "and the High Houses on top like a crown. They're lowering the bridge for you now. It's a long walk, so "
-        "make sure you're ready before you go."))
+        "and the High Houses on top like a crown. I'm sorry to say the bridge stays up a while longer, though. The "
+        "council's word came with a second letter, and it isn't good news.",
+        nxt="ceq_word_to_the_wardens"))
+    A(Q("ceq_word_to_the_wardens", "Word to the Wardens", CALDUS, 51, 51, "Wardensworn",
+        "The council's second letter says Aurelion's outer rings can't take the weight of visitors while the Third "
+        "Anchor is slipping. Bridgewarden Caldus Rhee wants you to take it east along the old aqueduct arm to the "
+        "Anchor-Wardens at Keelstone.",
+        [deliver("ce_q_second_letter", "Take the council's second letter to Warden-Prime Aldric Sorne at Keelstone")],
+        "The anchors hold up the shelf the outer rings are moored to, and they have for a thousand years. One of them's "
+        "slipping, and the council won't put guests on a ring that might drop. Go east along the aqueduct arm from the "
+        "Spillway to the Anchorfields, and take this to the Warden-Prime at Keelstone. The bridge will still be here.",
+        "The council's sent me a guest from the ground, with a letter saying the guest is the help.\n\nWell, I've "
+        "asked for help for forty years and got letters. Help is new. Welcome to the Anchorfields.",
+        turn_in_npc_id="af_warden_prime", requires_quests=["ceq_the_sky_bridge"],
+        grant_items=carry("ce_q_second_letter", "The Council's Second Letter", "A short letter sealed in grey wax, the "
+                          "council's mark for bad news, addressed to the Anchor-Wardens of Keelstone.")))
     return out

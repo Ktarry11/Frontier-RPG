@@ -1,0 +1,477 @@
+{
+  "_notes": "The Anchorfields' open-world rares (52-54). ONE item per kill from the rare's four; item_level = the rare's level + 3. Hand-authored in tools/build_anchorfields_content.py.",
+  "The Gardener": [
+    {
+      "name": "Gardener's Crystal Shears",
+      "slot": "main_hand",
+      "item_level": 55,
+      "rarity": "rare",
+      "required_level": 52,
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "strength": 16,
+        "agility": 16
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 96,
+      "weapon_damage_max": 130,
+      "attack_speed": 1.7,
+      "stat_template": "agi_physical",
+      "item_id": "afi_gardeners_crystal_shears"
+    },
+    {
+      "name": "Orchard-Keeper's Gloves",
+      "slot": "hands",
+      "item_level": 55,
+      "rarity": "rare",
+      "required_level": 52,
+      "primary_stats": {
+        "intellect": 9,
+        "spirit": 9
+      },
+      "secondary_stats": {
+        "healing_power": 24
+      },
+      "armor_type": "cloth",
+      "armor_value": 62,
+      "stat_template": "spi_healer",
+      "item_id": "afi_orchard_keepers_gloves"
+    },
+    {
+      "name": "House Vaelith Greaves",
+      "slot": "legs",
+      "item_level": 55,
+      "rarity": "rare",
+      "required_level": 52,
+      "primary_stats": {
+        "strength": 22,
+        "stamina": 22
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 433,
+      "stat_template": "str_physical",
+      "item_id": "afi_house_vaelith_greaves"
+    },
+    {
+      "name": "Grafted Silverbark Ring",
+      "slot": "ring",
+      "item_level": 55,
+      "rarity": "rare",
+      "required_level": 52,
+      "primary_stats": {
+        "agility": 13,
+        "spirit": 13
+      },
+      "secondary_stats": {},
+      "stat_template": "agi_int_hybrid",
+      "item_id": "afi_grafted_silverbark_ring"
+    }
+  ],
+  "Starfall, the Burning Shard": [
+    {
+      "name": "Shard of Starfall",
+      "slot": "trinket",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "primary_stats": {
+        "intellect": 10,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "spell_power": 12
+      },
+      "stat_template": "int_caster",
+      "item_id": "afi_shard_of_starfall"
+    },
+    {
+      "name": "Star-Scorched Mantle",
+      "slot": "shoulder",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "primary_stats": {
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "spell_power": 28,
+        "crit_chance_spell": 8
+      },
+      "armor_type": "cloth",
+      "armor_value": 77,
+      "stat_template": "int_caster",
+      "item_id": "afi_star_scorched_mantle"
+    },
+    {
+      "name": "Fallen Light Hauberk",
+      "slot": "chest",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "primary_stats": {
+        "agility": 22,
+        "spirit": 22
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 294,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "afi_fallen_light_hauberk"
+    },
+    {
+      "name": "Burning Shard Signet",
+      "slot": "ring",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "primary_stats": {
+        "strength": 14,
+        "intellect": 14
+      },
+      "secondary_stats": {},
+      "stat_template": "str_int_hybrid",
+      "item_id": "afi_burning_shard_signet"
+    }
+  ],
+  "Engine Seven": [
+    {
+      "name": "Piston-Driven Maul",
+      "slot": "two_hand",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 33,
+        "stamina": 43
+      },
+      "secondary_stats": {
+        "defense_rating": 25
+      },
+      "weapon_damage_min": 132,
+      "weapon_damage_max": 179,
+      "attack_speed": 3.6,
+      "stat_template": "str_physical",
+      "item_id": "afi_piston_driven_maul"
+    },
+    {
+      "name": "Gearwork Breastplate",
+      "slot": "chest",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "primary_stats": {
+        "strength": 22,
+        "stamina": 22
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 441,
+      "stat_template": "str_physical",
+      "item_id": "afi_gearwork_breastplate"
+    },
+    {
+      "name": "Coolant-Stained Jerkin",
+      "slot": "chest",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "primary_stats": {
+        "agility": 22,
+        "stamina": 22
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 183,
+      "stat_template": "agi_physical",
+      "item_id": "afi_coolant_stained_jerkin"
+    },
+    {
+      "name": "Engine Seven's Governor",
+      "slot": "trinket",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {},
+      "stat_template": "agi_physical",
+      "item_id": "afi_engine_sevens_governor"
+    }
+  ],
+  "Anchor-Marshal Corvan Sael": [
+    {
+      "name": "Marshal's Crystal Staff",
+      "slot": "two_hand",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 24,
+        "stamina": 24
+      },
+      "secondary_stats": {
+        "spell_power": 31
+      },
+      "weapon_damage_min": 54,
+      "weapon_damage_max": 74,
+      "attack_speed": 3.2,
+      "stat_template": "int_caster",
+      "item_id": "afi_marshals_crystal_staff"
+    },
+    {
+      "name": "Seized Anchor Pauldrons",
+      "slot": "shoulder",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "strength": 19,
+        "intellect": 19
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 379,
+      "stat_template": "str_int_hybrid",
+      "item_id": "afi_seized_anchor_pauldrons"
+    },
+    {
+      "name": "Ascendant Edict",
+      "slot": "off_hand",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 10,
+        "spirit": 10
+      },
+      "secondary_stats": {
+        "healing_power": 28
+      },
+      "stat_template": "spi_healer",
+      "item_id": "afi_ascendant_edict"
+    },
+    {
+      "name": "Sael's Command Belt",
+      "slot": "waist",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "agility": 16,
+        "spirit": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 207,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "afi_saels_command_belt"
+    }
+  ],
+  "The Unmoored": [
+    {
+      "name": "Unmoored Wraps",
+      "slot": "wrist",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "intellect": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "spell_power": 14
+      },
+      "armor_type": "cloth",
+      "armor_value": 64,
+      "stat_template": "int_caster",
+      "item_id": "afi_unmoored_wraps"
+    },
+    {
+      "name": "Gravityless Treads",
+      "slot": "feet",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "agility": 16,
+        "stamina": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 129,
+      "stat_template": "agi_physical",
+      "item_id": "afi_gravityless_treads"
+    },
+    {
+      "name": "Void-Hollowed Helm",
+      "slot": "head",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "strength": 19,
+        "stamina": 19
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 379,
+      "stat_template": "str_physical",
+      "item_id": "afi_void_hollowed_helm"
+    },
+    {
+      "name": "Nothing-to-Hold Pendant",
+      "slot": "neck",
+      "item_level": 57,
+      "rarity": "rare",
+      "required_level": 54,
+      "primary_stats": {
+        "intellect": 8,
+        "spirit": 8
+      },
+      "secondary_stats": {
+        "healing_power": 22
+      },
+      "stat_template": "spi_healer",
+      "item_id": "afi_nothing_to_hold_pendant"
+    }
+  ],
+  "Old Ballast": [
+    {
+      "name": "Ballast-Stone Bulwark",
+      "slot": "off_hand",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 25
+      },
+      "armor_value": 114,
+      "block_value": 142,
+      "stat_template": "str_physical",
+      "item_id": "afi_ballast_stone_bulwark"
+    },
+    {
+      "name": "Dropfield Salvager's Cloak",
+      "slot": "back",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {},
+      "stat_template": "agi_physical",
+      "item_id": "afi_dropfield_salvagers_cloak"
+    },
+    {
+      "name": "Dead Weight Legguards",
+      "slot": "legs",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "primary_stats": {
+        "agility": 22,
+        "spirit": 22
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 294,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "afi_dead_weight_legguards"
+    },
+    {
+      "name": "Fallen Isle Robe",
+      "slot": "chest",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "primary_stats": {
+        "intellect": 13,
+        "spirit": 13
+      },
+      "secondary_stats": {
+        "healing_power": 35
+      },
+      "armor_type": "cloth",
+      "armor_value": 91,
+      "stat_template": "spi_healer",
+      "item_id": "afi_fallen_isle_robe"
+    }
+  ],
+  "Old Hornback": [
+    {
+      "name": "Hornback's Horn Bow",
+      "slot": "ranged",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "weapon_type": "bow",
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 83,
+      "weapon_damage_max": 112,
+      "attack_speed": 2.8,
+      "stat_template": "agi_physical",
+      "item_id": "afi_hornbacks_horn_bow"
+    },
+    {
+      "name": "Tilt-Walker Boots",
+      "slot": "feet",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "primary_stats": {
+        "strength": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 305,
+      "stat_template": "str_physical",
+      "item_id": "afi_tilt_walker_boots"
+    },
+    {
+      "name": "Stubborn Hide Vest",
+      "slot": "chest",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "primary_stats": {
+        "agility": 22,
+        "spirit": 22
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 183,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "afi_stubborn_hide_vest"
+    },
+    {
+      "name": "Old Hornback's Charm",
+      "slot": "neck",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "primary_stats": {
+        "intellect": 10,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "spell_power": 12
+      },
+      "stat_template": "int_caster",
+      "item_id": "afi_old_hornbacks_charm"
+    }
+  ]
+}

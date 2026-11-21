@@ -36,7 +36,8 @@ A SKY MAP: the baker cuts the drop out and hangs rock under the islands and soft
 (tools/bake_ashenvale.sky_cut); the renderer paints the day-blue cloud sea below (ui/tilemap_renderer._draw_sky).
 
 HARD CONTRACTS (world/portal_manager.py)
-  portals  Lenswatch (103,206) <-> the Skiff Roost; later: Aurelion (226,2), up the sky-bridge
+  portals  Lenswatch (103,206) <-> the Skiff Roost; the Golem Vault (90,156); the Anchorfields (295,30), east along
+           the aqueduct arm; later: Aurelion (226,2), up the sky-bridge
 """
 import numpy as np
 
@@ -49,8 +50,8 @@ W, H = 300, 260
 SKP = "assets/tiles/sky/props/"
 BLD = "assets/buildings/"
 
-PORTALS = {(103, 206): "Lenswatch", (90, 156): "The Golem Vault"}
-ARRIVALS = [(96, 206), (90, 159)]
+PORTALS = {(103, 206): "Lenswatch", (90, 156): "The Golem Vault", (295, 30): "The Anchorfields"}
+ARRIVALS = [(96, 206), (90, 159), (290, 30)]
 LATER_PORTALS = {(226, 2): "Aurelion"}
 START = (96, 206)        # the skiff landing on Crashfall: everything must be reachable from here
 
@@ -92,6 +93,7 @@ SPANS = [
     ([(218, 119), (223, 113)], 4.0),               # ... and the second
     ([(90, 206), (104, 206)], 4.0),                # the skiff gangway on Crashfall
     ([(226, 12), (226, 0)], 4.0),                  # the sky-bridge's foot (Aurelion, later)
+    ([(268, 30), (299, 30)], 4.0),                 # the old aqueduct's arm, east to the Anchorfields
 ]
 
 
@@ -290,6 +292,7 @@ CLEARINGS = [
     (205, 82, 12, 8),           # Halcyon Rest
     (275, 112, 8, 12),          # the Lancer's Perch
     (242, 30, 12, 9),           # the Spillway
+    (290, 30, 5, 4),            # the aqueduct arm's landing
     (226, 16, 6, 4),            # the Aurelion Approach
     (72, 58, 8, 6),             # the broken citadel
 ]

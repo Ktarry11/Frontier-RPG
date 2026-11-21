@@ -792,6 +792,11 @@ class PortalManager:
             "The Celestial Expanse": {
                 (103, 206): ("Lenswatch", 114, 16),                 # the skiff back: arrive (114,14) on the Roost
                 (90, 156): ("The Golem Vault", 42, 6),              # down into the Kharad's vault: arrive (42,4)
+                (295, 30): ("The Anchorfields", 10, 76),            # east along the aqueduct arm: arrive (10,74)
+            },
+            "The Anchorfields": {
+                (3, 74): ("The Celestial Expanse", 290, 32),        # back west along the arm: arrive (290,30) on the Spillway
+                (188, 206): ("The Keel", 42, 6),                    # down into the third anchor's keel: arrive (42,4)
             },
             "The Golem Vault": {
                 (42, 2): ("The Celestial Expanse", 90, 161),        # back up to the Golem Fields: arrive (90,159)
@@ -799,6 +804,9 @@ class PortalManager:
             },
             "The Storm-Well": {
                 (42, 2): ("The Golem Vault", 42, 96),               # back up the Deep Stair: arrive (42,94)
+            },
+            "The Keel": {
+                (42, 2): ("The Anchorfields", 188, 212),            # back up to the Slipping Anchor: arrive (188,210)
             },
             # ===== FERALAS (docs/feralas_brief.md, 19 Nov 2026): the arrival is always two tiles north of the target =====
             "The High Wilderness": {

@@ -91010,6 +91010,1322 @@
           "dodge_rating": -20
         }
       }
+    ],
+    "shelfrunner_hare": [
+      {
+        "name": "Kick",
+        "kind": "damage",
+        "amount": 198,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bolt Away",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Scratched",
+        "kind": "dot",
+        "amount": 53,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "lantern_puffball": [
+      {
+        "name": "Pop",
+        "kind": "damage",
+        "amount": 198,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Spore Burst",
+        "kind": "damage",
+        "amount": 166,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      },
+      {
+        "name": "Glowing Spores",
+        "kind": "dot",
+        "amount": 53,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 3,
+        "dispel_type": "magic"
+      }
+    ],
+    "estate_sentinel": [
+      {
+        "name": "Halberd",
+        "kind": "damage",
+        "amount": 198,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Trespasser's Strike",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Warded",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 190
+        },
+        "self_only": true
+      }
+    ],
+    "garden_repair_drone": [
+      {
+        "name": "Cutting Beam",
+        "kind": "damage",
+        "amount": 198,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Pruning Sweep",
+        "kind": "damage",
+        "amount": 166,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      },
+      {
+        "name": "Sap-Burn",
+        "kind": "dot",
+        "amount": 53,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 3,
+        "dispel_type": "magic"
+      }
+    ],
+    "orchard_fowl": [
+      {
+        "name": "Peck",
+        "kind": "damage",
+        "amount": 198,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Wing Flurry",
+        "kind": "damage",
+        "amount": 170,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Pecked",
+        "kind": "dot",
+        "amount": 53,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "the_gardener": [
+      {
+        "name": "Gardener's Shears",
+        "kind": "damage",
+        "amount": 320,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Tend the Grounds",
+        "kind": "damage",
+        "amount": 256,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      },
+      {
+        "name": "Planted",
+        "kind": "damage",
+        "amount": 272,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Gardener's Shears, Again",
+        "kind": "damage",
+        "amount": 544,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Old Orders",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 384,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "chain_wind_elemental": [
+      {
+        "name": "Gust",
+        "kind": "damage",
+        "amount": 202,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Chain-Wind",
+        "kind": "damage",
+        "amount": 169,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Wind-Scoured",
+        "kind": "dot",
+        "amount": 54,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "anchorlight_wisp": [
+      {
+        "name": "Flicker",
+        "kind": "damage",
+        "amount": 202,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "holy"
+      },
+      {
+        "name": "Anchorlight",
+        "kind": "damage",
+        "amount": 169,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "holy",
+        "is_aoe": true
+      },
+      {
+        "name": "Searing Glow",
+        "kind": "dot",
+        "amount": 54,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "holy",
+        "duration": 3,
+        "dispel_type": "magic"
+      }
+    ],
+    "starfall,_the_burning_shard": [
+      {
+        "name": "Burning Shard",
+        "kind": "damage",
+        "amount": 330,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Starfall",
+        "kind": "damage",
+        "amount": 264,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Struck Down",
+        "kind": "damage",
+        "amount": 280,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "fire",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Burning Shard, Again",
+        "kind": "damage",
+        "amount": 561,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Burning Up",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 49
+        }
+      }
+    ],
+    "overloaded_construct": [
+      {
+        "name": "Discharge Fist",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Overload",
+        "kind": "damage",
+        "amount": 169,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "nature",
+        "is_aoe": true
+      },
+      {
+        "name": "Shocked",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -20
+        }
+      }
+    ],
+    "scrap_walker": [
+      {
+        "name": "Scrap Blade",
+        "kind": "damage",
+        "amount": 202,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Grinding Advance",
+        "kind": "damage",
+        "amount": 173,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Plated",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 190
+        },
+        "self_only": true
+      }
+    ],
+    "overflow_elemental": [
+      {
+        "name": "Arcane Spill",
+        "kind": "damage",
+        "amount": 202,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Overflow",
+        "kind": "damage",
+        "amount": 169,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      },
+      {
+        "name": "Arcane Burn",
+        "kind": "dot",
+        "amount": 54,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 3,
+        "dispel_type": "magic"
+      }
+    ],
+    "engine_seven": [
+      {
+        "name": "Piston Strike",
+        "kind": "damage",
+        "amount": 330,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Full Throttle",
+        "kind": "damage",
+        "amount": 264,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Pinned in the Gears",
+        "kind": "damage",
+        "amount": 280,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Piston Strike, Again",
+        "kind": "damage",
+        "amount": 561,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Overheat",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 49
+        }
+      }
+    ],
+    "ascendancy_warden": [
+      {
+        "name": "Warden's Blade",
+        "kind": "damage",
+        "amount": 206,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Hold the Line",
+        "kind": "damage",
+        "amount": 177,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Shielded",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 190
+        },
+        "self_only": true
+      }
+    ],
+    "ascendancy_crystal_weaver": [
+      {
+        "name": "Crystal Lance",
+        "kind": "damage",
+        "amount": 206,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Weave",
+        "kind": "damage",
+        "amount": 173,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      },
+      {
+        "name": "Crystal Splinters",
+        "kind": "dot",
+        "amount": 55,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 3,
+        "dispel_type": "magic"
+      }
+    ],
+    "ascendancy_bomber_construct": [
+      {
+        "name": "Bomb",
+        "kind": "damage",
+        "amount": 214,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Carpet Bombing",
+        "kind": "damage",
+        "amount": 173,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Burning",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -20
+        }
+      }
+    ],
+    "ascendancy_engineer": [
+      {
+        "name": "Spanner",
+        "kind": "damage",
+        "amount": 206,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "fire"
+      },
+      {
+        "name": "Rigged Charge",
+        "kind": "damage",
+        "amount": 173,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "fire",
+        "is_aoe": true
+      },
+      {
+        "name": "Scorched",
+        "kind": "dot",
+        "amount": 55,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 3,
+        "dispel_type": "magic"
+      }
+    ],
+    "anchor_marshal_corvan_sael": [
+      {
+        "name": "Marshal's Edict",
+        "kind": "damage",
+        "amount": 340,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Seize the Anchor",
+        "kind": "damage",
+        "amount": 272,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      },
+      {
+        "name": "Held in Place",
+        "kind": "damage",
+        "amount": 289,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Marshal's Edict, Again",
+        "kind": "damage",
+        "amount": 578,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Ascendant Will",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 4,
+        "self_only": true,
+        "stat_mods": {},
+        "absorb": 408,
+        "authored_mechanic": "shield"
+      }
+    ],
+    "slipstone_elemental": [
+      {
+        "name": "Stone Fist",
+        "kind": "damage",
+        "amount": 214,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Slip",
+        "kind": "damage",
+        "amount": 173,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Bruised",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -20
+        }
+      }
+    ],
+    "keelcrack_crawler": [
+      {
+        "name": "Rending Claws",
+        "kind": "damage",
+        "amount": 206,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Out of the Crack",
+        "kind": "damage",
+        "amount": 177,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Rift-Sick",
+        "kind": "dot",
+        "amount": 55,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "dispel_type": "curse"
+      }
+    ],
+    "void_touched_wisp": [
+      {
+        "name": "Void Bolt",
+        "kind": "damage",
+        "amount": 206,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Unmooring",
+        "kind": "damage",
+        "amount": 173,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "is_aoe": true
+      },
+      {
+        "name": "Hollowed",
+        "kind": "dot",
+        "amount": 55,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "dispel_type": "curse"
+      }
+    ],
+    "the_unmoored": [
+      {
+        "name": "Unmoored Grasp",
+        "kind": "damage",
+        "amount": 340,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Gravity Fails",
+        "kind": "damage",
+        "amount": 272,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "shadow",
+        "is_aoe": true
+      },
+      {
+        "name": "Lifted Away",
+        "kind": "damage",
+        "amount": 289,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Unmoored Grasp, Again",
+        "kind": "damage",
+        "amount": 578,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Nothing to Hold",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 51
+        }
+      }
+    ],
+    "dropfield_stalker": [
+      {
+        "name": "Bite",
+        "kind": "damage",
+        "amount": 202,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Pounce",
+        "kind": "damage",
+        "amount": 173,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Torn",
+        "kind": "dot",
+        "amount": 54,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "wreck_rubble_elemental": [
+      {
+        "name": "Rubble Fist",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Collapse",
+        "kind": "damage",
+        "amount": 169,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Grit",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -20
+        }
+      }
+    ],
+    "carrion_gale_hawk": [
+      {
+        "name": "Talons",
+        "kind": "damage",
+        "amount": 202,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Stoop",
+        "kind": "damage",
+        "amount": 173,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Wind-Torn",
+        "kind": "dot",
+        "amount": 54,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "old_ballast": [
+      {
+        "name": "Ballast Fist",
+        "kind": "damage",
+        "amount": 330,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "The Weight of It",
+        "kind": "damage",
+        "amount": 264,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Crushed Flat",
+        "kind": "damage",
+        "amount": 280,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Ballast Fist, Again",
+        "kind": "damage",
+        "amount": 561,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Dead Weight",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 49
+        }
+      }
+    ],
+    "tiltside_goat": [
+      {
+        "name": "Butt",
+        "kind": "damage",
+        "amount": 202,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Headlong",
+        "kind": "damage",
+        "amount": 173,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Bruised",
+        "kind": "dot",
+        "amount": 54,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "cliffside_moth": [
+      {
+        "name": "Dust",
+        "kind": "damage",
+        "amount": 202,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Wing Gust",
+        "kind": "damage",
+        "amount": 173,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Choking Dust",
+        "kind": "dot",
+        "amount": 54,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3,
+        "dispel_type": "poison"
+      }
+    ],
+    "old_hornback": [
+      {
+        "name": "Old Horns",
+        "kind": "damage",
+        "amount": 330,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "The Long Charge",
+        "kind": "damage",
+        "amount": 264,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Knocked Flat",
+        "kind": "damage",
+        "amount": 280,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Old Horns, Again",
+        "kind": "damage",
+        "amount": 561,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Stubborn",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.35,
+        "stat_mods": {
+          "attack_power": 49
+        }
+      }
+    ],
+    "ballast_golem": [
+      {
+        "name": "Ballast Fist",
+        "kind": "damage",
+        "amount": 214,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Heavy Step",
+        "kind": "damage",
+        "amount": 173,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical",
+        "is_aoe": true
+      },
+      {
+        "name": "Weighed Down",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 2,
+        "stat_mods": {
+          "dodge_rating": -20
+        }
+      }
+    ],
+    "keel_crystal_shard": [
+      {
+        "name": "Shard",
+        "kind": "damage",
+        "amount": 206,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Crystal Flare",
+        "kind": "damage",
+        "amount": 173,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      },
+      {
+        "name": "Crystal Burn",
+        "kind": "dot",
+        "amount": 55,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 3,
+        "dispel_type": "magic"
+      }
+    ],
+    "chainwell_crawler": [
+      {
+        "name": "Rending Claws",
+        "kind": "damage",
+        "amount": 206,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Up the Chain",
+        "kind": "damage",
+        "amount": 177,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow"
+      },
+      {
+        "name": "Rift-Sick",
+        "kind": "dot",
+        "amount": 55,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "shadow",
+        "duration": 3,
+        "dispel_type": "curse"
+      }
+    ],
+    "hollowed_warden": [
+      {
+        "name": "Warden's Blade",
+        "kind": "damage",
+        "amount": 206,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Last Watch",
+        "kind": "damage",
+        "amount": 177,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Warded",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 190
+        },
+        "self_only": true
+      }
+    ],
+    "warden_captain_oris_hale": [
+      {
+        "name": "Captain's Blade",
+        "kind": "damage",
+        "amount": 340,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane",
+        "boss_rework": 1
+      },
+      {
+        "name": "Hold the Post",
+        "kind": "damage",
+        "amount": 299,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Captain's Blade, Twice",
+        "kind": "damage",
+        "amount": 442,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "No One Leaves the Post",
+        "kind": "damage",
+        "amount": 237,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      },
+      {
+        "name": "Shield-Bash",
+        "kind": "damage",
+        "amount": 374,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "arcane",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "Hold the Post, Deep",
+        "kind": "dot",
+        "amount": 153,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 4,
+        "dispel_type": "magic"
+      },
+      {
+        "name": "Last Orders",
+        "kind": "heal",
+        "amount": 374,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Last Stand",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.3,
+        "stat_mods": {
+          "attack_power": 136
+        }
+      }
+    ],
+    "the_keel_heart": [
+      {
+        "name": "Keel-Light",
+        "kind": "damage",
+        "amount": 340,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "arcane",
+        "boss_rework": 1
+      },
+      {
+        "name": "The Crack Widens",
+        "kind": "damage",
+        "amount": 299,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Keel-Light, Twice",
+        "kind": "damage",
+        "amount": 442,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "The Keel Gives Way",
+        "kind": "damage",
+        "amount": 237,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "is_aoe": true
+      },
+      {
+        "name": "Held in the Light",
+        "kind": "damage",
+        "amount": 374,
+        "cooldown": 6,
+        "mana_cost": 0,
+        "school": "arcane",
+        "authored_mechanic": "stun",
+        "rider": {
+          "effect": "debuff",
+          "duration": 1,
+          "is_stun": true,
+          "stat_mods": {}
+        }
+      },
+      {
+        "name": "The Crack Widens, Deep",
+        "kind": "dot",
+        "amount": 153,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 4,
+        "dispel_type": "magic"
+      },
+      {
+        "name": "The Shelf Shakes",
+        "kind": "damage",
+        "amount": 612,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "arcane"
+      },
+      {
+        "name": "Last Stand",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 99,
+        "mana_cost": 0,
+        "school": "arcane",
+        "duration": 30,
+        "self_only": true,
+        "hp_below": 0.3,
+        "stat_mods": {
+          "attack_power": 136
+        }
+      }
     ]
   }
 }

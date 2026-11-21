@@ -3994,8 +3994,8 @@
         }
       ],
       "accept_text": "Go on up to the foot of the bridge and look. I've stood guard on it for twelve years, and I've never let anyone from the ground walk on it. I want to see what your face does.",
-      "turn_in_text": "That's what everyone's face does, the first time.\n\nAurelion's eight rings, seven of them still turning, and the High Houses on top like a crown. They're lowering the bridge for you now. It's a long walk, so make sure you're ready before you go.",
-      "next_quest_id": null,
+      "turn_in_text": "That's what everyone's face does, the first time.\n\nAurelion's eight rings, seven of them still turning, and the High Houses on top like a crown. I'm sorry to say the bridge stays up a while longer, though. The council's word came with a second letter, and it isn't good news.",
+      "next_quest_id": "ceq_word_to_the_wardens",
       "requires_quests": [
         "ceq_the_heralds_seal"
       ],
@@ -4068,6 +4068,112 @@
           "sell_price": 5540,
           "identity": "strength",
           "icon_id": "gear_inv_jewelry_amulet_04"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_word_to_the_wardens",
+      "title": "Word to the Wardens",
+      "giver_npc_id": "ce_bridgewarden",
+      "zone": "celestial_expanse",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "The council's second letter says Aurelion's outer rings can't take the weight of visitors while the Third Anchor is slipping. Bridgewarden Caldus Rhee wants you to take it east along the old aqueduct arm to the Anchor-Wardens at Keelstone.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "ce_q_second_letter",
+          "count": 1,
+          "label": "Take the council's second letter to Warden-Prime Aldric Sorne at Keelstone"
+        }
+      ],
+      "accept_text": "The anchors hold up the shelf the outer rings are moored to, and they have for a thousand years. One of them's slipping, and the council won't put guests on a ring that might drop. Go east along the aqueduct arm from the Spillway to the Anchorfields, and take this to the Warden-Prime at Keelstone. The bridge will still be here.",
+      "turn_in_text": "The council's sent me a guest from the ground, with a letter saying the guest is the help.\n\nWell, I've asked for help for forty years and got letters. Help is new. Welcome to the Anchorfields.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "af_warden_prime",
+      "requires_quests": [
+        "ceq_the_sky_bridge"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "ce_q_second_letter",
+            "name": "The Council's Second Letter",
+            "description": "A short letter sealed in grey wax, the council's mark for bad news, addressed to the Anchor-Wardens of Keelstone.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "unique_item_defs": [
+        {
+          "name": "Wardensworn Greatsword",
+          "slot": "main_hand",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 21,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 51
+          },
+          "armor_value": 0,
+          "required_level": 51,
+          "sell_price": 11541,
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_09",
+          "weapon_damage_min": 94,
+          "weapon_damage_max": 128,
+          "attack_speed": 3.4,
+          "block_value": 0
+        },
+        {
+          "name": "Wardensworn Bracers",
+          "slot": "wrist",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 90,
+          "required_level": 51,
+          "sell_price": 4616,
+          "identity": "agility",
+          "icon_id": "gear_inv_bracer_10"
+        },
+        {
+          "name": "Wardensworn Hood",
+          "slot": "head",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "spell_power": 27
+          },
+          "armor_value": 75,
+          "required_level": 51,
+          "sell_price": 7386,
+          "identity": "caster",
+          "icon_id": "gear_inv_helmet_05"
         }
       ],
       "gear_reward_gear_level": 52,

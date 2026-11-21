@@ -63,13 +63,13 @@ the zeppelins cross the sea.
  =========== THE AETHERIAN CONTINENT (built now) ===========
                     The Sunward Crown (48-49)      first contact
                          |
-                    The Celestial Expanse (49-51)
-                         | sky-bridge
-                    AURELION (capital)
+                    The Celestial Expanse (49-51) ---- aqueduct arm ----> The Anchorfields (51-54)
+                         | sky-bridge (shut until the Third Anchor holds)     the engines that hold
+                    AURELION (capital, built after the zones)                the islands up
                     /                   \
-     The Anchorfields (51-54)     The Ascendant Bastions (54-57)
-     the engines that hold        the Ascendancy's fortresses
-     the islands up                         |
+     The Anchorfields             The Ascendant Bastions (54-57)
+     (also reached from           the Ascendancy's fortresses
+     the city, once built)                  |
                                   The Fading Firmament (57-60)
                                   the dying heart
 
@@ -274,6 +274,22 @@ a tank, a melee and a ranged.
 The first two maps have names (Kyle, 20 Nov 2026): **The White Expanse** (1-6) and **The Shattered Reaches** (6-11).
 "Beyond that who knows." The rest of the run down to the 21-24 map at Aurelion's north gate is still to be named.
 **Parked (Kyle, 20 Nov 2026): "We will keep building to 60 for now and ignore the starting zone."**
+
+**Zones first, the city after (Kyle, 20 Nov 2026: "we wont build raids yet. We need quest lines. So keep building zones
+and eventually the grand city").** The road goes on without Aurelion: the Celestial Expanse's last quest turns the
+council's invitation into a second letter (the outer rings can't take visitors while the Third Anchor slips) and sends
+you east along the old aqueduct arm from the Spillway to the Anchorfields. Saving the Third Anchor is what earns the
+bridge. When Aurelion is built it sits between the zones, and the arm stays as the old way round.
+
+## Ancient world, new arrivals (Kyle, 20 Nov 2026)
+
+"Do keep in mind aurelion is ancient, we are new. we are learning lore not having it being new to the world." The sky
+isn't happening for the first time when the player gets there. Aurelion, the anchors, the houses, the wardens, the
+old wars and the slow dying are all centuries deep, with their own histories, names and habits; the player walks into
+the middle of them and learns. Write it that way: the Aetherians talk about the anchors the way people talk about an
+old bridge they've always crossed, the failing is a long decline that's lately got faster, places carry the names of
+people dead for a thousand years, and every zone has ruins of something that went wrong before. What's new is the
+player, the ground, the tree and the Earthborn. The sky's history is old, and the player is the one catching up.
 
 ## The sky's one mystery (Kyle, 20 Nov 2026)
 

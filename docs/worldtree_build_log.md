@@ -388,9 +388,72 @@ had no words for the sky's Earthborn places or the Aetherians' "the change"). qa
 cutscene swaps (the Cloudbreak's mural); it still fails on ten older pairs in the Great Settlement, the Middle Boughs
 and Rootwater Isle, and qa_prop_overlap still counts 137 against its cap of 120, both from before this build.
 
+## The Anchorfields (51-54) and the Keel, built 20 Nov 2026
+
+Kyle: "we wont build raids yet. We need quest lines. So keep building zones and eventually the grand city", and,
+building it, "do keep in mind aurelion is ancient, we are new. we are learning lore not having it being new to the
+world". Also "keep your progress report up to date bro": the build ran on the task list.
+
+**The road without the city.** The Expanse's sky-bridge stays shut: the council's second letter says the outer rings
+can't take visitors while the Third Anchor slips (`ceq_word_to_the_wardens`, Caldus to the Warden-Prime), and the old
+aqueduct arm runs east off the Spillway (295,30) to the Anchorfields (3,74). Saving the Third Anchor earns the bridge.
+
+**The map** (`tools/handbuilt_worldtree_anchorfields.py`, 300x250, about 42,400 walkable tiles): a shattered plate. One
+great shelf of stone, cracked by gravity going wrong into five big shards with open sky in the cracks and wide stone
+bridges over every one: the Estates (House Vaelith's old estate), the First Anchor in its chain-field with Keelstone
+at its foot, the Gearwork's engines, the Seized Anchor (the Ascendancy's camp) and the Slipping Anchor. Off the shelf:
+the House of Measures' Observatory, the Listing Isle with Tiltside on it, a chain-held islet, the aqueduct arm, and the
+Dropfield, walkable cloud strewn with the island that fell centuries ago. A dawn sky. Measured: one piece, and a body
+five tiles wide reaches all of it. Every pool spills off its nearest edge (the wellstones).
+
+**Ancient, not new.** The anchors are a thousand years old; the wardens' links are named for wrights dead nine hundred
+years; the house has written the shelf's lean every night for as long; the Dropfield is the Fourth Anchor's island,
+whose story the old warden carries word for word. The failing is a long decline that's lately got faster, and the
+player walks into the middle of it.
+
+**The Keel** (cave, 96x96, `tools/handbuilt_keel.py`, baked by `tools/bake_keel.py`): the Third Anchor's root. Rooms,
+not halls: the Root Stair, the Chainwell (a round hall round the shaft, the anchor chain going down into open sky
+through the floor; walk the rim either way), the Ballast Halls, the Wardens' Last Post (Warden-Captain Oris Hale,
+optional), and the Crystal Keel, cracked, with the Keel-Heart grown out of the crack. A five-wide body reaches every
+room.
+
+**People** (`tools/build_anchorfields_people.py`): 21. Keelstone's Anchor-Wardens (Warden-Prime Aldric Sorne, the
+chainwright, the engineer, the scout, Old Warden Ebbe Tharn, the skiffmaster and two traders); the House of Measures
+(Master Ivo Kestrel, the star-reader, the archivist); Tiltside's Earthborn (Margit Halvorsen, Bartosz Wierzbicki,
+Dr. Ngozi Eze, Daisuke Moriyama); House Vaelith's steward and heir; the armwarden, the engine-tender, the warden at the
+Third Anchor, and Wade Prentiss scavenging the Dropfield.
+
+**Creatures** (`tools/build_anchorfields_content.py`): 29 in the open, seven of them rares (the Gardener, Starfall the
+Burning Shard, Engine Seven, Anchor-Marshal Corvan Sael, the Unmoored, Old Ballast, Old Hornback), and 6 in the Keel (2
+bosses); 36 items; gathering and fishing at 51-54.
+
+**Quests** (`tools/anchorfields_quests.py`, `tools/build_anchorfields_quests.py`): 37, 29 of them from the three hubs.
+The wardens (walk the three anchors; the named links and anchorlight; reading the Third and what comes up out of its
+cracks, to the Unmoored; the Ascendancy's own drift logs, to the anchor-marshal; the old warden's story, down into the
+Keel to relieve Captain Hale; the Keel-Heart, which stops the slipping and earns the bridge); the House of Measures
+(the ledger that's too small, the survey marks, the lights that move, a new lens, and the three-handed plate); Tiltside
+(the tilt the Earthborn measure because nobody else will); the estate, the Gearwork, the Dropfield. Reputation: the
+Aetherians 29; the Earthborn pay nobody.
+
+**The sky's one mystery, the Anchorfields' piece:** the House of Measures' oldest records were copied from plates in a
+hand nobody reads, and a plate off the fallen island shows why: three columns side by side, old Aetherian, Kharad runes
+and Veyr song-notation, saying the same thing. The old warden's oldest line, "The first anchor was raised by three, and
+three kept it", stops meaning three wardens.
+
+**Secrets:** three on the Anchorfields, placed blind (counts only).
+
+**QA** passed: portals, arrivals, NPC tiles and props, town services, encounter tables, creature sprites and
+reachability, rares, nodes, gathering, fishing pools, flight paths, factions, faction rewards, vendors and stock,
+collection, keepsakes, secrets, hidden zones, quest givers, hubs, lore, levels, objectives and drops, combat
+backgrounds, exits, chests, start zones, cave smoothing, dungeon packs and boss turns, text encoding. The lore check
+learned the Anchorfields' Earthborn places. qa_building_overlap's ten older pairs and qa_prop_overlap's 137 are
+unchanged from before this build; the Anchorfields and the Keel add none.
+
 ## Next
 
-Aurelion, the Aetherian capital, whose sky-bridge the Expanse's last quest lowers. The Aetherian start zone's first two
-maps are named (the White Expanse, 1-6, and the Shattered Reaches, 6-11). The Celestial raid waits behind the
-cracked seal: Kyle wants it "very storm and elemental and norse", and the Stormhold draft is in the brief for his yes.
+The Ascendant Bastions (54-57), then the Fading Firmament (57-60), and then Aurelion, the Aetherian capital, whose
+bridge the Keel-Heart's death earns (Kyle: zones first, "eventually the grand city"). The raids wait. The Aetherian
+start zone is parked until 60 is done (its first two maps are named: the White Expanse, 1-6, and the Shattered
+Reaches, 6-11). The Celestial raid, the Stormhold, is designed for turn-based combat in the brief and waits behind the
+cracked seal until raids are built.
 The Heartwood Hollow is the tree's dungeon when Kyle calls it. See `docs/worldtree_brief.md` for the whole road.

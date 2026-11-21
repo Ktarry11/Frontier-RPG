@@ -1,0 +1,143 @@
+{
+  "_notes": "Boss loot for the Keel (the root of the Anchorfields' third anchor, 53-54). ONE item per kill from the boss's four; item_level = boss level + 2. Hand-authored in tools/build_anchorfields_content.py.",
+  "Warden-Captain Oris Hale": [
+    {
+      "name": "Hale's Warden Blade",
+      "slot": "main_hand",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "strength": 13,
+        "stamina": 17
+      },
+      "secondary_stats": {
+        "defense_rating": 10
+      },
+      "weapon_damage_min": 98,
+      "weapon_damage_max": 132,
+      "attack_speed": 2.4,
+      "stat_template": "str_physical",
+      "item_id": "kli_hales_warden_blade"
+    },
+    {
+      "name": "Last Post Shoulderguards",
+      "slot": "shoulder",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "primary_stats": {
+        "agility": 19,
+        "spirit": 19
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 248,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "kli_last_post_shoulderguards"
+    },
+    {
+      "name": "Lost Warden's Cowl",
+      "slot": "head",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "primary_stats": {
+        "intellect": 11,
+        "spirit": 11
+      },
+      "secondary_stats": {
+        "healing_power": 30
+      },
+      "armor_type": "cloth",
+      "armor_value": 77,
+      "stat_template": "spi_healer",
+      "item_id": "kli_lost_wardens_cowl"
+    },
+    {
+      "name": "Unrelieved Watch Band",
+      "slot": "ring",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {},
+      "stat_template": "agi_physical",
+      "item_id": "kli_unrelieved_watch_band"
+    }
+  ],
+  "The Keel-Heart": [
+    {
+      "name": "Keel-Heart Crystal",
+      "slot": "trinket",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "primary_stats": {
+        "intellect": 10,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "spell_power": 12
+      },
+      "stat_template": "int_caster",
+      "item_id": "kli_keel_heart_crystal"
+    },
+    {
+      "name": "Keel-Forged Chestguard",
+      "slot": "chest",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "primary_stats": {
+        "strength": 22,
+        "intellect": 22
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 441,
+      "stat_template": "str_int_hybrid",
+      "item_id": "kli_keel_forged_chestguard"
+    },
+    {
+      "name": "Cracked Keel Leggings",
+      "slot": "legs",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "primary_stats": {
+        "agility": 22,
+        "stamina": 22
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 183,
+      "stat_template": "agi_physical",
+      "item_id": "kli_cracked_keel_leggings"
+    },
+    {
+      "name": "Anchor-Light Wand",
+      "slot": "ranged",
+      "item_level": 56,
+      "rarity": "rare",
+      "required_level": 53,
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "spell_power": 20,
+        "crit_chance_spell": 5
+      },
+      "weapon_damage_min": 83,
+      "weapon_damage_max": 112,
+      "attack_speed": 1.9,
+      "stat_template": "int_caster",
+      "item_id": "kli_anchor_light_wand"
+    }
+  ]
+}
