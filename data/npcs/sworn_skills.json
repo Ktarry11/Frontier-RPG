@@ -61,7 +61,7 @@
   "from": "Wave 4: 'what he resolves is the news he never gave. ... he stands very still in front of the party, every enemy comes for him, and the first two that try it get stung.'",
   "ability": {
    "ability_id": "personal_sworn_alvaro_tells_the_bees",
-   "name": "Tells the Bees",
+   "name": "Told Them Everything",
    "engine": "live: taunts_all on self for 3 turns, riposte 2 uses at 100%",
    "effect_type": "buff",
    "target_type": "self",
@@ -1110,7 +1110,7 @@
   "from": "Wave 4: 'what he resolves is the knee at nineteen. ... he floods the fight with ice, every enemy is struck, and they all slow down on it.'",
   "ability": {
    "ability_id": "personal_sworn_etienne_floods_it_flat",
-   "name": "Floods It Flat",
+   "name": "On His Own Ice",
    "engine": "live: frost spell damage on every enemy, then enemy_mods haste -30 on every enemy for 2 turns",
    "effect_type": "spell_damage",
    "target_type": "all_enemies",
@@ -1162,7 +1162,7 @@
   "from": "Wave 4: 'what he resolves is counting the seconds. ... he winds the whole party back a little, and what was done to them comes undone.'",
   "ability": {
    "ability_id": "personal_sworn_facundo_winds_it_back",
-   "name": "Winds It Back",
+   "name": "Stops Counting",
    "engine": "live: party heal that cleanses every magic, curse, poison and disease effect, plus heals_party_pct_max 15",
    "effect_type": "heal",
    "target_type": "party",
@@ -2737,7 +2737,7 @@
   "from": "Wave 4: 'what he resolves is the grief he never let himself have. ... he asks the dead to come, every enemy is struck, and the party is healed by what it takes.'",
   "ability": {
    "ability_id": "personal_sworn_mauricio_the_whole_altar",
-   "name": "The Whole Altar",
+   "name": "Twenty Years Late",
    "engine": "live: shadow spell damage on every enemy; every ally healed for 12% of the damage dealt (heals_party_pct_of_damage)",
    "effect_type": "spell_damage",
    "target_type": "all_enemies",
@@ -3276,7 +3276,7 @@
   "from": "Wave 4: 'what he resolves is Chuy's horn. ... he picks the biggest thing in the fight and stays on it, and the hit always lands hard.'",
   "ability": {
    "ability_id": "personal_sworn_raul_stays_on",
-   "name": "Stays On",
+   "name": "Hangs Up the Buckle",
    "engine": "live: strike on the enemy with the most maximum health (auto_enemy largest), cannot_miss and always_crits",
    "effect_type": "damage",
    "target_type": "enemy",
@@ -3379,7 +3379,7 @@
   "from": "Wave 4: 'what she resolves is Beto's windscreen. ... she checks it twice and then goes, and she lands exactly where she said on whatever moves next.'",
   "ability": {
    "ability_id": "personal_sworn_renata_lands_it_clean",
-   "name": "Lands It Clean",
+   "name": "Somebody Watching",
    "engine": "live: strike on whichever enemy acts next (auto_enemy next), cannot_miss, ignores 40% of armour",
    "effect_type": "damage",
    "target_type": "enemy",
