@@ -85,6 +85,14 @@ class VendorScreen(BaseScreen):
         self._bars()
         self.sell_filter = "all"
         self.buy_filter = "all"
+        # A TABBED SHELF (the Frontier Quartermasters', tools/build_heroic_rewards.py; Kyle, 21 Nov 2026: "organize it
+        # by armor slot and type and weapon slot", "well organized and sleek and sexy"): the vendor's own tabs replace
+        # the generic ones, drawn as icons, and each tab is sorted by slot
+        self.tabbed = bool(getattr(vendor, "tabs", None))
+        if self.tabbed:
+            self.BUY_FILTERS = [("all", "All")] + [tuple(t) for t in vendor.tabs]
+            self.buy_filter = self.BUY_FILTERS[1][0]
+        self.icon_ui_helper = getattr(state_manager, "icon_ui_helper", None)
 
         self.message = None
         self.message_color = COLOR_WHITE
@@ -153,7 +161,7 @@ class VendorScreen(BaseScreen):
 
         # A recipe scroll carries vendor_price=None (its price is worked out from sell_price),
         # and None cannot be sorted against a number: every shop that sold a recipe crashed.
-        items.sort(key=self._unit_price)
+        items.sort(key=self._shelf_key if self.tabbed else self._unit_price)
 
         # Gear appended after supplies when the vendor has a gear stock
         if getattr(self.vendor, "sells_gear", False):
@@ -184,7 +192,30 @@ class VendorScreen(BaseScreen):
             return "gear"
         return "supplies"
 
+    #: the order slots sit in inside a tab, head to toe, then the hands
+    SLOT_ORDER = ("head", "neck", "shoulder", "back", "chest", "wrist", "hands", "waist", "legs", "feet", "ring",
+                  "trinket", "main_hand", "off_hand", "ranged")
+
+    def _tab_of(self, item):
+        """A tabbed shelf's tab for an item: jewellery and cloaks together, weapons by hand, armour by type."""
+        slot = getattr(item, "slot", None)
+        if slot in ("neck", "ring", "back", "trinket"):
+            return "jewelry"
+        if slot in ("main_hand", "off_hand", "ranged"):
+            return slot
+        return getattr(item, "armor_type", None) or "jewelry"
+
+    def _shelf_key(self, item):
+        keys = [k for k, _l in self.BUY_FILTERS]
+        tab = self._tab_of(item)
+        slot = getattr(item, "slot", "")
+        return (keys.index(tab) if tab in keys else len(keys),
+                self.SLOT_ORDER.index(slot) if slot in self.SLOT_ORDER else len(self.SLOT_ORDER),
+                getattr(item, "item_level", 0), item.name)
+
     def _vendor_category(self, item):
+        if self.tabbed:
+            return self._tab_of(item)
         if getattr(item, "recipe_id", None) or getattr(item, "slot", None) == "recipe":
             return "recipes"
         if self._is_material(item):
@@ -260,8 +291,17 @@ class VendorScreen(BaseScreen):
         self._show_message(f"Bought back {item.name}{f' x{qty}' if qty > 1 else ''} for {format_coins(price)}.",
                            COLOR_GOLD)
 
+    TAB_ICON = 34
+
     def _buy_tab_rects(self):
         """tab key -> rect, in a row above the vendor panel, clear of its header."""
+        if self.tabbed:
+            # square icon tabs, right-aligned over the panel; the open tab's name is the panel's header
+            n = len(self.BUY_FILTERS)
+            right = self.VENDOR_PANEL_X + self.PANEL_WIDTH
+            x = right - n * (self.TAB_ICON + 4) + 4
+            return {key: pygame.Rect(x + i * (self.TAB_ICON + 4), self.PANEL_Y - self.TAB_ICON - 6,
+                                     self.TAB_ICON, self.TAB_ICON) for i, (key, _l) in enumerate(self.BUY_FILTERS)}
         rects = {}
         x = self.VENDOR_PANEL_X + 124
         font = self.renderer._get_font("small")
@@ -788,10 +828,23 @@ class VendorScreen(BaseScreen):
         # bottom left, beside the buttons: the middle of the header row is where the shop's tabs go
         self.renderer.draw_text(screen, f"Party gold: {currency_str}",
                                 (self.VENDOR_PANEL_X, SCREEN_HEIGHT - 62), color=COLOR_WHITE)
+        b = self._barter()
+        if b and b.get("icon"):
+            # what you're carrying of what they trade for, beside its picture
+            art = self._ui_icon(b["icon"], 26)
+            y = SCREEN_HEIGHT - 96
+            if art is not None:
+                screen.blit(art, (self.VENDOR_PANEL_X, y - 4))
+            self.renderer.draw_text(screen, f"{self._held_currency()} {b.get('name', b['currency'])}",
+                                    (self.VENDOR_PANEL_X + 32, y), color=COLOR_GOLD)
 
         self._clamp_scrolls()
 
-        self._draw_panel_header(screen, self.VENDOR_PANEL_X, "Vendor Stock")
+        if self.tabbed:
+            label = dict(self.BUY_FILTERS).get(self.buy_filter, "")
+            self._draw_panel_header(screen, self.VENDOR_PANEL_X, f"{label}  ({len(self._vendor_list())})")
+        else:
+            self._draw_panel_header(screen, self.VENDOR_PANEL_X, "Vendor Stock")
         self._draw_buy_tabs(screen)
         shown = self._vendor_list()
         row_mode = "buyback" if self.buy_filter == "buyback" else "buy"
@@ -907,7 +960,42 @@ class VendorScreen(BaseScreen):
         pygame.draw.rect(screen, (70, 70, 85), panel_rect, 2)
         self.renderer.draw_text(screen, label, (x, self.PANEL_Y - 26), color=COLOR_GOLD)
 
+    def _ui_icon(self, name, size):
+        from ui.sprite_loader import get_icon_sprite
+        return get_icon_sprite(f"assets/icons/ui/{name}.png", size)
+
+    def _draw_icon_tabs(self, screen):
+        mouse = pygame.mouse.get_pos()
+        hover = None
+        for key, label in self.BUY_FILTERS:
+            rect = self._buy_tab_rects()[key]
+            active = key == self.buy_filter
+            pygame.draw.rect(screen, (58, 50, 26) if active else (26, 26, 33), rect, border_radius=4)
+            art = self._ui_icon("frontier_mark" if key == "all" else f"vendor_tab_{key}", rect.width - 6)
+            if art is not None:
+                if not active:
+                    art = art.copy()
+                    art.set_alpha(150)
+                screen.blit(art, (rect.x + 3, rect.y + 3))
+            else:
+                self.renderer.draw_text(screen, label[:2], (rect.x + 6, rect.y + 9), size="small",
+                                        color=COLOR_GOLD if active else (170, 170, 180))
+            pygame.draw.rect(screen, COLOR_GOLD if active else (70, 70, 85), rect, 2 if active else 1,
+                             border_radius=4)
+            if rect.collidepoint(mouse):
+                hover = (label, rect)
+        if hover:
+            label, rect = hover
+            w = self.renderer._get_font("small").size(label)[0] + 12
+            tip = pygame.Rect(rect.centerx - w // 2, rect.bottom + 4, w, 20)
+            pygame.draw.rect(screen, (12, 12, 18), tip, border_radius=3)
+            pygame.draw.rect(screen, COLOR_GOLD, tip, 1, border_radius=3)
+            self.renderer.draw_text(screen, label, (tip.x + 6, tip.y + 2), size="small", color=COLOR_WHITE)
+
     def _draw_buy_tabs(self, screen):
+        if self.tabbed:
+            self._draw_icon_tabs(screen)
+            return
         counts = {"all": len(self.vendor_inventory), "buyback": len(self._buyback())}
         for item in self.vendor_inventory:
             k = self._vendor_category(item)
@@ -982,7 +1070,29 @@ class VendorScreen(BaseScreen):
         else:
             name_color = COLOR_WHITE
 
-        self.renderer.draw_text(screen, item.name, (rect.x + 10, rect.y + 6),
+        text_x = rect.x + 10
+        if self.tabbed and mode == "buy" and is_gear:
+            # the piece's own picture at the left of the row, in its rarity's colour
+            box = pygame.Rect(rect.x + 4, rect.y + 3, rect.height - 6, rect.height - 6)
+            pygame.draw.rect(screen, (12, 12, 16), box)
+            drawn = False
+            if self.icon_ui_helper and getattr(item, "icon_id", None):
+                try:
+                    surf = self.icon_ui_helper.get_item_icon_surface(
+                        {"name": item.name, "icon_id": item.icon_id, "rarity": item.rarity}, size=box.width - 4)
+                    if surf:
+                        screen.blit(surf, (box.x + 2, box.y + 2))
+                        drawn = True
+                except Exception:
+                    drawn = False
+            if not drawn:
+                self.renderer.draw_text(screen, item.name[:2], (box.x + 8, box.y + 10), size="small", color=name_color)
+            pygame.draw.rect(screen, name_color, box, 1)
+            text_x = box.right + 8
+            if getattr(item, "item_level", 0) >= 68:
+                # the dearer line gets a thin gold rule down its right edge
+                pygame.draw.line(screen, COLOR_GOLD, (rect.right - 3, rect.y + 4), (rect.right - 3, rect.bottom - 4), 2)
+        self.renderer.draw_text(screen, item.name, (text_x, rect.y + 6),
                                 size="small", color=name_color)
 
         if mode == "buy":
@@ -1001,8 +1111,19 @@ class VendorScreen(BaseScreen):
             price_text = (f"x{qty}  ->{format_coins(item.sell_price)}" if qty is not None
                           else f"->{format_coins(item.sell_price)}")
 
-        self.renderer.draw_text(screen, price_text, (rect.right - 140, rect.y + 6),
-                                size="small", color=COLOR_GOLD)
+        b = self._barter() if mode == "buy" else None
+        if b and b.get("icon"):
+            # so many marks: the number, then the mark itself
+            art = self._ui_icon(b["icon"], 20)
+            num = str(self._unit_price(item))
+            w = self.renderer._get_font("small").size(num)[0]
+            px = rect.right - 34 - w
+            self.renderer.draw_text(screen, num, (px, rect.y + 6), size="small", color=COLOR_GOLD)
+            if art is not None:
+                screen.blit(art, (rect.right - 28, rect.y + 4))
+        else:
+            self.renderer.draw_text(screen, price_text, (rect.right - 140, rect.y + 6),
+                                    size="small", color=COLOR_GOLD)
 
         if is_gear:
             from world.upgrade_manager import upgrade_tag
@@ -1011,8 +1132,12 @@ class VendorScreen(BaseScreen):
             tag = upgrade_tag(item)
             if tag:
                 slot_label = f"{slot_label}  ·  {tag}"
-            self.renderer.draw_text(screen, slot_label, (rect.x + 10, rect.y + 24),
-                                    size="small", color=(160, 160, 170))
+            if self.tabbed and mode == "buy":
+                line = "Horizon" if getattr(item, "item_level", 0) >= 68 else "Pathfinder"
+                slot_label = f"{slot_label}  ·  item level {item.item_level}  ·  {line}"
+            self.renderer.draw_text(screen, slot_label, (text_x, rect.y + 24),
+                                    size="small", color=(205, 180, 110) if self.tabbed and getattr(
+                                        item, "item_level", 0) >= 68 else (160, 160, 170))
         elif is_mat:
             # Show the profession tag as a sub-label (e.g. "Alchemy · Reagent")
             prof = item.profession.replace("_", " ").title()

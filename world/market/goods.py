@@ -70,7 +70,9 @@ def _secret_names():
                 continue
             if "hidden" in path.name or boss in hidden:
                 out.update(r.get("name") for r in rows if isinstance(r, dict))
-    for name in ("secret_uniques.json", "unnamed_rewards.json"):
+    # and the Frontier Quartermasters' gear and the heroic-only drops (tools/build_heroic_rewards.py): bound to
+    # whoever earned them
+    for name in ("secret_uniques.json", "unnamed_rewards.json", "heroic_rewards.json"):
         try:
             doc = json.loads((root / "data/items" / name).read_text(encoding="utf-8"))
         except (OSError, ValueError):

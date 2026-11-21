@@ -1,6 +1,17 @@
 {
   "_comment": "skill_range is [orange_ends, yellow_ends, green_ends, grey_at] - WoW's real profession skill-up convention. Below orange_ends: guaranteed skill-up (100%). Between orange_ends and yellow_ends: high chance. Between yellow_ends and green_ends: low chance. At/above grey_at: no skill-up at all - the material has nothing left to teach you. All 4 numbers are against the profession's OWN skill level (0-75 for early tier), not against character level. Common/cheap materials (Peacebloom, Copper, Weakstone) grey out early since they're meant to be quickly outgrown; the pricier/rarer early materials (Mageroyal, Rough Iron) stay relevant closer to the 75 cap.  ESSENCE HARVESTING REMOVED (Kyle, 2026-10-31: \"I need you to 100% remove essence harvesting from the game..actually delete it..it was a whim idea that we didn't pursue\"). The ten essence_* motes are gone outright. The five crystal_* entries stayed, moved to MINING per Kyle: \"Crystals can be found in ore veins\" - they were always world nodes, and Engineering's recipe ladder is built on them.",
   "materials": {
+    "frontier_mark": {
+      "name": "Frontier Mark",
+      "material_type": "reagent",
+      "profession": "trade_goods",
+      "tier": "endgame",
+      "description": "A heavy medallion of bronze and gold, struck for whoever brings down a dungeon's master on a heroic run. The Frontier Quartermasters in Orgrimmar, the Undercity and Aurelion trade for nothing else.",
+      "stack_limit": 500,
+      "vendor_price": 0,
+      "sell_price": 0,
+      "icon_id": "frontier_mark"
+    },
     "herb_peacebloom": {
       "name": "Peacebloom",
       "material_type": "herb",

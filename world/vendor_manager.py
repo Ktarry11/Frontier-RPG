@@ -214,6 +214,9 @@ class VendorManager:
                 # (assets/creatures/<id>.png); barter prices their shelf in something else entirely.
                 vendor.creature_sprite = vendor_def.get("creature_sprite")
                 vendor.barter = vendor_def.get("barter")
+                # a shelf split into tabs ([[key, label], ...]; the Frontier Quartermasters', ui/screens/vendor_screen)
+                vendor.tabs = vendor_def.get("tabs")
+                vendor.shelf = vendor_def.get("shelf")
                 self.vendors[vendor.vendor_id] = vendor
                 
                 # Index by zone

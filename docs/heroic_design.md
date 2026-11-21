@@ -21,6 +21,8 @@ dungeon and badges for a vendor.
 | Honored rep | 62 |
 | Revered rep | 66 |
 | **Heroic dungeons** (bosses, boss chests) | **66** |
+| Frontier Quartermasters: the Pathfinder line | 66 |
+| Frontier Quartermasters: the Horizon line | 68 (blue) |
 | Heroic trash and side chests | 63 |
 | **Heroics of the skull zones** | **68** (not built yet) |
 | **Heroics of the frontier zones** | **69** (not built yet) |
@@ -69,10 +71,33 @@ built yet. Until they are, the hidden places stay as they are and are never hero
 
 QA: `tools/qa_heroic.py`, `tools/qa_tabards_and_dungeon_cap.py`.
 
-## Stage 2: badges and heroic-only items (next)
+## Stage 2: the Frontier Mark, the Frontier Quartermasters and heroic-only items (built 21 Nov 2026)
 
-- A badge from every heroic boss, and a badge vendor selling 66 gear.
-- One heroic-only rare 66 per dungeon, from its last boss.
+Kyle, 21 Nov 2026: "Yeah build stage 2", "the badge vendor can have multiple tabs. We can organize it by armor slot and
+type and weapon slot. We will have heroic sales and maybe some more expensive buy only blues", "Ensure the vendor is
+well organized and sleek and sexy. Make the more expensive blues higher ilvl", "Don't call them badge of honor. We are
+Frontier RPG", "quartermaster to sell will be in capital cities only. Org, UC, and Auerlion", "we should have an icon for
+them on the map, maybe use the frontier mark to indicate where they are". Built by `tools/build_heroic_rewards.py`;
+art is sheet HB1 (`docs/heroic_art_prompts.md`, `tools/slice_heroic_icons.py`).
+
+- **The Frontier Mark.** Every boss killed on a heroic run drops one (both bosses of a pair fight each drop one). It's a
+  material that stacks to 500, and it's what the quartermasters trade for.
+- **The Frontier Quartermasters**, one in each capital: Gruka Ashmane in Orgrimmar, Lorran Wicke in the Undercity and
+  Ysane Corvell in Aurelion, each beside the city's banker. The map marks them with the mark itself.
+- **The shelf**, tabbed by armour type and weapon slot (Cloth, Leather, Mail, Plate, Jewelry, Main Hand, Off Hand,
+  Ranged, and All), each tab sorted head to toe. Every row shows the piece's icon, its slot, its item level and its
+  line, and the price in marks beside the mark's picture; the marks you're carrying show under the shelf.
+  - **The Pathfinder line, item level 66** (a heroic boss's level), 46 pieces: every armour slot in all four types,
+    cloaks, necks, rings, and a weapon for every hand. 15 to 45 marks.
+  - **The Horizon line, item level 68**, 25 pieces, sold nowhere else and dearer: head, shoulders, chest and legs in
+    all four types (each in the stat mix the Pathfinder piece in that slot doesn't have), jewellery and five weapons.
+    30 to 75 marks. It sits beside the Exalted rep epics and T1 on item level, under them on budget.
+- **Heroic-only items.** Every dungeon's last boss (the last floor of each dungeon chain, 36 dungeons) has a one-in-five
+  chance on a heroic run at an item nothing else drops, item level 66, worn at 60. The 26 highest dungeons' items have
+  their own icons from HB1.
+- **Bound.** Neither the quartermasters' gear nor a heroic-only item can go on the auction house or in the mail.
+
+QA: `tools/qa_heroic_rewards.py`.
 
 ## Stage 3: tricks and spice
 

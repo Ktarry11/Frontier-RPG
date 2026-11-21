@@ -147,6 +147,47 @@ def roll_pattern(rng=None):
     return rng.choice(pool) if pool else None
 
 
+# ------------------------------------------------------------------------------------------- stage 2: marks
+#: Kyle, 21 Nov 2026: "Yeah build stage 2". tools/build_heroic_rewards.py writes data/items/heroic_rewards.json: the
+#: Frontier Mark every heroic boss drops, the Frontier Quartermasters' gear it buys, and each dungeon's heroic-only item.
+_REWARDS = None
+
+
+def rewards():
+    global _REWARDS
+    if _REWARDS is None:
+        import json
+        from pathlib import Path
+        try:
+            _REWARDS = json.loads((Path(__file__).resolve().parent.parent / "data/items/heroic_rewards.json")
+                                  .read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            _REWARDS = {}
+    return _REWARDS
+
+
+def frontier_mark(count=1):
+    """One Frontier Mark, as a material ready for Character.add_material, or None."""
+    mid = rewards().get("mark")
+    if not mid:
+        return None
+    from world.gathering_manager import get_gathering_node_manager
+    mat = get_gathering_node_manager().make_material_instance(mid)
+    if mat is not None:
+        mat.quantity = count
+    return mat
+
+
+def roll_heroic_only(boss_name, rng=None):
+    """The heroic-only item a dungeon's last boss drops on a heroic run, at its chance; else None."""
+    import random as _r
+    iid = (rewards().get("heroic_only") or {}).get(boss_name)
+    if not iid or (rng or _r).random() >= float(rewards().get("heroic_only_chance", 0.2)):
+        return None
+    from world.vendor_stock import make_unique
+    return make_unique(iid)
+
+
 # ---------------------------------------------------------------------------------------------------------- loot
 def _weapon_hit(level):
     """The generator's average weapon hit for an item level (entities/loot_generator: item_level * 1.1 + 6.4)."""

@@ -651,7 +651,9 @@ def _add_gear(out):
     except Exception:
         pass
     secret_ids = set()
-    for name in ("secret_uniques.json", "faction_rewards.json", "unnamed_rewards.json", "tabards.json"):
+    for name in ("secret_uniques.json", "faction_rewards.json", "unnamed_rewards.json", "tabards.json",
+                 "heroic_rewards.json"):
+        # heroic_rewards: the Frontier Quartermasters' gear and the heroic-only drops are bound to whoever earned them
         for iid, r in (_load(f"data/items/{name}").get("items") or {}).items():
             secret_ids.add(iid)
             if isinstance(r, dict) and r.get("name"):

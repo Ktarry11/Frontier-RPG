@@ -38,7 +38,10 @@ AUCTION_ROSE = (240, 125, 160)
 #: as well as colour. It replaces the coin on a quartermaster: one glyph per person.
 REP_LIME = (175, 240, 85)
 #: The order glyphs are drawn in: later ones sit on top. Mailboxes stand beside the inn, so they go under it.
-MARKER_ORDER = ("mail", "auction", "shop", "rep", "forge", "sawmill", "prof", "class", "inn", "ride", "flight")
+MARKER_ORDER = ("mail", "auction", "shop", "rep", "frontier", "forge", "sawmill", "prof", "class", "inn", "ride",
+                "flight")
+#: The Frontier Quartermasters (heroic stage 2, tools/build_heroic_rewards.py). Kyle, 21 Nov 2026: "we should have an
+#: icon for them on the map, maybe use the frontier mark to indicate where they are". Drawn as the mark itself.
 
 
 
@@ -375,7 +378,8 @@ class MapScreen(BaseScreen):
         if vendor_mgr is not None:
             service_npcs += list(vendor_mgr.get_vendors_in_zone(tilemap.name))
         markers = {"inn": set(), "ride": set(), "flight": set(), "class": set(), "prof": set(),
-                   "forge": set(), "sawmill": set(), "shop": set(), "rep": set(), "mail": set(), "auction": set()}
+                   "forge": set(), "sawmill": set(), "shop": set(), "rep": set(), "mail": set(), "auction": set(),
+                   "frontier": set()}
         from world.faction_manager import quartermaster_ids
         rep_vendors = quartermaster_ids()
         for npc in service_npcs:
@@ -400,6 +404,10 @@ class MapScreen(BaseScreen):
             # its own, so an innkeeper who also sells food stays an innkeeper
             # rather than collecting a second marker on the same tile.
             if svcs:
+                continue
+            # FRONTIER QUARTERMASTERS show the Frontier Mark they trade for (Kyle, 21 Nov 2026)
+            if getattr(npc, "shelf", None) == "frontier":
+                markers["frontier"].add((npc.x, npc.y))
                 continue
             # REPUTATION QUARTERMASTERS get their own banner instead of the coin (Kyle, 17 Nov 2026)
             if getattr(npc, "vendor_id", None) in rep_vendors:
@@ -502,6 +510,7 @@ class MapScreen(BaseScreen):
                 ly += 26
         # Service icons are glyphs, so the legend uses the same drawing code as the map.
         services = (("shop", "Vendor (buy / sell)"), ("rep", "Reputation quartermaster"),
+                    ("frontier", "Frontier Quartermaster (Frontier Marks)"),
                     ("flight", "Flight master"), ("inn", "Innkeeper (bind hearth)"),
                     ("ride", "Riding trainer / mounts"), ("hearth", "Your hearth is bound here"),
                     ("class", "Class trainer"), ("prof", "Profession trainers"),
@@ -634,6 +643,15 @@ class MapScreen(BaseScreen):
             pygame.draw.line(screen, REP_LIME, (cx - 3, cy - 5), (cx - 3, cy + 5), 2)
             pygame.draw.polygon(screen, REP_LIME, [(cx - 2, cy - 5), (cx + 5, cy - 5), (cx + 3, cy - 2),
                                                    (cx + 5, cy + 1), (cx - 2, cy + 1)])
+        elif kind == "frontier":
+            # the Frontier Mark itself, ringed in gold so it sits with the other glyphs
+            from ui.sprite_loader import get_icon_sprite
+            size = max(10, int(18 * scale))
+            art = get_icon_sprite("assets/icons/ui/frontier_mark.png", size)
+            pygame.draw.circle(screen, dark, (cx, cy), size // 2 + 2)
+            if art is not None:
+                screen.blit(art, (cx - size // 2, cy - size // 2))
+            pygame.draw.circle(screen, HEARTH_GOLD, (cx, cy), size // 2 + 2, 2)
         elif kind == "shop":
             # a coin: filled disc with a rim and a slot, which reads at 8px where
             # a coin-purse outline just turns into a blob

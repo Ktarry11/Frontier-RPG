@@ -1,0 +1,2768 @@
+{
+  "_doc": "Heroic stage 2 (tools/build_heroic_rewards.py): the Frontier Quartermasters' gear (sold as unique:<id> for Frontier Marks) and each dungeon's heroic-only item (heroic_only: its last boss).",
+  "mark": "frontier_mark",
+  "heroic_only_chance": 0.2,
+  "heroic_only": {
+    "Exarch Lucan Thessaly": "hb_halo_of_floating_shards",
+    "Echo of the Queen": "hb_tear_of_zin_azshari",
+    "Baron Rivendare": "hb_deathcharger_spurs",
+    "Grand Crusader Victor Hale": "hb_cloak_of_the_last_crusade",
+    "Darkmaster Gandling": "hb_the_headmasters_register",
+    "The Wound's Heart": "hb_shard_of_the_wound",
+    "Grand Crusader Dathrohan": "hb_dathrohans_broken_halo",
+    "The Warheart": "hb_governor_of_the_warheart",
+    "Xavras the Gloomtender": "hb_gloomtenders_pruning_knife",
+    "The Caldera": "hb_caldera_cracked_gauntlets",
+    "Hive-Mother Ahn'thera": "hb_royal_jelly_wristguards",
+    "Thane Morrun the Unmade": "hb_hammer_of_the_unmade_thane",
+    "Zar'gothrax the Unbound": "hb_unbound_felstaff",
+    "Resonance": "hb_band_of_three_tones",
+    "Pitboss Grebble Vask": "hb_pitboss_gilded_pick",
+    "Bosun Grell Tarpot": "hb_tarpots_boarding_pistol",
+    "High Inquisitor Whitemane": "hb_whitemanes_last_psalter",
+    "The Index": "hb_cowl_of_the_index",
+    "Vek'tar the Unbeaten": "hb_unbeaten_belt",
+    "Herod": "hb_herods_red_axe",
+    "Arcanist Doan": "hb_doans_scorched_robe",
+    "Lord Falconcrest": "hb_falconcrest_longbow",
+    "Dark Sorcerer Zul'keth": "hb_zulketh_plague_sash",
+    "Charlga Razorflank": "hb_razorflank_thornmail",
+    "Bloodmage Thalnos": "hb_thalnos_bloodstone_mantle",
+    "Lord Nightmare": "hb_nightmare_stitched_boots",
+    "Sergeant-at-Arms Varth": "hb_varths_gate_shield",
+    "Aku'mai": "hb_akumai_scale_leggings",
+    "Archmage Arugal": "hb_arugals_moonlit_wand",
+    "Archmage Atiesh": "hb_amberglass_handwraps",
+    "Alpha Fenris": "hb_fenris_pelt_cloak",
+    "Carapace Warden": "hb_carapace_warden_bracers",
+    "Mutanus the Devourer": "hb_mutanus_dreaming_staff",
+    "Matriarch Velaxis": "hb_widowsilk_leggings",
+    "Taragaman the Hungerer": "hb_taragamans_burning_knuckles",
+    "Giant Crab": "hb_grotto_pearl_ring"
+  },
+  "items": {
+    "fq_pathweaver_hood": {
+      "name": "Pathweaver Hood",
+      "slot": "head",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 21
+      },
+      "secondary_stats": {
+        "spell_power": 49
+      },
+      "armor_value": 91,
+      "required_level": 60,
+      "sell_price": 18279,
+      "flavor_text": "Cut for the casters who go first into the dark places and come back out of them.",
+      "identity": "caster",
+      "icon_id": "gear_inv_helmet_02",
+      "frontier_line": "path",
+      "frontier_price": 25,
+      "bound": true
+    },
+    "fq_pathweaver_mantle": {
+      "name": "Pathweaver Mantle",
+      "slot": "shoulder",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 13,
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "healing_power": 59
+      },
+      "armor_value": 109,
+      "required_level": 60,
+      "sell_price": 18279,
+      "flavor_text": "Cut for the casters who go first into the dark places and come back out of them.",
+      "identity": "healer",
+      "icon_id": "gear_inv_shoulder_28",
+      "frontier_line": "path",
+      "frontier_price": 18,
+      "bound": true
+    },
+    "fq_pathweaver_robe": {
+      "name": "Pathweaver Robe",
+      "slot": "chest",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 25
+      },
+      "secondary_stats": {
+        "spell_power": 57
+      },
+      "armor_value": 108,
+      "required_level": 60,
+      "sell_price": 22849,
+      "flavor_text": "Cut for the casters who go first into the dark places and come back out of them.",
+      "identity": "caster",
+      "icon_id": "gear_inv_shirt_guildtabard_01",
+      "frontier_line": "path",
+      "frontier_price": 25,
+      "bound": true
+    },
+    "fq_pathweaver_handwraps": {
+      "name": "Pathweaver Handwraps",
+      "slot": "hands",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 18
+      },
+      "secondary_stats": {
+        "spell_power": 39
+      },
+      "armor_value": 88,
+      "required_level": 60,
+      "sell_price": 14852,
+      "flavor_text": "Cut for the casters who go first into the dark places and come back out of them.",
+      "identity": "caster",
+      "icon_id": "gear_inv_gauntlets_11",
+      "frontier_line": "path",
+      "frontier_price": 18,
+      "bound": true
+    },
+    "fq_pathweaver_cord": {
+      "name": "Pathweaver Cord",
+      "slot": "waist",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 11,
+        "intellect": 9
+      },
+      "secondary_stats": {
+        "healing_power": 48
+      },
+      "armor_value": 88,
+      "required_level": 60,
+      "sell_price": 12567,
+      "flavor_text": "Cut for the casters who go first into the dark places and come back out of them.",
+      "identity": "healer",
+      "icon_id": "gear_inv_belt_35",
+      "frontier_line": "path",
+      "frontier_price": 15,
+      "bound": true
+    },
+    "fq_pathweaver_leggings": {
+      "name": "Pathweaver Leggings",
+      "slot": "legs",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 16,
+        "intellect": 13
+      },
+      "secondary_stats": {
+        "healing_power": 69
+      },
+      "armor_value": 108,
+      "required_level": 60,
+      "sell_price": 22849,
+      "flavor_text": "Cut for the casters who go first into the dark places and come back out of them.",
+      "identity": "healer",
+      "icon_id": "gear_inv_pants_01",
+      "frontier_line": "path",
+      "frontier_price": 25,
+      "bound": true
+    },
+    "fq_pathweaver_slippers": {
+      "name": "Pathweaver Slippers",
+      "slot": "feet",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 18
+      },
+      "secondary_stats": {
+        "spell_power": 39
+      },
+      "armor_value": 88,
+      "required_level": 60,
+      "sell_price": 14852,
+      "flavor_text": "Cut for the casters who go first into the dark places and come back out of them.",
+      "identity": "caster",
+      "icon_id": "gear_inv_boots_plate_04",
+      "frontier_line": "path",
+      "frontier_price": 18,
+      "bound": true
+    },
+    "fq_pathweaver_cuffs": {
+      "name": "Pathweaver Cuffs",
+      "slot": "wrist",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 11,
+        "intellect": 9
+      },
+      "secondary_stats": {
+        "healing_power": 48
+      },
+      "armor_value": 74,
+      "required_level": 60,
+      "sell_price": 11424,
+      "flavor_text": "Cut for the casters who go first into the dark places and come back out of them.",
+      "identity": "healer",
+      "icon_id": "gear_inv_bracer_15",
+      "frontier_line": "path",
+      "frontier_price": 15,
+      "bound": true
+    },
+    "fq_pathstalker_cap": {
+      "name": "Pathstalker Cap",
+      "slot": "head",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 19,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "attack_power": 48
+      },
+      "armor_value": 201,
+      "required_level": 60,
+      "sell_price": 18279,
+      "flavor_text": "Oiled hide that doesn't creak, made for people who'd rather not be heard coming.",
+      "identity": "agility",
+      "icon_id": "gear_inv_helmet_25",
+      "frontier_line": "path",
+      "frontier_price": 25,
+      "bound": true
+    },
+    "fq_pathstalker_shoulderpads": {
+      "name": "Pathstalker Shoulderpads",
+      "slot": "shoulder",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "agility": 16,
+        "intellect": 13
+      },
+      "secondary_stats": {
+        "attack_power": 49
+      },
+      "armor_value": 201,
+      "required_level": 60,
+      "sell_price": 18279,
+      "flavor_text": "Oiled hide that doesn't creak, made for people who'd rather not be heard coming.",
+      "identity": "hunter",
+      "icon_id": "gear_inv_shoulder_06",
+      "frontier_line": "path",
+      "frontier_price": 18,
+      "bound": true
+    },
+    "fq_pathstalker_jerkin": {
+      "name": "Pathstalker Jerkin",
+      "slot": "chest",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 22,
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "attack_power": 57
+      },
+      "armor_value": 216,
+      "required_level": 60,
+      "sell_price": 22849,
+      "flavor_text": "Oiled hide that doesn't creak, made for people who'd rather not be heard coming.",
+      "identity": "agility",
+      "icon_id": "gear_inv_chest_leather_02",
+      "frontier_line": "path",
+      "frontier_price": 25,
+      "bound": true
+    },
+    "fq_pathstalker_grips": {
+      "name": "Pathstalker Grips",
+      "slot": "hands",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "agility": 13,
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "attack_power": 40
+      },
+      "armor_value": 149,
+      "required_level": 60,
+      "sell_price": 14852,
+      "flavor_text": "Oiled hide that doesn't creak, made for people who'd rather not be heard coming.",
+      "identity": "hunter",
+      "icon_id": "gear_inv_gauntlets_04",
+      "frontier_line": "path",
+      "frontier_price": 18,
+      "bound": true
+    },
+    "fq_pathstalker_belt": {
+      "name": "Pathstalker Belt",
+      "slot": "waist",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "agility": 13,
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "attack_power": 40
+      },
+      "armor_value": 149,
+      "required_level": 60,
+      "sell_price": 12567,
+      "flavor_text": "Oiled hide that doesn't creak, made for people who'd rather not be heard coming.",
+      "identity": "hunter",
+      "icon_id": "gear_inv_belt_06",
+      "frontier_line": "path",
+      "frontier_price": 15,
+      "bound": true
+    },
+    "fq_pathstalker_breeches": {
+      "name": "Pathstalker Breeches",
+      "slot": "legs",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 22,
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "attack_power": 57
+      },
+      "armor_value": 237,
+      "required_level": 60,
+      "sell_price": 22849,
+      "flavor_text": "Oiled hide that doesn't creak, made for people who'd rather not be heard coming.",
+      "identity": "agility",
+      "icon_id": "gear_inv_pants_09",
+      "frontier_line": "path",
+      "frontier_price": 25,
+      "bound": true
+    },
+    "fq_pathstalker_boots": {
+      "name": "Pathstalker Boots",
+      "slot": "feet",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 15,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "attack_power": 40
+      },
+      "armor_value": 149,
+      "required_level": 60,
+      "sell_price": 14852,
+      "flavor_text": "Oiled hide that doesn't creak, made for people who'd rather not be heard coming.",
+      "identity": "agility",
+      "icon_id": "gear_inv_boots_08",
+      "frontier_line": "path",
+      "frontier_price": 18,
+      "bound": true
+    },
+    "fq_pathstalker_bracers": {
+      "name": "Pathstalker Bracers",
+      "slot": "wrist",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "agility": 13,
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "attack_power": 40
+      },
+      "armor_value": 149,
+      "required_level": 60,
+      "sell_price": 11424,
+      "flavor_text": "Oiled hide that doesn't creak, made for people who'd rather not be heard coming.",
+      "identity": "hunter",
+      "icon_id": "gear_inv_bracer_18",
+      "frontier_line": "path",
+      "frontier_price": 15,
+      "bound": true
+    },
+    "fq_pathwarden_coif": {
+      "name": "Pathwarden Coif",
+      "slot": "head",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 19,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "attack_power": 48
+      },
+      "armor_value": 293,
+      "required_level": 60,
+      "sell_price": 18279,
+      "flavor_text": "Close-linked mail that turns a blade and still lets you draw a bow.",
+      "identity": "agility",
+      "icon_id": "gear_inv_helmet_19",
+      "frontier_line": "path",
+      "frontier_price": 25,
+      "bound": true
+    },
+    "fq_pathwarden_spaulders": {
+      "name": "Pathwarden Spaulders",
+      "slot": "shoulder",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 13,
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "healing_power": 59
+      },
+      "armor_value": 293,
+      "required_level": 60,
+      "sell_price": 18279,
+      "flavor_text": "Close-linked mail that turns a blade and still lets you draw a bow.",
+      "identity": "healer",
+      "icon_id": "gear_inv_shoulder_31",
+      "frontier_line": "path",
+      "frontier_price": 18,
+      "bound": true
+    },
+    "fq_pathwarden_hauberk": {
+      "name": "Pathwarden Hauberk",
+      "slot": "chest",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 22,
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "attack_power": 57
+      },
+      "armor_value": 367,
+      "required_level": 60,
+      "sell_price": 22849,
+      "flavor_text": "Close-linked mail that turns a blade and still lets you draw a bow.",
+      "identity": "agility",
+      "icon_id": "gear_inv_chest_chain_10",
+      "frontier_line": "path",
+      "frontier_price": 25,
+      "bound": true
+    },
+    "fq_pathwarden_gauntlets": {
+      "name": "Pathwarden Gauntlets",
+      "slot": "hands",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 15,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "attack_power": 40
+      },
+      "armor_value": 287,
+      "required_level": 60,
+      "sell_price": 14852,
+      "flavor_text": "Close-linked mail that turns a blade and still lets you draw a bow.",
+      "identity": "agility",
+      "icon_id": "gear_inv_gauntlets_30",
+      "frontier_line": "path",
+      "frontier_price": 18,
+      "bound": true
+    },
+    "fq_pathwarden_girdle": {
+      "name": "Pathwarden Girdle",
+      "slot": "waist",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "agility": 13,
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "attack_power": 40
+      },
+      "armor_value": 239,
+      "required_level": 60,
+      "sell_price": 12567,
+      "flavor_text": "Close-linked mail that turns a blade and still lets you draw a bow.",
+      "identity": "hunter",
+      "icon_id": "gear_inv_belt_22",
+      "frontier_line": "path",
+      "frontier_price": 15,
+      "bound": true
+    },
+    "fq_pathwarden_legguards": {
+      "name": "Pathwarden Legguards",
+      "slot": "legs",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 16,
+        "intellect": 13
+      },
+      "secondary_stats": {
+        "healing_power": 69
+      },
+      "armor_value": 367,
+      "required_level": 60,
+      "sell_price": 22849,
+      "flavor_text": "Close-linked mail that turns a blade and still lets you draw a bow.",
+      "identity": "healer",
+      "icon_id": "gear_inv_pants_13",
+      "frontier_line": "path",
+      "frontier_price": 25,
+      "bound": true
+    },
+    "fq_pathwarden_treads": {
+      "name": "Pathwarden Treads",
+      "slot": "feet",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 11,
+        "intellect": 9
+      },
+      "secondary_stats": {
+        "healing_power": 48
+      },
+      "armor_value": 253,
+      "required_level": 60,
+      "sell_price": 14852,
+      "flavor_text": "Close-linked mail that turns a blade and still lets you draw a bow.",
+      "identity": "healer",
+      "icon_id": "gear_inv_boots_plate_01",
+      "frontier_line": "path",
+      "frontier_price": 18,
+      "bound": true
+    },
+    "fq_pathwarden_wristguards": {
+      "name": "Pathwarden Wristguards",
+      "slot": "wrist",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "agility": 13,
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "attack_power": 40
+      },
+      "armor_value": 253,
+      "required_level": 60,
+      "sell_price": 11424,
+      "flavor_text": "Close-linked mail that turns a blade and still lets you draw a bow.",
+      "identity": "hunter",
+      "icon_id": "gear_inv_bracer_07",
+      "frontier_line": "path",
+      "frontier_price": 15,
+      "bound": true
+    },
+    "fq_pathbreaker_helm": {
+      "name": "Pathbreaker Helm",
+      "slot": "head",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 19,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "attack_power": 48
+      },
+      "armor_value": 457,
+      "required_level": 60,
+      "sell_price": 18279,
+      "flavor_text": "Plate built to stand in a dungeon's doorway and not move.",
+      "identity": "strength",
+      "icon_id": "gear_inv_crown_02",
+      "frontier_line": "path",
+      "frontier_price": 25,
+      "bound": true
+    },
+    "fq_pathbreaker_pauldrons": {
+      "name": "Pathbreaker Pauldrons",
+      "slot": "shoulder",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_int_hybrid",
+      "primary_stats": {
+        "strength": 16,
+        "intellect": 16
+      },
+      "secondary_stats": {
+        "attack_power": 43
+      },
+      "armor_value": 457,
+      "required_level": 60,
+      "sell_price": 18279,
+      "flavor_text": "Plate built to stand in a dungeon's doorway and not move.",
+      "identity": "crusader",
+      "icon_id": "gear_inv_shoulder_31",
+      "frontier_line": "path",
+      "frontier_price": 18,
+      "bound": true
+    },
+    "fq_pathbreaker_breastplate": {
+      "name": "Pathbreaker Breastplate",
+      "slot": "chest",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 22,
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "attack_power": 57
+      },
+      "armor_value": 519,
+      "required_level": 60,
+      "sell_price": 22849,
+      "flavor_text": "Plate built to stand in a dungeon's doorway and not move.",
+      "identity": "strength",
+      "icon_id": "gear_inv_chest_plate12",
+      "frontier_line": "path",
+      "frontier_price": 25,
+      "bound": true
+    },
+    "fq_pathbreaker_gauntlets": {
+      "name": "Pathbreaker Gauntlets",
+      "slot": "hands",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 15,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "attack_power": 40
+      },
+      "armor_value": 426,
+      "required_level": 60,
+      "sell_price": 14852,
+      "flavor_text": "Plate built to stand in a dungeon's doorway and not move.",
+      "identity": "strength",
+      "icon_id": "gear_inv_gauntlets_16",
+      "frontier_line": "path",
+      "frontier_price": 18,
+      "bound": true
+    },
+    "fq_pathbreaker_waistguard": {
+      "name": "Pathbreaker Waistguard",
+      "slot": "waist",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_int_hybrid",
+      "primary_stats": {
+        "strength": 13,
+        "intellect": 13
+      },
+      "secondary_stats": {
+        "attack_power": 35
+      },
+      "armor_value": 359,
+      "required_level": 60,
+      "sell_price": 12567,
+      "flavor_text": "Plate built to stand in a dungeon's doorway and not move.",
+      "identity": "crusader",
+      "icon_id": "gear_inv_belt_33",
+      "frontier_line": "path",
+      "frontier_price": 15,
+      "bound": true
+    },
+    "fq_pathbreaker_legplates": {
+      "name": "Pathbreaker Legplates",
+      "slot": "legs",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 22,
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "attack_power": 57
+      },
+      "armor_value": 519,
+      "required_level": 60,
+      "sell_price": 22849,
+      "flavor_text": "Plate built to stand in a dungeon's doorway and not move.",
+      "identity": "strength",
+      "icon_id": "gear_inv_pants_04",
+      "frontier_line": "path",
+      "frontier_price": 25,
+      "bound": true
+    },
+    "fq_pathbreaker_sabatons": {
+      "name": "Pathbreaker Sabatons",
+      "slot": "feet",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_int_hybrid",
+      "primary_stats": {
+        "strength": 13,
+        "intellect": 13
+      },
+      "secondary_stats": {
+        "attack_power": 35
+      },
+      "armor_value": 359,
+      "required_level": 60,
+      "sell_price": 14852,
+      "flavor_text": "Plate built to stand in a dungeon's doorway and not move.",
+      "identity": "crusader",
+      "icon_id": "gear_inv_boots_plate_01",
+      "frontier_line": "path",
+      "frontier_price": 18,
+      "bound": true
+    },
+    "fq_pathbreaker_vambraces": {
+      "name": "Pathbreaker Vambraces",
+      "slot": "wrist",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_int_hybrid",
+      "primary_stats": {
+        "strength": 13,
+        "intellect": 13
+      },
+      "secondary_stats": {
+        "attack_power": 35
+      },
+      "armor_value": 359,
+      "required_level": 60,
+      "sell_price": 11424,
+      "flavor_text": "Plate built to stand in a dungeon's doorway and not move.",
+      "identity": "crusader",
+      "icon_id": "gear_inv_bracer_07",
+      "frontier_line": "path",
+      "frontier_price": 15,
+      "bound": true
+    },
+    "fq_horizonweave_hood": {
+      "name": "Horizonweave Hood",
+      "slot": "head",
+      "item_level": 68,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 14,
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "healing_power": 63
+      },
+      "armor_value": 112,
+      "required_level": 60,
+      "sell_price": 19462,
+      "flavor_text": "The quartermasters keep this silk for the few who've cleared the hardest halls more than once.",
+      "identity": "healer",
+      "icon_id": "gear_inv_helmet_15",
+      "frontier_line": "horizon",
+      "frontier_price": 45,
+      "bound": true
+    },
+    "fq_horizonweave_mantle": {
+      "name": "Horizonweave Mantle",
+      "slot": "shoulder",
+      "item_level": 68,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 23
+      },
+      "secondary_stats": {
+        "spell_power": 51
+      },
+      "armor_value": 112,
+      "required_level": 60,
+      "sell_price": 19462,
+      "flavor_text": "The quartermasters keep this silk for the few who've cleared the hardest halls more than once.",
+      "identity": "caster",
+      "icon_id": "gear_inv_shoulder_13",
+      "frontier_line": "horizon",
+      "frontier_price": 35,
+      "bound": true
+    },
+    "fq_horizonweave_robe": {
+      "name": "Horizonweave Robe",
+      "slot": "chest",
+      "item_level": 68,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 17,
+        "intellect": 13
+      },
+      "secondary_stats": {
+        "healing_power": 73
+      },
+      "armor_value": 133,
+      "required_level": 60,
+      "sell_price": 24327,
+      "flavor_text": "The quartermasters keep this silk for the few who've cleared the hardest halls more than once.",
+      "identity": "healer",
+      "icon_id": "gear_inv_shirt_guildtabard_01",
+      "frontier_line": "horizon",
+      "frontier_price": 45,
+      "bound": true
+    },
+    "fq_horizonweave_leggings": {
+      "name": "Horizonweave Leggings",
+      "slot": "legs",
+      "item_level": 68,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 27
+      },
+      "secondary_stats": {
+        "spell_power": 60
+      },
+      "armor_value": 133,
+      "required_level": 60,
+      "sell_price": 24327,
+      "flavor_text": "The quartermasters keep this silk for the few who've cleared the hardest halls more than once.",
+      "identity": "caster",
+      "icon_id": "gear_inv_pants_01",
+      "frontier_line": "horizon",
+      "frontier_price": 45,
+      "bound": true
+    },
+    "fq_horizonhide_cap": {
+      "name": "Horizonhide Cap",
+      "slot": "head",
+      "item_level": 68,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "agility": 17,
+        "intellect": 14
+      },
+      "secondary_stats": {
+        "attack_power": 51
+      },
+      "armor_value": 206,
+      "required_level": 60,
+      "sell_price": 19462,
+      "flavor_text": "Hide from beasts nobody hunts twice, cured for months before a quartermaster will sell it.",
+      "identity": "hunter",
+      "icon_id": "gear_inv_helmet_17",
+      "frontier_line": "horizon",
+      "frontier_price": 45,
+      "bound": true
+    },
+    "fq_horizonhide_shoulderpads": {
+      "name": "Horizonhide Shoulderpads",
+      "slot": "shoulder",
+      "item_level": 68,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 20,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "attack_power": 51
+      },
+      "armor_value": 206,
+      "required_level": 60,
+      "sell_price": 19462,
+      "flavor_text": "Hide from beasts nobody hunts twice, cured for months before a quartermaster will sell it.",
+      "identity": "agility",
+      "icon_id": "gear_inv_shoulder_11",
+      "frontier_line": "horizon",
+      "frontier_price": 35,
+      "bound": true
+    },
+    "fq_horizonhide_jerkin": {
+      "name": "Horizonhide Jerkin",
+      "slot": "chest",
+      "item_level": 68,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "agility": 20,
+        "intellect": 17
+      },
+      "secondary_stats": {
+        "attack_power": 60
+      },
+      "armor_value": 245,
+      "required_level": 60,
+      "sell_price": 24327,
+      "flavor_text": "Hide from beasts nobody hunts twice, cured for months before a quartermaster will sell it.",
+      "identity": "hunter",
+      "icon_id": "gear_inv_chest_leather_09",
+      "frontier_line": "horizon",
+      "frontier_price": 45,
+      "bound": true
+    },
+    "fq_horizonhide_breeches": {
+      "name": "Horizonhide Breeches",
+      "slot": "legs",
+      "item_level": 68,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "agility": 20,
+        "intellect": 17
+      },
+      "secondary_stats": {
+        "attack_power": 60
+      },
+      "armor_value": 223,
+      "required_level": 60,
+      "sell_price": 24327,
+      "flavor_text": "Hide from beasts nobody hunts twice, cured for months before a quartermaster will sell it.",
+      "identity": "hunter",
+      "icon_id": "gear_inv_pants_12",
+      "frontier_line": "horizon",
+      "frontier_price": 45,
+      "bound": true
+    },
+    "fq_horizonlink_coif": {
+      "name": "Horizonlink Coif",
+      "slot": "head",
+      "item_level": 68,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 14,
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "healing_power": 63
+      },
+      "armor_value": 302,
+      "required_level": 60,
+      "sell_price": 19462,
+      "flavor_text": "Every ring is drawn and closed by hand. A quartermaster won't say how long a shirt takes.",
+      "identity": "healer",
+      "icon_id": "gear_inv_helmet_53",
+      "frontier_line": "horizon",
+      "frontier_price": 45,
+      "bound": true
+    },
+    "fq_horizonlink_spaulders": {
+      "name": "Horizonlink Spaulders",
+      "slot": "shoulder",
+      "item_level": 68,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "agility": 17,
+        "intellect": 14
+      },
+      "secondary_stats": {
+        "attack_power": 51
+      },
+      "armor_value": 302,
+      "required_level": 60,
+      "sell_price": 19462,
+      "flavor_text": "Every ring is drawn and closed by hand. A quartermaster won't say how long a shirt takes.",
+      "identity": "hunter",
+      "icon_id": "gear_inv_shoulder_27",
+      "frontier_line": "horizon",
+      "frontier_price": 35,
+      "bound": true
+    },
+    "fq_horizonlink_hauberk": {
+      "name": "Horizonlink Hauberk",
+      "slot": "chest",
+      "item_level": 68,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 17,
+        "intellect": 13
+      },
+      "secondary_stats": {
+        "healing_power": 73
+      },
+      "armor_value": 379,
+      "required_level": 60,
+      "sell_price": 24327,
+      "flavor_text": "Every ring is drawn and closed by hand. A quartermaster won't say how long a shirt takes.",
+      "identity": "healer",
+      "icon_id": "gear_inv_chest_chain_10",
+      "frontier_line": "horizon",
+      "frontier_price": 45,
+      "bound": true
+    },
+    "fq_horizonlink_legguards": {
+      "name": "Horizonlink Legguards",
+      "slot": "legs",
+      "item_level": 68,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "agility": 20,
+        "intellect": 17
+      },
+      "secondary_stats": {
+        "attack_power": 60
+      },
+      "armor_value": 379,
+      "required_level": 60,
+      "sell_price": 24327,
+      "flavor_text": "Every ring is drawn and closed by hand. A quartermaster won't say how long a shirt takes.",
+      "identity": "hunter",
+      "icon_id": "gear_inv_pants_13",
+      "frontier_line": "horizon",
+      "frontier_price": 45,
+      "bound": true
+    },
+    "fq_horizonplate_helm": {
+      "name": "Horizonplate Helm",
+      "slot": "head",
+      "item_level": 68,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_int_hybrid",
+      "primary_stats": {
+        "strength": 17,
+        "intellect": 17
+      },
+      "secondary_stats": {
+        "attack_power": 45
+      },
+      "armor_value": 453,
+      "required_level": 60,
+      "sell_price": 19462,
+      "flavor_text": "Plate a quartermaster only sells to someone they've seen come back from a heroic.",
+      "identity": "crusader",
+      "icon_id": "gear_inv_crown_02",
+      "frontier_line": "horizon",
+      "frontier_price": 45,
+      "bound": true
+    },
+    "fq_horizonplate_pauldrons": {
+      "name": "Horizonplate Pauldrons",
+      "slot": "shoulder",
+      "item_level": 68,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 20,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "attack_power": 51
+      },
+      "armor_value": 453,
+      "required_level": 60,
+      "sell_price": 19462,
+      "flavor_text": "Plate a quartermaster only sells to someone they've seen come back from a heroic.",
+      "identity": "strength",
+      "icon_id": "gear_inv_shoulder_02",
+      "frontier_line": "horizon",
+      "frontier_price": 35,
+      "bound": true
+    },
+    "fq_horizonplate_breastplate": {
+      "name": "Horizonplate Breastplate",
+      "slot": "chest",
+      "item_level": 68,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_int_hybrid",
+      "primary_stats": {
+        "strength": 20,
+        "intellect": 20
+      },
+      "secondary_stats": {
+        "attack_power": 53
+      },
+      "armor_value": 535,
+      "required_level": 60,
+      "sell_price": 24327,
+      "flavor_text": "Plate a quartermaster only sells to someone they've seen come back from a heroic.",
+      "identity": "crusader",
+      "icon_id": "gear_inv_chest_plate12",
+      "frontier_line": "horizon",
+      "frontier_price": 45,
+      "bound": true
+    },
+    "fq_horizonplate_legplates": {
+      "name": "Horizonplate Legplates",
+      "slot": "legs",
+      "item_level": 68,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_int_hybrid",
+      "primary_stats": {
+        "strength": 20,
+        "intellect": 20
+      },
+      "secondary_stats": {
+        "attack_power": 53
+      },
+      "armor_value": 557,
+      "required_level": 60,
+      "sell_price": 24327,
+      "flavor_text": "Plate a quartermaster only sells to someone they've seen come back from a heroic.",
+      "identity": "crusader",
+      "icon_id": "gear_inv_pants_11",
+      "frontier_line": "horizon",
+      "frontier_price": 45,
+      "bound": true
+    },
+    "fq_pathfinders_pendant": {
+      "name": "Pathfinder's Pendant",
+      "slot": "neck",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 16
+      },
+      "secondary_stats": {
+        "spell_power": 35
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 13709,
+      "flavor_text": "Sold by the Frontier Quartermasters for Frontier Marks, and to nobody who hasn't earned them.",
+      "identity": "caster",
+      "icon_id": "gear_inv_jewelry_necklace_10",
+      "frontier_line": "path",
+      "frontier_price": 15,
+      "bound": true
+    },
+    "fq_pathfinders_choker": {
+      "name": "Pathfinder's Choker",
+      "slot": "neck",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 14,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "attack_power": 35
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 13709,
+      "flavor_text": "Sold by the Frontier Quartermasters for Frontier Marks, and to nobody who hasn't earned them.",
+      "identity": "strength",
+      "icon_id": "gear_inv_jewelry_amulet_02",
+      "frontier_line": "path",
+      "frontier_price": 15,
+      "bound": true
+    },
+    "fq_pathfinders_band": {
+      "name": "Pathfinder's Band",
+      "slot": "ring",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "attack_power": 35
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 13709,
+      "flavor_text": "Sold by the Frontier Quartermasters for Frontier Marks, and to nobody who hasn't earned them.",
+      "identity": "agility",
+      "icon_id": "gear_inv_jewelry_ring_26",
+      "frontier_line": "path",
+      "frontier_price": 15,
+      "bound": true
+    },
+    "fq_pathfinders_loop": {
+      "name": "Pathfinder's Loop",
+      "slot": "ring",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 10,
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "healing_power": 43
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 13709,
+      "flavor_text": "Sold by the Frontier Quartermasters for Frontier Marks, and to nobody who hasn't earned them.",
+      "identity": "healer",
+      "icon_id": "gear_inv_jewelry_ring_23",
+      "frontier_line": "path",
+      "frontier_price": 15,
+      "bound": true
+    },
+    "fq_pathfinders_cloak": {
+      "name": "Pathfinder's Cloak",
+      "slot": "back",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "attack_power": 35
+      },
+      "armor_value": 66,
+      "required_level": 60,
+      "sell_price": 12567,
+      "flavor_text": "Sold by the Frontier Quartermasters for Frontier Marks, and to nobody who hasn't earned them.",
+      "identity": "agility",
+      "icon_id": "gear_inv_misc_cape_10",
+      "frontier_line": "path",
+      "frontier_price": 15,
+      "bound": true
+    },
+    "fq_pathfinders_shawl": {
+      "name": "Pathfinder's Shawl",
+      "slot": "back",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 16
+      },
+      "secondary_stats": {
+        "spell_power": 35
+      },
+      "armor_value": 79,
+      "required_level": 60,
+      "sell_price": 12567,
+      "flavor_text": "Sold by the Frontier Quartermasters for Frontier Marks, and to nobody who hasn't earned them.",
+      "identity": "caster",
+      "icon_id": "gear_inv_misc_cape_11",
+      "frontier_line": "path",
+      "frontier_price": 15,
+      "bound": true
+    },
+    "fq_pathfinders_staff": {
+      "name": "Pathfinder's Staff",
+      "slot": "main_hand",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "staff",
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 39
+      },
+      "secondary_stats": {
+        "spell_power": 87
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 28561,
+      "flavor_text": "Sold by the Frontier Quartermasters for Frontier Marks, and to nobody who hasn't earned them.",
+      "identity": "caster",
+      "icon_id": "gear_inv_staff_09",
+      "weapon_damage_min": 62,
+      "weapon_damage_max": 84,
+      "attack_speed": 3.2,
+      "block_value": 0,
+      "frontier_line": "path",
+      "frontier_price": 45,
+      "bound": true
+    },
+    "fq_pathfinders_greatsword": {
+      "name": "Pathfinder's Greatsword",
+      "slot": "main_hand",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "sword_2h",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 19,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "attack_power": 48
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 28561,
+      "flavor_text": "Sold by the Frontier Quartermasters for Frontier Marks, and to nobody who hasn't earned them.",
+      "identity": "strength",
+      "icon_id": "gear_inv_sword_01",
+      "weapon_damage_min": 154,
+      "weapon_damage_max": 208,
+      "attack_speed": 3.4,
+      "block_value": 0,
+      "frontier_line": "path",
+      "frontier_price": 45,
+      "bound": true
+    },
+    "fq_pathfinders_dirk": {
+      "name": "Pathfinder's Dirk",
+      "slot": "main_hand",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "dagger",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 16,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "attack_power": 41
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 21706,
+      "flavor_text": "Sold by the Frontier Quartermasters for Frontier Marks, and to nobody who hasn't earned them.",
+      "identity": "agility",
+      "icon_id": "gear_inv_throwingknife_01",
+      "weapon_damage_min": 114,
+      "weapon_damage_max": 154,
+      "attack_speed": 1.7,
+      "block_value": 0,
+      "frontier_line": "path",
+      "frontier_price": 30,
+      "bound": true
+    },
+    "fq_pathfinders_mace": {
+      "name": "Pathfinder's Mace",
+      "slot": "main_hand",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "mace_1h",
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 13,
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "healing_power": 59
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 21706,
+      "flavor_text": "Sold by the Frontier Quartermasters for Frontier Marks, and to nobody who hasn't earned them.",
+      "identity": "healer",
+      "icon_id": "gear_inv_mace_08",
+      "weapon_damage_min": 114,
+      "weapon_damage_max": 154,
+      "attack_speed": 2.6,
+      "block_value": 0,
+      "frontier_line": "path",
+      "frontier_price": 30,
+      "bound": true
+    },
+    "fq_pathfinders_shield": {
+      "name": "Pathfinder's Shield",
+      "slot": "off_hand",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "shield",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 24,
+        "strength": 9
+      },
+      "secondary_stats": {
+        "block_value": 22
+      },
+      "armor_value": 673,
+      "required_level": 60,
+      "sell_price": 18279,
+      "flavor_text": "Sold by the Frontier Quartermasters for Frontier Marks, and to nobody who hasn't earned them.",
+      "identity": "shield_tank",
+      "icon_id": "gear_inv_shield_02",
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 78,
+      "frontier_line": "path",
+      "frontier_price": 20,
+      "bound": true
+    },
+    "fq_pathfinders_journal": {
+      "name": "Pathfinder's Journal",
+      "slot": "off_hand",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "tome",
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 20
+      },
+      "secondary_stats": {
+        "spell_power": 43
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 13709,
+      "flavor_text": "Sold by the Frontier Quartermasters for Frontier Marks, and to nobody who hasn't earned them.",
+      "identity": "caster",
+      "icon_id": "gear_inv_tome_8",
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "frontier_line": "path",
+      "frontier_price": 20,
+      "bound": true
+    },
+    "fq_pathfinders_longbow": {
+      "name": "Pathfinder's Longbow",
+      "slot": "ranged",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "bow",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "attack_power": 35
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 18279,
+      "flavor_text": "Sold by the Frontier Quartermasters for Frontier Marks, and to nobody who hasn't earned them.",
+      "identity": "agility",
+      "icon_id": "gear_inv_weapon_bow_07",
+      "weapon_damage_min": 97,
+      "weapon_damage_max": 131,
+      "attack_speed": 2.8,
+      "block_value": 0,
+      "frontier_line": "path",
+      "frontier_price": 20,
+      "bound": true
+    },
+    "fq_pathfinders_wand": {
+      "name": "Pathfinder's Wand",
+      "slot": "ranged",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "wand",
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 16
+      },
+      "secondary_stats": {
+        "spell_power": 35
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 18279,
+      "flavor_text": "Sold by the Frontier Quartermasters for Frontier Marks, and to nobody who hasn't earned them.",
+      "identity": "caster",
+      "icon_id": "gear_inv_wand_03",
+      "weapon_damage_min": 97,
+      "weapon_damage_max": 131,
+      "attack_speed": 1.9,
+      "block_value": 0,
+      "frontier_line": "path",
+      "frontier_price": 20,
+      "bound": true
+    },
+    "fq_horizon_pendant": {
+      "name": "Horizon Pendant",
+      "slot": "neck",
+      "item_level": 68,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 10,
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "healing_power": 46
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 14596,
+      "flavor_text": "The best a Frontier Quartermaster keeps, and only for the most Frontier Marks.",
+      "identity": "healer",
+      "icon_id": "gear_inv_jewelry_necklace_10",
+      "frontier_line": "horizon",
+      "frontier_price": 30,
+      "bound": true
+    },
+    "fq_horizon_signet": {
+      "name": "Horizon Signet",
+      "slot": "ring",
+      "item_level": 68,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "str_int_hybrid",
+      "primary_stats": {
+        "strength": 12,
+        "intellect": 12
+      },
+      "secondary_stats": {
+        "attack_power": 34
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 14596,
+      "flavor_text": "The best a Frontier Quartermaster keeps, and only for the most Frontier Marks.",
+      "identity": "crusader",
+      "icon_id": "gear_inv_jewelry_ring_26",
+      "frontier_line": "horizon",
+      "frontier_price": 30,
+      "bound": true
+    },
+    "fq_horizon_band": {
+      "name": "Horizon Band",
+      "slot": "ring",
+      "item_level": 68,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 16
+      },
+      "secondary_stats": {
+        "spell_power": 37
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 14596,
+      "flavor_text": "The best a Frontier Quartermaster keeps, and only for the most Frontier Marks.",
+      "identity": "caster",
+      "icon_id": "gear_inv_jewelry_ring_03",
+      "frontier_line": "horizon",
+      "frontier_price": 30,
+      "bound": true
+    },
+    "fq_horizon_cloak": {
+      "name": "Horizon Cloak",
+      "slot": "back",
+      "item_level": 68,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 14,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "attack_power": 38
+      },
+      "armor_value": 113,
+      "required_level": 60,
+      "sell_price": 13380,
+      "flavor_text": "The best a Frontier Quartermaster keeps, and only for the most Frontier Marks.",
+      "identity": "strength",
+      "icon_id": "gear_inv_misc_cape_03",
+      "frontier_line": "horizon",
+      "frontier_price": 30,
+      "bound": true
+    },
+    "fq_horizon_glaive": {
+      "name": "Horizon Glaive",
+      "slot": "main_hand",
+      "item_level": 68,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "polearm",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 20,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "attack_power": 51
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 30409,
+      "flavor_text": "The best a Frontier Quartermaster keeps, and only for the most Frontier Marks.",
+      "identity": "strength",
+      "icon_id": "gear_inv_spear_01",
+      "weapon_damage_min": 158,
+      "weapon_damage_max": 214,
+      "attack_speed": 3.3,
+      "block_value": 0,
+      "frontier_line": "horizon",
+      "frontier_price": 75,
+      "bound": true
+    },
+    "fq_horizon_blade": {
+      "name": "Horizon Blade",
+      "slot": "main_hand",
+      "item_level": 68,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "sword_1h",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 20,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "attack_power": 51
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 23111,
+      "flavor_text": "The best a Frontier Quartermaster keeps, and only for the most Frontier Marks.",
+      "identity": "agility",
+      "icon_id": "gear_inv_sword_25",
+      "weapon_damage_min": 117,
+      "weapon_damage_max": 158,
+      "attack_speed": 2.4,
+      "block_value": 0,
+      "frontier_line": "horizon",
+      "frontier_price": 50,
+      "bound": true
+    },
+    "fq_horizon_staff": {
+      "name": "Horizon Staff",
+      "slot": "main_hand",
+      "item_level": 68,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "staff",
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 25,
+        "intellect": 20
+      },
+      "secondary_stats": {
+        "healing_power": 114
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 30409,
+      "flavor_text": "The best a Frontier Quartermaster keeps, and only for the most Frontier Marks.",
+      "identity": "healer",
+      "icon_id": "gear_inv_staff_21",
+      "weapon_damage_min": 64,
+      "weapon_damage_max": 87,
+      "attack_speed": 3.2,
+      "block_value": 0,
+      "frontier_line": "horizon",
+      "frontier_price": 75,
+      "bound": true
+    },
+    "fq_horizon_bulwark": {
+      "name": "Horizon Bulwark",
+      "slot": "off_hand",
+      "item_level": 68,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "shield",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 26,
+        "strength": 9
+      },
+      "secondary_stats": {
+        "block_value": 23
+      },
+      "armor_value": 693,
+      "required_level": 60,
+      "sell_price": 19462,
+      "flavor_text": "The best a Frontier Quartermaster keeps, and only for the most Frontier Marks.",
+      "identity": "shield_tank",
+      "icon_id": "gear_inv_shield_05",
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 80,
+      "frontier_line": "horizon",
+      "frontier_price": 35,
+      "bound": true
+    },
+    "fq_horizon_rifle": {
+      "name": "Horizon Rifle",
+      "slot": "ranged",
+      "item_level": 68,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "gun",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "attack_power": 38
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 19462,
+      "flavor_text": "The best a Frontier Quartermaster keeps, and only for the most Frontier Marks.",
+      "identity": "agility",
+      "icon_id": "gear_inv_weapon_rifle_05",
+      "weapon_damage_min": 99,
+      "weapon_damage_max": 134,
+      "attack_speed": 2.6,
+      "block_value": 0,
+      "frontier_line": "horizon",
+      "frontier_price": 35,
+      "bound": true
+    },
+    "hb_halo_of_floating_shards": {
+      "name": "Halo of Floating Shards",
+      "slot": "head",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_int_hybrid",
+      "primary_stats": {
+        "strength": 16,
+        "intellect": 16
+      },
+      "secondary_stats": {
+        "attack_power": 43
+      },
+      "armor_value": 439,
+      "required_level": 60,
+      "sell_price": 18279,
+      "flavor_text": "The ring of shards the Exarch wore over his helm, still turning slowly when nobody's wearing it.",
+      "identity": "crusader",
+      "icon_id": "hb_exarch",
+      "heroic_only": "Exarch Lucan Thessaly",
+      "bound": true
+    },
+    "hb_tear_of_zin_azshari": {
+      "name": "Tear of Zin-Azshari",
+      "slot": "neck",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 10,
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "healing_power": 43
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 13709,
+      "flavor_text": "Sea-glass with seawater sealed inside it. On a quiet night you can hear the tide.",
+      "identity": "healer",
+      "icon_id": "hb_echo_of_the_queen",
+      "heroic_only": "Echo of the Queen",
+      "bound": true
+    },
+    "hb_deathcharger_spurs": {
+      "name": "Deathcharger's Spurs",
+      "slot": "feet",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 15,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "attack_power": 40
+      },
+      "armor_value": 359,
+      "required_level": 60,
+      "sell_price": 14852,
+      "flavor_text": "Taken off the Baron's own boots. His horse never came back for them.",
+      "identity": "strength",
+      "icon_id": "hb_rivendare",
+      "heroic_only": "Baron Rivendare",
+      "bound": true
+    },
+    "hb_cloak_of_the_last_crusade": {
+      "name": "Cloak of the Last Crusade",
+      "slot": "back",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 14,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "attack_power": 35
+      },
+      "armor_value": 236,
+      "required_level": 60,
+      "sell_price": 12567,
+      "flavor_text": "Hale's own cloak, the flame on it stitched by his mother before Hearthglen fell.",
+      "identity": "strength",
+      "icon_id": "hb_victor_hale",
+      "heroic_only": "Grand Crusader Victor Hale",
+      "bound": true
+    },
+    "hb_the_headmasters_register": {
+      "name": "The Headmaster's Register",
+      "slot": "off_hand",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "tome",
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 20
+      },
+      "secondary_stats": {
+        "spell_power": 43
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 13709,
+      "flavor_text": "Every student Gandling ever taught, and what became of them. Most of the pages end the same way.",
+      "identity": "caster",
+      "icon_id": "hb_gandling",
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "heroic_only": "Darkmaster Gandling",
+      "bound": true
+    },
+    "hb_shard_of_the_wound": {
+      "name": "Shard of the Wound",
+      "slot": "neck",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "str_int_hybrid",
+      "primary_stats": {
+        "strength": 12,
+        "intellect": 12
+      },
+      "secondary_stats": {
+        "attack_power": 31
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 13709,
+      "flavor_text": "A sliver of the Heart, cooled and set in iron. It's warm against the skin all the time.",
+      "identity": "crusader",
+      "icon_id": "hb_wounds_heart",
+      "heroic_only": "The Wound's Heart",
+      "bound": true
+    },
+    "hb_dathrohans_broken_halo": {
+      "name": "Dathrohan's Broken Halo",
+      "slot": "head",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 19,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "attack_power": 48
+      },
+      "armor_value": 439,
+      "required_level": 60,
+      "sell_price": 18279,
+      "flavor_text": "The Grand Crusader's gilded helm, cracked the night the thing inside him stopped pretending.",
+      "identity": "strength",
+      "icon_id": "hb_dathrohan",
+      "heroic_only": "Grand Crusader Dathrohan",
+      "bound": true
+    },
+    "hb_governor_of_the_warheart": {
+      "name": "Governor of the Warheart",
+      "slot": "ring",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "attack_power": 35
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 13709,
+      "flavor_text": "The crystal that told the Warheart how fast to burn, set in a ring by a deserter at the Dawnspear.",
+      "identity": "agility",
+      "icon_id": "hb_warheart",
+      "heroic_only": "The Warheart",
+      "bound": true
+    },
+    "hb_gloomtenders_pruning_knife": {
+      "name": "Gloomtender's Pruning Knife",
+      "slot": "main_hand",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "dagger",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 16,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "attack_power": 41
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 21706,
+      "flavor_text": "Xavras cut her gardens with it. The spores on the blade still glow.",
+      "identity": "agility",
+      "icon_id": "hb_xavras",
+      "weapon_damage_min": 114,
+      "weapon_damage_max": 154,
+      "attack_speed": 1.7,
+      "block_value": 0,
+      "heroic_only": "Xavras the Gloomtender",
+      "bound": true
+    },
+    "hb_caldera_cracked_gauntlets": {
+      "name": "Caldera-Cracked Gauntlets",
+      "slot": "hands",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "agility": 13,
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "attack_power": 40
+      },
+      "armor_value": 253,
+      "required_level": 60,
+      "sell_price": 14852,
+      "flavor_text": "Dark iron that went into the Caldera's heart and came out with molten seams through it.",
+      "identity": "hunter",
+      "icon_id": "hb_caldera",
+      "heroic_only": "The Caldera",
+      "bound": true
+    },
+    "hb_royal_jelly_wristguards": {
+      "name": "Royal Jelly Wristguards",
+      "slot": "wrist",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 15,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "attack_power": 40
+      },
+      "armor_value": 149,
+      "required_level": 60,
+      "sell_price": 11424,
+      "flavor_text": "Hide glazed with the Hive-Mother's royal jelly, which sets harder than chitin.",
+      "identity": "agility",
+      "icon_id": "hb_ahnthera",
+      "heroic_only": "Hive-Mother Ahn'thera",
+      "bound": true
+    },
+    "hb_hammer_of_the_unmade_thane": {
+      "name": "Hammer of the Unmade Thane",
+      "slot": "main_hand",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "mace_2h",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 19,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "attack_power": 48
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 28561,
+      "flavor_text": "Morrun's hammer, made before he was unmade. The runes on it only light for a dwarf.",
+      "identity": "strength",
+      "icon_id": "hb_morrun",
+      "weapon_damage_min": 154,
+      "weapon_damage_max": 208,
+      "attack_speed": 3.6,
+      "block_value": 0,
+      "heroic_only": "Thane Morrun the Unmade",
+      "bound": true
+    },
+    "hb_unbound_felstaff": {
+      "name": "Unbound Felstaff",
+      "slot": "main_hand",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "staff",
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 39
+      },
+      "secondary_stats": {
+        "spell_power": 87
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 28561,
+      "flavor_text": "The staff Zar'gothrax was bound with, until he wasn't. The fel crystal still remembers him.",
+      "identity": "caster",
+      "icon_id": "hb_zargothrax",
+      "weapon_damage_min": 62,
+      "weapon_damage_max": 84,
+      "attack_speed": 3.2,
+      "block_value": 0,
+      "heroic_only": "Zar'gothrax the Unbound",
+      "bound": true
+    },
+    "hb_band_of_three_tones": {
+      "name": "Band of Three Tones",
+      "slot": "ring",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 10,
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "healing_power": 43
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 13709,
+      "flavor_text": "Three thin bands that hum in a chord when they touch. The Cistern's water sang the same note.",
+      "identity": "healer",
+      "icon_id": "hb_resonance",
+      "heroic_only": "Resonance",
+      "bound": true
+    },
+    "hb_pitboss_gilded_pick": {
+      "name": "Pitboss's Gilded Pick",
+      "slot": "main_hand",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "axe_1h",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 19,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "attack_power": 48
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 21706,
+      "flavor_text": "Grebble never swung it once. He had people for that.",
+      "identity": "agility",
+      "icon_id": "hb_grebble_vask",
+      "weapon_damage_min": 114,
+      "weapon_damage_max": 154,
+      "attack_speed": 2.6,
+      "block_value": 0,
+      "heroic_only": "Pitboss Grebble Vask",
+      "bound": true
+    },
+    "hb_tarpots_boarding_pistol": {
+      "name": "Tarpot's Boarding Pistol",
+      "slot": "ranged",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "gun",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "attack_power": 35
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 18279,
+      "flavor_text": "Tarpot's pistol, loaded for one shot and kept that way for years.",
+      "identity": "agility",
+      "icon_id": "hb_tarpot",
+      "weapon_damage_min": 97,
+      "weapon_damage_max": 131,
+      "attack_speed": 2.6,
+      "block_value": 0,
+      "heroic_only": "Bosun Grell Tarpot",
+      "bound": true
+    },
+    "hb_whitemanes_last_psalter": {
+      "name": "Whitemane's Last Psalter",
+      "slot": "off_hand",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "tome",
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 12,
+        "intellect": 10
+      },
+      "secondary_stats": {
+        "healing_power": 54
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 13709,
+      "flavor_text": "Her prayers, written in her own hand, with every name she ever raised in the margins.",
+      "identity": "healer",
+      "icon_id": "hb_whitemane",
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "heroic_only": "High Inquisitor Whitemane",
+      "bound": true
+    },
+    "hb_cowl_of_the_index": {
+      "name": "Cowl of the Index",
+      "slot": "head",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 21
+      },
+      "secondary_stats": {
+        "spell_power": 49
+      },
+      "armor_value": 91,
+      "required_level": 60,
+      "sell_price": 18279,
+      "flavor_text": "Stitched with the Index's catalogue in letters too small to read without a lens.",
+      "identity": "caster",
+      "icon_id": "hb_the_index",
+      "heroic_only": "The Index",
+      "bound": true
+    },
+    "hb_unbeaten_belt": {
+      "name": "Belt of the Unbeaten",
+      "slot": "waist",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 15,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "attack_power": 40
+      },
+      "armor_value": 373,
+      "required_level": 60,
+      "sell_price": 12567,
+      "flavor_text": "Vek'tar's champion's belt. He wore it for eleven years, and you're the reason he doesn't now.",
+      "identity": "strength",
+      "icon_id": "hb_vektar",
+      "heroic_only": "Vek'tar the Unbeaten",
+      "bound": true
+    },
+    "hb_herods_red_axe": {
+      "name": "Herod's Red Axe",
+      "slot": "main_hand",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "axe_2h",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 19,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "attack_power": 48
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 28561,
+      "flavor_text": "The Scarlet Champion's axe, lacquered red so the blood wouldn't show.",
+      "identity": "strength",
+      "icon_id": "hb_herod",
+      "weapon_damage_min": 154,
+      "weapon_damage_max": 208,
+      "attack_speed": 3.6,
+      "block_value": 0,
+      "heroic_only": "Herod",
+      "bound": true
+    },
+    "hb_doans_scorched_robe": {
+      "name": "Doan's Scorched Robe",
+      "slot": "chest",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 25
+      },
+      "secondary_stats": {
+        "spell_power": 57
+      },
+      "armor_value": 108,
+      "required_level": 60,
+      "sell_price": 22849,
+      "flavor_text": "Doan's robe, burned at the hem from the night he tried the detonation indoors.",
+      "identity": "caster",
+      "icon_id": "hb_doan",
+      "heroic_only": "Arcanist Doan",
+      "bound": true
+    },
+    "hb_falconcrest_longbow": {
+      "name": "Falconcrest Longbow",
+      "slot": "ranged",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "bow",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "attack_power": 35
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 18279,
+      "flavor_text": "A Stromgarde hunting bow with falcons carved down its length.",
+      "identity": "agility",
+      "icon_id": "hb_falconcrest",
+      "weapon_damage_min": 97,
+      "weapon_damage_max": 131,
+      "attack_speed": 2.8,
+      "block_value": 0,
+      "heroic_only": "Lord Falconcrest",
+      "bound": true
+    },
+    "hb_zulketh_plague_sash": {
+      "name": "Zul'keth's Plague Sash",
+      "slot": "waist",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 11,
+        "intellect": 9
+      },
+      "secondary_stats": {
+        "healing_power": 48
+      },
+      "armor_value": 88,
+      "required_level": 60,
+      "sell_price": 12567,
+      "flavor_text": "Zul'keth wore it through the worst of the plague and never once caught it.",
+      "identity": "healer",
+      "icon_id": "hb_zulketh",
+      "heroic_only": "Dark Sorcerer Zul'keth",
+      "bound": true
+    },
+    "hb_razorflank_thornmail": {
+      "name": "Razorflank Thornmail",
+      "slot": "chest",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 22,
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "attack_power": 57
+      },
+      "armor_value": 346,
+      "required_level": 60,
+      "sell_price": 22849,
+      "flavor_text": "Mail woven through with the Kraul's thorns, which still grow a little every spring.",
+      "identity": "agility",
+      "icon_id": "hb_razorflank",
+      "heroic_only": "Charlga Razorflank",
+      "bound": true
+    },
+    "hb_thalnos_bloodstone_mantle": {
+      "name": "Thalnos's Bloodstone Mantle",
+      "slot": "shoulder",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 21
+      },
+      "secondary_stats": {
+        "spell_power": 49
+      },
+      "armor_value": 109,
+      "required_level": 60,
+      "sell_price": 18279,
+      "flavor_text": "A red crystal at each point, grown from what Thalnos spent and never paid back.",
+      "identity": "caster",
+      "icon_id": "hb_thalnos",
+      "heroic_only": "Bloodmage Thalnos",
+      "bound": true
+    },
+    "hb_nightmare_stitched_boots": {
+      "name": "Nightmare-Stitched Boots",
+      "slot": "feet",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 15,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "attack_power": 40
+      },
+      "armor_value": 149,
+      "required_level": 60,
+      "sell_price": 14852,
+      "flavor_text": "Black hide sewn with thread that moves when you aren't looking at it.",
+      "identity": "agility",
+      "icon_id": "hb_lord_nightmare",
+      "heroic_only": "Lord Nightmare",
+      "bound": true
+    },
+    "hb_varths_gate_shield": {
+      "name": "Varth's Gate Shield",
+      "slot": "off_hand",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "shield",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 24,
+        "strength": 9
+      },
+      "secondary_stats": {
+        "block_value": 22
+      },
+      "armor_value": 673,
+      "required_level": 60,
+      "sell_price": 18279,
+      "flavor_text": "Durnholde's gate shield. Varth held the door with it for nine years.",
+      "identity": "shield_tank",
+      "icon_id": "gear_inv_shield_02",
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 78,
+      "heroic_only": "Sergeant-at-Arms Varth",
+      "bound": true
+    },
+    "hb_akumai_scale_leggings": {
+      "name": "Aku'mai Scale Leggings",
+      "slot": "legs",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 16,
+        "intellect": 13
+      },
+      "secondary_stats": {
+        "healing_power": 69
+      },
+      "armor_value": 346,
+      "required_level": 60,
+      "sell_price": 22849,
+      "flavor_text": "Scales off the old hydra, still cold from the deep water.",
+      "identity": "healer",
+      "icon_id": "gear_inv_pants_04",
+      "heroic_only": "Aku'mai",
+      "bound": true
+    },
+    "hb_arugals_moonlit_wand": {
+      "name": "Arugal's Moonlit Wand",
+      "slot": "ranged",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "wand",
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 16
+      },
+      "secondary_stats": {
+        "spell_power": 35
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 18279,
+      "flavor_text": "Arugal called the worgen with it. It only glows under a full moon.",
+      "identity": "caster",
+      "icon_id": "gear_inv_wand_07",
+      "weapon_damage_min": 97,
+      "weapon_damage_max": 131,
+      "attack_speed": 1.9,
+      "block_value": 0,
+      "heroic_only": "Archmage Arugal",
+      "bound": true
+    },
+    "hb_amberglass_handwraps": {
+      "name": "Amberglass Handwraps",
+      "slot": "hands",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 18
+      },
+      "secondary_stats": {
+        "spell_power": 39
+      },
+      "armor_value": 88,
+      "required_level": 60,
+      "sell_price": 14852,
+      "flavor_text": "Silk dipped in the tower's amber and left to set.",
+      "identity": "caster",
+      "icon_id": "gear_inv_gauntlets_03",
+      "heroic_only": "Archmage Atiesh",
+      "bound": true
+    },
+    "hb_fenris_pelt_cloak": {
+      "name": "Fenris Pelt Cloak",
+      "slot": "back",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 8
+      },
+      "secondary_stats": {
+        "attack_power": 35
+      },
+      "armor_value": 66,
+      "required_level": 60,
+      "sell_price": 12567,
+      "flavor_text": "The alpha's own pelt. The pack still follows whoever wears it, a little way.",
+      "identity": "agility",
+      "icon_id": "gear_inv_misc_cape_03",
+      "heroic_only": "Alpha Fenris",
+      "bound": true
+    },
+    "hb_carapace_warden_bracers": {
+      "name": "Carapace Warden's Bracers",
+      "slot": "wrist",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_int_hybrid",
+      "primary_stats": {
+        "strength": 13,
+        "intellect": 13
+      },
+      "secondary_stats": {
+        "attack_power": 35
+      },
+      "armor_value": 359,
+      "required_level": 60,
+      "sell_price": 11424,
+      "flavor_text": "Plates of the Warden's shell, fitted to a wrist.",
+      "identity": "crusader",
+      "icon_id": "gear_inv_bracer_12",
+      "heroic_only": "Carapace Warden",
+      "bound": true
+    },
+    "hb_mutanus_dreaming_staff": {
+      "name": "Mutanus's Dreaming Staff",
+      "slot": "main_hand",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "staff",
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 24,
+        "intellect": 19
+      },
+      "secondary_stats": {
+        "healing_power": 107
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 28561,
+      "flavor_text": "A druid's staff the Devourer swallowed. It came back out greener.",
+      "identity": "healer",
+      "icon_id": "gear_inv_staff_02",
+      "weapon_damage_min": 62,
+      "weapon_damage_max": 84,
+      "attack_speed": 3.2,
+      "block_value": 0,
+      "heroic_only": "Mutanus the Devourer",
+      "bound": true
+    },
+    "hb_widowsilk_leggings": {
+      "name": "Widowsilk Leggings",
+      "slot": "legs",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 16,
+        "intellect": 13
+      },
+      "secondary_stats": {
+        "healing_power": 69
+      },
+      "armor_value": 129,
+      "required_level": 60,
+      "sell_price": 22849,
+      "flavor_text": "Spun from the Matriarch's own silk, which is stronger than anything a loom makes.",
+      "identity": "healer",
+      "icon_id": "gear_inv_pants_01",
+      "heroic_only": "Matriarch Velaxis",
+      "bound": true
+    },
+    "hb_taragamans_burning_knuckles": {
+      "name": "Taragaman's Burning Knuckles",
+      "slot": "main_hand",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "fist_weapon",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 16,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "attack_power": 41
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 21706,
+      "flavor_text": "They're still warm. They're always warm.",
+      "identity": "agility",
+      "icon_id": "gear_inv_weapon_shortblade_03",
+      "weapon_damage_min": 114,
+      "weapon_damage_max": 154,
+      "attack_speed": 1.8,
+      "block_value": 0,
+      "heroic_only": "Taragaman the Hungerer",
+      "bound": true
+    },
+    "hb_grotto_pearl_ring": {
+      "name": "Grotto Pearl Ring",
+      "slot": "ring",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 16
+      },
+      "secondary_stats": {
+        "spell_power": 35
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 13709,
+      "flavor_text": "A black pearl the size of a thumbnail, found inside the crab. Nobody asks how it got there.",
+      "identity": "caster",
+      "icon_id": "gear_inv_jewelry_ring_08",
+      "heroic_only": "Giant Crab",
+      "bound": true
+    }
+  }
+}

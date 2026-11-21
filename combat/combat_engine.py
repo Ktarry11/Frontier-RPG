@@ -1215,6 +1215,20 @@ class CombatEngine:
                             self.combat_log.append(f"{enemy.name} dropped: {mat.name}{' x%d' % qty if qty > 1 else ''}.")
                 except Exception as exc:  # a bonus; never let it break victory
                     print(f"WARNING: heroic material drop failed: {exc}")
+                # HEROIC STAGE 2 (tools/build_heroic_rewards.py, Kyle 21 Nov 2026): a Frontier Mark from every heroic
+                # boss, and the dungeon's heroic-only item from its last boss, now and then
+                try:
+                    from world.heroic import frontier_mark, roll_heroic_only
+                    mark = frontier_mark()
+                    if mark is not None:
+                        self.player.add_material(mark)
+                        self.loot_gained.append(mark)
+                        self.combat_log.append(f"{enemy.name} dropped: {mark.name}.")
+                    only = roll_heroic_only(enemy.name)
+                    if only is not None:
+                        drops.append(only)
+                except Exception as exc:  # a bonus; never let it break victory
+                    print(f"WARNING: heroic mark or heroic-only drop failed: {exc}")
             for loot in [d for d in drops if d]:
                 if self.player.add_to_inventory(loot):
                     self.loot_dropped = loot
