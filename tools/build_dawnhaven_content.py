@@ -56,6 +56,7 @@ def B(level):
 
 
 #: name -> (template, lo, hi, rare/boss multiplier or None, sprite, kit shape, school, [ability names])
+#: The rares and bosses wear Kyle's FG1 figures (docs/sky_and_dawnhaven_figures_art_prompts.md, 21 Nov 2026).
 ROSTER = {
     # ================================================================ AMBERLEAF GLADE
     "Tideshell Crab":       ("beast_basic", 1, 2, None, "az_shore_crab", "beast", "physical",
@@ -76,9 +77,9 @@ ROSTER = {
                              ["Spectral Blade", "Old Drill", "Unyielding"]),
     "Forlorn Spirit":       ("undead_caster", 4, 6, None, "az_ghost_tormented", "caster", "shadow",
                              ["Wail", "Grief Made Cold", "Haunting"]),
-    "Old Barnacle":         ("beast_large", 3, 3, 1.8, "crab_giant_1", "rare", "physical",
+    "Old Barnacle":         ("beast_large", 3, 3, 1.8, "dh_old_barnacle", "rare", "physical",
                              ["Crushing Claw", "Shell Spin", "Clamped Fast", "Barnacled Fury"]),
-    "Goldmane":             ("beast_fast", 4, 4, 1.8, "ps_eversong_lynx", "rare", "physical",
+    "Goldmane":             ("beast_fast", 4, 4, 1.8, "dh_goldmane", "rare", "physical",
                              ["Golden Rake", "Leap From the Gold", "Pinned Down", "Hunter's Fury"]),
     # ================================================================ DUSKFALL WOODS
     "Duskfall Prowler":     ("beast_fast", 5, 7, None, "panther_3", "beast", "physical",
@@ -99,9 +100,9 @@ ROSTER = {
                              ["Guardian's Blade", "Shield of the Dead", "Still on Watch"]),
     "Withered Magister":    ("undead_caster", 7, 9, None, "az_ghost_arcanist", "caster", "arcane",
                              ["Fading Bolt", "Arcane Echo", "Withering"]),
-    "Ruddy, the Hollow King": ("beast_large", 8, 8, 1.8, "bear_5", "rare", "physical",
+    "Ruddy, the Hollow King": ("beast_large", 8, 8, 1.8, "dh_hollow_king", "rare", "physical",
                                ["Crown of Claws", "Hollow Roar", "Bowled Over", "King's Rage"]),
-    "The Grieving Lady":    ("undead_caster", 8, 8, 1.8, "az_ghost_handmaiden", "rare", "shadow",
+    "The Grieving Lady":    ("undead_caster", 8, 8, 1.8, "dh_grieving_lady", "rare", "shadow",
                              ["Sorrow", "The Long Lament", "Heart Stopped", "Grief Undying"]),
 }
 RARES = {n for n, r in ROSTER.items() if r[3]}
@@ -115,7 +116,7 @@ CAVE_ROSTERS = {
                                  ["Tide Bolt", "Undertow", "Brine Chill"]),
         "Grotto Crab":          ("beast_basic", 3, 4, None, "wt_reef_crab", "beast", "physical",
                                  ["Snip", "Scuttle", "Grinding Claw"]),
-        "Tidecaller Sszelith":  ("humanoid_caster", 5, 5, 2.3, "az_naga_siren", "boss", "frost",
+        "Tidecaller Sszelith":  ("humanoid_caster", 5, 5, 2.3, "dh_tidecaller_sszelith", "boss", "frost",
                                  ["Tide's Call", "Crashing Wave", "The Undertow Takes You", "Spray of the Deep"]),
     },
     VAULT: {
@@ -125,7 +126,7 @@ CAVE_ROSTERS = {
                                  ["Rusted Blade", "Guard the Dead", "Bound Bones"]),
         "Ossuary Shade":        ("undead_basic", 5, 6, None, "spectre_1", "beast", "shadow",
                                  ["Shadow Claw", "Flicker", "Shade's Chill"]),
-        "Warden Isilien":       ("undead_caster", 6, 6, 2.4, "banshee", "boss", "shadow",
+        "Warden Isilien":       ("undead_caster", 6, 6, 2.4, "dh_warden_isilien", "boss", "shadow",
                                  ["Warden's Lament", "Seal of the Dead", "Bound to the Vault", "Keening"]),
     },
     HOLLOW: {
@@ -135,9 +136,9 @@ CAVE_ROSTERS = {
                                  ["Brine Bolt", "Rising Tide", "Salt Sting"]),
         "Hollow Crab":          ("beast_basic", 7, 8, None, "crab_giant_1", "beast", "physical",
                                  ["Claw", "Shell Charge", "Pincered"]),
-        "Sea-Witch Ilthessa":   ("humanoid_caster", 9, 9, 2.4, "az_naga_sea_witch", "boss", "frost",
+        "Sea-Witch Ilthessa":   ("humanoid_caster", 9, 9, 2.4, "dh_seawitch_ilthessa", "boss", "frost",
                                  ["Witch's Tide", "Black Water", "Drowned in Salt", "The Sea Answers"]),
-        "Old Saltspine":        ("beast_large", 8, 8, 2.2, "crab_giant_2", "boss", "physical",
+        "Old Saltspine":        ("beast_large", 8, 8, 2.2, "dh_old_saltspine", "boss", "physical",
                                  ["Great Claw", "Shell Quake", "Dragged Under", "Snapping Frenzy"]),
     },
     DEEP: {
@@ -147,9 +148,9 @@ CAVE_ROSTERS = {
                                  ["Arcane Bite", "Mana Lash", "Siphoned"]),
         "Lorebound Shade":      ("undead_caster", 8, 9, None, "scholo_ghost_servant", "caster", "shadow",
                                  ["Faded Word", "Recitation", "Lost Page"]),
-        "The Starved Light":    ("elemental_caster", 9, 9, 2.5, "dw_arcane_anomaly", "boss", "arcane",
+        "The Starved Light":    ("elemental_caster", 9, 9, 2.5, "dh_starved_light", "boss", "arcane",
                                  ["Hungering Ray", "Devour the Light", "Darkness Where It Fed", "Starburst"]),
-        "Archivist Lorethas":   ("undead_caster", 9, 9, 2.3, "az_ghost_noble", "boss", "arcane",
+        "Archivist Lorethas":   ("undead_caster", 9, 9, 2.3, "dh_archivist_lorethas", "boss", "arcane",
                                  ["Archivist's Bolt", "Words Unwritten", "Bound in Ink", "Last Entry"]),
     },
 }

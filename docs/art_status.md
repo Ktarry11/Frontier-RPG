@@ -10,14 +10,14 @@ again. (RC1 was asked for a second time on 21 Nov off a stale 17 Nov note, thoug
 | Sheet | What | Where | Notes |
 |---|---|---|---|
 | **DH5** | The Sunreach Conclave's faction card redrawn at Firstlight Spire (the tabard and both mounts are already in) | `dawnhaven_art_prompts.md` | Optional. Written 21 Nov; the old Talrendis painting stays until it lands |
-| **SKY-NPC** | The two Crown allies' own figures (Ilaren Vey, Leandro Arrieta) and the Mural Shard's Collection icon | not written | Optional. They wear stock Aetherian and human looks today |
-| **Corvo and Lysse** | The Exarch's two guards in the Ascendant Spire | not written | Optional. They weren't on AB2, so they borrow the stock commander and warden art |
+| **Icons** | The Mural Shard's Collection icon, and the keepsake icons for Dawnhaven's three bears and Sheet 6's twelve | not written | They show stand-ins until then |
 | **WALK** | Walk cycles on the new player sprites | not written | **Parked** (Kyle, 20 Nov: "Walk cycles will come after better sprites") |
 
 ## Delivered and in the game
 
 | Doc | Sheets | Landed |
 |---|---|---|
+| `sky_and_dawnhaven_figures_art_prompts.md` | FG1: fourteen figures, Corvo and Lysse, Ilaren Vey and Leandro Arrieta, and Dawnhaven's six cave bosses and four rares | 21 Nov |
 | `start_zone_art_prompts.md` | SZ1: the four start zone paintings for character creation's picker, sliced by `tools/slice_start_zone_art.py` | 21 Nov |
 | `dawnhaven_art_prompts.md` | DH1 to DH4: Dawnhaven's 24 ground tiles, 24 props, 12 buildings and 24 town props (DH5, the card, is still to make) | 21 Nov |
 | `blood_elf_npc_art_prompts.md` | BE-M and BE-W: 48 blood elf townsfolk, front-only NPC looks | 21 Nov |

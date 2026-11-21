@@ -22,7 +22,7 @@ THE NUMBERS are the 54-60 band's (tools/build_plaguelands_dungeons_content.py): 
 (tools/qa_dungeon_boss_turns.py), and no fight shuts out a damage school.
 
 ART is Kyle's sheet AB2 (docs/bastions_art_prompts.md): eighteen bosses. The two guards of the Exarch weren't on it,
-so Corvo and Lysse wear the Ascendancy's stock commander and warden art for now.
+so Corvo and Lysse wore stock art until Kyle's FG1 sheet drew them (21 Nov 2026).
 
 LOOT. Four items a boss, a pair's eight; item level = boss level + 3. The Warheart and the Exarch each roll two named
 epics at 5% (tools/epic_table.py). A boss kill pays the Aetherians 75 (data/factions/factions.json, dungeon_rep).
@@ -115,8 +115,8 @@ ROSTER = {
     "Exarch's Sentinel":     ("elemental_bruiser", 60, 60, None, "ae_construct_titan", S2),
     "The Aegis Engine":      ("elemental_caster", 60, 60, 2.5, "ab_aegis_engine", S2),
     "Warmarshal Dravin Kell": ("humanoid_warrior", 60, 60, 2.5, "ab_warmarshal", S2),
-    "Ascendant Guard Corvo": ("humanoid_warrior", 60, 60, 1.6, "ae_high_commander", S2),
-    "Ascendant Guard Lysse": ("humanoid_warrior", 60, 60, 1.6, "ae_warden", S2),
+    "Ascendant Guard Corvo": ("humanoid_warrior", 60, 60, 1.6, "ae_guard_corvo", S2),      # FG1, 21 Nov 2026
+    "Ascendant Guard Lysse": ("humanoid_warrior", 60, 60, 1.6, "ae_guard_lysse", S2),      # FG1, 21 Nov 2026
     "Exarch Lucan Thessaly": ("humanoid_caster", 60, 60, 2.8, "ab_exarch", S2),
 }
 BOSSES = {n for n, r in ROSTER.items() if r[3]}

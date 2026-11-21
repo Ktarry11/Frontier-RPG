@@ -748,6 +748,13 @@ def _dawnhaven_sets():
 _dawnhaven_sets()
 SOFT |= {"dh_lightwell_lit", "dh_boat_stair", "dh_fountain"}
 
+
+# FG1 (docs/sky_and_dawnhaven_figures_art_prompts.md, 21 Nov 2026): fourteen figures that wore borrowed art.
+_set("fg1", 7, 2, "assets/creatures", """
+    ae_guard_corvo ae_guard_lysse npc_ilaren_vey npc_leandro_arrieta dh_tidecaller_sszelith dh_seawitch_ilthessa
+    dh_warden_isilien dh_archivist_lorethas dh_starved_light dh_old_saltspine dh_old_barnacle dh_goldmane dh_hollow_king
+    dh_grieving_lady""")
+
 #: violet and storm-blue currents sit too close to the magenta key: the soft key keeps their alpha right but turns their
 #: colour toward teal, so the teal is turned back: hues between these (degrees) move round by the shift
 VIOLET_FIX = {"lk_dusk_wind_h": (110, 225, 105), "lk_storm_wind_h": (100, 200, 90)}
