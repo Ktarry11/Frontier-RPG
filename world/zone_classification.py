@@ -95,6 +95,13 @@ DUNGEONS = [
     "The Ascendant Spire", "The Ascendant Spire: The Command Spire",  # Ascendant Bastions (tools/build_citadel_dungeons_content.py)
     "The Exclusion Zone", "The Exclusion Zone: The Reactor Hall", "The Exclusion Zone: The Foot",   # Deadwind's,
                                      # under the wheel, three floors: the last T0 token (tools/handbuilt_exclusion_zone.py)
+    # Added 2026-11-21 (Kyle: "ensure all Dungeons are counting as Dungeons"): the boss maps that were dungeons in all but
+    # name (world/dungeon_packs.ALSO_DUNGEONS), so they get heroics, the Revered cap and everything else a dungeon gets.
+    # The Return Voyage's two Bloodsail ships (the Raider and its hold; the Galleon's deck, hold and captain's cabin)
+    # and Stonetalon's Eldest Sequoia (the trunk and the crown).
+    "The Bloodsail Raider", "The Raider's Hold",
+    "The Galleon's Weather Deck", "The Galleon's Hold", "The Captain's Cabin",
+    "The Eldest Sequoia", "The Eldest's Crown",
 ]
 # Drywhisker Deeps has fixed packs too, but it's the kobolds' MINE with its own ore pool, so like Azurelode
 # Mine it stays off this list and keeps its ore.

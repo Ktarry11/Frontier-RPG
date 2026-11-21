@@ -88,8 +88,10 @@ def attach_packs(zone, packs, avoid=()):
     return built
 
 
-#: Boss maps that are dungeons in all but name (the Return Voyage's ships, the Eldest Sequoia): their trash is held to
-#: the same pack sizes. tools/qa_dungeon_packs.py and tools/qa_dungeon_fast_exits.py read this list.
+#: Boss maps that were dungeons in all but name (the Return Voyage's ships, the Eldest Sequoia): their trash is held to
+#: the same pack sizes. tools/qa_dungeon_packs.py and tools/qa_dungeon_fast_exits.py read this list. Since 21 Nov 2026
+#: they're on world/zone_classification.DUNGEONS too (Kyle: "ensure all Dungeons are counting as Dungeons"), so they
+#: have heroics; the list stays for the tools that read it.
 ALSO_DUNGEONS = {"The Bloodsail Raider", "The Raider's Hold", "The Galleon's Weather Deck", "The Galleon's Hold",
                  "The Captain's Cabin", "The Eldest Sequoia", "The Eldest's Crown"}
 #: PACK SIZE BY LEVEL (Kyle, 14 Nov 2026: "in dungeons enemies are in packs of 4 to 5...not individual!"; 17 Nov: "we

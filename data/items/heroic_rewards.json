@@ -29,6 +29,9 @@
     "Charlga Razorflank": "hb_razorflank_thornmail",
     "Bloodmage Thalnos": "hb_thalnos_bloodstone_mantle",
     "Lord Nightmare": "hb_nightmare_stitched_boots",
+    "Captain Ruel Scuttler": "hb_scuttlers_sea_cutlass",
+    "Admiral Hedessa Crane": "hb_admirals_long_coat",
+    "The Eldest": "hb_heartwood_staff_of_the_eldest",
     "Sergeant-at-Arms Varth": "hb_varths_gate_shield",
     "Aku'mai": "hb_akumai_scale_leggings",
     "Archmage Arugal": "hb_arugals_moonlit_wand",
@@ -2509,6 +2512,86 @@
       "identity": "agility",
       "icon_id": "hb_lord_nightmare",
       "heroic_only": "Lord Nightmare",
+      "bound": true
+    },
+    "hb_scuttlers_sea_cutlass": {
+      "name": "Scuttler's Sea Cutlass",
+      "slot": "main_hand",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "sword_1h",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 19,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "attack_power": 48
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 21706,
+      "flavor_text": "The captain's cutlass, salt-pitted and sharper than it looks. He named it after his mother.",
+      "identity": "agility",
+      "icon_id": "gear_inv_sword_29",
+      "weapon_damage_min": 114,
+      "weapon_damage_max": 154,
+      "attack_speed": 2.4,
+      "block_value": 0,
+      "heroic_only": "Captain Ruel Scuttler",
+      "bound": true
+    },
+    "hb_admirals_long_coat": {
+      "name": "The Admiral's Long Coat",
+      "slot": "chest",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "agility": 19,
+        "intellect": 16
+      },
+      "secondary_stats": {
+        "attack_power": 57
+      },
+      "armor_value": 237,
+      "required_level": 60,
+      "sell_price": 22849,
+      "flavor_text": "Crane's coat, cut long against the spray, with every ship she ever took stitched inside the hem.",
+      "identity": "hunter",
+      "icon_id": "gear_inv_chest_leather_02",
+      "heroic_only": "Admiral Hedessa Crane",
+      "bound": true
+    },
+    "hb_heartwood_staff_of_the_eldest": {
+      "name": "Heartwood Staff of the Eldest",
+      "slot": "main_hand",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": null,
+      "weapon_type": "staff",
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 24,
+        "intellect": 19
+      },
+      "secondary_stats": {
+        "healing_power": 107
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 28561,
+      "flavor_text": "A limb the Eldest let fall when it was done fighting. It still puts out leaves in the spring.",
+      "identity": "healer",
+      "icon_id": "gear_inv_staff_18",
+      "weapon_damage_min": 62,
+      "weapon_damage_max": 84,
+      "attack_speed": 3.2,
+      "block_value": 0,
+      "heroic_only": "The Eldest",
       "bound": true
     },
     "hb_varths_gate_shield": {

@@ -37,7 +37,8 @@ built yet. Until they are, the hidden places stay as they are and are never hero
 ## Stage 1: the core (built 18 Nov 2026)
 
 - **The door.** Walking into any dungeon from outside at level 60 asks Normal or Heroic (N / H, Esc to stay out).
-  Every dungeon in `world/zone_classification.DUNGEONS` has a heroic. Floors and wings reached from inside are the
+  Every dungeon in `world/zone_classification.DUNGEONS` has a heroic. The Return Voyage's two Bloodsail ships and the
+  Eldest Sequoia joined the list on 21 Nov 2026 (Kyle: "ensure all Dungeons are counting as Dungeons"). Floors and wings reached from inside are the
   same run. Walking back out of the dungeons ends the run.
 - **Lockout.** Each heroic can be run once per market day (the market's clock, 24 market hours). It locks when you
   walk in, and a save keeps the run and the day's locks (`TravelManager.heroic_run`, `heroic_locks`).
@@ -92,9 +93,9 @@ art is sheet HB1 (`docs/heroic_art_prompts.md`, `tools/slice_heroic_icons.py`).
   - **The Horizon line, item level 68**, 25 pieces, sold nowhere else and dearer: head, shoulders, chest and legs in
     all four types (each in the stat mix the Pathfinder piece in that slot doesn't have), jewellery and five weapons.
     30 to 75 marks. It sits beside the Exalted rep epics and T1 on item level, under them on budget.
-- **Heroic-only items.** Every dungeon's last boss (the last floor of each dungeon chain, 36 dungeons) has a one-in-five
+- **Heroic-only items.** Every dungeon's last boss (the highest-level boss on the last floor of each dungeon chain, 39 dungeons) has a one-in-five
   chance on a heroic run at an item nothing else drops, item level 66, worn at 60. The 26 highest dungeons' items have
-  their own icons from HB1.
+  their own icons from HB1; the rest wear stock icons.
 - **Bound.** Neither the quartermasters' gear nor a heroic-only item can go on the auction house or in the mail.
 
 QA: `tools/qa_heroic_rewards.py`.
@@ -109,9 +110,10 @@ QA: `tools/qa_heroic_rewards.py`.
 Measured on 18 Nov: almost nothing crafts from the first top tiers yet. The only crafted gear at the heroic or raid
 level is the 32 Exalted rep patterns (68). Woodworking's level 50-56 tier turned out to be built on three level-60
 woods that grew nowhere. Those woods were moved below the line the same day (Kyle: "Nothing sub 60 should use lvl 60
-materials"; `tools/fix_pre60_woods.py`, guarded by `tools/qa_no_level60_materials_below_60.py`). So the ten
-materials above still need a crafting tier of their own, gear for each profession (Kyle: "Then we can add crafting
-for new gear for each profession"), at the heroic and raid levels.
+materials"; `tools/fix_pre60_woods.py`, guarded by `tools/qa_no_level60_materials_below_60.py`). The ten
+materials above then got a crafting tier of their own, the Master tier (`tools/build_master_crafting.py`,
+`docs/master_crafting.md`): blues at 66 from the first rung, and epics at 68 from the second rung, whose patterns drop
+from heroic bosses.
 
 ## Later
 

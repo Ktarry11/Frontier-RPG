@@ -85,11 +85,12 @@ def main():
         hero.inventory.append(gen.generate_armor_piece("chest", "plate", "str_physical", 40, "uncommon"))
     with contextlib.redirect_stdout(io.StringIO()):
         vs = VendorScreen(gsm, vendor)
+    vs.buy_filter = "all"          # a tabbed shelf (the Frontier Quartermasters') opens on its first tab
     vs.render(screen)
     vbar, pbar = vs._bars()
-    check(len(vs.vendor_inventory) > vs.VISIBLE_ROWS, f"the biggest shop has only {len(vs.vendor_inventory)} things")
+    check(len(vs._vendor_list()) > vs.VISIBLE_ROWS, f"the biggest shop shows only {len(vs._vendor_list())} things")
     drag("shop stock", vs, vbar, lambda: [vs._row_rect(vs.VENDOR_PANEL_X, i) for i in range(vs.VISIBLE_ROWS)],
-         lambda: vs.scroll_vendor, lambda: vs.render(screen), lambda: vs._max_scroll(len(vs.vendor_inventory)))
+         lambda: vs.scroll_vendor, lambda: vs.render(screen), lambda: vs._max_scroll(len(vs._vendor_list())))
     check(vs.selected_vendor_item is None, "a click on the shop's scrollbar picked an item")
     drag("your items (shop)", vs, pbar, lambda: [vs._row_rect(vs.PLAYER_PANEL_X, i) for i in range(vs.VISIBLE_ROWS)],
          lambda: vs.scroll_player, lambda: vs.render(screen), lambda: vs._max_scroll(len(vs._player_stock())))

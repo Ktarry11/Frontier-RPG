@@ -32,6 +32,7 @@ sys.path.insert(0, str(ROOT))
 os.chdir(ROOT)
 
 FAILS = []
+CR = {}
 
 
 def check(ok, msg):
@@ -42,11 +43,18 @@ def check(ok, msg):
 #: a dungeon chain: the floors that make one heroic run, the last of them holding its last boss. Floors are grouped
 #: by the name before the colon, except the Scarlet Monastery's wings (four dungeons) and Stratholme, whose Scarlet
 #: side is its own dungeon apart from the Scourge side's two floors.
+#: floors whose name doesn't start with their dungeon's
+SAME_RUN = {"The Raider's Hold": "The Bloodsail Raider", "The Galleon's Hold": "The Galleon's Weather Deck",
+            "The Captain's Cabin": "The Galleon's Weather Deck", "The Eldest's Crown": "The Eldest Sequoia"}
+
+
 def chains():
     from world.zone_classification import DUNGEONS
     out = {}
     for d in DUNGEONS:
-        if d.startswith("Scarlet Monastery") or d == "Stratholme":
+        if d in SAME_RUN:
+            key = SAME_RUN[d]
+        elif d.startswith("Scarlet Monastery") or d == "Stratholme":
             key = d
         elif d.startswith("Stratholme:"):
             key = "Stratholme (the Scourge side)"
@@ -139,11 +147,16 @@ def main():
 
     # 4. heroic-only items, one per dungeon's last boss
     only = rw.get("heroic_only") or {}
+    global CR
+    CR = json.loads((ROOT / "data/creatures/creatures.json").read_text(encoding="utf-8"))["creatures"]
     finals = {}
     for key, floors in chains().items():
+        # the last boss is the highest-level boss on the last floor; on a tie, the one the map names
+        # (tools/build_fast_exits.last_boss, the same rule the fast exits use)
         last = Z.get(zone_key(floors[-1]))
-        bp = tuple(getattr(last, "boss_position", None) or ())[:2]
-        name = next((b[2] for b in (getattr(last, "boss_positions", None) or []) if tuple(b[:2]) == bp), None)
+        from tools.build_fast_exits import last_boss
+        pos = last_boss(last, CR)
+        name = next((b[2] for b in (getattr(last, "boss_positions", None) or []) if tuple(b[:2]) == pos), None)
         finals[key] = name
         check(name in only, f"{key}: its last boss {name} has no heroic-only item")
     extra = set(only) - set(finals.values())

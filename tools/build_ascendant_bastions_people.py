@@ -38,8 +38,8 @@ FLIGHT_NODES = [
 
 FOOD = ["meal_saltback_roast", "hunters_brace_platter", "drink_deepwell_cordial", "cook_flour", "cook_spice",
         "cook_fruit", "cook_roots"]
-GOODS = ["healing_potion_masterwork", "mana_potion_masterwork", "broadhead_arrows", "quarrel_bolts",
-         "shot_mithril", "parchment", "beast_lure", "vial_crystal"]
+GOODS = ["healing_potion_masterwork", "mana_potion_masterwork", "barbed_arrows", "shot_void",
+         "parchment", "beast_lure", "vial_crystal"]
 
 #: vendor_id -> (name, race, gender, variant, facing, gear_level, sells_gear, stock, greeting)
 VENDORS = {

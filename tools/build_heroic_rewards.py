@@ -19,7 +19,7 @@ and weapon slot (a vendor's `tabs`, ui/screens/vendor_screen.py) and sorted by s
   * the Horizon line, item level 68 and dearer, sold nowhere else: the big armour slots, jewellery and weapons, each in
     the stat mix the Pathfinder piece in that slot doesn't have.
 
-HEROIC-ONLY ITEMS. Each dungeon's last boss on a heroic run has a one-in-five chance at an item nothing else drops,
+HEROIC-ONLY ITEMS. Each dungeon's last boss (the highest-level boss on its last floor) on a heroic run has a one-in-five chance at an item nothing else drops,
 item level 66, worn at 60. The 26 highest dungeons' items wear Kyle's sheet HB1 (tools/slice_heroic_icons.py).
 
 Nothing here goes on the auction house: quartermaster gear and heroic-only items are bound to whoever earned them
@@ -207,7 +207,17 @@ HEROIC_ONLY = {
     "Lord Nightmare": ("hb_nightmare_stitched_boots", "Nightmare-Stitched Boots", "feet", "armor", "leather",
                        "agi_physical", "Black hide sewn with thread that moves when you aren't looking at it.",
                        "hb_lord_nightmare"),
-    # the ten lowest dungeons wear stock icons
+    # the ships and the Eldest Sequoia, on the dungeon list since 21 Nov 2026 (Kyle: "ensure all Dungeons are counting
+    # as Dungeons"), and the ten lowest dungeons, wear stock icons
+    "Captain Ruel Scuttler": ("hb_scuttlers_sea_cutlass", "Scuttler's Sea Cutlass", "main_hand", "weapon", "sword_1h",
+                              "agi_physical", "The captain's cutlass, salt-pitted and sharper than it looks. He named "
+                              "it after his mother.", None),
+    "Admiral Hedessa Crane": ("hb_admirals_long_coat", "The Admiral's Long Coat", "chest", "armor", "leather",
+                              "agi_int_hybrid", "Crane's coat, cut long against the spray, with every ship she ever "
+                              "took stitched inside the hem.", None),
+    "The Eldest": ("hb_heartwood_staff_of_the_eldest", "Heartwood Staff of the Eldest", "main_hand", "weapon",
+                   "staff", "spi_healer", "A limb the Eldest let fall when it was done fighting. It still puts out "
+                   "leaves in the spring.", None),
     "Sergeant-at-Arms Varth": ("hb_varths_gate_shield", "Varth's Gate Shield", "off_hand", "weapon", "shield",
                                "str_physical", "Durnholde's gate shield. Varth held the door with it for nine "
                                "years.", None),
