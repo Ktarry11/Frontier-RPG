@@ -402,7 +402,16 @@ def build_layout():
     E.seal_unreachable(L, START)
     chests(L)
     E.register_subzones(L, SUBZONES)
+    E.place_links(L, LINKS)
+    from tools.link_art import dress_links
+    dress_links(L.z, LINKS, pads={"skipstone": "lk_skipstone_overgrown"})
     return L
+
+
+#: THE FIRST LINK in the sky (world/links.py; Kyle, 21 Nov 2026: "We can have 1 or 2 before the ff zone so people see
+#: them a few times. But they are more heavily found later"). An old skip-stone, overgrown and forgotten, still joins
+#: the House of Measures' rock to the Listing Isle; the house uses it to send its surveyors to Tiltside.
+LINKS = [("skipstone", (282, 48), (280, 146))]
 
 
 def sprinkle(L):

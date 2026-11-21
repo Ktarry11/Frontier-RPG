@@ -143,7 +143,9 @@ LORE = re.compile(
     r"\b(Buenos Aires|Rio|Maui|Rovaniemi|Toronto|Tripoli|Westland|Earthborn|Krakow|Ibadan|Halifax|North Sea|Osaka)\b|"
     r"since the change|the change came|"
     # the Bastions' conscripts in the Yard Pens (21 Nov 2026) name their homes
-    r"\b(Galway|Gdansk|Monterrey|Bradford)\b",
+    r"\b(Galway|Gdansk|Monterrey|Bradford)\b|"
+    # the Firmament's Earthborn (21 Nov 2026) name theirs
+    r"\b(Durban|Umea|Kumasi)\b",
     re.I)
 
 #: Named by claude/quest_writing_guide.md as the tics that make quest text read as filler.

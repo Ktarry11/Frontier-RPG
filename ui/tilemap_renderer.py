@@ -710,6 +710,9 @@ class TilemapRenderer:
                     if layer_tile in ("water", "tropical_water", "tropical_shallow",
                                       "deep_water", "shallow_water"):
                         continue
+                    # a link's pad (world/links.py) is a marker too: its art is the pad prop, and it glows below
+                    if layer_tile == "link":
+                        continue
                     # Kyle: "mountain tiles should also be in the third
                     # layer... since they're still read as movement=false,
                     # right?" - confirmed (cliff/wall are both
@@ -831,7 +834,7 @@ class TilemapRenderer:
         for y in range(tile_top, tile_bottom):
             row = tilemap.interaction_layer[y]
             for x in range(tile_left, tile_right):
-                if row[x] not in ("portal", "boat"):
+                if row[x] not in ("portal", "boat", "link"):
                     continue
                 if row[x] == "portal" and _door_hidden(x, y):
                     continue        # a secret door glows only once you're in its room

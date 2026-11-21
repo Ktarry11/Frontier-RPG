@@ -5643,6 +5643,9 @@ def create_all_zones():
     from tools.handbuilt_golem_vault import generate_golem_vault
     from tools.handbuilt_storm_well import generate_storm_well
     from tools.handbuilt_keel import generate_keel
+    from tools.handbuilt_hearthdeep import generate_hearthdeep
+    from tools.handbuilt_wellspring import generate_wellspring
+    from tools.handbuilt_hollow_engine import generate_hollow_engine
     from tools import handbuilt_worldtree_cloudbreak as dwcb
     from tools import handbuilt_worldtree_sunward_crown as dwsc
     from tools import handbuilt_worldtree_lenswatch as dwlw
@@ -5650,6 +5653,7 @@ def create_all_zones():
     from tools import handbuilt_worldtree_anchorfields as dwaf
     from tools import handbuilt_worldtree_aurelion as dwau
     from tools import handbuilt_worldtree_ascendant_bastions as dwab
+    from tools import handbuilt_worldtree_fading_firmament as dwff
     from tools import handbuilt_feralas_high_wilderness as dfhw   # FERALAS (docs/feralas_brief.md, 19 Nov 2026)
     from tools import handbuilt_feralas_forgotten_coast as dffc
     from tools import handbuilt_feralas_twin_colossals as dftc
@@ -5839,12 +5843,16 @@ def create_all_zones():
         "The Golem Vault": generate_golem_vault(),                # the Kharad's vault under the Golem Fields
         "The Storm-Well": generate_storm_well(),                  # the vault's second floor, down the Deep Stair
         "The Keel": generate_keel(),                              # the root of the Anchorfields' third anchor
+        "The Hearthdeep": generate_hearthdeep(),                  # the Threefold Forge's roots on the Firmament
+        "The Wellspring": generate_wellspring(),                  # the Hearthdeep's second floor, where the wellstones grew
+        "The Hollow Engine": generate_hollow_engine(),            # inside the greatest of the Firmament's dead engines
         "The Cloudbreak": dwcb.generate_cloudbreak(),             # the last branches and the mural (the Crown's cutscene)
         "The Sunward Crown": dwsc.generate_sunward_crown(),       # the crown and the cloud shelf: first contact (20 Nov 2026)
         "Lenswatch": dwlw.generate_lenswatch(),                   # the survey's town off the Crown's cloud (inn, flight)
         "The Celestial Expanse": dwce.generate_celestial_expanse(),  # islands down the great sky river (20 Nov 2026)
         "The Anchorfields": dwaf.generate_anchorfields(),          # the engine country, the shattered shelf (20 Nov 2026)
         "The Ascendant Bastions": dwab.generate_ascendant_bastions(),   # the Ascendancy's star fort (21 Nov 2026)
+        "The Fading Firmament": dwff.generate_fading_firmament(),  # the dying heart, the last of the sky (21 Nov 2026)
         "Aurelion": dwau.generate_aurelion(),                       # the Aetherian capital, rings round the Spire Palace
         # ===== FERALAS (44-49, docs/feralas_brief.md, 19 Nov 2026): three maps down the L, two towns, the hive =====
         "The High Wilderness": dfhw.generate_high_wilderness(),       # the east arm, in from the Aspen Wilderness

@@ -17,6 +17,7 @@ again. (RC1 was asked for a second time on 21 Nov off a stale 17 Nov note, thoug
 
 | Doc | Sheets | Landed |
 |---|---|---|
+| `caelora_link_art_prompts.md` | LK1: Caelora's 24 link pieces (skip-stones, currents, lifts, light-bridges, chain lines) | 21 Nov |
 | `bastions_art_prompts.md` | AB1 citadel and gates, AB2 18 bosses, AB3 36 props, AB4 24 floors and walls, AB5 16 angled walls | 21 Nov |
 | `heroic_art_prompts.md` | HB1: the Frontier Mark, the heroic emblem, 8 shop tabs, 26 heroic-only items | 21 Nov |
 | `recruit_art_prompts_sheet7.md` | Sheet 7: 16 bear recruits, sprites and portraits | 21 Nov (saved; slicing and writing them is Claude's job) |

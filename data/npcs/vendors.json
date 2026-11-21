@@ -9060,6 +9060,58 @@
         ]
       ],
       "shelf": "frontier"
+    },
+    {
+      "vendor_id": "ff_provisioner",
+      "name": "Provisioner Hesk Amaury",
+      "zone": "fading_firmament",
+      "x": 90,
+      "y": 204,
+      "tile_sprite": "npc",
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 58,
+      "sells_gear": false,
+      "race": "aetherian",
+      "gender": "male",
+      "appearance_variant": 14,
+      "facing": "left",
+      "greeting": "I keep the camp's stores, and I sell what's left over to anyone who'll carry it out to the islands. Most of it came up on the last skiff, so don't waste it.",
+      "sells": [
+        "meal_ember_glazed_ribs",
+        "high_table_feast",
+        "drink_starfall_wine",
+        "cook_flour",
+        "cook_spice",
+        "cook_fruit",
+        "cook_roots"
+      ]
+    },
+    {
+      "vendor_id": "ff_trader",
+      "name": "Trader Liss Corvane",
+      "zone": "fading_firmament",
+      "x": 108,
+      "y": 206,
+      "tile_sprite": "npc",
+      "buys_from_player": true,
+      "faction": "neutral",
+      "gear_level": 58,
+      "sells_gear": true,
+      "race": "aetherian",
+      "gender": "female",
+      "appearance_variant": 12,
+      "facing": "left",
+      "greeting": "My family traded on the Firmament for six hundred years. I'm the last of us up here, and I'll sell you whatever I've got before the ground goes.",
+      "sells": [
+        "healing_potion_supreme",
+        "mana_potion_supreme",
+        "barbed_arrows",
+        "shot_void",
+        "parchment",
+        "beast_lure",
+        "vial_crystal"
+      ]
     }
   ]
 }

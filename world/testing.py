@@ -125,6 +125,45 @@ def level_party(party, levels):
             else f"Everyone is already level {MAX_LEVEL}.")
 
 
+def set_member_level(party, member, target):
+    """Kyle, 21 Nov 2026: a tester called his recruit back and they came at their default level, "We need an option to
+    select party member's level in our test menu". Up goes through the real catch-up (level_up one level at a time,
+    gear and talents included). Down rebuilds a recruit fresh at that level, starter gear and all, because nothing in
+    the game takes levels away. The player only goes up (Gold & Levels has those buttons)."""
+    from config import MAX_LEVEL
+    from world.recruit_manager import get_recruit_manager, RecruitManager
+    target = max(1, min(MAX_LEVEL, int(target)))
+    if member.level == target:
+        return f"{member.name} is already level {target}."
+    if target > member.level:
+        RecruitManager._catch_up(member, target)
+        member.experience = 0
+        for pet in (getattr(member, "all_pets", None) or [getattr(member, "active_pet", None)]):
+            if pet is not None and hasattr(pet, "sync_to_owner_level"):
+                pet.sync_to_owner_level()
+        return f"{member.name} is now level {member.level}."
+    if member is party.player or not getattr(member, "recruit_id", None):
+        return "Only recruits can be taken down a level."
+    rm = get_recruit_manager()
+    recruit = rm.recruits.get(member.recruit_id)
+    if recruit is None:
+        return f"{member.name} isn't a recruit this menu knows."
+    keep_level = recruit.effective_level
+    recruit.effective_level = lambda player_level=None: target      # test only: build them at exactly this level
+    try:
+        fresh = recruit.build_character()
+    finally:
+        recruit.effective_level = keep_level
+    if fresh.level < target:
+        RecruitManager._catch_up(fresh, target)
+    for group in (party.members, getattr(party, "bench", None) or []):
+        if member in group:
+            group[group.index(member)] = fresh
+            break
+    fresh.current_health = fresh.health
+    return f"{member.name} rebuilt at level {fresh.level} (fresh starter gear: nothing takes levels away in play)."
+
+
 def heal_party(party):
     for m in everyone(party):
         m.current_health = m.health

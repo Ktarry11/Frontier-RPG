@@ -803,6 +803,22 @@ class PortalManager:
                 (4, 206): ("Aurelion", 224, 88),                    # the free skiff home: arrive (224,86) on the Skydocks
                 (160, 124): ("The Gravity Foundry", 90, 136),       # the citadel's south gate: arrive (90,134)
                 (160, 54): ("The Ascendant Spire", 90, 7),          # the citadel's north gate: arrive (90,5)
+                (160, 4): ("The Fading Firmament", 122, 253),       # up the Firmament Road: arrive (122,251) at its top
+            },
+            "The Fading Firmament": {
+                (122, 257): ("The Ascendant Bastions", 160, 10),    # back down the Firmament Road: arrive (160,8)
+                (178, 14): ("The Hearthdeep", 48, 6),               # down into the Threefold Forge's roots: arrive (48,4)
+                (244, 50): ("The Hollow Engine", 46, 6),            # in through the dead engine's hatch: arrive (46,4)
+            },
+            "The Hearthdeep": {
+                (48, 2): ("The Fading Firmament", 178, 20),         # back up to the Threefold Forge: arrive (178,18)
+                (48, 97): ("The Wellspring", 44, 6),                # down the Deep Stair: arrive (44,4)
+            },
+            "The Wellspring": {
+                (44, 2): ("The Hearthdeep", 48, 96),                # back up the Deep Stair: arrive (48,94)
+            },
+            "The Hollow Engine": {
+                (46, 2): ("The Fading Firmament", 244, 56),         # back out of the hatch: arrive (244,54)
             },
             # The Citadel of Ascent's two dungeons (tools/handbuilt_gravity_foundry.py, handbuilt_ascendant_spire.py):
             # two floors each, a stair between, a fast exit out past the last boss

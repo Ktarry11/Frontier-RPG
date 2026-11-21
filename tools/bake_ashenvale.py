@@ -833,6 +833,35 @@ AURELION_SHEET.update({
     "av_lake_deep":      _sk("ae_reflecting_pool"),
     "av_stream_bed":     _sk("ae_gold_pool"),
 })
+#: The Fading Firmament (sheets SK and FF): the dying heart under a failing violet dusk. Dead grey grass over the
+#: islands with grey crystal ash where it's worn through, the void's violet light coming up through cracks at the rims
+#: ("beach"), violet crystal rubble where the ground's breaking ("corrupt") speckled with violet shards ("fel"), burnt
+#: bronze round the forges and the guns ("burned"), ash cobbles on the roads with ash verges, the old plate's ruined
+#: gold-trimmed marble where it was paved ("paved"), and the old slabs on the bridges ("plaza").
+FIRMAMENT_SHEET = dict(EXPANSE_SHEET)
+FIRMAMENT_SHEET.update({
+    "av_forest_floor":   _sk("ff_dead_grass"),
+    "av_forest_grass":   _sk("ff_dead_grass"),
+    "av_fern_floor":     _sk("ff_dead_grass"),
+    "av_root_earth":     _sk("ff_dead_grass"),
+    "av_needle_mulch":   _sk("ff_crystal_ash"),
+    "av_rocky_ground":   _sk("ff_crystal_ash"),
+    "av_lake_mud":       _sk("ff_dead_grass"),
+    "av_bluebell":       _sk("ff_dead_grass"),
+    "av_canopy":         _sk("ff_dead_grass", extra="canopy"),
+    "av_road_centre":    _sk("ff_ash_cobbles"),
+    "av_road_edge":      _sk("ff_crystal_ash"),
+    "av_elven_paving":   _sk("ff_island_rubble"),
+    "av_mossy_cobble":   _sk("ff_island_rubble"),
+    "av_plaza_stone":    _sk("sk_ancient_slabs"),
+    "av_scorched":       _sk("ff_burnt_bronze"),
+    "av_burned_forest":  _sk("ff_burnt_bronze"),
+    "av_corrupt_ground": _sk("ff_crumbling_stone"),
+    "av_beach":          _sk("ff_void_cracks"),
+    "av_wet_sand":       _sk("ff_crystal_ash"),
+    "av_moon_rim":       _sk("ff_void_crumbs"),
+    "av_fel_earth":      _sk("ff_violet_shards"),
+})
 WPL_SHEET = _plague_sheet(east=False)
 EPL_SHEET = _plague_sheet(east=True)
 ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_SHEET, "epl_east": EPL_SHEET, "felwood_north": NORTH_SHEET, "stonetalon_east": STONETALON_SHEET,
@@ -854,6 +883,7 @@ ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_S
                "worldtree_anchorfields": ANCHOR_SHEET,
                "worldtree_aurelion": AURELION_SHEET,
                "worldtree_ascendant_bastions": ASC_SHEET,
+               "worldtree_fading_firmament": FIRMAMENT_SHEET,
                "worldtree_great_settlement": GREAT_SETTLEMENT_SHEET}
 
 def _recolour(a, hue, sat, val):
@@ -1346,7 +1376,7 @@ def main():
     if "--preview" in sys.argv:
         preview = sys.argv[sys.argv.index("--preview") + 1]
     sc = int(sys.argv[sys.argv.index("--scale") + 1]) if "--scale" in sys.argv else 4
-    zone = next((z for z in ("worldtree_ascendant_bastions", "worldtree_aurelion", "worldtree_anchorfields", "worldtree_celestial_expanse", "worldtree_lenswatch", "worldtree_sunward_crown", "worldtree_cloudbreak", "worldtree_upper_boughs", "worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
+    zone = next((z for z in ("worldtree_fading_firmament", "worldtree_ascendant_bastions", "worldtree_aurelion", "worldtree_anchorfields", "worldtree_celestial_expanse", "worldtree_lenswatch", "worldtree_sunward_crown", "worldtree_cloudbreak", "worldtree_upper_boughs", "worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
     only = None
     if "--region" in sys.argv:       # x0,y0,x1,y1 in tiles: bake only the 20x20 chunks touching it (fast look-dev)
         x0, y0, x1, y1 = map(int, sys.argv[sys.argv.index("--region") + 1].split(","))

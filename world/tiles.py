@@ -252,6 +252,16 @@ TILES = {
         "resource_node": None,
         "interaction_type": "portal",
     },
+    "link": {
+        # a link's pad (world/links.py): across a gap on the same map, no loading. Drawn by its pad prop and the
+        # portal glow, never as this colour.
+        "id": "link",
+        "layer": "interaction",
+        "color": (90, 200, 220),
+        "walkable": True,
+        "resource_node": None,
+        "interaction_type": "link",
+    },
     "boat": {
         "id": "boat",
         "layer": "interaction",

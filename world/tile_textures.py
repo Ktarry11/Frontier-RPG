@@ -383,6 +383,7 @@ ZONE_BIOME = {
     "The Celestial Expanse": "tropical",          # the islands down the sky river: painted ground (baked)
     "The Anchorfields": "tropical",               # the shattered shelf: painted ground (baked)
     "The Ascendant Bastions": "tropical",         # the star fort: painted ground (baked)
+    "The Fading Firmament": "tropical",           # the dying heart: painted ground (baked)
     "Aurelion": "tropical",                       # the capital: painted ground (baked)
     "The Great Settlement": "tropical",           # the troll city in the tree's heart: painted ground (baked)
     "The High Wilderness": "mythical_forest",     # Feralas: painted ground (baked); the biome only names the fallback

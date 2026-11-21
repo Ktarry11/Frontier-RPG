@@ -717,6 +717,52 @@ _set("bastions_ab5", 4, 4, "assets/buildings", """
     ab_corner_tower ab_corner_tower_lit ab_gate_flat ab_gate_36""")
 
 
+#: LK1 (docs/caelora_link_art_prompts.md, 21 Nov 2026): Caelora's links. The diagonal ribbons run down to the right; their
+#: down-left twins are mirrored by mirror_link_ribbons().
+_set("caelora_lk1", 6, 4, "assets/tiles/sky/props", """
+    lk_skipstone lk_skipstone_failing lk_skipstone_grand lk_skipstone_overgrown lk_skipstone_ascendancy lk_skipstone_marker
+    lk_updraft lk_wind_landing lk_wind_h lk_wind_v lk_wind_d lk_dusk_wind_h
+    lk_storm_wind_h lk_wind_chime_post lk_gravity_lift lk_gravity_landing lk_lightbridge_pylon lk_lightbridge_h
+    lk_lightbridge_v lk_chain_dock lk_chain_h lk_cloud_steps lk_tether_post lk_skipstone_dead""")
+SOFT |= {"lk_updraft", "lk_wind_landing", "lk_wind_h", "lk_wind_v", "lk_wind_d", "lk_dusk_wind_h", "lk_storm_wind_h",
+         "lk_gravity_lift", "lk_gravity_landing", "lk_lightbridge_pylon", "lk_lightbridge_h", "lk_lightbridge_v",
+         "lk_skipstone_marker", "lk_cloud_steps"}
+
+
+#: violet and storm-blue currents sit too close to the magenta key: the soft key keeps their alpha right but turns their
+#: colour toward teal, so the teal is turned back: hues between these (degrees) move round by the shift
+VIOLET_FIX = {"lk_dusk_wind_h": (110, 225, 105), "lk_storm_wind_h": (100, 200, 90)}
+
+
+def _violet_fix():
+    for name, (lo, hi, shift) in VIOLET_FIX.items():
+        path = ROOT / "assets/tiles/sky/props" / f"{name}.png"
+        im = Image.open(path).convert("RGBA")
+        hsv = np.asarray(im.convert("RGB").convert("HSV")).astype(np.int32)
+        h = hsv[..., 0] * 360 // 255
+        m = (h >= lo) & (h <= hi)
+        h = np.where(m, (h + shift) % 360, h)
+        hsv[..., 0] = h * 255 // 360
+        rgb = Image.fromarray(hsv.astype(np.uint8), "HSV").convert("RGB")
+        out = rgb.convert("RGBA")
+        out.putalpha(im.getchannel("A"))
+        out.save(path)
+
+
+def mirror_link_ribbons(sheet_path=None):
+    _violet_fix()
+    src = ROOT / "assets/tiles/sky/props/lk_wind_d.png"
+    Image.open(src).transpose(Image.FLIP_LEFT_RIGHT).save(ROOT / "assets/tiles/sky/props/lk_wind_d_left.png")
+    # the currents laid at any angle across a gap (world/links.py): each horizontal ribbon turned in 30-degree steps,
+    # named by the angle it runs at, measured counter-clockwise from pointing right
+    for name in ("lk_wind_h", "lk_dusk_wind_h", "lk_storm_wind_h"):
+        im = Image.open(ROOT / f"assets/tiles/sky/props/{name}.png").convert("RGBA")
+        for ang in (30, 60, 90, 120, 150):
+            r = im.rotate(ang, resample=Image.BICUBIC, expand=True)
+            r = r.crop(r.getbbox())
+            r.save(ROOT / f"assets/tiles/sky/props/{name[:-2]}_{ang}.png")
+
+
 def mirror_bastion_walls():
     for i in (1, 2, 3, 4):
         src = ROOT / f"assets/buildings/ab_wall_36r_{i}.png"
@@ -766,3 +812,5 @@ if __name__ == "__main__":
         raise SystemExit(f"usage: slice_building_sheet.py <{'|'.join(SETS)}> <sheet.png> [--preview OUT]")
     pv = sys.argv[sys.argv.index("--preview") + 1] if "--preview" in sys.argv else None
     slice_sheet(args[0], args[1], preview=pv)
+    if args[0] == "caelora_lk1":
+        mirror_link_ribbons(args[1])

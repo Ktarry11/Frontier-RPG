@@ -2084,6 +2084,13 @@ class Character(StatusEffectMixin):
             exp_needed = get_exp_needed_for_level(self.level)
 
         self.last_level_gains = totals
+        # the player's level-up lifts the party's mood a little (world/bond_manager.py, 21 Nov 2026)
+        if levels_gained and not getattr(self, "recruit_id", None):
+            try:
+                from world.bond_manager import get_bond_manager
+                get_bond_manager().on_level_up(levels=levels_gained)
+            except Exception:
+                pass
         return levels_gained
     
     def level_up(self):

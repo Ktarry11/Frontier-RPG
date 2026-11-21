@@ -347,18 +347,34 @@ def terrain(L):
                 z.set_tile(x, y, "path", "base")
 
 
-def seal_unreachable(L, start):
-    z, spec = L.z, L.spec
-    W, H = spec.W, spec.H
+def _flood(z, W, H, start):
+    """Every tile you can walk to from start, crossing the map's links (world/links.py) as if they were bridges."""
+    from world.links import edges
+    jumps = edges(z)
     seen = {start}
     q = collections.deque([start])
     while q:
         x, y = q.popleft()
-        for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
-            n = (x + dx, y + dy)
+        steps = [(x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)]
+        if (x, y) in jumps:
+            steps.append(jumps[(x, y)])
+        for n in steps:
             if 0 <= n[0] < W and 0 <= n[1] < H and n not in seen and z.is_walkable(*n):
                 seen.add(n)
                 q.append(n)
+    return seen
+
+
+def place_links(L, links):
+    """Lay a map's LINKS (world/links.py): both pads become link tiles leading to a landing beside the other."""
+    from world.links import lay
+    return lay(L.z, links)
+
+
+def seal_unreachable(L, start):
+    z, spec = L.z, L.spec
+    W, H = spec.W, spec.H
+    seen = _flood(z, W, H, start)
     n_sealed = 0
     if not hasattr(L, "sealed_land"):
         L.sealed_land, L.sealed_water = [], []        # so the baker can paint sealed pockets as canopy / deep water
@@ -522,15 +538,7 @@ def scatter_trees(L, kit, seed, spacing=4.2, scale=1.0, woods_deco=True, grove_k
 
 def reachable_report(L, start):
     z, spec = L.z, L.spec
-    seen = {start}
-    q = collections.deque([start])
-    while q:
-        x, y = q.popleft()
-        for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
-            n = (x + dx, y + dy)
-            if 0 <= n[0] < spec.W and 0 <= n[1] < spec.H and n not in seen and z.is_walkable(*n):
-                seen.add(n)
-                q.append(n)
+    seen = _flood(z, spec.W, spec.H, start)
     walk = sum(1 for y in range(spec.H) for x in range(spec.W) if z.is_walkable(x, y))
     return len(seen), walk, seen
 

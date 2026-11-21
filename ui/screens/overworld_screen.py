@@ -35,6 +35,12 @@ class OverworldScreen(BaseScreen):
         self.recruit_message = None
         self.recruit_message_timer = 0.0
         self.recruit_message_color = (120, 240, 140)
+        # a recruit's warning or departure shows on screen as well as in banter (world/bond_manager.py, 21 Nov 2026)
+        try:
+            from world.bond_manager import get_bond_manager
+            get_bond_manager().notifier = lambda text: self._notify(text, (240, 200, 120), duration=6.0)
+        except Exception:
+            pass
         
         # Right-edge vertical tab column - replaces the old 3 flat top-row
         # buttons (Inventory/Character/Menu) per Kyle's mockup: one stacked
@@ -400,6 +406,12 @@ class OverworldScreen(BaseScreen):
                     self.state_manager.transition_to(GameState.MAIL)
                 elif ambient_npc:
                     self.state_manager.transition_to(GameState.QUEST_DIALOG, current_quest_npc=ambient_npc)
+                elif self.zone_manager.link_destination():
+                    # a link (world/links.py): across the gap on the same map, no loading
+                    kind = self.zone_manager.try_use_link()
+                    if kind:
+                        from world.links import message as _link_msg
+                        self._notify(_link_msg(kind), color=(150, 220, 240), duration=2.5)
                 else:
                     # Fall back to portal if nothing else is here. A dungeon's door at level 60 asks Normal or
                     # Heroic first (world/heroic.py).

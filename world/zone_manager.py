@@ -957,6 +957,28 @@ class ZoneManager:
             return None
         return self.portal_manager.get_destination(self.current_zone.name, self.player_x, self.player_y)
 
+    def link_destination(self):
+        """(landing x, landing y, kind) if the player stands on a link's pad (world/links.py), else None."""
+        if not self.current_zone or self.current_zone.get_interaction(self.player_x, self.player_y) != "link":
+            return None
+        from world.links import destination
+        return destination(self.current_zone, self.player_x, self.player_y)
+
+    def try_use_link(self):
+        """Cross a link: put the player beside its partner pad on the same map, no zone change. Returns the kind
+        crossed, or None."""
+        dest = self.link_destination()
+        if dest is None:
+            return None
+        x, y, kind = dest
+        if not self.current_zone.is_walkable(x, y):
+            found = self._find_nearest_walkable(self.current_zone, x, y)
+            if found is None:
+                return None
+            x, y = found
+        self.player_x, self.player_y = x, y
+        return kind
+
     def try_use_portal(self):
         """
         Check if the player is standing on a portal or boat tile and, if so,

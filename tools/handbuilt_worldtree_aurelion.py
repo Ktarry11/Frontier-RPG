@@ -394,7 +394,16 @@ def build_layout():
     E.seal_unreachable(L, START)
     E.register_subzones(L, SUBZONES)
     sky_islands(L)
+    E.place_links(L, LINKS)
+    from tools.link_art import dress_links
+    dress_links(L.z, LINKS, pads={"skipstone": "lk_skipstone_grand"})
     return L
+
+
+#: Aurelion's skip-stone (world/links.py; Kyle, 21 Nov 2026: links "before the ff zone so people see them a few times").
+#: The city's oldest working one, from the Bridgefoot's square across the rings to the Skydocks, kept polished under its
+#: gold arch.
+LINKS = [("skipstone", (143, 219), (200, 80))]
 
 
 def sky_islands(L):

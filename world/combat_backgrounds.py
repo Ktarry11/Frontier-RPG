@@ -215,12 +215,16 @@ ZONE_BACKGROUND = {
     "The Golem Vault": "crystal",                 # the Kharad's vault under the Golem Fields
     "The Storm-Well": "crystal",                  # the vault's second floor, the bound storm
     "The Keel": "crystal",                        # the third anchor's cracking keel
+    "The Hearthdeep": "fire_dungeon",             # the Threefold Forge's roots: the flues and the deep anvil
+    "The Wellspring": "crystal",                  # where the wellstones were grown
+    "The Hollow Engine": "crystal",               # inside a dead crystal engine
     "The Cloudbreak": "jungle",                   # the last branches (no fights)
     "The Sunward Crown": "sky",                   # above the cloud, in full sun
     "Lenswatch": "sky",                           # the survey's island (a town: no fights)
     "The Celestial Expanse": "sky",               # the open day sky
     "The Anchorfields": "sky",                    # the dawn sky over the shelf
     "The Ascendant Bastions": "sky",              # the storm sky over the star fort
+    "The Fading Firmament": "sky",                # the failing violet dusk over the dying heart
     "The Gravity Foundry": "fire_dungeon",        # the citadel's foundry: the pour and the furnaces
     "The Gravity Foundry: The Keelworks": "fire_dungeon",
     "The Ascendant Spire": "keep",                # the citadel's keep: the halls of the Ascendancy's command

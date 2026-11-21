@@ -73,8 +73,9 @@ the zeppelins cross the sea.
                                   The Fading Firmament (57-60)
                                   the dying heart
 
- Later, by long airship from Aurelion's dock: the Veyr continent (the Talon Spires and the
- Veyr capital) and the Kharad continent (the Elder Citadels and the Kharad capital).
+ Later, by long airship from Aurelion's dock: Vyr'kesh, the Veyr continent (the Talon Spires and
+ Ka'thraal, the High Aerie, their capital) and Thunvald, the Kharad continent (the Elder Citadels and
+ Stenhald, the Stone Hall, their capital).
 ```
 
 | Map | Levels | What it is | Threat |
@@ -87,12 +88,13 @@ the zeppelins cross the sea.
 | **The Sunward Crown** | 48-49 | The tree's crown above the cloud sea (reference: crown island): sunlit branches, golden forests, waterfalls pouring off into a sea of cloud. **First contact**: an Aetherian survey ship lands, and the trolls meet the sky | The threat from above: an Ascendancy landing to take the crown; storm elementals |
 | **The Celestial Expanse** | 49-51 | Floating islands, sky rivers that fall from island to island, and ancient aerial ruins older than anyone up here remembers | The old sky ruins wake (Kharad-age machinery, sky-golems); Ascendancy patrols; sky beasts |
 | **Aurelion** | city | The Aetherian city: a suspended city of titan-scale stone and arcane engines anchored on crystal, half its outer rings already falling. The sky's hub, with an inn and a flight path | (a city: safe, but dying) |
-| **The Anchorfields** (name proposed) | 51-54 | The engine country: islands held up by crystal anchors and gravity engines the size of towers, the scholar houses' estates and observatories among them, and the first anchors failing, islands tilting and dropping | The engines wake wrong (constructs, arcane overload, gravity gone strange); the Ascendancy seizing the anchors; the sky's own storms |
-| **The Ascendant Bastions** (name proposed) | 54-57 | The Ascendancy's own ground: suspended fortresses and storm-artillery platforms chained between islands, lancer barracks, the shipyards where the ships that will take the tree are being built | The Ascendancy at home: sky lancers, storm artillery, arcane bombardiers, mechanical flying constructs |
+| **The Anchorfields** | 51-54 | The engine country: islands held up by crystal anchors and gravity engines the size of towers, the scholar houses' estates and observatories among them, and the first anchors failing, islands tilting and dropping | The engines wake wrong (constructs, arcane overload, gravity gone strange); the Ascendancy seizing the anchors; the sky's own storms |
+| **The Ascendant Bastions** | 54-57 | The Ascendancy's own ground: suspended fortresses and storm-artillery platforms chained between islands, lancer barracks, the shipyards where the ships that will take the tree are being built | The Ascendancy at home: sky lancers, storm artillery, arcane bombardiers, mechanical flying constructs |
 | **The Fading Firmament** | 57-60 | The dying heart of the Aetherian world: sky-forges going dark, crystal engines failing, islands breaking apart and falling into the void below the clouds | The Ascendancy's last push to seize the tree; the sky itself coming apart |
 
-**Doors for later (like Moonglade's):** a dungeon in the Middle Boughs' heartwood (what's eating the tree), a dungeon in
-an Aetherian sky-forge in the Firmament (55-60), and a raid door in the Firmament. Built later, each its own call.
+**Doors for later (like Moonglade's):** a dungeon in the Middle Boughs' heartwood (what's eating the tree). The
+Firmament got caves, not a dungeon (Kyle, 21 Nov 2026: "No Dungeons but some caves are fine"), and the sky's raid is
+behind the Crown's seal.
 
 **Into the tree (Kyle, 19 Nov 2026: "We likely will need a 'Dungeon' and some 'caves' where these are just going deeper
 into the world tree a bit").** The tiers get caves that go into the wood itself: hollows in the trunk, tunnels the
@@ -280,6 +282,23 @@ a tank, a melee and a ranged.
 The first two maps have names (Kyle, 20 Nov 2026): **The White Expanse** (1-6) and **The Shattered Reaches** (6-11).
 "Beyond that who knows." The rest of the run down to the 21-24 map at Aurelion's north gate is still to be named.
 **Parked (Kyle, 20 Nov 2026): "We will keep building to 60 for now and ignore the starting zone."**
+
+**The run to Aurelion, laid out (Kyle, 21 Nov 2026: "I'm thinking this.....we can ignore the part about the capital
+city. Focus on the 1-24 zones").** Five maps across Caelora's settled north, each its own look, the continent lived-in
+rather than ruins, Aurelion visible from far off and growing nearer, and the environment hinting that something's wrong
+with the floating world:
+
+| Map | Levels | Theme | The ground | Built | Palette and mood |
+|---|---|---|---|---|---|
+| **The White Expanse** | 1-6 | the Aetherian frontier, where young Aetherians start | pale golden grass, white-stone hills and terraces, small islands on natural stone bridges, blue crystal out of the earth, shallow streams and falls into the cloud, golden-leafed trees, farms and small settlements, old monuments and broken arches | white-marble cottages, small gold-trimmed watchtowers, open shrines, gold-detailed stone bridges, modest crystal works | ivory, pale gold, soft blue, light green, warm sun; bright, welcoming, peaceful |
+| **The Shattered Reaches** | 6-11 | a fractured frontier where whole pieces of Caelora have broken away | jagged islands over deep cloud chasms, broken marble bridges and great chains, falls vanishing into cloud, abandoned watchtowers, exposed crystal veins, collapsed settlements, floating rock and ruin, cloud currents and storms | damaged white-stone forts, abandoned outposts, broken crystal pylons, gold-inlaid ruined bridges, emergency settlements round what survived | weathered ivory, muted gold, crystal blue, grey-white cloud, storm blue; beautiful but dangerous |
+| **The Gilded Canopy** | 10-16 | the sacred golden forests | colossal golden-leafed trees on several big islands, roots across the islands, hanging gardens and high forest paths, glowing blue pools under the canopy, falls off the branches, golden flowers, tree shrines, branches joining neighbouring islands | living wooden temples, white-marble sanctuaries round the old trees, wooden walkways, hanging villages, golden observatory platforms, crystal lanterns in the branches | gold, honey amber, emerald, ivory, turquoise; enchanted, sacred, trees older than the Aetherians |
+| **The Lenswold** | 15-20 | the old heart of Aetherian learning, still lived in, its older institutions shut or abandoned | white-marble terraces, great observatories, floating libraries and research platforms, crystal laboratories, old fountains, geometric gardens, hanging astronomical instruments, crystal powering old machinery | marble academies, observatory towers, gold-domed round temples, crystal research halls, platforms on magical bridges, libraries with huge arched windows | white marble, deep blue, silver, pale gold, cyan; intellectual and magical |
+| **The Crownlands** | 18-24 | the grand heartlands round the capital, everything built and kept and monumental | golden grasslands, white-stone avenues, terraced gardens, great golden trees, crystal waterways, fountains and statues, monumental bridges over the gaps, Aurelion's towers in view | noble estates, sun temples, marble courtyards, gold domes and pillars, crystal transport, big settlements, garrisons guarding the capital's approaches | white, gold, honey amber, sky blue, turquoise; majestic, prosperous; the last map opens on Aurelion's north gate |
+
+Kyle's names, except two renamed so they don't sit beside the Celestial Expanse and the Sunward Crown (Kyle, 21 Nov
+2026): his Celestial Marches is **the Lenswold**, and his Sunward Marches is **the Crownlands**. Still parked until
+the Firmament and Caelora's hidden maps are done.
 
 **Zones first, the city after (Kyle, 20 Nov 2026: "we wont build raids yet. We need quest lines. So keep building zones
 and eventually the grand city").** The road goes on without Aurelion: the Celestial Expanse's last quest turns the
@@ -539,5 +558,15 @@ No map is done until it has all of this, checked by the QA tools rather than ass
 - The Aetherian split: rep with the scholar houses, the Ascendancy is the enemy.
 - One sky continent now, the Aetherians' (Kyle, 20 Nov 2026: "We will only be building one. The other two get added as
   the game expands"), carrying 48 to 60 with all-Aetherian zones ("All Aetherian"). The other two are as far off as
-  Kalimdor is from the Eastern Kingdoms. Still to name: the two new zones, proposed as the Anchorfields (51-54) and the
-  Ascendant Bastions (54-57).
+  Kalimdor is from the Eastern Kingdoms. The Anchorfields (51-54) and the Ascendant Bastions (54-57) are built.
+- **The three peoples' names (Kyle, 21 Nov 2026: "we do need actual names for each race's content").** The Aetherians'
+  sky continent is **Caelora** (Aurelion is its capital). The Veyr's continent is **Vyr'kesh**, and their capital is
+  **Ka'thraal, the High Aerie**, among the Talon Spires. The Kharad's continent is **Thunvald**, and their capital is
+  **Stenhald, the Stone Hall**, among the Elder Citadels. The names are made up and draw on no real myth.
+- **The Fading Firmament stays 57-60 (Kyle, 21 Nov 2026: "Keep firm as 57-60 and ensure since it's not pure 60, no
+  frontier nodes in it").** It isn't pure 60, so no post-game material grows, drops or fishes up anywhere in it or its
+  caves (`entities/material_tiers.is_postgame`, `tools/qa_no_postgame_below_pure_60.py`).
+- **Maelis Ardane's end (Kyle, 21 Nov 2026):** beaten and taken alive at the end of the Firmament's chain, and handed
+  to the council. Orla Thessan gets her student back in chains, and the general can come back later.
+- **Caelora's hidden maps (Kyle, 21 Nov 2026: "I want at least 3 skull zones and 1 frontier in the 48-60 region of
+  Caelora").** Placed blind like every secret; only counts are ever said.

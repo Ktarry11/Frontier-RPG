@@ -36,7 +36,7 @@ A SKY MAP: the baker cuts the drop out and hangs rock under the islands and soft
 
 HARD CONTRACTS (world/portal_manager.py)
   portals  Aurelion (4,206) <-> the Skydocks; The Gravity Foundry (the citadel's south gate);
-           The Ascendant Spire (the citadel's north gate); the Fading Firmament (160,4), later
+           The Ascendant Spire (the citadel's north gate); the Fading Firmament (160,4)
 """
 import math
 
@@ -56,11 +56,12 @@ CURTAIN_R = 42                # the pentagon of the curtain walls, corner radius
 TIP_R = 64                    # how far each arrowhead bastion reaches past its corner
 TIPS = (-90, -18, 54, 126, 198)          # one bastion due north, the gate in the south curtain (90)
 
-PORTALS = {(4, 206): "Aurelion", (160, 124): "The Gravity Foundry", (160, 54): "The Ascendant Spire"}
-ARRIVALS = [(10, 206), (160, 128), (160, 48)]
+PORTALS = {(4, 206): "Aurelion", (160, 124): "The Gravity Foundry", (160, 54): "The Ascendant Spire",
+           (160, 4): "The Fading Firmament"}
+ARRIVALS = [(10, 206), (160, 128), (160, 48), (160, 8)]
 #: the citadel stands this many tiles in from the fort's edge; the band outside it is the apron you walk
 CITADEL_INSET = 7
-LATER_PORTALS = {(160, 4): "The Fading Firmament"}
+LATER_PORTALS = {}
 START = (10, 206)          # the skiff landing at the wreck: everything must be reachable from here
 
 

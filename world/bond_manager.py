@@ -29,14 +29,18 @@ STAGE_NAMES = {"stranger": "Stranger", "acquaintance": "Acquaintance", "companio
                "friend": "Friend", "sworn": "Sworn"}
 #: trust needed for each stage. Sworn also needs their personal quest done (flag goal_done).
 THRESHOLDS = [0, 20, 60, 130, 220]
-#: outings with you before they want to go home, by stage
-STINT = [3, 5, 8, 12, 16]
+#: outings with you before they want to go home, by stage. Kyle, 21 Nov 2026 (a tester's whole party left at once after
+#: three quests and a death): it was [3, 5, 8, 12, 16], ten minutes of a starting zone, and he said "Yes" to longer.
+STINT = [6, 8, 11, 14, 18]
 #: outings you do without them before they're back, by stage
 BREAK = [4, 4, 3, 3, 2]
 #: trust for each kind of thing done together
-GAIN = {"quest": 3, "dungeon": 8, "boss": 4, "upgrade": 5, "rest": 2}
+GAIN = {"quest": 3, "dungeon": 8, "boss": 1, "upgrade": 5, "rest": 2}
 MOOD_START, WARN, LEAVE = 70, 35, 20
-GRIND_KILLS = 30            # open-world kills with no outing in between = one dose of boredom
+GRIND_KILLS = 60            # open-world kills with no outing in between = one dose of boredom (was 30, 21 Nov 2026)
+LEVEL_UP_MOOD = 6           # the player gaining a level is progress, and the party feels it
+#: at most this many leave at one safe point unless they're angry, so a party thins out instead of vanishing
+DEPARTURES_PER_SAFE_POINT = 1
 ZONE_GAP = 3                # a zone this many levels above them is too high
 NEGLECT_OUTINGS = 25        # this many outings without them earns a tease when they rejoin
 PAIR_OUTINGS = 8            # outings two of them share before pair banter appears
@@ -243,6 +247,22 @@ class BondManager:
         b.warned = cause
         key = {"bored": "bored_warning", "wipe": "wipe_warning", "zone": "zone_warning"}[cause]
         self.say(b.rid, self.line(b.rid, key))
+        # a warning only as banter was easy to miss (21 Nov 2026): say it on screen too, with what to do about it
+        self._toast(f"{self.name_of(b.rid)} is unhappy: {self.mood_line(b.rid)} Talk to them to ask them to stay.")
+
+    def _toast(self, text):
+        """An on-screen notice, if the overworld has given us one (OverworldScreen sets notifier)."""
+        fn = getattr(self, "notifier", None)
+        if fn:
+            try:
+                fn(text)
+            except Exception:
+                pass
+
+    def on_level_up(self, party=None, levels=1):
+        """The player gained a level: progress, and everyone along feels it a little."""
+        for b in self._in(party or self.party):
+            self._mood(b, LEVEL_UP_MOOD * levels)
 
     def _stint_length(self, b):
         n = STINT[b.stage]
@@ -314,6 +334,7 @@ class BondManager:
             return False
         if not quiet:
             self.say(b.rid, self.line(b.rid, key))
+            self._toast(f"{self.name_of(b.rid)} has gone home for a while.")
         # only friends who are staying can say they'll miss him: two who leave together don't
         self.rel.on_left(b.rid, [m.recruit_id for m in self._members(self.party)
                                  if m.recruit_id != b.rid and self.bonds[m.recruit_id].in_party])
@@ -351,17 +372,30 @@ class BondManager:
         return True
 
     def safe_point(self, party=None):
-        """A town, or a quest handed in outside a dungeon. Anyone due to go goes now."""
+        """A town, or a quest handed in outside a dungeon. Anyone due to go goes now, but only one at a time unless
+        they're angry (Kyle, 21 Nov 2026: "some people leave at different thresholds"): the rest stay queued for the
+        next safe point, so a party thins out instead of vanishing in one go."""
         party = party or self.party
-        gone = []
+        gone, calm = [], 0
+        due = []
         for b in self._in(party):
             cause = b.leave_cause
             if cause is None and b.mood < LEAVE and b.warned:
                 cause = b.warned
             if cause is None and b.outings >= b.stint_len:
                 cause = "stint"
-            if cause and self.depart(b, cause, angry=cause in ("wipe",)):
+            if cause:
+                due.append((b, cause))
+        # the angriest and the unhappiest go first; the one whose stint simply ran out goes last
+        due.sort(key=lambda bc: (bc[1] != "wipe", bc[1] == "stint", bc[0].mood))
+        for b, cause in due:
+            angry = cause in ("wipe",)
+            if not angry and calm >= DEPARTURES_PER_SAFE_POINT:
+                b.leave_cause = cause           # next safe point
+                continue
+            if self.depart(b, cause, angry=angry):
                 gone.append(b.rid)
+                calm += 0 if angry else 1
         return gone
 
     # ------------------------------------------------------------ what happens on the road
@@ -410,6 +444,8 @@ class BondManager:
                 if k in b.data.get("dislikes", []):
                     self._mood(b, -3)
             if bosses:
+                # a boss is worth a single point of trust (Kyle, 21 Nov 2026: it was 4, "It'd be too easy to grind to
+                # sworn in rfc", then "Drop it to 1"); the dungeon finished is what counts
                 self._trust(b, GAIN["boss"])
                 self._mood(b, 5 + (5 if "boss" in b.data.get("likes", []) else 0))
                 continue

@@ -65,6 +65,7 @@ ZONE_POOLS = {
     "celestial_expanse": ("pool_fresh",),                  # the great sky river and its pools (20 Nov 2026)
     "anchorfields": ("pool_fresh",),                       # the Estates' pool, the coolant pond, Tiltside's spring
     "ascendant_bastions": ("pool_fresh",),                 # the fort's cistern, the Proving Grounds' pool, the rain basin
+    "fading_firmament": ("pool_fresh",),                   # the last wellstone pools: Lastlight, the Gardens, the Forge, the Breaking
     "raincatch": ("pool_fresh", "pool_reeds"),
     "kapok_crowns": ("pool_river", "pool_jungle"),
     "high_wilderness": ("pool_river", "pool_fresh"),       # Feralas's east arm: forest rivers and pools

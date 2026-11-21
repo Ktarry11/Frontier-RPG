@@ -202,6 +202,32 @@ class TestingScreen(BaseScreen):
         y += 60
         self._button(screen, pygame.Rect(20, y, 200, 40), "Heal everyone", lambda: self._do(lambda: T.heal_party(party)),
                      (60, 90, 70))
+        # ONE MEMBER'S LEVEL (Kyle, 21 Nov 2026: "We need an option to select party member's level in our test menu")
+        y += 60
+        self.renderer.draw_text(screen, "One member at a time: up goes through the real catch-up; down rebuilds a "
+                                        "recruit fresh at that level.", (20, y), color=(170, 170, 185))
+        y += 28
+        me = self._player().level
+        for m in T.everyone(party):
+            if y > SCREEN_HEIGHT - 110:
+                break
+            self.renderer.draw_text(screen, self.renderer.truncate(f"{m.name}  (level {m.level})", 300), (20, y + 10))
+            x = 330
+            steps = [("-5", -5), ("-1", -1), ("+1", 1), ("+5", 5), ("Match me", None), ("60", 60)]
+            for label, d in steps:
+                if m is party.player and (d is None or (isinstance(d, int) and d < 0)):
+                    continue
+                if d is None:
+                    tgt = me
+                elif label == "60":
+                    tgt = 60
+                else:
+                    tgt = m.level + d
+                w = 110 if d is None else 60
+                self._button(screen, pygame.Rect(x, y, w, 34), label,
+                             lambda m=m, t=tgt: self._do(lambda: T.set_member_level(party, m, t)))
+                x += w + 8
+            y += 42
 
     def _tab_professions(self, screen):
         from world import testing as T

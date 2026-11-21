@@ -561,10 +561,65 @@ his AB4 textures (`tools/bake_citadel_dungeons.py`), and the rooms are dressed w
 Warheart and the Lance-Commander (Skiffmaster Pell Daray), the Inquisitor (Surgeon Nell Avary), and the Right Hand
 (Magister Orla Thessan).
 
+## The Fading Firmament (57-60), built 21 Nov 2026
+
+Kyle: "Next we can do the fading firmament. No Dungeons but some caves are fine", "Keep firm as 57-60 and ensure since
+it's not pure 60, no frontier nodes in it", and, once links were in, "we don't want like 10 small islands, maybe 2 or 3
+large ones with a few small ones. Don't make it a chore to island hop."
+
+**The map** (`tools/handbuilt_worldtree_fading_firmament.py`, 300x260): three big landmasses round a hole in the sky,
+the Wound. The Old Plate is a great crescent on its west side (the Road's End at its southern tip, Lastlight, the
+Emptied Quarter, the Greyfall Gardens, the Coldforges); the Ascendancy holds the eastern mass (the Dead Engines, the
+Siege Line); the Rim is one horseshoe round the Wound (the Wound's Edge, and the Moorage with the general's fleet hanging
+over the hole). The small ones: the Threefold Forge on its own rock at the top, the Breaking coming apart at the bottom,
+and the Last Green, an islet with one tree still alive. Four short bridges and four links. A five-wide body covers 98%
+of it. Ground from SK2 and SK9 under a failing violet dusk (BK1's dusk sea), all dead grass, crystal ash and violet
+cracks at the rims.
+
+**Links** (`world/links.py`, new): Kyle, 21 Nov 2026, "little short range portals that link islands instead of
+bridges. Like a new system". A pair of pads on one map: stand on one, press interact, and you're beside the other, no
+loading. The map tooling and the reach checks treat a pair as joined. Kinds so far: skip-stones (the Aetherians' oldest,
+older than Aurelion), wind currents and the Firmament's dusk currents. Kyle's LK1 sheet (24 pieces) is the art
+(`docs/caelora_link_art_prompts.md`), the currents turned in 30-degree steps for any angle. The first two are on the
+way up (Kyle: "1 or 2 before the ff zone so people see them a few times"): an overgrown skip-stone on the Anchorfields
+from the House of Measures' rock to the Listing Isle, and a grand one in Aurelion from the Bridgefoot to the Skydocks.
+The Firmament has four: skip-stones onto the Rim from each big mass (the Ascendancy refitted its own), and dusk currents
+from the Forge to the Dead Engines and from the Gardens out to the Last Green.
+
+**Caves, no dungeons:** the Hearthdeep (58-59) under the Threefold Forge, three flues cut for three peoples meeting over
+the deep anvil (the Bellows-Warden, and Salvage-Master Corin Hask in the cutters' works); its second floor the
+Wellspring (59), where the wellstones were grown (the Seedbed Warden, and the Unsung); and the Hollow Engine (58-59),
+inside the greatest dead engine (the Last Governor, and the Black Lattice in the burned-out core). All under 60, so none
+of it is pure 60.
+
+**People** (`tools/build_fading_firmament_people.py`): 17. Lastlight, round the last lit shrine: its keeper, the last
+magistrate, Magister Orla Thessan (come north after her student), the last skiffmaster (the flight path), the last
+crystal-cutter, a provisioner and a trader, and two Earthborn, a scrapman from Durban and a teacher from Umea.
+Forgewatch, the House of Long Memory's camp at the forge: its archivist, a rune-reader, an Earthborn smith from Kumasi
+and a Lens-Warden. Out on the islands: the last man in the Emptied Quarter, the gardener on the Last Green, and an
+Ascendancy quartermaster behind the Siege Line who's stopped wanting to feed the fleet.
+
+**Content** (`tools/build_fading_firmament_content.py`): 42 open-world creatures with 8 rares and the general, 18 in the
+caves with 6 bosses, 60 items, gathering on the pre-60 band (black lotus rarely), fishing in the four wellstone pools,
+18 chests and two secrets (placed blind).
+
+**Quests** (`tools/fading_firmament_quests.py`): 40, 32 from the two hubs. The general's thread ends with Ascendant-General
+Maelis Ardane beaten on the Moorage's pier and taken alive (Kyle's pick), and the magistrate's account carried to the
+First Speaker, whose answer is the arc's end: the council is sending envoys to Orgrimmar. The skiffmaster's and the
+shrine-keeper's first quests teach the links.
+
+**The sky's one mystery, the Firmament's piece:** the Wellspring. The wellstones were grown there in beds of giants'
+quarried stone, from seeds cut by Aetherian hands, woken by Veyr songs running through wind-ways cut round the beds. It
+took all three. The walls don't say why the three stopped.
+
+**The names** (Kyle, 21 Nov 2026): the Aetherians' sky continent is Caelora; the Veyr's is Vyr'kesh, capital Ka'thraal,
+the High Aerie; the Kharad's is Thunvald, capital Stenhald, the Stone Hall. His 1-24 run to Aurelion is in the brief:
+the White Expanse, the Shattered Reaches, the Gilded Canopy, the Lenswold and the Crownlands.
+
 ## Next
 
-The Fading Firmament (57-60), the last of the sky, where Ascendant-General Maelis Ardane is. Sheet 7's bear recruits are
-saved and wait to be sliced and written, mostly for the Bastions and the Firmament. The raids wait. The Aetherian start
+Caelora's hidden maps (Kyle: at least three skull zones and a frontier in 48 to 60). Sheet 7's bear recruits are saved
+and wait to be sliced and written, mostly for the Bastions and the Firmament. The faction pages' write-ups get a pass. The raids wait. The Aetherian start
 zone is parked until 60 is done (its first two maps are named: the White Expanse, 1-6, and the Shattered Reaches, 6-11),
 and its four recruits wait with it. The Celestial raid, the Stormhold, is designed for turn-based combat in the brief
 and waits behind the cracked seal until raids are built. The Heartwood Hollow is the tree's dungeon when Kyle calls it.

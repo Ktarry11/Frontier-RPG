@@ -1,0 +1,630 @@
+{
+  "_notes": "The Fading Firmament's open-world rares (58-60) and Ascendant-General Maelis Ardane. ONE item per kill from the rare's four; item_level = the rare's level + 3, the general's + 4. Hand-authored in tools/build_fading_firmament_content.py.",
+  "The Last Watchman": [
+    {
+      "name": "Watchman's Curfew Mace",
+      "slot": "main_hand",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "strength": 14,
+        "stamina": 18
+      },
+      "secondary_stats": {
+        "defense_rating": 11
+      },
+      "weapon_damage_min": 106,
+      "weapon_damage_max": 143,
+      "attack_speed": 2.6,
+      "stat_template": "str_physical",
+      "item_id": "ffi_watchmans_curfew_mace"
+    },
+    {
+      "name": "Empty-Street Greaves",
+      "slot": "legs",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "strength": 24,
+        "stamina": 24
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 480,
+      "stat_template": "str_physical",
+      "item_id": "ffi_empty_street_greaves"
+    },
+    {
+      "name": "Quarter Lamplight Cowl",
+      "slot": "head",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "intellect": 12,
+        "spirit": 12
+      },
+      "secondary_stats": {
+        "healing_power": 33
+      },
+      "armor_type": "cloth",
+      "armor_value": 84,
+      "stat_template": "spi_healer",
+      "item_id": "ffi_quarter_lamplight_cowl"
+    },
+    {
+      "name": "Locked Door Band",
+      "slot": "ring",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "agility": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {},
+      "stat_template": "agi_physical",
+      "item_id": "ffi_locked_door_band"
+    }
+  ],
+  "The Grey Hart": [
+    {
+      "name": "Grey Hart Antler Bow",
+      "slot": "ranged",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "weapon_type": "bow",
+      "primary_stats": {
+        "agility": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 90,
+      "weapon_damage_max": 122,
+      "attack_speed": 2.8,
+      "stat_template": "agi_physical",
+      "item_id": "ffi_grey_hart_antler_bow"
+    },
+    {
+      "name": "Greyfall Hide Jerkin",
+      "slot": "chest",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "agility": 24,
+        "spirit": 24
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 200,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "ffi_greyfall_hide_jerkin"
+    },
+    {
+      "name": "Last-of-the-Herd Mantle",
+      "slot": "shoulder",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "intellect": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {
+        "spell_power": 18
+      },
+      "armor_type": "cloth",
+      "armor_value": 84,
+      "stat_template": "int_caster",
+      "item_id": "ffi_last_of_the_herd_mantle"
+    },
+    {
+      "name": "Pale Velvet Cloak",
+      "slot": "back",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "intellect": 9,
+        "spirit": 9
+      },
+      "secondary_stats": {
+        "healing_power": 24
+      },
+      "stat_template": "spi_healer",
+      "item_id": "ffi_pale_velvet_cloak"
+    }
+  ],
+  "Foreman Dask Corrow": [
+    {
+      "name": "Foreman's Cutting Torch",
+      "slot": "off_hand",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "spell_power": 28,
+        "crit_chance_spell": 8
+      },
+      "stat_template": "int_caster",
+      "item_id": "ffi_foremans_cutting_torch"
+    },
+    {
+      "name": "Quota-Keeper's Gauntlets",
+      "slot": "hands",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "strength": 17,
+        "stamina": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 338,
+      "stat_template": "str_physical",
+      "item_id": "ffi_quota_keepers_gauntlets"
+    },
+    {
+      "name": "Coldforge Salvage Belt",
+      "slot": "waist",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "agility": 17,
+        "spirit": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 225,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "ffi_coldforge_salvage_belt"
+    },
+    {
+      "name": "Strip-It-All Signet",
+      "slot": "ring",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "intellect": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "spell_power": 14
+      },
+      "stat_template": "int_caster",
+      "item_id": "ffi_strip_it_all_signet"
+    }
+  ],
+  "The Anvil-Thane": [
+    {
+      "name": "Anvil-Thane's Hammer",
+      "slot": "two_hand",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 36,
+        "stamina": 49
+      },
+      "secondary_stats": {
+        "defense_rating": 29
+      },
+      "weapon_damage_min": 145,
+      "weapon_damage_max": 196,
+      "attack_speed": 3.6,
+      "stat_template": "str_physical",
+      "item_id": "ffi_anvil_thanes_hammer"
+    },
+    {
+      "name": "Giant's Hearth Bracers",
+      "slot": "wrist",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "strength": 17,
+        "intellect": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 338,
+      "stat_template": "str_int_hybrid",
+      "item_id": "ffi_giants_hearth_bracers"
+    },
+    {
+      "name": "Threefold Ember Pendant",
+      "slot": "neck",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "intellect": 9,
+        "spirit": 9
+      },
+      "secondary_stats": {
+        "healing_power": 24
+      },
+      "stat_template": "spi_healer",
+      "item_id": "ffi_threefold_ember_pendant"
+    },
+    {
+      "name": "Ringing Anvil Hauberk",
+      "slot": "chest",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "agility": 24,
+        "spirit": 24
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 325,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "ffi_ringing_anvil_hauberk"
+    }
+  ],
+  "The Stalled Colossus": [
+    {
+      "name": "Colossus Plate Girdle",
+      "slot": "waist",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "strength": 17,
+        "stamina": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 338,
+      "stat_template": "str_physical",
+      "item_id": "ffi_colossus_plate_girdle"
+    },
+    {
+      "name": "Stalled Gear Treads",
+      "slot": "feet",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "agility": 17,
+        "stamina": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 140,
+      "stat_template": "agi_physical",
+      "item_id": "ffi_stalled_gear_treads"
+    },
+    {
+      "name": "Dead Engine Bulwark",
+      "slot": "off_hand",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 28
+      },
+      "armor_value": 126,
+      "block_value": 158,
+      "stat_template": "str_int_hybrid",
+      "item_id": "ffi_dead_engine_bulwark"
+    },
+    {
+      "name": "One Last Step Charm",
+      "slot": "trinket",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "intellect": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "spell_power": 14
+      },
+      "stat_template": "int_caster",
+      "item_id": "ffi_one_last_step_charm"
+    }
+  ],
+  "Siegemaster Varek Toll": [
+    {
+      "name": "Toll's Siege Rifle",
+      "slot": "ranged",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "weapon_type": "gun",
+      "primary_stats": {
+        "agility": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 92,
+      "weapon_damage_max": 125,
+      "attack_speed": 2.6,
+      "stat_template": "agi_physical",
+      "item_id": "ffi_tolls_siege_rifle"
+    },
+    {
+      "name": "Siegemaster's Mantle",
+      "slot": "shoulder",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "intellect": 13
+      },
+      "secondary_stats": {
+        "spell_power": 32,
+        "crit_chance_spell": 8
+      },
+      "armor_type": "cloth",
+      "armor_value": 87,
+      "stat_template": "int_caster",
+      "item_id": "ffi_siegemasters_mantle"
+    },
+    {
+      "name": "Trench-Line Spaulders",
+      "slot": "shoulder",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "agility": 21,
+        "spirit": 21
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 279,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "ffi_trench_line_spaulders"
+    },
+    {
+      "name": "Walked-In Fire Band",
+      "slot": "ring",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "intellect": 9,
+        "spirit": 9
+      },
+      "secondary_stats": {
+        "healing_power": 24
+      },
+      "stat_template": "spi_healer",
+      "item_id": "ffi_walked_in_fire_band"
+    }
+  ],
+  "Old Driftmother": [
+    {
+      "name": "Driftmother Coil Whip",
+      "slot": "main_hand",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "strength": 18,
+        "agility": 18
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 107,
+      "weapon_damage_max": 145,
+      "attack_speed": 1.8,
+      "stat_template": "agi_physical",
+      "item_id": "ffi_driftmother_coil_whip"
+    },
+    {
+      "name": "Swallowed Whole Leggings",
+      "slot": "legs",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "intellect": 17,
+        "stamina": 17
+      },
+      "secondary_stats": {
+        "spell_power": 22
+      },
+      "armor_type": "cloth",
+      "armor_value": 101,
+      "stat_template": "int_caster",
+      "item_id": "ffi_swallowed_whole_leggings"
+    },
+    {
+      "name": "Breaking-Ground Sabatons",
+      "slot": "feet",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "strength": 17,
+        "stamina": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 338,
+      "stat_template": "str_physical",
+      "item_id": "ffi_breaking_ground_sabatons"
+    },
+    {
+      "name": "Drift-Scale Vest",
+      "slot": "chest",
+      "item_level": 62,
+      "rarity": "rare",
+      "required_level": 59,
+      "primary_stats": {
+        "intellect": 15,
+        "spirit": 15
+      },
+      "secondary_stats": {
+        "healing_power": 39
+      },
+      "armor_type": "leather",
+      "armor_value": 203,
+      "stat_template": "spi_healer",
+      "item_id": "ffi_drift_scale_vest"
+    }
+  ],
+  "The Unmade": [
+    {
+      "name": "Unmade Rod",
+      "slot": "ranged",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 9
+      },
+      "secondary_stats": {
+        "spell_power": 23,
+        "crit_chance_spell": 6
+      },
+      "weapon_damage_min": 92,
+      "weapon_damage_max": 125,
+      "attack_speed": 1.9,
+      "stat_template": "int_caster",
+      "item_id": "ffi_unmade_rod"
+    },
+    {
+      "name": "Nothing-Left Cord",
+      "slot": "waist",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "intellect": 10,
+        "spirit": 10
+      },
+      "secondary_stats": {
+        "healing_power": 28
+      },
+      "armor_type": "cloth",
+      "armor_value": 71,
+      "stat_template": "spi_healer",
+      "item_id": "ffi_nothing_left_cord"
+    },
+    {
+      "name": "Wound's Edge Helm",
+      "slot": "head",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "strength": 21,
+        "stamina": 21
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 419,
+      "stat_template": "str_physical",
+      "item_id": "ffi_wounds_edge_helm"
+    },
+    {
+      "name": "Hole-in-the-Sky Grips",
+      "slot": "hands",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "agility": 17,
+        "stamina": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 143,
+      "stat_template": "agi_physical",
+      "item_id": "ffi_hole_in_the_sky_grips"
+    }
+  ],
+  "Ascendant-General Maelis Ardane": [
+    {
+      "name": "Maelis's Lens-Blade",
+      "slot": "main_hand",
+      "item_level": 64,
+      "rarity": "rare",
+      "required_level": 60,
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "intellect": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {
+        "spell_power": 19
+      },
+      "weapon_damage_min": 110,
+      "weapon_damage_max": 150,
+      "attack_speed": 2.4,
+      "stat_template": "int_caster",
+      "item_id": "ffi_maeliss_lens_blade"
+    },
+    {
+      "name": "Ascendant-General's Warplate",
+      "slot": "chest",
+      "item_level": 64,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "strength": 18,
+        "stamina": 23
+      },
+      "secondary_stats": {
+        "defense_rating": 13
+      },
+      "armor_type": "plate",
+      "armor_value": 504,
+      "stat_template": "str_physical",
+      "item_id": "ffi_ascendant_generals_warplate"
+    },
+    {
+      "name": "The Patient Lens, Unlearned",
+      "slot": "off_hand",
+      "item_level": 64,
+      "rarity": "rare",
+      "required_level": 60,
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 12,
+        "spirit": 12
+      },
+      "secondary_stats": {
+        "healing_power": 31
+      },
+      "stat_template": "spi_healer",
+      "item_id": "ffi_the_patient_lens,_unlearned"
+    },
+    {
+      "name": "Every Ship at Once",
+      "slot": "trinket",
+      "item_level": 64,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "agility": 16,
+        "stamina": 16
+      },
+      "secondary_stats": {},
+      "stat_template": "agi_physical",
+      "item_id": "ffi_every_ship_at_once"
+    }
+  ]
+}

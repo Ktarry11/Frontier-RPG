@@ -1,0 +1,416 @@
+{
+  "_notes": "Boss loot for the Firmament's caves (the Hearthdeep, the Wellspring and the Hollow Engine, 58-59). ONE item per kill from the boss's four; item_level = boss level + 2. Hand-authored in tools/build_fading_firmament_content.py.",
+  "The Bellows-Warden": [
+    {
+      "name": "Bellows-Warden's Maul",
+      "slot": "two_hand",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 37,
+        "stamina": 47
+      },
+      "secondary_stats": {
+        "defense_rating": 28
+      },
+      "weapon_damage_min": 143,
+      "weapon_damage_max": 193,
+      "attack_speed": 3.6,
+      "stat_template": "str_physical",
+      "item_id": "fci_bellows_wardens_maul"
+    },
+    {
+      "name": "Draught-Keeper's Spaulders",
+      "slot": "shoulder",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "agility": 20,
+        "spirit": 20
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 271,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "fci_draught_keepers_spaulders"
+    },
+    {
+      "name": "Deep Anvil Signet",
+      "slot": "ring",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "strength": 15,
+        "intellect": 15
+      },
+      "secondary_stats": {},
+      "stat_template": "str_int_hybrid",
+      "item_id": "fci_deep_anvil_signet"
+    },
+    {
+      "name": "Ash Hall Robe",
+      "slot": "chest",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "intellect": 14,
+        "spirit": 14
+      },
+      "secondary_stats": {
+        "healing_power": 38
+      },
+      "armor_type": "cloth",
+      "armor_value": 100,
+      "stat_template": "spi_healer",
+      "item_id": "fci_ash_hall_robe"
+    }
+  ],
+  "Salvage-Master Corin Hask": [
+    {
+      "name": "Hask's Cutting Blade",
+      "slot": "main_hand",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "agility": 20,
+        "stamina": 20
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 106,
+      "weapon_damage_max": 143,
+      "attack_speed": 2.4,
+      "stat_template": "agi_physical",
+      "item_id": "fci_hasks_cutting_blade"
+    },
+    {
+      "name": "Salvage-Master's Gloves",
+      "slot": "hands",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "intellect": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {
+        "spell_power": 15
+      },
+      "armor_type": "cloth",
+      "armor_value": 69,
+      "stat_template": "int_caster",
+      "item_id": "fci_salvage_masters_gloves"
+    },
+    {
+      "name": "Crew Boss Girdle",
+      "slot": "waist",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "strength": 17,
+        "stamina": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 332,
+      "stat_template": "str_physical",
+      "item_id": "fci_crew_boss_girdle"
+    },
+    {
+      "name": "Cut-It-All-Out Cloak",
+      "slot": "back",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "agility": 15,
+        "spirit": 15
+      },
+      "secondary_stats": {},
+      "stat_template": "agi_int_hybrid",
+      "item_id": "fci_cut_it_all_out_cloak"
+    }
+  ],
+  "The Seedbed Warden": [
+    {
+      "name": "Seedbed Warden's Staff",
+      "slot": "two_hand",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 22,
+        "spirit": 22
+      },
+      "secondary_stats": {
+        "healing_power": 59
+      },
+      "weapon_damage_min": 58,
+      "weapon_damage_max": 79,
+      "attack_speed": 3.2,
+      "stat_template": "spi_healer",
+      "item_id": "fci_seedbed_wardens_staff"
+    },
+    {
+      "name": "Giant's Trough Greaves",
+      "slot": "legs",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "strength": 24,
+        "intellect": 24
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 480,
+      "stat_template": "str_int_hybrid",
+      "item_id": "fci_giants_trough_greaves"
+    },
+    {
+      "name": "Cut Seed Pendant",
+      "slot": "neck",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "intellect": 10,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "spell_power": 13
+      },
+      "stat_template": "int_caster",
+      "item_id": "fci_cut_seed_pendant"
+    },
+    {
+      "name": "Bedkeeper's Leather Cap",
+      "slot": "head",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "agility": 20,
+        "stamina": 20
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 169,
+      "stat_template": "agi_physical",
+      "item_id": "fci_bedkeepers_leather_cap"
+    }
+  ],
+  "The Unsung": [
+    {
+      "name": "The Unsung's Song",
+      "slot": "trinket",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "intellect": 9,
+        "spirit": 9
+      },
+      "secondary_stats": {
+        "healing_power": 24
+      },
+      "stat_template": "spi_healer",
+      "item_id": "fci_the_unsungs_song"
+    },
+    {
+      "name": "Wind-Way Hauberk",
+      "slot": "chest",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "agility": 24,
+        "spirit": 24
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 320,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "fci_wind_way_hauberk"
+    },
+    {
+      "name": "Motherstone Shard Wand",
+      "slot": "ranged",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 10,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "spell_power": 13
+      },
+      "weapon_damage_min": 90,
+      "weapon_damage_max": 122,
+      "attack_speed": 1.9,
+      "stat_template": "int_caster",
+      "item_id": "fci_motherstone_shard_wand"
+    },
+    {
+      "name": "Howling Wellspring Boots",
+      "slot": "feet",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "strength": 17,
+        "stamina": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 332,
+      "stat_template": "str_physical",
+      "item_id": "fci_howling_wellspring_boots"
+    }
+  ],
+  "The Last Governor": [
+    {
+      "name": "Governor's Circuit Shield",
+      "slot": "off_hand",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 28
+      },
+      "armor_value": 124,
+      "block_value": 155,
+      "stat_template": "str_physical",
+      "item_id": "fci_governors_circuit_shield"
+    },
+    {
+      "name": "Restarted Engine Bracers",
+      "slot": "wrist",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "intellect": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {
+        "spell_power": 15
+      },
+      "armor_type": "cloth",
+      "armor_value": 69,
+      "stat_template": "int_caster",
+      "item_id": "fci_restarted_engine_bracers"
+    },
+    {
+      "name": "Full Power Leggings",
+      "slot": "legs",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "agility": 24,
+        "stamina": 24
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 200,
+      "stat_template": "agi_physical",
+      "item_id": "fci_full_power_leggings"
+    },
+    {
+      "name": "Last Governor's Band",
+      "slot": "ring",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "intellect": 9,
+        "spirit": 9
+      },
+      "secondary_stats": {
+        "healing_power": 24
+      },
+      "stat_template": "spi_healer",
+      "item_id": "fci_last_governors_band"
+    }
+  ],
+  "The Black Lattice": [
+    {
+      "name": "Black Lattice Shard",
+      "slot": "trinket",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "intellect": 10,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "spell_power": 13
+      },
+      "stat_template": "int_caster",
+      "item_id": "fci_black_lattice_shard"
+    },
+    {
+      "name": "Dead Core Chestguard",
+      "slot": "chest",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "strength": 24,
+        "intellect": 24
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 480,
+      "stat_template": "str_int_hybrid",
+      "item_id": "fci_dead_core_chestguard"
+    },
+    {
+      "name": "Lattice-Grown Spear",
+      "slot": "two_hand",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "agility": 48,
+        "stamina": 48
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 143,
+      "weapon_damage_max": 193,
+      "attack_speed": 3.3,
+      "stat_template": "agi_physical",
+      "item_id": "fci_lattice_grown_spear"
+    },
+    {
+      "name": "Dark Crystal Coif",
+      "slot": "head",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "agility": 20,
+        "spirit": 20
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 271,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "fci_dark_crystal_coif"
+    }
+  ]
+}
