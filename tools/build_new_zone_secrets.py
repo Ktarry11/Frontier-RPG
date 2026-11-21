@@ -25,7 +25,12 @@ import build_secrets_pass3 as P3  # noqa: E402
 
 TAG = "new_zones"
 #: map -> how many secrets it should hold
-WANT = {"Rootwater Isle": 2, "The Lower Boughs": 2, "The Middle Boughs": 2, "The Upper Boughs": 2, "The Sunward Crown": 3, "The Celestial Expanse": 3, "The Anchorfields": 3, "The Ascendant Bastions": 3, "The Fading Firmament": 3, "The High Wilderness": 2, "The Forgotten Coast": 2, "The Twin Colossals": 2}
+WANT = {"Rootwater Isle": 2, "The Lower Boughs": 2, "The Middle Boughs": 2, "The Upper Boughs": 2, "The Sunward Crown": 3, "The Celestial Expanse": 3, "The Anchorfields": 3, "The Ascendant Bastions": 3, "The Fading Firmament": 3, "The High Wilderness": 2, "The Forgotten Coast": 2, "The Twin Colossals": 2,
+        # Caelora's hidden maps (21 Nov 2026): a cache or two where there's rock thick enough to hide one (two of the
+        # four are all open ground and the drop, with no rock to hide a room in)
+        "The Cloudwreck": 1, "The Lost Tepui": 2,
+        # a cave under a sky map: no caches of its own wanted here, but a hidden way can be cut into its rock
+        "The Storm-Well": 0}
 
 
 #: maps that stand over a drop (a module with DROP): their collision is mostly the void, and a hidden place cut into
@@ -51,6 +56,11 @@ def _tiles(c):
 
 def solid_ground(zone, c):
     """False when any tile of the candidate hangs over the drop."""
+    from tools import handbuilt_skull_zones as Z
+    spec = Z.SPECS.get(zone)
+    if spec and spec.get("sky"):
+        # a hidden sky map: its walls are either rock or the drop, and only the rock can hide a room
+        return all(int(Z.tile_kind(spec, x + 0.5, y + 0.5)) == 3 for (x, y) in _tiles(c))
     mod = OVER_THE_DROP.get(zone)
     if not mod:
         return True

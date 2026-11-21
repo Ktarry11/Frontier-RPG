@@ -981,6 +981,277 @@ SPECS["The Kapok Crowns"] = dict(
 )
 
 
+# ============================================================================ CAELORA (21 Nov 2026)
+# Kyle: "I want at least 3 skull zones and 1 frontier in the 48-60 region of Caelora", then "Ok hidden zones". Three skull
+# zones off the Expanse, the Anchorfields and the Bastions, and a frontier behind the third. Not to be told where any of
+# them is. These are SKY maps (fields: "sky"): the cloud's deep part is the drop, its shallow part walkable cloud, and the
+# only water is the wellstone pools on the islands, each spilling off the nearest edge. Bridges and bands are nine wide
+# (Kyle: "dont make them too hard to travel on with tiny paths and snag points"). No two of them the same shape.
+SKG = "sky/ground/"
+SKP = "assets/tiles/sky/props/"
+BLD = "assets/buildings/"
+WTPS = "assets/tiles/worldtree/props/"
+
+
+def _line(pts):
+    """An open line for atoll_poly (which closes its outline): out along the points and back the same way."""
+    return list(pts) + list(reversed(pts[1:-1]))
+
+
+def _orbit(cx, cy, rx, ry, deg):
+    import math
+    a = math.radians(deg)
+    return (round(cx + rx * math.cos(a), 1), round(cy + ry * math.sin(a), 1))
+
+
+# THE STORMROOST. An eyrie the Veyr left so long ago the Aetherians have no name for it, grown on an island shaped like a
+# feather: a long quill up the middle, barbs off either side to the nesting ledges, and a thunderhead parked over the
+# tip that's never once moved off. The thunderbirds came back to the nests when the Veyr didn't.
+_SR_C = (50, 52)
+SPECS["The Stormroost"] = dict(
+    slug="stormroost", W=100, H=100, region="The Celestial Expanse", seed=971, sky=True,
+    desc="An old Veyr eyrie on an island shaped like a feather, under a thunderhead that never moves. The thunderbirds "
+         "nest in it now.",
+    mode="islands", shore_w=1.0,
+    # A FEATHER, NOT BLOBS: the quill curves from the landing at the foot up to the tip, and the barbs go off it at an
+    # angle, sweeping up toward the tip the way a real feather's do. The outer ends of the lower barbs are joined by the
+    # vane's edge on each side, so there are two loops; the top barbs end at the nests.
+    land=[(50, 90, 11, 6, 0),                    # the landing at the quill's foot
+          (14, 62, 7, 5, 0.2), (12, 38, 7, 5, -0.2), (15, 11, 10, 6, 0.3),    # the west ledges
+          (86, 56, 7, 5, -0.2), (86, 30, 7, 5, 0.2), (79, 8, 9, 5, 0),        # the east ledges
+          (46, 12, 9, 6, 0)],                    # the tip, under the thunderhead
+    atoll_poly=[(_line([(50, 92), (52, 80), (52, 66), (50, 52), (47, 38), (45, 24), (46, 12)]), 10.0, []),
+                (_line([(52, 80), (32, 70), (15, 62)]), 9.0, []),
+                (_line([(50, 58), (30, 46), (12, 38)]), 9.0, []),
+                (_line([(46, 32), (28, 20), (17, 11)]), 9.0, []),
+                (_line([(52, 72), (70, 62), (86, 56)]), 9.0, []),
+                (_line([(49, 46), (68, 36), (86, 30)]), 9.0, []),
+                (_line([(46, 22), (62, 13), (77, 8)]), 9.0, []),
+                (_line([(14, 62), (10, 50), (12, 38)]), 9.0, []),       # the west vane's edge
+                (_line([(86, 56), (90, 43), (86, 30)]), 9.0, [])],      # the east vane's edge
+    flats=[], lakes=[], rivers=[], open=[], outline=[], passes=[],
+    # the roost spires: old nesting columns standing on the ledges, which you walk round
+    rocks=[(8, 9, 1.8, 1.6)],
+    pools=[(9, 64, 2.4, 1.8, 0), (21, 7, 2.2, 1.6, 0), (41, 9, 2.4, 1.8, 0)],
+    roads=[([(50, 92), (52, 80), (52, 66), (50, 52), (47, 38), (45, 24), (46, 16)], 2.2)],
+    portal=(50, 93),
+    giver=("hz_stormroost_kelsey", (56, 88)),
+    subzones=[("The Quill", 38, 40, 24, 60), ("The West Vane", 0, 30, 38, 46), ("The East Vane", 62, 20, 38, 48),
+              ("The Old Nests", 0, 0, 30, 30), ("The Thunderhead", 30, 0, 34, 22)],
+    materials={"land": (SKG + "sk_wind_grass", SKG + "sk_rain_grass"),
+               "nest": (SKG + "vy_nest_floor", None),
+               "ledge": (SKG + "vy_talon_stone", None),
+               "road": (SKG + "vy_feather_ledge", None),
+               "pool_s": (SKG + "vy_rain_pool", None),
+               "pool_d": (SKG + "sk_lake_deep", None),
+               "water_s": (SKG + "sk_cloud_storm", None),
+               "water_d": (SKG + "sk_cloud_storm", SKG + "sk_cloud_shadow"),
+               "rock": (SKG + "vy_spire_rock", SKG + "vy_storm_rock")},
+    regions={"nest": [(17, 11, 7, 4), (77, 8, 6, 3), (86, 30, 5, 3), (14, 62, 5, 3)],
+             "ledge": [(46, 12, 8, 5), (50, 89, 7, 4), (12, 38, 5, 3), (86, 56, 5, 3)]},
+    tint=(0.90, 0.94, 1.04), dark=0.10,
+    scatter=[("sk_wind_tuft", SKP, 2, False, 26, "land", 71, 5),
+             ("sk_wind_tree", SKP, 6, "core", 7, "edge", 72, 11),
+             ("vy_rune_pillar_broken", SKP, 4, "core", 6, "edge", 73, 13)],
+    props=[
+        # the landing at the quill's foot, where the storm chaser's camped in what's left of a perch
+        ("vy_watch_perch", BLD, 41, 90, 6, "core"), ("vy_signal_fire", BLD, 57, 92, 4, "core"),
+        # the old nests on the ledges, and the thunderbirds' great nest at the top of the west vane
+        ("vy_nest_bowl", BLD, 10, 15, 5, "core"), ("vy_nest_bowl", BLD, 85, 10, 4, "core"),
+        ("vy_war_roost", BLD, 90, 35, 6, "core"), ("vy_eyrie", BLD, 6, 40, 6, "core"),
+        ("vy_hanging_cage", BLD, 6, 12, 4, False), ("vy_prayer_stone", BLD, 18, 66, 4, False),
+        # the storm altar at the tip, under the thunderhead, where the last stormcaller still sings
+        ("vy_storm_altar", BLD, 50, 11, 5, "core"), ("vy_wind_chimes", BLD, 54, 15, 4, False),
+    ],
+)
+
+# THE ORRERY. A model of the heavens built to walk on: rings of carved stone in orbit round a sun dais, moons and
+# planets of turf set into the rings, spokes between them, and gaps where a ring's broken so the long way round is the
+# only way round. Something in it still turns the rings, very slowly. Nobody's worked out what it's counting toward.
+_OR_C = (52, 48)
+_OA = (22, 21)          # the inner ring's radii
+_OB = (40, 38)          # the outer ring's
+SPECS["The Orrery"] = dict(
+    slug="orrery", W=104, H=104, region="The Anchorfields", seed=972, sky=True,
+    desc="A walkable model of the heavens hidden in the clouds: stone rings in orbit round a sun dais, with moons set in "
+         "them. It's still turning, very slowly.",
+    mode="islands", shore_w=1.0,
+    # RINGS, NOT BLOBS: a dais in the middle, an inner ring and an outer ring, each broken in two places, so the way in
+    # winds: from the landing round the outer ring's west arc to the inner ring, round that to the dais, out the far side
+    # and back out to the outer ring's north arc. Moons sit on the rings like planets on their orbits.
+    land=[(_OR_C[0], _OR_C[1], 9, 8, 0),                         # the sun dais
+          (52, 96, 8, 5, 0),                                    # the landing
+          (*_orbit(*_OR_C, *_OB, 120), 9.5, 8.5, 0), (*_orbit(*_OR_C, *_OB, 205), 6, 5, 0),
+          (*_orbit(*_OR_C, *_OB, 290), 6, 5, 0), (*_orbit(*_OR_C, *_OB, 355), 9.5, 8.5, 0),
+          (*_orbit(*_OR_C, *_OA, 15), 5, 5, 0), (*_orbit(*_OR_C, *_OA, 195), 5, 5, 0)],
+    atolls=[(_OR_C[0], _OR_C[1], _OA[0], _OA[1], 9.0, [105, 285]),
+            (_OR_C[0], _OR_C[1], _OB[0], _OB[1], 9.0, [20, 250])],
+    atoll_poly=[(_line([(52, 86), (52, 96)]), 9.0, []),                                       # landing to the outer ring
+                (_line([_orbit(*_OR_C, *_OA, 150), _orbit(*_OR_C, *_OB, 150)]), 9.0, []),   # the west spoke
+                (_line([_orbit(*_OR_C, *_OA, 330), _orbit(*_OR_C, *_OB, 330)]), 9.0, []),   # the north-east spoke
+                (_line([_OR_C, _orbit(*_OR_C, *_OA, 60)]), 9.0, []),                       # the dais to the inner ring
+                (_line([_OR_C, _orbit(*_OR_C, *_OA, 240)]), 9.0, [])],
+    flats=[], lakes=[], rivers=[], open=[], outline=[], passes=[], rocks=[],
+    # the pools sit on the big moons' outer sides, off the ring
+    pools=[(*_orbit(*_OR_C, 46.5, 44.5, 120), 2.6, 2.0, 0), (*_orbit(*_OR_C, 47, 45, 355), 2.0, 2.6, 0)],
+    roads=[],
+    portal=(52, 98),
+    giver=("hz_orrery_tessaly", (58, 95)),
+    subzones=[("The Sun Dais", 40, 37, 24, 22), ("The Inner Orbit", 24, 22, 56, 54), ("The Outer Orbit", 0, 0, 104, 104),
+              ("The Red Moon", 22, 72, 20, 18), ("The North Moon", 56, 2, 20, 20)],
+    materials={"land": (SKG + "sk_ancient_inlay", SKG + "sk_broken_inlay"),
+               "turf": (SKG + "sk_skyflower_meadow", SKG + "sk_clover"),
+               "dais": (SKG + "ae_star_floor", None),
+               "pool_s": (SKG + "sk_temple_pond", None),
+               "pool_d": (SKG + "sk_lake_deep", None),
+               "water_s": (SKG + "sk_cloud_gold", None),
+               "water_d": (SKG + "sk_cloud_gold", SKG + "sk_cloud_sun"),
+               "rock": (SKG + "sk_island_cliff", None)},
+    regions={"turf": [(*_orbit(*_OR_C, *_OB, a), 5, 4) for a in (120, 205, 290, 355)]
+                     + [(*_orbit(*_OR_C, *_OA, a), 4, 4) for a in (15, 195)] + [(52, 96, 6, 3)],
+             "dais": [(_OR_C[0], _OR_C[1], 7, 6)]},
+    tint=(1.04, 0.98, 0.92), dark=0.04,
+    scatter=[("sk_clover_patch", SKP, 2, False, 14, "land", 81, 6),
+             ("sk_float_crystal", SKP, 3, False, 10, "edge", 82, 12)],
+    props=[
+        # the sun dais: the orrery's own armillary, and the four instruments that read it
+        ("ae_armillary", BLD, 52, 47, 9, "core"), ("ae_sun_dial", BLD, 46, 43, 4, False),
+        ("ae_star_globe", BLD, 60, 44, 4, "core"),
+        # the landing, and the House of Measures' scholar who found it, camped in a survey skiff
+        ("ae_survey_skiff", BLD, 46, 97, 5, "core"), ("ae_astrolabe", BLD, 60, 99, 4, "core"),
+        # the moons: the red moon's ring of crystal, the pale moon's broken ring, the crystal ones on the inner orbit
+        # (on the inner side of each moon, off the ring, or standing in the turf where you can walk through)
+        ("sk_crystal_ring", SKP, *_orbit(*_OR_C, 33, 31, 120), 4, "core"),
+        ("ae_broken_ring", BLD, *_orbit(*_OR_C, *_OB, 290), 6, False),
+        ("sk_orbiting_ruins", SKP, *_orbit(*_OR_C, *_OB, 205), 6, False),
+        ("sk_rune_ring", SKP, *_orbit(*_OR_C, *_OA, 15), 4, False), ("sk_rune_ring", SKP, *_orbit(*_OR_C, *_OA, 195), 4, False),
+        ("ae_orbit_tower", BLD, *_orbit(*_OR_C, 33, 31, 355), 6, "core"),
+    ],
+)
+
+# THE CLOUDWRECK. Where the Ascendancy's lost ships end up. A shelf of cloud thick enough to walk on catches whatever
+# falls out of the storm, and a century of airships has fallen out of it: hulls lying in the cloud like whales, skiffs
+# in pieces, cannon and cargo everywhere, and the biggest wreck of all at the far end of the shelf, a ship so old
+# nobody in the Bastions has its name in a ledger. Its crews never left either.
+SPECS["The Cloudwreck"] = dict(
+    slug="cloudwreck", W=112, H=100, region="The Ascendant Bastions", seed=973, sky=True,
+    desc="A shelf of cloud thick enough to walk on, where a century of the Ascendancy's lost ships came down. The "
+         "crews never left them.",
+    mode="islands", shore_w=2.0,
+    # CLOUD YOU WALK ON, NOT ISLANDS: the shelf (flats) is the ground here, wide and winding, and the islands are the
+    # wreck-heaps lying in it. The drop shows through wherever the shelf thins. The hulls are long walls in the cloud
+    # you go round, so the way north is a choice of which side of each wreck.
+    land=[(56, 90, 10, 5, 0),                   # the salvage raft where you come in
+          (30, 60, 7, 4, 0.3), (84, 50, 7, 4, -0.2), (56, 36, 8, 5, 0), (90, 80, 6, 4, 0),
+          (20, 30, 5, 4, 0), (56, 13, 13, 6, 0)],   # ... and the great wreck's heap at the far end
+    flats=[(56, 76, 24, 11), (34, 58, 18, 13), (78, 52, 19, 12), (56, 36, 28, 11), (56, 18, 22, 9),
+           (88, 78, 10, 7), (22, 34, 10, 9),
+           # where the shelf runs between its broad parts, wide enough to walk two abreast and then some
+           (44, 47, 11, 9), (68, 63, 10, 9), (70, 44, 11, 8), (56, 26, 14, 8), (80, 70, 9, 8), (28, 44, 7, 9)],
+    lakes=[], rivers=[], open=[], outline=[], passes=[],
+    # the hulls: long walls of wreck lying in the cloud
+    rocks=[(42, 72, 8, 2.2), (70, 68, 2.4, 6), (22, 50, 2.4, 6), (88, 40, 8, 2.2), (40, 28, 7, 2.2), (74, 24, 2.4, 5)],
+    pools=[(30, 60, 2.6, 1.8, 0.3), (84, 50, 2.6, 1.8, 0), (90, 80, 2.4, 1.8, 0)],
+    roads=[],
+    portal=(56, 93),
+    giver=("hz_cloudwreck_ressa", (63, 89)),
+    subzones=[("The Salvage Raft", 40, 82, 32, 18), ("The Hull Field", 10, 44, 92, 40), ("The Gun Graveyard", 66, 30, 46, 34),
+              ("The Long Shelf", 26, 22, 60, 22), ("The Old Flagship", 34, 0, 44, 22)],
+    materials={"land": (SKG + "sk_torn_boards", SKG + "sk_deck_planks"),
+               "brass": (SKG + "sk_deck_brass", None),
+               "rubble": (SKG + "ae_fallen_rubble", None),
+               "pool_s": (SKG + "sk_sky_pool", None),
+               "pool_d": (SKG + "sk_lake_deep", None),
+               "water_s": (SKG + "sk_cloud_solid", None),
+               "water_d": (SKG + "sk_cloud_shadow", SKG + "sk_cloud_storm"),
+               "rock": (SKG + "sk_hull_wall", None)},
+    regions={"brass": [(56, 13, 10, 4), (56, 90, 6, 3)], "rubble": [(84, 50, 5, 3), (20, 30, 4, 3)]},
+    tint=(0.94, 0.96, 1.02), dark=0.08,
+    scatter=[("ab_chain_coil", SKP, 2, False, 10, "cloud", 91, 9),
+             ("sk_cloud_wisp", SKP, 3, False, 14, "cloud", 92, 8)],
+    props=[
+        # the salvage raft: the deserter's skiff, her winch and what she's pulled out of the cloud
+        ("ae_evac_skiff", BLD, 49, 90, 5, "core"), ("ae_capstan", BLD, 66, 92, 4, "core"),
+        ("ae_supply_crates", BLD, 62, 86, 3, "core"),
+        # the hull field: ribs and broken skiffs lying in the cloud
+        ("ab_ship_ribs", SKP, 34, 76, 6, "core"), ("ff_wrecked_skiff", SKP, 76, 78, 5, "core"),
+        ("ff_wrecked_skiff", SKP, 26, 62, 4, "core"), ("ae_mast", BLD, 48, 62, 6, "core"),
+        ("ab_ship_ribs", SKP, 18, 41, 5, "core"),
+        # the gun graveyard: the guns that went over the side with their ships
+        ("ae_deck_cannon", BLD, 82, 46, 4, "core"), ("ae_deck_cannon", BLD, 94, 54, 4, "core"),
+        ("ae_deck_cargo", BLD, 85, 61, 4, "core"),
+        # the long shelf, and the wheel of a ship that isn't there any more
+        ("ae_ship_wheel", BLD, 60, 38, 4, "core"), ("ae_deck_cargo", BLD, 50, 34, 4, "core"),
+        ("ff_wrecked_skiff", SKP, 20, 31, 4, "core"), ("sk_sky_chain", SKP, 66, 30, 5, False),
+    ],
+    # the way on: the oldest wreck's ribs at the far end of the shelf, and the dark behind them
+    great_tree=("ab_ship_ribs", SKP, 56, 16, 12),
+    tree_leads_to="The Lost Tepui",
+)
+
+# THE LOST TEPUI. Behind the old flagship's ribs, through the dark of its hold and out of a hole in the cloud: the
+# summit of a table mountain from the Gran Sabana, come through the change whole and sitting in the sky, waterfalls
+# pouring off its edges into nothing. Black rock worn into a maze, a valley of quartz, pools in the stone, pitcher
+# plants and the strange things of the summit, and a guide who'd been up and down it a hundred times.
+SPECS["The Lost Tepui"] = dict(
+    slug="lost_tepui", W=116, H=108, region="The Ascendant Bastions", seed=974, sky=True,
+    desc="The summit of a table mountain from the Gran Sabana, sitting in the sky with its waterfalls pouring off into "
+         "the cloud. Black rock worn into a maze, a valley of quartz, and the strange plants of the top of the world.",
+    mode="islands", shore_w=0.8,
+    # A TABLETOP, NOT RINGS OR BARBS: one big summit drawn as an outline (long, ragged, with a prow at the north end the
+    # way Roraima's has), the labyrinth's black blocks standing up out of its south half, the quartz valley in a
+    # hollow on the east side, and the pools in the rock. Two small outliers off the west side are joined to it by
+    # necks of rock wide enough to walk.
+    land=[(18, 40, 8, 6, 0.2), (20, 74, 7, 6, -0.2)],
+    land_poly=[[(40, 104), (30, 96), (30, 84), (36, 72), (32, 60), (34, 48), (40, 36), (44, 24), (52, 10), (62, 4),
+                (70, 10), (78, 22), (90, 30), (102, 40), (106, 54), (100, 66), (102, 80), (94, 92), (80, 100),
+                (64, 104)]],
+    atoll_poly=[(_line([(20, 40), (38, 44)]), 9.0, []), (_line([(20, 74), (36, 74)]), 9.0, [])],
+    flats=[], lakes=[], rivers=[], open=[], outline=[], passes=[],
+    # the summit's pinnacles: black rock standing up on its own, out on the open ground
+    # ...and THE LABYRINTH: the black sandstone worn into blocks and fins of every shape across the south half, with
+    # lanes between them six to eight wide that wind instead of running straight
+    rocks=[(62, 30, 3, 2.4), (86, 50, 2.6, 2.2), (46, 52, 2.6, 2.2),
+           (50, 66, 4.5, 2.5), (62, 61, 3, 4), (77, 64, 6, 2.5), (93, 62, 3, 3.5),
+           (45, 78, 3, 4.5), (58, 76, 5, 3), (72, 77, 3, 5.5), (86, 74, 5.5, 2.6), (98, 79, 2.5, 4),
+           (51, 90, 5, 2.5), (66, 88, 3, 3.5), (80, 88, 5.5, 3), (92, 90, 3, 2.5)],
+    pools=[(70, 50, 3.2, 2.4, 0.3), (58, 40, 2.6, 2.0, 0), (64, 22, 2.6, 2.0, 0), (20, 76, 2.4, 1.8, 0),
+           (64, 97, 2.6, 1.8, 0)],
+    roads=[],
+    portal=(52, 101),
+    giver=("hz_tepui_mireya", (58, 98)),
+    subzones=[("The Black Labyrinth", 38, 58, 66, 38), ("The Valley of Crystals", 74, 30, 34, 34),
+              ("The Prow", 40, 0, 40, 26), ("The Jacuzzis", 50, 30, 30, 26), ("The Outliers", 0, 30, 34, 56)],
+    materials={"land": (SKG + "sk_gold_sandstone", SKG + "sk_sandstone"),
+               "black": (SKG + "vy_storm_rock", SKG + "sk_storm_rock"),
+               "quartz": (SKG + "kh_quartz_granite", SKG + "sk_crystal_sand"),
+               "bog": (SKG + "sk_gold_moss", SKG + "sk_gold_reeds"),
+               "pool_s": (SKG + "vy_rain_pool", None),
+               "pool_d": (SKG + "sk_lake_deep", None),
+               "water_s": (SKG + "sk_cloud_thin", None),
+               "water_d": (SKG + "sk_cloud_sun", SKG + "sk_cloud_thin"),
+               "rock": (SKG + "vy_spire_rock", SKG + "sk_mountain_rock")},
+    regions={"black": [(70, 78, 26, 14), (40, 96, 8, 5)],
+             "quartz": [(90, 46, 11, 10)],
+             "bog": [(58, 42, 10, 7), (20, 74, 5, 4), (60, 14, 9, 6)]},
+    tint=(0.96, 0.98, 1.02), dark=0.04,
+    scatter=[("wt_bromeliads", WTPS, 3, False, 22, "land", 61, 6),
+             ("sk_crystal_blue", SKP, 3, False, 9, (78, 36, 104, 60), 62, 6),
+             ("sk_rock_pillar", SKP, 5, "core", 8, "edge", 63, 12)],
+    props=[
+        # the guide's camp where she came out of the cloud, under the overhang
+        ("vy_signal_fire", BLD, 46, 98, 4, "core"),
+        # the valley of crystals: quartz everywhere underfoot, and the big ones standing up
+        ("sk_crystal_spire", SKP, 92, 44, 6, "core"), ("sk_crystal_boulder", SKP, 98, 52, 4, "core"),
+        ("sk_crystal_spire", SKP, 84, 40, 5, "core"),
+        # the prow: the summit's north end, the highest rock, where the eagle sits
+        ("sk_crag", SKP, 64, 15, 5, "core"),
+        # the outliers off the west side
+        ("sk_wind_tree", SKP, 13, 43, 5, "core"),
+    ],
+)
+
+
 def fields(spec, gx, gy):
     gx = np.asarray(gx, float)
     gy = np.asarray(gy, float)
@@ -1005,6 +1276,9 @@ def fields(spec, gx, gy):
             for (cx_, cy_, rc) in cuts:
                 band = np.where(np.hypot(gx - cx_, gy - cy_) < rc, np.minimum(band, -1.0), band)
             land = np.maximum(land, band)
+        # land drawn as any shape at all (a tabletop's outline, a prow), its edge roughened
+        for n, pts in enumerate(spec.get("land_poly", [])):
+            land = np.maximum(land, poly_field(gx, gy, pts, 1.2, 11.0 + n))
         flat = np.full(np.shape(gx), -30.0)
         for (cx, cy, rx, ry) in spec["flats"]:
             flat = np.maximum(flat, ell(gx, gy, cx, cy, rx, ry))
@@ -1064,6 +1338,11 @@ def fields(spec, gx, gy):
                     continue
                 blk = np.minimum(half - np.abs(gx - bx), half - 0.4 - np.abs(gy - by))
                 rock = np.maximum(rock, blk)
+    # POOLS on dry ground (a sky map's own water, where the wellstones fill it): fishing water, kept clear of rock
+    pool = np.full(np.shape(gx), -30.0)
+    for n, (cx, cy, rx, ry, rot) in enumerate(spec.get("pools", [])):
+        pool = np.maximum(pool, ell(gx, gy, cx, cy, rx, ry, rot) + 0.45 * wob(gx * 1.2, gy * 1.2, 9.0 + n))
+    rock = np.where(pool > -1.0, np.minimum(rock, -0.6), rock)
     rd = np.full(np.shape(gx), 99.0)
     for pts, w in spec["roads"]:
         rd = np.minimum(rd, seg_dist(gx, gy, pts) - w / 2)
@@ -1072,13 +1351,27 @@ def fields(spec, gx, gy):
     px, py = spec["portal"]
     near_portal = np.maximum(np.abs(gx - (px + 0.5)) - 2.5, np.abs(gy - (py - 1.0)) - 4.0)
     rock = np.where(near_portal < 0, np.minimum(rock, -0.6), rock)
-    return dict(land=land, wet=wet, deep=deep, rock=rock, road=-rd)
+    return dict(land=land, wet=wet, deep=deep, rock=rock, road=-rd, pool=pool)
+
+
+#: SKY MAPS (Caelora's hidden places, 21 Nov 2026). The "sea" is the cloud: its deep part is the drop (a wall you can't
+#: walk into, and no water, so nobody fishes off an island's edge), its shallow part is cloud you can walk on, and the
+#: only water is the pools on the islands themselves.
+SKY_DROP, SKY_CLOUD = 5, 6
 
 
 def tile_kind(spec, gx, gy):
-    """0 land, 1 shallow, 2 deep, 3 rock."""
+    """0 land, 1 shallow, 2 deep, 3 rock; on a sky map 5 the drop and 6 walkable cloud."""
     f = fields(spec, gx, gy)
     kind = np.zeros(np.shape(gx), int)
+    if spec.get("sky"):
+        kind[f["wet"] > 0] = SKY_CLOUD
+        kind[f["deep"] > 0] = SKY_DROP
+        dry = f["wet"] <= 0
+        kind[dry & (f["pool"] > 0)] = 1
+        kind[dry & (f["pool"] > spec.get("pool_shore", 1.3))] = 2
+        kind[f["rock"] > 0] = 3
+        return kind
     kind[f["wet"] > 0] = 1
     kind[f["deep"] > 0] = 2
     kind[f["rock"] > 0] = 3
@@ -1115,11 +1408,13 @@ def build_zone(name):
                 z.set_tile(x, y, "shallow_water", "base")
             elif k == 2:
                 z.set_tile(x, y, "deep_water", "base")
-            elif k == 3:
+            elif k in (3, SKY_DROP):
                 z.set_tile(x, y, "dirt", "base")
                 z.set_tile(x, y, "cliff", "collision")
             elif f["road"][y, x] > 0:
                 z.set_tile(x, y, "path", "base")
+            elif k == SKY_CLOUD or spec.get("sky"):
+                pass
             elif spec["mode"] == "islands" and f["land"][y, x] < 1.5:
                 z.set_tile(x, y, "sand", "base")
     px, py = spec["portal"]
@@ -1136,7 +1431,9 @@ def build_zone(name):
             for xx in range(x0, x1 + 1, dx):
                 props.append((pname, pdir, xx + ((yy // dy) % 2), yy, h, "core"))
     props += _scatter(spec, kind)
+    props += _wellstone_falls(spec, kind)
     for (pname, pdir, cx, by, h, solid) in props:
+        cx, by = int(round(cx)), int(round(by))
         path = f"{pdir}{pname}.png"
         if not os.path.exists(path):
             raise FileNotFoundError(path)
@@ -1152,7 +1449,7 @@ def build_zone(name):
         for (xx, yy) in core or [(cx, by)]:
             if not (0 <= xx < W and 0 <= yy < H):
                 bad = "off-map"
-            elif kind[yy, xx] in (1, 2):
+            elif kind[yy, xx] in (1, 2, SKY_DROP):
                 bad = "water"
             elif abs(xx - px) <= 2 and abs(yy - py) <= 4:
                 bad = "portal"
@@ -1208,9 +1505,11 @@ def _scatter(spec, kind):
                 elif where == "shore":
                     ok = k == 0 and near(x, y, (1, 2), 1)
                 elif where == "edge":
-                    ok = k == 0 and near(x, y, (3,), 2)
+                    ok = k == 0 and near(x, y, (3, SKY_DROP), 2)
                 elif where == "rock":
                     ok = k == 3 and near(x, y, (0,), 2)
+                elif where == "cloud":
+                    ok = k == SKY_CLOUD and not near(x, y, (SKY_DROP,), 2)
                 else:
                     ok = k == 0
                 if ok:
@@ -1223,6 +1522,28 @@ def _scatter(spec, kind):
             if all(abs(x - tx) + abs(y - ty) >= gap for tx, ty in took):
                 took.append((x, y))
         out += [(pname, pdir, x, y, h, solid) for (x, y) in took]
+    return out
+
+
+def _wellstone_falls(spec, kind):
+    """On a sky map every pool spills off the nearest edge (docs/worldtree_brief.md, the wellstones: Kyle, "unlimited
+    water pouring off the island"). From each pool's middle, the nearest way to the drop in eight directions; the fall
+    stands on the last ground before it."""
+    if not spec.get("sky"):
+        return []
+    H, W = kind.shape
+    out = []
+    for (cx, cy, rx, ry, rot) in spec.get("pools", []):
+        best = None
+        for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1), (1, 1), (-1, 1), (1, -1), (-1, -1)):
+            x, y, n = int(cx), int(cy), 0
+            while 0 < x + dx < W - 1 and 0 < y + dy < H - 1 and kind[y + dy, x + dx] != SKY_DROP:
+                x, y, n = x + dx, y + dy, n + 1
+            if 0 < x + dx < W - 1 and 0 < y + dy < H - 1 and kind[y, x] not in (1, 2, SKY_DROP) \
+                    and (best is None or n < best[0]):
+                best = (n, x, y)
+        if best:
+            out.append(("sk_edge_falls", SKP, best[1], best[2], 4, False))
     return out
 
 

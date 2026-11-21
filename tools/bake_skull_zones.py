@@ -54,6 +54,12 @@ def build_scores(P, spec):
         for (cx, cy, rx, ry) in ells:
             r = np.maximum(r, P.blob(cx, cy, rx, ry, 0.6, wp))
         S[k] = (0.1 + 1.1 * r * (0.65 + 0.35 * smoothstep(0.3, 0.6, n_mid))).astype(np.float32)
+    # a sky map's pools: painted as ground (the "water" there is the cloud), with a deeper middle
+    if "pool_s" in mats:
+        pf = F["pool"].astype(np.float32)
+        S["pool_s"] = (1.6 + 10 * np.clip(pf, -4, 6)).astype(np.float32)
+        if "pool_d" in mats:
+            S["pool_d"] = (S["pool_s"] + 3.0 * np.clip(pf - spec.get("pool_shore", 1.3), -6, 6)).astype(np.float32)
     for k in mats:
         if k not in S and k not in ("water_s", "water_d", "rock", "road"):
             S[k] = np.full_like(n_big, -2.0)

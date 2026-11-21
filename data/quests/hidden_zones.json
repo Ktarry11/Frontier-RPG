@@ -5261,6 +5261,1330 @@
         }
       ],
       "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_stormroost_nests",
+      "title": "Nests Full of Lightning",
+      "giver_npc_id": "hz_stormroost_kelsey",
+      "zone": "the_stormroost",
+      "level_min": 50,
+      "level_max": 52,
+      "elite": false,
+      "description": "The thunderbirds nest along both vanes. The raptors hunt up and down the quill.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Roost Thunderbird",
+          "count": 8
+        },
+        {
+          "type": "kill",
+          "target": "Roost Raptor",
+          "count": 6
+        }
+      ],
+      "reward_exp": 5462,
+      "reward_gold": 20900,
+      "accept_text": "I'm Kelsey Draper. I chased tornadoes across Oklahoma for nine years, out of Norman, and I woke up here three years ago under the only storm I've ever seen that doesn't move.\n\nWhoever built these nests left a long time ago, and the birds moved in. The Roost Thunderbirds throw lightning off their wings, and the Roost Raptors dive on anything the lightning knocks down. Thin them out so I can get to my instruments without being struck twice a day.",
+      "turn_in_text": "I walked the whole quill this morning and nothing hit me. My readings are better already.\n\nYou came a long way to find a storm. I'd like to show you what I think it's doing.",
+      "unique_item_defs": [
+        {
+          "name": "Storm Chaser's Boots",
+          "slot": "feet",
+          "item_level": 54,
+          "rarity": "rare",
+          "required_level": 50,
+          "primary_stats": {
+            "agility": 15,
+            "stamina": 15
+          },
+          "armor_type": "leather",
+          "armor_value": 122,
+          "label": "Leather Boots (Agi/Sta)"
+        },
+        {
+          "name": "Rain-Slick Gloves",
+          "slot": "hands",
+          "item_level": 54,
+          "rarity": "rare",
+          "required_level": 50,
+          "primary_stats": {
+            "intellect": 15,
+            "spirit": 15
+          },
+          "armor_type": "cloth",
+          "armor_value": 61,
+          "label": "Cloth Gloves (Int/Spi)"
+        },
+        {
+          "name": "Lightning-Rod Girdle",
+          "slot": "waist",
+          "item_level": 54,
+          "rarity": "rare",
+          "required_level": 50,
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "defense_rating": 8
+          },
+          "armor_type": "plate",
+          "armor_value": 294,
+          "label": "Plate Belt (Str/Sta/Def)"
+        }
+      ],
+      "next_quest_id": "hz_stormroost_feathers"
+    },
+    {
+      "quest_id": "hz_stormroost_feathers",
+      "title": "Song-Struck Feathers",
+      "giver_npc_id": "hz_stormroost_kelsey",
+      "zone": "the_stormroost",
+      "level_min": 51,
+      "level_max": 53,
+      "elite": false,
+      "description": "The echoes drift along both vanes, mostly round the old nests on the ledges.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "song_struck_feather",
+          "count": 6
+        }
+      ],
+      "reward_exp": 5571,
+      "reward_gold": 21318,
+      "accept_text": "There are things drifting round the old nests that look like people made of wind. When one comes apart, it leaves a feather behind, and the feather hums.\n\nI recorded one on my phone before the battery died, and the hum matched the thunder to the second. Bring me six of them. If the feathers and the storm are singing the same note, I want to know who taught them.",
+      "turn_in_text": "Listen to them, all six humming together.\n\nThey get louder when I hold them toward the tip. Something up there under the thunderhead is singing, and the storm's the song.",
+      "unique_item_defs": [
+        {
+          "name": "Humming Feather Pendant",
+          "slot": "neck",
+          "item_level": 55,
+          "rarity": "rare",
+          "required_level": 51,
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "spell_power": 20,
+            "crit_chance_spell": 5
+          },
+          "label": "Necklace (Int/SP/Crit)"
+        },
+        {
+          "name": "Windward Coif",
+          "slot": "head",
+          "item_level": 55,
+          "rarity": "rare",
+          "required_level": 51,
+          "primary_stats": {
+            "agility": 13,
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_type": "mail",
+          "armor_value": 244,
+          "label": "Mail Helm (Agi/Int/AP)"
+        },
+        {
+          "name": "Quill-Shaft Staff",
+          "slot": "main_hand",
+          "item_level": 55,
+          "rarity": "rare",
+          "required_level": 51,
+          "weapon_type": "staff",
+          "primary_stats": {
+            "stamina": 23,
+            "intellect": 23
+          },
+          "secondary_stats": {
+            "healing_power": 40
+          },
+          "weapon_damage_min": 53,
+          "weapon_damage_max": 71,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/Healing)"
+        }
+      ],
+      "next_quest_id": "hz_stormroost_stormcaller"
+    },
+    {
+      "quest_id": "hz_stormroost_stormcaller",
+      "title": "The Last Stormcaller (Elite)",
+      "giver_npc_id": "hz_stormroost_kelsey",
+      "zone": "the_stormroost",
+      "level_min": 52,
+      "level_max": 54,
+      "elite": true,
+      "description": "The altar stands on the tip of the quill, under the thunderhead.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "The Last Stormcaller",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Thunderhead Squall",
+          "count": 5
+        }
+      ],
+      "reward_exp": 9880,
+      "reward_gold": 39520,
+      "accept_text": "I went up to the tip last night with my binoculars. There's someone standing at the altar under the thunderhead, feathered like the old carvings and grey as the cloud, and they're singing. They've been singing since long before I got here.\n\nThey're holding the storm in place, and the storm's tearing the island apart a little more every week. Go up and let them finish the song. Take friends, because the Thunderhead Squalls won't let you near quietly.",
+      "turn_in_text": "It's moving at last. The storm's finally moving, out over the open sky where it belongs.\n\nI've waited three years to watch a storm leave. I didn't think I'd cry about it, and I did, a little.",
+      "unique_item_defs": [
+        {
+          "name": "Thunderstruck Greatsword",
+          "slot": "main_hand",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 52,
+          "weapon_type": "sword_2h",
+          "primary_stats": {
+            "strength": 13
+          },
+          "secondary_stats": {
+            "attack_power": 26,
+            "hit_rating": 11
+          },
+          "weapon_damage_min": 132,
+          "weapon_damage_max": 179,
+          "attack_speed": 3.4,
+          "label": "Two-Handed Sword (Str/Crit)"
+        },
+        {
+          "name": "Squall-Rider's Hauberk",
+          "slot": "chest",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 52,
+          "primary_stats": {
+            "agility": 15,
+            "intellect": 15
+          },
+          "secondary_stats": {
+            "attack_power": 27
+          },
+          "armor_type": "mail",
+          "armor_value": 294,
+          "label": "Mail Chest (Agi/Int/AP)"
+        },
+        {
+          "name": "Altar-Guard Pauldrons",
+          "slot": "shoulder",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 52,
+          "primary_stats": {
+            "stamina": 17
+          },
+          "secondary_stats": {
+            "defense_rating": 13,
+            "dodge_rating": 9
+          },
+          "armor_type": "plate",
+          "armor_value": 373,
+          "label": "Plate Shoulders (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Hood of the Moving Storm",
+          "slot": "head",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 52,
+          "primary_stats": {
+            "intellect": 11,
+            "spirit": 11
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_type": "cloth",
+          "armor_value": 77,
+          "label": "Cloth Helm (Int/Spi/Healing)"
+        },
+        {
+          "name": "Featherstep Leggings",
+          "slot": "legs",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 52,
+          "primary_stats": {
+            "agility": 22,
+            "spirit": 22
+          },
+          "armor_type": "leather",
+          "armor_value": 183,
+          "label": "Leather Legs (Agi/Spi)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_stormroost_mother",
+      "title": "The Thunder-Mother",
+      "giver_npc_id": "hz_stormroost_kelsey",
+      "zone": "the_stormroost",
+      "level_min": 52,
+      "level_max": 54,
+      "elite": false,
+      "description": "The old nests are on the ledge at the top of the west vane. She's never far from them.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "The Thunder-Mother",
+          "count": 1
+        }
+      ],
+      "reward_exp": 5681,
+      "reward_gold": 21736,
+      "accept_text": "There's one thunderbird in the old nests at the top of the west vane that's bigger than the rest put together. I call her the Thunder-Mother, and every bird on this island came out of her clutch.\n\nShe's taken to diving on my camp. I've been in a lot of storms and I've never been scared like that. Please go up and deal with her.",
+      "turn_in_text": "She's gone, and the sky's quieter for it.\n\nThe young ones will scatter now, and some of them will find other islands. I hope they do. Take something for your trouble, you've earned it.",
+      "unique_item_defs": [
+        {
+          "name": "Nest-Raider's Glaive",
+          "slot": "main_hand",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 52,
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "agility": 19,
+            "stamina": 19
+          },
+          "weapon_damage_min": 132,
+          "weapon_damage_max": 179,
+          "attack_speed": 3.3,
+          "label": "Polearm (Agi/Sta)"
+        },
+        {
+          "name": "Thunderbird-Down Bracers",
+          "slot": "wrist",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 52,
+          "primary_stats": {
+            "intellect": 15,
+            "spirit": 15
+          },
+          "armor_type": "mail",
+          "armor_value": 203,
+          "label": "Mail Bracers (Int/Spi)"
+        },
+        {
+          "name": "Ledge-Gripper Sabatons",
+          "slot": "feet",
+          "item_level": 56,
+          "rarity": "rare",
+          "required_level": 52,
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "defense_rating": 8
+          },
+          "armor_type": "plate",
+          "armor_value": 305,
+          "label": "Plate Boots (Str/Sta/Def)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_orrery_machinery",
+      "title": "The Machinery of Heaven",
+      "giver_npc_id": "hz_orrery_tessaly",
+      "zone": "the_orrery",
+      "level_min": 53,
+      "level_max": 55,
+      "elite": false,
+      "description": "The wardens walk the inner orbit. The moths drift over every ring.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Orbit Warden",
+          "count": 7
+        },
+        {
+          "type": "kill",
+          "target": "Star Moth",
+          "count": 6
+        }
+      ],
+      "reward_exp": 5790,
+      "reward_gold": 22154,
+      "accept_text": "I'm Tessaly Ombrine, of the House of Measures. My house has spent four hundred years measuring the sky, and nobody in it has ever written down that this place exists. I found it chasing a number that wouldn't add up.\n\nIt's a model of the heavens you can walk on, and it's still running. The Orbit Wardens keep the rings turning, and they don't like being measured. The Star Moths are drawn to the light. Clear some of both so I can work.",
+      "turn_in_text": "That's much better than it was. I've had two whole hours with a measuring rod and nobody hit me with a crystal fist.\n\nThe rings are counting toward something. I'd like to know what before they get there.",
+      "unique_item_defs": [
+        {
+          "name": "Ring-Walker's Boots",
+          "slot": "feet",
+          "item_level": 57,
+          "rarity": "rare",
+          "required_level": 53,
+          "primary_stats": {
+            "agility": 16,
+            "stamina": 16
+          },
+          "armor_type": "leather",
+          "armor_value": 129,
+          "label": "Leather Boots (Agi/Sta)"
+        },
+        {
+          "name": "Measurer's Cuffs",
+          "slot": "wrist",
+          "item_level": 57,
+          "rarity": "rare",
+          "required_level": 53,
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 23,
+            "crit_chance_spell": 6
+          },
+          "armor_type": "cloth",
+          "armor_value": 64,
+          "label": "Cloth Bracers (Int/SP/Crit)"
+        },
+        {
+          "name": "Orbit-Plated Gauntlets",
+          "slot": "hands",
+          "item_level": 57,
+          "rarity": "rare",
+          "required_level": 53,
+          "primary_stats": {
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "defense_rating": 11,
+            "dodge_rating": 8
+          },
+          "armor_type": "plate",
+          "armor_value": 310,
+          "label": "Plate Gloves (Sta/Def/Dodge)"
+        }
+      ],
+      "next_quest_id": "hz_orrery_stars"
+    },
+    {
+      "quest_id": "hz_orrery_stars",
+      "title": "Pieces of Falling Stars",
+      "giver_npc_id": "hz_orrery_tessaly",
+      "zone": "the_orrery",
+      "level_min": 54,
+      "level_max": 56,
+      "elite": false,
+      "description": "The falling stars come down on the moons. The red moon on the outer orbit catches the most.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "orrery_star_chip",
+          "count": 6
+        }
+      ],
+      "reward_exp": 5899,
+      "reward_gold": 22572,
+      "accept_text": "Every so often a star falls into the rings and keeps on burning. They're not stars, of course, but they're made of the same crystal as the moons, and they burn exactly as long as the model says a real one would.\n\nBring me chips from six of them. If I can date the crystal, I can work out when the orrery was set running.",
+      "turn_in_text": "Six, and every one the same age to the year. That's not possible, and I've checked it twice.\n\nWhoever made this set every star in it at once. The thing that keeps it running is in the middle, on the dais.",
+      "unique_item_defs": [
+        {
+          "name": "Starfall Locket",
+          "slot": "neck",
+          "item_level": 58,
+          "rarity": "rare",
+          "required_level": 54,
+          "primary_stats": {
+            "stamina": 10,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "healing_power": 17
+          },
+          "label": "Necklace (Int/Healing)"
+        },
+        {
+          "name": "Cloak of the Outer Orbit",
+          "slot": "back",
+          "item_level": 58,
+          "rarity": "rare",
+          "required_level": 54,
+          "primary_stats": {
+            "strength": 14,
+            "agility": 14
+          },
+          "label": "Cloak (Str/Agi)"
+        },
+        {
+          "name": "Inlay-Woven Girdle",
+          "slot": "waist",
+          "item_level": 58,
+          "rarity": "rare",
+          "required_level": 54,
+          "primary_stats": {
+            "agility": 11,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "attack_power": 19
+          },
+          "armor_type": "mail",
+          "armor_value": 210,
+          "label": "Mail Belt (Agi/Int/AP)"
+        }
+      ],
+      "next_quest_id": "hz_orrery_keeper"
+    },
+    {
+      "quest_id": "hz_orrery_keeper",
+      "title": "The Orrery-Keeper (Elite)",
+      "giver_npc_id": "hz_orrery_tessaly",
+      "zone": "the_orrery",
+      "level_min": 55,
+      "level_max": 57,
+      "elite": true,
+      "description": "The sun dais is the middle of the orrery. You'll have to go round the rings to reach it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "The Orrery-Keeper",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Measuring Drone",
+          "count": 4
+        }
+      ],
+      "reward_exp": 10450,
+      "reward_gold": 41800,
+      "accept_text": "There's a construct on the sun dais that winds the whole orrery, and it's started winding it faster. The rings are a quarter turn ahead of where they were when I arrived, and the stars are falling twice as often.\n\nI don't know what happens when it reaches the end of the count, and I'd rather not find out by standing here. Go and stop it for me. The Measuring Drones work for it, so expect company, and take friends.",
+      "turn_in_text": "The rings have stopped. For the first time in who knows how long, everything in here is standing still.\n\nI'll write it up for the House eventually. I think I'll take my time.",
+      "unique_item_defs": [
+        {
+          "name": "Gearbreaker Maul",
+          "slot": "main_hand",
+          "item_level": 59,
+          "rarity": "rare",
+          "required_level": 55,
+          "weapon_type": "mace_2h",
+          "primary_stats": {
+            "strength": 14
+          },
+          "secondary_stats": {
+            "attack_power": 28,
+            "hit_rating": 12
+          },
+          "weapon_damage_min": 139,
+          "weapon_damage_max": 188,
+          "attack_speed": 3.6,
+          "label": "Two-Handed Mace (Str/Crit)"
+        },
+        {
+          "name": "Mantle of the Sun Dais",
+          "slot": "shoulder",
+          "item_level": 59,
+          "rarity": "rare",
+          "required_level": 55,
+          "primary_stats": {
+            "intellect": 14,
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "spell_power": 18
+          },
+          "armor_type": "cloth",
+          "armor_value": 81,
+          "label": "Cloth Shoulders (Int/SP)"
+        },
+        {
+          "name": "Drone-Hunter's Tunic",
+          "slot": "chest",
+          "item_level": 59,
+          "rarity": "rare",
+          "required_level": 55,
+          "primary_stats": {
+            "agility": 19
+          },
+          "secondary_stats": {
+            "hit_rating": 14,
+            "crit_chance_physical": 14
+          },
+          "armor_type": "leather",
+          "armor_value": 193,
+          "label": "Leather Chest (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Orbit-Linked Hauberk",
+          "slot": "chest",
+          "item_level": 59,
+          "rarity": "rare",
+          "required_level": 55,
+          "primary_stats": {
+            "intellect": 23,
+            "spirit": 23
+          },
+          "armor_type": "mail",
+          "armor_value": 309,
+          "label": "Mail Chest (Int/Spi)"
+        },
+        {
+          "name": "Keeper's Breastplate",
+          "slot": "chest",
+          "item_level": 59,
+          "rarity": "rare",
+          "required_level": 55,
+          "primary_stats": {
+            "stamina": 21
+          },
+          "secondary_stats": {
+            "defense_rating": 17,
+            "dodge_rating": 11
+          },
+          "armor_type": "plate",
+          "armor_value": 464,
+          "label": "Plate Chest (Sta/Def/Dodge)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_orrery_moon",
+      "title": "The Pale Moon",
+      "giver_npc_id": "hz_orrery_tessaly",
+      "zone": "the_orrery",
+      "level_min": 55,
+      "level_max": 57,
+      "elite": false,
+      "description": "The pale moon is the one at the north end of the outer orbit. It's brightest after dark.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "The Pale Moon",
+          "count": 1
+        }
+      ],
+      "reward_exp": 6008,
+      "reward_gold": 22990,
+      "accept_text": "One of the moons on the outer orbit has woken up. It's the pale one at the north end, and it isn't staying on its moon any more. It drifts round the rings at night and anything it shines on goes cold.\n\nI'd like to measure it, honestly, but I'd like to keep my fingers more. Please put it out.",
+      "turn_in_text": "It's dark up there now, and the rings are warmer for it.\n\nI saved a chip of it for my notes. Don't tell the House I did that, either.",
+      "unique_item_defs": [
+        {
+          "name": "Moonbreaker's Spear",
+          "slot": "main_hand",
+          "item_level": 59,
+          "rarity": "rare",
+          "required_level": 55,
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "agility": 20,
+            "stamina": 20
+          },
+          "weapon_damage_min": 139,
+          "weapon_damage_max": 188,
+          "attack_speed": 3.3,
+          "label": "Polearm (Agi/Sta)"
+        },
+        {
+          "name": "Cold-Light Bracers",
+          "slot": "wrist",
+          "item_level": 59,
+          "rarity": "rare",
+          "required_level": 55,
+          "primary_stats": {
+            "intellect": 16,
+            "spirit": 16
+          },
+          "armor_type": "mail",
+          "armor_value": 214,
+          "label": "Mail Bracers (Int/Spi)"
+        },
+        {
+          "name": "Ringstone Sabatons",
+          "slot": "feet",
+          "item_level": 59,
+          "rarity": "rare",
+          "required_level": 55,
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_type": "plate",
+          "armor_value": 321,
+          "label": "Plate Boots (Str/Sta/Def)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_cloudwreck_salvage",
+      "title": "Salvage Rights",
+      "giver_npc_id": "hz_cloudwreck_ressa",
+      "zone": "the_cloudwreck",
+      "level_min": 56,
+      "level_max": 58,
+      "elite": false,
+      "description": "The crabs are all over the salvage raft and the hull field. The stalkers wait in the rigging of the wrecks.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Hull Crab",
+          "count": 8
+        },
+        {
+          "type": "kill",
+          "target": "Rigging Stalker",
+          "count": 6
+        }
+      ],
+      "reward_exp": 6117,
+      "reward_gold": 23408,
+      "accept_text": "I'm Ressa Vane. I was a quartermaster in the Bastions until I worked out where the ships went when they didn't come back, and then I stopped being one. Nobody comes looking for a deserter down here.\n\nI live off what I pull out of the wrecks, and so does everything else. The Hull Crabs strip the brass and the Rigging Stalkers hunt in the ropes. Clear enough of both that I can work the near wrecks again.",
+      "turn_in_text": "That's the first full day's salvage I've had in a month.\n\nI didn't come down here only for the brass. There's something I want to do for the crews, if you'll help.",
+      "unique_item_defs": [
+        {
+          "name": "Deckhand's Boots",
+          "slot": "feet",
+          "item_level": 60,
+          "rarity": "rare",
+          "required_level": 56,
+          "primary_stats": {
+            "agility": 16,
+            "stamina": 16
+          },
+          "armor_type": "leather",
+          "armor_value": 136,
+          "label": "Leather Boots (Agi/Sta)"
+        },
+        {
+          "name": "Salvager's Gloves",
+          "slot": "hands",
+          "item_level": 60,
+          "rarity": "rare",
+          "required_level": 56,
+          "primary_stats": {
+            "intellect": 16,
+            "spirit": 16
+          },
+          "armor_type": "cloth",
+          "armor_value": 68,
+          "label": "Cloth Gloves (Int/Spi)"
+        },
+        {
+          "name": "Brass-Bound Girdle",
+          "slot": "waist",
+          "item_level": 60,
+          "rarity": "rare",
+          "required_level": 56,
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 15
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_type": "plate",
+          "armor_value": 327,
+          "label": "Plate Belt (Str/Sta/Def)"
+        }
+      ],
+      "next_quest_id": "hz_cloudwreck_tags"
+    },
+    {
+      "quest_id": "hz_cloudwreck_tags",
+      "title": "Names for the Ledger",
+      "giver_npc_id": "hz_cloudwreck_ressa",
+      "zone": "the_cloudwreck",
+      "level_min": 57,
+      "level_max": 59,
+      "elite": false,
+      "description": "The sailors walk the decks in the gun graveyard and on the old flagship at the far end of the shelf.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "sky_sailors_tag",
+          "count": 6
+        }
+      ],
+      "reward_exp": 6227,
+      "reward_gold": 23826,
+      "accept_text": "The crews never left their ships. The Lost Sky-Sailors still walk the decks as if the ships were flying, and every one of them still wears the tag the Ascendancy stamps for its sailors.\n\nThe Bastions write lost crews off as deserters, so their families don't get paid. Bring me their tags. I kept the ledgers once, and I know how to make the right people read them.",
+      "turn_in_text": "There are six names here. Two of them I knew, and one I signed on myself.\n\nThey'll be in the ledger by the end of the week, where they should have been all along. The rest of them answer to someone on the old flagship.",
+      "unique_item_defs": [
+        {
+          "name": "Ledger-Keeper's Pendant",
+          "slot": "neck",
+          "item_level": 61,
+          "rarity": "rare",
+          "required_level": 57,
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 22,
+            "crit_chance_spell": 6
+          },
+          "label": "Necklace (Int/SP/Crit)"
+        },
+        {
+          "name": "Boarding Party Coif",
+          "slot": "head",
+          "item_level": 61,
+          "rarity": "rare",
+          "required_level": 57,
+          "primary_stats": {
+            "agility": 14,
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_type": "mail",
+          "armor_value": 271,
+          "label": "Mail Helm (Agi/Int/AP)"
+        },
+        {
+          "name": "Mast-Timber Staff",
+          "slot": "main_hand",
+          "item_level": 61,
+          "rarity": "rare",
+          "required_level": 57,
+          "weapon_type": "staff",
+          "primary_stats": {
+            "stamina": 26,
+            "intellect": 26
+          },
+          "secondary_stats": {
+            "healing_power": 44
+          },
+          "weapon_damage_min": 58,
+          "weapon_damage_max": 79,
+          "attack_speed": 3.2,
+          "label": "Staff (Int/Healing)"
+        }
+      ],
+      "next_quest_id": "hz_cloudwreck_admiral"
+    },
+    {
+      "quest_id": "hz_cloudwreck_admiral",
+      "title": "The Unsunk Admiral (Elite)",
+      "giver_npc_id": "hz_cloudwreck_ressa",
+      "zone": "the_cloudwreck",
+      "level_min": 58,
+      "level_max": 60,
+      "elite": true,
+      "description": "The old flagship lies at the far north end of the shelf, past the long shelf. The admiral keeps his quarterdeck.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "The Unsunk Admiral",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Fallen Gunner",
+          "count": 5
+        }
+      ],
+      "reward_exp": 11020,
+      "reward_gold": 44080,
+      "accept_text": "The old flagship at the far end of the shelf is older than any ledger in the Bastions. Its admiral never gave the order to abandon ship, and so nobody aboard ever did. He's still on the quarterdeck, and every crew that's fallen since answers to him.\n\nIf he's gone, they can stop. The Fallen Gunners still man his cannon, so go carefully, and take friends.",
+      "turn_in_text": "They've stopped walking. All of them, all at once, as if somebody finally said they could go.\n\nI don't believe in much any more, but I believe in that. Choose whatever you like from what I've salvaged.",
+      "unique_item_defs": [
+        {
+          "name": "Flagship Boarding Axe",
+          "slot": "main_hand",
+          "item_level": 62,
+          "rarity": "rare",
+          "required_level": 58,
+          "weapon_type": "axe_2h",
+          "primary_stats": {
+            "strength": 14
+          },
+          "secondary_stats": {
+            "attack_power": 29,
+            "hit_rating": 12
+          },
+          "weapon_damage_min": 145,
+          "weapon_damage_max": 196,
+          "attack_speed": 3.6,
+          "label": "Two-Handed Axe (Str/Crit)"
+        },
+        {
+          "name": "Gunner's Leather Coat",
+          "slot": "chest",
+          "item_level": 62,
+          "rarity": "rare",
+          "required_level": 58,
+          "primary_stats": {
+            "agility": 20
+          },
+          "secondary_stats": {
+            "hit_rating": 15,
+            "crit_chance_physical": 15
+          },
+          "armor_type": "leather",
+          "armor_value": 203,
+          "label": "Leather Chest (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Quarterdeck Pauldrons",
+          "slot": "shoulder",
+          "item_level": 62,
+          "rarity": "rare",
+          "required_level": 58,
+          "primary_stats": {
+            "stamina": 19
+          },
+          "secondary_stats": {
+            "defense_rating": 15,
+            "dodge_rating": 10
+          },
+          "armor_type": "plate",
+          "armor_value": 413,
+          "label": "Plate Shoulders (Sta/Def/Dodge)"
+        },
+        {
+          "name": "Hood of the Lost Fleet",
+          "slot": "head",
+          "item_level": 62,
+          "rarity": "rare",
+          "required_level": 58,
+          "primary_stats": {
+            "intellect": 12,
+            "spirit": 12
+          },
+          "secondary_stats": {
+            "healing_power": 33
+          },
+          "armor_type": "cloth",
+          "armor_value": 86,
+          "label": "Cloth Helm (Int/Spi/Healing)"
+        },
+        {
+          "name": "Cloud-Walker's Leggings",
+          "slot": "legs",
+          "item_level": 62,
+          "rarity": "rare",
+          "required_level": 58,
+          "primary_stats": {
+            "agility": 24,
+            "spirit": 24
+          },
+          "armor_type": "leather",
+          "armor_value": 203,
+          "label": "Leather Legs (Agi/Spi)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_cloudwreck_eater",
+      "title": "The Hull-Eater",
+      "giver_npc_id": "hz_cloudwreck_ressa",
+      "zone": "the_cloudwreck",
+      "level_min": 58,
+      "level_max": 60,
+      "elite": false,
+      "description": "It surfaces along the long shelf, between the hull field and the old flagship.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "The Hull-Eater",
+          "count": 1
+        }
+      ],
+      "reward_exp": 6336,
+      "reward_gold": 24244,
+      "accept_text": "Something lives under the long shelf that eats wrecks. I've watched it come up through the cloud and take half a hull in one bite, crew and all. It ate my winch last week.\n\nI'd very much like my winch back, but I'll settle for it not eating anything else. Please go and see to it.",
+      "turn_in_text": "It's dead, and it had three anchors and my winch inside it.\n\nI'm keeping the winch. You can have something better.",
+      "unique_item_defs": [
+        {
+          "name": "Harpoon of the Long Shelf",
+          "slot": "main_hand",
+          "item_level": 62,
+          "rarity": "rare",
+          "required_level": 58,
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "agility": 21,
+            "stamina": 21
+          },
+          "weapon_damage_min": 145,
+          "weapon_damage_max": 196,
+          "attack_speed": 3.3,
+          "label": "Polearm (Agi/Sta)"
+        },
+        {
+          "name": "Serpent-Scale Bracers",
+          "slot": "wrist",
+          "item_level": 62,
+          "rarity": "rare",
+          "required_level": 58,
+          "primary_stats": {
+            "intellect": 17,
+            "spirit": 17
+          },
+          "armor_type": "mail",
+          "armor_value": 225,
+          "label": "Mail Bracers (Int/Spi)"
+        },
+        {
+          "name": "Hull-Stomper Sabatons",
+          "slot": "feet",
+          "item_level": 62,
+          "rarity": "rare",
+          "required_level": 58,
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 15
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_type": "plate",
+          "armor_value": 338,
+          "label": "Plate Boots (Str/Sta/Def)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_tepui_summit",
+      "title": "Top of the World",
+      "giver_npc_id": "hz_tepui_mireya",
+      "zone": "the_lost_tepui",
+      "level_min": 58,
+      "level_max": 60,
+      "elite": false,
+      "description": "The tarantulas are everywhere on the open rock. The scorpions hide in the black labyrinth to the south.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Summit Tarantula",
+          "count": 7
+        },
+        {
+          "type": "kill",
+          "target": "Labyrinth Scorpion",
+          "count": 6
+        }
+      ],
+      "reward_exp": 6336,
+      "reward_gold": 24244,
+      "accept_text": "I'm Mireya Lanz, a mountain guide from Santa Elena de Uairén, in Venezuela, and this is Roraima, or the top of it. I've led more than three hundred groups up the ramp. I was up here with eleven trekkers the night it happened, and in the morning the clouds were below us and the mountain wasn't under us any more.\n\nThe trekkers have all found their way to somewhere better, thank God, and I decided to stay. The Summit Tarantulas and the Labyrinth Scorpions have got far too big up here. Thin them out so I can walk my mountain again.",
+      "turn_in_text": "That's a lot better. I walked to the jacuzzis this morning and back without a single bite.\n\nThe plants up here are older than anything in the sky, and some of them have started eating more than flies.",
+      "unique_item_defs": [
+        {
+          "name": "Summit Guide's Boots",
+          "slot": "feet",
+          "item_level": 62,
+          "rarity": "rare",
+          "required_level": 58,
+          "primary_stats": {
+            "agility": 17,
+            "stamina": 17
+          },
+          "armor_type": "leather",
+          "armor_value": 140,
+          "label": "Leather Boots (Agi/Sta)"
+        },
+        {
+          "name": "Mist-Damp Bracers",
+          "slot": "wrist",
+          "item_level": 62,
+          "rarity": "rare",
+          "required_level": 58,
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 25,
+            "crit_chance_spell": 7
+          },
+          "armor_type": "cloth",
+          "armor_value": 70,
+          "label": "Cloth Bracers (Int/SP/Crit)"
+        },
+        {
+          "name": "Black-Rock Gauntlets",
+          "slot": "hands",
+          "item_level": 62,
+          "rarity": "rare",
+          "required_level": 58,
+          "primary_stats": {
+            "stamina": 16
+          },
+          "secondary_stats": {
+            "defense_rating": 12,
+            "dodge_rating": 8
+          },
+          "armor_type": "plate",
+          "armor_value": 338,
+          "label": "Plate Gloves (Sta/Def/Dodge)"
+        }
+      ],
+      "next_quest_id": "hz_tepui_nectar"
+    },
+    {
+      "quest_id": "hz_tepui_nectar",
+      "title": "Nectar From the Pitchers",
+      "giver_npc_id": "hz_tepui_mireya",
+      "zone": "the_lost_tepui",
+      "level_min": 59,
+      "level_max": 61,
+      "elite": false,
+      "description": "The sun-pitchers stand round the jacuzzis, the pools in the rock in the middle of the summit.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "pitcher_nectar",
+          "count": 6
+        }
+      ],
+      "reward_exp": 6445,
+      "reward_gold": 24662,
+      "accept_text": "The pitcher plants on the summit are called Heliamphora, sun pitchers, and they only grow on tepuis. Back home they were the size of a coffee cup. Up here, since the change, the Sun-Pitchers walk.\n\nBring me nectar from six of them. If I know what's in it, I'll know what's making them grow, and whether it's going to stop.",
+      "turn_in_text": "It's rainwater, mostly, and sugar, and something that glows when I hold it to the sun.\n\nThey're all drinking from the same place. There's one in the jacuzzis bigger than the rest, and they're its seeds.",
+      "unique_item_defs": [
+        {
+          "name": "Pitcher-Bell Locket",
+          "slot": "neck",
+          "item_level": 63,
+          "rarity": "rare",
+          "required_level": 59,
+          "primary_stats": {
+            "stamina": 11,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "healing_power": 18
+          },
+          "label": "Necklace (Int/Healing)"
+        },
+        {
+          "name": "Gran Sabana Cloak",
+          "slot": "back",
+          "item_level": 63,
+          "rarity": "rare",
+          "required_level": 59,
+          "primary_stats": {
+            "strength": 15,
+            "agility": 15
+          },
+          "label": "Cloak (Str/Agi)"
+        },
+        {
+          "name": "Bromeliad-Woven Girdle",
+          "slot": "waist",
+          "item_level": 63,
+          "rarity": "rare",
+          "required_level": 59,
+          "primary_stats": {
+            "agility": 12,
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_type": "mail",
+          "armor_value": 229,
+          "label": "Mail Belt (Agi/Int/AP)"
+        }
+      ],
+      "next_quest_id": "hz_tepui_mother"
+    },
+    {
+      "quest_id": "hz_tepui_mother",
+      "title": "The Mother Pitcher (Elite)",
+      "giver_npc_id": "hz_tepui_mireya",
+      "zone": "the_lost_tepui",
+      "level_min": 59,
+      "level_max": 61,
+      "elite": true,
+      "description": "The jacuzzis are the pools in the rock in the middle of the summit. She stands in the biggest.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "The Mother Pitcher",
+          "count": 1
+        },
+        {
+          "type": "kill",
+          "target": "Sun-Pitcher",
+          "count": 5
+        }
+      ],
+      "reward_exp": 11210,
+      "reward_gold": 44840,
+      "accept_text": "The big one in the jacuzzis is taller than a house. She fills with rain every afternoon and pours it out over the rock, and wherever it runs another Sun-Pitcher comes up. In a year there won't be a bare stone on the summit.\n\nI love these plants. I've shown them to three hundred groups. But this isn't how they grow, and she has to go. Take friends, because she knows you're coming.",
+      "turn_in_text": "The rock's bare again, the way it's meant to be.\n\nI kept one seed from her, a small one. I'll plant it somewhere it can't hurt anyone, and see what a normal one does up here.",
+      "unique_item_defs": [
+        {
+          "name": "Pitcher-Cutter's Greatsword",
+          "slot": "main_hand",
+          "item_level": 63,
+          "rarity": "rare",
+          "required_level": 59,
+          "weapon_type": "sword_2h",
+          "primary_stats": {
+            "strength": 15
+          },
+          "secondary_stats": {
+            "attack_power": 29,
+            "hit_rating": 13
+          },
+          "weapon_damage_min": 147,
+          "weapon_damage_max": 199,
+          "attack_speed": 3.4,
+          "label": "Two-Handed Sword (Str/Crit)"
+        },
+        {
+          "name": "Mantle of the Wet Summit",
+          "slot": "shoulder",
+          "item_level": 63,
+          "rarity": "rare",
+          "required_level": 59,
+          "primary_stats": {
+            "intellect": 15,
+            "stamina": 15
+          },
+          "secondary_stats": {
+            "spell_power": 19
+          },
+          "armor_type": "cloth",
+          "armor_value": 87,
+          "label": "Cloth Shoulders (Int/SP)"
+        },
+        {
+          "name": "Labyrinth-Runner's Tunic",
+          "slot": "chest",
+          "item_level": 63,
+          "rarity": "rare",
+          "required_level": 59,
+          "primary_stats": {
+            "agility": 20
+          },
+          "secondary_stats": {
+            "hit_rating": 15,
+            "crit_chance_physical": 15
+          },
+          "armor_type": "leather",
+          "armor_value": 206,
+          "label": "Leather Chest (Agi/Hit/Crit)"
+        },
+        {
+          "name": "Quartz-Studded Hauberk",
+          "slot": "chest",
+          "item_level": 63,
+          "rarity": "rare",
+          "required_level": 59,
+          "primary_stats": {
+            "intellect": 25,
+            "spirit": 25
+          },
+          "armor_type": "mail",
+          "armor_value": 330,
+          "label": "Mail Chest (Int/Spi)"
+        },
+        {
+          "name": "Tepui-Stone Breastplate",
+          "slot": "chest",
+          "item_level": 63,
+          "rarity": "rare",
+          "required_level": 59,
+          "primary_stats": {
+            "stamina": 23
+          },
+          "secondary_stats": {
+            "defense_rating": 18,
+            "dodge_rating": 12
+          },
+          "armor_type": "plate",
+          "armor_value": 496,
+          "label": "Plate Chest (Sta/Def/Dodge)"
+        }
+      ],
+      "next_quest_id": null
+    },
+    {
+      "quest_id": "hz_tepui_harpia",
+      "title": "Old Harpia",
+      "giver_npc_id": "hz_tepui_mireya",
+      "zone": "the_lost_tepui",
+      "level_min": 59,
+      "level_max": 61,
+      "elite": false,
+      "description": "The prow is the summit's north end, the highest rock on the mountain. She perches on it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Old Harpia",
+          "count": 1
+        }
+      ],
+      "reward_exp": 6445,
+      "reward_gold": 24662,
+      "accept_text": "A harpy eagle came up with the mountain. They live in the forest round the foot of it back home, and she must have been hunting near the top when it happened. She's grown since, like everything has.\n\nShe sits on the prow at the north end and takes whatever walks out onto the rock. Last week she took a cloud wolf as big as a pony. I'd rather it wasn't me next. Please make it quick.",
+      "turn_in_text": "She's gone now. The vultures will be on the prow by evening, and that's the way it's meant to go.\n\nShe was the most beautiful thing on the mountain. I'm glad it was you and not something worse.",
+      "unique_item_defs": [
+        {
+          "name": "Prow-Hunter's Spear",
+          "slot": "main_hand",
+          "item_level": 63,
+          "rarity": "rare",
+          "required_level": 59,
+          "weapon_type": "polearm",
+          "primary_stats": {
+            "agility": 21,
+            "stamina": 21
+          },
+          "weapon_damage_min": 147,
+          "weapon_damage_max": 199,
+          "attack_speed": 3.3,
+          "label": "Polearm (Agi/Sta)"
+        },
+        {
+          "name": "Harpy-Feather Bracers",
+          "slot": "wrist",
+          "item_level": 63,
+          "rarity": "rare",
+          "required_level": 59,
+          "primary_stats": {
+            "intellect": 17,
+            "spirit": 17
+          },
+          "armor_type": "mail",
+          "armor_value": 229,
+          "label": "Mail Bracers (Int/Spi)"
+        },
+        {
+          "name": "Summit-Stone Sabatons",
+          "slot": "feet",
+          "item_level": 63,
+          "rarity": "rare",
+          "required_level": 59,
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 15
+          },
+          "secondary_stats": {
+            "defense_rating": 9
+          },
+          "armor_type": "plate",
+          "armor_value": 343,
+          "label": "Plate Boots (Str/Sta/Def)"
+        }
+      ],
+      "next_quest_id": null
     }
   ]
 }

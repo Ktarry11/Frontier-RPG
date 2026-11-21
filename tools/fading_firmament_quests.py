@@ -41,11 +41,11 @@ WARDEN = "ff_road_warden"
 SABINE, ILSE, ORLA, DORRAN = "ff_shrine_keeper", "ff_last_magistrate", "ff_orla", "ff_skiffmaster"
 ANSEL, SIPHO, MARGIT = "ff_lamp_cutter", "ff_salvager", "ff_child_minder"
 # ---- Forgewatch
-THEODORA, RHUN, KOFI, CORRA = "ff_long_memory", "ff_forge_scholar", "ff_earthborn_smith", "ff_forgewatch_guard"
+THEODORA, RHUN, KWABENA, CORRA = "ff_long_memory", "ff_forge_scholar", "ff_earthborn_smith", "ff_forgewatch_guard"
 # ---- out on the islands
 BENEDEK, YLLEN, IVO = "ff_last_resident", "ff_gardener", "ff_turncoat"
 
-HUB_GIVERS = {SABINE, ILSE, ORLA, DORRAN, ANSEL, SIPHO, MARGIT, THEODORA, RHUN, KOFI, CORRA}
+HUB_GIVERS = {SABINE, ILSE, ORLA, DORRAN, ANSEL, SIPHO, MARGIT, THEODORA, RHUN, KWABENA, CORRA}
 #: the Aetherians pay the Aetherians; the Earthborn pay nobody
 SKY_GIVERS = {WARDEN, SABINE, ILSE, ORLA, DORRAN, ANSEL, THEODORA, RHUN, CORRA, BENEDEK, YLLEN, IVO}
 
@@ -325,10 +325,10 @@ def build():
         "I got three loads off before the ground cracked again.\n\nThe Aetherians think I'm mad for going out there. "
         "I tell them where I'm from, people don't waste anything the ground gives them."))
 
-    # =================================================================================== 7. THE TEACHER (Margit, Earthborn)
+    # =================================================================================== 7. THE TEACHER (Annika, Earthborn)
     A(Q("ffq_slates_for_the_children", "Slates for the Children", MARGIT, 57, 58, "Schoolmistress's",
-        "The Quarter Sentinel still guards the Emptied Quarter's school, and won't let anything be taken out. Margit "
-        "Lindqvist wants its slates for her pupils.",
+        "The Quarter Sentinel still guards the Emptied Quarter's school, and won't let anything be taken out. Annika "
+        "Sjoberg wants its slates for her pupils.",
         [fetch("ff_q_school_slate", 6)],
         "I've got eleven children and nothing to write on. There's a school in the Emptied Quarter with a cupboard "
         "full of slates, and the Quarter Sentinel that still guards it won't let anyone carry one out. Bring me the "
@@ -336,8 +336,8 @@ def build():
         "The children will be thrilled to have slates of their own.\n\nI taught primary in Umea for twenty years. I never thought I'd "
         "teach Aetherian children to read Swedish rhymes on slates out of an empty town in the sky."))
     A(Q("ffq_a_bird_for_the_youngest", "A Bird for the Youngest", MARGIT, 57, 58, "Toymaker's",
-        "The youngest child at Lastlight lost a toy bird in the Emptied Quarter when her family left. Margit "
-        "Lindqvist wants to know if it's still there.",
+        "The youngest child at Lastlight lost a toy bird in the Emptied Quarter when her family left. Annika "
+        "Sjoberg wants to know if it's still there.",
         [explore(*TOY_BIRD, "Find the toy bird on a step in the Emptied Quarter")],
         "Little Wenna left a toy bird on her front step when her family left the Quarter. She talks about it every "
         "night. It's a little bronze bird that floats if you wind it. Go and see if it's still on the step.",
@@ -352,7 +352,7 @@ def build():
          explore(*SINGERS_HEARTH, "Look at the singer's hearth, on its perch"),
          explore(*CUTTERS_HEARTH, "Look at the cutter's hearth")],
         "The other houses call this the Old Forge, and say the Aetherians built it. Look at it properly. One hearth's "
-        "big enough to stand in, one's set on a perch like a bird's, and one's cut for a smith of our height. Kofi, our "
+        "big enough to stand in, one's set on a perch like a bird's, and one's cut for a smith of our height. Kwabena, our "
         "Earthborn smith, says no forge where he's from ever had three. Look at each of them closely, then tell me it "
         "was built by one people.",
         "A giant's hearth, a singer's perch and a cutter's bench, all round one anvil.\n\nThe House of Long Memory has "
@@ -426,16 +426,16 @@ def build():
         "out in the Wellspring.",
         requires_quests=["ffq_below_the_forge"]))
 
-    # =================================================================================== 10. THE SMITH (Kofi, Earthborn)
-    A(Q("ffq_storms_in_the_flue", "Storms in the Flue", KOFI, 58, 58, "Smith's",
-        "The Hearth-Bound Storm comes up out of the forge's flues and scorches the camp. Kofi Mensah wants it put out.",
+    # =================================================================================== 10. THE SMITH (Kwabena, Earthborn)
+    A(Q("ffq_storms_in_the_flue", "Storms in the Flue", KWABENA, 58, 58, "Smith's",
+        "The Hearth-Bound Storm comes up out of the forge's flues and scorches the camp. Kwabena Osei wants it put out.",
         [k("Hearth-Bound Storm", 10)],
         "A forge is meant to draw air down, not throw storms up. Every night a Hearth-Bound Storm comes out of the "
         "flues and burns the tents. Put them out, and I'll get on with learning how this thing worked.",
         "The tents didn't burn last night. Thank you.\n\nBack in Kumasi I'd have banked the fire and gone home. This "
         "forge hasn't had a fire in a thousand years, and it still throws sparks. I want to know how."))
-    A(Q("ffq_the_hollow_engine", "The Hollow Engine", KOFI, 59, 59, "Enginebreaker's",
-        "The Black Lattice has grown in the dead core of the greatest engine on the Dead Engines. Kofi Mensah wants to "
+    A(Q("ffq_the_hollow_engine", "The Hollow Engine", KWABENA, 59, 59, "Enginebreaker's",
+        "The Black Lattice has grown in the dead core of the greatest engine on the Dead Engines. Kwabena Osei wants to "
         "see the engine's heart without it in the way.",
         [boss("The Black Lattice", zone=HE)],
         "The biggest of the Dead Engines has a hatch at its foot, and inside it's a machine the size of a town. "
@@ -444,9 +444,9 @@ def build():
         "I walked the whole engine after you'd cleared it. I've never seen work like it.\n\nThe gears are cut by one "
         "hand and the crystal by another, and the casing's quarried the way the giants quarried. It's the forge all "
         "over again."))
-    A(Q("ffq_the_last_governor", "The Last Governor", KOFI, 59, 59, "Governor's",
+    A(Q("ffq_the_last_governor", "The Last Governor", KWABENA, 59, 59, "Governor's",
         "The Last Governor keeps trying to restart the Hollow Engine, and the engine shakes the Dead Engines every time "
-        "it tries. Kofi Mensah wants it switched off.",
+        "it tries. Kwabena Osei wants it switched off.",
         [boss("The Last Governor", zone=HE)],
         "There's a construct in the Hollow Engine's east gallery, the Last Governor, and it's spent centuries trying "
         "to start the engine again. Every time it tries, the whole island shakes. Switch it off before it shakes "

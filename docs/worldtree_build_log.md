@@ -120,7 +120,7 @@ and two recipes at Exalted, and a teal and red tabard. The mount is the Cloudtop
 (Ozenna's pass to Zan'kaji, then the Bloodscalp war leaders below); Horde ground (the envoy's year-long wait ends, and
 Zan'kaji's answer goes to Thrall); sky-bones (the scholars' wall, the spiders' web-hall, and Tel'zan's record, which
 says the pieces are getting bigger); the ward (Ozai's lanterns, a bat lost in the webs, the loa's Goldthorn, soil for
-the terrace); and two transplants, Kofi Mensah from Accra cooking for market day and Hana Sato from a Kyoto tea house.
+the terrace); and two transplants, Kwabena Osei from Accra cooking for market day and Hana Sato from a Kyoto tea house.
 
 **Found on the way, and fixed for every zone:**
 - **Kills and explores in every "The ..." zone could never count.** The game reports where you are as
@@ -616,11 +616,37 @@ took all three. The walls don't say why the three stopped.
 the High Aerie; the Kharad's is Thunvald, capital Stenhald, the Stone Hall. His 1-24 run to Aurelion is in the brief:
 the White Expanse, the Shattered Reaches, the Gilded Canopy, the Lenswold and the Crownlands.
 
+## Caelora's hidden places (21 Nov 2026)
+
+Kyle: "I want at least 3 skull zones and 1 frontier in the 48-60 region of Caelora", then "Ok hidden zones". Three skull
+zones and a frontier, 50 to 59. Names and shapes only; where they are isn't written anywhere.
+
+- **The Stormroost** (skull, 50-52): an old eyrie on an island shaped like a feather. A long quill up the middle, barbs
+  sweeping up off either side to the nesting ledges, the vane's edge joining the lower barbs into two loops, and a
+  thunderhead parked over the tip that's never once moved. Kelsey Draper, a storm chaser from Norman, Oklahoma, and
+  four quests (the third elite).
+- **The Orrery** (skull, 53-55): a model of the heavens you walk on. A sun dais in the middle, an inner and an outer
+  ring each broken in two places so the way in winds round them, spokes between, and moons sitting on the rings like
+  planets on their orbits. Tessaly Ombrine of the House of Measures, and four quests.
+- **The Cloudwreck** (skull, 56-58): a winding shelf of cloud thick enough to walk on, where a century of the
+  Ascendancy's lost ships came down. The wreck-heaps are the islands, the hulls lie in the cloud as long walls you go
+  round, and the drop shows through wherever the shelf thins. Ressa Vane, a deserter quartermaster, and four quests.
+- **The Lost Tepui** (frontier, open, 58-59): the summit of Roraima, come through whole and sitting in the sky. One
+  ragged tabletop with a prow at the north end, a labyrinth of black rock across its south half, a valley of quartz,
+  pools in the stone, and two outliers joined on by necks of rock. Mireya Lanz, a guide from Santa Elena de Uairén, and
+  four quests. It isn't pure 60, so it carries the Bastions' ground and nothing from after the cap.
+
+These are the first hidden maps in the sky, so the skull-zone builder learned sky maps: the cloud's deep part is the
+drop, its shallow part cloud you can walk on, and the only water is pools on the islands, each with a wellstone's fall
+pouring off the nearest edge (placed by the builder from every pool). Bridges and bands are nine wide, and every map
+measures 94 to 97 percent on the five-body test. Caches went in where there's rock thick enough to hide a room.
+
 ## Next
 
-Caelora's hidden maps (Kyle: at least three skull zones and a frontier in 48 to 60). Sheet 7's bear recruits are saved
-and wait to be sliced and written, mostly for the Bastions and the Firmament. The faction pages' write-ups get a pass. The raids wait. The Aetherian start
-zone is parked until 60 is done (its first two maps are named: the White Expanse, 1-6, and the Shattered Reaches, 6-11),
-and its four recruits wait with it. The Celestial raid, the Stormhold, is designed for turn-based combat in the brief
+Sheet 7's bear recruits are saved
+and wait to be sliced and written, mostly for the Bastions and the Firmament. The raids wait. The Aetherian start
+zone is next, now that 60 is done (its first two maps are named: the White Expanse, 1-6, and the Shattered Reaches, 6-11),
+and its four recruits wait with it. The blood elves get a home after it, an island off Azshara with a 1-6 and a 5-9
+zone and a boat from their city to Durotar (`docs/backlog_nov17_onwards.md`). The Celestial raid, the Stormhold, is designed for turn-based combat in the brief
 and waits behind the cracked seal until raids are built. The Heartwood Hollow is the tree's dungeon when Kyle calls it.
 See `docs/worldtree_brief.md` for the whole road.

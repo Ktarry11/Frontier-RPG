@@ -459,6 +459,67 @@
       ],
       "multi_drop": 2,
       "epic_chance": 0.08
+    },
+    "The Stormroost": {
+      "kind": "skull",
+      "parent": "The Storm-Well",
+      "levels": [
+        50,
+        52
+      ],
+      "region": null,
+      "bosses": [
+        "The Thunder-Mother",
+        "The Last Stormcaller"
+      ],
+      "multi_drop": 2,
+      "epic_chance": 0.05
+    },
+    "The Orrery": {
+      "kind": "skull",
+      "parent": "The Anchorfields",
+      "levels": [
+        53,
+        55
+      ],
+      "region": null,
+      "bosses": [
+        "The Orrery-Keeper",
+        "The Pale Moon"
+      ],
+      "multi_drop": 2,
+      "epic_chance": 0.05
+    },
+    "The Cloudwreck": {
+      "kind": "skull",
+      "parent": "The Ascendant Bastions",
+      "levels": [
+        56,
+        58
+      ],
+      "region": null,
+      "bosses": [
+        "The Unsunk Admiral",
+        "The Hull-Eater"
+      ],
+      "multi_drop": 2,
+      "epic_chance": 0.05
+    },
+    "The Lost Tepui": {
+      "kind": "frontier",
+      "parent": "The Cloudwreck",
+      "levels": [
+        58,
+        59
+      ],
+      "region": "The Ascendant Bastions",
+      "frontier_type": "open",
+      "bosses": [
+        "The Mother Pitcher",
+        "Old Harpia"
+      ],
+      "multi_drop": 2,
+      "epic_chance": 0.08
     }
   }
 }

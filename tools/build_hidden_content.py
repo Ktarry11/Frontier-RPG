@@ -1895,7 +1895,7 @@ def write_people():
                     "x": x, "y": y, "greeting": n["greeting"], "facing": "down", "race": n["race"],
                     "gender": n["gender"], "appearance_variant": 3})
     p.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    fresh = quests() + plaguelands_quests() + worldtree_quests()
+    fresh = quests() + plaguelands_quests() + worldtree_quests() + caelora_quests()
     try:
         prev = json.loads((DATA / "quests/hidden_zones.json").read_text(encoding="utf-8"))["quests"]
     except (OSError, ValueError, KeyError):
@@ -2515,6 +2515,469 @@ def worldtree_quests():
           R(_KC[1], ("Emergent-Stalker's Spear", "main_hand", "of the Monkey", None, "polearm", "Polearm (Agi/Sta)"),
             ("Rosette Bracers", "wrist", "of the Owl", "mail", None, "Mail Bracers (Int/Spi)"),
             ("Kapok-Bark Sabatons", "feet", "of the Champion", "plate", None, "Plate Boots (Str/Sta/Def)"))),
+    ]
+
+
+# ============================================================================ CAELORA (21 Nov 2026)
+# Kyle: "I want at least 3 skull zones and 1 frontier in the 48-60 region of Caelora", then "Ok hidden zones". Three skull
+# zones, one for each of the Expanse, the Anchorfields and the Ascendant Bastions, and a frontier behind the third. The
+# Firmament's rule holds for the frontier too: 58-59 isn't pure 60, so it carries the Bastions' ground and nothing from
+# after the cap. Not to be told where any of them is.
+_SR = (50, 52)         # The Stormroost
+_OR = (53, 55)         # The Orrery
+_CW = (56, 58)         # The Cloudwreck
+_LT = (58, 59)         # The Lost Tepui
+
+ZONES["The Stormroost"] = dict(
+    # the Expanse's islands are all drop round their edges, with no rock to cut a hidden way into, so the way in is
+    # cut into the rock of a cave under it
+    kind="skull", parent="The Storm-Well", levels=_SR,
+    creatures={
+        "Roost Thunderbird": _creature("beast_fast", _SR[0] + 1, False, "sk_thunderbird", DMG("Talon Rake"),
+                                       DMG("Thunderclap Wings", 1.4, 3, "magic"), DEB("Deafened", agility=-16)),
+        "Roost Raptor": _creature("beast_fast", _SR[0] + 1, False, "vy_raptor_bird", DMG("Hooked Beak"),
+                                  DMG("Stoop", 1.6, 3), DOT("Torn Open", 0.4, sch="physical")),
+        "Quill Wyrm": _creature("beast_large", _SR[1], False, "sk_wind_wyrm", DMG("Coil Snap", 1.05),
+                                DMG("Gale Breath", 1.4, 3, "magic"), BUF("Wind Under the Scales", armor=70)),
+        "Lightning Mote": _creature("elemental_caster", _SR[0], False, "sk_lightning_elemental",
+                                    DMG("Spark", sch="magic"), DMG("Forked Bolt", 1.5, 3, "magic"),
+                                    DEB("Static", agility=-14, intellect=-14)),
+        "Thunderhead Squall": _creature("elemental_bruiser", _SR[1], False, "sk_storm_elemental", DMG("Downdraft"),
+                                        DMG("Hailstrike", 1.5, 3), DEB("Soaked Through", armor=-30)),
+        "Eyrie Echo": _creature("elemental_caster", _SR[1], False, "vy_bound_elemental", DMG("Wind-Song", sch="magic"),
+                                DOT("A Song Stuck in the Head", 0.4), DEB("Out of Tune", intellect=-18)),
+        "The Thunder-Mother": _creature("beast_fast", _SR[1], True, "vy_war_bird",
+            DMG("Talons"), DMG("Wings Like a Storm Front", 1.0, 5, "magic"), DMG("Stoop From the Cloud", 1.9, 4),
+            DOT("Lightning in the Wound", 0.5, d=5), BUF("Guarding the Clutch", armor=90)),
+        "The Last Stormcaller": _creature("undead_caster", _SR[1], True, "vy_storm_shaman",
+            DMG("Called Lightning", sch="magic"), DMG("The Storm Answers", 1.0, 5, "magic"),
+            DEB("Thunder in the Bones", agility=-24, intellect=-24), DOT("Rain That Burns", 0.55, d=5),
+            DMG("The Last Verse", 2.1, 4, "magic")),
+    },
+    encounters=_skull_table("The Stormroost", {"Roost Raptor": 2, "Roost Thunderbird": 2}, {
+        "The Quill": {"Roost Raptor": 3, "Quill Wyrm": 1, "Lightning Mote": 1},
+        "The West Vane": {"Roost Thunderbird": 3, "Eyrie Echo": 2},
+        "The East Vane": {"Quill Wyrm": 2, "Lightning Mote": 2, "Eyrie Echo": 1},
+        "The Old Nests": {"Roost Thunderbird": 3, "Roost Raptor": 1, "The Thunder-Mother": 0},
+        "The Thunderhead": {"Thunderhead Squall": 3, "Lightning Mote": 2, "The Last Stormcaller": 0}}),
+    weights={},
+    loot={
+        "The Thunder-Mother": [
+            ("Thunder-Mother's Primary", "back", "of the Monkey", "One flight feather as long as your arm. It crackles in dry weather.", None, None),
+            ("Clutch-Guard Hauberk", "chest", "of the Champion", "Riveted over where the eggs sat, and it's still warm.", "plate", None),
+            ("Stormwing Leggings", "legs", "of the Hunt", "Grey and blue, the colours of the cloud she dived out of.", "mail", None),
+            ("Static-Charged Talon", "main_hand", "of the Tiger", "Your hair stands up when you hold it.", None, "dagger", "epic"),
+            ("Eggshell Bracelets", "wrist", "of the Owl", "Thin as paper and stronger than they look.", "cloth", None),
+        ],
+        "The Last Stormcaller": [
+            ("Staff of the Last Verse", "main_hand", "of the Invoker", "Carved with a song in a notation nobody up here can read.", None, "staff", "epic"),
+            ("Stormcaller's Mantle", "shoulder", "of the Sorcerer", "Feathers sewn over feathers, every one a different storm.", "cloth", None),
+            ("Thunderhead Helm", "head", "of the Defender", "The rain runs off it and the lightning goes round.", "plate", None),
+            ("Song-Worn Jerkin", "chest", "of the Assassin", "It hums under your breath when you're nervous.", "leather", None),
+            ("Ring of the Unmoving Storm", "ring", "of the Prophet", "There's a tiny cloud inside the stone, and it hasn't moved either.", None, None),
+        ],
+    },
+)
+
+ZONES["The Orrery"] = dict(
+    kind="skull", parent="The Anchorfields", levels=_OR,
+    creatures={
+        "Orbit Warden": _creature("elemental_bruiser", _OR[0] + 1, False, "ae_crystal_golem", DMG("Crystal Fist", 1.05),
+                                  DMG("Ring Sweep", 1.5, 3), BUF("Set in Its Orbit", armor=80)),
+        "Measuring Drone": _creature("elemental_caster", _OR[0] + 1, False, "ae_repair_drone",
+                                     DMG("Calibrating Beam", sch="magic"), DEB("Measured", agility=-16, armor=-24),
+                                     DMG("Correction", 1.4, 3, "magic")),
+        "Star Moth": _creature("beast_fast", _OR[0], False, "sk_sky_moth", DMG("Wing Buffet"),
+                               DOT("Starlight Dust", 0.35, sch="magic"), DEB("Dazzled", agility=-14)),
+        "Falling Star": _creature("elemental_caster", _OR[1], False, "sk_falling_star", DMG("Burning Trail", sch="magic"),
+                                  DMG("Impact", 1.6, 3, "magic"), DEB("Scorched Sight", intellect=-16)),
+        "Ring Crawler": _creature("beast_large", _OR[1], False, "sk_sky_crab", DMG("Pincer"),
+                                  DMG("Scuttle Charge", 1.4, 3), BUF("Shell Like Inlay", armor=70)),
+        "The Orrery-Keeper": _creature("elemental_bruiser", _OR[1], True, "ae_siege_walker",
+            DMG("Gear-Driven Fist"), DMG("The Rings Turn", 1.0, 5), DEB("Out of Alignment", agility=-24, armor=-40),
+            DMG("Counterweight", 1.9, 4), BUF("Brass Under Crystal", armor=100)),
+        "The Pale Moon": _creature("elemental_caster", _OR[1], True, "sk_crystal_elemental",
+            DMG("Moonlight", sch="magic"), DMG("The Tide Pulls", 1.0, 5, "magic"), DOT("Cold Light", 0.55, d=5),
+            DEB("Eclipse", agility=-22, intellect=-26), DMG("Full Moon", 2.1, 4, "magic")),
+    },
+    encounters=_skull_table("The Orrery", {"Star Moth": 2, "Ring Crawler": 2}, {
+        "The Outer Orbit": {"Ring Crawler": 3, "Star Moth": 2, "Orbit Warden": 1},
+        "The Inner Orbit": {"Orbit Warden": 3, "Measuring Drone": 2},
+        "The Sun Dais": {"Measuring Drone": 3, "Orbit Warden": 1, "The Orrery-Keeper": 0},
+        "The Red Moon": {"Falling Star": 3, "Star Moth": 1},
+        "The North Moon": {"Falling Star": 3, "Measuring Drone": 1, "The Pale Moon": 0}}),
+    weights={},
+    loot={
+        "The Orrery-Keeper": [
+            ("Keeper's Counterweight", "main_hand", "of the Vanquisher", "A brass weight on a haft. It always swings back the way it came.", None, "mace_2h", "epic"),
+            ("Orbit-Turned Gauntlets", "hands", "of the Champion", "Geared at the knuckles, and the gears still turn.", "plate", None),
+            ("Calibrator's Coif", "head", "of the Hunt", "Lenses on hinges, for measuring things before you shoot them.", "mail", None),
+            ("Robe of the Sun Dais", "chest", "of the Physician", "Gold thread in the pattern of the rings.", "cloth", None),
+            ("Inlaid Stone Band", "ring", "of the Monkey", "A sliver of the rings' stone. It's very slowly turning on your finger.", None, None),
+        ],
+        "The Pale Moon": [
+            ("Shard of the Pale Moon", "off_hand", "of the Sorcerer", "Cold to the touch, and it gives off its own light at night.", None, "tome", "epic"),
+            ("Moonlit Wraps", "wrist", "of the Prophet", "They glow faintly when you're asleep.", "cloth", None),
+            ("Tidepull Leggings", "legs", "of the Assassin", "You feel lighter in them when the moon's up.", "leather", None),
+            ("Eclipse Pauldrons", "shoulder", "of the Defender", "Dark on one side and bright on the other.", "plate", None),
+            ("Crescent Pendant", "neck", "of the Owl", "A thin curl of the moon's crystal on a chain.", None, None),
+        ],
+    },
+)
+
+ZONES["The Cloudwreck"] = dict(
+    kind="skull", parent="The Ascendant Bastions", levels=_CW,
+    creatures={
+        "Hull Crab": _creature("beast_large", _CW[0] + 1, False, "sk_sky_crab", DMG("Crushing Claw", 1.05),
+                               DMG("Rivet-Snapper", 1.5, 3), BUF("Plated in Brass", armor=80)),
+        "Cloud Ray": _creature("beast_fast", _CW[0] + 1, False, "sk_sky_ray", DMG("Barbed Tail"),
+                               DOT("Ray Venom", 0.4, sch="nature"), DMG("Glide Past", 1.4, 3)),
+        "Rigging Stalker": _creature("beast_fast", _CW[0], False, "sk_cloud_stalker", DMG("Claws"),
+                                     DMG("Out of the Cloud", 1.6, 3), DEB("Tangled in Rope", agility=-18)),
+        "Hull Jelly": _creature("elemental_caster", _CW[0], False, "sk_cloud_jelly", DMG("Stinging Veil", sch="magic"),
+                                DOT("Jelly Burn", 0.4, sch="nature"), DEB("Numbed", agility=-16, intellect=-16)),
+        "Lost Sky-Sailor": _creature("undead_warrior", _CW[1], False, "wraith_2", DMG("Boarding Cutlass"),
+                                     DMG("All Hands", 1.4, 3), DEB("Cold Grip", agility=-18)),
+        "Fallen Gunner": _creature("undead_warrior", _CW[1], False, "revenant_1", DMG("Ramrod"),
+                                   DMG("Point-Blank Shot", 1.6, 3), DOT("Powder Burn", 0.4, sch="fire")),
+        "The Unsunk Admiral": _creature("undead_caster", _CW[1], True, "wraith_pale",
+            DMG("Captain's Order", sch="magic"), DMG("Broadside", 1.0, 5), DEB("Keelhauled", agility=-24, armor=-40),
+            DOT("Cold of the Deep Cloud", 0.55, d=5), DMG("Going Down With the Ship", 2.1, 4, "magic")),
+        "The Hull-Eater": _creature("beast_large", _CW[1], True, "sk_cloud_serpent",
+            DMG("Planks in Its Teeth"), DMG("Coils Through the Wreck", 1.0, 5), DOT("Swallowed Whole", 0.55, sch="physical", d=5),
+            BUF("Hide Like Tar", armor=100), DMG("A Hull in One Bite", 2.2, 4)),
+    },
+    encounters=_skull_table("The Cloudwreck", {"Hull Crab": 2, "Cloud Ray": 2}, {
+        "The Salvage Raft": {"Hull Crab": 3, "Cloud Ray": 1},
+        "The Hull Field": {"Rigging Stalker": 3, "Hull Crab": 2, "Hull Jelly": 1},
+        "The Gun Graveyard": {"Fallen Gunner": 3, "Lost Sky-Sailor": 2},
+        "The Long Shelf": {"Hull Jelly": 3, "Cloud Ray": 2, "The Hull-Eater": 0},
+        "The Old Flagship": {"Lost Sky-Sailor": 3, "Fallen Gunner": 1, "The Unsunk Admiral": 0}}),
+    weights={},
+    loot={
+        "The Unsunk Admiral": [
+            ("Admiral's Boarding Sword", "main_hand", "of the Tiger", "Its last owner never surrendered it, even after he'd stopped breathing.", None, "sword_1h", "epic"),
+            ("Greatcoat of the Lost Fleet", "chest", "of the Sorcerer", "Royal blue gone grey, buttons of tarnished bronze.", "cloth", None),
+            ("Quarterdeck Greaves", "legs", "of the Defender", "Made to stand on a deck in a storm and not move.", "plate", None),
+            ("Signal-Officer's Gloves", "hands", "of the Hunt", "Stiff with old salt from a sea that was never here.", "mail", None),
+            ("Ring of the Last Order", "ring", "of the Physician", "Engraved inside with an order nobody followed.", None, None),
+        ],
+        "The Hull-Eater": [
+            ("Hull-Eater's Fang", "main_hand", "of the Monkey", "As long as a cutlass and twice as sharp, with a splinter of deck still in it.", None, "polearm", "epic"),
+            ("Tarhide Jerkin", "chest", "of the Wolf", "Black, slick, and nothing sticks to it except you.", "leather", None),
+            ("Wreck-Diver's Helm", "head", "of the Champion", "Brass and glass. Somebody went looking for treasure in this.", "plate", None),
+            ("Coil-Scale Bracers", "wrist", "of the Invoker", "They tighten a little when you're scared.", "mail", None),
+            ("Splintered Figurehead Charm", "neck", "of the Assassin", "A carved face from a ship's prow, worn smooth by the cloud.", None, None),
+        ],
+    },
+)
+
+ZONES["The Lost Tepui"] = dict(
+    kind="frontier", frontier_type="open", parent="The Cloudwreck", region="The Ascendant Bastions", levels=_LT,
+    creatures={
+        "Summit Tarantula": _creature("beast_fast", _LT[0], False, "spider_3", DMG("Fangs"),
+                                      DOT("Urticating Hairs", 0.4, sch="nature"), DEB("Itching", agility=-16)),
+        "Labyrinth Scorpion": _creature("vermin_sneaky", _LT[0], False, "scorpion", DMG("Pincers"),
+                                        DOT("Black-Rock Venom", 0.45, sch="nature"), DMG("Sting From the Crack", 1.5, 3)),
+        "King Vulture": _creature("beast_fast", _LT[0] + 1, False, "vulture_2", DMG("Tearing Beak"),
+                                  DMG("Drop on the Weak", 1.5, 3), DEB("Circling", agility=-14)),
+        "Sun-Pitcher": _creature("elemental_bruiser", _LT[1], False, "vine_strangler_1", DMG("Slick Lip"),
+                                 DOT("Digestive Nectar", 0.45, sch="nature"), DEB("Slid Inside", agility=-20)),
+        "Quartz Shardling": _creature("elemental_bruiser", _LT[1], False, "crystal_shardling_1", DMG("Shard Fist", 1.05),
+                                      DMG("Quartz Burst", 1.4, 3, "magic"), BUF("Facets", armor=80)),
+        "Cloud Wolf": _creature("beast_fast", _LT[1], False, "sk_cloud_wolf", DMG("Mist Bite"),
+                                DMG("Out of the Fog", 1.6, 3), BUF("Hunting in the Cloud", attack_power=26)),
+        "The Mother Pitcher": _creature("elemental_bruiser", _LT[1], True, "vine_strangler_3",
+            DMG("Bell of the Pitcher"), DMG("The Rain Fills Her", 1.0, 5, "nature"), DOT("Dissolving", 0.6, sch="nature", d=5),
+            DEB("Sweet Smell", agility=-24, intellect=-24), DMG("Swallowed to the Waist", 2.1, 4)),
+        "Old Harpia": _creature("beast_fast", _LT[1], True, "st_bald_eagle",
+            DMG("Talons Like a Bear's"), DMG("Off the Prow", 1.9, 3), DOT("Held Down and Opened", 0.6, sch="physical", d=4),
+            DEB("Crest Raised", agility=-26), DMG("Snatch", 1.3, 3)),
+    },
+    encounters=_skull_table("The Lost Tepui", {"Summit Tarantula": 2, "King Vulture": 2}, {
+        "The Black Labyrinth": {"Labyrinth Scorpion": 3, "Summit Tarantula": 2},
+        "The Valley of Crystals": {"Quartz Shardling": 3, "Labyrinth Scorpion": 1},
+        "The Jacuzzis": {"Sun-Pitcher": 3, "Summit Tarantula": 1, "The Mother Pitcher": 0},
+        "The Outliers": {"Cloud Wolf": 3, "King Vulture": 1},
+        "The Prow": {"King Vulture": 3, "Cloud Wolf": 1, "Old Harpia": 0}}),
+    weights={},
+    loot={
+        "The Mother Pitcher": [
+            ("Pitcher-Lip Bracers", "wrist", "of the Physician", "Slick on the inside, and nothing climbs out of them.", "cloth", None, "epic"),
+            ("Heliamphora Mantle", "shoulder", "of the Prophet", "Red-veined leaves that turn toward the sun.", "cloth", None),
+            ("Bog-Summit Leggings", "legs", "of the Wolf", "Made for the wet black ground on top of the world.", "leather", None),
+            ("Nectar-Glazed Breastplate", "chest", "of the Defender", "It smells sweet, and the insects can't leave it alone.", "plate", None),
+            ("Seed of the Mother Pitcher", "neck", "of the Sorcerer", "If you planted it, nothing would ever grow anywhere near it again.", None, None),
+        ],
+        "Old Harpia": [
+            ("Harpia's Crest", "head", "of the Assassin", "Grey feathers that stand up when you're angry.", "leather", None, "epic"),
+            ("Talon of the Prow", "main_hand", "of the Tiger", "A claw as big as a bear's, set on a grip of black wood.", None, "fist_weapon"),
+            ("Canopy-Hunter's Hauberk", "chest", "of the Hunt", "She hunted monkeys out of the trees before the trees were gone.", "mail", None),
+            ("Prow-Rock Sabatons", "feet", "of the Champion", "Made of the summit's black stone, and they grip like it does.", "plate", None),
+            ("Ring of the Lost World", "ring", "of the Owl", "A pink quartz the size of a thumbnail, set in plain silver.", None, None),
+        ],
+    },
+)
+
+NPCS["hz_stormroost_kelsey"] = dict(name="Kelsey Draper", zone="The Stormroost", race="human", gender="female",
+                                    greeting="Keep low when you cross the quill, the birds take anything that stands "
+                                             "up tall. I chased storms out of Norman, Oklahoma for nine years, and "
+                                             "I've never once seen one sit still.")
+NPCS["hz_orrery_tessaly"] = dict(name="Tessaly Ombrine", zone="The Orrery", race="aetherian", gender="female",
+                                 greeting="You found it too? Then don't tell the House, please. I've measured every "
+                                          "ring in this place twice, and I'm not ready to share it with anyone.")
+NPCS["hz_cloudwreck_ressa"] = dict(name="Ressa Vane", zone="The Cloudwreck", race="aetherian", gender="female",
+                                   greeting="If the Bastions sent you, you can tell them I'm dead. It's nearly true. "
+                                            "If they didn't, mind the soft cloud and don't touch anything with a "
+                                            "crest on it.")
+NPCS["hz_tepui_mireya"] = dict(name="Mireya Lanz", zone="The Lost Tepui", race="human", gender="female",
+                               greeting="Welcome to the top of the world. I led groups up here from Santa Elena for "
+                                        "twenty years, and it was always the top of the world. It's just that now "
+                                        "there's nothing underneath it.")
+
+DROPS["Eyrie Echo"] = ("song_struck_feather", "Song-Struck Feather", "A grey feather that hums when the wind gets up. "
+                                                                     "Whoever lived here once wove them into a song.", 0.75)
+DROPS["Falling Star"] = ("orrery_star_chip", "Chip of a Falling Star", "A splinter of hot crystal from a star that "
+                                                                         "fell into the rings and kept on burning.", 0.75)
+DROPS["Lost Sky-Sailor"] = ("sky_sailors_tag", "Sky-Sailor's Tag", "A bronze tag on a chain, stamped with a ship, a "
+                                                                     "berth and a name worn almost smooth.", 0.75)
+DROPS["Sun-Pitcher"] = ("pitcher_nectar", "Pitcher-Plant Nectar", "Clear, sweet and faintly sour, from the bottom of "
+                                                                    "a pitcher plant's bell. Don't drink it.", 0.75)
+NODE_PARENT.update({"The Stormroost": "celestial_expanse", "The Orrery": "anchorfields",
+                    "The Cloudwreck": "ascendant_bastions", "The Lost Tepui": "ascendant_bastions"})
+
+
+def caelora_quests():
+    """Four givers, four quests each, the third one elite. The giver speaks the story and the log gets the one plain
+    line of where in the place itself (never where the place is)."""
+    def Qw(qid, title, giver, zone, lvl, objectives, speech, where, turn_in, rewards, **kw):
+        return Q(qid, title, giver, zone, lvl, objectives, where, speech, turn_in, rewards, **kw)
+
+    sr, orr, cw, lt = "the_stormroost", "the_orrery", "the_cloudwreck", "the_lost_tepui"
+    return [
+        # ------------------------------------------------------------------ The Stormroost
+        Qw("hz_stormroost_nests", "Nests Full of Lightning", "hz_stormroost_kelsey", sr, _SR[0],
+           [{"type": "kill", "target": "Roost Thunderbird", "count": 8}, {"type": "kill", "target": "Roost Raptor", "count": 6}],
+           "I'm Kelsey Draper. I chased tornadoes across Oklahoma for nine years, out of Norman, and I woke up here "
+           "three years ago under the only storm I've ever seen that doesn't move.\n\nWhoever built these nests left "
+           "a long time ago, and the birds moved in. The Roost Thunderbirds throw lightning off their wings, and "
+           "the Roost Raptors dive on anything the lightning knocks down. Thin them out so I can get to my "
+           "instruments without being struck twice a day.",
+           "The thunderbirds nest along both vanes. The raptors hunt up and down the quill.",
+           "I walked the whole quill this morning and nothing hit me. My readings are better already.\n\nYou came a "
+           "long way to find a storm. I'd like to show you what I think it's doing.",
+           R(_SR[0], ("Storm Chaser's Boots", "feet", "of the Monkey", "leather", None, "Leather Boots (Agi/Sta)"),
+             ("Rain-Slick Gloves", "hands", "of the Owl", "cloth", None, "Cloth Gloves (Int/Spi)"),
+             ("Lightning-Rod Girdle", "waist", "of the Champion", "plate", None, "Plate Belt (Str/Sta/Def)")),
+           nxt="hz_stormroost_feathers"),
+        Qw("hz_stormroost_feathers", "Song-Struck Feathers", "hz_stormroost_kelsey", sr, _SR[0] + 1,
+           [{"type": "fetch", "target": "song_struck_feather", "count": 6}],
+           "There are things drifting round the old nests that look like people made of wind. When one comes apart, "
+           "it leaves a feather behind, and the feather hums.\n\nI recorded one on my phone before the battery died, "
+           "and the hum matched the thunder to the second. Bring me six of them. If the feathers and the storm are "
+           "singing the same note, I want to know who taught them.",
+           "The echoes drift along both vanes, mostly round the old nests on the ledges.",
+           "Listen to them, all six humming together.\n\nThey get louder when I hold them toward the tip. Something "
+           "up there under the thunderhead is singing, and the storm's the song.",
+           R(_SR[0] + 1, ("Humming Feather Pendant", "neck", "of the Invoker", None, None, "Necklace (Int/SP/Crit)"),
+             ("Windward Coif", "head", "of the Hunt", "mail", None, "Mail Helm (Agi/Int/AP)"),
+             ("Quill-Shaft Staff", "main_hand", "of the Physician", None, "staff", "Staff (Int/Healing)")),
+           nxt="hz_stormroost_stormcaller"),
+        Qw("hz_stormroost_stormcaller", "The Last Stormcaller", "hz_stormroost_kelsey", sr, _SR[1],
+           [{"type": "kill", "target": "The Last Stormcaller", "count": 1},
+            {"type": "kill", "target": "Thunderhead Squall", "count": 5}],
+           "I went up to the tip last night with my binoculars. There's someone standing at the altar under the "
+           "thunderhead, feathered like the old carvings and grey as the cloud, and they're singing. They've been "
+           "singing since long before I got here.\n\nThey're holding the storm in place, and the storm's tearing "
+           "the island apart a little more every week. Go up and let them finish the song. Take friends, because "
+           "the Thunderhead Squalls won't let you near quietly.",
+           "The altar stands on the tip of the quill, under the thunderhead.",
+           "It's moving at last. The storm's finally moving, out over the open sky where it belongs.\n\nI've waited three "
+           "years to watch a storm leave. I didn't think I'd cry about it, and I did, a little.",
+           R(_SR[1], ("Thunderstruck Greatsword", "main_hand", "of the Vanquisher", None, "sword_2h", "Two-Handed Sword (Str/Crit)"),
+             ("Squall-Rider's Hauberk", "chest", "of the Hunt", "mail", None, "Mail Chest (Agi/Int/AP)"),
+             ("Altar-Guard Pauldrons", "shoulder", "of the Defender", "plate", None, "Plate Shoulders (Sta/Def/Dodge)"),
+             ("Hood of the Moving Storm", "head", "of the Prophet", "cloth", None, "Cloth Helm (Int/Spi/Healing)"),
+             ("Featherstep Leggings", "legs", "of the Wolf", "leather", None, "Leather Legs (Agi/Spi)")),
+           elite=True),
+        Qw("hz_stormroost_mother", "The Thunder-Mother", "hz_stormroost_kelsey", sr, _SR[1],
+           [{"type": "kill", "target": "The Thunder-Mother", "count": 1}],
+           "There's one thunderbird in the old nests at the top of the west vane that's bigger than the rest put "
+           "together. I call her the Thunder-Mother, and every bird on this island came out of her clutch.\n\nShe's "
+           "taken to diving on my camp. I've been in a lot of storms and I've never been scared like that. Please "
+           "go up and deal with her.",
+           "The old nests are on the ledge at the top of the west vane. She's never far from them.",
+           "She's gone, and the sky's quieter for it.\n\nThe young ones will scatter now, and some of them will "
+           "find other islands. I hope they do. Take something for your trouble, you've earned it.",
+           R(_SR[1], ("Nest-Raider's Glaive", "main_hand", "of the Monkey", None, "polearm", "Polearm (Agi/Sta)"),
+             ("Thunderbird-Down Bracers", "wrist", "of the Owl", "mail", None, "Mail Bracers (Int/Spi)"),
+             ("Ledge-Gripper Sabatons", "feet", "of the Champion", "plate", None, "Plate Boots (Str/Sta/Def)"))),
+        # ------------------------------------------------------------------ The Orrery
+        Qw("hz_orrery_machinery", "The Machinery of Heaven", "hz_orrery_tessaly", orr, _OR[0],
+           [{"type": "kill", "target": "Orbit Warden", "count": 7}, {"type": "kill", "target": "Star Moth", "count": 6}],
+           "I'm Tessaly Ombrine, of the House of Measures. My house has spent four hundred years measuring the sky, "
+           "and nobody in it has ever written down that this place exists. I found it chasing a number that "
+           "wouldn't add up.\n\nIt's a model of the heavens you can walk on, and it's still running. The Orbit "
+           "Wardens keep the rings turning, and they don't like being measured. The Star Moths are drawn to the "
+           "light. Clear some of both so I can work.",
+           "The wardens walk the inner orbit. The moths drift over every ring.",
+           "That's much better than it was. I've had two whole hours with a measuring rod and nobody hit me with a crystal fist.\n\n"
+           "The rings are counting toward something. I'd like to know what before they get there.",
+           R(_OR[0], ("Ring-Walker's Boots", "feet", "of the Monkey", "leather", None, "Leather Boots (Agi/Sta)"),
+             ("Measurer's Cuffs", "wrist", "of the Invoker", "cloth", None, "Cloth Bracers (Int/SP/Crit)"),
+             ("Orbit-Plated Gauntlets", "hands", "of the Defender", "plate", None, "Plate Gloves (Sta/Def/Dodge)")),
+           nxt="hz_orrery_stars"),
+        Qw("hz_orrery_stars", "Pieces of Falling Stars", "hz_orrery_tessaly", orr, _OR[0] + 1,
+           [{"type": "fetch", "target": "orrery_star_chip", "count": 6}],
+           "Every so often a star falls into the rings and keeps on burning. They're not stars, of course, but "
+           "they're made of the same crystal as the moons, and they burn exactly as long as the model says a real "
+           "one would.\n\nBring me chips from six of them. If I can date the crystal, I can work out when the "
+           "orrery was set running.",
+           "The falling stars come down on the moons. The red moon on the outer orbit catches the most.",
+           "Six, and every one the same age to the year. That's not possible, and I've checked it twice.\n\nWhoever "
+           "made this set every star in it at once. The thing that keeps it running is in the middle, on the dais.",
+           R(_OR[0] + 1, ("Starfall Locket", "neck", "of the Physician", None, None, "Necklace (Int/Healing)"),
+             ("Cloak of the Outer Orbit", "back", "of the Tiger", None, None, "Cloak (Str/Agi)"),
+             ("Inlay-Woven Girdle", "waist", "of the Hunt", "mail", None, "Mail Belt (Agi/Int/AP)")),
+           nxt="hz_orrery_keeper"),
+        Qw("hz_orrery_keeper", "The Orrery-Keeper", "hz_orrery_tessaly", orr, _OR[1],
+           [{"type": "kill", "target": "The Orrery-Keeper", "count": 1},
+            {"type": "kill", "target": "Measuring Drone", "count": 4}],
+           "There's a construct on the sun dais that winds the whole orrery, and it's started winding it faster. "
+           "The rings are a quarter turn ahead of where they were when I arrived, and the stars are falling twice as "
+           "often.\n\nI don't know what happens when it reaches the end of the count, and I'd rather not find out by "
+           "standing here. Go and stop it for me. The Measuring Drones work for it, so expect company, and take friends.",
+           "The sun dais is the middle of the orrery. You'll have to go round the rings to reach it.",
+           "The rings have stopped. For the first time in who knows how long, everything in here is standing "
+           "still.\n\nI'll write it up for the House eventually. I think I'll take my time.",
+           R(_OR[1], ("Gearbreaker Maul", "main_hand", "of the Vanquisher", None, "mace_2h", "Two-Handed Mace (Str/Crit)"),
+             ("Mantle of the Sun Dais", "shoulder", "of the Sorcerer", "cloth", None, "Cloth Shoulders (Int/SP)"),
+             ("Drone-Hunter's Tunic", "chest", "of the Assassin", "leather", None, "Leather Chest (Agi/Hit/Crit)"),
+             ("Orbit-Linked Hauberk", "chest", "of the Owl", "mail", None, "Mail Chest (Int/Spi)"),
+             ("Keeper's Breastplate", "chest", "of the Defender", "plate", None, "Plate Chest (Sta/Def/Dodge)")),
+           elite=True),
+        Qw("hz_orrery_moon", "The Pale Moon", "hz_orrery_tessaly", orr, _OR[1],
+           [{"type": "kill", "target": "The Pale Moon", "count": 1}],
+           "One of the moons on the outer orbit has woken up. It's the pale one at the north end, and it isn't "
+           "staying on its moon any more. It drifts round the rings at night and anything it shines on goes "
+           "cold.\n\nI'd like to measure it, honestly, but I'd like to keep my fingers more. Please put it out.",
+           "The pale moon is the one at the north end of the outer orbit. It's brightest after dark.",
+           "It's dark up there now, and the rings are warmer for it.\n\nI saved a chip of it for my notes. Don't "
+           "tell the House I did that, either.",
+           R(_OR[1], ("Moonbreaker's Spear", "main_hand", "of the Monkey", None, "polearm", "Polearm (Agi/Sta)"),
+             ("Cold-Light Bracers", "wrist", "of the Owl", "mail", None, "Mail Bracers (Int/Spi)"),
+             ("Ringstone Sabatons", "feet", "of the Champion", "plate", None, "Plate Boots (Str/Sta/Def)"))),
+        # ------------------------------------------------------------------ The Cloudwreck
+        Qw("hz_cloudwreck_salvage", "Salvage Rights", "hz_cloudwreck_ressa", cw, _CW[0],
+           [{"type": "kill", "target": "Hull Crab", "count": 8}, {"type": "kill", "target": "Rigging Stalker", "count": 6}],
+           "I'm Ressa Vane. I was a quartermaster in the Bastions until I worked out where the ships went when they "
+           "didn't come back, and then I stopped being one. Nobody comes looking for a deserter down here.\n\nI "
+           "live off what I pull out of the wrecks, and so does everything else. The Hull Crabs strip the brass "
+           "and the Rigging Stalkers hunt in the ropes. Clear enough of both that I can work the near wrecks again.",
+           "The crabs are all over the salvage raft and the hull field. The stalkers wait in the rigging of the wrecks.",
+           "That's the first full day's salvage I've had in a month.\n\nI didn't come down here only for the brass. "
+           "There's something I want to do for the crews, if you'll help.",
+           R(_CW[0], ("Deckhand's Boots", "feet", "of the Monkey", "leather", None, "Leather Boots (Agi/Sta)"),
+             ("Salvager's Gloves", "hands", "of the Owl", "cloth", None, "Cloth Gloves (Int/Spi)"),
+             ("Brass-Bound Girdle", "waist", "of the Champion", "plate", None, "Plate Belt (Str/Sta/Def)")),
+           nxt="hz_cloudwreck_tags"),
+        Qw("hz_cloudwreck_tags", "Names for the Ledger", "hz_cloudwreck_ressa", cw, _CW[0] + 1,
+           [{"type": "fetch", "target": "sky_sailors_tag", "count": 6}],
+           "The crews never left their ships. The Lost Sky-Sailors still walk the decks as if the ships were "
+           "flying, and every one of them still wears the tag the Ascendancy stamps for its sailors.\n\nThe "
+           "Bastions write lost crews off as deserters, so their families don't get paid. Bring me their tags. "
+           "I kept the ledgers once, and I know how to make the right people read them.",
+           "The sailors walk the decks in the gun graveyard and on the old flagship at the far end of the shelf.",
+           "There are six names here. Two of them I knew, and one I signed on myself.\n\nThey'll be in the ledger by the end of the "
+           "week, where they should have been all along. The rest of them answer to someone on the old flagship.",
+           R(_CW[0] + 1, ("Ledger-Keeper's Pendant", "neck", "of the Invoker", None, None, "Necklace (Int/SP/Crit)"),
+             ("Boarding Party Coif", "head", "of the Hunt", "mail", None, "Mail Helm (Agi/Int/AP)"),
+             ("Mast-Timber Staff", "main_hand", "of the Physician", None, "staff", "Staff (Int/Healing)")),
+           nxt="hz_cloudwreck_admiral"),
+        Qw("hz_cloudwreck_admiral", "The Unsunk Admiral", "hz_cloudwreck_ressa", cw, _CW[1],
+           [{"type": "kill", "target": "The Unsunk Admiral", "count": 1},
+            {"type": "kill", "target": "Fallen Gunner", "count": 5}],
+           "The old flagship at the far end of the shelf is older than any ledger in the Bastions. Its admiral "
+           "never gave the order to abandon ship, and so nobody aboard ever did. He's still on the quarterdeck, and "
+           "every crew that's fallen since answers to him.\n\nIf he's gone, they can stop. The Fallen Gunners still "
+           "man his cannon, so go carefully, and take friends.",
+           "The old flagship lies at the far north end of the shelf, past the long shelf. The admiral keeps his quarterdeck.",
+           "They've stopped walking. All of them, all at once, as if somebody finally said they could go.\n\nI "
+           "don't believe in much any more, but I believe in that. Choose whatever you like from what I've salvaged.",
+           R(_CW[1], ("Flagship Boarding Axe", "main_hand", "of the Vanquisher", None, "axe_2h", "Two-Handed Axe (Str/Crit)"),
+             ("Gunner's Leather Coat", "chest", "of the Assassin", "leather", None, "Leather Chest (Agi/Hit/Crit)"),
+             ("Quarterdeck Pauldrons", "shoulder", "of the Defender", "plate", None, "Plate Shoulders (Sta/Def/Dodge)"),
+             ("Hood of the Lost Fleet", "head", "of the Prophet", "cloth", None, "Cloth Helm (Int/Spi/Healing)"),
+             ("Cloud-Walker's Leggings", "legs", "of the Wolf", "leather", None, "Leather Legs (Agi/Spi)")),
+           elite=True),
+        Qw("hz_cloudwreck_eater", "The Hull-Eater", "hz_cloudwreck_ressa", cw, _CW[1],
+           [{"type": "kill", "target": "The Hull-Eater", "count": 1}],
+           "Something lives under the long shelf that eats wrecks. I've watched it come up through the cloud and "
+           "take half a hull in one bite, crew and all. It ate my winch last week.\n\nI'd very much like my winch "
+           "back, but I'll settle for it not eating anything else. Please go and see to it.",
+           "It surfaces along the long shelf, between the hull field and the old flagship.",
+           "It's dead, and it had three anchors and my winch inside it.\n\nI'm keeping the winch. You can have "
+           "something better.",
+           R(_CW[1], ("Harpoon of the Long Shelf", "main_hand", "of the Monkey", None, "polearm", "Polearm (Agi/Sta)"),
+             ("Serpent-Scale Bracers", "wrist", "of the Owl", "mail", None, "Mail Bracers (Int/Spi)"),
+             ("Hull-Stomper Sabatons", "feet", "of the Champion", "plate", None, "Plate Boots (Str/Sta/Def)"))),
+        # ------------------------------------------------------------------ The Lost Tepui
+        Qw("hz_tepui_summit", "Top of the World", "hz_tepui_mireya", lt, _LT[0],
+           [{"type": "kill", "target": "Summit Tarantula", "count": 7}, {"type": "kill", "target": "Labyrinth Scorpion", "count": 6}],
+           "I'm Mireya Lanz, a mountain guide from Santa Elena de Uairén, in Venezuela, and this is Roraima, or "
+           "the top of it. I've led more than three hundred groups up the ramp. I was up here with eleven "
+           "trekkers the night it happened, and in the morning the clouds were below us and the mountain wasn't "
+           "under us any more.\n\nThe trekkers have all found their way to somewhere better, thank God, and I decided to stay. "
+           "The Summit Tarantulas and the Labyrinth Scorpions have got far too big up here. Thin them out so I "
+           "can walk my mountain again.",
+           "The tarantulas are everywhere on the open rock. The scorpions hide in the black labyrinth to the south.",
+           "That's a lot better. I walked to the jacuzzis this morning and back without a single bite.\n\nThe plants "
+           "up here are older than anything in the sky, and some of them have started eating more than flies.",
+           R(_LT[0], ("Summit Guide's Boots", "feet", "of the Monkey", "leather", None, "Leather Boots (Agi/Sta)"),
+             ("Mist-Damp Bracers", "wrist", "of the Invoker", "cloth", None, "Cloth Bracers (Int/SP/Crit)"),
+             ("Black-Rock Gauntlets", "hands", "of the Defender", "plate", None, "Plate Gloves (Sta/Def/Dodge)")),
+           nxt="hz_tepui_nectar"),
+        Qw("hz_tepui_nectar", "Nectar From the Pitchers", "hz_tepui_mireya", lt, _LT[0] + 1,
+           [{"type": "fetch", "target": "pitcher_nectar", "count": 6}],
+           "The pitcher plants on the summit are called Heliamphora, sun pitchers, and they only grow on tepuis. "
+           "Back home they were the size of a coffee cup. Up here, since the change, the Sun-Pitchers walk.\n\n"
+           "Bring me nectar from six of them. If I know what's in it, I'll know what's making them grow, and "
+           "whether it's going to stop.",
+           "The sun-pitchers stand round the jacuzzis, the pools in the rock in the middle of the summit.",
+           "It's rainwater, mostly, and sugar, and something that glows when I hold it to the sun.\n\nThey're all "
+           "drinking from the same place. There's one in the jacuzzis bigger than the rest, and they're its seeds.",
+           R(_LT[0] + 1, ("Pitcher-Bell Locket", "neck", "of the Physician", None, None, "Necklace (Int/Healing)"),
+             ("Gran Sabana Cloak", "back", "of the Tiger", None, None, "Cloak (Str/Agi)"),
+             ("Bromeliad-Woven Girdle", "waist", "of the Hunt", "mail", None, "Mail Belt (Agi/Int/AP)")),
+           nxt="hz_tepui_mother"),
+        Qw("hz_tepui_mother", "The Mother Pitcher", "hz_tepui_mireya", lt, _LT[1],
+           [{"type": "kill", "target": "The Mother Pitcher", "count": 1},
+            {"type": "kill", "target": "Sun-Pitcher", "count": 5}],
+           "The big one in the jacuzzis is taller than a house. She fills with rain every afternoon and pours it out "
+           "over the rock, and wherever it runs another Sun-Pitcher comes up. In a year there won't be a bare stone "
+           "on the summit.\n\nI love these plants. I've shown them to three hundred groups. But this isn't how they "
+           "grow, and she has to go. Take friends, because she knows you're coming.",
+           "The jacuzzis are the pools in the rock in the middle of the summit. She stands in the biggest.",
+           "The rock's bare again, the way it's meant to be.\n\nI kept one seed from her, a small one. I'll plant "
+           "it somewhere it can't hurt anyone, and see what a normal one does up here.",
+           R(_LT[1], ("Pitcher-Cutter's Greatsword", "main_hand", "of the Vanquisher", None, "sword_2h", "Two-Handed Sword (Str/Crit)"),
+             ("Mantle of the Wet Summit", "shoulder", "of the Sorcerer", "cloth", None, "Cloth Shoulders (Int/SP)"),
+             ("Labyrinth-Runner's Tunic", "chest", "of the Assassin", "leather", None, "Leather Chest (Agi/Hit/Crit)"),
+             ("Quartz-Studded Hauberk", "chest", "of the Owl", "mail", None, "Mail Chest (Int/Spi)"),
+             ("Tepui-Stone Breastplate", "chest", "of the Defender", "plate", None, "Plate Chest (Sta/Def/Dodge)")),
+           elite=True),
+        Qw("hz_tepui_harpia", "Old Harpia", "hz_tepui_mireya", lt, _LT[1],
+           [{"type": "kill", "target": "Old Harpia", "count": 1}],
+           "A harpy eagle came up with the mountain. They live in the forest round the foot of it back home, and "
+           "she must have been hunting near the top when it happened. She's grown since, like everything has.\n\n"
+           "She sits on the prow at the north end and takes whatever walks out onto the rock. Last week she took "
+           "a cloud wolf as big as a pony. I'd rather it wasn't me next. Please make it quick.",
+           "The prow is the summit's north end, the highest rock on the mountain. She perches on it.",
+           "She's gone now. The vultures will be on the prow by evening, and that's the way it's meant to go.\n\nShe "
+           "was the most beautiful thing on the mountain. I'm glad it was you and not something worse.",
+           R(_LT[1], ("Prow-Hunter's Spear", "main_hand", "of the Monkey", None, "polearm", "Polearm (Agi/Sta)"),
+             ("Harpy-Feather Bracers", "wrist", "of the Owl", "mail", None, "Mail Bracers (Int/Spi)"),
+             ("Summit-Stone Sabatons", "feet", "of the Champion", "plate", None, "Plate Boots (Str/Sta/Def)"))),
     ]
 
 

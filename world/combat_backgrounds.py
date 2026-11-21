@@ -224,6 +224,10 @@ ZONE_BACKGROUND = {
     "The Celestial Expanse": "sky",               # the open day sky
     "The Anchorfields": "sky",                    # the dawn sky over the shelf
     "The Ascendant Bastions": "sky",              # the storm sky over the star fort
+    "The Stormroost": "sky",                      # Caelora's hidden maps fight under their own sky
+    "The Orrery": "sky",
+    "The Cloudwreck": "sky",
+    "The Lost Tepui": "sky",
     "The Fading Firmament": "sky",                # the failing violet dusk over the dying heart
     "The Gravity Foundry": "fire_dungeon",        # the citadel's foundry: the pour and the furnaces
     "The Gravity Foundry: The Keelworks": "fire_dungeon",

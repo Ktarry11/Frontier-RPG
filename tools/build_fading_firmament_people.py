@@ -75,7 +75,7 @@ AMBIENT = {
     "ff_salvager": ("Sipho Ndlovu", "human", M, 6, "right",
                     "I ran a scrapyard in Durban for twenty years. Up here the islands drop scrap on you every day, "
                     "and the Aetherians pay me to tell them which bits still work."),
-    "ff_child_minder": ("Margit Lindqvist", "human", F, 3, "down",
+    "ff_child_minder": ("Annika Sjoberg", "human", F, 3, "down",
                         "I taught primary school in Umea before the change. There are eleven children in this camp, "
                         "and somebody has to teach them their letters while the world falls apart round them."),
     # ---- Forgewatch
@@ -86,7 +86,7 @@ AMBIENT = {
     "ff_forge_scholar": ("Scholar Rhun Adaire", "aetherian", M, 12, "right",
                          "I read Kharad runes, which makes me the only person at Forgewatch who can tell you what the "
                          "giants' hearth says. Mostly it tells you to mind your feet."),
-    "ff_earthborn_smith": ("Kofi Mensah", "human", M, 8, "left",
+    "ff_earthborn_smith": ("Kwabena Osei", "human", M, 8, "left",
                            "I shod horses and mended ploughs in Kumasi. The Archivist brought me up here to tell her "
                            "how a forge works, and this one has three hearths, which no forge I ever saw had."),
     "ff_forgewatch_guard": ("Lens-Warden Corra Hale", "aetherian", F, 7, "right",

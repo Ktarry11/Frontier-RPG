@@ -93,6 +93,11 @@ ZONE_POOLS = {
     "lanternmere": ("pool_swamp", "pool_reeds"),
     "long_winter": ("pool_ice_hole", "pool_river"),
     "sunward_waystation": ("pool_moonlit", "pool_fresh"),
+    # Caelora's hidden maps (21 Nov 2026): the wellstones' pools on the islands, never the cloud
+    "stormroost": ("pool_storm", "pool_fresh"),
+    "orrery": ("pool_fresh", "pool_glowing"),
+    "cloudwreck": ("pool_fresh",),
+    "lost_tepui": ("pool_fresh", "pool_reeds"),
 }
 
 

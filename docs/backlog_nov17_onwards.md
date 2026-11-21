@@ -224,3 +224,9 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 
 ## 12. Parked by Kyle (not anytime soon)
 - **The prestige constellation** (design only, docs/prestige_constellation.md).
+
+## 13. Queued new zones
+- **A home for the blood elves** (Kyle, 21 Nov 2026: "our bloodelves are currently homeless. I suggest an island off
+  the coast of Azshara. Has a level 1-6 and a level 5-9 zone that eventually has a boat to take you to Durotar from
+  their main city. Quick, easy, new starting zone."). An island off Azshara's coast with two zones, 1-6 and 5-9, and
+  a main city whose boat goes to Durotar. Quick and easy. Queued behind Caelora's start zone.

@@ -98780,6 +98780,1085 @@
           "attack_power": 156
         }
       }
+    ],
+    "hidden_roost_thunderbird": [
+      {
+        "name": "Talon Rake",
+        "kind": "damage",
+        "amount": 207,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Thunderclap Wings",
+        "kind": "damage",
+        "amount": 290,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic"
+      },
+      {
+        "name": "Deafened",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -16
+        }
+      }
+    ],
+    "hidden_roost_raptor": [
+      {
+        "name": "Hooked Beak",
+        "kind": "damage",
+        "amount": 207,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Stoop",
+        "kind": "damage",
+        "amount": 331,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Torn Open",
+        "kind": "dot",
+        "amount": 83,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3
+      }
+    ],
+    "hidden_quill_wyrm": [
+      {
+        "name": "Coil Snap",
+        "kind": "damage",
+        "amount": 219,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Gale Breath",
+        "kind": "damage",
+        "amount": 292,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic"
+      },
+      {
+        "name": "Wind Under the Scales",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 70
+        },
+        "self_only": true
+      }
+    ],
+    "hidden_lightning_mote": [
+      {
+        "name": "Spark",
+        "kind": "damage",
+        "amount": 205,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Forked Bolt",
+        "kind": "damage",
+        "amount": 308,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic"
+      },
+      {
+        "name": "Static",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -14,
+          "intellect": -14
+        }
+      }
+    ],
+    "hidden_thunderhead_squall": [
+      {
+        "name": "Downdraft",
+        "kind": "damage",
+        "amount": 209,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hailstrike",
+        "kind": "damage",
+        "amount": 313,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Soaked Through",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "armor": -30
+        }
+      }
+    ],
+    "hidden_eyrie_echo": [
+      {
+        "name": "Wind-Song",
+        "kind": "damage",
+        "amount": 209,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "A Song Stuck in the Head",
+        "kind": "dot",
+        "amount": 83,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3
+      },
+      {
+        "name": "Out of Tune",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -18
+        }
+      }
+    ],
+    "hidden_the_thundermother": [
+      {
+        "name": "Talons",
+        "kind": "damage",
+        "amount": 388,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Wings Like a Storm Front",
+        "kind": "damage",
+        "amount": 388,
+        "cooldown": 5,
+        "mana_cost": 12,
+        "school": "magic"
+      },
+      {
+        "name": "Stoop From the Cloud",
+        "kind": "damage",
+        "amount": 738,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Lightning in the Wound",
+        "kind": "dot",
+        "amount": 194,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 5
+      },
+      {
+        "name": "Guarding the Clutch",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 90
+        },
+        "self_only": true
+      }
+    ],
+    "hidden_the_last_stormcaller": [
+      {
+        "name": "Called Lightning",
+        "kind": "damage",
+        "amount": 388,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "The Storm Answers",
+        "kind": "damage",
+        "amount": 388,
+        "cooldown": 5,
+        "mana_cost": 12,
+        "school": "magic"
+      },
+      {
+        "name": "Thunder in the Bones",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -24,
+          "intellect": -24
+        }
+      },
+      {
+        "name": "Rain That Burns",
+        "kind": "dot",
+        "amount": 214,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 5
+      },
+      {
+        "name": "The Last Verse",
+        "kind": "damage",
+        "amount": 816,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic"
+      }
+    ],
+    "hidden_orbit_warden": [
+      {
+        "name": "Crystal Fist",
+        "kind": "damage",
+        "amount": 223,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Ring Sweep",
+        "kind": "damage",
+        "amount": 318,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Set in Its Orbit",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 80
+        },
+        "self_only": true
+      }
+    ],
+    "hidden_measuring_drone": [
+      {
+        "name": "Calibrating Beam",
+        "kind": "damage",
+        "amount": 212,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Measured",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -16,
+          "armor": -24
+        }
+      },
+      {
+        "name": "Correction",
+        "kind": "damage",
+        "amount": 297,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic"
+      }
+    ],
+    "hidden_star_moth": [
+      {
+        "name": "Wing Buffet",
+        "kind": "damage",
+        "amount": 210,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Starlight Dust",
+        "kind": "dot",
+        "amount": 74,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3
+      },
+      {
+        "name": "Dazzled",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -14
+        }
+      }
+    ],
+    "hidden_falling_star": [
+      {
+        "name": "Burning Trail",
+        "kind": "damage",
+        "amount": 214,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Impact",
+        "kind": "damage",
+        "amount": 342,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic"
+      },
+      {
+        "name": "Scorched Sight",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "intellect": -16
+        }
+      }
+    ],
+    "hidden_ring_crawler": [
+      {
+        "name": "Pincer",
+        "kind": "damage",
+        "amount": 214,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Scuttle Charge",
+        "kind": "damage",
+        "amount": 300,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Shell Like Inlay",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 70
+        },
+        "self_only": true
+      }
+    ],
+    "hidden_the_orrerykeeper": [
+      {
+        "name": "Gear-Driven Fist",
+        "kind": "damage",
+        "amount": 390,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "The Rings Turn",
+        "kind": "damage",
+        "amount": 390,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Out of Alignment",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -24,
+          "armor": -40
+        }
+      },
+      {
+        "name": "Counterweight",
+        "kind": "damage",
+        "amount": 741,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Brass Under Crystal",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 100
+        },
+        "self_only": true
+      }
+    ],
+    "hidden_the_pale_moon": [
+      {
+        "name": "Moonlight",
+        "kind": "damage",
+        "amount": 390,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "The Tide Pulls",
+        "kind": "damage",
+        "amount": 390,
+        "cooldown": 5,
+        "mana_cost": 12,
+        "school": "magic"
+      },
+      {
+        "name": "Cold Light",
+        "kind": "dot",
+        "amount": 215,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 5
+      },
+      {
+        "name": "Eclipse",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -22,
+          "intellect": -26
+        }
+      },
+      {
+        "name": "Full Moon",
+        "kind": "damage",
+        "amount": 819,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic"
+      }
+    ],
+    "hidden_hull_crab": [
+      {
+        "name": "Crushing Claw",
+        "kind": "damage",
+        "amount": 233,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Rivet-Snapper",
+        "kind": "damage",
+        "amount": 333,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Plated in Brass",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 80
+        },
+        "self_only": true
+      }
+    ],
+    "hidden_cloud_ray": [
+      {
+        "name": "Barbed Tail",
+        "kind": "damage",
+        "amount": 222,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Ray Venom",
+        "kind": "dot",
+        "amount": 89,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      },
+      {
+        "name": "Glide Past",
+        "kind": "damage",
+        "amount": 311,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "hidden_rigging_stalker": [
+      {
+        "name": "Claws",
+        "kind": "damage",
+        "amount": 218,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Out of the Cloud",
+        "kind": "damage",
+        "amount": 349,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Tangled in Rope",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -18
+        }
+      }
+    ],
+    "hidden_hull_jelly": [
+      {
+        "name": "Stinging Veil",
+        "kind": "damage",
+        "amount": 218,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Jelly Burn",
+        "kind": "dot",
+        "amount": 87,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      },
+      {
+        "name": "Numbed",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -16,
+          "intellect": -16
+        }
+      }
+    ],
+    "hidden_lost_skysailor": [
+      {
+        "name": "Boarding Cutlass",
+        "kind": "damage",
+        "amount": 226,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "All Hands",
+        "kind": "damage",
+        "amount": 316,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Cold Grip",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -18
+        }
+      }
+    ],
+    "hidden_fallen_gunner": [
+      {
+        "name": "Ramrod",
+        "kind": "damage",
+        "amount": 226,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Point-Blank Shot",
+        "kind": "damage",
+        "amount": 362,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Powder Burn",
+        "kind": "dot",
+        "amount": 90,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "fire",
+        "duration": 3
+      }
+    ],
+    "hidden_the_unsunk_admiral": [
+      {
+        "name": "Captain's Order",
+        "kind": "damage",
+        "amount": 402,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "magic"
+      },
+      {
+        "name": "Broadside",
+        "kind": "damage",
+        "amount": 402,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Keelhauled",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -24,
+          "armor": -40
+        }
+      },
+      {
+        "name": "Cold of the Deep Cloud",
+        "kind": "dot",
+        "amount": 221,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 5
+      },
+      {
+        "name": "Going Down With the Ship",
+        "kind": "damage",
+        "amount": 844,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic"
+      }
+    ],
+    "hidden_the_hulleater": [
+      {
+        "name": "Planks in Its Teeth",
+        "kind": "damage",
+        "amount": 402,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Coils Through the Wreck",
+        "kind": "damage",
+        "amount": 402,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Swallowed Whole",
+        "kind": "dot",
+        "amount": 221,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 5
+      },
+      {
+        "name": "Hide Like Tar",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 100
+        },
+        "self_only": true
+      },
+      {
+        "name": "A Hull in One Bite",
+        "kind": "damage",
+        "amount": 884,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "hidden_summit_tarantula": [
+      {
+        "name": "Fangs",
+        "kind": "damage",
+        "amount": 226,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Urticating Hairs",
+        "kind": "dot",
+        "amount": 90,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      },
+      {
+        "name": "Itching",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -16
+        }
+      }
+    ],
+    "hidden_labyrinth_scorpion": [
+      {
+        "name": "Pincers",
+        "kind": "damage",
+        "amount": 226,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Black-Rock Venom",
+        "kind": "dot",
+        "amount": 102,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      },
+      {
+        "name": "Sting From the Crack",
+        "kind": "damage",
+        "amount": 339,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "hidden_king_vulture": [
+      {
+        "name": "Tearing Beak",
+        "kind": "damage",
+        "amount": 230,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Drop on the Weak",
+        "kind": "damage",
+        "amount": 345,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Circling",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -14
+        }
+      }
+    ],
+    "hidden_sunpitcher": [
+      {
+        "name": "Slick Lip",
+        "kind": "damage",
+        "amount": 230,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Digestive Nectar",
+        "kind": "dot",
+        "amount": 104,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 3
+      },
+      {
+        "name": "Slid Inside",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -20
+        }
+      }
+    ],
+    "hidden_quartz_shardling": [
+      {
+        "name": "Shard Fist",
+        "kind": "damage",
+        "amount": 242,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Quartz Burst",
+        "kind": "damage",
+        "amount": 322,
+        "cooldown": 3,
+        "mana_cost": 12,
+        "school": "magic"
+      },
+      {
+        "name": "Facets",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "armor": 80
+        },
+        "self_only": true
+      }
+    ],
+    "hidden_cloud_wolf": [
+      {
+        "name": "Mist Bite",
+        "kind": "damage",
+        "amount": 230,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Out of the Fog",
+        "kind": "damage",
+        "amount": 368,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Hunting in the Cloud",
+        "kind": "buff",
+        "amount": 0,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 3,
+        "stat_mods": {
+          "attack_power": 26
+        },
+        "self_only": true
+      }
+    ],
+    "hidden_the_mother_pitcher": [
+      {
+        "name": "Bell of the Pitcher",
+        "kind": "damage",
+        "amount": 406,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "The Rain Fills Her",
+        "kind": "damage",
+        "amount": 406,
+        "cooldown": 5,
+        "mana_cost": 0,
+        "school": "nature"
+      },
+      {
+        "name": "Dissolving",
+        "kind": "dot",
+        "amount": 244,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "nature",
+        "duration": 5
+      },
+      {
+        "name": "Sweet Smell",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -24,
+          "intellect": -24
+        }
+      },
+      {
+        "name": "Swallowed to the Waist",
+        "kind": "damage",
+        "amount": 853,
+        "cooldown": 4,
+        "mana_cost": 0,
+        "school": "physical"
+      }
+    ],
+    "hidden_old_harpia": [
+      {
+        "name": "Talons Like a Bear's",
+        "kind": "damage",
+        "amount": 406,
+        "cooldown": 0,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Off the Prow",
+        "kind": "damage",
+        "amount": 771,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      },
+      {
+        "name": "Held Down and Opened",
+        "kind": "dot",
+        "amount": 244,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical",
+        "duration": 4
+      },
+      {
+        "name": "Crest Raised",
+        "kind": "debuff",
+        "amount": 0,
+        "cooldown": 4,
+        "mana_cost": 12,
+        "school": "magic",
+        "duration": 3,
+        "stat_mods": {
+          "agility": -26
+        }
+      },
+      {
+        "name": "Snatch",
+        "kind": "damage",
+        "amount": 528,
+        "cooldown": 3,
+        "mana_cost": 0,
+        "school": "physical"
+      }
     ]
   }
 }
