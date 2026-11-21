@@ -1475,6 +1475,39 @@
    "wary_of": [],
    "spar": []
   },
+  "leif_primalist": {
+   "talk": "quiet",
+   "humour": "dry",
+   "manner": "blunt",
+   "pace": "careful",
+   "is": [
+    "outdoors",
+    "worker",
+    "patient"
+   ],
+   "likes": [
+    "quiet",
+    "patient",
+    "outdoors"
+   ],
+   "dislikes": [
+    "loud",
+    "reckless"
+   ],
+   "tags": [
+    "american",
+    "wild",
+    "scandinavian",
+    "parent"
+   ],
+   "warm_to": [
+    "sondre_stormbringer",
+    "dale_reaper",
+    "rhys_ranger"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
   "liam_suncleric": {
    "talk": "middle",
    "humour": "joker",
@@ -2188,6 +2221,37 @@
    "wary_of": [],
    "spar": []
   },
+  "rhodri_knight": {
+   "talk": "talker",
+   "humour": "joker",
+   "manner": "gentle",
+   "pace": "steady",
+   "is": [
+    "worker",
+    "sporty"
+   ],
+   "likes": [
+    "worker",
+    "honest",
+    "patient"
+   ],
+   "dislikes": [
+    "showoff",
+    "reckless"
+   ],
+   "tags": [
+    "welsh",
+    "sport",
+    "craft"
+   ],
+   "warm_to": [
+    "rhys_ranger",
+    "dan_warrior",
+    "gunnar_barbarian"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
   "rhys_ranger": {
    "talk": "quiet",
    "humour": "dry",
@@ -2750,6 +2814,38 @@
     "taras_witchhunter",
     "mariana_priest",
     "neil_felsworn"
+   ],
+   "wary_of": [],
+   "spar": []
+  },
+  "yiannis_paladin": {
+   "talk": "talker",
+   "humour": "joker",
+   "manner": "gentle",
+   "pace": "careful",
+   "is": [
+    "host",
+    "pious",
+    "healer"
+   ],
+   "likes": [
+    "patient",
+    "host",
+    "young"
+   ],
+   "dislikes": [
+    "reckless"
+   ],
+   "tags": [
+    "greek",
+    "boats",
+    "faith",
+    "parent"
+   ],
+   "warm_to": [
+    "sophia_mage",
+    "stelios_necromancer",
+    "sondre_stormbringer"
    ],
    "wary_of": [],
    "spar": []
@@ -5535,6 +5631,61 @@
    "friend_back": "Ah, {name}'s back. My estimate of today has improved considerably.",
    "common_numbers": "Twelve years of pricing how likely things are, very carefully. People who work with numbers find this world restful, because for once they hold still."
   },
+  "leif_primalist": {
+   "meet": "The name's Leif. I cut trees for a living back home, and out here I mostly don't.",
+   "meet_neighbour": "You're out at Dawnrest too. I'm the one stacking deadwood behind the waystation at first light.",
+   "ask_home": "Whereabouts is home for you, if you don't mind me asking?",
+   "ask_work": "What kind of work did you do back home? You don't have to say.",
+   "answer_home": "Coos Bay, on the Oregon coast. Fog, rain, big timber, and a mill on every second street.",
+   "answer_work": "Logging, twenty-five years in the Coast Range. I set chokers, then I fell trees, then I climbed them.",
+   "chat_food": "Black coffee out of a thermos, sitting on a stump at dawn with the fog still in the trees. That's about all I need.",
+   "chat_sleep": "I sleep okay as long as nothing dead is hanging over me. I check before I put my tent down.",
+   "chat_missing": "First light in a stand of old trees, when it's dead quiet and the fog's just lifting. I didn't know how much I'd miss that.",
+   "chat_here": "The woods out here woke up in me the week I came through. I cut down forests for a living, so I'm still working out what they meant by it.",
+   "tease_quiet": "You and me could go a whole day without a word, {name}, and I'd call it a good day.",
+   "tease_talker": "You'd scare every deer in three valleys, {name}. Not that I mind the company.",
+   "tease_careful": "You size things up like an old faller, {name}, and that's kept me alive more than once.",
+   "tease_bold": "You walk under things without looking up, {name}. One day I'm going to make you wear a hard hat.",
+   "tease_any": "You'd make a decent ground man, {name}, if you ever learned to stand still.",
+   "tease_back": "Well, you got me there, {name}, fair enough.",
+   "take_it_kindly": "Yep, that's true, {name}. Can't argue with it.",
+   "bristle": "Not that one, okay, {name}. I lost a friend to a falling limb.",
+   "needle_quiet": "If you see something coming down, you yell. Keeping quiet about it gets people killed.",
+   "needle_talker": "Every animal in these woods knows exactly where we are, thanks to you.",
+   "needle_careful": "You can look at a tree all day, but sooner or later somebody has to make the cut.",
+   "needle_bold": "You rush in without reading the ground, and the woods punish that every time.",
+   "needle_any": "You never look up, and up is where the things that kill you come from.",
+   "bite_back": "I've taken the big ones down every fight we've had. You don't get to say I don't carry my end.",
+   "hurt": "That one landed. I'll go sit with the trees for a bit.",
+   "laugh_off": "I've had a crew boss yell at me over a chainsaw for twenty years. You'll need to be louder than him.",
+   "apologise": "I was out of line there, and I'm sorry. I get short when I'm tired.",
+   "double_down": "Yep, I stand by it. Better you hear it from me than learn it the hard way.",
+   "confide": "{name}, my falling partner was killed by a dead branch out of a tree I was cutting. Everybody said it wasn't my fault.",
+   "listen": "Go slow, {name}. I'm a good listener, it's the talking I'm bad at.",
+   "look_out": "Stand where I tell you, {name}, and nowhere else. I've got the canopy.",
+   "accept": "Your call, {name}. You lead, and I'll back you.",
+   "deflect": "Walked off worse in the woods, {name}. Check on somebody else.",
+   "check_in": "You took a hit, {name}. Sit down a second and let me look.",
+   "blame": "Somebody stood where they shouldn't have, and it came down on all of us.",
+   "thank": "That was a bad spot, and you got me out. I owe you.",
+   "brush_off": "Don't mention it. Watching your back is the job.",
+   "worry": "Easy, {name}, easy. Stay down, I've got eyes on it.",
+   "handed_down": "This should be yours. Here, take it back.",
+   "hand_fine": "Sure, take it. I spent twenty-five years in gear held together with tape.",
+   "hand_sulk": "Didn't ask me, huh. Well, that's how it goes.",
+   "turn_friendly": "I'd let you be my ground man, {name}, and I don't say that to many people.",
+   "turn_friends": "I'd climb anything for you, {name}, and I'd trust you to watch the canopy while I did.",
+   "turn_grating": "You and I don't see eye to eye. That's okay, the work still gets done.",
+   "turn_rivals": "I'll still yell if something's coming down on you. Just don't expect much more than that.",
+   "make_up": "Look, {name}, let's call it even and start over. What do you say?",
+   "defend": "Back off, that's not right. {name} did exactly what they were told.",
+   "friend_left": "It's quiet without {name}, and I didn't think I'd mind quiet.",
+   "friend_back": "{name}, good to see you back. Feels right again.",
+   "common_american": "You sound like home. Whereabouts in the States? I haven't heard it in anybody's voice for a long time.",
+   "common_wild": "You know the wild places, I can tell by how you walk. You don't step on anything you don't have to.",
+   "common_scandinavian": "Up north, right? My grandfather came over from Norway, and he talked just like you do.",
+   "common_parent": "You've got kids. I can tell by how you count heads. I've got a daughter who fights wildfires, and I think about her a lot."
+  },
   "liam_suncleric": {
    "meet": "G'day, I'm Liam, firefighter and paramedic back home, healer here. If it all goes bad, stay behind me and breathe out loud so I can hear you.",
    "meet_neighbour": "Grom's Rest, mate, I'm in the hut next to the one with the two kids. I'm Liam, and I've seen you about the village.",
@@ -6881,6 +7032,60 @@
    "common_craft": "Twelve years moving puppets a millimetre at a time. Anybody who makes things by hand knows the patience is the whole art.",
    "common_animals": "My crow, and before it my cat Kocka, who hated every puppet I ever made. Animals are the best critics."
   },
+  "rhodri_knight": {
+   "meet": "Rhodri, scaffolder back home and the big lump at the front out here. Mind your head on that pole, it's not tied off yet.",
+   "meet_neighbour": "You're up at Amberwatch too, aren't you? I'm the one hammering on the gatehouse at six in the morning, sorry about that.",
+   "ask_home": "Where's that accent from, then? I'm guessing nowhere near Pontypridd.",
+   "ask_work": "What were you before all this? You've got working hands, I noticed straight off.",
+   "answer_home": "Pontypridd, in the valleys, in South Wales. Terraced streets up the hillsides and a rugby club older than anyone's nan.",
+   "answer_work": "Scaffolding, with my own van and four lads from my street. Saturdays I propped for Ponty, fifteen seasons in the front row.",
+   "chat_food": "A pie and a pint after the match, in the clubhouse, with everybody steaming and singing. Nothing on any world beats that.",
+   "chat_sleep": "Head down and gone, me, like a dropped sack. Up at six whether I like it or not.",
+   "chat_missing": "I miss Saturdays most. The bus to the away game, the singing on the way home, my nephews on my shoulders at the gate.",
+   "chat_here": "I woke up on a beach with my boots full of sand and I was carrying poles up a hill by teatime. I didn't know what else to do with myself.",
+   "tease_quiet": "You'd make a lovely second row, {name}. Head down, mouth shut, shoving like a mule.",
+   "tease_talker": "Duw, {name}, you could talk the hind legs off a donkey and sell them back to it.",
+   "tease_careful": "You check things nearly as often as I do, {name}, and I'm the worst for it. We'll get there by Christmas.",
+   "tease_bold": "You'd run straight at a pack of forwards, you would, {name}. I admire it, but I'd put a helmet on you first.",
+   "tease_any": "You'd do all right on my crew, {name}, as long as you never touch my ties.",
+   "tease_back": "Fair play, {name}, that landed. I'll have that one.",
+   "take_it_kindly": "Ha, you're not wrong, {name}. My mam says the same and she's rarely wrong either.",
+   "bristle": "Leave that, {name}. There was a young ranger on my scaffold, and I don't joke about it.",
+   "needle_quiet": "If you see something coming, shout. Standing there silent gets people hurt.",
+   "needle_talker": "Less talking and more watching, please. Half the trouble out here walks up while somebody's mid-sentence.",
+   "needle_careful": "At some point you've got to trust the knot and climb. We'll be here all week otherwise.",
+   "needle_bold": "You keep stepping out of the line, and one day I won't be able to reach you.",
+   "needle_any": "You never check your straps, and one day that buckle is going to let you down at the worst time.",
+   "bite_back": "I've stood at the front of every fight we've had. Don't tell me I'm not pulling my weight.",
+   "hurt": "That one stung, I won't lie. I'll go and put the kettle on and get over it.",
+   "laugh_off": "I've had seventeen stone of Bridgend forward stood on my head. That barely tickled.",
+   "apologise": "Sorry, that came out harder than I meant it. I'm tired and you didn't deserve it.",
+   "double_down": "I'm not taking it back. Somebody needed telling, and I'm the size for it.",
+   "confide": "{name}, the night the naga came, fire came up through me and I burned one where it stood. What frightens me is how good it felt.",
+   "listen": "Tell me, {name}, I'm listening, and it goes no further than me.",
+   "look_out": "Behind me, {name}, and stay there. I'm the wall today.",
+   "accept": "Fair enough, {name}, your way it is, and I'll hold the door.",
+   "deflect": "That's nothing, {name}, a lineout's done worse to me. See to somebody else.",
+   "check_in": "You took a knock there, {name}. Stand still and let's see that strap.",
+   "blame": "Somebody stepped out of the line and the rest of us paid for it. I felt the gap open.",
+   "thank": "You had my back there, and that's normally my job. I owe you a pint, a big one.",
+   "brush_off": "Don't mention it. Standing in the way is what I'm for.",
+   "worry": "Steady now, {name}, I've got you. Lean on me, I don't fall over.",
+   "handed_down": "I reckon this was yours. Have it back, it never fitted me anyway.",
+   "hand_fine": "No bother, take it. I've played in worse kit than this.",
+   "hand_sulk": "Nobody thought of the big fella, then. Right, I'll be over it by teatime.",
+   "turn_friendly": "Welcome to the crew, {name}, proper. I don't say that to many people.",
+   "turn_friends": "I'd take any hit going for you, {name}, and I'd let you take one for me, which is harder.",
+   "turn_grating": "We grate on each other, us two, there's no hiding it. No matter, the job still gets done.",
+   "turn_rivals": "If you're face down in the mud I'll still drag you out. Don't expect a pint after.",
+   "make_up": "Come on, {name}, let's knock this on the head. Shake on it and start again?",
+   "defend": "Oi, leave off, that's not on. {name} held their end up all day.",
+   "friend_left": "The crew's a man short without {name}, and I keep turning round to say something.",
+   "friend_back": "There they are! {name}'s back and the crew's whole again, lovely.",
+   "common_welsh": "A Welsh voice, out here! Where are you from, then? Tell me it's somewhere I've played.",
+   "common_sport": "You played, didn't you? You've got the look. Every team I was ever on had somebody who stood like that.",
+   "common_craft": "You've built things with your hands, I can tell. Anybody who's made something properly knows you check it twice."
+  },
   "rhys_ranger": {
    "meet": "I'm Rhys, and this is Tegan. Keep your voice down near the trees, would you, she hunts better when nobody's chattering.",
    "meet_neighbour": "Stonetalon West, is it? Tegan spotted you on the ridges before I did, and my name's Rhys, by the way.",
@@ -7954,6 +8159,61 @@
    "common_radiation": "You check for what you can't see, same as me. Folks who've worked hot zones know the danger's always the part you can't see.",
    "common_american": "Another American, huh, which state? I'm Washington, the dry side.",
    "common_parent": "I raised two girls on my own. Jenna played softball, catcher, and I coached her six seasons."
+  },
+  "yiannis_paladin": {
+   "meet": "Yiannis, from Crete, a fisherman, and now I keep the beach with the Light. Sit down, you look hungry, everybody does.",
+   "meet_neighbour": "You're at Amberwatch too! I'm the one in the boat-shed on the shore, singing at the water. Come down one evening and eat.",
+   "ask_home": "Where does your family come from? I always ask, so I know what to cook for you.",
+   "ask_work": "And before all this, what did your hands do? Mine pulled octopus off rocks for thirty-eight years.",
+   "answer_home": "Chania, on Crete, in the old harbour. Blue boats, yellow walls, and old men arguing on every bench.",
+   "answer_work": "Octopus fisherman, like my father and his father. I dived from nine years old and sold to the tavernas on the front.",
+   "chat_food": "Octopus grilled on charcoal, a little oil, lemon, oregano, and a glass of raki after. Then a long sleep in the shade.",
+   "chat_sleep": "Fishermen sleep early and rise early. I'm awake before the birds, checking the sky, and I can't help it.",
+   "chat_missing": "My wife's voice from the kitchen, telling me I've tracked sand through the house again. I'd give her all the sand in the world.",
+   "chat_here": "The sea brought me here, so I keep the sea's beach. Whoever it gives up, I'm standing in the water to meet them.",
+   "tease_quiet": "You eat like a monk and talk like one, {name}. One day I'll get a whole sentence out of you, and I'll celebrate.",
+   "tease_talker": "Panagia mou, {name}, you talk more than my aunts at a wedding, and they never stopped for breath.",
+   "tease_careful": "Three looks at the sky before you leave the tent, {name}. You'd have made a fine fisherman.",
+   "tease_bold": "You jump in before you look, {name}, like my nephew off the harbour wall. He was fine too, mostly.",
+   "tease_any": "You're too thin, {name}, and I'm going to fix that whether you like it or not.",
+   "tease_back": "Ha, you caught me, {name}, like a fish on a good morning.",
+   "take_it_kindly": "Ha, you're right, {name}. My wife would say the same, and she's never been wrong once.",
+   "bristle": "Not about the sea, {name}, please. I lost somebody to it, and it's not for jokes.",
+   "needle_quiet": "When something's wrong you go silent, and I can't help what I can't hear. You have to tell me.",
+   "needle_talker": "Please, a little quiet. The things out here listen for voices, the same as the octopus listens for oars.",
+   "needle_careful": "Sometimes you have to go in the water before you're sure, or the person drowns while you think.",
+   "needle_bold": "You run at everything without looking, and one day I'll be too far away to pull you back.",
+   "needle_any": "You never eat properly, and then you wonder why your hands shake in a fight.",
+   "bite_back": "I've picked you all up off the floor more times than I can count. Don't tell me I don't help.",
+   "hurt": "That stung me deeper than I'll show. I'm going to sit by the water for a while.",
+   "laugh_off": "I've been insulted by Cretan grandmothers, my friend. You're going to need much better material.",
+   "apologise": "Forgive me, that was unkind, and I was raised better. Come, let me feed you as an apology.",
+   "double_down": "No, I meant it. I say it with love, but I say it.",
+   "confide": "{name}, when I was sixteen my brother and I took the boat out on a rough morning. I came back, and he didn't.",
+   "listen": "Tell me all of it, {name}, slowly. I'm not going anywhere.",
+   "look_out": "Come close, {name}, where my hands can reach you.",
+   "accept": "Your way, {name}. You know these waters better than me.",
+   "deflect": "A sea urchin did worse to me once, {name}. Go and help somebody else.",
+   "check_in": "Let me see that, {name}. Hold still, the Light's coming, it won't hurt.",
+   "blame": "Somebody ran ahead, and I couldn't reach everybody at once. Next time, stay inside my reach.",
+   "thank": "You saved my skin there. I'll cook for you every night for a week, and you can't refuse.",
+   "brush_off": "It's nothing, keeping you standing is my job.",
+   "worry": "Breathe, {name}, slowly, with me. I've got you, you're out of the water.",
+   "handed_down": "This is yours by rights, my friend. Take it back with my blessing.",
+   "hand_fine": "Of course, take it, it's only metal. The Light doesn't care what I'm wearing.",
+   "hand_sulk": "Nobody asks the old fisherman, I see. Never mind, I'll survive.",
+   "turn_friendly": "Now you're one of mine, {name}, which means I'll feed you and nag you forever.",
+   "turn_friends": "I'd row out into any storm for you, {name}. I've only ever said that about one other person.",
+   "turn_grating": "We're not easy together, you and I. Still, we'll pull each other out if we have to.",
+   "turn_rivals": "The Light will still come for you when you need it. I just won't sing while it does.",
+   "make_up": "Ela, {name}, enough. Come and eat with me and we'll forget it.",
+   "defend": "Leave them alone, that's unfair. {name} stood firm when it mattered.",
+   "friend_left": "There's an empty place at the fire without {name}. I keep cooking for them anyway.",
+   "friend_back": "Come here, {name}, you're back! Sit down, I'll put more octopus on.",
+   "common_greek": "You speak Greek! Say something, anything, I haven't heard it from another mouth in two years.",
+   "common_boats": "You've worked on boats, haven't you? You stand like the ground might move. The sea never leaves the legs.",
+   "common_faith": "You pray too. Good, I'll say one for you, and you say one for me, and the saints can sort out the rest.",
+   "common_parent": "You've got children, I can tell by how you watch the young ones. Mine are two girls, and they own my heart."
   },
   "yusuf_venomancer": {
    "meet": "I'm Yusuf, {habibi|habibti}, a venomancer and a pharmacist. Sit down, and if you're hurt, I'll tell you exactly how bad it is.",
@@ -13189,6 +13449,284 @@
       [
        "carolina_shaman",
        "No, it doesn't, meu bem. But it means it was never yours to keep. Let it go downstream, a little at a time."
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "a": "rhodri_knight",
+   "b": "rhys_ranger",
+   "steps": [
+    {
+     "when": "met",
+     "affinity": 4,
+     "lines": [
+      [
+       "rhodri_knight",
+       "That's a Brecon accent, that is, or I'm a Frenchman. I'm Ponty, down the valley from you."
+      ],
+      [
+       "rhys_ranger",
+       "It's Brecon, aye. And you're the size of a Ponty prop, so I'm not going to argue with you."
+      ],
+      [
+       "rhodri_knight",
+       "I was a Ponty prop, for fifteen seasons! Don't tell me you came down to Sardis Road."
+      ],
+      [
+       "rhys_ranger",
+       "Every home game with my dad until I was eleven, and after that with my mam, who hated every minute of it."
+      ]
+     ]
+    },
+    {
+     "when": "gap:8",
+     "affinity": 3,
+     "lines": [
+      [
+       "rhys_ranger",
+       "Rhodri, I've been thinking. Were you the one who sat on that Llanelli number eight in the cup?"
+      ],
+      [
+       "rhodri_knight",
+       "Sat on him for a full minute while the ref looked for his whistle. You were there?"
+      ],
+      [
+       "rhys_ranger",
+       "I was twelve, on the wall by the clubhouse, and I've never heard a crowd make a noise like it."
+      ],
+      [
+       "rhodri_knight",
+       "That's made my year, that has, that somebody remembers it."
+      ]
+     ]
+    },
+    {
+     "when": "friendly",
+     "affinity": 3,
+     "lines": [
+      [
+       "rhodri_knight",
+       "Does the bird mind me? She keeps looking at me like I'm a rabbit with ideas."
+      ],
+      [
+       "rhys_ranger",
+       "Tegan minds everybody, she's just quieter about it with you. That's a good sign, honest."
+      ],
+      [
+       "rhodri_knight",
+       "I'll take a good sign. I'll keep my sandwiches in my pocket all the same."
+      ]
+     ]
+    },
+    {
+     "when": "close",
+     "affinity": 3,
+     "lines": [
+      [
+       "rhys_ranger",
+       "Rhodri, if you ever get that game going on the island, I'll play. I'm useless, but I'll play."
+      ],
+      [
+       "rhodri_knight",
+       "You'll be on my wing, and I'll hand you the ball and run interference for you the whole way."
+      ],
+      [
+       "rhys_ranger",
+       "My dad would have loved that, me scoring off a Ponty prop."
+      ],
+      [
+       "rhodri_knight",
+       "Then we'll do it for him. First try's yours, and I'll sing loud enough for the both of us."
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "a": "yiannis_paladin",
+   "b": "sophia_mage",
+   "steps": [
+    {
+     "when": "met",
+     "affinity": 4,
+     "lines": [
+      [
+       "yiannis_paladin",
+       "You speak Greek like a Thessaloniki girl. I'd know those vowels in a storm."
+      ],
+      [
+       "sophia_mage",
+       "And you speak it like a Cretan, which means I'll understand about two words in three."
+      ],
+      [
+       "yiannis_paladin",
+       "Two in three is plenty, my friend. The third is usually about food."
+      ],
+      [
+       "sophia_mage",
+       "Then I'll guess food every time and be right more often than not."
+      ]
+     ]
+    },
+    {
+     "when": "gap:8",
+     "affinity": 3,
+     "lines": [
+      [
+       "sophia_mage",
+       "Yiannis, what's a mantinada? You said you'd made one about me, and I've been worrying."
+      ],
+      [
+       "yiannis_paladin",
+       "A little couplet, two lines that rhyme, the kind old men trade at weddings. Yours is about a quiet woman who hears everything."
+      ],
+      [
+       "sophia_mage",
+       "That's annoyingly accurate. Would you say it again slowly? I'd like to translate it properly."
+      ],
+      [
+       "yiannis_paladin",
+       "For you I'll say it as slowly as an old priest. Then you tell me what it sounds like in Portuguese."
+      ]
+     ]
+    },
+    {
+     "when": "friendly",
+     "affinity": 3,
+     "lines": [
+      [
+       "yiannis_paladin",
+       "You've barely eaten today, Sophia. Don't argue, I watched you."
+      ],
+      [
+       "sophia_mage",
+       "I was listening to everyone else, and I forgot. I do that."
+      ],
+      [
+       "yiannis_paladin",
+       "Then I'll listen for you while you eat. Sit, I've kept a plate warm."
+      ]
+     ]
+    },
+    {
+     "when": "close",
+     "affinity": 3,
+     "lines": [
+      [
+       "sophia_mage",
+       "You talk to your family on the beach every night, don't you? I hear you from the tents."
+      ],
+      [
+       "yiannis_paladin",
+       "I do it every night. Eleni gets the news, and the girls get the jokes."
+      ],
+      [
+       "sophia_mage",
+       "I used to fly home every month to sit with my father. I think I'd like to sit on the beach with you some night and talk to him."
+      ],
+      [
+       "yiannis_paladin",
+       "Come tomorrow, then. I'll bring blankets, and we'll both say it out loud, and the sea won't mind."
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "a": "leif_primalist",
+   "b": "sondre_stormbringer",
+   "steps": [
+    {
+     "when": "met",
+     "affinity": 4,
+     "lines": [
+      [
+       "sondre_stormbringer",
+       "Halvorsen, that's a Norwegian name. Are you from home?"
+      ],
+      [
+       "leif_primalist",
+       "I'm from Oregon. My grandfather came over from near Stavanger and worked the mills. I've got about four words of Norwegian."
+      ],
+      [
+       "sondre_stormbringer",
+       "Then I'll teach you a fifth. Uffda, for when something goes wrong."
+      ],
+      [
+       "leif_primalist",
+       "Grandpa said that one. I didn't know it was a real word until right now."
+      ]
+     ]
+    },
+    {
+     "when": "gap:8",
+     "affinity": 3,
+     "lines": [
+      [
+       "leif_primalist",
+       "Sondre, I've noticed you go quiet when the wind picks up."
+      ],
+      [
+       "sondre_stormbringer",
+       "The wind listens to me now, and it hasn't always done what I meant. Once it took a barn down with people inside."
+      ],
+      [
+       "leif_primalist",
+       "I know that feeling. I've had a tree go where I didn't send it."
+      ],
+      [
+       "sondre_stormbringer",
+       "Did anybody get hurt?"
+      ],
+      [
+       "leif_primalist",
+       "Yep, somebody did. Let's walk a while, and I'll tell you sometime."
+      ]
+     ]
+    },
+    {
+     "when": "friendly",
+     "affinity": 3,
+     "lines": [
+      [
+       "sondre_stormbringer",
+       "Leif, how do you know which way a tree will fall before you've touched it?"
+      ],
+      [
+       "leif_primalist",
+       "You look at the lean, the weight of the crown, and which side the wind's been on all its life. Same as a sail, really."
+      ],
+      [
+       "sondre_stormbringer",
+       "That's exactly how I'd read a squall coming across a fjord."
+      ],
+      [
+       "leif_primalist",
+       "Then we're in the same line of work, near enough."
+      ]
+     ]
+    },
+    {
+     "when": "close",
+     "affinity": 3,
+     "lines": [
+      [
+       "leif_primalist",
+       "My partner, Travis, got killed by a branch out of a tree I was cutting. Everybody said it wasn't my fault."
+      ],
+      [
+       "sondre_stormbringer",
+       "Did you believe them?"
+      ],
+      [
+       "leif_primalist",
+       "Not for a long time. I'm getting there. You'll get there too, with the barn."
+      ],
+      [
+       "sondre_stormbringer",
+       "Thank you, Leif. I think I needed somebody who'd been on the other side of it to say that."
       ]
      ]
     }

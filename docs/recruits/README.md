@@ -281,3 +281,6 @@ fourth).
 | 97 | Neil Hartley | Felsworn 58 | Ariden's Watch | `neil_hartley.md` | Sad | Draft 1 |
 | 98 | Valentina Soto | Starcaller 58 | Moonglade | `valentina_soto.md` | Sad | Draft 1 |
 | 99 | Faris Al-Tamimi | Shaman 58 | Moonglade | `faris_al_tamimi.md` | Happy | Draft 1 |
+| 100 | Yiannis Papadakis | Paladin 3 | Amberleaf Glade (Dawnhaven) | `yiannis_papadakis.md` | Happy | Draft 1, Waves 2 to 4 done (21 Nov 2026) |
+| 101 | Rhodri Evans | Knight of Xoroth 4 | Amberleaf Glade (Dawnhaven) | `rhodri_evans.md` | Happy | Draft 1, Waves 2 to 4 done (21 Nov 2026) |
+| 102 | Leif Halvorsen | Primalist 7 | Duskfall Woods (Dawnhaven) | `leif_halvorsen.md` | Happy | Draft 1, Waves 2 to 4 done (21 Nov 2026) |

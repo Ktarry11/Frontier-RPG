@@ -1,0 +1,71 @@
+{
+  "bond": {
+    "home": "Amberwatch",
+    "dials": {"warmth": 1.4, "nerve": 1.5, "pride": 0.6, "restless": 0.8},
+    "likes": ["boss", "quest"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "Rhodri, butt, Rhodri Evans. I put scaffolds up back home and I stand at the front out here, which is near enough the same job. Mind your head on that pole, now.",
+      "acquaintance": "Pontypridd, in the valleys. Mam was a dinner lady and Dad did the post for thirty years. I left school at sixteen and went up the scaffolds with my uncle, and I had my own van by twenty-six. Saturdays I propped for Ponty. Fifteen seasons in the front row and I never missed one.",
+      "companion": "I'll tell you about the fire, since you've seen it. The night the naga came up the beach it came up through me to meet them, and I burned one where it stood, in front of half of Amberwatch. I'm a soft lump, really. I cry at weddings. What frightens me is that it felt good.",
+      "friend": "There was a lad on my scaffold that night, one of the young rangers. They pulled him off it and he broke his leg in two places. He's walking now, mostly, but nobody ever fell off anything I built until then. The naga are coming back on the spring tide and the wall's still half poles. I need it finished, and I need somebody beside me when the fire comes. Will you stand with me?",
+      "sworn": "Nobody fell, butt, not one of them. The fire came and I put it exactly where I wanted it, and the gate held. In the morning I climbed down and took my first Saturday off since I woke on that beach, and we had a game on the flat by the shore. Fifteen a side, elves and the rest. The elves were hopeless and I've never been happier."
+    },
+    "moments": [
+      {
+        "id": "asking",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to stand beside him on the night of the tide.",
+        "options": [
+          {"text": "I'll be at the gate with you, and I'm not frightened of the fire.", "trust": 12, "reply": "Duw, you don't know what that means to me. Right, there's stone to shift."},
+          {"text": "You'll be fine on your own, you always are.", "trust": 0, "reply": "Aye, that's what I thought the last time and all."}
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe he's checking everybody's straps before he'll talk about anything.",
+        "line": "Hold still while I look at that buckle. Right, who stepped out of the line? Somebody did, I felt it go.",
+        "options": [
+          {"text": "That was me, sorry.", "trust": 8, "mood": 4, "reply": "Tidy, at least you said. We'll go again, and you stand behind me this time."},
+          {"text": "Nobody, we were just outnumbered.", "trust": 0, "mood": -4, "reply": "Outnumbered I can hold. Somebody left a gap, and I'd rather know who."}
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "I'm not built for standing about, butt. Find us a job or I'll start building something just to have something to do.",
+      "leaving_good": "Lush work, that. I'm heading back to Amberwatch before that roof gets any ideas about the weather.",
+      "leaving_bored": "We've done nothing for ages and there's a wall at Amberwatch going up without me, so I'm off back there.",
+      "after_wipe": "Everyone up, slowly. Straps first, then we talk about what went wrong.",
+      "wipe_warning": "I can take a beating, but I can't take every beating. One more go, and then I'm having a sit down.",
+      "wipe_leave": "That's my limit, and I don't say that lightly. You know where Amberwatch is.",
+      "zone_warning": "This lot are well out of our weight, butt. I'm a prop, not a miracle.",
+      "zone_leave": "Too heavy for us out here, and I'm not getting anybody killed proving a point. I'll be at Amberwatch.",
+      "gear_refuse": "Hands off that, now, I've only just got it sitting right.",
+      "gear_taken": "Go on then, you need it more. I've propped in worse kit than this.",
+      "gear_short": "I'm a bit light on the armour side, if anything heavy turns up.",
+      "gear_upgrade": "Oh, that's a lovely bit of kit. Diolch, I mean it.",
+      "back": "There they are! The roof's on at Amberwatch and I'm all yours. What are we doing?",
+      "send_word": "Rhodri has sent word from Amberwatch. The scaffold's down for the day and he's ready to come out.",
+      "walkout_talk": "I owe you a proper word about why I went. Sit down a minute, I'll put the kettle on.",
+      "neglect": "Duw, you're alive! I was about to send a search party, and I'd have led it.",
+      "asked_to_stay": "Go on, one more, but then I'm going back to check my knots.",
+      "on_break": "Rhodri is back at Amberwatch in Amberleaf Glade. Come back after you've done a few more jobs.",
+      "mail_yes": "Lovely to hear from you. I'll get myself over to {town} and find the inn, and I'll be the big one singing.",
+      "mail_later": "Can't just now, butt, the wall's at a bad bit and I'm the only one who knows where the ties go. I'll be free soon, I promise.",
+      "mail_see_me": "That's not a letter conversation, that. Come out to Amberwatch and I'll make you a tea."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {"text": "Look at that eave, now. Whoever put that up never once checked it with a level.", "kind": "open", "topic": "cities"},
+      {"text": "Somewhere round here will do a pie, I can feel it.", "kind": "reply"}
+    ],
+    "dungeon_clear": [{"text": "Nobody fell and nobody's limping. That's a tidy day's work, that is.", "kind": "open"}],
+    "boss_down": [{"text": "Big lad, that one. Not as big as a Pontypridd second row, mind.", "kind": "reply"}],
+    "close_call": [{"text": "Behind me, now, and stay there until I say.", "kind": "open"}],
+    "zone_arrive": [{"text": "Proper old ground this. You can tell by how nothing's level.", "kind": "open"}]
+  }
+}

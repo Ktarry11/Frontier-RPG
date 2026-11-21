@@ -63,7 +63,9 @@ def main(argv):
     bm = BM.get_bond_manager()
     rm = bm.rel
     names = {rid: bm.name_of(rid) for rid in rm.traits}
-    check(len(rm.traits) == 98, f"{len(rm.traits)} recruits have traits, expected 98")
+    # every recruit with a Wave 3 file (98 at first; Dawnhaven's three bears joined 21 Nov 2026) has traits
+    wave3 = len([p for p in (ROOT / "tools/wave3").glob("*.json") if not p.stem.startswith("_")])
+    check(len(rm.traits) == wave3, f"{len(rm.traits)} recruits have traits, expected {wave3} (one per Wave 3 file)")
 
     # 2. chemistry
     for a, b in (("dan_warrior", "ivan_warrior"), ("astrid_starcaller", "minh_chronomancer"),

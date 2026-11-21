@@ -1,0 +1,71 @@
+{
+  "bond": {
+    "home": "Dawnrest",
+    "dials": {"warmth": 0.7, "nerve": 1.3, "pride": 0.8, "restless": 1.1},
+    "likes": ["new_ground", "beast"],
+    "dislikes": ["grinding"],
+    "stages": {
+      "stranger": "The name's Leif, and I cut trees for a living back home. Out here I mostly don't, which is a long story, and I'm not in a hurry to tell it.",
+      "acquaintance": "Coos Bay, on the Oregon coast. Everybody's dad worked in timber, mine included. My grandfather came over from Norway to work the mills. I went into the woods at twenty-one setting chokers, then falling, then climbing, for twenty-five years. I topped spar trees two hundred feet up and never once fell.",
+      "companion": "I've got a daughter, Kaylee. She fights wildfires out of Medford, or she did, and she's tougher than I ever was. Her mom and I split when she was a teenager, friendly enough. I think about Kaylee on the fire line most nights. I don't get to know if she's all right, and that's the part I can't get used to.",
+      "friend": "In 2016 my falling partner, Travis, got killed by a widowmaker. A dead branch came down out of a tree I was cutting. Nobody's fault, everybody said, and they were right, and it doesn't help. Now the oldest trees in the Red Hollow are dying from the inside and the elves want to burn the stand. I want to climb the big one first and find out why. I need a ground man. Will you watch the canopy for me?",
+      "sworn": "We saved the stand. Nobody's burning it. I sat against that old trunk afterward and told you about Travis, all of it, and I think I finally get why the woods picked me. I know what it costs when one comes down. Somebody ought to be standing here who knows that."
+    },
+    "moments": [
+      {
+        "id": "asking",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to be his ground man while he climbs the dying tree.",
+        "options": [
+          {"text": "I'll watch the canopy, and I'll shout the second anything moves.", "trust": 12, "reply": "Good, stand where I tell you and nowhere else. That's the whole job, and it's the important one."},
+          {"text": "Let them burn it, Leif. It's just a tree.", "trust": 0, "reply": "Yep, that's what folks back home used to say too."}
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe he's sitting on a log, looking up, not at any of you.",
+        "line": "Something came down on us. I should've seen it lean.",
+        "options": [
+          {"text": "You couldn't have seen that one coming, Leif.", "trust": 8, "mood": 4, "reply": "Maybe so, and thanks for saying it anyway."},
+          {"text": "You should have. That's your whole thing.", "trust": 0, "mood": -4, "reply": "Yep, I know it is."}
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "We've been standing in one spot for a long while. I'd like to see some new woods.",
+      "leaving_good": "Good run, everybody. I'm headed back to Dawnrest, there's deadwood that won't haul itself.",
+      "leaving_bored": "Not much happening out here, and the Red Hollow's got work in it. I'm going back to Dawnrest.",
+      "after_wipe": "Take a breath. Look up before you stand. Then we figure out what happened.",
+      "wipe_warning": "I've watched enough things come down to know when it's coming. One more try, and then I'm out.",
+      "wipe_leave": "That's enough for me. I'll be at Dawnrest in Duskfall Woods if you want to try again.",
+      "zone_warning": "Everything out here outweighs us, and I've seen what that does. Let's turn around.",
+      "zone_leave": "This is too much ground for this crew. I'm heading back to Dawnrest.",
+      "gear_refuse": "That one stays on me. It fits like my old cork boots did.",
+      "gear_taken": "Go ahead and take it. I spent twenty-five years in gear held together with tape.",
+      "gear_short": "If something heavy turns up, I wouldn't say no.",
+      "gear_upgrade": "Now that's good kit, and I thank you for it.",
+      "back": "Good to see you. Dawnrest's roof is holding and I've got time. Where are we headed?",
+      "send_word": "Leif has sent word from Dawnrest. The deadwood's stacked and he's ready to come out.",
+      "walkout_talk": "I should tell you why I left like that. Sit down, I'll make coffee, it's terrible.",
+      "neglect": "Well, you turned up. I figured something had come down on you.",
+      "asked_to_stay": "I'll do one more, then I'm going back to check my stack.",
+      "on_break": "Leif is back at Dawnrest in Duskfall Woods. Come back after you've done a few more jobs.",
+      "mail_yes": "Got your letter. I'll meet you at {town}, by the inn. I'll be the one looking at the trees.",
+      "mail_later": "Can't right now, there's a stand in the Red Hollow I need to keep an eye on. I'll come soon.",
+      "mail_see_me": "I'm no good at letters. Come out to Dawnrest and we'll talk on the porch."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {"text": "Somebody here used green lumber on that roof. It'll sag by spring.", "kind": "open", "topic": "cities"},
+      {"text": "Coffee first, if this place has any.", "kind": "reply"}
+    ],
+    "dungeon_clear": [{"text": "Everybody look up before you walk out. Ceilings come down too.", "kind": "open"}],
+    "boss_down": [{"text": "That was a big one, and they always go down slower than you think.", "kind": "reply"}],
+    "close_call": [{"text": "Move left right now, and don't argue with me.", "kind": "open"}],
+    "zone_arrive": [{"text": "Old woods here. Listen to them creak, they're talking about us.", "kind": "open", "topic": "outdoors"}]
+  }
+}

@@ -79,8 +79,7 @@ above.
 
 **The people.** Velanthe and Sylvaen moved from Talrendis Landing to the Spire's Conclave Hall (no quests, still
 movable). The Spire has the inn, the island's one flight path (dragonhawks), MerchantTusk's bank, a mailbox, a class
-trainer and four pairs of trade trainers; Amberwatch has a class trainer and the gathering trainers. Recruits: Liam
-Hartigan (Sun Cleric healer) on the Waking Shore, and Haruto Nakamura (Runemaster) copying runes at the Withered Spires.
+trainer and four pairs of trade trainers; Amberwatch has a class trainer and the gathering trainers. Recruits (Kyle: "Island bears", 21 Nov 2026): three of Sheet 7's bears written for the island. Yiannis Papadakis, a Cretan octopus fisherman and the island's healer (Holy Paladin, 3), keeps the Waking Shore; Rhodri Evans, a Welsh scaffolder and rugby prop (Defiance Knight of Xoroth, 4), is putting Amberwatch's roof back on; Leif Halvorsen, an Oregon logger (Wildwalker Primalist, 7), hauls deadwood out of the Red Hollow for Dawnrest. Each has the full set: profile, bond, banter, relationships and a signature pair, a Sworn skill and a keepsake. Liam Hartigan and Haruto Nakamura were here first and went back to the stories already written for them.
 
 **The townsfolk** (Kyle: "Do we need additional blood elf NPCs? Might as well populate the world a bit"): sixteen more
 people, guards at Amberwatch, Dawnrest and both Spire gates, a hauler and Rosa's helper, Dawnrest's carpenter and

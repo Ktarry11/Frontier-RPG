@@ -144,7 +144,7 @@ NPC_POSITIONS = {
     "pt_dawnhaven_skins": (56, 90),
     # the priestess who keeps the names of the outpost's dead, at the memorial stone in camp
     "dh_aldaria": (74, 97),
-    # Liam Hartigan (the recruit) waits by the guard post on the shore: data/npcs/recruits.json
+    # the island's recruits (Yiannis on the shore, Rhodri at Amberwatch): tools/build_sheet7_recruits.py
     "dh_shore_newcomer_a": (72, 115),  # townsfolk
     "dh_shore_newcomer_b": (80, 114),  # townsfolk
     "dh_amberwatch_gate": (75, 81),  # townsfolk

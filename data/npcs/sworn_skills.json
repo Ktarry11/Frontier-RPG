@@ -1957,6 +1957,56 @@
    "reveals_intent": "all"
   }
  },
+ "leif_primalist": {
+  "from": "Wave 4: 'what he resolves is the widowmaker. ... he calls a tree down on one enemy row, and it lands exactly where he said it would.'",
+  "ability": {
+   "ability_id": "personal_sworn_leif_calls_it_down",
+   "name": "Calls It Down",
+   "engine": "live: melee hit on an enemy row that cannot miss, with a 1-turn stun",
+   "effect_type": "damage",
+   "target_type": "enemy_aoe",
+   "resource_type": "mana",
+   "cooldown": 15,
+   "duration": 1,
+   "is_instant": true,
+   "stat_mods": {},
+   "description": "Leif calls a tree down on one enemy row, exactly where he said it would land. It cannot miss, and the row loses its next turn.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 35,
+     "effect_value": 90
+    },
+    {
+     "rank": 2,
+     "level_req": 15,
+     "cost": 49,
+     "effect_value": 145
+    },
+    {
+     "rank": 3,
+     "level_req": 30,
+     "cost": 63,
+     "effect_value": 200
+    },
+    {
+     "rank": 4,
+     "level_req": 45,
+     "cost": 77,
+     "effect_value": 255
+    },
+    {
+     "rank": 5,
+     "level_req": 60,
+     "cost": 91,
+     "effect_value": 310
+    }
+   ],
+   "cannot_miss": true,
+   "is_stun": true
+  }
+ },
  "liam_suncleric": {
   "from": "Wave 4: 'what he resolves is going in alone. ... he calls the crew in, and every ally gets a burst of healing at once.'",
   "ability": {
@@ -2871,6 +2921,37 @@
    }
   }
  },
+ "rhodri_knight": {
+  "from": "Wave 4: 'what he resolves is the fire. ... he holds the line for the party, takes the hits meant for them and lets the fire answer.'",
+  "ability": {
+   "ability_id": "personal_sworn_rhodri_holds_the_line",
+   "name": "Holds the Line",
+   "engine": "live: damage_share for the party (3 uses, 60% less) and threat, 2 turns",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "rage",
+   "cooldown": 15,
+   "duration": 2,
+   "is_instant": true,
+   "stat_mods": {
+    "threat_generation_pct": 200
+   },
+   "description": "Rhodri holds the line and the fire with it. For 2 turns he draws far more attention and takes the next three hits meant for any ally, at 60% less damage.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
+    }
+   ],
+   "damage_share": {
+    "pct": 100,
+    "reduction_pct": 60,
+    "uses": 3
+   }
+  }
+ },
  "rhys_ranger": {
   "from": "Wave 4: 'what he resolves is not knowing. ... Tegan dives on the enemy about to act and stops it.'",
   "ability": {
@@ -3612,6 +3693,56 @@
     "uses": 99,
     "holds": true
    }
+  }
+ },
+ "yiannis_paladin": {
+  "from": "Wave 4: 'what he resolves is Manolis. ... he sings to the sea, and the whole party is healed and keeps healing.'",
+  "ability": {
+   "ability_id": "personal_sworn_yiannis_sings_for_manolis",
+   "name": "Sings for Manolis",
+   "engine": "live: party heal, 25% more per wounded ally, plus heals_party_pct_max 10",
+   "effect_type": "heal",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 13,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Yiannis sings to the sea out loud at last. Every ally is healed, 25% more for each one who's wounded, and for a tenth of their maximum health on top.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 45,
+     "effect_value": 110
+    },
+    {
+     "rank": 2,
+     "level_req": 15,
+     "cost": 63,
+     "effect_value": 246
+    },
+    {
+     "rank": 3,
+     "level_req": 30,
+     "cost": 81,
+     "effect_value": 383
+    },
+    {
+     "rank": 4,
+     "level_req": 45,
+     "cost": 99,
+     "effect_value": 520
+    },
+    {
+     "rank": 5,
+     "level_req": 60,
+     "cost": 117,
+     "effect_value": 656
+    }
+   ],
+   "wounded_allies_bonus_pct": 25,
+   "heals_party_pct_max": 10
   }
  },
  "yusuf_venomancer": {

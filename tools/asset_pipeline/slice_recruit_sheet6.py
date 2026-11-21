@@ -5,6 +5,10 @@ sheets AE-M and AE-W (6x4 each).
     python3 tools/asset_pipeline/slice_recruit_sheet6.py portraits <sheet.png>
     python3 tools/asset_pipeline/slice_recruit_sheet6.py aetherians <men.png> <women.png>
     python3 tools/asset_pipeline/slice_recruit_sheet6.py blood_elves <men.png> <women.png>
+    python3 tools/asset_pipeline/slice_recruit_sheet6.py sprites --sheet7 <sheet.png>   (and portraits)
+
+Sheet 7, the bears (docs/recruit_art_prompts_sheet7.md), is the same 4x4 sprite and portrait layout; --sheet7 reads it
+in IDS7's order.
 
 The blood elf townsfolk (docs/blood_elf_npc_art_prompts.md, BE-M and BE-W, 21 Nov 2026) are the same 6x4 front-only
 layout, sliced to assets/npcs/blood_elf/blood_elf_m1..m24 and blood_elf_w1..w24.
@@ -72,6 +76,13 @@ IDS = [
     "facundo_chronomancer", "renata_rogue", "tariq_bloodmage", "isabela_mage",
 ]
 
+IDS7 = [
+    "mike_guardian", "inaki_primalist", "rhodri_knight", "yiannis_paladin",
+    "cody_warrior", "ricardo_guardian", "mehmet_barbarian", "angus_hunter",
+    "marko_tinker", "leif_primalist", "omar_pyromancer", "javier_templar",
+    "bjorn_witchhunter", "darius_suncleric", "tomas_stormbringer", "gus_bloodmage",
+]
+
 
 def aetherians(men, women, folder="aetherian"):
     """The two 6x4 Aetherian sheets, front only: aetherian_m1..m24 and aetherian_w1..w24, each a down.png on a canvas
@@ -96,7 +107,10 @@ def aetherians(men, women, folder="aetherian"):
 def main():
     if len(sys.argv) < 3:
         raise SystemExit(__doc__)
-    kind, sheets = sys.argv[1], sys.argv[2:]
+    global IDS
+    kind, sheets = sys.argv[1], [a for a in sys.argv[2:] if a != "--sheet7"]
+    if "--sheet7" in sys.argv:
+        IDS = IDS7
     if kind == "aetherians":
         return aetherians(*sheets)
     if kind == "blood_elves":

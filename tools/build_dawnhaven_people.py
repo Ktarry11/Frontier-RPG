@@ -10,8 +10,9 @@ and Quartermaster Sylvaen move from Talrendis Landing to the Spire; they still g
 move again (checked here and in tools/build_talrendis_landing.py).
 
 RECRUITS. Kyle: "We have some unused recruits. We always want at least a Healer at the start of the game." Liam
-Hartigan (Sun Cleric, healer), the paramedic who meets new arrivals on the Waking Shore, and Haruto Nakamura (Runemaster,
-melee), copying the outpost's runes at the Withered Spires before they fade.
+Hartigan and Haruto Nakamura were put here first, but both had full stories written for other places (Grom's Rest and
+Silverpine), so they went back (Kyle, 21 Nov 2026, "Island bears"). The island's three are Sheet 7's bears written for
+it: Rhodri Evans (tank), Yiannis Papadakis (healer) and Erik Halvorsen (melee), in tools/build_sheet7_recruits.py.
 """
 import json
 import sys
@@ -205,23 +206,8 @@ FLIGHT_NODES = [("firstlight_spire", {"name": "Firstlight Spire", "zone": FS.NAM
                                        "pos": [62, -84], "continent": "kalimdor"})]
 
 #: the two recruits: placed, with what they're doing here now
-RECRUITS = {
-    "liam_suncleric": dict(zone=AL.NAME, x=82, y=106, level=3,
-                           now="Amberleaf Glade, on the Waking Shore, meeting whoever the sea gives up. He's the first "
-                               "face most of them see.\n\nHe sits them down, gets them breathing, and walks them up to "
-                               "Amberwatch. The elves call it a calling. He calls it a shift that doesn't end.",
-                           forward="A crew, rostered and trained and able to do it without him standing there. It's the "
-                                   "same thing he wanted on Earth and never got, and the reason he never got it was "
-                                   "that he kept going in alone.\n\nThere are two kids at Amberwatch who woke up on "
-                                   "the shore with nobody. He's been on Dawnhaven a year, and everybody who knows him "
-                                   "can see what's happened except him."),
-    "haruto_runemaster": dict(zone=DF.NAME, x=126, y=82, level=7,
-                              now="Duskfall Woods, among the Withered Spires, where the outpost's founders cut runes "
-                                  "into every stone and the runes are fading now the well is dark.\n\nHe's copying "
-                                  "them before they're gone. It's slow and unrewarded, and his copies will be the only "
-                                  "record there is.",
-                              forward=None),
-}
+#: the island's recruits are written and placed by tools/build_sheet7_recruits.py (see the docstring)
+RECRUITS = {}
 
 
 def _check():

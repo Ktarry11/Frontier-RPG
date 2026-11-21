@@ -4422,6 +4422,93 @@
         "mail_see_me": "The odds of explaining this well in a letter are poor. Come to the Underdark and I'll explain it precisely."
       }
     },
+    "leif_primalist": {
+      "home": "Dawnrest",
+      "dials": {
+        "warmth": 0.7,
+        "nerve": 1.3,
+        "pride": 0.8,
+        "restless": 1.1
+      },
+      "likes": [
+        "new_ground",
+        "beast"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "The name's Leif, and I cut trees for a living back home. Out here I mostly don't, which is a long story, and I'm not in a hurry to tell it.",
+        "acquaintance": "Coos Bay, on the Oregon coast. Everybody's dad worked in timber, mine included. My grandfather came over from Norway to work the mills. I went into the woods at twenty-one setting chokers, then falling, then climbing, for twenty-five years. I topped spar trees two hundred feet up and never once fell.",
+        "companion": "I've got a daughter, Kaylee. She fights wildfires out of Medford, or she did, and she's tougher than I ever was. Her mom and I split when she was a teenager, friendly enough. I think about Kaylee on the fire line most nights. I don't get to know if she's all right, and that's the part I can't get used to.",
+        "friend": "In 2016 my falling partner, Travis, got killed by a widowmaker. A dead branch came down out of a tree I was cutting. Nobody's fault, everybody said, and they were right, and it doesn't help. Now the oldest trees in the Red Hollow are dying from the inside and the elves want to burn the stand. I want to climb the big one first and find out why. I need a ground man. Will you watch the canopy for me?",
+        "sworn": "We saved the stand. Nobody's burning it. I sat against that old trunk afterward and told you about Travis, all of it, and I think I finally get why the woods picked me. I know what it costs when one comes down. Somebody ought to be standing here who knows that."
+      },
+      "moments": [
+        {
+          "id": "asking",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to be his ground man while he climbs the dying tree.",
+          "options": [
+            {
+              "text": "I'll watch the canopy, and I'll shout the second anything moves.",
+              "trust": 12,
+              "reply": "Good, stand where I tell you and nowhere else. That's the whole job, and it's the important one."
+            },
+            {
+              "text": "Let them burn it, Leif. It's just a tree.",
+              "trust": 0,
+              "reply": "Yep, that's what folks back home used to say too."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's sitting on a log, looking up, not at any of you.",
+          "line": "Something came down on us. I should've seen it lean.",
+          "options": [
+            {
+              "text": "You couldn't have seen that one coming, Leif.",
+              "trust": 8,
+              "mood": 4,
+              "reply": "Maybe so, and thanks for saying it anyway."
+            },
+            {
+              "text": "You should have. That's your whole thing.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "Yep, I know it is."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been standing in one spot for a long while. I'd like to see some new woods.",
+        "leaving_good": "Good run, everybody. I'm headed back to Dawnrest, there's deadwood that won't haul itself.",
+        "leaving_bored": "Not much happening out here, and the Red Hollow's got work in it. I'm going back to Dawnrest.",
+        "after_wipe": "Take a breath. Look up before you stand. Then we figure out what happened.",
+        "wipe_warning": "I've watched enough things come down to know when it's coming. One more try, and then I'm out.",
+        "wipe_leave": "That's enough for me. I'll be at Dawnrest in Duskfall Woods if you want to try again.",
+        "zone_warning": "Everything out here outweighs us, and I've seen what that does. Let's turn around.",
+        "zone_leave": "This is too much ground for this crew. I'm heading back to Dawnrest.",
+        "gear_refuse": "That one stays on me. It fits like my old cork boots did.",
+        "gear_taken": "Go ahead and take it. I spent twenty-five years in gear held together with tape.",
+        "gear_short": "If something heavy turns up, I wouldn't say no.",
+        "gear_upgrade": "Now that's good kit, and I thank you for it.",
+        "back": "Good to see you. Dawnrest's roof is holding and I've got time. Where are we headed?",
+        "send_word": "Leif has sent word from Dawnrest. The deadwood's stacked and he's ready to come out.",
+        "walkout_talk": "I should tell you why I left like that. Sit down, I'll make coffee, it's terrible.",
+        "neglect": "Well, you turned up. I figured something had come down on you.",
+        "asked_to_stay": "I'll do one more, then I'm going back to check my stack.",
+        "on_break": "Leif is back at Dawnrest in Duskfall Woods. Come back after you've done a few more jobs.",
+        "mail_yes": "Got your letter. I'll meet you at {town}, by the inn. I'll be the one looking at the trees.",
+        "mail_later": "Can't right now, there's a stand in the Red Hollow I need to keep an eye on. I'll come soon.",
+        "mail_see_me": "I'm no good at letters. Come out to Dawnrest and we'll talk on the porch."
+      }
+    },
     "liam_suncleric": {
       "home": "Grom's Rest",
       "dials": {
@@ -6535,6 +6622,93 @@
         "mail_see_me": "I stormed off, and I'll explain it to your face. Come to the Black Strand, and you can have your turn after."
       }
     },
+    "rhodri_knight": {
+      "home": "Amberwatch",
+      "dials": {
+        "warmth": 1.4,
+        "nerve": 1.5,
+        "pride": 0.6,
+        "restless": 0.8
+      },
+      "likes": [
+        "boss",
+        "quest"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "Rhodri, butt, Rhodri Evans. I put scaffolds up back home and I stand at the front out here, which is near enough the same job. Mind your head on that pole, now.",
+        "acquaintance": "Pontypridd, in the valleys. Mam was a dinner lady and Dad did the post for thirty years. I left school at sixteen and went up the scaffolds with my uncle, and I had my own van by twenty-six. Saturdays I propped for Ponty. Fifteen seasons in the front row and I never missed one.",
+        "companion": "I'll tell you about the fire, since you've seen it. The night the naga came up the beach it came up through me to meet them, and I burned one where it stood, in front of half of Amberwatch. I'm a soft lump, really. I cry at weddings. What frightens me is that it felt good.",
+        "friend": "There was a lad on my scaffold that night, one of the young rangers. They pulled him off it and he broke his leg in two places. He's walking now, mostly, but nobody ever fell off anything I built until then. The naga are coming back on the spring tide and the wall's still half poles. I need it finished, and I need somebody beside me when the fire comes. Will you stand with me?",
+        "sworn": "Nobody fell, butt, not one of them. The fire came and I put it exactly where I wanted it, and the gate held. In the morning I climbed down and took my first Saturday off since I woke on that beach, and we had a game on the flat by the shore. Fifteen a side, elves and the rest. The elves were hopeless and I've never been happier."
+      },
+      "moments": [
+        {
+          "id": "asking",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to stand beside him on the night of the tide.",
+          "options": [
+            {
+              "text": "I'll be at the gate with you, and I'm not frightened of the fire.",
+              "trust": 12,
+              "reply": "Duw, you don't know what that means to me. Right, there's stone to shift."
+            },
+            {
+              "text": "You'll be fine on your own, you always are.",
+              "trust": 0,
+              "reply": "Aye, that's what I thought the last time and all."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's checking everybody's straps before he'll talk about anything.",
+          "line": "Hold still while I look at that buckle. Right, who stepped out of the line? Somebody did, I felt it go.",
+          "options": [
+            {
+              "text": "That was me, sorry.",
+              "trust": 8,
+              "mood": 4,
+              "reply": "Tidy, at least you said. We'll go again, and you stand behind me this time."
+            },
+            {
+              "text": "Nobody, we were just outnumbered.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "Outnumbered I can hold. Somebody left a gap, and I'd rather know who."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "I'm not built for standing about, butt. Find us a job or I'll start building something just to have something to do.",
+        "leaving_good": "Lush work, that. I'm heading back to Amberwatch before that roof gets any ideas about the weather.",
+        "leaving_bored": "We've done nothing for ages and there's a wall at Amberwatch going up without me, so I'm off back there.",
+        "after_wipe": "Everyone up, slowly. Straps first, then we talk about what went wrong.",
+        "wipe_warning": "I can take a beating, but I can't take every beating. One more go, and then I'm having a sit down.",
+        "wipe_leave": "That's my limit, and I don't say that lightly. You know where Amberwatch is.",
+        "zone_warning": "This lot are well out of our weight, butt. I'm a prop, not a miracle.",
+        "zone_leave": "Too heavy for us out here, and I'm not getting anybody killed proving a point. I'll be at Amberwatch.",
+        "gear_refuse": "Hands off that, now, I've only just got it sitting right.",
+        "gear_taken": "Go on then, you need it more. I've propped in worse kit than this.",
+        "gear_short": "I'm a bit light on the armour side, if anything heavy turns up.",
+        "gear_upgrade": "Oh, that's a lovely bit of kit. Diolch, I mean it.",
+        "back": "There they are! The roof's on at Amberwatch and I'm all yours. What are we doing?",
+        "send_word": "Rhodri has sent word from Amberwatch. The scaffold's down for the day and he's ready to come out.",
+        "walkout_talk": "I owe you a proper word about why I went. Sit down a minute, I'll put the kettle on.",
+        "neglect": "Duw, you're alive! I was about to send a search party, and I'd have led it.",
+        "asked_to_stay": "Go on, one more, but then I'm going back to check my knots.",
+        "on_break": "Rhodri is back at Amberwatch in Amberleaf Glade. Come back after you've done a few more jobs.",
+        "mail_yes": "Lovely to hear from you. I'll get myself over to {town} and find the inn, and I'll be the big one singing.",
+        "mail_later": "Can't just now, butt, the wall's at a bad bit and I'm the only one who knows where the ties go. I'll be free soon, I promise.",
+        "mail_see_me": "That's not a letter conversation, that. Come out to Amberwatch and I'll make you a tea."
+      }
+    },
     "rhys_ranger": {
       "home": "Stonetalon West",
       "dials": {
@@ -8186,6 +8360,94 @@
         "mail_yes": "Copy that, I'm on my way. I'll be in {town}. Have the job and the procedure ready.",
         "mail_later": "I'm on the fence for a few more rotations, and I don't leave a post early. After my last rotation, I'll come.",
         "mail_see_me": "We'll go through it step by step, and that's done across a table. Come to the fence at Ariden's Watch."
+      }
+    },
+    "yiannis_paladin": {
+      "home": "Amberwatch",
+      "dials": {
+        "warmth": 1.5,
+        "nerve": 1.2,
+        "pride": 0.4,
+        "restless": 0.7
+      },
+      "likes": [
+        "quest",
+        "new_ground"
+      ],
+      "dislikes": [
+        "grinding",
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "Yiannis, from Crete. I fished octopus at home and here I keep the beach, and the Light keeps me. Come, sit, you look like you haven't eaten since the last world.",
+        "acquaintance": "Chania, on the north coast, in the old harbour. My grandfather fished those waters, then my father, then me. I dived for octopus from nine years old and beat them soft on the harbour stones, and the tavernas on the front paid me in money and lunch. It was mostly lunch.",
+        "companion": "My wife is Eleni, and my girls are Maria and Katerina. Maria wanted Athens and books, and Katerina wanted the sea, like her father. Every night I go down to the water and tell them about my day, out loud. The rangers think I'm praying. In a way I am.",
+        "friend": "When I was sixteen, my brother Manolis and I took the boat out on a morning our father said was too rough. I came back, and he didn't. I started singing to the sea that winter so it would hear me before it took anybody else. Now a storm season's coming, and the lookouts can see a wreck out on the reef with people on it. Nobody will row out in that. Will you row?",
+        "sworn": "We brought every one of them in, my friend, every one. On the beach, with the blankets and the fire, I sang a mantinada for Manolis, out loud, the first in thirty years. My voice cracked in the middle and nobody laughed. Then I cooked octopus for forty people, and the elves asked for more."
+      },
+      "moments": [
+        {
+          "id": "asking",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to row out to the wreck with him, in the storm.",
+          "options": [
+            {
+              "text": "Give me an oar. We'll bring them all in.",
+              "trust": 12,
+              "reply": "Panagia mou, you're braver than the priests. Come, the boat's this way."
+            },
+            {
+              "text": "It's too rough, Yiannis. Wait for it to calm.",
+              "trust": 0,
+              "reply": "My father said that too, once. I've wished every day since that I'd listened, and today I can't."
+            }
+          ]
+        },
+        {
+          "id": "first_stint",
+          "stage": "any",
+          "when": "first_stint_end",
+          "prompt": "At the end of your first run together he's handing round bread from his pack.",
+          "line": "Eat first, then we argue about who was brave. That's how we did it on the boats.",
+          "options": [
+            {
+              "text": "You were the brave one, keeping us all standing.",
+              "trust": 8,
+              "mood": 4,
+              "reply": "Ah, stop, you'll make me sing, and nobody wants that before dessert."
+            },
+            {
+              "text": "I'm not hungry, let's keep moving.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "Nobody walks well on an empty stomach. Take the bread anyway, for later."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We sit and sit, my friend, and the beach doesn't keep itself. Let's find some work.",
+        "leaving_good": "That was good, all of you, very good. I'm going back to the shore before the tide brings anybody in without me.",
+        "leaving_bored": "Nothing happens out here, and the sea is busy at Amberwatch. Forgive me, I'm going back to it.",
+        "after_wipe": "Slowly, slowly, nobody stands too fast. Let me see your hands first.",
+        "wipe_warning": "I can keep pulling you out, but not forever. Once more, then we rest and eat.",
+        "wipe_leave": "No more today. I'll be on the beach at Amberwatch, and I'll keep a blanket for you.",
+        "zone_warning": "This water's too deep for us, my friend. Even an octopus knows when to go back under its rock.",
+        "zone_leave": "Too much for us here. I'm going back to Amberwatch, and you should come too.",
+        "gear_refuse": "That one stays with me a little longer. I've only just stopped it squeaking.",
+        "gear_taken": "It's only metal, my friend, take it. The Light doesn't care what I'm wearing.",
+        "gear_short": "If anything turns up for a fat old fisherman, I'd wear it gladly.",
+        "gear_upgrade": "Beautiful, like new nets. Efcharisto, my friend.",
+        "back": "Ela, there you are! The beach is quiet and the sea is calm. Where are we going?",
+        "send_word": "Yiannis has sent word from Amberwatch. The sea is calm and he's ready to come out.",
+        "walkout_talk": "I left you without a proper word, and that's not how I was raised. Sit, I've made coffee.",
+        "neglect": "Panagia mou, you're back! I thought the sea had you, and I was getting ready to go in after you.",
+        "asked_to_stay": "One more, yes, but then I eat. Even the saints had lunch.",
+        "on_break": "Yiannis is back on the Waking Shore at Amberwatch in Amberleaf Glade. Come back after you've done a few more jobs.",
+        "mail_yes": "Your letter made my morning. I'll come to {town} and find the inn, and I'll bring food, because you won't have eaten.",
+        "mail_later": "The sea is bringing people in every night this week, and I can't leave the beach. Soon, I promise.",
+        "mail_see_me": "Some things you say across a table, not in a letter. Come down to the beach at Amberwatch and I'll cook."
       }
     },
     "yusuf_venomancer": {

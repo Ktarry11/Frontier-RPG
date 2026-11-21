@@ -2673,5 +2673,88 @@
     "count": 9
    }
   }
+ },
+ "rhodri_knight": {
+  "from": "Wave 4: 'what he resolves is the fire. ... he holds the line for the party, takes the hits meant for them and lets the fire answer.'",
+  "ability": {
+   "ability_id": "personal_sworn_rhodri_holds_the_line",
+   "name": "Holds the Line",
+   "engine": "live: damage_share for the party (3 uses, 60% less) and threat, 2 turns",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "rage",
+   "cooldown": 15,
+   "duration": 2,
+   "is_instant": true,
+   "stat_mods": {
+    "threat_generation_pct": 200
+   },
+   "description": "Rhodri holds the line and the fire with it. For 2 turns he draws far more attention and takes the next three hits meant for any ally, at 60% less damage.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
+    }
+   ],
+   "damage_share": {
+    "pct": 100,
+    "reduction_pct": 60,
+    "uses": 3
+   }
+  }
+ },
+ "yiannis_paladin": {
+  "from": "Wave 4: 'what he resolves is Manolis. ... he sings to the sea, and the whole party is healed and keeps healing.'",
+  "ability": {
+   "ability_id": "personal_sworn_yiannis_sings_for_manolis",
+   "name": "Sings for Manolis",
+   "engine": "live: party heal, 25% more per wounded ally, plus heals_party_pct_max 10",
+   "effect_type": "heal",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 13,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Yiannis sings to the sea out loud at last. Every ally is healed, 25% more for each one who's wounded, and for a tenth of their maximum health on top.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 45,
+     "effect_value": 110
+    }
+   ],
+   "wounded_allies_bonus_pct": 25,
+   "heals_party_pct_max": 10
+  }
+ },
+ "leif_primalist": {
+  "from": "Wave 4: 'what he resolves is the widowmaker. ... he calls a tree down on one enemy row, and it lands exactly where he said it would.'",
+  "ability": {
+   "ability_id": "personal_sworn_leif_calls_it_down",
+   "name": "Calls It Down",
+   "engine": "live: melee hit on an enemy row that cannot miss, with a 1-turn stun",
+   "effect_type": "damage",
+   "target_type": "enemy_aoe",
+   "resource_type": "mana",
+   "cooldown": 15,
+   "duration": 1,
+   "is_instant": true,
+   "stat_mods": {},
+   "description": "Leif calls a tree down on one enemy row, exactly where he said it would land. It cannot miss, and the row loses its next turn.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 35,
+     "effect_value": 90
+    }
+   ],
+   "cannot_miss": true,
+   "is_stun": true
+  }
  }
 }

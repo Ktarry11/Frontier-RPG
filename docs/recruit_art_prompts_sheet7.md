@@ -31,7 +31,7 @@ before. Final zones get picked when each one is placed.
 | 7 | Mehmet Yildirim | Edirne, Turkey | 40 | oil wrestler and olive farmer | barbarian_brutality | melee | 56 | the Ascendant Bastions |
 | 8 | Angus MacLeod | Isle of Skye, Scotland | 45 | gamekeeper and caber tosser | hunter_survival | ranged | 23 | a 21-30 zone |
 | 9 | Marko Juric | Split, Croatia | 43 | wooden-boat shipwright | tinker_invention | healer | 57 | the Fading Firmament |
-| 10 | Erik Halvorsen | Coos Bay, Oregon | 46 | logger and tree climber | primalist_wildwalker | melee | 28 | a 21-30 zone |
+| 10 | Leif Halvorsen | Coos Bay, Oregon | 46 | logger and tree climber | primalist_wildwalker | melee | 28 | a 21-30 zone |
 | 11 | Omar Nasser | Beirut, Lebanon | 41 | baker, at the ovens at 3am | pyromancer_flameweaving | healer | 54 | the Ascendant Bastions |
 | 12 | Javier Montoya | Monterrey, Mexico | 38 | ironworker on high-rise steel | templar_crusader | melee | 59 | the Fading Firmament |
 | 13 | Bjørn Haugen | Stavanger, Norway | 44 | North Sea oil-rig roughneck | witch_hunter_black_knight | tank | 30 | a 21-30 zone |
@@ -49,7 +49,7 @@ One-line hooks (full stories, kits and the four waves get written when the art l
 - **Mehmet** has wrestled at Kirkpinar, oiled to the eyebrows, every summer of his adult life.
 - **Angus** keeps the deer on an estate on Skye and tosses the caber at the games, and he hasn't lost since 2015.
 - **Marko** builds wooden boats the old way in Split and fixes anything that leaks, people included.
-- **Erik** climbed and felled big timber on the Oregon coast for twenty-five years.
+- **Leif** climbed and felled big timber on the Oregon coast for twenty-five years.
 - **Omar** fires the ovens at his family's bakery in Beirut every morning at three, and he smells of bread forever.
 - **Javier** walks steel beams thirty floors up, without a harness when the foreman isn't looking.
 - **Bjørn** worked the drill floor on a North Sea rig through storms that made grown men pray.
@@ -129,6 +129,6 @@ way.
 ```
 mike_guardian, inaki_primalist, rhodri_knight, yiannis_paladin,
 cody_warrior, ricardo_guardian, mehmet_barbarian, angus_hunter,
-marko_tinker, erik_primalist, omar_pyromancer, javier_templar,
+marko_tinker, leif_primalist, omar_pyromancer, javier_templar,
 bjorn_witchhunter, darius_suncleric, tomas_stormbringer, gus_bloodmage
 ```

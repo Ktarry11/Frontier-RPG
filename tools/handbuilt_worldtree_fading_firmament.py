@@ -338,7 +338,7 @@ NPC_POSITIONS = {
     "ff_shrine_keeper":    (100, 192),  # keeps the shrine lit; the camp's heart
     "ff_last_magistrate":  (92, 196),   # the Firmament's last magistrate, who stayed with her people
     "ff_orla":             (106, 196),  # Magister Orla Thessan, come north after her student
-    "ff_skiffmaster":      (106, 202),  # the flight path: the last skiff that still flies out
+    "ff_skiffmaster":      (104, 204),  # the flight path: the last skiff that still flies out
     "ff_provisioner":      (90, 204),   # food
     "ff_trader":           (108, 206),  # goods
     "ff_salvager":         (84, 198),   # an Earthborn who salvages what the islands drop

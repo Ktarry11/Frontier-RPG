@@ -1,0 +1,71 @@
+{
+  "bond": {
+    "home": "Amberwatch",
+    "dials": {"warmth": 1.5, "nerve": 1.2, "pride": 0.4, "restless": 0.7},
+    "likes": ["quest", "new_ground"],
+    "dislikes": ["grinding", "quest_abandoned"],
+    "stages": {
+      "stranger": "Yiannis, from Crete. I fished octopus at home and here I keep the beach, and the Light keeps me. Come, sit, you look like you haven't eaten since the last world.",
+      "acquaintance": "Chania, on the north coast, in the old harbour. My grandfather fished those waters, then my father, then me. I dived for octopus from nine years old and beat them soft on the harbour stones, and the tavernas on the front paid me in money and lunch. It was mostly lunch.",
+      "companion": "My wife is Eleni, and my girls are Maria and Katerina. Maria wanted Athens and books, and Katerina wanted the sea, like her father. Every night I go down to the water and tell them about my day, out loud. The rangers think I'm praying. In a way I am.",
+      "friend": "When I was sixteen, my brother Manolis and I took the boat out on a morning our father said was too rough. I came back, and he didn't. I started singing to the sea that winter so it would hear me before it took anybody else. Now a storm season's coming, and the lookouts can see a wreck out on the reef with people on it. Nobody will row out in that. Will you row?",
+      "sworn": "We brought every one of them in, my friend, every one. On the beach, with the blankets and the fire, I sang a mantinada for Manolis, out loud, the first in thirty years. My voice cracked in the middle and nobody laughed. Then I cooked octopus for forty people, and the elves asked for more."
+    },
+    "moments": [
+      {
+        "id": "asking",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to row out to the wreck with him, in the storm.",
+        "options": [
+          {"text": "Give me an oar. We'll bring them all in.", "trust": 12, "reply": "Panagia mou, you're braver than the priests. Come, the boat's this way."},
+          {"text": "It's too rough, Yiannis. Wait for it to calm.", "trust": 0, "reply": "My father said that too, once. I've wished every day since that I'd listened, and today I can't."}
+        ]
+      },
+      {
+        "id": "first_stint",
+        "stage": "any",
+        "when": "first_stint_end",
+        "prompt": "At the end of your first run together he's handing round bread from his pack.",
+        "line": "Eat first, then we argue about who was brave. That's how we did it on the boats.",
+        "options": [
+          {"text": "You were the brave one, keeping us all standing.", "trust": 8, "mood": 4, "reply": "Ah, stop, you'll make me sing, and nobody wants that before dessert."},
+          {"text": "I'm not hungry, let's keep moving.", "trust": 0, "mood": -4, "reply": "Nobody walks well on an empty stomach. Take the bread anyway, for later."}
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "We sit and sit, my friend, and the beach doesn't keep itself. Let's find some work.",
+      "leaving_good": "That was good, all of you, very good. I'm going back to the shore before the tide brings anybody in without me.",
+      "leaving_bored": "Nothing happens out here, and the sea is busy at Amberwatch. Forgive me, I'm going back to it.",
+      "after_wipe": "Slowly, slowly, nobody stands too fast. Let me see your hands first.",
+      "wipe_warning": "I can keep pulling you out, but not forever. Once more, then we rest and eat.",
+      "wipe_leave": "No more today. I'll be on the beach at Amberwatch, and I'll keep a blanket for you.",
+      "zone_warning": "This water's too deep for us, my friend. Even an octopus knows when to go back under its rock.",
+      "zone_leave": "Too much for us here. I'm going back to Amberwatch, and you should come too.",
+      "gear_refuse": "That one stays with me a little longer. I've only just stopped it squeaking.",
+      "gear_taken": "It's only metal, my friend, take it. The Light doesn't care what I'm wearing.",
+      "gear_short": "If anything turns up for a fat old fisherman, I'd wear it gladly.",
+      "gear_upgrade": "Beautiful, like new nets. Efcharisto, my friend.",
+      "back": "Ela, there you are! The beach is quiet and the sea is calm. Where are we going?",
+      "send_word": "Yiannis has sent word from Amberwatch. The sea is calm and he's ready to come out.",
+      "walkout_talk": "I left you without a proper word, and that's not how I was raised. Sit, I've made coffee.",
+      "neglect": "Panagia mou, you're back! I thought the sea had you, and I was getting ready to go in after you.",
+      "asked_to_stay": "One more, yes, but then I eat. Even the saints had lunch.",
+      "on_break": "Yiannis is back on the Waking Shore at Amberwatch in Amberleaf Glade. Come back after you've done a few more jobs.",
+      "mail_yes": "Your letter made my morning. I'll come to {town} and find the inn, and I'll bring food, because you won't have eaten.",
+      "mail_later": "The sea is bringing people in every night this week, and I can't leave the beach. Soon, I promise.",
+      "mail_see_me": "Some things you say across a table, not in a letter. Come down to the beach at Amberwatch and I'll cook."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {"text": "Somebody in this town is grilling fish badly. I can smell it from here.", "kind": "open", "topic": "food"},
+      {"text": "First we find the harbour, then we find lunch.", "kind": "reply"}
+    ],
+    "dungeon_clear": [{"text": "All of us up out of the dark and breathing. Thank God and the saints, in that order.", "kind": "open", "topic": "faith"}],
+    "boss_down": [{"text": "Sit, all of you, and let me see the cuts before anybody celebrates.", "kind": "reply"}],
+    "close_call": [{"text": "Stay with me, keep breathing, the Light's coming.", "kind": "open"}],
+    "zone_arrive": [{"text": "Feel the wind on this side? Rain by evening, you'll see.", "kind": "open", "topic": "weather"}]
+  }
+}

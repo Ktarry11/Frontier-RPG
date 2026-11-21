@@ -401,11 +401,12 @@
       "name": "Haruto Nakamura",
       "char_class": "Runemaster",
       "spec": "runemaster_riftblade",
-      "level": 7,
-      "zone": "Duskfall Woods",
-      "x": 126,
-      "y": 82,
-      "placed": true,
+      "level": 15,
+      "zone": "Silverpine South",
+      "x": 79,
+      "y": 65,
+      "placed": false,
+      "suggested_zone": "Silverpine Forest (Pyrewood)",
       "row": "front",
       "npc_color": "#00BFFF",
       "backstory": "Thirty-one years of calligraphy in Kanazawa. The discipline is a single stroke, studied until the hand no longer needs the mind. He trained under a man who corrected him for eleven years before praising him once. Runework here answers to exactly that discipline, and he was the only person who already had it. He calls that luck, and nobody who's watched him work believes him.",
@@ -416,7 +417,7 @@
       "background_sections": {
         "before": "Ink, paper, a master who died in 2017, and a studio with four students in it.\n\nHe never married. He's said the work was a full occupation, and he's said it in a tone that closes the subject.",
         "adjustment": "He asked to be taught. That was the whole of it, and it worked, and he knows almost nobody from Earth tried it.\n\nThe old tauren carver who taught him is dead now. Haruto finished the lessons alone, from notes, and he thinks the result is incomplete in ways he can list.",
-        "now": "Duskfall Woods, among the Withered Spires, where the outpost's founders cut runes into every stone and the runes are fading now the well is dark.\n\nHe's copying them before they're gone. It's slow and unrewarded, and his copies will be the only record there is.",
+        "now": "Silverpine South, near the old standing stones, where the dark magic seeping out of the keep has put something into the runes that nobody can read.\n\nHe's copying them before they finish fading. It's slow and unrewarded, and his copies will be the only record there is.",
         "forward": "Four students would be right. He has two and isn't inclined to lower the standard to reach four.\n\nHe's also putting together a reference of every rune form he's ever recorded, in the hope that the discipline outlasts the shortage of teachers. The hope is thin and he keeps working."
       }
     },
@@ -425,11 +426,12 @@
       "name": "Liam Hartigan",
       "char_class": "Sun Cleric",
       "spec": "sun_cleric_blessings",
-      "level": 3,
-      "zone": "Amberleaf Glade",
-      "x": 82,
-      "y": 106,
-      "placed": true,
+      "level": 23,
+      "zone": "Ashenvale East",
+      "x": 38,
+      "y": 101,
+      "placed": false,
+      "suggested_zone": "Ashenvale East (Splintertree Post)",
       "row": "back",
       "npc_color": "#FFA500",
       "backstory": "Seventeen summers of bushfire season in New South Wales and the bad nights on the highway in between. Firefighter, then paramedic, then both, because the roster never cared which badge you held at three in the morning. The most useful thing in a burning room is a calm voice. The second most useful is a hand on the person about to run. He's good company. He hasn't slept properly since about 2019.",
@@ -440,8 +442,8 @@
       "background_sections": {
         "before": "A truck, a crew, and that particular silence in the cab on the way back from one that went badly.\n\nThe summer of 2019 the fires went through the Blue Mountains, and he was on the line for weeks. He went straight back to work afterwards. That's when the sleeping stopped.",
         "adjustment": "The easiest first year of his life and the hardest second, and he can tell you the week it turned.\n\nFor twelve months the job was everywhere. Then it went quiet for a season and he found out he had no idea what he was for without an emergency, and there was no crew around to notice. The sun answers him the way a good crew does, when called and all at once, and that's most of what holds him together.",
-        "now": "Amberleaf Glade, on the Waking Shore, meeting whoever the sea gives up. He's the first face most of them see.\n\nHe sits them down, gets them breathing, and walks them up to Amberwatch. The elves call it a calling. He calls it a shift that doesn't end.",
-        "forward": "A crew, rostered and trained and able to do it without him standing there. It's the same thing he wanted on Earth and never got, and the reason he never got it was that he kept going in alone.\n\nThere are two kids at Amberwatch who woke up on the shore with nobody. He's been on Dawnhaven a year, and everybody who knows him can see what's happened except him."
+        "now": "Ashenvale East, working the ground around Grom's Rest where the corruption burns out of people slowly and nobody has a protocol for it.\n\nHe's written one. Four lines long, wrong in at least one place, and the only one that exists.",
+        "forward": "A crew, rostered and trained and able to do it without him standing there. It's the same thing he wanted on Earth and never got, and the reason he never got it was that he kept going in alone.\n\nThere are two kids in Grom's Rest whose mother didn't come out of the corruption. He's been in that village fourteen months, and everybody who knows him can see what's happened except him."
       }
     },
     {
@@ -3051,6 +3053,90 @@
         "now": "In the Celestial Expanse, among the golems, sitting cross-legged with his loupe in his eye.\n\nHe tends the wounded who come off the Golem Fields, and he winds his grandfather's watch every morning at the same minute."
       },
       "look": "Argentine man, 37, medium build and fit, swept-back dark-brown hair, a short neat beard, light olive skin, brown eyes. Bronze and sand-gold chronomancer robes with clockwork motifs, a staff topped with a glowing hourglass, a jeweller's loupe on a cord and a gold pocket-watch chain."
+    },
+    {
+      "recruit_id": "rhodri_knight",
+      "name": "Rhodri Evans",
+      "char_class": "Knight of Xoroth",
+      "spec": "knight_of_xoroth_defiance",
+      "level": 4,
+      "zone": "Amberleaf Glade",
+      "x": 60,
+      "y": 101,
+      "row": "front",
+      "npc_color": "#B3261E",
+      "backstory": "Rhodri propped for Pontypridd on Saturdays for fifteen years and put up scaffolding the rest of the week, from terraced streets in the valleys to the walls of Caerphilly Castle. Nobody got past him on the pitch, and nobody ever fell off anything he built. He woke on the Waking Shore last spring with his boots full of sand, and by the afternoon he was carrying poles up to Amberwatch. The night the naga came up the beach, fire came up through him to meet them, and the Conclave's magisters have been arguing about what to call it ever since.",
+      "greeting": "Mind your head, that pole's not tied off yet. I've had scaffolding up the side of Caerphilly Castle, so one broken gatehouse isn't going to frighten me.",
+      "gear_theme": "tank",
+      "home_town": null,
+      "home_x": null,
+      "home_y": null,
+      "home_note": null,
+      "gender": "male",
+      "appearance_variant": 1,
+      "background_sections": {
+        "before": "A van with his name on the side, a crew of four lads from his own street, and the front row of a club older than anyone's grandmother.\n\nHe clipped every one of those lads on before they climbed, every single time, and he was the only gaffer in the valleys who never had a fall.",
+        "adjustment": "The first week he didn't understand a word the elves said, and he took that better than most, because half the valleys can't follow him either.\n\nWhat got to him was the quiet. There's no match on a Saturday and no singing on the terrace, and there are no lads. He fills it by building, because a roof going up sounds the same on any world.",
+        "forward": "He wants Amberwatch roofed before the first proper storm, then the Spire's walls, and then whatever's next.\n\nHe'd also like a game. Fifteen a side on a flat bit of grass, with anyone daft enough to pack down against him.",
+        "now": "Amberleaf Glade, at Amberwatch, up the scaffolding on the old gatehouse with a hammer in his belt and a pole on his shoulder.\n\nWhen there's trouble on the cove road he climbs down, stands at the front and doesn't move. Then he goes back up and finishes the joint he was on."
+      },
+      "look": "Welsh man, 38, big, broad and solid, a thick ginger beard, short reddish hair, fair weathered skin, blue eyes. Heavy crimson plate with dark iron edges and a glowing red sigil, a sword and a tall red shield."
+    },
+    {
+      "recruit_id": "yiannis_paladin",
+      "name": "Yiannis Papadakis",
+      "char_class": "Paladin",
+      "spec": "paladin_holy",
+      "level": 3,
+      "zone": "Amberleaf Glade",
+      "x": 82,
+      "y": 106,
+      "row": "back",
+      "npc_color": "#E8D9A0",
+      "backstory": "Yiannis dived for octopus off Chania from the age of nine and beat them soft on the harbour stones for the tavernas. He sings to the sea when it's rough, and he has since he was sixteen. He woke in the surf of the Waking Shore two years ago, before the Conclave had a tent up, and the first person he pulled out after that was an elf girl who wasn't breathing. Light came into his hands while he worked on her, and she breathed. He's kept the shore ever since.",
+      "greeting": "Ela, come up out of the water, my friend, slowly. You're on Dawnhaven, the sea brought you, and the sea brings everybody here eventually.",
+      "gear_theme": "healer",
+      "home_town": null,
+      "home_x": null,
+      "home_y": null,
+      "home_note": null,
+      "gender": "male",
+      "appearance_variant": 2,
+      "background_sections": {
+        "before": "A blue boat in the old harbour at Chania, a wife who could out-argue a bishop, and two daughters, one bound for Athens and one bound for the sea.\n\nHis grandfather fished those waters and so did his father. He was the careful one, and he had good reason to be.",
+        "adjustment": "He talks to his wife and his girls every night, out loud, on the beach, and he doesn't care who hears him.\n\nThe Conclave's priests asked where he learned to call the Light. He told them on a harbour wall, with a child who wasn't breathing, and they stopped asking.",
+        "forward": "He wants nobody the sea gives up on his shore to be lost, ever.\n\nOne day he'd like to sing a song he hasn't sung in thirty years, out loud, for somebody who isn't here to hear it.",
+        "now": "Amberleaf Glade, on the Waking Shore, up to his knees in the surf.\n\nWhoever the sea gives up, he wades in and gets them, wraps them in a blanket and sings them a couplet about how they looked coming out of the water. The rangers bring him their wounded, because the Light comes when he asks."
+      },
+      "look": "Greek man, 47, broad and solid, thick salt-and-pepper beard and hair, olive skin, dark eyes. White and gold plate with a sun on the chest, a round gold shield and a mace, a flat cap."
+    },
+    {
+      "recruit_id": "leif_primalist",
+      "name": "Leif Halvorsen",
+      "char_class": "Primalist",
+      "spec": "primalist_wildwalker",
+      "level": 7,
+      "zone": "Duskfall Woods",
+      "x": 40,
+      "y": 96,
+      "row": "front",
+      "npc_color": "#6E8B3D",
+      "backstory": "Leif spent twenty-five years in the Oregon woods as a faller and a tree climber, and he loves trees more than anybody you'll meet. He came down out of a gold tree in Ashenvale three years ago, and the forest woke up in him the same week, which he thinks is either a joke or a sentence. When the Conclave sent word round Azshara for somebody who knew wood, he got on the boat. Now he brings in deadwood for Dawnrest, and only deadwood.",
+      "greeting": "Watch where you stand. That old red one's got a dead limb up top that's been thinking about coming down all week.",
+      "gear_theme": "melee_dps",
+      "home_town": null,
+      "home_x": null,
+      "home_y": null,
+      "home_note": null,
+      "gender": "male",
+      "appearance_variant": 3,
+      "background_sections": {
+        "before": "Coos Bay, where everybody's dad worked in timber, a daughter who fights wildfires, and a pickup that smelled of saw oil and coffee.\n\nHis grandfather came over from Norway to work the mills. Leif went up the trees instead, and he never once fell.",
+        "adjustment": "He spent two years with the druids in Ashenvale learning that the forest would rather he didn't. He hasn't started a saw since he came through.\n\nThe elves wanted him to fell the old red trees for Dawnrest's beams. He took one look and showed them what was already lying on the ground.",
+        "forward": "He wants to understand why the woods picked him, of all people.\n\nAfter that he'd like a morning in an old stand of trees with nothing to do but look at them, which he's never had in his life.",
+        "now": "Duskfall Woods, in the Red Hollow, hauling deadwood out to the road for Dawnrest's roof.\n\nThe bears in the hollow leave him alone, mostly. He looks up before he steps under anything, and he tells you to do the same."
+      },
+      "look": "American man, 46, big and broad, a thick sandy-grey beard and long tied-back hair, weathered fair skin, blue eyes. Red and green plaid under worn leather and fur, a pair of axes, braces and heavy boots."
     }
   ],
   "notes": "Recruitable companions - diverse classes, specs (FIXED), locations, and backgrounds. Each has distinctive NPC color for visibility. Backgrounds shortened to fit screen. Spec-locked recruitment identity. Recruits with \"placed\": false are fully authored (class, spec, background, art slot) but not yet standing anywhere in the world; \"suggested_zone\" is only a hint for when they are placed (several will go to the Eastern Kingdoms). A recruit's level matches the zone they are found in (Kyle, 2026-10-22), so nobody is a level 2 in a level 14 town."
