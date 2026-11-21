@@ -1454,9 +1454,11 @@ class TilemapRenderer:
     _glow_tex = {}
 
     @classmethod
-    def _glow_spec(cls, sprite_key):
+    def _glow_spec(cls, sprite_key, own=()):
+        """own: a map's own kinds (tilemap.glows["kinds"], same shape as GLOW_KINDS), tried first, so the Underdark
+        can light its own mushrooms and crystals in their own colours."""
         name = sprite_key.rsplit("/", 1)[-1].lower()
-        for words, colour, radius, height in cls.GLOW_KINDS:
+        for words, colour, radius, height in tuple(own) + cls.GLOW_KINDS:
             if any(w in name for w in words):
                 return colour, radius, height
         return None
@@ -1475,16 +1477,43 @@ class TilemapRenderer:
             self._glow_tex[key] = surf
         return surf
 
+    def _glow_centre(self, lm, height):
+        """Where on the prop the light comes from: the middle of its brightest pixels (the lit cap, the crystal, the
+        flame), so the glow sits on the light whatever shape the art is. Falls back to `height` down the box."""
+        w, h = lm["width_tiles"], lm["height_tiles"]
+        fallback = (lm["anchor_x"] + w / 2.0, lm["anchor_y"] + h * height)
+        try:
+            import numpy as np
+            sprite = get_landmark_sprite(lm["sprite_key"], int(w * self.tile_size), int(h * self.tile_size))
+            if sprite is None:
+                return fallback
+            rgb = pygame.surfarray.array3d(sprite).astype(np.float32)
+            alpha = pygame.surfarray.array_alpha(sprite).astype(np.float32) / 255.0
+            lum = (rgb.max(axis=2) / 255.0) * alpha
+            if lum.max() <= 0:
+                return fallback
+            cut = np.quantile(lum[alpha > 0.5], 0.9) if (alpha > 0.5).any() else lum.max() * 0.9
+            wgt = np.where(lum >= cut, lum, 0.0)
+            tot = wgt.sum()
+            if tot <= 0:
+                return fallback
+            xs = np.arange(wgt.shape[0])[:, None]
+            ys = np.arange(wgt.shape[1])[None, :]
+            cx, cy = (wgt * xs).sum() / tot, (wgt * ys).sum() / tot
+            return lm["anchor_x"] + cx / self.tile_size, lm["anchor_y"] + cy / self.tile_size
+        except Exception:
+            return fallback
+
     def _draw_glows(self, screen, camera, viewport_rect, tilemap):
         spots = getattr(tilemap, "_glow_spots", None)
         if spots is None:
             spots = []
             for lm in getattr(tilemap, "landmarks", []):
-                spec = self._glow_spec(lm.get("sprite_key", ""))
+                spec = self._glow_spec(lm.get("sprite_key", ""), tilemap.glows.get("kinds", ()))
                 if spec:
                     colour, radius, height = spec
-                    spots.append((lm["anchor_x"] + lm["width_tiles"] / 2.0,
-                                  lm["anchor_y"] + lm["height_tiles"] * height, colour, radius))
+                    gx, gy = self._glow_centre(lm, height)
+                    spots.append((gx, gy, colour, radius))
             tilemap._glow_spots = spots
         if not spots:
             return
@@ -1498,7 +1527,7 @@ class TilemapRenderer:
             if x > viewport_rect.right or y > viewport_rect.bottom or x + 2 * rp < viewport_rect.x \
                     or y + 2 * rp < viewport_rect.y:
                 continue
-            screen.blit(self._glow_surface(colour, rp, k), (x, y), special_flags=pygame.BLEND_ADD)
+            screen.blit(self._glow_surface(tuple(colour), rp, k), (x, y), special_flags=pygame.BLEND_ADD)
         screen.set_clip(clip)
 
     # AMBIENT LIFE AND FLYOVER SHADOWS (EFX8). tilemap.life = {"flyers": ["life_crow", "shadow_hawk"], "every": (9, 20),

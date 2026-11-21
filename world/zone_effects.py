@@ -33,6 +33,33 @@ ZONES = {
     },
 }
 
+# The Crystalline Underdark, its town and its two caves. Kyle, 21 Nov 2026: "I envision it as a gorgeous glowing
+# mushroom and crystal biome." The cavern is dimmed a little and cooled toward blue so the light has somewhere to show,
+# a faint arcane haze lies in it, and every mushroom, crystal, glow pool and spore vent lights the stone round it in its
+# own colour. The big caps glow wide and soft; the small ones are little pools.
+UNDERDARK_GLOWS = [
+    (("crystal_cyan", "lattice", "glow_pool"), (70, 220, 255), 2.6, 0.5),
+    (("crystal", "geode"), (190, 110, 255), 2.8, 0.45),
+    (("shroom_tall_violet",), (200, 90, 255), 2.2, 0.3),
+    (("shroom_cluster_blue", "shroom_small"), (80, 160, 255), 2.4, 0.55),
+    (("shroom_canopy",), (60, 230, 200), 3.0, 0.4),
+    (("fungal_node", "fungal_shelf", "shelf_fungus"), (90, 230, 170), 1.4, 0.5),
+    (("spore_vent",), (140, 255, 120), 2.2, 0.5),
+    (("arcane_brazier", "arcane_well"), (150, 140, 255), 3.0, 0.4),
+]
+UNDERDARK = {
+    "shade": [{"layer": "shade_cave_vignette", "strength": 0.28},
+              {"layer": "shade_night", "strength": 0.1}],
+    "weather": [{"layer": "atm_void_wisps", "strength": 0.22, "floor": 0.25, "tile": 18, "speed": (-3, 1)}],
+    "glows": {"strength": 0.85, "kinds": UNDERDARK_GLOWS},
+    "light": {"layer": "light_crystal_cave", "strength": 0.2, "breathe": 0.1},
+}
+ZONES["The Crystalline Underdark"] = UNDERDARK
+ZONES["Kael's Bastion"] = dict(UNDERDARK, shade=[{"layer": "shade_night", "strength": 0.14}])
+ZONES["The Hollow Geode"] = dict(UNDERDARK, shade=[{"layer": "shade_cave_vignette", "strength": 0.38},
+                                                   {"layer": "shade_night", "strength": 0.14}])
+ZONES["The Deep Bloom"] = ZONES["The Hollow Geode"]
+
 KEYS = ("shade", "weather", "glows", "particles", "life", "light")
 
 
