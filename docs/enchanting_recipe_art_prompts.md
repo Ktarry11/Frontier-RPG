@@ -1,6 +1,6 @@
 # Enchanting and recipe-scroll art (7 sheets, 252 icons)
 
-**Status (21 Nov 2026): EN1 to EN4 and RC2 and RC3 delivered and sliced. **RC1 (the Blacksmithing, Leatherworking and Tailoring recipe scrolls) is the one still to paste.**** See `docs/art_status.md` for every sheet.
+**Status (21 Nov 2026): all seven delivered and sliced: EN1 to EN4 and RC2 and RC3 on 17 Nov, RC1 on 19 Nov (drawn again, sharper, on 21 Nov).** See `docs/art_status.md` for every sheet.
 
 Kyle, 17 Nov 2026: "Can you give me like.... 36 x 4 things for enchanting???" and "another 36 x 3 for other recipies found in the game?! They dont need to be unique but they should be similar.....like each professions get about 6-8 unique ones".
 

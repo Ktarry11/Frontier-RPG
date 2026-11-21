@@ -1,14 +1,14 @@
 # Art status: every sheet, and what's still to make
 
 Kyle, 21 Nov 2026: "touch up some old outdated files and remove dead files... it's just to prevent you from trying to
-get me to make the same art prompt 3 different times". **Read this before asking for art.** If a sheet is listed as
-delivered, it's in the game; don't write it again. This replaces the 20 Nov art backlog (everything on it landed).
+get me to make the same art prompt 3 different times". **Read this before asking for art, and check the
+slicer and the asset folder too, not an old note.** If a sheet is listed as delivered, it's in the game; don't write it
+again. (RC1 was asked for a second time on 21 Nov off a stale 17 Nov note, though it had landed on the 19th.) This replaces the 20 Nov art backlog (everything on it landed).
 
 ## Still to make
 
 | Sheet | What | Where | Notes |
 |---|---|---|---|
-| **RC1** | Recipe scrolls for Blacksmithing, Leatherworking and Tailoring | `docs/enchanting_recipe_art_prompts.md` | Written 17 Nov, never pasted. Those three trades keep their one shared scroll picture until it lands |
 | **SKY-NPC** | The two Crown allies' own figures (Ilaren Vey, Leandro Arrieta) and the Mural Shard's Collection icon | not written | Optional. They wear stock Aetherian and human looks today |
 | **Corvo and Lysse** | The Exarch's two guards in the Ascendant Spire | not written | Optional. They weren't on AB2, so they borrow the stock commander and warden art |
 | **WALK** | Walk cycles on the new player sprites | not written | **Parked** (Kyle, 20 Nov: "Walk cycles will come after better sprites") |
@@ -33,7 +33,7 @@ delivered, it's in the game; don't write it again. This replaces the 20 Nov art 
 | `tabard_art_prompts.md` | the faction tabards | 18 Nov |
 | `deadwind_art_prompts.md` | all eight Deadwind sheets | 18 Nov |
 | `azshara_art_prompts.md`, `azshara_recruit_art_prompt.md` | Azshara and Mohammed Saleh | 17 Nov |
-| `enchanting_recipe_art_prompts.md` | EN1 to EN4, RC2, RC3 (RC1 above is still to make) | 17 Nov |
+| `enchanting_recipe_art_prompts.md` | EN1 to EN4, RC1 to RC3 | 17-19 Nov; RC1 drawn again 21 Nov (asked for twice by mistake; the sharper one is in) |
 | `bank_auction_art_prompts.md` | the twelve banks and auction houses | 17 Nov |
 | `plaguelands_art_prompts.md`, `plaguelands_secrets_art_prompts.md` | the Plaguelands' eight sheets and its secrets | 16 Nov |
 | `recruit_art_prompts_sheet4.md`, `recruit_art_prompts_sheet5.md` | recruit sheets 4 and 5 | 16-17 Nov |

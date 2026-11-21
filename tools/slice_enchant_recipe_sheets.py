@@ -4,7 +4,8 @@
     PYTHONPATH=. python3 tools/slice_enchant_recipe_sheets.py
 
 The cell lists are tools/enchant_recipe_art.py's (docs/enchanting_recipe_art_prompts.md). Kyle delivered EN1-EN4,
-RC2 and RC3 on 17 Nov 2026, and RC1 (Blacksmithing, Leatherworking, Tailoring and Woodworking's first three) on 19 Nov.
+RC2 and RC3 on 17 Nov 2026, and RC1 (Blacksmithing, Leatherworking, Tailoring and Woodworking's first three) on 19 Nov,
+redrawn sharper on 21 Nov (the 19 Nov sheet is kept as tools/icon_sheets/recipes_rc1_first.png).
 
 WHERE THEY GO
   enchant scrolls   assets/gathering_nodes/enchanting/<stem>.png (96px), and each enchant's material icon_id in
@@ -198,9 +199,35 @@ def point_warhide():
     return n
 
 
+def clean_rc1_edges():
+    """RC1 was drawn again on 21 Nov 2026 with gold glows round the artisan and master scrolls, and a glow over
+    magenta keys out pink. Take the spill out of the rim, and drop the faint pink halo pixels outright."""
+    import glob
+    n = 0
+    for f in sorted(glob.glob(str(RECIPES / "recipe_*.png"))):
+        stem = Path(f).stem
+        if not (stem.startswith(("recipe_blacksmithing_", "recipe_leatherworking_", "recipe_tailoring_"))
+                or stem in ("recipe_woodworking_1_found", "recipe_woodworking_2_found", "recipe_woodworking_3_found")):
+            continue
+        im = np.asarray(Image.open(f).convert("RGBA")).astype(int)
+        r, g, b, a = im[..., 0], im[..., 1], im[..., 2], im[..., 3]
+        if not stem.endswith("_epic"):
+            rim = ndi.binary_dilation(a < 250, iterations=4) & (b > g) & (r > g)
+            spill = np.where(rim, b - g, 0)
+            im[..., 2] = np.where(rim, g, b)
+            im[..., 0] = np.where(rim, np.maximum(g, r - spill), r)
+            r, b = im[..., 0], im[..., 2]
+        halo = ((r > g + 25) & (b > g - 10) & (a < 255)) | (a < 70)
+        im[..., 3] = np.where(halo, 0, a)
+        Image.fromarray(np.clip(im, 0, 255).astype(np.uint8), "RGBA").save(f)
+        n += 1
+    return n
+
+
 def main():
     ench = slice_enchanting()
     rec = slice_recipes()
+    clean_rc1_edges()
     n, w = point_data(ench)
     point_warhide()
     print(f"{len(ench)} enchanting icons, {len(rec)} recipe icons; {n} enchant materials and {w} wand recipes moved")
