@@ -797,6 +797,30 @@ class PortalManager:
             },
             "Aurelion": {
                 (130, 246): ("The Celestial Expanse", 226, 9),      # down the sky-bridge: arrive (226,7) at its foot
+                (230, 87): ("The Ascendant Bastions", 10, 208),     # the free skiff from the Skydocks: arrive (10,206) at the wreck
+            },
+            "The Ascendant Bastions": {
+                (4, 206): ("Aurelion", 224, 88),                    # the free skiff home: arrive (224,86) on the Skydocks
+                (160, 124): ("The Gravity Foundry", 90, 136),       # the citadel's south gate: arrive (90,134)
+                (160, 54): ("The Ascendant Spire", 90, 7),          # the citadel's north gate: arrive (90,5)
+            },
+            # The Citadel of Ascent's two dungeons (tools/handbuilt_gravity_foundry.py, handbuilt_ascendant_spire.py):
+            # two floors each, a stair between, a fast exit out past the last boss
+            "The Gravity Foundry": {
+                (90, 138): ("The Ascendant Bastions", 160, 130),    # back out the south gate: arrive (160,128)
+                (90, 3): ("The Gravity Foundry: The Keelworks", 90, 8),   # the lift down: arrive (90,6)
+            },
+            "The Gravity Foundry: The Keelworks": {
+                (90, 2): ("The Gravity Foundry", 90, 9),            # back up the lift: arrive (90,7)
+                (176, 136): ("The Ascendant Bastions", 160, 130),   # the fast exit past the Warheart
+            },
+            "The Ascendant Spire": {
+                (90, 1): ("The Ascendant Bastions", 160, 50),       # back out the north gate: arrive (160,48)
+                (90, 147): ("The Ascendant Spire: The Command Spire", 90, 145),   # the great stair up: arrive (90,143)
+            },
+            "The Ascendant Spire: The Command Spire": {
+                (90, 147): ("The Ascendant Spire", 90, 145),        # back down the great stair: arrive (90,143)
+                (90, 2): ("The Ascendant Bastions", 160, 50),       # the fast exit past the Exarch
             },
             "The Anchorfields": {
                 (3, 74): ("The Celestial Expanse", 290, 32),        # back west along the arm: arrive (290,30) on the Spillway

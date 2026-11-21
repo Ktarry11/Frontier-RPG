@@ -5649,6 +5649,7 @@ def create_all_zones():
     from tools import handbuilt_worldtree_celestial_expanse as dwce
     from tools import handbuilt_worldtree_anchorfields as dwaf
     from tools import handbuilt_worldtree_aurelion as dwau
+    from tools import handbuilt_worldtree_ascendant_bastions as dwab
     from tools import handbuilt_feralas_high_wilderness as dfhw   # FERALAS (docs/feralas_brief.md, 19 Nov 2026)
     from tools import handbuilt_feralas_forgotten_coast as dffc
     from tools import handbuilt_feralas_twin_colossals as dftc
@@ -5843,6 +5844,7 @@ def create_all_zones():
         "Lenswatch": dwlw.generate_lenswatch(),                   # the survey's town off the Crown's cloud (inn, flight)
         "The Celestial Expanse": dwce.generate_celestial_expanse(),  # islands down the great sky river (20 Nov 2026)
         "The Anchorfields": dwaf.generate_anchorfields(),          # the engine country, the shattered shelf (20 Nov 2026)
+        "The Ascendant Bastions": dwab.generate_ascendant_bastions(),   # the Ascendancy's star fort (21 Nov 2026)
         "Aurelion": dwau.generate_aurelion(),                       # the Aetherian capital, rings round the Spire Palace
         # ===== FERALAS (44-49, docs/feralas_brief.md, 19 Nov 2026): three maps down the L, two towns, the hive =====
         "The High Wilderness": dfhw.generate_high_wilderness(),       # the east arm, in from the Aspen Wilderness
@@ -6072,6 +6074,11 @@ def create_all_zones():
     from tools import handbuilt_drowned_palace as dpal         # Azshara's last dungeon, 59-60, two floors
     for _floor in dpal.FLOORS:
         zones[_floor] = dpal.generate_floor(_floor)
+    from tools import handbuilt_gravity_foundry as dgfo       # the Citadel of Ascent's south gate, 56-58, two floors
+    from tools import handbuilt_ascendant_spire as dasp       # and its north gate, 60, two floors
+    for _mod in (dgfo, dasp):
+        for _floor in _mod.FLOORS:
+            zones[_floor] = _mod.generate(_floor)
     from tools import handbuilt_deadwind_caves as dwcaves     # Deadwind's two caves: the Widows' Nest, the Drowned Seep
     for _cave in dwcaves.CAVES:
         zones[_cave] = dwcaves.generate(_cave)

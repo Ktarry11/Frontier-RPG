@@ -319,4 +319,17 @@ def build():
         "It's not much, but it's the first good question anyone's asked me in a year. The Ascendancy takes what it "
         "needs from the city and calls it defence. Their fortresses on the Ascendant Bastions are built out of things "
         "like my ships."))
+    A(Q("auq_the_free_skiffs", "The Free Skiffs", GARRET, 55, 55, "Skiff-Runner's",
+        "A few skiff captains still fly out to the Ascendant Bastions, to a wreck the Ascendancy can't reach. Dockmaster "
+        "Garret Lune wants you on the next one, with a letter for the captain who runs the camp there.",
+        [deliver("au_q_garret_letter", "Take Garret's letter to Captain Isolde Marrane at Dawnspear Wreck")],
+        "There's a camp on the Bastions, in the wreck of a war-skiff called the Dawnspear, and the deserters there send "
+        "word of what the yard's building. The free skiffs fly to it from the end of my docks, past the airship dock on "
+        "the rim. Take this letter to Captain Isolde Marrane. She'll want to know the city's finally listening.",
+        "Garret Lune's hand. He's the only one in Aurelion who answered my letters while the council was arguing.\n\n"
+        "Welcome to Dawnspear Wreck. It isn't much, but it's the only place on the Bastions where nobody's trying to "
+        "kill you.",
+        turn_in_npc_id="ab_wreck_captain", requires_quests=["auq_fewer_every_year"],
+        grant_items=carry("au_q_garret_letter", "Garret's Letter", "A letter sealed with the Skydocks' anchor mark, "
+                          "addressed to Captain Isolde Marrane of the Dawnspear.")))
     return out

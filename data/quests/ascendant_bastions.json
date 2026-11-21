@@ -1,0 +1,4182 @@
+{
+  "quests": [
+    {
+      "quest_id": "abq_count_the_keels",
+      "title": "Count the Keels",
+      "giver_npc_id": "ab_wreck_captain",
+      "zone": "ascendant_bastions",
+      "level_min": 54,
+      "level_max": 55,
+      "description": "Captain Isolde Marrane wants to know how many warships the Ascendancy has on its slipways. She needs someone to walk the piers and look.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "ascendant_bastions",
+          "target_x": 92,
+          "target_y": 206,
+          "radius": 4,
+          "label": "Look at the keel on the first pier"
+        },
+        {
+          "type": "explore",
+          "target": "ascendant_bastions",
+          "target_x": 156,
+          "target_y": 206,
+          "radius": 4,
+          "label": "Look at the keel on the middle pier"
+        },
+        {
+          "type": "explore",
+          "target": "ascendant_bastions",
+          "target_x": 220,
+          "target_y": 206,
+          "radius": 4,
+          "label": "Look at the keel on the last pier"
+        }
+      ],
+      "accept_text": "The lookout counts hulls, but I want to know how far along they are. Walk out along the first pier, the middle one and the last one, and look at what's in the berths. The yard's busy, so keep moving.",
+      "turn_in_text": "Five keels, and the one on the last pier is nearly ready to fly.\n\nWhen I was a young officer, these slipways built long-haulers, ships for carrying grain between the islands. Every ship in those berths now has a gun deck. I know exactly what they're for, because I was nearly the one who flew them.",
+      "next_quest_id": null,
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Keelcounter's Breastplate",
+          "slot": "chest",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 37
+          },
+          "armor_value": 337,
+          "required_level": 54,
+          "sell_price": 10788,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_chest_plate16"
+        },
+        {
+          "name": "Keelcounter's Slippers",
+          "slot": "feet",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 24
+          },
+          "armor_value": 48,
+          "required_level": 54,
+          "sell_price": 7012,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_05"
+        },
+        {
+          "name": "Keelcounter's Wristguards",
+          "slot": "wrist",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 9,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 19
+          },
+          "armor_value": 173,
+          "required_level": 54,
+          "sell_price": 5394,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_bracer_01"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_rivets_and_rot",
+      "title": "Rivets and Rot",
+      "giver_npc_id": "ab_wreck_captain",
+      "zone": "ascendant_bastions",
+      "level_min": 55,
+      "level_max": 56,
+      "description": "The warships on the slipways need hands to finish them. Captain Isolde Marrane wants the yard's Ascendancy Shipwright and its Keel Construct taken off the work.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Ascendancy Shipwright",
+          "count": 8,
+          "zone": "ascendant_bastions"
+        },
+        {
+          "type": "kill",
+          "target": "Keel Construct",
+          "count": 6,
+          "zone": "ascendant_bastions"
+        }
+      ],
+      "accept_text": "Every day the yard works, those keels get closer to flying, and they're nearly there. Every Ascendancy Shipwright on the quay knows the ships better than I do, and every Keel Construct can lay a keel in a week. Take them off the work, and the warships wait.",
+      "turn_in_text": "The quay's gone quiet, and I can hear the overseers shouting about it from here.\n\nThey'll bring more shipwrights from Aurelion, and it'll take them a month. A month is a long time when you're trying to keep a fleet away from a tree.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "abq_count_the_keels"
+      ],
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Shipbreaker's Longbow",
+          "slot": "ranged",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 0,
+          "required_level": 55,
+          "sell_price": 8957,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_05",
+          "weapon_damage_min": 64,
+          "weapon_damage_max": 87,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Shipbreaker's Coif",
+          "slot": "head",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 193,
+          "required_level": 55,
+          "sell_price": 8957,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_54"
+        },
+        {
+          "name": "Shipbreaker's Leggings",
+          "slot": "legs",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 16
+          },
+          "secondary_stats": {
+            "spell_power": 35
+          },
+          "armor_value": 71,
+          "required_level": 55,
+          "sell_price": 11196,
+          "identity": "caster",
+          "icon_id": "gear_inv_pants_10"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_the_unlaunched",
+      "title": "The Unlaunched",
+      "giver_npc_id": "ab_wreck_captain",
+      "zone": "ascendant_bastions",
+      "level_min": 56,
+      "level_max": 56,
+      "description": "The oldest hull on the slipways was laid down and never launched. Somebody switched its guns on, and The Unlaunched now drifts along the quay firing at anything that moves. Captain Isolde Marrane wants it sunk.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Unlaunched",
+          "count": 1,
+          "zone": "ascendant_bastions"
+        }
+      ],
+      "accept_text": "There's a hull on the slipways that was never finished, and the yard's engineers woke its guns up to test them. They couldn't put it back to sleep. The Unlaunched drifts along the quay now, and it kills shipwrights as happily as it kills us. Put it down properly.",
+      "turn_in_text": "So that's the end of it. I remember when they laid that keel. It was supposed to be the first of the new fleet, and it never flew a day.\n\nI'd say I'm sorry for it, but I'm not.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "abq_rivets_and_rot"
+      ],
+      "reward_exp": 5356,
+      "reward_gold": 21060,
+      "unique_item_defs": [
+        {
+          "name": "Hullbreaker's Knife",
+          "slot": "main_hand",
+          "item_level": 58,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 13,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 34
+          },
+          "armor_value": 0,
+          "required_level": 56,
+          "sell_price": 16548,
+          "identity": "agility",
+          "icon_id": "gear_inv_weapon_shortblade_08",
+          "weapon_damage_min": 101,
+          "weapon_damage_max": 137,
+          "attack_speed": 1.7,
+          "block_value": 0
+        },
+        {
+          "name": "Hullbreaker's Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 58,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 11,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "healing_power": 49
+          },
+          "armor_value": 161,
+          "required_level": 56,
+          "sell_price": 13935,
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_04"
+        },
+        {
+          "name": "Hullbreaker's Sabatons",
+          "slot": "feet",
+          "item_level": 58,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 13,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 33
+          },
+          "armor_value": 316,
+          "required_level": 56,
+          "sell_price": 11322,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_plate_04"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "abq_the_foundry_gate",
+      "title": "The Foundry Gate",
+      "giver_npc_id": "ab_wreck_captain",
+      "zone": "ascendant_bastions",
+      "level_min": 56,
+      "level_max": 57,
+      "description": "The warships' engines aren't built on the slipways. Captain Isolde Marrane wants you to see the citadel's south gate, where the Gravity Foundry is.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "ascendant_bastions",
+          "target_x": 160,
+          "target_y": 130,
+          "radius": 4,
+          "label": "Look at the citadel's south gate, at the head of the causeway"
+        }
+      ],
+      "accept_text": "The hulls are built on the slipways, but the engines aren't. They come down the causeway out of the citadel's south gate, from the Gravity Foundry under it. Go and look at that gate. I want you to know where it is, because sooner or later somebody's going to have to go through it.",
+      "turn_in_text": "You've seen it, then. The foundry was a scholar house's workshop once, the lens-grinders' and the engine-wrights'. The Ascendancy kept the halls and changed what's made in them.\n\nBring friends when you go in. Bring a lot of them.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "abq_the_unlaunched"
+      ],
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Gatewatcher's Tome",
+          "slot": "off_hand",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 34
+          },
+          "armor_value": 0,
+          "required_level": 56,
+          "sell_price": 6968,
+          "identity": "healer",
+          "icon_id": "gear_inv_tome_6",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        },
+        {
+          "name": "Gatewatcher's Handguards",
+          "slot": "hands",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 14,
+            "strength": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 11
+          },
+          "armor_value": 241,
+          "required_level": 56,
+          "sell_price": 7548,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_24"
+        },
+        {
+          "name": "Gatewatcher's Girdle",
+          "slot": "waist",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 161,
+          "required_level": 56,
+          "sell_price": 6387,
+          "identity": "hunter",
+          "icon_id": "gear_inv_belt_26"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_the_foundry_master",
+      "title": "The Foundry-Master",
+      "giver_npc_id": "ab_pens_cook",
+      "zone": "ascendant_bastions",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "Every week the Gravity Foundry takes people out of the Yard Pens to work the pour, and Foundry-Master Cassor Vane picks them. Hamza Qureshi wants him dead in his own gallery.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Foundry-Master Cassor Vane",
+          "count": 1,
+          "zone": "the_gravity_foundry"
+        }
+      ],
+      "accept_text": "Every week Cassor Vane sends down for more hands, and every week I cook for fewer people. He picks them himself from the gallery at the top of the Gravity Foundry, with those stones going round his head. Go in through the citadel's south gate and put him down, and take friends, because the whole foundry works for him.",
+      "turn_in_text": "Cassor Vane is dead? Then nobody's going down to the pour tomorrow.\n\nI'm making a proper curry tonight, the way we did it at home on a Friday. I've been saving the spice for something worth celebrating.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "abq_the_overseers"
+      ],
+      "reward_exp": 5460,
+      "reward_gold": 21450,
+      "unique_item_defs": [
+        {
+          "name": "Foundry-Breaker's Mace",
+          "slot": "main_hand",
+          "item_level": 59,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 11,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "healing_power": 50
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 17153,
+          "identity": "healer",
+          "icon_id": "gear_inv_mace_04",
+          "weapon_damage_min": 103,
+          "weapon_damage_max": 139,
+          "attack_speed": 2.6,
+          "block_value": 0
+        },
+        {
+          "name": "Foundry-Breaker's Jerkin",
+          "slot": "chest",
+          "item_level": 59,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 19,
+            "intellect": 16
+          },
+          "secondary_stats": {
+            "attack_power": 37
+          },
+          "armor_value": 193,
+          "required_level": 57,
+          "sell_price": 18055,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_10"
+        },
+        {
+          "name": "Foundry-Breaker's Pendant",
+          "slot": "neck",
+          "item_level": 59,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 10833,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_necklace_08"
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "abq_the_pourmasters",
+      "title": "The Pourmasters",
+      "giver_npc_id": "ab_pens_medic",
+      "zone": "ascendant_bastions",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "Half the burns Siobhan Keane treats come out of the Gravity Foundry's quench halls. She wants Pourmaster Ilka and her brother Dov stopped.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Pourmaster Ilka",
+          "count": 1,
+          "zone": "the_gravity_foundry"
+        }
+      ],
+      "accept_text": "The twins run the quench halls in the Gravity Foundry. Ilka pours, Dov quenches, and when they're behind, they make the conscripts carry the crucibles by hand. I've had three people this month with molten crystal down their arms. You'll find them on the east side of the foundry, and you'll have to fight both of them at once.",
+      "turn_in_text": "You stopped both of them? Good, I'd have liked to see their faces.\n\nI was a ward nurse for twenty years before all this. I've never wished anyone harm in my life, and I don't feel the least bit sorry.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "abq_medicine_run"
+      ],
+      "reward_exp": 5460,
+      "reward_gold": 21450,
+      "unique_item_defs": [
+        {
+          "name": "Burnsalver's Greatsword",
+          "slot": "main_hand",
+          "item_level": 59,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 29,
+            "stamina": 16
+          },
+          "secondary_stats": {
+            "attack_power": 74
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 22569,
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_30",
+          "weapon_damage_min": 139,
+          "weapon_damage_max": 188,
+          "attack_speed": 3.4,
+          "block_value": 0
+        },
+        {
+          "name": "Burnsalver's Bracers",
+          "slot": "wrist",
+          "item_level": 59,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 13,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 33
+          },
+          "armor_value": 146,
+          "required_level": 57,
+          "sell_price": 9028,
+          "identity": "agility",
+          "icon_id": "gear_inv_bracer_13"
+        },
+        {
+          "name": "Burnsalver's Hood",
+          "slot": "head",
+          "item_level": 59,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 18
+          },
+          "secondary_stats": {
+            "spell_power": 41
+          },
+          "armor_value": 81,
+          "required_level": 57,
+          "sell_price": 14444,
+          "identity": "caster",
+          "icon_id": "gear_inv_helmet_02"
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "abq_the_warheart",
+      "title": "The Warheart",
+      "giver_npc_id": "ab_skiffmaster",
+      "zone": "ascendant_bastions",
+      "level_min": 58,
+      "level_max": 58,
+      "description": "The engine for the Ascendancy's first warship is being built in the Keelworks, under the Gravity Foundry. Skiffmaster Pell Daray wants it destroyed before it ever flies.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Warheart",
+          "count": 1,
+          "zone": "the_gravity_foundry:_the_keelworks"
+        }
+      ],
+      "accept_text": "The day that first warship flies, the free skiffs stop flying, because nothing we've got can outrun a gun deck. Its engine's nearly done, down in the Keelworks under the foundry, and they call it the Warheart. Get down there through the foundry, past the Foundry-Master's lift, and break it. If it wakes up before you get there, break it anyway.",
+      "turn_in_text": "It's done, then. Without that engine, none of those hulls is going anywhere for a long while.\n\nThe skiffs will keep flying. I'll tell the pilots tonight, and I expect they'll want to buy you a drink.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "abq_clear_skies"
+      ],
+      "reward_exp": 5564,
+      "reward_gold": 21840,
+      "unique_item_defs": [
+        {
+          "name": "Warheart-Breaker's Hauberk",
+          "slot": "chest",
+          "item_level": 60,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 16,
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "attack_power": 49
+          },
+          "armor_value": 315,
+          "required_level": 58,
+          "sell_price": 18704,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_09"
+        },
+        {
+          "name": "Warheart-Breaker's Sash",
+          "slot": "waist",
+          "item_level": 60,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 15
+          },
+          "secondary_stats": {
+            "spell_power": 34
+          },
+          "armor_value": 68,
+          "required_level": 58,
+          "sell_price": 10287,
+          "identity": "caster",
+          "icon_id": "gear_inv_belt_20"
+        },
+        {
+          "name": "Warheart-Breaker's Sabatons",
+          "slot": "feet",
+          "item_level": 60,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 18,
+            "strength": 8
+          },
+          "secondary_stats": {
+            "defense_rating": 15
+          },
+          "armor_value": 327,
+          "required_level": 58,
+          "sell_price": 12158,
+          "identity": "tank",
+          "icon_id": "gear_inv_boots_plate_01"
+        }
+      ],
+      "gear_reward_gear_level": 60,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "abq_the_lance_commander",
+      "title": "The Lance-Commander",
+      "giver_npc_id": "ab_skiffmaster",
+      "zone": "ascendant_bastions",
+      "level_min": 60,
+      "level_max": 60,
+      "description": "The lancer wings that hunt the free skiffs fly on Lance-Commander Aris Thane's orders. Skiffmaster Pell Daray wants him stopped in the Ascendant Spire.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Lance-Commander Aris Thane",
+          "count": 1,
+          "zone": "the_ascendant_spire"
+        }
+      ],
+      "accept_text": "I've lost four skiffs this year to lancer wings, and every one of them flew out on Aris Thane's orders. He holds the Lancer Halls inside the citadel's north gate, in the Ascendant Spire. Go in and unhorse him. Tavin says he won't stop while he's still in the saddle, and Tavin should know, because Thane trained him.",
+      "turn_in_text": "He's finished, then. Tavin will want to hear it from you himself.\n\nWith nobody giving the wings their orders, my pilots might get a quiet month. I can't remember the last one.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "abq_the_warheart"
+      ],
+      "reward_exp": 5772,
+      "reward_gold": 22620,
+      "unique_item_defs": [
+        {
+          "name": "Lance-Breaker's Grips",
+          "slot": "hands",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 14,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 36
+          },
+          "armor_value": 153,
+          "required_level": 60,
+          "sell_price": 13024,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_31"
+        },
+        {
+          "name": "Lance-Breaker's Spaulders",
+          "slot": "shoulder",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "healing_power": 45
+          },
+          "armor_value": 291,
+          "required_level": 60,
+          "sell_price": 16030,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_shoulder_23"
+        },
+        {
+          "name": "Lance-Breaker's Pendant",
+          "slot": "neck",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "spell_power": 32
+          },
+          "armor_value": 0,
+          "required_level": 60,
+          "sell_price": 12022,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_amulet_03"
+        }
+      ],
+      "gear_reward_gear_level": 62,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "abq_the_inquisitor",
+      "title": "The Inquisitor",
+      "giver_npc_id": "ab_wreck_surgeon",
+      "zone": "ascendant_bastions",
+      "level_min": 60,
+      "level_max": 60,
+      "description": "Surgeon Nell Avary has treated the few who came back out of the Spire's cells. She wants High Inquisitor Seren Vash stopped.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "High Inquisitor Seren Vash",
+          "count": 1,
+          "zone": "the_ascendant_spire"
+        }
+      ],
+      "accept_text": "Everyone the Ascendancy catches ends up in front of Seren Vash, in the Inquisitorium at the bottom of the Ascendant Spire's first halls. The ones who came back to me couldn't sleep for weeks. Go in through the north gate, past the lancers or round by the storm gallery, and put an end to the questions.",
+      "turn_in_text": "There won't be any more of them, then. Thank you.\n\nI'll tell the ones who came back. I think it'll help them more than anything I've given them.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "abq_burn_salve"
+      ],
+      "reward_exp": 5772,
+      "reward_gold": 22620,
+      "unique_item_defs": [
+        {
+          "name": "Cellbreaker's Cloak",
+          "slot": "back",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "attack_power": 35,
+            "hit_rating": 9
+          },
+          "armor_value": 73,
+          "required_level": 60,
+          "sell_price": 11021,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_04"
+        },
+        {
+          "name": "Cellbreaker's Cuffs",
+          "slot": "wrist",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 10,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 44
+          },
+          "armor_value": 83,
+          "required_level": 60,
+          "sell_price": 10019,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_04"
+        },
+        {
+          "name": "Cellbreaker's Legplates",
+          "slot": "legs",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 20,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 52
+          },
+          "armor_value": 488,
+          "required_level": 60,
+          "sell_price": 20037,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_13"
+        }
+      ],
+      "gear_reward_gear_level": 62,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "abq_the_book_of_home",
+      "title": "The Book of Home",
+      "giver_npc_id": "ab_pens_cook",
+      "zone": "ascendant_bastions",
+      "level_min": 60,
+      "level_max": 60,
+      "description": "The people in the Yard Pens kept a book of everything they remembered from home, and Archivist-Censor Mallen Roe took it to be burned. Hamza Qureshi wants the man who burns things stopped.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Archivist-Censor Mallen Roe",
+          "count": 1,
+          "zone": "the_ascendant_spire"
+        }
+      ],
+      "accept_text": "We kept a book in the pens, with recipes, songs, street names, anything anyone could remember from home so we wouldn't lose it. The Inquisitors took it for the Burning Archive in the Ascendant Spire, and the Censor, Mallen Roe, burns everything that comes in. He's off the Inquisitorium's north door. If the book's gone, at least stop him burning the next one.",
+      "turn_in_text": "The book's gone, I know. But he won't burn the next one, and we've already started writing it again.\n\nMy mother's dal is on the first page. I wrote it out from memory this morning, and I think I've got it right.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "abq_the_foundry_master"
+      ],
+      "reward_exp": 5772,
+      "reward_gold": 22620,
+      "unique_item_defs": [
+        {
+          "name": "Rememberer's Cap",
+          "slot": "head",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 21,
+            "agility": 15
+          },
+          "secondary_stats": {
+            "dodge_rating": 11
+          },
+          "armor_value": 172,
+          "required_level": 60,
+          "sell_price": 16030,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_22"
+        },
+        {
+          "name": "Rememberer's Band",
+          "slot": "ring",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 9,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 39
+          },
+          "armor_value": 0,
+          "required_level": 60,
+          "sell_price": 12022,
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_ring_07"
+        },
+        {
+          "name": "Rememberer's Gauntlets",
+          "slot": "hands",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 12,
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "attack_power": 32
+          },
+          "armor_value": 238,
+          "required_level": 60,
+          "sell_price": 13024,
+          "identity": "earthen",
+          "icon_id": "gear_inv_gauntlets_22"
+        }
+      ],
+      "gear_reward_gear_level": 62,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "abq_the_right_hand",
+      "title": "The Right Hand",
+      "giver_npc_id": "ab_unsworn_scholar",
+      "zone": "ascendant_bastions",
+      "level_min": 60,
+      "level_max": 60,
+      "description": "Exarch Lucan Thessaly speaks for Ascendant-General Maelis Ardane on the Bastions. Magister Orla Thessan wants him stopped at the top of the Ascendant Spire.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Exarch Lucan Thessaly",
+          "count": 1,
+          "zone": "the_ascendant_spire:_the_command_spire"
+        }
+      ],
+      "accept_text": "Maelis isn't here. She's gone north, and Lucan Thessaly gives her orders on the Bastions while she's away. He was my student too, before he was hers. You'll find him at the very top of the Ascendant Spire, in the Exarch's Sanctum, past the Aegis Engine and his own guard. Take him off the board, and she'll have to come back and see for herself.",
+      "turn_in_text": "So Lucan's gone, and she'll know by tonight, wherever she is.\n\nI taught them both to read the sky. I never thought I'd have to ask anyone to do this, and I'm grateful you did it.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "abq_burn_nothing_more"
+      ],
+      "reward_exp": 5772,
+      "reward_gold": 22620,
+      "unique_item_defs": [
+        {
+          "name": "Right Hand's Bane Staff",
+          "slot": "main_hand",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 35
+          },
+          "secondary_stats": {
+            "spell_power": 78
+          },
+          "armor_value": 0,
+          "required_level": 60,
+          "sell_price": 25047,
+          "identity": "caster",
+          "icon_id": "gear_inv_staff_03",
+          "weapon_damage_min": 59,
+          "weapon_damage_max": 80,
+          "attack_speed": 3.2,
+          "block_value": 0
+        },
+        {
+          "name": "Right Hand's Bane Jerkin",
+          "slot": "chest",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 20,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 52
+          },
+          "armor_value": 203,
+          "required_level": 60,
+          "sell_price": 20037,
+          "identity": "strength",
+          "icon_id": "gear_inv_chest_leather_09"
+        },
+        {
+          "name": "Right Hand's Bane Waistguard",
+          "slot": "waist",
+          "item_level": 62,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 37
+          },
+          "armor_value": 338,
+          "required_level": 60,
+          "sell_price": 11021,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_belt_14"
+        }
+      ],
+      "gear_reward_gear_level": 62,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "abq_her_old_teacher",
+      "title": "Her Old Teacher",
+      "giver_npc_id": "ab_unsworn_scholar",
+      "zone": "ascendant_bastions",
+      "level_min": 54,
+      "level_max": 55,
+      "description": "Magister Orla Thessan taught Ascendant-General Maelis Ardane. She wants you to see two of the places her student made: the Proving Grounds' arena and the Censor-Archive.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "ascendant_bastions",
+          "target_x": 50,
+          "target_y": 110,
+          "radius": 4,
+          "label": "Stand at the Proving Grounds' arena ring"
+        },
+        {
+          "type": "explore",
+          "target": "ascendant_bastions",
+          "target_x": 38,
+          "target_y": 42,
+          "radius": 4,
+          "label": "Stand in the Censor-Archive's yard"
+        }
+      ],
+      "accept_text": "Maelis built two things on the Bastions that I can't forgive. One trains children to ride at the tree, and the other burns the house's oldest records. Go and look at both, the arena on the Proving Grounds and the yard at the Censor-Archive. Then come back and tell me what you saw her people doing.",
+      "turn_in_text": "They were burning books while you watched. I know, because they burn them every evening at the same hour.\n\nMaelis used to sit in the Patient Lens's library until they put the lamps out. She loved those records more than anyone I've ever taught. Now she burns them, and I don't know why.",
+      "next_quest_id": null,
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Teacher's Mantle",
+          "slot": "shoulder",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "spell_power": 30
+          },
+          "armor_value": 59,
+          "required_level": 54,
+          "sell_price": 8630,
+          "identity": "caster",
+          "icon_id": "gear_inv_shoulder_14"
+        },
+        {
+          "name": "Teacher's Breeches",
+          "slot": "legs",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 14,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 34
+          },
+          "armor_value": 140,
+          "required_level": 54,
+          "sell_price": 10788,
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_01"
+        },
+        {
+          "name": "Teacher's Vambraces",
+          "slot": "wrist",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 14,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 11
+          },
+          "armor_value": 233,
+          "required_level": 54,
+          "sell_price": 5394,
+          "identity": "tank",
+          "icon_id": "gear_inv_bracer_05"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_what_they_burn",
+      "title": "What They Burn",
+      "giver_npc_id": "ab_unsworn_scholar",
+      "zone": "ascendant_bastions",
+      "level_min": 55,
+      "level_max": 55,
+      "description": "Magister Orla Thessan has a letter for Clerk Anselm Rook at the Censor-Archive, the clerk who reads what the Inquisitors bring him before it's burned.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "ab_q_orla_letter",
+          "count": 1,
+          "label": "Take Magister Thessan's letter to Clerk Anselm Rook at the Censor-Archive"
+        }
+      ],
+      "accept_text": "There's a clerk at the Censor-Archive called Anselm Rook. He was a copyist at the Patient Lens, a good one, and the Ascendancy took him with the archive. Give him this letter. He'll know my hand, and he'll know I'm asking him for something dangerous.",
+      "turn_in_text": "Magister Thessan's hand. I haven't seen it in twelve years.\n\nShe wants to know what they're burning. I can tell her that. I've been copying every page before it goes into the brazier, and I've been waiting for someone to give the copies to.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "ab_archive_clerk",
+      "requires_quests": [
+        "abq_her_old_teacher"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "ab_q_orla_letter",
+            "name": "Magister Thessan's Letter",
+            "description": "A folded letter sealed with the Patient Lens's mark, addressed in a careful old hand to Anselm Rook.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Letterbearer's Shield",
+          "slot": "off_hand",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "spell_power": 19,
+            "haste": 6
+          },
+          "armor_value": 436,
+          "required_level": 55,
+          "sell_price": 8630,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_shield_12",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 50
+        },
+        {
+          "name": "Letterbearer's Greaves",
+          "slot": "feet",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 155,
+          "required_level": 55,
+          "sell_price": 7012,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_plate_08"
+        },
+        {
+          "name": "Letterbearer's Robe",
+          "slot": "chest",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 12,
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 70,
+          "required_level": 55,
+          "sell_price": 10788,
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_shirt_12"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_burn_nothing_more",
+      "title": "Burn Nothing More",
+      "giver_npc_id": "ab_unsworn_scholar",
+      "zone": "ascendant_bastions",
+      "level_min": 56,
+      "level_max": 56,
+      "description": "The Censor-Archive's braziers are fed by the Cinder-Script Wisp, born out of what's burned, and guarded by the Archive Warden. Magister Orla Thessan wants both gone, so the burning stops.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Cinder-Script Wisp",
+          "count": 8,
+          "zone": "ascendant_bastions"
+        },
+        {
+          "type": "kill",
+          "target": "Archive Warden",
+          "count": 6,
+          "zone": "ascendant_bastions"
+        }
+      ],
+      "accept_text": "The fires at the Archive make things. Every Cinder-Script Wisp is a book that burned, still glowing with what was written in it, and every Archive Warden stands there to make sure the fire's fed. Put out the one and send the other packing.",
+      "turn_in_text": "The braziers are cold tonight. Anselm sent word that he's never heard the Archive so quiet.\n\nIt won't last, but every evening they can't burn is an evening the records survive. That's how the Patient Lens works. We wait, and we keep what we can.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "abq_three_seals"
+      ],
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Bookkeeper's Shield",
+          "slot": "off_hand",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 10,
+            "strength": 3
+          },
+          "secondary_stats": {
+            "block_value": 9
+          },
+          "armor_value": 444,
+          "required_level": 56,
+          "sell_price": 8957,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_21",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 51
+        },
+        {
+          "name": "Bookkeeper's Breeches",
+          "slot": "legs",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 18,
+            "agility": 12
+          },
+          "secondary_stats": {
+            "dodge_rating": 9
+          },
+          "armor_value": 169,
+          "required_level": 56,
+          "sell_price": 11196,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_wolf"
+        },
+        {
+          "name": "Bookkeeper's Gloves",
+          "slot": "hands",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "arcane_spell_power": 30
+          },
+          "armor_value": 67,
+          "required_level": 56,
+          "sell_price": 7277,
+          "identity": "arcane",
+          "icon_id": "gear_inv_gauntlets_10"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_copied_before_burned",
+      "title": "Copied Before Burned",
+      "giver_npc_id": "ab_archive_clerk",
+      "zone": "ascendant_bastions",
+      "level_min": 55,
+      "level_max": 56,
+      "description": "Clerk Anselm Rook copies what he can before it burns, but the oldest plates are stone. The Censor-Inquisitor carries them to the braziers to be shattered. He wants the pieces.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "ab_q_plate_fragment",
+          "count": 6
+        }
+      ],
+      "accept_text": "I can copy paper, but I can't copy stone fast enough. The oldest records are plates, and every Censor-Inquisitor here carries them out to be broken in the fire. Bring me the pieces they're carrying, before they get there. I'll put them back together.",
+      "turn_in_text": "Six pieces, and three of them fit together. That's never happened before.\n\nGive me a moment with them. There's something cut across the bottom that I've only ever seen half of.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "abq_what_they_burn"
+      ],
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Copyist's Spear",
+          "slot": "main_hand",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 23,
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "attack_power": 55
+          },
+          "armor_value": 0,
+          "required_level": 55,
+          "sell_price": 13995,
+          "identity": "strength",
+          "icon_id": "gear_inv_weapon_halberd_08",
+          "weapon_damage_min": 103,
+          "weapon_damage_max": 139,
+          "attack_speed": 3.3,
+          "block_value": 0
+        },
+        {
+          "name": "Copyist's Hood",
+          "slot": "head",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 37
+          },
+          "armor_value": 60,
+          "required_level": 55,
+          "sell_price": 8957,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_65"
+        },
+        {
+          "name": "Copyist's Grips",
+          "slot": "hands",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 141,
+          "required_level": 55,
+          "sell_price": 7277,
+          "identity": "feral",
+          "icon_id": "gear_inv_gauntlets_19"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_three_seals",
+      "title": "Three Seals",
+      "giver_npc_id": "ab_archive_clerk",
+      "zone": "ascendant_bastions",
+      "level_min": 56,
+      "level_max": 56,
+      "description": "Clerk Anselm Rook pieced a plate together from what the Inquisitors were burning. It has three seals across the bottom, and he wants Magister Orla Thessan to see it.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "ab_q_three_seals",
+          "count": 1,
+          "label": "Take the pieced plate to Magister Orla Thessan at Dawnspear Wreck"
+        }
+      ],
+      "accept_text": "Look at the bottom of it. That's the old house mark, the one our oldest books carry. That's a Kharad rune, I'm sure of it. And that last one is a Veyr talon-print, pressed into the stone while it was soft. Three seals on one record, and the Ascendancy burns every copy it finds. Take it to the magister.",
+      "turn_in_text": "Three seals, side by side, and the same words above each one.\n\nThe house kept records like this once, and somebody decided nobody should read them. Maelis was reading plates like this the year she left us. I always thought she left because we were slow. Now I wonder whether she left because of what she read.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "ab_unsworn_scholar",
+      "requires_quests": [
+        "abq_copied_before_burned"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "ab_q_three_seals",
+            "name": "The Plate of Three Seals",
+            "description": "Three pieces of an old stone plate fitted together. Across the bottom are three seals: an Aetherian house mark, a Kharad rune and a Veyr talon-print.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Sealbearer's Legguards",
+          "slot": "legs",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "nature_spell_power": 32,
+            "haste": 10
+          },
+          "armor_value": 254,
+          "required_level": 56,
+          "sell_price": 11196,
+          "identity": "storm",
+          "icon_id": "gear_inv_pants_05"
+        },
+        {
+          "name": "Sealbearer's Cloak",
+          "slot": "back",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 22
+          },
+          "armor_value": 44,
+          "required_level": 56,
+          "sell_price": 6158,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_09"
+        },
+        {
+          "name": "Sealbearer's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 290,
+          "required_level": 56,
+          "sell_price": 8957,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_24"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_high_censor",
+      "title": "The High Censor",
+      "giver_npc_id": "ab_archive_clerk",
+      "zone": "ascendant_bastions",
+      "level_min": 56,
+      "level_max": 56,
+      "description": "High Censor Ilsabet Morn decides what the Archive burns. Clerk Anselm Rook says she's started asking why his copies are taking so long.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "High Censor Ilsabet Morn",
+          "count": 1,
+          "zone": "ascendant_bastions"
+        }
+      ],
+      "accept_text": "High Censor Ilsabet Morn chooses what goes into the fire, and she reads everything first. She's started asking me why the copying takes so long, and sooner or later she'll come to my desk. I'd like her not to.",
+      "turn_in_text": "She won't be asking any more questions. I'll tell the Inquisitors she was called to the citadel, and they'll believe it, because they always do.\n\nI'm not brave, as I told you. But I can keep copying now, and that's the only brave thing I know how to do.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "abq_what_they_burn"
+      ],
+      "reward_exp": 5356,
+      "reward_gold": 21060,
+      "unique_item_defs": [
+        {
+          "name": "Censor-Breaker's Staff",
+          "slot": "main_hand",
+          "item_level": 58,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 29,
+            "stamina": 16
+          },
+          "secondary_stats": {
+            "attack_power": 71
+          },
+          "armor_value": 0,
+          "required_level": 56,
+          "sell_price": 21773,
+          "identity": "agility",
+          "icon_id": "gear_inv_staff_28",
+          "weapon_damage_min": 136,
+          "weapon_damage_max": 185,
+          "attack_speed": 3.6,
+          "block_value": 0
+        },
+        {
+          "name": "Censor-Breaker's Belt",
+          "slot": "waist",
+          "item_level": 58,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 13,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 33
+          },
+          "armor_value": 131,
+          "required_level": 56,
+          "sell_price": 9580,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_14"
+        },
+        {
+          "name": "Censor-Breaker's Band",
+          "slot": "ring",
+          "item_level": 58,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 31
+          },
+          "armor_value": 0,
+          "required_level": 56,
+          "sell_price": 10451,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_ring_23"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "abq_the_riders",
+      "title": "The Riders",
+      "giver_npc_id": "ab_lancer_deserter",
+      "zone": "ascendant_bastions",
+      "level_min": 55,
+      "level_max": 56,
+      "description": "On the Proving Grounds, the Mounted Sky Lancer rides down the recruits who fall behind in drill. Lancer Tavin Roake wants the riders gone.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Mounted Sky Lancer",
+          "count": 8,
+          "zone": "ascendant_bastions"
+        }
+      ],
+      "accept_text": "The recruits are children, most of them, and they're frightened. They train on foot, and every Mounted Sky Lancer on the Proving Grounds rides down the ones who fall behind, to teach the rest to keep up. I did it myself, for two years, and I'd like you to stop them.",
+      "turn_in_text": "The drill's stopped. I can hear the recruits from the bow, and they're not running.\n\nSome of them will come over to us now, not many and not quickly, but some.",
+      "next_quest_id": null,
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Deserter's Breastplate",
+          "slot": "chest",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 38
+          },
+          "armor_value": 343,
+          "required_level": 55,
+          "sell_price": 11196,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_chest_plate08"
+        },
+        {
+          "name": "Deserter's Slippers",
+          "slot": "feet",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 25
+          },
+          "armor_value": 49,
+          "required_level": 55,
+          "sell_price": 7277,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_plate_04"
+        },
+        {
+          "name": "Deserter's Wristguards",
+          "slot": "wrist",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 10,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 19
+          },
+          "armor_value": 158,
+          "required_level": 55,
+          "sell_price": 5598,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_bracer_15"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_unhorsed",
+      "title": "Unhorsed",
+      "giver_npc_id": "ab_lancer_deserter",
+      "zone": "ascendant_bastions",
+      "level_min": 55,
+      "level_max": 56,
+      "description": "The wing that will fly at the tree rides construct steeds. Lancer Tavin Roake wants the crystal cores out of the Mounted Sky Lancer's steeds.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "ab_q_steed_core",
+          "count": 5
+        }
+      ],
+      "accept_text": "A lancer without a steed is a soldier who walks, and nobody's walking to the tree. Every Mounted Sky Lancer rides a bronze steed with a crystal core in its chest. Bring me the cores, and the wing stays on the ground.",
+      "turn_in_text": "That's five steeds that'll stand in the hangar until somebody grows them new hearts.\n\nIt takes the foundry a season to grow one. I counted, when I was still counting for them.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "abq_the_riders"
+      ],
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Unhorser's Longbow",
+          "slot": "ranged",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 0,
+          "required_level": 55,
+          "sell_price": 8957,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_10",
+          "weapon_damage_min": 64,
+          "weapon_damage_max": 87,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Unhorser's Coif",
+          "slot": "head",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 215,
+          "required_level": 55,
+          "sell_price": 8957,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_55"
+        },
+        {
+          "name": "Unhorser's Leggings",
+          "slot": "legs",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 16
+          },
+          "secondary_stats": {
+            "spell_power": 35
+          },
+          "armor_value": 71,
+          "required_level": 55,
+          "sell_price": 11196,
+          "identity": "caster",
+          "icon_id": "gear_inv_pants_01"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_the_lance_master",
+      "title": "The Lance-Master",
+      "giver_npc_id": "ab_lancer_deserter",
+      "zone": "ascendant_bastions",
+      "level_min": 56,
+      "level_max": 56,
+      "description": "Lance-Master Varro Dain trained Lancer Tavin Roake, and every lancer on the Proving Grounds. Tavin wants him stopped before the next intake arrives.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Lance-Master Varro Dain",
+          "count": 1,
+          "zone": "ascendant_bastions"
+        }
+      ],
+      "accept_text": "Lance-Master Varro Dain taught me everything I know about the lance, and he taught me to ride down children. There's a new intake of recruits coming from Aurelion next month. I don't want him to be there to meet them.",
+      "turn_in_text": "He was never unseated in thirty years. I suppose that's over.\n\nI thought I'd feel better. I feel like something I was part of has ended, and that's close enough.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "abq_unhorsed"
+      ],
+      "reward_exp": 5356,
+      "reward_gold": 21060,
+      "unique_item_defs": [
+        {
+          "name": "Lancebreaker's Knife",
+          "slot": "main_hand",
+          "item_level": 58,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 13,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 34
+          },
+          "armor_value": 0,
+          "required_level": 56,
+          "sell_price": 16548,
+          "identity": "agility",
+          "icon_id": "gear_inv_weapon_shortblade_18",
+          "weapon_damage_min": 101,
+          "weapon_damage_max": 137,
+          "attack_speed": 1.7,
+          "block_value": 0
+        },
+        {
+          "name": "Lancebreaker's Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 58,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 11,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "healing_power": 49
+          },
+          "armor_value": 161,
+          "required_level": 56,
+          "sell_price": 13935,
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_15"
+        },
+        {
+          "name": "Lancebreaker's Sabatons",
+          "slot": "feet",
+          "item_level": 58,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 13,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 33
+          },
+          "armor_value": 316,
+          "required_level": 56,
+          "sell_price": 11322,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_plate_01"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "abq_the_wall_captain",
+      "title": "The Wall-Captain",
+      "giver_npc_id": "ab_lancer_deserter",
+      "zone": "ascendant_bastions",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "Wall-Captain Hesper Drace commands the guard on the citadel's apron. Lancer Tavin Roake says she hangs deserters from the walls.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Wall-Captain Hesper Drace",
+          "count": 1,
+          "zone": "ascendant_bastions"
+        }
+      ],
+      "accept_text": "Wall-Captain Hesper Drace walks the apron round the citadel, and every deserter her guard catches hangs from the walls for a week. Two of the lancers who followed me here were caught on the way. I'd like the walls to be empty.",
+      "turn_in_text": "They'll take the bodies down tonight. I've asked the skiffmaster to fly them home to Aurelion.\n\nThat's all I can do for them now. It's more than I thought I'd get to do.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "abq_the_lance_master"
+      ],
+      "reward_exp": 5460,
+      "reward_gold": 21450,
+      "unique_item_defs": [
+        {
+          "name": "Wallbreaker's Tome",
+          "slot": "off_hand",
+          "item_level": 59,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 10,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 46
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 10833,
+          "identity": "healer",
+          "icon_id": "gear_inv_tome_7",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        },
+        {
+          "name": "Wallbreaker's Handguards",
+          "slot": "hands",
+          "item_level": 59,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 19,
+            "strength": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 15
+          },
+          "armor_value": 333,
+          "required_level": 57,
+          "sell_price": 11736,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_11"
+        },
+        {
+          "name": "Wallbreaker's Girdle",
+          "slot": "waist",
+          "item_level": 59,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 11,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "attack_power": 33
+          },
+          "armor_value": 214,
+          "required_level": 57,
+          "sell_price": 9930,
+          "identity": "hunter",
+          "icon_id": "gear_inv_belt_13"
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "abq_burn_salve",
+      "title": "Burn Salve",
+      "giver_npc_id": "ab_wreck_surgeon",
+      "zone": "ascendant_bastions",
+      "level_min": 54,
+      "level_max": 55,
+      "description": "Most of what Surgeon Nell Avary treats is burns from the storm guns. The Smoke Jelly in the Ashwake carries a cool gel that takes the heat out of them.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "ab_q_jelly_gel",
+          "count": 8
+        }
+      ],
+      "accept_text": "I've run out of burn salve, and the guns don't care. Every Smoke Jelly drifting in the Ashwake carries a cool gel inside it, and it's better than anything Aurelion ever sent me. Bring me as much as you can carry.",
+      "turn_in_text": "That's enough for a month, if the guns are kind, and they won't be.\n\nI'll mix it tonight. You'd be surprised how many deserters come in with burns on their hands. Most of them grabbed a gun barrel on the way out.",
+      "next_quest_id": null,
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Salvemaker's Mace",
+          "slot": "main_hand",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 36
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 10248,
+          "identity": "healer",
+          "icon_id": "gear_inv_mace_13",
+          "weapon_damage_min": 75,
+          "weapon_damage_max": 101,
+          "attack_speed": 2.6,
+          "block_value": 0
+        },
+        {
+          "name": "Salvemaker's Jerkin",
+          "slot": "chest",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 14,
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 140,
+          "required_level": 54,
+          "sell_price": 10788,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_08"
+        },
+        {
+          "name": "Salvemaker's Pendant",
+          "slot": "neck",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 6473,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_necklace_11"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_ash_in_the_lungs",
+      "title": "Ash in the Lungs",
+      "giver_npc_id": "ab_wreck_surgeon",
+      "zone": "ascendant_bastions",
+      "level_min": 54,
+      "level_max": 55,
+      "description": "The Forge-Ash Wisp drifts out of the citadel's chimneys and settles round the wreck, and everyone in camp is coughing. Surgeon Nell Avary wants the air cleared.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Forge-Ash Wisp",
+          "count": 10,
+          "zone": "ascendant_bastions"
+        }
+      ],
+      "accept_text": "The citadel's chimneys never stop, and every Forge-Ash Wisp that comes out of them drifts down to the wreck. Half the camp coughs all night. I can't fix the chimneys, but you can thin out the ash.",
+      "turn_in_text": "The children slept last night. Did you know there are children in the camp? Three of them, deserters' children.\n\nThe ash will come back. But they slept.",
+      "next_quest_id": null,
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Ashclearer's Greatsword",
+          "slot": "main_hand",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 20,
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "attack_power": 56
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 13484,
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_04",
+          "weapon_damage_min": 101,
+          "weapon_damage_max": 137,
+          "attack_speed": 3.4,
+          "block_value": 0
+        },
+        {
+          "name": "Ashclearer's Bracers",
+          "slot": "wrist",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 115,
+          "required_level": 54,
+          "sell_price": 5394,
+          "identity": "agility",
+          "icon_id": "gear_inv_bracer_07"
+        },
+        {
+          "name": "Ashclearer's Hood",
+          "slot": "head",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "spell_power": 30
+          },
+          "armor_value": 59,
+          "required_level": 54,
+          "sell_price": 8630,
+          "identity": "caster",
+          "icon_id": "gear_inv_helmet_15"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_the_ash_mother",
+      "title": "The Ash-Mother",
+      "giver_npc_id": "ab_wreck_surgeon",
+      "zone": "ascendant_bastions",
+      "level_min": 55,
+      "level_max": 55,
+      "description": "Something in the Ashwake is breeding the Smoke Jelly faster than the wind can scatter them. Surgeon Nell Avary has heard the scouts call it The Ash-Mother.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Ash-Mother",
+          "count": 1,
+          "zone": "ascendant_bastions"
+        }
+      ],
+      "accept_text": "The scouts say there's something big out in the Ashwake, deep in the smoke, and the jellies drift out of it in clouds. They call it The Ash-Mother. It's thickened the smoke round the wreck until you can't see the bow from the stern. I want it dead.",
+      "turn_in_text": "I can see the fort again from the camp. I'm not sure that's an improvement.\n\nThank you. The smoke was getting into everyone's wounds, and now it won't.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "abq_burn_salve"
+      ],
+      "reward_exp": 5252,
+      "reward_gold": 20670,
+      "unique_item_defs": [
+        {
+          "name": "Smoke-Breaker's Hauberk",
+          "slot": "chest",
+          "item_level": 57,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 15,
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "attack_power": 47
+          },
+          "armor_value": 299,
+          "required_level": 55,
+          "sell_price": 16794,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_08"
+        },
+        {
+          "name": "Smoke-Breaker's Sash",
+          "slot": "waist",
+          "item_level": 57,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "spell_power": 32
+          },
+          "armor_value": 76,
+          "required_level": 55,
+          "sell_price": 9237,
+          "identity": "caster",
+          "icon_id": "gear_inv_belt_31"
+        },
+        {
+          "name": "Smoke-Breaker's Sabatons",
+          "slot": "feet",
+          "item_level": 57,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 18,
+            "strength": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 14
+          },
+          "armor_value": 322,
+          "required_level": 55,
+          "sell_price": 10916,
+          "identity": "tank",
+          "icon_id": "gear_inv_boots_plate_05"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "abq_eyes_on_the_gunline",
+      "title": "Eyes on the Gunline",
+      "giver_npc_id": "ab_lookout",
+      "zone": "ascendant_bastions",
+      "level_min": 55,
+      "level_max": 56,
+      "description": "Lookout Fen Arden can see the Gunline from the bow, but not what the guns are pointed at. He wants someone to look from each platform.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "ascendant_bastions",
+          "target_x": 238,
+          "target_y": 114,
+          "radius": 4,
+          "label": "Look out from the first gun platform"
+        },
+        {
+          "type": "explore",
+          "target": "ascendant_bastions",
+          "target_x": 256,
+          "target_y": 132,
+          "radius": 4,
+          "label": "Look out from the second gun platform"
+        },
+        {
+          "type": "explore",
+          "target": "ascendant_bastions",
+          "target_x": 280,
+          "target_y": 152,
+          "radius": 4,
+          "label": "Look out from the third gun platform"
+        }
+      ],
+      "accept_text": "The storm guns on the Gunline turn every evening, and I can't see what they're turning to face. Walk the platforms, all three, and look where the barrels point. The crews won't like you being there, so be quick.",
+      "turn_in_text": "South, all three, and a little west. That's the way to the World Tree.\n\nThey're not guarding the fort. They're ranging the guns for the day the warships sail.",
+      "next_quest_id": null,
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Spotter's Grips",
+          "slot": "hands",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 10,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 99,
+          "required_level": 55,
+          "sell_price": 7277,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_05"
+        },
+        {
+          "name": "Spotter's Spaulders",
+          "slot": "shoulder",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 193,
+          "required_level": 55,
+          "sell_price": 8957,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_shoulder_12"
+        },
+        {
+          "name": "Spotter's Pendant",
+          "slot": "neck",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 22
+          },
+          "armor_value": 0,
+          "required_level": 55,
+          "sell_price": 6718,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_amulet_03"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_silence_the_guns",
+      "title": "Silence the Guns",
+      "giver_npc_id": "ab_lookout",
+      "zone": "ascendant_bastions",
+      "level_min": 56,
+      "level_max": 57,
+      "description": "The Gunline's crews are ranging their guns on the World Tree. Lookout Fen Arden wants the Storm Artillerist and the Arcane Bombardier off the platforms.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Storm Artillerist",
+          "count": 8,
+          "zone": "ascendant_bastions"
+        },
+        {
+          "type": "kill",
+          "target": "Arcane Bombardier",
+          "count": 6,
+          "zone": "ascendant_bastions"
+        }
+      ],
+      "accept_text": "A gun's only a gun without a crew. Every Storm Artillerist and every Arcane Bombardier on the Gunline knows how to range on a target a long way off. Take them off the platforms, and the guns can't find anything.",
+      "turn_in_text": "The guns stopped turning this evening. First time in a year.\n\nThey'll train new crews, but training a storm crew takes longer than training a lancer. Every week counts.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "abq_eyes_on_the_gunline"
+      ],
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Gunsilencer's Cloak",
+          "slot": "back",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 25,
+            "hit_rating": 6
+          },
+          "armor_value": 60,
+          "required_level": 56,
+          "sell_price": 6387,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_07"
+        },
+        {
+          "name": "Gunsilencer's Cuffs",
+          "slot": "wrist",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 50,
+          "required_level": 56,
+          "sell_price": 5806,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_10"
+        },
+        {
+          "name": "Gunsilencer's Legplates",
+          "slot": "legs",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 14,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 36
+          },
+          "armor_value": 349,
+          "required_level": 56,
+          "sell_price": 11613,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_08"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_the_battery_master",
+      "title": "The Battery-Master",
+      "giver_npc_id": "ab_lookout",
+      "zone": "ascendant_bastions",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "Battery-Master Ormund Krell commands the Gunline and calculates the ranges. Lookout Fen Arden wants his numbers gone with him.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Battery-Master Ormund Krell",
+          "count": 1,
+          "zone": "ascendant_bastions"
+        }
+      ],
+      "accept_text": "Battery-Master Ormund Krell worked out the ranges to the tree himself, by hand, and it's taken him three years. Nobody else on the Gunline understands his numbers. If he goes, they have to start again.",
+      "turn_in_text": "He kept his ranging tables in his coat, and they burned when he fell. Three years of work, gone in a moment.\n\nI almost feel sorry for him, but not quite.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "abq_silence_the_guns"
+      ],
+      "reward_exp": 5460,
+      "reward_gold": 21450,
+      "unique_item_defs": [
+        {
+          "name": "Batterybreaker's Cap",
+          "slot": "head",
+          "item_level": 59,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 20,
+            "agility": 14
+          },
+          "secondary_stats": {
+            "dodge_rating": 10
+          },
+          "armor_value": 163,
+          "required_level": 57,
+          "sell_price": 14444,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_10"
+        },
+        {
+          "name": "Batterybreaker's Band",
+          "slot": "ring",
+          "item_level": 59,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 36
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 10833,
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_ring_10"
+        },
+        {
+          "name": "Batterybreaker's Gauntlets",
+          "slot": "hands",
+          "item_level": 59,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 11,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "attack_power": 30
+          },
+          "armor_value": 214,
+          "required_level": 57,
+          "sell_price": 11736,
+          "identity": "earthen",
+          "icon_id": "gear_inv_gauntlets_21"
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "abq_the_road_north",
+      "title": "The Road North",
+      "giver_npc_id": "ab_lookout",
+      "zone": "ascendant_bastions",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "The Firmament Road runs north off the citadel's northern bastion. Lookout Fen Arden wants to know where it goes, and who walks it.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "ascendant_bastions",
+          "target_x": 160,
+          "target_y": 10,
+          "radius": 4,
+          "label": "Walk to the end of the Firmament Road"
+        }
+      ],
+      "accept_text": "Every few days a column goes north up the road off the northern bastion, and it never comes back the same size. Walk to the end of the road and look. I want to know what's out there that's worth so many soldiers.",
+      "turn_in_text": "The Fading Firmament. I've heard the name all my life, and I've never seen it.\n\nThat's where the sky's dying fastest, the old engines going dark and the islands breaking up. If the Ascendancy's marching there, they're looking for something to take before it falls.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "abq_eyes_on_the_gunline"
+      ],
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Roadwalker's Staff",
+          "slot": "main_hand",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 24
+          },
+          "secondary_stats": {
+            "spell_power": 56
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 14516,
+          "identity": "caster",
+          "icon_id": "gear_inv_staff_03",
+          "weapon_damage_min": 42,
+          "weapon_damage_max": 57,
+          "attack_speed": 3.2,
+          "block_value": 0
+        },
+        {
+          "name": "Roadwalker's Jerkin",
+          "slot": "chest",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 14,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 36
+          },
+          "armor_value": 171,
+          "required_level": 57,
+          "sell_price": 11613,
+          "identity": "strength",
+          "icon_id": "gear_inv_chest_leather_06"
+        },
+        {
+          "name": "Roadwalker's Waistguard",
+          "slot": "waist",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 27
+          },
+          "armor_value": 241,
+          "required_level": 57,
+          "sell_price": 6387,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_belt_14"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_clear_skies",
+      "title": "Clear Skies",
+      "giver_npc_id": "ab_skiffmaster",
+      "zone": "ascendant_bastions",
+      "level_min": 54,
+      "level_max": 55,
+      "description": "The Smoke-Gale Hawk nests in the chimney smoke and dives at the free skiffs coming in to the wreck. Skiffmaster Pell Daray wants the approach cleared.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Smoke-Gale Hawk",
+          "count": 10,
+          "zone": "ascendant_bastions"
+        }
+      ],
+      "accept_text": "Every Smoke-Gale Hawk between here and Aurelion has learned that a skiff's full of food. They dive at the sails and the rigging, and last week one brought a skiff down in the Ashwake. Clear them off the approach.",
+      "turn_in_text": "Two skiffs came in this morning without a scratch. The pilots asked who to thank, and I said you.\n\nThey'll keep flying as long as the approach is clear. That's all they need.",
+      "next_quest_id": null,
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Skyclearer's Mantle",
+          "slot": "shoulder",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "spell_power": 30
+          },
+          "armor_value": 59,
+          "required_level": 54,
+          "sell_price": 8630,
+          "identity": "caster",
+          "icon_id": "gear_inv_shoulder_03"
+        },
+        {
+          "name": "Skyclearer's Breeches",
+          "slot": "legs",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 14,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 34
+          },
+          "armor_value": 140,
+          "required_level": 54,
+          "sell_price": 10788,
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_03"
+        },
+        {
+          "name": "Skyclearer's Vambraces",
+          "slot": "wrist",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 14,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 11
+          },
+          "armor_value": 251,
+          "required_level": 54,
+          "sell_price": 5394,
+          "identity": "tank",
+          "icon_id": "gear_inv_bracer_05"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_weak_seams",
+      "title": "Weak Seams",
+      "giver_npc_id": "ab_pens_foreman",
+      "zone": "ascendant_bastions",
+      "level_min": 55,
+      "level_max": 56,
+      "description": "Rosa Delgado welds the warships' hulls, and she's been welding some seams weak on purpose. She's marked which ones on a chart for Captain Isolde Marrane.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "ab_q_seam_chart",
+          "count": 1,
+          "label": "Take Rosa's seam chart to Captain Isolde Marrane at Dawnspear Wreck"
+        }
+      ],
+      "accept_text": "Every seam I weld, I weld well, because they check. But not every seam gets checked. I've marked the ones that won't hold in a storm, every one, ship by ship. Take this to the captain at the wreck. She'll know what it's worth.",
+      "turn_in_text": "She marked them all. Every weak seam on every hull, ship by ship.\n\nIf those ships ever sail, I'll know which ones to hit and where. Tell her she's the bravest person on the Bastions. Then tell her to be careful.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "ab_wreck_captain",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "ab_q_seam_chart",
+            "name": "Rosa's Seam Chart",
+            "description": "A greasy chart of every warship hull on the slipways, with some seams marked in a small careful hand.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Seamwelder's Shield",
+          "slot": "off_hand",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "spell_power": 20,
+            "haste": 6
+          },
+          "armor_value": 444,
+          "required_level": 55,
+          "sell_price": 8957,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_shield_14",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 51
+        },
+        {
+          "name": "Seamwelder's Greaves",
+          "slot": "feet",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 158,
+          "required_level": 55,
+          "sell_price": 7277,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_08"
+        },
+        {
+          "name": "Seamwelder's Robe",
+          "slot": "chest",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 12,
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "healing_power": 31
+          },
+          "armor_value": 71,
+          "required_level": 55,
+          "sell_price": 11196,
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_chest_cloth_47"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_the_overseers",
+      "title": "The Overseers",
+      "giver_npc_id": "ab_pens_foreman",
+      "zone": "ascendant_bastions",
+      "level_min": 55,
+      "level_max": 56,
+      "description": "The Yard Overseer drives the Earthborn on the slipways from first light to dark. Rosa Delgado wants them taken off the quay.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Yard Overseer",
+          "count": 8,
+          "zone": "ascendant_bastions"
+        }
+      ],
+      "accept_text": "Every Yard Overseer on the quay carries a rod, and they don't hesitate to use it. The conscripts work sixteen hours, and when someone falls asleep on a weld, they wake them up. Take the overseers off the quay for a while.",
+      "turn_in_text": "Nobody worked past dark tonight. Siobhan says it's the first full night's sleep the pens have had in a year.\n\nThey'll send more overseers, and that's fine. We'll be rested when they get here.",
+      "next_quest_id": null,
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Pensfriend's Shield",
+          "slot": "off_hand",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 10,
+            "strength": 3
+          },
+          "secondary_stats": {
+            "block_value": 9
+          },
+          "armor_value": 444,
+          "required_level": 55,
+          "sell_price": 8957,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_08",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 51
+        },
+        {
+          "name": "Pensfriend's Breeches",
+          "slot": "legs",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 18,
+            "agility": 12
+          },
+          "secondary_stats": {
+            "dodge_rating": 9
+          },
+          "armor_value": 143,
+          "required_level": 55,
+          "sell_price": 11196,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_14"
+        },
+        {
+          "name": "Pensfriend's Gloves",
+          "slot": "hands",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "arcane_spell_power": 30
+          },
+          "armor_value": 67,
+          "required_level": 55,
+          "sell_price": 7277,
+          "identity": "arcane",
+          "icon_id": "gear_inv_gauntlets_02"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_the_drones_fix_it",
+      "title": "The Drones Fix It",
+      "giver_npc_id": "ab_pens_foreman",
+      "zone": "ascendant_bastions",
+      "level_min": 55,
+      "level_max": 56,
+      "description": "The Slipway Repair-Drone inspects every seam on the hulls and fixes the weak ones. Rosa Delgado's work doesn't last a week with them about.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Slipway Repair-Drone",
+          "count": 8,
+          "zone": "ascendant_bastions"
+        }
+      ],
+      "accept_text": "I weld a seam weak, and two days later a Slipway Repair-Drone finds it and fixes it properly. They're patient, and they never stop. If they're gone, my seams stay the way I left them.",
+      "turn_in_text": "The drones have stopped crawling over the hulls. I welded three seams weak today and nobody touched them.\n\nYou'd think I'd feel guilty about ruining good work, but I don't.",
+      "next_quest_id": null,
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Saboteur's Spear",
+          "slot": "main_hand",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 23,
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "attack_power": 55
+          },
+          "armor_value": 0,
+          "required_level": 55,
+          "sell_price": 13995,
+          "identity": "strength",
+          "icon_id": "gear_inv_weapon_halberd_11",
+          "weapon_damage_min": 103,
+          "weapon_damage_max": 139,
+          "attack_speed": 3.3,
+          "block_value": 0
+        },
+        {
+          "name": "Saboteur's Hood",
+          "slot": "head",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 37
+          },
+          "armor_value": 60,
+          "required_level": 55,
+          "sell_price": 8957,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_44"
+        },
+        {
+          "name": "Saboteur's Grips",
+          "slot": "hands",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 99,
+          "required_level": 55,
+          "sell_price": 7277,
+          "identity": "feral",
+          "icon_id": "gear_inv_gauntlets_18"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_lay_no_more_keels",
+      "title": "Lay No More Keels",
+      "giver_npc_id": "ab_pens_foreman",
+      "zone": "ascendant_bastions",
+      "level_min": 56,
+      "level_max": 56,
+      "description": "Each Keel Construct carries a governor that tells it which keel to lay next. Rosa Delgado wants the governors, so the yard can't start a new hull.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "ab_q_keel_governor",
+          "count": 4
+        }
+      ],
+      "accept_text": "The yard lays a new keel every month, and every Keel Construct carries the governor that knows the pattern. Bring me the governors. Without them, nobody here can start a new ship, and the five on the slipways are all they'll have.",
+      "turn_in_text": "Four governors, and the yard's only got six constructs.\n\nI'll take these apart tonight. I want to know how they think, in case I ever need to make one think something else.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "abq_the_drones_fix_it"
+      ],
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Keelbreaker's Legguards",
+          "slot": "legs",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "nature_spell_power": 32,
+            "haste": 10
+          },
+          "armor_value": 228,
+          "required_level": 56,
+          "sell_price": 11196,
+          "identity": "storm",
+          "icon_id": "gear_inv_pants_06"
+        },
+        {
+          "name": "Keelbreaker's Cloak",
+          "slot": "back",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 22
+          },
+          "armor_value": 44,
+          "required_level": 56,
+          "sell_price": 6158,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_04"
+        },
+        {
+          "name": "Keelbreaker's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 290,
+          "required_level": 56,
+          "sell_price": 8957,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_22"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_medicine_run",
+      "title": "Medicine Run",
+      "giver_npc_id": "ab_pens_medic",
+      "zone": "ascendant_bastions",
+      "level_min": 54,
+      "level_max": 55,
+      "description": "Siobhan Keane is out of almost everything in the pens. She wants a note taken to Surgeon Nell Avary at Dawnspear Wreck, asking for what the deserters can spare.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "ab_q_medicine_note",
+          "count": 1,
+          "label": "Take Siobhan's note to Surgeon Nell Avary at Dawnspear Wreck"
+        }
+      ],
+      "accept_text": "I've got two hundred patients and one tent, and the yard gives us nothing. The surgeon at the wreck sends what she can, when someone can carry it. Take her this list. Don't let the hounds on the causeway see you.",
+      "turn_in_text": "Bandages, clean water, something for fever, and burn salve. She always asks for burn salve.\n\nTell her I'll send what I can. It's never enough, but it's never nothing either.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "ab_wreck_surgeon",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "ab_q_medicine_note",
+            "name": "Siobhan's List",
+            "description": "A scrap of sailcloth with a list written on it in charcoal, in a quick nurse's hand.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Runner's Staff",
+          "slot": "main_hand",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 20,
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "attack_power": 56
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 13484,
+          "identity": "agility",
+          "icon_id": "gear_inv_staff_17",
+          "weapon_damage_min": 101,
+          "weapon_damage_max": 137,
+          "attack_speed": 3.6,
+          "block_value": 0
+        },
+        {
+          "name": "Runner's Belt",
+          "slot": "waist",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 97,
+          "required_level": 54,
+          "sell_price": 5933,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_15"
+        },
+        {
+          "name": "Runner's Band",
+          "slot": "ring",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 6473,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_ring_32"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_clean_water",
+      "title": "Clean Water",
+      "giver_npc_id": "ab_pens_medic",
+      "zone": "ascendant_bastions",
+      "level_min": 56,
+      "level_max": 57,
+      "description": "The pens drink what runs off the slipways, and half of the conscripts are sick from it. The Harvested Storm on the Storm Harvest holds rain clean enough to drink. Siobhan Keane wants some.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "ab_q_storm_rain",
+          "count": 6
+        }
+      ],
+      "accept_text": "The water we get runs off the slipways, through the rivets and the oil, and it's making people sick. Every Harvested Storm on the rock to the north-east holds rain inside it, clean rain, the cleanest on the Bastions. Bring me what you can wring out of them.",
+      "turn_in_text": "It fizzes, but it's clean. I've tested it the only way I can, which is drinking it myself.\n\nI'll give it to the sickest first. Thank you. You don't know what this means here.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "abq_medicine_run"
+      ],
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Waterbearer's Breastplate",
+          "slot": "chest",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "healing_power": 56
+          },
+          "armor_value": 349,
+          "required_level": 56,
+          "sell_price": 11613,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_chest_plate10"
+        },
+        {
+          "name": "Waterbearer's Slippers",
+          "slot": "feet",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 25
+          },
+          "armor_value": 50,
+          "required_level": 56,
+          "sell_price": 7548,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_03"
+        },
+        {
+          "name": "Waterbearer's Wristguards",
+          "slot": "wrist",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 10,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 19
+          },
+          "armor_value": 161,
+          "required_level": 56,
+          "sell_price": 5806,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_bracer_18"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_the_hounds",
+      "title": "The Hounds",
+      "giver_npc_id": "ab_pens_medic",
+      "zone": "ascendant_bastions",
+      "level_min": 56,
+      "level_max": 56,
+      "description": "The Causeway Construct Hound runs down conscripts who try to slip out of the pens. Siobhan Keane wants the causeway clear.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Causeway Construct Hound",
+          "count": 8,
+          "zone": "ascendant_bastions"
+        }
+      ],
+      "accept_text": "Every Causeway Construct Hound on the causeway is set to hunt anyone who hasn't got an Ascendancy mark. Two of my patients tried to reach the wreck last month. The hounds brought back what was left. Clear the causeway.",
+      "turn_in_text": "The causeway's quiet. Rosa says two of the welders want to try for the wreck tonight.\n\nI've told them to wait a week. But I'm glad they've got the choice.",
+      "next_quest_id": null,
+      "reward_exp": 4120,
+      "reward_gold": 16200,
+      "unique_item_defs": [
+        {
+          "name": "Houndbreaker's Longbow",
+          "slot": "ranged",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 0,
+          "required_level": 56,
+          "sell_price": 8957,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_03",
+          "weapon_damage_min": 64,
+          "weapon_damage_max": 87,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Houndbreaker's Coif",
+          "slot": "head",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 193,
+          "required_level": 56,
+          "sell_price": 8957,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_48"
+        },
+        {
+          "name": "Houndbreaker's Leggings",
+          "slot": "legs",
+          "item_level": 57,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 16
+          },
+          "secondary_stats": {
+            "spell_power": 35
+          },
+          "armor_value": 71,
+          "required_level": 56,
+          "sell_price": 11196,
+          "identity": "caster",
+          "icon_id": "gear_inv_pants_05"
+        }
+      ],
+      "gear_reward_gear_level": 57,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_cut_the_rigging",
+      "title": "Cut the Rigging",
+      "giver_npc_id": "ab_pens_rigger",
+      "zone": "ascendant_bastions",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "The finished warships fly patrols up the Firmament Road. Tomasz Bielecki rigged every one, and he wants the Ascendancy Gunship brought down.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Ascendancy Gunship",
+          "count": 6,
+          "zone": "ascendant_bastions"
+        }
+      ],
+      "accept_text": "I rigged every Ascendancy Gunship that flies the Firmament Road. I know where their sails are weakest, because I made them that way when I could. Bring them down. I'd like to know my knots did something useful.",
+      "turn_in_text": "Six of them. I remember rigging every one, you know. I remember the names they gave them.\n\nI'm not sorry. I'm only telling you I remember.",
+      "next_quest_id": null,
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Riggingcutter's Knife",
+          "slot": "main_hand",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 11032,
+          "identity": "agility",
+          "icon_id": "gear_inv_weapon_shortblade_19",
+          "weapon_damage_min": 77,
+          "weapon_damage_max": 104,
+          "attack_speed": 1.7,
+          "block_value": 0
+        },
+        {
+          "name": "Riggingcutter's Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 37
+          },
+          "armor_value": 123,
+          "required_level": 57,
+          "sell_price": 9290,
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_28"
+        },
+        {
+          "name": "Riggingcutter's Sabatons",
+          "slot": "feet",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 241,
+          "required_level": 57,
+          "sell_price": 7548,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_plate_08"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_thunderbirds",
+      "title": "Thunderbirds",
+      "giver_npc_id": "ab_pens_rigger",
+      "zone": "ascendant_bastions",
+      "level_min": 56,
+      "level_max": 57,
+      "description": "The Harvest Thunderbird nests on the Storm Harvest and tears through the warships' sails in the storms. Tomasz Bielecki has to mend every tear by hand, and the yard blames him for each one.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Harvest Thunderbird",
+          "count": 8,
+          "zone": "ascendant_bastions"
+        }
+      ],
+      "accept_text": "Every storm, a Harvest Thunderbird or two comes down off the north-east rock and goes through the warships' sails like a knife. The yard says I rig them badly and docks our rations. Thin them out, and the pens eat properly.",
+      "turn_in_text": "The yard's stopped docking our rations, because the sails came through last night's storm in one piece.\n\nFunny how that works. You fix the birds, and suddenly I'm a good rigger again.",
+      "next_quest_id": null,
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Stormwatcher's Tome",
+          "slot": "off_hand",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 34
+          },
+          "armor_value": 0,
+          "required_level": 56,
+          "sell_price": 6968,
+          "identity": "healer",
+          "icon_id": "gear_inv_tome_8",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        },
+        {
+          "name": "Stormwatcher's Handguards",
+          "slot": "hands",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 14,
+            "strength": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 11
+          },
+          "armor_value": 241,
+          "required_level": 56,
+          "sell_price": 7548,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_29"
+        },
+        {
+          "name": "Stormwatcher's Girdle",
+          "slot": "waist",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 161,
+          "required_level": 56,
+          "sell_price": 6387,
+          "identity": "hunter",
+          "icon_id": "gear_inv_belt_17"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_old_thunderhead",
+      "title": "Old Thunderhead",
+      "giver_npc_id": "ab_pens_rigger",
+      "zone": "ascendant_bastions",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "The oldest of the thunderbirds, Old Thunderhead, leads the rest down on the slipways. Tomasz Bielecki wants it gone.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Old Thunderhead",
+          "count": 1,
+          "zone": "ascendant_bastions"
+        }
+      ],
+      "accept_text": "There's one thunderbird bigger than the rest, grey round the beak, and the others follow it. The storm-keeper calls it Old Thunderhead. When it comes down, the whole flock comes with it. Put it down, and the rest will scatter.",
+      "turn_in_text": "The keeper sent word that the flock's scattered all over the north-east rock and won't settle.\n\nI'm glad they're confused, and I hope it lasts a while. The sails will thank you.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "abq_thunderbirds"
+      ],
+      "reward_exp": 5460,
+      "reward_gold": 21450,
+      "unique_item_defs": [
+        {
+          "name": "Thunderbreaker's Mace",
+          "slot": "main_hand",
+          "item_level": 59,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 11,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "healing_power": 50
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 17153,
+          "identity": "healer",
+          "icon_id": "gear_inv_mace_06",
+          "weapon_damage_min": 103,
+          "weapon_damage_max": 139,
+          "attack_speed": 2.6,
+          "block_value": 0
+        },
+        {
+          "name": "Thunderbreaker's Jerkin",
+          "slot": "chest",
+          "item_level": 59,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 19,
+            "intellect": 16
+          },
+          "secondary_stats": {
+            "attack_power": 37
+          },
+          "armor_value": 210,
+          "required_level": 57,
+          "sell_price": 18055,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_03"
+        },
+        {
+          "name": "Thunderbreaker's Pendant",
+          "slot": "neck",
+          "item_level": 59,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 10833,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_necklace_02"
+        }
+      ],
+      "gear_reward_gear_level": 59,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "abq_two_hundred_plates",
+      "title": "Two Hundred Plates",
+      "giver_npc_id": "ab_pens_cook",
+      "zone": "ascendant_bastions",
+      "level_min": 54,
+      "level_max": 55,
+      "description": "Hamza Qureshi feeds the whole of the pens on scraps. The Cinder Ray in the Ashwake has meat on it that cooks itself, and he wants enough for everyone.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "ab_q_ray_fillet",
+          "count": 8
+        }
+      ],
+      "accept_text": "Two hundred people, one pot and whatever the yard throws away. Every Cinder Ray out in the Ashwake has a fillet on it that's half cooked from the inside already. Bring me enough, and I'll feed the pens something they'll remember.",
+      "turn_in_text": "Look at these. I could open a restaurant with these.\n\nI'll do them in the pot with what spice I've got left. Two hundred plates, and not one of them sent back. I'd put money on it.",
+      "next_quest_id": null,
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Cook's Greatsword",
+          "slot": "main_hand",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 20,
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "attack_power": 56
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 13484,
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_04",
+          "weapon_damage_min": 101,
+          "weapon_damage_max": 137,
+          "attack_speed": 3.4,
+          "block_value": 0
+        },
+        {
+          "name": "Cook's Bracers",
+          "slot": "wrist",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 97,
+          "required_level": 54,
+          "sell_price": 5394,
+          "identity": "agility",
+          "icon_id": "gear_inv_bracer_16"
+        },
+        {
+          "name": "Cook's Hood",
+          "slot": "head",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "spell_power": 30
+          },
+          "armor_value": 59,
+          "required_level": 54,
+          "sell_price": 8630,
+          "identity": "caster",
+          "icon_id": "gear_inv_helmet_43"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_spice_from_the_stores",
+      "title": "Spice From the Stores",
+      "giver_npc_id": "ab_pens_cook",
+      "zone": "ascendant_bastions",
+      "level_min": 56,
+      "level_max": 57,
+      "description": "The Ascendancy feeds its soldiers properly. Each Bastion Legionary on the apron carries a ration tin with real spice in it, and Hamza Qureshi wants it.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "ab_q_ration_tin",
+          "count": 6
+        }
+      ],
+      "accept_text": "The conscripts eat scraps, and the soldiers eat well. Every Bastion Legionary on the apron carries a ration tin, and every tin has a twist of good spice in it. I want the spice. I'll share the bread with Siobhan's patients.",
+      "turn_in_text": "That's cumin, and I could cry. I haven't smelled cumin since Bradford.\n\nTonight the pens eat a proper curry. You're invited, if you can get here without the hounds seeing you.",
+      "next_quest_id": null,
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Forager's Hauberk",
+          "slot": "chest",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 12,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 36
+          },
+          "armor_value": 232,
+          "required_level": 56,
+          "sell_price": 11613,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain"
+        },
+        {
+          "name": "Forager's Sash",
+          "slot": "waist",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 25
+          },
+          "armor_value": 68,
+          "required_level": 56,
+          "sell_price": 6387,
+          "identity": "caster",
+          "icon_id": "gear_inv_belt_13"
+        },
+        {
+          "name": "Forager's Sabatons",
+          "slot": "feet",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 14,
+            "strength": 6
+          },
+          "secondary_stats": {
+            "defense_rating": 11
+          },
+          "armor_value": 259,
+          "required_level": 56,
+          "sell_price": 7548,
+          "identity": "tank",
+          "icon_id": "gear_inv_boots_plate_07"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_the_storm_misbehaves",
+      "title": "The Storm Misbehaves",
+      "giver_npc_id": "ab_harvest_keeper",
+      "zone": "ascendant_bastions",
+      "level_min": 56,
+      "level_max": 57,
+      "description": "The collectors on the Storm Harvest drink lightning, and the Ascendancy has them drinking faster than they were built for. The Harvested Storm breaks loose. Storm-Keeper Edda Quill wants them calmed.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Harvested Storm",
+          "count": 10,
+          "zone": "ascendant_bastions"
+        }
+      ],
+      "accept_text": "These collectors were built to sip at the storms, a little at a time, and that's all they can take. The Ascendancy has them gulping, and every Harvested Storm that breaks loose from them wanders the rock throwing lightning about. Calm them down the only way that works.",
+      "turn_in_text": "It's quieter already, and I can hear the collectors humming properly again.\n\nThey were built by a house that's gone now, three hundred years ago. I've kept them for forty. I'd like them to outlast me.",
+      "next_quest_id": null,
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Stormkeeper's Grips",
+          "slot": "hands",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 118,
+          "required_level": 56,
+          "sell_price": 7548,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_27"
+        },
+        {
+          "name": "Stormkeeper's Spaulders",
+          "slot": "shoulder",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 33
+          },
+          "armor_value": 219,
+          "required_level": 56,
+          "sell_price": 9290,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_shoulder_26"
+        },
+        {
+          "name": "Stormkeeper's Pendant",
+          "slot": "neck",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 22
+          },
+          "armor_value": 0,
+          "required_level": 56,
+          "sell_price": 6968,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_necklace_11"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_collector_crystals",
+      "title": "Collector Crystals",
+      "giver_npc_id": "ab_harvest_keeper",
+      "zone": "ascendant_bastions",
+      "level_min": 56,
+      "level_max": 57,
+      "description": "The collectors' crystals are cracking from the strain. The Lightning Elemental on the Storm Harvest grows new ones inside it, and Storm-Keeper Edda Quill wants them.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "ab_q_collector_crystal",
+          "count": 6
+        }
+      ],
+      "accept_text": "The crystals in the collectors are cracking, and the Ascendancy won't send new ones. Every Lightning Elemental on the rock grows a crystal inside itself, overcharged but sound. Bring me those, and I'll set them in the collectors myself.",
+      "turn_in_text": "These will hold. They're angry, but they'll hold.\n\nI'll set them tomorrow. It takes a steady hand and a dry day, and we don't get many of those up here.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "abq_the_storm_misbehaves"
+      ],
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Crystalkeeper's Cloak",
+          "slot": "back",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 25,
+            "hit_rating": 6
+          },
+          "armor_value": 44,
+          "required_level": 56,
+          "sell_price": 6387,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_01"
+        },
+        {
+          "name": "Crystalkeeper's Cuffs",
+          "slot": "wrist",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 50,
+          "required_level": 56,
+          "sell_price": 5806,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_02"
+        },
+        {
+          "name": "Crystalkeeper's Legplates",
+          "slot": "legs",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 14,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 36
+          },
+          "armor_value": 349,
+          "required_level": 56,
+          "sell_price": 11613,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_07"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "abq_where_the_lightning_goes",
+      "title": "Where the Lightning Goes",
+      "giver_npc_id": "ab_harvest_keeper",
+      "zone": "ascendant_bastions",
+      "level_min": 57,
+      "level_max": 57,
+      "description": "Storm-Keeper Edda Quill keeps a ledger of where the collectors' lightning is sent. She wants Magister Orla Thessan at Dawnspear Wreck to read it.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "ab_q_storm_ledger",
+          "count": 1,
+          "label": "Take Edda's ledger to Magister Orla Thessan at Dawnspear Wreck"
+        }
+      ],
+      "accept_text": "I write down where every charge goes, because the old house taught me to. Half of it goes down into the citadel, to the foundry. The rest goes into the warships' engines, a little every day, more than a ship needs to fly. Take this ledger to the scholar at the wreck. She'll understand what it means. I don't want to.",
+      "turn_in_text": "More than a ship needs to fly, and Edda's right about that.\n\nThey're not building warships to sail to the tree, or not only that. They're building them to carry something heavy. Maelis always thought bigger than the rest of us. I'm afraid of what she's thinking about now.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "ab_unsworn_scholar",
+      "requires_quests": [
+        "abq_collector_crystals"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "ab_q_storm_ledger",
+            "name": "Edda's Storm Ledger",
+            "description": "A worn ledger of charges and destinations, forty years of them, in a small tidy hand.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 4200,
+      "reward_gold": 16500,
+      "unique_item_defs": [
+        {
+          "name": "Ledgerbearer's Cap",
+          "slot": "head",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 15,
+            "agility": 10
+          },
+          "secondary_stats": {
+            "dodge_rating": 8
+          },
+          "armor_value": 145,
+          "required_level": 57,
+          "sell_price": 9290,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_04"
+        },
+        {
+          "name": "Ledgerbearer's Band",
+          "slot": "ring",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 27
+          },
+          "armor_value": 0,
+          "required_level": 57,
+          "sell_price": 6968,
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_ring_16"
+        },
+        {
+          "name": "Ledgerbearer's Gauntlets",
+          "slot": "hands",
+          "item_level": 58,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 8,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 161,
+          "required_level": 57,
+          "sell_price": 7548,
+          "identity": "earthen",
+          "icon_id": "gear_inv_gauntlets_04"
+        }
+      ],
+      "gear_reward_gear_level": 58,
+      "gear_reward_rarity": "uncommon"
+    }
+  ]
+}

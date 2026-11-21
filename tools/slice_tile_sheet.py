@@ -120,6 +120,21 @@ _set("southern_needles", 8, 6, "tools/tile_sheets/southern_needles_tiles.png",
 #: the rows need declaring. Same drift the aspen sheet had; see the module docstring.
 
 
+# ---------------------------------------------------------------------------------------------------------
+# THE ASCENDANT BASTIONS' DUNGEONS (docs/bastions_art_prompts.md sheet AB4, Kyle 21 Nov 2026). 8x6, rows 4 to 6 left
+# grey by the prompt and dropped. ab_inlay_marble and ab_blue_carpet came back framed, like rugs, so they're for
+# small set pieces, never a field material.
+# ---------------------------------------------------------------------------------------------------------
+_set("bastions_ab4", 8, 6, "tools/tile_sheets/bastions_ab4_tiles.png", "assets/tiles/sky/ground", """
+    ab_iron_plates ab_forge_grate ab_rail_floor ab_molten_cracks ab_hazard_bronze ab_slag_stone ab_molten_crystal ab_quench_water
+    ab_inlay_marble ab_blue_carpet ab_parade_flags ab_rune_slate ab_archive_boards ab_gold_black_marble ab_sky_glass ab_storm_balcony
+    ab_wall_foundry_pipes ab_wall_vent_brick ab_wall_white_gold ab_wall_blue_tile ab_wall_black_stone ab_wall_shelves ab_wall_crystal ab_wall_gearwork
+    _g1 _g2 _g3 _g4 _g5 _g6 _g7 _g8
+    _g9 _g10 _g11 _g12 _g13 _g14 _g15 _g16
+    _g17 _g18 _g19 _g20 _g21 _g22 _g23 _g24
+""", drop=tuple(f"_g{i}" for i in range(1, 25)))
+
+
 def make_seamless(im, blend=BLEND):
     """Cross-fade opposite edges so the texture repeats without a seam.
 

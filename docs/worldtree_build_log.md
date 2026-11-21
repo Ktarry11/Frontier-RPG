@@ -504,11 +504,68 @@ three abilities on 10 to 15 turn cooldowns, built only from mechanics other kits
 zone (Ines, Lukas, Rafael, Samir) are sliced and wait for it. The 48 Aetherian looks (AE-M, AE-W) are on the race's
 lists in `world/race_registry.py`.
 
+## The Ascendant Bastions (54-57), built 21 Nov 2026
+
+**The map** (`tools/handbuilt_worldtree_ascendant_bastions.py`, 300x260): the Ascendancy's star fort, cut from a
+floating island. A pentagon of curtain walls with an arrowhead bastion on every corner, the parade apron round it, the
+causeway south to the quay and its five finger piers (the warships on their berths over the void), the Gunline's three
+storm-gun platforms off the east, the Proving Grounds and the Censor-Archive to the west, the Storm Harvest and the Yard
+Pens to the east, Dawnspear Wreck in the south-west where the free skiffs land, and the Ashwake, a smoke-cloud of the
+yard's soot, to the south. The Firmament Road runs north off the northern bastion to the Fading Firmament (a later
+portal).
+
+**The citadel** is Kyle's art: his AB1 fortress-city stands inside the curtain, and the curtain is his AB5 angled walls,
+one angle a side (the two northern curtains in the 38-degree pieces, the steep sides in the end-on pieces with a tower
+halfway down, the south curtain flat), round towers on the corners, the Spire's gate on the north corner and the
+Foundry's in the south curtain.
+
+**People** (`tools/build_ascendant_bastions_people.py`): 14. Dawnspear Wreck: Captain Isolde Marrane, who brought her
+ship down rather than fire on an Earthborn camp; Magister Orla Thessan, who taught the Ascendancy's general; the
+deserter lancer, the surgeon, the skiffmaster (the zone's one flight path), the lookout, a provisioner and a trader.
+The Yard Pens: four Earthborn conscripts (a welder, a nurse, a rigger and a cook). Out on the islands: the clerk at the
+Censor-Archive who copies before he burns, and the old storm-keeper. Ascendant-General Maelis Ardane is named here for
+the first time; she's the Firmament's.
+
+**Content** (`tools/build_ascendant_bastions_content.py`): 34 creatures and 7 rares, gathering, fishing, chests and
+three secrets. **Quests** (`tools/ascendant_bastions_quests.py`): 44, 38 from the two hubs, seven of them into the two
+dungeons. **The sky's one mystery, the Bastions' piece:** a stone plate with an Aetherian, a Kharad and a Veyr seal side
+by side on it, which the Ascendancy burns.
+
+## The Citadel of Ascent's two dungeons, built 21 Nov 2026
+
+Kyle: "a 'Hellfire Citadel' like style. We can have a lvl 56-58 and a lvl 60 dungeon. Both into one mega structure but
+different entrances. Each dungeon will have around 8-9 bosss over two floors." Both are fortress interiors, big built
+halls with loops between them, and a fast exit past the last boss. Shared machinery: `tools/citadel_dungeon_kit.py`.
+
+**The Gravity Foundry (56-58)**, the south gate (`tools/handbuilt_gravity_foundry.py`). The Foundry Halls: the Intake
+(Intake-Warden Brannoc Teal), the Casting Floor round the pour (the Slag Colossus), the Quench Halls (Pourmasters Ilka
+and Dov, one fight), the Testing Hall (Prototype Nine, optional), the Assembly Ring round its pit, and the Overseer's
+Gallery (Foundry-Master Cassor Vane), with the Casting Floor's back stair making a second loop. The Keelworks: the Lift
+Landing, the Gantry Walks over the drop (Gantry-Chief Dessa Marn) or the Gravity Chamber among its pits (Gravity-Wright
+Iselle Varr), the Core Vault (the Coreless) and the Great Slip, where the first warship sits on its keel and the
+Warheart wakes.
+
+**The Ascendant Spire (60)**, the north gate (`tools/handbuilt_ascendant_spire.py`). The Halls of Ascent: the Muster Yard
+(Drillmaster Kaine Vorr), the Lancer Halls (Lance-Commander Aris Thane) or the Storm Gallery open to the sky (the Storm
+Choir), the Burning Archive (Archivist-Censor Mallen Roe, optional) and the Inquisitorium (High Inquisitor Seren Vash).
+The Command Spire: the Aegis Hall (the Aegis Engine), the War Room (Warmarshal Dravin Kell) or the Guard's Walk (the
+Ascendant Guard Corvo and Lysse, one fight), and the Exarch's Sanctum under the open sky (Exarch Lucan Thessaly, the
+general's right hand).
+
+**Content** (`tools/build_citadel_dungeons_content.py`): 51 creatures, 20 bosses in 18 fights, four items a boss (a
+pair's eight) at boss level + 3, two named epics each for the Warheart and the Exarch at 5%, and 75 Aetherian
+reputation a boss. Bosses wear Kyle's AB2 sheet; Corvo and Lysse borrow stock Ascendancy art. Floors and walls are
+his AB4 textures (`tools/bake_citadel_dungeons.py`), and the rooms are dressed with his AB3 props.
+
+**Quests into them:** the Foundry-Master and the Book of Home (Hamza Qureshi), the Pourmasters (Siobhan Keane), the
+Warheart and the Lance-Commander (Skiffmaster Pell Daray), the Inquisitor (Surgeon Nell Avary), and the Right Hand
+(Magister Orla Thessan).
+
 ## Next
 
-The Ascendant Bastions (54-57), then the Fading Firmament (57-60). Aurelion stands between them now, with the
-Skydocks' dockmaster pointing at the Bastions. The raids wait. The Aetherian start zone is parked until 60 is done (its
-first two maps are named: the White Expanse, 1-6, and the Shattered Reaches, 6-11), and its four recruits wait with it.
-The Celestial raid, the Stormhold, is designed for turn-based combat in the brief and waits behind the cracked seal
-until raids are built. The Heartwood Hollow is the tree's dungeon when Kyle calls it. See `docs/worldtree_brief.md`
-for the whole road.
+The Fading Firmament (57-60), the last of the sky, where Ascendant-General Maelis Ardane is. Sheet 7's bear recruits are
+saved and wait to be sliced and written, mostly for the Bastions and the Firmament. The raids wait. The Aetherian start
+zone is parked until 60 is done (its first two maps are named: the White Expanse, 1-6, and the Shattered Reaches, 6-11),
+and its four recruits wait with it. The Celestial raid, the Stormhold, is designed for turn-based combat in the brief
+and waits behind the cracked seal until raids are built. The Heartwood Hollow is the tree's dungeon when Kyle calls it.
+See `docs/worldtree_brief.md` for the whole road.

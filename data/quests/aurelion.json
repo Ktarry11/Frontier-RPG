@@ -1507,6 +1507,108 @@
       ],
       "gear_reward_gear_level": 56,
       "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "auq_the_free_skiffs",
+      "title": "The Free Skiffs",
+      "giver_npc_id": "au_dockmaster",
+      "zone": "aurelion",
+      "level_min": 55,
+      "level_max": 55,
+      "description": "A few skiff captains still fly out to the Ascendant Bastions, to a wreck the Ascendancy can't reach. Dockmaster Garret Lune wants you on the next one, with a letter for the captain who runs the camp there.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "au_q_garret_letter",
+          "count": 1,
+          "label": "Take Garret's letter to Captain Isolde Marrane at Dawnspear Wreck"
+        }
+      ],
+      "accept_text": "There's a camp on the Bastions, in the wreck of a war-skiff called the Dawnspear, and the deserters there send word of what the yard's building. The free skiffs fly to it from the end of my docks, past the airship dock on the rim. Take this letter to Captain Isolde Marrane. She'll want to know the city's finally listening.",
+      "turn_in_text": "Garret Lune's hand. He's the only one in Aurelion who answered my letters while the council was arguing.\n\nWelcome to Dawnspear Wreck. It isn't much, but it's the only place on the Bastions where nobody's trying to kill you.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "ab_wreck_captain",
+      "requires_quests": [
+        "auq_fewer_every_year"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "au_q_garret_letter",
+            "name": "Garret's Letter",
+            "description": "A letter sealed with the Skydocks' anchor mark, addressed to Captain Isolde Marrane of the Dawnspear.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Skiff-Runner's Legguards",
+          "slot": "legs",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "nature_spell_power": 31,
+            "haste": 10
+          },
+          "armor_value": 224,
+          "required_level": 55,
+          "sell_price": 10788,
+          "identity": "storm",
+          "icon_id": "gear_inv_pants_09"
+        },
+        {
+          "name": "Skiff-Runner's Cloak",
+          "slot": "back",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 21
+          },
+          "armor_value": 43,
+          "required_level": 55,
+          "sell_price": 5933,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_20"
+        },
+        {
+          "name": "Skiff-Runner's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 30
+          },
+          "armor_value": 285,
+          "required_level": 55,
+          "sell_price": 8630,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_06"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
     }
   ]
 }

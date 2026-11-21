@@ -780,6 +780,32 @@ ANCHOR_SHEET.update({
     "av_corrupt_ground": _sk("ff_crystal_ash"),
     "av_mossy_cobble":   _sk("ae_engraved_stone"),
 })
+#: The Ascendant Bastions (sheets SK, AE, FF, VY): the Ascendancy's ground under a storm. Wind grass, slate gravel and
+#: storm rock on the natural rocks; the fort, the quay, the piers and the gun platforms paved whole in dark slate cobbles
+#: (the module's paving_field); pale marble cobbled roads with engraved-stone verges; scorched bronze round the guns
+#: and the collectors ("burned"); the Ashwake's ash-grey slate ("corrupt"); riveted bronze plates on the chain bridges
+#: ("plaza").
+ASC_SHEET = dict(EXPANSE_SHEET)
+ASC_SHEET.update({
+    "av_forest_floor":   _sk("sk_wind_grass"),
+    "av_forest_grass":   _sk("vy_slate_gravel"),
+    "av_fern_floor":     _sk("sk_storm_rock"),
+    "av_root_earth":     _sk("vy_slate_gravel"),
+    "av_needle_mulch":   _sk("sk_wind_grass"),
+    "av_rocky_ground":   _sk("sk_storm_rock"),
+    "av_lake_mud":       _sk("vy_slate_gravel"),
+    "av_bluebell":       _sk("sk_wind_grass"),
+    "av_canopy":         _sk("sk_wind_grass", extra="canopy"),
+    "av_road_centre":    _sk("ae_marble_cobbles"),
+    "av_road_edge":      _sk("ae_engraved_stone"),
+    "av_elven_paving":   _sk("ff_ash_cobbles"),
+    "av_mossy_cobble":   _sk("ff_ash_cobbles"),
+    "av_plaza_stone":    _sk("ae_engine_plates"),
+    "av_scorched":       _sk("ff_burnt_bronze"),
+    "av_burned_forest":  _sk("ff_burnt_bronze"),
+    "av_corrupt_ground": _sk("vy_slate_gravel"),
+    "av_moon_rim":       _sk("sk_storm_rock"),
+})
 #: Aurelion (sheet AE): a city of white and gold. Slabs with gold lines and white marble everywhere underfoot (the
 #: ground layers that are grass elsewhere), the Grand Avenue and the ring roads in gold-striped avenue marble with
 #: cobbled verges, veined palace marble on the plazas and before the palace ("paved"), the gardens' lawns ("bluebell"),
@@ -827,6 +853,7 @@ ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_S
                "worldtree_celestial_expanse": EXPANSE_SHEET,
                "worldtree_anchorfields": ANCHOR_SHEET,
                "worldtree_aurelion": AURELION_SHEET,
+               "worldtree_ascendant_bastions": ASC_SHEET,
                "worldtree_great_settlement": GREAT_SETTLEMENT_SHEET}
 
 def _recolour(a, hue, sat, val):
@@ -1032,6 +1059,8 @@ def build_scores(P, M):
     S["verge"] = 0.08 + 0.95 * verge * (1 - core)
     pav = [P.blob(*b, 0.55, wp) for b in getattr(M, "PAVED_PATCHES", [])]
     S["paving"] = 0.04 + 1.1 * (np.maximum.reduce(pav) if pav else 0) * (0.9 + 0.1 * n_fine)
+    if getattr(M, "paving_field", None):        # a map can pave whole built shapes (the Bastions' fort, quay and guns)
+        S["paving"] = np.maximum(S["paving"], 0.04 + 1.1 * M.paving_field(P, wp))
     S["plaza"] = 0.03 + 1.1 * getattr(M, "plaza_field", lambda P_, wp_: np.zeros_like(n_big))(P, wp)
 
     # -------- water: sea / lakes & rivers / moon-pools
@@ -1317,7 +1346,7 @@ def main():
     if "--preview" in sys.argv:
         preview = sys.argv[sys.argv.index("--preview") + 1]
     sc = int(sys.argv[sys.argv.index("--scale") + 1]) if "--scale" in sys.argv else 4
-    zone = next((z for z in ("worldtree_aurelion", "worldtree_anchorfields", "worldtree_celestial_expanse", "worldtree_lenswatch", "worldtree_sunward_crown", "worldtree_cloudbreak", "worldtree_upper_boughs", "worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
+    zone = next((z for z in ("worldtree_ascendant_bastions", "worldtree_aurelion", "worldtree_anchorfields", "worldtree_celestial_expanse", "worldtree_lenswatch", "worldtree_sunward_crown", "worldtree_cloudbreak", "worldtree_upper_boughs", "worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
     only = None
     if "--region" in sys.argv:       # x0,y0,x1,y1 in tiles: bake only the 20x20 chunks touching it (fast look-dev)
         x0, y0, x1, y1 = map(int, sys.argv[sys.argv.index("--region") + 1].split(","))

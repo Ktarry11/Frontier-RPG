@@ -55,6 +55,8 @@ ONE_WAY_OK = {
     ("Scholomance: Lower Halls", "Western Plaguelands South"),
     ("Stratholme: Slaughter Square", "Eastern Plaguelands West"),
     ("The Drowned Palace: The Queen's Vault", "East Azshara"),
+    ("The Gravity Foundry: The Keelworks", "The Ascendant Bastions"),
+    ("The Ascendant Spire: The Command Spire", "The Ascendant Bastions"),
     ("The Eldest's Crown", "Stonetalon West"),
     ("The Exclusion Zone: The Foot", "Deadwind East"),
     ("The Cistern", "Glittervein"),

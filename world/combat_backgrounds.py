@@ -220,6 +220,11 @@ ZONE_BACKGROUND = {
     "Lenswatch": "sky",                           # the survey's island (a town: no fights)
     "The Celestial Expanse": "sky",               # the open day sky
     "The Anchorfields": "sky",                    # the dawn sky over the shelf
+    "The Ascendant Bastions": "sky",              # the storm sky over the star fort
+    "The Gravity Foundry": "fire_dungeon",        # the citadel's foundry: the pour and the furnaces
+    "The Gravity Foundry: The Keelworks": "fire_dungeon",
+    "The Ascendant Spire": "keep",                # the citadel's keep: the halls of the Ascendancy's command
+    "The Ascendant Spire: The Command Spire": "sky",   # the top of the keep, open to the sky
     "Aurelion": "sky",                            # the golden sky over the capital
     "The Great Settlement": "jungle",             # the troll city in the tree's heart
     "The High Wilderness": "mossy_forest",        # Feralas's giant forest (until its own background)

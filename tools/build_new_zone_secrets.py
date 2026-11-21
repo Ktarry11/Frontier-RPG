@@ -25,7 +25,7 @@ import build_secrets_pass3 as P3  # noqa: E402
 
 TAG = "new_zones"
 #: map -> how many secrets it should hold
-WANT = {"Rootwater Isle": 2, "The Lower Boughs": 2, "The Middle Boughs": 2, "The Upper Boughs": 2, "The Sunward Crown": 3, "The Celestial Expanse": 3, "The Anchorfields": 3, "The High Wilderness": 2, "The Forgotten Coast": 2, "The Twin Colossals": 2}
+WANT = {"Rootwater Isle": 2, "The Lower Boughs": 2, "The Middle Boughs": 2, "The Upper Boughs": 2, "The Sunward Crown": 3, "The Celestial Expanse": 3, "The Anchorfields": 3, "The Ascendant Bastions": 3, "The High Wilderness": 2, "The Forgotten Coast": 2, "The Twin Colossals": 2}
 
 
 #: maps that stand over a drop (a module with DROP): their collision is mostly the void, and a hidden place cut into
@@ -35,7 +35,8 @@ OVER_THE_DROP = {"The Lower Boughs": "tools.handbuilt_worldtree_lower_boughs",
                  "The Upper Boughs": "tools.handbuilt_worldtree_upper_boughs",
                  "The Sunward Crown": "tools.handbuilt_worldtree_sunward_crown",
                  "The Celestial Expanse": "tools.handbuilt_worldtree_celestial_expanse",
-                 "The Anchorfields": "tools.handbuilt_worldtree_anchorfields"}
+                 "The Anchorfields": "tools.handbuilt_worldtree_anchorfields",
+                 "The Ascendant Bastions": "tools.handbuilt_worldtree_ascendant_bastions"}
 
 
 def _tiles(c):

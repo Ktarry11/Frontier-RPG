@@ -384,6 +384,8 @@ FINAL_BOSSES = {
     "Xavras the Gloomtender": ("The Rotroot Deeps", 0.05),
     "Echo of the Queen": ("The Drowned Palace: The Queen's Vault", 0.05),
     "The Wound's Heart": ("The Exclusion Zone: The Foot", 0.05),
+    "The Warheart": ("The Gravity Foundry: The Keelworks", 0.05),
+    "Exarch Lucan Thessaly": ("The Ascendant Spire: The Command Spire", 0.05),
 }
 SHARED_30S = "shared_30s"
 
@@ -497,6 +499,20 @@ DUNGEON = [
     ("Halberd of the First Patrol", "main_hand", "weapon", "polearm", 63, "str_physical",
      "Deathguard Harrow's patrol carried it into the crater the night the tear opened. The Heart had kept it.",
      "gear_wow_polearm_halberd_08", "The Wound's Heart"),
+    # ---- the Gravity Foundry (The Warheart, 58)
+    ("Heartplate of the First Warship", "chest", "armor", "mail", 61, "agi_int_hybrid",
+     "Cut from the armour round the Warheart's core, the plating the Ascendancy meant to send against the tree.",
+     "gear_wow_chest_chain_10_1", "The Warheart"),
+    ("The First Broadside", "ranged", "weapon", "gun", 61, "agi_physical",
+     "One of the Warheart's own deck guns, cut down to a size a person can carry by a deserter at the Dawnspear.",
+     "gear_wow_gun_rifle_05", "The Warheart"),
+    # ---- the Ascendant Spire (Exarch Lucan Thessaly, 60)
+    ("Crown of the Right Hand", "head", "armor", "plate", 63, "str_int_hybrid",
+     "The Exarch's helm, with the ring of crystal shards the Ascendancy gives to whoever speaks for the general.",
+     "gear_wow_head_117", "Exarch Lucan Thessaly"),
+    ("Thessaly's Blue Blade", "main_hand", "weapon", "sword_1h", 63, "int_caster",
+     "A sword grown from a single crystal in the Citadel of Ascent's own lens-works, when it was still a college.",
+     "gear_inv_sword_40", "Exarch Lucan Thessaly"),
     # ---- the Rotroot Deeps (Xavras the Gloomtender, 58)
     ("Mantle of the Rot Below", "back", "armor", "accessory", 61, "agi_physical",
      "Xavras's own cloak, woven from the fungus she grew under Timbermaw Hold.", "gear_wow_back_cape_naxxramas_03",

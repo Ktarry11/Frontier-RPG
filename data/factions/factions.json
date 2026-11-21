@@ -3565,7 +3565,37 @@
           "auq_grafts_from_the_estate",
           "auq_soup_for_the_eighth",
           "auq_what_the_eighth_remembers",
-          "auq_fewer_every_year"
+          "auq_fewer_every_year",
+          "auq_the_free_skiffs",
+          "abq_count_the_keels",
+          "abq_rivets_and_rot",
+          "abq_the_unlaunched",
+          "abq_the_foundry_gate",
+          "abq_the_warheart",
+          "abq_the_lance_commander",
+          "abq_the_inquisitor",
+          "abq_the_right_hand",
+          "abq_her_old_teacher",
+          "abq_what_they_burn",
+          "abq_burn_nothing_more",
+          "abq_copied_before_burned",
+          "abq_three_seals",
+          "abq_high_censor",
+          "abq_the_riders",
+          "abq_unhorsed",
+          "abq_the_lance_master",
+          "abq_the_wall_captain",
+          "abq_burn_salve",
+          "abq_ash_in_the_lungs",
+          "abq_the_ash_mother",
+          "abq_eyes_on_the_gunline",
+          "abq_silence_the_guns",
+          "abq_the_battery_master",
+          "abq_the_road_north",
+          "abq_clear_skies",
+          "abq_the_storm_misbehaves",
+          "abq_collector_crystals",
+          "abq_where_the_lightning_goes"
         ]
       },
       "rewards": {
@@ -3603,6 +3633,16 @@
           "TBC-style shelf (tools/build_aetherians_shelf.py, 21 Nov 2026): friendly the Academy's Lenslight Draught, honored a neck piece and a pattern, revered six ilvl 67 blues and a pattern, exalted three ilvl 73 epics and two recipes, and the Lumen Stag at Exalted."
         ],
         "quests": {}
+      },
+      "dungeon_rep": {
+        "_comment": "A boss kill in the Citadel of Ascent's two dungeons pays 75 (tools/build_citadel_dungeons_content.py).",
+        "per_boss": 75,
+        "dungeons": [
+          "The Gravity Foundry",
+          "The Gravity Foundry: The Keelworks",
+          "The Ascendant Spire",
+          "The Ascendant Spire: The Command Spire"
+        ]
       }
     }
   }

@@ -88,6 +88,14 @@
     "The Wound's Heart": {
       "dungeon": "The Exclusion Zone: The Foot",
       "chance": 0.05
+    },
+    "The Warheart": {
+      "dungeon": "The Gravity Foundry: The Keelworks",
+      "chance": 0.05
+    },
+    "Exarch Lucan Thessaly": {
+      "dungeon": "The Ascendant Spire: The Command Spire",
+      "chance": 0.05
     }
   },
   "world": [
@@ -7656,6 +7664,212 @@
       "heirloom_id": null,
       "power_scale": 3,
       "boss": "The Wound's Heart"
+    },
+    {
+      "item_id": "epic_heartplate_of_the_first_warship",
+      "name": "Heartplate of the First Warship",
+      "slot": "chest",
+      "item_level": 61,
+      "rarity": "epic",
+      "armor_type": "mail",
+      "weapon_type": null,
+      "stat_template": "agi_int_hybrid",
+      "primary_stats": {
+        "agility": 33,
+        "spirit": 30
+      },
+      "secondary_stats": {
+        "spell_power": 4
+      },
+      "armor_value": 430,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_wow_chest_chain_10_1",
+      "required_level": 59,
+      "sell_price": 33566,
+      "flavor_text": "Cut from the armour round the Warheart's core, the plating the Ascendancy meant to send against the tree.",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        },
+        {
+          "color": "yellow",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "stamina": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "collection_id": null,
+      "heirloom_id": null,
+      "power_scale": 3,
+      "boss": "The Warheart"
+    },
+    {
+      "item_id": "epic_the_first_broadside",
+      "name": "The First Broadside",
+      "slot": "ranged",
+      "item_level": 61,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "gun",
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "strength": 17,
+        "agility": 13,
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "attack_power": 4
+      },
+      "armor_value": 0,
+      "weapon_damage_min": 116,
+      "weapon_damage_max": 158,
+      "attack_speed": 2.6,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_wow_gun_rifle_05",
+      "required_level": 59,
+      "sell_price": 26852,
+      "flavor_text": "One of the Warheart's own deck guns, cut down to a size a person can carry by a deserter at the Dawnspear.",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [],
+      "socket_bonus": {},
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "collection_id": null,
+      "heirloom_id": null,
+      "power_scale": 3,
+      "boss": "The Warheart"
+    },
+    {
+      "item_id": "epic_crown_of_the_right_hand",
+      "name": "Crown of the Right Hand",
+      "slot": "head",
+      "item_level": 63,
+      "rarity": "epic",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_int_hybrid",
+      "primary_stats": {
+        "intellect": 21
+      },
+      "secondary_stats": {
+        "spell_power": 37,
+        "spell_hit_rating": 13
+      },
+      "armor_value": 557,
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_wow_head_117",
+      "required_level": 60,
+      "sell_price": 28735,
+      "flavor_text": "The Exarch's helm, with the ring of crystal shards the Ascendancy gives to whoever speaks for the general.",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "blue",
+          "gem": null
+        },
+        {
+          "color": "blue",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "stamina": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "collection_id": null,
+      "heirloom_id": null,
+      "power_scale": 3,
+      "boss": "Exarch Lucan Thessaly"
+    },
+    {
+      "item_id": "epic_thessalys_blue_blade",
+      "name": "Thessaly's Blue Blade",
+      "slot": "main_hand",
+      "item_level": 63,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "sword_1h",
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 19
+      },
+      "secondary_stats": {
+        "spell_power": 39,
+        "mp5": 4
+      },
+      "armor_value": 14,
+      "weapon_damage_min": 141,
+      "weapon_damage_max": 191,
+      "attack_speed": 2.4,
+      "block_value": 0,
+      "bag_capacity": 0,
+      "icon_id": "gear_inv_sword_40",
+      "required_level": 60,
+      "sell_price": 34122,
+      "flavor_text": "A sword grown from a single crystal in the Citadel of Ascent's own lens-works, when it was still a college.",
+      "set_id": null,
+      "set_variant": null,
+      "sockets": [
+        {
+          "color": "red",
+          "gem": null
+        },
+        {
+          "color": "yellow",
+          "gem": null
+        }
+      ],
+      "socket_bonus": {
+        "intellect": 5
+      },
+      "enchant_id": null,
+      "is_crafted": false,
+      "crafting_material": null,
+      "upgrade_count": 0,
+      "upgrade_deltas": null,
+      "attachment": null,
+      "recipe_id": null,
+      "recipe_profession": null,
+      "collection_id": null,
+      "heirloom_id": null,
+      "power_scale": 3,
+      "boss": "Exarch Lucan Thessaly"
     },
     {
       "item_id": "epic_mantle_of_the_rot_below",

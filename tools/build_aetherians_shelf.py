@@ -82,7 +82,7 @@ CONSUMABLES = {FID: ("elixirs", {
 })}
 HONORED_SUPPLIES = {FID: ["flask_mending"]}
 #: every unique item has ONE icon (Kyle, 16 Nov 2026)
-EPIC_ICONS = {}
+EPIC_ICONS = {"aet_spirewardens_maul": "gear_inv_hammer_18"}   # its first pick was an epic's (Threshing Day)
 COLOURS = ((235, 235, 245), (205, 160, 50))      # white and gold: the houses' colours, for the tabard
 
 

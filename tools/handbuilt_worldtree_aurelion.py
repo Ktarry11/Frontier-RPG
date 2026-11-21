@@ -48,8 +48,8 @@ SKP = "assets/tiles/sky/props/"
 BLD = "assets/buildings/"
 
 C = (130.0, 120.0)
-PORTALS = {(130, 246): "The Celestial Expanse"}
-ARRIVALS = [(130, 241)]
+PORTALS = {(130, 246): "The Celestial Expanse", (230, 87): "The Ascendant Bastions"}
+ARRIVALS = [(130, 241), (224, 86)]
 LATER_PORTALS = {(130, 4): "The North Road"}
 START = (130, 241)        # the sky-bridge's landing: everything must be reachable from here
 

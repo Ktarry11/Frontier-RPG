@@ -1,0 +1,1415 @@
+{
+  "_notes": "Boss loot for the Citadel of Ascent's two dungeons on the Ascendant Bastions: the Gravity Foundry (56-58) and the Ascendant Spire (60). ONE item per kill from the boss's four (a pair's eight); item_level = boss level + 3. Hand-authored in tools/build_citadel_dungeons_content.py.",
+  "Intake-Warden Brannoc Teal": [
+    {
+      "name": "Intake-Warden's Coat",
+      "slot": "chest",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "agility": 23,
+        "stamina": 23
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 193,
+      "stat_template": "agi_physical",
+      "item_id": "cit_intake_wardens_coat"
+    },
+    {
+      "name": "Rod of the South Gate",
+      "slot": "main_hand",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "intellect": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {
+        "spell_power": 18
+      },
+      "weapon_damage_min": 103,
+      "weapon_damage_max": 139,
+      "attack_speed": 2.6,
+      "stat_template": "int_caster",
+      "item_id": "cit_rod_of_the_south_gate"
+    },
+    {
+      "name": "Soot-Stained Gauntlets",
+      "slot": "hands",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "strength": 16,
+        "stamina": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 321,
+      "stat_template": "str_physical",
+      "item_id": "cit_soot_stained_gauntlets"
+    },
+    {
+      "name": "Hound-Handler's Bracers",
+      "slot": "wrist",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "agility": 16,
+        "spirit": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 214,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "cit_hound_handlers_bracers"
+    }
+  ],
+  "The Slag Colossus": [
+    {
+      "name": "Slagborn Greaves",
+      "slot": "feet",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "strength": 16,
+        "intellect": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 321,
+      "stat_template": "str_int_hybrid",
+      "item_id": "cit_slagborn_greaves"
+    },
+    {
+      "name": "Cooling Crust Girdle",
+      "slot": "waist",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "strength": 16,
+        "agility": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 134,
+      "stat_template": "agi_physical",
+      "item_id": "cit_cooling_crust_girdle"
+    },
+    {
+      "name": "Heart of the Pour",
+      "slot": "neck",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "intellect": 9,
+        "spirit": 9
+      },
+      "secondary_stats": {
+        "healing_power": 23
+      },
+      "stat_template": "spi_healer",
+      "item_id": "cit_heart_of_the_pour"
+    },
+    {
+      "name": "Slag-Crusted Maul",
+      "slot": "main_hand",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 35,
+        "stamina": 45
+      },
+      "secondary_stats": {
+        "defense_rating": 26
+      },
+      "weapon_damage_min": 139,
+      "weapon_damage_max": 188,
+      "attack_speed": 3.6,
+      "stat_template": "str_physical",
+      "item_id": "cit_slag_crusted_maul"
+    }
+  ],
+  "Pourmaster Ilka": [
+    {
+      "name": "Ilka's Crucible Ladle",
+      "slot": "main_hand",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 22
+      },
+      "secondary_stats": {
+        "spell_power": 54,
+        "crit_chance_spell": 14
+      },
+      "weapon_damage_min": 57,
+      "weapon_damage_max": 77,
+      "attack_speed": 3.2,
+      "stat_template": "int_caster",
+      "item_id": "cit_ilkas_crucible_ladle"
+    },
+    {
+      "name": "Pourmaster's Apron",
+      "slot": "chest",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "intellect": 14,
+        "spirit": 14
+      },
+      "secondary_stats": {
+        "healing_power": 38
+      },
+      "armor_type": "cloth",
+      "armor_value": 98,
+      "stat_template": "spi_healer",
+      "item_id": "cit_pourmasters_apron"
+    },
+    {
+      "name": "Molten-Dipped Gloves",
+      "slot": "hands",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "intellect": 11,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "spell_power": 15
+      },
+      "armor_type": "cloth",
+      "armor_value": 68,
+      "stat_template": "int_caster",
+      "item_id": "cit_molten_dipped_gloves"
+    },
+    {
+      "name": "Ring of the Pour",
+      "slot": "ring",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "agility": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {},
+      "stat_template": "agi_physical",
+      "item_id": "cit_ring_of_the_pour"
+    },
+    {
+      "name": "Dov's Quenching Hammer",
+      "slot": "main_hand",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "strength": 14,
+        "stamina": 18
+      },
+      "secondary_stats": {
+        "defense_rating": 11
+      },
+      "weapon_damage_min": 104,
+      "weapon_damage_max": 141,
+      "attack_speed": 2.6,
+      "stat_template": "str_physical",
+      "item_id": "cit_dovs_quenching_hammer"
+    },
+    {
+      "name": "Quench-Hardened Pauldrons",
+      "slot": "shoulder",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "strength": 20,
+        "stamina": 20
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 399,
+      "stat_template": "str_physical",
+      "item_id": "cit_quench_hardened_pauldrons"
+    },
+    {
+      "name": "Twin Smiths' Leggings",
+      "slot": "legs",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "agility": 24,
+        "spirit": 24
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 315,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "cit_twin_smiths_leggings"
+    },
+    {
+      "name": "Steam-Scarred Boots",
+      "slot": "feet",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "strength": 16,
+        "agility": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 136,
+      "stat_template": "agi_physical",
+      "item_id": "cit_steam_scarred_boots"
+    }
+  ],
+  "Prototype Nine": [
+    {
+      "name": "Reflecting Crystal Bulwark",
+      "slot": "off_hand",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 27
+      },
+      "armor_value": 122,
+      "block_value": 153,
+      "stat_template": "str_physical",
+      "item_id": "cit_reflecting_crystal_bulwark"
+    },
+    {
+      "name": "Exposed-Cable Wristguards",
+      "slot": "wrist",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "strength": 16,
+        "intellect": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 327,
+      "stat_template": "str_int_hybrid",
+      "item_id": "cit_exposed_cable_wristguards"
+    },
+    {
+      "name": "Ninth Prototype's Core",
+      "slot": "neck",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "intellect": 10,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "spell_power": 13
+      },
+      "stat_template": "int_caster",
+      "item_id": "cit_ninth_prototypes_core"
+    },
+    {
+      "name": "Test-Hall Leggings",
+      "slot": "legs",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "agility": 24,
+        "stamina": 24
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 196,
+      "stat_template": "agi_physical",
+      "item_id": "cit_test_hall_leggings"
+    }
+  ],
+  "Foundry-Master Cassor Vane": [
+    {
+      "name": "Cassor's Gravity Hammer",
+      "slot": "main_hand",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 36,
+        "stamina": 46
+      },
+      "secondary_stats": {
+        "defense_rating": 27
+      },
+      "weapon_damage_min": 141,
+      "weapon_damage_max": 191,
+      "attack_speed": 3.6,
+      "stat_template": "str_physical",
+      "item_id": "cit_cassors_gravity_hammer"
+    },
+    {
+      "name": "Harness of Orbiting Stones",
+      "slot": "chest",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "agility": 24,
+        "spirit": 24
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 315,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "cit_harness_of_orbiting_stones"
+    },
+    {
+      "name": "Foundry-Master's Mantle",
+      "slot": "shoulder",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "intellect": 12,
+        "spirit": 12
+      },
+      "secondary_stats": {
+        "healing_power": 32
+      },
+      "armor_type": "cloth",
+      "armor_value": 83,
+      "stat_template": "spi_healer",
+      "item_id": "cit_foundry_masters_mantle"
+    },
+    {
+      "name": "Overseer's Signet",
+      "slot": "ring",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "intellect": 9
+      },
+      "secondary_stats": {
+        "spell_power": 22,
+        "crit_chance_spell": 6
+      },
+      "stat_template": "int_caster",
+      "item_id": "cit_overseers_signet"
+    }
+  ],
+  "Gantry-Chief Dessa Marn": [
+    {
+      "name": "Gantry-Chief's Hover Boots",
+      "slot": "feet",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "agility": 17,
+        "stamina": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 138,
+      "stat_template": "agi_physical",
+      "item_id": "cit_gantry_chiefs_hover_boots"
+    },
+    {
+      "name": "Bomb-Crystal Launcher",
+      "slot": "ranged",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "weapon_type": "gun",
+      "primary_stats": {
+        "agility": 10,
+        "intellect": 10
+      },
+      "secondary_stats": {
+        "attack_power": 18
+      },
+      "weapon_damage_min": 90,
+      "weapon_damage_max": 122,
+      "attack_speed": 2.6,
+      "stat_template": "agi_physical",
+      "item_id": "cit_bomb_crystal_launcher"
+    },
+    {
+      "name": "Crystal Goggle Band",
+      "slot": "head",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "agility": 20,
+        "spirit": 20
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 271,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "cit_crystal_goggle_band"
+    },
+    {
+      "name": "Satchel-Strap Belt",
+      "slot": "waist",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "intellect": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {
+        "spell_power": 15
+      },
+      "armor_type": "cloth",
+      "armor_value": 69,
+      "stat_template": "int_caster",
+      "item_id": "cit_satchel_strap_belt"
+    }
+  ],
+  "Gravity-Wright Iselle Varr": [
+    {
+      "name": "Iselle's Weightless Robes",
+      "slot": "chest",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "intellect": 17,
+        "stamina": 17
+      },
+      "secondary_stats": {
+        "spell_power": 22
+      },
+      "armor_type": "cloth",
+      "armor_value": 100,
+      "stat_template": "int_caster",
+      "item_id": "cit_iselles_weightless_robes"
+    },
+    {
+      "name": "Rubble-Bound Gauntlets",
+      "slot": "hands",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "strength": 17,
+        "intellect": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 332,
+      "stat_template": "str_int_hybrid",
+      "item_id": "cit_rubble_bound_gauntlets"
+    },
+    {
+      "name": "Gravity-Wright's Focus",
+      "slot": "off_hand",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 11,
+        "spirit": 11
+      },
+      "secondary_stats": {
+        "healing_power": 30
+      },
+      "stat_template": "spi_healer",
+      "item_id": "cit_gravity_wrights_focus"
+    },
+    {
+      "name": "Cloak of the Lifted Floor",
+      "slot": "back",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "strength": 15,
+        "agility": 15
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 61,
+      "stat_template": "agi_physical",
+      "item_id": "cit_cloak_of_the_lifted_floor"
+    }
+  ],
+  "The Coreless": [
+    {
+      "name": "Containment Ring Girdle",
+      "slot": "waist",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "strength": 17,
+        "stamina": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 332,
+      "stat_template": "str_physical",
+      "item_id": "cit_containment_ring_girdle"
+    },
+    {
+      "name": "Flickering Core Shard",
+      "slot": "ranged",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "weapon_type": "wand",
+      "primary_stats": {
+        "intellect": 9
+      },
+      "secondary_stats": {
+        "spell_power": 22,
+        "crit_chance_spell": 6
+      },
+      "weapon_damage_min": 90,
+      "weapon_damage_max": 122,
+      "attack_speed": 1.9,
+      "stat_template": "int_caster",
+      "item_id": "cit_flickering_core_shard"
+    },
+    {
+      "name": "Arc-Scorched Spaulders",
+      "slot": "shoulder",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "agility": 20,
+        "stamina": 20
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 169,
+      "stat_template": "agi_physical",
+      "item_id": "cit_arc_scorched_spaulders"
+    },
+    {
+      "name": "Unstable Band",
+      "slot": "ring",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "intellect": 9,
+        "spirit": 9
+      },
+      "secondary_stats": {
+        "healing_power": 24
+      },
+      "stat_template": "spi_healer",
+      "item_id": "cit_unstable_band"
+    }
+  ],
+  "The Warheart": [
+    {
+      "name": "Warheart Cannon-Barrel",
+      "slot": "ranged",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "weapon_type": "crossbow",
+      "primary_stats": {
+        "agility": 10,
+        "intellect": 10
+      },
+      "secondary_stats": {
+        "attack_power": 18
+      },
+      "weapon_damage_min": 90,
+      "weapon_damage_max": 122,
+      "attack_speed": 2.4,
+      "stat_template": "agi_physical",
+      "item_id": "cit_warheart_cannon_barrel"
+    },
+    {
+      "name": "Keel-Rib Breastplate",
+      "slot": "chest",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "strength": 24,
+        "intellect": 24
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 480,
+      "stat_template": "str_int_hybrid",
+      "item_id": "cit_keel_rib_breastplate"
+    },
+    {
+      "name": "First Warship's Wheel-Spoke",
+      "slot": "main_hand",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 37,
+        "stamina": 47
+      },
+      "secondary_stats": {
+        "defense_rating": 28
+      },
+      "weapon_damage_min": 143,
+      "weapon_damage_max": 193,
+      "attack_speed": 3.3,
+      "stat_template": "str_physical",
+      "item_id": "cit_first_warships_wheel_spoke"
+    },
+    {
+      "name": "Engine-Stoker's Leggings",
+      "slot": "legs",
+      "item_level": 61,
+      "rarity": "rare",
+      "required_level": 58,
+      "primary_stats": {
+        "intellect": 14,
+        "spirit": 14
+      },
+      "secondary_stats": {
+        "healing_power": 38
+      },
+      "armor_type": "cloth",
+      "armor_value": 100,
+      "stat_template": "spi_healer",
+      "item_id": "cit_engine_stokers_leggings"
+    }
+  ],
+  "Drillmaster Kaine Vorr": [
+    {
+      "name": "Drillmaster's Tower Shield",
+      "slot": "off_hand",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 29
+      },
+      "armor_value": 128,
+      "block_value": 160,
+      "stat_template": "str_int_hybrid",
+      "item_id": "cit_drillmasters_tower_shield"
+    },
+    {
+      "name": "Parade-Ground Greaves",
+      "slot": "legs",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "strength": 25,
+        "stamina": 25
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 496,
+      "stat_template": "str_physical",
+      "item_id": "cit_parade_ground_greaves"
+    },
+    {
+      "name": "Recruit-Breaker's Bracers",
+      "slot": "wrist",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "agility": 17,
+        "stamina": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 143,
+      "stat_template": "agi_physical",
+      "item_id": "cit_recruit_breakers_bracers"
+    },
+    {
+      "name": "Drill Baton",
+      "slot": "main_hand",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "intellect": 13,
+        "spirit": 13
+      },
+      "secondary_stats": {
+        "healing_power": 34
+      },
+      "weapon_damage_min": 109,
+      "weapon_damage_max": 147,
+      "attack_speed": 2.6,
+      "stat_template": "spi_healer",
+      "item_id": "cit_drill_baton"
+    }
+  ],
+  "Lance-Commander Aris Thane": [
+    {
+      "name": "Lance of the Winged Charge",
+      "slot": "main_hand",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "strength": 39,
+        "stamina": 49
+      },
+      "secondary_stats": {
+        "defense_rating": 29
+      },
+      "weapon_damage_min": 147,
+      "weapon_damage_max": 199,
+      "attack_speed": 3.3,
+      "stat_template": "str_physical",
+      "item_id": "cit_lance_of_the_winged_charge"
+    },
+    {
+      "name": "Lancer-Commander's Spurs",
+      "slot": "feet",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "agility": 17,
+        "spirit": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 229,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "cit_lancer_commanders_spurs"
+    },
+    {
+      "name": "Crystal Wing Cloak",
+      "slot": "back",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "agility": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {},
+      "armor_type": "cloth",
+      "armor_value": 63,
+      "stat_template": "agi_physical",
+      "item_id": "cit_crystal_wing_cloak"
+    },
+    {
+      "name": "Thane's Riding Gloves",
+      "slot": "hands",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "strength": 17,
+        "agility": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 143,
+      "stat_template": "agi_physical",
+      "item_id": "cit_thanes_riding_gloves"
+    }
+  ],
+  "The Storm Choir": [
+    {
+      "name": "Chorister's Storm Staff",
+      "slot": "main_hand",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 26,
+        "stamina": 26
+      },
+      "secondary_stats": {
+        "spell_power": 34
+      },
+      "weapon_damage_min": 60,
+      "weapon_damage_max": 81,
+      "attack_speed": 3.2,
+      "stat_template": "int_caster",
+      "item_id": "cit_choristers_storm_staff"
+    },
+    {
+      "name": "Robes of the Three Voices",
+      "slot": "chest",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "intellect": 15,
+        "spirit": 15
+      },
+      "secondary_stats": {
+        "healing_power": 40
+      },
+      "armor_type": "cloth",
+      "armor_value": 103,
+      "stat_template": "spi_healer",
+      "item_id": "cit_robes_of_the_three_voices"
+    },
+    {
+      "name": "Thunder-Sung Coif",
+      "slot": "head",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "agility": 21,
+        "spirit": 21
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 279,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "cit_thunder_sung_coif"
+    },
+    {
+      "name": "Pendant of Harmony",
+      "slot": "neck",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "intellect": 9
+      },
+      "secondary_stats": {
+        "spell_power": 23,
+        "crit_chance_spell": 6
+      },
+      "stat_template": "int_caster",
+      "item_id": "cit_pendant_of_harmony"
+    }
+  ],
+  "Archivist-Censor Mallen Roe": [
+    {
+      "name": "The Censor's Burning Book",
+      "slot": "off_hand",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 13,
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "spell_power": 17
+      },
+      "stat_template": "int_caster",
+      "item_id": "cit_the_censors_burning_book"
+    },
+    {
+      "name": "Ash-Grey Cuffs",
+      "slot": "wrist",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "intellect": 10,
+        "spirit": 10
+      },
+      "secondary_stats": {
+        "healing_power": 28
+      },
+      "armor_type": "cloth",
+      "armor_value": 71,
+      "stat_template": "spi_healer",
+      "item_id": "cit_ash_grey_cuffs"
+    },
+    {
+      "name": "Crystal Quill-Knife",
+      "slot": "main_hand",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "agility": 18,
+        "stamina": 18
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 109,
+      "weapon_damage_max": 147,
+      "attack_speed": 1.7,
+      "stat_template": "agi_physical",
+      "item_id": "cit_crystal_quill_knife"
+    },
+    {
+      "name": "Ember-Singed Sash",
+      "slot": "waist",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "agility": 17,
+        "spirit": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 229,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "cit_ember_singed_sash"
+    }
+  ],
+  "High Inquisitor Seren Vash": [
+    {
+      "name": "Mask of the High Inquisitor",
+      "slot": "head",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "intellect": 13,
+        "spirit": 13
+      },
+      "secondary_stats": {
+        "healing_power": 34
+      },
+      "armor_type": "cloth",
+      "armor_value": 87,
+      "stat_template": "spi_healer",
+      "item_id": "cit_mask_of_the_high_inquisitor"
+    },
+    {
+      "name": "Censer of Blue Fire",
+      "slot": "main_hand",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "strength": 21,
+        "intellect": 21
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 109,
+      "weapon_damage_max": 147,
+      "attack_speed": 2.6,
+      "stat_template": "str_int_hybrid",
+      "item_id": "cit_censer_of_blue_fire"
+    },
+    {
+      "name": "Inquisitor's Restraints",
+      "slot": "hands",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "agility": 17,
+        "spirit": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 229,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "cit_inquisitors_restraints"
+    },
+    {
+      "name": "Interrogator's Leggings",
+      "slot": "legs",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "strength": 25,
+        "agility": 25
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 206,
+      "stat_template": "agi_physical",
+      "item_id": "cit_interrogators_leggings"
+    }
+  ],
+  "The Aegis Engine": [
+    {
+      "name": "Aegis-Core Pendant",
+      "slot": "neck",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "strength": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {},
+      "stat_template": "str_physical",
+      "item_id": "cit_aegis_core_pendant"
+    },
+    {
+      "name": "Dome-Projector Pauldrons",
+      "slot": "shoulder",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "strength": 21,
+        "intellect": 21
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 419,
+      "stat_template": "str_int_hybrid",
+      "item_id": "cit_dome_projector_pauldrons"
+    },
+    {
+      "name": "Drone-Linked Wristwraps",
+      "slot": "wrist",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "intellect": 12,
+        "stamina": 12
+      },
+      "secondary_stats": {
+        "spell_power": 16
+      },
+      "armor_type": "cloth",
+      "armor_value": 71,
+      "stat_template": "int_caster",
+      "item_id": "cit_drone_linked_wristwraps"
+    },
+    {
+      "name": "Shield-Pylon Leggings",
+      "slot": "legs",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "agility": 17,
+        "intellect": 17
+      },
+      "secondary_stats": {
+        "attack_power": 30
+      },
+      "armor_type": "mail",
+      "armor_value": 330,
+      "stat_template": "agi_physical",
+      "item_id": "cit_shield_pylon_leggings"
+    }
+  ],
+  "Warmarshal Dravin Kell": [
+    {
+      "name": "Warmarshal's Crested Helm",
+      "slot": "head",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "strength": 21,
+        "stamina": 21
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 419,
+      "stat_template": "str_physical",
+      "item_id": "cit_warmarshals_crested_helm"
+    },
+    {
+      "name": "Gunnery Spyglass Rifle",
+      "slot": "ranged",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "weapon_type": "gun",
+      "primary_stats": {
+        "agility": 11,
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "attack_power": 18
+      },
+      "weapon_damage_min": 92,
+      "weapon_damage_max": 125,
+      "attack_speed": 2.6,
+      "stat_template": "agi_physical",
+      "item_id": "cit_gunnery_spyglass_rifle"
+    },
+    {
+      "name": "Command Baton of the Spire",
+      "slot": "main_hand",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "intellect": 13
+      },
+      "secondary_stats": {
+        "spell_power": 32,
+        "crit_chance_spell": 8
+      },
+      "weapon_damage_min": 109,
+      "weapon_damage_max": 147,
+      "attack_speed": 2.4,
+      "stat_template": "int_caster",
+      "item_id": "cit_command_baton_of_the_spire"
+    },
+    {
+      "name": "Map-Table Gloves",
+      "slot": "hands",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "intellect": 10,
+        "spirit": 10
+      },
+      "secondary_stats": {
+        "healing_power": 28
+      },
+      "armor_type": "leather",
+      "armor_value": 143,
+      "stat_template": "spi_healer",
+      "item_id": "cit_map_table_gloves"
+    }
+  ],
+  "Ascendant Guard Corvo": [
+    {
+      "name": "Corvo's Bulwark Belt",
+      "slot": "waist",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "strength": 17,
+        "stamina": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 343,
+      "stat_template": "str_physical",
+      "item_id": "cit_corvos_bulwark_belt"
+    },
+    {
+      "name": "Honour Guard's Greatblade",
+      "slot": "main_hand",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "weapon_type": "sword_2h",
+      "primary_stats": {
+        "strength": 39,
+        "stamina": 49
+      },
+      "secondary_stats": {
+        "defense_rating": 29
+      },
+      "weapon_damage_min": 147,
+      "weapon_damage_max": 199,
+      "attack_speed": 3.4,
+      "stat_template": "str_physical",
+      "item_id": "cit_honour_guards_greatblade"
+    },
+    {
+      "name": "Exarch's Guard Mantle",
+      "slot": "shoulder",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "agility": 21,
+        "spirit": 21
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 279,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "cit_exarchs_guard_mantle"
+    },
+    {
+      "name": "Band of the Sworn Guard",
+      "slot": "ring",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "strength": 15,
+        "intellect": 15
+      },
+      "secondary_stats": {},
+      "stat_template": "str_int_hybrid",
+      "item_id": "cit_band_of_the_sworn_guard"
+    },
+    {
+      "name": "Lysse's Crystal Edge",
+      "slot": "main_hand",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "agility": 21,
+        "stamina": 21
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 109,
+      "weapon_damage_max": 147,
+      "attack_speed": 2.4,
+      "stat_template": "agi_physical",
+      "item_id": "cit_lysses_crystal_edge"
+    },
+    {
+      "name": "Lysse's Second Edge",
+      "slot": "main_hand",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "strength": 18,
+        "agility": 18
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 109,
+      "weapon_damage_max": 147,
+      "attack_speed": 1.8,
+      "stat_template": "agi_physical",
+      "item_id": "cit_lysses_second_edge"
+    },
+    {
+      "name": "Bladedancer's Jerkin",
+      "slot": "chest",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "agility": 25,
+        "stamina": 25
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 206,
+      "stat_template": "agi_physical",
+      "item_id": "cit_bladedancers_jerkin"
+    },
+    {
+      "name": "Guard's Vigil Cloak",
+      "slot": "back",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "intellect": 9,
+        "spirit": 9
+      },
+      "secondary_stats": {
+        "healing_power": 24
+      },
+      "armor_type": "cloth",
+      "armor_value": 63,
+      "stat_template": "spi_healer",
+      "item_id": "cit_guards_vigil_cloak"
+    }
+  ],
+  "Exarch Lucan Thessaly": [
+    {
+      "name": "Shard-Crown of the Exarch",
+      "slot": "head",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "intellect": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {
+        "spell_power": 19
+      },
+      "armor_type": "cloth",
+      "armor_value": 87,
+      "stat_template": "int_caster",
+      "item_id": "cit_shard_crown_of_the_exarch"
+    },
+    {
+      "name": "Right Hand's Crystal Sword",
+      "slot": "main_hand",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "strength": 15,
+        "stamina": 19
+      },
+      "secondary_stats": {
+        "defense_rating": 11
+      },
+      "weapon_damage_min": 109,
+      "weapon_damage_max": 147,
+      "attack_speed": 2.4,
+      "stat_template": "str_physical",
+      "item_id": "cit_right_hands_crystal_sword"
+    },
+    {
+      "name": "Deep-Blue Cloak of Command",
+      "slot": "back",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "intellect": 9,
+        "spirit": 9
+      },
+      "secondary_stats": {
+        "healing_power": 24
+      },
+      "armor_type": "cloth",
+      "armor_value": 63,
+      "stat_template": "spi_healer",
+      "item_id": "cit_deep_blue_cloak_of_command"
+    },
+    {
+      "name": "Gleaming Ascendant Sabatons",
+      "slot": "feet",
+      "item_level": 63,
+      "rarity": "rare",
+      "required_level": 60,
+      "primary_stats": {
+        "strength": 17,
+        "intellect": 17
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 343,
+      "stat_template": "str_int_hybrid",
+      "item_id": "cit_gleaming_ascendant_sabatons"
+    }
+  ]
+}

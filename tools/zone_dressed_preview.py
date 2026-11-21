@@ -31,6 +31,7 @@ TILE_PX = 32
 
 ZONES = {
     "aspen": "tools.handbuilt_aspen_wilderness",
+    "ascendant_bastions": "tools.handbuilt_worldtree_ascendant_bastions",
     "felwood_north": "tools.handbuilt_felwood_north",
     "felwood_south": "tools.handbuilt_felwood_south",
     "weeping_ice": "tools.handbuilt_weeping_ice",

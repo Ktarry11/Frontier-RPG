@@ -692,6 +692,37 @@ _set("feralas_hive_props", 6, 6, "assets/tiles/feralas/writhing_deep_props", """
     wd_tunnel_support wd_sand_drift wd_blue_mushrooms wd_violet_mushrooms wd_buried_block wd_scored_boulder
     wd_tunnel_mouth wd_sealed_passage wd_fungus_sand_mound wd_digging_limb wd_black_basin wd_fungus_bones""")
 
+#: THE ASCENDANT BASTIONS (docs/bastions_art_prompts.md, Kyle's sheets AB1 to AB5, 21 Nov 2026). AB1 is the citadel and
+#: its two gates laid out free on the sheet, so it's cut as 3x2 and the empty cells are named _none.
+_set("bastions_ab1", 3, 2, "assets/buildings", """
+    _none ab_citadel _none
+    ab_foundry_gate _none ab_spire_gate""")
+_set("bastions_ab2", 6, 3, "assets/creatures/_src/bastions", """
+    ab_intake_warden ab_slag_colossus ab_pourmaster_ilka ab_pourmaster_dov ab_prototype_nine ab_foundry_master
+    ab_gantry_chief ab_coreless ab_gravity_wright ab_warheart ab_drillmaster ab_lance_commander
+    ab_storm_choir ab_high_inquisitor ab_archivist_censor ab_aegis_engine ab_warmarshal ab_exarch""")
+_set("bastions_ab3", 6, 6, "assets/tiles/sky/props", """
+    ab_crucible ab_casting_mould ab_conveyor ab_assembly_cradle ab_limb_rack ab_quench_tank
+    ab_furnace ab_ore_cart ab_crane ab_workbench ab_ship_ribs ab_test_core
+    ab_gantry_pillar ab_chain_coil ab_slag_heap ab_crystal_lathe ab_rivet_bin ab_broken_construct
+    ab_war_table ab_lance_rack ab_standard ab_officer_chair ab_armour_rack ab_training_dummy
+    ab_interrogation_chair ab_scroll_brazier ab_cage ab_lectern ab_plate_shelves ab_vault_door
+    ab_storm_pillar ab_shield_dome ab_sky_window ab_knight_statue ab_banquet_table ab_command_seat""")
+#: AB5: row 2 came back with all four pieces running down to the right, so they're four 36r pieces and the 36l ones are
+#: their mirrors (tools/slice_building_sheet.mirror_bastion_walls).
+_set("bastions_ab5", 4, 4, "assets/buildings", """
+    ab_wall_flat_1 ab_wall_flat_2 ab_wall_deep_1 ab_wall_deep_2
+    ab_wall_36r_1 ab_wall_36r_2 ab_wall_36r_3 ab_wall_36r_4
+    ab_wall_72r_1 ab_wall_72r_2 ab_wall_72l_1 ab_wall_72l_2
+    ab_corner_tower ab_corner_tower_lit ab_gate_flat ab_gate_36""")
+
+
+def mirror_bastion_walls():
+    for i in (1, 2, 3, 4):
+        src = ROOT / f"assets/buildings/ab_wall_36r_{i}.png"
+        Image.open(src).transpose(Image.FLIP_LEFT_RIGHT).save(ROOT / f"assets/buildings/ab_wall_36l_{i}.png")
+
+
 # THE SKY (docs/sky_art_prompts.md, written by tools/write_sky_art_prompts.py; Kyle's sheets from 19 Nov 2026 on).
 # Every non-tile sheet is a set named sky_sk<N>, its names taken from the prompt script so the two can't drift.
 def _sky_sets():

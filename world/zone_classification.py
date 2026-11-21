@@ -91,6 +91,8 @@ DUNGEONS = [
     # Added 2026-11-18: Azshara's first dungeon, under Timbermaw Hold (tools/build_rotroot_deeps_content.py)
     "The Rotroot Deeps",
     "The Drowned Palace", "The Drowned Palace: The Queen's Vault",   # Azshara's last (tools/build_drowned_palace_content.py)
+    "The Gravity Foundry", "The Gravity Foundry: The Keelworks",     # the Citadel of Ascent's two dungeons on the
+    "The Ascendant Spire", "The Ascendant Spire: The Command Spire",  # Ascendant Bastions (tools/build_citadel_dungeons_content.py)
     "The Exclusion Zone", "The Exclusion Zone: The Reactor Hall", "The Exclusion Zone: The Foot",   # Deadwind's,
                                      # under the wheel, three floors: the last T0 token (tools/handbuilt_exclusion_zone.py)
 ]

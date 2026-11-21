@@ -1,0 +1,491 @@
+{
+  "_notes": "The Ascendant Bastions' open-world rares (55-57). ONE item per kill from the rare's four; item_level = the rare's level + 3. Hand-authored in tools/build_ascendant_bastions_content.py.",
+  "Wall-Captain Hesper Drace": [
+    {
+      "name": "Drace's Wall-Captain Blade",
+      "slot": "main_hand",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "strength": 14,
+        "stamina": 18
+      },
+      "secondary_stats": {
+        "defense_rating": 11
+      },
+      "weapon_damage_min": 104,
+      "weapon_damage_max": 141,
+      "attack_speed": 2.4,
+      "stat_template": "str_physical",
+      "item_id": "abi_draces_wall_captain_blade"
+    },
+    {
+      "name": "Rampart Warden's Helm",
+      "slot": "head",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "strength": 20,
+        "stamina": 20
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 399,
+      "stat_template": "str_physical",
+      "item_id": "abi_rampart_wardens_helm"
+    },
+    {
+      "name": "No-Retreat Girdle",
+      "slot": "waist",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "agility": 16,
+        "spirit": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 218,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "abi_no_retreat_girdle"
+    },
+    {
+      "name": "Bastion Watch Cloak",
+      "slot": "back",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "intellect": 9,
+        "spirit": 9
+      },
+      "secondary_stats": {
+        "healing_power": 23
+      },
+      "stat_template": "spi_healer",
+      "item_id": "abi_bastion_watch_cloak"
+    }
+  ],
+  "The Unlaunched": [
+    {
+      "name": "Unlaunched Keel-Plate",
+      "slot": "chest",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "strength": 23,
+        "intellect": 23
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 464,
+      "stat_template": "str_int_hybrid",
+      "item_id": "abi_unlaunched_keel_plate"
+    },
+    {
+      "name": "Broadside Gauntlets",
+      "slot": "hands",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "agility": 16,
+        "stamina": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 134,
+      "stat_template": "agi_physical",
+      "item_id": "abi_broadside_gauntlets"
+    },
+    {
+      "name": "Hull-Rivet Signet",
+      "slot": "ring",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "intellect": 10,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "spell_power": 13
+      },
+      "stat_template": "int_caster",
+      "item_id": "abi_hull_rivet_signet"
+    },
+    {
+      "name": "Slipway Shipwright's Hammer",
+      "slot": "two_hand",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 35,
+        "stamina": 45
+      },
+      "secondary_stats": {
+        "defense_rating": 26
+      },
+      "weapon_damage_min": 139,
+      "weapon_damage_max": 188,
+      "attack_speed": 3.6,
+      "stat_template": "str_physical",
+      "item_id": "abi_slipway_shipwrights_hammer"
+    }
+  ],
+  "Lance-Master Varro Dain": [
+    {
+      "name": "Lance-Master's Crystal Spear",
+      "slot": "two_hand",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "weapon_type": "polearm",
+      "primary_stats": {
+        "agility": 46,
+        "stamina": 46
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 139,
+      "weapon_damage_max": 188,
+      "attack_speed": 3.3,
+      "stat_template": "agi_physical",
+      "item_id": "abi_lance_masters_crystal_spear"
+    },
+    {
+      "name": "Never-Unseated Greaves",
+      "slot": "legs",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "strength": 23,
+        "stamina": 23
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 464,
+      "stat_template": "str_physical",
+      "item_id": "abi_never_unseated_greaves"
+    },
+    {
+      "name": "Proving Grounds Spaulders",
+      "slot": "shoulder",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "agility": 20,
+        "spirit": 20
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 262,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "abi_proving_grounds_spaulders"
+    },
+    {
+      "name": "Rider's Crystal Pendant",
+      "slot": "neck",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "strength": 14,
+        "intellect": 14
+      },
+      "secondary_stats": {},
+      "stat_template": "str_int_hybrid",
+      "item_id": "abi_riders_crystal_pendant"
+    }
+  ],
+  "High Censor Ilsabet Morn": [
+    {
+      "name": "Censor's Redacting Rod",
+      "slot": "main_hand",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "weapon_type": "mace_1h",
+      "primary_stats": {
+        "intellect": 12,
+        "spirit": 12
+      },
+      "secondary_stats": {
+        "healing_power": 32
+      },
+      "weapon_damage_min": 103,
+      "weapon_damage_max": 139,
+      "attack_speed": 2.6,
+      "stat_template": "spi_healer",
+      "item_id": "abi_censors_redacting_rod"
+    },
+    {
+      "name": "Robe of the Unwritten",
+      "slot": "chest",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "intellect": 16,
+        "stamina": 16
+      },
+      "secondary_stats": {
+        "spell_power": 21
+      },
+      "armor_type": "cloth",
+      "armor_value": 96,
+      "stat_template": "int_caster",
+      "item_id": "abi_robe_of_the_unwritten"
+    },
+    {
+      "name": "Ash-Stained Bindings",
+      "slot": "wrist",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "primary_stats": {
+        "intellect": 10,
+        "spirit": 10
+      },
+      "secondary_stats": {
+        "healing_power": 26
+      },
+      "armor_type": "cloth",
+      "armor_value": 67,
+      "stat_template": "spi_healer",
+      "item_id": "abi_ash_stained_bindings"
+    },
+    {
+      "name": "Burned Index",
+      "slot": "off_hand",
+      "item_level": 59,
+      "rarity": "rare",
+      "required_level": 56,
+      "weapon_type": "tome",
+      "primary_stats": {
+        "intellect": 11
+      },
+      "secondary_stats": {
+        "spell_power": 27,
+        "crit_chance_spell": 7
+      },
+      "stat_template": "int_caster",
+      "item_id": "abi_burned_index"
+    }
+  ],
+  "Battery-Master Ormund Krell": [
+    {
+      "name": "Krell's Ranging Rifle",
+      "slot": "ranged",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "weapon_type": "gun",
+      "primary_stats": {
+        "agility": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 88,
+      "weapon_damage_max": 120,
+      "attack_speed": 2.6,
+      "stat_template": "agi_physical",
+      "item_id": "abi_krells_ranging_rifle"
+    },
+    {
+      "name": "Battery-Master's Mantle",
+      "slot": "shoulder",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "intellect": 12
+      },
+      "secondary_stats": {
+        "spell_power": 30,
+        "crit_chance_spell": 8
+      },
+      "armor_type": "cloth",
+      "armor_value": 83,
+      "stat_template": "int_caster",
+      "item_id": "abi_battery_masters_mantle"
+    },
+    {
+      "name": "Gunline Hauberk",
+      "slot": "chest",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "agility": 24,
+        "spirit": 24
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 315,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "abi_gunline_hauberk"
+    },
+    {
+      "name": "Every Gun Loaded",
+      "slot": "trinket",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "intellect": 10,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "spell_power": 13
+      },
+      "stat_template": "int_caster",
+      "item_id": "abi_every_gun_loaded"
+    }
+  ],
+  "Old Thunderhead": [
+    {
+      "name": "Thunderhead Talon",
+      "slot": "main_hand",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "weapon_type": "fist_weapon",
+      "primary_stats": {
+        "strength": 17,
+        "agility": 17
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 104,
+      "weapon_damage_max": 141,
+      "attack_speed": 1.8,
+      "stat_template": "agi_physical",
+      "item_id": "abi_thunderhead_talon"
+    },
+    {
+      "name": "Storm-Feathered Cowl",
+      "slot": "head",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "intellect": 12,
+        "spirit": 12
+      },
+      "secondary_stats": {
+        "healing_power": 32
+      },
+      "armor_type": "cloth",
+      "armor_value": 83,
+      "stat_template": "spi_healer",
+      "item_id": "abi_storm_feathered_cowl"
+    },
+    {
+      "name": "Stormcaught Boots",
+      "slot": "feet",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "agility": 16,
+        "spirit": 16
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 218,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "abi_stormcaught_boots"
+    },
+    {
+      "name": "Harvest Lightning Charm",
+      "slot": "neck",
+      "item_level": 60,
+      "rarity": "rare",
+      "required_level": 57,
+      "primary_stats": {
+        "intellect": 10,
+        "stamina": 10
+      },
+      "secondary_stats": {
+        "spell_power": 13
+      },
+      "stat_template": "int_caster",
+      "item_id": "abi_harvest_lightning_charm"
+    }
+  ],
+  "The Ash-Mother": [
+    {
+      "name": "Ash-Mother's Veil",
+      "slot": "head",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "primary_stats": {
+        "intellect": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {
+        "spell_power": 17
+      },
+      "armor_type": "cloth",
+      "armor_value": 80,
+      "stat_template": "int_caster",
+      "item_id": "abi_ash_mothers_veil"
+    },
+    {
+      "name": "Smother-Hide Leggings",
+      "slot": "legs",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "primary_stats": {
+        "agility": 23,
+        "stamina": 23
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 190,
+      "stat_template": "agi_physical",
+      "item_id": "abi_smother_hide_leggings"
+    },
+    {
+      "name": "Ashwake Bulwark",
+      "slot": "off_hand",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 26
+      },
+      "armor_value": 118,
+      "block_value": 147,
+      "stat_template": "str_physical",
+      "item_id": "abi_ashwake_bulwark"
+    },
+    {
+      "name": "Drowned-in-Ash Band",
+      "slot": "ring",
+      "item_level": 58,
+      "rarity": "rare",
+      "required_level": 55,
+      "primary_stats": {
+        "intellect": 8,
+        "spirit": 8
+      },
+      "secondary_stats": {
+        "healing_power": 23
+      },
+      "stat_template": "spi_healer",
+      "item_id": "abi_drowned_in_ash_band"
+    }
+  ]
+}

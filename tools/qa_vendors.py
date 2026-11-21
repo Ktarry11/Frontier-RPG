@@ -91,6 +91,7 @@ TOWN_REGION = {
     "astranaar": "Ashenvale West",
     "celestial_expanse": "The Celestial Expanse",   # Halcyon Rest's trader, a waystation on the zone's own map
     "anchorfields": "The Anchorfields",             # Keelstone's trader, a hold on the zone's own map
+    "ascendant_bastions": "The Ascendant Bastions", # Dawnspear Wreck's trader, a camp on the zone's own map
 }
 
 #: How far a vendor's tier may sit from the TOP of its band before it is wrong. Slightly under is
