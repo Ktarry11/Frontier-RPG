@@ -1,0 +1,127 @@
+{
+  "bond": {
+    "home": "Mossroof",
+    "dials": {
+      "warmth": 1.0,
+      "nerve": 1.0,
+      "pride": 0.9,
+      "restless": 1.0
+    },
+    "likes": [
+      "new_ground",
+      "quest"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
+    "stages": {
+      "stranger": "Hello, I'm Clara. I read tree rings for a living, and I heal people here because the tree seems to want me to. Sorry, I'm also going to ask how high you've climbed.",
+      "acquaintance": "Freiburg, in the south of Germany, at the edge of the Black Forest. I had a tiny lab under the forestry building with a wall of cores in labelled straws. Give me a core the width of a pencil and I'll tell you every dry summer and every fire the tree lived through.",
+      "companion": "My grandmother died during a field season in Romania, and I didn't go home for the funeral because the cores wouldn't wait. I've told myself for years it was the right decision. I don't believe it anymore. She used to bring me pinecones when I was small and ask me how old they were.",
+      "friend": "This tree has no rings, anywhere I've cored it, and I've finally worked out why. It only lays a ring where something's hurt it. The oldest wound is in a fallen limb deep in the trunk, and I need to read it. It's dangerous down there. Will you take me?",
+      "sworn": "I counted them. Every wound the tree ever took, all the way back to the first one, and the first one is older than any story the trolls tell. I wrote it out by hand and read it aloud at Mossroof, and the elders cried. Then I wrote my grandmother's name at the top of the page, where a dedication goes. I should have done that years ago."
+    },
+    "moments": [
+      {
+        "id": "asking",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "She's asked you to take her down to the tree's oldest wound.",
+        "options": [
+          {
+            "text": "Let's go and read it. I want to know too.",
+            "trust": 12,
+            "reply": "Thank you, really. I'll bring the borer and you bring the sword, and please don't let me stop to measure things."
+          },
+          {
+            "text": "Does it matter how old it is?",
+            "trust": 0,
+            "reply": "To me it does. I know that's not an answer, but it's the true one."
+          }
+        ]
+      },
+      {
+        "id": "first_stint",
+        "stage": "any",
+        "when": "first_stint_end",
+        "prompt": "At the end of your first run she's flipping through a notebook full of tiny sketches.",
+        "line": "I drew every tree we passed. Sorry, I can't help it. You don't mind, do you?",
+        "options": [
+          {
+            "text": "Show me, I want to see them.",
+            "trust": 8,
+            "mood": 4,
+            "reply": "Do you really want to? That's wonderful, and this one's my favourite, look at the lean on it."
+          },
+          {
+            "text": "Just keep up next time.",
+            "trust": 0,
+            "mood": -4,
+            "reply": "That's fair, I'll draw faster."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "We haven't moved in a while, and I've drawn everything in sight twice. Can we go somewhere new?",
+      "leaving_good": "That went well, thank you all. I'm heading back to Mossroof to write it up.",
+      "leaving_bored": "This is a slow stretch, and my notes at Mossroof are waiting. I'll go back for a while.",
+      "after_wipe": "Everyone stay still and let me look at you. Then we work out what went wrong, properly.",
+      "wipe_warning": "I'm keeping track, and this is going badly. One more attempt, and then I'd like to stop.",
+      "wipe_leave": "I'm stopping here. You'll find me at Mossroof on the Lower Boughs.",
+      "zone_warning": "The numbers don't work out here, we're badly outmatched. I'd like to go back.",
+      "zone_leave": "We're out of our depth, and I'm not pretending otherwise. I'll be at Mossroof.",
+      "gear_refuse": "I'd like to keep that, please. I've only just stopped tripping over it.",
+      "gear_taken": "Of course, take it. I spent most of my life in a lab coat and wellies.",
+      "gear_short": "If anything turns up that would stop a claw, I'd be grateful.",
+      "gear_upgrade": "Oh, this is lovely. Thank you, I'll take good care of it.",
+      "back": "Hello again, it's good to see you! My notes are up to date and I'm ready. Where are we going?",
+      "send_word": "Clara has sent word from Mossroof. Her notes are finished and she's ready to come out.",
+      "walkout_talk": "I owe you an explanation for leaving like that. Sit down, I'll make tea, and I'll try not to lecture.",
+      "neglect": "Oh, you've come back! I was starting to worry, and I'd started a list of reasons.",
+      "asked_to_stay": "All right, one more, but I'm writing everything down afterwards.",
+      "on_break": "Clara is back at Mossroof on the Lower Boughs. Come back after you've done a few more jobs.",
+      "mail_yes": "Your letter was lovely. I'll meet you in {town} at the inn, and I'll bring my notebook.",
+      "mail_later": "I'm in the middle of a measurement I can't leave. Give me a few days, I promise.",
+      "mail_see_me": "This would take twenty pages to write properly. Come to Mossroof and I'll explain it in person."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "Look at that beam over the door. I'd love to know how old it is.",
+        "kind": "open",
+        "topic": "cities"
+      },
+      {
+        "text": "Is there anywhere here I could sit down and draw for ten minutes?",
+        "kind": "reply"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "That was frightening, and I took notes the entire time.",
+        "kind": "open"
+      }
+    ],
+    "boss_down": [
+      {
+        "text": "Hold still, everyone, I'd like to check you over before we celebrate.",
+        "kind": "reply"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "Stay with me, I've got you, breathe.",
+        "kind": "open"
+      }
+    ],
+    "zone_arrive": [
+      {
+        "text": "Oh, these trees are ancient. Look at the bark on that one.",
+        "kind": "open",
+        "topic": "outdoors"
+      }
+    ]
+  }
+}

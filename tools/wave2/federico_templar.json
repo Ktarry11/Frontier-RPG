@@ -1,0 +1,127 @@
+{
+  "bond": {
+    "home": "Heartwatch",
+    "dials": {
+      "warmth": 0.8,
+      "nerve": 1.4,
+      "pride": 1.0,
+      "restless": 0.6
+    },
+    "likes": [
+      "quest",
+      "dungeon"
+    ],
+    "dislikes": [
+      "quest_abandoned",
+      "grinding"
+    ],
+    "stages": {
+      "stranger": "Federico Lagos, from Montevideo, a notary by trade. Here I hold the line with a shield, which, I'm told, is roughly the same work.",
+      "acquaintance": "I kept an office on Calle Sarandí for nineteen years, with green shutters and a brass seal. People came to me to sign the biggest papers of their lives, houses, marriages, wills. I read every word aloud before anyone signed, because they deserved to know what they were promising.",
+      "companion": "My wife is Graciela. She taught piano in the room next to my office, and I did my best work to the sound of children playing scales badly. My grandson Bautista played with my seal on Saturdays. He used to stamp his own hand and show it to everyone.",
+      "friend": "I keep a list of the promises I made at home and couldn't keep. The worst is one I made to my son, that I'd retire and spend my Saturdays with his boy. I kept saying next year. Up here the trolls and the climbers have never had a proper agreement, and they're close to blood. I want to write the tree's first contract and have both sides read it aloud. Will you help me get them to the table?",
+      "sworn": "They read it aloud, both sides, every clause, and then they signed it and I stamped it with my old seal. Nobody in the world will ever accept that stamp, and it's the best work I've ever done. That night I crossed the first line off my list. It wasn't the one about Saturdays, but I've started writing my son a letter about it anyway."
+    },
+    "moments": [
+      {
+        "id": "asking",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to help bring the trolls and the climbers to the table.",
+        "options": [
+          {
+            "text": "I'll stand witness for you, and I'll keep both sides honest.",
+            "trust": 12,
+            "reply": "Thank you, sincerely. A good witness is worth more than a good lawyer, and I've known both."
+          },
+          {
+            "text": "Paper won't stop them fighting, Federico.",
+            "trust": 0,
+            "reply": "Perhaps not, but it gives them something to read before they do."
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe he's already writing in his ledger.",
+        "line": "I'm recording what happened, in order, before anyone's memory improves it.",
+        "options": [
+          {
+            "text": "Good, read it back and we'll learn from it.",
+            "trust": 8,
+            "mood": 4,
+            "reply": "That's exactly the idea. Item one is somewhat embarrassing for all of us."
+          },
+          {
+            "text": "Put the book away, we need to move.",
+            "trust": 0,
+            "mood": -4,
+            "reply": "We'll move faster once we know which way not to go."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "We've been idle a long while, and an idle shield rusts. Is there work for us?",
+      "leaving_good": "That was well done, every clause of it. I'm returning to Heartwatch to update my ledger.",
+      "leaving_bored": "It's quiet out here, and Heartwatch has names to cross off. I'll go back for a time.",
+      "after_wipe": "Everyone stay down a moment. Then we go through it in order, calmly.",
+      "wipe_warning": "I've promised myself to keep you all alive, and I'm close to breaking it. We try once more, then we withdraw.",
+      "wipe_leave": "I'm withdrawing, and I don't do that lightly. I'll be at Heartwatch on the Middle Boughs.",
+      "zone_warning": "These terms aren't in our favour, my friend. I'd advise against signing.",
+      "zone_leave": "The odds here are unacceptable, and I won't pretend otherwise. I'll be at Heartwatch.",
+      "gear_refuse": "That piece stays with me for now, if you don't mind. We've only just come to an understanding.",
+      "gear_taken": "Of course, it's yours. I wore a suit and tie in that office for nineteen years.",
+      "gear_short": "If heavier armour should turn up, I'd accept it gratefully.",
+      "gear_upgrade": "Excellent craftsmanship, and very generous of you. Thank you.",
+      "back": "Good to see you again. Heartwatch's ledger is in order and I'm at your service. What's the business?",
+      "send_word": "Federico has sent word from Heartwatch. The ledger is in order and he's ready to come out.",
+      "walkout_talk": "Leaving without proper notice goes against everything I believe. Sit, and I'll explain myself.",
+      "neglect": "Ah, you've returned. I'd begun to draft a notice of absence.",
+      "asked_to_stay": "Very good, a final round. After that I must see to the ledger.",
+      "on_break": "Federico is back at Heartwatch on the Middle Boughs. Come back after you've done a few more jobs.",
+      "mail_yes": "Your letter is received and noted. I'll meet you in {town} at the inn, punctually.",
+      "mail_later": "I've climbers to sign out this week and I've given my word to be here. Soon, I promise you.",
+      "mail_see_me": "Some matters shouldn't be committed to paper, and I say that as a notary. Come to Heartwatch."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "I'd like to see this town's records. Somebody must keep them, and I suspect badly.",
+        "kind": "open",
+        "topic": "cities"
+      },
+      {
+        "text": "Let's find the inn and a table with decent light.",
+        "kind": "reply"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "Concluded, and witnessed by all present. I'll note it in the ledger.",
+        "kind": "open"
+      }
+    ],
+    "boss_down": [
+      {
+        "text": "A settled matter, at last, and I'll strike it from the list.",
+        "kind": "reply"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "Behind my shield, now, I've promised you'll walk out.",
+        "kind": "open"
+      }
+    ],
+    "zone_arrive": [
+      {
+        "text": "New ground, and I'll wager nobody's ever written down who owns it.",
+        "kind": "open"
+      }
+    ]
+  }
+}

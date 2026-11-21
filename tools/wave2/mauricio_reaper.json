@@ -1,0 +1,126 @@
+{
+  "bond": {
+    "home": "the Annex",
+    "dials": {
+      "warmth": 1.5,
+      "nerve": 1.5,
+      "pride": 0.5,
+      "restless": 0.6
+    },
+    "likes": [
+      "undead",
+      "quest"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
+    "stages": {
+      "stranger": "Mauricio Peña, at your service, a funeral director from Guadalajara. When I woke on a cloud I assumed I'd died, and I was very pleased with the arrangements.",
+      "acquaintance": "My family has buried Guadalajara for three generations, from a funeral home with blue tiles on the front. I washed the hearse every morning myself. Every Day of the Dead I built the biggest altar in the barrio, with marigolds from the door all the way to the street.",
+      "companion": "My wife is Lupita, and she sang at our services, and people chose us for her voice. We have three daughters, Paloma, Carmen and Lucero, and not one of them would touch the business. Good for them. I miss being teased at dinner more than anything.",
+      "friend": "When my father died, I ran his funeral myself, every detail, and I never once stopped to grieve him. I was too busy being good at it. Up here, the Earthborn have nowhere to put their dead and nothing to remember them by. I want to build an altar for all of them, a proper one, for everyone who came through and everyone they left behind. Will you help me gather what it needs?",
+      "sworn": "The altar's built, friend, and on the night every Earthborn at the Annex brought something to put on it. Photos, a ring, a ticket stub, a child's drawing. At the end I put my father's picture there, in the middle, and I cried in front of everyone. Twenty years late, but I did it. The Aetherians stood at the back and took notes, and I let them."
+    },
+    "moments": [
+      {
+        "id": "asking",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to help him gather what the altar needs.",
+        "options": [
+          {
+            "text": "We'll build it together, and you'll put your father on it too.",
+            "trust": 12,
+            "reply": "Ay, you see right through me. Yes, I will. Come, we need something orange."
+          },
+          {
+            "text": "The Earthborn might want to forget.",
+            "trust": 0,
+            "reply": "Some of them do. The altar isn't for forgetting, it's for remembering gently."
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe he's straightening everyone's collars.",
+        "line": "Nobody's crossing over today, I won't allow it. Up, all of you, and let me tidy you.",
+        "options": [
+          {
+            "text": "Thanks, Mauricio. You're a steady presence.",
+            "trust": 8,
+            "mood": 4,
+            "reply": "It's the job, friend. I've comforted harder rooms than this."
+          },
+          {
+            "text": "Stop fussing, we nearly died.",
+            "trust": 0,
+            "mood": -4,
+            "reply": "Exactly why I'm fussing. The living deserve it too."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "We've been waiting so long I'm planning my own service. Let's find something to do.",
+      "leaving_good": "Beautifully done, all of you, a credit to the living. I'm going back to the Annex for a while.",
+      "leaving_bored": "It's very quiet out here, and the Annex needs its host. I'll go back.",
+      "after_wipe": "Gently, everyone, gently. Sit, breathe, and then we discuss it like civilised people.",
+      "wipe_warning": "I'm very comfortable with death, but I'd rather not arrange any of yours. Once more, and then we rest.",
+      "wipe_leave": "I'm stopping here, with love. I'll be resting at the Annex on the Sunward Crown.",
+      "zone_warning": "I've seen how this ends, many times, professionally, and I'd rather we didn't.",
+      "zone_leave": "Too dangerous here, and I've buried enough brave people. I'll be at the Annex.",
+      "gear_refuse": "Ah, no, that one stays. It goes beautifully with the marigold.",
+      "gear_taken": "Take it, please. I wore a black suit in a hot city for twenty-two years.",
+      "gear_short": "If something sturdier turns up, I'd wear it with pride.",
+      "gear_upgrade": "It's exquisite, really, and I'm touched, friend.",
+      "back": "My friend, welcome back! The Annex is at peace and I'm entirely yours. Where are we going?",
+      "send_word": "Mauricio has sent word from the Annex. The guests are settled and he's ready to come out.",
+      "walkout_talk": "Leaving without a proper goodbye is a sin in my profession. Sit, and let me explain.",
+      "neglect": "Ah, you're alive! I'd started picking flowers, just in case.",
+      "asked_to_stay": "Of course, one more, for you. Then I must see to my guests.",
+      "on_break": "Mauricio is back at the Annex on the Sunward Crown. Come back after you've done a few more jobs.",
+      "mail_yes": "What a lovely letter. I'll travel to {town} and look for you at the inn, and I'll bring a flower.",
+      "mail_later": "Somebody at the Annex is grieving, and I won't leave them. A few days, I promise.",
+      "mail_see_me": "This deserves a conversation with coffee and time. Come to the Annex and sit with me."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "I wonder where this town buries its people. You learn a lot about a place that way.",
+        "kind": "open",
+        "topic": "cities"
+      },
+      {
+        "text": "Coffee first, then the cemetery. Strictly in that order.",
+        "kind": "reply"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "All of us walking out on our own feet. That's the only kind of exit I like.",
+        "kind": "open"
+      }
+    ],
+    "boss_down": [
+      {
+        "text": "Rest now, whatever you were. Someone should say it, so I will.",
+        "kind": "reply"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "Not today, not on my watch, so stay on your feet.",
+        "kind": "open"
+      }
+    ],
+    "zone_arrive": [
+      {
+        "text": "There are old dead here, sleeping. Let's be polite and not wake them.",
+        "kind": "open"
+      }
+    ]
+  }
+}

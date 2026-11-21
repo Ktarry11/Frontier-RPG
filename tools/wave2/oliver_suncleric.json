@@ -1,0 +1,126 @@
+{
+  "bond": {
+    "home": "Lenswatch",
+    "dials": {
+      "warmth": 1.0,
+      "nerve": 0.9,
+      "pride": 0.4,
+      "restless": 0.8
+    },
+    "likes": [
+      "quest",
+      "dungeon"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
+    "stages": {
+      "stranger": "Oliver Hayes, hello, sorry. I was an optician in Bristol, and up here I heal people with light through a lens. It's less strange than it sounds.",
+      "acquaintance": "Clifton, in Bristol, up the hill by the suspension bridge. I had a little shop with a green door, a test chart, and a cat who slept in the frames display. I sang in a choir on Thursdays, badly, at the back, which is where they put me.",
+      "companion": "My dad lost his sight to glaucoma when I was fifteen. Nobody caught it in time, and it was entirely catchable. That's why I became an optician, really. He used to ask me to describe things to him, and I got very good at it.",
+      "friend": "The lensmaster's apprentice is going blind from the crystal light, the same slow way my dad did, and the Aetherians don't think anything can be done. I think I can make her a pair of glasses, but I need a lens cut from crystal deep in the Keel. Will you help me get it? I can't do this one wrong.",
+      "sworn": "She can see. She put the glasses on and read the lens-plates across the workshop, and then she cried, and so did I, and so did the lensmaster, who'll deny it. That night I told her about my dad, and she asked me to describe Bristol to her. I did, for two hours."
+    },
+    "moments": [
+      {
+        "id": "asking",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to help fetch a crystal lens from deep in the Keel.",
+        "options": [
+          {
+            "text": "We'll get the lens, and she'll see. I promise.",
+            "trust": 12,
+            "reply": "Thank you, honestly, thank you. I'll bring the callipers, you bring everything else."
+          },
+          {
+            "text": "The Aetherians said nothing can be done.",
+            "trust": 0,
+            "reply": "They said that about my dad, too. I'd rather try and be wrong."
+          }
+        ]
+      },
+      {
+        "id": "first_stint",
+        "stage": "any",
+        "when": "first_stint_end",
+        "prompt": "At the end of your first run he's peering into everyone's eyes with a little torch.",
+        "line": "Sorry, I'm just checking pupils, it's a habit. Look at my finger, please.",
+        "options": [
+          {
+            "text": "Go on, check mine too.",
+            "trust": 8,
+            "mood": 4,
+            "reply": "Lovely, perfectly reactive. You've good eyes, you know."
+          },
+          {
+            "text": "Get that torch out of my face.",
+            "trust": 0,
+            "mood": -4,
+            "reply": "Sorry, sorry, of course. Tell me if anything goes blurry."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "We've been rather idle, haven't we? I'd quite like something to do, if that's all right.",
+      "leaving_good": "That was really good, thank you, everyone. I'm going back to Lenswatch to grind some lenses.",
+      "leaving_bored": "It's terribly quiet, and the workshop at Lenswatch has a backlog. I'll pop back, if you don't mind.",
+      "after_wipe": "Everyone keep still a moment while I check you over. Then we can talk about it.",
+      "wipe_warning": "I'm sorry, but I don't think we can keep doing this. Once more, and then please can we stop.",
+      "wipe_leave": "I'm going to stop here, sorry. You'll find me in the workshop at Lenswatch.",
+      "zone_warning": "I don't want to be a worrier, but this is quite beyond us, isn't it?",
+      "zone_leave": "This is too much for us, I'm afraid. I'll be back at Lenswatch.",
+      "gear_refuse": "Oh, I'd like to keep that one, actually, if that's all right, because it's comfortable.",
+      "gear_taken": "Of course, please take it. I spent eleven years in a cardigan.",
+      "gear_short": "If anything protective comes up, I'd be awfully grateful.",
+      "gear_upgrade": "Oh, how kind, thank you very much.",
+      "back": "Oh, hello again, how lovely! The workshop's quiet and I'm free. Where to, then?",
+      "send_word": "Oliver has sent word from Lenswatch. The lenses are ground and he's ready to come out.",
+      "walkout_talk": "I'm so sorry I left without a word. Have a cup of tea with me and I'll explain properly.",
+      "neglect": "Oh, thank goodness, you're back. I'd been worrying, quietly.",
+      "asked_to_stay": "All right, just once more. Then I really must get back to the workshop.",
+      "on_break": "Oliver is back in the workshop at Lenswatch. Come back after you've done a few more jobs.",
+      "mail_yes": "What a lovely letter. I'll make my way to {town} and find a seat at the inn, with a pot of tea on.",
+      "mail_later": "Right now I'm halfway through grinding a lens and I daren't stop. A few days, I promise.",
+      "mail_see_me": "I'd much rather say this in person, over tea. Do come to Lenswatch if you can."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "Half the people in this town are squinting. I could do so much good here.",
+        "kind": "open",
+        "topic": "cities"
+      },
+      {
+        "text": "Is there anywhere that does a decent cup of tea?",
+        "kind": "reply"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "Well done, all of you. Now, follow my finger, please, everyone.",
+        "kind": "open"
+      }
+    ],
+    "boss_down": [
+      {
+        "text": "Sit down a moment, everyone, I'd like to check your eyes.",
+        "kind": "reply"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "Hold still, the light's coming, it won't hurt.",
+        "kind": "open"
+      }
+    ],
+    "zone_arrive": [
+      {
+        "text": "The light's different here, have you noticed? It's softer, somehow.",
+        "kind": "open"
+      }
+    ]
+  }
+}

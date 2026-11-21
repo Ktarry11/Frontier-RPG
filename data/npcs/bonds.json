@@ -370,6 +370,93 @@
         "mail_see_me": "Mijo, sit by the fire with me, not over a letter. Come to my ruins in Stranglethorn and we'll talk."
       }
     },
+    "alvaro_venomancer": {
+      "home": "Rootwater Isle",
+      "dials": {
+        "warmth": 1.3,
+        "nerve": 1.6,
+        "pride": 0.4,
+        "restless": 0.6
+      },
+      "likes": [
+        "beast",
+        "quest"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "Álvaro, from Colombia. I kept bees at home and I keep the swarms off the climbers here. Stand still if something lands on you, that's the whole trick.",
+        "acquaintance": "My uncle had a farm in the hills above Cartagena, coffee and plantains and eighty hives along the fence. I worked those hives for twenty years. My wife sold the honey off the back of a pickup on the coast road, and she sold it better than I ever kept it.",
+        "companion": "My wife is Marisela. She laughs at me for talking to the bees, and then she asks what I told them. When I came through, I was standing in the hives at dawn with the smoker in my hand. I think about whether she found the smoker on the ground, and what she thought.",
+        "friend": "My uncle died the week before I came through, and I never told the bees. My grandfather said if you don't tell them the news they leave, and I've been afraid ever since that I left them without a word. There's a hive of gentle sap-bees on this island, and the big wasps are tearing it apart. I want to save it. Will you help me hold them off?",
+        "sworn": "We saved them, all of them, and the queen is laying again. I took the first comb of honey on this world out of that hive this morning, and it tastes of the tree. Then I sat with the bees and told them everything: my uncle, Marisela, the farm and the pickup, and they listened to all of it. I feel lighter than I've felt in three years."
+      },
+      "moments": [
+        {
+          "id": "asking",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to help him save the sap-bees' hive.",
+          "options": [
+            {
+              "text": "We'll save them, and then you can tell them your news.",
+              "trust": 12,
+              "reply": "Gracias, my friend. Walk slowly when we get close, they can feel your heart."
+            },
+            {
+              "text": "They're only bees, Álvaro.",
+              "trust": 0,
+              "reply": "Only bees, yes. My grandfather would have stopped speaking to you for that."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's sitting very still while everyone else is panicking.",
+          "line": "Breathe slowly, all of you. Panic is louder than blood, and everything out here can hear it.",
+          "options": [
+            {
+              "text": "You're right, slow down, everyone.",
+              "trust": 8,
+              "mood": 4,
+              "reply": "Good, that's better. Now we think, and then we go again."
+            },
+            {
+              "text": "Easy for you, nothing ever stings you.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "Everything stings me, friend. I just don't run from it."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been standing still a long while, and even I get restless eventually. Let's find something to do.",
+        "leaving_good": "Good work, all of you, very good. I'm going back to Rootwater to see how the swarms are behaving.",
+        "leaving_bored": "It's too quiet out here, and the reeds at Rootwater need me. I'm going home for a while.",
+        "after_wipe": "Slowly, everyone, slowly. Stand up when your heart stops racing, not before.",
+        "wipe_warning": "I can take the stings, but the party can't take many more of these. We try once more, then we rest.",
+        "wipe_leave": "Enough for now. You'll find me on Rootwater Isle, out in the reeds.",
+        "zone_warning": "These things are too big for us, friend. Even a beekeeper knows when to close the hive.",
+        "zone_leave": "Too much danger here for this party. I'm going back to Rootwater.",
+        "gear_refuse": "No, no, I've only just got that one comfortable.",
+        "gear_taken": "Of course, take it. I wore a cotton shirt in eighty hives for twenty years.",
+        "gear_short": "If something heavy turns up, I'd wear it. The wasps here have opinions about my arms.",
+        "gear_upgrade": "Ah, that's beautiful work, and I thank you for it.",
+        "back": "Hola again, friend. The swarms are quiet on Rootwater and I'm free, so tell me where we're going.",
+        "send_word": "Álvaro has sent word from Rootwater Isle. The swarms are quiet and he's ready to come out.",
+        "walkout_talk": "I left without a proper goodbye, and I'm sorry for it. Sit with me a minute and I'll explain.",
+        "neglect": "Ah, you came back! I'd started telling the bees you were lost.",
+        "asked_to_stay": "Bueno, one more. Then I go and check the reeds.",
+        "on_break": "Álvaro is back on Rootwater Isle, out in the reeds. Come back after you've done a few more jobs.",
+        "mail_yes": "Your letter found me in the reeds. I'll come to {town} and look for you at the inn, and I'll bring something sweet.",
+        "mail_later": "The swarms are restless this week, and the climbers need me close. I'll come when they settle.",
+        "mail_see_me": "This needs a proper talk, slowly, not ink. Come out to Rootwater and sit in the reeds with me."
+      }
+    },
     "ama_priest": {
       "home": "Razor Hill",
       "dials": {
@@ -1387,6 +1474,180 @@
         "mail_yes": "Your letter came with the tide, meu bem. I'll head to {town} and you'll find me at the inn, the one with sand still on her feet.",
         "mail_later": "Not yet, meu bem. I still need some time with the water. When the sea lets me go, I'll come.",
         "mail_see_me": "I don't want to do this in ink. Come to the Echo Isles and sit by the water with me, and we'll talk it through slowly."
+      }
+    },
+    "clara_primalist": {
+      "home": "Mossroof",
+      "dials": {
+        "warmth": 1.0,
+        "nerve": 1.0,
+        "pride": 0.9,
+        "restless": 1.0
+      },
+      "likes": [
+        "new_ground",
+        "quest"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "Hello, I'm Clara. I read tree rings for a living, and I heal people here because the tree seems to want me to. Sorry, I'm also going to ask how high you've climbed.",
+        "acquaintance": "Freiburg, in the south of Germany, at the edge of the Black Forest. I had a tiny lab under the forestry building with a wall of cores in labelled straws. Give me a core the width of a pencil and I'll tell you every dry summer and every fire the tree lived through.",
+        "companion": "My grandmother died during a field season in Romania, and I didn't go home for the funeral because the cores wouldn't wait. I've told myself for years it was the right decision. I don't believe it anymore. She used to bring me pinecones when I was small and ask me how old they were.",
+        "friend": "This tree has no rings, anywhere I've cored it, and I've finally worked out why. It only lays a ring where something's hurt it. The oldest wound is in a fallen limb deep in the trunk, and I need to read it. It's dangerous down there. Will you take me?",
+        "sworn": "I counted them. Every wound the tree ever took, all the way back to the first one, and the first one is older than any story the trolls tell. I wrote it out by hand and read it aloud at Mossroof, and the elders cried. Then I wrote my grandmother's name at the top of the page, where a dedication goes. I should have done that years ago."
+      },
+      "moments": [
+        {
+          "id": "asking",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's asked you to take her down to the tree's oldest wound.",
+          "options": [
+            {
+              "text": "Let's go and read it. I want to know too.",
+              "trust": 12,
+              "reply": "Thank you, really. I'll bring the borer and you bring the sword, and please don't let me stop to measure things."
+            },
+            {
+              "text": "Does it matter how old it is?",
+              "trust": 0,
+              "reply": "To me it does. I know that's not an answer, but it's the true one."
+            }
+          ]
+        },
+        {
+          "id": "first_stint",
+          "stage": "any",
+          "when": "first_stint_end",
+          "prompt": "At the end of your first run she's flipping through a notebook full of tiny sketches.",
+          "line": "I drew every tree we passed. Sorry, I can't help it. You don't mind, do you?",
+          "options": [
+            {
+              "text": "Show me, I want to see them.",
+              "trust": 8,
+              "mood": 4,
+              "reply": "Do you really want to? That's wonderful, and this one's my favourite, look at the lean on it."
+            },
+            {
+              "text": "Just keep up next time.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "That's fair, I'll draw faster."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We haven't moved in a while, and I've drawn everything in sight twice. Can we go somewhere new?",
+        "leaving_good": "That went well, thank you all. I'm heading back to Mossroof to write it up.",
+        "leaving_bored": "This is a slow stretch, and my notes at Mossroof are waiting. I'll go back for a while.",
+        "after_wipe": "Everyone stay still and let me look at you. Then we work out what went wrong, properly.",
+        "wipe_warning": "I'm keeping track, and this is going badly. One more attempt, and then I'd like to stop.",
+        "wipe_leave": "I'm stopping here. You'll find me at Mossroof on the Lower Boughs.",
+        "zone_warning": "The numbers don't work out here, we're badly outmatched. I'd like to go back.",
+        "zone_leave": "We're out of our depth, and I'm not pretending otherwise. I'll be at Mossroof.",
+        "gear_refuse": "I'd like to keep that, please. I've only just stopped tripping over it.",
+        "gear_taken": "Of course, take it. I spent most of my life in a lab coat and wellies.",
+        "gear_short": "If anything turns up that would stop a claw, I'd be grateful.",
+        "gear_upgrade": "Oh, this is lovely. Thank you, I'll take good care of it.",
+        "back": "Hello again, it's good to see you! My notes are up to date and I'm ready. Where are we going?",
+        "send_word": "Clara has sent word from Mossroof. Her notes are finished and she's ready to come out.",
+        "walkout_talk": "I owe you an explanation for leaving like that. Sit down, I'll make tea, and I'll try not to lecture.",
+        "neglect": "Oh, you've come back! I was starting to worry, and I'd started a list of reasons.",
+        "asked_to_stay": "All right, one more, but I'm writing everything down afterwards.",
+        "on_break": "Clara is back at Mossroof on the Lower Boughs. Come back after you've done a few more jobs.",
+        "mail_yes": "Your letter was lovely. I'll meet you in {town} at the inn, and I'll bring my notebook.",
+        "mail_later": "I'm in the middle of a measurement I can't leave. Give me a few days, I promise.",
+        "mail_see_me": "This would take twenty pages to write properly. Come to Mossroof and I'll explain it in person."
+      }
+    },
+    "connor_shaman": {
+      "home": "Highrest",
+      "dials": {
+        "warmth": 1.4,
+        "nerve": 1.6,
+        "pride": 0.5,
+        "restless": 1.2
+      },
+      "likes": [
+        "new_ground",
+        "boss"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "Connor Walsh, from the Aran Islands, off the west of Ireland. I fished lobster at home, and up here the storms do what I ask, mostly.",
+        "acquaintance": "Inis Mór, the biggest of the three islands, stone walls and wind and not a tree to be seen. I had a half-decked boat my father built and a dog called Bran who rode in the bow. My father taught me to read the sky before I could read a book.",
+        "companion": "My mother knitted every jumper I ever owned, and this one's the last. My father's Seán, and he still went out for the pots at seventy, God love him. Some evenings I talk to the wind in Irish and pretend it carries.",
+        "friend": "Weather never frightened me, and in 2017 that nearly killed a young lad on my boat. A squall came over and I laughed at it, the way I do, and he went over the side because he trusted me. I got him back, just. Now three of the Windwardens' scouts are lost in the storm over the Stormsplit, and nobody will go after them. I want to sail into it and bring them home. Will you come?",
+        "sworn": "We brought every one of them back, and I was frightened the whole way, properly frightened, for the first time in my life. It felt right. I wrote to that lad's mother that night, though I've no way to send it. Then I brewed the first proper pint on the tree, and it was dreadful, and the trolls loved it."
+      },
+      "moments": [
+        {
+          "id": "asking",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to sail into the storm with him after the lost scouts.",
+          "options": [
+            {
+              "text": "I'm with you, and you can be frightened with me.",
+              "trust": 12,
+              "reply": "Ah, God, that's a kind thing to say. Right so, grab a rope, we're going."
+            },
+            {
+              "text": "It's suicide in that weather, Connor.",
+              "trust": 0,
+              "reply": "It might be. That's never once stopped a fisherman going after his own."
+            }
+          ]
+        },
+        {
+          "id": "first_stint",
+          "stage": "any",
+          "when": "first_stint_end",
+          "prompt": "At the end of your first run he's squinting at the sky and grinning.",
+          "line": "Lovely weather coming tomorrow, you'll see. Rain by noon and a gale after.",
+          "options": [
+            {
+              "text": "You call that lovely?",
+              "trust": 8,
+              "mood": 4,
+              "reply": "Back home that's a grand day for the pots. You'd get used to it."
+            },
+            {
+              "text": "I'd rather it was sunny.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "Sun's grand, but it doesn't tell you anything."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "I've stood about so long I've forecast the weather three times. Let's go somewhere.",
+        "leaving_good": "Grand work, all of you. I'm off back to Highrest to watch the storms come in.",
+        "leaving_bored": "Not much doing out here, and the wind at Highrest is calling me. I'll head back.",
+        "after_wipe": "Up you get, slowly, and shake the water out of your ears. Then we talk it through.",
+        "wipe_warning": "I don't mind a storm, but this is a hurricane. We'll give it one more go and then run for harbour.",
+        "wipe_leave": "That's me finished for now. You'll find me out on the edge at Highrest.",
+        "zone_warning": "A gale's blowing and we're in a currach. Turn us round, please.",
+        "zone_leave": "Too rough for this crew, and I know rough. I'll be at Highrest on the Upper Boughs.",
+        "gear_refuse": "That one's mine, if it's all the same to you. It finally fits over the jumper.",
+        "gear_taken": "Go on, have it. I fished in oilskins and a wool jumper my whole life.",
+        "gear_short": "I wouldn't say no to something sturdier. The storms up here have teeth.",
+        "gear_upgrade": "Ah, that's grand, thanks a million.",
+        "back": "Well, look who it is! Highrest's quiet and the forecast's good. What's the plan?",
+        "send_word": "Connor has sent word from Highrest. The storms are quiet and he's ready to come out.",
+        "walkout_talk": "Walking off without a word isn't how I was reared. Sit down, I'll tell you straight.",
+        "neglect": "Ah, you're back! I'd started telling the wind to keep an eye out for you.",
+        "asked_to_stay": "Ah, go on so, one more. Then I'm off to watch the sky.",
+        "on_break": "Connor is back at Highrest on the Upper Boughs. Come back after you've done a few more jobs.",
+        "mail_yes": "Your letter blew in grand. I'll sail over to {town} and wait for you in the inn, and I'll have the first round in.",
+        "mail_later": "There's weather coming in at Highrest and the camp needs me. A few days and I'm yours.",
+        "mail_see_me": "This needs saying over a pint, not a page. Come out to Highrest and we'll talk on the edge."
       }
     },
     "cristobal_knight": {
@@ -2519,6 +2780,181 @@
         "mail_see_me": "I'd prefer to discuss this where neither of us can misread the other. Come to Orgrimmar and find me with the healers."
       }
     },
+    "etienne_mage": {
+      "home": "the Annex",
+      "dials": {
+        "warmth": 1.4,
+        "nerve": 1.1,
+        "pride": 0.7,
+        "restless": 1.0
+      },
+      "likes": [
+        "dungeon",
+        "full_party"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "Étienne Gagnon, from Montréal. I drove the Zamboni at a hockey rink back home, and up here the cold comes when I call it, which is handy.",
+        "acquaintance": "Hochelaga, in the east end, in a walk-up over a dépanneur. The rink smelled of cold and popcorn, and I flooded it every morning at six, slow and even. I played beer league on Tuesdays and coached a peewee team on Saturdays that never won a single game.",
+        "companion": "My grandmother knitted this toque, my mémère, and she knitted one for every kid on my peewee team too. She came to every game and booed the referee in French. I still hear her some nights when the wind comes over the cloud.",
+        "friend": "I was supposed to play, you know, properly, in the Q. I was nineteen and I wrecked my knee in a junior game, and that was it. The Zamboni was the closest I could get to the ice after that. Up here I want to build a real rink and teach somebody to skate, a troll or an Aetherian or anyone. Something keeps freezing the pond wrong, though. Will you help me find out what?",
+        "sworn": "We had our first game, on the cloud, on my ice, and it was beautiful. An Aetherian kid scored on me and I let him, mostly. I skated for an hour after everyone left, knee and all, just going round. I haven't felt like that since I was nineteen."
+      },
+      "moments": [
+        {
+          "id": "asking",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to help find out what keeps ruining his ice.",
+          "options": [
+            {
+              "text": "Let's find it, and then you're teaching me to skate.",
+              "trust": 12,
+              "reply": "Deal, mon ami, and I'll go easy on you, mostly. Bring something warm."
+            },
+            {
+              "text": "It's just a pond, Étienne.",
+              "trust": 0,
+              "reply": "Sure, and the Forum was just a building. Okay, I'll go alone."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's sitting on the ground, grinning ruefully.",
+          "line": "Okay, that was my peewee team's whole season in one fight. We regroup, eh?",
+          "options": [
+            {
+              "text": "We regroup. Coach us.",
+              "trust": 8,
+              "mood": 4,
+              "reply": "Good attitude, that's what I like. Line changes, everybody!"
+            },
+            {
+              "text": "This isn't hockey, Étienne.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "Everything's hockey if you squint, but okay."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "Nothing's going on, and I'm starting to frost my own boots out of boredom. Let's go do something.",
+        "leaving_good": "Good game, everybody, great game. I'm heading back to the Annex to flood the rink.",
+        "leaving_bored": "Pretty dead out here, and my ice at the Annex won't keep itself. I'll head back.",
+        "after_wipe": "Okay, everybody up, slowly. Shake it off, then we look at the tape.",
+        "wipe_warning": "We're getting pretty beat up here, mon ami. Last period, then we go to the bench.",
+        "wipe_leave": "I'm done for now, eh. Come find me at the Annex on the Sunward Crown.",
+        "zone_warning": "These guys are way out of our league. We're a peewee team at the Bell Centre here.",
+        "zone_leave": "Too much for us here, no shame in it. I'll be at the Annex.",
+        "gear_refuse": "No, no, I'm keeping that one. It's finally broken in, like good skates.",
+        "gear_taken": "Sure, take it. I spent ten years in a Zamboni jacket and a toque.",
+        "gear_short": "If something warmer turns up, I'd take it. Funny, eh, the cold mage wants warm clothes.",
+        "gear_upgrade": "Oh, that's nice, merci beaucoup!",
+        "back": "Salut, it's good to see you! The ice is flooded and I'm all yours. What's the play?",
+        "send_word": "Étienne has sent word from the Annex. The rink's flooded and he's ready to come out.",
+        "walkout_talk": "I skated off without saying anything, and that wasn't cool. Sit, I'll explain, eh.",
+        "neglect": "Hey, you made it back! I was about to send out a search party on skates.",
+        "asked_to_stay": "Sure, overtime, why not. Then I go flood the rink.",
+        "on_break": "Étienne is back at the Annex on the Sunward Crown. Come back after you've done a few more jobs.",
+        "mail_yes": "Got your letter, merci! I'll head to {town} and grab a table at the inn, eh.",
+        "mail_later": "The rink's half frozen and I can't leave it now. Give me a couple of days.",
+        "mail_see_me": "That's a conversation for over a coffee, not a letter. Come to the Annex and skate with me."
+      }
+    },
+    "facundo_chronomancer": {
+      "home": "Halcyon Rest",
+      "dials": {
+        "warmth": 0.9,
+        "nerve": 1.2,
+        "pride": 0.6,
+        "restless": 0.5
+      },
+      "likes": [
+        "quest",
+        "new_ground"
+      ],
+      "dislikes": [
+        "grinding",
+        "quest_abandoned"
+      ],
+      "stages": {
+        "stranger": "Facundo Herrera, a watchmaker from Mendoza. Everything runs fast or slow if you listen closely enough, and here I can wind a little of it back.",
+        "acquaintance": "My grandfather's shop in Mendoza, a narrow place between a bakery and a shoe repairer, under a sign nobody had painted in fifty years. I sat at the bench by the window for twenty years with a loupe in my eye. The whole wall of clocks struck noon a few seconds apart, and I never once fixed it.",
+        "companion": "My wife is Rocío, and she taught mathematics at the secondary school. She used to say I was the only man in Argentina who was never late, because I always knew exactly what time it really was. I miss arguing with her about whether clocks should be fast or slow.",
+        "friend": "My grandfather died while I was in Buenos Aires at a watch fair. I came back for the funeral and wound his pocket watch at the graveside, and I've wound it at the same minute every morning since. There's a golem core on the Fields that's ticking wrong, and it's hurting the golem that carries it. I think I can set it right. Will you keep the wards off me while I work?",
+        "sworn": "It's ticking true now, slow and even, like a good heart. The golem lay down afterwards, gently, and went to sleep, and I sat with it until dark. I kept the smallest gear that came loose, and I'll carry it with my grandfather's watch. For the first time in years I'm not counting the seconds."
+      },
+      "moments": [
+        {
+          "id": "asking",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to keep the wards off him while he sets the golem's core right.",
+          "options": [
+            {
+              "text": "Work as long as you need. I'll keep them off you.",
+              "trust": 12,
+              "reply": "Thank you. A watchmaker needs quiet hands and a quiet room, and you're giving me both."
+            },
+            {
+              "text": "Can't you just leave it broken?",
+              "trust": 0,
+              "reply": "You never leave a mechanism suffering. My grandfather would never forgive me."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's sitting quietly, holding his grandfather's watch.",
+          "line": "We lost the rhythm. Everything in that fight ran a little fast, and so did we.",
+          "options": [
+            {
+              "text": "Then let's slow down and listen first.",
+              "trust": 8,
+              "mood": 4,
+              "reply": "That's exactly it. You'd have made a good watchmaker."
+            },
+            {
+              "text": "We just need to hit harder.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "Force never fixed a watch, friend. It only breaks the spring."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've stood still for some time now, and even a stopped clock gets restless. Shall we go?",
+        "leaving_good": "That went very well, everyone, well paced. I'm going back to Halcyon Rest to see to the wounded.",
+        "leaving_bored": "Very little is happening out here, and the Fields have wounded who need me. I'll return to Halcyon Rest.",
+        "after_wipe": "Stay still, all of you, and let the moment settle. Then we look at what slipped.",
+        "wipe_warning": "Time keeps slipping from us, and I can only wind back so much. Once more, then we must rest.",
+        "wipe_leave": "I'll stop here for now. I'll be at Halcyon Rest in the Celestial Expanse.",
+        "zone_warning": "This place runs much too fast for us, my friend. We should turn back.",
+        "zone_leave": "It's beyond us here, and I won't pretend otherwise. I'll be at Halcyon Rest.",
+        "gear_refuse": "I'd like to keep that one, if you'd allow it. It's only just settled into place.",
+        "gear_taken": "Please, take it. I sat at a watch bench in a cardigan for twenty years.",
+        "gear_short": "If something sturdier comes along, I'd be glad of it.",
+        "gear_upgrade": "Beautifully made, thank you. Every piece fits.",
+        "back": "Good to see you again. The wounded are mended and I'm free. Where shall we go?",
+        "send_word": "Facundo has sent word from Halcyon Rest. The wounded are mended and he's ready to come out.",
+        "walkout_talk": "Leaving without a word wasn't right, and I've regretted it. Sit, I'll explain slowly.",
+        "neglect": "Ah, you came back. I'd counted every day you were gone.",
+        "asked_to_stay": "Very well, a little longer. Then I must wind the watch.",
+        "on_break": "Facundo is back at Halcyon Rest in the Celestial Expanse. Come back after you've done a few more jobs.",
+        "mail_yes": "Your letter arrived precisely when I needed it. I'll meet you in {town} at the inn, on time.",
+        "mail_later": "There are wounded here who can't wait, and I won't hurry them. A few days, I promise.",
+        "mail_see_me": "Some things are better said slowly, face to face. Come to Halcyon Rest and sit with me."
+      }
+    },
     "faris_shaman": {
       "home": "Moonglade",
       "dials": {
@@ -2601,6 +3037,94 @@
         "mail_yes": "Peace be with you, and thank you for writing. I'll be in {town} when you arrive, inshallah.",
         "mail_later": "The lake still needs me for a while, and I don't want to leave it before it's calm. When it's calm, inshallah.",
         "mail_see_me": "What troubled me should be said by the water, not written down. Come to the lake in Moonglade."
+      }
+    },
+    "federico_templar": {
+      "home": "Heartwatch",
+      "dials": {
+        "warmth": 0.8,
+        "nerve": 1.4,
+        "pride": 1.0,
+        "restless": 0.6
+      },
+      "likes": [
+        "quest",
+        "dungeon"
+      ],
+      "dislikes": [
+        "quest_abandoned",
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "Federico Lagos, from Montevideo, a notary by trade. Here I hold the line with a shield, which, I'm told, is roughly the same work.",
+        "acquaintance": "I kept an office on Calle Sarandí for nineteen years, with green shutters and a brass seal. People came to me to sign the biggest papers of their lives, houses, marriages, wills. I read every word aloud before anyone signed, because they deserved to know what they were promising.",
+        "companion": "My wife is Graciela. She taught piano in the room next to my office, and I did my best work to the sound of children playing scales badly. My grandson Bautista played with my seal on Saturdays. He used to stamp his own hand and show it to everyone.",
+        "friend": "I keep a list of the promises I made at home and couldn't keep. The worst is one I made to my son, that I'd retire and spend my Saturdays with his boy. I kept saying next year. Up here the trolls and the climbers have never had a proper agreement, and they're close to blood. I want to write the tree's first contract and have both sides read it aloud. Will you help me get them to the table?",
+        "sworn": "They read it aloud, both sides, every clause, and then they signed it and I stamped it with my old seal. Nobody in the world will ever accept that stamp, and it's the best work I've ever done. That night I crossed the first line off my list. It wasn't the one about Saturdays, but I've started writing my son a letter about it anyway."
+      },
+      "moments": [
+        {
+          "id": "asking",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to help bring the trolls and the climbers to the table.",
+          "options": [
+            {
+              "text": "I'll stand witness for you, and I'll keep both sides honest.",
+              "trust": 12,
+              "reply": "Thank you, sincerely. A good witness is worth more than a good lawyer, and I've known both."
+            },
+            {
+              "text": "Paper won't stop them fighting, Federico.",
+              "trust": 0,
+              "reply": "Perhaps not, but it gives them something to read before they do."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's already writing in his ledger.",
+          "line": "I'm recording what happened, in order, before anyone's memory improves it.",
+          "options": [
+            {
+              "text": "Good, read it back and we'll learn from it.",
+              "trust": 8,
+              "mood": 4,
+              "reply": "That's exactly the idea. Item one is somewhat embarrassing for all of us."
+            },
+            {
+              "text": "Put the book away, we need to move.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "We'll move faster once we know which way not to go."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been idle a long while, and an idle shield rusts. Is there work for us?",
+        "leaving_good": "That was well done, every clause of it. I'm returning to Heartwatch to update my ledger.",
+        "leaving_bored": "It's quiet out here, and Heartwatch has names to cross off. I'll go back for a time.",
+        "after_wipe": "Everyone stay down a moment. Then we go through it in order, calmly.",
+        "wipe_warning": "I've promised myself to keep you all alive, and I'm close to breaking it. We try once more, then we withdraw.",
+        "wipe_leave": "I'm withdrawing, and I don't do that lightly. I'll be at Heartwatch on the Middle Boughs.",
+        "zone_warning": "These terms aren't in our favour, my friend. I'd advise against signing.",
+        "zone_leave": "The odds here are unacceptable, and I won't pretend otherwise. I'll be at Heartwatch.",
+        "gear_refuse": "That piece stays with me for now, if you don't mind. We've only just come to an understanding.",
+        "gear_taken": "Of course, it's yours. I wore a suit and tie in that office for nineteen years.",
+        "gear_short": "If heavier armour should turn up, I'd accept it gratefully.",
+        "gear_upgrade": "Excellent craftsmanship, and very generous of you. Thank you.",
+        "back": "Good to see you again. Heartwatch's ledger is in order and I'm at your service. What's the business?",
+        "send_word": "Federico has sent word from Heartwatch. The ledger is in order and he's ready to come out.",
+        "walkout_talk": "Leaving without proper notice goes against everything I believe. Sit, and I'll explain myself.",
+        "neglect": "Ah, you've returned. I'd begun to draft a notice of absence.",
+        "asked_to_stay": "Very good, a final round. After that I must see to the ledger.",
+        "on_break": "Federico is back at Heartwatch on the Middle Boughs. Come back after you've done a few more jobs.",
+        "mail_yes": "Your letter is received and noted. I'll meet you in {town} at the inn, punctually.",
+        "mail_later": "I've climbers to sign out this week and I've given my word to be here. Soon, I promise you.",
+        "mail_see_me": "Some matters shouldn't be committed to paper, and I say that as a notary. Come to Heartwatch."
       }
     },
     "fiona_witchhunter": {
@@ -3735,6 +4259,93 @@
         "mail_yes": "I'm coming to you. My hands are wrapped already. I'll wait in {town}.",
         "mail_later": "I'm staying with my mother a while longer, and that's not up for debate. Fight a few rounds without me.",
         "mail_see_me": "We settle this face to face, like a fair fight. Come to Freewind Post."
+      }
+    },
+    "isabela_mage": {
+      "home": "Aurelion",
+      "dials": {
+        "warmth": 1.5,
+        "nerve": 1.0,
+        "pride": 0.8,
+        "restless": 1.3
+      },
+      "likes": [
+        "new_ground",
+        "dungeon"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "Isabela Moura, glassblower, from Florianópolis! The whole city sings when you touch it up here, did you know? Put your hand on the wall and try.",
+        "acquaintance": "I had a workshop on the lagoon in Florianópolis with the doors open to the water and a furnace that never went out. Bowls, lamps, little fish for the tourists. Once I made a chandelier for a church that took me a whole summer, and when they lit it the priest cried.",
+        "companion": "My brother Caio surfs, and he never once helped in the workshop, and I adore him. My father taught me glass. He doesn't blow it anymore, and I'll tell you why one day. I hope Caio's still dragging him down to the beach on Sundays.",
+        "friend": "When I was twenty, my father's workshop burned down. These scars on my arms are from pulling his pipes and his molds out of the fire. He never blew glass again after that. I want to make a lamp out of Aetherian crystal, which nobody up here has managed, and I need a fire hot enough to melt it. Will you help me find one?",
+        "sworn": "It worked, it really worked! The lamp sings, a long low note, every time it's lit, and the Academy stood around it with their mouths open. I named it after my father. I'm going to blow a second one, for him, for when I can get it home. Then he'll have to start again, because I'll need someone to argue with."
+      },
+      "moments": [
+        {
+          "id": "asking",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's asked you to help her find a fire hot enough to melt Aetherian crystal.",
+          "options": [
+            {
+              "text": "Let's find the hottest fire in the sky.",
+              "trust": 12,
+              "reply": "Yes, that's the spirit! Bring water, and gloves, and maybe a little courage."
+            },
+            {
+              "text": "Crystal can't be blown, Isabela.",
+              "trust": 0,
+              "reply": "That's what they said about glass, once, and look at the windows."
+            }
+          ]
+        },
+        {
+          "id": "first_stint",
+          "stage": "any",
+          "when": "first_stint_end",
+          "prompt": "At the end of your first run she's holding a stone up to the light, delighted.",
+          "line": "Look at this, it's got a crack inside that catches the light! I'm keeping it.",
+          "options": [
+            {
+              "text": "It's beautiful. Keep it.",
+              "trust": 8,
+              "mood": 4,
+              "reply": "See, you get it! I knew you would."
+            },
+            {
+              "text": "It's just a rock.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "So is glass, before somebody loves it."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been sitting for ages, and I've counted every crystal in sight twice. Let's go somewhere!",
+        "leaving_good": "Oh, that was wonderful, all of you. I'm going back to the Academy to make something.",
+        "leaving_bored": "It's so dull out here, and my workshop at the Academy is calling me, so I'm going back.",
+        "after_wipe": "Everybody up, slowly, and let me see you. Then we figure out where it cracked.",
+        "wipe_warning": "We keep shattering, and I'm running out of pieces. Once more, then let's rest.",
+        "wipe_leave": "I'm done for today. Come and find me by the Academies in Aurelion.",
+        "zone_warning": "This is too hot for us to handle, like glass straight out of the furnace. Let's back away.",
+        "zone_leave": "We're out of our depth, and I'm not too proud to say it. I'll be in Aurelion.",
+        "gear_refuse": "Oh, no, I love this one, I'm keeping it.",
+        "gear_taken": "It's yours, go on! I worked in a leather apron and old jeans.",
+        "gear_short": "If something comes along that stops a claw, I'd love it.",
+        "gear_upgrade": "Oh, it's beautiful, obrigada!",
+        "back": "You're back, I'm so happy! The workshop's quiet and I'm ready. Where are we going?",
+        "send_word": "Isabela has sent word from Aurelion. Her furnace is cooling and she's ready to come out.",
+        "walkout_talk": "I ran off without saying anything, and I'm so sorry. Sit down, I'll tell you everything.",
+        "neglect": "You're finally here! I made you a little glass bird while you were gone.",
+        "asked_to_stay": "Fine, a last little bit! After that I really must get back to the furnace.",
+        "on_break": "Isabela is back by the Academies in Aurelion. Come back after you've done a few more jobs.",
+        "mail_yes": "Your letter made my day! I'll hurry over to {town} and grab us a table at the inn.",
+        "mail_later": "I've got crystal in the furnace and I can't leave it. A few days, I promise!",
+        "mail_see_me": "I talk with my hands, so letters are hopeless for me. Come to Aurelion and see me."
       }
     },
     "isla_witchhunter": {
@@ -5365,6 +5976,93 @@
         "mail_see_me": "My words are better when I say them, not write them. Please come to Durotar, and I'll explain slowly."
       }
     },
+    "mauricio_reaper": {
+      "home": "the Annex",
+      "dials": {
+        "warmth": 1.5,
+        "nerve": 1.5,
+        "pride": 0.5,
+        "restless": 0.6
+      },
+      "likes": [
+        "undead",
+        "quest"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "Mauricio Peña, at your service, a funeral director from Guadalajara. When I woke on a cloud I assumed I'd died, and I was very pleased with the arrangements.",
+        "acquaintance": "My family has buried Guadalajara for three generations, from a funeral home with blue tiles on the front. I washed the hearse every morning myself. Every Day of the Dead I built the biggest altar in the barrio, with marigolds from the door all the way to the street.",
+        "companion": "My wife is Lupita, and she sang at our services, and people chose us for her voice. We have three daughters, Paloma, Carmen and Lucero, and not one of them would touch the business. Good for them. I miss being teased at dinner more than anything.",
+        "friend": "When my father died, I ran his funeral myself, every detail, and I never once stopped to grieve him. I was too busy being good at it. Up here, the Earthborn have nowhere to put their dead and nothing to remember them by. I want to build an altar for all of them, a proper one, for everyone who came through and everyone they left behind. Will you help me gather what it needs?",
+        "sworn": "The altar's built, friend, and on the night every Earthborn at the Annex brought something to put on it. Photos, a ring, a ticket stub, a child's drawing. At the end I put my father's picture there, in the middle, and I cried in front of everyone. Twenty years late, but I did it. The Aetherians stood at the back and took notes, and I let them."
+      },
+      "moments": [
+        {
+          "id": "asking",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to help him gather what the altar needs.",
+          "options": [
+            {
+              "text": "We'll build it together, and you'll put your father on it too.",
+              "trust": 12,
+              "reply": "Ay, you see right through me. Yes, I will. Come, we need something orange."
+            },
+            {
+              "text": "The Earthborn might want to forget.",
+              "trust": 0,
+              "reply": "Some of them do. The altar isn't for forgetting, it's for remembering gently."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's straightening everyone's collars.",
+          "line": "Nobody's crossing over today, I won't allow it. Up, all of you, and let me tidy you.",
+          "options": [
+            {
+              "text": "Thanks, Mauricio. You're a steady presence.",
+              "trust": 8,
+              "mood": 4,
+              "reply": "It's the job, friend. I've comforted harder rooms than this."
+            },
+            {
+              "text": "Stop fussing, we nearly died.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "Exactly why I'm fussing. The living deserve it too."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been waiting so long I'm planning my own service. Let's find something to do.",
+        "leaving_good": "Beautifully done, all of you, a credit to the living. I'm going back to the Annex for a while.",
+        "leaving_bored": "It's very quiet out here, and the Annex needs its host. I'll go back.",
+        "after_wipe": "Gently, everyone, gently. Sit, breathe, and then we discuss it like civilised people.",
+        "wipe_warning": "I'm very comfortable with death, but I'd rather not arrange any of yours. Once more, and then we rest.",
+        "wipe_leave": "I'm stopping here, with love. I'll be resting at the Annex on the Sunward Crown.",
+        "zone_warning": "I've seen how this ends, many times, professionally, and I'd rather we didn't.",
+        "zone_leave": "Too dangerous here, and I've buried enough brave people. I'll be at the Annex.",
+        "gear_refuse": "Ah, no, that one stays. It goes beautifully with the marigold.",
+        "gear_taken": "Take it, please. I wore a black suit in a hot city for twenty-two years.",
+        "gear_short": "If something sturdier turns up, I'd wear it with pride.",
+        "gear_upgrade": "It's exquisite, really, and I'm touched, friend.",
+        "back": "My friend, welcome back! The Annex is at peace and I'm entirely yours. Where are we going?",
+        "send_word": "Mauricio has sent word from the Annex. The guests are settled and he's ready to come out.",
+        "walkout_talk": "Leaving without a proper goodbye is a sin in my profession. Sit, and let me explain.",
+        "neglect": "Ah, you're alive! I'd started picking flowers, just in case.",
+        "asked_to_stay": "Of course, one more, for you. Then I must see to my guests.",
+        "on_break": "Mauricio is back at the Annex on the Sunward Crown. Come back after you've done a few more jobs.",
+        "mail_yes": "What a lovely letter. I'll travel to {town} and look for you at the inn, and I'll bring a flower.",
+        "mail_later": "Somebody at the Annex is grieving, and I won't leave them. A few days, I promise.",
+        "mail_see_me": "This deserves a conversation with coffee and time. Come to the Annex and sit with me."
+      }
+    },
     "minh_chronomancer": {
       "home": "the Northern Barrens",
       "dials": {
@@ -5797,6 +6495,93 @@
         "mail_yes": "Thank you, I'd be glad to. I'll leave the Crossing and find you at {town}'s inn, and I'll bring the notebook.",
         "mail_later": "There's a hub I haven't checked yet, and I'd like to be rigorous about it. If you'd ask again after it's done, I'll come.",
         "mail_see_me": "This wants explaining in order, across a table. Come to the Crossing, and you'll find me aboard."
+      }
+    },
+    "oliver_suncleric": {
+      "home": "Lenswatch",
+      "dials": {
+        "warmth": 1.0,
+        "nerve": 0.9,
+        "pride": 0.4,
+        "restless": 0.8
+      },
+      "likes": [
+        "quest",
+        "dungeon"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "Oliver Hayes, hello, sorry. I was an optician in Bristol, and up here I heal people with light through a lens. It's less strange than it sounds.",
+        "acquaintance": "Clifton, in Bristol, up the hill by the suspension bridge. I had a little shop with a green door, a test chart, and a cat who slept in the frames display. I sang in a choir on Thursdays, badly, at the back, which is where they put me.",
+        "companion": "My dad lost his sight to glaucoma when I was fifteen. Nobody caught it in time, and it was entirely catchable. That's why I became an optician, really. He used to ask me to describe things to him, and I got very good at it.",
+        "friend": "The lensmaster's apprentice is going blind from the crystal light, the same slow way my dad did, and the Aetherians don't think anything can be done. I think I can make her a pair of glasses, but I need a lens cut from crystal deep in the Keel. Will you help me get it? I can't do this one wrong.",
+        "sworn": "She can see. She put the glasses on and read the lens-plates across the workshop, and then she cried, and so did I, and so did the lensmaster, who'll deny it. That night I told her about my dad, and she asked me to describe Bristol to her. I did, for two hours."
+      },
+      "moments": [
+        {
+          "id": "asking",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to help fetch a crystal lens from deep in the Keel.",
+          "options": [
+            {
+              "text": "We'll get the lens, and she'll see. I promise.",
+              "trust": 12,
+              "reply": "Thank you, honestly, thank you. I'll bring the callipers, you bring everything else."
+            },
+            {
+              "text": "The Aetherians said nothing can be done.",
+              "trust": 0,
+              "reply": "They said that about my dad, too. I'd rather try and be wrong."
+            }
+          ]
+        },
+        {
+          "id": "first_stint",
+          "stage": "any",
+          "when": "first_stint_end",
+          "prompt": "At the end of your first run he's peering into everyone's eyes with a little torch.",
+          "line": "Sorry, I'm just checking pupils, it's a habit. Look at my finger, please.",
+          "options": [
+            {
+              "text": "Go on, check mine too.",
+              "trust": 8,
+              "mood": 4,
+              "reply": "Lovely, perfectly reactive. You've good eyes, you know."
+            },
+            {
+              "text": "Get that torch out of my face.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "Sorry, sorry, of course. Tell me if anything goes blurry."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been rather idle, haven't we? I'd quite like something to do, if that's all right.",
+        "leaving_good": "That was really good, thank you, everyone. I'm going back to Lenswatch to grind some lenses.",
+        "leaving_bored": "It's terribly quiet, and the workshop at Lenswatch has a backlog. I'll pop back, if you don't mind.",
+        "after_wipe": "Everyone keep still a moment while I check you over. Then we can talk about it.",
+        "wipe_warning": "I'm sorry, but I don't think we can keep doing this. Once more, and then please can we stop.",
+        "wipe_leave": "I'm going to stop here, sorry. You'll find me in the workshop at Lenswatch.",
+        "zone_warning": "I don't want to be a worrier, but this is quite beyond us, isn't it?",
+        "zone_leave": "This is too much for us, I'm afraid. I'll be back at Lenswatch.",
+        "gear_refuse": "Oh, I'd like to keep that one, actually, if that's all right, because it's comfortable.",
+        "gear_taken": "Of course, please take it. I spent eleven years in a cardigan.",
+        "gear_short": "If anything protective comes up, I'd be awfully grateful.",
+        "gear_upgrade": "Oh, how kind, thank you very much.",
+        "back": "Oh, hello again, how lovely! The workshop's quiet and I'm free. Where to, then?",
+        "send_word": "Oliver has sent word from Lenswatch. The lenses are ground and he's ready to come out.",
+        "walkout_talk": "I'm so sorry I left without a word. Have a cup of tea with me and I'll explain properly.",
+        "neglect": "Oh, thank goodness, you're back. I'd been worrying, quietly.",
+        "asked_to_stay": "All right, just once more. Then I really must get back to the workshop.",
+        "on_break": "Oliver is back in the workshop at Lenswatch. Come back after you've done a few more jobs.",
+        "mail_yes": "What a lovely letter. I'll make my way to {town} and find a seat at the inn, with a pot of tea on.",
+        "mail_later": "Right now I'm halfway through grinding a lens and I daren't stop. A few days, I promise.",
+        "mail_see_me": "I'd much rather say this in person, over tea. Do come to Lenswatch if you can."
       }
     },
     "omar_venomancer": {
@@ -6538,6 +7323,94 @@
         "mail_see_me": "I'm not good with letters, or with words. Come to the Flats and I'll try to say it."
       }
     },
+    "raul_barbarian": {
+      "home": "the Great Settlement",
+      "dials": {
+        "warmth": 1.2,
+        "nerve": 1.4,
+        "pride": 1.5,
+        "restless": 1.4
+      },
+      "likes": [
+        "boss",
+        "beast"
+      ],
+      "dislikes": [
+        "grinding",
+        "full_party"
+      ],
+      "stages": {
+        "stranger": "Raúl Castillo, bull rider, Tucson, Arizona. Up here I swing axes for the headhunters, which is easier than staying on a bull, believe me.",
+        "acquaintance": "I rode the rodeo circuit fifteen years, every town from Prescott to Cheyenne. Got a silver buckle for every win and a scar for every loss. My mom never watched me ride, not once, and she kept every buckle on a shelf in her kitchen with the date written under it.",
+        "companion": "My mom's name is Rosario. She was scared every time I climbed in the chute, and she never said it, she just didn't come. I used to think she didn't care. Then I saw the shelf. I'd give a lot to tell her I finally get it.",
+        "friend": "In 2019 a bull called Diablo Blanco threw me and came round for me on the ground, and my bullfighter, my best friend Chuy, stepped in front of it. He took the horn for me. He walked again, but he never fought another bull. I've been riding to prove that was worth it ever since. There's a wild wyvern at the top of the tree nobody can ride. I want to stay on it. Will you be there?",
+        "sworn": "I stayed on, friend. Nine, ten, I don't know how long, all the way down to the landing. And when I got off I didn't want to celebrate, I wanted to call Chuy. That's when I knew I didn't need to prove anything anymore. I'm hanging up the big buckle. You keep it."
+      },
+      "moments": [
+        {
+          "id": "asking",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to be there when he tries to ride the wild wyvern.",
+          "options": [
+            {
+              "text": "I'll be at the landing, and I'll be shouting the count.",
+              "trust": 12,
+              "reply": "That's what I wanted to hear. Make it loud, okay? I like a loud count."
+            },
+            {
+              "text": "You'll get yourself killed, Raúl.",
+              "trust": 0,
+              "reply": "Maybe I will. Chuy used to say that too, and he showed up anyway."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe he's grinning through a split lip.",
+          "line": "Okay, that one threw us, and it happens. You get back on, that's the only rule.",
+          "options": [
+            {
+              "text": "Back on, then. Let's go.",
+              "trust": 8,
+              "mood": 4,
+              "reply": "That's the spirit! I knew I liked you."
+            },
+            {
+              "text": "Maybe we think first this time.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "Sure, we think. Just don't think so long you forget to ride."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been standing here so long I'm polishing my buckle again. Let's go find something big.",
+        "leaving_good": "Now that's a good ride, all of you. I'm heading back to the Settlement to brag about it.",
+        "leaving_bored": "There's nothing worth riding out here, so I'm going back to the Settlement where it's loud.",
+        "after_wipe": "Everybody up, shake it off. Check your teeth, then we figure out what threw us.",
+        "wipe_warning": "I don't quit, but my body's starting to argue with me. One more go, and then I'm sitting down.",
+        "wipe_leave": "I'm out for now, and that's rare. Come find me in the Great Settlement's market.",
+        "zone_warning": "I like a big bull, but this is a stampede, and we're standing in the road.",
+        "zone_leave": "Too rough, even for me, and I don't say that often. I'll be in the Great Settlement.",
+        "gear_refuse": "Hands off, compadre, that's lucky gear now.",
+        "gear_taken": "Go on, it's yours. I rode in jeans and a vest for fifteen years.",
+        "gear_short": "I wouldn't say no to something heavier. The trolls hit hard up here.",
+        "gear_upgrade": "Now that's a prize. Gracias, that's going on the shelf of honour.",
+        "back": "Back in the saddle! The Settlement's too quiet without you. What's the job?",
+        "send_word": "Raúl has sent word from the Great Settlement. He's bored and ready to ride out.",
+        "walkout_talk": "I took off without a word, and that wasn't right. Sit down, I'll buy, and I'll explain.",
+        "neglect": "Where'd you go? I nearly rode out looking for you.",
+        "asked_to_stay": "One more ride, yeah, why not. I've got one more in me.",
+        "on_break": "Raúl is back in the Great Settlement's market. Come back after you've done a few more jobs.",
+        "mail_yes": "Got your letter, partner. I'll ride over to {town} and find you at the inn, and the first round's mine.",
+        "mail_later": "Not just yet, the headhunters have me on a hunt. Give me a few days.",
+        "mail_see_me": "I'm terrible at letters, my mom always said so. Come to the Settlement and I'll tell you face to face."
+      }
+    },
     "reka_necromancer": {
       "home": "the Black Strand",
       "dials": {
@@ -6620,6 +7493,93 @@
         "mail_yes": "Jó, I'm coming! My crow's coming too. We'll wait for you in {town}, and I'll sketch the place while I wait.",
         "mail_later": "I'm in the middle of a drawing and the light's just right this week. When it's finished, I'll come.",
         "mail_see_me": "I stormed off, and I'll explain it to your face. Come to the Black Strand, and you can have your turn after."
+      }
+    },
+    "renata_rogue": {
+      "home": "Halcyon Rest",
+      "dials": {
+        "warmth": 1.2,
+        "nerve": 1.6,
+        "pride": 1.1,
+        "restless": 1.5
+      },
+      "likes": [
+        "new_ground",
+        "boss"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "Renata Rojas, stuntwoman, Mexico City. I fall off things for a living, and I always land, so don't panic when you see me near an edge.",
+        "acquaintance": "Nine years doubling for actresses who didn't want to get hurt. Off buildings, out of cars, down stairs, through windows made of sugar glass. I did a high fall off a hotel roof for a telenovela finale, and the director made me do it twice because the first one was too clean.",
+        "companion": "My mother refused to watch any of my films, every single one. She'd leave the room when they came on. I used to think she was ashamed of me. My brother told me later she watched them all alone, at night, with the sound off, covering her eyes.",
+        "friend": "On a car stunt in 2021, a rigger skipped his checks because we were behind schedule, and my friend Beto went through a windscreen that should have been sugar glass. He lived, but he can't work anymore. Ever since, I check everybody's straps, every time. There's a drop off the edge of the Expanse into the cloud, and I want to dive it on purpose and come up somewhere else. I need someone watching who knows what they're looking at. Will you be my eyes?",
+        "sworn": "I dove, and I came up through the cloud right where I said I would, and I was screaming the whole way, the good kind. You were watching, and that's the first time anybody's watched me fall who wasn't being paid to. I've written Beto a letter about it that I can't send. I'll keep it until I can."
+      },
+      "moments": [
+        {
+          "id": "asking",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "She's asked you to watch her dive off the edge of the Expanse.",
+          "options": [
+            {
+              "text": "I'll watch every second, and I'll check your straps first.",
+              "trust": 12,
+              "reply": "Ha, you're learning. Okay, double check them, and then I jump."
+            },
+            {
+              "text": "That's insane, Renata.",
+              "trust": 0,
+              "reply": "Sure it is. So was every stunt I ever did, and I'm still here."
+            }
+          ]
+        },
+        {
+          "id": "first_wipe",
+          "stage": "any",
+          "when": "wipe",
+          "prompt": "After the wipe she's already checking everyone's buckles.",
+          "line": "Okay, bad take. Everyone stay down a second while I check your gear.",
+          "options": [
+            {
+              "text": "Check mine, then we go again.",
+              "trust": 8,
+              "mood": 4,
+              "reply": "That's a pro answer. Strap's loose, by the way, fix it."
+            },
+            {
+              "text": "My gear's fine, let's move.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "That's what Beto's rigger said, so humour me."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "We've been sitting around forever, and I'm starting to eye the edge. Give me something to do.",
+        "leaving_good": "That's a wrap, everybody, great work. I'm heading back to Halcyon Rest to find a higher ledge.",
+        "leaving_bored": "Dead quiet out here, and there are edges at Halcyon Rest I haven't jumped yet, so I'm off.",
+        "after_wipe": "Everyone stay down a second, I'm checking gear. Then we figure out what went wrong.",
+        "wipe_warning": "We're getting hurt, and I know what hurt looks like. Last take, and then we stop.",
+        "wipe_leave": "I'm calling it, and I don't call it often. I'll be at Halcyon Rest in the Expanse.",
+        "zone_warning": "No mat, no rigging, no thanks, we're not doing this one.",
+        "zone_leave": "No safety net out here, and I don't work without one. I'll be at Halcyon Rest.",
+        "gear_refuse": "Hands off, that's my lucky kit now.",
+        "gear_taken": "Sure, it's yours. I did nine years of stunts in a borrowed costume.",
+        "gear_short": "If something light and tough turns up, I'll take it. I like to move.",
+        "gear_upgrade": "Oh, nice, really nice, gracias!",
+        "back": "Hey, you're back! I'm bored stiff and ready to go. What's the job?",
+        "send_word": "Renata has sent word from Halcyon Rest. She's bored and ready to come out.",
+        "walkout_talk": "I bailed without a word, and that's not professional. Sit down, I'll explain.",
+        "neglect": "You're finally back! I was about to jump off something just to get your attention.",
+        "asked_to_stay": "Fine, another take, but only because you asked nicely.",
+        "on_break": "Renata is back at Halcyon Rest in the Celestial Expanse. Come back after you've done a few more jobs.",
+        "mail_yes": "Your letter made me grin. I'll run over to {town} and meet you at the inn, faster than the skiffs.",
+        "mail_later": "I'm running messages between the islands all week. Give me a few days.",
+        "mail_see_me": "I don't do long letters. Come to Halcyon Rest and we'll talk on the edge."
       }
     },
     "rhodri_knight": {
@@ -7845,6 +8805,93 @@
         "mail_yes": "Kashtan wagged his tail when I read your letter, so we're coming. We'll wait for you at the inn in {town}.",
         "mail_later": "I'm needed at the gate a while longer, counting people through. Go a few more times without us, and then we'll come.",
         "mail_see_me": "Kashtan says I should say this to your face, and he's usually right. Come to the gate at Ariden's Watch."
+      }
+    },
+    "tariq_bloodmage": {
+      "home": "Aurelion",
+      "dials": {
+        "warmth": 1.3,
+        "nerve": 1.5,
+        "pride": 0.5,
+        "restless": 0.5
+      },
+      "likes": [
+        "quest",
+        "full_party"
+      ],
+      "dislikes": [
+        "grinding"
+      ],
+      "stages": {
+        "stranger": "Tariq Al-Jubouri, from Baghdad. I lifted weights for my country once, and now I stand in front of people. Please, don't hurry, there's time.",
+        "acquaintance": "I lifted for Iraq at two Asian Games, and when I retired I coached boys at a gym in Karrada with a tin roof and a fan that never worked. I gave blood every eight weeks from the day I turned eighteen. The nurse at the blood bank always gave me two biscuits instead of one.",
+        "companion": "My wife is Nadia, and she makes the best kubba in our street, and she'll tell you so. We have a daughter, Zainab, who's twelve and lifts more than the boys at the gym. I keep her photograph in my belt. It's creased from all the times I've looked at it.",
+        "friend": "In 2006, my younger brother Hamid was in the market at Karrada when the bomb went off. I gave blood that day for six hours, until they sent me home, and I've given it every eight weeks since as if it could still reach him. Here, the Ascendancy keeps trying to take my trainees. I want to open a gym in Aurelion for anyone at all, and keep them out of it. Will you stand with me?",
+        "sworn": "The gym is open, friend, with a fan that works and a sign over the door that says everyone is welcome. Aetherians, trolls, Earthborn, all lifting together. On the first morning I gave every one of them two biscuits. I told them about Hamid, and they listened, and nobody hurried me."
+      },
+      "moments": [
+        {
+          "id": "asking",
+          "stage": "friend",
+          "when": "talk",
+          "prompt": "He's asked you to stand with him against the Ascendancy's recruiters.",
+          "options": [
+            {
+              "text": "I'll stand with you, and they won't take anyone.",
+              "trust": 12,
+              "reply": "Thank you. I'm not good with words, so I'll make you tea every morning instead."
+            },
+            {
+              "text": "Is a gym really worth a fight?",
+              "trust": 0,
+              "reply": "A gym is where boys learn they're strong without hurting anyone. Yes, it's worth it."
+            }
+          ]
+        },
+        {
+          "id": "first_stint",
+          "stage": "any",
+          "when": "first_stint_end",
+          "prompt": "At the end of your first run he's handing out biscuits from his belt.",
+          "line": "Two for everyone, that's the rule. You did well, all of you.",
+          "options": [
+            {
+              "text": "Thank you, Tariq. Two it is.",
+              "trust": 8,
+              "mood": 4,
+              "reply": "Good, the nurse would be proud of you."
+            },
+            {
+              "text": "I'm fine, I don't need any.",
+              "trust": 0,
+              "mood": -4,
+              "reply": "Take them anyway. Need has nothing to do with it."
+            }
+          ]
+        }
+      ],
+      "lines": {
+        "bored_warning": "So much standing, my friend. Even the strong grow stiff. Shall we work?",
+        "leaving_good": "You did well, all of you, very well. I'm going back to Aurelion to check on the embassy.",
+        "leaving_bored": "It's very quiet out here, and the embassy has things to carry. I'll go back to Aurelion.",
+        "after_wipe": "Slowly, everyone, slowly. Breathe first, then stand, then we talk.",
+        "wipe_warning": "My blood is strong, but yours isn't endless. Once more, and then we rest.",
+        "wipe_leave": "I'm going to rest now. I'll be at the Ground Embassy in Aurelion.",
+        "zone_warning": "This weight is too heavy for us, my friend. A good lifter knows his limit.",
+        "zone_leave": "We can't lift this one, and there's no shame in it. I'll be in Aurelion.",
+        "gear_refuse": "Please, let me keep this one. It finally fits around the belt.",
+        "gear_taken": "Please, it's yours. I trained for years in a vest and a worn belt.",
+        "gear_short": "If something heavy comes along, I'd wear it. I'm a big target.",
+        "gear_upgrade": "This is very kind of you, shukran, truly.",
+        "back": "My friend, welcome back. The embassy is quiet and I'm ready. Where are we going?",
+        "send_word": "Tariq has sent word from Aurelion. The embassy is quiet and he's ready to come out.",
+        "walkout_talk": "Walking away without a word wasn't kind of me. Sit, have some tea, and let me explain.",
+        "neglect": "Ah, you've returned. I've been keeping two biscuits for you.",
+        "asked_to_stay": "There's always strength for one more, my friend, so lead on.",
+        "on_break": "Tariq is back at the Ground Embassy in Aurelion. Come back after you've done a few more jobs.",
+        "mail_yes": "I smiled the whole time I read your letter. I'll travel to {town} and look for you at the inn, with biscuits.",
+        "mail_later": "The embassy needs my back this week, there's a lot to carry. Soon, I promise you.",
+        "mail_see_me": "This is better said over tea, slowly. Come to Aurelion and sit with me."
       }
     },
     "thiago_paladin": {

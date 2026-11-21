@@ -1,0 +1,126 @@
+{
+  "bond": {
+    "home": "Aurelion",
+    "dials": {
+      "warmth": 1.3,
+      "nerve": 1.5,
+      "pride": 0.5,
+      "restless": 0.5
+    },
+    "likes": [
+      "quest",
+      "full_party"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
+    "stages": {
+      "stranger": "Tariq Al-Jubouri, from Baghdad. I lifted weights for my country once, and now I stand in front of people. Please, don't hurry, there's time.",
+      "acquaintance": "I lifted for Iraq at two Asian Games, and when I retired I coached boys at a gym in Karrada with a tin roof and a fan that never worked. I gave blood every eight weeks from the day I turned eighteen. The nurse at the blood bank always gave me two biscuits instead of one.",
+      "companion": "My wife is Nadia, and she makes the best kubba in our street, and she'll tell you so. We have a daughter, Zainab, who's twelve and lifts more than the boys at the gym. I keep her photograph in my belt. It's creased from all the times I've looked at it.",
+      "friend": "In 2006, my younger brother Hamid was in the market at Karrada when the bomb went off. I gave blood that day for six hours, until they sent me home, and I've given it every eight weeks since as if it could still reach him. Here, the Ascendancy keeps trying to take my trainees. I want to open a gym in Aurelion for anyone at all, and keep them out of it. Will you stand with me?",
+      "sworn": "The gym is open, friend, with a fan that works and a sign over the door that says everyone is welcome. Aetherians, trolls, Earthborn, all lifting together. On the first morning I gave every one of them two biscuits. I told them about Hamid, and they listened, and nobody hurried me."
+    },
+    "moments": [
+      {
+        "id": "asking",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to stand with him against the Ascendancy's recruiters.",
+        "options": [
+          {
+            "text": "I'll stand with you, and they won't take anyone.",
+            "trust": 12,
+            "reply": "Thank you. I'm not good with words, so I'll make you tea every morning instead."
+          },
+          {
+            "text": "Is a gym really worth a fight?",
+            "trust": 0,
+            "reply": "A gym is where boys learn they're strong without hurting anyone. Yes, it's worth it."
+          }
+        ]
+      },
+      {
+        "id": "first_stint",
+        "stage": "any",
+        "when": "first_stint_end",
+        "prompt": "At the end of your first run he's handing out biscuits from his belt.",
+        "line": "Two for everyone, that's the rule. You did well, all of you.",
+        "options": [
+          {
+            "text": "Thank you, Tariq. Two it is.",
+            "trust": 8,
+            "mood": 4,
+            "reply": "Good, the nurse would be proud of you."
+          },
+          {
+            "text": "I'm fine, I don't need any.",
+            "trust": 0,
+            "mood": -4,
+            "reply": "Take them anyway. Need has nothing to do with it."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "So much standing, my friend. Even the strong grow stiff. Shall we work?",
+      "leaving_good": "You did well, all of you, very well. I'm going back to Aurelion to check on the embassy.",
+      "leaving_bored": "It's very quiet out here, and the embassy has things to carry. I'll go back to Aurelion.",
+      "after_wipe": "Slowly, everyone, slowly. Breathe first, then stand, then we talk.",
+      "wipe_warning": "My blood is strong, but yours isn't endless. Once more, and then we rest.",
+      "wipe_leave": "I'm going to rest now. I'll be at the Ground Embassy in Aurelion.",
+      "zone_warning": "This weight is too heavy for us, my friend. A good lifter knows his limit.",
+      "zone_leave": "We can't lift this one, and there's no shame in it. I'll be in Aurelion.",
+      "gear_refuse": "Please, let me keep this one. It finally fits around the belt.",
+      "gear_taken": "Please, it's yours. I trained for years in a vest and a worn belt.",
+      "gear_short": "If something heavy comes along, I'd wear it. I'm a big target.",
+      "gear_upgrade": "This is very kind of you, shukran, truly.",
+      "back": "My friend, welcome back. The embassy is quiet and I'm ready. Where are we going?",
+      "send_word": "Tariq has sent word from Aurelion. The embassy is quiet and he's ready to come out.",
+      "walkout_talk": "Walking away without a word wasn't kind of me. Sit, have some tea, and let me explain.",
+      "neglect": "Ah, you've returned. I've been keeping two biscuits for you.",
+      "asked_to_stay": "There's always strength for one more, my friend, so lead on.",
+      "on_break": "Tariq is back at the Ground Embassy in Aurelion. Come back after you've done a few more jobs.",
+      "mail_yes": "I smiled the whole time I read your letter. I'll travel to {town} and look for you at the inn, with biscuits.",
+      "mail_later": "The embassy needs my back this week, there's a lot to carry. Soon, I promise you.",
+      "mail_see_me": "This is better said over tea, slowly. Come to Aurelion and sit with me."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "Somebody here should open a gym. Look at all these people carrying things badly.",
+        "kind": "open",
+        "topic": "cities"
+      },
+      {
+        "text": "Tea, please, before anything else.",
+        "kind": "reply"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "All of you are standing, and that's the best thing I could ask for.",
+        "kind": "open"
+      }
+    ],
+    "boss_down": [
+      {
+        "text": "Rest a moment, everyone. Two biscuits each, I insist.",
+        "kind": "reply"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "Behind me, now, I'll take it.",
+        "kind": "open"
+      }
+    ],
+    "zone_arrive": [
+      {
+        "text": "The air is thin here. Breathe slowly, and don't rush the climb.",
+        "kind": "open"
+      }
+    ]
+  }
+}

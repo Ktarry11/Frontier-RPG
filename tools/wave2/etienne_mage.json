@@ -1,0 +1,128 @@
+{
+  "bond": {
+    "home": "the Annex",
+    "dials": {
+      "warmth": 1.4,
+      "nerve": 1.1,
+      "pride": 0.7,
+      "restless": 1.0
+    },
+    "likes": [
+      "dungeon",
+      "full_party"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
+    "stages": {
+      "stranger": "Étienne Gagnon, from Montréal. I drove the Zamboni at a hockey rink back home, and up here the cold comes when I call it, which is handy.",
+      "acquaintance": "Hochelaga, in the east end, in a walk-up over a dépanneur. The rink smelled of cold and popcorn, and I flooded it every morning at six, slow and even. I played beer league on Tuesdays and coached a peewee team on Saturdays that never won a single game.",
+      "companion": "My grandmother knitted this toque, my mémère, and she knitted one for every kid on my peewee team too. She came to every game and booed the referee in French. I still hear her some nights when the wind comes over the cloud.",
+      "friend": "I was supposed to play, you know, properly, in the Q. I was nineteen and I wrecked my knee in a junior game, and that was it. The Zamboni was the closest I could get to the ice after that. Up here I want to build a real rink and teach somebody to skate, a troll or an Aetherian or anyone. Something keeps freezing the pond wrong, though. Will you help me find out what?",
+      "sworn": "We had our first game, on the cloud, on my ice, and it was beautiful. An Aetherian kid scored on me and I let him, mostly. I skated for an hour after everyone left, knee and all, just going round. I haven't felt like that since I was nineteen."
+    },
+    "moments": [
+      {
+        "id": "asking",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to help find out what keeps ruining his ice.",
+        "options": [
+          {
+            "text": "Let's find it, and then you're teaching me to skate.",
+            "trust": 12,
+            "reply": "Deal, mon ami, and I'll go easy on you, mostly. Bring something warm."
+          },
+          {
+            "text": "It's just a pond, Étienne.",
+            "trust": 0,
+            "reply": "Sure, and the Forum was just a building. Okay, I'll go alone."
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe he's sitting on the ground, grinning ruefully.",
+        "line": "Okay, that was my peewee team's whole season in one fight. We regroup, eh?",
+        "options": [
+          {
+            "text": "We regroup. Coach us.",
+            "trust": 8,
+            "mood": 4,
+            "reply": "Good attitude, that's what I like. Line changes, everybody!"
+          },
+          {
+            "text": "This isn't hockey, Étienne.",
+            "trust": 0,
+            "mood": -4,
+            "reply": "Everything's hockey if you squint, but okay."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "Nothing's going on, and I'm starting to frost my own boots out of boredom. Let's go do something.",
+      "leaving_good": "Good game, everybody, great game. I'm heading back to the Annex to flood the rink.",
+      "leaving_bored": "Pretty dead out here, and my ice at the Annex won't keep itself. I'll head back.",
+      "after_wipe": "Okay, everybody up, slowly. Shake it off, then we look at the tape.",
+      "wipe_warning": "We're getting pretty beat up here, mon ami. Last period, then we go to the bench.",
+      "wipe_leave": "I'm done for now, eh. Come find me at the Annex on the Sunward Crown.",
+      "zone_warning": "These guys are way out of our league. We're a peewee team at the Bell Centre here.",
+      "zone_leave": "Too much for us here, no shame in it. I'll be at the Annex.",
+      "gear_refuse": "No, no, I'm keeping that one. It's finally broken in, like good skates.",
+      "gear_taken": "Sure, take it. I spent ten years in a Zamboni jacket and a toque.",
+      "gear_short": "If something warmer turns up, I'd take it. Funny, eh, the cold mage wants warm clothes.",
+      "gear_upgrade": "Oh, that's nice, merci beaucoup!",
+      "back": "Salut, it's good to see you! The ice is flooded and I'm all yours. What's the play?",
+      "send_word": "Étienne has sent word from the Annex. The rink's flooded and he's ready to come out.",
+      "walkout_talk": "I skated off without saying anything, and that wasn't cool. Sit, I'll explain, eh.",
+      "neglect": "Hey, you made it back! I was about to send out a search party on skates.",
+      "asked_to_stay": "Sure, overtime, why not. Then I go flood the rink.",
+      "on_break": "Étienne is back at the Annex on the Sunward Crown. Come back after you've done a few more jobs.",
+      "mail_yes": "Got your letter, merci! I'll head to {town} and grab a table at the inn, eh.",
+      "mail_later": "The rink's half frozen and I can't leave it now. Give me a couple of days.",
+      "mail_see_me": "That's a conversation for over a coffee, not a letter. Come to the Annex and skate with me."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "No rink in this town, eh. Somebody should fix that.",
+        "kind": "open",
+        "topic": "cities"
+      },
+      {
+        "text": "I'd kill for a poutine right now, honestly, a big one.",
+        "kind": "reply",
+        "topic": "food"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "Final buzzer, and we win! Handshake line, everybody.",
+        "kind": "open"
+      }
+    ],
+    "boss_down": [
+      {
+        "text": "That's the game-winner, right there, and somebody owes me a beer.",
+        "kind": "reply"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "Get behind me, I'll freeze it!",
+        "kind": "open"
+      }
+    ],
+    "zone_arrive": [
+      {
+        "text": "Feel that chill? Somebody here likes the cold as much as I do.",
+        "kind": "open",
+        "topic": "weather"
+      }
+    ]
+  }
+}

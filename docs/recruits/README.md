@@ -20,6 +20,11 @@ plans for it later. Built 19 Nov 2026 (`data/npcs/keepsakes.json`, `tools/qa_kee
 only, given the moment its recruit becomes Sworn, and an ungiven one shows only who it's from. Each needs its own icon
 (it shows a stand-in until then).
 
+Every recruit in the world has all four waves and a keepsake before they're placed (Kyle, 21 Nov 2026: "If
+they're in the game, they need it. Any and all recruits must have everything when added in the world.").
+`tools/qa_recruit_complete.py` fails on anyone missing a profile, kit, bond, banter, Wave 3 traits, Sworn skill or
+keepsake.
+
 Where they live is where the game places them (Kyle, 19 Nov 2026: "keep their places and their location accurate").
 Every place a profile names is a real place in the game; where the old recruit text named somewhere else, the profile
 follows the game and says so.
@@ -284,3 +289,15 @@ fourth).
 | 100 | Yiannis Papadakis | Paladin 3 | Amberleaf Glade (Dawnhaven) | `yiannis_papadakis.md` | Happy | Draft 1, Waves 2 to 4 done (21 Nov 2026) |
 | 101 | Rhodri Evans | Knight of Xoroth 4 | Amberleaf Glade (Dawnhaven) | `rhodri_evans.md` | Happy | Draft 1, Waves 2 to 4 done (21 Nov 2026) |
 | 102 | Leif Halvorsen | Primalist 7 | Duskfall Woods (Dawnhaven) | `leif_halvorsen.md` | Happy | Draft 1, Waves 2 to 4 done (21 Nov 2026) |
+| 103 | Álvaro Ruiz | Venomancer 43 | Rootwater Isle | `alvaro_ruiz.md` | Happy | Draft 1, Waves 2 to 4 done (21 Nov 2026) |
+| 104 | Clara Weiss | Primalist 45 | Mossroof | `clara_weiss.md` | Happy | Draft 1, Waves 2 to 4 done (21 Nov 2026) |
+| 105 | Raúl Castillo | Barbarian 46 | The Great Settlement | `raul_castillo.md` | Happy | Draft 1, Waves 2 to 4 done (21 Nov 2026) |
+| 106 | Federico Lagos | Templar 47 | Heartwatch | `federico_lagos.md` | Happy | Draft 1, Waves 2 to 4 done (21 Nov 2026) |
+| 107 | Connor Walsh | Shaman 48 | Highrest | `connor_walsh.md` | Happy | Draft 1, Waves 2 to 4 done (21 Nov 2026) |
+| 108 | Mauricio Peña | Reaper 49 | The Annex | `mauricio_pena.md` | Happy | Draft 1, Waves 2 to 4 done (21 Nov 2026) |
+| 109 | Étienne Gagnon | Mage 49 | The Annex | `etienne_gagnon.md` | Happy | Draft 1, Waves 2 to 4 done (21 Nov 2026) |
+| 110 | Oliver Hayes | Sun Cleric 48 | Lenswatch | `oliver_hayes.md` | Happy | Draft 1, Waves 2 to 4 done (21 Nov 2026) |
+| 111 | Facundo Herrera | Chronomancer 50 | Halcyon Rest | `facundo_herrera.md` | Happy | Draft 1, Waves 2 to 4 done (21 Nov 2026) |
+| 112 | Renata Rojas | Rogue 51 | Halcyon Rest | `renata_rojas.md` | Happy | Draft 1, Waves 2 to 4 done (21 Nov 2026) |
+| 113 | Tariq Al-Jubouri | Bloodmage 52 | Aurelion | `tariq_al_jubouri.md` | Happy | Draft 1, Waves 2 to 4 done (21 Nov 2026) |
+| 114 | Isabela Moura | Mage 52 | Aurelion | `isabela_moura.md` | Happy | Draft 1, Waves 2 to 4 done (21 Nov 2026) |

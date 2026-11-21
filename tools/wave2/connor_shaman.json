@@ -1,0 +1,127 @@
+{
+  "bond": {
+    "home": "Highrest",
+    "dials": {
+      "warmth": 1.4,
+      "nerve": 1.6,
+      "pride": 0.5,
+      "restless": 1.2
+    },
+    "likes": [
+      "new_ground",
+      "boss"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
+    "stages": {
+      "stranger": "Connor Walsh, from the Aran Islands, off the west of Ireland. I fished lobster at home, and up here the storms do what I ask, mostly.",
+      "acquaintance": "Inis Mór, the biggest of the three islands, stone walls and wind and not a tree to be seen. I had a half-decked boat my father built and a dog called Bran who rode in the bow. My father taught me to read the sky before I could read a book.",
+      "companion": "My mother knitted every jumper I ever owned, and this one's the last. My father's Seán, and he still went out for the pots at seventy, God love him. Some evenings I talk to the wind in Irish and pretend it carries.",
+      "friend": "Weather never frightened me, and in 2017 that nearly killed a young lad on my boat. A squall came over and I laughed at it, the way I do, and he went over the side because he trusted me. I got him back, just. Now three of the Windwardens' scouts are lost in the storm over the Stormsplit, and nobody will go after them. I want to sail into it and bring them home. Will you come?",
+      "sworn": "We brought every one of them back, and I was frightened the whole way, properly frightened, for the first time in my life. It felt right. I wrote to that lad's mother that night, though I've no way to send it. Then I brewed the first proper pint on the tree, and it was dreadful, and the trolls loved it."
+    },
+    "moments": [
+      {
+        "id": "asking",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to sail into the storm with him after the lost scouts.",
+        "options": [
+          {
+            "text": "I'm with you, and you can be frightened with me.",
+            "trust": 12,
+            "reply": "Ah, God, that's a kind thing to say. Right so, grab a rope, we're going."
+          },
+          {
+            "text": "It's suicide in that weather, Connor.",
+            "trust": 0,
+            "reply": "It might be. That's never once stopped a fisherman going after his own."
+          }
+        ]
+      },
+      {
+        "id": "first_stint",
+        "stage": "any",
+        "when": "first_stint_end",
+        "prompt": "At the end of your first run he's squinting at the sky and grinning.",
+        "line": "Lovely weather coming tomorrow, you'll see. Rain by noon and a gale after.",
+        "options": [
+          {
+            "text": "You call that lovely?",
+            "trust": 8,
+            "mood": 4,
+            "reply": "Back home that's a grand day for the pots. You'd get used to it."
+          },
+          {
+            "text": "I'd rather it was sunny.",
+            "trust": 0,
+            "mood": -4,
+            "reply": "Sun's grand, but it doesn't tell you anything."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "I've stood about so long I've forecast the weather three times. Let's go somewhere.",
+      "leaving_good": "Grand work, all of you. I'm off back to Highrest to watch the storms come in.",
+      "leaving_bored": "Not much doing out here, and the wind at Highrest is calling me. I'll head back.",
+      "after_wipe": "Up you get, slowly, and shake the water out of your ears. Then we talk it through.",
+      "wipe_warning": "I don't mind a storm, but this is a hurricane. We'll give it one more go and then run for harbour.",
+      "wipe_leave": "That's me finished for now. You'll find me out on the edge at Highrest.",
+      "zone_warning": "A gale's blowing and we're in a currach. Turn us round, please.",
+      "zone_leave": "Too rough for this crew, and I know rough. I'll be at Highrest on the Upper Boughs.",
+      "gear_refuse": "That one's mine, if it's all the same to you. It finally fits over the jumper.",
+      "gear_taken": "Go on, have it. I fished in oilskins and a wool jumper my whole life.",
+      "gear_short": "I wouldn't say no to something sturdier. The storms up here have teeth.",
+      "gear_upgrade": "Ah, that's grand, thanks a million.",
+      "back": "Well, look who it is! Highrest's quiet and the forecast's good. What's the plan?",
+      "send_word": "Connor has sent word from Highrest. The storms are quiet and he's ready to come out.",
+      "walkout_talk": "Walking off without a word isn't how I was reared. Sit down, I'll tell you straight.",
+      "neglect": "Ah, you're back! I'd started telling the wind to keep an eye out for you.",
+      "asked_to_stay": "Ah, go on so, one more. Then I'm off to watch the sky.",
+      "on_break": "Connor is back at Highrest on the Upper Boughs. Come back after you've done a few more jobs.",
+      "mail_yes": "Your letter blew in grand. I'll sail over to {town} and wait for you in the inn, and I'll have the first round in.",
+      "mail_later": "There's weather coming in at Highrest and the camp needs me. A few days and I'm yours.",
+      "mail_see_me": "This needs saying over a pint, not a page. Come out to Highrest and we'll talk on the edge."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "Is there a pub in this town at all? I'd settle for anywhere with a fire.",
+        "kind": "open"
+      },
+      {
+        "text": "Grand, a roof. I'll take it.",
+        "kind": "reply"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "Back up into the weather, God be thanked, and none of us the worse for it.",
+        "kind": "open",
+        "topic": "faith"
+      }
+    ],
+    "boss_down": [
+      {
+        "text": "That one blew itself out. They always do, eventually.",
+        "kind": "reply"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "Hold on to something, there's a gust coming!",
+        "kind": "open"
+      }
+    ],
+    "zone_arrive": [
+      {
+        "text": "Can you smell the rain? There's a shower on the way, and a big one behind it.",
+        "kind": "open",
+        "topic": "weather"
+      }
+    ]
+  }
+}

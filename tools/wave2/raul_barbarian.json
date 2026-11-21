@@ -1,0 +1,127 @@
+{
+  "bond": {
+    "home": "the Great Settlement",
+    "dials": {
+      "warmth": 1.2,
+      "nerve": 1.4,
+      "pride": 1.5,
+      "restless": 1.4
+    },
+    "likes": [
+      "boss",
+      "beast"
+    ],
+    "dislikes": [
+      "grinding",
+      "full_party"
+    ],
+    "stages": {
+      "stranger": "Raúl Castillo, bull rider, Tucson, Arizona. Up here I swing axes for the headhunters, which is easier than staying on a bull, believe me.",
+      "acquaintance": "I rode the rodeo circuit fifteen years, every town from Prescott to Cheyenne. Got a silver buckle for every win and a scar for every loss. My mom never watched me ride, not once, and she kept every buckle on a shelf in her kitchen with the date written under it.",
+      "companion": "My mom's name is Rosario. She was scared every time I climbed in the chute, and she never said it, she just didn't come. I used to think she didn't care. Then I saw the shelf. I'd give a lot to tell her I finally get it.",
+      "friend": "In 2019 a bull called Diablo Blanco threw me and came round for me on the ground, and my bullfighter, my best friend Chuy, stepped in front of it. He took the horn for me. He walked again, but he never fought another bull. I've been riding to prove that was worth it ever since. There's a wild wyvern at the top of the tree nobody can ride. I want to stay on it. Will you be there?",
+      "sworn": "I stayed on, friend. Nine, ten, I don't know how long, all the way down to the landing. And when I got off I didn't want to celebrate, I wanted to call Chuy. That's when I knew I didn't need to prove anything anymore. I'm hanging up the big buckle. You keep it."
+    },
+    "moments": [
+      {
+        "id": "asking",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to be there when he tries to ride the wild wyvern.",
+        "options": [
+          {
+            "text": "I'll be at the landing, and I'll be shouting the count.",
+            "trust": 12,
+            "reply": "That's what I wanted to hear. Make it loud, okay? I like a loud count."
+          },
+          {
+            "text": "You'll get yourself killed, Raúl.",
+            "trust": 0,
+            "reply": "Maybe I will. Chuy used to say that too, and he showed up anyway."
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe he's grinning through a split lip.",
+        "line": "Okay, that one threw us, and it happens. You get back on, that's the only rule.",
+        "options": [
+          {
+            "text": "Back on, then. Let's go.",
+            "trust": 8,
+            "mood": 4,
+            "reply": "That's the spirit! I knew I liked you."
+          },
+          {
+            "text": "Maybe we think first this time.",
+            "trust": 0,
+            "mood": -4,
+            "reply": "Sure, we think. Just don't think so long you forget to ride."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "We've been standing here so long I'm polishing my buckle again. Let's go find something big.",
+      "leaving_good": "Now that's a good ride, all of you. I'm heading back to the Settlement to brag about it.",
+      "leaving_bored": "There's nothing worth riding out here, so I'm going back to the Settlement where it's loud.",
+      "after_wipe": "Everybody up, shake it off. Check your teeth, then we figure out what threw us.",
+      "wipe_warning": "I don't quit, but my body's starting to argue with me. One more go, and then I'm sitting down.",
+      "wipe_leave": "I'm out for now, and that's rare. Come find me in the Great Settlement's market.",
+      "zone_warning": "I like a big bull, but this is a stampede, and we're standing in the road.",
+      "zone_leave": "Too rough, even for me, and I don't say that often. I'll be in the Great Settlement.",
+      "gear_refuse": "Hands off, compadre, that's lucky gear now.",
+      "gear_taken": "Go on, it's yours. I rode in jeans and a vest for fifteen years.",
+      "gear_short": "I wouldn't say no to something heavier. The trolls hit hard up here.",
+      "gear_upgrade": "Now that's a prize. Gracias, that's going on the shelf of honour.",
+      "back": "Back in the saddle! The Settlement's too quiet without you. What's the job?",
+      "send_word": "Raúl has sent word from the Great Settlement. He's bored and ready to ride out.",
+      "walkout_talk": "I took off without a word, and that wasn't right. Sit down, I'll buy, and I'll explain.",
+      "neglect": "Where'd you go? I nearly rode out looking for you.",
+      "asked_to_stay": "One more ride, yeah, why not. I've got one more in me.",
+      "on_break": "Raúl is back in the Great Settlement's market. Come back after you've done a few more jobs.",
+      "mail_yes": "Got your letter, partner. I'll ride over to {town} and find you at the inn, and the first round's mine.",
+      "mail_later": "Not just yet, the headhunters have me on a hunt. Give me a few days.",
+      "mail_see_me": "I'm terrible at letters, my mom always said so. Come to the Settlement and I'll tell you face to face."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "I'd bet good money a cowboy round here reckons he can outride me.",
+        "kind": "open"
+      },
+      {
+        "text": "First thing, we find a drink and somebody to argue with.",
+        "kind": "reply"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "Eight seconds, all the way through. Ride's over, everybody stayed on.",
+        "kind": "open"
+      }
+    ],
+    "boss_down": [
+      {
+        "text": "Now that was a bull. Somebody tell me you saw me hang on.",
+        "kind": "reply"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "Hang on, don't let go, it's nearly over.",
+        "kind": "open"
+      }
+    ],
+    "zone_arrive": [
+      {
+        "text": "Big open country. Reminds me of the drive to Cheyenne.",
+        "kind": "open",
+        "topic": "road"
+      }
+    ]
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "bond": {
+    "home": "Halcyon Rest",
+    "dials": {
+      "warmth": 1.2,
+      "nerve": 1.6,
+      "pride": 1.1,
+      "restless": 1.5
+    },
+    "likes": [
+      "new_ground",
+      "boss"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
+    "stages": {
+      "stranger": "Renata Rojas, stuntwoman, Mexico City. I fall off things for a living, and I always land, so don't panic when you see me near an edge.",
+      "acquaintance": "Nine years doubling for actresses who didn't want to get hurt. Off buildings, out of cars, down stairs, through windows made of sugar glass. I did a high fall off a hotel roof for a telenovela finale, and the director made me do it twice because the first one was too clean.",
+      "companion": "My mother refused to watch any of my films, every single one. She'd leave the room when they came on. I used to think she was ashamed of me. My brother told me later she watched them all alone, at night, with the sound off, covering her eyes.",
+      "friend": "On a car stunt in 2021, a rigger skipped his checks because we were behind schedule, and my friend Beto went through a windscreen that should have been sugar glass. He lived, but he can't work anymore. Ever since, I check everybody's straps, every time. There's a drop off the edge of the Expanse into the cloud, and I want to dive it on purpose and come up somewhere else. I need someone watching who knows what they're looking at. Will you be my eyes?",
+      "sworn": "I dove, and I came up through the cloud right where I said I would, and I was screaming the whole way, the good kind. You were watching, and that's the first time anybody's watched me fall who wasn't being paid to. I've written Beto a letter about it that I can't send. I'll keep it until I can."
+    },
+    "moments": [
+      {
+        "id": "asking",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "She's asked you to watch her dive off the edge of the Expanse.",
+        "options": [
+          {
+            "text": "I'll watch every second, and I'll check your straps first.",
+            "trust": 12,
+            "reply": "Ha, you're learning. Okay, double check them, and then I jump."
+          },
+          {
+            "text": "That's insane, Renata.",
+            "trust": 0,
+            "reply": "Sure it is. So was every stunt I ever did, and I'm still here."
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe she's already checking everyone's buckles.",
+        "line": "Okay, bad take. Everyone stay down a second while I check your gear.",
+        "options": [
+          {
+            "text": "Check mine, then we go again.",
+            "trust": 8,
+            "mood": 4,
+            "reply": "That's a pro answer. Strap's loose, by the way, fix it."
+          },
+          {
+            "text": "My gear's fine, let's move.",
+            "trust": 0,
+            "mood": -4,
+            "reply": "That's what Beto's rigger said, so humour me."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "We've been sitting around forever, and I'm starting to eye the edge. Give me something to do.",
+      "leaving_good": "That's a wrap, everybody, great work. I'm heading back to Halcyon Rest to find a higher ledge.",
+      "leaving_bored": "Dead quiet out here, and there are edges at Halcyon Rest I haven't jumped yet, so I'm off.",
+      "after_wipe": "Everyone stay down a second, I'm checking gear. Then we figure out what went wrong.",
+      "wipe_warning": "We're getting hurt, and I know what hurt looks like. Last take, and then we stop.",
+      "wipe_leave": "I'm calling it, and I don't call it often. I'll be at Halcyon Rest in the Expanse.",
+      "zone_warning": "No mat, no rigging, no thanks, we're not doing this one.",
+      "zone_leave": "No safety net out here, and I don't work without one. I'll be at Halcyon Rest.",
+      "gear_refuse": "Hands off, that's my lucky kit now.",
+      "gear_taken": "Sure, it's yours. I did nine years of stunts in a borrowed costume.",
+      "gear_short": "If something light and tough turns up, I'll take it. I like to move.",
+      "gear_upgrade": "Oh, nice, really nice, gracias!",
+      "back": "Hey, you're back! I'm bored stiff and ready to go. What's the job?",
+      "send_word": "Renata has sent word from Halcyon Rest. She's bored and ready to come out.",
+      "walkout_talk": "I bailed without a word, and that's not professional. Sit down, I'll explain.",
+      "neglect": "You're finally back! I was about to jump off something just to get your attention.",
+      "asked_to_stay": "Fine, another take, but only because you asked nicely.",
+      "on_break": "Renata is back at Halcyon Rest in the Celestial Expanse. Come back after you've done a few more jobs.",
+      "mail_yes": "Your letter made me grin. I'll run over to {town} and meet you at the inn, faster than the skiffs.",
+      "mail_later": "I'm running messages between the islands all week. Give me a few days.",
+      "mail_see_me": "I don't do long letters. Come to Halcyon Rest and we'll talk on the edge."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "Look at those rooftops. I could run this whole town without touching the ground.",
+        "kind": "open",
+        "topic": "cities"
+      },
+      {
+        "text": "First we eat, then I check out the balconies.",
+        "kind": "reply"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "That's a wrap, and nobody broke anything. Great work, team.",
+        "kind": "open"
+      }
+    ],
+    "boss_down": [
+      {
+        "text": "Now that was a fall. I'd have done it twice, though.",
+        "kind": "reply"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "Tuck and roll, now, I've got you!",
+        "kind": "open"
+      }
+    ],
+    "zone_arrive": [
+      {
+        "text": "Oh, look at that drop. I want to jump it so badly.",
+        "kind": "open"
+      }
+    ]
+  }
+}

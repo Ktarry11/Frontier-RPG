@@ -219,6 +219,15 @@ LINES = {
    "boss_down": [L("It will not get a marker. Most things do not. I think about that.", R)],
    "zone_arrive": [L("Good stone here. Wasted on whatever built that.")],
  },
+ # Adrián had a bond and traits but no banter (found 21 Nov 2026 by the every-recruit check in
+ # tools/qa_recruit_complete.py). Referee, PE teacher, Valladolid, the whistle he hasn't blown.
+ "adrian_templar": {
+   "town_arrive": [L("Valladolid had a square like this one, and I lived over a bicycle shop just off it.", O, CITIES)],
+   "dungeon_clear": [L("That was well played, and I'd have told you if it wasn't.")],
+   "boss_down": [L("I'd have shown that one a red card in the first minute.", R)],
+   "close_call": [L("We pulled too many of them at once, and that one's on all of us.")],
+   "zone_arrive": [L("I'd like the plan for this place before we start, and I'd like it told once, properly.")],
+ },
 
  # ---------------------------------------------------------------- wave two (19)
  "tarek_templar": {

@@ -1,0 +1,126 @@
+{
+  "bond": {
+    "home": "Aurelion",
+    "dials": {
+      "warmth": 1.5,
+      "nerve": 1.0,
+      "pride": 0.8,
+      "restless": 1.3
+    },
+    "likes": [
+      "new_ground",
+      "dungeon"
+    ],
+    "dislikes": [
+      "grinding"
+    ],
+    "stages": {
+      "stranger": "Isabela Moura, glassblower, from Florianópolis! The whole city sings when you touch it up here, did you know? Put your hand on the wall and try.",
+      "acquaintance": "I had a workshop on the lagoon in Florianópolis with the doors open to the water and a furnace that never went out. Bowls, lamps, little fish for the tourists. Once I made a chandelier for a church that took me a whole summer, and when they lit it the priest cried.",
+      "companion": "My brother Caio surfs, and he never once helped in the workshop, and I adore him. My father taught me glass. He doesn't blow it anymore, and I'll tell you why one day. I hope Caio's still dragging him down to the beach on Sundays.",
+      "friend": "When I was twenty, my father's workshop burned down. These scars on my arms are from pulling his pipes and his molds out of the fire. He never blew glass again after that. I want to make a lamp out of Aetherian crystal, which nobody up here has managed, and I need a fire hot enough to melt it. Will you help me find one?",
+      "sworn": "It worked, it really worked! The lamp sings, a long low note, every time it's lit, and the Academy stood around it with their mouths open. I named it after my father. I'm going to blow a second one, for him, for when I can get it home. Then he'll have to start again, because I'll need someone to argue with."
+    },
+    "moments": [
+      {
+        "id": "asking",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "She's asked you to help her find a fire hot enough to melt Aetherian crystal.",
+        "options": [
+          {
+            "text": "Let's find the hottest fire in the sky.",
+            "trust": 12,
+            "reply": "Yes, that's the spirit! Bring water, and gloves, and maybe a little courage."
+          },
+          {
+            "text": "Crystal can't be blown, Isabela.",
+            "trust": 0,
+            "reply": "That's what they said about glass, once, and look at the windows."
+          }
+        ]
+      },
+      {
+        "id": "first_stint",
+        "stage": "any",
+        "when": "first_stint_end",
+        "prompt": "At the end of your first run she's holding a stone up to the light, delighted.",
+        "line": "Look at this, it's got a crack inside that catches the light! I'm keeping it.",
+        "options": [
+          {
+            "text": "It's beautiful. Keep it.",
+            "trust": 8,
+            "mood": 4,
+            "reply": "See, you get it! I knew you would."
+          },
+          {
+            "text": "It's just a rock.",
+            "trust": 0,
+            "mood": -4,
+            "reply": "So is glass, before somebody loves it."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "We've been sitting for ages, and I've counted every crystal in sight twice. Let's go somewhere!",
+      "leaving_good": "Oh, that was wonderful, all of you. I'm going back to the Academy to make something.",
+      "leaving_bored": "It's so dull out here, and my workshop at the Academy is calling me, so I'm going back.",
+      "after_wipe": "Everybody up, slowly, and let me see you. Then we figure out where it cracked.",
+      "wipe_warning": "We keep shattering, and I'm running out of pieces. Once more, then let's rest.",
+      "wipe_leave": "I'm done for today. Come and find me by the Academies in Aurelion.",
+      "zone_warning": "This is too hot for us to handle, like glass straight out of the furnace. Let's back away.",
+      "zone_leave": "We're out of our depth, and I'm not too proud to say it. I'll be in Aurelion.",
+      "gear_refuse": "Oh, no, I love this one, I'm keeping it.",
+      "gear_taken": "It's yours, go on! I worked in a leather apron and old jeans.",
+      "gear_short": "If something comes along that stops a claw, I'd love it.",
+      "gear_upgrade": "Oh, it's beautiful, obrigada!",
+      "back": "You're back, I'm so happy! The workshop's quiet and I'm ready. Where are we going?",
+      "send_word": "Isabela has sent word from Aurelion. Her furnace is cooling and she's ready to come out.",
+      "walkout_talk": "I ran off without saying anything, and I'm so sorry. Sit down, I'll tell you everything.",
+      "neglect": "You're finally here! I made you a little glass bird while you were gone.",
+      "asked_to_stay": "Fine, a last little bit! After that I really must get back to the furnace.",
+      "on_break": "Isabela is back by the Academies in Aurelion. Come back after you've done a few more jobs.",
+      "mail_yes": "Your letter made my day! I'll hurry over to {town} and grab us a table at the inn.",
+      "mail_later": "I've got crystal in the furnace and I can't leave it. A few days, I promise!",
+      "mail_see_me": "I talk with my hands, so letters are hopeless for me. Come to Aurelion and see me."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "Look at the windows here! Whoever glazed them knew exactly what they were doing.",
+        "kind": "open",
+        "topic": "cities"
+      },
+      {
+        "text": "Can we find the market? I want to see what they make.",
+        "kind": "reply"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "We did it, and nothing broke, except the things we meant to break.",
+        "kind": "open"
+      }
+    ],
+    "boss_down": [
+      {
+        "text": "Did you see it shatter? Like a dropped vase, beautiful.",
+        "kind": "reply"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "Careful, careful, you're cracking, let me help!",
+        "kind": "open"
+      }
+    ],
+    "zone_arrive": [
+      {
+        "text": "The light here is gorgeous. Everything glows a little.",
+        "kind": "open"
+      }
+    ]
+  }
+}

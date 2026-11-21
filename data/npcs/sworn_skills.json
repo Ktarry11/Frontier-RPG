@@ -57,6 +57,35 @@
    ]
   }
  },
+ "alvaro_venomancer": {
+  "from": "Wave 4: 'what he resolves is the news he never gave. ... he stands very still in front of the party, every enemy comes for him, and the first two that try it get stung.'",
+  "ability": {
+   "ability_id": "personal_sworn_alvaro_tells_the_bees",
+   "name": "Tells the Bees",
+   "engine": "live: taunts_all on self for 3 turns, riposte 2 uses at 100%",
+   "effect_type": "buff",
+   "target_type": "self",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 3,
+   "is_instant": true,
+   "stat_mods": {},
+   "description": "Álvaro stands very still and tells the swarm the news. For 3 turns every enemy comes for him and nobody else, and the first two attacks on him miss him completely and land on whoever threw them.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 35,
+     "effect_value": 100
+    }
+   ],
+   "taunts_all": true,
+   "riposte": {
+    "uses": 2,
+    "pct": 100
+   }
+  }
+ },
  "ama_priest": {
   "from": "Wave 4: 'what she resolves is being unable to stop. ... a passive where she heals less when the party is safe and more when it isn't, because she's finally letting herself rest.'",
   "passives": {
@@ -414,6 +443,105 @@
      "effect_value": 552
     }
    ]
+  }
+ },
+ "clara_primalist": {
+  "from": "Wave 4: 'what she resolves is the funeral she missed. ... the tree answers her at last, and the whole party is healed.'",
+  "ability": {
+   "ability_id": "personal_sworn_clara_every_ring_counted",
+   "name": "Every Ring Counted",
+   "engine": "live: party heal, plus heals_party_pct_max 12",
+   "effect_type": "heal",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Clara puts both hands on the bark, and the tree answers. Every ally is healed, and for 12% of their maximum health on top.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 45,
+     "effect_value": 115
+    },
+    {
+     "rank": 2,
+     "level_req": 15,
+     "cost": 63,
+     "effect_value": 250
+    },
+    {
+     "rank": 3,
+     "level_req": 30,
+     "cost": 81,
+     "effect_value": 386
+    },
+    {
+     "rank": 4,
+     "level_req": 45,
+     "cost": 99,
+     "effect_value": 521
+    },
+    {
+     "rank": 5,
+     "level_req": 60,
+     "cost": 117,
+     "effect_value": 656
+    }
+   ],
+   "heals_party_pct_max": 12
+  }
+ },
+ "connor_shaman": {
+  "from": "Wave 4: 'what he resolves is the lad who went over the side. ... he takes the storm into one enemy row on purpose, and it knocks them flat.'",
+  "ability": {
+   "ability_id": "personal_sworn_connor_into_the_squall",
+   "name": "Into the Squall",
+   "engine": "live: nature melee hit on an enemy row with a 1-turn stun",
+   "effect_type": "damage",
+   "target_type": "enemy_aoe",
+   "resource_type": "mana",
+   "cooldown": 15,
+   "duration": 1,
+   "is_instant": true,
+   "stat_mods": {},
+   "description": "Connor takes the storm into one enemy row on purpose, frightened and steady. Lightning strikes every enemy in the row, and they lose their next turn.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 40,
+     "effect_value": 95
+    },
+    {
+     "rank": 2,
+     "level_req": 15,
+     "cost": 56,
+     "effect_value": 153
+    },
+    {
+     "rank": 3,
+     "level_req": 30,
+     "cost": 72,
+     "effect_value": 212
+    },
+    {
+     "rank": 4,
+     "level_req": 45,
+     "cost": 88,
+     "effect_value": 270
+    },
+    {
+     "rank": 5,
+     "level_req": 60,
+     "cost": 104,
+     "effect_value": 328
+    }
+   ],
+   "damage_school": "nature",
+   "is_stun": true
   }
  },
  "cristobal_knight": {
@@ -978,6 +1106,116 @@
    ]
   }
  },
+ "etienne_mage": {
+  "from": "Wave 4: 'what he resolves is the knee at nineteen. ... he floods the fight with ice, every enemy is struck, and they all slow down on it.'",
+  "ability": {
+   "ability_id": "personal_sworn_etienne_floods_it_flat",
+   "name": "Floods It Flat",
+   "engine": "live: frost spell damage on every enemy, then enemy_mods haste -30 on every enemy for 2 turns",
+   "effect_type": "spell_damage",
+   "target_type": "all_enemies",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 2,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Étienne floods the whole fight flat and clear, slow and even. Every enemy is struck with frost, and for 2 turns every enemy acts 30% slower.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 45,
+     "effect_value": 125
+    },
+    {
+     "rank": 2,
+     "level_req": 15,
+     "cost": 63,
+     "effect_value": 202
+    },
+    {
+     "rank": 3,
+     "level_req": 30,
+     "cost": 81,
+     "effect_value": 278
+    },
+    {
+     "rank": 4,
+     "level_req": 45,
+     "cost": 99,
+     "effect_value": 354
+    },
+    {
+     "rank": 5,
+     "level_req": 60,
+     "cost": 117,
+     "effect_value": 431
+    }
+   ],
+   "damage_school": "frost",
+   "enemy_mods": {
+    "haste": -30
+   }
+  }
+ },
+ "facundo_chronomancer": {
+  "from": "Wave 4: 'what he resolves is counting the seconds. ... he winds the whole party back a little, and what was done to them comes undone.'",
+  "ability": {
+   "ability_id": "personal_sworn_facundo_winds_it_back",
+   "name": "Winds It Back",
+   "engine": "live: party heal that cleanses every magic, curse, poison and disease effect, plus heals_party_pct_max 15",
+   "effect_type": "heal",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 15,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Facundo winds the whole party back a few seconds. Every ally is healed, and for 15% of their maximum health on top, and every magic effect, curse, poison and disease on them comes undone.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 50,
+     "effect_value": 110
+    },
+    {
+     "rank": 2,
+     "level_req": 15,
+     "cost": 70,
+     "effect_value": 246
+    },
+    {
+     "rank": 3,
+     "level_req": 30,
+     "cost": 90,
+     "effect_value": 383
+    },
+    {
+     "rank": 4,
+     "level_req": 45,
+     "cost": 110,
+     "effect_value": 520
+    },
+    {
+     "rank": 5,
+     "level_req": 60,
+     "cost": 130,
+     "effect_value": 656
+    }
+   ],
+   "heals_party_pct_max": 15,
+   "cleanses": {
+    "types": [
+     "magic",
+     "curse",
+     "poison",
+     "disease"
+    ],
+    "count": 9
+   }
+  }
+ },
  "faris_shaman": {
   "from": "Wave 4: 'what he resolves is the stone that wouldn't grow. ... he calls up a spring under the party that heals everyone over several turns and washes off poisons.'",
   "ability": {
@@ -1030,6 +1268,37 @@
      "disease"
     ],
     "count": 9
+   }
+  }
+ },
+ "federico_templar": {
+  "from": "Wave 4: 'what he resolves is the promise about Saturdays. ... he gives the party his word, and for a few turns nobody falls and nothing stops them.'",
+  "ability": {
+   "ability_id": "personal_sworn_federico_gives_his_word",
+   "name": "Gives His Word",
+   "engine": "live: death_prevent on every ally (hp 1, lethal hits only, one use each) and party cc_immune, 3 turns",
+   "effect_type": "buff",
+   "target_type": "party",
+   "resource_type": "combo",
+   "cooldown": 15,
+   "duration": 3,
+   "is_instant": true,
+   "stat_mods": {
+    "cc_immune": 1
+   },
+   "description": "Federico gives the party his word. For 3 turns no ally can be stunned, feared or held, and a blow that would kill any of them leaves them at 1 health instead, once each.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 100
+    }
+   ],
+   "death_prevent": {
+    "hp": 1,
+    "lethal_only": true,
+    "uses": 1
    }
   }
  },
@@ -1578,6 +1847,59 @@
    ],
    "cannot_miss": true,
    "heals_lowest_ally_pct": 100
+  }
+ },
+ "isabela_mage": {
+  "from": "Wave 4: 'what she resolves is her father's fire. ... the lamp sings through one enemy row, it never misses, and every enemy is left ringing.'",
+  "ability": {
+   "ability_id": "personal_sworn_isabela_the_lamp_sings",
+   "name": "The Lamp Sings",
+   "engine": "live: arcane spell damage on an enemy row that cannot miss, then enemy_mods magic damage taken +15 on every enemy for 3 turns",
+   "effect_type": "spell_damage",
+   "target_type": "enemy_aoe",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 3,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Isabela lights the lamp, and it sings through one enemy row. The note cannot miss, and for 3 turns every enemy takes 15% more magic damage.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 45,
+     "effect_value": 120
+    },
+    {
+     "rank": 2,
+     "level_req": 15,
+     "cost": 63,
+     "effect_value": 194
+    },
+    {
+     "rank": 3,
+     "level_req": 30,
+     "cost": 81,
+     "effect_value": 267
+    },
+    {
+     "rank": 4,
+     "level_req": 45,
+     "cost": 99,
+     "effect_value": 340
+    },
+    {
+     "rank": 5,
+     "level_req": 60,
+     "cost": 117,
+     "effect_value": 414
+    }
+   ],
+   "damage_school": "arcane",
+   "cannot_miss": true,
+   "enemy_mods": {
+    "magic_damage_taken_pct": 15
+   }
   }
  },
  "isla_witchhunter": {
@@ -2411,6 +2733,56 @@
    }
   }
  },
+ "mauricio_reaper": {
+  "from": "Wave 4: 'what he resolves is the grief he never let himself have. ... he asks the dead to come, every enemy is struck, and the party is healed by what it takes.'",
+  "ability": {
+   "ability_id": "personal_sworn_mauricio_the_whole_altar",
+   "name": "The Whole Altar",
+   "engine": "live: shadow spell damage on every enemy; every ally healed for 12% of the damage dealt (heals_party_pct_of_damage)",
+   "effect_type": "spell_damage",
+   "target_type": "all_enemies",
+   "resource_type": "mana",
+   "cooldown": 14,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Mauricio asks the dead to come, politely, and they do. Every enemy is struck with shadow, and every ally is healed for 12% of all the damage it did.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 45,
+     "effect_value": 130
+    },
+    {
+     "rank": 2,
+     "level_req": 15,
+     "cost": 63,
+     "effect_value": 210
+    },
+    {
+     "rank": 3,
+     "level_req": 30,
+     "cost": 81,
+     "effect_value": 289
+    },
+    {
+     "rank": 4,
+     "level_req": 45,
+     "cost": 99,
+     "effect_value": 368
+    },
+    {
+     "rank": 5,
+     "level_req": 60,
+     "cost": 117,
+     "effect_value": 448
+    }
+   ],
+   "damage_school": "shadow",
+   "heals_party_pct_of_damage": 12
+  }
+ },
  "minh_chronomancer": {
   "from": "Wave 4: 'what he resolves is never handing over control. ... he rewinds the last turn for the whole party, undoing the damage they took.'",
   "ability": {
@@ -2570,6 +2942,37 @@
      "effect_value": 100
     }
    ]
+  }
+ },
+ "oliver_suncleric": {
+  "from": "Wave 4: 'what he resolves is his dad's eyes. ... he catches what everyone else missed, takes every curse and magic off the party, and heals the harm it was still going to do.'",
+  "ability": {
+   "ability_id": "personal_sworn_oliver_caught_in_time",
+   "name": "Caught in Time",
+   "engine": "live: party dispel of every magic and curse effect, each healing for what it would still have done; heals_party_pct_max 8",
+   "effect_type": "dispel",
+   "target_type": "party",
+   "resource_type": "mana",
+   "cooldown": 13,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Oliver catches what everyone else missed. Every magic effect and curse comes off the party, each one healing its ally for the damage it still had to do, and every ally is healed for 8% of their maximum on top.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 40,
+     "effect_value": 100
+    }
+   ],
+   "dispel_type": [
+    "magic",
+    "curse"
+   ],
+   "dispel_count": 9,
+   "heals_dispelled_damage": true,
+   "heals_party_pct_max": 8
   }
  },
  "omar_venomancer": {
@@ -2869,6 +3272,57 @@
    "sure_target": true
   }
  },
+ "raul_barbarian": {
+  "from": "Wave 4: 'what he resolves is Chuy's horn. ... he picks the biggest thing in the fight and stays on it, and the hit always lands hard.'",
+  "ability": {
+   "ability_id": "personal_sworn_raul_stays_on",
+   "name": "Stays On",
+   "engine": "live: strike on the enemy with the most maximum health (auto_enemy largest), cannot_miss and always_crits",
+   "effect_type": "damage",
+   "target_type": "enemy",
+   "resource_type": "energy",
+   "cooldown": 14,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Raúl picks the biggest enemy in the fight, whoever was clicked, and stays on it. The strike cannot miss and always crits.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 150
+    },
+    {
+     "rank": 2,
+     "level_req": 15,
+     "cost": 30,
+     "effect_value": 295
+    },
+    {
+     "rank": 3,
+     "level_req": 30,
+     "cost": 30,
+     "effect_value": 440
+    },
+    {
+     "rank": 4,
+     "level_req": 45,
+     "cost": 30,
+     "effect_value": 586
+    },
+    {
+     "rank": 5,
+     "level_req": 60,
+     "cost": 30,
+     "effect_value": 731
+    }
+   ],
+   "auto_enemy": "largest",
+   "cannot_miss": true,
+   "always_crits": true
+  }
+ },
  "reka_necromancer": {
   "from": "Wave 4: 'what she resolves is fearing she only makes things walk. ... she raises a swarm of crows that strikes every enemy and then scatters harmlessly.'",
   "ability": {
@@ -2919,6 +3373,57 @@
    "enemy_mods": {
     "miss_chance_pct": 20
    }
+  }
+ },
+ "renata_rogue": {
+  "from": "Wave 4: 'what she resolves is Beto's windscreen. ... she checks it twice and then goes, and she lands exactly where she said on whatever moves next.'",
+  "ability": {
+   "ability_id": "personal_sworn_renata_lands_it_clean",
+   "name": "Lands It Clean",
+   "engine": "live: strike on whichever enemy acts next (auto_enemy next), cannot_miss, ignores 40% of armour",
+   "effect_type": "damage",
+   "target_type": "enemy",
+   "resource_type": "energy",
+   "cooldown": 14,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Renata checks it twice and then goes. She lands on whichever enemy is about to act, whoever was clicked, with a strike that cannot miss and ignores 40% of its armour.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 155
+    },
+    {
+     "rank": 2,
+     "level_req": 15,
+     "cost": 30,
+     "effect_value": 299
+    },
+    {
+     "rank": 3,
+     "level_req": 30,
+     "cost": 30,
+     "effect_value": 443
+    },
+    {
+     "rank": 4,
+     "level_req": 45,
+     "cost": 30,
+     "effect_value": 587
+    },
+    {
+     "rank": 5,
+     "level_req": 60,
+     "cost": 30,
+     "effect_value": 731
+    }
+   ],
+   "auto_enemy": "next",
+   "cannot_miss": true,
+   "armor_ignore_pct": 40
   }
  },
  "rhodri_knight": {
@@ -3485,6 +3990,63 @@
     }
    ],
    "absorb": 90
+  }
+ },
+ "tariq_bloodmage": {
+  "from": "Wave 4: 'what he resolves is Hamid. ... he gives his own blood to the whole party at once, and it gives him strength back.'",
+  "ability": {
+   "ability_id": "personal_sworn_tariq_gives_blood",
+   "name": "Gives Blood",
+   "engine": "live: party heal costing 10% of Tariq's maximum health, plus heals_party_pct_max 15, then self_buff damage taken -35% for 3 turns",
+   "effect_type": "heal",
+   "target_type": "party",
+   "resource_type": "rage",
+   "cooldown": 14,
+   "duration": 0,
+   "is_instant": false,
+   "stat_mods": {},
+   "description": "Tariq gives his own blood, slowly and without hurrying. He spends 10% of his health to heal the whole party, and for 15% of their maximum health on top, and for 3 turns he takes 35% less damage.",
+   "ranks": [
+    {
+     "rank": 1,
+     "level_req": 1,
+     "cost": 30,
+     "effect_value": 120
+    },
+    {
+     "rank": 2,
+     "level_req": 15,
+     "cost": 30,
+     "effect_value": 254
+    },
+    {
+     "rank": 3,
+     "level_req": 30,
+     "cost": 30,
+     "effect_value": 388
+    },
+    {
+     "rank": 4,
+     "level_req": 45,
+     "cost": 30,
+     "effect_value": 522
+    },
+    {
+     "rank": 5,
+     "level_req": 60,
+     "cost": 30,
+     "effect_value": 656
+    }
+   ],
+   "health_cost_pct": 10,
+   "self_buff": {
+    "turns": 3,
+    "mods": {
+     "physical_damage_taken_pct": -35,
+     "magic_damage_taken_pct": -35
+    }
+   },
+   "heals_party_pct_max": 15
   }
  },
  "thiago_paladin": {

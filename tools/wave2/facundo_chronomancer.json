@@ -1,0 +1,127 @@
+{
+  "bond": {
+    "home": "Halcyon Rest",
+    "dials": {
+      "warmth": 0.9,
+      "nerve": 1.2,
+      "pride": 0.6,
+      "restless": 0.5
+    },
+    "likes": [
+      "quest",
+      "new_ground"
+    ],
+    "dislikes": [
+      "grinding",
+      "quest_abandoned"
+    ],
+    "stages": {
+      "stranger": "Facundo Herrera, a watchmaker from Mendoza. Everything runs fast or slow if you listen closely enough, and here I can wind a little of it back.",
+      "acquaintance": "My grandfather's shop in Mendoza, a narrow place between a bakery and a shoe repairer, under a sign nobody had painted in fifty years. I sat at the bench by the window for twenty years with a loupe in my eye. The whole wall of clocks struck noon a few seconds apart, and I never once fixed it.",
+      "companion": "My wife is Rocío, and she taught mathematics at the secondary school. She used to say I was the only man in Argentina who was never late, because I always knew exactly what time it really was. I miss arguing with her about whether clocks should be fast or slow.",
+      "friend": "My grandfather died while I was in Buenos Aires at a watch fair. I came back for the funeral and wound his pocket watch at the graveside, and I've wound it at the same minute every morning since. There's a golem core on the Fields that's ticking wrong, and it's hurting the golem that carries it. I think I can set it right. Will you keep the wards off me while I work?",
+      "sworn": "It's ticking true now, slow and even, like a good heart. The golem lay down afterwards, gently, and went to sleep, and I sat with it until dark. I kept the smallest gear that came loose, and I'll carry it with my grandfather's watch. For the first time in years I'm not counting the seconds."
+    },
+    "moments": [
+      {
+        "id": "asking",
+        "stage": "friend",
+        "when": "talk",
+        "prompt": "He's asked you to keep the wards off him while he sets the golem's core right.",
+        "options": [
+          {
+            "text": "Work as long as you need. I'll keep them off you.",
+            "trust": 12,
+            "reply": "Thank you. A watchmaker needs quiet hands and a quiet room, and you're giving me both."
+          },
+          {
+            "text": "Can't you just leave it broken?",
+            "trust": 0,
+            "reply": "You never leave a mechanism suffering. My grandfather would never forgive me."
+          }
+        ]
+      },
+      {
+        "id": "first_wipe",
+        "stage": "any",
+        "when": "wipe",
+        "prompt": "After the wipe he's sitting quietly, holding his grandfather's watch.",
+        "line": "We lost the rhythm. Everything in that fight ran a little fast, and so did we.",
+        "options": [
+          {
+            "text": "Then let's slow down and listen first.",
+            "trust": 8,
+            "mood": 4,
+            "reply": "That's exactly it. You'd have made a good watchmaker."
+          },
+          {
+            "text": "We just need to hit harder.",
+            "trust": 0,
+            "mood": -4,
+            "reply": "Force never fixed a watch, friend. It only breaks the spring."
+          }
+        ]
+      }
+    ],
+    "lines": {
+      "bored_warning": "We've stood still for some time now, and even a stopped clock gets restless. Shall we go?",
+      "leaving_good": "That went very well, everyone, well paced. I'm going back to Halcyon Rest to see to the wounded.",
+      "leaving_bored": "Very little is happening out here, and the Fields have wounded who need me. I'll return to Halcyon Rest.",
+      "after_wipe": "Stay still, all of you, and let the moment settle. Then we look at what slipped.",
+      "wipe_warning": "Time keeps slipping from us, and I can only wind back so much. Once more, then we must rest.",
+      "wipe_leave": "I'll stop here for now. I'll be at Halcyon Rest in the Celestial Expanse.",
+      "zone_warning": "This place runs much too fast for us, my friend. We should turn back.",
+      "zone_leave": "It's beyond us here, and I won't pretend otherwise. I'll be at Halcyon Rest.",
+      "gear_refuse": "I'd like to keep that one, if you'd allow it. It's only just settled into place.",
+      "gear_taken": "Please, take it. I sat at a watch bench in a cardigan for twenty years.",
+      "gear_short": "If something sturdier comes along, I'd be glad of it.",
+      "gear_upgrade": "Beautifully made, thank you. Every piece fits.",
+      "back": "Good to see you again. The wounded are mended and I'm free. Where shall we go?",
+      "send_word": "Facundo has sent word from Halcyon Rest. The wounded are mended and he's ready to come out.",
+      "walkout_talk": "Leaving without a word wasn't right, and I've regretted it. Sit, I'll explain slowly.",
+      "neglect": "Ah, you came back. I'd counted every day you were gone.",
+      "asked_to_stay": "Very well, a little longer. Then I must wind the watch.",
+      "on_break": "Facundo is back at Halcyon Rest in the Celestial Expanse. Come back after you've done a few more jobs.",
+      "mail_yes": "Your letter arrived precisely when I needed it. I'll meet you in {town} at the inn, on time.",
+      "mail_later": "There are wounded here who can't wait, and I won't hurry them. A few days, I promise.",
+      "mail_see_me": "Some things are better said slowly, face to face. Come to Halcyon Rest and sit with me."
+    }
+  },
+  "banter": {
+    "town_arrive": [
+      {
+        "text": "Listen to this town. Everybody here walks just slightly too fast.",
+        "kind": "open",
+        "topic": "cities"
+      },
+      {
+        "text": "Somewhere quiet to sit would suit me very well.",
+        "kind": "reply"
+      }
+    ],
+    "dungeon_clear": [
+      {
+        "text": "Well paced, everyone, from first step to last.",
+        "kind": "open"
+      }
+    ],
+    "boss_down": [
+      {
+        "text": "Sit, all of you, slowly. Let me listen to your hearts before we move.",
+        "kind": "reply"
+      }
+    ],
+    "close_call": [
+      {
+        "text": "Hold still, I'll wind it back, just a moment.",
+        "kind": "open"
+      }
+    ],
+    "zone_arrive": [
+      {
+        "text": "Time runs differently here. Can you feel it? Slower, I think.",
+        "kind": "open"
+      }
+    ]
+  }
+}
