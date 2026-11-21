@@ -398,6 +398,12 @@ at a health line, and the take-damage hooks (death floor, reflect, damage-to-shi
 low-health shield or heal, DoT immunity). Each one still has the thing that kills you if you ignore it, and it's
 something the party can answer with its turns.
 
+**No fight can punish a damage school** (Kyle, 20 Nov 2026, on frost turning into armour: "no - this would cripple
+cryotherapist"). With 30 classes, some deal one school only, so a mechanic that makes a school useless, or feeds the
+boss off it, benches a whole class. A school can matter only where every school still has something right to hit (the
+Forge-Twins). The same goes for melee: Skarnvald's reflecting Shield-Wall lasts two turns at a time, so melee spend
+those turns on defensives and positioning their next burst, not sitting out the fight.
+
 1. **Skarnvald, the Gate-Thane** (rune-construct, physical). *Answer: stop meleeing on cue, and save a defensive.*
    Every few turns he raises **Shield-Wall**, a buff that reflects melee damage back at whoever hits him, so the melee
    stop and the casters carry those turns. **Gate-Hammer** stuns his target, and his heavy swing comes round every
@@ -414,19 +420,21 @@ something the party can answer with its turns.
    **Storm-Song** is a magic DoT on the party, so the healers spend turns dispelling and the damage spends turns on
    singers, then breaks the ward between renewals. Below 30%, **Crescendo** hits the whole party every few turns until
    he dies.
-4. **Thrymgald, the Hail Colossus** (frost elemental). *Answer: dispel the healing cut, swap off frost.* **Hail** hits
+4. **Thrymgald, the Hail Colossus** (frost elemental). *Answer: dispel the healing cut, then burn the armour.* **Hail** hits
    the whole party every fourth turn. **Rime** rides his attacks: a magic debuff that cuts healing taken by a third,
    and a tank left rimed doesn't survive the next Hail, so it's the healers' dispel priority. **Frozen Solid** stuns.
-   Below 30% his **Ice Armour** turns frost damage into an absorb shield on himself, so the frost casters switch
-   schools or feed him.
-5. **Myrkhild, the Fog-Witch** (living fog, shadow). *Answer: curse dispels, school swap, burn at the end.* Her
+   Below 30% he wraps himself in **Ice Armour**, a big absorb shield anything breaks, and Hail comes every other turn
+   until it's down: a burn check the whole raid shares.
+5. **Myrkhild, the Fog-Witch** (living fog, shadow). *Answer: curse dispels, out-heal the drain, burn at the end.* Her
    **Fog** rides her attacks and cuts the party's damage dealt; **Lightless** is a curse DoT that has to be dispelled
-   before it ticks big. Shadow damage heals her (damage-to-heal, shadow), so shadow users switch. **Fog-Wisps** come
+   before it ticks big. **Drink the Light** hits the party and heals her for what it deals (lifesteal), so the
+   healers keep the party topped up and the damage keeps ahead of her. **Fog-Wisps** come
    in and drain mana (capped adds). Below 25%, **All the Lights Go Out**: a party-wide shadow DoT every turn, a burn
    check to the finish.
 6. **Brand and Brimm, the Forge-Twins** (fire elemental and frost elemental, fought together). *Answer: pick each
-   target by school, keep them even.* Fire heals Brand and frost heals Brimm (damage-to-heal by school), so every
-   caster has a right twin to hit and a wrong one. **Seared** and **Chilled** ride their attacks (damage taken up,
+   target by school.* Fire heals Brand and frost heals Brimm (damage-to-heal by school), so every
+   caster has a right twin to hit and a wrong one, and since they're fought together there's always a right one in
+   reach: a frost-only class hits Brand the whole fight. **Seared** and **Chilled** ride their attacks (damage taken up,
    then healing taken down). Each one has a low-health trigger that heals it back once, the first time it drops under
    20%, so the raid saves its burst for after that heal on each twin.
 7. **Warden-King Oskhar** (storm-giant king, nature and physical, three phases). *Answer: everything you learned,
