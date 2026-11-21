@@ -110,7 +110,9 @@ def effective_level(zone, levels):
 #: three years ago, in quests about people trying to get down it. Of course it talks about the merge;
 #: that is the subject. The ceiling is for Azeroth zones the event did not touch, where a native
 #: remarking on it every fifth quest would be the tell.
-INTEGRATION_ZONES = {"aspen", "southern_needles", "underdark", "underdark_dungeons"}
+#: Dawnhaven (21 Nov 2026) is the shore where the sea gives up the people the change brings: newcomers waking on the
+#: Waking Shore is the start zone's subject, the way the mountain arriving is the Aspen's.
+INTEGRATION_ZONES = {"aspen", "southern_needles", "underdark", "underdark_dungeons", "dawnhaven"}
 
 #: Referring to the merge, to the people it brought, or to a native's view of either.
 #: WIDENED AFTER IT LIED. The first version wanted "three years AGO" and missed "Three years of you
