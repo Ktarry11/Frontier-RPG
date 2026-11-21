@@ -1245,6 +1245,8 @@ class TilemapRenderer:
             self._draw_particles(screen, viewport_rect, tilemap)
         if getattr(tilemap, "life", None):
             self._draw_life(screen, viewport_rect, tilemap)
+        if getattr(tilemap, "events", None):
+            self._draw_events(screen, viewport_rect, tilemap)
         if _sky:
             self._draw_sun(screen, viewport_rect, _sky)
         elif getattr(tilemap, "light", None):
@@ -1529,6 +1531,37 @@ class TilemapRenderer:
                 continue
             screen.blit(self._glow_surface(tuple(colour), rp, k), (x, y), special_flags=pygame.BLEND_ADD)
         screen.set_clip(clip)
+
+    # SKY EVENTS (EFX10). tilemap.events = [{"layer": "sky_shooting_stars", "every": (25, 50), "dur": 1.6,
+    # "strength": 0.6}, ...]: now and then a light overlay fades in and out over the screen, a few shooting stars over
+    # Moonglade or a lightning flash over a storm. Nothing moves; it shows and goes. "flash": true makes it snap on and
+    # fade (lightning) instead of rising and falling.
+    _event_state = {}
+
+    def _draw_events(self, screen, viewport_rect, tilemap):
+        import math
+        import random
+        import time
+        now = time.time()
+        states = self._event_state.setdefault(tilemap.name, {})
+        for i, ev in enumerate(tilemap.events):
+            st = states.get(i)
+            lo, hi = ev.get("every", (25, 50))
+            if st is None:
+                st = states[i] = {"at": now + random.uniform(lo * 0.3, hi * 0.6)}
+            u = (now - st["at"]) / float(ev.get("dur", 1.5))
+            if u < 0:
+                continue
+            if u >= 1:
+                st["at"] = now + random.uniform(lo, hi)
+                continue
+            shape = (1 - u) ** 2 if ev.get("flash") else math.sin(math.pi * u)
+            k = round(float(ev.get("strength", 0.6)) * shape * 10) / 10
+            if k <= 0:
+                continue
+            surf = self._effect("light", ev["layer"], (viewport_rect.width, viewport_rect.height), k)
+            if surf is not None:
+                screen.blit(surf, viewport_rect.topleft, special_flags=pygame.BLEND_ADD)
 
     # AMBIENT LIFE AND FLYOVER SHADOWS (EFX8). tilemap.life = {"flyers": ["life_crow", "shadow_hawk"], "every": (9, 20),
     # "size": 1.4, "speed": 70}: now and then one thing crosses the screen, a bird over you or the shadow of something big
