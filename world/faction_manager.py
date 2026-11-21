@@ -267,6 +267,31 @@ class FactionManager:
         gained, tier_up = self.award(fid, amt, reason="quest")
         return fid, gained, tier_up
 
+    def counts_as_dungeon(self, zone):
+        """True for any place whose kills a dungeon's Revered cap governs: a real dungeon (or a floor or hidden level of
+        one, world/zone_classification.is_dungeon_any), a boss map that's a dungeon in all but name (the Bloodsail
+        ships, the Eldest Sequoia: world/dungeon_packs.ALSO_DUNGEONS), and anywhere a faction lists in its
+        dungeon_rep, since paying boss rep there is what makes it a dungeon for reputation (Drywhisker Deeps is the
+        kobolds' mine, kept off the dungeon list for its ore, and its bosses pay the Forsaken). Only the first kind has
+        a heroic, so the rest stop at Revered for good."""
+        if not zone:
+            return False
+        try:
+            # combat passes its zone key ("wailing_caverns"), not the display name
+            from world.zone_classification import is_dungeon_any
+            if is_dungeon_any(zone):
+                return True
+        except Exception:
+            pass
+        zk = _zkey(zone)
+        try:
+            from world.dungeon_packs import ALSO_DUNGEONS
+            if zk in {_zkey(z) for z in ALSO_DUNGEONS}:
+                return True
+        except Exception:
+            pass
+        return any(zk in f.dungeons for f in self.factions.values())
+
     def award_for_kill(self, creature_name, zone=None, is_boss=False, heroic=False, tabard=None):
         """Called once per defeated enemy. Most calls are a dict miss and return immediately - this runs
         inside the combat victory loop, so it stays cheap on the overwhelmingly common no-match path.
@@ -283,8 +308,9 @@ class FactionManager:
         an artefact of iteration order, not a design decision anybody made.
 
         DUNGEONS STOP AT REVERED unless the dungeon is heroic. Kyle, 18 Nov 2026: "drop rep gain from Dungeons that
-        are not heroic beyond revered. This will force players to do heroics to get to exalted!" Every kill inside
-        a dungeon (world/zone_classification.is_dungeon) pays nothing to a faction already at Revered.
+        are not heroic beyond revered. This will force players to do heroics to get to exalted!", and 21 Nov: "Ensure
+        that all non heroic dungeon rep caps at revered". Every kill inside a dungeon (counts_as_dungeon) pays nothing
+        to a faction already at Revered.
 
         A TABARD (world/tabards.py) moves a heroic dungeon's kill rep to the faction it champions: the kill pays
         the most any faction would have had for it, all of it to the tabard's faction and none to the others.
@@ -293,14 +319,7 @@ class FactionManager:
         Returns a list of (faction_id, gained, tier_up).
         """
         zk = _zkey(zone) if zone else None
-        in_dungeon = False
-        if zone:
-            try:
-                # combat passes its zone key ("wailing_caverns"), not the display name
-                from world.zone_classification import is_dungeon_any
-                in_dungeon = bool(is_dungeon_any(zone))
-            except Exception:
-                in_dungeon = False
+        in_dungeon = self.counts_as_dungeon(zone)
         frontier = False
         if is_boss and zone:
             from world.hidden_zones import kind as hidden_kind

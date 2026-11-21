@@ -126,6 +126,37 @@ def main():
         check(got.get("cenarion_circle", 0) > 0, "the tabard's faction stopped at Revered in a heroic")
         check(all(not f.secret for f in (fm.factions[d["tabard_of"]] for d in tabs.values())),
               "a tabard points at a secret faction")
+        # 7. EVERY dungeon, not just the rig's (Kyle, 21 Nov 2026: "Ensure that all non heroic dungeon rep caps at
+        # revered"): every dungeon any faction pays boss rep for, and every dungeon kill any faction pays for, stops at
+        # Revered outside a heroic, by display name and by the key combat passes
+        from world.zone_classification import DUNGEONS
+        from world.dungeon_packs import ALSO_DUNGEONS
+        enc = json.loads((ROOT / "data/creatures/encounters.json").read_text(encoding="utf-8"))["zones"]
+        spawns = {}
+        for z in enc.values():
+            for cname, cave in (z.get("caves") or {}).items():
+                for c in cave.get("creatures") or {}:
+                    spawns.setdefault(cname, set()).add(c)
+        places, tried = set(DUNGEONS) | set(ALSO_DUNGEONS), 0
+        for fid, f in fm.factions.items():
+            places |= {z for z in (data[fid].get("dungeon_rep", {}).get("dungeons") or [])}
+        for place in sorted(places):
+            for fid, f in fm.factions.items():
+                pays_boss = FM._zkey(place) in f.dungeons and f.dungeon_per_boss
+                kills = [c for c in spawns.get(place, ()) if f.kill_rep.get(c)]
+                if not (pays_boss or kills):
+                    continue
+                for zone in (place, FM._zkey(place)):
+                    fm.reset()
+                    standing(fid, "revered")
+                    if pays_boss:
+                        got = {k: g for k, g, _t in fm.award_for_kill("QA Boss", zone=zone, is_boss=True)}
+                        check(got.get(fid, 0) == 0, f"{place}: a boss paid {fid} past Revered ({zone})")
+                    for c in kills:
+                        got = {k: g for k, g, _t in fm.award_for_kill(c, zone=zone)}
+                        check(got.get(fid, 0) == 0, f"{place}: {c} paid {fid} past Revered ({zone})")
+                    tried += 1
+        check(tried > 50, f"only {tried} dungeon and faction pairs tried")
     finally:
         fm.reset()
 
@@ -133,7 +164,8 @@ def main():
     src = (ROOT / "combat/combat_engine.py").read_text(encoding="utf-8")
     check("tabard=_tabard" in src and "worn_by(self.player)" in src, "combat doesn't pass the leader's tabard")
 
-    print(f"{len(tabs)} tabards; normal dungeons stop at Revered; heroics and tabards checked")
+    print(f"{len(tabs)} tabards; every normal dungeon stops at Revered ({tried} dungeon and faction pairs); heroics "
+          f"and tabards checked")
     if fails:
         print(f"FAIL {len(fails)}:")
         for x in fails[:25]:
