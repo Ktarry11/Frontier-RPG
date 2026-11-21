@@ -312,8 +312,85 @@ keepsakes, secrets, hidden zones, quest givers, hubs, levels and objectives, com
 zones, exits. qa_prop_overlap still counts 137 props cleared across the world against its cap of 120; the Crown and
 Lenswatch clear none.
 
+## The Celestial Expanse (49-51), the Golem Vault and the Storm-Well, built 20 Nov 2026
+
+Kyle: "lets build the celestial expanse if the Sunward Crown is done". Mid-build: "dont make them too hard to travel on
+with tiny paths and snag points....looks good - sucks to play", "i do like the concept of 'island waterfalls' where
+some-fucking-how we have unlimited water pouring off the island lol", and "And we will have dungeons and caves too i
+hope", then "remember that this is high level zone - so multiple floors are okay". The brief's line for it is "the old sky ruins wake (Kharad-age machinery, sky-golems); Ascendancy patrols; sky
+beasts".
+
+**The map** (`tools/handbuilt_worldtree_celestial_expanse.py`, 300x260, about 26,900 walkable tiles): open day sky
+with the Great Sky River running from Aurelion's broken aqueduct at the north edge down a string of six islands (the
+Spillway, Halcyon Rest, the Broad Isle, the Golem Fields, Crashfall, the Last Falls), pouring off each one onto the
+next and off the last into nothing. Off the river: the Silent Forge, the Lancer's Perch, Tethertown's tethered rocks,
+the Orbiting Ruins (six islets round a broken Kharad citadel, two spokes through the middle, one span of the ring
+fallen) and the Whale Shallows, walkable cloud. Twelve subzones. The side islands' pools spill off their nearest edge
+too (the wellstones: the islands' crystal pulls water out of the clouds, and the Aetherians can't tell you how).
+
+**Built to play, not just to look at.** The bridges are about eight tiles wide, the ring's spans as wide as the main
+ones, and the island and cloud fields are blurred on the cached grid before anything reads them, which rounds the
+coasts and fills the one-tile notches you'd catch on (`_SMOOTH_TILES`). Measured: one connected piece; a body three
+tiles wide reaches all of it and a body five wide reaches 99.5%. The interiors are grass and clover with rock only at
+the rims (`EXPANSE_SHEET` in `tools/bake_ashenvale.py`).
+
+**The Golem Vault and the Storm-Well** (a cave of two floors, 84x100 each, `tools/handbuilt_golem_vault.py` and
+`tools/handbuilt_storm_well.py`, baked by `tools/bake_golem_vault.py` and `tools/bake_storm_well.py`): the sky's first
+cave, the Kharad's vault under the Golem Fields, through a knotwork door on the fields' west side. Kyle on the first
+draft: "Also hallway simulators are boring and uninspired". So it's rooms, each with its own thing, joined by short wide
+ways, with more than one way through. The first floor: the Muster Hall, where the golems that were never sent out stand
+in ranks with an aisle down the middle; three ways down out of it, to the Wrights' Hall (the forge and the crane,
+Vault-Thane Brask, optional), the Assembly Floor (the last golem half-built in its scaffold) and the Sleepers' Hall (the
+crews on their stone biers); all three meeting again in the Deep Hall, and the Deep Stair down. The second floor: the
+Binding Hall (a ring of chained binding stones) with the Core Racks off it, three ramps down into the Well, one great
+round cavern with the bound storm in the middle as a pool of dark storm-cloud you can't walk into, and four bridges
+across it to the dais where Stormwright Yrvald keeps it (the storm is read off the map's water tiles, so the dais and
+the bridges bake dry). A body three tiles wide reaches every room on both floors. The crews are Kharad, the giants who
+were here first.
+
+**The links.** Lenswatch's Skiff Roost (119,13) <-> the skiff landing on Crashfall (103,206). The Golem Fields' vault
+door (90,156) <-> the Golem Vault (42,2); the Deep Stair (42,97) <-> the Storm-Well (42,2). The sky-bridge's foot (226,2) is Aurelion's, later.
+
+**People** (`tools/build_celestial_expanse_people.py`): 20. On Crashfall, the survivors of the council's skiff (Ilaren
+Vey and Leandro Arrieta, Skiff-Pilot Varo Senn, Herald Cassian Orel) and the survey's landing hand; at Tethertown, the
+Earthborn (Kaisa Lehtonen, Gustavo Pires, Annelies de Vries, Yasmin Darwish); at Halcyon Rest, Keeper Ithren Lorrow,
+Skiffmaster Davin Sorell (the zone's one flight path), Teodric Ashlane from the fallen Eighth Ring, Dace Morrow who put
+his lance down, and two traders; out on the islands, Scholar Idris Marrowell of the House of Long Memory, Dr. Ana
+Kealoha with the whales, Elder Merek Vale at the Last Falls, Aqueduct-Warden Lorne Ishay and Bridgewarden Caldus Rhee.
+
+**Creatures** (`tools/build_celestial_expanse_content.py`): 32 in the open, seven of them rares (Old Goldmane, the
+Unbound Core, Forge-Elder Ommun, Ringwarden Kozh, the Pale Serpent, Spire-Captain Alun Vesk, the Old Mouth of the
+Spill), and 7 in the vault's two floors (2 bosses); 36 items; gathering and fishing at 49-51.
+
+**Quests** (`tools/celestial_expanse_quests.py`, `tools/build_celestial_expanse_quests.py`): 43, 33 of them from the
+three hubs. The crash (the wards that shot the skiff down were Kharad), the Kharad (the golems getting up, the core
+under the sword, the forge and its elder, the vault and the storm at its bottom, which shuts the wards off), Tethertown (the last few Earthborn, the ropes, the garden),
+Halcyon Rest (the river road, the ring's bells, the broken citadel, the skiffs flying dark), the Lancer's Perch (the
+deserter and the captain who gave the order), the whales, the Spillway, and the bridge: the herald's seal goes to the
+bridgewarden and the bridge is lowered for you. Reputation: the Aetherians 29; the Earthborn pay nobody.
+
+**A reputation fix.** The Aetherians listed the Sunward Crown as one of their zones, and a zone pays for every quest in
+it, so the Crown's Earthborn quests were paying the Aetherians. Only Lenswatch is a zone now; the Crown's and the
+Expanse's Aetherian quests are listed one by one.
+
+**The sky's one mystery** (Kyle, 20 Nov 2026, `docs/worldtree_brief.md`): the three peoples built the floating world
+together, the alliance fell, and what they built is dying; the mural is the first evidence. The Expanse's piece is the
+Unbound Core: Kharad stone round Aetherian-cut crystal, holding a storm the Veyr sang into it.
+
+**Secrets:** three on the Expanse, placed blind (counts only).
+
+**QA** passed: portals, arrivals, NPC tiles and props, town services, encounter tables (both cave floors resolve
+their own tables), creature sprites and reachability, rares, nodes, gathering, fishing pools, flight paths, factions,
+faction rewards, vendors and stock, collection, keepsakes, secrets, hidden zones, quest givers, hubs, lore, levels,
+objectives and drops, combat backgrounds, exits, chests, start zones, cave smoothing, text encoding. Fixed on the way:
+the Crown's two thin quest drops, its Lenswatch shelf drawn through the archive, and its quests' lore lines (the check
+had no words for the sky's Earthborn places or the Aetherians' "the change"). qa_building_overlap now skips a pair a
+cutscene swaps (the Cloudbreak's mural); it still fails on ten older pairs in the Great Settlement, the Middle Boughs
+and Rootwater Isle, and qa_prop_overlap still counts 137 against its cap of 120, both from before this build.
+
 ## Next
 
-The Celestial Expanse (49-51), then Aurelion, whose gates the Crown's last quest opens. The Celestial raid waits behind
-the cracked seal (three concepts in the brief, Kyle to pick). The Heartwood Hollow is the tree's dungeon when Kyle calls
-it. See `docs/worldtree_brief.md` for the whole road.
+Aurelion, the Aetherian capital, whose sky-bridge the Expanse's last quest lowers. The Aetherian start zone's first two
+maps are named (the White Expanse, 1-6, and the Shattered Reaches, 6-11). The Celestial raid waits behind the
+cracked seal: Kyle wants it "very storm and elemental and norse", and the Stormhold draft is in the brief for his yes.
+The Heartwood Hollow is the tree's dungeon when Kyle calls it. See `docs/worldtree_brief.md` for the whole road.

@@ -734,6 +734,37 @@ LENSWATCH_SHEET.update({
     "av_road_edge":      _sk("sk_island_rock"),
     "av_plaza_stone":    _sk("sk_deck_pale"),
 })
+#: The Celestial Expanse (sheets SK): the open day sky. Spring and dew grass on the islands with wind-grass, clover and
+#: sky-flower meadows ("bluebell"), island rock at the rims where the soil runs out ("beach"), ruin moss on the
+#: Orbiting Ruins ("corrupt"), rubble at the Silent Forge and the Golem Fields ("burned"), cobbled trails, the river and
+#: its pools, old stone spans ("plaza"), and walkable cloud on the Whale Shallows ("satyr").
+EXPANSE_SHEET = dict(CROWN_SHEET)
+EXPANSE_SHEET.update({
+    "av_forest_floor":   _sk("sk_spring_grass"),
+    "av_forest_grass":   _sk("sk_dew_grass"),
+    "av_fern_floor":     _sk("sk_wind_grass"),
+    "av_root_earth":     _sk("sk_dew_grass"),
+    "av_needle_mulch":   _sk("sk_clover"),
+    "av_bluebell":       _sk("sk_skyflower_meadow"),
+    "av_road_centre":    _sk("sk_cobble_path"),
+    "av_road_edge":      _sk("sk_turf_stones"),
+    "av_elven_paving":   _sk("sk_ancient_slabs"),
+    "av_mossy_cobble":   _sk("sk_ruin_moss"),
+    "av_plaza_stone":    _sk("sk_ancient_slabs"),
+    "av_rocky_ground":   _sk("sk_wind_grass"),
+    "av_stream_bed":     _sk("sk_falls_rocks"),
+    "av_lake_mud":       _sk("sk_clover"),
+    "av_lake_shallow":   _sk("sk_river_shallows"),
+    "av_lake_deep":      _sk("sk_river"),
+    "av_moon_rim":       _sk("sk_island_rock"),
+    "av_canopy":         _sk("sk_spring_grass", extra="canopy"),
+    "av_beach":          _sk("sk_island_rock"),
+    "av_wet_sand":       _sk("sk_island_rock"),
+    "av_scorched":       _sk("sk_ruin_rubble"),
+    "av_burned_forest":  _sk("sk_ruin_rubble"),
+    "av_corrupt_ground": _sk("sk_ruin_moss"),
+    "av_fel_earth":      _sk("sk_crystal_sand"),
+})
 WPL_SHEET = _plague_sheet(east=False)
 EPL_SHEET = _plague_sheet(east=True)
 ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_SHEET, "epl_east": EPL_SHEET, "felwood_north": NORTH_SHEET, "stonetalon_east": STONETALON_SHEET,
@@ -751,6 +782,7 @@ ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_S
                "worldtree_cloudbreak": CLOUDBREAK_SHEET,
                "worldtree_sunward_crown": CROWN_SHEET,
                "worldtree_lenswatch": LENSWATCH_SHEET,
+               "worldtree_celestial_expanse": EXPANSE_SHEET,
                "worldtree_great_settlement": GREAT_SETTLEMENT_SHEET}
 
 def _recolour(a, hue, sat, val):
@@ -1238,7 +1270,7 @@ def main():
     if "--preview" in sys.argv:
         preview = sys.argv[sys.argv.index("--preview") + 1]
     sc = int(sys.argv[sys.argv.index("--scale") + 1]) if "--scale" in sys.argv else 4
-    zone = next((z for z in ("worldtree_lenswatch", "worldtree_sunward_crown", "worldtree_cloudbreak", "worldtree_upper_boughs", "worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
+    zone = next((z for z in ("worldtree_celestial_expanse", "worldtree_lenswatch", "worldtree_sunward_crown", "worldtree_cloudbreak", "worldtree_upper_boughs", "worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
     only = None
     if "--region" in sys.argv:       # x0,y0,x1,y1 in tiles: bake only the 20x20 chunks touching it (fast look-dev)
         x0, y0, x1, y1 = map(int, sys.argv[sys.argv.index("--region") + 1].split(","))

@@ -1,0 +1,4077 @@
+{
+  "quests": [
+    {
+      "quest_id": "ceq_what_brought_us_down",
+      "title": "What Brought Us Down",
+      "giver_npc_id": "ce_ilaren",
+      "zone": "celestial_expanse",
+      "level_min": 49,
+      "level_max": 49,
+      "description": "Ilaren Vey watched the light that hit the skiff come up off the islands. The Ward-Spark that still crackles round the wreck is what's left of it, and it hasn't stopped firing.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Ward-Spark",
+          "count": 7,
+          "zone": "celestial_expanse"
+        }
+      ],
+      "accept_text": "Every Ward-Spark round this wreck is a piece of whatever shot us down, and they're still trying to finish the job. Put them out before they set the rest of the skiff alight. I want to look at what they leave behind.",
+      "turn_in_text": "They go out like candles, and they leave a little ash shaped like a letter.\n\nI've seen that letter before, on the seal at the Crown. These wards aren't Aetherian, and they're not new.",
+      "next_quest_id": "ceq_the_wards_were_kharad",
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "unique_item_defs": [
+        {
+          "name": "Crashfall Shield",
+          "slot": "off_hand",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 8,
+            "strength": 3
+          },
+          "secondary_stats": {
+            "block_value": 8
+          },
+          "armor_value": 390,
+          "required_level": 49,
+          "sell_price": 6802,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_21",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 45
+        },
+        {
+          "name": "Crashfall Breeches",
+          "slot": "legs",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 16,
+            "agility": 10
+          },
+          "secondary_stats": {
+            "dodge_rating": 8
+          },
+          "armor_value": 148,
+          "required_level": 49,
+          "sell_price": 8503,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_13"
+        },
+        {
+          "name": "Crashfall Gloves",
+          "slot": "hands",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "arcane_spell_power": 26
+          },
+          "armor_value": 59,
+          "required_level": 49,
+          "sell_price": 5527,
+          "identity": "arcane",
+          "icon_id": "gear_inv_gauntlets_12"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_the_wards_were_kharad",
+      "title": "The Wards Were Kharad",
+      "giver_npc_id": "ce_ilaren",
+      "zone": "celestial_expanse",
+      "level_min": 49,
+      "level_max": 49,
+      "description": "Ilaren has copied the letter the Ward-Sparks leave behind. There's a scholar from the House of Long Memory on the Golem Fields who has spent her whole life on the Kharad, and Ilaren wants her to see it.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "ce_q_ward_sketch",
+          "count": 1,
+          "label": "Take Ilaren's sketch to Scholar Idris Marrowell on the Golem Fields"
+        }
+      ],
+      "accept_text": "My house used to laugh at the House of Long Memory. They said the Kharad built the old stones before we came, and we said they were telling children's stories. Idris Marrowell is up on the Golem Fields, upriver from here. Take her this, and tell her I'm sorry we laughed.",
+      "turn_in_text": "Ilaren Vey sent this, and Ilaren Vey said sorry? I'll have that written down.\n\nIt's Kharad, and it's a ward letter, the one that means strike, and it's cut on every golem lying out on these fields. They're the same makers, and they woke up on the same day.",
+      "next_quest_id": "ceq_they_were_lying_still",
+      "turn_in_npc_id": "ce_golem_scholar",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "ce_q_ward_sketch",
+            "name": "Ilaren's Ward Sketch",
+            "description": "A page from Ilaren Vey's notebook with one Kharad letter drawn on it over and over, each copy neater than the last.",
+            "count": 1
+          }
+        ]
+      },
+      "requires_quests": [
+        "ceq_what_brought_us_down"
+      ],
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "unique_item_defs": [
+        {
+          "name": "Wardreader's Spear",
+          "slot": "main_hand",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 19,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 49
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 10629,
+          "identity": "strength",
+          "icon_id": "gear_inv_spear_04",
+          "weapon_damage_min": 91,
+          "weapon_damage_max": 123,
+          "attack_speed": 3.3,
+          "block_value": 0
+        },
+        {
+          "name": "Wardreader's Hood",
+          "slot": "head",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 53,
+          "required_level": 49,
+          "sell_price": 6802,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_39"
+        },
+        {
+          "name": "Wardreader's Grips",
+          "slot": "hands",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 7,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 86,
+          "required_level": 49,
+          "sell_price": 5527,
+          "identity": "feral",
+          "icon_id": "gear_inv_gauntlets_01"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_the_skiffs_heart",
+      "title": "The Skiff's Heart",
+      "giver_npc_id": "ce_pilot",
+      "zone": "celestial_expanse",
+      "level_min": 49,
+      "level_max": 49,
+      "description": "Skiff-Pilot Varo Senn can't stand yet, but he can count. Half the skiff's crystal is gone, and the Crashfall Scuttler swarming the wreck has been dragging the pieces off.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "ce_q_skiff_crystal",
+          "count": 6
+        }
+      ],
+      "accept_text": "The skiff's crystal broke when we hit, and every Crashfall Scuttler on this rock has carried a piece of it off to its hole. They like anything that shines, even when it's dark. Bring me back what they took, and I'll see if there's enough of her heart left to send a signal.",
+      "turn_in_text": "It's enough for a signal, but it isn't enough to fly.\n\nShe was a good skiff. I'll send word to Halcyon Rest that we're alive, and then I'll sit here and feel sorry for her.",
+      "next_quest_id": null,
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "unique_item_defs": [
+        {
+          "name": "Pilot's Legguards",
+          "slot": "legs",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "nature_spell_power": 27,
+            "haste": 9
+          },
+          "armor_value": 200,
+          "required_level": 49,
+          "sell_price": 8503,
+          "identity": "storm",
+          "icon_id": "gear_inv_pants_08"
+        },
+        {
+          "name": "Pilot's Cloak",
+          "slot": "back",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 19
+          },
+          "armor_value": 38,
+          "required_level": 49,
+          "sell_price": 4677,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_05"
+        },
+        {
+          "name": "Pilot's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 254,
+          "required_level": 49,
+          "sell_price": 6802,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_28"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_stone_in_the_road",
+      "title": "Stone in the Road",
+      "giver_npc_id": "ce_pilot",
+      "zone": "celestial_expanse",
+      "level_min": 49,
+      "level_max": 50,
+      "description": "The road upriver to the Golem Fields is the way to Halcyon Rest and Aurelion. Varo has seen the Golem-Field Rubble rolling over it, and he's sure it wasn't moving last month.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Golem-Field Rubble",
+          "count": 7,
+          "zone": "celestial_expanse"
+        }
+      ],
+      "accept_text": "When my leg holds, I'll be walking that road like the rest of you, and I don't want to walk it round rocks that get up and follow me. The Golem-Field Rubble upriver is moving. Break it up so the road stays a road.",
+      "turn_in_text": "It's rubble that stays where you drop it now, which is how I like my rubble.\n\nThe golems it came off are still out there, though. I saw one sit up this morning.",
+      "next_quest_id": null,
+      "reward_exp": 3640,
+      "reward_gold": 14400,
+      "unique_item_defs": [
+        {
+          "name": "Roadclearer's Staff",
+          "slot": "main_hand",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 19,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 51
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 11080,
+          "identity": "agility",
+          "icon_id": "gear_inv_staff_03",
+          "weapon_damage_min": 93,
+          "weapon_damage_max": 126,
+          "attack_speed": 3.6,
+          "block_value": 0
+        },
+        {
+          "name": "Roadclearer's Belt",
+          "slot": "waist",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 88,
+          "required_level": 49,
+          "sell_price": 4875,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_08"
+        },
+        {
+          "name": "Roadclearer's Band",
+          "slot": "ring",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 5318,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_ring_28"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_the_councils_courtesy",
+      "title": "The Council's Courtesy",
+      "giver_npc_id": "ce_herald",
+      "zone": "celestial_expanse",
+      "level_min": 49,
+      "level_max": 49,
+      "description": "Herald Cassian Orel came down with a case of gifts and the council's own seal, to welcome you to Aurelion properly. The case was thrown clear somewhere in the wreck.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "celestial_expanse",
+          "target_x": 60,
+          "target_y": 198,
+          "radius": 4,
+          "label": "Search the council's wrecked skiff for the herald's seal-case"
+        }
+      ],
+      "accept_text": "The High Houses don't send a guest an invitation without a seal on it, and mine is somewhere in that wreck. The gifts don't matter, but the seal does. If you'll climb in and look, I'll stand here and try not to look like a man who lost the council's seal.",
+      "turn_in_text": "The gifts are glass now, but the seal's whole. That's the first thing that's gone right today.\n\nI can't walk into Aurelion with you yet. The keeper at Halcyon Rest has to hear first that the council's guests are alive.",
+      "next_quest_id": "ceq_word_upriver",
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "unique_item_defs": [
+        {
+          "name": "Herald's Breastplate",
+          "slot": "chest",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 34
+          },
+          "armor_value": 301,
+          "required_level": 49,
+          "sell_price": 8503,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_chest_plate06"
+        },
+        {
+          "name": "Herald's Slippers",
+          "slot": "feet",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 21
+          },
+          "armor_value": 43,
+          "required_level": 49,
+          "sell_price": 5527,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_03"
+        },
+        {
+          "name": "Herald's Wristguards",
+          "slot": "wrist",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 17
+          },
+          "armor_value": 138,
+          "required_level": 49,
+          "sell_price": 4251,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_bracer_03"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_word_upriver",
+      "title": "Word Upriver",
+      "giver_npc_id": "ce_herald",
+      "zone": "celestial_expanse",
+      "level_min": 49,
+      "level_max": 49,
+      "description": "Halcyon Rest is the waystation halfway up the river, and its keeper speaks to the council every evening. Herald Cassian wants him to hear about the crash from someone who walked away from it.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "ce_q_heralds_letter",
+          "count": 1,
+          "label": "Take the herald's letter to Keeper Ithren Lorrow at Halcyon Rest"
+        }
+      ],
+      "accept_text": "Keeper Ithren Lorrow at Halcyon Rest will tell the council anything I write, and he'll believe it more if it comes in your hand. It's upriver, past the Golem Fields and across the Broad Isle. Don't stop for the scenery, it's lovely and most of it bites.",
+      "turn_in_text": "The council's skiff came down, and the council's guests walked here anyway.\n\nI'll send this tonight. I've had a lot of bad news to send lately, and it's good to send some that's only half bad.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "ce_keeper",
+      "requires_quests": [
+        "ceq_the_councils_courtesy"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "ce_q_heralds_letter",
+            "name": "Herald's Letter",
+            "description": "A letter in Herald Cassian Orel's careful hand, sealed with the seal of the High Houses that he was very glad to find again.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "unique_item_defs": [
+        {
+          "name": "Messenger's Longbow",
+          "slot": "ranged",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 6802,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_11",
+          "weapon_damage_min": 57,
+          "weapon_damage_max": 78,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Messenger's Coif",
+          "slot": "head",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 28
+          },
+          "armor_value": 169,
+          "required_level": 49,
+          "sell_price": 6802,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_57"
+        },
+        {
+          "name": "Messenger's Leggings",
+          "slot": "legs",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "spell_power": 31
+          },
+          "armor_value": 62,
+          "required_level": 49,
+          "sell_price": 8503,
+          "identity": "caster",
+          "icon_id": "gear_inv_pants_01"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_something_to_eat",
+      "title": "Something to Eat",
+      "giver_npc_id": "ce_leandro",
+      "zone": "celestial_expanse",
+      "level_min": 49,
+      "level_max": 49,
+      "description": "The skiff's stores went over the edge when it came down. Leandro Arrieta has a fire going and nothing to put on it, and the Cloudfleece Ram is grazing all over Crashfall.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "ce_q_ram_shank",
+          "count": 6
+        }
+      ],
+      "accept_text": "Everything we had to eat is somewhere below us, falling. There's a Cloudfleece Ram on every patch of grass round here, though, and I know how to cook one. Bring me back some shanks, and I'll feed everyone who walked out of that wreck.",
+      "turn_in_text": "Three years up here, and I've learned to cook a sky sheep. My mother would be proud and a little confused.\n\nEat something while it's hot, because there's a long walk upriver, and nobody's carrying you.",
+      "next_quest_id": null,
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "unique_item_defs": [
+        {
+          "name": "Campcook's Knife",
+          "slot": "main_hand",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 8078,
+          "identity": "agility",
+          "icon_id": "gear_inv_weapon_shortblade_18",
+          "weapon_damage_min": 67,
+          "weapon_damage_max": 91,
+          "attack_speed": 1.7,
+          "block_value": 0
+        },
+        {
+          "name": "Campcook's Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 106,
+          "required_level": 49,
+          "sell_price": 6802,
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_21"
+        },
+        {
+          "name": "Campcook's Sabatons",
+          "slot": "feet",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 208,
+          "required_level": 49,
+          "sell_price": 5527,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_plate_05"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_other_earthborn",
+      "title": "Other Earthborn",
+      "giver_npc_id": "ce_leandro",
+      "zone": "celestial_expanse",
+      "level_min": 49,
+      "level_max": 49,
+      "description": "Leandro has heard there are Earth people living on tethered rocks off the Broad Isle. He's never met any Earthborn outside the survey's Annex, and he wants someone to find out if it's true.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "ce_q_leandros_note",
+          "count": 1,
+          "label": "Take Leandro's note to Kaisa Lehtonen in Tethertown"
+        }
+      ],
+      "accept_text": "The survey kept us at the Annex like guests, and I never met another one of us who wasn't on a scholar's list. The Aetherians say there's a place called Tethertown off the Broad Isle where Earth people live on their own. Take them this note, and tell them there's a guy from Buenos Aires who'd like to say hello.",
+      "turn_in_text": "Leandro Arrieta, from Buenos Aires, three years in the sky. I like him already.\n\nThere are thirty-one of us here. Nobody kept us anywhere, so we tied our own rocks together and stayed.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "ce_tether_lead",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "ce_q_leandros_note",
+            "name": "Leandro's Note",
+            "description": "A folded note in Spanish and English, with a little drawing of a football at the bottom.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "unique_item_defs": [
+        {
+          "name": "Earthborn Tome",
+          "slot": "off_hand",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 29
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 5102,
+          "identity": "healer",
+          "icon_id": "gear_inv_tome_1",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        },
+        {
+          "name": "Earthborn Handguards",
+          "slot": "hands",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 10
+          },
+          "armor_value": 224,
+          "required_level": 49,
+          "sell_price": 5527,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_15"
+        },
+        {
+          "name": "Earthborn Girdle",
+          "slot": "waist",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 138,
+          "required_level": 49,
+          "sell_price": 4677,
+          "identity": "hunter",
+          "icon_id": "gear_inv_belt_25"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_mind_the_gangway",
+      "title": "Mind the Gangway",
+      "giver_npc_id": "ce_landing_hand",
+      "zone": "celestial_expanse",
+      "level_min": 49,
+      "level_max": 49,
+      "description": "Landing Hand Hask Merrow keeps the survey's skiff landing on Crashfall. Every Young Crystalback on the rock has decided the gangway's timbers are the best thing to sharpen its back on.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Young Crystalback",
+          "count": 7,
+          "zone": "celestial_expanse"
+        }
+      ],
+      "accept_text": "Every Young Crystalback on Crashfall comes down to the landing at night and rubs its crystals on my gangway, and every morning there's a little less gangway. The skiff from Lenswatch is the only way off this rock. Chase them off for good.",
+      "turn_in_text": "The gangway's still standing, and so am I, which is more than I'd have bet on yesterday.\n\nThe skiff comes down tomorrow. You'll be upriver by then, if you've got any sense.",
+      "next_quest_id": null,
+      "reward_exp": 3560,
+      "reward_gold": 14100,
+      "unique_item_defs": [
+        {
+          "name": "Landing Hand's Mace",
+          "slot": "main_hand",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 8078,
+          "identity": "healer",
+          "icon_id": "gear_inv_mace_09",
+          "weapon_damage_min": 67,
+          "weapon_damage_max": 91,
+          "attack_speed": 2.6,
+          "block_value": 0
+        },
+        {
+          "name": "Landing Hand's Jerkin",
+          "slot": "chest",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 12,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 125,
+          "required_level": 49,
+          "sell_price": 8503,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_04"
+        },
+        {
+          "name": "Landing Hand's Pendant",
+          "slot": "neck",
+          "item_level": 50,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 7,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 5102,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_amulet_04"
+        }
+      ],
+      "gear_reward_gear_level": 50,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_they_were_lying_still",
+      "title": "They Were Lying Still",
+      "giver_npc_id": "ce_golem_scholar",
+      "zone": "celestial_expanse",
+      "level_min": 49,
+      "level_max": 50,
+      "description": "The war-golems lay on these fields for as long as the Aetherians have kept records. Since the seal cracked, every Waking War-Golem has been getting up, and they're all walking the same way.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Waking War-Golem",
+          "count": 8,
+          "zone": "celestial_expanse"
+        }
+      ],
+      "accept_text": "The House of Long Memory has drawings of these golems lying exactly where they fell, three hundred years of drawings. Now every Waking War-Golem on the field is standing up and walking downriver toward the wards. Put them back down. I'll write down where each one falls.",
+      "turn_in_text": "They were walking toward Crashfall, every one of them.\n\nI think they're going back to their posts, to the wards that shot your skiff down. They were made to guard something, and they've remembered.",
+      "next_quest_id": "ceq_the_unbound_core",
+      "requires_quests": [
+        "ceq_the_wards_were_kharad"
+      ],
+      "reward_exp": 3640,
+      "reward_gold": 14400,
+      "unique_item_defs": [
+        {
+          "name": "Golemwarden's Greatsword",
+          "slot": "main_hand",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 19,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 51
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 11080,
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_29",
+          "weapon_damage_min": 93,
+          "weapon_damage_max": 126,
+          "attack_speed": 3.4,
+          "block_value": 0
+        },
+        {
+          "name": "Golemwarden's Bracers",
+          "slot": "wrist",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 88,
+          "required_level": 49,
+          "sell_price": 4432,
+          "identity": "agility",
+          "icon_id": "gear_inv_bracer_01"
+        },
+        {
+          "name": "Golemwarden's Hood",
+          "slot": "head",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "spell_power": 27
+          },
+          "armor_value": 54,
+          "required_level": 49,
+          "sell_price": 7091,
+          "identity": "caster",
+          "icon_id": "gear_inv_helmet_19"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_the_sentinels_still_keep_watch",
+      "title": "The Sentinels Still Keep Watch",
+      "giver_npc_id": "ce_golem_scholar",
+      "zone": "celestial_expanse",
+      "level_min": 49,
+      "level_max": 50,
+      "description": "The Kharad Sentinel didn't lie down with the golems. Idris says each one carries a ward-core cut with the same letter as the wards at Crashfall, and she wants to read them.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "ce_q_ward_core",
+          "count": 5
+        }
+      ],
+      "accept_text": "A Kharad Sentinel never fell with the golems, it just stood still with its eyes shut. Now they've opened them. Every one has a ward-core in its chest cut with the strike letter, and I want them on my table. If I can read the wards, maybe I can tell them to stop.",
+      "turn_in_text": "They're warm, all of them, and they're warm the same way.\n\nThey're answering something. It isn't anything on the fields, it's something in the middle of them, under the sword. I've heard it humming for a week.",
+      "next_quest_id": null,
+      "reward_exp": 3640,
+      "reward_gold": 14400,
+      "unique_item_defs": [
+        {
+          "name": "Sentinel's Hauberk",
+          "slot": "chest",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 11,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "attack_power": 31
+          },
+          "armor_value": 204,
+          "required_level": 49,
+          "sell_price": 8864,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_05"
+        },
+        {
+          "name": "Sentinel's Sash",
+          "slot": "waist",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 22
+          },
+          "armor_value": 44,
+          "required_level": 49,
+          "sell_price": 4875,
+          "identity": "caster",
+          "icon_id": "gear_inv_belt_04"
+        },
+        {
+          "name": "Sentinel's Sabatons",
+          "slot": "feet",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 12,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 10
+          },
+          "armor_value": 212,
+          "required_level": 49,
+          "sell_price": 5762,
+          "identity": "tank",
+          "icon_id": "gear_inv_boots_02"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_the_unbound_core",
+      "title": "The Unbound Core",
+      "giver_npc_id": "ce_golem_scholar",
+      "zone": "celestial_expanse",
+      "level_min": 50,
+      "level_max": 50,
+      "description": "Under the great sword in the middle of the Golem Fields, something is humming. Idris thinks The Unbound Core is what's waking the golems, and that it won't stop until every one of them is standing.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Unbound Core",
+          "count": 1,
+          "zone": "celestial_expanse"
+        }
+      ],
+      "accept_text": "The Unbound Core is what's under the sword, and it's what's waking them. Every time it pulses, another golem stands up. I've spent my life proving the Kharad were real, and I'd love to study it. I'd love even more to still be alive tomorrow, so break it.",
+      "turn_in_text": "The fields are quiet, and the golems that were standing have fallen over where they stood.\n\nI opened what's left of the core. It's Kharad stone round a heart of crystal cut the way only my people cut it, and the storm inside it was sung in, the way the Veyr sing to weather. Three peoples made that golem, and my house doesn't have a single story where they ever stood in the same room. The forge that made them is on the island west of here. Ilaren Vey ought to see it. If the golems woke, the forge might have too.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ceq_they_were_lying_still",
+        "ceq_the_sentinels_still_keep_watch"
+      ],
+      "reward_exp": 4732,
+      "reward_gold": 18720,
+      "unique_item_defs": [
+        {
+          "name": "Corebreaker's Grips",
+          "slot": "hands",
+          "item_level": 52,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 11,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 29
+          },
+          "armor_value": 153,
+          "required_level": 50,
+          "sell_price": 9002,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_27"
+        },
+        {
+          "name": "Corebreaker's Spaulders",
+          "slot": "shoulder",
+          "item_level": 52,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 37
+          },
+          "armor_value": 231,
+          "required_level": 50,
+          "sell_price": 11079,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_shoulder_08"
+        },
+        {
+          "name": "Corebreaker's Pendant",
+          "slot": "neck",
+          "item_level": 52,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "spell_power": 26
+          },
+          "armor_value": 0,
+          "required_level": 50,
+          "sell_price": 8310,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_necklace_08"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ceq_the_sleepers_wake",
+      "title": "The Sleepers Wake",
+      "giver_npc_id": "ce_leandro",
+      "zone": "celestial_expanse",
+      "level_min": 50,
+      "level_max": 51,
+      "description": "The war-golems on the fields came from somewhere, and Idris has found the door. Down in the Golem Vault, the Kharad crews who built them lie in the stone, and Leandro has heard that the Vault Sleeper is waking with the golems.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Vault Sleeper",
+          "count": 6,
+          "zone": "golem_vault"
+        },
+        {
+          "type": "kill",
+          "target": "Thunder-Binder Sleeper",
+          "count": 4,
+          "zone": "golem_vault"
+        }
+      ],
+      "accept_text": "Idris found a door on the west side of the Golem Fields, and she says it goes down to where the Kharad kept their golems. She also says the crews are down there, asleep in the stone, and they're waking up. Every Vault Sleeper and Thunder-Binder Sleeper that gets up is one more giant between us and Aurelion. I'm curious, and I'm not stupid, so you go first.",
+      "turn_in_text": "Giants, real ones, with beards like a mountain and shields like doors.\n\nThree years up here, and I thought I'd seen the strangest thing the sky had. Idris is going to be unbearable about this, and I think she's earned it.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ceq_they_were_lying_still"
+      ],
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "unique_item_defs": [
+        {
+          "name": "Vaultdelver's Cloak",
+          "slot": "back",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 20,
+            "hit_rating": 6
+          },
+          "armor_value": 40,
+          "required_level": 50,
+          "sell_price": 5078,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_02"
+        },
+        {
+          "name": "Vaultdelver's Cuffs",
+          "slot": "wrist",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 27
+          },
+          "armor_value": 45,
+          "required_level": 50,
+          "sell_price": 4616,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_07"
+        },
+        {
+          "name": "Vaultdelver's Legplates",
+          "slot": "legs",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 13,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 32
+          },
+          "armor_value": 313,
+          "required_level": 50,
+          "sell_price": 9233,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_10"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_vault_thane_brask",
+      "title": "Vault-Thane Brask",
+      "giver_npc_id": "ce_leandro",
+      "zone": "celestial_expanse",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "Leandro has heard Idris read the name cut over the wrights' hall in the Golem Vault. Vault-Thane Brask kept the vault, and he's guarding it again.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Vault-Thane Brask",
+          "count": 1,
+          "zone": "golem_vault"
+        }
+      ],
+      "accept_text": "Idris read the name over the hall where the golems were made, and it's Vault-Thane Brask. He was the vault's keeper, and he's awake and keeping it, with his shield up in the wrights' hall. You don't have to go and fight him, but I'd like to know what a giant thane guards so hard.",
+      "turn_in_text": "Plates, hundreds of them, each one cut with a golem's name.\n\nHe wasn't guarding treasure. He was guarding the list of every golem they made, so they'd know which ones came home.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ceq_the_sleepers_wake"
+      ],
+      "reward_exp": 4836,
+      "reward_gold": 19110,
+      "unique_item_defs": [
+        {
+          "name": "Thanebreaker's Cap",
+          "slot": "head",
+          "item_level": 53,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 19,
+            "agility": 12
+          },
+          "secondary_stats": {
+            "dodge_rating": 9
+          },
+          "armor_value": 147,
+          "required_level": 51,
+          "sell_price": 11532,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_17"
+        },
+        {
+          "name": "Thanebreaker's Band",
+          "slot": "ring",
+          "item_level": 53,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 33
+          },
+          "armor_value": 0,
+          "required_level": 51,
+          "sell_price": 8649,
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_ring_23"
+        },
+        {
+          "name": "Thanebreaker's Gauntlets",
+          "slot": "hands",
+          "item_level": 53,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 10,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 27
+          },
+          "armor_value": 192,
+          "required_level": 51,
+          "sell_price": 9369,
+          "identity": "earthen",
+          "icon_id": "gear_inv_gauntlets_11"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ceq_stormwright_yrvald",
+      "title": "Stormwright Yrvald",
+      "giver_npc_id": "ce_pilot",
+      "zone": "celestial_expanse",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "Every golem's core and every ward that fired on the skiff runs on the same storm. Idris has traced it to the Storm-Well, the Golem Vault's lowest floor, and Skiff-Pilot Varo wants it put out by whoever keeps it.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Stormwright Yrvald",
+          "count": 1,
+          "zone": "storm_well"
+        }
+      ],
+      "accept_text": "Idris says the light that killed my skiff's crystal came from a storm the Kharad bound in a well under the Golem Fields, and that one of them still keeps it. Stormwright Yrvald, she calls him. Go down the Deep Stair to the Storm-Well and put him out. I'd go, but I'd have to crawl.",
+      "turn_in_text": "The wards on Crashfall went dark an hour ago. I watched them go.\n\nThat's the first time since we came down that I've felt like a pilot again. Nothing down here will shoot at a skiff now, and I'll fly again.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ceq_the_sleepers_wake"
+      ],
+      "reward_exp": 4836,
+      "reward_gold": 19110,
+      "unique_item_defs": [
+        {
+          "name": "Stormbreaker's Staff",
+          "slot": "main_hand",
+          "item_level": 53,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 29
+          },
+          "secondary_stats": {
+            "spell_power": 66
+          },
+          "armor_value": 0,
+          "required_level": 51,
+          "sell_price": 18018,
+          "identity": "caster",
+          "icon_id": "gear_inv_staff_27",
+          "weapon_damage_min": 51,
+          "weapon_damage_max": 69,
+          "attack_speed": 3.2,
+          "block_value": 0
+        },
+        {
+          "name": "Stormbreaker's Jerkin",
+          "slot": "chest",
+          "item_level": 53,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 17,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "attack_power": 43
+          },
+          "armor_value": 173,
+          "required_level": 51,
+          "sell_price": 14414,
+          "identity": "strength",
+          "icon_id": "gear_inv_chest_leather_06"
+        },
+        {
+          "name": "Stormbreaker's Waistguard",
+          "slot": "waist",
+          "item_level": 53,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 31
+          },
+          "armor_value": 289,
+          "required_level": 51,
+          "sell_price": 7928,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_belt_20"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ceq_the_forge_is_warm",
+      "title": "The Forge Is Warm",
+      "giver_npc_id": "ce_ilaren",
+      "zone": "celestial_expanse",
+      "level_min": 50,
+      "level_max": 51,
+      "description": "Idris told Ilaren what she found, and Ilaren has been looking west ever since. The Silent Forge has been cold for ages, and now there's smoke over it, with a Forge Guardian at the door and an Ancestral Smith at the anvil.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Forge Guardian",
+          "count": 7,
+          "zone": "celestial_expanse"
+        },
+        {
+          "type": "kill",
+          "target": "Ancestral Smith",
+          "count": 5,
+          "zone": "celestial_expanse"
+        }
+      ],
+      "accept_text": "Idris says the golems were made at the Silent Forge, on the island west of the fields, and there's smoke over it for the first time in anyone's memory. A Forge Guardian stands at every door and an Ancestral Smith is working at every anvil, and I don't want to find out what they're making. Put out the forge's keepers.",
+      "turn_in_text": "They weren't making golems. They were mending them, the ones that fell on the fields, piece by piece.\n\nI think something in there still gives the orders. The smiths were all turned toward the biggest anvil.",
+      "next_quest_id": "ceq_forge_elder_ommun",
+      "requires_quests": [
+        "ceq_the_unbound_core"
+      ],
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "unique_item_defs": [
+        {
+          "name": "Forgewatch Mantle",
+          "slot": "shoulder",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "spell_power": 27
+          },
+          "armor_value": 188,
+          "required_level": 50,
+          "sell_price": 7386,
+          "identity": "caster",
+          "icon_id": "gear_inv_shoulder_08"
+        },
+        {
+          "name": "Forgewatch Breeches",
+          "slot": "legs",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 13,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 32
+          },
+          "armor_value": 130,
+          "required_level": 50,
+          "sell_price": 9233,
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_wolf"
+        },
+        {
+          "name": "Forgewatch Vambraces",
+          "slot": "wrist",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 12,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 10
+          },
+          "armor_value": 232,
+          "required_level": 50,
+          "sell_price": 4616,
+          "identity": "tank",
+          "icon_id": "gear_inv_bracer_08"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_glass_that_burns",
+      "title": "Glass That Burns",
+      "giver_npc_id": "ce_skiffmaster",
+      "zone": "celestial_expanse",
+      "level_min": 50,
+      "level_max": 51,
+      "description": "Skiffmaster Davin Sorell keeps his skiffs flying with their crystals hooded so the old wards don't see them. The best hood is crystal that doesn't shine, and the Molten Crystal Elemental at the forge sets into exactly that.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "ce_q_forge_glass",
+          "count": 5
+        }
+      ],
+      "accept_text": "My hoods are cloth, and cloth slips. The Molten Crystal Elemental at the Silent Forge turns cloudy and dull when it cools, and dull is what I need. Bring me back the cooled glass, and I'll make hoods that the wards won't see through.",
+      "turn_in_text": "It's ugly, and it's perfect.\n\nMy skiffs will fly safer with this on them than they've flown since the seal cracked. I'll owe you a seat on any one of them, for as long as I'm flying.",
+      "next_quest_id": null,
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "unique_item_defs": [
+        {
+          "name": "Skiffmaster's Shield",
+          "slot": "off_hand",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 19,
+            "haste": 5
+          },
+          "armor_value": 405,
+          "required_level": 50,
+          "sell_price": 7386,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_shield_18",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 47
+        },
+        {
+          "name": "Skiffmaster's Greaves",
+          "slot": "feet",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 144,
+          "required_level": 50,
+          "sell_price": 6001,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_06"
+        },
+        {
+          "name": "Skiffmaster's Robe",
+          "slot": "chest",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 11,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "healing_power": 29
+          },
+          "armor_value": 88,
+          "required_level": 50,
+          "sell_price": 9233,
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_shirt_purple_01"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_forge_elder_ommun",
+      "title": "Forge-Elder Ommun",
+      "giver_npc_id": "ce_ilaren",
+      "zone": "celestial_expanse",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "The smiths at the Silent Forge all face the biggest anvil. Ilaren has read the name cut over it, and he's sure Forge-Elder Ommun is the one still giving the forge its orders.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Forge-Elder Ommun",
+          "count": 1,
+          "zone": "celestial_expanse"
+        }
+      ],
+      "accept_text": "The name over the biggest anvil is Ommun, and the letter after it means elder. Forge-Elder Ommun's still working in there, mending golems for a war that ended before my people learned to build. Go in and put the old smith to rest.",
+      "turn_in_text": "Ommun's hammer stopped, and the forge went cold the moment it did.\n\nI'll write all of this down for the council. The Kharad were here first, they made weapons, and their weapons are waking up. That should make the High Houses very quiet for once.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ceq_the_forge_is_warm"
+      ],
+      "reward_exp": 4836,
+      "reward_gold": 19110,
+      "unique_item_defs": [
+        {
+          "name": "Forge-Elder's Bane Shield",
+          "slot": "off_hand",
+          "item_level": 53,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 4
+          },
+          "secondary_stats": {
+            "block_value": 11
+          },
+          "armor_value": 540,
+          "required_level": 51,
+          "sell_price": 11532,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_18",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 63
+        },
+        {
+          "name": "Forge-Elder's Bane Breeches",
+          "slot": "legs",
+          "item_level": 53,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 22,
+            "agility": 14
+          },
+          "secondary_stats": {
+            "dodge_rating": 11
+          },
+          "armor_value": 173,
+          "required_level": 51,
+          "sell_price": 14414,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_07"
+        },
+        {
+          "name": "Forge-Elder's Bane Gloves",
+          "slot": "hands",
+          "item_level": 53,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "arcane_spell_power": 36
+          },
+          "armor_value": 60,
+          "required_level": 51,
+          "sell_price": 9369,
+          "identity": "arcane",
+          "icon_id": "gear_inv_gauntlets_21"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ceq_the_last_few",
+      "title": "The Last Few",
+      "giver_npc_id": "ce_tether_lead",
+      "zone": "celestial_expanse",
+      "level_min": 49,
+      "level_max": 50,
+      "description": "Thirty-one Earthborn woke on these islands, and Kaisa Lehtonen has found twenty-eight of them. She has two places left to look, the old observatory on the Broad Isle and the edge of the Last Falls.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "celestial_expanse",
+          "target_x": 142,
+          "target_y": 126,
+          "radius": 4,
+          "label": "Search the old observatory on the Broad Isle"
+        },
+        {
+          "type": "explore",
+          "target": "celestial_expanse",
+          "target_x": 22,
+          "target_y": 242,
+          "radius": 4,
+          "label": "Search the edge of the Last Falls"
+        }
+      ],
+      "accept_text": "I've found twenty-eight of us, and there are three I haven't. Somebody saw a light in the old observatory on the Broad Isle, and somebody else saw footprints going down to the Last Falls. I can't leave the camp for long. Go and look, and bring back anything you find, even if it's bad.",
+      "turn_in_text": "A coat with a Toronto transit pass in the pocket at the observatory, and a fire that's been lit this week.\n\nNothing at the falls but the falls. I'll take the coat, and I'll take the fire. Someone's alive out there.",
+      "next_quest_id": "ceq_old_goldmane",
+      "reward_exp": 3640,
+      "reward_gold": 14400,
+      "unique_item_defs": [
+        {
+          "name": "Searcher's Spear",
+          "slot": "main_hand",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 19,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 51
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 11080,
+          "identity": "strength",
+          "icon_id": "gear_inv_weapon_halberd_09",
+          "weapon_damage_min": 93,
+          "weapon_damage_max": 126,
+          "attack_speed": 3.3,
+          "block_value": 0
+        },
+        {
+          "name": "Searcher's Hood",
+          "slot": "head",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 33
+          },
+          "armor_value": 73,
+          "required_level": 49,
+          "sell_price": 7091,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_15"
+        },
+        {
+          "name": "Searcher's Grips",
+          "slot": "hands",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 7,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 88,
+          "required_level": 49,
+          "sell_price": 5762,
+          "identity": "feral",
+          "icon_id": "gear_inv_gauntlets_02"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_old_goldmane",
+      "title": "Old Goldmane",
+      "giver_npc_id": "ce_tether_lead",
+      "zone": "celestial_expanse",
+      "level_min": 50,
+      "level_max": 50,
+      "description": "Kaisa's search parties keep turning back on the Broad Isle. An old lion with a gold mane follows them through the long grass, and Old Goldmane is the reason nobody's searched the island properly.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Old Goldmane",
+          "count": 1,
+          "zone": "celestial_expanse"
+        }
+      ],
+      "accept_text": "Every time we go out on the Broad Isle, Old Goldmane follows us. He's the biggest lion I've ever seen, and he doesn't attack, he just walks behind us in the grass until we lose our nerve. Whoever lit that fire at the observatory is living with him. Make the Broad Isle safe to search.",
+      "turn_in_text": "We went out again this morning, with nothing behind us.\n\nWe found her, a woman from Toronto who'd been living in the observatory for a year. She'd been hiding from the lion too, and now there are two still out there.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ceq_the_last_few"
+      ],
+      "reward_exp": 4732,
+      "reward_gold": 18720,
+      "unique_item_defs": [
+        {
+          "name": "Goldmane's Bane Legguards",
+          "slot": "legs",
+          "item_level": 52,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "nature_spell_power": 38,
+            "haste": 12
+          },
+          "armor_value": 273,
+          "required_level": 50,
+          "sell_price": 13849,
+          "identity": "storm",
+          "icon_id": "gear_inv_pants_05"
+        },
+        {
+          "name": "Goldmane's Bane Cloak",
+          "slot": "back",
+          "item_level": 52,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "spell_power": 26
+          },
+          "armor_value": 52,
+          "required_level": 50,
+          "sell_price": 7617,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_22"
+        },
+        {
+          "name": "Goldmane's Bane Pauldrons",
+          "slot": "shoulder",
+          "item_level": 52,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 14,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 36
+          },
+          "armor_value": 346,
+          "required_level": 50,
+          "sell_price": 11079,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_08"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ceq_hawks_on_the_lines",
+      "title": "Hawks on the Lines",
+      "giver_npc_id": "ce_tether_rigger",
+      "zone": "celestial_expanse",
+      "level_min": 49,
+      "level_max": 50,
+      "description": "Gustavo Pires tied Tethertown's rocks together with every rope the Earthborn could find. The Gale Hawk nests on the lines, and the hawks pick at them until they fray.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Gale Hawk",
+          "count": 8,
+          "zone": "celestial_expanse"
+        }
+      ],
+      "accept_text": "Every Gale Hawk on the Broad Isle thinks my ropes are the best perch in the sky, and they pick at them while they sit there. If a line frays, a rock with a house on it drifts off. Thin them out, please, before I'm tying knots in the dark again.",
+      "turn_in_text": "Nothing's sitting on my lines, and nothing's picking them.\n\nI'll be honest, I like the hawks. I just like my neighbours more, and my neighbours live on the end of those ropes.",
+      "next_quest_id": null,
+      "reward_exp": 3640,
+      "reward_gold": 14400,
+      "unique_item_defs": [
+        {
+          "name": "Rigger's Staff",
+          "slot": "main_hand",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 19,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 51
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 11080,
+          "identity": "agility",
+          "icon_id": "gear_inv_staff_10",
+          "weapon_damage_min": 93,
+          "weapon_damage_max": 126,
+          "attack_speed": 3.6,
+          "block_value": 0
+        },
+        {
+          "name": "Rigger's Belt",
+          "slot": "waist",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 88,
+          "required_level": 49,
+          "sell_price": 4875,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_33"
+        },
+        {
+          "name": "Rigger's Band",
+          "slot": "ring",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 5318,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_ring_10"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_sinew_for_rope",
+      "title": "Sinew for Rope",
+      "giver_npc_id": "ce_tether_rigger",
+      "zone": "celestial_expanse",
+      "level_min": 49,
+      "level_max": 50,
+      "description": "Tethertown's ropes are old and Earth-made, and Gustavo can't make more. The Skymane Lion on the Broad Isle has sinew stronger than any of them.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "ce_q_lion_sinew",
+          "count": 5
+        }
+      ],
+      "accept_text": "My ropes are climbing rope and ship rope and one very long extension cord, and they won't last forever. Every Skymane Lion on the Broad Isle has sinew that'd hold a house. Bring me some, and I'll braid lines that outlast all of us.",
+      "turn_in_text": "That's lovely sinew. I've never said that before, and I hope I'll never have to again.\n\nI'll braid it tonight. The second rock's line is the oldest, so it gets the first new one.",
+      "next_quest_id": null,
+      "reward_exp": 3640,
+      "reward_gold": 14400,
+      "unique_item_defs": [
+        {
+          "name": "Ropemaker's Breastplate",
+          "slot": "chest",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 34
+          },
+          "armor_value": 307,
+          "required_level": 49,
+          "sell_price": 8864,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_chest_plate15"
+        },
+        {
+          "name": "Ropemaker's Slippers",
+          "slot": "feet",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 22
+          },
+          "armor_value": 44,
+          "required_level": 49,
+          "sell_price": 5762,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_06"
+        },
+        {
+          "name": "Ropemaker's Wristguards",
+          "slot": "wrist",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 9,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 17
+          },
+          "armor_value": 141,
+          "required_level": 49,
+          "sell_price": 4432,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_bracer_17"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_check_the_knots",
+      "title": "Check the Knots",
+      "giver_npc_id": "ce_tether_rigger",
+      "zone": "celestial_expanse",
+      "level_min": 50,
+      "level_max": 50,
+      "description": "The new line's on the second rock, and Gustavo can't cross to check it without leaving the main lines untended. He wants someone to go over the planks and look at the knots.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "celestial_expanse",
+          "target_x": 227,
+          "target_y": 108,
+          "radius": 4,
+          "label": "Cross the planks and check the knots on Tethertown's second rock"
+        }
+      ],
+      "accept_text": "Go across the planks to the second rock and look at every knot I tied. If one's slipping, you'll see the rope pale where it's pulled. I'd go myself, but if I step away from the main lines, something always goes wrong while I'm gone.",
+      "turn_in_text": "Every knot holding, and the new line taking the weight. That's a good day's work for a guy from Rio.\n\nIt's a strange thing to be proud of, tying rocks to the sky. I'm proud of it anyway.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ceq_sinew_for_rope"
+      ],
+      "reward_exp": 3640,
+      "reward_gold": 14400,
+      "unique_item_defs": [
+        {
+          "name": "Knotkeeper's Longbow",
+          "slot": "ranged",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 0,
+          "required_level": 50,
+          "sell_price": 7091,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_03",
+          "weapon_damage_min": 58,
+          "weapon_damage_max": 79,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Knotkeeper's Coif",
+          "slot": "head",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 29
+          },
+          "armor_value": 173,
+          "required_level": 50,
+          "sell_price": 7091,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_05"
+        },
+        {
+          "name": "Knotkeeper's Leggings",
+          "slot": "legs",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "spell_power": 32
+          },
+          "armor_value": 63,
+          "required_level": 50,
+          "sell_price": 8864,
+          "identity": "caster",
+          "icon_id": "gear_inv_pants_01"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_boars_in_the_rows",
+      "title": "Boars in the Rows",
+      "giver_npc_id": "ce_tether_farmer",
+      "zone": "celestial_expanse",
+      "level_min": 49,
+      "level_max": 50,
+      "description": "Annelies de Vries has planted every Earth seed she carried in sky soil. The Crystalback Boar digs her rows up every night, and the young ones follow.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Crystalback Boar",
+          "count": 7,
+          "zone": "celestial_expanse"
+        },
+        {
+          "type": "kill",
+          "target": "Young Crystalback",
+          "count": 5,
+          "zone": "celestial_expanse"
+        }
+      ],
+      "accept_text": "Every Crystalback Boar on the Broad Isle comes down to my rows at night and roots up whatever I planted, and the Young Crystalback follows along to learn how. I grew forty hectares of tomatoes under glass back home in Westland, and I'd never had a pest with crystals on its back. Keep them out of my garden.",
+      "turn_in_text": "The rows are whole, and the blue tomatoes are still coming up.\n\nI tasted one this morning. It tasted like a tomato that had been somewhere strange, and I think that's what we all taste like now.",
+      "next_quest_id": null,
+      "reward_exp": 3640,
+      "reward_gold": 14400,
+      "unique_item_defs": [
+        {
+          "name": "Gardener's Knife",
+          "slot": "main_hand",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 8421,
+          "identity": "agility",
+          "icon_id": "gear_inv_throwingknife_05",
+          "weapon_damage_min": 69,
+          "weapon_damage_max": 93,
+          "attack_speed": 1.7,
+          "block_value": 0
+        },
+        {
+          "name": "Gardener's Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 33
+          },
+          "armor_value": 108,
+          "required_level": 49,
+          "sell_price": 7091,
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_21"
+        },
+        {
+          "name": "Gardener's Sabatons",
+          "slot": "feet",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 318,
+          "required_level": 49,
+          "sell_price": 5762,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_06"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_seeds_in_sky_soil",
+      "title": "Seeds in Sky Soil",
+      "giver_npc_id": "ce_tether_farmer",
+      "zone": "celestial_expanse",
+      "level_min": 49,
+      "level_max": 50,
+      "description": "Annelies wants to know what grows wild up here before she plants anything else. Sungrass grows all over the islands, and she wants enough to plant beside her own seeds.",
+      "objectives": [
+        {
+          "type": "gather",
+          "target": "herb_sungrass",
+          "count": 6,
+          "label": "Gather Sungrass on the islands"
+        }
+      ],
+      "accept_text": "I want to see what the sky soil likes before I spend another seed. Sungrass grows wild all over these islands, so gather me some, and I'll plant it next to the tomatoes. If they grow well together, we'll eat better this winter.",
+      "turn_in_text": "They'll grow together. Look at the roots on this, they're already reaching for each other.\n\nYou've done more for this garden than anyone except me. Take something for the road.",
+      "next_quest_id": null,
+      "reward_exp": 3640,
+      "reward_gold": 14400,
+      "unique_item_defs": [
+        {
+          "name": "Seedkeeper's Tome",
+          "slot": "off_hand",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 0,
+          "required_level": 49,
+          "sell_price": 5318,
+          "identity": "healer",
+          "icon_id": "gear_inv_tome_8",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        },
+        {
+          "name": "Seedkeeper's Handguards",
+          "slot": "hands",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 12,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 10
+          },
+          "armor_value": 212,
+          "required_level": 49,
+          "sell_price": 5762,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_17"
+        },
+        {
+          "name": "Seedkeeper's Girdle",
+          "slot": "waist",
+          "item_level": 51,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 157,
+          "required_level": 49,
+          "sell_price": 4875,
+          "identity": "hunter",
+          "icon_id": "gear_inv_belt_30"
+        }
+      ],
+      "gear_reward_gear_level": 51,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_the_road_from_the_spillway",
+      "title": "The Road From the Spillway",
+      "giver_npc_id": "ce_keeper",
+      "zone": "celestial_expanse",
+      "level_min": 50,
+      "level_max": 51,
+      "description": "Refugees from the fallen Eighth Ring walk down from the Spillway to Halcyon Rest. Keeper Ithren Lorrow has lost two of them on the way to the Skymane Lion hunting the river road.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Skymane Lion",
+          "count": 7,
+          "zone": "celestial_expanse"
+        }
+      ],
+      "accept_text": "The people from the Eighth Ring walk down the river to us because the city has nowhere to put them. Every Skymane Lion on the Broad Isle has learned that the river road is full of tired people. Hunt them, so the next ones who walk down here don't get eaten on the way.",
+      "turn_in_text": "The road's quiet, and the last group walked in without a scratch.\n\nThey asked who'd cleared it, and I told them a guest of the council. They didn't believe the council had guests, and since the change, nobody in Aurelion believes much of what they're told. I'm not sure I did either.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ceq_word_upriver"
+      ],
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "unique_item_defs": [
+        {
+          "name": "Waywarden's Mace",
+          "slot": "main_hand",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 33
+          },
+          "armor_value": 0,
+          "required_level": 50,
+          "sell_price": 8771,
+          "identity": "healer",
+          "icon_id": "gear_inv_mace_12",
+          "weapon_damage_min": 70,
+          "weapon_damage_max": 95,
+          "attack_speed": 2.6,
+          "block_value": 0
+        },
+        {
+          "name": "Waywarden's Jerkin",
+          "slot": "chest",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 13,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 130,
+          "required_level": 50,
+          "sell_price": 9233,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_05"
+        },
+        {
+          "name": "Waywarden's Pendant",
+          "slot": "neck",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 0,
+          "required_level": 50,
+          "sell_price": 5540,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_necklace_11"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_the_broken_citadel",
+      "title": "The Broken Citadel",
+      "giver_npc_id": "ce_keeper",
+      "zone": "celestial_expanse",
+      "level_min": 50,
+      "level_max": 51,
+      "description": "In the middle of the Orbiting Ruins stands a broken citadel that the Aetherians never built. Keeper Ithren has heard Idris's news about the Kharad, and he wants to know if the citadel is theirs.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "celestial_expanse",
+          "target_x": 72,
+          "target_y": 68,
+          "radius": 4,
+          "label": "Stand in front of the broken citadel in the middle of the Orbiting Ruins"
+        }
+      ],
+      "accept_text": "Halcyon Rest has looked out at the Orbiting Ruins for three hundred years, and none of us ever asked who built them. If the scholar's right about the Kharad, that citadel is theirs. Walk out across the ring and look at it, and tell me if it's cut with the same letters.",
+      "turn_in_text": "The strike letter on the gate, and the guard letter all round it.\n\nIt's Kharad, then. We've been drinking tea and watching a Kharad fortress turn for three hundred years, and we thought it was pretty.",
+      "next_quest_id": null,
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "unique_item_defs": [
+        {
+          "name": "Citadel Greatsword",
+          "slot": "main_hand",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 21,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 51
+          },
+          "armor_value": 0,
+          "required_level": 50,
+          "sell_price": 11541,
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_46",
+          "weapon_damage_min": 94,
+          "weapon_damage_max": 128,
+          "attack_speed": 3.4,
+          "block_value": 0
+        },
+        {
+          "name": "Citadel Bracers",
+          "slot": "wrist",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 90,
+          "required_level": 50,
+          "sell_price": 4616,
+          "identity": "agility",
+          "icon_id": "gear_inv_bracer_03"
+        },
+        {
+          "name": "Citadel Hood",
+          "slot": "head",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "spell_power": 27
+          },
+          "armor_value": 55,
+          "required_level": 50,
+          "sell_price": 7386,
+          "identity": "caster",
+          "icon_id": "gear_inv_helmet_06"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_the_bells_of_the_ring",
+      "title": "The Bells of the Ring",
+      "giver_npc_id": "ce_refugee",
+      "zone": "celestial_expanse",
+      "level_min": 50,
+      "level_max": 51,
+      "description": "Teodric Ashlane was at the market when the Eighth Ring fell, and the bells on the Orbiting Ruins rang that morning. The Bellringer Sprite still rings them, and he can hear them from Halcyon Rest.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Bellringer Sprite",
+          "count": 7,
+          "zone": "celestial_expanse"
+        }
+      ],
+      "accept_text": "The bells out on the ring rang the morning the Eighth Ring fell. Every Bellringer Sprite out there rings them every morning since, and every morning I wake up thinking it's that morning again. Make them stop, please. I'd like to wake up in this one.",
+      "turn_in_text": "It's quiet out there, and I slept until the sun was up.\n\nThe Eighth Ring stood for nine hundred years and fell two years after the change, and nobody in Aurelion can tell you why. I don't know if the bells knew. I don't know if they rang because the ring was falling, or if the ring fell and they rang. I'd still rather not hear them.",
+      "next_quest_id": null,
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "unique_item_defs": [
+        {
+          "name": "Bellsilencer's Hauberk",
+          "slot": "chest",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 11,
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "attack_power": 32
+          },
+          "armor_value": 208,
+          "required_level": 50,
+          "sell_price": 9233,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_12"
+        },
+        {
+          "name": "Bellsilencer's Sash",
+          "slot": "waist",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 22
+          },
+          "armor_value": 45,
+          "required_level": 50,
+          "sell_price": 5078,
+          "identity": "caster",
+          "icon_id": "gear_inv_belt_18"
+        },
+        {
+          "name": "Bellsilencer's Sabatons",
+          "slot": "feet",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 12,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 10
+          },
+          "armor_value": 216,
+          "required_level": 50,
+          "sell_price": 6001,
+          "identity": "tank",
+          "icon_id": "gear_inv_boots_plate_07"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_wyrms_on_the_ring",
+      "title": "Wyrms on the Ring",
+      "giver_npc_id": "ce_refugee",
+      "zone": "celestial_expanse",
+      "level_min": 50,
+      "level_max": 51,
+      "description": "Teodric wants to go out to the Orbiting Ruins and see the bells for himself. The Ringwind Wyrm coils round every span of the ring, and he isn't a fighter.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Ringwind Wyrm",
+          "count": 8,
+          "zone": "celestial_expanse"
+        }
+      ],
+      "accept_text": "I want to stand by those bells and look at them, just once, without hearing them. I can't fight, and every Ringwind Wyrm on the ring coils round the spans like they're its own. Clear them off, and I'll walk out there myself.",
+      "turn_in_text": "I went out this morning and stood under the biggest bell.\n\nIt's just bronze, cut with letters I can't read. I thought it'd be bigger, or worse. Something in the citadel was watching me the whole time, though.",
+      "next_quest_id": "ceq_ringwarden_kozh",
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "unique_item_defs": [
+        {
+          "name": "Wyrmwatch Grips",
+          "slot": "hands",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 90,
+          "required_level": 50,
+          "sell_price": 6001,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_12"
+        },
+        {
+          "name": "Wyrmwatch Spaulders",
+          "slot": "shoulder",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 29
+          },
+          "armor_value": 176,
+          "required_level": 50,
+          "sell_price": 7386,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_shoulder_26"
+        },
+        {
+          "name": "Wyrmwatch Pendant",
+          "slot": "neck",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 20
+          },
+          "armor_value": 0,
+          "required_level": 50,
+          "sell_price": 5540,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_amulet_04"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_ringwarden_kozh",
+      "title": "Ringwarden Kozh",
+      "giver_npc_id": "ce_refugee",
+      "zone": "celestial_expanse",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "Something in the broken citadel watched Teodric the whole time he stood under the bells. The stone keeper of the ring is Ringwarden Kozh, and it's started walking the spans.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Ringwarden Kozh",
+          "count": 1,
+          "zone": "celestial_expanse"
+        }
+      ],
+      "accept_text": "It was Ringwarden Kozh, a stone thing as tall as a house, and it watched me from the citadel gate. Today it walked out onto the ring and pushed a pilgrim off the spans. Nobody's going to walk out there again while it's standing.",
+      "turn_in_text": "It's down, and the ring's still turning without it.\n\nI'll go out again tomorrow and stand under the bells. I think I'll do it every morning, for my street.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ceq_wyrms_on_the_ring",
+        "ceq_the_bells_of_the_ring"
+      ],
+      "reward_exp": 4836,
+      "reward_gold": 19110,
+      "unique_item_defs": [
+        {
+          "name": "Ringwarden's Bane Cloak",
+          "slot": "back",
+          "item_level": 53,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 31,
+            "hit_rating": 7
+          },
+          "armor_value": 53,
+          "required_level": 51,
+          "sell_price": 7928,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_01"
+        },
+        {
+          "name": "Ringwarden's Bane Cuffs",
+          "slot": "wrist",
+          "item_level": 53,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 37
+          },
+          "armor_value": 60,
+          "required_level": 51,
+          "sell_price": 7207,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_09"
+        },
+        {
+          "name": "Ringwarden's Bane Legplates",
+          "slot": "legs",
+          "item_level": 53,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 17,
+            "stamina": 10
+          },
+          "secondary_stats": {
+            "attack_power": 43
+          },
+          "armor_value": 417,
+          "required_level": 51,
+          "sell_price": 14414,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_09"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ceq_eyes_over_the_river",
+      "title": "Eyes Over the River",
+      "giver_npc_id": "ce_skiffmaster",
+      "zone": "celestial_expanse",
+      "level_min": 50,
+      "level_max": 51,
+      "description": "The Ascendancy flies scouts over the river from the Lancer's Perch. Skiffmaster Davin wants their patrol routes, and the Ascendancy Scout Construct carries them etched on a crystal plate.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "ce_q_patrol_log",
+          "count": 5
+        }
+      ],
+      "accept_text": "Every Ascendancy Scout Construct that flies over the river from the Lancer's Perch carries a log of where it flew and when. Bring me those logs, and I'll know where they'll be tomorrow. My skiffs will be somewhere else.",
+      "turn_in_text": "They fly the same routes every day, like clockwork, which is a thing the Earthborn say.\n\nThat's enough to keep my skiffs out of their way for a season. The Ascendancy isn't very imaginative.",
+      "next_quest_id": null,
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "unique_item_defs": [
+        {
+          "name": "Skyreader's Cap",
+          "slot": "head",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 14,
+            "agility": 9
+          },
+          "secondary_stats": {
+            "dodge_rating": 7
+          },
+          "armor_value": 130,
+          "required_level": 50,
+          "sell_price": 7386,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_35"
+        },
+        {
+          "name": "Skyreader's Band",
+          "slot": "ring",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 4
+          },
+          "secondary_stats": {
+            "healing_power": 24
+          },
+          "armor_value": 0,
+          "required_level": 50,
+          "sell_price": 5540,
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_ring_19"
+        },
+        {
+          "name": "Skyreader's Gauntlets",
+          "slot": "hands",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 7,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 22
+          },
+          "armor_value": 144,
+          "required_level": 50,
+          "sell_price": 6001,
+          "identity": "earthen",
+          "icon_id": "gear_inv_gauntlets_32"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_the_lancers_perch",
+      "title": "The Lancer's Perch",
+      "giver_npc_id": "ce_deserter",
+      "zone": "celestial_expanse",
+      "level_min": 50,
+      "level_max": 51,
+      "description": "Dace Morrow served at the Lancer's Perch until he put his lance down. He knows what used to stand under the watch-spire, and he wants to know what stands there now.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "celestial_expanse",
+          "target_x": 270,
+          "target_y": 112,
+          "radius": 4,
+          "label": "Get under the Ascendancy's watch-spire on the Lancer's Perch and count what's there"
+        }
+      ],
+      "accept_text": "I walked off the Perch with nothing but my boots, and they'll have added to it since. Cross the chains from here and get under the watch-spire. Count the guns, count the tents, and count the lancers on the rest. Don't let them see you, they'll know who sent you.",
+      "turn_in_text": "Two guns where there was one, and twice the tents.\n\nThey're not watching the river any more. They're getting ready to close it, and anyone who wants to walk to Aurelion will have to walk under their guns.",
+      "next_quest_id": "ceq_lances_down",
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "unique_item_defs": [
+        {
+          "name": "Deserter's Staff",
+          "slot": "main_hand",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 22
+          },
+          "secondary_stats": {
+            "spell_power": 49
+          },
+          "armor_value": 0,
+          "required_level": 50,
+          "sell_price": 11541,
+          "identity": "caster",
+          "icon_id": "gear_inv_staff_26",
+          "weapon_damage_min": 38,
+          "weapon_damage_max": 52,
+          "attack_speed": 3.2,
+          "block_value": 0
+        },
+        {
+          "name": "Deserter's Jerkin",
+          "slot": "chest",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 13,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 32
+          },
+          "armor_value": 130,
+          "required_level": 50,
+          "sell_price": 9233,
+          "identity": "strength",
+          "icon_id": "gear_inv_chest_leather_10"
+        },
+        {
+          "name": "Deserter's Waistguard",
+          "slot": "waist",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 24
+          },
+          "armor_value": 216,
+          "required_level": 50,
+          "sell_price": 5078,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_belt_12"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_lances_down",
+      "title": "Lances Down",
+      "giver_npc_id": "ce_deserter",
+      "zone": "celestial_expanse",
+      "level_min": 50,
+      "level_max": 51,
+      "description": "Dace knows every Perch Lancer on the rest, and he knows they'll fire on anyone they're ordered to. He wants them to know what that costs.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Perch Lancer",
+          "count": 7,
+          "zone": "celestial_expanse"
+        }
+      ],
+      "accept_text": "I trained half of them myself. Every Perch Lancer on that rest will fire on refugees if the captain says so, because I would have, once. Go up and break them. I don't want them dead because I hate them. I want them dead because they won't put their lances down.",
+      "turn_in_text": "You did what I couldn't do, and I'm grateful, and I feel sick about it.\n\nThat's two feelings, and they're both true. The captain's still up there.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ceq_the_lancers_perch"
+      ],
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "unique_item_defs": [
+        {
+          "name": "Lancebreaker's Mantle",
+          "slot": "shoulder",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "spell_power": 27
+          },
+          "armor_value": 55,
+          "required_level": 50,
+          "sell_price": 7386,
+          "identity": "caster",
+          "icon_id": "gear_inv_shoulder_14"
+        },
+        {
+          "name": "Lancebreaker's Breeches",
+          "slot": "legs",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 13,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 32
+          },
+          "armor_value": 153,
+          "required_level": 50,
+          "sell_price": 9233,
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_04"
+        },
+        {
+          "name": "Lancebreaker's Vambraces",
+          "slot": "wrist",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 12,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 10
+          },
+          "armor_value": 232,
+          "required_level": 50,
+          "sell_price": 4616,
+          "identity": "tank",
+          "icon_id": "gear_inv_bracer_03"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_binders_and_inquisitors",
+      "title": "Binders and Inquisitors",
+      "giver_npc_id": "ce_deserter",
+      "zone": "celestial_expanse",
+      "level_min": 50,
+      "level_max": 51,
+      "description": "Every Ascendancy Gravity-Binder on the Perch holds the spire up, and every Ascendancy Inquisitor makes sure nobody on it thinks too hard about their orders.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Ascendancy Gravity-Binder",
+          "count": 5,
+          "zone": "celestial_expanse"
+        },
+        {
+          "type": "kill",
+          "target": "Ascendancy Inquisitor",
+          "count": 5,
+          "zone": "celestial_expanse"
+        }
+      ],
+      "accept_text": "The Ascendancy Gravity-Binder holds that spire up in the air, and the Ascendancy Inquisitor holds the soldiers in line. The inquisitors are why I didn't put my lance down sooner. Break both, and the Perch starts to come apart.",
+      "turn_in_text": "The spire's listing, and the soldiers are arguing with each other on the rest. I can hear it from here.\n\nThat's how it starts. That's how it started for me.",
+      "next_quest_id": null,
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "unique_item_defs": [
+        {
+          "name": "Perchbreaker's Shield",
+          "slot": "off_hand",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 19,
+            "haste": 5
+          },
+          "armor_value": 405,
+          "required_level": 50,
+          "sell_price": 7386,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_shield_06",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 47
+        },
+        {
+          "name": "Perchbreaker's Greaves",
+          "slot": "feet",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 144,
+          "required_level": 50,
+          "sell_price": 6001,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_07"
+        },
+        {
+          "name": "Perchbreaker's Robe",
+          "slot": "chest",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 11,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "healing_power": 29
+          },
+          "armor_value": 65,
+          "required_level": 50,
+          "sell_price": 9233,
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_chest_cloth_06"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_spire_captain_alun_vesk",
+      "title": "Spire-Captain Alun Vesk",
+      "giver_npc_id": "ce_deserter",
+      "zone": "celestial_expanse",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "Spire-Captain Alun Vesk is the officer who ordered his lancers to fire on a parley. Dace walked away from him then, and he wants you to walk up to him now.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Spire-Captain Alun Vesk",
+          "count": 1,
+          "zone": "celestial_expanse"
+        }
+      ],
+      "accept_text": "Spire-Captain Alun Vesk gave the order I wouldn't follow. He said a parley with refugees was a trick, and he told us to fire. Some of us did, and I put my lance down on the stones. Go up the spire and finish what I should have started that day.",
+      "turn_in_text": "Vesk's gone, and the Perch is falling back to its tents.\n\nThe river road's open to Aurelion. I'll never wear the Ascendancy's colours again, but I might wear the council's, if they'll have a deserter.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ceq_lances_down",
+        "ceq_binders_and_inquisitors"
+      ],
+      "reward_exp": 4836,
+      "reward_gold": 19110,
+      "unique_item_defs": [
+        {
+          "name": "Spire-Captain's Bane Shield",
+          "slot": "off_hand",
+          "item_level": 53,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 11,
+            "strength": 4
+          },
+          "secondary_stats": {
+            "block_value": 11
+          },
+          "armor_value": 540,
+          "required_level": 51,
+          "sell_price": 11532,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_06",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 63
+        },
+        {
+          "name": "Spire-Captain's Bane Breeches",
+          "slot": "legs",
+          "item_level": 53,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 22,
+            "agility": 14
+          },
+          "secondary_stats": {
+            "dodge_rating": 11
+          },
+          "armor_value": 189,
+          "required_level": 51,
+          "sell_price": 14414,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_07"
+        },
+        {
+          "name": "Spire-Captain's Bane Gloves",
+          "slot": "hands",
+          "item_level": 53,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "arcane_spell_power": 36
+          },
+          "armor_value": 60,
+          "required_level": 51,
+          "sell_price": 9369,
+          "identity": "arcane",
+          "icon_id": "gear_inv_gauntlets_04"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ceq_counting_whales",
+      "title": "Counting Whales",
+      "giver_npc_id": "ce_whale_watcher",
+      "zone": "celestial_expanse",
+      "level_min": 50,
+      "level_max": 51,
+      "description": "Dr. Ana Kealoha counts the whales in the Whale Shallows every day. She's sure the pod has got smaller, and she wants someone who can walk the far side of the cloud to count with her.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "celestial_expanse",
+          "target_x": 234,
+          "target_y": 200,
+          "radius": 4,
+          "label": "Go out to the rock the whales rub on in the Shallows"
+        },
+        {
+          "type": "explore",
+          "target": "celestial_expanse",
+          "target_x": 252,
+          "target_y": 184,
+          "radius": 4,
+          "label": "Go to the far side of the Shallows where the pod turns"
+        }
+      ],
+      "accept_text": "I count the pod from here every morning, and every week the number's smaller. Walk out to the rock they rub on, then go round to the far side where they turn. Count them the way I'd count humpbacks off Maui, from the flukes, and I'll count from this side.",
+      "turn_in_text": "Eleven from your side and eleven from mine, and three weeks ago it was fourteen.\n\nSomething's taking the calves. I've seen serpents in the cloud under the pod, and I didn't want it to be them.",
+      "next_quest_id": "ceq_serpents_under_the_pod",
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "unique_item_defs": [
+        {
+          "name": "Whalecounter's Spear",
+          "slot": "main_hand",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 21,
+            "stamina": 11
+          },
+          "secondary_stats": {
+            "attack_power": 51
+          },
+          "armor_value": 0,
+          "required_level": 50,
+          "sell_price": 11541,
+          "identity": "strength",
+          "icon_id": "gear_inv_weapon_halberd_07",
+          "weapon_damage_min": 94,
+          "weapon_damage_max": 128,
+          "attack_speed": 3.3,
+          "block_value": 0
+        },
+        {
+          "name": "Whalecounter's Hood",
+          "slot": "head",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 33
+          },
+          "armor_value": 55,
+          "required_level": 50,
+          "sell_price": 7386,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_23"
+        },
+        {
+          "name": "Whalecounter's Grips",
+          "slot": "hands",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 7,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 90,
+          "required_level": 50,
+          "sell_price": 6001,
+          "identity": "feral",
+          "icon_id": "gear_inv_gauntlets_10"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_serpents_under_the_pod",
+      "title": "Serpents Under the Pod",
+      "giver_npc_id": "ce_whale_watcher",
+      "zone": "celestial_expanse",
+      "level_min": 50,
+      "level_max": 51,
+      "description": "The Cloud Serpent hunts under the whale pod, and the Skimming Ray follows to take what it leaves. Ana has watched them take the calves.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Cloud Serpent",
+          "count": 7,
+          "zone": "celestial_expanse"
+        },
+        {
+          "type": "kill",
+          "target": "Skimming Ray",
+          "count": 5,
+          "zone": "celestial_expanse"
+        }
+      ],
+      "accept_text": "Every Cloud Serpent in the Shallows swims under the pod and waits for a calf to drift low. Then the Skimming Ray comes in after it. I spent fifteen years telling people not to interfere with nature, and I've decided this isn't my nature. Keep them off the calves.",
+      "turn_in_text": "The pod's swimming higher, and the calves are in the middle where they belong.\n\nI've never been so happy to be a hypocrite. There's one serpent left that I've seen, and it's bigger than all the others.",
+      "next_quest_id": "ceq_the_pale_serpent",
+      "requires_quests": [
+        "ceq_counting_whales"
+      ],
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "unique_item_defs": [
+        {
+          "name": "Podguard's Legguards",
+          "slot": "legs",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "nature_spell_power": 29,
+            "haste": 9
+          },
+          "armor_value": 231,
+          "required_level": 50,
+          "sell_price": 9233,
+          "identity": "storm",
+          "icon_id": "gear_inv_pants_13"
+        },
+        {
+          "name": "Podguard's Cloak",
+          "slot": "back",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 9
+          },
+          "secondary_stats": {
+            "spell_power": 20
+          },
+          "armor_value": 54,
+          "required_level": 50,
+          "sell_price": 5078,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_11"
+        },
+        {
+          "name": "Podguard's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 11,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 27
+          },
+          "armor_value": 311,
+          "required_level": 50,
+          "sell_price": 7386,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_29"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_the_pale_serpent",
+      "title": "The Pale Serpent",
+      "giver_npc_id": "ce_whale_watcher",
+      "zone": "celestial_expanse",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "The biggest serpent in the Shallows is pale as the cloud it swims in. Ana has seen The Pale Serpent take a calf in one bite, and the pod won't come down low while it's there.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Pale Serpent",
+          "count": 1,
+          "zone": "celestial_expanse"
+        }
+      ],
+      "accept_text": "The Pale Serpent is white like the cloud, and you only see it when it moves. I watched it take a calf in one bite last week, and the mother called for it all night. Find it in the white, and don't let it see you first.",
+      "turn_in_text": "The pod came down low this morning, all eleven, and the mother's calling has stopped.\n\nI'll keep counting. That's what I do, and up here I get to count something nobody's ever counted before.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ceq_serpents_under_the_pod"
+      ],
+      "reward_exp": 4836,
+      "reward_gold": 19110,
+      "unique_item_defs": [
+        {
+          "name": "Pale Serpent's Bane Staff",
+          "slot": "main_hand",
+          "item_level": 53,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 25,
+            "stamina": 14
+          },
+          "secondary_stats": {
+            "attack_power": 67
+          },
+          "armor_value": 0,
+          "required_level": 51,
+          "sell_price": 18018,
+          "identity": "agility",
+          "icon_id": "gear_inv_staff_07",
+          "weapon_damage_min": 126,
+          "weapon_damage_max": 170,
+          "attack_speed": 3.6,
+          "block_value": 0
+        },
+        {
+          "name": "Pale Serpent's Bane Belt",
+          "slot": "waist",
+          "item_level": 53,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 120,
+          "required_level": 51,
+          "sell_price": 7928,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_26"
+        },
+        {
+          "name": "Pale Serpent's Bane Band",
+          "slot": "ring",
+          "item_level": 53,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10,
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 27
+          },
+          "armor_value": 0,
+          "required_level": 51,
+          "sell_price": 8649,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_ring_09"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ceq_whats_in_the_water",
+      "title": "What's in the Water",
+      "giver_npc_id": "ce_spill_tender",
+      "zone": "celestial_expanse",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "Aurelion's water should turn back into the city through the Fourth Aqueduct. Since the change, it spills down into the Spillway, and the Spillway Eel and Crystal Crab have come up to live in it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Spillway Eel",
+          "count": 7,
+          "zone": "celestial_expanse"
+        },
+        {
+          "type": "kill",
+          "target": "Crystal Crab",
+          "count": 6,
+          "zone": "celestial_expanse"
+        }
+      ],
+      "accept_text": "This is Aurelion's water, and it's meant to be clean enough to drink in the High Houses. Now every Spillway Eel and Crystal Crab in the Expanse has found it and moved in. Clear them out of the pool, and I'll be able to see what's wrong with the aqueduct.",
+      "turn_in_text": "The pool's clear enough to see the bottom, and I wish it weren't.\n\nThere are cracks in the stone under the pool, and something's coming up out of them. That isn't water damage.",
+      "next_quest_id": null,
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "unique_item_defs": [
+        {
+          "name": "Aqueduct-Warden's Breastplate",
+          "slot": "chest",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "healing_power": 50
+          },
+          "armor_value": 313,
+          "required_level": 51,
+          "sell_price": 9233,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_chest_plate05"
+        },
+        {
+          "name": "Aqueduct-Warden's Slippers",
+          "slot": "feet",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 22
+          },
+          "armor_value": 61,
+          "required_level": 51,
+          "sell_price": 6001,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_plate_01"
+        },
+        {
+          "name": "Aqueduct-Warden's Wristguards",
+          "slot": "wrist",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 9,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 17
+          },
+          "armor_value": 144,
+          "required_level": 51,
+          "sell_price": 4616,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_bracer_17"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_out_of_the_cracks",
+      "title": "Out of the Cracks",
+      "giver_npc_id": "ce_spill_tender",
+      "zone": "celestial_expanse",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "The stone under the Spillway's pool is cracked, and the Rift Crawler is climbing up out of the cracks. Aqueduct-Warden Lorne Ishay wants them back where they came from.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Rift Crawler",
+          "count": 7,
+          "zone": "celestial_expanse"
+        }
+      ],
+      "accept_text": "Every Rift Crawler round the pool came up out of those cracks, and more come up every night. I don't know what's under there, and I don't want to find out by being pulled in. Drive them back down.",
+      "turn_in_text": "Fewer coming up, and the ones that do come up are smaller.\n\nThe cracks are still there, though. The biggest one's in the middle of the pool, and something lives in it.",
+      "next_quest_id": "ceq_old_mouth_of_the_spill",
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "unique_item_defs": [
+        {
+          "name": "Crackwarden's Longbow",
+          "slot": "ranged",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 18
+          },
+          "armor_value": 0,
+          "required_level": 51,
+          "sell_price": 7386,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_11",
+          "weapon_damage_min": 59,
+          "weapon_damage_max": 80,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Crackwarden's Coif",
+          "slot": "head",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 29
+          },
+          "armor_value": 176,
+          "required_level": 51,
+          "sell_price": 7386,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_08"
+        },
+        {
+          "name": "Crackwarden's Leggings",
+          "slot": "legs",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 14
+          },
+          "secondary_stats": {
+            "spell_power": 33
+          },
+          "armor_value": 222,
+          "required_level": 51,
+          "sell_price": 9233,
+          "identity": "caster",
+          "icon_id": "gear_inv_pants_10"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_old_mouth_of_the_spill",
+      "title": "Old Mouth of the Spill",
+      "giver_npc_id": "ce_spill_tender",
+      "zone": "celestial_expanse",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "The biggest crack in the Spillway's pool has something living in it. Lorne calls it the Old Mouth of the Spill, and it pulls in anything that comes near the water.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Old Mouth of the Spill",
+          "count": 1,
+          "zone": "celestial_expanse"
+        }
+      ],
+      "accept_text": "The Old Mouth of the Spill lives in the crack in the middle of the pool. It drags in eels and crabs, and last night it dragged in a refugee's cart. If the council wants guests walking up to the bridge, the Mouth has to go first.",
+      "turn_in_text": "The pool's still, and the crack's just a crack.\n\nI'll seal it when the masons come down from the city. Aurelion's water should go back to Aurelion, but at least now it won't eat anyone on the way.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ceq_out_of_the_cracks",
+        "ceq_whats_in_the_water"
+      ],
+      "reward_exp": 4836,
+      "reward_gold": 19110,
+      "unique_item_defs": [
+        {
+          "name": "Spillwarden's Knife",
+          "slot": "main_hand",
+          "item_level": 53,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 31
+          },
+          "armor_value": 0,
+          "required_level": 51,
+          "sell_price": 13694,
+          "identity": "agility",
+          "icon_id": "gear_inv_weapon_shortblade_21",
+          "weapon_damage_min": 93,
+          "weapon_damage_max": 126,
+          "attack_speed": 1.7,
+          "block_value": 0
+        },
+        {
+          "name": "Spillwarden's Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 53,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 10,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 45
+          },
+          "armor_value": 147,
+          "required_level": 51,
+          "sell_price": 11532,
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_08"
+        },
+        {
+          "name": "Spillwarden's Sabatons",
+          "slot": "feet",
+          "item_level": 53,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 28
+          },
+          "armor_value": 289,
+          "required_level": 51,
+          "sell_price": 9369,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_06"
+        }
+      ],
+      "gear_reward_gear_level": 53,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "ceq_the_heralds_seal",
+      "title": "The Herald's Seal",
+      "giver_npc_id": "ce_herald",
+      "zone": "celestial_expanse",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "The river road is open, the Perch has fallen back and the forge is cold. Herald Cassian Orel wants the council's seal taken to the bridgewarden at the sky-bridge, so Aurelion's door will open for you.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "ce_q_council_seal",
+          "count": 1,
+          "label": "Take the council's seal to Bridgewarden Caldus Rhee at the sky-bridge"
+        }
+      ],
+      "accept_text": "The road's open, the Perch is quiet and the forge is cold, and that's more than the council asked of its guests. Take the seal up the river to Bridgewarden Caldus Rhee at the foot of the sky-bridge. It's your invitation, and I'd like you to deliver it yourself.",
+      "turn_in_text": "The council's own seal, carried up the river by the council's own guest.\n\nI've been told to wait for word, and this is the word. I'm sorry I made you wait for it.",
+      "next_quest_id": "ceq_the_sky_bridge",
+      "turn_in_npc_id": "ce_bridgewarden",
+      "requires_quests": [
+        "ceq_word_upriver",
+        "ceq_spire_captain_alun_vesk",
+        "ceq_forge_elder_ommun"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "ce_q_council_seal",
+            "name": "The Council's Seal",
+            "description": "A disc of white crystal set in gold, warm to the touch, carrying the marks of all the High Houses of Aurelion.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "unique_item_defs": [
+        {
+          "name": "Sealbearer's Tome",
+          "slot": "off_hand",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 0,
+          "required_level": 51,
+          "sell_price": 5540,
+          "identity": "healer",
+          "icon_id": "gear_inv_tome_6",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        },
+        {
+          "name": "Sealbearer's Handguards",
+          "slot": "hands",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 12,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 10
+          },
+          "armor_value": 216,
+          "required_level": 51,
+          "sell_price": 6001,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_16"
+        },
+        {
+          "name": "Sealbearer's Girdle",
+          "slot": "waist",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 144,
+          "required_level": 51,
+          "sell_price": 5078,
+          "identity": "hunter",
+          "icon_id": "gear_inv_belt_29"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "ceq_the_sky_bridge",
+      "title": "The Sky-Bridge",
+      "giver_npc_id": "ce_bridgewarden",
+      "zone": "celestial_expanse",
+      "level_min": 51,
+      "level_max": 51,
+      "description": "Bridgewarden Caldus Rhee has the council's seal, and Aurelion's door is open to you. He wants you to walk up to the foot of the sky-bridge and see it for yourself.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "celestial_expanse",
+          "target_x": 226,
+          "target_y": 8,
+          "radius": 4,
+          "label": "Walk up to the foot of the sky-bridge"
+        }
+      ],
+      "accept_text": "Go on up to the foot of the bridge and look. I've stood guard on it for twelve years, and I've never let anyone from the ground walk on it. I want to see what your face does.",
+      "turn_in_text": "That's what everyone's face does, the first time.\n\nAurelion's eight rings, seven of them still turning, and the High Houses on top like a crown. They're lowering the bridge for you now. It's a long walk, so make sure you're ready before you go.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "ceq_the_heralds_seal"
+      ],
+      "reward_exp": 3720,
+      "reward_gold": 14700,
+      "unique_item_defs": [
+        {
+          "name": "Bridgewarden's Mace",
+          "slot": "main_hand",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 33
+          },
+          "armor_value": 0,
+          "required_level": 51,
+          "sell_price": 8771,
+          "identity": "healer",
+          "icon_id": "gear_inv_mace_13",
+          "weapon_damage_min": 70,
+          "weapon_damage_max": 95,
+          "attack_speed": 2.6,
+          "block_value": 0
+        },
+        {
+          "name": "Bridgewarden's Jerkin",
+          "slot": "chest",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 13,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 130,
+          "required_level": 51,
+          "sell_price": 9233,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_02"
+        },
+        {
+          "name": "Bridgewarden's Pendant",
+          "slot": "neck",
+          "item_level": 52,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 4
+          },
+          "secondary_stats": {
+            "attack_power": 20
+          },
+          "armor_value": 0,
+          "required_level": 51,
+          "sell_price": 5540,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_amulet_04"
+        }
+      ],
+      "gear_reward_gear_level": 52,
+      "gear_reward_rarity": "uncommon"
+    }
+  ]
+}

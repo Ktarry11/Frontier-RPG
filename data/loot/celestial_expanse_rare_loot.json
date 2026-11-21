@@ -1,0 +1,486 @@
+{
+  "_notes": "The Celestial Expanse's open-world rares (50-51). ONE item per kill from the rare's four; item_level = the rare's level + 3. Hand-authored in tools/build_celestial_expanse_content.py.",
+  "Old Goldmane": [
+    {
+      "name": "Goldmane Pelt Cloak",
+      "slot": "back",
+      "item_level": 53,
+      "rarity": "rare",
+      "required_level": 50,
+      "primary_stats": {
+        "agility": 13,
+        "stamina": 13
+      },
+      "secondary_stats": {},
+      "stat_template": "agi_physical",
+      "item_id": "cei_goldmane_pelt_cloak"
+    },
+    {
+      "name": "Pride-King's Helm",
+      "slot": "head",
+      "item_level": 53,
+      "rarity": "rare",
+      "required_level": 50,
+      "primary_stats": {
+        "strength": 18,
+        "stamina": 18
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 353,
+      "stat_template": "str_physical",
+      "item_id": "cei_pride_kings_helm"
+    },
+    {
+      "name": "Lionheart Leggings",
+      "slot": "legs",
+      "item_level": 53,
+      "rarity": "rare",
+      "required_level": 50,
+      "primary_stats": {
+        "agility": 21,
+        "spirit": 21
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 278,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "cei_lionheart_leggings"
+    },
+    {
+      "name": "Sunlit Mane Wraps",
+      "slot": "wrist",
+      "item_level": 53,
+      "rarity": "rare",
+      "required_level": 50,
+      "primary_stats": {
+        "intellect": 9,
+        "spirit": 9
+      },
+      "secondary_stats": {
+        "healing_power": 23
+      },
+      "armor_type": "cloth",
+      "armor_value": 60,
+      "stat_template": "spi_healer",
+      "item_id": "cei_sunlit_mane_wraps"
+    }
+  ],
+  "The Unbound Core": [
+    {
+      "name": "Shard of the Unbound Core",
+      "slot": "trinket",
+      "item_level": 53,
+      "rarity": "rare",
+      "required_level": 50,
+      "primary_stats": {
+        "intellect": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "spell_power": 12
+      },
+      "stat_template": "int_caster",
+      "item_id": "cei_shard_of_the_unbound_core"
+    },
+    {
+      "name": "Golem-Plate Breastplate",
+      "slot": "chest",
+      "item_level": 53,
+      "rarity": "rare",
+      "required_level": 50,
+      "primary_stats": {
+        "strength": 21,
+        "intellect": 21
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 417,
+      "stat_template": "str_int_hybrid",
+      "item_id": "cei_golem_plate_breastplate"
+    },
+    {
+      "name": "Field-Wired Gauntlets",
+      "slot": "hands",
+      "item_level": 53,
+      "rarity": "rare",
+      "required_level": 50,
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 120,
+      "stat_template": "agi_physical",
+      "item_id": "cei_field_wired_gauntlets"
+    },
+    {
+      "name": "Core-Lit Robe",
+      "slot": "chest",
+      "item_level": 53,
+      "rarity": "rare",
+      "required_level": 50,
+      "primary_stats": {
+        "intellect": 13,
+        "spirit": 13
+      },
+      "secondary_stats": {
+        "healing_power": 33
+      },
+      "armor_type": "cloth",
+      "armor_value": 86,
+      "stat_template": "spi_healer",
+      "item_id": "cei_core_lit_robe"
+    }
+  ],
+  "Forge-Elder Ommun": [
+    {
+      "name": "Ommun's Forge Hammer",
+      "slot": "two_hand",
+      "item_level": 54,
+      "rarity": "rare",
+      "required_level": 51,
+      "weapon_type": "mace_2h",
+      "primary_stats": {
+        "strength": 33,
+        "stamina": 41
+      },
+      "secondary_stats": {
+        "defense_rating": 24
+      },
+      "weapon_damage_min": 128,
+      "weapon_damage_max": 173,
+      "attack_speed": 3.6,
+      "stat_template": "str_physical",
+      "item_id": "cei_ommuns_forge_hammer"
+    },
+    {
+      "name": "First Fire Mantle",
+      "slot": "shoulder",
+      "item_level": 54,
+      "rarity": "rare",
+      "required_level": 51,
+      "primary_stats": {
+        "intellect": 13,
+        "stamina": 13
+      },
+      "secondary_stats": {
+        "spell_power": 16
+      },
+      "armor_type": "cloth",
+      "armor_value": 74,
+      "stat_template": "int_caster",
+      "item_id": "cei_first_fire_mantle"
+    },
+    {
+      "name": "Anvil-Struck Girdle",
+      "slot": "waist",
+      "item_level": 54,
+      "rarity": "rare",
+      "required_level": 51,
+      "primary_stats": {
+        "strength": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 294,
+      "stat_template": "str_physical",
+      "item_id": "cei_anvil_struck_girdle"
+    },
+    {
+      "name": "Smith's Ember Signet",
+      "slot": "ring",
+      "item_level": 54,
+      "rarity": "rare",
+      "required_level": 51,
+      "primary_stats": {
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "spell_power": 20,
+        "crit_chance_spell": 5
+      },
+      "stat_template": "int_caster",
+      "item_id": "cei_smiths_ember_signet"
+    }
+  ],
+  "Ringwarden Kozh": [
+    {
+      "name": "Ringwarden's Bulwark",
+      "slot": "off_hand",
+      "item_level": 54,
+      "rarity": "rare",
+      "required_level": 51,
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 24
+      },
+      "armor_value": 110,
+      "block_value": 137,
+      "stat_template": "str_int_hybrid",
+      "item_id": "cei_ringwardens_bulwark"
+    },
+    {
+      "name": "Citadel Stone Treads",
+      "slot": "feet",
+      "item_level": 54,
+      "rarity": "rare",
+      "required_level": 51,
+      "primary_stats": {
+        "strength": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 294,
+      "stat_template": "str_physical",
+      "item_id": "cei_citadel_stone_treads"
+    },
+    {
+      "name": "Bell-Bronze Hauberk",
+      "slot": "chest",
+      "item_level": 54,
+      "rarity": "rare",
+      "required_level": 51,
+      "primary_stats": {
+        "agility": 21,
+        "spirit": 21
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 283,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "cei_bell_bronze_hauberk"
+    },
+    {
+      "name": "Orbit-Turned Band",
+      "slot": "ring",
+      "item_level": 54,
+      "rarity": "rare",
+      "required_level": 51,
+      "primary_stats": {
+        "agility": 13,
+        "stamina": 13
+      },
+      "secondary_stats": {},
+      "stat_template": "agi_physical",
+      "item_id": "cei_orbit_turned_band"
+    }
+  ],
+  "The Pale Serpent": [
+    {
+      "name": "Pale Serpent Fang",
+      "slot": "main_hand",
+      "item_level": 54,
+      "rarity": "rare",
+      "required_level": 51,
+      "weapon_type": "dagger",
+      "primary_stats": {
+        "strength": 15,
+        "agility": 15
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 95,
+      "weapon_damage_max": 128,
+      "attack_speed": 1.7,
+      "stat_template": "agi_physical",
+      "item_id": "cei_pale_serpent_fang"
+    },
+    {
+      "name": "Cloudscale Leggings",
+      "slot": "legs",
+      "item_level": 54,
+      "rarity": "rare",
+      "required_level": 51,
+      "primary_stats": {
+        "agility": 21,
+        "stamina": 21
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 177,
+      "stat_template": "agi_physical",
+      "item_id": "cei_cloudscale_leggings"
+    },
+    {
+      "name": "Serpent-Cold Circlet",
+      "slot": "head",
+      "item_level": 54,
+      "rarity": "rare",
+      "required_level": 51,
+      "primary_stats": {
+        "intellect": 11,
+        "spirit": 11
+      },
+      "secondary_stats": {
+        "healing_power": 29
+      },
+      "armor_type": "cloth",
+      "armor_value": 74,
+      "stat_template": "spi_healer",
+      "item_id": "cei_serpent_cold_circlet"
+    },
+    {
+      "name": "Coil of the White",
+      "slot": "neck",
+      "item_level": 54,
+      "rarity": "rare",
+      "required_level": 51,
+      "primary_stats": {
+        "intellect": 9,
+        "stamina": 9
+      },
+      "secondary_stats": {
+        "spell_power": 12
+      },
+      "stat_template": "int_caster",
+      "item_id": "cei_coil_of_the_white"
+    }
+  ],
+  "Spire-Captain Alun Vesk": [
+    {
+      "name": "Spire-Captain's Saber",
+      "slot": "main_hand",
+      "item_level": 54,
+      "rarity": "rare",
+      "required_level": 51,
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "strength": 13,
+        "stamina": 16
+      },
+      "secondary_stats": {
+        "defense_rating": 10
+      },
+      "weapon_damage_min": 95,
+      "weapon_damage_max": 128,
+      "attack_speed": 2.4,
+      "stat_template": "str_physical",
+      "item_id": "cei_spire_captains_saber"
+    },
+    {
+      "name": "Ascendant Officer's Coat",
+      "slot": "chest",
+      "item_level": 54,
+      "rarity": "rare",
+      "required_level": 51,
+      "primary_stats": {
+        "intellect": 15,
+        "stamina": 15
+      },
+      "secondary_stats": {
+        "spell_power": 19
+      },
+      "armor_type": "cloth",
+      "armor_value": 88,
+      "stat_template": "int_caster",
+      "item_id": "cei_ascendant_officers_coat"
+    },
+    {
+      "name": "Perch-Watch Spaulders",
+      "slot": "shoulder",
+      "item_level": 54,
+      "rarity": "rare",
+      "required_level": 51,
+      "primary_stats": {
+        "agility": 18,
+        "spirit": 18
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 239,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "cei_perch_watch_spaulders"
+    },
+    {
+      "name": "Vesk's Crystal Longbow",
+      "slot": "ranged",
+      "item_level": 54,
+      "rarity": "rare",
+      "required_level": 51,
+      "weapon_type": "bow",
+      "primary_stats": {
+        "agility": 13,
+        "stamina": 13
+      },
+      "secondary_stats": {},
+      "weapon_damage_min": 80,
+      "weapon_damage_max": 109,
+      "attack_speed": 2.8,
+      "stat_template": "agi_physical",
+      "item_id": "cei_vesks_crystal_longbow"
+    }
+  ],
+  "Old Mouth of the Spill": [
+    {
+      "name": "Spill-Dark Staff",
+      "slot": "two_hand",
+      "item_level": 54,
+      "rarity": "rare",
+      "required_level": 51,
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 19,
+        "spirit": 19
+      },
+      "secondary_stats": {
+        "healing_power": 52
+      },
+      "weapon_damage_min": 52,
+      "weapon_damage_max": 70,
+      "attack_speed": 3.2,
+      "stat_template": "spi_healer",
+      "item_id": "cei_spill_dark_staff"
+    },
+    {
+      "name": "Crawler-Hide Jerkin",
+      "slot": "chest",
+      "item_level": 54,
+      "rarity": "rare",
+      "required_level": 51,
+      "primary_stats": {
+        "agility": 21,
+        "stamina": 21
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 177,
+      "stat_template": "agi_physical",
+      "item_id": "cei_crawler_hide_jerkin"
+    },
+    {
+      "name": "Undertow Greaves",
+      "slot": "legs",
+      "item_level": 54,
+      "rarity": "rare",
+      "required_level": 51,
+      "primary_stats": {
+        "strength": 21,
+        "stamina": 21
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 425,
+      "stat_template": "str_physical",
+      "item_id": "cei_undertow_greaves"
+    },
+    {
+      "name": "Drowned Light Pendant",
+      "slot": "neck",
+      "item_level": 54,
+      "rarity": "rare",
+      "required_level": 51,
+      "primary_stats": {
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "spell_power": 20,
+        "crit_chance_spell": 5
+      },
+      "stat_template": "int_caster",
+      "item_id": "cei_drowned_light_pendant"
+    }
+  ]
+}

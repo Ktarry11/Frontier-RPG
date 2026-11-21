@@ -53,11 +53,13 @@ ENTRY = {
         "the ground is primitive. The ones who've met it are starting to change their minds.",
     ],
     "quest_rep": {
-        "_comment": "Per quest, paid by giver (tools/build_sunward_crown_quests.py).",
+        "_comment": "Per quest, paid by giver (tools/build_sunward_crown_quests.py, tools/build_celestial_expanse_quests.py). "
+                    "Only Lenswatch is a zone here: a zone pays for every quest in it, and the Crown and the Expanse "
+                    "have Earthborn givers who pay nobody, so their Aetherian quests are listed one by one.",
         "default": 200,
         "boss": 250,
         "capstones": {},
-        "zones": ["sunward_crown", "lenswatch"],
+        "zones": ["lenswatch"],
         "also": [],
     },
 }

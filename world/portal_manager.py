@@ -787,6 +787,18 @@ class PortalManager:
             },
             "Lenswatch": {
                 (2, 46): ("The Sunward Crown", 289, 132),           # back over the gangway: arrive (289,130) at the dock
+                (119, 13): ("The Celestial Expanse", 96, 208),      # the skiff off the Roost: arrive (96,206) on Crashfall
+            },
+            "The Celestial Expanse": {
+                (103, 206): ("Lenswatch", 114, 16),                 # the skiff back: arrive (114,14) on the Roost
+                (90, 156): ("The Golem Vault", 42, 6),              # down into the Kharad's vault: arrive (42,4)
+            },
+            "The Golem Vault": {
+                (42, 2): ("The Celestial Expanse", 90, 161),        # back up to the Golem Fields: arrive (90,159)
+                (42, 97): ("The Storm-Well", 42, 6),                # down the Deep Stair: arrive (42,4)
+            },
+            "The Storm-Well": {
+                (42, 2): ("The Golem Vault", 42, 96),               # back up the Deep Stair: arrive (42,94)
             },
             # ===== FERALAS (docs/feralas_brief.md, 19 Nov 2026): the arrival is always two tiles north of the target =====
             "The High Wilderness": {

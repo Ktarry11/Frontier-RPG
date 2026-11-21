@@ -89,6 +89,7 @@ TOWN_REGION = {
     # Astranaar sits at 24 and Ashenvale West is 11-28 against East's 20-32,
     # so West is the band it actually resupplies for.
     "astranaar": "Ashenvale West",
+    "celestial_expanse": "The Celestial Expanse",   # Halcyon Rest's trader, a waystation on the zone's own map
 }
 
 #: How far a vendor's tier may sit from the TOP of its band before it is wrong. Slightly under is

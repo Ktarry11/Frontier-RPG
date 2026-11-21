@@ -137,7 +137,11 @@ LORE = re.compile(
     # "The merge" is the natives' word for it (Feralas, 19 Nov 2026: "since the merge", "before the merge"), and the
     # settlers of Cedar Hollow name the Pacific Northwest they came from
     r"\bthe merge\b|\b(Olympic National Park|Forks, Washington|Tacoma|Portland State|Pacific Northwest|"
-    r"North America|Washington)\b", re.I)
+    r"North America|Washington)\b|"
+    # the sky's Earthborn (20 Nov 2026) name the places they came from; the Aetherians call it "the change" and only
+    # ever say they don't know what it was
+    r"\b(Buenos Aires|Rio|Maui|Rovaniemi|Toronto|Tripoli|Westland|Earthborn)\b|since the change|the change came",
+    re.I)
 
 #: Named by claude/quest_writing_guide.md as the tics that make quest text read as filler.
 TICS = {

@@ -84,9 +84,9 @@ FETCH_DROPS = {
                                 "Ascendancy Shield Drone. It still hums, and the air in front of it feels thick.")],
     "Ascendancy Legionary": [("sc_q_legion_orders", "Sealed Legion Orders", "A thin plate of crystal etched with "
                               "Aetherian script and sealed with the Ascendancy's sigil. Every legionary carries a "
-                              "copy.", 0.6)],
+                              "copy.")],
     "Ascendancy Sky Lancer": [("sc_q_brothers_spear", "Highbough Spear", "A troll hunting spear with teal paint on the "
-                               "haft, taken as a trophy by a sky lancer.", 0.5)],
+                               "haft, taken as a trophy by a sky lancer.")],
     "Ascendancy Bombardier": [("sc_q_survey_page", "Stolen Survey Page", "A page of the survey's records in the Patient "
                                "Lens's tidy hand, creased where a soldier folded it into his pack.")],
     "Ascendancy Artillerist": [("sc_q_survey_page", "Stolen Survey Page", "A page of the survey's records in the Patient "
@@ -337,7 +337,7 @@ def build():
         "light and gives it back at dusk. Gather me some off the crown. I'd like to know why the tree can make "
         "something my whole people can't.",
         "It's warm, even in the shade of the court.\n\nWe make light out of crystal and we spend it. Your tree makes "
-        "light out of nothing and saves it for later. I'll be writing about this for a month."))
+        "light out of nothing and saves it for later. Since the change, the ground's been teaching us things, and I'll be writing about this one for a month."))
     A(Q("scq_the_stolen_copy", "The Stolen Copy", TAVIAN, 48, 49, "Archivist's",
         "Archivist Tavian Rell writes everything down twice. The Ascendancy took his first copy when they came down "
         "on the stones, and their Bombardiers and Artillerists on the Chainhold have been passing the pages round.",
@@ -358,7 +358,7 @@ def build():
         "stops holding you up. There are three tears in the shelf I want marked, one north of the Annex, one west of "
         "it and one south of the dock. Stand at the edge of each one so I can fix it in the lens.",
         "I watched you at every one of them. You stood far closer to the edge than I'd have dared.\n\nThe tears are "
-        "wider than they were a month ago. The cloud's thinning, and I don't know why."))
+        "wider than they were a month ago. The cloud's been thinning since the change, and I don't know why."))
     A(Q("scq_storm_readings", "Storm Readings", CORYN, 48, 49, "Stormreader's",
         "The Stormbank, the dark cloud south-east of the shelf, has been getting heavier. Coryn wants Charged Motes from "
         "the Bolt-Born Elementals to read how much lightning it's holding.",
@@ -368,7 +368,7 @@ def build():
         "Bring me some, and while you're in there, keep the Stormbank Thunderbirds off you. They're drawn to anyone "
         "carrying a mote.",
         "There's twice as much charge in these as there should be.\n\nSomething in the middle of the Stormbank is "
-        "pulling the lightning in and holding it. I'd very much like to know what it is.",
+        "pulling the lightning in and holding it. It's been doing it since the change, and I'd very much like to know what it is.",
         nxt="scq_the_hollow_storm"))
     A(Q("scq_the_hollow_storm", "The Hollow Storm", CORYN, 49, 49, "Hollow Storm",
         "At the heart of the Stormbank there's a storm with an eye in it, and it's pulling all the lightning toward "
@@ -445,7 +445,7 @@ def build():
         "on the crown, khadgar's whisker, that brings down a fever better than anything I had in Beirut. Gather some "
         "for me, please, and I'll show you what I make of it.",
         "That's enough to treat the whole Annex through the next fever, and the trolls at Spearhold too.\n\nThe "
-        "scholars watched me grind the first batch and wrote down every step. I've started explaining as I go. It's "
+        "scholars watched me grind the first batch and wrote down every step. I've started explaining as I go, the way I did for students back home in Beirut. It's "
         "easier than being stared at.",
         nxt="scq_gold_dust_salve"))
     A(Q("scq_gold_dust_salve", "Gold Dust Salve", RANIA, 49, 49, "Salvemaker's",
@@ -464,7 +464,7 @@ def build():
         "The Construct Hounds on the Chainhold run on cloud, on chains, on anything, and they don't ever fall over. "
         "Something in their chests keeps them upright. Bring me those Hound Gyros. If I can understand how they balance "
         "a dog, I might understand how they balance an island.",
-        "Look at it, it's still spinning. There's no motor in it at all.\n\nIt's not engineering the way I learned it, "
+        "Look at it, it's still spinning. There's no motor in it at all.\n\nIt's not engineering the way I learned it back home in Brno, "
         "but it's not magic either. It's something in between, and I think I can learn it.",
         nxt="scq_how_to_anchor_an_island"))
     A(Q("scq_how_to_anchor_an_island", "How to Anchor an Island", PAVEL, 49, 49, "Anchorwright's",
@@ -484,7 +484,7 @@ def build():
         "everything up here that anyone's ever named. The Driftlets are chained off the south side of the cloud, and "
         "the two at the far end of the chains are the ones nobody's walked. Walk them for me.",
         "Two more for the list, then. I'll walk them myself tomorrow, but you were first, and I'll write that "
-        "down.\n\nIt's daft, I know. But the first time I stood on that cloud, I cried. I'd like to keep feeling that "
+        "down.\n\nIt's daft, I know. I've climbed all over Scotland, back home, and the first time I stood on that cloud, I cried. I'd like to keep feeling that "
         "way about this place."))
 
     # =================================================================================== 5. THE SEAL

@@ -380,6 +380,7 @@ ZONE_BIOME = {
     "The Cloudbreak": "tropical",                 # the last branches: painted ground (baked)
     "The Sunward Crown": "tropical",              # the crown and the cloud: painted ground (baked)
     "Lenswatch": "tropical",                      # the survey's island: painted ground (baked)
+    "The Celestial Expanse": "tropical",          # the islands down the sky river: painted ground (baked)
     "The Great Settlement": "tropical",           # the troll city in the tree's heart: painted ground (baked)
     "The High Wilderness": "mythical_forest",     # Feralas: painted ground (baked); the biome only names the fallback
     "The Forgotten Coast": "mythical_forest",

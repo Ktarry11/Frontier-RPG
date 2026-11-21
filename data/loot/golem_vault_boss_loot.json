@@ -1,0 +1,144 @@
+{
+  "_notes": "Boss loot for the Golem Vault and the Storm-Well (under the Celestial Expanse's Golem Fields, 50-51). ONE item per kill from the boss's four; item_level = boss level + 2. Hand-authored in tools/build_celestial_expanse_content.py.",
+  "Vault-Thane Brask": [
+    {
+      "name": "Thane's Oathblade",
+      "slot": "main_hand",
+      "item_level": 53,
+      "rarity": "rare",
+      "required_level": 50,
+      "weapon_type": "sword_1h",
+      "primary_stats": {
+        "strength": 12,
+        "stamina": 16
+      },
+      "secondary_stats": {
+        "defense_rating": 9
+      },
+      "weapon_damage_min": 93,
+      "weapon_damage_max": 126,
+      "attack_speed": 2.4,
+      "stat_template": "str_physical",
+      "item_id": "gvi_thanes_oathblade"
+    },
+    {
+      "name": "Vault-Warden's Shield",
+      "slot": "off_hand",
+      "item_level": 53,
+      "rarity": "rare",
+      "required_level": 50,
+      "weapon_type": "shield",
+      "primary_stats": {
+        "stamina": 24
+      },
+      "armor_value": 108,
+      "block_value": 135,
+      "stat_template": "str_physical",
+      "item_id": "gvi_vault_wardens_shield"
+    },
+    {
+      "name": "Sleeper's Stone Mantle",
+      "slot": "shoulder",
+      "item_level": 53,
+      "rarity": "rare",
+      "required_level": 50,
+      "primary_stats": {
+        "strength": 18,
+        "intellect": 18
+      },
+      "secondary_stats": {},
+      "armor_type": "plate",
+      "armor_value": 353,
+      "stat_template": "str_int_hybrid",
+      "item_id": "gvi_sleepers_stone_mantle"
+    },
+    {
+      "name": "Knotwork Bracers",
+      "slot": "wrist",
+      "item_level": 53,
+      "rarity": "rare",
+      "required_level": 50,
+      "primary_stats": {
+        "agility": 14,
+        "stamina": 14
+      },
+      "secondary_stats": {},
+      "armor_type": "leather",
+      "armor_value": 120,
+      "stat_template": "agi_physical",
+      "item_id": "gvi_knotwork_bracers"
+    }
+  ],
+  "Stormwright Yrvald": [
+    {
+      "name": "Yrvald's Storm-Staff",
+      "slot": "two_hand",
+      "item_level": 53,
+      "rarity": "rare",
+      "required_level": 50,
+      "weapon_type": "staff",
+      "primary_stats": {
+        "intellect": 22,
+        "stamina": 22
+      },
+      "secondary_stats": {
+        "spell_power": 29
+      },
+      "weapon_damage_min": 51,
+      "weapon_damage_max": 69,
+      "attack_speed": 3.2,
+      "stat_template": "int_caster",
+      "item_id": "gvi_yrvalds_storm_staff"
+    },
+    {
+      "name": "Core-Binder's Robe",
+      "slot": "chest",
+      "item_level": 53,
+      "rarity": "rare",
+      "required_level": 50,
+      "primary_stats": {
+        "intellect": 13,
+        "spirit": 13
+      },
+      "secondary_stats": {
+        "healing_power": 33
+      },
+      "armor_type": "cloth",
+      "armor_value": 86,
+      "stat_template": "spi_healer",
+      "item_id": "gvi_core_binders_robe"
+    },
+    {
+      "name": "Thunder-Rune Hauberk",
+      "slot": "chest",
+      "item_level": 53,
+      "rarity": "rare",
+      "required_level": 50,
+      "primary_stats": {
+        "agility": 21,
+        "spirit": 21
+      },
+      "secondary_stats": {},
+      "armor_type": "mail",
+      "armor_value": 278,
+      "stat_template": "agi_int_hybrid",
+      "item_id": "gvi_thunder_rune_hauberk"
+    },
+    {
+      "name": "Bound Storm Talisman",
+      "slot": "neck",
+      "item_level": 53,
+      "rarity": "rare",
+      "required_level": 50,
+      "primary_stats": {
+        "intellect": 8
+      },
+      "secondary_stats": {
+        "spell_power": 19,
+        "crit_chance_spell": 5
+      },
+      "stat_template": "int_caster",
+      "item_id": "gvi_bound_storm_talisman"
+    }
+  ]
+}

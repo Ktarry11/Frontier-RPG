@@ -24,6 +24,7 @@ renderer paints the cloud sea under that.
 
 HARD CONTRACTS (world/portal_manager.py)
   portal   (2,46) <-> The Sunward Crown (295,130): you arrive at (7,46) coming in and (289,130) going out
+           (119,13), the skiff off the Roost <-> The Celestial Expanse's landing on Crashfall (103,206)
   NPC ids  lw_*: written by tools/build_sunward_crown_people.py from NPC_POSITIONS
 """
 import numpy as np
@@ -36,8 +37,8 @@ W, H = 130, 96
 SKP = "assets/tiles/sky/props/"
 BLD = "assets/buildings/"
 
-PORTALS = {(2, 46): "The Sunward Crown"}
-ARRIVALS = [(7, 46)]
+PORTALS = {(2, 46): "The Sunward Crown", (119, 13): "The Celestial Expanse"}
+ARRIVALS = [(7, 46), (114, 14)]
 LATER_PORTALS = {}
 START = (7, 46)
 
@@ -245,7 +246,7 @@ def dress(L):
     B("ae_laboratory", 48, 90, 9)
     B("ae_archive", 70, 90, 9)
     B("ae_lens_bench", 56, 84, 3)
-    B("ae_instrument_shelf", 67, 83, 3)
+    B("ae_instrument_shelf", 61, 84, 3)
     # ---- the stores and the smith on the court's east side
     B("ae_field_pavilion", 76, 60, 6)
     B("ae_engine_bench", 82, 44, 3)

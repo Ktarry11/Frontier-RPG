@@ -99,6 +99,22 @@ into the world tree a bit").** The tiers get caves that go into the wood itself:
 borers have eaten, sap chambers. One cave a tier: the Lower Boughs' goes into the trunk off the ledge, and the Middle and
 Upper Boughs each get theirs. The dungeon is the Middle Boughs' heartwood, deeper into the tree than any cave.
 
+**Into the sky (Kyle, 20 Nov 2026: "And we will have dungeons and caves too i hope").** The sky zones get caves too, into
+the old stone under the islands. The Expanse's is the Golem Vault under the Golem Fields, where the Kharad kept their
+golems and the crews lay down in the stone beside them, with the Storm-Well as its second floor. High-level caves can
+have more than one floor (Kyle: "remember that this is high level zone - so multiple floors are okay"). The Firmament's sky-forge is the sky's dungeon, and the raid is
+behind the Crown's seal.
+
+**Sky islands have to play well (Kyle, 20 Nov 2026: "dont make them too hard to travel on with tiny paths and snag
+points....looks good - sucks to play").** Bridges about eight tiles wide, coasts smoothed so there are no one-tile
+notches, and every map measured: a body five tiles wide should reach nearly all of it.
+
+**The wellstones (Kyle, 20 Nov 2026: "i do like the concept of 'island waterfalls' where some-fucking-how we have
+unlimited water pouring off the island lol").** Water pours off the sky islands forever. The islands' crystal pulls it
+out of the clouds; the Aetherians call those stones wellstones, have drunk from them for three hundred years, and can't
+tell you how they work. Use it everywhere in the sky: rivers that fall from island to island, pools that spill off the
+nearest edge.
+
 **Towns.** Kyle, 19 Nov 2026: "The sky continents will get 3 capital cities. Great settlement will be large but not
 capital city large." So the sky has three capitals, one for each people, each on its own continent with a long-airship dock: Aurelion (the
 Aetherians, built now), and a Veyr city and a Kharad city when their continents are built. Each capital has an inn, a flight path, a bank, an auction house, mail and
@@ -255,6 +271,33 @@ docks reach the Undercity and Orgrimmar. Its first recruits are already drawn up
 four Earthborn, a healer in the first map (Kyle: "We need to ensure a Healer recruit in the start of the zone too"), then
 a tank, a melee and a ranged.
 
+The first two maps have names (Kyle, 20 Nov 2026): **The White Expanse** (1-6) and **The Shattered Reaches** (6-11).
+"Beyond that who knows." The rest of the run down to the 21-24 map at Aurelion's north gate is still to be named.
+
+## The sky's one mystery (Kyle, 20 Nov 2026)
+
+"I'd establish one overarching mystery: The three peoples once worked together to create or maintain the floating world.
+Something happened, their alliance collapsed, and now the very civilization they built is dying. The mural at the top of
+the World Tree is the first physical evidence of their original alliance. That gives the entire levelling journey a
+purpose beyond simply reaching higher-level areas."
+
+What that settles:
+- **The Aetherians, the Veyr and the Kharad built the floating world together**, or kept it up together, and the sky's
+  slow dying (the islands falling, the Eighth Ring, the cloud thinning, the wards and the wellstones nobody understands)
+  is what's left of a job three peoples used to do and one people now can't.
+- **The mural is the first evidence** (`docs/crown_cutscene.md`: three peoples standing together under a golden sun).
+  Every zone after it should turn up another piece, never the whole thing at once: a thing only the three together
+  could have made, a place built by one people for another, a record one people kept and another destroyed.
+- **What happened to the alliance stays the question.** No zone answers it; the levelling road gets closer.
+- **It isn't the Integration.** The alliance's fall is the sky's own old history. The rule still holds: the Aetherians
+  hunt for what the change was and never get close to its cause, and nothing about the alliance points at it.
+- **Each people remembers it its own way.** The Aetherians' High Houses tell it as their own story (the House of Long
+  Memory is laughed at for saying the Kharad were here first). The Veyr and the Kharad get their versions with their
+  continents.
+
+The Celestial Expanse's piece: the golem cores in the Golem Vault and the Storm-Well are Kharad stone round Aetherian
+crystal, holding a storm the Veyr sang into them. The Kharad built the golems, but not alone.
+
 ## Twenty questions: the sky continent's story (Kyle, 20 Nov 2026)
 
 Kyle: "So these places can be large! Don't hold back right bro", and "the first zone players get into is where tension
@@ -339,6 +382,27 @@ secret.
 
 **Rafa's pick: A.** Seven fights that each play differently, a final boss that pays off all six before him, and the
 Kharad set up for later. C has the best politics, though, and the scholar-general would want what's in it.
+
+**Kyle's direction (20 Nov 2026): "I do want the raid to be very storm and elemental and norse".** That's A's bones,
+rebuilt. The Kharad were always the Cloud Giants, so they become storm-giants: rune-cut longhalls, thunder in the stone,
+shield-walls and skald-songs. The prison is now the **Stormhold**, a giants' hall built round the storm they chained
+under the Crown. The names are Norse in sound only: no real gods or myths are used. Draft roster, waiting on Kyle's
+yes:
+1. **Skarnvald, the Gate-Thane**: a rune-construct still keeping the door. It chains a player every few turns, and the
+   raid breaks the chain before its hammer comes down.
+2. **Hrossa, the Coiled Deep**: a storm-serpent caged for swallowing a city. It breathes in and drags the raid toward
+   its jaws, and whoever reaches them is swallowed and fights their way out from inside.
+3. **The Gale-Skalds**: six Veyr singers bound into one storm. Their song stacks every turn, and killing them out of
+   order heals the rest.
+4. **Thrymgald, the Hail Colossus**: a frost elemental the size of a hall. Hail falls in a marked pattern, and the only
+   cover is its own shield-stones, which it smashes one by one.
+5. **Myrkhild, the Fog-Witch**: a living fog that eats light. The raid keeps the hall's rune-braziers lit or takes
+   stacking shadow.
+6. **Brand and Brimm, the Forge-Twins**: a fire elemental and a frost elemental chained together. Each one's hits leave
+   a mark the other one detonates, and they have to die within a few turns of each other.
+7. **Warden-King Oskhar**: the storm-giant king who locked himself in to hold the seal shut, mad after ages alone. He
+   swings a thunder-maul, uses the powers of every prisoner the raid killed, and the hall's storm gets worse with each
+   phase. He also sets up the Kharad continent for later.
 
 ## Order of work
 

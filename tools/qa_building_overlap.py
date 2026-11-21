@@ -98,6 +98,11 @@ def main():
                 if frac <= MAX_COVERED:
                     continue
                 a, b = blds[i], blds[j]
+                # one is the other's replacement: a cutscene hides one and shows the other (the Cloudbreak's mural,
+                # intact and broken open), so they're never drawn at the same time
+                if {a.get("cutscene_hide"), b.get("cutscene_show")} == {a.get("cutscene_hide")} != {None} or \
+                        {b.get("cutscene_hide"), a.get("cutscene_show")} == {b.get("cutscene_hide")} != {None}:
+                    continue
                 key = (name, Path(str(a["sprite_key"])).stem, a["anchor_x"], a["anchor_y"],
                        Path(str(b["sprite_key"])).stem, b["anchor_x"], b["anchor_y"])
                 if key in KNOWN:

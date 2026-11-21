@@ -212,9 +212,12 @@ ZONE_BACKGROUND = {
     "Shriekhollow": "jungle",                     # the harpies' hollow in the trunk
     "The Upper Boughs": "jungle",                 # the top of the tree, over the cloud tops
     "The Stormsplit": "jungle",                   # the lightning split in the trunk
+    "The Golem Vault": "crystal",                 # the Kharad's vault under the Golem Fields
+    "The Storm-Well": "crystal",                  # the vault's second floor, the bound storm
     "The Cloudbreak": "jungle",                   # the last branches (no fights)
     "The Sunward Crown": "sky",                   # above the cloud, in full sun
     "Lenswatch": "sky",                           # the survey's island (a town: no fights)
+    "The Celestial Expanse": "sky",               # the open day sky
     "The Great Settlement": "jungle",             # the troll city in the tree's heart
     "The High Wilderness": "mossy_forest",        # Feralas's giant forest (until its own background)
     "The Forgotten Coast": "mossy_forest",
