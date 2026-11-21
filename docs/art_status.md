@@ -9,7 +9,6 @@ again. (RC1 was asked for a second time on 21 Nov off a stale 17 Nov note, thoug
 
 | Sheet | What | Where | Notes |
 |---|---|---|---|
-| **SZ1** | The four start zone cards for character creation's picker (the Valley, Deathknell, Dawnhaven, the White Expanse) | `start_zone_art_prompts.md` | Written 21 Nov (Kyle: "4 gorgeous art pieces to the zone selector in one sheet") |
 | **DH5** | The Sunreach Conclave's faction card redrawn at Firstlight Spire (the tabard and both mounts are already in) | `dawnhaven_art_prompts.md` | Optional. Written 21 Nov; the old Talrendis painting stays until it lands |
 | **SKY-NPC** | The two Crown allies' own figures (Ilaren Vey, Leandro Arrieta) and the Mural Shard's Collection icon | not written | Optional. They wear stock Aetherian and human looks today |
 | **Corvo and Lysse** | The Exarch's two guards in the Ascendant Spire | not written | Optional. They weren't on AB2, so they borrow the stock commander and warden art |
@@ -19,6 +18,7 @@ again. (RC1 was asked for a second time on 21 Nov off a stale 17 Nov note, thoug
 
 | Doc | Sheets | Landed |
 |---|---|---|
+| `start_zone_art_prompts.md` | SZ1: the four start zone paintings for character creation's picker, sliced by `tools/slice_start_zone_art.py` | 21 Nov |
 | `dawnhaven_art_prompts.md` | DH1 to DH4: Dawnhaven's 24 ground tiles, 24 props, 12 buildings and 24 town props (DH5, the card, is still to make) | 21 Nov |
 | `blood_elf_npc_art_prompts.md` | BE-M and BE-W: 48 blood elf townsfolk, front-only NPC looks | 21 Nov |
 | `environment_effects_art_prompts.md` | EFX1 to EFX10: 150 environment effects (light and shade overlays, weather and fog layers, particles, ambient life and flyover shadows, water and ground effects, sky events), sliced by `tools/slice_effects_sheets.py` to `assets/effects/` | 21 Nov |

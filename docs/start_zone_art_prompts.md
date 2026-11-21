@@ -1,6 +1,6 @@
 # Start zone cards: art prompt (sheet SZ1)
 
-**Status (21 Nov 2026): written, waiting on Kyle.** See `docs/art_status.md` for every sheet.
+**Status (21 Nov 2026): delivered and in the game.** See `docs/art_status.md` for every sheet.
 
 Kyle, 21 Nov 2026: "instead of clicking on the starting zones. We make a more prominent 'Starting zone' thing you click
 on to pick it. It has actual lore about the location and an image too", then "give me a prompt that adds 4 gorgeous art
