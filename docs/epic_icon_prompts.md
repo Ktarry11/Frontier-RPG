@@ -1,5 +1,7 @@
 # Epic gear icon prompts — 2 sheets of 48
 
+**Status (21 Nov 2026): delivered and sliced (the gear_epic_ icons).** See `docs/art_status.md` for every sheet.
+
 Kyle, 7 Nov: *"for unique purples I can start to use prompts to get about
 48 x 2 icons for epic items. They should be unique looking compared to
 current gear."*

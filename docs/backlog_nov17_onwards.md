@@ -189,7 +189,7 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
   the first was used) and I1 (an icon per look), H9 and H10 (the twelve wild mounts: each drops at 5% from one
   open-world rare that fits it, `tools/build_collection.py` WILD_MOUNTS) and H11 to H13 (sixteen Exalted mounts, 100g
   each from the faction's first quartermaster once you're Exalted; bound to the buyer like every rep item).
-- **Landed 20 Nov (the art backlog, `docs/art_backlog_2026_11_20.md`)**: I2 (28 reins), M2 (36 Master crafting icons), H14
+- **Landed 20 Nov (the art backlog, `docs/art_status.md`)**: I2 (28 reins), M2 (36 Master crafting icons), H14
   (the Feathermoon War Owl and the Cloudtop Wyvern at Exalted, and the Aetherians', Kyr'vahl's and Ul'Kharad's mounts
   drawn and waiting for their factions), I3 (their reins and five tabards) and K1 to K3 (all 98 keepsakes). Two
   keepsakes came back as the wrong object and can be re-rolled any time: Esteban's radiation badge (drawn as a sheriff's

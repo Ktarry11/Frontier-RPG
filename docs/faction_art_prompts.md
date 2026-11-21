@@ -1,5 +1,7 @@
 # Faction card backgrounds: art prompts
 
+**Status (21 Nov 2026): delivered and sliced.** See `docs/art_status.md` for every sheet.
+
 Written by `tools/write_faction_art_prompts.py` (edit the script, not this file).
 
 Kyle, 19 Nov 2026: background art for each faction's card, then "like a 'background card' but on the faction page, very opaque and unique for each one". So each faction's page is backed by its own painting, drawn solid (not a faint wash), with the page's text on a darker band over the painting's calm lower third. One landscape per faction, four to a sheet, each panel 1024x768. The secret faction gets none: its card says nothing on purpose. The three sky factions are drawn ahead of their zones.

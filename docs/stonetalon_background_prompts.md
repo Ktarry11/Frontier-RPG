@@ -1,5 +1,7 @@
 # Stonetalon combat backgrounds
 
+**Status (21 Nov 2026): delivered and sliced (`assets/backgrounds/st_*`).** See `docs/art_status.md` for every sheet.
+
 For `docs/stonetalon_brief.md`. These are the pictures behind a fight (`assets/backgrounds/<folder>/`, picked by `world/combat_backgrounds.py` from the zone or subzone you're fighting in). Today Stonetalon would borrow the generic mountain and mossy-forest packs. These give each part of it its own.
 
 Kyle sent two redwood photos for reference (15 Nov 2026): giant straight trunks going up into fog, light coming through in shafts, and a floor of sword ferns. **Attach them as reference images for #1 and #2.** The prompt asks for them painted, not copied, so they match the rest of the set.

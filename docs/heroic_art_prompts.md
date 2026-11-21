@@ -1,5 +1,7 @@
 # Heroic stage 2: art prompt (sheet HB1)
 
+**Status (21 Nov 2026): delivered 21 Nov 2026 and sliced (`tools/slice_heroic_icons.py`).** See `docs/art_status.md` for every sheet.
+
 Kyle, 21 Nov 2026: "Yeah build stage 2", "the badge vendor can have multiple tabs. We can organize it by armor slot and
 type and weapon slot", "Ensure the vendor is well organized and sleek and sexy", "Do you need art?", then "Try to fill
 it up so it's not a wasted sheet".

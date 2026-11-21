@@ -1,60 +1,40 @@
-# Frontier RPG - Phase 0
+# Frontier RPG
 
-An open-world party-based RPG built in Python + Pygame.
+A WoW Classic-inspired, party-based, turn-based RPG in Python and Pygame. Earth transplants, a merged world, levels
+1 to 60, dungeons with heroics, reputation, crafting, recruits and an auction house.
 
-## Setup
-
-### Requirements
-- Python 3.8+
-- Pygame
-
-### Installation
-
-1. Clone/download this folder
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-### Running the Game
+## Running it
 
 ```bash
+pip install -r requirements.txt
 python main.py
 ```
 
-## Phase 0 Features
+Python 3.10 or newer. Saves are versioned JSON, and the folder runs from anywhere (every path is relative).
 
-- **Main Menu**: New Game / Load Game / Quit
-- **Character Creation**: Choose from 4 classes (Warrior, Shaman, Rogue, Priest)
-- **Character Sheet**: View stats, health, mana
-- **Overworld**: Explore 2 test zones, move between them
-- **Combat**: FFX-style turn-based with continuous AGI-based turn meter
-- **Save/Load**: Character data persists (versioned JSON format)
+## Where things are
 
-## Game Flow
+| Folder | What's in it |
+|---|---|
+| `main.py`, `core/` | the entry point and the game-state machine |
+| `world/` | zones, portals, quests, factions, heroics, vendors, the market |
+| `entities/`, `combat/` | characters, items, loot; the turn-based combat engine |
+| `ui/` | every screen |
+| `data/` | the game's content as JSON: creatures, kits, encounters, quests, loot, items, NPCs |
+| `assets/` | sliced art and baked map chunks (WebP), everything the game loads |
+| `tools/` | the builders that write `data/` (`build_*`), the hand-built maps (`handbuilt_*`), the bakers (`bake_*`) and the checks (`qa_*`) |
+| `docs/` | design briefs, build logs and art prompts; `docs/art_status.md` says which art is in and what's still to make |
 
-1. Start → Main Menu
-2. New Game → Character Creation (pick class)
-3. Overworld → Explore zones
-4. Search for Encounter → Combat
-5. Win/Lose → Return to Overworld
+## Checks
 
-## Technical Notes
+```bash
+PYTHONPATH=. python3 tools/qa_<name>.py               # one check
+QA_JOBS=3 bash tools/run_qa.sh qa_portals qa_heroic   # several in parallel; logs in /tmp/frontier_qa
+```
 
-- **Portable**: Entire folder uses relative paths. Copy to any computer and it works.
-- **Placeholder Art**: All visuals are rectangles and text (no sprites yet — Phase 11)
-- **Clean Architecture**: Modular systems for easy expansion in future phases
-- **Versioned Saves**: Save format includes version number for forward compatibility
+## Art sources
 
-## Roadmap
+Kyle's full art sheets live on the `art-sources` branch (`tools/*_sheets/`, `assets/**/_src/`), so `main` stays small.
+Everything sliced from them is on `main`.
 
-- Phase 0: Foundation (current)
-- Phase 1: Character progression
-- Phase 2: Zones & world building
-- Phase 3: Combat polish
-- Phase 4: Skills & abilities
-- Phase 5-12: See handoff document
-
----
-
-Built with care. Scope is your enemy. Ship early, iterate often.
+Old session handoffs and the Phase 0 notes are in `docs/archive/`.

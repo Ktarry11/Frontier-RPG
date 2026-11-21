@@ -1,5 +1,7 @@
 # Recruit art prompts, SHEET 4: 16 NEW characters (1 sprite sheet + 2 portrait sheets)
 
+**Status (21 Nov 2026): delivered and sliced (the roster went to 84).** See `docs/art_status.md` for every sheet.
+
 Kyle, 16 Nov 2026: "So if we are having new recruits, I suggest we add another 16 to the game to fill in what's
 missing. We would need art for their sprites and their character portraits too. Since we added a lot with felwood,
 stonetalon, tempeat Isle, and now plaguelands etc". The roster goes from 68 to 84.

@@ -1,5 +1,7 @@
 # Master crafting icons (3 sheets, 92 icons)
 
+**Status (21 Nov 2026): delivered and sliced (M1 to M3; the backlog's M2 landed 20 Nov).** See `docs/art_status.md` for every sheet.
+
 Kyle, 18 Nov 2026: "icon prompt please". One icon for every Master piece (`docs/master_crafting.md`), so none share
 and none wear a recoloured stand-in (the ten level-60 materials and the two bolts already have theirs). Slice with
 `python3 tools/asset_pipeline/slice_collection_icons.py SHEET.png --ids=<the list> [--cols=N]`, then point the pieces

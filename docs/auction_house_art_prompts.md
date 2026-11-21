@@ -1,5 +1,7 @@
 # Auction house and mail: art prompts
 
+**Status (21 Nov 2026): delivered and sliced (the auction house backgrounds and icons are in the game).** See `docs/art_status.md` for every sheet.
+
 For the auction house and mail update (Kyle, 15 Nov 2026). Three images. The two backgrounds sit behind the
 auction house screen the way battle backgrounds sit behind a fight: the window, tabs, lists and buttons are drawn
 over them by the game. So they're composed with a calm, darker middle where the window goes, and all the detail

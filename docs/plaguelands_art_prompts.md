@@ -1,5 +1,7 @@
 # Plaguelands art prompts (sheets 1 to 8)
 
+**Status (21 Nov 2026): delivered and sliced, all eight sheets.** See `docs/art_status.md` for every sheet.
+
 For `docs/plaguelands_design.md`. Kyle, 16 Nov 2026, chose all four kinds: ground and props per map, buildings,
 dungeon interiors, creatures and bosses.
 

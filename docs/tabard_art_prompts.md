@@ -1,5 +1,7 @@
 # Faction tabard icons (1 sheet, 16 icons)
 
+**Status (21 Nov 2026): delivered and sliced (`assets/icons/gear/tabard_*`).** See `docs/art_status.md` for every sheet.
+
 Kyle, 18 Nov 2026: "You can give me a prompt for tabbards for the factions we have currently." One tabard icon per
 faction tabard (`docs/tabards_design.md`). They replace the tinted stand-ins in `assets/icons/gear/`. Slice with
 `python3 tools/asset_pipeline/slice_collection_icons.py SHEET.png --ids=...` (a 4x4 sheet; see the order below).

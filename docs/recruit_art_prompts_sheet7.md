@@ -1,5 +1,7 @@
 # Recruit art prompts, SHEET 7: the Bears (16 sprites + 16 portraits)
 
+**Status (21 Nov 2026): delivered 21 Nov 2026. The sheets are saved (`_src`); slicing, writing and placing the sixteen is on Claude's side, not an art job.** See `docs/art_status.md` for every sheet.
+
 Kyle, 20 Nov 2026: "do you know what we fucking need?! gruff bears!... some 'real' looking men....not obese ones
 though....hot muscle bears", then "16 men - fuck it go for it! sprites and portraits. All white, latino, or middle
 eastern".

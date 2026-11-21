@@ -1,5 +1,7 @@
 # Recruit art prompts, SHEET 6: 16 new recruits (1 sprite sheet + 1 portrait sheet), and 48 Aetherians (2 sheets)
 
+**Status (21 Nov 2026): delivered and sliced, sheet 6 and the AE-M and AE-W Aetherian looks; the twelve recruits are placed (21 Nov 2026).** See `docs/art_status.md` for every sheet.
+
 Kyle, 20 Nov 2026: "Let's make a batch of 16 recruits. Art and portraits for them. 1 sheet for 16 sprites and 1 sheet
 for 16 portraits. 75% men and 25% women. Good looking. Let's get props for 24 males and 24 females too. Since they're
 just npcs and this gives variety", "Since some of these recruits will be in the 1-24 sky zone too", and "We need to

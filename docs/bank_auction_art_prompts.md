@@ -1,5 +1,7 @@
 # Bank and auction house art: one sheet, 12 grand buildings in 6 styles
 
+**Status (21 Nov 2026): delivered and sliced (the twelve banks and auction houses are in `assets/buildings`).** See `docs/art_status.md` for every sheet.
+
 Kyle, 17 Nov 2026: "I think we also need a uniform Auction House and a Uniform bank rather than just slapping
 merchanttusk and the auctioneers in the middle of nowhere", then "We need goblin bank and goblin AH as well as horde
 bank and horde AH and eventually an alliance AH and alliance bank style... about 12 on a sheet for grand design!", and

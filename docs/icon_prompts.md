@@ -1,5 +1,7 @@
 # Icon generation prompts — 3 × 48 = 144
 
+**Status (21 Nov 2026): delivered and sliced (the ability and passive icons).** See `docs/art_status.md` for every sheet.
+
 135 icons are needed right now (100 abilities + 35 named passives). Three sheets of 48 covers it with 9 spare.
 
 Each sheet is grouped so one prompt produces a visually consistent set. Paste one prompt per conversation; don't mix sheets.

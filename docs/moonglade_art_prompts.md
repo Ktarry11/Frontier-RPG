@@ -1,5 +1,7 @@
 # Moonglade art prompts (sheets 1 to 4)
 
+**Status (21 Nov 2026): delivered and sliced.** See `docs/art_status.md` for every sheet.
+
 For `docs/moonglade_brief.md`. Kyle, 18 Nov 2026: "Get that mystical druid look for moonglade, we should have the lush
 tiles, trees, and brillian beautiful water!" He picked new art before the build.
 

@@ -1,5 +1,7 @@
 # Enchanting and recipe-scroll art (7 sheets, 252 icons)
 
+**Status (21 Nov 2026): EN1 to EN4 and RC2 and RC3 delivered and sliced. **RC1 (the Blacksmithing, Leatherworking and Tailoring recipe scrolls) is the one still to paste.**** See `docs/art_status.md` for every sheet.
+
 Kyle, 17 Nov 2026: "Can you give me like.... 36 x 4 things for enchanting???" and "another 36 x 3 for other recipies found in the game?! They dont need to be unique but they should be similar.....like each professions get about 6-8 unique ones".
 
 **Enchanting (sheets EN1-EN4, 144 icons).** Today all 176 enchant scrolls are one picture. Each enchant family (a slot and a stat, like Bracer Stamina) gets a lesser scroll for its lower ranks and a greater scroll for its upper ranks; the weapon procs and shoulder inscriptions get one each. That's 130. The other 14 are the four enchanted wands and the ten enchanting oils.
