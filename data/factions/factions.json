@@ -2424,22 +2424,22 @@
     },
     "sunreach_conclave": {
       "name": "The Sunreach Conclave",
-      "description": "Blood elf magisters reclaiming what their ancestors lost on the Azshara coast, now that the sea is giving Zin-Azshari back.",
-      "home_zone": "talrendis_landing",
-      "home_name": "Talrendis Landing, in Azshara (its field camp, until the Conclave has a home of its own)",
+      "description": "Blood elf magisters who lit Firstlight Spire on Dawnhaven, and who mean to take back what their ancestors lost on the Azshara coast now that the sea is giving Zin-Azshari back.",
+      "home_zone": "firstlight_spire",
+      "home_name": "Firstlight Spire, on Dawnhaven off the Azshara coast (with a field camp at Talrendis Landing)",
       "leader": {
         "title": "Grand Magister",
         "name": "Velanthe Sunreach",
         "npc_id": "tl_sunreach_magister",
-        "location": "The Conclave's tents on the lakeshore, Talrendis Landing",
+        "location": "The Conclave Hall, beside the spire, Firstlight Spire",
         "line": "I watched the last spires of Quel'Thalas fall into a sea that wasn't there the day before. I won't watch our history go the same way. I want it back, all of it, the good and the shameful."
       },
       "_lore_note": "Kyle, 17-18 Nov 2026: the Sunreach Conclave, its own TBC shelf, its leader quest-free and movable; 'Proud, fair magister'.",
       "lore": [
         "When the worlds merged, the sea came up over the last of Quel'Thalas's coast. The magisters who got out took ship south and found Azshara's shore rising instead: Zin-Azshari, the city their ancestors left ten thousand years ago, coming back up out of the water.",
         "Grand Magister Velanthe Sunreach gathered them into the Conclave. They mean to be standing on the shore when the city comes back, to take back what was theirs before anyone else can, and to learn what their ancestors did to make the gods sink it.",
-        "They share Talrendis Landing with Orgrimmar's salvage crews, because the Warchief has the muscle and they have the magic. Neither side likes the arrangement, and both sides keep two lists of everything that comes out of the ground.",
-        "The Conclave is waiting for a home of its own. Until then the Grand Magister and her quartermaster keep the field camp on the lakeshore, and the Conclave's work goes through her magisters."
+        "Their home is Dawnhaven, an island off the coast that the old high elves hid behind wardstones long before the change. The Conclave found it empty, its outpost dead and its Lightwell dark, and took it back. They lit the spire at its head again after a thousand years and called it Firstlight, and anyone the sea washes up on its shore gets a room there, elf or not.",
+        "The Grand Magister and her quartermaster keep the Conclave Hall beside the spire now. The work on the coast goes on from Talrendis Landing, which they share with Orgrimmar's salvage crews, because the Warchief has the muscle and they have the magic. Neither side likes the arrangement, and both sides keep two lists of everything that comes out of the ground."
       ],
       "quest_rep": {
         "_comment": "Per quest, by shape. Paid by giver (tools/build_azshara_quests.FACTION_BY_GIVER).",

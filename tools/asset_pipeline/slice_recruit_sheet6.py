@@ -4,6 +4,10 @@ sheets AE-M and AE-W (6x4 each).
     python3 tools/asset_pipeline/slice_recruit_sheet6.py sprites <sheet.png>
     python3 tools/asset_pipeline/slice_recruit_sheet6.py portraits <sheet.png>
     python3 tools/asset_pipeline/slice_recruit_sheet6.py aetherians <men.png> <women.png>
+    python3 tools/asset_pipeline/slice_recruit_sheet6.py blood_elves <men.png> <women.png>
+
+The blood elf townsfolk (docs/blood_elf_npc_art_prompts.md, BE-M and BE-W, 21 Nov 2026) are the same 6x4 front-only
+layout, sliced to assets/npcs/blood_elf/blood_elf_m1..m24 and blood_elf_w1..w24.
 
 docs/recruit_art_prompts_sheet6.md asks for one 4x4 sprite sheet, one 4x4 portrait sheet, and two 6x4 Aetherian sheets
 (front only, like the furbolgs), sliced to assets/npcs/aetherian/aetherian_m1..m24 and aetherian_w1..w24. Figure finding is
@@ -69,9 +73,9 @@ IDS = [
 ]
 
 
-def aetherians(men, women):
+def aetherians(men, women, folder="aetherian"):
     """The two 6x4 Aetherian sheets, front only: aetherian_m1..m24 and aetherian_w1..w24, each a down.png on a canvas
-    sized like the P6 Aetherians'."""
+    sized like the P6 Aetherians'. The blood elf townsfolk use it too, with folder="blood_elf"."""
     for sheet, tag in ((men, "m"), (women, "w")):
         crops = figures(sheet)
         if len(crops) != 24:
@@ -83,10 +87,10 @@ def aetherians(men, women):
         for k, im in enumerate(crops, 1):
             canvas = Image.new("RGBA", (cwid, chei), (0, 0, 0, 0))
             canvas.paste(im, ((cwid - im.width) // 2, chei - im.height - 2), im)
-            d = os.path.join("assets/npcs/aetherian", f"aetherian_{tag}{k}")
+            d = os.path.join(f"assets/npcs/{folder}", f"{folder}_{tag}{k}")
             os.makedirs(d, exist_ok=True)
             canvas.save(os.path.join(d, "down.png"))
-        print(f"  aetherian_{tag}1..{tag}24 {canvas.size}")
+        print(f"  {folder}_{tag}1..{tag}24 {canvas.size}")
 
 
 def main():
@@ -95,6 +99,8 @@ def main():
     kind, sheets = sys.argv[1], sys.argv[2:]
     if kind == "aetherians":
         return aetherians(*sheets)
+    if kind == "blood_elves":
+        return aetherians(*sheets, folder="blood_elf")
     crops = [c for sheet in sheets for c in figures(sheet)]
     if len(crops) != len(IDS) and kind == "portraits" and len(sheets) == 1:
         crops = grid_figures(sheets[0])

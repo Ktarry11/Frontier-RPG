@@ -57,7 +57,7 @@ PAVED_PATCHES = [(52, 28, 9, 6), (28, 36, 7, 5)]
 CLEARINGS = [(52, 44, 30, 22), (52, 70, 22, 22), (28, 50, 20, 30), (74, 56, 24, 30), (88, 58, 10, 8), (52, 26, 16, 12)]
 ROCKS = []
 DECKS = [(86.0, 100.0, 56.0, 61.0)]         # the pier off the east shore
-DECK_MAT = "pl_elf"
+DECK_MAT = "pl_pier"                # plain pier boards (the night elves' violet planks read purple against the gold)
 SEA_DEEP = 3.0
 CLEARING_GRASS = False
 GRADE = (1.28, 1.12)
@@ -94,47 +94,74 @@ NPC_POSITIONS = {
     # the pier
     "dh_joost": (86, 55),
     "dh_spire_provisioner": (60, 52),
+    "dh_spire_gate_south": (48, 84),  # townsfolk
+    "dh_spire_gate_pier": (84, 59),  # townsfolk
+    "dh_spire_citizen": (46, 50),  # townsfolk
+    "dh_spire_student": (66, 46),  # townsfolk
+    "dh_pier_fisher": (96, 57),  # townsfolk
+    "dh_spire_settler": (29, 57),  # townsfolk
 }
 CHESTS = []
 
 
 def dress(L):
-    A, B, V = L.p, L.b, L.v
+    """Kyle's DH3 buildings and DH4 street props (docs/dawnhaven_art_prompts.md, 21 Nov 2026). The bank keeps the
+    bank's own art, and the shop keeps be_shop (DH3 has no shop)."""
+    A, B, V, F = L.p, L.b, L.v, L.f
     # ---- the south gate
     B("ent_town_highelf_gate", 52, 89, 7, solid=False, road_ok=True)
-    A("be_obelisk", 44, 84, 5)
-    A("be_obelisk", 60, 84, 5)
+    A("dh_runed_obelisk", 44, 84, 5)
+    A("dh_runed_obelisk", 60, 84, 5)
     # ---- the spire, at the head of the Lit Court
-    B("be_grand_spire", 52, 30, 22)
-    # ---- the Lit Court: the font in the middle, stalls round it
-    B("be_arcane_well", 52, 46, 5)
-    A("be_market_stall", 42, 50, 4)
-    A("be_market_stall", 62, 50, 4)
+    B("dh_firstlight_spire", 52, 30, 22)
+    # ---- the Lit Court: the phoenix fountain in the middle, the founder, the stalls round it
+    B("dh_fountain", 52, 46, 5)
+    A("dh_founder_statue", 52, 38, 5)
+    A("dh_stall_fruit", 42, 50, 4)
+    A("dh_stall_cloth", 62, 50, 4)
+    A("dh_stall_arcane", 41, 44, 4)
+    A("dh_stall_fish", 63, 44, 4)
+    A("dh_street_lamp", 46, 54, 4)
+    A("dh_street_lamp", 58, 54, 4)
+    F("dh_bench", 47, 41, 2)
+    F("dh_bench", 57, 41, 2)
+    A("dh_notice_board", 56, 62, 3)
     # ---- the Conclave Hall, west of the spire
-    B("be_manor", 28, 34, 11)
-    A("be_wall_arch", 38, 40, 5)
+    B("dh_conclave_hall", 28, 34, 11)
+    A("dh_garden_arch", 38, 40, 5)
+    A("dh_planter", 22, 40, 2)
     # ---- the west terrace: the inn, the bank, the mailbox, and the roost below
-    B("be_inn", 20, 49, 10)
+    B("dh_spire_inn", 20, 49, 10)
+    A("dh_inn_table", 27, 54, 3)
     B("bank_blood_elf", 34, 61, 9)
-    B("be_stable", 16, 72, 8)
-    B("be_house_small", 12, 40, 6)
+    B("dh_hawk_roost", 16, 74, 8)
+    B("dh_house_small", 12, 40, 6)
     # ---- the trainers' row, east
-    B("be_library", 76, 40, 10)
-    B("be_smithy", 66, 80, 8)
-    B("be_alchemist", 80, 76, 8)
-    B("be_shop", 84, 66, 7)
-    B("be_townhouse", 84, 30, 9)
-    # ---- the houses down the Avenue: the first homes
-    B("be_house_medium", 40, 76, 8)
-    B("be_house_small", 64, 66, 6)
-    B("be_townhouse", 30, 84, 8)
-    B("be_house_small", 72, 86, 6)
+    B("dh_library_tower", 76, 40, 10)
+    A("dh_book_stand", 70, 44, 3)
+    B("dh_forge", 66, 80, 8)
+    A("dh_anvil", 60, 77, 2)
+    B("dh_alchemist", 80, 76, 8)
+    B("be_shop", 84, 70, 7)
+    A("dh_training_dummy", 74, 52, 3)
+    A("dh_weapon_rack", 80, 52, 3)
+    B("dh_townhouse", 84, 30, 9)
+    # ---- the houses down the Avenue: the first homes, and the ones still going up
+    B("dh_townhouse", 40, 76, 8)
+    B("dh_house_small", 64, 66, 6)
+    B("dh_house_small", 30, 84, 6)
+    B("dh_house_small", 72, 86, 6)
+    A("dh_building_stock", 46, 70, 2)
+    A("dh_marble_wall", 58, 72, 2)
+    A("dh_handcart", 46, 64, 2)
+    A("dh_barrels", 62, 58, 2)
     # ---- the pier and the boat
     V("tl_elf_skiff", 97, 66, 5)
-    V("dock_lantern_post", 88, 55, 4)
-    V("dock_lantern_post", 99, 55, 4)
+    V("dh_mooring_post", 88, 55, 3)
+    V("dh_mooring_post", 99, 55, 3)
     V("fish_crates_traps", 90, 63, 3)
-    L.edge_canopy(seed=611, names=(("az_gold_tree", 10), ("az_autumn_tree", 10), ("az_birch_trio", 8)))
+    V("dh_rowboat", 92, 64, 2)
+    L.edge_canopy(seed=611, names=(("dh_autumn_tree", 10), ("az_gold_tree", 10), ("dh_maple_sapling", 7)))
 
 
 AK.install(sys.modules[__name__])

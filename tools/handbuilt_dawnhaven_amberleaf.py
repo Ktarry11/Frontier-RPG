@@ -35,6 +35,7 @@ NAME = "Amberleaf Glade"
 BAKED_DIR = "assets/tiles/dawnhaven/baked_amberleaf"
 AZP = "assets/tiles/azshara/props/"
 BLD = "assets/buildings/"
+DHP = "assets/tiles/dawnhaven/props/"           # Kyle's DH2 and DH4 (docs/dawnhaven_art_prompts.md)
 W, H = 150, 130
 
 PORTALS = {(75, 4): "Duskfall Woods", (126, 94): "Brinecoil Grotto", (34, 20): "The Quiet Vault"}
@@ -136,14 +137,20 @@ NPC_POSITIONS = {
     "dh_thaelen": (82, 91),         # Apothecary Thaelen: herbs, the sick, the dead
     "dh_rosa": (66, 92),            # Rosa Quintero, a carpenter from Valparaiso, putting roofs back on
     "dh_kaelen": (80, 84),          # Scout Kaelen Swiftarrow: the coast and the naga
-    "dh_amberwatch_trader": (86, 87),
+    "dh_amberwatch_trader": (87, 87),
     "ct_amberwatch": (64, 86),
     "pt_dawnhaven_herbs": (84, 95),
     "pt_dawnhaven_forge": (68, 96),
-    "pt_dawnhaven_skins": (60, 90),
+    "pt_dawnhaven_skins": (56, 90),
     # the priestess who keeps the names of the outpost's dead, at the memorial stone in camp
     "dh_aldaria": (74, 97),
     # Liam Hartigan (the recruit) waits by the guard post on the shore: data/npcs/recruits.json
+    "dh_shore_newcomer_a": (72, 115),  # townsfolk
+    "dh_shore_newcomer_b": (80, 114),  # townsfolk
+    "dh_amberwatch_gate": (75, 81),  # townsfolk
+    "dh_amberwatch_sentry": (59, 97),  # townsfolk
+    "dh_amberwatch_hauler": (72, 90),  # townsfolk
+    "dh_rosa_helper": (64, 95),  # townsfolk
 }
 
 
@@ -173,10 +180,10 @@ SUBZONES = [   # (table_key, x, y, w, h, display_name) - later registrations win
 ]
 
 TREES = {
-    "big":   [(AZP + "az_gold_tree.png", 10), (AZP + "az_autumn_tree.png", 10), (AZP + "az_gold_tree.png", 11)],
-    "mid":   [(AZP + "az_gold_tree.png", 8), (AZP + "az_autumn_tree.png", 9), (AZP + "az_birch_trio.png", 8)],
-    "small": [(AZP + "az_birch_trio.png", 7), (AZP + "az_gold_tree.png", 7)],
-    "woods": [(AZP + "az_gold_tree.png", 10), (AZP + "az_autumn_tree.png", 9), (AZP + "az_gold_tree.png", 11)],
+    "big":   [(AZP + "az_gold_tree.png", 10), (DHP + "dh_autumn_tree.png", 10), (AZP + "az_gold_tree.png", 11)],
+    "mid":   [(AZP + "az_gold_tree.png", 8), (DHP + "dh_autumn_tree.png", 9), (DHP + "dh_maple_sapling.png", 8)],
+    "small": [(DHP + "dh_maple_sapling.png", 7), (AZP + "az_birch_trio.png", 7)],
+    "woods": [(AZP + "az_gold_tree.png", 10), (DHP + "dh_autumn_tree.png", 9), (AZP + "az_gold_tree.png", 11)],
 }
 
 #: gold light through the canopy (Kyle, 21 Nov 2026, on the sky's sunbeams: "They give a sense of depth")
@@ -223,10 +230,10 @@ def sprinkle(L):
             continue
         r = rnd.random()
         if bush < 22 and r < 0.014:
-            if L.prop("az_crimson_bush", x, y, 3, path_dir=AZP, solid=False, nudge=0):
+            if L.prop("dh_crimson_shrub", x, y, 3, path_dir=DHP, solid=False, nudge=0):
                 bush += 1
         elif logs < 14 and r < 0.040:
-            if L.prop("az_autumn_log", x, y, 3, path_dir=AZP, solid=False, nudge=0):
+            if L.prop("dh_red_log", x, y, 3, path_dir=DHP, solid=False, nudge=0):
                 logs += 1
         elif rocks < 16 and r < 0.050:
             if L.prop("az_lichen_boulder", x, y, 4, path_dir=AZP, solid=False, nudge=0):
@@ -247,6 +254,7 @@ def dress(L):
     Z = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=AZP, **kw)          # noqa: E731
     B = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=BLD, **kw)          # noqa: E731
     D = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir="assets/tiles/dungeon_props/", **kw)  # noqa: E731
+    K = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=DHP, **kw)          # noqa: E731
     H = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir="assets/tiles/haunted_forest/props/", **kw)  # noqa: E731
 
     # ---- the Waking Shore: what the tide leaves, and the ranger's lookout over it
@@ -255,29 +263,32 @@ def dress(L):
     Z("az_giant_clam", 54, 116, 3, solid=False)
     B("be_guard_post", 84, 104, 6, solid="core")
     # ---- Amberwatch: the outpost's outer gatehouse, half standing, with the Conclave's camp in its lee
-    B("be_gatehouse", 75, 80, 9, solid="core")
+    B("dh_amberwatch_gate", 75, 80, 9, solid="core")
     B("be_command_tent", 66, 82, 6, solid="core")
     B("be_pavilion", 86, 92, 6, solid="core")
     B("be_market_stall", 88, 84, 4, solid="core")
     B("be_ruined_house", 60, 94, 6, solid="core")
     Z("az_dig_scaffold", 63, 97, 5, solid="core")        # Rosa's roof going back on
-    Z("az_relic_crate", 70, 97, 3, solid="core")
+    K("dh_sun_crates", 70, 97, 3, solid="core")
+    K("dh_conclave_banner", 81, 82, 4, solid="core")
+    K("dh_camp_hearth", 78, 89, 3, solid=False)
+    K("dh_bedrolls", 64, 88, 3, solid="core")
     P("br_signpost", 79, 98, 4)
     # ---- Leafwhisper Grove: old gold woods round a fallen statue
-    Z("az_noble_statue", 30, 74, 7, solid="core")
+    K("dh_toppled_ranger", 30, 74, 4, solid="core")
     Z("az_toppled_column", 40, 74, 4, solid="core")
     # ---- Amberleaf Mere: an elven boat-stair going down into the water
-    Z("az_ruin_wall", 40, 46, 4, solid="core")
+    K("dh_broken_arch", 40, 46, 5, solid="core")
     Z("az_moon_arch", 58, 46, 6, solid="core")
     # ---- the Fallen Wardstones: the ward pylons, broken, and the leyline still running under them
-    B("be_obelisk", 110, 46, 7, solid="core")
-    B("be_obelisk", 124, 48, 7, solid="core")
+    K("dh_wardstone_broken", 110, 46, 6, solid="core")
+    K("dh_wardstone_broken", 124, 48, 6, solid="core")
     Z("az_broken_spire", 116, 44, 9, solid="core")
-    Z("az_leyline_node", 112, 58, 4, solid="core")
+    K("dh_wardstone_lit", 112, 58, 5, solid="core")      # the one stone the Conclave has woken
     Z("az_arcane_crystal", 122, 58, 4, solid="core")
     Z("az_toppled_column", 104, 52, 4, solid="core")
     # ---- Brinecoil Cove: the naga's landing on the beach
-    Z("az_naga_banner", 114, 104, 5, solid="core")
+    K("dh_naga_totem", 114, 104, 5, solid="core")
     Z("az_tide_altar", 118, 108, 4, solid="core")
     Z("az_scale_pile", 108, 106, 3, solid=False)
     Z("az_coral_cluster", 130, 104, 4, solid="core")
@@ -286,7 +297,8 @@ def dress(L):
     Z("az_ruin_wall", 44, 22, 4, solid="core")
     H("crypt_mausoleum", 26, 32, 6, solid="core")
     D("broken_column", 40, 34, 4, solid="core")
-    B("be_obelisk", 30, 34, 5, solid="core")
+    K("dh_memorial_stone", 30, 34, 4, solid="core")
+    K("dh_spirit_lantern", 34, 28, 5, solid=False)
     # ---- the Duskfall road out: an elven arch over it
     Z("az_moon_arch", 75, 12, 7, solid=False, road_ok=True)
 

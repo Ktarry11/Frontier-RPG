@@ -424,6 +424,12 @@ _set("worldtree_w1", 8, 6, "tools/building_sheets/worldtree_w1.png", "assets/til
      " ".join(_md_slice_names("docs/worldtree_art_prompts.md", "W1")), rows_y=[0, 187, 363, 512, 663, 836, 1024])
 
 
+# DAWNHAVEN (docs/dawnhaven_art_prompts.md sheet DH1, Kyle 21 Nov 2026): 1536x1024, an even 6x4 with thin dark gutters.
+_set("dawnhaven", 6, 4, "tools/building_sheets/dawnhaven_dh1.png", "assets/tiles/dawnhaven/ground",
+     " ".join(__import__("re").findall(r"`(dh_[a-z_]+)`", (lambda t: t[t.index("Slices:", t.index("## SHEET DH1:")):
+                                                                  t.index("\n\n", t.index("Slices:", t.index("## SHEET DH1:")))])(
+         (ROOT / "docs/dawnhaven_art_prompts.md").read_text(encoding="utf-8")))))
+
 if __name__ == "__main__":
     pv = sys.argv[sys.argv.index("--preview") + 1] if "--preview" in sys.argv else None
     keys = [a for a in sys.argv[1:] if a in SETS] or list(SETS)

@@ -1,6 +1,6 @@
 # Faction card backgrounds: art prompts
 
-**Status (21 Nov 2026): delivered and sliced.** See `docs/art_status.md` for every sheet.
+**Status (21 Nov 2026): delivered and sliced.** The Sunreach Conclave's card is to be redrawn at its new home, as Dawnhaven's DH5 (`docs/dawnhaven_art_prompts.md`). See `docs/art_status.md` for every sheet.
 
 Written by `tools/write_faction_art_prompts.py` (edit the script, not this file).
 
@@ -76,7 +76,7 @@ These are BACKGROUNDS for a game's faction card, so the composition matters: the
 
 Panels, left to right, top to bottom:
 
-1 THE SUNREACH CONCLAVE: Talrendis Landing on the Azshara coast: blood elf magisters' pavilions of red and gold beside an orc salvage camp, arcane lanterns, crates of salvaged Highborne relics, the drowned city of Zin-Azshari risen from the sea on the horizon at sunset.; 2 THE LIQUIDATORS: Ariden's Watch in Deadwind Pass: a grim fortified camp of people from our world holding back a poisoned land, sandbag walls, lanterns, figures in heavy protective coats and respirator hoods made from leather and canvas, and on the dark horizon a giant rusted Ferris wheel against a sickly green sky (the Ferris wheel is the ONE thing from our world allowed in this panel).; 3 THE CENARION CIRCLE: Nighthaven in Moonglade at night: night elf and tauren druid lodges round the moonlit Lake Elune'ara, ancient trees, the Shrine of Remulos glowing softly, hippogryphs and owls, silver moonlight on the water.; 4 THE WAKENED: The Wakened's settlement on Moonglade's west shore: simple lodges built by transplants among tall grass and gentle hills, people sitting in the grass at dawn, a soft green-gold shimmer of the Emerald Dream in the air above the meadow, dreamlike and peaceful.
+1 THE SUNREACH CONCLAVE: Firstlight Spire on Dawnhaven, the Conclave's home since 21 Nov 2026 (redrawn as Dawnhaven's DH5): a slender white and gold spire with a blazing gold crystal at its top on a headland over a turquoise sea, a small elven town of crimson roofs round it, forever-autumn trees in red and gold, a short pier with an elven boat, and far off across the strait the Azshara coast at sunset.; 2 THE LIQUIDATORS: Ariden's Watch in Deadwind Pass: a grim fortified camp of people from our world holding back a poisoned land, sandbag walls, lanterns, figures in heavy protective coats and respirator hoods made from leather and canvas, and on the dark horizon a giant rusted Ferris wheel against a sickly green sky (the Ferris wheel is the ONE thing from our world allowed in this panel).; 3 THE CENARION CIRCLE: Nighthaven in Moonglade at night: night elf and tauren druid lodges round the moonlit Lake Elune'ara, ancient trees, the Shrine of Remulos glowing softly, hippogryphs and owls, silver moonlight on the water.; 4 THE WAKENED: The Wakened's settlement on Moonglade's west shore: simple lodges built by transplants among tall grass and gentle hills, people sitting in the grass at dawn, a soft green-gold shimmer of the Emerald Dream in the air above the meadow, dreamlike and peaceful.
 ```
 
 Slice order: `bg_sunreach_conclave`, `bg_the_liquidators`, `bg_cenarion_circle`, `bg_the_wakened`

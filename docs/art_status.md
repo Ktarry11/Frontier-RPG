@@ -9,7 +9,7 @@ again. (RC1 was asked for a second time on 21 Nov off a stale 17 Nov note, thoug
 
 | Sheet | What | Where | Notes |
 |---|---|---|---|
-| **DH1-DH3** | Dawnhaven's own look: 24 ground tiles, 24 props, 12 buildings (the isle is built and playable on Azshara and be_ art until then) | `dawnhaven_art_prompts.md` | Written 21 Nov (Kyle: "Existing art now, sheets later") |
+| **DH5** | The Sunreach Conclave's faction card redrawn at Firstlight Spire (the tabard and both mounts are already in) | `dawnhaven_art_prompts.md` | Optional. Written 21 Nov; the old Talrendis painting stays until it lands |
 | **SKY-NPC** | The two Crown allies' own figures (Ilaren Vey, Leandro Arrieta) and the Mural Shard's Collection icon | not written | Optional. They wear stock Aetherian and human looks today |
 | **Corvo and Lysse** | The Exarch's two guards in the Ascendant Spire | not written | Optional. They weren't on AB2, so they borrow the stock commander and warden art |
 | **WALK** | Walk cycles on the new player sprites | not written | **Parked** (Kyle, 20 Nov: "Walk cycles will come after better sprites") |
@@ -18,6 +18,8 @@ again. (RC1 was asked for a second time on 21 Nov off a stale 17 Nov note, thoug
 
 | Doc | Sheets | Landed |
 |---|---|---|
+| `dawnhaven_art_prompts.md` | DH1 to DH4: Dawnhaven's 24 ground tiles, 24 props, 12 buildings and 24 town props (DH5, the card, is still to make) | 21 Nov |
+| `blood_elf_npc_art_prompts.md` | BE-M and BE-W: 48 blood elf townsfolk, front-only NPC looks | 21 Nov |
 | `environment_effects_art_prompts.md` | EFX1 to EFX10: 150 environment effects (light and shade overlays, weather and fog layers, particles, ambient life and flyover shadows, water and ground effects, sky events), sliced by `tools/slice_effects_sheets.py` to `assets/effects/` | 21 Nov |
 | `caelora_link_art_prompts.md` | LK1: Caelora's 24 link pieces (skip-stones, currents, lifts, light-bridges, chain lines) | 21 Nov |
 | `bastions_art_prompts.md` | AB1 citadel and gates, AB2 18 bosses, AB3 36 props, AB4 24 floors and walls, AB5 16 angled walls | 21 Nov |

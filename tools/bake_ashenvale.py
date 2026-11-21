@@ -865,17 +865,65 @@ FIRMAMENT_SHEET.update({
 #: DAWNHAVEN (docs/dawnhaven_brief.md, 21 Nov 2026): the blood elves' isle off Azshara, painted from Kyle's Azshara
 #: ground until its own sheet lands. Amberleaf Glade leans gold (gold leaf litter and gold grass under the trees);
 #: Duskfall Woods leans red (crimson brush and red leaf litter under a lower sun).
-AMBERLEAF_SHEET = dict(AZSHARA_SHEET)
-AMBERLEAF_SHEET.update({
-    "av_forest_floor":   _az("az_leaf_gold"),
-    "av_root_earth":     _az("az_grass_gold"),
-    "av_needle_mulch":   _az("az_leaf_floor"),
+#: DAWNHAVEN (docs/dawnhaven_art_prompts.md sheet DH1, Kyle 21 Nov 2026): the isle's own ground, over Azshara's for the
+#: few layers DH1 doesn't draw (the trodden road edge, the stream bed, lake mud, scorch).
+_DH = T / "dawnhaven" / "ground"
+
+
+def _dh(name, off=0.5, rec=None, extra=None):
+    return (_DH / f"{name}.png", off, rec, extra)
+
+
+_DAWNHAVEN = dict(AZSHARA_SHEET)
+_DAWNHAVEN.update({
+    "av_elven_paving":   _dh("dh_elven_paving"),
+    "av_mossy_cobble":   _dh("dh_paving_cracked"),
+    "av_plaza_stone":    _dh("dh_mossy_flag"),
+    "av_rocky_ground":   _dh("dh_red_cliff"),
+    "av_lake_shallow":   _dh("dh_mere_water"),
+    "av_beach":          _dh("dh_shell_beach"),
+    "av_wet_sand":       _dh("dh_wet_sand"),
+    "av_sea_shallow":    _dh("dh_sea_shallow"),
+    "av_sea_deep":       _dh("dh_sea_deep"),
+    "av_fel_earth":      _dh("dh_barrow_earth"),
+    "av_corrupt_ground": _dh("dh_barrow_earth"),
+    "av_satyr_earth":    _dh("dh_coral_sand"),
+    "av_moon_water":     _dh("dh_light_water"),
+    "av_moon_deep":      _dh("dh_light_water", 0.2),
 })
-DUSKFALL_SHEET = dict(AZSHARA_SHEET)
+#: Amberleaf Glade, the gold south
+AMBERLEAF_SHEET = dict(_DAWNHAVEN)
+AMBERLEAF_SHEET.update({
+    "av_forest_floor":   _dh("dh_leaf_gold"),
+    "av_forest_grass":   _dh("dh_gold_grass"),
+    "av_fern_floor":     _dh("dh_crimson_brush"),
+    "av_root_earth":     _dh("dh_leaf_red"),
+    "av_needle_mulch":   _dh("dh_leaf_trail"),
+    "av_bluebell":       _dh("dh_moss_shroom"),
+    "av_road_centre":    _dh("dh_leaf_trail"),
+    "av_canopy":         _dh("dh_crimson_brush", extra="canopy"),
+})
+#: Duskfall Woods, the red north under a lower sun; the bluebell layer is the Wildmana Thicket's ley grass
+DUSKFALL_SHEET = dict(_DAWNHAVEN)
 DUSKFALL_SHEET.update({
-    "av_forest_floor":   _az("az_leaf_floor"),
-    "av_forest_grass":   _az("az_crimson_brush"),
-    "av_root_earth":     _az("az_needle_leaf"),
+    "av_forest_floor":   _dh("dh_dusk_floor"),
+    "av_forest_grass":   _dh("dh_crimson_brush"),
+    "av_fern_floor":     _dh("dh_leaf_red"),
+    "av_root_earth":     _dh("dh_leaf_gold"),
+    "av_needle_mulch":   _dh("dh_moss_shroom"),
+    "av_bluebell":       _dh("dh_ley_grass"),
+    "av_road_centre":    _dh("dh_leaf_trail"),
+    "av_plaza_stone":    _dh("dh_paving_cracked"),
+    "av_mossy_cobble":   _dh("dh_mossy_flag"),
+    "av_canopy":         _dh("dh_leaf_red", extra="canopy"),
+})
+#: Firstlight Spire, the town: white and gold paving, a gold road
+FIRSTLIGHT_SHEET = dict(AMBERLEAF_SHEET)
+FIRSTLIGHT_SHEET.update({
+    "av_road_centre":    _dh("dh_gold_road"),
+    "av_plaza_stone":    _dh("dh_elven_paving"),
+    "av_mossy_cobble":   _dh("dh_elven_paving"),
+    "av_forest_grass":   _dh("dh_gold_grass"),
 })
 WPL_SHEET = _plague_sheet(east=False)
 EPL_SHEET = _plague_sheet(east=True)
@@ -883,7 +931,7 @@ ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_S
                "stonetalon_west": STONETALON_WEST_SHEET, "sun_rock": SUN_ROCK_SHEET,
                "azshara_west": AZSHARA_SHEET,
                "dawnhaven_amberleaf": AMBERLEAF_SHEET, "dawnhaven_duskfall": DUSKFALL_SHEET,
-               "firstlight_spire": AMBERLEAF_SHEET,
+               "firstlight_spire": FIRSTLIGHT_SHEET,
                "feralas_high_wilderness": FERALAS_SHEET, "feralas_twin_colossals": FERALAS_NORTH_SHEET,
                "feralas_forgotten_coast": FERALAS_COAST_SHEET, "feralas_mojache": FERALAS_MOJACHE_SHEET,
                "feralas_feathermoon": FERALAS_FEATHERMOON_SHEET, "timbermaw_hold": TIMBERMAW_HOLD_SHEET,

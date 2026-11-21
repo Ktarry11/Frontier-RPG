@@ -75,6 +75,19 @@ _GOBLIN_VARIANTS = [f"goblin_{i}" for i in range(1, 25)]
 # Blood Elf - Horde-aligned in real WoW (since TBC), fits the current
 # all-Horde zone roster with no lore justification needed.
 _BLOOD_ELF_VARIANTS = [f"blood_elf_{i}" for i in range(1, 12)]
+# The townsfolk (docs/blood_elf_npc_art_prompts.md, sheets BE-M and BE-W, landed 21 Nov 2026): 24 men and 24 women,
+# front-only, so NPC looks and never offered at creation or the barber (offer= below keeps those to the eleven). They
+# come AFTER every look a save can hold, so every save keeps its face: the men's after the eleven and the five new
+# player looks (places 11-15, added by _add_new_male_looks below), the women's after the eleven. The men's places 16-39
+# are m1-m24 in the sheet's order (apprentice, elder
+# magister, gate guard, ranger, hawk handler, carpenter, stonemason, fisherman, cook, innkeeper, merchant, blacksmith,
+# priest, archivist, herbalist, refugee, courier, spellbreaker, boatwright, tailor, lamplighter, veteran, student,
+# lord), and place 40 is w4: the women's hooded ranger came back bearded, so he's a man. The women's places 11-33 are
+# w1-w24 without w4 (apprentice, elder magistrix, guard captain, hawk handler, carpenter, weaver, fisherwoman, baker,
+# innkeeper, merchant, enchanter, priestess, healer, herbalist, refugee, courier, orchard keeper, scribe, tailor,
+# lamplighter, matriarch, student, lady).
+_BLOOD_ELF_TOWNSMEN = [f"blood_elf_m{i}" for i in range(1, 25)] + ["blood_elf_w4"]
+_BLOOD_ELF_WOMEN = _BLOOD_ELF_VARIANTS + [f"blood_elf_w{i}" for i in range(1, 25) if i != 4]
 
 # Night Elf - Alliance-only in real WoW. Kept in the registry now so the
 # art is ready, but not placed in any zone yet since every zone built so
@@ -166,7 +179,7 @@ RACE_OPTIONS = [
             # Source art doesn't split by gender - same unisex-pool
             # pattern as orc/goblin.
             GenderOption("male", "Male", "", _BLOOD_ELF_VARIANTS),
-            GenderOption("female", "Female", "", _BLOOD_ELF_VARIANTS),
+            GenderOption("female", "Female", "", _BLOOD_ELF_WOMEN, offer=list(range(11))),
         ],
         # PLAYABLE, 2026-10-28 (Kyle: "Make new playable races, we have the sprites... Just add Tauren
         # and blood elf"). The content caught up with the art: the Crystalline Underdark cluster is a
@@ -510,6 +523,16 @@ def _add_new_male_looks():
 
 
 _add_new_male_looks()
+
+
+def _add_blood_elf_townsmen():
+    """The blood elf townsmen go after the new player looks, never offered (see _BLOOD_ELF_TOWNSMEN)."""
+    g = get_gender("blood_elf", "male")
+    if g is not None and "blood_elf_m1" not in g.variants:
+        g.variants = list(g.variants) + _BLOOD_ELF_TOWNSMEN
+
+
+_add_blood_elf_townsmen()
 
 
 # ------------------------------------------------------------------ the barber's chair

@@ -729,6 +729,25 @@ SOFT |= {"lk_updraft", "lk_wind_landing", "lk_wind_h", "lk_wind_v", "lk_wind_d",
          "lk_skipstone_marker", "lk_cloud_steps"}
 
 
+
+# DAWNHAVEN (docs/dawnhaven_art_prompts.md, Kyle's DH2 to DH4, 21 Nov 2026). Names from the doc's slice lists, so the
+# two can't drift. DH2 and DH4 are props, DH3 the town's buildings.
+def _dawnhaven_sets():
+    import re
+    doc = (ROOT / "docs/dawnhaven_art_prompts.md").read_text(encoding="utf-8")
+
+    def names(sheet):
+        i = doc.index(f"## SHEET {sheet}:")
+        j = doc.index("Slices:", i)
+        return " ".join(re.findall(r"`(dh_[a-z_]+)`", doc[j:doc.index("\n\n", j)]))
+    _set("dawnhaven_dh2", 6, 4, "assets/tiles/dawnhaven/props", names("DH2"))
+    _set("dawnhaven_dh3", 4, 3, "assets/buildings", names("DH3"))
+    _set("dawnhaven_dh4", 6, 4, "assets/tiles/dawnhaven/props", names("DH4"))
+
+
+_dawnhaven_sets()
+SOFT |= {"dh_lightwell_lit", "dh_boat_stair", "dh_fountain"}
+
 #: violet and storm-blue currents sit too close to the magenta key: the soft key keeps their alpha right but turns their
 #: colour toward teal, so the teal is turned back: hues between these (degrees) move round by the shift
 VIOLET_FIX = {"lk_dusk_wind_h": (110, 225, 105), "lk_storm_wind_h": (100, 200, 90)}

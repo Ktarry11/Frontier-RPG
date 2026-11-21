@@ -147,7 +147,11 @@ class CharacterCreationScreen(BaseScreen):
         # appearance controls end at variant_next_button.right (902 with five races), which leaves
         # ~358px, and two 120px buttons fit it with room for the label.
         start_x = self.variant_next_button.right + 28
-        start_btn_w, start_btn_h = 120, 36
+        # Three starts since Dawnhaven (21 Nov 2026), and three 120px buttons ran 18px off the edge. The
+        # buttons now share the span they have, up to 120px each, so a start fits until the labels stop fitting.
+        n_starts = max(1, len(self.available_starts))
+        start_btn_w = min(120, (SCREEN_WIDTH - 12 - start_x - 8 * (n_starts - 1)) // n_starts)
+        start_btn_h = 36
         self.start_x = start_x
         self.start_buttons = [
             pygame.Rect(start_x + i * (start_btn_w + 8), appearance_y, start_btn_w, start_btn_h)

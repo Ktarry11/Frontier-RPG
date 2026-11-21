@@ -300,14 +300,15 @@ CAVE_POOLS = {
         ("Lorethas's Quill-Staff", "two_hand", "of Intellect", ("w", "staff"), "int_caster")],
 }
 
-#: gathering at 1-9: the start zones' herbs, copper and tin in the stones, ashwood and oakheart in the woods
+#: gathering at 1-9: the start zones' herbs, copper in the stones, ashwood and oakheart in the woods (mageroyal and tin
+#: are skill 50 and 65, past a 5-9 zone's window, so Duskfall has more of the first herbs and copper instead)
 NODES = {
     "amberleaf_glade": {"slots": 14, "active_percent": 0.5, "table": {
         "herb_peacebloom": 3, "herb_silverleaf": 3, "herb_earthroot": 2, "ore_copper": 3, "ore_weakstone": 2,
         "wood_ashwood": 2, "wood_oakheart_stump": 1}},
     "duskfall_woods": {"slots": 16, "active_percent": 0.48, "table": {
-        "herb_peacebloom": 2, "herb_silverleaf": 3, "herb_earthroot": 3, "herb_mageroyal": 2, "ore_copper": 3,
-        "ore_tin": 2, "wood_ashwood": 2, "wood_oakheart_stump": 2}},
+        "herb_peacebloom": 3, "herb_silverleaf": 3, "herb_earthroot": 4, "ore_copper": 4, "ore_weakstone": 1,
+        "wood_ashwood": 2, "wood_oakheart_stump": 2}},
 }
 
 

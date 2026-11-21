@@ -62,9 +62,10 @@ PANELS = [
     ("timbermaw_hold", "Timbermaw Hold", "Timbermaw Hold, a furbolg city in a great caldera in Azshara: wooden "
      "lodges and totems carved into the crater's walls, a waterfall into a lake at the centre, autumn trees in red "
      "and gold, warm lantern light, furbolg elders round a fire."),
-    ("sunreach_conclave", "The Sunreach Conclave", "Talrendis Landing on the Azshara coast: blood elf magisters' "
-     "pavilions of red and gold beside an orc salvage camp, arcane lanterns, crates of salvaged Highborne relics, "
-     "the drowned city of Zin-Azshari risen from the sea on the horizon at sunset."),
+    ("sunreach_conclave", "The Sunreach Conclave", "Firstlight Spire on Dawnhaven, the Conclave's home since 21 "
+     "Nov 2026 (redrawn as Dawnhaven's DH5): a slender white and gold spire with a blazing gold crystal at its top on "
+     "a headland over a turquoise sea, a small elven town of crimson roofs round it, forever-autumn trees in red and "
+     "gold, a short pier with an elven boat, and far off across the strait the Azshara coast at sunset."),
     ("the_liquidators", "The Liquidators", "Ariden's Watch in Deadwind Pass: a grim fortified camp of people from our "
      "world holding back a poisoned land, sandbag walls, lanterns, figures in heavy protective coats and respirator "
      "hoods made from leather and canvas, and on the dark horizon a giant rusted Ferris wheel against a sickly green "
@@ -95,6 +96,8 @@ PANELS = [
 
 def render():
     out = ["# Faction card backgrounds: art prompts", "",
+           "**Status (21 Nov 2026): delivered and sliced.** The Sunreach Conclave's card is to be redrawn at its new "
+           "home, as Dawnhaven's DH5 (`docs/dawnhaven_art_prompts.md`). See `docs/art_status.md` for every sheet.", "",
            "Written by `tools/write_faction_art_prompts.py` (edit the script, not this file).", "",
            "Kyle, 19 Nov 2026: background art for each faction's card, then \"like a 'background card' but on the faction "
            "page, very opaque and unique for each one\". So each faction's page is backed by its own painting, drawn "

@@ -1,14 +1,16 @@
-# Dawnhaven: art prompts (sheets DH1 to DH3)
+# Dawnhaven: art prompts (sheets DH1 to DH5)
 
-**Status (21 Nov 2026): written, waiting on Kyle.** Kyle: "Existing art now, sheets later". Dawnhaven is built and
-playable on Azshara's autumn ground and the be_ blood elf buildings (docs/dawnhaven_brief.md); these sheets give the
-isle its own look. See `docs/art_status.md` for every sheet.
+**Status (21 Nov 2026): DH1 to DH4 delivered and in the game; DH5 (the faction card) written, optional.** Sliced by
+`tools/slice_tile_sheet.py dawnhaven` and `tools/slice_building_sheet.py dawnhaven_dh2|dh3|dh4` to
+`assets/tiles/dawnhaven/ground`, `assets/tiles/dawnhaven/props` and `assets/buildings`. See `docs/art_status.md` for every sheet.
 
 | Sheet | What | Image | Grid (cell) | Key |
 |---|---|---|---|---|
 | DH1 | 24 ground tiles: Dawnhaven's gold and red autumn, elven paving, the shore and the Lightwell's water | 2048x1366 | 6 x 4 (about 341 x 341) | none (tiles fill their cells) |
 | DH2 | 24 props: wardstones, the Lightwell, the Conclave's camp, the outpost's ruins, the naga's landing, the trees | 2048x1366 | 6 x 4 (about 341 x 341) | magenta |
 | DH3 | 12 buildings: Firstlight Spire and the town round it, Dawnrest, Amberwatch's gatehouse | 2048x1366 | 4 x 3 (about 512 x 455) | magenta |
+| DH4 | 24 town props: the Spire's plaza, market, trainers' yard, gardens and pier | 2048x1366 | 6 x 4 (about 341 x 341) | magenta |
+| DH5 | The Sunreach Conclave's faction card, redrawn at its new home | 1024x768 | one painting | none |
 
 **References to attach:** `assets/buildings/be_grand_spire.png`, `assets/buildings/be_inn.png`,
 `assets/tiles/azshara/props/az_autumn_tree.png` and `assets/tiles/azshara/ground/az_leaf_gold.png`.
@@ -71,7 +73,49 @@ Row 3: 9 the ALCHEMIST: a domed shop with coloured glass windows and bottles on 
 Slices: `dh_firstlight_spire`, `dh_spire_inn`, `dh_conclave_hall`, `dh_hawk_roost`; `dh_library_tower`,
 `dh_house_small`, `dh_townhouse`, `dh_forge`; `dh_alchemist`, `dh_harbour_house`, `dh_dawnrest`, `dh_amberwatch_gate`.
 
-When these land: DH1 becomes a `DAWNHAVEN_SHEET` in `tools/bake_ashenvale.py` (both maps and the town re-baked), DH2 and
-DH3 swap in for the az_ and be_ stand-ins in the three map modules. The world doesn't change with the quests (Kyle's
+---------------------------------------------------------------------
+## SHEET DH4: FIRSTLIGHT SPIRE'S STREETS (paste this whole block)
+
+Added 21 Nov 2026 (Kyle: "Want to give me request for town art too?"). DH3 is the town's buildings; this is everything
+between them. The Spire is dressed today with two market stalls, two dock lanterns and some trees, so its plazas read
+empty.
+
+```
+Generate ONE sprite sheet image, 2048x1366, a 6 columns x 4 rows grid = 24 separate sprites, each cell about 341x341. Flat pure #FF00FF magenta background everywhere. Each sprite is ONE single object, centred in its own cell with a wide margin, not touching its neighbours or the image edge. No ground patch under anything, no text, no labels, no grid lines, no magenta or pink anywhere in the art. Glows are painted as OPAQUE soft colour, never transparent. Match the attached references EXACTLY in style, camera angle (isometric three-quarter view from about 45 degrees, front face toward the lower-right), outline and level of detail. Painterly semi-realistic WoW Classic style, soft dark outline, lit from the top-left.
+
+Setting: FIRSTLIGHT SPIRE, a small blood elf town on an autumn island, an ancient outpost the survivors have lit again. Not a capital: graceful, modest, hopeful, half restored. White marble, gold trim, crimson cloth, sun and phoenix motifs, red and gold leaves blown into every corner.
+
+Sprites, row by row, left to right:
+Row 1, THE PLAZA: 1 a round marble FOUNTAIN with a gold phoenix rising from the centre, water glowing faintly gold. 2 a STATUE of the outpost's founder, a robed elf holding up a sun disc, on a plinth with fresh flowers at its foot. 3 a curved white marble BENCH with gold armrests and a few leaves on the seat. 4 a raised stone PLANTER of crimson and gold flowers. 5 a gold elven STREET LAMP, tall and slender, with three hanging crystal lamps. 6 a NOTICE BOARD with a little crimson roof, papers pinned to it.
+Row 2, THE MARKET: 7 a FRUIT STALL with a crimson awning, baskets of red apples, pears and pumpkins. 8 a CLOTH STALL with a gold awning, bolts of crimson and gold silk. 9 an ARCANE STALL with a violet awning, glowing crystals and small bottles on the counter. 10 a FISH STALL with a striped awning, fish on ice in a wooden tray. 11 a stack of sealed BARRELS with gold bands. 12 a handcart loaded with crates and a sack of grain.
+Row 3, THE TRAINERS' YARD AND THE INN: 13 a TRAINING DUMMY of straw on a post with a crimson tabard. 14 a gold WEAPON RACK with two swords, a bow and a spear. 15 an elegant BOOK STAND holding an open tome, a small gold lamp on top. 16 an ANVIL on a stump with a quench barrel beside it. 17 an outdoor TABLE with two chairs, a carafe and two cups, outside the inn. 18 an elven MAILBOX, a gold and white post box with a phoenix crest.
+Row 4, THE GARDENS AND THE PIER: 19 a GARDEN ARCH of white marble wound with red autumn vines. 20 a trimmed HEDGE section with a gold finial at each end. 21 a short stretch of low WHITE MARBLE WALL with a gold cap, half rebuilt, scaffolding planks at one end. 22 a wooden MOORING POST with rope coiled round it and a small lantern on top. 23 a small elven ROWBOAT, white with a gold trim stripe, pulled up on its side. 24 a pile of LUMBER and cut marble blocks with a saw, the town still building.
+```
+
+Slices: `dh_fountain`, `dh_founder_statue`, `dh_bench`, `dh_planter`, `dh_street_lamp`, `dh_notice_board`;
+`dh_stall_fruit`, `dh_stall_cloth`, `dh_stall_arcane`, `dh_stall_fish`, `dh_barrels`, `dh_handcart`;
+`dh_training_dummy`, `dh_weapon_rack`, `dh_book_stand`, `dh_anvil`, `dh_inn_table`, `dh_mailbox`;
+`dh_garden_arch`, `dh_hedge`, `dh_marble_wall`, `dh_mooring_post`, `dh_rowboat`, `dh_building_stock`.
+
+---------------------------------------------------------------------
+## SHEET DH5: THE SUNREACH CONCLAVE'S CARD, AT HOME (paste this whole block)
+
+Added 21 Nov 2026 (Kyle: "We do need to update the faction card now that they have a home too"). The card's painting
+(`assets/ui/factions/bg_sunreach_conclave.png`, FC4) is the field camp at Talrendis Landing; this one is Firstlight
+Spire. The tabard, the hawkstrider, the dragonhawk and their icons are already in the game and don't need redrawing.
+Attach the old card painting and the DH3 sheet as references.
+
+```
+Generate ONE landscape painting, 1024x768, COMPLETELY FILLED edge to edge, with no border, no frame, no text, no letters, no logos, no banners with writing, no numbers. Painterly semi-realistic fantasy art in the style of World of Warcraft loading screens, matching the attached faction card painting in style and finish: rich, atmospheric, soft painted edges, a sense of place.
+
+This is the BACKGROUND for a game's faction card, so the composition matters: the place and its people fill the upper two-thirds; the lower third is calmer and darker (ground, shadow, mist or water) so white text can be read over it; a soft natural vignette toward the edges; no single face close to the viewer, figures small or seen from behind; nothing bright or busy in the lower third.
+
+THE SUNREACH CONCLAVE AT HOME: Firstlight Spire on Dawnhaven, a blood elf island in forever autumn. A slender white and gold spire, very tall, with a crimson-roofed crown and a great gold crystal blazing at its top, stands on a headland over a turquoise sea, exactly like the spire in the attached building sheet. Round its foot a small, modest elven town of white stone and crimson roofs, warm light in every window, red and gold banners with a sun emblem. Forever-autumn trees in red and gold, leaves drifting. A short wooden pier with a small elven boat. A few tiny figures in crimson and gold robes on the stair and the pier, seen from far off. Far across the strait, the Azshara coast at sunset. The feeling: survivors who have made a home, hopeful and warm. The lower third is the dark calm sea and the shadowed rocks of the headland.
+```
+
+Slice: replaces `assets/ui/factions/bg_sunreach_conclave.png` (1024x768).
+
+When these land: DH1 becomes a `DAWNHAVEN_SHEET` in `tools/bake_ashenvale.py` (both maps and the town re-baked), DH2, DH3
+and DH4 swap in for the az_ and be_ stand-ins in the three map modules. The world doesn't change with the quests (Kyle's
 standing rule), so each place shows one state: the Fallen Wardstones mostly broken with the one lit stone, and the
 Lightwell lit, as the Conclave keeps it.

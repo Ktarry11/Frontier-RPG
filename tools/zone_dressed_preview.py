@@ -31,6 +31,9 @@ TILE_PX = 32
 
 ZONES = {
     "aspen": "tools.handbuilt_aspen_wilderness",
+    "amberleaf": "tools.handbuilt_dawnhaven_amberleaf",
+    "duskfall": "tools.handbuilt_dawnhaven_duskfall",
+    "firstlight": "tools.handbuilt_firstlight_spire",
     "ascendant_bastions": "tools.handbuilt_worldtree_ascendant_bastions",
     "fading_firmament": "tools.handbuilt_worldtree_fading_firmament",
     "felwood_north": "tools.handbuilt_felwood_north",

@@ -82,6 +82,17 @@ movable). The Spire has the inn, the island's one flight path (dragonhawks), Mer
 trainer and four pairs of trade trainers; Amberwatch has a class trainer and the gathering trainers. Recruits: Liam
 Hartigan (Sun Cleric healer) on the Waking Shore, and Haruto Nakamura (Runemaster) copying runes at the Withered Spires.
 
+**The townsfolk** (Kyle: "Do we need additional blood elf NPCs? Might as well populate the world a bit"): sixteen more
+people, guards at Amberwatch, Dawnrest and both Spire gates, a hauler and Rosa's helper, Dawnrest's carpenter and
+hunter, a fisher on the pier, a student, an old lady from Silvermoon, and four transplants (two still wet on the Waking
+Shore, one carrying water at Dawnrest, one settled in the Spire). Everyone wears the BE-M and BE-W townsfolk looks by job.
+
+**The art** (21 Nov 2026, `docs/dawnhaven_art_prompts.md`): DH1 ground, DH2 props, DH3 buildings and DH4 town props are
+in. The Spire is built from DH3 and DH4; the woods keep a few of Azshara's trees and crystals among the isle's own.
+
+**The faction card:** the Sunreach Conclave's home is Firstlight Spire now (`tools/build_sunreach_conclave.py`); its
+tabard, hawkstrider and exalted dragonhawk were already in. DH5 redraws the card's painting at the Spire (optional).
+
 **The air** (`docs/environment_effects_art_prompts.md`): autumn god rays, leaf shadow and falling leaves in the Glade;
 dusk light and red leaves in Duskfall; a gold bloom and motes in the Spire; bubbles, wisps and arcane motes in the caves.
 

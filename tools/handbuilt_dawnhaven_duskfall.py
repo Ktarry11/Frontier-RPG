@@ -28,6 +28,7 @@ NAME = "Duskfall Woods"
 BAKED_DIR = "assets/tiles/dawnhaven/baked_duskfall"
 AZP = "assets/tiles/azshara/props/"
 BLD = "assets/buildings/"
+DHP = "assets/tiles/dawnhaven/props/"           # Kyle's DH2 and DH4 (docs/dawnhaven_art_prompts.md)
 W, H = 160, 140
 
 PORTALS = {(80, 136): "Amberleaf Glade", (80, 4): "Firstlight Spire", (20, 32): "Saltspine Hollow",
@@ -124,6 +125,10 @@ NPC_POSITIONS = {
     "dh_halion": (116, 82),
     # Saltspine Shore: a Conclave scout watching the naga camp from the trees
     "dh_scout_nerys": (44, 50),
+    "dh_dawnrest_guard": (78, 97),  # townsfolk
+    "dh_dawnrest_carpenter": (89, 106),  # townsfolk
+    "dh_dawnrest_hunter": (68, 105),  # townsfolk
+    "dh_dawnrest_newcomer": (81, 117),  # townsfolk
 }
 
 
@@ -153,10 +158,10 @@ SUBZONES = [
 ]
 
 TREES = {
-    "big":   [(AZP + "az_autumn_tree.png", 10), (AZP + "az_autumn_tree.png", 11), (AZP + "az_gold_tree.png", 10)],
-    "mid":   [(AZP + "az_autumn_tree.png", 9), (AZP + "az_gold_tree.png", 8), (AZP + "az_birch_trio.png", 8)],
-    "small": [(AZP + "az_birch_trio.png", 7), (AZP + "az_autumn_tree.png", 7)],
-    "woods": [(AZP + "az_autumn_tree.png", 10), (AZP + "az_autumn_tree.png", 11), (AZP + "az_gold_tree.png", 9)],
+    "big":   [(DHP + "dh_autumn_tree.png", 10), (AZP + "az_autumn_tree.png", 11), (DHP + "dh_autumn_tree.png", 11)],
+    "mid":   [(DHP + "dh_autumn_tree.png", 9), (AZP + "az_autumn_tree.png", 9), (DHP + "dh_maple_sapling.png", 8)],
+    "small": [(DHP + "dh_maple_sapling.png", 7), (AZP + "az_birch_trio.png", 7)],
+    "woods": [(DHP + "dh_autumn_tree.png", 10), (AZP + "az_autumn_tree.png", 11), (DHP + "dh_autumn_tree.png", 9)],
 }
 
 #: low dusk light through the red woods
@@ -201,10 +206,10 @@ def sprinkle(L):
             continue
         r = rnd.random()
         if bush < 26 and r < 0.016:
-            if L.prop("az_crimson_bush", x, y, 3, path_dir=AZP, solid=False, nudge=0):
+            if L.prop("dh_crimson_shrub", x, y, 3, path_dir=DHP, solid=False, nudge=0):
                 bush += 1
         elif logs < 16 and r < 0.042:
-            if L.prop("az_autumn_log", x, y, 3, path_dir=AZP, solid=False, nudge=0):
+            if L.prop("dh_red_log", x, y, 3, path_dir=DHP, solid=False, nudge=0):
                 logs += 1
         elif rocks < 16 and r < 0.050:
             if L.prop("az_lichen_boulder", x, y, 4, path_dir=AZP, solid=False, nudge=0):
@@ -225,17 +230,19 @@ def dress(L):
     Z = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=AZP, **kw)          # noqa: E731
     B = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=BLD, **kw)          # noqa: E731
     D = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir="assets/tiles/dungeon_props/", **kw)  # noqa: E731
+    K = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=DHP, **kw)          # noqa: E731
 
     # ---- Dawnrest: the waystation with its roof back on, and the camp round it
-    B("be_great_hall", 80, 99, 10, solid="core")
+    B("dh_dawnrest", 80, 99, 10, solid="core")
     B("be_pavilion", 70, 108, 6, solid="core")
     B("be_storehouse", 92, 110, 6, solid="core")
     B("be_market_stall", 86, 101, 4, solid="core")
-    Z("az_relic_crate", 94, 104, 3, solid="core")
-    Z("az_dig_cart", 66, 114, 4, solid="core")
+    K("dh_sun_crates", 94, 104, 3, solid="core")
+    K("dh_camp_hearth", 80, 109, 3, solid=False)
+    K("dh_handcart", 66, 114, 3, solid="core")
     P("br_signpost", 84, 118, 4)
     # a skiff's hull on its stocks behind the storehouse, the boat they'll need one day
-    Z("az_wreck_prow", 97, 115, 5, solid="core")
+    K("dh_wrecked_skiff", 97, 115, 4, solid="core")
     # ---- the Red Hollow: the old hunting lodge's ruins
     B("be_ruined_house", 28, 92, 6, solid="core")
     Z("az_toppled_column", 40, 100, 4, solid="core")
@@ -247,8 +254,8 @@ def dress(L):
     Z("az_crystal_tree", 84, 48, 8, solid="core")
     Z("az_leyline_node", 74, 62, 4, solid="core")
     # ---- Saltspine Shore: the naga's camp on the beach
-    Z("az_naga_banner", 26, 44, 5, solid="core")
-    Z("az_naga_banner", 34, 36, 5, solid="core")
+    K("dh_naga_totem", 26, 44, 5, solid="core")
+    K("dh_naga_totem", 34, 36, 5, solid="core")
     Z("az_tide_altar", 30, 46, 4, solid="core")
     Z("az_scale_pile", 36, 42, 3, solid=False)
     Z("az_coral_cluster", 16, 42, 4, solid="core")
@@ -257,12 +264,15 @@ def dress(L):
     B("be_ruined_tower", 114, 72, 10, solid="core")
     B("be_ruined_tower", 136, 74, 10, solid="core")
     B("be_ruined_house", 132, 86, 6, solid="core")
-    Z("az_noble_statue", 124, 72, 7, solid="core")
-    Z("az_ruin_wall", 118, 88, 4, solid="core")
+    K("dh_memorial_stone", 124, 72, 4, solid="core")   # the garrison's names
+    K("dh_spirit_lantern", 110, 80, 5, solid=False)
+    K("dh_spirit_lantern", 122, 84, 5, solid=False)
+    K("dh_broken_arch", 118, 88, 5, solid="core")
     D("broken_column", 128, 90, 4, solid="core")
     Z("az_broken_spire", 140, 82, 9, solid="core")
     # ---- the Lightwell Court: the dark well, and the stair down under it
-    B("be_arcane_well", 124, 54, 6, solid="core")
+    K("dh_lightwell_lit", 124, 54, 6, solid="core")    # one state: lit, as the Conclave keeps it
+    K("dh_rune_circle", 124, 59, 3, solid=False)
     Z("az_mana_tower", 112, 50, 9, solid="core")
     Z("az_mana_tower", 136, 50, 9, solid="core")
     # ---- the Spire road: an elven arch where the headland starts
