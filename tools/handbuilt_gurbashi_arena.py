@@ -87,6 +87,7 @@ import os
 from world.tilemap import Tilemap
 from tools.handbuilt_vot_caves import CaveLayout, DP, register_baked  # noqa: F401
 from tools.handbuilt_echo_caves import tube
+from world.chunk_paths import exists as _chunk_exists  # noqa: E402  (.webp, .jpg or .png)
 
 NAME = "Gurbashi Arena"
 DESC = ("A Gurbashi fighting pit sunk under Stranglethorn: an eight-sided sand ring, a crowd in every "
@@ -354,6 +355,6 @@ def build_arena():
 
 def generate_gurbashi_arena():
     zone, _ = build_arena()
-    if os.path.exists(f"{BAKED.format(SLUG)}/ground_0_0.jpg"):
+    if _chunk_exists(f"{BAKED.format(SLUG)}/ground_0_0.jpg"):
         register_baked(zone, BAKED.format(SLUG))
     return zone

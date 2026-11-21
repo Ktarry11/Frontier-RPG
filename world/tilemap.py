@@ -1,7 +1,9 @@
+
 """
 Tilemap system. Handles zone tilemaps with 4 layers (base, visual, collision, interaction).
 """
 from world.tiles import get_tile, is_walkable
+from world.chunk_paths import resolve as _chunk_resolve
 
 
 class Tilemap:
@@ -193,6 +195,7 @@ class Tilemap:
         in __init__ for why this used to be one shared list with a
         "kind" tag, and why that broke.
         """
+        sprite_key = _chunk_resolve(sprite_key)     # .jpg, .webp or .png, whichever is on disk
         chunk = {
             "sprite_key": sprite_key,
             "anchor_x": anchor_x, "anchor_y": anchor_y,
@@ -222,6 +225,7 @@ class Tilemap:
         they simply fall through to ground_chunks normally, since this
         lookup is never even checked for a non-water tile.
         """
+        sprite_key = _chunk_resolve(sprite_key)     # .jpg, .webp or .png, whichever is on disk
         chunk = {
             "sprite_key": sprite_key,
             "anchor_x": anchor_x, "anchor_y": anchor_y,
@@ -332,6 +336,7 @@ class Tilemap:
         (_carve_irregular_boundary etc. already do this); this only
         controls how those tiles are VISUALLY drawn once they exist.
         """
+        sprite_key = _chunk_resolve(sprite_key)     # .jpg, .webp or .png, whichever is on disk
         chunk = {
             "sprite_key": sprite_key,
             "anchor_x": anchor_x, "anchor_y": anchor_y,

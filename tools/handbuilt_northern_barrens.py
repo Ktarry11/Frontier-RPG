@@ -35,6 +35,7 @@ from tools import handbuilt_central_barrens as CB
 from tools.handbuilt_central_barrens import (BP, DP, BLD, ENT, CP, blob, _wob, _smooth, _gauss, _grove,
                                              ACACIAS, SCRUB, TUFTS, ROCKS, BONES)
 from world.tilemap import Tilemap
+from world.chunk_paths import exists as _chunk_exists  # noqa: E402  (.webp, .jpg or .png)
 
 GP = "assets/tiles/goblin_shared/props/"      # gob_* Venture Co. props (sheet C)
 
@@ -630,7 +631,7 @@ def register_baked(zone, baked_dir=BAKED_DIR, chunk=20):
     for cy in range(0, H, chunk):
         for cx in range(0, W, chunk):
             fn = f"{baked_dir}/ground_{cx}_{cy}.jpg"
-            if not os.path.exists(fn):
+            if not _chunk_exists(fn):
                 raise FileNotFoundError(f"{fn} - run python3 tools/bake_northern_barrens.py")
             w, h = min(chunk, W - cx), min(chunk, H - cy)
             zone.add_ground_chunk(fn, cx, cy, w, h)

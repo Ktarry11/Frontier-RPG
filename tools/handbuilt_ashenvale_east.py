@@ -28,6 +28,7 @@ import numpy as np
 
 from tools import ashenvale_engine as E
 from tools.handbuilt_central_barrens import BP, DP, BLD, ENT, CP, blob, _gauss, _smooth
+from world.chunk_paths import exists as _chunk_exists  # noqa: E402  (.webp, .jpg or .png)
 
 BAKED_DIR = "assets/tiles/ashenvale/baked_east"
 W, H = 220, 200
@@ -474,7 +475,7 @@ def dress(L):
 
 def register_baked(zone):
     import os
-    if os.path.isdir(BAKED_DIR) and os.path.exists(f"{BAKED_DIR}/ground_0_0.jpg"):
+    if os.path.isdir(BAKED_DIR) and _chunk_exists(f"{BAKED_DIR}/ground_0_0.jpg"):
         E.register_baked(zone, BAKED_DIR, W, H)
         return True
     return False

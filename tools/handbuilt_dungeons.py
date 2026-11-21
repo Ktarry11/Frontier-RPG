@@ -12,6 +12,7 @@ portal must reach every boss and chest or the zone fails to build.
 """
 from world.tilemap import Tilemap
 from tools.dungeon_builder import Builder
+from world.chunk_paths import exists as _chunk_exists  # noqa: E402  (.webp, .jpg or .png)
 
 NAGA = "assets/tiles/naga_dungeon/"
 SEABED = "assets/tiles/seabed/"
@@ -32,7 +33,7 @@ def generate_blackfathom_deeps():
     """The runtime zone: the built layout under its painted ground (tools/bake_ashenvale_dungeons.py blackfathom_deeps)."""
     import os
     zone = build_blackfathom_deeps()
-    if os.path.exists(f"{BAKED_BFD}/ground_0_0.jpg"):
+    if _chunk_exists(f"{BAKED_BFD}/ground_0_0.jpg"):
         from tools.handbuilt_vot_caves import register_baked
         register_baked(zone, BAKED_BFD)
     return zone
@@ -584,7 +585,7 @@ def generate_ragefire_chasm():
     ragefire_chasm). Until 13 Nov 2026 this dungeon had no painting at all and drew in tiles."""
     import os
     zone = build_ragefire_chasm()
-    if os.path.exists(f"{BAKED_RFC}/ground_0_0.jpg"):
+    if _chunk_exists(f"{BAKED_RFC}/ground_0_0.jpg"):
         from tools.handbuilt_vot_caves import register_baked
         register_baked(zone, BAKED_RFC)
     return zone

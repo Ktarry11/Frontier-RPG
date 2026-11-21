@@ -17,6 +17,7 @@ from scipy.spatial import cKDTree
 
 from tools import handbuilt_central_barrens as CB
 from world.tilemap import Tilemap
+from world.chunk_paths import exists as _chunk_exists  # noqa: E402  (.webp, .jpg or .png)
 
 
 class RoadSet:
@@ -124,7 +125,7 @@ def register_baked(zone, M, chunk=20):
     for cy in range(0, M.H, chunk):
         for cx in range(0, M.W, chunk):
             fn = f"{M.BAKED_DIR}/ground_{cx}_{cy}.jpg"
-            if not os.path.exists(fn):
+            if not _chunk_exists(fn):
                 raise FileNotFoundError(f"{fn} - run python3 tools/bake_barrens_towns.py {M.KEY}")
             w, h = min(chunk, M.W - cx), min(chunk, M.H - cy)
             zone.add_ground_chunk(fn, cx, cy, w, h)

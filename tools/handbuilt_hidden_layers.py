@@ -27,6 +27,7 @@ import math
 from world.tilemap import Tilemap
 from tools.handbuilt_vot_caves import CaveLayout, DP, _apply_pools, register_baked  # noqa: F401
 from tools.handbuilt_echo_caves import cavern, tube, disc
+from world.chunk_paths import exists as _chunk_exists  # noqa: E402  (.webp, .jpg or .png)
 
 BAKED = "assets/tiles/hidden/{}/baked"
 STV = "assets/tiles/stranglethorn/props/"
@@ -808,7 +809,7 @@ def generate_all():
     for name, (build, slug) in BUILDS.items():
         zone, _ = build()
         baked = BAKED.format(slug)
-        if os.path.exists(f"{baked}/ground_0_0.jpg"):
+        if _chunk_exists(f"{baked}/ground_0_0.jpg"):
             register_baked(zone, baked)
         out[name] = zone
     return out

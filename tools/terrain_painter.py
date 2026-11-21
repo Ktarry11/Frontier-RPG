@@ -184,7 +184,7 @@ class Painter:
         materials: {name: (texA, texB_or_None, tile_scale)}  (texture file stems)
         scores:    {name: mask-grid float field (higher = wins)}
         post:      optional fn(rgb float (H,W,3), X, Y, painter) -> rgb  (cliff/water/AO/lighting)
-        Writes <out_dir>/<prefix>_<cx>_<cy>.jpg for every chunk.
+        Writes <out_dir>/<prefix>_<cx>_<cy>.webp for every chunk.
         """
         out_dir = Path(out_dir)
         out_dir.mkdir(parents=True, exist_ok=True)
@@ -250,8 +250,14 @@ class Painter:
                         if stale.exists():
                             stale.unlink()
                 else:
+                    # opaque chunks are WebP too since 21 Nov 2026 (world/chunk_paths.py): about 40% smaller than the
+                    # JPEGs they replaced at the same look
                     img = Image.fromarray(np.clip(rgb, 0, 255).astype(np.uint8))
-                    fn = out_dir / f"{prefix}_{cx}_{cy}.jpg"
-                    img.save(fn, quality=quality, optimize=True)
+                    fn = out_dir / f"{prefix}_{cx}_{cy}.webp"
+                    img.save(fn, "WEBP", quality=88, method=4)
+                    for ext in ("jpg", "png"):
+                        stale = out_dir / f"{prefix}_{cx}_{cy}.{ext}"
+                        if stale.exists():
+                            stale.unlink()
                 written.append((fn, cx, cy, wpx // TILE_PX, hpx // TILE_PX))
         return written

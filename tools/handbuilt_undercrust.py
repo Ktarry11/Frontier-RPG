@@ -39,6 +39,7 @@ HARD CONTRACT (world/portal_manager.py):
 """
 from world.tilemap import Tilemap
 from tools.handbuilt_vot_caves import CaveLayout, register_baked  # noqa: F401
+from world.chunk_paths import exists as _chunk_exists  # noqa: E402  (.webp, .jpg or .png)
 
 BAKED = "assets/tiles/undercrust/baked"
 BS = "assets/tiles/broodspiral/props/"
@@ -233,6 +234,6 @@ def generate_undercrust():
     # The painted ground (tools/bake_small_caves.py undercrust). This cave declared BAKED from the
     # day it was written and never had a bake, so it drew in fallback tiles.
     import os
-    if os.path.exists(f"{BAKED}/ground_0_0.jpg"):
+    if _chunk_exists(f"{BAKED}/ground_0_0.jpg"):
         register_baked(zone, BAKED)
     return zone

@@ -42,6 +42,7 @@ import os
 import numpy as np
 
 from tools import ashenvale_engine as E
+from world.chunk_paths import exists as _chunk_exists  # noqa: E402  (.webp, .jpg or .png)
 
 BAKED_DIR = "assets/tiles/stonetalon/baked_east"
 ASP = "assets/tiles/aspen/props/"
@@ -438,7 +439,7 @@ def dress(L):
 
 
 def register_baked(zone):
-    if os.path.isdir(BAKED_DIR) and os.path.exists(f"{BAKED_DIR}/ground_0_0.jpg"):
+    if os.path.isdir(BAKED_DIR) and _chunk_exists(f"{BAKED_DIR}/ground_0_0.jpg"):
         E.register_baked(zone, BAKED_DIR, W, H)
         return True
     return False

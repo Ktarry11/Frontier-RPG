@@ -150,7 +150,7 @@ def compose(key, out, scale=4, props=True):
     baked = ROOT / baked
     n = 0
     # Bakers write JPEG chunks (ground_<cx>_<cy>.jpg); accept PNG too in case a baker changes.
-    files = sorted(list(baked.glob("*.jpg")) + list(baked.glob("*.png")))
+    files = sorted(list(baked.glob("*.jpg")) + list(baked.glob("*.png")) + list(baked.glob("*.webp")))
     for f in files:
         # chunk files are named <...>_<cx>_<cy>.png in tile coordinates
         stem = f.stem.split("_")

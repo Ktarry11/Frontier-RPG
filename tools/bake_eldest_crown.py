@@ -269,7 +269,7 @@ def bake(preview=None, scale=6):
               f"drop {int((~F.floor & ~F.heart).sum())} tiles")
         scores = build_scores(P, F)
         out = ROOT / ES.BAKED["crown"]
-        for old in out.glob("ground_*.jpg"):
+        for old in list(out.glob("ground_*.jpg")) + list(out.glob("ground_*.webp")):
             old.unlink()
         written = P.bake(MATERIALS, scores, out, chunk_tiles=20, post=post_factory(F))
     finally:

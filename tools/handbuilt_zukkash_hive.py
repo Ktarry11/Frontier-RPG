@@ -25,6 +25,7 @@ Both ways are portals; you arrive two tiles inside each.
 from world.tilemap import Tilemap
 from tools.handbuilt_vot_caves import CaveLayout, register_baked  # noqa: F401
 from tools.handbuilt_echo_caves import cavern, tube
+from world.chunk_paths import exists as _chunk_exists  # noqa: E402  (.webp, .jpg or .png)
 
 NAME = "The Zukk'ash Hive"
 W, H = 104, 124
@@ -149,7 +150,7 @@ def dress(zone, L):
 def generate_zukkash_hive():
     zone, _L = build_zukkash_hive_baked()
     import os
-    if os.path.isdir(BAKED) and os.path.exists(f"{BAKED}/ground_0_0.jpg"):
+    if os.path.isdir(BAKED) and _chunk_exists(f"{BAKED}/ground_0_0.jpg"):
         register_baked(zone, BAKED)
     return zone
 

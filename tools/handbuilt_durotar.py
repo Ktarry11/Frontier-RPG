@@ -27,6 +27,7 @@ from PIL import Image
 from scipy.spatial import cKDTree
 
 from world.tilemap import Tilemap
+from world.chunk_paths import exists as _chunk_exists  # noqa: E402  (.webp, .jpg or .png)
 
 DP = "assets/tiles/dungeon_props/"
 BLD = "assets/buildings/"
@@ -738,7 +739,7 @@ def register_baked(zone, baked_dir=BAKED_DIR, chunk=20):
     for cy in range(0, H, chunk):
         for cx in range(0, W, chunk):
             fn = f"{baked_dir}/ground_{cx}_{cy}.jpg"
-            if not os.path.exists(fn):
+            if not _chunk_exists(fn):
                 raise FileNotFoundError(f"{fn} - run python3 tools/bake_durotar_terrain.py")
             w, h = min(chunk, W - cx), min(chunk, H - cy)
             zone.add_ground_chunk(fn, cx, cy, w, h)

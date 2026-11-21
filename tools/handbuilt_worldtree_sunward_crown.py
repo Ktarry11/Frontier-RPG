@@ -44,6 +44,7 @@ HARD CONTRACTS (world/portal_manager.py)
 import numpy as np
 
 from tools import ashenvale_engine as E
+from world.chunk_paths import exists as _chunk_exists  # noqa: E402  (.webp, .jpg or .png)
 
 BAKED_DIR = "assets/tiles/sky/baked_sunward_crown"
 NAME = "The Sunward Crown"
@@ -731,7 +732,7 @@ def register_baked(zone):
     import os
     zone.sky = {k: v for k, v in SKY.items() if not callable(v)}
     if os.path.isdir(BAKED_DIR) and (os.path.exists(f"{BAKED_DIR}/ground_0_0.webp")
-                                     or os.path.exists(f"{BAKED_DIR}/ground_0_0.jpg")):
+                                     or _chunk_exists(f"{BAKED_DIR}/ground_0_0.jpg")):
         E.register_baked(zone, BAKED_DIR, W, H)
         return True
     return False

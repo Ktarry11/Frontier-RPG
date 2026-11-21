@@ -22,6 +22,7 @@ One way in and out; you arrive two tiles inside.
 from world.tilemap import Tilemap
 from tools.handbuilt_vot_caves import CaveLayout, register_baked  # noqa: F401
 from tools.handbuilt_echo_caves import cavern, tube
+from world.chunk_paths import exists as _chunk_exists  # noqa: E402  (.webp, .jpg or .png)
 
 NAME = "The Stormsplit"
 W, H = 84, 100
@@ -129,7 +130,7 @@ def dress(zone, L):
 def generate_stormsplit():
     zone, _L = build_stormsplit_baked()
     import os
-    if os.path.isdir(BAKED) and os.path.exists(f"{BAKED}/ground_0_0.jpg"):
+    if os.path.isdir(BAKED) and _chunk_exists(f"{BAKED}/ground_0_0.jpg"):
         register_baked(zone, BAKED)
     return zone
 
