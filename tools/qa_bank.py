@@ -39,8 +39,9 @@ from world.zone_keys import zone_key  # noqa: E402
 #: as a miss rather than as a different failure.
 #: Timbermaw Hold joined on 17 Nov 2026 (Kyle: "an actual capital city... similar to how org is", with a bank), and the
 #: Great Settlement on 20 Nov 2026 (docs/worldtree_brief.md: the tree's city has a bank, an auction house and mail).
+#: and Aurelion on 21 Nov 2026 (the Aetherian capital: "an auction house, a bank, and a mailbox close together").
 MAJOR_CITIES = {zone_key(z) for z in ("Orgrimmar", "Undercity", "Freewind Post", "Timbermaw Hold",
-                                      "The Great Settlement")}
+                                      "The Great Settlement", "Aurelion")}
 
 
 def main():

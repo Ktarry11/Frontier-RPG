@@ -1,0 +1,1512 @@
+{
+  "quests": [
+    {
+      "quest_id": "auq_where_everything_is",
+      "title": "Where Everything Is",
+      "giver_npc_id": "au_gate_warden",
+      "zone": "aurelion",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Gatewarden Tessa Vell wants the city's first guest from the ground to know where to sleep, where to sell and where to catch a skiff before anything else happens.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "aurelion",
+          "target_x": 110,
+          "target_y": 219,
+          "radius": 3,
+          "label": "Find the Arro guesthouse"
+        },
+        {
+          "type": "explore",
+          "target": "aurelion",
+          "target_x": 147,
+          "target_y": 222,
+          "radius": 3,
+          "label": "Find the steps of the Exchange"
+        },
+        {
+          "type": "explore",
+          "target": "aurelion",
+          "target_x": 102,
+          "target_y": 223,
+          "radius": 3,
+          "label": "Find the skiff dock"
+        }
+      ],
+      "accept_text": "Before the council gets hold of you, learn the Bridgefoot. The guesthouse is on the west side of the square, the Exchange is on the east, and the skiffs go from the dock past the guesthouse. Walk round all three, so you aren't asking a guard for directions in front of the whole city.",
+      "turn_in_text": "Now you know more of Aurelion than most of the Ascendancy's recruits do.\n\nThe Arros have kept that guesthouse for four hundred years, and Sela's been fretting since the change about what a ground-walker eats. Go and let her find out.",
+      "next_quest_id": null,
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "unique_item_defs": [
+        {
+          "name": "Bridgefoot Longbow",
+          "slot": "ranged",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 8310,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_10",
+          "weapon_damage_min": 62,
+          "weapon_damage_max": 85,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Bridgefoot Coif",
+          "slot": "head",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "healing_power": 44
+          },
+          "armor_value": 186,
+          "required_level": 54,
+          "sell_price": 8310,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_60"
+        },
+        {
+          "name": "Bridgefoot Leggings",
+          "slot": "legs",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 15
+          },
+          "secondary_stats": {
+            "spell_power": 34
+          },
+          "armor_value": 69,
+          "required_level": 54,
+          "sell_price": 10387,
+          "identity": "caster",
+          "icon_id": "gear_inv_pants_01"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "auq_up_the_grand_avenue",
+      "title": "Up the Grand Avenue",
+      "giver_npc_id": "au_gate_warden",
+      "zone": "aurelion",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "The Warden-Prime's report says the outer rings are safe because of you. Gatewarden Tessa Vell is sending you up the Grand Avenue to the herald, who'll take you before the council.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "aurelion",
+          "target_x": 130,
+          "target_y": 186,
+          "radius": 3,
+          "label": "Walk between the colossi into the Grand Plaza"
+        },
+        {
+          "type": "explore",
+          "target": "aurelion",
+          "target_x": 130,
+          "target_y": 175,
+          "radius": 3,
+          "label": "Stand at the light fountain"
+        }
+      ],
+      "accept_text": "The Warden-Prime's report has gone up to the council, and the council wants to see the newcomer it's about. Walk straight up the avenue from the gate, between the colossi, and stand by the light fountain. Herald Odric Fane will find you. He's been waiting there since dawn.",
+      "turn_in_text": "So you're the one in the Warden-Prime's report. You're smaller than I pictured.\n\nI'm sorry, that was rude. I've read nine hundred years of proclamations from this plaza, and not one of them was about somebody from the ground. Stay a moment, because I've got one more to read for you.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "au_plaza_herald",
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "unique_item_defs": [
+        {
+          "name": "Avenue Knife",
+          "slot": "main_hand",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 10,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 25
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 9868,
+          "identity": "agility",
+          "icon_id": "gear_inv_weapon_shortblade_16",
+          "weapon_damage_min": 73,
+          "weapon_damage_max": 100,
+          "attack_speed": 1.7,
+          "block_value": 0
+        },
+        {
+          "name": "Avenue Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 36
+          },
+          "armor_value": 116,
+          "required_level": 54,
+          "sell_price": 8310,
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_29"
+        },
+        {
+          "name": "Avenue Sabatons",
+          "slot": "feet",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 246,
+          "required_level": 54,
+          "sell_price": 6752,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_08"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "auq_the_shortest_proclamation",
+      "title": "The Shortest Proclamation",
+      "giver_npc_id": "au_plaza_herald",
+      "zone": "aurelion",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Herald Odric Fane read the proclamation that opened Aurelion to the ground. He wants you to carry his copy of it to First Speaker Aldren Sorvaine, so the speaker can see who it was for.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "au_q_proclamation",
+          "count": 1,
+          "label": "Take the herald's copy of the proclamation to the First Speaker in the Council Hall"
+        }
+      ],
+      "accept_text": "The proclamation that opened our gates was the shortest in the record. The council argued for a hundred years and then wrote eleven words, because nobody could bear to write any more. Take my copy up past the Spire to the Council Hall, and give it to the First Speaker. He'll want to look you in the eye.",
+      "turn_in_text": "Eleven words, and the herald's copied them out in his best hand. He was always better at this than we were.\n\nI'll be honest with you, because the houses won't. We didn't open the gates out of respect. We opened them because something came out of the Crown's seal that the city can't face alone, and the Ascendancy has stopped asking us what it's allowed to do. That's a proud admission and an ugly one, and you're owed it.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "au_first_speaker",
+      "requires_quests": [
+        "auq_up_the_grand_avenue"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "au_q_proclamation",
+            "name": "The Herald's Copy",
+            "description": "A long strip of white vellum, nearly all of it empty, with eleven words in gold ink at the top and the council's seal below.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "unique_item_defs": [
+        {
+          "name": "Herald's Tome",
+          "slot": "off_hand",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 6232,
+          "identity": "healer",
+          "icon_id": "gear_inv_tome_3",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        },
+        {
+          "name": "Herald's Handguards",
+          "slot": "hands",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 13,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 11
+          },
+          "armor_value": 229,
+          "required_level": 54,
+          "sell_price": 6752,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_31"
+        },
+        {
+          "name": "Herald's Girdle",
+          "slot": "waist",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 152,
+          "required_level": 54,
+          "sell_price": 5713,
+          "identity": "hunter",
+          "icon_id": "gear_inv_belt_25"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "auq_how_far_it_has_gone",
+      "title": "How Far It Has Gone",
+      "giver_npc_id": "au_first_speaker",
+      "zone": "aurelion",
+      "level_min": 54,
+      "level_max": 55,
+      "description": "The Ascendancy says it holds the Second Anchor on the council's orders. First Speaker Aldren Sorvaine never gave them. He wants the orders the Ascendancy Warden there actually carries.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "au_q_marching_orders",
+          "count": 6
+        }
+      ],
+      "accept_text": "The Ascendancy took the Second Anchor and told the wardens it was on the council's word. I never gave that word, and neither did any house. Every Ascendancy Warden at that camp carries written orders. Bring me enough of them that the houses can't call it one captain's mistake.",
+      "turn_in_text": "These are sealed with the Ascendancy's own mark, and not one of them names the council.\n\nShe's stopped pretending. The houses will read these tonight, and they'll have to admit what I've been saying for a season. Our army answers to its general now, not to us.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "auq_the_shortest_proclamation"
+      ],
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Speaker's Mace",
+          "slot": "main_hand",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 36
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 10248,
+          "identity": "healer",
+          "icon_id": "gear_inv_mace_08",
+          "weapon_damage_min": 75,
+          "weapon_damage_max": 101,
+          "attack_speed": 2.6,
+          "block_value": 0
+        },
+        {
+          "name": "Speaker's Jerkin",
+          "slot": "chest",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 14,
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 165,
+          "required_level": 54,
+          "sell_price": 10788,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_01"
+        },
+        {
+          "name": "Speaker's Pendant",
+          "slot": "neck",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 6473,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_necklace_04"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "auq_a_voice_in_the_hall",
+      "title": "A Voice in the Hall",
+      "giver_npc_id": "au_first_speaker",
+      "zone": "aurelion",
+      "level_min": 55,
+      "level_max": 55,
+      "description": "First Speaker Aldren Sorvaine wants the ground heard in the Council Hall, not just looked at. He's sending you to Ambassador Tavia Morrane at the Ground Embassy to tell her so.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "aurelion",
+          "target_x": 213,
+          "target_y": 184,
+          "radius": 3,
+          "label": "Climb the steps of the Ground Embassy"
+        }
+      ],
+      "accept_text": "The houses have looked at the ground and the Earthborn for a hundred years and listened for about a week. I want that to change before the Ascendancy changes it for us. Go round to the Ground Embassy and tell Ambassador Morrane that the embassy speaks in the hall from now on, at every sitting. She'll pretend she isn't surprised.",
+      "turn_in_text": "He said every sitting? Not just the ones about the seal?\n\nI've written to him eleven times asking for that. Eleven letters, and it took a ground-walker standing on my steps. I'm not going to complain. Come in, and mind the mortar on the doorframe, because it isn't dry.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "au_ambassador",
+      "requires_quests": [
+        "auq_how_far_it_has_gone"
+      ],
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Envoy's Greatsword",
+          "slot": "main_hand",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 20,
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "attack_power": 56
+          },
+          "armor_value": 0,
+          "required_level": 55,
+          "sell_price": 13484,
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_42",
+          "weapon_damage_min": 101,
+          "weapon_damage_max": 137,
+          "attack_speed": 3.4,
+          "block_value": 0
+        },
+        {
+          "name": "Envoy's Bracers",
+          "slot": "wrist",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 97,
+          "required_level": 55,
+          "sell_price": 5394,
+          "identity": "agility",
+          "icon_id": "gear_inv_bracer_13"
+        },
+        {
+          "name": "Envoy's Hood",
+          "slot": "head",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "spell_power": 30
+          },
+          "armor_value": 59,
+          "required_level": 55,
+          "sell_price": 8630,
+          "identity": "caster",
+          "icon_id": "gear_inv_helmet_53"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "auq_lenses_from_the_keel",
+      "title": "Lenses From the Keel",
+      "giver_npc_id": "au_councillor_lens",
+      "zone": "aurelion",
+      "level_min": 54,
+      "level_max": 55,
+      "description": "Councillor Thalos Wren's survey grinds its lenses from crystal that grows in the dark. The Keel-Crystal Shard under the Third Anchor is made of the best of it.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "au_q_keel_lens",
+          "count": 6
+        }
+      ],
+      "accept_text": "The survey's lenses are cut from dark-grown crystal, and there's none darker than the crystal under the Third Anchor. Every Keel-Crystal Shard down in the Keel carries a lens inside it, already ground, if you break it cleanly. The Warden-Prime will let you in. He owes you that much and more.",
+      "turn_in_text": "Look through that one. You can count the leaves on the tree from here.\n\nThe Patient Lens has watched your tree for sixty years through glass half this clear. The other houses called it a waste of crystal. I'll grind these into the survey's new glass, and then I'll invite them to look.",
+      "next_quest_id": null,
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Lensgrinder's Hauberk",
+          "slot": "chest",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 12,
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "attack_power": 34
+          },
+          "armor_value": 249,
+          "required_level": 54,
+          "sell_price": 10788,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_16"
+        },
+        {
+          "name": "Lensgrinder's Sash",
+          "slot": "waist",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "spell_power": 24
+          },
+          "armor_value": 48,
+          "required_level": 54,
+          "sell_price": 5933,
+          "identity": "caster",
+          "icon_id": "gear_inv_belt_02"
+        },
+        {
+          "name": "Lensgrinder's Sabatons",
+          "slot": "feet",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 14,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 11
+          },
+          "armor_value": 251,
+          "required_level": 54,
+          "sell_price": 7012,
+          "identity": "tank",
+          "icon_id": "gear_inv_boots_04"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "auq_does_the_ground_have_scholars",
+      "title": "Does the Ground Have Scholars",
+      "giver_npc_id": "au_councillor_lens",
+      "zone": "aurelion",
+      "level_min": 55,
+      "level_max": 55,
+      "description": "The Academy's students have been asking whether the ground has scholars. Councillor Thalos Wren has the survey's notes that answer it, and he wants them in the Master of the Academy's hands.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "au_q_survey_notes",
+          "count": 1,
+          "label": "Take the survey's notes to the Master of the Academy"
+        }
+      ],
+      "accept_text": "Halvric Oune's students keep asking whether the ground has scholars, and Halvric keeps telling them nobody knows. The survey knows. Take him these notes on the ground's libraries and colleges, and the Earthborn's universities too. He won't enjoy being wrong in front of his faculty, so be kind about it.",
+      "turn_in_text": "The Earthborn kept libraries of a million books? And the ground's magi had a city that floated, on a world nobody up here believed had cities at all?\n\nI've taught for eight centuries, and I've just been handed a reading list. Thank you. I mean that, though I'll deny it in the faculty room.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "au_academy_master",
+      "requires_quests": [
+        "auq_lenses_from_the_keel"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "au_q_survey_notes",
+            "name": "The Survey's Notes on the Ground",
+            "description": "A thick bundle of the survey's notes on the ground's scholars, with a page at the back in an Earthborn hand.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Scholar's Grips",
+          "slot": "hands",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 97,
+          "required_level": 55,
+          "sell_price": 7012,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_01"
+        },
+        {
+          "name": "Scholar's Spaulders",
+          "slot": "shoulder",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 190,
+          "required_level": 55,
+          "sell_price": 8630,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_shoulder_23"
+        },
+        {
+          "name": "Scholar's Pendant",
+          "slot": "neck",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 55,
+          "sell_price": 6473,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_necklace_06"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "auq_the_doors_are_too_big",
+      "title": "The Doors Are Too Big",
+      "giver_npc_id": "au_councillor_memory",
+      "zone": "aurelion",
+      "level_min": 54,
+      "level_max": 55,
+      "description": "Councillor Idrel Marrowell of the House of Long Memory says the Spire Palace was built for somebody taller than an Aetherian. She wants you to look at it with fresh eyes before the other houses tell you what to see.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "aurelion",
+          "target_x": 130,
+          "target_y": 134,
+          "radius": 3,
+          "label": "Stand at the Spire Palace's great doors"
+        },
+        {
+          "type": "explore",
+          "target": "aurelion",
+          "target_x": 121,
+          "target_y": 134,
+          "radius": 3,
+          "label": "Look up at the winged column beside the stair"
+        },
+        {
+          "type": "explore",
+          "target": "aurelion",
+          "target_x": 142,
+          "target_y": 128,
+          "radius": 3,
+          "label": "Look at the guardian on the palace isle's east side"
+        }
+      ],
+      "accept_text": "Everyone in Aurelion walks past the Spire every day and never looks at it. You haven't learned not to look yet. Go and stand at the great doors, then the winged column by the stair, then the guardian on the isle's east side, and tell me what's wrong with all three.",
+      "turn_in_text": "Too big, yes. The doors, the column's steps, the guardian's reach. The keepers say it's grandeur, and they've said it for a thousand years.\n\nMy house says grandeur doesn't need a step a giant could climb comfortably. It's why the council laughs at us. You're welcome to laugh too, but you looked first, and that's more than they've done.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "auq_up_the_grand_avenue"
+      ],
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Measurer's Cloak",
+          "slot": "back",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 6
+          },
+          "secondary_stats": {
+            "attack_power": 24,
+            "hit_rating": 6
+          },
+          "armor_value": 43,
+          "required_level": 54,
+          "sell_price": 5933,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_02"
+        },
+        {
+          "name": "Measurer's Cuffs",
+          "slot": "wrist",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 66,
+          "required_level": 54,
+          "sell_price": 5394,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_09"
+        },
+        {
+          "name": "Measurer's Legplates",
+          "slot": "legs",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 14,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 34
+          },
+          "armor_value": 337,
+          "required_level": 54,
+          "sell_price": 10788,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_08"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "auq_built_for_guests",
+      "title": "Built for Guests",
+      "giver_npc_id": "au_councillor_memory",
+      "zone": "aurelion",
+      "level_min": 55,
+      "level_max": 55,
+      "description": "Councillor Idrel Marrowell took rubbings of the oldest hinge plates on the Spire's doors. She wants Keeper of the Spire Ulmar Seyth to see what they say.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "au_q_hinge_rubbing",
+          "count": 1,
+          "label": "Take the hinge rubbing to the Keeper of the Spire"
+        }
+      ],
+      "accept_text": "I took these rubbings off the oldest hinge plates on the great doors, the ones the keepers have polished for a thousand years without reading. The script is ours, an old form of it. The measurements beside it aren't. Take them to Ulmar Seyth. He won't listen to me, but he might listen to you.",
+      "turn_in_text": "That's our script, the oldest form of it. And those are a mason's marks.\n\nThe doors are cut to a Kharad's height. The ledge under the high windows is set at a Veyr's grip, for perching. Aetherian masons built the Spire, and they built it for the other two peoples to walk into. We've always said nobody knows who raised it, and it was us all along. We just never asked who we raised it for.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "au_palace_keeper",
+      "requires_quests": [
+        "auq_the_doors_are_too_big"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "au_q_hinge_rubbing",
+            "name": "Hinge Rubbing",
+            "description": "Charcoal on thin paper, taken off a hinge plate as tall as a door: a line of old Aetherian script and a column of measurements.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Longmemory Cap",
+          "slot": "head",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 15,
+            "agility": 10
+          },
+          "secondary_stats": {
+            "dodge_rating": 7
+          },
+          "armor_value": 118,
+          "required_level": 55,
+          "sell_price": 8630,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_27"
+        },
+        {
+          "name": "Longmemory Band",
+          "slot": "ring",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 26
+          },
+          "armor_value": 0,
+          "required_level": 55,
+          "sell_price": 6473,
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_ring_13"
+        },
+        {
+          "name": "Longmemory Gauntlets",
+          "slot": "hands",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 8,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 155,
+          "required_level": 55,
+          "sell_price": 7012,
+          "identity": "earthen",
+          "icon_id": "gear_inv_gauntlets_09"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "auq_letters_from_the_wards",
+      "title": "Letters From the Wards",
+      "giver_npc_id": "au_leandro",
+      "zone": "aurelion",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Leandro Arrieta lived three years as one of the scholar houses' Earthborn wards. The wards still at Lenswatch gave him letters for the Ground Embassy, and he wants them in Hamid Sadeghi's hands today.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "au_q_wards_letters",
+          "count": 1,
+          "label": "Take the wards' letters to Hamid Sadeghi at the Ground Embassy"
+        }
+      ],
+      "accept_text": "These are from the Earthborn still living as the houses' wards. Some of them have been up here longer than me, and they've never been allowed to write to anyone. Hamid at the embassy knows what to do with them. Go now, please, before somebody on the council decides letters need a permit.",
+      "turn_in_text": "There are names in here I've been looking for since I got the job. A nurse from Lyon, a man from Osaka, and a whole family from Manila.\n\nThey've been guests of the houses for three years, and guests who can't leave aren't guests. I'll write back to every one of them tonight.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "au_embassy_aide",
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "au_q_wards_letters",
+            "name": "Bundle of Wards' Letters",
+            "description": "A stack of letters tied with survey cord, written in a dozen Earth languages on Aetherian paper.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "unique_item_defs": [
+        {
+          "name": "Wardfriend's Staff",
+          "slot": "main_hand",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 23
+          },
+          "secondary_stats": {
+            "spell_power": 52
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 12984,
+          "identity": "caster",
+          "icon_id": "gear_inv_staff_25",
+          "weapon_damage_min": 40,
+          "weapon_damage_max": 55,
+          "attack_speed": 3.2,
+          "block_value": 0
+        },
+        {
+          "name": "Wardfriend's Jerkin",
+          "slot": "chest",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 13,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 34
+          },
+          "armor_value": 138,
+          "required_level": 54,
+          "sell_price": 10387,
+          "identity": "strength",
+          "icon_id": "gear_inv_chest_leather_07"
+        },
+        {
+          "name": "Wardfriend's Waistguard",
+          "slot": "waist",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {
+            "healing_power": 25
+          },
+          "armor_value": 229,
+          "required_level": 54,
+          "sell_price": 5713,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_belt_03"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "auq_the_oldest_trees",
+      "title": "The Oldest Trees",
+      "giver_npc_id": "au_ilaren",
+      "zone": "aurelion",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "Ilaren Vey says nobody understands Aurelion until they've walked the Gardens. He wants you to go to the conservatory and the gold orchard, and meet Gardener Tamsin Ashgrove.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "aurelion",
+          "target_x": 83,
+          "target_y": 109,
+          "radius": 3,
+          "label": "Walk to the great conservatory's doors"
+        },
+        {
+          "type": "explore",
+          "target": "aurelion",
+          "target_x": 75,
+          "target_y": 151,
+          "radius": 3,
+          "label": "Walk through the gold orchard"
+        }
+      ],
+      "accept_text": "My house is split down the middle, and the half that still speaks to me says I'm too fond of the ground. They're welcome to think so. I'll show the ground the best thing we have. Walk west round the Inner Ring to the Gardens, see the conservatory and the orchard, and find Tamsin Ashgrove. Don't pick an apple, because she counts them.",
+      "turn_in_text": "You've seen the orchard, then, and you didn't pick anything, which puts you ahead of most of the council.\n\nThose trees were planted when the Inner Ring was laid. Some of them are older than the Academy. Three of them have stopped fruiting in my time, and the books don't tell me why.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "au_gardener",
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "unique_item_defs": [
+        {
+          "name": "Gardenwalker's Mantle",
+          "slot": "shoulder",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "spell_power": 29
+          },
+          "armor_value": 58,
+          "required_level": 54,
+          "sell_price": 8310,
+          "identity": "caster",
+          "icon_id": "gear_inv_shoulder_11"
+        },
+        {
+          "name": "Gardenwalker's Breeches",
+          "slot": "legs",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 13,
+            "stamina": 8
+          },
+          "secondary_stats": {
+            "attack_power": 34
+          },
+          "armor_value": 163,
+          "required_level": 54,
+          "sell_price": 10387,
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_12"
+        },
+        {
+          "name": "Gardenwalker's Vambraces",
+          "slot": "wrist",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 13,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 11
+          },
+          "armor_value": 229,
+          "required_level": 54,
+          "sell_price": 5193,
+          "identity": "tank",
+          "icon_id": "gear_inv_bracer_01"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "auq_grafts_from_the_estate",
+      "title": "Grafts From the Estate",
+      "giver_npc_id": "au_gardener",
+      "zone": "aurelion",
+      "level_min": 54,
+      "level_max": 55,
+      "description": "House Vaelith's estate garden in the Anchorfields was grown from cuttings of these Gardens. Gardener Tamsin Ashgrove wants clean grafts back from it, carried by the Garden Repair-Drone that still tends it.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "au_q_clean_graft",
+          "count": 5
+        }
+      ],
+      "accept_text": "House Vaelith took cuttings from this orchard when they built their estate, centuries ago. Their trees are younger and stronger than mine now. Every Garden Repair-Drone on that estate carries sealed grafts in its kit, and they seal them properly, whatever else has gone wrong with them. Bring me clean wood, and I'll graft it onto the trees that have stopped.",
+      "turn_in_text": "These are perfect. The drones never forgot how to seal a graft, even after they forgot everything else.\n\nIt's a strange thing, mending the city's oldest trees with cuttings of themselves. I suppose that's what the Gardens have always been. Come back in a few years and see whether they took.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "auq_the_oldest_trees"
+      ],
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Grafter's Staff",
+          "slot": "main_hand",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 20,
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "attack_power": 56
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 13484,
+          "identity": "agility",
+          "icon_id": "gear_inv_staff_24",
+          "weapon_damage_min": 101,
+          "weapon_damage_max": 137,
+          "attack_speed": 3.6,
+          "block_value": 0
+        },
+        {
+          "name": "Grafter's Belt",
+          "slot": "waist",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 115,
+          "required_level": 54,
+          "sell_price": 5933,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_03"
+        },
+        {
+          "name": "Grafter's Band",
+          "slot": "ring",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 6473,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_ring_31"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "auq_soup_for_the_eighth",
+      "title": "Soup for the Eighth",
+      "giver_npc_id": "au_soup_cook",
+      "zone": "aurelion",
+      "level_min": 54,
+      "level_max": 55,
+      "description": "Mother Ysolde Marsh feeds everyone at the Eighth's Rest on the council's bread and the houses' coin. She wants meat for the pot, and the Tiltside Goat out on the Anchorfields' Listing Isle is the best there is.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "au_q_goat_shank",
+          "count": 6
+        }
+      ],
+      "accept_text": "Bread and coin don't make a soup, wherever you're from. Meat makes a soup. The Tiltside Goat out on the Listing Isle is lean and stubborn, and it cooks down into something that'll keep an old man warm all night. Bring me shanks, and I'll feed the whole Rest on them.",
+      "turn_in_text": "Look at the size of these. I'll have the pot going by sundown.\n\nThe Eighth used to keep goats, you know. We had pasture on the outermost ring, and the herds went down with it. Half of the Rest will taste this and cry, and the other half will ask for more. Both are fine.",
+      "next_quest_id": null,
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Souper's Shield",
+          "slot": "off_hand",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "spell_power": 19,
+            "haste": 6
+          },
+          "armor_value": 436,
+          "required_level": 54,
+          "sell_price": 8630,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_shield_13",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 50
+        },
+        {
+          "name": "Souper's Greaves",
+          "slot": "feet",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 155,
+          "required_level": 54,
+          "sell_price": 7012,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_plate_02"
+        },
+        {
+          "name": "Souper's Robe",
+          "slot": "chest",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 12,
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "healing_power": 30
+          },
+          "armor_value": 70,
+          "required_level": 54,
+          "sell_price": 10788,
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_shirt_grey_01"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "auq_what_the_eighth_remembers",
+      "title": "What the Eighth Remembers",
+      "giver_npc_id": "au_eighth_elder",
+      "zone": "aurelion",
+      "level_min": 55,
+      "level_max": 55,
+      "description": "Elder Corrin Ashlane watched the Eighth Ring fall. He wants a guest from the ground to stand at the memorial, then walk out to where the last stub of the ring breaks off.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "aurelion",
+          "target_x": 54,
+          "target_y": 85,
+          "radius": 3,
+          "label": "Stand at the crystal memorial"
+        },
+        {
+          "type": "explore",
+          "target": "aurelion",
+          "target_x": 31,
+          "target_y": 54,
+          "radius": 3,
+          "label": "Walk to the end of the Eighth Ring's last stub"
+        }
+      ],
+      "accept_text": "The memorial has every name we lost. Stand by it a while, then walk out along the stub past the Rest to where the ring breaks off. That's as close to home as any of us can get now. Come back and tell me what you saw out there.",
+      "turn_in_text": "You saw nothing at all, and a long way down. That's the whole of the view.\n\nThe Eighth didn't fall all at once. It cracked for a hundred years before it went, and the council measured the cracks and argued. My grandmother said the ring was older than the council, and that whoever built it knew how to keep it up. Nobody up here knows any more.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "auq_soup_for_the_eighth"
+      ],
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Eighthsworn Shield",
+          "slot": "off_hand",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 10,
+            "strength": 3
+          },
+          "secondary_stats": {
+            "block_value": 9
+          },
+          "armor_value": 436,
+          "required_level": 55,
+          "sell_price": 8630,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_20",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 50
+        },
+        {
+          "name": "Eighthsworn Breeches",
+          "slot": "legs",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 17,
+            "agility": 12
+          },
+          "secondary_stats": {
+            "dodge_rating": 9
+          },
+          "armor_value": 140,
+          "required_level": 55,
+          "sell_price": 10788,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_12"
+        },
+        {
+          "name": "Eighthsworn Gloves",
+          "slot": "hands",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "arcane_spell_power": 29
+          },
+          "armor_value": 48,
+          "required_level": 55,
+          "sell_price": 7012,
+          "identity": "arcane",
+          "icon_id": "gear_inv_gauntlets_18"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "auq_fewer_every_year",
+      "title": "Fewer Every Year",
+      "giver_npc_id": "au_dockmaster",
+      "zone": "aurelion",
+      "level_min": 54,
+      "level_max": 55,
+      "description": "Dockmaster Garret Lune has watched the long-haulers dwindle for years. Now the Ascendancy Crystal-Weaver strips the crystal out of their engines for the camp at the Second Anchor.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "aurelion",
+          "target_x": 229,
+          "target_y": 74,
+          "radius": 3,
+          "label": "Look out from the Skydocks' rim"
+        },
+        {
+          "type": "kill",
+          "target": "Ascendancy Crystal-Weaver",
+          "count": 8,
+          "zone": "anchorfields"
+        }
+      ],
+      "accept_text": "Look out from the rim first, and count the berths with nothing in them. Then go to the Anchorfields. Every Ascendancy Crystal-Weaver at the Second Anchor's camp is wearing crystal pulled out of a long-hauler's engine, and I know because I signed for some of it. Make them stop.",
+      "turn_in_text": "The camp's shield pylon has gone dark, and I've had a captain ask me whether it's safe to put in again.\n\nIt's not much, but it's the first good question anyone's asked me in a year. The Ascendancy takes what it needs from the city and calls it defence. Their fortresses on the Ascendant Bastions are built out of things like my ships.",
+      "next_quest_id": null,
+      "reward_exp": 4040,
+      "reward_gold": 15900,
+      "unique_item_defs": [
+        {
+          "name": "Dockwarden's Spear",
+          "slot": "main_hand",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 20,
+            "stamina": 13
+          },
+          "secondary_stats": {
+            "attack_power": 56
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 13484,
+          "identity": "strength",
+          "icon_id": "gear_inv_spear_07",
+          "weapon_damage_min": 101,
+          "weapon_damage_max": 137,
+          "attack_speed": 3.3,
+          "block_value": 0
+        },
+        {
+          "name": "Dockwarden's Hood",
+          "slot": "head",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "healing_power": 36
+          },
+          "armor_value": 59,
+          "required_level": 54,
+          "sell_price": 8630,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_50"
+        },
+        {
+          "name": "Dockwarden's Grips",
+          "slot": "hands",
+          "item_level": 56,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 8,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 24
+          },
+          "armor_value": 97,
+          "required_level": 54,
+          "sell_price": 7012,
+          "identity": "feral",
+          "icon_id": "gear_inv_gauntlets_24"
+        }
+      ],
+      "gear_reward_gear_level": 56,
+      "gear_reward_rarity": "uncommon"
+    }
+  ]
+}

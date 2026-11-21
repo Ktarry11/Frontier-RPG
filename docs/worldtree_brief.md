@@ -237,6 +237,12 @@ Aetherians hunt for what the Integration was and never get close to its cause.
   gold-inlaid plazas with winged guardian statues, a grand avenue with a glowing blue channel, arched bridges hung
   with deep blue banners, districts on floating rock pouring waterfalls, airships with golden sail-fins. It gets three
   sheets of its own (SK5, SK15, SK16) plus its panorama.
+  **Kyle, 20 Nov 2026: "Aurelion must look PERFECT and grand."** So it gets more than a zone gets: the biggest city in
+  the game, built on rings round the Spire Palace (eight rings, the Eighth fallen, seven still turning), every district
+  laid out deliberately with no scatter, its own bake sheet from the AE grounds (marble, gold inlay, the glowing
+  channel), waterfalls off every ring edge, and a look-dev pass of screenshots district by district, checked against
+  Kyle's two pictures, before anything else goes in. It's ancient (Kyle: "aurelion is ancient"), so it shows its age:
+  worn gold, the fallen Eighth Ring's broken stubs, districts older than the houses that live in them.
 - **Kyle's mood board** (`docs/zone_refs/sky_moodboard.jpg`, twenty scenes): rune circles and pillars, the tree's
   glowing teal heart with a crystal door and a prismatic glass cathedral between its roots, airship decks and bridges,
   the observatory, the engine room, the golden throne room, a mountain temple island. Sheets SK17 to SK19.
@@ -314,6 +320,13 @@ What that settles:
 
 The Celestial Expanse's piece: the golem cores in the Golem Vault and the Storm-Well are Kharad stone round Aetherian
 crystal, holding a storm the Veyr sang into them. The Kharad built the golems, but not alone.
+
+The Anchorfields' piece: the House of Measures' oldest plate says the same thing in three columns, old Aetherian, Kharad
+runes and Veyr song-notation ("The first anchor was raised by three, and three kept it").
+
+Aurelion's piece: the Spire Palace, the city's first stone, has doors cut to a Kharad's height and a ledge under its high
+windows set at a Veyr's grip, and its hinge plates carry Aetherian masons' marks. The Aetherians built it, for the other
+two peoples to walk into. A place built by one people for the others.
 
 ## Twenty questions: the sky continent's story (Kyle, 20 Nov 2026)
 

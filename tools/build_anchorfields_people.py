@@ -56,14 +56,14 @@ AMBIENT = {
                      "The arm's carried water and walkers between the shelf and the Spillway for longer than Aurelion's "
                      "had its rings. It's never carried a ground-walker before, but it'll carry you. Mind the cracks."),
     # ---- the Estates
-    "af_steward": ("Steward Olin Varrow", "aetherian", M, 5, "down",
+    "af_steward": ("Steward Olin Varrow", "aetherian", M, 4, "down",
                    "House Vaelith has held this estate for eleven hundred years. The family went to Aurelion when the "
                    "shelf began to lean, and I stayed with the house, because somebody has to wind the clocks."),
     "af_house_heir": ("Corwen Vaelith", "aetherian", M, 1, "right",
                       "My grandmother's grandmother planted that orchard. Everyone else left for the city, and I couldn't. "
                       "If the shelf goes, I'd rather be standing on it than reading about it."),
     # ---- Keelstone
-    "af_warden_prime": ("Warden-Prime Aldric Sorne", "aetherian", M, 5, "down",
+    "af_warden_prime": ("Warden-Prime Aldric Sorne", "aetherian", M, 4, "down",
                         "The Anchor-Wardens have kept these three anchors for a thousand years, and we've lost an island "
                         "once. Look south-west at the Dropfield and you'll see what that looks like. I don't mean to see "
                         "it twice."),
@@ -77,7 +77,7 @@ AMBIENT = {
     "af_warden_scout": ("Scout Varen Ashby", "aetherian", M, 2, "down",
                         "The Ascendancy took the Second Anchor and said they'd hold it better than we could. They "
                         "don't know the first thing about it, and every day they hold it, it drifts a little more."),
-    "af_old_warden": ("Old Warden Ebbe Tharn", "aetherian", M, 5, "left",
+    "af_old_warden": ("Old Warden Ebbe Tharn", "aetherian", M, 4, "left",
                       "My grandfather's grandfather saw the island fall, the one that's the Dropfield now. He told it "
                       "to his son, and it came down to me the same way, word for word. I'd rather not add a new ending."),
     "af_skiffmaster": ("Skiffmaster Jorun Kell", "aetherian", M, 1, "right",

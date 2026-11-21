@@ -3459,10 +3459,11 @@
       "leader": {
         "title": "First Speaker of the Council",
         "name": "Aldren Sorvaine",
-        "location": "The Council Hall in Aurelion",
-        "line": "The houses have argued for a hundred years about what the ground is worth. We're about to find out, because we can't hold up the sky without it."
+        "location": "The Council Hall of the High Houses, on Aurelion's Council Ring",
+        "line": "The houses have argued for a hundred years about what the ground is worth. We're about to find out, because we can't hold up the sky without it.",
+        "npc_id": "au_first_speaker"
       },
-      "_lore_note": "Kyle, 19-20 Nov 2026: the Aetherian split (rep with the scholar houses, the Ascendancy is the enemy), Aurelion ruled by a council of houses, the houses divided on what's killing their world. docs/worldtree_brief.md. The leader has no npc_id until Aurelion is built.",
+      "_lore_note": "Kyle, 19-20 Nov 2026: the Aetherian split (rep with the scholar houses, the Ascendancy is the enemy), Aurelion ruled by a council of houses, the houses divided on what's killing their world. docs/worldtree_brief.md.",
       "lore": [
         "Above the clouds there's a world nobody on the ground knew about, and the Aetherians have ruled the upper sky for as long as their records go back. They're tall and pale, with crystal growing along their arms and light in their eyes, and their cities float on engines of crystal older than any kingdom below.",
         "Since the world changed, their sky has been dying. The engines are failing, islands are falling, and the council of the scholar houses can't agree on why. Some houses say the World Tree is draining the sky and should be studied before anyone touches it. The Ascendancy, their army, says the tree is the only thing still rising and should simply be taken.",
@@ -3525,6 +3526,7 @@
           "afq_the_bombers_over_keelstone",
           "afq_anchor_marshal_corvan_sael",
           "afq_the_keel_heart",
+          "afq_the_councils_thanks",
           "afq_links_with_names",
           "afq_anchorlight",
           "afq_starfall",
@@ -3549,8 +3551,58 @@
           "afq_the_gardener",
           "afq_sounds_i_dont_know",
           "afq_engine_seven",
-          "afq_sirans_report"
+          "afq_sirans_report",
+          "auq_where_everything_is",
+          "auq_up_the_grand_avenue",
+          "auq_the_shortest_proclamation",
+          "auq_how_far_it_has_gone",
+          "auq_a_voice_in_the_hall",
+          "auq_lenses_from_the_keel",
+          "auq_does_the_ground_have_scholars",
+          "auq_the_doors_are_too_big",
+          "auq_built_for_guests",
+          "auq_the_oldest_trees",
+          "auq_grafts_from_the_estate",
+          "auq_soup_for_the_eighth",
+          "auq_what_the_eighth_remembers",
+          "auq_fewer_every_year"
         ]
+      },
+      "rewards": {
+        "vendor_stock": {
+          "au_quartermaster": {
+            "friendly": [
+              "unique:tabard_aetherians",
+              "aet_lenslight_draught"
+            ],
+            "honored": [
+              "flask_mending",
+              "unique:aet_lensbearers_pendant",
+              "rep_aet_crystalweave_cuffs"
+            ],
+            "revered": [
+              "unique:aet_starweave_magister_robe",
+              "unique:aet_ringwardens_crested_helm",
+              "unique:aet_spireguard_gauntlets",
+              "unique:aet_conservatory_leggings",
+              "unique:aet_skiffrunners_mantle",
+              "unique:aet_signet_of_the_high_houses",
+              "rep_aet_gilded_sabatons"
+            ],
+            "exalted": [
+              "unique:aet_staff_of_the_patient_lens",
+              "unique:aet_spirewardens_maul",
+              "unique:aet_aegis_of_the_rings",
+              "rep_aet_ringwarden_legplates",
+              "rep_aet_starweave_vestments"
+            ]
+          }
+        },
+        "_comment": [
+          "Gates, not a displayed ladder (the faction panel stays information only).",
+          "TBC-style shelf (tools/build_aetherians_shelf.py, 21 Nov 2026): friendly the Academy's Lenslight Draught, honored a neck piece and a pattern, revered six ilvl 67 blues and a pattern, exalted three ilvl 73 epics and two recipes, and the Lumen Stag at Exalted."
+        ],
+        "quests": {}
       }
     }
   }

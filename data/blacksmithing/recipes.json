@@ -13308,6 +13308,110 @@
       ],
       "source": "vendor",
       "faction": "highbough_tribes"
+    },
+    "rep_aet_gilded_sabatons": {
+      "name": "Gilded Sabatons",
+      "inputs": {
+        "bar_frostforged_silver": 6,
+        "flux_strong": 1
+      },
+      "skill_required": 305,
+      "output": {
+        "kind": "armor",
+        "slot": "feet",
+        "stat_template": "str_physical",
+        "item_level": 66,
+        "rarity": "rare",
+        "material_tier": "frostforged_silver",
+        "identity": "strength",
+        "flavor": "Made at the sky-forge for the dockhands who walk the rim in plate. The gold is on the inside.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "plate",
+        "item": {
+          "name": "Gilded Sabatons",
+          "slot": "feet",
+          "item_level": 66,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 15,
+            "stamina": 9
+          },
+          "secondary_stats": {
+            "attack_power": 40
+          },
+          "armor_value": 359,
+          "required_level": 60,
+          "sell_price": 14852,
+          "flavor_text": "Made at the sky-forge for the dockhands who walk the rim in plate. The gold is on the inside.",
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_plate_09"
+        }
+      },
+      "skill_range": [
+        308,
+        313,
+        318,
+        323
+      ],
+      "source": "vendor",
+      "faction": "aetherians"
+    },
+    "rep_aet_ringwarden_legplates": {
+      "name": "Ringwarden's Legplates",
+      "inputs": {
+        "bar_sylvanite": 12,
+        "bar_frostforged_silver": 4,
+        "flux_strong": 2,
+        "gem_sylvan_emerald": 1
+      },
+      "skill_required": 320,
+      "output": {
+        "kind": "armor",
+        "slot": "legs",
+        "stat_template": "str_physical",
+        "item_level": 68,
+        "rarity": "epic",
+        "material_tier": "sylvanite",
+        "identity": "tank",
+        "flavor": "The wardens' own pattern: white plate inlaid with gold, heavy enough to stand on a ring's edge in a gale.",
+        "fixed_item_level": true,
+        "required_level": 60,
+        "armor_type": "plate",
+        "item": {
+          "name": "Ringwarden's Legplates",
+          "slot": "legs",
+          "item_level": 68,
+          "rarity": "epic",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 46,
+            "strength": 19
+          },
+          "secondary_stats": {
+            "defense_rating": 37
+          },
+          "armor_value": 834,
+          "required_level": 60,
+          "sell_price": 42167,
+          "flavor_text": "The wardens' own pattern: white plate inlaid with gold, heavy enough to stand on a ring's edge in a gale.",
+          "identity": "tank",
+          "icon_id": "gear_wow_legs_plate_03_1"
+        }
+      },
+      "skill_range": [
+        323,
+        328,
+        333,
+        338
+      ],
+      "source": "vendor",
+      "faction": "aetherians"
     }
   }
 }

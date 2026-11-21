@@ -4183,6 +4183,254 @@
       "block_value": 0,
       "price": 2800000,
       "faction": "highbough_tribes"
+    },
+    "aet_lensbearers_pendant": {
+      "name": "Lens-Bearer's Pendant",
+      "slot": "neck",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 16
+      },
+      "secondary_stats": {
+        "spell_power": 35
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 42500,
+      "flavor_text": "A disc of survey glass in a gold setting. The House of the Patient Lens gives one to everyone who walks down the tree and comes back.",
+      "identity": "caster",
+      "icon_id": "gear_inv_jewelry_necklace_05",
+      "price": 340000,
+      "faction": "aetherians"
+    },
+    "aet_starweave_magister_robe": {
+      "name": "Starweave Magister's Robe",
+      "slot": "chest",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 25
+      },
+      "secondary_stats": {
+        "spell_power": 57
+      },
+      "armor_value": 108,
+      "required_level": 60,
+      "sell_price": 72500,
+      "flavor_text": "Academy silk with thread of crystal through it, cut the way the magisters have cut it for eight centuries.",
+      "identity": "caster",
+      "icon_id": "gear_inv_shirt_white_01",
+      "price": 580000,
+      "faction": "aetherians"
+    },
+    "aet_ringwardens_crested_helm": {
+      "name": "Ringwarden's Crested Helm",
+      "slot": "head",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 27,
+        "strength": 11
+      },
+      "secondary_stats": {
+        "defense_rating": 21
+      },
+      "armor_value": 439,
+      "required_level": 60,
+      "sell_price": 70000,
+      "flavor_text": "White plate with a gold crest, worn by the wardens who walked the rings before the Ascendancy took the walls.",
+      "identity": "tank",
+      "icon_id": "gear_inv_crown_02",
+      "price": 560000,
+      "faction": "aetherians"
+    },
+    "aet_spireguard_gauntlets": {
+      "name": "Spireguard's Gilded Gauntlets",
+      "slot": "hands",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "plate",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "intellect": 13
+      },
+      "secondary_stats": {
+        "healing_power": 62
+      },
+      "armor_value": 359,
+      "required_level": 60,
+      "sell_price": 65000,
+      "flavor_text": "The Keepers of the Spire wear these to tend the city's first stone, and they've never once dropped anything.",
+      "identity": "plate_healer",
+      "icon_id": "gear_inv_gauntlets_03",
+      "price": 520000,
+      "faction": "aetherians"
+    },
+    "aet_conservatory_leggings": {
+      "name": "Conservatory Leggings",
+      "slot": "legs",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "cloth",
+      "weapon_type": null,
+      "stat_template": "spi_healer",
+      "primary_stats": {
+        "spirit": 19,
+        "intellect": 19
+      },
+      "secondary_stats": {
+        "healing_power": 51
+      },
+      "armor_value": 129,
+      "required_level": 60,
+      "sell_price": 67500,
+      "flavor_text": "Woven in the Gardens from silver-grove bark fibre. They smell faintly of gold apples for years.",
+      "identity": "spirit_healer",
+      "icon_id": "gear_inv_pants_01",
+      "price": 540000,
+      "faction": "aetherians"
+    },
+    "aet_skiffrunners_mantle": {
+      "name": "Skiffrunner's Mantle",
+      "slot": "shoulder",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "leather",
+      "weapon_type": null,
+      "stat_template": "agi_physical",
+      "primary_stats": {
+        "agility": 19,
+        "stamina": 11
+      },
+      "secondary_stats": {
+        "attack_power": 48
+      },
+      "armor_value": 183,
+      "required_level": 60,
+      "sell_price": 62500,
+      "flavor_text": "Oiled hide over a crystal frame, for the skiff crews who stand at the rail in a crosswind.",
+      "identity": "agility",
+      "icon_id": "gear_inv_shoulder_06",
+      "price": 500000,
+      "faction": "aetherians"
+    },
+    "aet_signet_of_the_high_houses": {
+      "name": "Signet of the High Houses",
+      "slot": "ring",
+      "item_level": 66,
+      "rarity": "rare",
+      "armor_type": "accessory",
+      "weapon_type": null,
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 12
+      },
+      "secondary_stats": {
+        "attack_power": 31,
+        "crit_chance_physical": 12
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 60000,
+      "flavor_text": "A ring cut from one crystal with every house's mark inside it, so the light shows all of them at once.",
+      "identity": "strength_crit",
+      "icon_id": "gear_inv_jewelry_ring_26",
+      "price": 480000,
+      "faction": "aetherians"
+    },
+    "aet_staff_of_the_patient_lens": {
+      "name": "Staff of the Patient Lens",
+      "slot": "main_hand",
+      "item_level": 68,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "staff",
+      "stat_template": "int_caster",
+      "primary_stats": {
+        "intellect": 56
+      },
+      "secondary_stats": {
+        "spell_power": 127
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 375000,
+      "flavor_text": "A white staff crowned with the survey's finest lens. Look through it and the World Tree is close enough to touch.",
+      "identity": "caster",
+      "icon_id": "gear_epic_staff_1",
+      "weapon_damage_min": 83,
+      "weapon_damage_max": 112,
+      "attack_speed": 3.2,
+      "block_value": 0,
+      "price": 3000000,
+      "faction": "aetherians"
+    },
+    "aet_spirewardens_maul": {
+      "name": "Spirewarden's Maul",
+      "slot": "main_hand",
+      "item_level": 68,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "mace_2h",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "strength": 27,
+        "stamina": 16
+      },
+      "secondary_stats": {
+        "attack_power": 71
+      },
+      "armor_value": 0,
+      "required_level": 60,
+      "sell_price": 400000,
+      "flavor_text": "A gold-bound maul of Spire stone. The keepers say the head was quarried from the same rock the palace stands on.",
+      "identity": "strength",
+      "icon_id": "gear_epic_mace_2h_1",
+      "weapon_damage_min": 204,
+      "weapon_damage_max": 277,
+      "attack_speed": 3.6,
+      "block_value": 0,
+      "price": 3200000,
+      "faction": "aetherians"
+    },
+    "aet_aegis_of_the_rings": {
+      "name": "Aegis of the Rings",
+      "slot": "off_hand",
+      "item_level": 68,
+      "rarity": "epic",
+      "armor_type": null,
+      "weapon_type": "shield",
+      "stat_template": "str_physical",
+      "primary_stats": {
+        "stamina": 35,
+        "strength": 13
+      },
+      "secondary_stats": {
+        "block_value": 32
+      },
+      "armor_value": 897,
+      "required_level": 60,
+      "sell_price": 350000,
+      "flavor_text": "A round shield of white crystal with the city's rings cut into its face, warm in the hand and very hard to break.",
+      "identity": "shield_tank",
+      "icon_id": "gear_epic_shield_3",
+      "weapon_damage_min": 0,
+      "weapon_damage_max": 0,
+      "attack_speed": 0.0,
+      "block_value": 104,
+      "price": 2800000,
+      "faction": "aetherians"
     }
   }
 }

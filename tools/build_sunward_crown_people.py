@@ -111,7 +111,7 @@ AMBIENT = {
                         "trade when the sky ship came down, and I saw his face. He was as surprised as I was. The "
                         "war-leader won't believe that, but I was there and he wasn't."),
     # ---- the Sunken Seal
-    "sc_seal_watcher": ("crown", "Archivist Elyon Sarre", "aetherian", M, 5, "down",
+    "sc_seal_watcher": ("crown", "Archivist Elyon Sarre", "aetherian", M, 4, "down",
                         "This ring was old before the first of our cities ever left the ground. The Kharad built it, "
                         "the giants, and they cut warnings into every stone. I can read about one word in three, and "
                         "every word I can read means keep it shut."),
@@ -144,7 +144,7 @@ AMBIENT = {
                       "This is as close as you get without a shield of your own. Past those humming poles the lancers "
                       "see you before you see them. I lost two brothers learning that."),
     # ---- Lenswatch
-    "lw_gangway_guard": ("lens", "Survey Guard Orrin Talvas", "aetherian", M, 5, "right",
+    "lw_gangway_guard": ("lens", "Survey Guard Orrin Talvas", "aetherian", M, 4, "right",
                          "Welcome to Lenswatch. Keep your weapons sheathed on the stone, and please don't touch the "
                          "lens. The surveyor will want to meet you, because he wants to meet everyone who comes up."),
     "lw_innkeeper": ("lens", "Keeper Aurel Quan", "aetherian", M, 2, "down",
@@ -162,7 +162,7 @@ AMBIENT = {
     "lw_lensmaster": ("lens", "Lensmaster Coryn Aldaer", "aetherian", M, 3, "right",
                       "On a clear day the great lens can see a coin on the ground from up here. I've watched your "
                       "cities for a year. Your Orgrimmar has very loud markets, and I mean that as a compliment."),
-    "lw_warden": ("lens", "Warden Sellis Varn", "aetherian", M, 5, "right",
+    "lw_warden": ("lens", "Warden Sellis Varn", "aetherian", M, 4, "right",
                   "The Earth people are guests of the House. We found them on islands nobody lives on, starving and "
                   "frightened, and we took them in. Some of them call that a kindness and some of them call it a "
                   "cage. I'm honestly not sure which of them is right."),
@@ -250,6 +250,15 @@ def main():
         else:
             ad["npcs"].append(rec)
             made += 1
+    # Lenswatch's guesthouse keeps the mail, like every inn (qa_auction_house: a mailbox by every inn)
+    box = next((r for r in ad["npcs"] if r["npc_id"] == "mailbox_lw_innkeeper"), None)
+    if box is None:
+        box = {"npc_id": "mailbox_lw_innkeeper"}
+        ad["npcs"].append(box)
+    box.update(name="Mailbox", zone="lenswatch", x=41, y=37, facing="down", race="aetherian", appearance_variant=0,
+               is_mailbox=True, prop="assets/buildings/ae_mail_pylon.png",
+               greeting="The survey's mail pylon by the guesthouse. Keeper Aurel Quan sorts what comes up the tree "
+                        "and what goes down it.")
     save("data/npcs/vendors.json", vd)
     save("data/npcs/ambient_npcs.json", ad)
     td = load("data/travel/travel_data.json")

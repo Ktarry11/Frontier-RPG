@@ -5648,6 +5648,7 @@ def create_all_zones():
     from tools import handbuilt_worldtree_lenswatch as dwlw
     from tools import handbuilt_worldtree_celestial_expanse as dwce
     from tools import handbuilt_worldtree_anchorfields as dwaf
+    from tools import handbuilt_worldtree_aurelion as dwau
     from tools import handbuilt_feralas_high_wilderness as dfhw   # FERALAS (docs/feralas_brief.md, 19 Nov 2026)
     from tools import handbuilt_feralas_forgotten_coast as dffc
     from tools import handbuilt_feralas_twin_colossals as dftc
@@ -5842,6 +5843,7 @@ def create_all_zones():
         "Lenswatch": dwlw.generate_lenswatch(),                   # the survey's town off the Crown's cloud (inn, flight)
         "The Celestial Expanse": dwce.generate_celestial_expanse(),  # islands down the great sky river (20 Nov 2026)
         "The Anchorfields": dwaf.generate_anchorfields(),          # the engine country, the shattered shelf (20 Nov 2026)
+        "Aurelion": dwau.generate_aurelion(),                       # the Aetherian capital, rings round the Spire Palace
         # ===== FERALAS (44-49, docs/feralas_brief.md, 19 Nov 2026): three maps down the L, two towns, the hive =====
         "The High Wilderness": dfhw.generate_high_wilderness(),       # the east arm, in from the Aspen Wilderness
         "The Forgotten Coast": dffc.generate_forgotten_coast(),       # the corner and the south coast, the Fog Groves

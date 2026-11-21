@@ -13772,6 +13772,109 @@
           ],
           "source": "vendor",
           "faction": "highbough_tribes"
+        },
+        "rep_aet_starweave_vestments": {
+          "name": "Starweave Vestments",
+          "inputs": {
+            "bolt_chronoweave": 10,
+            "bolt_dreamsilk": 4,
+            "thread_silken": 2,
+            "gem_glacier_sapphire": 1
+          },
+          "skill_required": 320,
+          "output": {
+            "kind": "armor",
+            "slot": "chest",
+            "stat_template": "int_caster",
+            "item_level": 68,
+            "rarity": "epic",
+            "material_tier": "chronoweave",
+            "identity": "caster",
+            "flavor": "Woven at the Academy from silk and crystal thread. They hold a little light after dark.",
+            "fixed_item_level": true,
+            "required_level": 60,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Starweave Vestments",
+              "slot": "chest",
+              "item_level": 68,
+              "rarity": "epic",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "int_caster",
+              "primary_stats": {
+                "intellect": 37
+              },
+              "secondary_stats": {
+                "spell_power": 83
+              },
+              "armor_value": 144,
+              "required_level": 60,
+              "sell_price": 42167,
+              "flavor_text": "Woven at the Academy from silk and crystal thread. They hold a little light after dark.",
+              "identity": "caster",
+              "icon_id": "gear_inv_chest_cloth_14"
+            }
+          },
+          "skill_range": [
+            323,
+            328,
+            333,
+            338
+          ],
+          "source": "vendor",
+          "faction": "aetherians"
+        },
+        "rep_aet_crystalweave_cuffs": {
+          "name": "Crystalweave Cuffs",
+          "inputs": {
+            "bolt_dreamsilk": 3,
+            "thread_silken": 1
+          },
+          "skill_required": 305,
+          "output": {
+            "kind": "armor",
+            "slot": "wrist",
+            "stat_template": "spi_healer",
+            "item_level": 66,
+            "rarity": "rare",
+            "material_tier": "dreamsilk",
+            "identity": "healer",
+            "flavor": "The first thing an Aurelion weaver learns: cuffs with a thread of crystal that keeps the hands steady.",
+            "fixed_item_level": true,
+            "required_level": 60,
+            "armor_type": "cloth",
+            "item": {
+              "name": "Crystalweave Cuffs",
+              "slot": "wrist",
+              "item_level": 66,
+              "rarity": "rare",
+              "armor_type": "cloth",
+              "weapon_type": null,
+              "stat_template": "spi_healer",
+              "primary_stats": {
+                "spirit": 11,
+                "intellect": 9
+              },
+              "secondary_stats": {
+                "healing_power": 48
+              },
+              "armor_value": 74,
+              "required_level": 60,
+              "sell_price": 11424,
+              "flavor_text": "The first thing an Aurelion weaver learns: cuffs with a thread of crystal that keeps the hands steady.",
+              "identity": "healer",
+              "icon_id": "gear_inv_chest_cloth_06"
+            }
+          },
+          "skill_range": [
+            308,
+            313,
+            318,
+            323
+          ],
+          "source": "vendor",
+          "faction": "aetherians"
         }
       }
     },

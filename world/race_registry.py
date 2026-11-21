@@ -225,11 +225,16 @@ RACE_OPTIONS = [
         race_id="aetherian",
         label="Aetherian",
         race_folder="aetherian",
-        # Kyle's P6 sheet (docs/player_sprite_prompts.md): five men, drawn as player looks. NPC-only until the
-        # Aetherian start zone (Kyle, 20 Nov 2026: "we will open up an Aetherian start zone"); the women aren't drawn
-        # yet, so for now an Aetherian NPC is a man (docs/art_backlog_2026_11_20.md).
-        genders=[GenderOption("male", "Male", "", [f"aetherian_p{i}" for i in range(1, 6)]),
-                 GenderOption("female", "Female", "", [f"aetherian_p{i}" for i in range(1, 6)])],
+        # Kyle's P6 sheet (docs/player_sprite_prompts.md): five men, drawn as player looks (indices 0-4). Then the NPC
+        # sheets AE-M and AE-W (docs/recruit_art_prompts_sheet6.md, landed 20 Nov 2026): 24 men (indices 5-28, m1-m24
+        # in the sheet's order: scholar, archivist, guard, pilot, engineer, crystalsmith, merchant, councillor, healer,
+        # dockworker, innkeeper, courier, astronomer, cook, refugee, gardener, magister, Ascendancy officer,
+        # cartographer, musician, captain, sun-temple keeper, apprentice, noble) and 24 women (indices 0-23, w1-w24, the
+        # same order with a weaver, a botanist, a singer and a scribe in place of the dockworker, gardener, musician and
+        # apprentice's neighbours). The AE sheets are front-only, like the furbolgs. NPC-only until the start zone.
+        genders=[GenderOption("male", "Male", "", [f"aetherian_p{i}" for i in range(1, 6)]
+                              + [f"aetherian_m{i}" for i in range(1, 25)]),
+                 GenderOption("female", "Female", "", [f"aetherian_w{i}" for i in range(1, 25)])],
         available=False,      # NPC-only for now: the survey at the Sunward Crown and Lenswatch
     ),
     RaceOption(

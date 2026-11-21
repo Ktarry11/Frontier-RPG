@@ -309,7 +309,7 @@
         }
       ],
       "accept_text": "The engineer's found it. The keel's cracked, and something's grown out of the crack, feeding on the keel's own light. We call it the Keel-Heart because nobody's got a better word. Go down into the Keel and tear it out, before it eats the thing that's holding the shelf up.",
-      "turn_in_text": "The Third Anchor's stopped slipping. The engineer's been sitting by it all night, just listening.\n\nIt isn't mended, and it may never be. But it's holding, and I can write to the council and tell them the outer rings are safe. Aurelion will open the bridge for you. You've earned it twice over.",
+      "turn_in_text": "The Third Anchor's stopped slipping. The engineer's been sitting by it all night, just listening.\n\nIt isn't mended, and it may never be. But it's holding, and I can write to the council and tell them the outer rings are safe. The council will want to thank you in person, and you've earned it twice over.",
       "next_quest_id": null,
       "requires_quests": [
         "afq_the_unmoored",
@@ -390,6 +390,113 @@
       "gear_reward_rarity": "rare"
     },
     {
+      "quest_id": "afq_the_councils_thanks",
+      "title": "The Council's Thanks",
+      "giver_npc_id": "af_skiffmaster",
+      "zone": "anchorfields",
+      "level_min": 54,
+      "level_max": 54,
+      "description": "The Third Anchor is holding, and Warden-Prime Aldric Sorne has written the council his report. The skiffmaster at Keelstone has it, and wants you to carry it up the sky-bridge to Gatewarden Tessa Vell at Aurelion's Bridgefoot.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "af_q_prime_report",
+          "count": 1,
+          "label": "Take the Warden-Prime's report to Gatewarden Tessa Vell in Aurelion"
+        }
+      ],
+      "accept_text": "The Warden-Prime's written the council the whole of it, the keel, the crack and the thing that grew out of it, with your name at the top. My skiffs don't fly to the city any more, so it'll have to go by hand. Take it west along the aqueduct arm to the Spillway, and up the sky-bridge into Aurelion. Gatewarden Tessa Vell keeps the Bridgefoot, and she'll see it gets to the council.",
+      "turn_in_text": "The Warden-Prime's seal, and your name at the top of the page. The whole Bridgefoot's been talking about you since the skiffs came in.\n\nWelcome to Aurelion. You're the first from the ground to walk across that bridge as a guest, and the council would like a look at you.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "au_gate_warden",
+      "requires_quests": [
+        "afq_the_keel_heart"
+      ],
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "af_q_prime_report",
+            "name": "The Warden-Prime's Report",
+            "description": "A thick report sealed in the Anchor-Wardens' blue wax, addressed to the Council of the High Houses.",
+            "count": 1
+          }
+        ]
+      },
+      "reward_exp": 3960,
+      "reward_gold": 15600,
+      "unique_item_defs": [
+        {
+          "name": "Councilbound Tome",
+          "slot": "off_hand",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 32
+          },
+          "armor_value": 0,
+          "required_level": 54,
+          "sell_price": 6232,
+          "identity": "healer",
+          "icon_id": "gear_inv_tome_5",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        },
+        {
+          "name": "Councilbound Handguards",
+          "slot": "hands",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 13,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 11
+          },
+          "armor_value": 229,
+          "required_level": 54,
+          "sell_price": 6752,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_32"
+        },
+        {
+          "name": "Councilbound Girdle",
+          "slot": "waist",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 152,
+          "required_level": 54,
+          "sell_price": 5713,
+          "identity": "hunter",
+          "icon_id": "gear_inv_belt_12"
+        }
+      ],
+      "gear_reward_gear_level": 55,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
       "quest_id": "afq_links_with_names",
       "title": "Links With Names",
       "giver_npc_id": "af_chainwright",
@@ -412,71 +519,71 @@
       "reward_gold": 15000,
       "unique_item_defs": [
         {
-          "name": "Chainwright's Tome",
-          "slot": "off_hand",
+          "name": "Chainwright's Mace",
+          "slot": "main_hand",
           "item_level": 53,
           "rarity": "uncommon",
           "armor_type": null,
-          "weapon_type": "tome",
+          "weapon_type": "mace_1h",
           "stat_template": "spi_healer",
           "primary_stats": {
-            "spirit": 7,
+            "spirit": 8,
             "intellect": 6
           },
           "secondary_stats": {
-            "healing_power": 31
+            "healing_power": 34
+          },
+          "armor_value": 0,
+          "required_level": 51,
+          "sell_price": 9129,
+          "identity": "healer",
+          "icon_id": "gear_inv_mace_06",
+          "weapon_damage_min": 71,
+          "weapon_damage_max": 96,
+          "attack_speed": 2.6,
+          "block_value": 0
+        },
+        {
+          "name": "Chainwright's Jerkin",
+          "slot": "chest",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 13,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 133,
+          "required_level": 51,
+          "sell_price": 9610,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_04"
+        },
+        {
+          "name": "Chainwright's Pendant",
+          "slot": "neck",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 20
           },
           "armor_value": 0,
           "required_level": 51,
           "sell_price": 5766,
-          "identity": "healer",
-          "icon_id": "gear_inv_tome_2",
-          "weapon_damage_min": 0,
-          "weapon_damage_max": 0,
-          "attack_speed": 0.0,
-          "block_value": 0
-        },
-        {
-          "name": "Chainwright's Handguards",
-          "slot": "hands",
-          "item_level": 53,
-          "rarity": "uncommon",
-          "armor_type": "plate",
-          "weapon_type": null,
-          "stat_template": "str_physical",
-          "primary_stats": {
-            "stamina": 13,
-            "strength": 5
-          },
-          "secondary_stats": {
-            "defense_rating": 10
-          },
-          "armor_value": 221,
-          "required_level": 51,
-          "sell_price": 6246,
-          "identity": "tank",
-          "icon_id": "gear_inv_gauntlets_13"
-        },
-        {
-          "name": "Chainwright's Girdle",
-          "slot": "waist",
-          "item_level": 53,
-          "rarity": "uncommon",
-          "armor_type": "mail",
-          "weapon_type": null,
-          "stat_template": "agi_int_hybrid",
-          "primary_stats": {
-            "agility": 8,
-            "intellect": 6
-          },
-          "secondary_stats": {
-            "attack_power": 23
-          },
-          "armor_value": 147,
-          "required_level": 51,
-          "sell_price": 5285,
-          "identity": "hunter",
-          "icon_id": "gear_inv_belt_11"
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_necklace_08"
         }
       ],
       "gear_reward_gear_level": 53,
@@ -504,71 +611,70 @@
       "reward_gold": 15000,
       "unique_item_defs": [
         {
-          "name": "Linkforger's Mace",
+          "name": "Linkforger's Greatsword",
           "slot": "main_hand",
           "item_level": 53,
           "rarity": "uncommon",
           "armor_type": null,
-          "weapon_type": "mace_1h",
-          "stat_template": "spi_healer",
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "spirit": 8,
-            "intellect": 6
+            "strength": 21,
+            "stamina": 11
           },
           "secondary_stats": {
-            "healing_power": 34
+            "attack_power": 52
           },
           "armor_value": 0,
           "required_level": 52,
-          "sell_price": 9129,
-          "identity": "healer",
-          "icon_id": "gear_inv_mace_05",
-          "weapon_damage_min": 71,
-          "weapon_damage_max": 96,
-          "attack_speed": 2.6,
+          "sell_price": 12012,
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_16",
+          "weapon_damage_min": 96,
+          "weapon_damage_max": 130,
+          "attack_speed": 3.4,
           "block_value": 0
         },
         {
-          "name": "Linkforger's Jerkin",
-          "slot": "chest",
+          "name": "Linkforger's Bracers",
+          "slot": "wrist",
           "item_level": 53,
           "rarity": "uncommon",
           "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "agi_int_hybrid",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 13,
-            "intellect": 11
-          },
-          "secondary_stats": {
-            "attack_power": 26
-          },
-          "armor_value": 133,
-          "required_level": 52,
-          "sell_price": 9610,
-          "identity": "wildheart",
-          "icon_id": "gear_inv_chest_leather_03"
-        },
-        {
-          "name": "Linkforger's Pendant",
-          "slot": "neck",
-          "item_level": 53,
-          "rarity": "uncommon",
-          "armor_type": "accessory",
-          "weapon_type": null,
-          "stat_template": "str_physical",
-          "primary_stats": {
-            "strength": 8,
+            "agility": 9,
             "stamina": 5
           },
           "secondary_stats": {
-            "attack_power": 20
+            "attack_power": 23
           },
-          "armor_value": 0,
+          "armor_value": 109,
           "required_level": 52,
-          "sell_price": 5766,
-          "identity": "strength",
-          "icon_id": "gear_inv_jewelry_necklace_07"
+          "sell_price": 4805,
+          "identity": "agility",
+          "icon_id": "gear_inv_bracer_02"
+        },
+        {
+          "name": "Linkforger's Hood",
+          "slot": "head",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 12
+          },
+          "secondary_stats": {
+            "spell_power": 28
+          },
+          "armor_value": 56,
+          "required_level": 52,
+          "sell_price": 7688,
+          "identity": "caster",
+          "icon_id": "gear_inv_helmet_62"
         }
       ],
       "gear_reward_gear_level": 53,
@@ -600,70 +706,66 @@
       "reward_gold": 19890,
       "unique_item_defs": [
         {
-          "name": "Starfall's Bane Greatsword",
-          "slot": "main_hand",
+          "name": "Starfall's Bane Hauberk",
+          "slot": "chest",
           "item_level": 55,
           "rarity": "rare",
-          "armor_type": null,
-          "weapon_type": "sword_2h",
-          "stat_template": "str_physical",
-          "primary_stats": {
-            "strength": 27,
-            "stamina": 15
-          },
-          "secondary_stats": {
-            "attack_power": 69
-          },
-          "armor_value": 0,
-          "required_level": 53,
-          "sell_price": 19476,
-          "identity": "strength",
-          "icon_id": "gear_inv_sword_17",
-          "weapon_damage_min": 130,
-          "weapon_damage_max": 176,
-          "attack_speed": 3.4,
-          "block_value": 0
-        },
-        {
-          "name": "Starfall's Bane Bracers",
-          "slot": "wrist",
-          "item_level": 55,
-          "rarity": "rare",
-          "armor_type": "leather",
+          "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "agi_int_hybrid",
           "primary_stats": {
-            "agility": 12,
-            "stamina": 7
+            "agility": 15,
+            "intellect": 12
           },
           "secondary_stats": {
-            "attack_power": 31
+            "attack_power": 45
           },
-          "armor_value": 124,
+          "armor_value": 304,
           "required_level": 53,
-          "sell_price": 7790,
-          "identity": "agility",
-          "icon_id": "gear_inv_bracer_09"
+          "sell_price": 15580,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_17"
         },
         {
-          "name": "Starfall's Bane Hood",
-          "slot": "head",
+          "name": "Starfall's Bane Sash",
+          "slot": "waist",
           "item_level": 55,
           "rarity": "rare",
           "armor_type": "cloth",
           "weapon_type": null,
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 17
+            "intellect": 14
           },
           "secondary_stats": {
-            "spell_power": 38
+            "spell_power": 31
           },
-          "armor_value": 90,
+          "armor_value": 73,
           "required_level": 53,
-          "sell_price": 12464,
+          "sell_price": 8569,
           "identity": "caster",
-          "icon_id": "gear_inv_helmet_63"
+          "icon_id": "gear_inv_belt_22"
+        },
+        {
+          "name": "Starfall's Bane Sabatons",
+          "slot": "feet",
+          "item_level": 55,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 17,
+            "strength": 7
+          },
+          "secondary_stats": {
+            "defense_rating": 14
+          },
+          "armor_value": 299,
+          "required_level": 53,
+          "sell_price": 10127,
+          "identity": "tank",
+          "icon_id": "gear_inv_boots_plate_01"
         }
       ],
       "gear_reward_gear_level": 55,
@@ -692,66 +794,65 @@
       "reward_gold": 15300,
       "unique_item_defs": [
         {
-          "name": "Keelreader's Hauberk",
-          "slot": "chest",
+          "name": "Keelreader's Grips",
+          "slot": "hands",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 93,
+          "required_level": 52,
+          "sell_price": 6496,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_30"
+        },
+        {
+          "name": "Keelreader's Spaulders",
+          "slot": "shoulder",
           "item_level": 54,
           "rarity": "uncommon",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "agi_int_hybrid",
+          "stat_template": "spi_healer",
           "primary_stats": {
-            "agility": 11,
-            "intellect": 9
+            "intellect": 6
           },
           "secondary_stats": {
-            "attack_power": 34
+            "healing_power": 31
           },
-          "armor_value": 216,
+          "armor_value": 183,
           "required_level": 52,
-          "sell_price": 9994,
-          "identity": "hunter",
-          "icon_id": "gear_inv_chest_chain_04"
+          "sell_price": 7995,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_shoulder_26"
         },
         {
-          "name": "Keelreader's Sash",
-          "slot": "waist",
+          "name": "Keelreader's Pendant",
+          "slot": "neck",
           "item_level": 54,
           "rarity": "uncommon",
-          "armor_type": "cloth",
+          "armor_type": "accessory",
           "weapon_type": null,
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 10
+            "intellect": 9
           },
           "secondary_stats": {
-            "spell_power": 24
+            "spell_power": 21
           },
-          "armor_value": 63,
+          "armor_value": 0,
           "required_level": 52,
-          "sell_price": 5497,
+          "sell_price": 5997,
           "identity": "caster",
-          "icon_id": "gear_inv_belt_31"
-        },
-        {
-          "name": "Keelreader's Sabatons",
-          "slot": "feet",
-          "item_level": 54,
-          "rarity": "uncommon",
-          "armor_type": "plate",
-          "weapon_type": null,
-          "stat_template": "str_physical",
-          "primary_stats": {
-            "stamina": 13,
-            "strength": 5
-          },
-          "secondary_stats": {
-            "defense_rating": 10
-          },
-          "armor_value": 225,
-          "required_level": 52,
-          "sell_price": 6496,
-          "identity": "tank",
-          "icon_id": "gear_inv_boots_06"
+          "icon_id": "gear_inv_jewelry_amulet_04"
         }
       ],
       "gear_reward_gear_level": 54,
@@ -789,65 +890,67 @@
       "reward_gold": 15600,
       "unique_item_defs": [
         {
-          "name": "Crackwarden's Grips",
-          "slot": "hands",
+          "name": "Crackwarden's Cloak",
+          "slot": "back",
           "item_level": 55,
           "rarity": "uncommon",
-          "armor_type": "leather",
+          "armor_type": "cloth",
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 9,
-            "stamina": 5
+            "stamina": 6
           },
           "secondary_stats": {
-            "attack_power": 24
+            "attack_power": 23,
+            "hit_rating": 6
           },
-          "armor_value": 112,
+          "armor_value": 42,
           "required_level": 53,
-          "sell_price": 6752,
-          "identity": "agility",
-          "icon_id": "gear_inv_gauntlets_22"
+          "sell_price": 5713,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_11"
         },
         {
-          "name": "Crackwarden's Spaulders",
-          "slot": "shoulder",
+          "name": "Crackwarden's Cuffs",
+          "slot": "wrist",
           "item_level": 55,
           "rarity": "uncommon",
-          "armor_type": "mail",
+          "armor_type": "cloth",
           "weapon_type": null,
           "stat_template": "spi_healer",
           "primary_stats": {
-            "intellect": 10
+            "spirit": 7,
+            "intellect": 5
           },
           "secondary_stats": {
-            "healing_power": 44
+            "healing_power": 29
           },
-          "armor_value": 186,
+          "armor_value": 47,
           "required_level": 53,
-          "sell_price": 8310,
-          "identity": "tide_healer",
-          "icon_id": "gear_inv_shoulder_12"
+          "sell_price": 5193,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_15"
         },
         {
-          "name": "Crackwarden's Pendant",
-          "slot": "neck",
+          "name": "Crackwarden's Legplates",
+          "slot": "legs",
           "item_level": 55,
           "rarity": "uncommon",
-          "armor_type": "accessory",
+          "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "int_caster",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "intellect": 9
+            "strength": 13,
+            "stamina": 8
           },
           "secondary_stats": {
-            "spell_power": 21
+            "attack_power": 34
           },
-          "armor_value": 0,
+          "armor_value": 331,
           "required_level": 53,
-          "sell_price": 6232,
-          "identity": "caster",
-          "icon_id": "gear_inv_jewelry_amulet_04"
+          "sell_price": 10387,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_14"
         }
       ],
       "gear_reward_gear_level": 55,
@@ -879,67 +982,67 @@
       "reward_gold": 20280,
       "unique_item_defs": [
         {
-          "name": "Unmoored's Bane Cloak",
-          "slot": "back",
+          "name": "Unmoored's Bane Cap",
+          "slot": "head",
           "item_level": 56,
           "rarity": "rare",
-          "armor_type": "cloth",
+          "armor_type": "leather",
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "stamina": 8
+            "stamina": 19,
+            "agility": 13
           },
           "secondary_stats": {
-            "attack_power": 31,
-            "hit_rating": 8
+            "dodge_rating": 10
           },
-          "armor_value": 66,
+          "armor_value": 155,
           "required_level": 54,
-          "sell_price": 8900,
-          "identity": "physical",
-          "icon_id": "gear_inv_misc_cape_16"
+          "sell_price": 12945,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_62"
         },
         {
-          "name": "Unmoored's Bane Cuffs",
-          "slot": "wrist",
+          "name": "Unmoored's Bane Band",
+          "slot": "ring",
           "item_level": 56,
           "rarity": "rare",
-          "armor_type": "cloth",
+          "armor_type": "accessory",
           "weapon_type": null,
           "stat_template": "spi_healer",
           "primary_stats": {
-            "spirit": 9,
-            "intellect": 7
+            "spirit": 8,
+            "intellect": 6
           },
           "secondary_stats": {
-            "healing_power": 39
+            "healing_power": 34
           },
-          "armor_value": 74,
+          "armor_value": 0,
           "required_level": 54,
-          "sell_price": 8091,
+          "sell_price": 9709,
           "identity": "healer",
-          "icon_id": "gear_inv_bracer_12"
+          "icon_id": "gear_inv_jewelry_ring_08"
         },
         {
-          "name": "Unmoored's Bane Legplates",
-          "slot": "legs",
+          "name": "Unmoored's Bane Gauntlets",
+          "slot": "hands",
           "item_level": 56,
           "rarity": "rare",
-          "armor_type": "plate",
+          "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "str_physical",
+          "stat_template": "str_int_hybrid",
           "primary_stats": {
-            "strength": 18,
-            "stamina": 10
+            "strength": 11,
+            "intellect": 11
           },
           "secondary_stats": {
-            "attack_power": 46
+            "attack_power": 26
           },
-          "armor_value": 458,
+          "armor_value": 203,
           "required_level": 54,
-          "sell_price": 16181,
-          "identity": "strength",
-          "icon_id": "gear_inv_pants_12"
+          "sell_price": 10518,
+          "identity": "earthen",
+          "icon_id": "gear_inv_gauntlets_29"
         }
       ],
       "gear_reward_gear_level": 56,
@@ -970,67 +1073,69 @@
       "reward_gold": 15000,
       "unique_item_defs": [
         {
-          "name": "Seized Anchor Cap",
-          "slot": "head",
+          "name": "Seized Anchor Staff",
+          "slot": "main_hand",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 22
+          },
+          "secondary_stats": {
+            "spell_power": 51
+          },
+          "armor_value": 0,
+          "required_level": 52,
+          "sell_price": 12012,
+          "identity": "caster",
+          "icon_id": "gear_inv_staff_23",
+          "weapon_damage_min": 39,
+          "weapon_damage_max": 53,
+          "attack_speed": 3.2,
+          "block_value": 0
+        },
+        {
+          "name": "Seized Anchor Jerkin",
+          "slot": "chest",
           "item_level": 53,
           "rarity": "uncommon",
           "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "stamina": 14,
-            "agility": 9
+            "strength": 13,
+            "stamina": 7
           },
           "secondary_stats": {
-            "dodge_rating": 7
+            "attack_power": 33
           },
-          "armor_value": 112,
+          "armor_value": 173,
           "required_level": 52,
-          "sell_price": 7688,
-          "identity": "bear",
-          "icon_id": "gear_inv_helmet_05"
+          "sell_price": 9610,
+          "identity": "strength",
+          "icon_id": "gear_inv_chest_leather_02"
         },
         {
-          "name": "Seized Anchor Band",
-          "slot": "ring",
+          "name": "Seized Anchor Waistguard",
+          "slot": "waist",
           "item_level": 53,
           "rarity": "uncommon",
-          "armor_type": "accessory",
+          "armor_type": "plate",
           "weapon_type": null,
           "stat_template": "spi_healer",
           "primary_stats": {
-            "spirit": 6,
-            "intellect": 5
-          },
-          "secondary_stats": {
-            "healing_power": 23
-          },
-          "armor_value": 0,
-          "required_level": 52,
-          "sell_price": 5766,
-          "identity": "healer",
-          "icon_id": "gear_inv_jewelry_ring_09"
-        },
-        {
-          "name": "Seized Anchor Gauntlets",
-          "slot": "hands",
-          "item_level": 53,
-          "rarity": "uncommon",
-          "armor_type": "mail",
-          "weapon_type": null,
-          "stat_template": "str_int_hybrid",
-          "primary_stats": {
-            "strength": 8,
             "intellect": 8
           },
           "secondary_stats": {
-            "attack_power": 19
+            "healing_power": 35
           },
-          "armor_value": 147,
+          "armor_value": 221,
           "required_level": 52,
-          "sell_price": 6246,
-          "identity": "earthen",
-          "icon_id": "gear_inv_gauntlets_13"
+          "sell_price": 5285,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_belt_25"
         }
       ],
       "gear_reward_gear_level": 53,
@@ -1068,39 +1173,35 @@
       "reward_gold": 15600,
       "unique_item_defs": [
         {
-          "name": "Lineholder's Staff",
-          "slot": "main_hand",
+          "name": "Lineholder's Mantle",
+          "slot": "shoulder",
           "item_level": 55,
           "rarity": "uncommon",
-          "armor_type": null,
-          "weapon_type": "staff",
+          "armor_type": "cloth",
+          "weapon_type": null,
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 23
+            "intellect": 13
           },
           "secondary_stats": {
-            "spell_power": 52
+            "spell_power": 29
           },
-          "armor_value": 0,
+          "armor_value": 58,
           "required_level": 53,
-          "sell_price": 12984,
+          "sell_price": 8310,
           "identity": "caster",
-          "icon_id": "gear_inv_staff_04",
-          "weapon_damage_min": 40,
-          "weapon_damage_max": 55,
-          "attack_speed": 3.2,
-          "block_value": 0
+          "icon_id": "gear_inv_shoulder_12"
         },
         {
-          "name": "Lineholder's Jerkin",
-          "slot": "chest",
+          "name": "Lineholder's Breeches",
+          "slot": "legs",
           "item_level": 55,
           "rarity": "uncommon",
           "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "str_physical",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "strength": 13,
+            "agility": 13,
             "stamina": 8
           },
           "secondary_stats": {
@@ -1109,28 +1210,29 @@
           "armor_value": 138,
           "required_level": 53,
           "sell_price": 10387,
-          "identity": "strength",
-          "icon_id": "gear_inv_chest_leather_06"
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_09"
         },
         {
-          "name": "Lineholder's Waistguard",
-          "slot": "waist",
+          "name": "Lineholder's Vambraces",
+          "slot": "wrist",
           "item_level": 55,
           "rarity": "uncommon",
           "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "spi_healer",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "intellect": 5
+            "stamina": 13,
+            "strength": 5
           },
           "secondary_stats": {
-            "healing_power": 25
+            "defense_rating": 11
           },
           "armor_value": 229,
           "required_level": 53,
-          "sell_price": 5713,
-          "identity": "plate_healer",
-          "icon_id": "gear_inv_belt_03"
+          "sell_price": 5193,
+          "identity": "tank",
+          "icon_id": "gear_inv_bracer_14"
         }
       ],
       "gear_reward_gear_level": 55,
@@ -1158,66 +1260,71 @@
       "reward_gold": 15600,
       "unique_item_defs": [
         {
-          "name": "Logtaker's Mantle",
-          "slot": "shoulder",
+          "name": "Logtaker's Shield",
+          "slot": "off_hand",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "spell_power": 20,
+            "haste": 5
+          },
+          "armor_value": 429,
+          "required_level": 53,
+          "sell_price": 8310,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_shield_19",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 50
+        },
+        {
+          "name": "Logtaker's Greaves",
+          "slot": "feet",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 7
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 169,
+          "required_level": 53,
+          "sell_price": 6752,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_plate_05"
+        },
+        {
+          "name": "Logtaker's Robe",
+          "slot": "chest",
           "item_level": 55,
           "rarity": "uncommon",
           "armor_type": "cloth",
           "weapon_type": null,
-          "stat_template": "int_caster",
+          "stat_template": "spi_healer",
           "primary_stats": {
-            "intellect": 13
+            "spirit": 11,
+            "intellect": 11
           },
           "secondary_stats": {
-            "spell_power": 29
+            "healing_power": 32
           },
-          "armor_value": 58,
-          "required_level": 53,
-          "sell_price": 8310,
-          "identity": "caster",
-          "icon_id": "gear_inv_shoulder_17"
-        },
-        {
-          "name": "Logtaker's Breeches",
-          "slot": "legs",
-          "item_level": 55,
-          "rarity": "uncommon",
-          "armor_type": "leather",
-          "weapon_type": null,
-          "stat_template": "agi_physical",
-          "primary_stats": {
-            "agility": 13,
-            "stamina": 8
-          },
-          "secondary_stats": {
-            "attack_power": 34
-          },
-          "armor_value": 138,
+          "armor_value": 69,
           "required_level": 53,
           "sell_price": 10387,
-          "identity": "agility",
-          "icon_id": "gear_inv_pants_09"
-        },
-        {
-          "name": "Logtaker's Vambraces",
-          "slot": "wrist",
-          "item_level": 55,
-          "rarity": "uncommon",
-          "armor_type": "plate",
-          "weapon_type": null,
-          "stat_template": "str_physical",
-          "primary_stats": {
-            "stamina": 13,
-            "strength": 5
-          },
-          "secondary_stats": {
-            "defense_rating": 11
-          },
-          "armor_value": 269,
-          "required_level": 53,
-          "sell_price": 5193,
-          "identity": "tank",
-          "icon_id": "gear_inv_bracer_04"
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_chest_cloth_10"
         }
       ],
       "gear_reward_gear_level": 55,
@@ -1254,18 +1361,18 @@
           "rarity": "uncommon",
           "armor_type": null,
           "weapon_type": "shield",
-          "stat_template": "int_caster",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "intellect": 6
+            "stamina": 9,
+            "strength": 3
           },
           "secondary_stats": {
-            "spell_power": 20,
-            "haste": 5
+            "block_value": 8
           },
           "armor_value": 413,
           "required_level": 51,
           "sell_price": 7688,
-          "identity": "haste_caster",
+          "identity": "shield_tank",
           "icon_id": "gear_inv_shield_08",
           "weapon_damage_min": 0,
           "weapon_damage_max": 0,
@@ -1273,46 +1380,45 @@
           "block_value": 48
         },
         {
-          "name": "Rememberer's Greaves",
-          "slot": "feet",
+          "name": "Rememberer's Breeches",
+          "slot": "legs",
           "item_level": 53,
           "rarity": "uncommon",
-          "armor_type": "mail",
+          "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "agi_int_hybrid",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 8,
-            "intellect": 6
+            "stamina": 17,
+            "agility": 11
           },
           "secondary_stats": {
-            "attack_power": 23
+            "dodge_rating": 8
           },
-          "armor_value": 147,
+          "armor_value": 133,
           "required_level": 51,
-          "sell_price": 6246,
-          "identity": "hunter",
-          "icon_id": "gear_inv_boots_06"
+          "sell_price": 9610,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_05"
         },
         {
-          "name": "Rememberer's Robe",
-          "slot": "chest",
+          "name": "Rememberer's Gloves",
+          "slot": "hands",
           "item_level": 53,
           "rarity": "uncommon",
           "armor_type": "cloth",
           "weapon_type": null,
-          "stat_template": "spi_healer",
+          "stat_template": "int_caster",
           "primary_stats": {
-            "spirit": 11,
-            "intellect": 11
+            "intellect": 10
           },
           "secondary_stats": {
-            "healing_power": 29
+            "arcane_spell_power": 28
           },
-          "armor_value": 66,
+          "armor_value": 46,
           "required_level": 51,
-          "sell_price": 9610,
-          "identity": "spirit_healer",
-          "icon_id": "gear_inv_chest_cloth_08"
+          "sell_price": 6246,
+          "identity": "arcane",
+          "icon_id": "gear_inv_gauntlets_04"
         }
       ],
       "gear_reward_gear_level": 53,
@@ -1350,70 +1456,71 @@
       "reward_gold": 15600,
       "unique_item_defs": [
         {
-          "name": "Keelwalker's Shield",
-          "slot": "off_hand",
+          "name": "Keelwalker's Spear",
+          "slot": "main_hand",
           "item_level": 55,
           "rarity": "uncommon",
           "armor_type": null,
-          "weapon_type": "shield",
+          "weapon_type": "polearm",
           "stat_template": "str_physical",
           "primary_stats": {
-            "stamina": 10,
-            "strength": 3
+            "strength": 20,
+            "stamina": 11
           },
           "secondary_stats": {
-            "block_value": 8
+            "attack_power": 56
           },
-          "armor_value": 429,
+          "armor_value": 0,
           "required_level": 53,
-          "sell_price": 8310,
-          "identity": "shield_tank",
-          "icon_id": "gear_inv_shield_11",
-          "weapon_damage_min": 0,
-          "weapon_damage_max": 0,
-          "attack_speed": 0.0,
-          "block_value": 50
+          "sell_price": 12984,
+          "identity": "strength",
+          "icon_id": "gear_inv_weapon_halberd_03",
+          "weapon_damage_min": 99,
+          "weapon_damage_max": 135,
+          "attack_speed": 3.3,
+          "block_value": 0
         },
         {
-          "name": "Keelwalker's Breeches",
-          "slot": "legs",
+          "name": "Keelwalker's Hood",
+          "slot": "head",
+          "item_level": 55,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "healing_power": 36
+          },
+          "armor_value": 58,
+          "required_level": 53,
+          "sell_price": 8310,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_59"
+        },
+        {
+          "name": "Keelwalker's Grips",
+          "slot": "hands",
           "item_level": 55,
           "rarity": "uncommon",
           "armor_type": "leather",
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "stamina": 17,
-            "agility": 11
+            "agility": 8,
+            "stamina": 7
           },
           "secondary_stats": {
-            "dodge_rating": 9
+            "attack_power": 23
           },
-          "armor_value": 138,
-          "required_level": 53,
-          "sell_price": 10387,
-          "identity": "bear",
-          "icon_id": "gear_inv_pants_14"
-        },
-        {
-          "name": "Keelwalker's Gloves",
-          "slot": "hands",
-          "item_level": 55,
-          "rarity": "uncommon",
-          "armor_type": "cloth",
-          "weapon_type": null,
-          "stat_template": "int_caster",
-          "primary_stats": {
-            "intellect": 11
-          },
-          "secondary_stats": {
-            "arcane_spell_power": 28
-          },
-          "armor_value": 47,
+          "armor_value": 210,
           "required_level": 53,
           "sell_price": 6752,
-          "identity": "arcane",
-          "icon_id": "gear_inv_gauntlets_14"
+          "identity": "feral",
+          "icon_id": "gear_inv_gauntlets_23"
         }
       ],
       "gear_reward_gear_level": 55,
@@ -1445,71 +1552,66 @@
       "reward_gold": 20280,
       "unique_item_defs": [
         {
-          "name": "Last Post Spear",
-          "slot": "main_hand",
+          "name": "Last Post Legguards",
+          "slot": "legs",
           "item_level": 56,
           "rarity": "rare",
-          "armor_type": null,
-          "weapon_type": "polearm",
-          "stat_template": "str_physical",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
           "primary_stats": {
-            "strength": 27,
-            "stamina": 16
+            "intellect": 13
           },
           "secondary_stats": {
-            "attack_power": 69
+            "nature_spell_power": 40,
+            "haste": 13
           },
-          "armor_value": 0,
+          "armor_value": 294,
           "required_level": 54,
-          "sell_price": 20227,
-          "identity": "strength",
-          "icon_id": "gear_inv_spear_04",
-          "weapon_damage_min": 132,
-          "weapon_damage_max": 179,
-          "attack_speed": 3.3,
-          "block_value": 0
+          "sell_price": 16181,
+          "identity": "storm",
+          "icon_id": "gear_inv_pants_09"
         },
         {
-          "name": "Last Post Hood",
-          "slot": "head",
+          "name": "Last Post Cloak",
+          "slot": "back",
           "item_level": 56,
           "rarity": "rare",
           "armor_type": "cloth",
           "weapon_type": null,
-          "stat_template": "spi_healer",
+          "stat_template": "int_caster",
           "primary_stats": {
-            "spirit": 11,
-            "intellect": 9
+            "intellect": 12
           },
           "secondary_stats": {
-            "healing_power": 46
+            "spell_power": 29
           },
-          "armor_value": 77,
+          "armor_value": 56,
           "required_level": 54,
-          "sell_price": 12945,
-          "identity": "healer",
-          "icon_id": "gear_inv_helmet_57"
+          "sell_price": 8900,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_12"
         },
         {
-          "name": "Last Post Grips",
-          "slot": "hands",
+          "name": "Last Post Pauldrons",
+          "slot": "shoulder",
           "item_level": 56,
           "rarity": "rare",
-          "armor_type": "leather",
+          "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "agility": 11,
+            "strength": 15,
             "stamina": 9
           },
           "secondary_stats": {
-            "attack_power": 30
+            "attack_power": 38
           },
-          "armor_value": 138,
+          "armor_value": 373,
           "required_level": 54,
-          "sell_price": 10518,
-          "identity": "feral",
-          "icon_id": "gear_inv_gauntlets_21"
+          "sell_price": 12945,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_19"
         }
       ],
       "gear_reward_gear_level": 56,
@@ -1538,66 +1640,71 @@
       "reward_gold": 15300,
       "unique_item_defs": [
         {
-          "name": "Skyroute Legguards",
-          "slot": "legs",
+          "name": "Skyroute Staff",
+          "slot": "main_hand",
           "item_level": 54,
           "rarity": "uncommon",
-          "armor_type": "mail",
-          "weapon_type": null,
-          "stat_template": "int_caster",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "intellect": 9
+            "agility": 20,
+            "stamina": 11
           },
           "secondary_stats": {
-            "nature_spell_power": 32,
-            "haste": 9
+            "attack_power": 54
           },
-          "armor_value": 216,
+          "armor_value": 0,
           "required_level": 52,
-          "sell_price": 9994,
-          "identity": "storm",
-          "icon_id": "gear_inv_pants_11"
+          "sell_price": 12493,
+          "identity": "agility",
+          "icon_id": "gear_inv_staff_01",
+          "weapon_damage_min": 98,
+          "weapon_damage_max": 132,
+          "attack_speed": 3.6,
+          "block_value": 0
         },
         {
-          "name": "Skyroute Cloak",
-          "slot": "back",
+          "name": "Skyroute Belt",
+          "slot": "waist",
           "item_level": 54,
           "rarity": "uncommon",
-          "armor_type": "cloth",
+          "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "int_caster",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "intellect": 9
+            "agility": 9,
+            "stamina": 5
           },
           "secondary_stats": {
-            "spell_power": 21
+            "attack_power": 23
           },
-          "armor_value": 56,
+          "armor_value": 93,
           "required_level": 52,
           "sell_price": 5497,
-          "identity": "caster",
-          "icon_id": "gear_inv_misc_cape_13"
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_13"
         },
         {
-          "name": "Skyroute Pauldrons",
-          "slot": "shoulder",
+          "name": "Skyroute Band",
+          "slot": "ring",
           "item_level": 54,
           "rarity": "uncommon",
-          "armor_type": "plate",
+          "armor_type": "accessory",
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 11,
-            "stamina": 6
+            "strength": 8,
+            "stamina": 5
           },
           "secondary_stats": {
-            "attack_power": 29
+            "attack_power": 21
           },
-          "armor_value": 296,
+          "armor_value": 0,
           "required_level": 52,
-          "sell_price": 7995,
+          "sell_price": 5997,
           "identity": "strength",
-          "icon_id": "gear_inv_shoulder_31"
+          "icon_id": "gear_inv_jewelry_ring_22"
         }
       ],
       "gear_reward_gear_level": 54,
@@ -1637,71 +1744,65 @@
       "reward_gold": 15000,
       "unique_item_defs": [
         {
-          "name": "Measurer's Staff",
-          "slot": "main_hand",
+          "name": "Measurer's Breastplate",
+          "slot": "chest",
           "item_level": 53,
           "rarity": "uncommon",
-          "armor_type": null,
-          "weapon_type": "staff",
-          "stat_template": "agi_physical",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
           "primary_stats": {
-            "agility": 21,
-            "stamina": 11
+            "intellect": 11
           },
           "secondary_stats": {
-            "attack_power": 52
+            "healing_power": 51
           },
-          "armor_value": 0,
+          "armor_value": 319,
           "required_level": 51,
-          "sell_price": 12012,
-          "identity": "agility",
-          "icon_id": "gear_inv_staff_21",
-          "weapon_damage_min": 96,
-          "weapon_damage_max": 130,
-          "attack_speed": 3.6,
-          "block_value": 0
+          "sell_price": 9610,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_chest_plate11"
         },
         {
-          "name": "Measurer's Belt",
-          "slot": "waist",
+          "name": "Measurer's Slippers",
+          "slot": "feet",
           "item_level": 53,
           "rarity": "uncommon",
-          "armor_type": "leather",
+          "armor_type": "cloth",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 23
+          },
+          "armor_value": 46,
+          "required_level": 51,
+          "sell_price": 6246,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_02"
+        },
+        {
+          "name": "Measurer's Wristguards",
+          "slot": "wrist",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
           "primary_stats": {
             "agility": 9,
-            "stamina": 5
+            "intellect": 8
           },
           "secondary_stats": {
-            "attack_power": 23
+            "attack_power": 17
           },
-          "armor_value": 92,
+          "armor_value": 147,
           "required_level": 51,
-          "sell_price": 5285,
-          "identity": "agility",
-          "icon_id": "gear_inv_belt_16"
-        },
-        {
-          "name": "Measurer's Band",
-          "slot": "ring",
-          "item_level": 53,
-          "rarity": "uncommon",
-          "armor_type": "accessory",
-          "weapon_type": null,
-          "stat_template": "str_physical",
-          "primary_stats": {
-            "strength": 8,
-            "stamina": 5
-          },
-          "secondary_stats": {
-            "attack_power": 20
-          },
-          "armor_value": 0,
-          "required_level": 51,
-          "sell_price": 5766,
-          "identity": "strength",
-          "icon_id": "gear_inv_jewelry_ring_23"
+          "sell_price": 4805,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_bracer_17"
         }
       ],
       "gear_reward_gear_level": 53,
@@ -1740,65 +1841,69 @@
       "reward_gold": 15300,
       "unique_item_defs": [
         {
-          "name": "Plumbline Breastplate",
-          "slot": "chest",
+          "name": "Plumbline Longbow",
+          "slot": "ranged",
           "item_level": 54,
           "rarity": "uncommon",
-          "armor_type": "plate",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 52,
+          "sell_price": 7995,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_06",
+          "weapon_damage_min": 61,
+          "weapon_damage_max": 83,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Plumbline Coif",
+          "slot": "head",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "mail",
           "weapon_type": null,
           "stat_template": "spi_healer",
           "primary_stats": {
-            "intellect": 8
+            "intellect": 6
           },
           "secondary_stats": {
-            "healing_power": 36
+            "healing_power": 31
           },
-          "armor_value": 325,
+          "armor_value": 183,
           "required_level": 52,
-          "sell_price": 9994,
-          "identity": "plate_healer",
-          "icon_id": "gear_inv_chest_plate11"
+          "sell_price": 7995,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_63"
         },
         {
-          "name": "Plumbline Slippers",
-          "slot": "feet",
+          "name": "Plumbline Leggings",
+          "slot": "legs",
           "item_level": 54,
           "rarity": "uncommon",
           "armor_type": "cloth",
           "weapon_type": null,
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 10
+            "intellect": 15
           },
           "secondary_stats": {
-            "spell_power": 24
+            "spell_power": 34
           },
-          "armor_value": 63,
+          "armor_value": 67,
           "required_level": 52,
-          "sell_price": 6496,
+          "sell_price": 9994,
           "identity": "caster",
-          "icon_id": "gear_inv_boots_05"
-        },
-        {
-          "name": "Plumbline Wristguards",
-          "slot": "wrist",
-          "item_level": 54,
-          "rarity": "uncommon",
-          "armor_type": "mail",
-          "weapon_type": null,
-          "stat_template": "agi_int_hybrid",
-          "primary_stats": {
-            "agility": 9,
-            "intellect": 8
-          },
-          "secondary_stats": {
-            "attack_power": 18
-          },
-          "armor_value": 150,
-          "required_level": 52,
-          "sell_price": 4997,
-          "identity": "wildheart",
-          "icon_id": "gear_inv_bracer_09"
+          "icon_id": "gear_inv_pants_06"
         }
       ],
       "gear_reward_gear_level": 54,
@@ -1827,69 +1932,71 @@
       "reward_gold": 15000,
       "unique_item_defs": [
         {
-          "name": "Stargazer's Longbow",
-          "slot": "ranged",
+          "name": "Stargazer's Knife",
+          "slot": "main_hand",
           "item_level": 53,
           "rarity": "uncommon",
           "armor_type": null,
-          "weapon_type": "bow",
-          "stat_template": "agi_int_hybrid",
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 7,
-            "intellect": 6
+            "agility": 9,
+            "stamina": 5
           },
           "secondary_stats": {
-            "attack_power": 20
+            "attack_power": 24
           },
           "armor_value": 0,
           "required_level": 52,
-          "sell_price": 7688,
-          "identity": "hunter",
-          "icon_id": "gear_inv_weapon_bow_08",
-          "weapon_damage_min": 60,
-          "weapon_damage_max": 82,
-          "attack_speed": 2.8,
+          "sell_price": 9129,
+          "identity": "agility",
+          "icon_id": "gear_inv_weapon_shortblade_20",
+          "weapon_damage_min": 71,
+          "weapon_damage_max": 96,
+          "attack_speed": 1.7,
           "block_value": 0
         },
         {
-          "name": "Stargazer's Coif",
-          "slot": "head",
+          "name": "Stargazer's Shoulderpads",
+          "slot": "shoulder",
           "item_level": 53,
           "rarity": "uncommon",
-          "armor_type": "mail",
+          "armor_type": "leather",
           "weapon_type": null,
           "stat_template": "spi_healer",
           "primary_stats": {
+            "spirit": 8,
             "intellect": 6
           },
           "secondary_stats": {
-            "healing_power": 30
+            "healing_power": 34
           },
-          "armor_value": 200,
+          "armor_value": 112,
           "required_level": 52,
           "sell_price": 7688,
-          "identity": "tide_healer",
-          "icon_id": "gear_inv_helmet_56"
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_08"
         },
         {
-          "name": "Stargazer's Leggings",
-          "slot": "legs",
+          "name": "Stargazer's Sabatons",
+          "slot": "feet",
           "item_level": 53,
           "rarity": "uncommon",
-          "armor_type": "cloth",
+          "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "int_caster",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "intellect": 15
+            "strength": 9,
+            "stamina": 5
           },
           "secondary_stats": {
-            "spell_power": 33
+            "attack_power": 23
           },
-          "armor_value": 66,
+          "armor_value": 238,
           "required_level": 52,
-          "sell_price": 9610,
-          "identity": "caster",
-          "icon_id": "gear_inv_pants_06"
+          "sell_price": 6246,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_08"
         }
       ],
       "gear_reward_gear_level": 53,
@@ -1920,71 +2027,71 @@
       "reward_gold": 15300,
       "unique_item_defs": [
         {
-          "name": "Lensgrinder's Knife",
-          "slot": "main_hand",
+          "name": "Lensgrinder's Tome",
+          "slot": "off_hand",
           "item_level": 54,
           "rarity": "uncommon",
           "armor_type": null,
-          "weapon_type": "dagger",
-          "stat_template": "agi_physical",
-          "primary_stats": {
-            "agility": 9,
-            "stamina": 5
-          },
-          "secondary_stats": {
-            "attack_power": 26
-          },
-          "armor_value": 0,
-          "required_level": 52,
-          "sell_price": 9495,
-          "identity": "agility",
-          "icon_id": "gear_inv_weapon_shortblade_18",
-          "weapon_damage_min": 72,
-          "weapon_damage_max": 98,
-          "attack_speed": 1.7,
-          "block_value": 0
-        },
-        {
-          "name": "Lensgrinder's Shoulderpads",
-          "slot": "shoulder",
-          "item_level": 54,
-          "rarity": "uncommon",
-          "armor_type": "leather",
-          "weapon_type": null,
+          "weapon_type": "tome",
           "stat_template": "spi_healer",
           "primary_stats": {
-            "spirit": 8,
+            "spirit": 7,
             "intellect": 6
           },
           "secondary_stats": {
-            "healing_power": 35
+            "healing_power": 32
           },
-          "armor_value": 114,
+          "armor_value": 0,
           "required_level": 52,
-          "sell_price": 7995,
+          "sell_price": 5997,
           "identity": "healer",
-          "icon_id": "gear_inv_shoulder_26"
+          "icon_id": "gear_inv_tome_2",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
         },
         {
-          "name": "Lensgrinder's Sabatons",
-          "slot": "feet",
+          "name": "Lensgrinder's Handguards",
+          "slot": "hands",
           "item_level": 54,
           "rarity": "uncommon",
           "armor_type": "plate",
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 9,
-            "stamina": 5
+            "stamina": 13,
+            "strength": 5
           },
           "secondary_stats": {
-            "attack_power": 23
+            "defense_rating": 10
           },
           "armor_value": 225,
           "required_level": 52,
           "sell_price": 6496,
-          "identity": "strength",
-          "icon_id": "gear_inv_boots_04"
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_13"
+        },
+        {
+          "name": "Lensgrinder's Girdle",
+          "slot": "waist",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 150,
+          "required_level": 52,
+          "sell_price": 5497,
+          "identity": "hunter",
+          "icon_id": "gear_inv_belt_28"
         }
       ],
       "gear_reward_gear_level": 54,
@@ -2012,71 +2119,71 @@
       "reward_gold": 15300,
       "unique_item_defs": [
         {
-          "name": "Archivist's Tome",
-          "slot": "off_hand",
+          "name": "Archivist's Mace",
+          "slot": "main_hand",
           "item_level": 54,
           "rarity": "uncommon",
           "armor_type": null,
-          "weapon_type": "tome",
+          "weapon_type": "mace_1h",
           "stat_template": "spi_healer",
           "primary_stats": {
-            "spirit": 7,
+            "spirit": 8,
             "intellect": 6
           },
           "secondary_stats": {
-            "healing_power": 32
+            "healing_power": 35
+          },
+          "armor_value": 0,
+          "required_level": 52,
+          "sell_price": 9495,
+          "identity": "healer",
+          "icon_id": "gear_inv_mace_11",
+          "weapon_damage_min": 72,
+          "weapon_damage_max": 98,
+          "attack_speed": 2.6,
+          "block_value": 0
+        },
+        {
+          "name": "Archivist's Jerkin",
+          "slot": "chest",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 13,
+            "intellect": 11
+          },
+          "secondary_stats": {
+            "attack_power": 26
+          },
+          "armor_value": 135,
+          "required_level": 52,
+          "sell_price": 9994,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_07"
+        },
+        {
+          "name": "Archivist's Pendant",
+          "slot": "neck",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 8,
+            "stamina": 5
+          },
+          "secondary_stats": {
+            "attack_power": 21
           },
           "armor_value": 0,
           "required_level": 52,
           "sell_price": 5997,
-          "identity": "healer",
-          "icon_id": "gear_inv_tome_3",
-          "weapon_damage_min": 0,
-          "weapon_damage_max": 0,
-          "attack_speed": 0.0,
-          "block_value": 0
-        },
-        {
-          "name": "Archivist's Handguards",
-          "slot": "hands",
-          "item_level": 54,
-          "rarity": "uncommon",
-          "armor_type": "plate",
-          "weapon_type": null,
-          "stat_template": "str_physical",
-          "primary_stats": {
-            "stamina": 13,
-            "strength": 5
-          },
-          "secondary_stats": {
-            "defense_rating": 10
-          },
-          "armor_value": 242,
-          "required_level": 52,
-          "sell_price": 6496,
-          "identity": "tank",
-          "icon_id": "gear_inv_gauntlets_06"
-        },
-        {
-          "name": "Archivist's Girdle",
-          "slot": "waist",
-          "item_level": 54,
-          "rarity": "uncommon",
-          "armor_type": "mail",
-          "weapon_type": null,
-          "stat_template": "agi_int_hybrid",
-          "primary_stats": {
-            "agility": 8,
-            "intellect": 6
-          },
-          "secondary_stats": {
-            "attack_power": 23
-          },
-          "armor_value": 150,
-          "required_level": 52,
-          "sell_price": 5497,
-          "identity": "hunter",
-          "icon_id": "gear_inv_belt_21"
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_necklace_08"
         }
       ],
       "gear_reward_gear_level": 54,
@@ -2119,71 +2226,70 @@
       "reward_gold": 15300,
       "unique_item_defs": [
         {
-          "name": "Firstmeasure Mace",
+          "name": "Firstmeasure Greatsword",
           "slot": "main_hand",
           "item_level": 54,
           "rarity": "uncommon",
           "armor_type": null,
-          "weapon_type": "mace_1h",
-          "stat_template": "spi_healer",
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "spirit": 8,
-            "intellect": 6
+            "strength": 20,
+            "stamina": 11
           },
           "secondary_stats": {
-            "healing_power": 35
+            "attack_power": 54
           },
           "armor_value": 0,
           "required_level": 53,
-          "sell_price": 9495,
-          "identity": "healer",
-          "icon_id": "gear_inv_mace_06",
-          "weapon_damage_min": 72,
-          "weapon_damage_max": 98,
-          "attack_speed": 2.6,
+          "sell_price": 12493,
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_21",
+          "weapon_damage_min": 98,
+          "weapon_damage_max": 132,
+          "attack_speed": 3.4,
           "block_value": 0
         },
         {
-          "name": "Firstmeasure Jerkin",
-          "slot": "chest",
+          "name": "Firstmeasure Bracers",
+          "slot": "wrist",
           "item_level": 54,
           "rarity": "uncommon",
           "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "agi_int_hybrid",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 13,
-            "intellect": 11
-          },
-          "secondary_stats": {
-            "attack_power": 26
-          },
-          "armor_value": 135,
-          "required_level": 53,
-          "sell_price": 9994,
-          "identity": "wildheart",
-          "icon_id": "gear_inv_chest_leather_04"
-        },
-        {
-          "name": "Firstmeasure Pendant",
-          "slot": "neck",
-          "item_level": 54,
-          "rarity": "uncommon",
-          "armor_type": "accessory",
-          "weapon_type": null,
-          "stat_template": "str_physical",
-          "primary_stats": {
-            "strength": 8,
+            "agility": 9,
             "stamina": 5
           },
           "secondary_stats": {
-            "attack_power": 21
+            "attack_power": 23
           },
-          "armor_value": 0,
+          "armor_value": 93,
           "required_level": 53,
-          "sell_price": 5997,
-          "identity": "strength",
-          "icon_id": "gear_inv_jewelry_necklace_08"
+          "sell_price": 4997,
+          "identity": "agility",
+          "icon_id": "gear_inv_bracer_15"
+        },
+        {
+          "name": "Firstmeasure Hood",
+          "slot": "head",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 13
+          },
+          "secondary_stats": {
+            "spell_power": 28
+          },
+          "armor_value": 57,
+          "required_level": 53,
+          "sell_price": 7995,
+          "identity": "caster",
+          "icon_id": "gear_inv_helmet_44"
         }
       ],
       "gear_reward_gear_level": 54,
@@ -2212,70 +2318,66 @@
       "reward_gold": 15300,
       "unique_item_defs": [
         {
-          "name": "Tiltside Greatsword",
-          "slot": "main_hand",
+          "name": "Tiltside Hauberk",
+          "slot": "chest",
           "item_level": 54,
           "rarity": "uncommon",
-          "armor_type": null,
-          "weapon_type": "sword_2h",
-          "stat_template": "str_physical",
-          "primary_stats": {
-            "strength": 20,
-            "stamina": 11
-          },
-          "secondary_stats": {
-            "attack_power": 54
-          },
-          "armor_value": 0,
-          "required_level": 52,
-          "sell_price": 12493,
-          "identity": "strength",
-          "icon_id": "gear_inv_sword_31",
-          "weapon_damage_min": 98,
-          "weapon_damage_max": 132,
-          "attack_speed": 3.4,
-          "block_value": 0
-        },
-        {
-          "name": "Tiltside Bracers",
-          "slot": "wrist",
-          "item_level": 54,
-          "rarity": "uncommon",
-          "armor_type": "leather",
+          "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "agi_int_hybrid",
           "primary_stats": {
-            "agility": 9,
-            "stamina": 5
+            "agility": 11,
+            "intellect": 9
           },
           "secondary_stats": {
-            "attack_power": 23
+            "attack_power": 34
           },
-          "armor_value": 93,
+          "armor_value": 216,
           "required_level": 52,
-          "sell_price": 4997,
-          "identity": "agility",
-          "icon_id": "gear_inv_bracer_17"
+          "sell_price": 9994,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_13"
         },
         {
-          "name": "Tiltside Hood",
-          "slot": "head",
+          "name": "Tiltside Sash",
+          "slot": "waist",
           "item_level": 54,
           "rarity": "uncommon",
           "armor_type": "cloth",
           "weapon_type": null,
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 13
+            "intellect": 10
           },
           "secondary_stats": {
-            "spell_power": 28
+            "spell_power": 24
           },
-          "armor_value": 57,
+          "armor_value": 63,
           "required_level": 52,
-          "sell_price": 7995,
+          "sell_price": 5497,
           "identity": "caster",
-          "icon_id": "gear_inv_helmet_01"
+          "icon_id": "gear_inv_belt_02"
+        },
+        {
+          "name": "Tiltside Sabatons",
+          "slot": "feet",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 13,
+            "strength": 5
+          },
+          "secondary_stats": {
+            "defense_rating": 10
+          },
+          "armor_value": 225,
+          "required_level": 52,
+          "sell_price": 6496,
+          "identity": "tank",
+          "icon_id": "gear_inv_boots_wolf"
         }
       ],
       "gear_reward_gear_level": 54,
@@ -2307,66 +2409,65 @@
       "reward_gold": 19890,
       "unique_item_defs": [
         {
-          "name": "Hornbreaker's Hauberk",
-          "slot": "chest",
+          "name": "Hornbreaker's Grips",
+          "slot": "hands",
+          "item_level": 55,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 12,
+            "stamina": 7
+          },
+          "secondary_stats": {
+            "attack_power": 31
+          },
+          "armor_value": 135,
+          "required_level": 53,
+          "sell_price": 10127,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_05"
+        },
+        {
+          "name": "Hornbreaker's Spaulders",
+          "slot": "shoulder",
           "item_level": 55,
           "rarity": "rare",
           "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "agi_int_hybrid",
+          "stat_template": "spi_healer",
           "primary_stats": {
-            "agility": 15,
-            "intellect": 12
+            "intellect": 9
           },
           "secondary_stats": {
-            "attack_power": 45
+            "healing_power": 39
           },
-          "armor_value": 288,
+          "armor_value": 244,
           "required_level": 53,
-          "sell_price": 15580,
-          "identity": "hunter",
-          "icon_id": "gear_inv_chest_chain_04"
+          "sell_price": 12464,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_shoulder_29"
         },
         {
-          "name": "Hornbreaker's Sash",
-          "slot": "waist",
+          "name": "Hornbreaker's Pendant",
+          "slot": "neck",
           "item_level": 55,
           "rarity": "rare",
-          "armor_type": "cloth",
+          "armor_type": "accessory",
           "weapon_type": null,
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 14
+            "intellect": 12
           },
           "secondary_stats": {
-            "spell_power": 31
+            "spell_power": 28
           },
-          "armor_value": 73,
+          "armor_value": 0,
           "required_level": 53,
-          "sell_price": 8569,
+          "sell_price": 9348,
           "identity": "caster",
-          "icon_id": "gear_inv_belt_28"
-        },
-        {
-          "name": "Hornbreaker's Sabatons",
-          "slot": "feet",
-          "item_level": 55,
-          "rarity": "rare",
-          "armor_type": "plate",
-          "weapon_type": null,
-          "stat_template": "str_physical",
-          "primary_stats": {
-            "stamina": 17,
-            "strength": 7
-          },
-          "secondary_stats": {
-            "defense_rating": 14
-          },
-          "armor_value": 310,
-          "required_level": 53,
-          "sell_price": 10127,
-          "identity": "tank",
-          "icon_id": "gear_inv_boots_plate_08"
+          "icon_id": "gear_inv_jewelry_amulet_05"
         }
       ],
       "gear_reward_gear_level": 55,
@@ -2405,65 +2506,67 @@
       "reward_gold": 15300,
       "unique_item_defs": [
         {
-          "name": "Surveyor's Grips",
-          "slot": "hands",
+          "name": "Surveyor's Cloak",
+          "slot": "back",
           "item_level": 54,
           "rarity": "uncommon",
-          "armor_type": "leather",
+          "armor_type": "cloth",
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 9,
-            "stamina": 5
+            "stamina": 6
           },
           "secondary_stats": {
-            "attack_power": 23
+            "attack_power": 23,
+            "hit_rating": 6
           },
-          "armor_value": 93,
+          "armor_value": 41,
           "required_level": 52,
-          "sell_price": 6496,
-          "identity": "agility",
-          "icon_id": "gear_inv_gauntlets_31"
+          "sell_price": 5497,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_18"
         },
         {
-          "name": "Surveyor's Spaulders",
-          "slot": "shoulder",
+          "name": "Surveyor's Cuffs",
+          "slot": "wrist",
           "item_level": 54,
           "rarity": "uncommon",
-          "armor_type": "mail",
+          "armor_type": "cloth",
           "weapon_type": null,
           "stat_template": "spi_healer",
           "primary_stats": {
-            "intellect": 6
+            "spirit": 6,
+            "intellect": 5
           },
           "secondary_stats": {
-            "healing_power": 31
+            "healing_power": 30
           },
-          "armor_value": 204,
+          "armor_value": 63,
           "required_level": 52,
-          "sell_price": 7995,
-          "identity": "tide_healer",
-          "icon_id": "gear_inv_shoulder_02"
+          "sell_price": 4997,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_10"
         },
         {
-          "name": "Surveyor's Pendant",
-          "slot": "neck",
+          "name": "Surveyor's Legplates",
+          "slot": "legs",
           "item_level": 54,
           "rarity": "uncommon",
-          "armor_type": "accessory",
+          "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "int_caster",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "intellect": 9
+            "strength": 13,
+            "stamina": 7
           },
           "secondary_stats": {
-            "spell_power": 21
+            "attack_power": 34
           },
-          "armor_value": 0,
+          "armor_value": 325,
           "required_level": 52,
-          "sell_price": 5997,
-          "identity": "caster",
-          "icon_id": "gear_inv_jewelry_amulet_04"
+          "sell_price": 9994,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_08"
         }
       ],
       "gear_reward_gear_level": 54,
@@ -2495,32 +2598,32 @@
       "reward_gold": 15300,
       "unique_item_defs": [
         {
-          "name": "Pinsetter's Cloak",
-          "slot": "back",
+          "name": "Pinsetter's Cap",
+          "slot": "head",
           "item_level": 54,
           "rarity": "uncommon",
-          "armor_type": "cloth",
+          "armor_type": "leather",
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "stamina": 6
+            "stamina": 15,
+            "agility": 9
           },
           "secondary_stats": {
-            "attack_power": 23,
-            "hit_rating": 6
+            "dodge_rating": 7
           },
-          "armor_value": 41,
+          "armor_value": 114,
           "required_level": 53,
-          "sell_price": 5497,
-          "identity": "physical",
-          "icon_id": "gear_inv_misc_cape_06"
+          "sell_price": 7995,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_59"
         },
         {
-          "name": "Pinsetter's Cuffs",
-          "slot": "wrist",
+          "name": "Pinsetter's Band",
+          "slot": "ring",
           "item_level": 54,
           "rarity": "uncommon",
-          "armor_type": "cloth",
+          "armor_type": "accessory",
           "weapon_type": null,
           "stat_template": "spi_healer",
           "primary_stats": {
@@ -2528,34 +2631,34 @@
             "intellect": 5
           },
           "secondary_stats": {
-            "healing_power": 30
+            "healing_power": 25
           },
-          "armor_value": 63,
+          "armor_value": 0,
           "required_level": 53,
-          "sell_price": 4997,
+          "sell_price": 5997,
           "identity": "healer",
-          "icon_id": "gear_inv_bracer_10"
+          "icon_id": "gear_inv_jewelry_ring_29"
         },
         {
-          "name": "Pinsetter's Legplates",
-          "slot": "legs",
+          "name": "Pinsetter's Gauntlets",
+          "slot": "hands",
           "item_level": 54,
           "rarity": "uncommon",
-          "armor_type": "plate",
+          "armor_type": "mail",
           "weapon_type": null,
-          "stat_template": "str_physical",
+          "stat_template": "str_int_hybrid",
           "primary_stats": {
-            "strength": 13,
-            "stamina": 7
+            "strength": 8,
+            "intellect": 8
           },
           "secondary_stats": {
-            "attack_power": 34
+            "attack_power": 20
           },
-          "armor_value": 325,
+          "armor_value": 150,
           "required_level": 53,
-          "sell_price": 9994,
-          "identity": "strength",
-          "icon_id": "gear_inv_pants_12"
+          "sell_price": 6496,
+          "identity": "earthen",
+          "icon_id": "gear_inv_gauntlets_27"
         }
       ],
       "gear_reward_gear_level": 54,
@@ -2584,67 +2687,69 @@
       "reward_gold": 15300,
       "unique_item_defs": [
         {
-          "name": "Medic's Cap",
-          "slot": "head",
+          "name": "Medic's Staff",
+          "slot": "main_hand",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 23
+          },
+          "secondary_stats": {
+            "spell_power": 51
+          },
+          "armor_value": 0,
+          "required_level": 52,
+          "sell_price": 12493,
+          "identity": "caster",
+          "icon_id": "gear_inv_staff_05",
+          "weapon_damage_min": 39,
+          "weapon_damage_max": 54,
+          "attack_speed": 3.2,
+          "block_value": 0
+        },
+        {
+          "name": "Medic's Jerkin",
+          "slot": "chest",
           "item_level": 54,
           "rarity": "uncommon",
           "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "stamina": 15,
-            "agility": 9
+            "strength": 13,
+            "stamina": 7
           },
           "secondary_stats": {
-            "dodge_rating": 7
+            "attack_power": 34
           },
-          "armor_value": 114,
+          "armor_value": 135,
           "required_level": 52,
-          "sell_price": 7995,
-          "identity": "bear",
-          "icon_id": "gear_inv_helmet_61"
+          "sell_price": 9994,
+          "identity": "strength",
+          "icon_id": "gear_inv_chest_leather_04"
         },
         {
-          "name": "Medic's Band",
-          "slot": "ring",
+          "name": "Medic's Waistguard",
+          "slot": "waist",
           "item_level": 54,
           "rarity": "uncommon",
-          "armor_type": "accessory",
+          "armor_type": "plate",
           "weapon_type": null,
           "stat_template": "spi_healer",
           "primary_stats": {
-            "spirit": 6,
-            "intellect": 5
+            "intellect": 6
           },
           "secondary_stats": {
             "healing_power": 25
           },
-          "armor_value": 0,
+          "armor_value": 225,
           "required_level": 52,
-          "sell_price": 5997,
-          "identity": "healer",
-          "icon_id": "gear_inv_jewelry_ring_07"
-        },
-        {
-          "name": "Medic's Gauntlets",
-          "slot": "hands",
-          "item_level": 54,
-          "rarity": "uncommon",
-          "armor_type": "mail",
-          "weapon_type": null,
-          "stat_template": "str_int_hybrid",
-          "primary_stats": {
-            "strength": 8,
-            "intellect": 8
-          },
-          "secondary_stats": {
-            "attack_power": 20
-          },
-          "armor_value": 150,
-          "required_level": 52,
-          "sell_price": 6496,
-          "identity": "earthen",
-          "icon_id": "gear_inv_gauntlets_11"
+          "sell_price": 5497,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_belt_07"
         }
       ],
       "gear_reward_gear_level": 54,
@@ -2673,39 +2778,35 @@
       "reward_gold": 15300,
       "unique_item_defs": [
         {
-          "name": "Salvemaker's Staff",
-          "slot": "main_hand",
+          "name": "Salvemaker's Mantle",
+          "slot": "shoulder",
           "item_level": 54,
           "rarity": "uncommon",
-          "armor_type": null,
-          "weapon_type": "staff",
+          "armor_type": "cloth",
+          "weapon_type": null,
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 23
+            "intellect": 13
           },
           "secondary_stats": {
-            "spell_power": 51
+            "spell_power": 28
           },
-          "armor_value": 0,
+          "armor_value": 57,
           "required_level": 52,
-          "sell_price": 12493,
+          "sell_price": 7995,
           "identity": "caster",
-          "icon_id": "gear_inv_staff_06",
-          "weapon_damage_min": 39,
-          "weapon_damage_max": 54,
-          "attack_speed": 3.2,
-          "block_value": 0
+          "icon_id": "gear_inv_shoulder_25"
         },
         {
-          "name": "Salvemaker's Jerkin",
-          "slot": "chest",
+          "name": "Salvemaker's Breeches",
+          "slot": "legs",
           "item_level": 54,
           "rarity": "uncommon",
           "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "str_physical",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "strength": 13,
+            "agility": 13,
             "stamina": 7
           },
           "secondary_stats": {
@@ -2714,28 +2815,29 @@
           "armor_value": 135,
           "required_level": 52,
           "sell_price": 9994,
-          "identity": "strength",
-          "icon_id": "gear_inv_chest_leather_08"
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_13"
         },
         {
-          "name": "Salvemaker's Waistguard",
-          "slot": "waist",
+          "name": "Salvemaker's Vambraces",
+          "slot": "wrist",
           "item_level": 54,
           "rarity": "uncommon",
           "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "spi_healer",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "intellect": 6
+            "stamina": 13,
+            "strength": 5
           },
           "secondary_stats": {
-            "healing_power": 25
+            "defense_rating": 10
           },
           "armor_value": 225,
           "required_level": 52,
-          "sell_price": 5497,
-          "identity": "plate_healer",
-          "icon_id": "gear_inv_belt_26"
+          "sell_price": 4997,
+          "identity": "tank",
+          "icon_id": "gear_inv_bracer_08"
         }
       ],
       "gear_reward_gear_level": 54,
@@ -2764,66 +2866,71 @@
       "reward_gold": 15000,
       "unique_item_defs": [
         {
-          "name": "Steward's Mantle",
-          "slot": "shoulder",
+          "name": "Steward's Shield",
+          "slot": "off_hand",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "spell_power": 20,
+            "haste": 5
+          },
+          "armor_value": 413,
+          "required_level": 51,
+          "sell_price": 7688,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_shield_11",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 48
+        },
+        {
+          "name": "Steward's Greaves",
+          "slot": "feet",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 23
+          },
+          "armor_value": 147,
+          "required_level": 51,
+          "sell_price": 6246,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_04"
+        },
+        {
+          "name": "Steward's Robe",
+          "slot": "chest",
           "item_level": 53,
           "rarity": "uncommon",
           "armor_type": "cloth",
           "weapon_type": null,
-          "stat_template": "int_caster",
+          "stat_template": "spi_healer",
           "primary_stats": {
-            "intellect": 12
+            "spirit": 11,
+            "intellect": 11
           },
           "secondary_stats": {
-            "spell_power": 28
+            "healing_power": 29
           },
-          "armor_value": 76,
-          "required_level": 51,
-          "sell_price": 7688,
-          "identity": "caster",
-          "icon_id": "gear_inv_shoulder_17"
-        },
-        {
-          "name": "Steward's Breeches",
-          "slot": "legs",
-          "item_level": 53,
-          "rarity": "uncommon",
-          "armor_type": "leather",
-          "weapon_type": null,
-          "stat_template": "agi_physical",
-          "primary_stats": {
-            "agility": 13,
-            "stamina": 7
-          },
-          "secondary_stats": {
-            "attack_power": 33
-          },
-          "armor_value": 133,
+          "armor_value": 66,
           "required_level": 51,
           "sell_price": 9610,
-          "identity": "agility",
-          "icon_id": "gear_inv_pants_14"
-        },
-        {
-          "name": "Steward's Vambraces",
-          "slot": "wrist",
-          "item_level": 53,
-          "rarity": "uncommon",
-          "armor_type": "plate",
-          "weapon_type": null,
-          "stat_template": "str_physical",
-          "primary_stats": {
-            "stamina": 13,
-            "strength": 5
-          },
-          "secondary_stats": {
-            "defense_rating": 10
-          },
-          "armor_value": 221,
-          "required_level": 51,
-          "sell_price": 4805,
-          "identity": "tank",
-          "icon_id": "gear_inv_bracer_17"
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_chest_cloth_46"
         }
       ],
       "gear_reward_gear_level": 53,
@@ -2864,18 +2971,18 @@
           "rarity": "uncommon",
           "armor_type": null,
           "weapon_type": "shield",
-          "stat_template": "int_caster",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "intellect": 6
+            "stamina": 9,
+            "strength": 3
           },
           "secondary_stats": {
-            "spell_power": 20,
-            "haste": 5
+            "block_value": 8
           },
           "armor_value": 413,
           "required_level": 51,
           "sell_price": 7688,
-          "identity": "haste_caster",
+          "identity": "shield_tank",
           "icon_id": "gear_inv_shield_21",
           "weapon_damage_min": 0,
           "weapon_damage_max": 0,
@@ -2883,46 +2990,45 @@
           "block_value": 48
         },
         {
-          "name": "Groundskeeper's Greaves",
-          "slot": "feet",
+          "name": "Groundskeeper's Breeches",
+          "slot": "legs",
           "item_level": 53,
           "rarity": "uncommon",
-          "armor_type": "mail",
+          "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "agi_int_hybrid",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 8,
-            "intellect": 6
+            "stamina": 17,
+            "agility": 11
           },
           "secondary_stats": {
-            "attack_power": 23
+            "dodge_rating": 8
           },
-          "armor_value": 147,
+          "armor_value": 133,
           "required_level": 51,
-          "sell_price": 6246,
-          "identity": "hunter",
-          "icon_id": "gear_inv_boots_plate_02"
+          "sell_price": 9610,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_07"
         },
         {
-          "name": "Groundskeeper's Robe",
-          "slot": "chest",
+          "name": "Groundskeeper's Gloves",
+          "slot": "hands",
           "item_level": 53,
           "rarity": "uncommon",
           "armor_type": "cloth",
           "weapon_type": null,
-          "stat_template": "spi_healer",
+          "stat_template": "int_caster",
           "primary_stats": {
-            "spirit": 11,
-            "intellect": 11
+            "intellect": 10
           },
           "secondary_stats": {
-            "healing_power": 29
+            "arcane_spell_power": 28
           },
-          "armor_value": 66,
+          "armor_value": 63,
           "required_level": 51,
-          "sell_price": 9610,
-          "identity": "spirit_healer",
-          "icon_id": "gear_inv_shirt_red_01"
+          "sell_price": 6246,
+          "identity": "arcane",
+          "icon_id": "gear_inv_gauntlets_11"
         }
       ],
       "gear_reward_gear_level": 53,
@@ -2954,70 +3060,71 @@
       "reward_gold": 19500,
       "unique_item_defs": [
         {
-          "name": "Gardener's Bane Shield",
-          "slot": "off_hand",
+          "name": "Gardener's Bane Spear",
+          "slot": "main_hand",
           "item_level": 54,
           "rarity": "rare",
           "armor_type": null,
-          "weapon_type": "shield",
+          "weapon_type": "polearm",
           "stat_template": "str_physical",
           "primary_stats": {
-            "stamina": 11,
-            "strength": 4
+            "strength": 25,
+            "stamina": 14
           },
           "secondary_stats": {
-            "block_value": 11
+            "attack_power": 69
           },
-          "armor_value": 550,
+          "armor_value": 0,
           "required_level": 52,
-          "sell_price": 11993,
-          "identity": "shield_tank",
-          "icon_id": "gear_inv_shield_14",
-          "weapon_damage_min": 0,
-          "weapon_damage_max": 0,
-          "attack_speed": 0.0,
-          "block_value": 64
+          "sell_price": 18739,
+          "identity": "strength",
+          "icon_id": "gear_inv_spear_08",
+          "weapon_damage_min": 128,
+          "weapon_damage_max": 173,
+          "attack_speed": 3.3,
+          "block_value": 0
         },
         {
-          "name": "Gardener's Bane Breeches",
-          "slot": "legs",
+          "name": "Gardener's Bane Hood",
+          "slot": "head",
+          "item_level": 54,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 10,
+            "intellect": 8
+          },
+          "secondary_stats": {
+            "healing_power": 46
+          },
+          "armor_value": 87,
+          "required_level": 52,
+          "sell_price": 11993,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_24"
+        },
+        {
+          "name": "Gardener's Bane Grips",
+          "slot": "hands",
           "item_level": 54,
           "rarity": "rare",
           "armor_type": "leather",
           "weapon_type": null,
           "stat_template": "agi_physical",
           "primary_stats": {
-            "stamina": 22,
-            "agility": 15
+            "agility": 10,
+            "stamina": 8
           },
           "secondary_stats": {
-            "dodge_rating": 11
+            "attack_power": 32
           },
-          "armor_value": 177,
-          "required_level": 52,
-          "sell_price": 14992,
-          "identity": "bear",
-          "icon_id": "gear_inv_pants_08"
-        },
-        {
-          "name": "Gardener's Bane Gloves",
-          "slot": "hands",
-          "item_level": 54,
-          "rarity": "rare",
-          "armor_type": "cloth",
-          "weapon_type": null,
-          "stat_template": "int_caster",
-          "primary_stats": {
-            "intellect": 14
-          },
-          "secondary_stats": {
-            "arcane_spell_power": 37
-          },
-          "armor_value": 61,
+          "armor_value": 174,
           "required_level": 52,
           "sell_price": 9744,
-          "identity": "arcane",
-          "icon_id": "gear_inv_gauntlets_07"
+          "identity": "feral",
+          "icon_id": "gear_inv_gauntlets_04"
         }
       ],
       "gear_reward_gear_level": 54,
@@ -3052,71 +3159,66 @@
       "reward_gold": 15300,
       "unique_item_defs": [
         {
-          "name": "Enginetender's Spear",
-          "slot": "main_hand",
+          "name": "Enginetender's Legguards",
+          "slot": "legs",
           "item_level": 54,
           "rarity": "uncommon",
-          "armor_type": null,
-          "weapon_type": "polearm",
-          "stat_template": "str_physical",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
           "primary_stats": {
-            "strength": 20,
-            "stamina": 11
+            "intellect": 9
           },
           "secondary_stats": {
-            "attack_power": 54
+            "nature_spell_power": 32,
+            "haste": 9
           },
-          "armor_value": 0,
+          "armor_value": 240,
           "required_level": 52,
-          "sell_price": 12493,
-          "identity": "strength",
-          "icon_id": "gear_inv_spear_01",
-          "weapon_damage_min": 98,
-          "weapon_damage_max": 132,
-          "attack_speed": 3.3,
-          "block_value": 0
+          "sell_price": 9994,
+          "identity": "storm",
+          "icon_id": "gear_inv_pants_05"
         },
         {
-          "name": "Enginetender's Hood",
-          "slot": "head",
+          "name": "Enginetender's Cloak",
+          "slot": "back",
           "item_level": 54,
           "rarity": "uncommon",
           "armor_type": "cloth",
           "weapon_type": null,
-          "stat_template": "spi_healer",
+          "stat_template": "int_caster",
           "primary_stats": {
-            "spirit": 8,
-            "intellect": 6
+            "intellect": 9
           },
           "secondary_stats": {
-            "healing_power": 35
+            "spell_power": 21
           },
-          "armor_value": 57,
+          "armor_value": 56,
           "required_level": 52,
-          "sell_price": 7995,
-          "identity": "healer",
-          "icon_id": "gear_inv_helmet_28"
+          "sell_price": 5497,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_01"
         },
         {
-          "name": "Enginetender's Grips",
-          "slot": "hands",
+          "name": "Enginetender's Pauldrons",
+          "slot": "shoulder",
           "item_level": 54,
           "rarity": "uncommon",
-          "armor_type": "leather",
+          "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "agility": 8,
+            "strength": 11,
             "stamina": 6
           },
           "secondary_stats": {
-            "attack_power": 23
+            "attack_power": 29
           },
-          "armor_value": 93,
+          "armor_value": 296,
           "required_level": 52,
-          "sell_price": 6496,
-          "identity": "feral",
-          "icon_id": "gear_inv_gauntlets_13"
+          "sell_price": 7995,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_13"
         }
       ],
       "gear_reward_gear_level": 54,
@@ -3148,66 +3250,71 @@
       "reward_gold": 19890,
       "unique_item_defs": [
         {
-          "name": "Enginebreaker's Legguards",
-          "slot": "legs",
+          "name": "Enginebreaker's Staff",
+          "slot": "main_hand",
           "item_level": 55,
           "rarity": "rare",
-          "armor_type": "mail",
-          "weapon_type": null,
-          "stat_template": "int_caster",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "intellect": 12
+            "agility": 27,
+            "stamina": 15
           },
           "secondary_stats": {
-            "nature_spell_power": 43,
-            "haste": 12
+            "attack_power": 69
           },
-          "armor_value": 288,
+          "armor_value": 0,
           "required_level": 53,
-          "sell_price": 15580,
-          "identity": "storm",
-          "icon_id": "gear_inv_pants_05"
+          "sell_price": 19476,
+          "identity": "agility",
+          "icon_id": "gear_inv_staff_27",
+          "weapon_damage_min": 130,
+          "weapon_damage_max": 176,
+          "attack_speed": 3.6,
+          "block_value": 0
         },
         {
-          "name": "Enginebreaker's Cloak",
-          "slot": "back",
+          "name": "Enginebreaker's Belt",
+          "slot": "waist",
           "item_level": 55,
           "rarity": "rare",
-          "armor_type": "cloth",
+          "armor_type": "leather",
           "weapon_type": null,
-          "stat_template": "int_caster",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "intellect": 12
+            "agility": 12,
+            "stamina": 7
           },
           "secondary_stats": {
-            "spell_power": 28
+            "attack_power": 31
           },
-          "armor_value": 65,
+          "armor_value": 124,
           "required_level": 53,
           "sell_price": 8569,
-          "identity": "caster",
-          "icon_id": "gear_inv_misc_cape_20"
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_34"
         },
         {
-          "name": "Enginebreaker's Pauldrons",
-          "slot": "shoulder",
+          "name": "Enginebreaker's Band",
+          "slot": "ring",
           "item_level": 55,
           "rarity": "rare",
-          "armor_type": "plate",
+          "armor_type": "accessory",
           "weapon_type": null,
           "stat_template": "str_physical",
           "primary_stats": {
-            "strength": 15,
-            "stamina": 8
+            "strength": 11,
+            "stamina": 6
           },
           "secondary_stats": {
-            "attack_power": 38
+            "attack_power": 28
           },
-          "armor_value": 366,
+          "armor_value": 0,
           "required_level": 53,
-          "sell_price": 12464,
+          "sell_price": 9348,
           "identity": "strength",
-          "icon_id": "gear_inv_shoulder_18"
+          "icon_id": "gear_inv_jewelry_ring_19"
         }
       ],
       "gear_reward_gear_level": 55,
@@ -3247,71 +3354,65 @@
       "reward_gold": 15000,
       "unique_item_defs": [
         {
-          "name": "Watchman's Staff",
-          "slot": "main_hand",
+          "name": "Watchman's Breastplate",
+          "slot": "chest",
           "item_level": 53,
           "rarity": "uncommon",
-          "armor_type": null,
-          "weapon_type": "staff",
-          "stat_template": "agi_physical",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
           "primary_stats": {
-            "agility": 21,
-            "stamina": 11
+            "intellect": 11
           },
           "secondary_stats": {
-            "attack_power": 52
+            "healing_power": 51
           },
-          "armor_value": 0,
+          "armor_value": 319,
           "required_level": 52,
-          "sell_price": 12012,
-          "identity": "agility",
-          "icon_id": "gear_inv_staff_11",
-          "weapon_damage_min": 96,
-          "weapon_damage_max": 130,
-          "attack_speed": 3.6,
-          "block_value": 0
+          "sell_price": 9610,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_chest_plate05"
         },
         {
-          "name": "Watchman's Belt",
-          "slot": "waist",
+          "name": "Watchman's Slippers",
+          "slot": "feet",
           "item_level": 53,
           "rarity": "uncommon",
-          "armor_type": "leather",
+          "armor_type": "cloth",
           "weapon_type": null,
-          "stat_template": "agi_physical",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 10
+          },
+          "secondary_stats": {
+            "spell_power": 23
+          },
+          "armor_value": 46,
+          "required_level": 52,
+          "sell_price": 6246,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_plate_06"
+        },
+        {
+          "name": "Watchman's Wristguards",
+          "slot": "wrist",
+          "item_level": 53,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
           "primary_stats": {
             "agility": 9,
-            "stamina": 5
+            "intellect": 8
           },
           "secondary_stats": {
-            "attack_power": 23
+            "attack_power": 17
           },
-          "armor_value": 92,
+          "armor_value": 164,
           "required_level": 52,
-          "sell_price": 5285,
-          "identity": "agility",
-          "icon_id": "gear_inv_belt_05"
-        },
-        {
-          "name": "Watchman's Band",
-          "slot": "ring",
-          "item_level": 53,
-          "rarity": "uncommon",
-          "armor_type": "accessory",
-          "weapon_type": null,
-          "stat_template": "str_physical",
-          "primary_stats": {
-            "strength": 8,
-            "stamina": 5
-          },
-          "secondary_stats": {
-            "attack_power": 20
-          },
-          "armor_value": 0,
-          "required_level": 52,
-          "sell_price": 5766,
-          "identity": "strength",
-          "icon_id": "gear_inv_jewelry_ring_02"
+          "sell_price": 4805,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_bracer_13"
         }
       ],
       "gear_reward_gear_level": 53,
@@ -3346,65 +3447,69 @@
       "reward_gold": 15300,
       "unique_item_defs": [
         {
-          "name": "Salvager's Breastplate",
-          "slot": "chest",
+          "name": "Salvager's Longbow",
+          "slot": "ranged",
           "item_level": 54,
           "rarity": "uncommon",
-          "armor_type": "plate",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 7,
+            "intellect": 6
+          },
+          "secondary_stats": {
+            "attack_power": 21
+          },
+          "armor_value": 0,
+          "required_level": 52,
+          "sell_price": 7995,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_07",
+          "weapon_damage_min": 61,
+          "weapon_damage_max": 83,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Salvager's Coif",
+          "slot": "head",
+          "item_level": 54,
+          "rarity": "uncommon",
+          "armor_type": "mail",
           "weapon_type": null,
           "stat_template": "spi_healer",
           "primary_stats": {
-            "intellect": 8
+            "intellect": 6
           },
           "secondary_stats": {
-            "healing_power": 36
+            "healing_power": 31
           },
-          "armor_value": 325,
+          "armor_value": 183,
           "required_level": 52,
-          "sell_price": 9994,
-          "identity": "plate_healer",
-          "icon_id": "gear_inv_chest_plate16"
+          "sell_price": 7995,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_64"
         },
         {
-          "name": "Salvager's Slippers",
-          "slot": "feet",
+          "name": "Salvager's Leggings",
+          "slot": "legs",
           "item_level": 54,
           "rarity": "uncommon",
           "armor_type": "cloth",
           "weapon_type": null,
           "stat_template": "int_caster",
           "primary_stats": {
-            "intellect": 10
+            "intellect": 15
           },
           "secondary_stats": {
-            "spell_power": 24
+            "spell_power": 34
           },
-          "armor_value": 46,
+          "armor_value": 67,
           "required_level": 52,
-          "sell_price": 6496,
+          "sell_price": 9994,
           "identity": "caster",
-          "icon_id": "gear_inv_boots_plate_08"
-        },
-        {
-          "name": "Salvager's Wristguards",
-          "slot": "wrist",
-          "item_level": 54,
-          "rarity": "uncommon",
-          "armor_type": "mail",
-          "weapon_type": null,
-          "stat_template": "agi_int_hybrid",
-          "primary_stats": {
-            "agility": 9,
-            "intellect": 8
-          },
-          "secondary_stats": {
-            "attack_power": 18
-          },
-          "armor_value": 150,
-          "required_level": 52,
-          "sell_price": 4997,
-          "identity": "wildheart",
-          "icon_id": "gear_inv_bracer_19"
+          "icon_id": "gear_inv_pants_11"
         }
       ],
       "gear_reward_gear_level": 54,
@@ -3436,69 +3541,71 @@
       "reward_gold": 19890,
       "unique_item_defs": [
         {
-          "name": "Ballastbreaker's Longbow",
-          "slot": "ranged",
+          "name": "Ballastbreaker's Knife",
+          "slot": "main_hand",
           "item_level": 55,
           "rarity": "rare",
           "armor_type": null,
-          "weapon_type": "bow",
-          "stat_template": "agi_int_hybrid",
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
           "primary_stats": {
-            "agility": 9,
-            "intellect": 8
+            "agility": 13,
+            "stamina": 7
           },
           "secondary_stats": {
-            "attack_power": 28
+            "attack_power": 32
           },
           "armor_value": 0,
           "required_level": 53,
-          "sell_price": 12464,
-          "identity": "hunter",
-          "icon_id": "gear_inv_weapon_bow_04",
-          "weapon_damage_min": 82,
-          "weapon_damage_max": 111,
-          "attack_speed": 2.8,
+          "sell_price": 14801,
+          "identity": "agility",
+          "icon_id": "gear_inv_weapon_shortblade_24",
+          "weapon_damage_min": 96,
+          "weapon_damage_max": 130,
+          "attack_speed": 1.7,
           "block_value": 0
         },
         {
-          "name": "Ballastbreaker's Coif",
-          "slot": "head",
+          "name": "Ballastbreaker's Shoulderpads",
+          "slot": "shoulder",
           "item_level": 55,
           "rarity": "rare",
-          "armor_type": "mail",
+          "armor_type": "leather",
           "weapon_type": null,
           "stat_template": "spi_healer",
           "primary_stats": {
-            "intellect": 9
+            "spirit": 11,
+            "intellect": 8
           },
           "secondary_stats": {
-            "healing_power": 39
+            "healing_power": 46
           },
-          "armor_value": 258,
+          "armor_value": 152,
           "required_level": 53,
           "sell_price": 12464,
-          "identity": "tide_healer",
-          "icon_id": "gear_inv_helmet_57"
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_31"
         },
         {
-          "name": "Ballastbreaker's Leggings",
-          "slot": "legs",
+          "name": "Ballastbreaker's Sabatons",
+          "slot": "feet",
           "item_level": 55,
           "rarity": "rare",
-          "armor_type": "cloth",
+          "armor_type": "plate",
           "weapon_type": null,
-          "stat_template": "int_caster",
+          "stat_template": "str_physical",
           "primary_stats": {
-            "intellect": 20
+            "strength": 12,
+            "stamina": 7
           },
           "secondary_stats": {
-            "spell_power": 45
+            "attack_power": 31
           },
-          "armor_value": 90,
+          "armor_value": 299,
           "required_level": 53,
-          "sell_price": 15580,
-          "identity": "caster",
-          "icon_id": "gear_inv_pants_04"
+          "sell_price": 10127,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_plate_04"
         }
       ],
       "gear_reward_gear_level": 55,

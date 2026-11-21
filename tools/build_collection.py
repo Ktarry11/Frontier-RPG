@@ -548,6 +548,8 @@ EXALTED_MOUNTS = (
      "A snowy owl as big as a horse, in violet and silver barding with crescent moons on its chest."),
     ("highbough_tribes", "highbough_cloudtop_wyvern", "Cloudtop Wyvern",
      "A wild wyvern off the Upper Boughs, tamed the way Gu'lok tames them, in teal and red with a heartwood saddle."),
+    ("aetherians", "aetherian_lumen_stag", "Lumen Stag",
+     "A tall white stag with crystal antlers that hold the light, in the scholar houses' white and gold."),
 )
 for fid, cid, name, blurb in EXALTED_MOUNTS:
     add(cid, f"Reins of the {name}", "mount", 100, "epic", f"{blurb} Sold at Exalted with {_FACTIONS[fid]['name']}.",

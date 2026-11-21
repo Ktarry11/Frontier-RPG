@@ -39,6 +39,8 @@ def _ell(gx, gy, cx, cy, rx, ry, rot=0.0):
 class Spec:
     """All the plan data for one zone + the field functions derived from it."""
 
+    canal = False      # True: rivers are built channels (Aurelion), no taper and no wobble
+
     def __init__(self, name, W, H, roads, rivers=(), lakes=None, deep_shrink=None, islets=(), sea=None,
                  mesas=(), ridges=(), woods=(), belts=(), clearings=(), rim=None, gaps=(), decks=(),
                  fords=(), rock_rim=None, road_corridor=3.2, woods_corridor=3.4, thicket=None):
@@ -103,8 +105,11 @@ class Spec:
             tree = self._river_tree(i)
             d, idx = tree.query(q)
             t = idx / max(1, tree.n - 1)
-            taper = 0.45 + 0.55 * np.clip(t * 6.0, 0, 1)          # source is a trickle, widens downstream
-            wob = 0.5 * _wob(gx.ravel(), gy.ravel())
+            if self.canal:                                        # a city's channel: straight-sided, one width
+                taper, wob = 1.0, 0.0
+            else:
+                taper = 0.45 + 0.55 * np.clip(t * 6.0, 0, 1)      # source is a trickle, widens downstream
+                wob = 0.5 * _wob(gx.ravel(), gy.ravel())
             s = hws * taper + wob - d
             dd = hwd * taper + wob - d
             if self._ford_xy is not None:

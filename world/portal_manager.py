@@ -793,6 +793,10 @@ class PortalManager:
                 (103, 206): ("Lenswatch", 114, 16),                 # the skiff back: arrive (114,14) on the Roost
                 (90, 156): ("The Golem Vault", 42, 6),              # down into the Kharad's vault: arrive (42,4)
                 (295, 30): ("The Anchorfields", 10, 76),            # east along the aqueduct arm: arrive (10,74)
+                (226, 2): ("Aurelion", 130, 243),                   # up the sky-bridge: arrive (130,241) at the Bridgefoot
+            },
+            "Aurelion": {
+                (130, 246): ("The Celestial Expanse", 226, 9),      # down the sky-bridge: arrive (226,7) at its foot
             },
             "The Anchorfields": {
                 (3, 74): ("The Celestial Expanse", 290, 32),        # back west along the arm: arrive (290,30) on the Spillway

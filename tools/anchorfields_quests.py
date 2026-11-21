@@ -161,8 +161,22 @@ def build():
         "before it eats the thing that's holding the shelf up.",
         "The Third Anchor's stopped slipping. The engineer's been sitting by it all night, just listening.\n\nIt "
         "isn't mended, and it may never be. But it's holding, and I can write to the council and tell them the outer "
-        "rings are safe. Aurelion will open the bridge for you. You've earned it twice over.",
+        "rings are safe. The council will want to thank you in person, and you've earned it twice over.",
         requires_quests=["afq_the_unmoored", "afq_down_to_the_keel"]))
+    A(Q("afq_the_councils_thanks", "The Council's Thanks", SKIFF, 54, 54, "Councilbound",
+        "The Third Anchor is holding, and Warden-Prime Aldric Sorne has written the council his report. The skiffmaster "
+        "at Keelstone has it, and wants you to carry it up the sky-bridge to Gatewarden Tessa Vell at Aurelion's "
+        "Bridgefoot.",
+        [deliver("af_q_prime_report", "Take the Warden-Prime's report to Gatewarden Tessa Vell in Aurelion")],
+        "The Warden-Prime's written the council the whole of it, the keel, the crack and the thing that grew out of "
+        "it, with your name at the top. My skiffs don't fly to the city any more, so it'll have to go by hand. Take it west along the aqueduct arm to the Spillway, and up the sky-bridge into Aurelion. "
+        "Gatewarden Tessa Vell keeps the Bridgefoot, and she'll see it gets to the council.",
+        "The Warden-Prime's seal, and your name at the top of the page. The whole Bridgefoot's been talking about "
+        "you since the skiffs came in.\n\nWelcome to Aurelion. You're the first from the ground to walk across that "
+        "bridge as a guest, and the council would like a look at you.",
+        turn_in_npc_id="au_gate_warden", requires_quests=["afq_the_keel_heart"],
+        grant_items=carry("af_q_prime_report", "The Warden-Prime's Report", "A thick report sealed in the "
+                          "Anchor-Wardens' blue wax, addressed to the Council of the High Houses.")))
     A(Q("afq_links_with_names", "Links With Names", CHAIN, 51, 52, "Chainwright's",
         "Every link in the First Anchor's chains has a name and a wright who forged it. The Chain-Wind Elemental that "
         "scours the chain-field wears the names off.",

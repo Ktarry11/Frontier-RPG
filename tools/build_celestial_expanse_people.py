@@ -71,7 +71,7 @@ AMBIENT = {
                         "The survey's skiff comes and goes from here to Lenswatch, and it flies low and slow now that "
                         "the old stones shoot at anything bright. Mind the gangway, it's newer than the rest of us."),
     # ---- the Last Falls and the Golem Fields
-    "ce_falls_watcher": ("Elder Merek Vale", "aetherian", M, 5, "down",
+    "ce_falls_watcher": ("Elder Merek Vale", "aetherian", M, 4, "down",
                          "I come here to watch the river go over the edge. It's gone over for as long as I've lived, "
                          "but lately I've started counting the islands that go over with it."),
     "ce_golem_scholar": ("Scholar Idris Marrowell", "aetherian", M, 4, "right",
@@ -94,7 +94,7 @@ AMBIENT = {
                          "I spent fifteen years counting humpbacks off Maui, and I thought I'd seen every kind of big "
                          "animal there was. Then one swam past me through a cloud. I've been out here every day since."),
     # ---- Halcyon Rest
-    "ce_keeper": ("Keeper Ithren Lorrow", "aetherian", M, 5, "down",
+    "ce_keeper": ("Keeper Ithren Lorrow", "aetherian", M, 4, "down",
                   "Halcyon Rest has stood on this river since before Aurelion had its outer rings. We feed whoever "
                   "comes down the water, and lately that's mostly people whose homes fell."),
     "ce_skiffmaster": ("Skiffmaster Davin Sorell", "aetherian", M, 2, "left",

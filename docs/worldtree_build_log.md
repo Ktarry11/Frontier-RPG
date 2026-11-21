@@ -449,11 +449,66 @@ backgrounds, exits, chests, start zones, cave smoothing, dungeon packs and boss 
 learned the Anchorfields' Earthborn places. qa_building_overlap's ten older pairs and qa_prop_overlap's 137 are
 unchanged from before this build; the Anchorfields and the Keel add none.
 
+## Aurelion (51-60, the city), built 21 Nov 2026
+
+Kyle, 20 Nov 2026: "Aurelion must look PERFECT and grand", and he chose to build it now, before the Bastions.
+
+**The map** (`tools/handbuilt_worldtree_aurelion.py`, 260x250, a town): rings round the Spire Palace seen from above.
+The palace on its own isle; the Inner Ring in four arcs (the Council Ring north, the Academies east, the Gardens west,
+the Grand Plaza south); the Outer Ring in six (the Bridgefoot south, the Ground Embassy south-east, the Skydocks
+north-east, the North Gate north, the Eighth's Rest north-west, the Trainers' Ring south-west); the Eighth Ring's broken
+stubs past the north-west. The Grand Avenue runs straight from the sky-bridge to the palace stair, with a built channel
+of water down it (the engine's new `canal` rivers: straight-sided, one width) falling off each ring's edge, out of the
+light fountain in the middle of the plaza. Bridges eight to ten tiles wide over every gap. Lamps down the avenue,
+planters and benches round the plaza, braziers at the palace stair, houses filling every outer arc, solid lawns in the
+Gardens and beside the Council Hall (the baker's new `LAWN_PATCHES`), and four landmark islands out in the sky. Every
+tile is reachable from the sky-bridge, and 99.5% of it fits a five-wide body.
+
+**The road in:** the Celestial Expanse's Aurelion Approach (226,2) to the sky-bridge's landing (130,243); the portal is
+open from the start (the Expanse's and the Keel-Heart's text no longer say the bridge is shut). The north road (130,4)
+waits for the start zone.
+
+**People** (`tools/build_aurelion.py`): 32, every Aetherian in an AE-M or AE-W look picked for the job, ten of them
+women: the Bridgefoot's gatewarden, inn, bank, Exchange, mail and skiffs; the herald; the pair of allies from the arc,
+Ilaren Vey and Leandro Arrieta; the Keeper of the Spire; First Speaker Aldren Sorvaine (the faction leader) and the
+councillors of the Patient Lens and of Long Memory; the Academy, the Gardens, the Ground Embassy, the Skydocks, the
+North Gate, the Eighth's Rest; a class trainer and seven trade trainers; the quartermaster.
+
+**The Aetherians' shelf** (`tools/build_aetherians_shelf.py`): Friendly the Academy's Lenslight Draught, Honored a
+pendant and a pattern, Revered six blues and a pattern, Exalted three epics (the Staff of the Patient Lens, the
+Spirewarden's Maul, the Aegis of the Rings) and two recipes, the white-and-gold tabard, and the Lumen Stag at Exalted.
+
+**Quests** (`tools/aurelion_quests.py`, `tools/build_aurelion_quests.py`): 15, and the Anchorfields' hand-off
+(afq_the_councils_thanks, the skiffmaster sends the Warden-Prime's report up to the gatewarden). The council (up the
+avenue to the herald, the eleven-word proclamation, the Ascendancy's own marching orders, a voice for the ground in the
+hall); the Patient Lens (lenses from the Keel, the survey's notes for the Academy); Long Memory (the Spire's doors); the
+allies (the wards' letters to the embassy, the Gardens and grafts from House Vaelith's estate); the Eighth's Rest (soup
+and the memorial); the Skydocks (the Crystal-Weavers stripping the long-haulers). Reputation: the Aetherians 14; the
+Earthborn pay nobody.
+
+**The sky's one mystery, Aurelion's piece:** the Spire Palace, the city's first stone, which the keepers say nobody
+knows who raised. Its doors are cut to a Kharad's height and the ledge under its high windows is set at a Veyr's grip,
+and the hinge plates carry Aetherian masons' marks. The Aetherians built it, for the other two peoples to walk into.
+
+**Recruits:** Tariq Al-Jubouri at the Ground Embassy and Isabela Moura by the Academies (sheet 6, below).
+
+## Sheet 6's recruits, placed 21 Nov 2026
+
+Twelve of the sixteen (`tools/writing/sheet6_recruits.py`, `tools/build_sheet6_recruits.py`), filling the gap at 45
+to 52: Álvaro Ruiz (Venomancer tank, Rootwater Isle), Clara Weiss (Primalist healer, Mossroof), Raúl Castillo
+(Barbarian, the Great Settlement), Federico Lagos (Templar tank, Heartwatch), Connor Walsh (Shaman, Highrest), Mauricio
+Peña (Reaper tank) and Étienne Gagnon (frost Mage) at the Annex, Oliver Hayes (Sun Cleric healer, Lenswatch), Facundo
+Herrera (Chronomancer healer, the Golem Fields) and Renata Rojas (Rogue) in the Expanse, Tariq Al-Jubouri (Bloodmage
+tank) and Isabela Moura (arcane Mage) in Aurelion. Each has a story, a one-line read, and a kit of one passive and
+three abilities on 10 to 15 turn cooldowns, built only from mechanics other kits use. The four for the Aetherian start
+zone (Ines, Lukas, Rafael, Samir) are sliced and wait for it. The 48 Aetherian looks (AE-M, AE-W) are on the race's
+lists in `world/race_registry.py`.
+
 ## Next
 
-The Ascendant Bastions (54-57), then the Fading Firmament (57-60), and then Aurelion, the Aetherian capital, whose
-bridge the Keel-Heart's death earns (Kyle: zones first, "eventually the grand city"). The raids wait. The Aetherian
-start zone is parked until 60 is done (its first two maps are named: the White Expanse, 1-6, and the Shattered
-Reaches, 6-11). The Celestial raid, the Stormhold, is designed for turn-based combat in the brief and waits behind the
-cracked seal until raids are built.
-The Heartwood Hollow is the tree's dungeon when Kyle calls it. See `docs/worldtree_brief.md` for the whole road.
+The Ascendant Bastions (54-57), then the Fading Firmament (57-60). Aurelion stands between them now, with the
+Skydocks' dockmaster pointing at the Bastions. The raids wait. The Aetherian start zone is parked until 60 is done (its
+first two maps are named: the White Expanse, 1-6, and the Shattered Reaches, 6-11), and its four recruits wait with it.
+The Celestial raid, the Stormhold, is designed for turn-based combat in the brief and waits behind the cracked seal
+until raids are built. The Heartwood Hollow is the tree's dungeon when Kyle calls it. See `docs/worldtree_brief.md`
+for the whole road.

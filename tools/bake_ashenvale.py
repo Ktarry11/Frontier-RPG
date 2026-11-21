@@ -780,6 +780,33 @@ ANCHOR_SHEET.update({
     "av_corrupt_ground": _sk("ff_crystal_ash"),
     "av_mossy_cobble":   _sk("ae_engraved_stone"),
 })
+#: Aurelion (sheet AE): a city of white and gold. Slabs with gold lines and white marble everywhere underfoot (the
+#: ground layers that are grass elsewhere), the Grand Avenue and the ring roads in gold-striped avenue marble with
+#: cobbled verges, veined palace marble on the plazas and before the palace ("paved"), the gardens' lawns ("bluebell"),
+#: the Eighth's Rest's worn and cracked paving ("burned"), the glowing channel and the pools in teal tiled water,
+#: white marble on the bridges ("plaza"), and the rim stone where the rings end.
+AURELION_SHEET = dict(EXPANSE_SHEET)
+AURELION_SHEET.update({
+    "av_forest_floor":   _sk("ae_grand_paving"),
+    "av_forest_grass":   _sk("ae_marble_bronze"),
+    "av_fern_floor":     _sk("ae_grand_paving"),
+    "av_root_earth":     _sk("ae_marble_bronze"),
+    "av_needle_mulch":   _sk("ae_grand_paving"),
+    "av_rocky_ground":   _sk("ae_marble_bronze"),
+    "av_lake_mud":       _sk("ae_marble_bronze"),
+    "av_canopy":         _sk("ae_terrace_lawn", extra="canopy"),
+    "av_bluebell":       _sk("ae_terrace_lawn"),
+    "av_road_centre":    _sk("ae_avenue_marble"),
+    "av_road_edge":      _sk("ae_marble_cobbles"),
+    "av_elven_paving":   _sk("ae_palace_marble"),
+    "av_mossy_cobble":   _sk("ae_marble_bronze"),
+    "av_plaza_stone":    _sk("ae_avenue_marble"),
+    "av_scorched":       _sk("ae_cracked_paving"),
+    "av_burned_forest":  _sk("ae_cracked_paving"),
+    "av_lake_shallow":   _sk("ae_gold_pool"),
+    "av_lake_deep":      _sk("ae_reflecting_pool"),
+    "av_stream_bed":     _sk("ae_gold_pool"),
+})
 WPL_SHEET = _plague_sheet(east=False)
 EPL_SHEET = _plague_sheet(east=True)
 ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_SHEET, "epl_east": EPL_SHEET, "felwood_north": NORTH_SHEET, "stonetalon_east": STONETALON_SHEET,
@@ -799,6 +826,7 @@ ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_S
                "worldtree_lenswatch": LENSWATCH_SHEET,
                "worldtree_celestial_expanse": EXPANSE_SHEET,
                "worldtree_anchorfields": ANCHOR_SHEET,
+               "worldtree_aurelion": AURELION_SHEET,
                "worldtree_great_settlement": GREAT_SETTLEMENT_SHEET}
 
 def _recolour(a, hue, sat, val):
@@ -961,6 +989,9 @@ def build_scores(P, M):
     S["mulch"] = 0.12 + 0.80 * smoothstep(0.64, 0.80, n_big2) * (0.4 + 0.6 * (1 - open_land))
     bells = [P.blob(*b, 0.75, wp) for b in getattr(M, "BLUEBELL_PATCHES", [])]
     S["bell"] = 0.05 + 0.95 * (np.maximum.reduce(bells) if bells else 0) * smoothstep(0.30, 0.55, n_fine)
+    lawns = [P.blob(*b, 0.3, wp) for b in getattr(M, "LAWN_PATCHES", [])]   # whole lawns, not flower speckle
+    if lawns:
+        S["bell"] = np.maximum(S["bell"], 0.05 + 1.1 * np.maximum.reduce(lawns))
     rocky_skirt = (1 - smoothstep(0.6, 5.0, d_cliff_out)) * (0.4 + 0.6 * smoothstep(0.3, 0.6, n_mid))
     S["rocky"] = 0.08 + 0.9 * np.maximum(rocky_skirt, smoothstep(0.80, 0.92, n_big2) * 0.7)
 
@@ -1286,7 +1317,7 @@ def main():
     if "--preview" in sys.argv:
         preview = sys.argv[sys.argv.index("--preview") + 1]
     sc = int(sys.argv[sys.argv.index("--scale") + 1]) if "--scale" in sys.argv else 4
-    zone = next((z for z in ("worldtree_anchorfields", "worldtree_celestial_expanse", "worldtree_lenswatch", "worldtree_sunward_crown", "worldtree_cloudbreak", "worldtree_upper_boughs", "worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
+    zone = next((z for z in ("worldtree_aurelion", "worldtree_anchorfields", "worldtree_celestial_expanse", "worldtree_lenswatch", "worldtree_sunward_crown", "worldtree_cloudbreak", "worldtree_upper_boughs", "worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
     only = None
     if "--region" in sys.argv:       # x0,y0,x1,y1 in tiles: bake only the 20x20 chunks touching it (fast look-dev)
         x0, y0, x1, y1 = map(int, sys.argv[sys.argv.index("--region") + 1].split(","))
