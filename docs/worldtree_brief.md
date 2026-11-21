@@ -273,6 +273,7 @@ a tank, a melee and a ranged.
 
 The first two maps have names (Kyle, 20 Nov 2026): **The White Expanse** (1-6) and **The Shattered Reaches** (6-11).
 "Beyond that who knows." The rest of the run down to the 21-24 map at Aurelion's north gate is still to be named.
+**Parked (Kyle, 20 Nov 2026): "We will keep building to 60 for now and ignore the starting zone."**
 
 ## The sky's one mystery (Kyle, 20 Nov 2026)
 
@@ -386,23 +387,58 @@ Kharad set up for later. C has the best politics, though, and the scholar-genera
 **Kyle's direction (20 Nov 2026): "I do want the raid to be very storm and elemental and norse".** That's A's bones,
 rebuilt. The Kharad were always the Cloud Giants, so they become storm-giants: rune-cut longhalls, thunder in the stone,
 shield-walls and skald-songs. The prison is now the **Stormhold**, a giants' hall built round the storm they chained
-under the Crown. The names are Norse in sound only: no real gods or myths are used. Draft roster, waiting on Kyle's
-yes:
-1. **Skarnvald, the Gate-Thane**: a rune-construct still keeping the door. It chains a player every few turns, and the
-   raid breaks the chain before its hammer comes down.
-2. **Hrossa, the Coiled Deep**: a storm-serpent caged for swallowing a city. It breathes in and drags the raid toward
-   its jaws, and whoever reaches them is swallowed and fights their way out from inside.
-3. **The Gale-Skalds**: six Veyr singers bound into one storm. Their song stacks every turn, and killing them out of
-   order heals the rest.
-4. **Thrymgald, the Hail Colossus**: a frost elemental the size of a hall. Hail falls in a marked pattern, and the only
-   cover is its own shield-stones, which it smashes one by one.
-5. **Myrkhild, the Fog-Witch**: a living fog that eats light. The raid keeps the hall's rune-braziers lit or takes
-   stacking shadow.
-6. **Brand and Brimm, the Forge-Twins**: a fire elemental and a frost elemental chained together. Each one's hits leave
-   a mark the other one detonates, and they have to die within a few turns of each other.
-7. **Warden-King Oskhar**: the storm-giant king who locked himself in to hold the seal shut, mad after ages alone. He
-   swings a thunder-maul, uses the powers of every prisoner the raid killed, and the hall's storm gets worse with each
-   phase. He also sets up the Kharad continent for later.
+under the Crown. The names are Norse in sound only: no real gods or myths are used.
+
+**Rebuilt for turn-based combat (Kyle, 20 Nov 2026: "For the raid we do know this is turn based....most of these can't
+actually be abilities").** The first draft leaned on positioning: dragging the raid, hail patterns, cover, braziers.
+None of that exists in a turn-based fight. Every fight below is built only from what a boss kit can carry today
+(`docs/boss_mechanic_catalogue.md`, `entities/monster.py`): hits, party hits, DoTs with a dispel type, stuns, debuff
+riders on its attacks, absorb shields, adds with live and total caps, health-gated abilities, kit or creature phases
+at a health line, and the take-damage hooks (death floor, reflect, damage-to-shield or damage-to-heal by school, a
+low-health shield or heal, DoT immunity). Each one still has the thing that kills you if you ignore it, and it's
+something the party can answer with its turns.
+
+1. **Skarnvald, the Gate-Thane** (rune-construct, physical). *Answer: stop meleeing on cue, and save a defensive.*
+   Every few turns he raises **Shield-Wall**, a buff that reflects melee damage back at whoever hits him, so the melee
+   stop and the casters carry those turns. **Gate-Hammer** stuns his target, and his heavy swing comes round every
+   fourth turn, so the tank's cooldown or a stun-break has to be ready for the turn they line up. At 50% he changes kit (a phase) to swing at the
+   whole front row.
+2. **Hrossa, the Coiled Deep** (storm-serpent, nature). *Answer: heal through the swallow, kill the brood.*
+   **Swallow** stuns one player and heals Hrossa for what it deals (lifesteal), and **Digest**, a heavy DoT, follows
+   it, so the healers race her. **Brood** summons storm-eels (a cap on the number alive and on the total), each one adding
+   chip damage to the party; left alive, they bury the healers. At 40% she sheds her skin: a phase into a faster,
+   meaner creature at full health with a new kit, the second commitment.
+3. **The Gale-Skalds** (six Veyr singers bound into one storm, nature). *Answer: kill the adds, dispel the song,
+   break the ward.* The Skald-Chief calls his singers in (summon, capped on the number alive and on the total, so the
+   choir runs out) and stands behind **Choir-Ward**, a big absorb shield he renews every few turns. Every singer's
+   **Storm-Song** is a magic DoT on the party, so the healers spend turns dispelling and the damage spends turns on
+   singers, then breaks the ward between renewals. Below 30%, **Crescendo** hits the whole party every few turns until
+   he dies.
+4. **Thrymgald, the Hail Colossus** (frost elemental). *Answer: dispel the healing cut, swap off frost.* **Hail** hits
+   the whole party every fourth turn. **Rime** rides his attacks: a magic debuff that cuts healing taken by a third,
+   and a tank left rimed doesn't survive the next Hail, so it's the healers' dispel priority. **Frozen Solid** stuns.
+   Below 30% his **Ice Armour** turns frost damage into an absorb shield on himself, so the frost casters switch
+   schools or feed him.
+5. **Myrkhild, the Fog-Witch** (living fog, shadow). *Answer: curse dispels, school swap, burn at the end.* Her
+   **Fog** rides her attacks and cuts the party's damage dealt; **Lightless** is a curse DoT that has to be dispelled
+   before it ticks big. Shadow damage heals her (damage-to-heal, shadow), so shadow users switch. **Fog-Wisps** come
+   in and drain mana (capped adds). Below 25%, **All the Lights Go Out**: a party-wide shadow DoT every turn, a burn
+   check to the finish.
+6. **Brand and Brimm, the Forge-Twins** (fire elemental and frost elemental, fought together). *Answer: pick each
+   target by school, keep them even.* Fire heals Brand and frost heals Brimm (damage-to-heal by school), so every
+   caster has a right twin to hit and a wrong one. **Seared** and **Chilled** ride their attacks (damage taken up,
+   then healing taken down). Each one has a low-health trigger that heals it back once, the first time it drops under
+   20%, so the raid saves its burst for after that heal on each twin.
+7. **Warden-King Oskhar** (storm-giant king, nature and physical, three phases). *Answer: everything you learned,
+   in order.* He uses the powers of the six before him, a kit phase at each line: from 100% the Gate-Thane's reflecting
+   Shield-Wall and Hrossa's Swallow; from 66% Thrymgald's Rime and Hail and the Twins' Seared; from 33% Myrkhild's
+   Lightless and the Skalds' Crescendo, with Storm-Bound adds called in (capped). At the very end the Stormhold won't let
+   its king fall: a death floor holds him once, and **The Storm Breaks** hits the whole party until the last push kills
+   him. He also sets up the Kharad continent for later.
+
+**What would make it better, and isn't in the engine yet** (the catalogue's Part 4): telegraphed intent (the party
+seeing "Hail next turn"), a boss silencing the healers, row control (pulling someone to the front row), and a boss scaling off its own living adds (the Skalds would want it:
+"takes less damage per singer still up", which the engine can resolve but no boss can author yet). Each is a real build, and each would make these fights read better. None of the seven needs them.
 
 ## Order of work
 
