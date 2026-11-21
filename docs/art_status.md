@@ -10,7 +10,7 @@ again. (RC1 was asked for a second time on 21 Nov off a stale 17 Nov note, thoug
 | Sheet | What | Where | Notes |
 |---|---|---|---|
 | **DH5** | The Sunreach Conclave's faction card redrawn at Firstlight Spire (the tabard and both mounts are already in) | `dawnhaven_art_prompts.md` | Optional. Written 21 Nov; the old Talrendis painting stays until it lands |
-| **Icons** | The Mural Shard's Collection icon, and the keepsake icons for Dawnhaven's three bears and Sheet 6's twelve | not written | They show stand-ins until then |
+| **K4** | The Mural Shard's Collection icon, and the keepsake icons for Dawnhaven's three bears and Sheet 6's twelve | `keepsake_icons_k4_art_prompts.md` | Written 21 Nov. They show stand-ins until then |
 | **WALK** | Walk cycles on the new player sprites | not written | **Parked** (Kyle, 20 Nov: "Walk cycles will come after better sprites") |
 
 ## Delivered and in the game
