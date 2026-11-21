@@ -172,23 +172,26 @@ HEROIC_ONLY = {
     "Zar'gothrax the Unbound": ("hb_unbound_felstaff", "Unbound Felstaff", "main_hand", "weapon", "staff",
                                 "int_caster", "The staff Zar'gothrax was bound with, until he wasn't. The fel "
                                 "crystal still remembers him.", "hb_zargothrax"),
-    "Resonance": ("hb_band_of_three_tones", "Band of Three Tones", "ring", "armor", None, "spi_healer",
-                  "Three thin bands that hum in a chord when they touch. The Cistern's water sang the same note.",
+    "The Thirst": ("hb_band_of_three_tones", "Band of Three Tones", "ring", "armor", None, "spi_healer",
+                   "Three thin bands that hum in a chord when they touch. The Cistern's water sang the same note "
+                   "before the Thirst drank it.",
                   "hb_resonance"),
-    "Pitboss Grebble Vask": ("hb_pitboss_gilded_pick", "Pitboss's Gilded Pick", "main_hand", "weapon", "axe_1h",
-                             "agi_physical", "Grebble never swung it once. He had people for that.",
+    "Glassmaw": ("hb_pitboss_gilded_pick", "Pitboss's Gilded Pick", "main_hand", "weapon", "axe_1h",
+                 "agi_physical", "Grebble dropped it down Glassmaw's throat years ago. It came back out with the rest "
+                 "of Glassmaw.",
                              "hb_grebble_vask"),
-    "Bosun Grell Tarpot": ("hb_tarpots_boarding_pistol", "Tarpot's Boarding Pistol", "ranged", "weapon", "gun",
-                           "agi_physical", "Tarpot's pistol, loaded for one shot and kept that way for years.",
+    "Captain Ardessa Rake": ("hb_rakes_boarding_pistol", "Rake's Boarding Pistol", "ranged", "weapon", "gun",
+                             "agi_physical", "The captain's pistol, loaded for one shot and kept that way for years.",
                            "hb_tarpot"),
     "High Inquisitor Whitemane": ("hb_whitemanes_last_psalter", "Whitemane's Last Psalter", "off_hand", "weapon",
                                   "tome", "spi_healer", "Her prayers, written in her own hand, with every name she "
                                   "ever raised in the margins.", "hb_whitemane"),
-    "The Index": ("hb_cowl_of_the_index", "Cowl of the Index", "head", "armor", "cloth", "int_caster",
-                  "Stitched with the Index's catalogue in letters too small to read without a lens.", "hb_the_index"),
-    "Vek'tar the Unbeaten": ("hb_unbeaten_belt", "Belt of the Unbeaten", "waist", "armor", "plate", "str_physical",
-                             "Vek'tar's champion's belt. He wore it for eleven years, and you're the reason he "
-                             "doesn't now.", "hb_vektar"),
+    "The Deep Bloom": ("hb_bloomwoven_cowl", "Bloomwoven Cowl", "head", "armor", "cloth", "int_caster",
+                       "Stitched with the Index's catalogue in spore-thread that glows whenever you read anything.",
+                       "hb_the_index"),
+    "Jen'shala, the House Favourite": ("hb_belt_of_the_house_favourite", "Belt of the House Favourite", "waist",
+                                       "armor", "plate", "str_physical", "The arena's champion's belt. Jen'shala won "
+                                       "it from Vek'tar and wore it every fight after.", "hb_vektar"),
     "Herod": ("hb_herods_red_axe", "Herod's Red Axe", "main_hand", "weapon", "axe_2h", "str_physical",
               "The Scarlet Champion's axe, lacquered red so the blood wouldn't show.", "hb_herod"),
     "Arcanist Doan": ("hb_doans_scorched_robe", "Doan's Scorched Robe", "chest", "armor", "cloth", "int_caster",
@@ -218,9 +221,9 @@ HEROIC_ONLY = {
     "The Eldest": ("hb_heartwood_staff_of_the_eldest", "Heartwood Staff of the Eldest", "main_hand", "weapon",
                    "staff", "spi_healer", "A limb the Eldest let fall when it was done fighting. It still puts out "
                    "leaves in the spring.", None),
-    "Sergeant-at-Arms Varth": ("hb_varths_gate_shield", "Varth's Gate Shield", "off_hand", "weapon", "shield",
-                               "str_physical", "Durnholde's gate shield. Varth held the door with it for nine "
-                               "years.", None),
+    "Baron Aliden Perenolde": ("hb_perenoldes_gate_shield", "Perenolde's Gate Shield", "off_hand", "weapon",
+                               "shield", "str_physical", "Durnholde's gate shield. The Baron's guard held the door "
+                               "with it for nine years.", None),
     "Aku'mai": ("hb_akumai_scale_leggings", "Aku'mai Scale Leggings", "legs", "armor", "mail", "spi_healer",
                 "Scales off the old hydra, still cold from the deep water.", None),
     "Archmage Arugal": ("hb_arugals_moonlit_wand", "Arugal's Moonlit Wand", "ranged", "weapon", "wand", "int_caster",
@@ -229,15 +232,14 @@ HEROIC_ONLY = {
                         "Silk dipped in the tower's amber and left to set.", None),
     "Alpha Fenris": ("hb_fenris_pelt_cloak", "Fenris Pelt Cloak", "back", "armor", None, "agi_physical",
                      "The alpha's own pelt. The pack still follows whoever wears it, a little way.", None),
-    "Carapace Warden": ("hb_carapace_warden_bracers", "Carapace Warden's Bracers", "wrist", "armor", "plate",
-                        "str_int_hybrid", "Plates of the Warden's shell, fitted to a wrist.", None),
+    "Broodspiral Queen": ("hb_brood_queens_carapace_bracers", "Brood Queen's Carapace Bracers", "wrist", "armor",
+                          "plate", "str_int_hybrid", "Plates of the Queen's shell, fitted to a wrist.", None),
     "Mutanus the Devourer": ("hb_mutanus_dreaming_staff", "Mutanus's Dreaming Staff", "main_hand", "weapon", "staff",
                              "spi_healer", "A druid's staff the Devourer swallowed. It came back out greener.", None),
     "Matriarch Velaxis": ("hb_widowsilk_leggings", "Widowsilk Leggings", "legs", "armor", "cloth", "spi_healer",
                           "Spun from the Matriarch's own silk, which is stronger than anything a loom makes.", None),
-    "Taragaman the Hungerer": ("hb_taragamans_burning_knuckles", "Taragaman's Burning Knuckles", "main_hand",
-                               "weapon", "fist_weapon", "agi_physical", "They're still warm. They're always warm.",
-                               None),
+    "Bazzalan": ("hb_bazzalans_burning_knuckles", "Bazzalan's Burning Knuckles", "main_hand", "weapon",
+                 "fist_weapon", "agi_physical", "They're still warm. They're always warm.", None),
     "Giant Crab": ("hb_grotto_pearl_ring", "Grotto Pearl Ring", "ring", "armor", None, "int_caster",
                    "A black pearl the size of a thumbnail, found inside the crab. Nobody asks how it got there.",
                    None),
@@ -286,7 +288,24 @@ def build_items():
         items[iid] = d
         bad += b
         audit.append((name, slot, kind, typ, mix))
+    keep_off_epics(items)
     return items, bad, audit
+
+
+def keep_off_epics(items):
+    """Every named epic owns its icon (tools/epic_table.py, Kyle: "every unique item in the game can only have ONE
+    icon"), so a piece the palette gave an epic's picture moves to the nearest free one in its pool."""
+    import epic_table as ET
+    from crafted_icon_palette import pool
+    epic = {r[7] for r in ET.WORLD + ET.DUNGEON}
+    mine = {d.get("icon_id") for d in items.values()}
+    for iid, d in items.items():
+        if d.get("icon_id") not in epic:
+            continue
+        free = [c for c in pool(d["slot"], d.get("armor_type"), d.get("weapon_type")) if c not in epic | mine]
+        if free:
+            d["icon_id"] = free[0]
+            mine.add(free[0])
 
 
 def loot_spread(rows):

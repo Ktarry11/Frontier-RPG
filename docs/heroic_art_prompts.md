@@ -32,3 +32,7 @@ order: the Exarch, the Echo of the Queen, Baron Rivendare, Grand Crusader Victor
 Wound's Heart, Grand Crusader Dathrohan, the Warheart, Xavras, the Caldera, Hive-Mother Ahn'thera, Thane Morrun,
 Zar'gothrax, Resonance, Pitboss Grebble Vask, Bosun Grell Tarpot, Whitemane, the Index, Vek'tar, Herod, Arcanist Doan,
 Lord Falconcrest, Zul'keth, Charlga Razorflank, Bloodmage Thalnos and Lord Nightmare (`tools/build_heroic_rewards.py`).
+
+Later the same day the heroic-only items moved to each dungeon's highest-level boss (the rule the fast exits use), so
+five of these icons now belong to a different boss in the same dungeon: the pick to Glassmaw, the pistol to Captain
+Ardessa Rake, the ring to the Thirst, the cowl to the Deep Bloom and the belt to Jen'shala. The file names stay.

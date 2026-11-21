@@ -16,12 +16,12 @@
     "Hive-Mother Ahn'thera": "hb_royal_jelly_wristguards",
     "Thane Morrun the Unmade": "hb_hammer_of_the_unmade_thane",
     "Zar'gothrax the Unbound": "hb_unbound_felstaff",
-    "Resonance": "hb_band_of_three_tones",
-    "Pitboss Grebble Vask": "hb_pitboss_gilded_pick",
-    "Bosun Grell Tarpot": "hb_tarpots_boarding_pistol",
+    "The Thirst": "hb_band_of_three_tones",
+    "Glassmaw": "hb_pitboss_gilded_pick",
+    "Captain Ardessa Rake": "hb_rakes_boarding_pistol",
     "High Inquisitor Whitemane": "hb_whitemanes_last_psalter",
-    "The Index": "hb_cowl_of_the_index",
-    "Vek'tar the Unbeaten": "hb_unbeaten_belt",
+    "The Deep Bloom": "hb_bloomwoven_cowl",
+    "Jen'shala, the House Favourite": "hb_belt_of_the_house_favourite",
     "Herod": "hb_herods_red_axe",
     "Arcanist Doan": "hb_doans_scorched_robe",
     "Lord Falconcrest": "hb_falconcrest_longbow",
@@ -32,15 +32,15 @@
     "Captain Ruel Scuttler": "hb_scuttlers_sea_cutlass",
     "Admiral Hedessa Crane": "hb_admirals_long_coat",
     "The Eldest": "hb_heartwood_staff_of_the_eldest",
-    "Sergeant-at-Arms Varth": "hb_varths_gate_shield",
+    "Baron Aliden Perenolde": "hb_perenoldes_gate_shield",
     "Aku'mai": "hb_akumai_scale_leggings",
     "Archmage Arugal": "hb_arugals_moonlit_wand",
     "Archmage Atiesh": "hb_amberglass_handwraps",
     "Alpha Fenris": "hb_fenris_pelt_cloak",
-    "Carapace Warden": "hb_carapace_warden_bracers",
+    "Broodspiral Queen": "hb_brood_queens_carapace_bracers",
     "Mutanus the Devourer": "hb_mutanus_dreaming_staff",
     "Matriarch Velaxis": "hb_widowsilk_leggings",
-    "Taragaman the Hungerer": "hb_taragamans_burning_knuckles",
+    "Bazzalan": "hb_bazzalans_burning_knuckles",
     "Giant Crab": "hb_grotto_pearl_ring"
   },
   "items": {
@@ -1282,7 +1282,7 @@
       "sell_price": 13709,
       "flavor_text": "Sold by the Frontier Quartermasters for Frontier Marks, and to nobody who hasn't earned them.",
       "identity": "strength",
-      "icon_id": "gear_inv_jewelry_amulet_02",
+      "icon_id": "gear_inv_jewelry_amulet_01",
       "frontier_line": "path",
       "frontier_price": 15,
       "bound": true
@@ -2203,10 +2203,10 @@
       "armor_value": 0,
       "required_level": 60,
       "sell_price": 13709,
-      "flavor_text": "Three thin bands that hum in a chord when they touch. The Cistern's water sang the same note.",
+      "flavor_text": "Three thin bands that hum in a chord when they touch. The Cistern's water sang the same note before the Thirst drank it.",
       "identity": "healer",
       "icon_id": "hb_resonance",
-      "heroic_only": "Resonance",
+      "heroic_only": "The Thirst",
       "bound": true
     },
     "hb_pitboss_gilded_pick": {
@@ -2227,18 +2227,18 @@
       "armor_value": 0,
       "required_level": 60,
       "sell_price": 21706,
-      "flavor_text": "Grebble never swung it once. He had people for that.",
+      "flavor_text": "Grebble dropped it down Glassmaw's throat years ago. It came back out with the rest of Glassmaw.",
       "identity": "agility",
       "icon_id": "hb_grebble_vask",
       "weapon_damage_min": 114,
       "weapon_damage_max": 154,
       "attack_speed": 2.6,
       "block_value": 0,
-      "heroic_only": "Pitboss Grebble Vask",
+      "heroic_only": "Glassmaw",
       "bound": true
     },
-    "hb_tarpots_boarding_pistol": {
-      "name": "Tarpot's Boarding Pistol",
+    "hb_rakes_boarding_pistol": {
+      "name": "Rake's Boarding Pistol",
       "slot": "ranged",
       "item_level": 66,
       "rarity": "rare",
@@ -2255,14 +2255,14 @@
       "armor_value": 0,
       "required_level": 60,
       "sell_price": 18279,
-      "flavor_text": "Tarpot's pistol, loaded for one shot and kept that way for years.",
+      "flavor_text": "The captain's pistol, loaded for one shot and kept that way for years.",
       "identity": "agility",
       "icon_id": "hb_tarpot",
       "weapon_damage_min": 97,
       "weapon_damage_max": 131,
       "attack_speed": 2.6,
       "block_value": 0,
-      "heroic_only": "Bosun Grell Tarpot",
+      "heroic_only": "Captain Ardessa Rake",
       "bound": true
     },
     "hb_whitemanes_last_psalter": {
@@ -2293,8 +2293,8 @@
       "heroic_only": "High Inquisitor Whitemane",
       "bound": true
     },
-    "hb_cowl_of_the_index": {
-      "name": "Cowl of the Index",
+    "hb_bloomwoven_cowl": {
+      "name": "Bloomwoven Cowl",
       "slot": "head",
       "item_level": 66,
       "rarity": "rare",
@@ -2310,14 +2310,14 @@
       "armor_value": 91,
       "required_level": 60,
       "sell_price": 18279,
-      "flavor_text": "Stitched with the Index's catalogue in letters too small to read without a lens.",
+      "flavor_text": "Stitched with the Index's catalogue in spore-thread that glows whenever you read anything.",
       "identity": "caster",
       "icon_id": "hb_the_index",
-      "heroic_only": "The Index",
+      "heroic_only": "The Deep Bloom",
       "bound": true
     },
-    "hb_unbeaten_belt": {
-      "name": "Belt of the Unbeaten",
+    "hb_belt_of_the_house_favourite": {
+      "name": "Belt of the House Favourite",
       "slot": "waist",
       "item_level": 66,
       "rarity": "rare",
@@ -2334,10 +2334,10 @@
       "armor_value": 373,
       "required_level": 60,
       "sell_price": 12567,
-      "flavor_text": "Vek'tar's champion's belt. He wore it for eleven years, and you're the reason he doesn't now.",
+      "flavor_text": "The arena's champion's belt. Jen'shala won it from Vek'tar and wore it every fight after.",
       "identity": "strength",
       "icon_id": "hb_vektar",
-      "heroic_only": "Vek'tar the Unbeaten",
+      "heroic_only": "Jen'shala, the House Favourite",
       "bound": true
     },
     "hb_herods_red_axe": {
@@ -2594,8 +2594,8 @@
       "heroic_only": "The Eldest",
       "bound": true
     },
-    "hb_varths_gate_shield": {
-      "name": "Varth's Gate Shield",
+    "hb_perenoldes_gate_shield": {
+      "name": "Perenolde's Gate Shield",
       "slot": "off_hand",
       "item_level": 66,
       "rarity": "rare",
@@ -2612,14 +2612,14 @@
       "armor_value": 673,
       "required_level": 60,
       "sell_price": 18279,
-      "flavor_text": "Durnholde's gate shield. Varth held the door with it for nine years.",
+      "flavor_text": "Durnholde's gate shield. The Baron's guard held the door with it for nine years.",
       "identity": "shield_tank",
       "icon_id": "gear_inv_shield_02",
       "weapon_damage_min": 0,
       "weapon_damage_max": 0,
       "attack_speed": 0.0,
       "block_value": 78,
-      "heroic_only": "Sergeant-at-Arms Varth",
+      "heroic_only": "Baron Aliden Perenolde",
       "bound": true
     },
     "hb_akumai_scale_leggings": {
@@ -2720,8 +2720,8 @@
       "heroic_only": "Alpha Fenris",
       "bound": true
     },
-    "hb_carapace_warden_bracers": {
-      "name": "Carapace Warden's Bracers",
+    "hb_brood_queens_carapace_bracers": {
+      "name": "Brood Queen's Carapace Bracers",
       "slot": "wrist",
       "item_level": 66,
       "rarity": "rare",
@@ -2738,10 +2738,10 @@
       "armor_value": 359,
       "required_level": 60,
       "sell_price": 11424,
-      "flavor_text": "Plates of the Warden's shell, fitted to a wrist.",
+      "flavor_text": "Plates of the Queen's shell, fitted to a wrist.",
       "identity": "crusader",
       "icon_id": "gear_inv_bracer_12",
-      "heroic_only": "Carapace Warden",
+      "heroic_only": "Broodspiral Queen",
       "bound": true
     },
     "hb_mutanus_dreaming_staff": {
@@ -2796,8 +2796,8 @@
       "heroic_only": "Matriarch Velaxis",
       "bound": true
     },
-    "hb_taragamans_burning_knuckles": {
-      "name": "Taragaman's Burning Knuckles",
+    "hb_bazzalans_burning_knuckles": {
+      "name": "Bazzalan's Burning Knuckles",
       "slot": "main_hand",
       "item_level": 66,
       "rarity": "rare",
@@ -2821,7 +2821,7 @@
       "weapon_damage_max": 154,
       "attack_speed": 1.8,
       "block_value": 0,
-      "heroic_only": "Taragaman the Hungerer",
+      "heroic_only": "Bazzalan",
       "bound": true
     },
     "hb_grotto_pearl_ring": {
