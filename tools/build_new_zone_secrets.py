@@ -30,7 +30,9 @@ WANT = {"Rootwater Isle": 2, "The Lower Boughs": 2, "The Middle Boughs": 2, "The
         # four are all open ground and the drop, with no rock to hide a room in)
         "The Cloudwreck": 1, "The Lost Tepui": 2,
         # a cave under a sky map: no caches of its own wanted here, but a hidden way can be cut into its rock
-        "The Storm-Well": 0}
+        "The Storm-Well": 0,
+        # Dawnhaven, the blood elves' isle (21 Nov 2026)
+        "Amberleaf Glade": 2, "Duskfall Woods": 2}
 
 
 #: maps that stand over a drop (a module with DROP): their collision is mostly the void, and a hidden place cut into

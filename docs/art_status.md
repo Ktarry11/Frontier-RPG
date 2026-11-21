@@ -9,6 +9,7 @@ again. (RC1 was asked for a second time on 21 Nov off a stale 17 Nov note, thoug
 
 | Sheet | What | Where | Notes |
 |---|---|---|---|
+| **DH1-DH3** | Dawnhaven's own look: 24 ground tiles, 24 props, 12 buildings (the isle is built and playable on Azshara and be_ art until then) | `dawnhaven_art_prompts.md` | Written 21 Nov (Kyle: "Existing art now, sheets later") |
 | **SKY-NPC** | The two Crown allies' own figures (Ilaren Vey, Leandro Arrieta) and the Mural Shard's Collection icon | not written | Optional. They wear stock Aetherian and human looks today |
 | **Corvo and Lysse** | The Exarch's two guards in the Ascendant Spire | not written | Optional. They weren't on AB2, so they borrow the stock commander and warden art |
 | **WALK** | Walk cycles on the new player sprites | not written | **Parked** (Kyle, 20 Nov: "Walk cycles will come after better sprites") |

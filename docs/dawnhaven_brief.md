@@ -35,3 +35,54 @@ story of survival, rebirth, and progress."
   up on its shore.
 - **The Conclave's seat.** Velanthe and her quartermaster stand in the Spire now. They still give no quests, so either
   can move again.
+
+## What was built (21 Nov 2026)
+
+| Piece | Where |
+|---|---|
+| Amberleaf Glade (150x130, 1-6) | `tools/handbuilt_dawnhaven_amberleaf.py`, baked to `assets/tiles/dawnhaven/baked_amberleaf` |
+| Duskfall Woods (160x140, 5-9) | `tools/handbuilt_dawnhaven_duskfall.py`, baked to `assets/tiles/dawnhaven/baked_duskfall` |
+| Firstlight Spire (104x92, the town) | `tools/handbuilt_firstlight_spire.py`, baked by `tools/bake_ashenvale_towns.py firstlight_spire` |
+| The four caves | `tools/handbuilt_dawnhaven_caves.py`, baked by `tools/bake_dawnhaven_caves.py` |
+| Creatures, rares, cave bosses, loot, gathering, fishing | `tools/build_dawnhaven_content.py` |
+| People, services, the flight path, the Conclave's move, the recruits | `tools/build_dawnhaven_people.py` |
+| Quests | `tools/dawnhaven_quests.py` (text), `tools/build_dawnhaven_quests.py` (builder and audits) |
+
+**The island.** Amberleaf Glade is the south: the Waking Shore's beach where you wake, Amberwatch (the Conclave's camp
+in the old outpost's ruined gatehouse), Leafwhisper Grove's gold woods, Amberleaf Mere, the Fallen Wardstones, Brinecoil
+Cove where the naga landed, and the Silent Barrow, the outpost's burial ground. Duskfall Woods is the north, redder and
+under a lower sun: Dawnrest (the old waystation with its roof back on), the Red Hollow, Duskmere, the Wildmana Thicket,
+Saltspine Shore with the naga's main camp, the Withered Spires (the outpost's inner quarter) and the Lightwell Court.
+The Spire road climbs the headland to Firstlight Spire, whose pier sends the boat to Durotar's north-east coast.
+
+**The caves** (Kyle: "Stop making every cave a circle"): Brinecoil Grotto (3-5) is a slanting sea inlet with a ledge
+on each bank and two crossings; the Quiet Vault (5-6) is a square-built crypt, a nave and a cloister of four straight
+walks round the ossuary; Saltspine Hollow (7-9) is sea terraces stepping down to a throne pool, a ramp down each side;
+the Lightwell Deep (8-9) is the outpost's own underworks, square rooms round a long conduit hall, with the font chamber
+above.
+
+**The story** (Kyle: "A story of survival, rebirth, and progress"), 35 quests:
+- *Survival* (Amberleaf Glade): you wake on the shore and Ranger-Captain Saelis Dawnbrook takes you up to Amberwatch.
+  Food (Apothecary Thaelen), shelter (Rosa Quintero, a carpenter from Valparaiso), safety (Goldmane in the grove, Old
+  Barnacle on the shore). Magistrix Iriel wakes the first of the broken wardstones with you; Scout Kaelen finds the
+  naga were sent to find the hidden island, and you end Tidecaller Sszelith in Brinecoil Grotto; Priestess Aldaria
+  gathers the dead's names, and you put Warden Isilien to rest in the Quiet Vault. Saelis sends you north.
+- *Rebirth* (Duskfall Woods): Lightwarden Selanne wants the outpost back, and the Lightwell in its heart is dark.
+  Huntress Lyra's hunt and the Hollow King; Magister Aeron's spilled magic, which didn't spill but ran from something;
+  Scout Nerys finds the naga's way under Saltspine Shore, and you end Sea-Witch Ilthessa; Commander Halion
+  Brightspear, still on watch with his dead garrison, gathers the spirit lanterns. Archivist Lorethas went down under
+  the well and fed the outpost's dead to the hunger there to keep it quiet; you end him, then the Starved Light, and the
+  Lightwell burns. Halion's garrison goes out with the lanterns at dawn, and he goes last.
+- *Progress* (Firstlight Spire): the spire lights for the first time in a thousand years, Spire-Keeper Lorien opens a
+  room for everyone the sea gives up, and Joost Achterberg (a harbour pilot from Rotterdam) takes you on the first
+  crossing to Durotar with the Conclave's letter to Orgrimmar.
+
+**The people.** Velanthe and Sylvaen moved from Talrendis Landing to the Spire's Conclave Hall (no quests, still
+movable). The Spire has the inn, the island's one flight path (dragonhawks), MerchantTusk's bank, a mailbox, a class
+trainer and four pairs of trade trainers; Amberwatch has a class trainer and the gathering trainers. Recruits: Liam
+Hartigan (Sun Cleric healer) on the Waking Shore, and Haruto Nakamura (Runemaster) copying runes at the Withered Spires.
+
+**The air** (`docs/environment_effects_art_prompts.md`): autumn god rays, leaf shadow and falling leaves in the Glade;
+dusk light and red leaves in Duskfall; a gold bloom and motes in the Spire; bubbles, wisps and arcane motes in the caves.
+
+**Secrets:** four, placed blind (counts only). Chests on both open maps.

@@ -7,6 +7,12 @@ seems broken again, the guard named beside it is the first place to look.
 
 Secrets stay counts and names only here too.
 
+## 21 Nov 2026
+
+| Was | Fixed by | Guarded by |
+|---|---|---|
+| The blood elves had no home, and the Sunreach Conclave's leader waited in Talrendis Landing for an island | Dawnhaven (docs/dawnhaven_brief.md): Amberleaf Glade 1-6, Duskfall Woods 5-9, four caves, Firstlight Spire with the boat to Durotar, 35 quests; Velanthe and her quartermaster moved to the Spire | `qa_start_zones`, `qa_portals`, `tools/build_dawnhaven_quests.py`'s audits, the movable check in `tools/build_dawnhaven_people.py` |
+
 ## 20 Nov 2026
 
 | Was | Fixed by | Guarded by |

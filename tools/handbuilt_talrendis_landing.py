@@ -103,9 +103,8 @@ NPC_POSITIONS = {
     # the orcs' high ground
     "tl_overseer":           (66, 19),    # Orgrimmar's man in charge of the dig, where he can see all of it
     "tl_smith":              (94, 44),    # the forge
-    # the Sunreach Conclave's lakeshore, west (the magister and the quartermaster give no quests: they move later)
-    "tl_sunreach_magister":  (28, 51),
-    "tl_sunreach_quartermaster": (21, 61),
+    # the Sunreach Conclave's lakeshore, west: its field camp. Grand Magister Velanthe and her quartermaster moved home
+    # to Firstlight Spire on Dawnhaven (21 Nov 2026, tools/build_dawnhaven_people.py)
     # the mess by the water
     "tl_provisioner":        (53, 64),
     # the quest pass's people (tools/build_talrendis_landing.py, 18 Nov 2026; docs/azshara_quest_plan.md)

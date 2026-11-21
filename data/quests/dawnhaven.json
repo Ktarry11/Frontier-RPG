@@ -1,0 +1,3099 @@
+{
+  "quests": [
+    {
+      "quest_id": "dhq_strange_shore",
+      "title": "A Strange Shore",
+      "giver_npc_id": "dh_saelis",
+      "zone": "amberleaf_glade",
+      "level_min": 1,
+      "level_max": 2,
+      "description": "You woke on the Waking Shore with sand in your mouth. Ranger-Captain Saelis Dawnbrook meets everyone the sea gives up, and the Tideshell Crabs are picking at the people who haven't got up yet.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Tideshell Crab",
+          "count": 6,
+          "zone": "amberleaf_glade"
+        }
+      ],
+      "accept_text": "Breathe slowly, you're all right. You're on Dawnhaven, an island off Azshara, and you're not the first to wake up on this beach. The Tideshell Crabs come up the sand after anyone who's lying still. Drive them off while I check the others, and then we'll get you somewhere warm.",
+      "turn_in_text": "That's the beach clear, and you're steadier on your feet than most.\n\nI've walked this shore every morning for a year. Some mornings there's nobody. Some mornings there are three. Nobody knows why, and I've stopped asking, and started counting instead.",
+      "next_quest_id": "dhq_up_to_amberwatch",
+      "reward_exp": 140,
+      "reward_gold": 100,
+      "unique_item_defs": [
+        {
+          "name": "Shorewalker's Mantle",
+          "slot": "shoulder",
+          "item_level": 3,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {},
+          "armor_value": 3,
+          "required_level": 1,
+          "sell_price": 18,
+          "identity": "caster",
+          "icon_id": "gear_inv_shoulder_27"
+        },
+        {
+          "name": "Shorewalker's Breeches",
+          "slot": "legs",
+          "item_level": 3,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 2
+          },
+          "secondary_stats": {},
+          "armor_value": 7,
+          "required_level": 1,
+          "sell_price": 23,
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_03"
+        },
+        {
+          "name": "Shorewalker's Vambraces",
+          "slot": "wrist",
+          "item_level": 3,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 1
+          },
+          "secondary_stats": {},
+          "armor_value": 12,
+          "required_level": 1,
+          "sell_price": 12,
+          "identity": "tank",
+          "icon_id": "gear_inv_bracer_07"
+        }
+      ],
+      "gear_reward_gear_level": 3,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_up_to_amberwatch",
+      "title": "Up to Amberwatch",
+      "giver_npc_id": "dh_saelis",
+      "zone": "amberleaf_glade",
+      "level_min": 1,
+      "level_max": 2,
+      "description": "Saelis wants you up the path to Amberwatch, the Sunreach Conclave's camp in the old outpost's gatehouse. Magistrix Iriel Brightleaf runs it, and she'll want your name.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "dh_q_saelis_note",
+          "count": 1,
+          "label": "Take Saelis's note to Magistrix Iriel at Amberwatch"
+        }
+      ],
+      "accept_text": "Amberwatch is up the path, in what's left of the outpost's old gatehouse. Take this note to Magistrix Iriel Brightleaf. It says you're one of mine and you can walk, which is more than I write for most.",
+      "turn_in_text": "One of Saelis's, are you? Then welcome to Amberwatch.\n\nThis was an elven outpost once, a long time before any of us. The Conclave took it back last year, after we lost the spires of Quel'Thalas. It's a ruin, but it's our ruin, and there's room in it for you.",
+      "next_quest_id": null,
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "dh_q_saelis_note",
+            "name": "Saelis's Note",
+            "description": "A folded note in a neat ranger's hand: one more off the shore, walking, and asking sensible questions.",
+            "count": 1
+          }
+        ]
+      },
+      "turn_in_npc_id": "dh_iriel",
+      "requires_quests": [
+        "dhq_strange_shore"
+      ],
+      "reward_exp": 140,
+      "reward_gold": 100,
+      "unique_item_defs": [
+        {
+          "name": "Newcomer's Shield",
+          "slot": "off_hand",
+          "item_level": 3,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 1
+          },
+          "secondary_stats": {},
+          "armor_value": 23,
+          "required_level": 1,
+          "sell_price": 18,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_shield_13",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 2
+        },
+        {
+          "name": "Newcomer's Greaves",
+          "slot": "feet",
+          "item_level": 3,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 1
+          },
+          "secondary_stats": {},
+          "armor_value": 8,
+          "required_level": 1,
+          "sell_price": 15,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_01"
+        },
+        {
+          "name": "Newcomer's Robe",
+          "slot": "chest",
+          "item_level": 3,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 2
+          },
+          "secondary_stats": {},
+          "armor_value": 3,
+          "required_level": 1,
+          "sell_price": 23,
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_shirt_13"
+        }
+      ],
+      "gear_reward_gear_level": 3,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_wyrms_at_the_wards",
+      "title": "Wyrms at the Wards",
+      "giver_npc_id": "dh_iriel",
+      "zone": "amberleaf_glade",
+      "level_min": 2,
+      "level_max": 3,
+      "description": "The outpost's founders ringed Dawnhaven with wardstones that hid it from the sea. They're broken now, and the Ward-Drinker Wyrms are feeding on what's left of the magic in them.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Ward-Drinker Wyrm",
+          "count": 8,
+          "zone": "amberleaf_glade"
+        }
+      ],
+      "accept_text": "Those wardstones east of here hid this island for a thousand years. They're broken, and the Ward-Drinker Wyrms are drinking what little power is left in them. Clear the wyrms off the Fallen Wardstones before they drain the stones dry.",
+      "turn_in_text": "The stones are quiet again. They're weak, but they're still there, and that's something.\n\nIf I can wake even one of them, the island stops shouting its whereabouts to everything at sea. I've got an idea how.",
+      "next_quest_id": "dhq_leaf_hearts",
+      "reward_exp": 200,
+      "reward_gold": 350,
+      "unique_item_defs": [
+        {
+          "name": "Wardkeeper's Shield",
+          "slot": "off_hand",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {},
+          "armor_value": 31,
+          "required_level": 2,
+          "sell_price": 34,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_18",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 3
+        },
+        {
+          "name": "Wardkeeper's Breeches",
+          "slot": "legs",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {},
+          "armor_value": 10,
+          "required_level": 2,
+          "sell_price": 42,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_07"
+        },
+        {
+          "name": "Wardkeeper's Gloves",
+          "slot": "hands",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {},
+          "armor_value": 3,
+          "required_level": 2,
+          "sell_price": 27,
+          "identity": "arcane",
+          "icon_id": "gear_inv_gauntlets_20"
+        }
+      ],
+      "gear_reward_gear_level": 4,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_leaf_hearts",
+      "title": "Hearts of the Wood",
+      "giver_npc_id": "dh_iriel",
+      "zone": "amberleaf_glade",
+      "level_min": 3,
+      "level_max": 4,
+      "description": "The magic that fed the wardstones has soaked into the woods round them, and some of the trees have got up and walked. Iriel wants what's in their hearts.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "dh_q_leaf_heart",
+          "count": 5
+        }
+      ],
+      "accept_text": "The ward magic didn't just vanish when the stones broke. It soaked into the trees, and some of them woke up. Every Amberwood Wanderer has a Leaf-Heart in it, a knot of the old magic. Bring me some, and I'll give it back to the stones it came from.",
+      "turn_in_text": "Feel how warm they are. That's the founders' magic, still there after a thousand years.\n\nThere's enough here to wake one stone. Come with me, I'd like you to be the one who sets them.",
+      "next_quest_id": "dhq_the_first_stone",
+      "requires_quests": [
+        "dhq_wyrms_at_the_wards"
+      ],
+      "reward_exp": 260,
+      "reward_gold": 600,
+      "unique_item_defs": [
+        {
+          "name": "Leafwarden's Spear",
+          "slot": "main_hand",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 5
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 3,
+          "sell_price": 84,
+          "identity": "strength",
+          "icon_id": "gear_inv_spear_03",
+          "weapon_damage_min": 17,
+          "weapon_damage_max": 24,
+          "attack_speed": 3.3,
+          "block_value": 0
+        },
+        {
+          "name": "Leafwarden's Hood",
+          "slot": "head",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 3
+          },
+          "secondary_stats": {},
+          "armor_value": 5,
+          "required_level": 3,
+          "sell_price": 54,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_01"
+        },
+        {
+          "name": "Leafwarden's Grips",
+          "slot": "hands",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 2
+          },
+          "secondary_stats": {},
+          "armor_value": 8,
+          "required_level": 3,
+          "sell_price": 44,
+          "identity": "feral",
+          "icon_id": "gear_inv_gauntlets_14"
+        }
+      ],
+      "gear_reward_gear_level": 5,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_the_first_stone",
+      "title": "The First Stone",
+      "giver_npc_id": "dh_iriel",
+      "zone": "amberleaf_glade",
+      "level_min": 4,
+      "level_max": 5,
+      "description": "Iriel has the Leaf-Hearts ready. She wants them set in the broken wardstone at the heart of the Fallen Wardstones, to see if it will wake.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "amberleaf_glade",
+          "target_x": 116,
+          "target_y": 55,
+          "radius": 4,
+          "label": "Set the Leaf-Hearts in the broken wardstone"
+        }
+      ],
+      "accept_text": "Take the Leaf-Hearts to the wardstone in the middle of the ring, the one with the crack down its face, and press them into the crack. If I've got this right it'll wake. If I haven't, step back quickly.",
+      "turn_in_text": "I felt it from here. It's burning again, one stone out of a ring of nine.\n\nIt won't hide the island on its own, not yet. But it's the first thing on Dawnhaven we've made work again instead of just living in the ruins of. I'll remember who lit it.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "dhq_leaf_hearts"
+      ],
+      "reward_exp": 320,
+      "reward_gold": 850,
+      "unique_item_defs": [
+        {
+          "name": "Stonewaker's Legguards",
+          "slot": "legs",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 24,
+          "required_level": 4,
+          "sell_price": 99,
+          "identity": "storm",
+          "icon_id": "gear_inv_pants_08"
+        },
+        {
+          "name": "Stonewaker's Cloak",
+          "slot": "back",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {},
+          "armor_value": 4,
+          "required_level": 4,
+          "sell_price": 54,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_16"
+        },
+        {
+          "name": "Stonewaker's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 3
+          },
+          "secondary_stats": {},
+          "armor_value": 30,
+          "required_level": 4,
+          "sell_price": 79,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_23"
+        }
+      ],
+      "gear_reward_gear_level": 6,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_supper",
+      "title": "Supper at Amberwatch",
+      "giver_npc_id": "dh_thaelen",
+      "zone": "amberleaf_glade",
+      "level_min": 2,
+      "level_max": 3,
+      "description": "Apothecary Thaelen feeds Amberwatch as well as tending it, and there are more mouths every week. The Sunmane Boars in Leafwhisper Grove are fat on the autumn mast.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "dh_q_boar_haunch",
+          "count": 6
+        }
+      ],
+      "accept_text": "Every new arrival eats like they haven't eaten in a week, and most of them haven't. The Sunmane Boars in Leafwhisper Grove are fat this time of year. Bring me some haunches and Amberwatch eats well tonight.",
+      "turn_in_text": "That's a proper supper. You'll get the first plate, you've earned it.\n\nThe first night here is always the worst. A hot meal and a fire with people round it does more for them than anything in my bag.",
+      "next_quest_id": null,
+      "reward_exp": 200,
+      "reward_gold": 350,
+      "unique_item_defs": [
+        {
+          "name": "Cook's Staff",
+          "slot": "main_hand",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 2,
+          "sell_price": 53,
+          "identity": "agility",
+          "icon_id": "gear_inv_staff_32",
+          "weapon_damage_min": 16,
+          "weapon_damage_max": 21,
+          "attack_speed": 3.6,
+          "block_value": 0
+        },
+        {
+          "name": "Cook's Belt",
+          "slot": "waist",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 2
+          },
+          "secondary_stats": {},
+          "armor_value": 6,
+          "required_level": 2,
+          "sell_price": 23,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_03"
+        },
+        {
+          "name": "Cook's Band",
+          "slot": "ring",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 1
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 2,
+          "sell_price": 25,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_ring_14"
+        }
+      ],
+      "gear_reward_gear_level": 4,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_goldmane",
+      "title": "Goldmane",
+      "giver_npc_id": "dh_thaelen",
+      "zone": "amberleaf_glade",
+      "level_min": 4,
+      "level_max": 5,
+      "description": "A great gold lynx the scouts call Goldmane has started taking people at the edge of the grove at dusk. Thaelen has patched up the ones who got away.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Goldmane",
+          "count": 1,
+          "zone": "amberleaf_glade"
+        }
+      ],
+      "accept_text": "There's a lynx in Leafwhisper Grove the scouts call Goldmane, bigger than any cat has a right to be. It's started taking newcomers who wander off at dusk. I've stitched up two who were lucky. Please find it before it finds a third.",
+      "turn_in_text": "Goldmane's dead at last. I'll tell the newcomers they can walk to the mere again without looking over their shoulders.\n\nIt was a beautiful animal. Most of the dangerous ones are.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "dhq_supper"
+      ],
+      "reward_exp": 320,
+      "reward_gold": 850,
+      "unique_item_defs": [
+        {
+          "name": "Goldmane Breastplate",
+          "slot": "chest",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 36,
+          "required_level": 4,
+          "sell_price": 99,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_chest_plate16"
+        },
+        {
+          "name": "Goldmane Slippers",
+          "slot": "feet",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {},
+          "armor_value": 5,
+          "required_level": 4,
+          "sell_price": 64,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_plate_08"
+        },
+        {
+          "name": "Goldmane Wristguards",
+          "slot": "wrist",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 3
+          },
+          "secondary_stats": {},
+          "armor_value": 16,
+          "required_level": 4,
+          "sell_price": 50,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_bracer_12"
+        }
+      ],
+      "gear_reward_gear_level": 6,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_roofs",
+      "title": "Roofs Before the Rain",
+      "giver_npc_id": "dh_rosa",
+      "zone": "amberleaf_glade",
+      "level_min": 2,
+      "level_max": 3,
+      "description": "Rosa Quintero woke on the shore a year ago and started building the day after. Amberwatch's roofs leak, and the autumn rains are coming. Lynx pelts make good thatch-liners.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "dh_q_lynx_pelt",
+          "count": 5
+        }
+      ],
+      "accept_text": "I built houses in Valparaiso for twenty-two years, and I know a roof that won't last a storm when I see one. The Amberleaf Lynx pelts are thick and they shed water. Bring me some and I'll line the worst roofs before the rain comes.",
+      "turn_in_text": "These are good pelts. Those roofs will hold now, or at least they'll leak somewhere I can live with.\n\nBack home I'd have had tiles and a crew. Here I've got pelts and whoever walks up the path. I like the people better.",
+      "next_quest_id": "dhq_old_barnacle",
+      "reward_exp": 200,
+      "reward_gold": 350,
+      "unique_item_defs": [
+        {
+          "name": "Roofer's Longbow",
+          "slot": "ranged",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 1
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 2,
+          "sell_price": 34,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_09",
+          "weapon_damage_min": 10,
+          "weapon_damage_max": 13,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Roofer's Coif",
+          "slot": "head",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {},
+          "armor_value": 13,
+          "required_level": 2,
+          "sell_price": 34,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_64"
+        },
+        {
+          "name": "Roofer's Leggings",
+          "slot": "legs",
+          "item_level": 4,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 2
+          },
+          "secondary_stats": {},
+          "armor_value": 5,
+          "required_level": 2,
+          "sell_price": 42,
+          "identity": "caster",
+          "icon_id": "gear_inv_pants_10"
+        }
+      ],
+      "gear_reward_gear_level": 4,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_old_barnacle",
+      "title": "Old Barnacle",
+      "giver_npc_id": "dh_rosa",
+      "zone": "amberleaf_glade",
+      "level_min": 3,
+      "level_max": 4,
+      "description": "Rosa keeps a pile of driftwood timber on the Waking Shore, and a great old crab the newcomers call Old Barnacle has moved into it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Old Barnacle",
+          "count": 1,
+          "zone": "amberleaf_glade"
+        }
+      ],
+      "accept_text": "I keep my good driftwood in a pile on the beach, and a crab the size of a cart's moved into it. The newcomers call it Old Barnacle. It took a finger off the last person who tried to fetch me a plank. Please evict it, permanently.",
+      "turn_in_text": "My timber is mine again. I'll have a new floor in the mess hall by the end of the week.\n\nYou know what the best part of this place is? Everything I build here is the first one. Nobody's ever done it before.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "dhq_roofs"
+      ],
+      "reward_exp": 260,
+      "reward_gold": 600,
+      "unique_item_defs": [
+        {
+          "name": "Barnacle Knife",
+          "slot": "main_hand",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 2
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 3,
+          "sell_price": 64,
+          "identity": "agility",
+          "icon_id": "gear_inv_weapon_shortblade_02",
+          "weapon_damage_min": 13,
+          "weapon_damage_max": 17,
+          "attack_speed": 1.7,
+          "block_value": 0
+        },
+        {
+          "name": "Barnacle Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 3
+          },
+          "secondary_stats": {},
+          "armor_value": 10,
+          "required_level": 3,
+          "sell_price": 54,
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_06"
+        },
+        {
+          "name": "Barnacle Sabatons",
+          "slot": "feet",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 2
+          },
+          "secondary_stats": {},
+          "armor_value": 20,
+          "required_level": 3,
+          "sell_price": 44,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_06"
+        }
+      ],
+      "gear_reward_gear_level": 5,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_naga_landing",
+      "title": "The Naga Landing",
+      "giver_npc_id": "dh_kaelen",
+      "zone": "amberleaf_glade",
+      "level_min": 3,
+      "level_max": 4,
+      "description": "Naga have come ashore in Brinecoil Cove, in the island's south-east. Scout Kaelen Swiftarrow has been watching them, and he wants them pushed back into the sea.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Brinecoil Scout",
+          "count": 6,
+          "zone": "amberleaf_glade"
+        },
+        {
+          "type": "kill",
+          "target": "Brinecoil Siren",
+          "count": 4,
+          "zone": "amberleaf_glade"
+        }
+      ],
+      "accept_text": "Naga came ashore in Brinecoil Cove a month ago, and they've been coming further inland every week since. Their Brinecoil Scouts walk the beach, and the Brinecoil Sirens sing to the sea all night. Push them back before they reach the camp.",
+      "turn_in_text": "They've pulled back to the water's edge. They'll come again, but they'll think about it first.\n\nThey're not raiding. They're looking for something. I'd like to know what.",
+      "next_quest_id": "dhq_orders",
+      "reward_exp": 260,
+      "reward_gold": 600,
+      "unique_item_defs": [
+        {
+          "name": "Covewatcher's Tome",
+          "slot": "off_hand",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 2
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 3,
+          "sell_price": 41,
+          "identity": "healer",
+          "icon_id": "gear_inv_tome_1",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        },
+        {
+          "name": "Covewatcher's Handguards",
+          "slot": "hands",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 2
+          },
+          "secondary_stats": {},
+          "armor_value": 20,
+          "required_level": 3,
+          "sell_price": 44,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_12"
+        },
+        {
+          "name": "Covewatcher's Girdle",
+          "slot": "waist",
+          "item_level": 5,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 2
+          },
+          "secondary_stats": {},
+          "armor_value": 13,
+          "required_level": 3,
+          "sell_price": 37,
+          "identity": "hunter",
+          "icon_id": "gear_inv_belt_33"
+        }
+      ],
+      "gear_reward_gear_level": 5,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_orders",
+      "title": "Orders in the Brine",
+      "giver_npc_id": "dh_kaelen",
+      "zone": "amberleaf_glade",
+      "level_min": 4,
+      "level_max": 5,
+      "description": "Kaelen thinks the naga in Brinecoil Cove are under orders. Their sirens carry sealed shell tablets, and he wants one.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "dh_q_brinecoil_orders",
+          "count": 1
+        }
+      ],
+      "accept_text": "Every so often one of the Brinecoil Sirens comes out of their cave with a sealed shell tablet. Those are orders, I'd bet my bow on it. Bring me one, and Iriel can read naga script.",
+      "turn_in_text": "Iriel read it to me. They were sent to find the island the wardstones hid, and to report what's on it.\n\nThey've found us. Their tidecaller in the grotto is the one sending the reports back, and that has to stop.",
+      "next_quest_id": "dhq_tidecaller",
+      "requires_quests": [
+        "dhq_naga_landing"
+      ],
+      "reward_exp": 320,
+      "reward_gold": 850,
+      "unique_item_defs": [
+        {
+          "name": "Orderbreaker's Mace",
+          "slot": "main_hand",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 3
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 4,
+          "sell_price": 94,
+          "identity": "healer",
+          "icon_id": "gear_inv_mace_12",
+          "weapon_damage_min": 14,
+          "weapon_damage_max": 19,
+          "attack_speed": 2.6,
+          "block_value": 0
+        },
+        {
+          "name": "Orderbreaker's Jerkin",
+          "slot": "chest",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 15,
+          "required_level": 4,
+          "sell_price": 99,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_02"
+        },
+        {
+          "name": "Orderbreaker's Pendant",
+          "slot": "neck",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 2
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 4,
+          "sell_price": 59,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_amulet_01"
+        }
+      ],
+      "gear_reward_gear_level": 6,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_tidecaller",
+      "title": "The Tidecaller",
+      "giver_npc_id": "dh_kaelen",
+      "zone": "amberleaf_glade",
+      "level_min": 5,
+      "level_max": 5,
+      "description": "Tidecaller Sszelith sends the naga's reports back to the sea from the altar at the head of Brinecoil Grotto. Kaelen wants her stopped before anything bigger comes to answer them.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Tidecaller Sszelith",
+          "count": 1,
+          "zone": "brinecoil_grotto"
+        },
+        {
+          "type": "kill",
+          "target": "Brinecoil Raider",
+          "count": 5,
+          "zone": "brinecoil_grotto"
+        }
+      ],
+      "accept_text": "Tidecaller Sszelith keeps an altar at the far end of Brinecoil Grotto, up the inlet, and she sends every scrap her scouts learn back out to sea. Fight past her Brinecoil Raiders and end her. Take friends, because she won't be alone.",
+      "turn_in_text": "The altar's quiet and the reports have stopped. Whatever sent them will have to come looking on its own now.\n\nYou've bought us time. On this island, time is the thing we're shortest of.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "dhq_orders"
+      ],
+      "reward_exp": 416,
+      "reward_gold": 1105,
+      "unique_item_defs": [
+        {
+          "name": "Tidebreaker's Greatsword",
+          "slot": "main_hand",
+          "item_level": 7,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 9
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 5,
+          "sell_price": 257,
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_16",
+          "weapon_damage_min": 27,
+          "weapon_damage_max": 37,
+          "attack_speed": 3.4,
+          "block_value": 0
+        },
+        {
+          "name": "Tidebreaker's Bracers",
+          "slot": "wrist",
+          "item_level": 7,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 15,
+          "required_level": 5,
+          "sell_price": 103,
+          "identity": "agility",
+          "icon_id": "gear_inv_bracer_13"
+        },
+        {
+          "name": "Tidebreaker's Hood",
+          "slot": "head",
+          "item_level": 7,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {},
+          "armor_value": 9,
+          "required_level": 5,
+          "sell_price": 164,
+          "identity": "caster",
+          "icon_id": "gear_inv_helmet_64"
+        }
+      ],
+      "gear_reward_gear_level": 7,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "dhq_restless",
+      "title": "The Restless Watch",
+      "giver_npc_id": "dh_aldaria",
+      "zone": "amberleaf_glade",
+      "level_min": 4,
+      "level_max": 5,
+      "description": "Priestess Aldaria keeps the names of the outpost's dead at Amberwatch. At the Silent Barrow up the north-west road, those dead are walking their old rounds and attacking anyone who comes near.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Restless Sentinel",
+          "count": 6,
+          "zone": "amberleaf_glade"
+        },
+        {
+          "type": "kill",
+          "target": "Forlorn Spirit",
+          "count": 4,
+          "zone": "amberleaf_glade"
+        }
+      ],
+      "accept_text": "The outpost buried its own at the Silent Barrow, up the north-west road, and they don't rest. The Restless Sentinels still walk their rounds, and the Forlorn Spirits wail among the stones. Give them some peace, even if it's only for a night.",
+      "turn_in_text": "It's quieter up there tonight. I could hear it from here.\n\nThey're not wicked, you understand. They're still on duty. Nobody ever came to relieve them.",
+      "next_quest_id": "dhq_names",
+      "reward_exp": 320,
+      "reward_gold": 850,
+      "unique_item_defs": [
+        {
+          "name": "Watchwarden's Hauberk",
+          "slot": "chest",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 24,
+          "required_level": 4,
+          "sell_price": 99,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_11"
+        },
+        {
+          "name": "Watchwarden's Sash",
+          "slot": "waist",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {},
+          "armor_value": 5,
+          "required_level": 4,
+          "sell_price": 54,
+          "identity": "caster",
+          "icon_id": "gear_inv_belt_14"
+        },
+        {
+          "name": "Watchwarden's Sabatons",
+          "slot": "feet",
+          "item_level": 6,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 3
+          },
+          "secondary_stats": {},
+          "armor_value": 25,
+          "required_level": 4,
+          "sell_price": 64,
+          "identity": "tank",
+          "icon_id": "gear_inv_boots_05"
+        }
+      ],
+      "gear_reward_gear_level": 6,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_names",
+      "title": "Names for the Stone",
+      "giver_npc_id": "dh_aldaria",
+      "zone": "amberleaf_glade",
+      "level_min": 5,
+      "level_max": 6,
+      "description": "Aldaria wants the outpost's dead remembered by name. Every Restless Sentinel still wears a silver badge with its name cut into the back.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "dh_q_sentinel_badge",
+          "count": 6
+        }
+      ],
+      "accept_text": "The Restless Sentinels still wear their badges, and every badge has a name cut into it. I'd like those names back. When the dead are remembered properly, they rest easier, and I mean to carve every one into the stone here.",
+      "turn_in_text": "These names haven't been spoken in a thousand years. I'll read them out tonight, every one.\n\nOne badge is different. It's the warden's, the one who sealed the vault under the barrow with herself inside. She's the one keeping the others awake.",
+      "next_quest_id": "dhq_warden",
+      "requires_quests": [
+        "dhq_restless"
+      ],
+      "reward_exp": 380,
+      "reward_gold": 1100,
+      "unique_item_defs": [
+        {
+          "name": "Rememberer's Grips",
+          "slot": "hands",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 3
+          },
+          "secondary_stats": {},
+          "armor_value": 12,
+          "required_level": 5,
+          "sell_price": 89,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_15"
+        },
+        {
+          "name": "Rememberer's Spaulders",
+          "slot": "shoulder",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 23,
+          "required_level": 5,
+          "sell_price": 110,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_shoulder_12"
+        },
+        {
+          "name": "Rememberer's Pendant",
+          "slot": "neck",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 5,
+          "sell_price": 82,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_amulet_03"
+        }
+      ],
+      "gear_reward_gear_level": 7,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_warden",
+      "title": "The Warden's Rest",
+      "giver_npc_id": "dh_aldaria",
+      "zone": "amberleaf_glade",
+      "level_min": 6,
+      "level_max": 6,
+      "description": "Warden Isilien sealed herself into the Quiet Vault under the Silent Barrow when the outpost fell, to keep its dead safe. She's still keeping them, and she won't let them go.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Warden Isilien",
+          "count": 1,
+          "zone": "the_quiet_vault"
+        },
+        {
+          "type": "kill",
+          "target": "Bone-Bound Guard",
+          "count": 4,
+          "zone": "the_quiet_vault"
+        }
+      ],
+      "accept_text": "Warden Isilien sealed the Quiet Vault with herself inside when the outpost fell, and she's held its dead there ever since. She's not cruel. She just doesn't know the war's over. Go down past the Bone-Bound Guards to her tomb and let her rest.",
+      "turn_in_text": "I felt them go, all at once, like a held breath let out.\n\nShe kept faith with them for a thousand years. I hope someone keeps faith with us that long. Thank you for being gentle with her.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "dhq_names"
+      ],
+      "reward_exp": 494,
+      "reward_gold": 1430,
+      "unique_item_defs": [
+        {
+          "name": "Wardenbreaker's Cloak",
+          "slot": "back",
+          "item_level": 8,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 8,
+          "required_level": 6,
+          "sell_price": 150,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_15"
+        },
+        {
+          "name": "Wardenbreaker's Cuffs",
+          "slot": "wrist",
+          "item_level": 8,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 5
+          },
+          "secondary_stats": {},
+          "armor_value": 9,
+          "required_level": 6,
+          "sell_price": 136,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_16"
+        },
+        {
+          "name": "Wardenbreaker's Legplates",
+          "slot": "legs",
+          "item_level": 8,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 7
+          },
+          "secondary_stats": {},
+          "armor_value": 63,
+          "required_level": 6,
+          "sell_price": 272,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_06"
+        }
+      ],
+      "gear_reward_gear_level": 8,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "dhq_road_north",
+      "title": "The Road North",
+      "giver_npc_id": "dh_saelis",
+      "zone": "amberleaf_glade",
+      "level_min": 6,
+      "level_max": 6,
+      "description": "Amberwatch is safe now, or safer. Saelis wants you to carry word up the Duskfall road to Lightwarden Selanne at Dawnrest, where the real work of putting the outpost back has begun.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "dh_q_glade_report",
+          "count": 1,
+          "label": "Take the Glade's report to Lightwarden Selanne at Dawnrest"
+        }
+      ],
+      "accept_text": "You've done more for Amberwatch in a few days than most do in a season. There's a waystation north of here called Dawnrest, and Lightwarden Selanne is trying to wake the whole outpost, not just the camp. Take her my report, and take yourself with it.",
+      "turn_in_text": "Saelis sent you? Then you're the one who lit the wardstone and put the warden to rest. Welcome to Dawnrest.\n\nSurviving was the first thing. Now we find out whether this place can be a home.",
+      "next_quest_id": null,
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "dh_q_glade_report",
+            "name": "The Glade's Report",
+            "description": "Saelis's report on Amberwatch: one wardstone burning, the cove quiet, the barrow at rest, and one newcomer worth sending north.",
+            "count": 1
+          }
+        ]
+      },
+      "turn_in_npc_id": "dh_selanne",
+      "requires_quests": [
+        "dhq_tidecaller",
+        "dhq_warden"
+      ],
+      "reward_exp": 380,
+      "reward_gold": 1100,
+      "unique_item_defs": [
+        {
+          "name": "Wayfarer's Cap",
+          "slot": "head",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 14,
+          "required_level": 6,
+          "sell_price": 110,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_63"
+        },
+        {
+          "name": "Wayfarer's Band",
+          "slot": "ring",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 3
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 6,
+          "sell_price": 82,
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_ring_17"
+        },
+        {
+          "name": "Wayfarer's Gauntlets",
+          "slot": "hands",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 3
+          },
+          "secondary_stats": {},
+          "armor_value": 19,
+          "required_level": 6,
+          "sell_price": 89,
+          "identity": "earthen",
+          "icon_id": "gear_inv_gauntlets_03"
+        }
+      ],
+      "gear_reward_gear_level": 7,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_dawnrest_stands",
+      "title": "Dawnrest Stands",
+      "giver_npc_id": "dh_selanne",
+      "zone": "duskfall_woods",
+      "level_min": 5,
+      "level_max": 6,
+      "description": "Dawnrest is the outpost's old waystation, and the Conclave has only just got its roof back on. The woods round it have run wild in the thousand years it stood empty.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Duskfall Prowler",
+          "count": 6,
+          "zone": "duskfall_woods"
+        },
+        {
+          "type": "kill",
+          "target": "Leafweaver Spider",
+          "count": 5,
+          "zone": "duskfall_woods"
+        }
+      ],
+      "accept_text": "We put the roof back on Dawnrest a month ago, and the woods haven't decided whether to let us keep it. The Duskfall Prowlers circle the camp at night, and the Leafweaver Spiders string webs across the road. Show the woods we're staying.",
+      "turn_in_text": "The road's clear and the night watch can sit down for once.\n\nEvery wall we raise here is a wall the woods spent a thousand years taking down. We're taking it back one wall at a time.",
+      "next_quest_id": "dhq_the_dark_well",
+      "reward_exp": 380,
+      "reward_gold": 1100,
+      "unique_item_defs": [
+        {
+          "name": "Waystation Staff",
+          "slot": "main_hand",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 5,
+          "sell_price": 171,
+          "identity": "caster",
+          "icon_id": "gear_inv_staff_11",
+          "weapon_damage_min": 8,
+          "weapon_damage_max": 11,
+          "attack_speed": 3.2,
+          "block_value": 0
+        },
+        {
+          "name": "Waystation Jerkin",
+          "slot": "chest",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 5
+          },
+          "secondary_stats": {},
+          "armor_value": 17,
+          "required_level": 5,
+          "sell_price": 137,
+          "identity": "strength",
+          "icon_id": "gear_inv_chest_leather_08"
+        },
+        {
+          "name": "Waystation Waistguard",
+          "slot": "waist",
+          "item_level": 7,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {},
+          "armor_value": 29,
+          "required_level": 5,
+          "sell_price": 75,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_belt_26"
+        }
+      ],
+      "gear_reward_gear_level": 7,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_the_dark_well",
+      "title": "The Dark Well",
+      "giver_npc_id": "dh_selanne",
+      "zone": "duskfall_woods",
+      "level_min": 6,
+      "level_max": 7,
+      "description": "Selanne wants you to see what she's trying to save: the Lightwell in the court beyond the Withered Spires, which fed the whole outpost once and has been dark for a thousand years.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "duskfall_woods",
+          "target_x": 124,
+          "target_y": 59,
+          "radius": 4,
+          "label": "Look into the dark Lightwell"
+        }
+      ],
+      "accept_text": "The Lightwell is east of here, past the Withered Spires, in its own court. It fed this whole outpost with light and magic once. Go and look at it, and tell me what you feel when you stand over it. I want to know if it's just me.",
+      "turn_in_text": "So you felt it too, cold, and like something underneath was looking back up at you.\n\nIt's not just dark, then. Something underneath is taking the light as fast as the well makes it. We'll need to find out what.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "dhq_dawnrest_stands"
+      ],
+      "reward_exp": 440,
+      "reward_gold": 1350,
+      "unique_item_defs": [
+        {
+          "name": "Wellseeker's Mantle",
+          "slot": "shoulder",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {},
+          "armor_value": 8,
+          "required_level": 6,
+          "sell_price": 145,
+          "identity": "caster",
+          "icon_id": "gear_inv_shoulder_12"
+        },
+        {
+          "name": "Wellseeker's Breeches",
+          "slot": "legs",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 20,
+          "required_level": 6,
+          "sell_price": 181,
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_wolf"
+        },
+        {
+          "name": "Wellseeker's Vambraces",
+          "slot": "wrist",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 33,
+          "required_level": 6,
+          "sell_price": 91,
+          "identity": "tank",
+          "icon_id": "gear_inv_bracer_10"
+        }
+      ],
+      "gear_reward_gear_level": 8,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_hollow_hunt",
+      "title": "The Hollow Hunt",
+      "giver_npc_id": "dh_lyra",
+      "zone": "duskfall_woods",
+      "level_min": 6,
+      "level_max": 7,
+      "description": "Huntress Lyra Swiftbough feeds Dawnrest from the Red Hollow, west of the camp. This autumn the bears have come down bold and the prowlers with them.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Hollow Bear",
+          "count": 6,
+          "zone": "duskfall_woods"
+        },
+        {
+          "type": "kill",
+          "target": "Duskfall Prowler",
+          "count": 4,
+          "zone": "duskfall_woods"
+        }
+      ],
+      "accept_text": "The Red Hollow feeds Dawnrest, if it's hunted properly. This year the Hollow Bears have come down bold, and the Duskfall Prowlers follow them for the scraps. Thin them out so my hunters can work.",
+      "turn_in_text": "That's a hunt worth the name. My people can go back into the Hollow without counting their friends first.\n\nSomething's made them bold. The wild magic in the thicket, I think. Everything on this island is a little wrong since the well went dark.",
+      "next_quest_id": "dhq_leafweaver_silk",
+      "reward_exp": 440,
+      "reward_gold": 1350,
+      "unique_item_defs": [
+        {
+          "name": "Hollowhunter's Shield",
+          "slot": "off_hand",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 62,
+          "required_level": 6,
+          "sell_price": 145,
+          "identity": "haste_caster",
+          "icon_id": "gear_inv_shield_19",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 7
+        },
+        {
+          "name": "Hollowhunter's Greaves",
+          "slot": "feet",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 22,
+          "required_level": 6,
+          "sell_price": 118,
+          "identity": "hunter",
+          "icon_id": "gear_inv_boots_06"
+        },
+        {
+          "name": "Hollowhunter's Robe",
+          "slot": "chest",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 4,
+            "intellect": 2
+          },
+          "secondary_stats": {},
+          "armor_value": 10,
+          "required_level": 6,
+          "sell_price": 181,
+          "identity": "spirit_healer",
+          "icon_id": "gear_inv_shirt_08"
+        }
+      ],
+      "gear_reward_gear_level": 8,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_leafweaver_silk",
+      "title": "Leafweaver Silk",
+      "giver_npc_id": "dh_lyra",
+      "zone": "duskfall_woods",
+      "level_min": 6,
+      "level_max": 7,
+      "description": "Lyra's hunters need bowstrings and snares, and Leafweaver silk is the strongest thread on the island.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "dh_q_leafweaver_silk",
+          "count": 6
+        }
+      ],
+      "accept_text": "Leafweaver silk makes the best bowstrings I've ever drawn, and the best snares. The Leafweaver Spiders in the Red Hollow are thick with it. Bring me some, and I'll string every bow in Dawnrest.",
+      "turn_in_text": "That's lovely silk, red as the leaves. I'll have new strings on every bow by morning.\n\nThe old outpost's hunters used this same silk. We found their snares in the Hollow, still set.",
+      "next_quest_id": "dhq_hollow_king",
+      "requires_quests": [
+        "dhq_hollow_hunt"
+      ],
+      "reward_exp": 440,
+      "reward_gold": 1350,
+      "unique_item_defs": [
+        {
+          "name": "Silkweaver's Shield",
+          "slot": "off_hand",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "shield",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 62,
+          "required_level": 6,
+          "sell_price": 145,
+          "identity": "shield_tank",
+          "icon_id": "gear_inv_shield_06",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 7
+        },
+        {
+          "name": "Silkweaver's Breeches",
+          "slot": "legs",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 4,
+            "agility": 2
+          },
+          "secondary_stats": {},
+          "armor_value": 20,
+          "required_level": 6,
+          "sell_price": 181,
+          "identity": "bear",
+          "icon_id": "gear_inv_pants_02"
+        },
+        {
+          "name": "Silkweaver's Gloves",
+          "slot": "hands",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 6,
+          "required_level": 6,
+          "sell_price": 118,
+          "identity": "arcane",
+          "icon_id": "gear_inv_gauntlets_02"
+        }
+      ],
+      "gear_reward_gear_level": 8,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_hollow_king",
+      "title": "The Hollow King",
+      "giver_npc_id": "dh_lyra",
+      "zone": "duskfall_woods",
+      "level_min": 7,
+      "level_max": 8,
+      "description": "The bears of the Red Hollow follow one old giant the hunters call Ruddy, the Hollow King. Lyra thinks the Hollow won't settle while he rules it.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Ruddy, the Hollow King",
+          "count": 1,
+          "zone": "duskfall_woods"
+        }
+      ],
+      "accept_text": "There's a bear in the Red Hollow the hunters call Ruddy, the Hollow King, old and huge and clever. Every bear in the Hollow follows him, and he's leading them closer to Dawnrest every week. End his reign before he brings it to our door.",
+      "turn_in_text": "The Hollow King is dead. The bears will scatter, and the Hollow will settle.\n\nI'll make a cloak of his hide for the hunter who brought him down, which is you. Wear it where the bears can see it.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "dhq_leafweaver_silk"
+      ],
+      "reward_exp": 500,
+      "reward_gold": 1600,
+      "unique_item_defs": [
+        {
+          "name": "Hollow King's Spear",
+          "slot": "main_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "polearm",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 9
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 7,
+          "sell_price": 290,
+          "identity": "strength",
+          "icon_id": "gear_inv_spear_01",
+          "weapon_damage_min": 24,
+          "weapon_damage_max": 32,
+          "attack_speed": 3.3,
+          "block_value": 0
+        },
+        {
+          "name": "Hollow King's Hood",
+          "slot": "head",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 5
+          },
+          "secondary_stats": {},
+          "armor_value": 9,
+          "required_level": 7,
+          "sell_price": 186,
+          "identity": "healer",
+          "icon_id": "gear_inv_helmet_12"
+        },
+        {
+          "name": "Hollow King's Grips",
+          "slot": "hands",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 15,
+          "required_level": 7,
+          "sell_price": 151,
+          "identity": "feral",
+          "icon_id": "gear_inv_gauntlets_18"
+        }
+      ],
+      "gear_reward_gear_level": 9,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_spilled_light",
+      "title": "Spilled Light",
+      "giver_npc_id": "dh_aeron",
+      "zone": "duskfall_woods",
+      "level_min": 6,
+      "level_max": 7,
+      "description": "When the Lightwell went dark, the outpost's magic spilled out into the woods. Magister Aeron Ashveil says some of it has woken in the Wildmana Thicket north of Dawnrest.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Wildmana Sprite",
+          "count": 7,
+          "zone": "duskfall_woods"
+        },
+        {
+          "type": "kill",
+          "target": "Wildmana Elemental",
+          "count": 4,
+          "zone": "duskfall_woods"
+        }
+      ],
+      "accept_text": "The Lightwell's magic didn't vanish when it went dark. It spilled out into the woods, and in the Wildmana Thicket north of here it woke up. The Wildmana Sprites and the Wildmana Elementals there are the outpost's own magic gone feral. Calm them, before they spread.",
+      "turn_in_text": "The thicket's calmer. I can feel the difference from here, like a ringing in the ears that's stopped.\n\nThey weren't evil, just lost. Magic needs somewhere to go. This magic used to go into the well.",
+      "next_quest_id": "dhq_shards",
+      "reward_exp": 440,
+      "reward_gold": 1350,
+      "unique_item_defs": [
+        {
+          "name": "Spillwarden's Legguards",
+          "slot": "legs",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 32,
+          "required_level": 6,
+          "sell_price": 181,
+          "identity": "storm",
+          "icon_id": "gear_inv_pants_03"
+        },
+        {
+          "name": "Spillwarden's Cloak",
+          "slot": "back",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 3
+          },
+          "secondary_stats": {},
+          "armor_value": 6,
+          "required_level": 6,
+          "sell_price": 100,
+          "identity": "caster",
+          "icon_id": "gear_inv_misc_cape_18"
+        },
+        {
+          "name": "Spillwarden's Pauldrons",
+          "slot": "shoulder",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 5
+          },
+          "secondary_stats": {},
+          "armor_value": 40,
+          "required_level": 6,
+          "sell_price": 145,
+          "identity": "strength",
+          "icon_id": "gear_inv_shoulder_12"
+        }
+      ],
+      "gear_reward_gear_level": 8,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_shards",
+      "title": "Shards of the Old Magic",
+      "giver_npc_id": "dh_aeron",
+      "zone": "duskfall_woods",
+      "level_min": 7,
+      "level_max": 8,
+      "description": "Aeron wants to know why the Lightwell's magic spilled instead of fading. The Wildmana Elementals carry hard shards of it at their cores.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "dh_q_spilled_shard",
+          "count": 5
+        }
+      ],
+      "accept_text": "Every Wildmana Elemental carries a Shard of Spilled Light at its core, the old magic pressed hard. Bring me some. If I can read them, I can tell you why the well's magic ran out into the woods instead of just going out.",
+      "turn_in_text": "I've read them, and I don't like what they say. The magic didn't spill because the well broke. It ran away.\n\nSomething under the well is hungry, and the magic ran from it. And there's more. Someone down there has been working with old elven ink.",
+      "next_quest_id": "dhq_last_magister",
+      "requires_quests": [
+        "dhq_spilled_light"
+      ],
+      "reward_exp": 500,
+      "reward_gold": 1600,
+      "unique_item_defs": [
+        {
+          "name": "Shardbearer's Staff",
+          "slot": "main_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 9
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 7,
+          "sell_price": 290,
+          "identity": "agility",
+          "icon_id": "gear_inv_staff_30",
+          "weapon_damage_min": 24,
+          "weapon_damage_max": 32,
+          "attack_speed": 3.6,
+          "block_value": 0
+        },
+        {
+          "name": "Shardbearer's Belt",
+          "slot": "waist",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 15,
+          "required_level": 7,
+          "sell_price": 128,
+          "identity": "agility",
+          "icon_id": "gear_inv_belt_35"
+        },
+        {
+          "name": "Shardbearer's Band",
+          "slot": "ring",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 7,
+          "sell_price": 139,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_ring_08"
+        }
+      ],
+      "gear_reward_gear_level": 9,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_saltspine_camp",
+      "title": "The Saltspine Camp",
+      "giver_npc_id": "dh_scout_nerys",
+      "zone": "duskfall_woods",
+      "level_min": 6,
+      "level_max": 7,
+      "description": "The naga have their main camp on Saltspine Shore, on the island's north-west coast. Scout Nerys Duskmantle has been counting their sentries for three days.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Saltspine Warrior",
+          "count": 6,
+          "zone": "duskfall_woods"
+        },
+        {
+          "type": "kill",
+          "target": "Saltspine Siren",
+          "count": 4,
+          "zone": "duskfall_woods"
+        }
+      ],
+      "accept_text": "That's the naga's main camp down there on Saltspine Shore. The Saltspine Warriors hold the beach and the Saltspine Sirens sing to something under the water. Break their sentry line so I can get closer.",
+      "turn_in_text": "Their line's broken and they're scrambling. I can see the whole beach now.\n\nThey don't go into the sea at night. They go down. There's a way under the shore.",
+      "next_quest_id": "dhq_where_they_go",
+      "reward_exp": 440,
+      "reward_gold": 1350,
+      "unique_item_defs": [
+        {
+          "name": "Saltspine Breastplate",
+          "slot": "chest",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 48,
+          "required_level": 6,
+          "sell_price": 181,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_chest_plate12"
+        },
+        {
+          "name": "Saltspine Slippers",
+          "slot": "feet",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 6,
+          "required_level": 6,
+          "sell_price": 118,
+          "identity": "caster",
+          "icon_id": "gear_inv_boots_plate_02"
+        },
+        {
+          "name": "Saltspine Wristguards",
+          "slot": "wrist",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 22,
+          "required_level": 6,
+          "sell_price": 91,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_bracer_16"
+        }
+      ],
+      "gear_reward_gear_level": 8,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_where_they_go",
+      "title": "Where the Naga Go",
+      "giver_npc_id": "dh_scout_nerys",
+      "zone": "duskfall_woods",
+      "level_min": 7,
+      "level_max": 7,
+      "description": "Nerys has seen the naga go down somewhere under Saltspine Shore at night. She wants the way found, and word taken to Magister Aeron at Dawnrest.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "duskfall_woods",
+          "target_x": 22,
+          "target_y": 38,
+          "radius": 4,
+          "label": "Find where the naga go under Saltspine Shore"
+        },
+        {
+          "type": "deliver",
+          "target": "dh_q_nerys_sketch",
+          "count": 1,
+          "label": "Take Nerys's sketch of the camp to Magister Aeron at Dawnrest"
+        }
+      ],
+      "accept_text": "The naga go down under the shore at night, near the rocks at the north end. Find the way in, then take my sketch of the camp to Magister Aeron at Dawnrest. If there's magic involved, he'll know what it means.",
+      "turn_in_text": "A temple door under the beach, and sirens singing down into it. And look here, on her sketch. They're carrying shards like the ones in the thicket.\n\nThe naga have a sea-witch down there, and she's feeding on the same spilled magic.",
+      "next_quest_id": null,
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "dh_q_nerys_sketch",
+            "name": "Nerys's Sketch",
+            "description": "A charcoal sketch of the Saltspine camp, every sentry marked, and a note in the corner: they carry glowing stones down.",
+            "count": 1
+          }
+        ]
+      },
+      "turn_in_npc_id": "dh_aeron",
+      "requires_quests": [
+        "dhq_saltspine_camp"
+      ],
+      "reward_exp": 440,
+      "reward_gold": 1350,
+      "unique_item_defs": [
+        {
+          "name": "Tracker's Longbow",
+          "slot": "ranged",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "bow",
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 3
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 7,
+          "sell_price": 145,
+          "identity": "hunter",
+          "icon_id": "gear_inv_weapon_bow_05",
+          "weapon_damage_min": 14,
+          "weapon_damage_max": 19,
+          "attack_speed": 2.8,
+          "block_value": 0
+        },
+        {
+          "name": "Tracker's Coif",
+          "slot": "head",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {},
+          "armor_value": 27,
+          "required_level": 7,
+          "sell_price": 145,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_helmet_07"
+        },
+        {
+          "name": "Tracker's Leggings",
+          "slot": "legs",
+          "item_level": 8,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 10,
+          "required_level": 7,
+          "sell_price": 181,
+          "identity": "caster",
+          "icon_id": "gear_inv_pants_01"
+        }
+      ],
+      "gear_reward_gear_level": 8,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_sea_witch",
+      "title": "The Sea-Witch",
+      "giver_npc_id": "dh_aeron",
+      "zone": "duskfall_woods",
+      "level_min": 9,
+      "level_max": 9,
+      "description": "Sea-Witch Ilthessa holds the throne pool at the bottom of Saltspine Hollow, drinking the outpost's spilled magic and sending the naga out for more.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Sea-Witch Ilthessa",
+          "count": 1,
+          "zone": "saltspine_hollow"
+        },
+        {
+          "type": "kill",
+          "target": "Saltspine Myrmidon",
+          "count": 5,
+          "zone": "saltspine_hollow"
+        }
+      ],
+      "accept_text": "Sea-Witch Ilthessa sits on a throne at the bottom of Saltspine Hollow, down the terraces under the shore, and she's drinking the magic the Lightwell lost. Fight down past her Saltspine Myrmidons and end her. Take friends, because she won't be alone.",
+      "turn_in_text": "She's gone, and the shards she'd gathered are lying cold on the throne. I'll bring them back up.\n\nThat's one thing that was feeding on the island finished. The other is under the well.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "dhq_where_they_go"
+      ],
+      "reward_exp": 728,
+      "reward_gold": 2405,
+      "unique_item_defs": [
+        {
+          "name": "Witchbreaker's Knife",
+          "slot": "main_hand",
+          "item_level": 11,
+          "rarity": "rare",
+          "armor_type": null,
+          "weapon_type": "dagger",
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 7
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 9,
+          "sell_price": 504,
+          "identity": "agility",
+          "icon_id": "gear_inv_throwingknife_05",
+          "weapon_damage_min": 26,
+          "weapon_damage_max": 36,
+          "attack_speed": 1.7,
+          "block_value": 0
+        },
+        {
+          "name": "Witchbreaker's Shoulderpads",
+          "slot": "shoulder",
+          "item_level": 11,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 6,
+            "intellect": 2
+          },
+          "secondary_stats": {},
+          "armor_value": 67,
+          "required_level": 9,
+          "sell_price": 424,
+          "identity": "healer",
+          "icon_id": "gear_inv_shoulder_07"
+        },
+        {
+          "name": "Witchbreaker's Sabatons",
+          "slot": "feet",
+          "item_level": 11,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 7
+          },
+          "secondary_stats": {},
+          "armor_value": 61,
+          "required_level": 9,
+          "sell_price": 345,
+          "identity": "strength",
+          "icon_id": "gear_inv_boots_wolf"
+        }
+      ],
+      "gear_reward_gear_level": 11,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "dhq_last_watch",
+      "title": "The Last Watch",
+      "giver_npc_id": "dh_halion",
+      "zone": "duskfall_woods",
+      "level_min": 7,
+      "level_max": 8,
+      "description": "Commander Halion Brightspear held the outpost when it fell, and he still holds it, a spirit in the Withered Spires. His garrison is still with him, and they've forgotten who they're fighting.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "Unresting Guardian",
+          "count": 6,
+          "zone": "duskfall_woods"
+        },
+        {
+          "type": "kill",
+          "target": "Withered Magister",
+          "count": 4,
+          "zone": "duskfall_woods"
+        }
+      ],
+      "accept_text": "My garrison is still at their posts, but a thousand years has worn them thin. The Unresting Guardians attack anything that moves, and the Withered Magisters cast at shadows. Put them down. They'd thank you, if there were enough of them left to.",
+      "turn_in_text": "It's quiet in the spires, the way it was before the end.\n\nI remember their names, every one. I don't remember my own wife's face any more, but I remember their names.",
+      "next_quest_id": "dhq_spirit_lanterns",
+      "reward_exp": 500,
+      "reward_gold": 1600,
+      "unique_item_defs": [
+        {
+          "name": "Lastwatch Tome",
+          "slot": "off_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "tome",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 5
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 7,
+          "sell_price": 139,
+          "identity": "healer",
+          "icon_id": "gear_inv_tome_2",
+          "weapon_damage_min": 0,
+          "weapon_damage_max": 0,
+          "attack_speed": 0.0,
+          "block_value": 0
+        },
+        {
+          "name": "Lastwatch Handguards",
+          "slot": "hands",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 37,
+          "required_level": 7,
+          "sell_price": 151,
+          "identity": "tank",
+          "icon_id": "gear_inv_gauntlets_15"
+        },
+        {
+          "name": "Lastwatch Girdle",
+          "slot": "waist",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 25,
+          "required_level": 7,
+          "sell_price": 128,
+          "identity": "hunter",
+          "icon_id": "gear_inv_belt_30"
+        }
+      ],
+      "gear_reward_gear_level": 9,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_spirit_lanterns",
+      "title": "Lanterns for the Lost",
+      "giver_npc_id": "dh_halion",
+      "zone": "duskfall_woods",
+      "level_min": 8,
+      "level_max": 8,
+      "description": "Halion's dead carried spirit lanterns on their rounds. He wants the lanterns gathered, so that when the time comes, his garrison can find its way out of the dark.",
+      "objectives": [
+        {
+          "type": "fetch",
+          "target": "dh_q_spirit_lantern",
+          "count": 5
+        }
+      ],
+      "accept_text": "The Withered Magisters still carry the spirit lanterns we used on night rounds. When the well's lit, and I think you'll light it, my people will need those lanterns to find their way. Gather them, please.",
+      "turn_in_text": "Five small lights. It's enough to lead them out.\n\nThere's something you should know. When the well went dark, our archivist went down into the works under it and never came back up. If anyone knows what's down there, it's him.",
+      "next_quest_id": "dhq_grieving_lady",
+      "requires_quests": [
+        "dhq_last_watch"
+      ],
+      "reward_exp": 500,
+      "reward_gold": 1600,
+      "unique_item_defs": [
+        {
+          "name": "Lanternbearer's Mace",
+          "slot": "main_hand",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "mace_1h",
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 5
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 8,
+          "sell_price": 220,
+          "identity": "healer",
+          "icon_id": "gear_inv_mace_09",
+          "weapon_damage_min": 18,
+          "weapon_damage_max": 24,
+          "attack_speed": 2.6,
+          "block_value": 0
+        },
+        {
+          "name": "Lanternbearer's Jerkin",
+          "slot": "chest",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 4,
+            "intellect": 2
+          },
+          "secondary_stats": {},
+          "armor_value": 22,
+          "required_level": 8,
+          "sell_price": 232,
+          "identity": "wildheart",
+          "icon_id": "gear_inv_chest_leather_05"
+        },
+        {
+          "name": "Lanternbearer's Pendant",
+          "slot": "neck",
+          "item_level": 9,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 8,
+          "sell_price": 139,
+          "identity": "strength",
+          "icon_id": "gear_inv_jewelry_amulet_04"
+        }
+      ],
+      "gear_reward_gear_level": 9,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_grieving_lady",
+      "title": "The Grieving Lady",
+      "giver_npc_id": "dh_halion",
+      "zone": "duskfall_woods",
+      "level_min": 8,
+      "level_max": 9,
+      "description": "A spirit walks the Withered Spires weeping, and her grief turns the living cold. Halion knew her, once.",
+      "objectives": [
+        {
+          "type": "kill",
+          "target": "The Grieving Lady",
+          "count": 1,
+          "zone": "duskfall_woods"
+        }
+      ],
+      "accept_text": "There's a spirit in the Withered Spires the scouts call the Grieving Lady. She was our healer. She lost everyone she tried to save the night the outpost fell, and she's never stopped weeping for them. End her grief, please, gently.",
+      "turn_in_text": "She's quiet now. I hope she's found them, wherever they are.\n\nThank you. I couldn't do it myself. I tried, a hundred times, and every time I heard her I put my sword down.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "dhq_spirit_lanterns"
+      ],
+      "reward_exp": 560,
+      "reward_gold": 1850,
+      "unique_item_defs": [
+        {
+          "name": "Mourner's Greatsword",
+          "slot": "main_hand",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "sword_2h",
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 10
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 8,
+          "sell_price": 362,
+          "identity": "strength",
+          "icon_id": "gear_inv_sword_42",
+          "weapon_damage_min": 25,
+          "weapon_damage_max": 35,
+          "attack_speed": 3.4,
+          "block_value": 0
+        },
+        {
+          "name": "Mourner's Bracers",
+          "slot": "wrist",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 5
+          },
+          "secondary_stats": {},
+          "armor_value": 22,
+          "required_level": 8,
+          "sell_price": 145,
+          "identity": "agility",
+          "icon_id": "gear_inv_bracer_09"
+        },
+        {
+          "name": "Mourner's Hood",
+          "slot": "head",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {},
+          "armor_value": 10,
+          "required_level": 8,
+          "sell_price": 232,
+          "identity": "caster",
+          "icon_id": "gear_inv_helmet_42"
+        }
+      ],
+      "gear_reward_gear_level": 10,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_last_magister",
+      "title": "The Last Magister",
+      "giver_npc_id": "dh_aeron",
+      "zone": "duskfall_woods",
+      "level_min": 9,
+      "level_max": 9,
+      "description": "The outpost's archivist, Lorethas, went down into the works under the Lightwell when it went dark and never came back. Aeron's shards say someone below is still writing.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "Archivist Lorethas",
+          "count": 1,
+          "zone": "the_lightwell_deep"
+        },
+        {
+          "type": "kill",
+          "target": "Lorebound Shade",
+          "count": 4,
+          "zone": "the_lightwell_deep"
+        }
+      ],
+      "accept_text": "Commander Halion says the outpost's archivist, Lorethas, went down under the well and never came up. My shards say someone below is still working with elven ink. I think Archivist Lorethas found the hunger under the well and bargained with it. Find him in the archive below, past his Lorebound Shades, and end it.",
+      "turn_in_text": "Then it's true. He was feeding the hunger the outpost's dead, a few at a time, to keep it from coming up. That's why they never rested.\n\nHe thought he was saving us. Now the hunger has nothing to eat, and it'll come up looking. Selanne needs to know.",
+      "next_quest_id": null,
+      "requires_quests": [
+        "dhq_spirit_lanterns",
+        "dhq_shards"
+      ],
+      "reward_exp": 728,
+      "reward_gold": 2405,
+      "unique_item_defs": [
+        {
+          "name": "Archivist's Hauberk",
+          "slot": "chest",
+          "item_level": 11,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "agi_int_hybrid",
+          "primary_stats": {
+            "agility": 8,
+            "intellect": 2
+          },
+          "secondary_stats": {},
+          "armor_value": 57,
+          "required_level": 9,
+          "sell_price": 531,
+          "identity": "hunter",
+          "icon_id": "gear_inv_chest_chain_07"
+        },
+        {
+          "name": "Archivist's Sash",
+          "slot": "waist",
+          "item_level": 11,
+          "rarity": "rare",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 7
+          },
+          "secondary_stats": {},
+          "armor_value": 12,
+          "required_level": 9,
+          "sell_price": 292,
+          "identity": "caster",
+          "icon_id": "gear_inv_belt_26"
+        },
+        {
+          "name": "Archivist's Sabatons",
+          "slot": "feet",
+          "item_level": 11,
+          "rarity": "rare",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 7
+          },
+          "secondary_stats": {},
+          "armor_value": 59,
+          "required_level": 9,
+          "sell_price": 345,
+          "identity": "tank",
+          "icon_id": "gear_inv_boots_04"
+        }
+      ],
+      "gear_reward_gear_level": 11,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "dhq_starved_light",
+      "title": "The Starved Light",
+      "giver_npc_id": "dh_selanne",
+      "zone": "duskfall_woods",
+      "level_min": 9,
+      "level_max": 9,
+      "description": "Under the Lightwell, in the font chamber of the old works, the hunger that put out the outpost's light has taken a shape. Selanne calls it the Starved Light.",
+      "objectives": [
+        {
+          "type": "kill_boss",
+          "target": "The Starved Light",
+          "count": 1,
+          "zone": "the_lightwell_deep"
+        },
+        {
+          "type": "kill",
+          "target": "Hungering Remnant",
+          "count": 5,
+          "zone": "the_lightwell_deep"
+        }
+      ],
+      "accept_text": "The thing under the well is called the Starved Light now, because that's what it is: a hunger that ate the outpost's light and wants more. It's in the font chamber at the top of the works, under the Lightwell. Go down past the Hungering Remnants and end it. Take friends, and take the light with you.",
+      "turn_in_text": "It's gone for good. I can feel the well filling from here, slow and warm, like a hearth catching.\n\nGo and look at it. You lit it. You should be the first to see it burn.",
+      "next_quest_id": "dhq_first_light",
+      "requires_quests": [
+        "dhq_last_magister",
+        "dhq_the_dark_well"
+      ],
+      "reward_exp": 728,
+      "reward_gold": 2405,
+      "unique_item_defs": [
+        {
+          "name": "Lightbringer's Grips",
+          "slot": "hands",
+          "item_level": 11,
+          "rarity": "rare",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 7
+          },
+          "secondary_stats": {},
+          "armor_value": 24,
+          "required_level": 9,
+          "sell_price": 345,
+          "identity": "agility",
+          "icon_id": "gear_inv_gauntlets_07"
+        },
+        {
+          "name": "Lightbringer's Spaulders",
+          "slot": "shoulder",
+          "item_level": 11,
+          "rarity": "rare",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 8
+          },
+          "secondary_stats": {},
+          "armor_value": 48,
+          "required_level": 9,
+          "sell_price": 424,
+          "identity": "tide_healer",
+          "icon_id": "gear_inv_shoulder_26"
+        },
+        {
+          "name": "Lightbringer's Pendant",
+          "slot": "neck",
+          "item_level": 11,
+          "rarity": "rare",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 9,
+          "sell_price": 318,
+          "identity": "caster",
+          "icon_id": "gear_inv_jewelry_necklace_09"
+        }
+      ],
+      "gear_reward_gear_level": 11,
+      "gear_reward_rarity": "rare"
+    },
+    {
+      "quest_id": "dhq_first_light",
+      "title": "First Light",
+      "giver_npc_id": "dh_selanne",
+      "zone": "duskfall_woods",
+      "level_min": 9,
+      "level_max": 9,
+      "description": "The Starved Light is gone, and the Lightwell is filling again. Selanne wants you to see it burn, and then go up the Spire road to Firstlight Spire, where the Spire-Keeper is waiting.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "duskfall_woods",
+          "target_x": 124,
+          "target_y": 59,
+          "radius": 4,
+          "label": "See the Lightwell burning"
+        }
+      ],
+      "accept_text": "Go and stand over the well, and then go north up the Spire road. Spire-Keeper Lorien Ashbloom has swept the spire's stair every day for years, waiting for this. He'll want to hear it from you.",
+      "turn_in_text": "I saw it from the top of the stair before you got here. The spire caught the well's light and it's burning for the first time in a thousand years.\n\nCommander Halion's people went out with the lanterns at dawn. He went last. He asked me to tell you he was relieved of duty, and that he was grateful.",
+      "next_quest_id": null,
+      "turn_in_npc_id": "dh_lorien",
+      "requires_quests": [
+        "dhq_starved_light"
+      ],
+      "reward_exp": 560,
+      "reward_gold": 1850,
+      "unique_item_defs": [
+        {
+          "name": "Firstlight Cloak",
+          "slot": "back",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 7,
+          "required_level": 9,
+          "sell_price": 159,
+          "identity": "physical",
+          "icon_id": "gear_inv_misc_cape_20"
+        },
+        {
+          "name": "Firstlight Cuffs",
+          "slot": "wrist",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 5
+          },
+          "secondary_stats": {},
+          "armor_value": 8,
+          "required_level": 9,
+          "sell_price": 145,
+          "identity": "healer",
+          "icon_id": "gear_inv_bracer_12"
+        },
+        {
+          "name": "Firstlight Legplates",
+          "slot": "legs",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 7
+          },
+          "secondary_stats": {},
+          "armor_value": 65,
+          "required_level": 9,
+          "sell_price": 290,
+          "identity": "strength",
+          "icon_id": "gear_inv_pants_06"
+        }
+      ],
+      "gear_reward_gear_level": 10,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_the_spire_wakes",
+      "title": "The Spire Wakes",
+      "giver_npc_id": "dh_lorien",
+      "zone": "firstlight_spire",
+      "level_min": 9,
+      "level_max": 9,
+      "description": "Firstlight Spire is lit for the first time in a thousand years, and Grand Magister Velanthe has brought the Sunreach Conclave home to it. Lorien wants you to stand at its foot.",
+      "objectives": [
+        {
+          "type": "explore",
+          "target": "firstlight_spire",
+          "target_x": 50,
+          "target_y": 38,
+          "radius": 4,
+          "label": "Stand at the foot of the lit spire"
+        }
+      ],
+      "accept_text": "Go and stand at the foot of the spire, in the Lit Court. The founders built it as the first light a ship would see coming to Dawnhaven, and it's burning again. The Grand Magister calls this the Conclave's home now. Go and see what you've given us.",
+      "turn_in_text": "Everyone came out to look. The newcomers from the shore, the Conclave, the hunters from Dawnrest, all of us standing in the court with our heads tipped back.\n\nWe lost the spires of Quel'Thalas. We'll never get them back. But this one is ours, and we lit it ourselves.",
+      "next_quest_id": "dhq_room_for_everyone",
+      "reward_exp": 560,
+      "reward_gold": 1850,
+      "unique_item_defs": [
+        {
+          "name": "Spirewalker's Cap",
+          "slot": "head",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "stamina": 4,
+            "agility": 2
+          },
+          "secondary_stats": {},
+          "armor_value": 21,
+          "required_level": 9,
+          "sell_price": 232,
+          "identity": "bear",
+          "icon_id": "gear_inv_helmet_59"
+        },
+        {
+          "name": "Spirewalker's Band",
+          "slot": "ring",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "armor_type": "accessory",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "spirit": 4
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 9,
+          "sell_price": 174,
+          "identity": "healer",
+          "icon_id": "gear_inv_jewelry_ring_09"
+        },
+        {
+          "name": "Spirewalker's Gauntlets",
+          "slot": "hands",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "armor_type": "mail",
+          "weapon_type": null,
+          "stat_template": "str_int_hybrid",
+          "primary_stats": {
+            "strength": 5
+          },
+          "secondary_stats": {},
+          "armor_value": 27,
+          "required_level": 9,
+          "sell_price": 188,
+          "identity": "earthen",
+          "icon_id": "gear_inv_gauntlets_06"
+        }
+      ],
+      "gear_reward_gear_level": 10,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_room_for_everyone",
+      "title": "Room for Everyone",
+      "giver_npc_id": "dh_lorien",
+      "zone": "firstlight_spire",
+      "level_min": 9,
+      "level_max": 9,
+      "description": "Firstlight Spire has rooms to spare now, and Lorien means for every newcomer the sea gives up to have one. The innkeeper keeps the register.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "dh_q_spire_key",
+          "count": 1,
+          "label": "Take the spire's first key to Innkeeper Liriel"
+        }
+      ],
+      "accept_text": "This is the first key to the spire's guest rooms. Take it to Innkeeper Liriel. From tonight, everyone who wakes on the Waking Shore gets a bed in Firstlight Spire, a hot meal and a name in the register, for as long as they want them.",
+      "turn_in_text": "The first key. I'll hang it over the hearth so everyone can see it.\n\nThe register's open. Your name goes first, if you'll write it. You were a newcomer once too, not so long ago.",
+      "next_quest_id": null,
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "dh_q_spire_key",
+            "name": "The Spire's First Key",
+            "description": "A small bronze key on a red cord, the first key to the guest rooms of Firstlight Spire.",
+            "count": 1
+          }
+        ]
+      },
+      "turn_in_npc_id": "dh_innkeeper",
+      "requires_quests": [
+        "dhq_the_spire_wakes"
+      ],
+      "reward_exp": 560,
+      "reward_gold": 1850,
+      "unique_item_defs": [
+        {
+          "name": "Hearthkeeper's Staff",
+          "slot": "main_hand",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "armor_type": null,
+          "weapon_type": "staff",
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 11
+          },
+          "secondary_stats": {},
+          "armor_value": 0,
+          "required_level": 9,
+          "sell_price": 362,
+          "identity": "caster",
+          "icon_id": "gear_inv_staff_04",
+          "weapon_damage_min": 10,
+          "weapon_damage_max": 14,
+          "attack_speed": 3.2,
+          "block_value": 0
+        },
+        {
+          "name": "Hearthkeeper's Jerkin",
+          "slot": "chest",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "strength": 7
+          },
+          "secondary_stats": {},
+          "armor_value": 30,
+          "required_level": 9,
+          "sell_price": 290,
+          "identity": "strength",
+          "icon_id": "gear_inv_chest_leather_09"
+        },
+        {
+          "name": "Hearthkeeper's Waistguard",
+          "slot": "waist",
+          "item_level": 10,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "spi_healer",
+          "primary_stats": {
+            "intellect": 5
+          },
+          "secondary_stats": {},
+          "armor_value": 41,
+          "required_level": 9,
+          "sell_price": 159,
+          "identity": "plate_healer",
+          "icon_id": "gear_inv_belt_14"
+        }
+      ],
+      "gear_reward_gear_level": 10,
+      "gear_reward_rarity": "uncommon"
+    },
+    {
+      "quest_id": "dhq_the_first_crossing",
+      "title": "The First Crossing",
+      "giver_npc_id": "dh_joost",
+      "zone": "firstlight_spire",
+      "level_min": 9,
+      "level_max": 10,
+      "description": "Joost Achterberg has the Spire's boat ready, and the Conclave has a letter for Orgrimmar: Dawnhaven is open, and its people will stand with the Horde. The first crossing goes to a pier on Durotar's north-east coast.",
+      "objectives": [
+        {
+          "type": "deliver",
+          "target": "dh_q_conclave_letter",
+          "count": 1,
+          "label": "Carry the Conclave's letter across to the dockhand at Durotar's pier"
+        }
+      ],
+      "accept_text": "Forty years I piloted ships into Rotterdam, and I've never been prouder of one than this little boat. The Conclave has a letter for Orgrimmar, and the Grand Magister wants it carried by someone from the island, and that's you. Step aboard, and we'll make the first crossing together.",
+      "turn_in_text": "From Dawnhaven, is it? The elves said a boat might come. I'll see the letter goes up the road to Orgrimmar today.\n\nOrgrimmar's north of here, and Razor Hill's south-west. Welcome to Durotar. It's a long way from an island, and it'll be glad of you.",
+      "next_quest_id": null,
+      "grant_items": {
+        "on_accept": [
+          {
+            "item_id": "dh_q_conclave_letter",
+            "name": "The Conclave's Letter",
+            "description": "A letter sealed in gold wax with the Sunreach sun: Dawnhaven is open, and its people will stand with the Horde.",
+            "count": 1
+          }
+        ]
+      },
+      "turn_in_npc_id": "dh_durotar_dockhand",
+      "requires_quests": [
+        "dhq_the_spire_wakes"
+      ],
+      "reward_exp": 620,
+      "reward_gold": 2100,
+      "unique_item_defs": [
+        {
+          "name": "Crossing Mantle",
+          "slot": "shoulder",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "armor_type": "cloth",
+          "weapon_type": null,
+          "stat_template": "int_caster",
+          "primary_stats": {
+            "intellect": 6
+          },
+          "secondary_stats": {},
+          "armor_value": 11,
+          "required_level": 9,
+          "sell_price": 283,
+          "identity": "caster",
+          "icon_id": "gear_inv_shoulder_11"
+        },
+        {
+          "name": "Crossing Breeches",
+          "slot": "legs",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "armor_type": "leather",
+          "weapon_type": null,
+          "stat_template": "agi_physical",
+          "primary_stats": {
+            "agility": 6,
+            "stamina": 2
+          },
+          "secondary_stats": {},
+          "armor_value": 27,
+          "required_level": 9,
+          "sell_price": 354,
+          "identity": "agility",
+          "icon_id": "gear_inv_pants_13"
+        },
+        {
+          "name": "Crossing Vambraces",
+          "slot": "wrist",
+          "item_level": 11,
+          "rarity": "uncommon",
+          "armor_type": "plate",
+          "weapon_type": null,
+          "stat_template": "str_physical",
+          "primary_stats": {
+            "stamina": 5
+          },
+          "secondary_stats": {},
+          "armor_value": 48,
+          "required_level": 9,
+          "sell_price": 177,
+          "identity": "tank",
+          "icon_id": "gear_inv_bracer_09"
+        }
+      ],
+      "gear_reward_gear_level": 11,
+      "gear_reward_rarity": "uncommon"
+    }
+  ]
+}

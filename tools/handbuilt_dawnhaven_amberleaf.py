@@ -135,14 +135,15 @@ NPC_POSITIONS = {
     "dh_iriel": (69, 85),           # Magistrix Iriel Brightleaf: the wards and the wyrms
     "dh_thaelen": (82, 91),         # Apothecary Thaelen: herbs, the sick, the dead
     "dh_rosa": (66, 92),            # Rosa Quintero, a carpenter from Valparaiso, putting roofs back on
-    "dh_corin": (80, 84),           # Scout Corin Duskwhisper: the coast and the naga
+    "dh_kaelen": (80, 84),          # Scout Kaelen Swiftarrow: the coast and the naga
     "dh_amberwatch_trader": (86, 87),
-    "dh_amberwatch_trainer": (64, 86),
+    "ct_amberwatch": (64, 86),
     "pt_dawnhaven_herbs": (84, 95),
     "pt_dawnhaven_forge": (68, 96),
     "pt_dawnhaven_skins": (60, 90),
-    # the Silent Barrow: the priestess who keeps watch over the outpost's dead
-    "dh_aldaria": (42, 30),
+    # the priestess who keeps the names of the outpost's dead, at the memorial stone in camp
+    "dh_aldaria": (74, 97),
+    # Liam Hartigan (the recruit) waits by the guard post on the shore: data/npcs/recruits.json
 }
 
 

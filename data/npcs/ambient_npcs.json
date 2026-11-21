@@ -10044,10 +10044,10 @@
     {
       "npc_id": "tl_sunreach_magister",
       "name": "Grand Magister Velanthe Sunreach",
-      "zone": "talrendis_landing",
-      "x": 28,
-      "y": 51,
-      "greeting": "Our ancestors lived on this coast before the Sundering, and now the sea is giving the city back. The Conclave means to be standing on the shore when it does.",
+      "zone": "firstlight_spire",
+      "x": 26,
+      "y": 40,
+      "greeting": "Welcome to Firstlight Spire. We lost the spires of Quel'Thalas, and the Conclave swore we'd raise a light again somewhere. Here it is, and it's yours as much as ours.",
       "gender": "female",
       "race": "blood_elf",
       "appearance_variant": 4,
@@ -13868,6 +13868,363 @@
       "race": "human",
       "gender": "female",
       "appearance_variant": 3
+    },
+    {
+      "npc_id": "dh_saelis",
+      "name": "Ranger-Captain Saelis Dawnbrook",
+      "zone": "amberleaf_glade",
+      "x": 78,
+      "y": 108,
+      "greeting": "Take it easy, you're all right. You're on Dawnhaven, an island off the coast of Azshara, and you're safe. Everyone wakes up on this shore confused. Sit until the sand stops moving.",
+      "gender": "female",
+      "race": "blood_elf",
+      "appearance_variant": 3,
+      "facing": "down"
+    },
+    {
+      "npc_id": "dh_iriel",
+      "name": "Magistrix Iriel Brightleaf",
+      "zone": "amberleaf_glade",
+      "x": 69,
+      "y": 85,
+      "greeting": "The wardstones kept this island hidden for a thousand years. Now they're broken, and things are finding us. I mean to mend them, one stone at a time.",
+      "gender": "female",
+      "race": "blood_elf",
+      "appearance_variant": 5,
+      "facing": "down"
+    },
+    {
+      "npc_id": "dh_thaelen",
+      "name": "Apothecary Thaelen",
+      "zone": "amberleaf_glade",
+      "x": 82,
+      "y": 91,
+      "greeting": "Sit down if you're dizzy. The first day here does that to everyone. I've got tea for the shaking, and something stronger for the dreams.",
+      "gender": "male",
+      "race": "blood_elf",
+      "appearance_variant": 4,
+      "facing": "left"
+    },
+    {
+      "npc_id": "dh_rosa",
+      "name": "Rosa Quintero",
+      "zone": "amberleaf_glade",
+      "x": 66,
+      "y": 92,
+      "greeting": "I built houses in Valparaiso for twenty-two years, on hills worse than this one. The elves know magic. I know roofs, and right now the roofs are winning.",
+      "gender": "female",
+      "race": "human",
+      "appearance_variant": 6,
+      "facing": "down"
+    },
+    {
+      "npc_id": "dh_kaelen",
+      "name": "Scout Kaelen Swiftarrow",
+      "zone": "amberleaf_glade",
+      "x": 80,
+      "y": 84,
+      "greeting": "There are naga on the south-east beach, and they weren't there a month ago. Keep your voice down near the cove.",
+      "gender": "male",
+      "race": "blood_elf",
+      "appearance_variant": 6,
+      "facing": "right"
+    },
+    {
+      "npc_id": "dh_aldaria",
+      "name": "Priestess Aldaria Morningsong",
+      "zone": "amberleaf_glade",
+      "x": 74,
+      "y": 97,
+      "greeting": "The outpost buried its own at the Silent Barrow, up the north-west road, and they don't sleep the way they should. I keep their names here, and some nights they come asking for them.",
+      "gender": "female",
+      "race": "blood_elf",
+      "appearance_variant": 7,
+      "facing": "down"
+    },
+    {
+      "npc_id": "ct_amberwatch",
+      "name": "Trainer Aelwyn Starsong",
+      "zone": "amberleaf_glade",
+      "x": 64,
+      "y": 86,
+      "greeting": "Every one of the disciplines came through Amberwatch at one time or another, and I've taught them all. Tell me which is yours, and we'll begin.",
+      "gender": "female",
+      "race": "blood_elf",
+      "appearance_variant": 8,
+      "facing": "down",
+      "trains_class": "*"
+    },
+    {
+      "npc_id": "pt_dawnhaven_herbs",
+      "name": "Herbalist Mireth",
+      "zone": "amberleaf_glade",
+      "x": 84,
+      "y": 95,
+      "greeting": "Peacebloom in the grove, silverleaf by the mere, earthroot wherever the ground's been turned. That's where to start, and I'll show you how.",
+      "gender": "female",
+      "race": "blood_elf",
+      "appearance_variant": 9,
+      "facing": "down",
+      "trains_profession": [
+        "herbalism"
+      ]
+    },
+    {
+      "npc_id": "pt_dawnhaven_forge",
+      "name": "Prospector Daelan",
+      "zone": "amberleaf_glade",
+      "x": 68,
+      "y": 96,
+      "greeting": "Copper in the stones at the wardstones, and there's more under the barrow, if you don't mind the company. I'll teach you to dig it out.",
+      "gender": "male",
+      "race": "blood_elf",
+      "appearance_variant": 9,
+      "facing": "down",
+      "trains_profession": [
+        "mining"
+      ]
+    },
+    {
+      "npc_id": "pt_dawnhaven_skins",
+      "name": "Tanner Ysolde",
+      "zone": "amberleaf_glade",
+      "x": 60,
+      "y": 90,
+      "greeting": "Every boar and lynx on this island is a hide somebody needs. Learn to take it cleanly, and Rosa will pay you in roofing.",
+      "gender": "female",
+      "race": "blood_elf",
+      "appearance_variant": 10,
+      "facing": "down",
+      "trains_profession": [
+        "skinning"
+      ]
+    },
+    {
+      "npc_id": "dh_selanne",
+      "name": "Lightwarden Selanne Dawnsworn",
+      "zone": "duskfall_woods",
+      "x": 76,
+      "y": 104,
+      "greeting": "The Lightwell fed this whole outpost once, and it's dark now. Light it again, and Dawnhaven stops being a ruin we're hiding in. It becomes a home.",
+      "gender": "female",
+      "race": "blood_elf",
+      "appearance_variant": 8,
+      "facing": "down"
+    },
+    {
+      "npc_id": "dh_aeron",
+      "name": "Magister Aeron Ashveil",
+      "zone": "duskfall_woods",
+      "x": 86,
+      "y": 105,
+      "greeting": "The outpost's magic didn't die when the well went dark. It spilled out into the woods. Some of it has woken up in the thicket, and it's hungry.",
+      "gender": "male",
+      "race": "blood_elf",
+      "appearance_variant": 7,
+      "facing": "left"
+    },
+    {
+      "npc_id": "dh_lyra",
+      "name": "Huntress Lyra Swiftbough",
+      "zone": "duskfall_woods",
+      "x": 72,
+      "y": 112,
+      "greeting": "The Red Hollow feeds us, if you hunt it properly. Something's made the bears bold this year, and the spiders bolder.",
+      "gender": "female",
+      "race": "blood_elf",
+      "appearance_variant": 9,
+      "facing": "down"
+    },
+    {
+      "npc_id": "dh_halion",
+      "name": "Commander Halion Brightspear",
+      "zone": "duskfall_woods",
+      "x": 116,
+      "y": 82,
+      "greeting": "You can stand easy here. I held this outpost when it fell, and I've held it every day since. I'm not sure there's much of me left to hold it with.",
+      "gender": "male",
+      "race": "blood_elf",
+      "appearance_variant": 10,
+      "facing": "down"
+    },
+    {
+      "npc_id": "dh_scout_nerys",
+      "name": "Scout Nerys Duskmantle",
+      "zone": "duskfall_woods",
+      "x": 44,
+      "y": 50,
+      "greeting": "Keep your head down. That's the naga's main camp below us, and they've got sentries on the rocks. I've been counting them for three days.",
+      "gender": "female",
+      "race": "blood_elf",
+      "appearance_variant": 11,
+      "facing": "left"
+    },
+    {
+      "npc_id": "dh_lorien",
+      "name": "Spire-Keeper Lorien Ashbloom",
+      "zone": "firstlight_spire",
+      "x": 52,
+      "y": 36,
+      "greeting": "The founders raised this spire and lit it, and it burned for a thousand years. When it went out, the outpost died with it. I've kept the stair swept ever since, waiting.",
+      "gender": "male",
+      "race": "blood_elf",
+      "appearance_variant": 11,
+      "facing": "down"
+    },
+    {
+      "npc_id": "dh_innkeeper",
+      "name": "Innkeeper Liriel Ambershade",
+      "zone": "firstlight_spire",
+      "x": 22,
+      "y": 52,
+      "greeting": "A bed, a fire and a hot meal, and nobody asks where you washed up from. That's the whole of the Spire's hospitality, and it's more than most of us had a year ago.",
+      "gender": "female",
+      "race": "blood_elf",
+      "appearance_variant": 12,
+      "facing": "down"
+    },
+    {
+      "npc_id": "dh_flight_master",
+      "name": "Hawkmaster Seraphel",
+      "zone": "firstlight_spire",
+      "x": 14,
+      "y": 66,
+      "greeting": "The dragonhawks will take you anywhere you've already been. They'll cross the strait to Azshara on a calm day, and they think the boat is beneath them.",
+      "gender": "female",
+      "race": "blood_elf",
+      "appearance_variant": 13,
+      "facing": "down"
+    },
+    {
+      "npc_id": "dh_banker",
+      "name": "MerchantTusk",
+      "zone": "firstlight_spire",
+      "x": 36,
+      "y": 64,
+      "greeting": "Dere is only one bank, mon, and dere is only one me, even out here on de elves' island. Do not ask how dat works. Hand me ya things.",
+      "gender": "male",
+      "race": "troll",
+      "appearance_variant": 3,
+      "facing": "down",
+      "is_banker": true,
+      "sprite_scale": 2.0
+    },
+    {
+      "npc_id": "mailbox_firstlight",
+      "name": "Mailbox",
+      "zone": "firstlight_spire",
+      "x": 40,
+      "y": 60,
+      "greeting": "The Spire's mailbox. The innkeeper sorts the letters and the parcels, and the boat brings the rest from Durotar.",
+      "gender": "male",
+      "race": "blood_elf",
+      "appearance_variant": 0,
+      "facing": "down",
+      "is_mailbox": true,
+      "prop": "assets/tiles/market/props/mailbox_orc_b.png"
+    },
+    {
+      "npc_id": "ct_firstlight",
+      "name": "Trainer Elthas Dawnreach",
+      "zone": "firstlight_spire",
+      "x": 78,
+      "y": 44,
+      "greeting": "The library keeps every discipline's books, and I keep the library. Show me how far you've come and we'll see how far you can go.",
+      "gender": "male",
+      "race": "blood_elf",
+      "appearance_variant": 14,
+      "facing": "down",
+      "trains_class": "*"
+    },
+    {
+      "npc_id": "pt_firstlight_forge",
+      "name": "Smith Torvael",
+      "zone": "firstlight_spire",
+      "x": 64,
+      "y": 74,
+      "greeting": "The Spire's forge is small, but the anvil came from Silvermoon. Bring me ore and I'll teach you the hammer, or the pick if you'd rather.",
+      "gender": "male",
+      "race": "blood_elf",
+      "appearance_variant": 15,
+      "facing": "down",
+      "trains_profession": [
+        "blacksmithing",
+        "mining"
+      ]
+    },
+    {
+      "npc_id": "pt_firstlight_alchemy",
+      "name": "Alchemist Sylvana Brightdew",
+      "zone": "firstlight_spire",
+      "x": 76,
+      "y": 70,
+      "greeting": "Mana potions, healing draughts, and a tea that stops the dreams. Learn the herbs first, then the glass.",
+      "gender": "female",
+      "race": "blood_elf",
+      "appearance_variant": 15,
+      "facing": "down",
+      "trains_profession": [
+        "alchemy",
+        "herbalism"
+      ]
+    },
+    {
+      "npc_id": "pt_firstlight_cloth",
+      "name": "Tailor Marelle",
+      "zone": "firstlight_spire",
+      "x": 82,
+      "y": 64,
+      "greeting": "Red and gold, always. Everyone who comes ashore needs clothes that fit this place, and I need hands. Sit down and I'll show you the needle.",
+      "gender": "female",
+      "race": "blood_elf",
+      "appearance_variant": 16,
+      "facing": "down",
+      "trains_profession": [
+        "tailoring",
+        "leatherworking",
+        "skinning"
+      ]
+    },
+    {
+      "npc_id": "pt_firstlight_enchanting",
+      "name": "Enchanter Vaelis",
+      "zone": "firstlight_spire",
+      "x": 68,
+      "y": 42,
+      "greeting": "Every scrap of old magic on this island wants to go somewhere. Enchanting gives it somewhere to go.",
+      "gender": "male",
+      "race": "blood_elf",
+      "appearance_variant": 16,
+      "facing": "down",
+      "trains_profession": [
+        "enchanting",
+        "cooking",
+        "fishing"
+      ]
+    },
+    {
+      "npc_id": "dh_joost",
+      "name": "Joost Achterberg",
+      "zone": "firstlight_spire",
+      "x": 86,
+      "y": 55,
+      "greeting": "Forty years I brought ships into Rotterdam, the biggest port in Europe. Now I've got one boat and one crossing, and I'm prouder of it than I ever was of the big ones.",
+      "gender": "male",
+      "race": "human",
+      "appearance_variant": 7,
+      "facing": "right"
+    },
+    {
+      "npc_id": "dh_durotar_dockhand",
+      "name": "Dockhand Grezza",
+      "zone": "durotar",
+      "x": 119,
+      "y": 84,
+      "greeting": "The elves' boat comes in from Dawnhaven every few days. Orgrimmar's up the road to the north, and Razor Hill's south-west of here. Mind the scorpids.",
+      "gender": "female",
+      "race": "orc",
+      "appearance_variant": 4,
+      "facing": "left"
     }
   ]
 }

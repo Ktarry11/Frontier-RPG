@@ -116,12 +116,12 @@ SPEC = _Spec(NAME, W, H, ROADS, lakes=LAKES, deep_shrink=DEEP_SHRINK, sea=sea,
 NPC_POSITIONS = {
     # Dawnrest
     "dh_selanne": (76, 104),        # Lightwarden Selanne Dawnsworn: the Lightwell, and putting the outpost back
-    "dh_dorian": (86, 105),         # Magister Dorian Ashveil: the wild magic, and what woke in it
+    "dh_aeron": (86, 105),          # Magister Aeron Ashveil: the wild magic, and what woke in it
     "dh_lyra": (72, 112),           # Huntress Lyra Swiftbough: the Red Hollow
-    "dh_joost": (88, 113),          # Joost Achterberg, a harbour pilot from Rotterdam, who means to build a boat
+    "dh_dawnrest_cook": (88, 113),  # Giulia Ferraro, a cook from Bologna, feeding Dawnrest
     "dh_dawnrest_trader": (84, 100),
     # the Withered Spires: the outpost's last commander, still on watch
-    "dh_thalor": (116, 82),
+    "dh_halion": (116, 82),
     # Saltspine Shore: a Conclave scout watching the naga camp from the trees
     "dh_scout_nerys": (44, 50),
 }
@@ -234,7 +234,7 @@ def dress(L):
     Z("az_relic_crate", 94, 104, 3, solid="core")
     Z("az_dig_cart", 66, 114, 4, solid="core")
     P("br_signpost", 84, 118, 4)
-    # Joost's boat taking shape on its stocks behind the storehouse
+    # a skiff's hull on its stocks behind the storehouse, the boat they'll need one day
     Z("az_wreck_prow", 97, 115, 5, solid="core")
     # ---- the Red Hollow: the old hunting lodge's ruins
     B("be_ruined_house", 28, 92, 6, solid="core")

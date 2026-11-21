@@ -646,7 +646,6 @@ measures 94 to 97 percent on the five-body test. Caches went in where there's ro
 Sheet 7's bear recruits are saved
 and wait to be sliced and written, mostly for the Bastions and the Firmament. The raids wait. The Aetherian start
 zone is next, now that 60 is done (its first two maps are named: the White Expanse, 1-6, and the Shattered Reaches, 6-11),
-and its four recruits wait with it. The blood elves get a home after it, an island off Azshara with a 1-6 and a 5-9
-zone and a boat from their city to Durotar (`docs/backlog_nov17_onwards.md`). The Celestial raid, the Stormhold, is designed for turn-based combat in the brief
+and its four recruits wait with it. The blood elves' home, Dawnhaven, was built first (21 Nov 2026, `docs/dawnhaven_brief.md`). The Celestial raid, the Stormhold, is designed for turn-based combat in the brief
 and waits behind the cracked seal until raids are built. The Heartwood Hollow is the tree's dungeon when Kyle calls it.
 See `docs/worldtree_brief.md` for the whole road.

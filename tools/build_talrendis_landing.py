@@ -32,7 +32,8 @@ FLIGHT_NODES = [
     ("talrendis_landing", {"name": "Talrendis Landing", "zone": NAME, "master": "tl_flight_master",
                            "pos": [30, -78], "continent": "kalimdor"}),
 ]
-#: the people who must never give or take a quest (they move to the Conclave's island later)
+#: the people who must never give or take a quest (moved to the Conclave's island, Dawnhaven, 21 Nov 2026: written
+#: by tools/build_dawnhaven_people.py now, and still checked here so they stay free to move)
 MOVABLE = ("tl_sunreach_magister", "tl_sunreach_quartermaster")
 M, F = "male", "female"
 
@@ -47,11 +48,6 @@ VENDORS = {
                         "cook_spice", "cook_water", "cook_mushroom", "beast_lure"],
                        "I ran the canteen on an oil rig in the North Sea for nine years. Two crews who can't stand "
                        "each other, a long way from anywhere, and everyone gets fed the same. This is just warmer."),
-    "tl_sunreach_quartermaster": ("Quartermaster Sylvaen Dawnward", "blood_elf", M, 3, "left", 54, True,
-                                  ["mana_potion_masterwork", "healing_potion_masterwork", "vial_crystal", "parchment",
-                                   "kit_field_repair"],
-                                  "The Conclave keeps a field store for its own and for anyone who works beside us. "
-                                  "Everything you see came by ship from Quel'Thalas, so please don't haggle."),
 }
 #: npc_id -> (name, race, gender, variant, facing, greeting)
 AMBIENT = {
@@ -91,9 +87,6 @@ AMBIENT = {
     "tl_farseer": ("Farseer Thrag Windcaller", "orc", M, 5, "left",
                    "The leylines under this coast are pulling toward the sea. The elves say that's fine. The spirits "
                    "say it isn't."),
-    "tl_sunreach_magister": ("Grand Magister Velanthe Sunreach", "blood_elf", F, 4, "down",
-                             "Our ancestors lived on this coast before the Sundering, and now the sea is giving the "
-                             "city back. The Conclave means to be standing on the shore when it does."),
 }
 
 

@@ -29,7 +29,6 @@ East road.
 1. **What's left** (the Conclave, the open world and 81 quests are in, 18 Nov):
    - The hidden content ("Surprise me"). Never described.
    - Maybe a handful more quests out of the zone (the plan's Silvermoon and Undercity chains) to reach about 90.
-2. **Later, Kyle's call**: the Sunreach Conclave's island home.
 
 **Recruits, sheet 5** (18 Nov): 16 written, kitted and sliced (`docs/recruit_art_prompts_sheet5.md`). Eight are
 in the game, and Deadwind's four and Moonglade's two have been placed since (18 Nov). Winterspring's two are still
@@ -231,8 +230,3 @@ waiting: re-run `tools/build_sheet5_recruits.py --write` once Winterspring exist
 ## 12. Parked by Kyle (not anytime soon)
 - **The prestige constellation** (design only, docs/prestige_constellation.md).
 
-## 13. Queued new zones
-- **A home for the blood elves** (Kyle, 21 Nov 2026: "our bloodelves are currently homeless. I suggest an island off
-  the coast of Azshara. Has a level 1-6 and a level 5-9 zone that eventually has a boat to take you to Durotar from
-  their main city. Quick, easy, new starting zone."). An island off Azshara's coast with two zones, 1-6 and 5-9, and
-  a main city whose boat goes to Durotar. Quick and easy. Queued behind Caelora's start zone.
