@@ -47,7 +47,9 @@ ITHREN, DAVIN, TEODRIC, DACE = "ce_keeper", "ce_skiffmaster", "ce_refugee", "ce_
 # ---- out on the islands
 IDRIS, ANA, LORNE, CALDUS = "ce_golem_scholar", "ce_whale_watcher", "ce_spill_tender", "ce_bridgewarden"
 
-HUB_GIVERS = {ILAREN, LEANDRO, PILOT, HERALD, HASK, KAISA, GUSTAVO, ANNELIES, ITHREN, DAVIN, TEODRIC, DACE}
+#: the people who stand in Halcyon Rest, the Expanse's town (its own map since 22 Nov 2026, Kyle's town rule): the pair
+#: and the herald came up the river from the wreck, Idris lodges there, and Tethertown is tied on below it
+HUB_GIVERS = {ILAREN, LEANDRO, HERALD, IDRIS, KAISA, GUSTAVO, ANNELIES, ITHREN, DAVIN, TEODRIC, DACE}
 #: the Aetherians pay the Aetherians; the Earthborn (Leandro, Kaisa, Gustavo, Annelies, Ana) pay nobody
 SKY_GIVERS = {ILAREN, PILOT, HERALD, HASK, ITHREN, DAVIN, TEODRIC, DACE, IDRIS, LORNE, CALDUS}
 
@@ -117,7 +119,8 @@ WRECK = (60, 198)             # the council's skiff where it came down on Crashf
 GIANT_SWORD = (112, 158)      # the sword the size of a tree on the Golem Fields
 OBSERVATORY = (142, 126)      # the old observatory ruin on the Broad Isle's rise
 LAST_EDGE = (22, 242)         # the Last Falls, where the river goes over into nothing
-SECOND_ROCK = (227, 108)      # Tethertown's second rock
+SECOND_ROCK = (52, 91)        # Tethertown's second rock, below Halcyon Rest (tools/handbuilt_worldtree_halcyon_rest.py)
+HR = "halcyon_rest"         # the Expanse's town, its own map
 CITADEL = (72, 68)            # in front of the broken citadel in the middle of the ring
 SPIRE = (270, 112)            # under the Ascendancy's watch-spire on the Lancer's Perch
 WHALE_ROCK = (234, 200)       # the rock the whales rub on, out in the Shallows
@@ -178,20 +181,19 @@ def build():
         "like a man who lost the council's seal.",
         "The gifts are glass now, but the seal's whole. That's the first thing that's gone right today.\n\nI can't "
         "walk into Aurelion with you yet. The keeper at Halcyon Rest has to hear first that the council's guests are "
-        "alive.",
-        nxt="ceq_word_upriver"))
-    A(Q("ceq_word_upriver", "Word Upriver", HERALD, 49, 49, "Messenger's",
+        "alive."))
+    A(Q("ceq_word_upriver", "Word Upriver", PILOT, 49, 49, "Messenger's",
         "Halcyon Rest is the waystation halfway up the river, and its keeper speaks to the council every evening. "
         "Herald Cassian wants him to hear about the crash from someone who walked away from it.",
-        [deliver("ce_q_heralds_letter", "Take the herald's letter to Keeper Ithren Lorrow at Halcyon Rest")],
+        [deliver("ce_q_heralds_letter", "Take the pilot's letter to Keeper Ithren Lorrow at Halcyon Rest")],
         "Keeper Ithren Lorrow at Halcyon Rest will tell the council anything I write, and he'll believe it more if it "
         "comes in your hand. It's upriver, past the Golem Fields and across the Broad Isle. Don't stop for the "
         "scenery, it's lovely and most of it bites.",
         "The council's skiff came down, and the council's guests walked here anyway.\n\nI'll send this tonight. I've "
         "had a lot of bad news to send lately, and it's good to send some that's only half bad.",
-        turn_in_npc_id=ITHREN, requires_quests=["ceq_the_councils_courtesy"],
-        grant_items=carry("ce_q_heralds_letter", "Herald's Letter", "A letter in Herald Cassian Orel's careful hand, "
-                          "sealed with the seal of the High Houses that he was very glad to find again.")))
+        turn_in_npc_id=ITHREN,
+        grant_items=carry("ce_q_heralds_letter", "Pilot's Letter", "A letter in Skiff-Pilot Varo Senn's square hand, "
+                          "written lying down and folded round a flight log with the last entry still wet.")))
     A(Q("ceq_something_to_eat", "Something to Eat", LEANDRO, 49, 49, "Campcook's",
         "The skiff's stores went over the edge when it came down. Leandro Arrieta has a fire going and nothing to put "
         "on it, and the Cloudfleece Ram is grazing all over Crashfall.",
@@ -282,7 +284,7 @@ def build():
         "Plates, hundreds of them, each one cut with a golem's name.\n\nHe wasn't guarding treasure. He was "
         "guarding the list of every golem they made, so they'd know which ones came home.",
         requires_quests=["ceq_the_sleepers_wake"]))
-    A(Q("ceq_stormwright_yrvald", "Stormwright Yrvald", PILOT, 51, 51, "Stormbreaker's",
+    A(Q("ceq_stormwright_yrvald", "Stormwright Yrvald", DAVIN, 51, 51, "Stormbreaker's",
         "Every golem's core and every ward that fired on the skiff runs on the same storm. Idris has traced it to the "
         "Storm-Well, the Golem Vault's lowest floor, and Skiff-Pilot Varo wants it put out by whoever keeps it.",
         [boss("Stormwright Yrvald", zone=SW)],
@@ -369,7 +371,7 @@ def build():
     A(Q("ceq_check_the_knots", "Check the Knots", GUSTAVO, 50, 50, "Knotkeeper's",
         "The new line's on the second rock, and Gustavo can't cross to check it without leaving the main lines "
         "untended. He wants someone to go over the planks and look at the knots.",
-        [explore(*SECOND_ROCK, "Cross the planks and check the knots on Tethertown's second rock")],
+        [explore(*SECOND_ROCK, "Cross the planks and check the knots on Tethertown's second rock", zone=HR)],
         "Go across the planks to the second rock and look at every knot I tied. If one's slipping, you'll see the rope "
         "pale where it's pulled. I'd go myself, but if I step away from the main lines, something always goes wrong "
         "while I'm gone.",

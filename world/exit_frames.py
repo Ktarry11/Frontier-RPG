@@ -31,6 +31,13 @@ ART = "assets/tiles/cave_entrances/"
 #: THE WAY OUT of a dungeon, by which dungeon. First match wins; each entry may list several
 #: looks, and a dungeon with more than one exit takes them in turn.
 OUT_OF = [
+    # Caelora (docs/caelora_gate_art_prompts.md, sheet CG1)
+    (r"Golem Vault|Storm-Well|^The Keel$", ["ent_exit_kharad_stair"]),
+    (r"Ascendant Spire", ["ent_exit_ae_stair_up"]),
+    (r"Gravity Foundry", ["ent_exit_foundry"]),
+    (r"Hollow Engine", ["ent_exit_engine_hatch"]),
+    (r"Hearthdeep", ["ent_exit_forge_flue"]),
+    (r"Wellspring", ["ent_exit_wellstone"]),
     (r"Crypt|Barrow|Shadowpine Altar", ["ent_exit_crypt_stairs", "ent_exit_crypt_stairs_b"]),
     (r"Night Web|Widow|Broodspiral", ["ent_exit_spider_web", "ent_exit_spider_web_b"]),
     (r"Zalazane|Drowned Shrine|Gurbashi|Gurubashi|Sunken Temple", ["ent_exit_troll_temple_b", "ent_exit_troll_temple"]),
@@ -60,6 +67,13 @@ OUT_OF = [
 
 #: THE WAY IN, by which dungeon it leads to.
 INTO = [
+    # Caelora (sheet CG1)
+    (r"Golem Vault|Storm-Well", ["ent_door_kharad_vault"]),
+    (r"^The Keel$|Ascendant Spire", ["ent_door_ae_stair_down"]),
+    (r"Gravity Foundry", ["ent_door_foundry"]),
+    (r"Hollow Engine", ["ent_door_engine_hatch"]),
+    (r"Hearthdeep", ["ent_door_forge_flue"]),
+    (r"Wellspring", ["ent_door_wellstone"]),
     (r"Boulderfist|Boulder'gor", ["ent_ogre_mound"]),
     (r"Drywhisker", ["ent_kobold_dig"]),
     (r"Tidewrack|Lashings", ["ent_shipwreck_hull"]),
@@ -84,6 +98,13 @@ INTO = [
 
 #: A TOWN'S OWN GATE - used on the road into it and on the road out of it.
 TOWN = [
+    # Caelora: one people's towns, each with its own touch (sheet CG1)
+    (r"Halcyon Rest", ["ent_town_halcyon_gate"]),
+    (r"Keelstone", ["ent_town_keelstone_gate"]),
+    (r"Dawnspear", ["ent_town_dawnspear_gate"]),
+    (r"Lastlight", ["ent_town_lastlight_gate"]),
+    (r"Lenswatch", ["ent_town_lenswatch_gate"]),
+    (r"Aurelion", ["ent_town_ae_ceremonial_gate"]),
     (r"Taurajo|Freewind", ["ent_town_tauren_totems"]),
     (r"Astranaar", ["ent_town_nightelf_bridge"]),
     (r"Zoram", ["ent_moonlit_arch"]),
@@ -105,6 +126,13 @@ TOWN = [
 #: A ROAD between two open zones, by the country it runs through. Several looks per region so
 #: a zone with four roads out does not have the same arch four times.
 REGION = [
+    # Caelora (sheet CG1): the Ascendancy's bronze round the Bastions, the dead grey round the Firmament, white marble
+    # everywhere else
+    (r"Ascendant Bastions|Dawnspear", ["ent_gate_ascendancy", "ent_gate_ae_marble_arch_b"]),
+    (r"Fading Firmament|Lastlight", ["ent_gate_firmament"]),
+    (r"Celestial Expanse|Halcyon", ["ent_gate_ae_marble_arch", "ent_gate_kharad", "ent_gate_ae_crystal_pylons"]),
+    (r"Sunward Crown|Lenswatch|Anchorfields|Keelstone|Aurelion",
+     ["ent_gate_ae_marble_arch", "ent_gate_ae_crystal_pylons", "ent_gate_ae_marble_arch_b"]),
     (r"Barrens|Durotar|Valley of Trials|Crossroads|Razor Hill|Taurajo",
      ["ent_gate_kodo_tusks", "ent_gate_tusk_banners"]),
     (r"Tirisfal|Silverpine|Fenris|Deathknell|Sepulcher|Undercity|Brill",
@@ -125,6 +153,10 @@ REGION = [
 
 #: A BOAT LANDING, by whose water it is.
 DOCK = [
+    (r"Ascendant Bastions|Dawnspear", ["ent_dock_ascendancy"]),
+    (r"Fading Firmament|Lastlight", ["ent_dock_firmament"]),
+    (r"Sunward Crown|Lenswatch|Celestial Expanse|Halcyon|Anchorfields|Keelstone|Aurelion",
+     ["ent_dock_ae_landing", "ent_dock_ae_skiff_platform"]),
     (r"Echo Isles|Stranglethorn|Grom'gol", ["ent_dock_troll"]),
     (r"Booty Bay|Ratchet|Steamwheedle|Saltwheel", ["ent_dock_goblin"]),
     (r"Silverpine|Fenris|Tirisfal", ["ent_dock_forsaken"]),
@@ -139,6 +171,11 @@ DOCK = [
 #: and post B on the south side, and from above that is a gate across an east-west road. Keyed by
 #: the face-on look the link would otherwise get, so the country decides the style as before.
 SIDE = {
+    "ent_gate_ae_marble_arch": "ae_marble", "ent_gate_ae_marble_arch_b": "ae_marble", "ent_gate_ae_crystal_pylons": "ae_marble",
+    "ent_gate_kharad": "ae_marble", "ent_gate_ascendancy": "ascendancy", "ent_gate_firmament": "firmament",
+    "ent_town_halcyon_gate": "ae_marble", "ent_town_keelstone_gate": "ae_marble", "ent_town_lenswatch_gate": "ae_marble",
+    "ent_town_ae_ceremonial_gate": "ae_marble", "ent_town_dawnspear_gate": "ascendancy",
+    "ent_town_lastlight_gate": "firmament",
     "ent_gate_standing_stones": "standing_stones", "ent_gate_wall_breach": "wall_breach",
     "ent_gate_lychgate": "lychgate", "ent_gate_stone_pillars": "stone_pillars",
     "ent_moonlit_arch": "moonlit", "ent_elven_ruin_arch": "moonlit",
@@ -150,6 +187,9 @@ SIDE = {
     "ent_town_charred_gate": "charred", "ent_gate_bamboo": "bamboo",
 }
 SIZES_POST = [(2, 4), (2, 3)]
+
+#: Caelora's skiff links: the two ends are landings (DOCK), not a road gate.
+SKIFFS = {frozenset(("Lenswatch", "The Celestial Expanse")), frozenset(("Aurelion", "The Ascendant Bastions"))}
 
 
 def side_posts(look):
@@ -218,7 +258,7 @@ def choose(src, dest, src_cave, dest_cave, boat, src_town, dest_town, src_region
         looks = _first(OUT_OF, src)
     elif dest_cave:
         looks = _first(INTO, dest)
-    elif boat or "The Crossing" in (src, dest):
+    elif boat or "The Crossing" in (src, dest) or frozenset((src, dest)) in SKIFFS:
         looks = _first(DOCK, f"{src} {src_region}")
     elif dest_town and any(re.search(p, dest) for p, _l in TOWN):
         looks = _first(TOWN, dest)
@@ -413,7 +453,8 @@ def frame_exits(zones, portal_manager, cave_names):
                 continue
             sizes = SIZES_CAVE if src_cave else SIZES_OPEN
             got = None
-            posts = None if (src_cave or dest in cave_names or boat) else side_posts(sprite)
+            posts = None if (src_cave or dest in cave_names or boat or frozenset((src, dest)) in SKIFFS) \
+                else side_posts(sprite)
             if posts and leaves_sideways(tilemap, tiles):
                 got = _place_posts(tilemap, tiles, all_tiles - set(tiles), posts, dest)
             if got is None:

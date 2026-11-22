@@ -50,8 +50,9 @@ W, H = 300, 260
 SKP = "assets/tiles/sky/props/"
 BLD = "assets/buildings/"
 
-PORTALS = {(103, 206): "Lenswatch", (90, 156): "The Golem Vault", (295, 30): "The Anchorfields", (226, 2): "Aurelion"}
-ARRIVALS = [(96, 206), (90, 159), (290, 30), (226, 7)]
+PORTALS = {(103, 206): "Lenswatch", (90, 156): "The Golem Vault", (295, 30): "The Anchorfields", (226, 2): "Aurelion",
+           (196, 74): "Halcyon Rest"}
+ARRIVALS = [(96, 206), (90, 159), (290, 30), (226, 7), (196, 77)]
 LATER_PORTALS = {}
 START = (96, 206)        # the skiff landing on Crashfall: everything must be reachable from here
 
@@ -70,7 +71,7 @@ LASTFALLS = [(16, 226), (34, 226), (38, 240), (24, 250), (12, 240)]
 #: off the river
 FORGE = [(12, 124), (44, 118), (60, 132), (54, 154), (30, 162), (10, 148)]
 PERCH = [(264, 86), (282, 82), (292, 108), (288, 140), (272, 148), (260, 120)]
-TETHERS = [(214, 124, 10, 7, 0.3), (227, 108, 8, 6, 0.8)]          # Tethertown's two rocks
+TETHERS = []     # Tethertown's two rocks are tied on below Halcyon Rest now, on the town's own map (22 Nov 2026)
 ORBIT_C = (72, 58)                                                 # the broken citadel at the ring's heart
 ORBIT_R = 32
 ORBIT_N = 6
@@ -89,7 +90,6 @@ SPANS = [
     ([(98, 62), (118, 84), (140, 110)], 4.0),      # the old causeway, the ring to the Broad Isle
     ([(46, 148), (92, 162)], 4.0),                 # the Silent Forge to the Golem Fields
     ([(228, 82), (248, 88), (272, 98)], 4.0),      # the Ascendancy's chains, Halcyon Rest to the perch
-    ([(200, 128), (208, 125)], 4.0),               # Tethertown's planks to the first rock
     ([(218, 119), (223, 113)], 4.0),               # ... and the second
     ([(90, 206), (104, 206)], 4.0),                # the skiff gangway on Crashfall
     ([(226, 12), (226, 0)], 4.0),                  # the sky-bridge's foot (Aurelion, later)
@@ -287,7 +287,7 @@ CLEARINGS = [
     (108, 168, 10, 7),          # the Golem Fields
     (90, 158, 5, 4),            # before the Golem Vault's door
     (32, 140, 10, 8),           # the Silent Forge
-    (186, 134, 11, 8),          # Tethertown
+    (186, 134, 11, 8),          # the Broad Isle's east lobe, where Tethertown stood before it moved up to the Rest
     (160, 124, 12, 8),          # the Broad Isle's meadow
     (205, 82, 12, 8),           # Halcyon Rest
     (275, 112, 8, 12),          # the Lancer's Perch
@@ -316,9 +316,9 @@ ROADS = {
     "golem":     ([(92, 182), (104, 170), (120, 160), (128, 154)], 2.4),
     "forge":     ([(86, 162), (60, 152), (40, 144)], 2.2),
     "broad":     ([(140, 150), (152, 138), (162, 124), (176, 116), (198, 114)], 2.6),
-    "tether":    ([(170, 128), (186, 134), (198, 129)], 2.2),
     "causeway":  ([(136, 106), (150, 112), (158, 120)], 2.2),
     "halcyon":   ([(204, 110), (210, 96), (206, 82), (220, 72), (232, 66)], 2.6),
+    "rest_gate": ([(206, 82), (198, 77)], 2.2),
     "perch":     ([(228, 84), (234, 82)], 2.0),
     "spillway":  ([(240, 56), (250, 44), (248, 30), (236, 20), (226, 14)], 2.4),
     "shallows":  ([(196, 148), (210, 166), (222, 186)], 2.0),
@@ -340,28 +340,14 @@ SPEC = _Spec(NAME, W, H, ROADS, rivers=RIVERS, lakes=LAKES, deep_shrink=DEEP_SHR
 #: everyone on the Expanse (tools/build_celestial_expanse_people.py writes their records)
 NPC_POSITIONS = {
     # Crashfall: the council's skiff came down here, and the skiff from Lenswatch lands here now
-    "ce_ilaren":          (66, 200),   # Ilaren Vey, off the wreck (the Crown's ally, travelling with you)
-    "ce_leandro":         (60, 206),   # Leandro Arrieta, likewise
     "ce_pilot":           (56, 200),   # the council skiff's pilot, hurt
-    "ce_herald":          (70, 208),   # the council's herald, sent to bring you to Aurelion
     "ce_landing_hand":    (92, 203),   # the survey's hand at the skiff landing
     # the Last Falls and the Golem Fields
     "ce_falls_watcher":   (26, 236),   # an old Aetherian who watches the islands fall
-    "ce_golem_scholar":   (112, 172),  # a scholar of the House of Long Memory, studying the golems
-    # Tethertown: the Earthborn
-    "ce_tether_lead":     (184, 132),  # the hamlet's leader
-    "ce_tether_rigger":   (192, 136),  # the one who tied the rocks on
-    "ce_tether_farmer":   (178, 138),  # growing Earth seeds in sky soil
-    "ce_tether_trader":   (188, 140),  # food and odds and ends
+    # Tethertown, Halcyon Rest and the people who came up the river to them live on the town's own map now
+    # (tools/handbuilt_worldtree_halcyon_rest.py)
     # the Whale Shallows
     "ce_whale_watcher":   (200, 160),  # an Earthborn marine biologist, watching the whales
-    # Halcyon Rest: the Aetherian waystation
-    "ce_keeper":          (206, 82),   # the keeper of the Rest
-    "ce_skiffmaster":     (212, 86),   # the flight path: the skiffs
-    "ce_provisioner":     (204, 86),   # food and drink
-    "ce_trader":          (210, 80),   # goods, and buys salvage
-    "ce_refugee":         (208, 84),   # a refugee from one of Aurelion's fallen rings
-    "ce_deserter":        (218, 82),   # an Ascendancy lancer who walked away
     # the Spillway and the Aurelion Approach
     "ce_spill_tender":    (240, 40),   # keeps what's left of the aqueduct
     "ce_bridgewarden":    (228, 18),   # holds the sky-bridge, closed until the council sends word
@@ -392,7 +378,6 @@ SUBZONES = [   # (table_key, x, y, w, h, display_name) - later registrations win
     ("The Spillway", 206, 22, 82, 36, None),
     ("Crashfall", 32, 184, 66, 48, None),
     ("The Last Falls", 8, 222, 36, 34, None),
-    ("Tethertown", 170, 104, 64, 44, None),
     ("Halcyon Rest", 176, 60, 62, 46, None),
     ("The Aurelion Approach", 212, 0, 30, 22, None),
 ]
@@ -566,7 +551,7 @@ def dress(L):
     S("ff_patched_tent", 106, 174, 5)
     # the vault, standing ON its door (Kyle, 21 Nov 2026: "golem vault has two art entrances?"). It sat three tiles north of
     # the portal, so world/exit_frames.py saw a bare door and framed it again underneath.
-    L.z.add_landmark("assets/tiles/cave_entrances/ent_dwarven_vault.png", 87, 151, 7, 6, solid=False)   # door tile in its arch
+    L.z.add_landmark("assets/tiles/cave_entrances/ent_door_kharad_vault.png", 87, 151, 7, 6, solid=False)   # door tile in its arch
     B("kh_kneeling_statue", 90, 168, 8)
     # ---- the Silent Forge: the Kharad forge and its yard, cold for ages and warming again
     B("kh_forge", 32, 136, 10)
@@ -578,25 +563,17 @@ def dress(L):
     B("sk_observatory_ruin", 140, 118, 10)
     S("sk_fallen_column", 168, 112, 4)
     S("sk_ruin_tree", 132, 140, 7)
-    # ---- Tethertown: the Earthborn's houses made out of what the Aetherians threw away, round one fire
-    S("ff_camp_fire", 186, 134, 3, solid=False)
-    B("ae_damaged_house", 178, 128, 7)
-    S("ff_patched_tent", 194, 128, 5)
-    S("ff_patched_tent", 180, 142, 5)
-    S("ff_salvage", 196, 142, 4)
-    B("ae_crystal_crates", 172, 136, 3)
-    S("sk_clover_patch", 168, 142, 2, solid=False)
+    # ---- the Broad Isle's east lobe: Tethertown moved up to the Rest; the chain they tied on with is still in the rock
     B("kh_chain_anchor", 212, 126, 4)
     # ---- the Whale Shallows: rock islets the whales rub on, standing out of the cloud
     S("sk_float_rock", 238, 206, 5)
     S("sk_cloud_bank", 220, 168, 5, solid=False)
-    # ---- Halcyon Rest: the Aetherian waystation, a garden round a pool and a skiff dock on the east
+    # ---- Halcyon Rest: the island outside the Rest's gate (the town is its own map, west of the river), the
+    #      keeper's pool pavilion showing over the wall, lamps along the river road
     B("ae_pool_pavilion", 228, 76, 8)
-    B("ae_garden_pavilion", 196, 74, 7)
-    B("ae_skiff_dock", 220, 92, 6)
-    B("ae_refugee_pavilion", 192, 90, 6)
-    B("ae_meditation_dais", 204, 90, 3)
-    for (x, y) in [(200, 70), (216, 70), (200, 92), (224, 80)]:
+    S("sk_silver_tree", 188, 70, 6)
+    S("sk_silver_tree", 186, 82, 6)
+    for (x, y) in [(202, 70), (216, 70), (200, 92), (224, 80)]:
         B("ae_lamp_post", x, y, 4)
     # ---- the Lancer's Perch: the Ascendancy's watch-spire over the river, tents, a gun on the rest
     B("ae_watch_spire", 276, 104, 12)

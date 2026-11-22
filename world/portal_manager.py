@@ -815,6 +815,10 @@ class PortalManager:
                 (90, 156): ("The Golem Vault", 42, 6),              # down into the Kharad's vault: arrive (42,4)
                 (295, 30): ("The Anchorfields", 10, 76),            # east along the aqueduct arm: arrive (10,74)
                 (226, 2): ("Aurelion", 130, 243),                   # up the sky-bridge: arrive (130,241) at the Bridgefoot
+                (196, 74): ("Halcyon Rest", 7, 50),                 # through the Rest's gate: arrive (7,48) at the Rest Gate
+            },
+            "Halcyon Rest": {
+                (2, 48): ("The Celestial Expanse", 196, 79),        # back out of the gate: arrive (196,77) on the island
             },
             "Aurelion": {
                 (130, 246): ("The Celestial Expanse", 226, 9),      # down the sky-bridge: arrive (226,7) at its foot

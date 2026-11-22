@@ -219,6 +219,16 @@ _set("side_gateposts", 6, 4, "assets/tiles/cave_entrances", """
     ent_side_whalerib_a ent_side_whalerib_b ent_side_sand_pylons_a ent_side_sand_pylons_b ent_side_tollgate_a ent_side_tollgate_b
     ent_side_stone_pillars_a ent_side_stone_pillars_b ent_side_charred_a ent_side_charred_b ent_side_bamboo_a ent_side_logs_a""")
 
+#: CAELORA'S GATES AND DOORS (docs/caelora_gate_art_prompts.md, sheet CG1, Kyle 22 Nov 2026): road gates, side posts,
+#: the five Caelora towns' gates, skiff landings, and cave doors in and out.
+_set("caelora_gates", 6, 6, "assets/tiles/cave_entrances", """
+    ent_gate_ae_marble_arch ent_gate_ae_marble_arch_b ent_gate_ae_crystal_pylons ent_gate_ascendancy ent_gate_firmament ent_gate_kharad
+    ent_side_ae_marble_a ent_side_ae_marble_b ent_side_ascendancy_a ent_side_ascendancy_b ent_side_firmament_a ent_side_firmament_b
+    ent_town_halcyon_gate ent_town_keelstone_gate ent_town_dawnspear_gate ent_town_lastlight_gate ent_town_lenswatch_gate ent_town_ae_ceremonial_gate
+    ent_dock_ae_landing ent_dock_ae_gangway ent_dock_ascendancy ent_dock_firmament ent_dock_kharad ent_dock_ae_skiff_platform
+    ent_door_kharad_vault ent_door_ae_stair_down ent_door_foundry ent_door_engine_hatch ent_door_forge_flue ent_door_wellstone
+    ent_exit_kharad_stair ent_exit_ae_stair_up ent_exit_foundry ent_exit_engine_hatch ent_exit_forge_flue ent_exit_wellstone""")
+
 #: FELWOOD (claude/felwood_art_prompts.md, sheets 1 and 2). The creatures cut to a staging folder and are
 #: filed into assets/creatures/ by tools/file_felwood_art.py; the buildings and props likewise, split
 #: between assets/buildings/ and assets/tiles/felwood/props/.

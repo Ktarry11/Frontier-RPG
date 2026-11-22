@@ -399,7 +399,7 @@
       ],
       "accept_text": "The High Houses don't send a guest an invitation without a seal on it, and mine is somewhere in that wreck. The gifts don't matter, but the seal does. If you'll climb in and look, I'll stand here and try not to look like a man who lost the council's seal.",
       "turn_in_text": "The gifts are glass now, but the seal's whole. That's the first thing that's gone right today.\n\nI can't walk into Aurelion with you yet. The keeper at Halcyon Rest has to hear first that the council's guests are alive.",
-      "next_quest_id": "ceq_word_upriver",
+      "next_quest_id": null,
       "reward_exp": 3560,
       "reward_gold": 14100,
       "unique_item_defs": [
@@ -471,7 +471,7 @@
     {
       "quest_id": "ceq_word_upriver",
       "title": "Word Upriver",
-      "giver_npc_id": "ce_herald",
+      "giver_npc_id": "ce_pilot",
       "zone": "celestial_expanse",
       "level_min": 49,
       "level_max": 49,
@@ -481,22 +481,19 @@
           "type": "deliver",
           "target": "ce_q_heralds_letter",
           "count": 1,
-          "label": "Take the herald's letter to Keeper Ithren Lorrow at Halcyon Rest"
+          "label": "Take the pilot's letter to Keeper Ithren Lorrow at Halcyon Rest"
         }
       ],
       "accept_text": "Keeper Ithren Lorrow at Halcyon Rest will tell the council anything I write, and he'll believe it more if it comes in your hand. It's upriver, past the Golem Fields and across the Broad Isle. Don't stop for the scenery, it's lovely and most of it bites.",
       "turn_in_text": "The council's skiff came down, and the council's guests walked here anyway.\n\nI'll send this tonight. I've had a lot of bad news to send lately, and it's good to send some that's only half bad.",
       "next_quest_id": null,
       "turn_in_npc_id": "ce_keeper",
-      "requires_quests": [
-        "ceq_the_councils_courtesy"
-      ],
       "grant_items": {
         "on_accept": [
           {
             "item_id": "ce_q_heralds_letter",
-            "name": "Herald's Letter",
-            "description": "A letter in Herald Cassian Orel's careful hand, sealed with the seal of the High Houses that he was very glad to find again.",
+            "name": "Pilot's Letter",
+            "description": "A letter in Skiff-Pilot Varo Senn's square hand, written lying down and folded round a flight log with the last entry still wet.",
             "count": 1
           }
         ]
@@ -1328,7 +1325,7 @@
     {
       "quest_id": "ceq_stormwright_yrvald",
       "title": "Stormwright Yrvald",
-      "giver_npc_id": "ce_pilot",
+      "giver_npc_id": "ce_skiffmaster",
       "zone": "celestial_expanse",
       "level_min": 51,
       "level_max": 51,
@@ -2087,9 +2084,9 @@
       "objectives": [
         {
           "type": "explore",
-          "target": "celestial_expanse",
-          "target_x": 227,
-          "target_y": 108,
+          "target": "halcyon_rest",
+          "target_x": 52,
+          "target_y": 91,
           "radius": 4,
           "label": "Cross the planks and check the knots on Tethertown's second rock"
         }
@@ -3994,7 +3991,7 @@
         }
       ],
       "accept_text": "Go on up to the foot of the bridge and look. I've stood guard on it for twelve years, and I've never let anyone from the ground walk on it. I want to see what your face does.",
-      "turn_in_text": "That's what everyone's face does, the first time.\n\nAurelion's eight rings, seven of them still turning, and the High Houses on top like a crown. I'm sorry to say the bridge stays up a while longer, though. The council's word came with a second letter, and it isn't good news.",
+      "turn_in_text": "That's what everyone's face does, the first time.\n\nAurelion's rings round the Spire Palace, and the High Houses' towers on top like a crown. You could walk across right now and nobody would stop you. But the council's word came with a second letter, and it isn't good news.",
       "next_quest_id": "ceq_word_to_the_wardens",
       "requires_quests": [
         "ceq_the_heralds_seal"
@@ -4080,7 +4077,7 @@
       "zone": "celestial_expanse",
       "level_min": 51,
       "level_max": 51,
-      "description": "The council's second letter says Aurelion's outer rings can't take the weight of visitors while the Third Anchor is slipping. Bridgewarden Caldus Rhee wants you to take it east along the old aqueduct arm to the Anchor-Wardens at Keelstone.",
+      "description": "The council's second letter says the Third Anchor is slipping, and Aurelion's outer rings are moored to the shelf it holds. Bridgewarden Caldus Rhee wants you to take it east along the old aqueduct arm to the Anchor-Wardens at Keelstone.",
       "objectives": [
         {
           "type": "deliver",
@@ -4089,7 +4086,7 @@
           "label": "Take the council's second letter to Warden-Prime Aldric Sorne at Keelstone"
         }
       ],
-      "accept_text": "The anchors hold up the shelf the outer rings are moored to, and they have for a thousand years. One of them's slipping, and the council won't put guests on a ring that might drop. Go east along the aqueduct arm from the Spillway to the Anchorfields, and take this to the Warden-Prime at Keelstone. The bridge will still be here.",
+      "accept_text": "The anchors hold up the shelf the outer rings are moored to, and they have for a thousand years. One of them's slipping, and the council would rather its first guest from the ground saw to that before a ring drops. Go east along the aqueduct arm from the Spillway to the Anchorfields, and take this to the Warden-Prime at Keelstone. The bridge will still be here.",
       "turn_in_text": "The council's sent me a guest from the ground, with a letter saying the guest is the help.\n\nWell, I've asked for help for forty years and got letters. Help is new. Welcome to the Anchorfields.",
       "next_quest_id": null,
       "turn_in_npc_id": "af_warden_prime",

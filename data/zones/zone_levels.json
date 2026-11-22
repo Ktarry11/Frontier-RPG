@@ -1,6 +1,10 @@
 {
   "_notes": "Zone name -> [level_min, level_max], for the overworld banner. DERIVED by tools/build_zone_levels.py from the creatures that actually spawn - never hand-edit this, edit the encounter tables and re-run.",
   "zones": {
+    "Amberleaf Glade": [
+      1,
+      6
+    ],
     "Ambermill Tower": [
       21,
       23
@@ -17,6 +21,10 @@
       28,
       33
     ],
+    "Ariden's Watch": [
+      55,
+      57
+    ],
     "Ashenvale East": [
       20,
       25
@@ -29,6 +37,10 @@
       22,
       28
     ],
+    "Aurelion": [
+      49,
+      57
+    ],
     "Azurelode Mine": [
       21,
       25
@@ -36,6 +48,10 @@
     "Blackfathom Deeps": [
       24,
       27
+    ],
+    "Bloodmoon Village": [
+      17,
+      21
     ],
     "Booty Bay": [
       38,
@@ -57,13 +73,25 @@
       4,
       12
     ],
+    "Brinecoil Grotto": [
+      3,
+      5
+    ],
     "Burning Blade Coven": [
       3,
       5
     ],
+    "Camp Mojache": [
+      44,
+      46
+    ],
     "Camp Taurajo": [
       12,
       24
+    ],
+    "Central Azshara": [
+      52,
+      57
     ],
     "Central Barrens": [
       12,
@@ -81,9 +109,17 @@
       12,
       19
     ],
+    "Deadwind East": [
+      55,
+      58
+    ],
+    "Deadwind West": [
+      55,
+      57
+    ],
     "Deathknell": [
       1,
-      10
+      6
     ],
     "Drygulch Ravine": [
       7,
@@ -103,15 +139,31 @@
     ],
     "Durotar": [
       6,
-      18
+      12
+    ],
+    "Duskfall Woods": [
+      5,
+      9
     ],
     "Dustwind Cave": [
       4,
       8
     ],
+    "East Azshara": [
+      52,
+      59
+    ],
     "Eastern Hillsbrad": [
       22,
       27
+    ],
+    "Eastern Plaguelands East": [
+      56,
+      59
+    ],
+    "Eastern Plaguelands West": [
+      55,
+      58
     ],
     "Eastern Tirisfal": [
       7,
@@ -121,9 +173,25 @@
       10,
       14
     ],
+    "Emerald Sanctuary": [
+      51,
+      53
+    ],
+    "Feathermoon Stronghold": [
+      46,
+      48
+    ],
     "Fenris Isle": [
       17,
       21
+    ],
+    "Firstlight Spire": [
+      5,
+      9
+    ],
+    "Fourth Peg": [
+      44,
+      47
     ],
     "Freewind Post": [
       29,
@@ -146,16 +214,40 @@
       30
     ],
     "Gurbashi Arena": [
-      33,
-      39
+      36,
+      37
+    ],
+    "Halcyon Rest": [
+      49,
+      51
+    ],
+    "Haldarr Den": [
+      54,
+      56
     ],
     "Hammerfall": [
       33,
       37
     ],
+    "Hearthglen": [
+      58,
+      59
+    ],
+    "Hearthglen: Mardenholde Keep": [
+      59,
+      60
+    ],
+    "Hetaera's Grotto": [
+      56,
+      58
+    ],
     "Howling Barrows": [
       21,
       24
+    ],
+    "Jaedenar": [
+      52,
+      55
     ],
     "Kael's Bastion": [
       32,
@@ -165,6 +257,18 @@
       51,
       56
     ],
+    "Lenswatch": [
+      48,
+      51
+    ],
+    "Light's Hope Chapel": [
+      56,
+      59
+    ],
+    "Moonglade": [
+      53,
+      55
+    ],
     "Moonwell Hollow": [
       22,
       25
@@ -172,6 +276,10 @@
     "Night Web's Hollow": [
       5,
       7
+    ],
+    "North Felwood": [
+      53,
+      55
     ],
     "Northern Barrens": [
       12,
@@ -191,7 +299,7 @@
     ],
     "Orgrimmar": [
       6,
-      18
+      56
     ],
     "Plague Depths": [
       30,
@@ -207,7 +315,7 @@
     ],
     "Razor Hill": [
       6,
-      18
+      12
     ],
     "Razorfen Kraul": [
       25,
@@ -217,9 +325,17 @@
       33,
       36
     ],
+    "Rootwater Isle": [
+      42,
+      44
+    ],
     "Rotvine Hollow": [
       32,
       34
+    ],
+    "Saltspine Hollow": [
+      7,
+      9
     ],
     "Saltspur Landing": [
       37,
@@ -232,6 +348,34 @@
     "Scarlet Crypt": [
       6,
       8
+    ],
+    "Scarlet Monastery Grounds": [
+      28,
+      41
+    ],
+    "Scarlet Monastery: Armory": [
+      35,
+      38
+    ],
+    "Scarlet Monastery: Cathedral": [
+      38,
+      41
+    ],
+    "Scarlet Monastery: Graveyard": [
+      28,
+      31
+    ],
+    "Scarlet Monastery: Library": [
+      32,
+      35
+    ],
+    "Scholomance": [
+      56,
+      58
+    ],
+    "Scholomance: Lower Halls": [
+      58,
+      60
     ],
     "Scourge Cave": [
       10,
@@ -249,6 +393,10 @@
       18,
       24
     ],
+    "Shriekhollow": [
+      46,
+      47
+    ],
     "Silverpine North": [
       11,
       17
@@ -260,6 +408,10 @@
     "Skull Rock": [
       7,
       12
+    ],
+    "South Felwood": [
+      51,
+      53
     ],
     "Southern Barrens": [
       18,
@@ -273,6 +425,10 @@
       29,
       34
     ],
+    "Southshore": [
+      20,
+      26
+    ],
     "Splintertree Post": [
       20,
       25
@@ -280,6 +436,26 @@
     "Steamwheedle Port": [
       41,
       44
+    ],
+    "Stonetalon East": [
+      26,
+      29
+    ],
+    "Stonetalon West": [
+      29,
+      32
+    ],
+    "Stratholme": [
+      57,
+      59
+    ],
+    "Stratholme: Service Entrance": [
+      58,
+      59
+    ],
+    "Stratholme: Slaughter Square": [
+      59,
+      60
     ],
     "Stromgarde Keep": [
       31,
@@ -291,23 +467,19 @@
     ],
     "Sunken Grotto of the Deep": [
       7,
-      18
+      12
     ],
     "Sunken Temple Grotto": [
       11,
       14
     ],
+    "Talrendis Landing": [
+      52,
+      56
+    ],
     "Tarren Mill": [
       22,
       27
-    ],
-    "Southshore": [
-      22,
-      26
-    ],
-    "Timbermaw Tunnel": [
-      53,
-      56
     ],
     "Tempest Shallows": [
       52,
@@ -317,6 +489,22 @@
       44,
       47
     ],
+    "The Anchorfields": [
+      51,
+      54
+    ],
+    "The Ascendant Bastions": [
+      54,
+      57
+    ],
+    "The Ascendant Spire": [
+      60,
+      60
+    ],
+    "The Ascendant Spire: The Command Spire": [
+      60,
+      60
+    ],
     "The Ashen Orchard": [
       9,
       11
@@ -324,6 +512,10 @@
     "The Ashen Reach": [
       55,
       58
+    ],
+    "The Ashvent": [
+      30,
+      32
     ],
     "The Aspen Wilderness": [
       25,
@@ -345,9 +537,17 @@
       38,
       41
     ],
+    "The Bone Mines": [
+      58,
+      60
+    ],
     "The Broodspiral": [
       18,
       23
+    ],
+    "The Bulwark": [
+      7,
+      54
     ],
     "The Buried Caravan": [
       44,
@@ -357,6 +557,10 @@
       50,
       51
     ],
+    "The Celestial Expanse": [
+      49,
+      51
+    ],
     "The Cinderwell": [
       17,
       18
@@ -364,6 +568,18 @@
     "The Cistern": [
       50,
       52
+    ],
+    "The Cloudbreak": [
+      47,
+      49
+    ],
+    "The Cloudwreck": [
+      56,
+      58
+    ],
+    "The Coal Forest": [
+      32,
+      33
     ],
     "The Crossing": [
       38,
@@ -397,6 +613,18 @@
       33,
       35
     ],
+    "The Drowned Palace": [
+      59,
+      60
+    ],
+    "The Drowned Palace: The Queen's Vault": [
+      59,
+      60
+    ],
+    "The Drowned Seep": [
+      57,
+      58
+    ],
     "The Drowned Shrine": [
       40,
       42
@@ -409,9 +637,37 @@
       44,
       47
     ],
+    "The Eldest Sequoia": [
+      30,
+      32
+    ],
+    "The Eldest's Crown": [
+      32,
+      33
+    ],
     "The Emberdeep": [
       55,
       58
+    ],
+    "The Exclusion Zone": [
+      57,
+      59
+    ],
+    "The Exclusion Zone: The Foot": [
+      59,
+      60
+    ],
+    "The Exclusion Zone: The Reactor Hall": [
+      59,
+      60
+    ],
+    "The Fading Firmament": [
+      57,
+      60
+    ],
+    "The Forgotten Coast": [
+      46,
+      48
     ],
     "The Frostward Descent": [
       31,
@@ -429,9 +685,53 @@
       15,
       17
     ],
+    "The Golem Vault": [
+      50,
+      51
+    ],
+    "The Gravity Foundry": [
+      56,
+      57
+    ],
+    "The Gravity Foundry: The Keelworks": [
+      57,
+      58
+    ],
+    "The Great Settlement": [
+      44,
+      47
+    ],
+    "The Hearthdeep": [
+      58,
+      59
+    ],
+    "The High Wilderness": [
+      44,
+      46
+    ],
+    "The Hollow Engine": [
+      58,
+      59
+    ],
     "The Hollow Geode": [
       34,
       37
+    ],
+    "The Kapok Crowns": [
+      48,
+      49
+    ],
+    "The Keel": [
+      53,
+      54
+    ],
+    "The Knothollow": [
+      44,
+      45
+    ],
+    "The Lanternmere": [
+      56,
+      57
     ],
     "The Lashings": [
       44,
@@ -441,6 +741,30 @@
       29,
       30
     ],
+    "The Lightwell Deep": [
+      8,
+      9
+    ],
+    "The Long Winter": [
+      57,
+      58
+    ],
+    "The Lost Tepui": [
+      58,
+      59
+    ],
+    "The Lower Boughs": [
+      44,
+      45
+    ],
+    "The Marris Crypt": [
+      56,
+      58
+    ],
+    "The Middle Boughs": [
+      45,
+      47
+    ],
     "The Moonless Glade": [
       26,
       28
@@ -449,17 +773,41 @@
       48,
       50
     ],
+    "The Orrery": [
+      53,
+      55
+    ],
     "The Ossuary Below": [
       26,
       27
+    ],
+    "The Painted Springs": [
+      30,
+      32
+    ],
+    "The Pale Watch": [
+      53,
+      56
     ],
     "The Palimpsest Vault": [
       44,
       45
     ],
+    "The Quiet Vault": [
+      5,
+      6
+    ],
     "The Raider's Hold": [
       40,
       42
+    ],
+    "The Raincatch": [
+      47,
+      47
+    ],
+    "The Rotroot Deeps": [
+      55,
+      58
     ],
     "The Royal Hive": [
       54,
@@ -477,13 +825,33 @@
       35,
       40
     ],
+    "The Storm-Well": [
+      51,
+      51
+    ],
     "The Stormcrag": [
       36,
       38
     ],
+    "The Stormroost": [
+      50,
+      52
+    ],
+    "The Stormsplit": [
+      47,
+      48
+    ],
     "The Sunken Kraal": [
       19,
       21
+    ],
+    "The Sunward Crown": [
+      48,
+      49
+    ],
+    "The Sunward Waystation": [
+      58,
+      59
     ],
     "The Tanglewood Shoals": [
       14,
@@ -497,6 +865,10 @@
       37,
       40
     ],
+    "The Twin Colossals": [
+      46,
+      49
+    ],
     "The Undercrust": [
       39,
       41
@@ -504,6 +876,14 @@
     "The Unwritten Stacks": [
       40,
       41
+    ],
+    "The Upper Boughs": [
+      47,
+      48
+    ],
+    "The Weeping Cave": [
+      55,
+      57
     ],
     "The Weeping Ice": [
       29,
@@ -513,13 +893,37 @@
       17,
       19
     ],
+    "The Wellspring": [
+      59,
+      59
+    ],
+    "The Widows' Nest": [
+      56,
+      58
+    ],
     "The World-Root Hollow": [
       18,
       19
     ],
+    "The Writhing Deep": [
+      53,
+      55
+    ],
+    "The Zukk'ash Hive": [
+      47,
+      49
+    ],
     "Thunder Ridge": [
       8,
       12
+    ],
+    "Timbermaw Hold": [
+      52,
+      56
+    ],
+    "Timbermaw Tunnel": [
+      53,
+      55
     ],
     "Tiragarde Keep": [
       4,
@@ -545,9 +949,21 @@
       16,
       22
     ],
+    "West Azshara": [
+      52,
+      56
+    ],
     "Western Hillsbrad": [
       20,
       26
+    ],
+    "Western Plaguelands North": [
+      53,
+      56
+    ],
+    "Western Plaguelands South": [
+      51,
+      54
     ],
     "Western Tirisfal": [
       4,
@@ -556,6 +972,10 @@
     "Widow's Lair": [
       17,
       19
+    ],
+    "Windshear Mine": [
+      27,
+      29
     ],
     "Wrackline Hold": [
       37,
@@ -567,427 +987,11 @@
     ],
     "Zeppelin Tower": [
       6,
-      18
+      12
     ],
     "Zoram Strand": [
       22,
       28
-    ],
-    "South Felwood": [
-      51,
-      53
-    ],
-    "Emerald Sanctuary": [
-      51,
-      55
-    ],
-    "North Felwood": [
-      53,
-      55
-    ],
-    "Jaedenar": [
-      52,
-      55
-    ],
-    "Stonetalon East": [
-      26,
-      29
-    ],
-    "Windshear Mine": [
-      27,
-      30
-    ],
-    "Stonetalon West": [
-      29,
-      32
-    ],
-    "The Ashvent": [
-      30,
-      32
-    ],
-    "The Eldest Sequoia": [
-      30,
-      32
-    ],
-    "The Eldest's Crown": [
-      31,
-      33
-    ],
-    "The Painted Springs": [
-      30,
-      33
-    ],
-    "The Coal Forest": [
-      32,
-      34
-    ],
-    "Western Plaguelands South": [
-      51,
-      54
-    ],
-    "Western Plaguelands North": [
-      53,
-      56
-    ],
-    "Eastern Plaguelands West": [
-      55,
-      58
-    ],
-    "Eastern Plaguelands East": [
-      56,
-      60
-    ],
-    "The Bulwark": [
-      51,
-      54
-    ],
-    "The Pale Watch": [
-      53,
-      56
-    ],
-    "Light's Hope Chapel": [
-      56,
-      60
-    ],
-    "Scarlet Monastery Grounds": [
-      28,
-      42
-    ],
-    "Scarlet Monastery: Graveyard": [
-      28,
-      32
-    ],
-    "Scarlet Monastery: Library": [
-      32,
-      36
-    ],
-    "Scarlet Monastery: Armory": [
-      35,
-      39
-    ],
-    "Scarlet Monastery: Cathedral": [
-      38,
-      42
-    ],
-    "The Lanternmere": [
-      55,
-      58
-    ],
-    "The Long Winter": [
-      57,
-      59
-    ],
-    "The Sunward Waystation": [
-      58,
-      60
-    ],
-    "The Writhing Deep": [
-      53,
-      55
-    ],
-    "The Weeping Cave": [
-      55,
-      57
-    ],
-    "The Marris Crypt": [
-      56,
-      58
-    ],
-    "The Bone Mines": [
-      58,
-      60
-    ],
-    "Scholomance": [
-      56,
-      58
-    ],
-    "Scholomance: Lower Halls": [
-      58,
-      60
-    ],
-    "Stratholme": [
-      57,
-      59
-    ],
-    "Stratholme: Service Entrance": [
-      58,
-      59
-    ],
-    "Stratholme: Slaughter Square": [
-      59,
-      60
-    ],
-    "Hearthglen": [
-      58,
-      59
-    ],
-    "Hearthglen: Mardenholde Keep": [
-      59,
-      60
-    ],
-    "Fourth Peg": [
-      44,
-      47
-    ],
-    "Bloodmoon Village": [
-      17,
-      21
-    ],
-    "West Azshara": [
-      52,
-      55
-    ],
-    "Central Azshara": [
-      54,
-      57
-    ],
-    "East Azshara": [
-      56,
-      59
-    ],
-    "Talrendis Landing": [
-      52,
-      55
-    ],
-    "Timbermaw Hold": [
-      52,
-      58
-    ],
-    "Haldarr Den": [
-      54,
-      56
-    ],
-    "Hetaera's Grotto": [
-      56,
-      58
-    ],
-    "The Rotroot Deeps": [
-      55,
-      58
-    ],
-    "The Drowned Palace": [
-      59,
-      60
-    ],
-    "The Drowned Palace: The Queen's Vault": [
-      59,
-      60
-    ],
-    "Deadwind West": [
-      55,
-      57
-    ],
-    "Deadwind East": [
-      56,
-      58
-    ],
-    "Ariden's Watch": [
-      55,
-      58
-    ],
-    "The Widows' Nest": [
-      56,
-      58
-    ],
-    "The Drowned Seep": [
-      57,
-      58
-    ],
-    "The Exclusion Zone": [
-      57,
-      59
-    ],
-    "The Exclusion Zone: The Reactor Hall": [
-      58,
-      60
-    ],
-    "The Exclusion Zone: The Foot": [
-      59,
-      60
-    ],
-    "Moonglade": [
-      55,
-      60
-    ],
-    "The High Wilderness": [
-      44,
-      46
-    ],
-    "Camp Mojache": [
-      44,
-      46
-    ],
-    "The Forgotten Coast": [
-      46,
-      48
-    ],
-    "Feathermoon Stronghold": [
-      46,
-      48
-    ],
-    "The Twin Colossals": [
-      47,
-      49
-    ],
-    "The Zukk'ash Hive": [
-      47,
-      49
-    ],
-    "Rootwater Isle": [
-      42,
-      44
-    ],
-    "The Lower Boughs": [
-      44,
-      45
-    ],
-    "The Knothollow": [
-      44,
-      45
-    ],
-    "The Great Settlement": [
-      44,
-      48
-    ],
-    "The Middle Boughs": [
-      45,
-      47
-    ],
-    "Shriekhollow": [
-      45,
-      47
-    ],
-    "The Raincatch": [
-      46,
-      47
-    ],
-    "The Kapok Crowns": [
-      48,
-      49
-    ],
-    "The Stormroost": [
-      50,
-      52
-    ],
-    "The Orrery": [
-      53,
-      55
-    ],
-    "The Cloudwreck": [
-      56,
-      58
-    ],
-    "The Lost Tepui": [
-      58,
-      59
-    ],
-    "The Upper Boughs": [
-      47,
-      48
-    ],
-    "The Stormsplit": [
-      47,
-      48
-    ],
-    "The Cloudbreak": [
-      48,
-      48
-    ],
-    "The Sunward Crown": [
-      48,
-      49
-    ],
-    "Lenswatch": [
-      48,
-      49
-    ],
-    "The Celestial Expanse": [
-      49,
-      51
-    ],
-    "The Golem Vault": [
-      50,
-      51
-    ],
-    "The Storm-Well": [
-      51,
-      51
-    ],
-    "The Anchorfields": [
-      51,
-      54
-    ],
-    "The Keel": [
-      53,
-      54
-    ],
-    "The Hearthdeep": [
-      58,
-      59
-    ],
-    "The Wellspring": [
-      59,
-      59
-    ],
-    "The Hollow Engine": [
-      58,
-      59
-    ],
-    "Aurelion": [
-      51,
-      60
-    ],
-    "The Ascendant Bastions": [
-      54,
-      57
-    ],
-    "The Fading Firmament": [
-      57,
-      60
-    ],
-    "The Gravity Foundry": [
-      56,
-      57
-    ],
-    "The Gravity Foundry: The Keelworks": [
-      57,
-      58
-    ],
-    "The Ascendant Spire": [
-      60,
-      60
-    ],
-    "The Ascendant Spire: The Command Spire": [
-      60,
-      60
-    ],
-    "Amberleaf Glade": [
-      1,
-      6
-    ],
-    "Duskfall Woods": [
-      5,
-      9
-    ],
-    "Firstlight Spire": [
-      1,
-      9
-    ],
-    "Brinecoil Grotto": [
-      3,
-      5
-    ],
-    "The Quiet Vault": [
-      5,
-      6
-    ],
-    "Saltspine Hollow": [
-      7,
-      9
-    ],
-    "The Lightwell Deep": [
-      8,
-      9
     ]
   }
 }

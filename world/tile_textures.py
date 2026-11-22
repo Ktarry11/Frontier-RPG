@@ -384,6 +384,7 @@ ZONE_BIOME = {
     "The Sunward Crown": "tropical",              # the crown and the cloud: painted ground (baked)
     "Lenswatch": "tropical",                      # the survey's island: painted ground (baked)
     "The Celestial Expanse": "tropical",          # the islands down the sky river: painted ground (baked)
+    "Halcyon Rest": "tropical",                   # the Expanse's town: painted ground (baked)
     "The Anchorfields": "tropical",               # the shattered shelf: painted ground (baked)
     "The Ascendant Bastions": "tropical",         # the star fort: painted ground (baked)
     "The Fading Firmament": "tropical",           # the dying heart: painted ground (baked)

@@ -10,7 +10,7 @@ data/quests/celestial_expanse.json, the quest drops (data/creatures/quest_drops.
 (data/factions/factions.json). Every rule the Sunward Crown's builder holds is held here (tools/build_sunward_crown_quests.py):
 every explore point is a tile you can walk to from the skiff landing on Crashfall, every giver and turn-in stands on the
 map, kill targets live in the zone's encounter table, at most four quests a giver, and about 70% of them given in the
-hubs (Crashfall, Tethertown and Halcyon Rest). The Aetherians pay the Aetherians; the Earthborn pay nobody.
+hubs (Halcyon Rest, the Expanse's town, with Tethertown tied on below it). The Aetherians pay the Aetherians; the Earthborn pay nobody.
 """
 import collections
 import contextlib
@@ -36,7 +36,7 @@ DROPS = ROOT / "data/creatures/quest_drops.json"
 FACTIONS = ROOT / "data/factions/factions.json"
 RATE = 0.75
 MAX_PER_GIVER = 4      # Kyle's standing rule
-HUB_SHARE = 0.7        # Kyle's ~70%: Crashfall, Tethertown and Halcyon Rest give most of them
+HUB_SHARE = 0.7        # Kyle's ~70%: Halcyon Rest, the Expanse's town, gives most of them
 
 #: who pays for a quest: the Aetherians pay the Aetherians; the Earthborn pay nobody (transplants are factionless)
 FACTION_BY_GIVER = {g: "aetherians" for g in SQ.SKY_GIVERS}
@@ -48,6 +48,7 @@ ITEM_PREFIX = "ceg_"
 #: quest zone key -> (map module, start attribute, encounter path)
 MAPS = {
     SQ.CE: ("tools.handbuilt_worldtree_celestial_expanse", "START", ("The Celestial Expanse",)),
+    SQ.HR: ("tools.handbuilt_worldtree_halcyon_rest", "START", None),      # a town: reachability only
     SQ.GV: (None, None, ("The Celestial Expanse", "The Golem Vault")),
     SQ.SW: (None, None, ("The Celestial Expanse", "The Storm-Well")),
 }

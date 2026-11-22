@@ -530,7 +530,7 @@ def dress(L):
     B("ae_failing_pylon", 182, 184, 12)
     B("ae_dead_engine", 166, 200, 6)
     S("ff_crystal_crater", 204, 196, 5, solid=False)
-    L.prop("ent_door_stairs_down", 188, 203, 5, path_dir="assets/tiles/cave_entrances/", solid="core", nudge=0)
+    L.prop("ent_door_ae_stair_down", 188, 203, 5, path_dir="assets/tiles/cave_entrances/", solid="core", nudge=0)
     # ---- the Listing Isle and Tiltside: the leaning tower, and the Earthborn camped under it
     B("ae_leaning_tower", 283, 140, 12)
     S("ff_camp_fire", 283, 168, 3, solid=False)

@@ -578,14 +578,14 @@ def dress(L):
     B("vy_storm_forge", 184, 30, 6)                 # the singer's hearth, on its perch
     B("ae_great_forge", 166, 34, 7)                 # the cutter's hearth
     S("sk_rune_circle_broken", 172, 22, 6, solid=False)
-    L.prop("ent_door_stairs_down", 178, 11, 5, path_dir=ENT, solid="core", nudge=0, allow_overlap=True)
+    L.prop("ent_door_forge_flue", 178, 11, 5, path_dir=ENT, solid="core", nudge=0, allow_overlap=True)
     # ---- Forgewatch: the House of Long Memory's tents
     B("ae_field_pavilion", 150, 14, 6)
     S("ff_patched_tent", 144, 28, 5)
     B("ae_chart_desk", 158, 16, 3)
     # ---- the Dead Engines: the great engines gone black, the snapped anchors, the way inside
     B("ae_dead_engine", 244, 44, 12)                # the Hollow Engine itself, its hatch at its foot
-    L.prop("ent_door_bronze_pipe", 244, 47, 5, path_dir=ENT, solid="core", nudge=0, allow_overlap=True)
+    L.prop("ent_door_engine_hatch", 244, 47, 5, path_dir=ENT, solid="core", nudge=0, allow_overlap=True)
     S("ff_dead_engine", 228, 76, 8)
     S("ff_dead_engine", 262, 84, 8)
     S("ff_snapped_anchor", 246, 100, 5)
