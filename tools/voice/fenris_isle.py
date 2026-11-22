@@ -119,3 +119,16 @@ VOICE = {
         "He puts a stone down on the far side of the well, well past the line he's been marking.\n\nThat's where the nearest track was this morning, right out at the treeline, where it was when I was a boy.\n\nI'll keep putting them down. But I think I'll be putting them down for a different reason from now on.",
     ),
 }
+
+
+# THE STORY PASS (22 Nov 2026), to docs/quest_writing_standard.md; see tools/voice/fenris_isle_story.py.
+from voice.fenris_isle_story import STORY as _STORY
+for _qid, (_d, _a) in _STORY.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a, _old[2])
+
+
+from voice.fenris_isle_beats import BEATS as _BEATS
+for _qid, _a in _BEATS.items():
+    _o = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_o[0], _a, _o[2])
