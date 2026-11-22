@@ -158,13 +158,19 @@ def _check_third(body, q):
 
 def journal_third_person(q):
     """The quest journal always prints `description`, whichever field the offer window picked. A narrator there is
-    the same failure as a narrator in the window."""
-    return _check_third((getattr(q, "description", "") or "").strip(), q)
+    the same failure as a narrator in the window. Stricter than the window check: a giver talking says I, me, my, we
+    or us somewhere, so a description with no first person at all is narration even when it never names the giver
+    ("Twice a week Hillsbrad's militia walk up the tower road..."). Item starters narrate to "you" on purpose."""
+    giver = getattr(q, "giver_npc_id", None)
+    if not giver or (isinstance(giver, str) and giver.startswith("item:")):
+        return False
+    body = (getattr(q, "description", "") or "").strip()
+    return not _FIRST.search(re.sub(r'"[^"]*"', "", body)) or _check_third(body, q)
 
 
 # STORY-DONE ZONES. Kyle, 22 Nov 2026: one zone at a time, to docs/quest_writing_standard.md. Once a zone is on this
 # list, an offer under STORY_MIN sentences or a journal that narrates is a hard finding there, so it can't slip back.
-STORY_DONE = {"feralas"}
+STORY_DONE = {"feralas", "hillsbrad", "stranglethorn_north", "stranglethorn_central"}
 _STEM_OF = None
 
 

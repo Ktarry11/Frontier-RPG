@@ -61,7 +61,10 @@ def build(stem, qm, findings, write):
                 problems.append(f"{qid} {f}: {len(text)} characters, over {CAP}")
             if any(ord(ch) > 127 for ch in text):
                 problems.append(f"{qid} {f}: non-ASCII character")
-        for f, p in findings(_Q(qid, *merged)):
+        stub = _Q(qid, *merged)
+        # the giver, so the journal check (a description with no first person is narration) can run here too
+        stub.giver_npc_id = getattr(qm.quests.get(qid), "giver_npc_id", None)
+        for f, p in findings(stub):
             problems.append(f"{qid} {f}: {p}")
         doc[qid] = {f: v for f, v in zip(FIELDS, fields) if v is not None}
     print(f"  {stem}: {len(voice)} quests rewritten, {len(problems)} problem(s)")

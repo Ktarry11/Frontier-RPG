@@ -1,0 +1,252 @@
+"""Central Stranglethorn and the Gurbashi Arena in the giver's own voice (22 Nov 2026), to
+docs/quest_writing_standard.md. Narration-plus-speech folded into the giver talking; accept lines are a short beat;
+turn-ins untouched. The two item starters (the wager slip, the crate nail) narrate to "you" on purpose. Loads after
+zzzzzzzz_voice_stranglethorn.json, so these lines win. Dubo, Zul'jana and Zul'tamo keep their dialect.
+"""
+
+_S = {
+    "stvc_no_bed_between": (
+        "I keep Grom'gol's south gate, and I count everyone who heads down the Vine Road toward Booty Bay. Two "
+        "travellers went south this month and never came back past me. The Bloodvine raptors have been hunting the road "
+        "where it fords the Veilfall, because it's the one spot where you have to slow down. Go down to the ford, thin "
+        "them out, and while you're standing in it, look at the stones and the water around them. If somebody went into "
+        "that river, I'd rather hear it from you than from their family.",
+        "Walk it properly, all the way to the ford. I'll know if you turned back at the bend.",
+    ),
+    "stvc_ganger_cut": (
+        "My gang keeps da Vine Road clear of bloodvine, and da Gurbashi pay me for it, since nobody walks to dere arena "
+        "through raw jungle. Bloodvine grows back over a cut road in about nine days, and I been short of hands since da "
+        "rains. Dis road got a crown in da middle so da rain runs off, and da kerb stones hold it up, but da vine comes "
+        "right through da kerb. Bring me lengths of cut vine from along it, mon. And kill dem greenwater adders while "
+        "you're down dere, because dey nest in da drains and bite my boys when dey reach in.",
+        "Cut it low, right at da kerb. Vine cut high just grows back by da end of da week.",
+    ),
+    "stvc_tout_entry": (
+        "I take bets on the Gurbashi Arena from a board in Booty Bay's tavern, and I've already entered you in the fights "
+        "without asking. Nobody down here has seen you lose, so the odds on you are generous, and I like generous odds. "
+        "I need the card to be worth watching, though. Right now the Gurbashi drovers are sending underweight beasts into "
+        "the pens and signing them in at full weight, and thin fights mean thin betting. Put some of the beast-drovers "
+        "down here on the Gurbashi Flats, and bring me their stock tallies, the papers where they sign in the weights.",
+        "Do it where the bettors can see you. I haven't decided yet whether that's good for the odds.",
+    ),
+    "stvc_tout_staked": (
+        "With my own money riding on you now, I can't walk away from a bad afternoon any more. Your entry chit has to "
+        "reach the arena gatehouse before you can fight, and the Gurbashi gate crew don't take a goblin's word for "
+        "anything. Take it north up the apron to Gatehouse Broker Zul'tamo and put it in his hand yourself. The "
+        "gatekeepers will try to stop you, because that's what they're paid for, so fight through them. Get a look at "
+        "the way into Gurbashi Arena while you're up there.",
+        "Don't dawdle, because the drums start at dusk and I've got money on you being there.",
+    ),
+    "stvc_fenn_weather": (
+        "I dry herbs on a rack here at the edge of the Veilfall Basin and sell them to Grom'gol. There's a moss that "
+        "grows along the lip of the falls, only where the spray reaches, and I need a good batch. Clear the snapjaw "
+        "leechswarms out of the slack water below the pool while you're there. Think about this on the way, because it's "
+        "been bothering me. Where you come from, does the rain come in a season, or all year round? Everything I know "
+        "about plants assumes a wet season and a dry one.",
+        "Pick the moss where the spray's heaviest. The dry edges are no good to me.",
+    ),
+    "stvc_fenn_lit_fall": (
+        "At night the curtain of the Veilfall glows, and I've told myself for two years it was moonlight on the water. "
+        "Water doesn't glow like that, but lamps do. If someone's lighting lamps behind the falls, then somebody's been "
+        "living in that cave the whole time I've been camped outside it. Nightpelt panthers prowl the edge of the basin "
+        "at dusk, and they're the real reason I've never gone round to look. Deal with them, then walk round to the mouth "
+        "of the Veilfall Cave, just south of my rack, and tell me if there's a door.",
+        "I've spent two years telling myself there isn't one. Go and find out.",
+    ),
+    "stvc_zuljana_names": (
+        "I've got the cave behind the Veilfall on my map as the waterfall cave, because that's what the garrison calls "
+        "it. The Zul'Rath trolls who keep it have a name carved on each of its terraces, and Zul'jana's asked me to get "
+        "every one of them onto the map before the garrison's name is the only one left. Each terrace in the Veilfall "
+        "Cave has a name stone set in its edge, and I need those stones. The Zul'Rath mistcallers won't let you stand on "
+        "a terrace long enough to read one, so you'll have to go through them first. Zul'jana doesn't like asking that, "
+        "and neither do I.",
+        "If we don't, the map gets a garrison name by spring. Bring me every stone you can.",
+    ),
+    "stvc_zuljana_font": (
+        "Deep in da Veilfall Cave, at a pool called da Font, da Zul'Rath measure da falls every mornin' with a knotted "
+        "cord and keep da old cords to compare. Three years ago da water rose in da wrong season, and it ain't gone back "
+        "down. I want dose cords, to see how far it's changed. Go down to da Font and bring dem to me, and expect a fight "
+        "while you're gatherin', because spraywater elementals rise out of dat pool. Leave da shrine alone, it ain't "
+        "ours.",
+        "Don't try to read da knots. Just carry dem back and I'll do da readin'.",
+    ),
+    "stvc_veilspeaker": (
+        "The Veilspeaker who leads the Zul'Rath has decided my camp is why the falls changed. His shrinekeepers came up "
+        "and took my drying rack apart without a word. I went in with a gift of lamp oil to make peace, and I came back "
+        "out with nothing settled. He's right that the ground is his, and I'm right that I've got nowhere else to go. "
+        "I've thought about this for four days before asking. He's down in the Veilfall Cave, on the south shore of the "
+        "plunge pool, so go down and end it.",
+        "Just don't tell me it was quick.",
+    ),
+    "stvc_garza_report": (
+        "I was posted from Grom'gol to watch the only road up onto the Mosh'Ogg Shelf. In my second week I dropped my "
+        "spyglass into the notch, signed for and stamped with my number, and every report I've sent since has been "
+        "guesswork. The Mosh'Ogg rockthrowers grab anything shiny and pile it on the midden behind their camp up here on "
+        "the shelf. Put them down and bring me the made things off that pile, not the bones. If my spyglass is in there, "
+        "it'll have a brass collar with my number stamped on it.",
+        "If it isn't there, my next report has to say something different from the last nine.",
+    ),
+    "stvc_shelf_road": (
+        "The Mosh'Ogg hold this shelf because there's only one notch up through the mesas, and they were standing nearest "
+        "to it when it mattered. My next report will admit to the lost spyglass, and I'd like some good news in it too. "
+        "Clear the maulers off the approach and the spellgorgers out of their clearing at the top. Then walk into the "
+        "clearing on the Mosh'Ogg Shelf, so that someone from this post has actually stood in it this season. I've spent "
+        "eleven weeks reporting on a camp I've never set foot in.",
+        "I'm done guessing. Go and stand in it for me.",
+    ),
+    "stvc_ulua_netsetter": (
+        "I've fished the Snapjaw Marsh all my life, off the same landing my mother used. My hands have been stiff since "
+        "the cold month, and I can barely close them. My lines are out past the gangplank where the water goes still. "
+        "Pull them, bring in the catch, and reset them exactly the way you found them. The snapjaw crocolisks have been "
+        "tearing the nets to get at the fish, so deal with them too.",
+        "And don't tell anyone in Booty Bay you did this. I sell there.",
+    ),
+    "stvc_wager_slip": (
+        "You cut it out of a crocolisk's stomach, which isn't where paper belongs. It's a betting slip, stiff with salt "
+        "and brown at the folds but still readable, with a fighter's name, a round, and the odds on it. The odds are good "
+        "enough that whoever held it must have known something. The handwriting is small, quick and neat, and Tout "
+        "Bexxil up on the arena apron writes exactly like that. Before you take it to her, go back through the Snapjaw "
+        "Marsh and look along the water by the gangplank.",
+        "Kill the snapjaw crocolisks on the way. Whatever else went into that water may be inside one.",
+    ),
+    "stvc_arena_first_four": (
+        "I keep da arena's fight list, as my father did before me, and I don't care who wins, only dat da list is right. "
+        "Before you go down, I'll tell you what nobody in Booty Bay can. You can only walk da ring one way round, because "
+        "da mason never cut da other passages. First is Vek'tar da Unbeaten, and once he's worn down he starts drainin' "
+        "da fight back out of you, so keep da pressure on him. Den Grateward Mok'tal, who keeps a fire burnin' under da "
+        "grate and shuts down whatever you answer it with. Nobody beats Mok'tal by bein' patient.",
+        "Go down da stair into Gurbashi Arena, and walk da ring anticlockwise, always.",
+    ),
+    "stvc_arena_pair": (
+        "Now dat da bettors know whose money is on you, da arena's changed your next fight, and I'll tell you plainly it "
+        "ain't my decision, but it's on my list. Da handlers have put Jin'sha in da pit with Rakjan da Ribcracker, which "
+        "dey only do when da house wants a round to stop bein' predictable. Rakjan is loud, but he ain't da danger, "
+        "Jin'sha is. After him comes Zul'gar Hammerfall, who guards da passage to da hall, and somebody from his family "
+        "has stood in dat doorway for three generations. He swings three times, all of dem huge, and one strips your "
+        "armour off.",
+        "Spend da fight on da big one and you'll die to da small one. Plan for Zul'gar's third swing.",
+    ),
+    "stvc_arena_favourite": (
+        "I'll be straight with you. Your wins made my bet on you worth far more than I paid, so I sold most of my stake "
+        "this morning, and the part I kept pays best if you last eleven minutes against Jen'shala and then fall. I'm "
+        "telling you because you'd have found out anyway, and I'd rather it came from me. Jen'shala drains the fight out "
+        "of you and strips your armour, and the house has never once put her on the sand to lose. Go down, do what you're "
+        "going to do, and collect your winnings from the Quiet Man in Booty Bay.",
+        "Whatever happens down there, I won't hold it against you for long.",
+    ),
+    "stvc_scrip_drums": (
+        "I've never been more than a mile from the cove, but I can hear the arena drums on still nights, and I know "
+        "they're made of gorilla hide. Go up the road to the arena and look at the drums for me, how many, how big, and "
+        "what they're made of. And kill some of the big drumhide gorillas, because that's a clue, they're named after the "
+        "drums! Bring me bits of their hide so I can feel it. Stand on the Gurbashi Flats in front of the gate too, so "
+        "you can tell me how many people fit. I'll pay you by telling you which crates on the pier aren't nailed down.",
+        "Don't tell Hobb I sent you. He'll only say I'm wrong again.",
+    ),
+    "stvc_crate_nail": (
+        "You turn it over in your hand. It's a crate nail, square cut and flat headed, the kind used in shipping timber, "
+        "and it's stamped with a run number. You found it on the Mosh'Ogg Shelf, up a road that only leads up. Numbered "
+        "nails come in runs, and a run means a clerk somewhere wrote down where the crate went. Only one man in "
+        "Stranglethorn would know a run number on sight, Clerk Bexx, behind his desk in Booty Bay, and he'll be "
+        "insufferable about being asked.",
+        "Deal with some of the Mosh'Ogg brutes before you head down. The nailed timber's in their camp.",
+    ),
+    "stvc_cord_sealed": (
+        "I got da Font's readings, but I won't give dem to Overseer Mokra. Anything written down in a garrison has to be "
+        "acted on by da end of da week. What dese readings need is someone whose whole trade is measurin' water, and who "
+        "answers to nobody, and dere's nobody like dat in dis jungle. Bring me more cords from da Font, fresh ones, so "
+        "nobody can say my numbers are a season old. Den go up to da Plunge, da lamp gallery above da pool in da "
+        "Veilfall Cave, and look at da old waterline on da stone and da newer one above it.",
+        "Look at it yourself. I won't send word about somethin' you ain't seen.",
+    ),
+    "stvc_north_leg": (
+        "I've flown freight out of Grom'gol since the camp was one post and a rope. My route north used to cross the "
+        "Veilfall Basin, where warm air lifted my wyverns over the trees, but since the falls rose the air there's turned "
+        "cold. The long way round costs me a day I don't get paid for, and limewing bats from the cave have taken over "
+        "the old perches. Kill them in the cave where they sleep, then stand on the old perch at the edge of the Veilfall "
+        "Basin and feel the air coming off that water. This bundle from Zul'jana goes north to Ghulrak at Tarren Mill, "
+        "so put it in his hands yourself.",
+        "Not on the perches, mind. I've got beasts on the ground there.",
+    ),
+    "stvc_sluice_book": (
+        "I work the gate on the Tarren Mill race, and when I lower it, the wheel stops and the whole valley knows my name "
+        "within the hour. I've done it twenty-two years. Zul'jana's cords are flat on my bench, and I've read them twice. "
+        "What I think of them, I'd rather say at the weir, with the water loud beside us. I trust what I say more when "
+        "I'm standing next to the river.",
+        "Come up to the weir and ask what you came to ask. Mind the walkway, because a few of those boards are new.",
+    ),
+    "stvc_reed_verdict": (
+        "My family's milled the Tarren Mill race for sixty years and written its height down every week in one ledger. "
+        "I've laid the jungle's cords against my records, and I've found that pattern twice, but never a third time. I "
+        "want a proper marker set at those falls, so somebody can measure it again. This is a gauge board, oak and "
+        "numbered, cut by my father for a weir that silted up years ago. Take it to the Veilfall Basin in Stranglethorn "
+        "and set it in sound stone above the falls, low enough for a short person to read.",
+        "The spraywater elementals will come up out of the water while you work. Be ready for them.",
+    ),
+    "stvc_zultamo_courses": (
+        "Zul'jana sent you to ask why da Zul'Rath word for da Veilfall's water is da same as da Gurbashi word for da "
+        "arena's sand. I'm da third of my family to keep da fight list, and nobody's ever asked me dat. I put my pen down "
+        "for it, and I don't do dat often. Come down da stair with me and we'll talk standin' in it, because half of what "
+        "I'll tell you, you need to see. Wait at da Sand Gate, at da foot of da stair, where da ring looks like it opens "
+        "both ways.",
+        "Den ask your questions. I'll answer what I can, and be honest about what I can't.",
+    ),
+    "stvc_centre_gate": (
+        "Da first fighter through da centre gate dis season never came back. His kit came back up, and we hung it on a "
+        "peg and counted it, but dere's no name to write on his line, because he came from somewhere else and da column "
+        "stayed blank. I've kept dis list my whole life, and dis is its first gap in three generations. Take his kitbag "
+        "down past da gatekeepers to da Hard Round, da dead end in front of da centre gate, and stand where he stood. Den "
+        "bring da bag back up and hang it on its peg in da gatehouse.",
+        "Da gatekeepers will try to stop you. Guardin' dat spot is older than my family.",
+    ),
+    "stvc_drum_callers": (
+        "The arena drums aren't just music. They're how the bettors time each round, and a round lasts as long as the "
+        "drum crew says it does. I've got several afternoons of fights that ran long by exactly the same amount, and I've "
+        "worked out the drum-callers are being paid off. Take them down out on the Gurbashi Flats by the gate, where the "
+        "crowd can see, then get me more of the stock tallies from the crates. If I'm wrong about this, I've just had "
+        "musicians killed over nothing, so I want the paper.",
+        "Signed-in weight is worth more than coin down here, because nobody has to count it.",
+    ),
+    "stvc_limeback_lamps": (
+        "The glow behind the Veilfall went out four nights after the Veilspeaker died, and I've sat watching the dark "
+        "water ever since. For two years I told myself nobody lived behind the falls, and now it's true, and I know why. "
+        "With nobody keeping them down, the limebacks have climbed up off the lowest terrace, so stop them before they "
+        "find the ramp out. Gather me more spray moss while you're at it, since I haven't stopped selling it. Then go "
+        "into the Veilfall Cave, just south of here, down to the lowest terrace, where there's a jar of lamp oil under "
+        "the bracket.",
+        "The Veilspeaker told me where that oil was, the day I brought him a gift.",
+    ),
+    "stvc_ulua_cold_month": (
+        "My marsh is brackish, and my whole trade depends on that. My nets are cut for fish that live where salt water "
+        "and river meet. For about three years now, fresh water's been pushing down into the Snapjaw Marsh, and my catch "
+        "has started coming up wrong. Pull the far lines this time, out where the marsh stops being mine, and clear the "
+        "leechswarms out of the slack water first. Then walk south-west to the far edge of the Snapjaw Marsh, past the "
+        "last stake, where the grey reeds turn green.",
+        "That line's moved in my lifetime. I want someone besides me to have stood on it.",
+    ),
+    "stvc_ganger_milepost": (
+        "My gang is paid by da furlong, and da mileposts along da Vine Road decide how many furlongs we cut. Da stones "
+        "have stood at da kerb with dere carved faces pointin' north since my father's day. Now some of dem have been dug "
+        "up and reset facin' da wrong way, by somebody who knew exactly what dey were doin'. Kill da bloodvine raptors on "
+        "da road south of here and bring me more cut vine from da kerb. Den walk south along da Vine Road to da long "
+        "milepost where it bends, and tell me which way da carved face is pointin'.",
+        "North is Grom'gol. I never seen one turned in my life.",
+    ),
+    "stvc_notch_tithe": (
+        "My report has the crate nail in it now, proof that the Mosh'Ogg and the arena gate have been trading. A tribunal "
+        "won't settle for a nail, though. They'll want the goods from the midden, the drovers who signed for the weights, "
+        "and a witness they can question. Bring me more stamped goods off the Mosh'Ogg midden, then head south-west down "
+        "the Vine Road to the crates and thin out the Gurbashi beast-drovers. I'll be straight with you, I can't name you "
+        "as that witness, because a tribunal wants one with a village and a commander behind them.",
+        "You'll be the unnamed party who recovered the items. That's the form, not my opinion of you.",
+    ),
+    "stvc_scrip_second": (
+        "I didn't like it when you told me the big drums are crocolisk belly, and I've been thinking about it for four "
+        "days. I haven't come round, but I've worked out how to settle it. Kill some of the crocs in the Snapjaw Marsh, "
+        "not for the hide, for how big the biggest one is. If none of them is as wide across the belly as a drum is "
+        "across the top, it can't be croc, so I'm right and Hobb's wrong. That's called a test, and Clerk Bexx told me "
+        "about tests.",
+        "I've got questions too, and I wrote them on my hand, so don't go anywhere yet.",
+    ),
+}
+
+VOICE = {qid: (d, a, None) for qid, (d, a) in _S.items()}

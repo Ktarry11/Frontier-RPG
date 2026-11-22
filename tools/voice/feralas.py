@@ -45,9 +45,9 @@ VOICE = {
     ),
     "fe_the_nine_names": (
         "Forty of us walked out of Mulgore together, and thirty-one reached Mojache. I say the other nine names every "
-        "night, at the memorial pole in the refugees' quarter. Every token on that pole is somebody who didn't get "
-        "here. I'd like someone who wasn't with us to stand where I stand, and then walk out to the bottom of the pass "
-        "on the east road, where we came down. See both before I tell you anything more.",
+        "night, at the memorial pole on the north-west side of camp, in the refugees' quarter. Every token on that pole is somebody who didn't get "
+        "here. I'd like someone who wasn't with us to stand where I stand, and then walk out to the bottom of the pass, "
+        "where we came down. See both before I tell you anything more.",
         "Start at the pole, then go out to the pass. Take your time on the walk between them.",
         None,
     ),
@@ -63,7 +63,7 @@ VOICE = {
         "Pathfinder Harrok leads the Grimtotem at the compound, and he wears a totem on his belt like a trophy. It was "
         "carved for the Bloodhoof lodge before I was born, and a woman carried it out of Thunder Bluff on her back. She "
         "didn't survive the Needles. Harrok found her pack where she fell, and he's worn her totem ever since. He "
-        "doesn't go far from the compound, so bring it back to us.",
+        "doesn't go far from the Grimtotem Compound, north-west of the camp, so bring it back to us.",
         "Take him down quickly, before he works out what you've come for and breaks it to spite you.",
         None,
     ),
@@ -113,7 +113,7 @@ VOICE = {
         "With their snares gone, the Woodpaw have pulled back to their camps, and their Woodpaw Mystics are shaking "
         "their rattles all night. I know what that means, because I've heard it before. They're working themselves up "
         "to come back. When the Mystics start rattling, the Woodpaw Brutes come down the hill a night later. I'd "
-        "rather we went up first.",
+        "rather we went up into Woodpaw Hills, north of the camp, first.",
         "Break up the camp before they're ready.",
         None,
     ),
@@ -177,7 +177,7 @@ VOICE = {
         "The Grimtotem at the compound have started throwing spears at anything that flies over them. Their "
         "Pathfinders throw, and their Earthbreakers cheer them on. Last week they brought down one of my wind riders. "
         "I found her in the trees the next morning, with the spear still in her wing. I'd like her to be the last. "
-        "Clear them out of the compound.",
+        "Clear them out of the Grimtotem Compound, north-west of the camp.",
         "The Pathfinders keep to the high ground, where they've got a clear throw. Go up after them.",
         None,
     ),
@@ -193,12 +193,12 @@ VOICE = {
     "fe_what_the_mages_carry": (
         "Every Gordunni Ogre Mage I've killed had a scroll on him, half burned. Ogres can barely read their own names, "
         "so somebody's teaching them, or they're copying something out. I don't like not knowing which. The mages work "
-        "at the outpost and round the gate. Kill them and bring me what they're carrying.",
+        "at the outpost and round the Gate of Dire Maul, west of here. Kill them and bring me what they're carrying.",
         "Grab the scrolls before they finish burning. They put a light to them when they know they're losing.",
         None,
     ),
     "fe_the_gate": (
-        "The Gordunni hold the great gate of Dire Maul, in the middle of the arm, and they've barricaded it with tree "
+        "The Gordunni hold the Gate of Dire Maul, west of here in the middle of the arm, and they've barricaded it with tree "
         "trunks and chains. I want to know whether they're keeping people out or keeping something in. You can only "
         "tell by getting close and seeing which way the chains face. Their Maulers and Warlords guard it day and night, "
         "so you'll have to go through them. Look at the barricade properly, and come back and tell me.",
@@ -256,7 +256,7 @@ VOICE = {
     ),
     "fe_the_deep_mother": (
         "The hunters who've seen the hive's queen call her the Deep Mother, and I can't say I've got a better name. Her "
-        "chamber's where the main gallery levels out, a long way down. She lays the eggs, and the whole hive does "
+        "chamber's where the main gallery of the Zukk'ash Hive levels out, a long way down, south of the camp. She lays the eggs, and the whole hive does "
         "whatever she wants. Kill her, and the hive stops growing. I'll still buy the resin, mind, so don't go burning "
         "it all.",
         "Bring friends who can take a beating, and don't go down there tired.",
@@ -265,7 +265,7 @@ VOICE = {
     "fe_the_dig_head": (
         "Past the Deep Mother's chamber, the Zukk'ash are still digging. A silithid the size of a kodo stands at the "
         "head of the dig and drives the workers on, and the hunters call it Tunnelmaster Zix'tal. They heard it from "
-        "the far end, and they say it doesn't sound like the forest down there any more. A tunnel that long is going "
+        "the far end of the Zukk'ash Hive, south of here, and they say it doesn't sound like the forest down there any more. A tunnel that long is going "
         "somewhere, and I'd like to know where before it gets there. Kill the thing and see where they were digging.",
         "Notice the air when you get down there. If it's dry, tell me, and I'll know what it means.",
         None,
@@ -420,7 +420,7 @@ VOICE = {
     ),
     "fe_makrura_on_the_beach": (
         "The Hatecrest Makrura come up on the shore ahead of the naga, like scouts. They snap at anything that lands, "
-        "and our fishing boats can't get ashore at the landing any more. Elyssa's nets have sat dry for a week, and the "
+        "and our fishing boats can't get ashore at the landing any more. They come off the Hatecrest Shore, north of here. Elyssa's nets have sat dry for a week, and the "
         "Sentinels are living on soup. I'd rather they weren't. Clear the makrura off the beaches.",
         "Come at them from the land side. They watch the water, not the trees.",
         None,
@@ -443,7 +443,7 @@ VOICE = {
         "I feed the Sentinels on nightfin and makrura, and the makrura on the beaches have come up fat and bold since "
         "the naga arrived. I think the naga feed them. They've got the sweetest tail meat on the coast. The Sentinels "
         "are tired of my soup, and they've started telling me so. Bring me some tails from the Hatecrest Makrura on the "
-        "beach.",
+        "Hatecrest Shore, north of here.",
         "Cut the tail off at the last joint. That's where the meat is, and the rest is shell.",
         None,
     ),
@@ -480,7 +480,7 @@ VOICE = {
         None,
     ),
     "fe_ogres_in_the_dome": (
-        "The Gordunni at Isildien are working in shifts. The Isildien Diggers work the archive stair, and the Brutes "
+        "The Gordunni at the Ruins of Isildien, north-east of here, are working in shifts. The Isildien Diggers work the archive stair, and the Brutes "
         "stand over them while they do. Every day they're down there, they break into another room of the archive. "
         "Some of those rooms haven't been opened in ten thousand years, and I'd hoped to be the one who opened them. "
         "Please stop them before there's nothing left to open.",
@@ -491,7 +491,7 @@ VOICE = {
         "The ogres carried books out of the archive, and their Ogre Mages read the pages aloud to each other, badly. "
         "I've listened from the rubble, and they understand a little more of it every night. A Highborne archivist "
         "would have wept to hear it, and I very nearly did. I want those pages back before they understand the rest. "
-        "Bring me every page you can take off the mages at the dome.",
+        "Bring me every page you can take off the mages at the Ruins of Isildien, north-east of here.",
         "Don't fold them. The ink's older than anything else on this coast, and it cracks.",
         None,
     ),
@@ -569,7 +569,7 @@ VOICE = {
         None,
     ),
     "fe_stalkers_on_the_north_coast": (
-        "Since the merge, the Feralas Stalkers have spread up the coast. Now they've followed the yetis' scent north, "
+        "Since the merge, the Feralas Stalkers have spread up the coast. They come out of the Fog Groves, east of here, and now they've followed the yetis' scent up the coast, "
         "and they hunt the coast road between the Forgotten Coast and the Sentinels' Watch. My runners won't take it "
         "alone any more, and I don't blame them. Last week one of them came in with claw marks right through her pack. "
         "Clear the road through the Twin Colossals.",
@@ -577,7 +577,7 @@ VOICE = {
         None,
     ),
     "fe_windwings_over_the_arches": (
-        "The Frayfeather Windwings have moved up to the Twin Colossals, and they're nesting on top of the arches. They "
+        "The Frayfeather Windwings have come down off the Frayfeather Highlands, north-east of here, to the Twin Colossals, and they're nesting on top of the arches. They "
         "dive at anything that walks underneath. Our patrols to the Watch go right under them, and I've had two "
         "Sentinels come back bleeding from the scalp. I don't care why they're up there, I need the patrols to get "
         "through. Drive them off the arches.",
@@ -587,21 +587,21 @@ VOICE = {
     # --- Aerwyn and Ravenwind ---
     "fe_ravenwinds_diggers": (
         "The Hatecrest who came up with the merge are digging at the Ruins of Ravenwind, the same way they've been "
-        "digging on the south coast. Their Sea Witches call up the tide to wash the earth away from the old stones, and "
+        "digging down by Feathermoon. Their Sea Witches call up the tide to wash the earth away from the old stones, and "
         "their Raiders guard them while they do. I've got six Sentinels to hold this whole stretch of coast, and none "
-        "to spare for a ruin. I want them stopped before they're finished. Go up the coast and break up the digging.",
+        "to spare for a ruin. I want them stopped before they're finished. Go north up the coast and break up the digging.",
         "Kill the Sea Witches before the tide comes in. Once the water's up, you'll be fighting knee deep.",
         None,
     ),
     "fe_guardians_of_the_ruin": (
-        "The naga dug down to a road under Ravenwind, and now they've brought Ravenwind Guardians to hold it. They've "
+        "The naga dug down to a road under Ravenwind, and now they've brought Ravenwind Guardians to hold it, up at the Ruins of Ravenwind, north of here. They've "
         "brought Ravenwind Hydras to keep it as well. My Sentinels can't get near it. If we break their hold, we can "
         "bury the road again, and that'll slow them down. Go back to the ruins and break it.",
         "The Guardians stand on the road itself. Draw them off it one at a time, and the hydras will follow.",
         None,
     ),
     "fe_lady_szaressa": (
-        "Lady Szaressa commands the Hatecrest at Ravenwind, and the Guardians answer to her. When she's hurt, she wraps "
+        "Lady Szaressa commands the Hatecrest at the Ruins of Ravenwind, north of here, and the Guardians answer to her. When she's hurt, she wraps "
         "herself in a ward of sea water, and my arrows just bounce off it. I've watched her shrug off a whole volley. "
         "Everything they've dug up on this coast passes through her hands. Break the ward and finish her.",
         "The ward doesn't last. Keep hitting it, and when it breaks, don't give her time to call it back.",
@@ -609,7 +609,7 @@ VOICE = {
     ),
     "fe_the_road_under_ravenwind": (
         "The naga dug down to an old Highborne road under Ravenwind, and it runs inland. I want to see where it actually "
-        "goes. Find it in the ruins and follow it east, as far as the Twin Colossals. I've got a guess, and I don't like "
+        "goes. Find it in the Ruins of Ravenwind, north of here, and follow it inland as far as the Twin Colossals. I've got a guess, and I don't like "
         "it. If it goes where I think it does, Latronicus needs to know.",
         "Stay on the old stones as you follow it. Where the road goes under the grass, look for the line of the kerbs.",
         None,
@@ -665,9 +665,9 @@ VOICE = {
     ),
     "fe_walkers_under_the_arches": (
         "The Colossal Land Walkers and Sea Walkers have stood under the Twin Colossals since before the night elves came "
-        "to this forest. Now they're walking north-east, toward the Bough, and they trample everything in their way. I "
+        "to this forest. Now they've started walking toward the Bough, and they trample everything in their way. I "
         "don't know what they mean to do when they get there. I'd rather not find out. Stop them under the arches "
-        "before they get any closer.",
+        "south of here, before they get any closer.",
         "The Sea Walkers keep to the water's edge, and the Land Walkers to the high ground. You'll need both.",
         None,
     ),
