@@ -1,0 +1,26 @@
+"""Accept lines rewritten as new beats, 22 Nov 2026: the old ones repeated the speech (accept echo)."""
+
+BEATS = {
+    'dk_claim_spiders': "Burn the webs across the shaft mouths as you go. Gresk won't thank you, but his lungs will.",
+    'dk_scout_hollow': 'Mark the turns with chalk on the way in. Those strands all look the same coming back.',
+    'dk_to_brill': "Don't stop at the portal to admire it. Everyone does, and Rennick gets impatient.",
+    'dk_risen_grave_dwellers': 'Speak to them before you strike. Some of them still turn toward a voice.',
+    'dk_risen_mawgrin': "When he's gone, would you fill in the pit? I'd sleep better knowing it was closed.",
+    'dk_instructor_bones': 'Watch their feet, not their weapons. A skeleton always steps before it swings.',
+    'dk_instructor_wights': "Don't let one breathe on you. That cold doesn't wear off for a day.",
+    'dk_instructor_ossric': "If his spade's still whole, lay it beside him. He earned it.",
+    'dk_marrow_shrouds': "Fold the scraps, don't ball them up. Creased linen is still linen. Crumpled is rags.",
+    'dk_gresk_goldfang': 'Pull the fangs with the roots on. The roots are where the colour goes deepest, and the price with it.',
+    'dk_gresk_hatchery': "Burn the clutches, don't break them. Broken eggs still hatch more often than you'd like.",
+    'dk_isolde_keepsakes': "Rinse them in clean water before you bring them up. I'd rather they came home without the pond on them.",
+    'dk_isolde_wren': 'If she stops weeping before you reach her, wait. Let her finish.',
+    'dk_orrel_scarecrows': "Burn the straw when they're down. A scarecrow left lying will stand up again by morning.",
+    'dk_orrel_seeds': "Keep the packets out of the sun on the way back. Seed that's warmed won't sprout.",
+    'dk_orrel_thorne': "Leave him in the rows if you can. He'd want to lie where he worked.",
+    'dk_verrick_pickets': "Go after the hymns stop for the night. They post fewer men when they think God's watching.",
+    'dk_verrick_orders': "Don't let the ink run. Keep them dry, and keep them flat.",
+    'dk_verrick_halbrook': 'Keep inside his reach once you close. A long blade is slow when the fight is close.',
+    'dk_verrick_crypt': 'Keep a light low and your voice lower. The nave carries every sound to the far end.',
+    'dk_verrick_fairbanks': "Don't answer any question he asks you. He's spent his life getting people to confess.",
+    'dk_verrick_vaults': "Open the ossuary first. I've waited longest for those.",
+}
