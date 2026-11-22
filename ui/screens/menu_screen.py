@@ -141,6 +141,16 @@ class MenuScreen(BaseScreen):
     
     def handle_event(self, event):
         """Handle menu button clicks."""
+        # Esc backs out one level, like the No, Close and Back buttons (Kyle, 21 Nov 2026: "when there is an option
+        # to 'Back out' or 'Exit' something... we should be able to hit Esc")
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+            if self.pending_overwrite is not None or self.pending_delete is not None:
+                self.pending_overwrite = self.pending_delete = None
+            elif self.slot_mode is not None and not self.slot_required:
+                self.slot_mode = None
+            elif self.slot_mode is None and self.state_manager.player:
+                self.state_manager.transition_to(GameState.OVERWORLD)
+            return
         if event.type != pygame.MOUSEBUTTONDOWN:
             return
         mouse_pos = event.pos

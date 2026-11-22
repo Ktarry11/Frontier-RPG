@@ -132,6 +132,12 @@ class RecruitDialogScreen(BaseScreen):
                     and (b.warned or b.leave_cause))
 
     def handle_event(self, event):
+        # Esc backs out, the same as Not Now or Close (Kyle, 21 Nov 2026: "when there is an option to 'Back out' or
+        # 'Exit' something... we should be able to hit Esc")
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+            self.state_manager.transition_to(GameState.PARTY if (self.bond is not None and self.in_party)
+                                             else GameState.OVERWORLD)
+            return
         if event.type != pygame.MOUSEBUTTONDOWN:
             return
         mouse_pos = event.pos

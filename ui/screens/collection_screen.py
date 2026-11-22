@@ -368,11 +368,37 @@ class CollectionScreen(BaseScreen):
             rect = pygame.Rect(LEFT + c * (CARD_W + CARD_GAP), TOP + r * (CARD_H + CARD_GAP), CARD_W - GUTTER // 2,
                                CARD_H)
             self._card(screen, rect, e)
+        self._hover_text(screen)
 
         if self.message:
             for i, line in enumerate(self.renderer.wrap_text(self.message, SCREEN_WIDTH - 60)[:2]):
                 self.renderer.draw_text(screen, line, (LEFT, SCREEN_HEIGHT - 46 + i * 20),
                                         color=GREEN if self.message_ok else RED)
+
+    def _hover_text(self, screen):
+        """The whole description of the card under the mouse, wrapped, when the card had to cut it short. Kyle, 21 Nov
+        2026: "for keepsakes we cant read more as they get cut off" (Omar's Red Pen ran out at "the one he mark..")."""
+        from world import collection as C
+        pos = pygame.mouse.get_pos()
+        for rect, e in self.cards:
+            if not rect.collidepoint(pos):
+                continue
+            if e["kind"] == "keepsake" and not C.learned(e["id"]):
+                return
+            text = e.get("blurb") or ""
+            if self.renderer._get_font(font_size=14).size(text)[0] <= rect.width - 120:
+                return
+            w = 420
+            lines = self.renderer.wrap_text(text, w - 20, font_size=15)
+            h = 16 + 20 * len(lines)
+            x = min(pos[0] + 14, SCREEN_WIDTH - w - 8)
+            y = min(pos[1] + 14, SCREEN_HEIGHT - h - 8)
+            box = pygame.Rect(x, y, w, h)
+            self.renderer.draw_rect(screen, box, (24, 24, 32))
+            self.renderer.draw_rect(screen, box, RARITY.get(e["rarity"], COLOR_WHITE), fill=False)
+            for i, ln in enumerate(lines):
+                self.renderer.draw_text(screen, ln, (x + 10, y + 8 + 20 * i), font_size=15, color=COLOR_WHITE)
+            return
 
     def _card(self, screen, rect, e):
         from world import collection as C
