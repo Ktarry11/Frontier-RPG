@@ -73,7 +73,13 @@ def main():
     def shown(vid):
         with contextlib.redirect_stdout(io.StringIO()):
             scr = VendorScreen(SM(), vm.vendors[vid])
-        return {getattr(i, "_sells_id", None) for i in scr.vendor_inventory}
+        # buyable stock only: what a standing hasn't reached yet shows on the shelf locked (Kyle, 21 Nov 2026)
+        return {getattr(i, "_sells_id", None) for i in scr.vendor_inventory if not getattr(i, "_shelf_lock", None)}
+
+    def locked(vid):
+        with contextlib.redirect_stdout(io.StringIO()):
+            scr = VendorScreen(SM(), vm.vendors[vid])
+        return {getattr(i, "_sells_id", None) for i in scr.vendor_inventory if getattr(i, "_shelf_lock", None)}
 
     # EVERY faction with a shelf, not only the nine build_faction_rewards.py wrote (Kyle, 17 Nov 2026: "Ensuring
     # variation in all rep vendors?"): the Pale Flame and the Argent Dawn (build_plaguelands_rewards.py) and the
@@ -155,10 +161,14 @@ def main():
             base = set(vm.vendors[vid].sells)
             f.standing = 0
             low = shown(vid)
+            seen_locked = locked(vid)
             f.standing = 10 ** 6
             high = shown(vid)
             check(gated <= high, f"{vid}: at exalted the shop misses {sorted(gated - high)[:4]}")
             check(not ((gated - base) & low), f"{vid}: at neutral it already shows {sorted((gated - base) & low)[:4]}")
+            want_locked = {i for t, ids in tiers.items() if t not in ("neutral",) for i in ids} - base - low
+            check(want_locked <= seen_locked, f"{vid}: at neutral these aren't on the shelf locked: "
+                                              f"{sorted(want_locked - seen_locked)[:4]}")
         f.standing = before
 
     # A DIRECTION, NOT A CAGE (Kyle, 15 Nov 2026: "DONT tunnel people... Don't pigeon hole!!!"): every faction

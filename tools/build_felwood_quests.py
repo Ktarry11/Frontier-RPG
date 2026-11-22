@@ -42,7 +42,7 @@ FACTIONS = ROOT / "data/factions/factions.json"
 RATE = 0.75
 MAX_PER_GIVER = 5
 #: The Reclamation's two capstones: the end of Jaedenar, and the turncoat.
-CAPSTONES = {"fw_the_unbound": 500, "fw_voralith_the_turncloak": 350}
+CAPSTONES = {"fw_the_unbound": 250, "fw_voralith_the_turncloak": 250}
 
 #: quest zone key -> (zone name, the map module, its generate function, an entrance tile or None)
 MAPS = {

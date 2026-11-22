@@ -72,7 +72,7 @@ ENTRY = {
                     "and the southern jungle - the Authority does not pay for work done north of the "
                     "Gurbashi, because north of the Gurbashi is Orgrimmar's problem.",
         "default": 250,
-        "boss": 275,
+        "boss": 250,
         "capstones": {},
         "zones": ["booty_bay", "stranglethorn_south"],
         "also": [],

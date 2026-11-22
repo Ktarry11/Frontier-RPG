@@ -143,6 +143,19 @@ class VendorScreen(BaseScreen):
         # A hidden seller turns its one-of-a-kind gear over every twelve market hours (world/vendor_rotation.py).
         from world.vendor_rotation import shelf, clock_for
         stock = shelf(self.vendor, stock, clock_for(self.state_manager))
+        # Everything a quartermaster sells at a standing you haven't reached shows too, locked (Kyle, 21 Nov 2026:
+        # "how would i know i even want to grind this rep if i cant see what they sell"). See it, read it, buy it
+        # once the standing's there. world/faction_manager.vendor_locked lists them.
+        locks = {}
+        try:
+            from world.faction_manager import get_faction_manager
+            fm = get_faction_manager()
+            for entry, fid, tier in fm.vendor_locked(getattr(self.vendor, "vendor_id", "")):
+                if entry not in stock:
+                    locks[entry] = (fid, tier, f"Requires {getattr(fm.get(fid), 'name', fid)} - {fm.tier_name(fid, tier)}")
+            stock = list(stock) + list(locks)
+        except Exception:                                            # noqa: BLE001
+            locks = {}
         for item_id in stock:
             # ONE resolver, shared with every tool that needs the same
             # answer - see world/vendor_stock.py for why that matters. The
@@ -154,6 +167,7 @@ class VendorScreen(BaseScreen):
                 loot_generator=self.loot_generator)
             if thing is not None:
                 thing._sells_id = item_id      # a barter shelf prices by what it was listed as
+                thing._shelf_lock = locks.get(item_id)
                 items.append(thing)
                 continue
             # Genuinely unknown ID - warn and skip rather than crash
@@ -437,6 +451,10 @@ class VendorScreen(BaseScreen):
         item = self.selected_vendor_item
         if item is None:
             self._show_message("Select something to buy first.", COLOR_RED)
+            return
+        lock = getattr(item, "_shelf_lock", None)
+        if lock:
+            self._show_message(f"{lock[2]} to buy this.", COLOR_RED)
             return
 
         qty = self.buy_qty if self._stackable(item) else 1
@@ -1092,8 +1110,19 @@ class VendorScreen(BaseScreen):
             if getattr(item, "item_level", 0) >= 68:
                 # the dearer line gets a thin gold rule down its right edge
                 pygame.draw.line(screen, COLOR_GOLD, (rect.right - 3, rect.y + 4), (rect.right - 3, rect.bottom - 4), 2)
+        lock = getattr(item, "_shelf_lock", None) if mode == "buy" else None
+        if lock:
+            name_color = tuple(int(c * 0.55) for c in name_color[:3])
         self.renderer.draw_text(screen, item.name, (text_x, rect.y + 6),
                                 size="small", color=name_color)
+        if lock:
+            # a small padlock and the standing it waits on, in red, left of the price
+            lx, ly = rect.right - 168, rect.y + 7
+            pygame.draw.rect(screen, (200, 80, 70), (lx, ly + 6, 12, 9), border_radius=2)
+            pygame.draw.arc(screen, (200, 80, 70), (lx + 2, ly, 8, 12), 0, 3.1416, 2)
+            tier = lock[2].rsplit(" - ", 1)[-1]
+            tw = self.renderer._get_font("small").size(tier)[0]
+            self.renderer.draw_text(screen, tier, (lx - 6 - tw, rect.y + 6), size="small", color=(220, 95, 85))
 
         if mode == "buy":
             price = self._unit_price(item)
@@ -1250,6 +1279,11 @@ class VendorScreen(BaseScreen):
         # is exactly how this got four ways to overflow in the first place.
         # Wrapped at size="small" because that is what the draw loop below uses.
         # a line is text, or (text, colour) where it carries a colour (a recipe's red "Requires" when you're short)
+        lock = getattr(item, "_shelf_lock", None) if mode == "buy" else None
+        if lock:
+            # the standing it's waiting on, in red, last so it's the thing you read before clicking
+            lines = [ln for ln in lines if (ln[0] if isinstance(ln, tuple) else ln) != lock[2]]
+            lines.append((lock[2], (230, 95, 85)))
         wrapped = []
         for line in lines:
             text, colour = line if isinstance(line, tuple) else (line, COLOR_WHITE)

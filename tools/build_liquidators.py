@@ -63,8 +63,8 @@ FACTION = {
     ],
     "quest_rep": {
         "_comment": "Per quest, by shape. Paid by giver (tools/build_deadwind_quests.FACTION_BY_GIVER).",
-        "default": 325,
-        "boss": 350,
+        "default": 225,
+        "boss": 250,
         "capstones": {},
         "zones": [],
     },

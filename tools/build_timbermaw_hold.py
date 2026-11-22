@@ -221,8 +221,8 @@ FACTION = {
         "_comment": "Per quest, by shape. Matches the other factions' rates.",
         "_comment_rate": ("325 a quest, not the 225 most factions pay: the Timbermaw own eight quests and the feathers, "
                           "and questing has to show on the bar (qa_factions)."),
-        "default": 325,
-        "boss": 350,
+        "default": 225,
+        "boss": 250,
         "capstones": {},
         "zones": [ZONE, HOLD],
     },
@@ -289,7 +289,7 @@ SEEDS = ("tm_q_fel_seed_pouch", "Fel-Tainted Seed Pouch",
          "A Deadwood gardener's seed pouch. Whatever these grow into, the Timbermaw don't want it planted.")
 #: Felwood's own Timbermaw quests, given by Barrowpaw at Talonbranch: Timbermaw business, so they pay the Timbermaw
 ALSO = ["fw_to_timbermaw_hold", "fw_felpaw_village", "fw_the_totems_of_felpaw"]
-CAPSTONES = {"fw_chieftain_grimpelt": 500, "tm_deadwood_feathers": 100}
+CAPSTONES = {"fw_chieftain_grimpelt": 250, "tm_deadwood_feathers": 100}
 
 # ---------------------------------------------------------------------------------------------- the quests
 XP = {54: 3960, 55: 4040}

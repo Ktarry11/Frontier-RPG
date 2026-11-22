@@ -168,7 +168,7 @@ FACTIONS = {
             "about the Dream the way old friends argue.",
         ],
         "quest_rep": {"_comment": "Per quest, paid by giver (tools/build_moonglade_quests.py).",
-                      "default": 325, "boss": 350, "capstones": {}, "zones": []},
+                      "default": 225, "boss": 250, "capstones": {}, "zones": []},
     },
     WAKENED: {
         "name": "The Wakened",
@@ -198,7 +198,7 @@ FACTIONS = {
             "night, and now she's studying the Dream from the only angle the druids never had: the outside.",
         ],
         "quest_rep": {"_comment": "Per quest, paid by giver (tools/build_moonglade_quests.py).",
-                      "default": 325, "boss": 350, "capstones": {}, "zones": []},
+                      "default": 250, "boss": 250, "capstones": {}, "zones": []},
     },
 }
 QM = {CIRCLE: "mg_circle_qm", WAKENED: "mg_wakened_qm"}

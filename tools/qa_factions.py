@@ -54,6 +54,12 @@ def _exalted_at(fm, rows):
     return len(rows)
 
 
+#: Factions the 250 cap (21 Nov 2026) left short of Friendly on quests alone, and waiting on real quests rather than a
+#: higher rate. The Wakened have 11 quests at 250, which is 2,750 of the 3,000 Friendly needs; they get two or three
+#: more written with the quest fill (task list), and then come off this list.
+SHORT_OF_QUESTS = {"the_wakened"}
+
+
 def main():
     fails = []
     fm = FactionManager()
@@ -108,7 +114,7 @@ def main():
         # meaningfully advances you and NEVER finishes the job.
         tier = fac.tier["name"]
         print(f"  {fac.name:26s} {counts[fid]:4d} quests {totals[fid]:7d} rep -> {tier}")
-        if counts[fid] and fac.tier_id in ("neutral",):
+        if counts[fid] and fac.tier_id in ("neutral",) and fid not in SHORT_OF_QUESTS:
             fails.append(f"{fid}: {counts[fid]} quests and still Neutral - the rate is too low to notice")
         # "QUESTS MUST NEVER FINISH THE JOB" was written when the Codex was the only faction and owned
         # 50 quests. It does not survive contact with the Forsaken, who own 370 across twelve zones: at
@@ -356,6 +362,20 @@ def main():
           f"({empty.get('crimson_codex').tier['name']})")
     if empty.standing("crimson_codex") != 0:
         fails.append("a save with no factions block did not load at Neutral")
+
+    # NO QUEST PAYS MORE THAN 250 (Kyle, 21 Nov 2026: "quests should only be giving around 200-250 rep max per
+    # quest...none of this 325 shit"). The file's own numbers are held to it too, so the cap in quest_reward is a net
+    # and not the only thing doing the work.
+    import json as _json
+    from world.faction_manager import QUEST_REP_CAP
+    fd = _json.loads((ROOT / "data/factions/factions.json").read_text(encoding="utf-8"))["factions"]
+    for fid, f in fd.items():
+        qr = f.get("quest_rep") or {}
+        for key, val in (("default", qr.get("default", 0)), ("boss", qr.get("boss", 0)),
+                         *((f"capstone {k}", v) for k, v in (qr.get("capstones") or {}).items())):
+            if val > QUEST_REP_CAP:
+                fails.append(f"{fid}: {key} pays {val} rep, over the {QUEST_REP_CAP} a quest can give")
+    print(f"  no quest pays more than {QUEST_REP_CAP} standing")
 
     print("\n" + ("PASS" if not fails else f"FAIL ({len(fails)})"))
     for x in fails:

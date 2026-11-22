@@ -132,7 +132,8 @@ def main():
             for vid in {v[1] for v in stock.values()}:
                 with contextlib.redirect_stdout(io.StringIO()):
                     scr = VendorScreen(SM(), vm.vendors[vid])
-                shown = {getattr(i, "_sells_id", None) for i in scr.vendor_inventory}
+                shown = {getattr(i, "_sells_id", None) for i in scr.vendor_inventory
+                         if not getattr(i, "_shelf_lock", None)}       # locked stock shows but isn't for sale
                 mine = {i for i, v in stock.items() if v[1] == vid}
                 if want:
                     check(mine <= shown, f"{vid}: at exalted the shop doesn't show {sorted(mine - shown)}")

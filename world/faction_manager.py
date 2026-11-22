@@ -151,6 +151,12 @@ class Faction:
         return f"<Faction {self.faction_id} {self.standing} ({self.tier['name']})>"
 
 
+#: The most standing one quest can give. Kyle, 21 Nov 2026: "quests should only be giving around 200-250 rep max per
+#: quest...none of this 325 shit". Default rates sit at or under 225, a boss or capstone quest at 250, and this
+#: cap holds even if a faction file or a builder asks for more.
+QUEST_REP_CAP = 250
+
+
 class FactionManager:
     """Singleton-ish holder: see get_faction_manager()."""
 
@@ -211,6 +217,11 @@ class FactionManager:
         return int(amount), tier_up
 
     def quest_reward(self, quest):
+        """(faction_id, amount), never more than QUEST_REP_CAP. See _quest_reward for how it's found."""
+        fid, amt = self._quest_reward(quest)
+        return fid, min(int(amt or 0), QUEST_REP_CAP)
+
+    def _quest_reward(self, quest):
         """How much standing a quest is worth, and to whom. Returns (faction_id, amount) or (None, 0).
 
         Reads the quest's ZONE rather than carrying a per-quest field, so the 48 quests already written
@@ -371,6 +382,39 @@ class FactionManager:
                 if cid:
                     extra.append(f"collection:{cid}")
         return extra
+
+    def vendor_locked(self, vendor_id):
+        """[(entry, faction_id, tier_id)] this vendor sells at standings the party hasn't reached yet.
+
+        Kyle, 21 Nov 2026: "how would i know i even want to grind this rep if i cant see what they sell". The
+        shelf used to show only what you'd already earned, so a quartermaster at Neutral looked empty. Now the
+        whole list shows and these entries carry a lock (ui/screens/vendor_screen.py): visible, not buyable
+        until the standing is there. The Exalted mount is listed the same way."""
+        out, have = [], set(self.vendor_unlocks(vendor_id))
+        for fid, f in self.factions.items():
+            stock = f.rewards.get("vendor_stock", {})
+            table = stock.get(vendor_id, {})
+            for tier_id, items in table.items():
+                if not f.at_least(tier_id):
+                    out += [(e, fid, tier_id) for e in items if isinstance(e, str) and e not in have]
+            if table and vendor_id == next(iter(stock)) and not f.at_least("exalted"):
+                from world.collection import exalted_mount_of
+                cid = exalted_mount_of(fid)
+                if cid:
+                    out.append((f"collection:{cid}", fid, "exalted"))
+        seen, uniq = set(), []
+        for row in out:
+            if row[0] not in seen:
+                seen.add(row[0])
+                uniq.append(row)
+        return uniq
+
+    def tier_name(self, faction_id, tier_id):
+        f = self.factions.get(faction_id)
+        for t in (f.tiers if f else []):
+            if t.get("id") == tier_id:
+                return t.get("name", tier_id.title())
+        return tier_id.replace("_", " ").title()
 
     def quest_requirement_met(self, quest_id):
         """False only when a quest is explicitly standing-gated and the player is short."""

@@ -19,7 +19,10 @@ _DATA = Path(__file__).parent.parent / "data"
 _NAMES = {"tempest_shallows": "Ashclaim Landing"}     # Fourth Peg is a town of its own now, with a flight point
 #: Continent for towns with no flight point to read it from.
 _CONTINENTS = {"sepulcher": "eastern_kingdoms", "tempest_shallows": "eastern_kingdoms"}
-CONTINENT_TITLES = {"kalimdor": "Kalimdor", "eastern_kingdoms": "Eastern Kingdoms"}
+CONTINENT_TITLES = {"kalimdor": "Kalimdor", "eastern_kingdoms": "Eastern Kingdoms", "sky": "The Sky"}
+#: Column order in the menu. Kyle, 21 Nov 2026: "We need a new list to include the sky". A town whose map is a sky map
+#: (tilemap.sky, the same flag the renderer and zone effects read) goes in its own column, whatever its flight point says.
+_ORDER = {"kalimdor": 0, "eastern_kingdoms": 1, "sky": 2}
 
 
 def destinations(zone_manager):
@@ -70,7 +73,9 @@ def destinations(zone_manager):
         else:
             label = node["name"]                      # a camp inside an open zone: use its own name
         continent = (node or {}).get("continent") or _CONTINENTS.get(key, "kalimdor")
+        if getattr(tilemap, "sky", None):
+            continent = "sky"
         out.append({"label": label, "zone": display[key], "x": rec["x"], "y": rec["y"] + 1,
                     "continent": continent})
-    out.sort(key=lambda d: (d["continent"] != "kalimdor", d["label"].replace("The ", "")))
+    out.sort(key=lambda d: (_ORDER.get(d["continent"], 9), d["label"].replace("The ", "")))
     return out

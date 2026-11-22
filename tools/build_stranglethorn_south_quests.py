@@ -973,9 +973,9 @@ def boards():
 # lease the Baron had drawn before he hired them.
 # =========================================================================================================
 CAPSTONES = {
-    "bb_the_fee_explained": 500,
-    "bb_hold_the_water": 500,
-    "bb_myzrai": 500,
+    "bb_the_fee_explained": 250,
+    "bb_hold_the_water": 250,
+    "bb_myzrai": 250,
 }
 
 #: WANTED, NOT WRITTEN.  data/factions/factions.json is shared and this pass no longer touches it, so
@@ -988,7 +988,7 @@ CAPSTONES = {
 #: it out loud to somebody who then has nowhere left to take it.  It is also the end of the only
 #: cross-zone chain, which is the shape the other three capstones all have.
 PROPOSED_CAPSTONES = {
-    "bb_kundaraz_means": 500,
+    "bb_kundaraz_means": 250,
 }
 
 

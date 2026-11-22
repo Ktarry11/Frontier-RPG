@@ -45,7 +45,7 @@ FACTIONS = ROOT / "data/factions/factions.json"
 FILES = [("tempest_shallows", SH), ("ashen_reach", RE)]
 RATE = 0.75
 #: The two ends of the island. Standing for these matches the other factions' capstones.
-CAPSTONES = {"tmp_thane_morrun": 500, "tmp_the_deep_claim": 500}
+CAPSTONES = {"tmp_thane_morrun": 250, "tmp_the_deep_claim": 250}
 
 TICS = {
     "it is not X, it is Y": re.compile(
