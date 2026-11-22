@@ -157,3 +157,12 @@ VOICE = {
         "They want more ash, and the Society wants a word, which is just wonderful.\n\nWell, you've been very good to an old corpse. Take this, and don't tell the tauren where it came from.",
     ),
 }
+
+
+# THE GIVERS SPEAK FOR THEMSELVES (21 Nov 2026): tools/voice/stonetalon_3p.py replaces the offer text of every quest
+# that was narrated about its giver.
+from voice.stonetalon_3p import THIRD as _THIRD          # noqa: E402
+
+for _qid, (_d, _a) in _THIRD.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a if _a is not None else _old[1], _old[2])
