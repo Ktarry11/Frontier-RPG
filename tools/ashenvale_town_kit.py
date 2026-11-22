@@ -218,8 +218,10 @@ def build(M):
     for (x, y) in getattr(M, "CHESTS", []):
         L.chest(x, y)
     # the town's districts, where its townsfolk live (tools/build_townsfolk.py)
+    have = {sz["name"] for sz in L.z.subzones}
     for row in getattr(M, "SUBZONES", []):
-        L.z.add_subzone(*row)
+        if row[0] not in have:          # a module that registers its own districts keeps them once
+            L.z.add_subzone(*row)
     return L
 
 

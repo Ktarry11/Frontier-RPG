@@ -142,3 +142,16 @@ def dress(L):
 
 
 AK.install(sys.modules[__name__])
+
+#: the districts, where the townsfolk live (Kyle, 22 Nov 2026: "ensure ALL towns are actually populated"; names made up to
+#: fit). (key, x, y, w, h, display name)
+SUBZONES = [
+    ('Feathermoon Stronghold', 0, 0, 124, 104, None),
+    ('The Roost', 48, 2, 36, 22, None),
+    ('The West Towers', 12, 18, 32, 24, None),
+    ('The Great Hall', 44, 24, 36, 26, None),
+    ('The Harbour', 84, 30, 40, 46, None),
+    ("The Bowyers' Grove", 12, 42, 32, 36, None),
+    ('The Moonwell Court', 44, 50, 36, 24, None),
+    ('The South Range', 36, 76, 50, 28, None),
+]

@@ -72,6 +72,10 @@ TOWNS = {
     "saltwheel": "Saltwheel",
     "steamwheedle_port": "Steamwheedle Port",
     "fourth_peg": "Fourth Peg",
+    "glittervein": "Glittervein",
+    "onyxhollow": "Onyxhollow",
+    "camp_mojache": "Camp Mojache",
+    "feathermoon_stronghold": "Feathermoon Stronghold",
 }
 SPACING = 3          # nobody stands closer than this to anyone else, if the district has room
 

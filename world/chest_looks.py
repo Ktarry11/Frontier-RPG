@@ -32,6 +32,28 @@ REGIONAL = {
     "the_forgotten_coast": "wildwood", "the_high_wilderness": "wildwood", "the_twin_colossals": "wildwood",
     "camp_mojache": "wildwood", "feathermoon_stronghold": "moonwood", "stonetalon_west": "wildwood",
     "stonetalon_east": "wildwood", "sun_rock_retreat": "savannah", "the_aspen_wilderness": "wildwood",
+    # sheet CH2 (22 Nov 2026): the Eastern Kingdoms' regions and the lands that had no chest of their own
+    "central_stranglethorn": "vine_bound", "northern_stranglethorn": "vine_bound", "southern_stranglethorn":
+    "vine_bound", "gromgol": "vine_bound", "gurbashi_arena": "vine_bound",
+    "arathi_central": "highland", "arathi_east": "highland", "arathi_west": "highland", "hammerfall": "highland",
+    "saltspur_landing": "highland",
+    "onyxhollow": "dark_iron",
+    "amberleaf_glade": "elven_gilded", "duskfall_woods": "elven_gilded", "dawnrest": "elven_gilded",
+    "firstlight_spire": "elven_gilded",
+    "west_azshara": "highborne_ruin", "central_azshara": "highborne_ruin", "east_azshara": "highborne_ruin",
+    "talrendis_landing": "highborne_ruin",
+    "rootwater_isle": "bark_hollow", "the_lower_boughs": "bark_hollow", "mossroof": "bark_hollow",
+    "the_great_settlement": "bark_hollow", "the_middle_boughs": "bark_hollow", "heartwatch": "bark_hollow",
+    "the_upper_boughs": "bark_hollow", "highrest": "bark_hollow", "the_cloudbreak": "bark_hollow", "spearhold":
+    "bark_hollow",
+    "the_sunward_crown": "aetherian_coffer", "lenswatch": "aetherian_coffer", "the_celestial_expanse":
+    "aetherian_coffer", "halcyon_rest": "aetherian_coffer", "the_anchorfields": "aetherian_coffer", "keelstone":
+    "aetherian_coffer", "the_ascendant_bastions": "aetherian_coffer", "dawnspear_wreck": "aetherian_coffer",
+    "the_fading_firmament": "aetherian_coffer", "lastlight": "aetherian_coffer", "aurelion": "aetherian_coffer",
+    "the_crystalline_underdark": "geode", "kaels_bastion": "geode", "the_deep_bloom": "geode",
+    "the_frostward_descent": "geode", "the_hollow_geode": "geode",
+    "tempest_shallows": "storm_driftwood", "cinderwharf": "storm_driftwood", "the_ashen_reach": "storm_driftwood",
+    "deadwind_west": "grave_ward", "deadwind_east": "grave_ward", "aridens_watch": "grave_ward",
 }
 
 # dungeon key -> (side-room looks, boss-reward look)

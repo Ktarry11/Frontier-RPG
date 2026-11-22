@@ -134,3 +134,17 @@ def dress(L):
 
 
 AK.install(sys.modules[__name__])
+
+#: the districts, where the townsfolk live (Kyle, 22 Nov 2026: "ensure ALL towns are actually populated"; names made up to
+#: fit). (key, x, y, w, h, display name)
+SUBZONES = [
+    ('Camp Mojache', 0, 0, 124, 96, None),
+    ('The Old Camp', 4, 6, 36, 36, None),
+    ("The Chief's Lodge", 40, 6, 44, 26, None),
+    ("The Traders' Ring", 86, 6, 38, 38, None),
+    ('The Great Totem', 42, 34, 40, 22, None),
+    ('The Craft Frames', 86, 44, 38, 28, None),
+    ('The Inn Fire', 10, 58, 42, 28, None),
+    ('The Drum Circle', 54, 56, 30, 22, None),
+    ('The Gate', 44, 78, 40, 18, None),
+]

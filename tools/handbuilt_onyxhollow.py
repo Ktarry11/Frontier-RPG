@@ -136,6 +136,12 @@ def build_onyxhollow():
     zone.add_subzone(NAME, 0, 0, W, H)
     zone.add_subzone("The Thane's Hall", 34, 10, 32, 22)
     zone.add_subzone("Forge Row", 10, 52, 80, 20)
+    # 22 Nov 2026, the townsfolk's districts (Kyle: "ensure ALL towns are actually populated")
+    zone.add_subzone("The Mine Head", 4, 12, 30, 28)
+    zone.add_subzone("The Vault Ward", 66, 12, 30, 28)
+    zone.add_subzone("The Inn Yard", 18, 36, 26, 16)
+    zone.add_subzone("The Market Steps", 58, 36, 34, 16)
+    zone.add_subzone("The Gate Yard", 28, 70, 44, 14)
     zone.add_subzone("The Anvil Road", 44, 32, 12, 46)
     zone.arrivals = [ARRIVAL]
     return zone, L
