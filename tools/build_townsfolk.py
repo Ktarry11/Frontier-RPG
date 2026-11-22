@@ -52,6 +52,11 @@ TOWNS = {
     "heartwatch": "Heartwatch",
     "highrest": "Highrest",
     "dawnrest": "Dawnrest",
+    "orgrimmar": "Orgrimmar",
+    "razor_hill": "Razor Hill",
+    "crossroads": "Crossroads",
+    "camp_taurajo": "Camp Taurajo",
+    "ratchet": "Ratchet",
 }
 SPACING = 3          # nobody stands closer than this to anyone else, if the district has room
 

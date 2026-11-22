@@ -326,7 +326,21 @@ def register_baked(zone, baked_dir=BAKED_DIR, chunk=20):
             zone.add_obstacle_chunk(fn, cx, cy, w, h)
 
 
+#: the districts, where the townsfolk live (Kyle, 22 Nov 2026: "ensure ALL towns are actually populated"; names made up
+#: to fit). (key, x, y, w, h, display name)
+SUBZONES = [
+    ("Razor Hill", 0, 0, W, H, None),
+    ("The Barracks Yard", 0, 0, 60, 20, None),
+    ("The Lodge Side", 0, 20, 26, 26, None),
+    ("The Market Corner", 34, 20, 26, 26, None),
+    ("The Well Square", 18, 30, 24, 16, None),
+    ("The South Gate", 0, 46, 60, 14, None),
+]
+
+
 def generate_razor_hill():
     L = build_layout()
     register_baked(L.zone)
+    for row in SUBZONES:
+        L.zone.add_subzone(*row)
     return L.zone

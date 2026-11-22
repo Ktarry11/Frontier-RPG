@@ -247,6 +247,20 @@ def dress(L):
         P("br_golden_grass_tuft", x, y, 2, solid=False)
 
 
+#: the districts, where the townsfolk live (Kyle, 22 Nov 2026: "ensure ALL towns are actually populated"; names made up
+#: to fit). (key, x, y, w, h, display name)
+SUBZONES = [
+    ("Ratchet", 0, 0, 70, 60, None),
+    ("The Office Row", 0, 0, 44, 22, None),
+    ("The Harbor", 44, 0, 26, 30, None),
+    ("The Customs Gate", 0, 22, 14, 22, None),
+    ("The Bazaar", 14, 22, 24, 16, None),
+    ("The Wharf", 38, 30, 32, 30, None),
+    ("The Broken Keel", 8, 38, 22, 10, None),
+    ("The Low Quarter", 0, 48, 38, 12, None),
+]
+
+
 def build_layout():
     return K.build(sys.modules[__name__])
 

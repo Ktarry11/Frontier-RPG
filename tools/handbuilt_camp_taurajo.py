@@ -209,6 +209,20 @@ def dress(L):
         P("br_golden_grass_tuft", x, y, 2, solid=False)
 
 
+#: the districts, where the townsfolk live (Kyle, 22 Nov 2026: "ensure ALL towns are actually populated"; names made up
+#: to fit). (key, x, y, w, h, display name)
+SUBZONES = [
+    ("Camp Taurajo", 0, 0, 64, 56, None),
+    ("The Elders' Rise", 0, 0, 34, 20, None),
+    ("The Lodge", 34, 0, 30, 18, None),
+    ("The Crafters' Ring", 0, 20, 20, 24, None),
+    ("The Drum Circle", 20, 18, 26, 22, None),
+    ("The Kodo Pens", 46, 18, 18, 22, None),
+    ("The Herb Garden", 0, 44, 32, 12, None),
+    ("The Granary", 32, 40, 32, 16, None),
+]
+
+
 def build_layout():
     return K.build(sys.modules[__name__])
 

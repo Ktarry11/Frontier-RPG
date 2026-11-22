@@ -677,7 +677,25 @@ def register_baked(zone, baked_dir=BAKED_DIR, chunk=20):
             zone.add_obstacle_chunk(fn, cx, cy, w, h)
 
 
+#: the districts, where the townsfolk live (Kyle, 22 Nov 2026: "ensure ALL towns are actually populated", and "capitals can
+#: be 50+"). Orgrimmar's own valleys where they're known, made-up names for the rest. (key, x, y, w, h, display name)
+SUBZONES = [
+    ("Orgrimmar", 0, 0, W, H, None),
+    ("The Valley of Wisdom", 0, 0, 66, 70, None),
+    ("The Wyvern Terrace", 66, 0, 74, 66, None),
+    ("The Valley of Honor", 140, 0, 60, 66, None),
+    ("The Forge Row", 0, 70, 66, 66, None),
+    ("The Valley of Strength", 66, 66, 74, 70, None),
+    ("The Cleft of Shadow", 140, 66, 60, 70, None),
+    ("The Low Homes", 0, 136, 64, 64, None),
+    ("The Gate Ward", 64, 136, 80, 64, None),
+    ("The Wolf Pens", 144, 136, 56, 64, None),
+]
+
+
 def generate_orgrimmar():
     L = build_layout()
     register_baked(L.zone)
+    for row in SUBZONES:
+        L.zone.add_subzone(*row)
     return L.zone

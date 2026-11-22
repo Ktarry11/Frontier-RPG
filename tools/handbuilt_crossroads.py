@@ -194,6 +194,21 @@ def dress(L):
         P("br_golden_grass_tuft", x, y, 2, solid=False)
 
 
+#: the districts, where the townsfolk live (Kyle, 22 Nov 2026: "ensure ALL towns are actually populated"; names made up
+#: to fit, "a lot of these are homebrew so make up names fitting the lore"). (key, x, y, w, h, display name)
+SUBZONES = [
+    ("Crossroads", 0, 0, 70, 70, None),
+    ("The War Hall", 14, 0, 46, 22, None),
+    ("The Stable Yard", 0, 22, 26, 18, None),
+    ("The Trading Post", 44, 22, 26, 22, None),
+    ("The Well", 26, 30, 18, 16, None),
+    ("The Inn Yard", 0, 40, 30, 14, None),
+    ("The Forge Corner", 0, 54, 26, 16, None),
+    ("The Healers' Tents", 44, 44, 26, 26, None),
+    ("The South Gate", 26, 50, 18, 20, None),
+]
+
+
 def build_layout():
     return K.build(sys.modules[__name__])
 
