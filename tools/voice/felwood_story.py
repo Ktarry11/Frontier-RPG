@@ -16,7 +16,7 @@ STORY = {
         "Wrap the splinters in moss when you pick them up. They dry out quicker than you'd think.",
     ),
     'fw_grandfather_hollowbark': (
-        "There's one treant in that glade the others follow, and he's the reason none of them will settle.\n\nWe call him Grandfather Hollowbark. He was old when the Highborne were young. He doesn't see us, he sees the fel that isn't there any more, and he fights it every hour he's awake.\n\nHe doesn't come out often. Go back to the glade and wait for him. Put him down gently if you can, and hard if you have to. When he's still, the rest will listen.",
+        "There's one treant in that glade the others follow, and he's the reason none of them will settle.\n\nWe call him Grandfather Hollowbark. He was old when the Highborne were young. He doesn't see us, he sees the fel that isn't there any more, and he fights it every hour he's awake.\n\nHe doesn't come out often. Go back to Hollowbark Glade, west of the town, and wait for him. Put him down gently if you can, and hard if you have to. When he's still, the rest will listen.",
         "When it's done, sit with him a moment before you leave. The others will see.",
     ),
     'fw_hold_the_fel_line': (
@@ -128,7 +128,7 @@ STORY = {
         'Fill the flask from the middle of the pool. The edges are worse, and I want the real thing.',
     ),
     'fw_the_bloodvenom_rot': (
-        "The samples Marcus passed me all came from one source. There's something at the bottom of the falls' pool, feeding the poison and growing on it.\n\nI've been calling it the Bloodvenom Rot, for want of anything better. It's an ooze the size of a lodge, and it only rises when the pool is disturbed.\n\nGo back to the falls and disturb it. If it dies, the river might start running clean, one stretch at a time.",
+        "The samples Marcus passed me all came from one source. There's something at the bottom of the falls' pool, feeding the poison and growing on it.\n\nI've been calling it the Bloodvenom Rot, for want of anything better. It's an ooze the size of a lodge, and it only rises when the pool is disturbed.\n\nGo back to Bloodvenom Falls, south of here, and disturb it. If it dies, the river might start running clean, one stretch at a time.",
         'Throw something in to wake it, and stand well back from the edge when you do.',
     ),
     'fw_ironwood_that_remembers': (
@@ -188,7 +188,7 @@ STORY = {
         "If either of them asks about me, tell them nothing. They'll use it.",
     ),
     'fw_close_the_portals': (
-        "Every demon in North Felwood came through a door the Council opened, and Kaz'reth opens the doors.\n\nHe's the Master Summoner. He works from the Summoner's Sanctum at the top of the Hold, and his summoners carry pages of a codex that tells them how. Kill him, and take the pages, and I'll find out how to close what they've opened.\n\nYou'll find the Sanctum north of the Hall of Whispers. Don't read the pages.",
+        "Every demon in North Felwood came through a door the Council opened, and Kaz'reth opens the doors.\n\nHe's the Master Summoner. He works from the Summoner's Sanctum at the top of the Hold, and his summoners carry pages of a codex that tells them how. Kill him, and take the pages, and I'll find out how to close what they've opened.\n\nThe Sanctum is inside Jaedenar, on the west wall of the valley, past the Hall of Whispers. Don't read the pages.",
         "Bundle the pages face-in and tie them shut. I'll read them so you don't have to.",
     ),
     'fw_what_lives_in_the_maw': (
