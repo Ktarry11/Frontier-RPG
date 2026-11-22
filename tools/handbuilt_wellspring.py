@@ -135,7 +135,7 @@ def dress(zone, L):
     P("vy_prayer_stone", 80, 44, 3, where=BLD, solid="core")
     # the Motherstone: the oldest wellstone over its pool, still pouring
     P("sk_crystal_spire", MOTHER[0], MOTHER[1] - 10, 7, solid="core")
-    P("sk_edge_falls", MOTHER[0] + 6, MOTHER[1] - 8, 4, solid=False, near_ok=True)
+    pass  # the edge falls prop is gone (Kyle, 21 Nov 2026: "lets remove this prop... it doesnt work")
     for a in (200, 340):
         P("kh_lantern", int(MOTHER[0] + 15 * math.cos(math.radians(a))), int(MOTHER[1] + 9 * math.sin(math.radians(a))),
           3, where=BLD, solid="core")

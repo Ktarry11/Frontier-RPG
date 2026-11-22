@@ -546,7 +546,7 @@ def dress(L):
     # ---- the wellstones' falls (Kyle, 20 Nov 2026: "island waterfalls where some-fucking-how we have unlimited water
     #      pouring off the island"): the side islands' pools spill over their nearest edge, as the river does
     for (px, py, dx, dy) in [(28, 140, -1, 0), (160, 140, 0, 1), (218, 74, 0, -1)]:
-        S("sk_edge_falls", *rim(px, py, dx, dy), 5, solid=False, allow_overlap=True)
+        pass  # the edge falls prop is gone (Kyle, 21 Nov 2026: "lets remove this prop... it doesnt work")
 
     # ---- Crashfall: the council's skiff where it came down, torn open, a fire by it, and the survey's landing
     S("ff_wrecked_skiff", 50, 196, 8, allow_overlap=True)
@@ -556,7 +556,7 @@ def dress(L):
     B("ae_skiff_dock", 92, 212, 6)
     B("ae_lamp_post", 88, 200, 4)
     # ---- the Last Falls: the river goes over, and the old watcher's lantern
-    S("sk_edge_falls", 16, 250, 7, allow_overlap=True)
+    pass  # the edge falls prop is gone (Kyle, 21 Nov 2026: "lets remove this prop... it doesnt work")
     S("sk_stone_lantern", 28, 232, 4)
     # ---- the Golem Fields: war-golems lying where they fell, a sword the size of a tree, a core still humming
     for (x, y) in [(96, 160), (118, 176), (124, 156), (100, 176)]:
@@ -564,7 +564,9 @@ def dress(L):
     S("sk_giant_sword", 110, 152, 8)
     S("sk_golem_core", 116, 166, 4)
     S("ff_patched_tent", 106, 174, 5)
-    L.prop("ent_dwarven_vault", 90, 153, 6, path_dir="assets/tiles/cave_entrances/", solid="core", nudge=0)  # the vault
+    # the vault, standing ON its door (Kyle, 21 Nov 2026: "golem vault has two art entrances?"). It sat three tiles north of
+    # the portal, so world/exit_frames.py saw a bare door and framed it again underneath.
+    L.z.add_landmark("assets/tiles/cave_entrances/ent_dwarven_vault.png", 87, 151, 7, 6, solid=False)   # door tile in its arch
     B("kh_kneeling_statue", 90, 168, 8)
     # ---- the Silent Forge: the Kharad forge and its yard, cold for ages and warming again
     B("kh_forge", 32, 136, 10)
@@ -611,14 +613,14 @@ def dress(L):
     # ---- the Spillway: Aurelion's broken aqueduct at the north edge, its water coming down into the pool
     B("ae_aqueduct", 246, 10, 10, allow_overlap=True, road_ok=True)
     S("sk_float_falls", 256, 28, 6)
-    S("sk_cascade", 236, 46, 5)
+    pass  # the cascade prop is gone too (Kyle, 21 Nov 2026: "these waterfall sprites are terrible here")
     # ---- the Aurelion Approach: the sky-bridge's pylons and the bridgewarden's post
     B("ae_bridge_pylon", 220, 14, 8)
     B("ae_bridge_pylon", 232, 14, 8)
     B("ae_guard_post", 236, 20, 6)
     # ---- the river's falls: where it goes over each island's edge onto the next
     for (x, y) in [(226, 56), (194, 104), (130, 148), (90, 186), (40, 226)]:
-        S("sk_edge_falls", x, y, 6, solid=False, allow_overlap=True)
+        pass  # the edge falls prop is gone (Kyle, 21 Nov 2026: "lets remove this prop... it doesnt work")
 
 
 def register_baked(zone):

@@ -535,7 +535,7 @@ def dress(L):
 
     # ---- the wellstones' falls: every pool still running spills off the nearest edge
     for (px, py, dx, dy) in [(104, 202, 1, 0), (54, 104, -1, 0), (154, 26, 0, -1), (184, 224, 0, 1)]:
-        S("sk_edge_falls", *rim(px, py, dx, dy), 5, solid=False, allow_overlap=True)
+        pass  # the edge falls prop is gone (Kyle, 21 Nov 2026: "lets remove this prop... it doesnt work")
     # ---- the Road's End: the road's last marker, and the warden's post
     B("ae_crystal_beacon", 130, 240, 5)
     B("ae_guard_post", 110, 234, 6)

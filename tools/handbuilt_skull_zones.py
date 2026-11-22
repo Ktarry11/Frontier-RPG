@@ -1543,7 +1543,7 @@ def _wellstone_falls(spec, kind):
                     and (best is None or n < best[0]):
                 best = (n, x, y)
         if best:
-            out.append(("sk_edge_falls", SKP, best[1], best[2], 4, False))
+            pass  # the edge falls prop is gone (Kyle, 21 Nov 2026: "lets remove this prop... it doesnt work")
     return out
 
 

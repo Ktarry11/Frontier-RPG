@@ -667,8 +667,8 @@ def dress(L):
     B("ae_supply_crates", 144, 50, 3)
     S("ff_trench", 116, 40, 3, solid=False)
     # ---- the Falls of Light: the spring, and the falls where the river goes over the edge
-    S("sk_cascade", 88, 182, 6)
-    S("sk_edge_falls", 32, 222, 7, allow_overlap=True)
+    pass  # the cascade prop is gone too (Kyle, 21 Nov 2026: "these waterfall sprites are terrible here")
+    pass  # the edge falls prop is gone (Kyle, 21 Nov 2026: "lets remove this prop... it doesnt work")
     S("sk_boulder", 54, 204, 4)
     # ---- the Parley Stones: old stone on the cloud. The Aetherians' dais on one side, the trolls' spears planted on
     #      the other, the table overturned between them, and the Ascendancy skiff that came down on it, burnt out

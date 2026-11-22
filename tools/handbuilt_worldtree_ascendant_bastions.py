@@ -637,7 +637,7 @@ def dress(L):
 
     # ---- the wellstones' falls: every pool spills off the nearest edge
     for (px, py, dx, dy) in [(40, 112, -1, 0), (272, 30, 0, -1)]:
-        S("sk_edge_falls", *rim(px, py, dx, dy), 5, solid=False, allow_overlap=True)
+        pass  # the edge falls prop is gone (Kyle, 21 Nov 2026: "lets remove this prop... it doesnt work")
     # ---- the Bastion of Ascent: the two gates on the apron (the citadel itself is drawn by citadel(), last)
     B("ae_fortress_gate", 160, 121, 12, solid=False, allow_overlap=True, road_ok=True)
     B("ae_crystal_beacon", 152, 42, 5)

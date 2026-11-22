@@ -483,7 +483,7 @@ def dress(L):
 
     # ---- the wellstones' falls: every pool spills off the nearest edge (docs/worldtree_brief.md)
     for (px, py, dx, dy) in [(54, 62, -1, 0), (78, 176, -1, 0), (282, 176, 1, 0)]:
-        S("sk_edge_falls", *rim(px, py, dx, dy), 5, solid=False, allow_overlap=True)
+        pass  # the edge falls prop is gone (Kyle, 21 Nov 2026: "lets remove this prop... it doesnt work")
     # ---- the Aqueduct Arm: the old arm's end, where it lands on the Estates
     B("ae_aqueduct", 30, 72, 8, allow_overlap=True, road_ok=True)
     # ---- the Estates: House Vaelith's mansion over the lawn, the conservatory, the gravity fountain, the orchard

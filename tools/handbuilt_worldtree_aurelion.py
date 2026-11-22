@@ -435,13 +435,13 @@ def dress(L):
         return x, y
 
     # ---- falls: the channel off both ring edges, the pools off theirs, and the rings' rims pouring into the sky
-    S("sk_edge_falls", 130, int(OUTER[0] + C[1]) - 1, 6, solid=False, allow_overlap=True)
-    S("sk_edge_falls", 130, int(INNER[0] + C[1]) - 1, 6, solid=False, allow_overlap=True)
+    pass  # the edge falls prop is gone (Kyle, 21 Nov 2026: "lets remove this prop... it doesnt work")
+    pass  # the edge falls prop is gone (Kyle, 21 Nov 2026: "lets remove this prop... it doesnt work")
     for (px, py, dx, dy) in [(80, 120, 1, 0), (60, 74, 0, -1), (210, 168, 1, 0)]:
-        S("sk_edge_falls", *rim(px, py, dx, dy), 5, solid=False, allow_overlap=True)
+        pass  # the edge falls prop is gone (Kyle, 21 Nov 2026: "lets remove this prop... it doesnt work")
     for d in (20, 100, 160, 200, 250, 290, 340):
         x, y = _pt(OUTER[1] - 1.5, d)
-        S("sk_edge_falls", int(x), int(y), 6, solid=False, allow_overlap=True, nudge=1)
+        pass  # the edge falls prop is gone (Kyle, 21 Nov 2026: "lets remove this prop... it doesnt work")
 
     # ---- the Spire Palace on its isle, the stair up from the avenue, winged columns flanking it
     B("ae_aurelion_spire", 130, 116, 26, allow_overlap=True)
@@ -477,7 +477,7 @@ def dress(L):
         B("ae_avenue_column", 124, y, 6)
         B("ae_avenue_column", 136, y, 6)
     # ---- the Bridgefoot (outer south): the inn, the bank, the auction house and the mail round one square; the skiffs
-    B("ae_great_ring_gate", 130, 234, 13, road_ok=True, allow_overlap=True, solid=False)
+    pass  # the great ring gate is gone (Kyle, 21 Nov 2026: "also we should remove this")
     B("ae_guesthouse", 108, 214, 10)
     B("ae_vault", 154, 210, 10)
     B("ae_exchange", 152, 224, 10)
