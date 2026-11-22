@@ -170,7 +170,7 @@ def journal_third_person(q):
 
 # STORY-DONE ZONES. Kyle, 22 Nov 2026: one zone at a time, to docs/quest_writing_standard.md. Once a zone is on this
 # list, an offer under STORY_MIN sentences or a journal that narrates is a hard finding there, so it can't slip back.
-STORY_DONE = {"feralas", "hillsbrad", "stranglethorn_north", "stranglethorn_central", "stranglethorn_south", "shimmering_flats", "tanaris"}
+STORY_DONE = {"feralas", "hillsbrad", "stranglethorn_north", "stranglethorn_central", "stranglethorn_south", "shimmering_flats", "tanaris", "lower_boughs"}
 _STEM_OF = None
 
 
