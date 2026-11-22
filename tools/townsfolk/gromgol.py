@@ -8,51 +8,50 @@ M, F = "male", "female"
 
 PEOPLE = [
     ("gg_tf_berth_hand", "Berth-Hand Ozzo", "troll", M, "The Berths",
-     "I tie up de boats when dey come in, and I untie dem when dey go. It's simple work, mon, and de sea breeze keeps de "
+     "Tie up de boats when dey come in, untie dem when dey go. Simple work, mon, and de sea breeze keeps de "
      "jungle bugs away."),
     ("gg_tf_zeppelin_watcher", "Grizzle Fuseworth", "goblin", M, "The Berths",
-     "I watch for the zeppelin from Orgrimmar and wave the flags so it doesn't hit the tower. It's hit the tower twice, "
-     "and neither time was my fault, whatever the pilot says."),
+     "The zeppelin from Orgrimmar has hit the tower twice, and neither time was my fault, whatever the pilot "
+     "says. That's what the flags are for."),
     ("gg_tf_net_mender", "Old Kasha", "orc", F, "The Berths",
-     "I mend the fishing nets on the beach, because the garrison eats more fish than boar out here. The trolls taught me "
-     "how, and they still laugh at my knots."),
+     "The garrison eats more fish than boar out here, so somebody's got to mend the nets. The trolls taught "
+     "me, and they still laugh at my knots."),
     ("gg_tf_forge_bellows", "Bellows-Boy Rukk", "orc", M, "The Forge Yard",
-     "I work the bellows for Dorgun, and the jungle heat on top of the forge heat nearly kills me every day. He says it "
-     "builds character, and I've got plenty of character already."),
+     "Jungle heat on top of forge heat nearly kills me every day at Dorgun's bellows. He says it builds "
+     "character, and there's plenty of that already."),
     ("gg_tf_forge_troll", "Smith's Mate Zinda", "troll", F, "The Forge Yard",
-     "I temper de blades in de stream behind de forge. De orcs make dem strong, and de trolls make dem sharp, and "
-     "together we make de best spears in Stranglethorn."),
+     "De orcs make de blades strong, and de trolls make dem sharp in de stream behind de forge. Together, de "
+     "best spears in Stranglethorn."),
     ("gg_tf_tent_scribe", "Scribe Hagga", "orc", F, "The Command Tents",
-     "I copy the scouts' maps for the commander, and the jungle changes faster than I can draw it. A path that was there "
-     "last week is a river this week, and nobody can explain it."),
+     "The jungle changes faster than the commander's maps can keep up. A path that was there last week is a "
+     "river this week, and nobody can explain it."),
     ("gg_tf_tent_wounded", "Grunt Varok", "orc", M, "The Command Tents",
-     "A raptor took a bite out of my leg, and the medic says I'll keep it. I've asked her to keep the raptor's tooth too, "
-     "so I can wear it round my neck."),
+     "A raptor took a bite out of my leg, and the medic says I'll keep it. I've asked her to keep the raptor's"
+     " tooth too, so I can wear it round my neck."),
     ("gg_tf_tent_runner", "Runner Zeki", "troll", M, "The Command Tents",
-     "I run messages through de jungle to de scouts, and I'm de fastest runner in Grom'gol. De raptors are faster, so I "
-     "run very carefully."),
+     "Nobody in Grom'gol runs faster through de jungle dan me. De raptors do, though, so every run is a "
+     "careful one."),
     ("gg_tf_long_cook", "Cook Mogha", "orc", F, "The Longhouse",
-     "I feed the garrison in the longhouse, and everything I cook has a little jungle in it. The trolls bring me fruit, "
-     "the hunters bring me raptor, and the grunts eat it all without asking."),
+     "Everything out of the longhouse pot has a little jungle in it. The trolls bring fruit, the hunters bring"
+     " raptor, and the grunts eat it all without asking."),
     ("gg_tf_long_veteran", "Old Thrak", "orc", M, "The Longhouse",
-     "I helped build this camp when it was three tents and a fire, and I'll die in it if the jungle lets me. It's tried "
-     "to kill me plenty of times already, and I'm still here."),
+     "This camp was three tents and a fire when we built it, and the jungle's tried to kill me plenty of times"
+     " since. Still here, and I'll die here if it lets me."),
     ("gg_tf_long_shaman", "Witch Doctor Kwazi", "troll", M, "The Longhouse",
-     "I bless de longhouse every night so de jungle spirits don't come in. Dey've never come in yet, mon, so either de "
-     "blessing works or de spirits don't like orc cooking."),
+     "De jungle spirits have never come into de longhouse, mon. Either de nightly blessing works, or de "
+     "spirits don't like orc cooking."),
     ("gg_tf_pen_handler", "Handler Gorza", "orc", F, "The Beast Pens",
-     "I help Kozza with the tamed raptors, and they're smarter than half the grunts. One of them learned to open the pen "
-     "gate, so now we tie it shut with three knots."),
+     "Kozza's tamed raptors are smarter than half the grunts. One learned to open the pen gate, so now it's "
+     "tied shut with three knots."),
     ("gg_tf_pen_child", "Little Zal", "troll", M, "The Beast Pens",
-     "I'm allowed to feed de baby raptor if I keep my hands behind my back. I throw de meat, and she catches it, and one "
-     "day she's gonna let me ride her."),
+     "I'm allowed to feed de baby raptor if I keep my hands behind my back. I throw de meat, and she catches "
+     "it, and one day she's gonna let me ride her."),
     ("gg_tf_tower_watch", "Watcher Bruga", "orc", F, "The Beast Pens",
-     "I stand the watchtower and look out over the jungle for smoke. Smoke means trolls who aren't ours, and that means I "
-     "ring the bell very loudly."),
+     "Smoke over the jungle means trolls who aren't ours, and that means the bell on this watchtower gets rung"
+     " very loudly."),
     ("gg_tf_gate_grunt", "Grunt Mazok", "orc", M, "The South Gate",
-     "I guard the south gate where the road goes into the jungle. Every traveller who goes out that gate looks brave, and "
-     "every one who comes back looks a lot wiser."),
+     "Every traveller who goes out the south gate looks brave. Every one who comes back looks a lot wiser."),
     ("gg_tf_gate_herb", "Gatherer Asha", "troll", F, "The South Gate",
-     "I gather herbs just outside de gate, close enough to run back if somet'ing comes. Somet'ing always comes, mon, but "
-     "I'm very fast."),
+     "I gather herbs just outside de gate, close enough to run back if somet'ing comes. Somet'ing always "
+     "comes, mon, but I'm very fast."),
 ]
