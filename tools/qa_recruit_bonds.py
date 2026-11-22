@@ -144,7 +144,9 @@ def main():
     # 5
     check(b.away, "Tarek isn't on a break after going home")
     here = [r.recruit_id for r in rm.get_recruits_in_zone(rm.recruits[T].zone)]
-    check(T not in here, "Tarek is standing at home while on his break")
+    # On a break he still stands where you found him (Kyle, 21 Nov 2026: "Kourush vanished"), but won't rejoin yet.
+    check(T in here, "Tarek vanished from the world while on his break")
+    check(not bm.can_hire(T)[0], "Tarek can be rehired in the middle of his break")
     check(not bm.can_hire(T)[0], "Tarek can be hired straight back")
     b.stage = STAGES.index("friend")
     for _ in range(10):

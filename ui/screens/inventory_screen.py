@@ -862,8 +862,15 @@ class InventoryScreen(BaseScreen):
                      if self.active_tab == "gear" else f"{subject.name.upper()} - MATERIALS")
         # Hard-truncated to stop short of the backpack column whatever the name, because a long
         # name is a thing players make and a fixed layout is a thing we chose.
-        title = self.renderer.truncate(title, INV_START_X - 40, size="large")
-        self.renderer.draw_text(screen, title, (20, 20), size="large", color=COLOR_GOLD)
+        # The tab row starts left of the backpack column (Kyle, 21 Nov 2026: "party member names clipping into
+        # tabs"; "KOUROSH BEHZADI - Lv 36 Mage" ran under Enchant). So the room is up to the first tab, and a
+        # title too long for the large font steps down a size before anything is cut off.
+        room = min(INV_START_X - 40, self.enchant_button.x - 24)
+        if self.renderer._get_font("large").size(title)[0] <= room:
+            self.renderer.draw_text(screen, title, (20, 20), size="large", color=COLOR_GOLD)
+        else:
+            title = self.renderer.truncate(title, room, font_size=26)
+            self.renderer.draw_text(screen, title, (20, 26), font_size=26, color=COLOR_GOLD)
 
         # ---- Tab buttons - always visible regardless of active tab ----
         # ONE LOOK FOR ALL FIVE (Kyle, 16 Nov 2026: "not wild how some of these are greyed out and others have

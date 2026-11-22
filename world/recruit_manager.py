@@ -642,8 +642,10 @@ class RecruitManager:
             if not recruit.is_available():
                 continue
             b = bonds.get(recruit.recruit_id)
-            if b is not None and b.away and not self.is_recruited(recruit.recruit_id):
-                continue        # on a break: their spot stands empty (bonds design, "gone means gone")
+            # ON A BREAK THEY STILL STAND THERE. Kyle, 21 Nov 2026: "after a party member leaves, their sprite is gone
+            # too. Kourush vanished". Their spot used to stand empty for the whole break. Now they're back where you
+            # found them (or at home), and talking to them gives their on-break line instead of the hire offer
+            # (bond_manager.can_hire), so the break still means something.
             if b is not None and b.invite and b.invite.get("state") == "waiting":
                 continue        # gone to meet you at an inn (world/recruit_mail.py)
             location = self.current_location(recruit)
@@ -661,8 +663,6 @@ class RecruitManager:
             if not recruit.is_available():
                 continue
             b = bonds.get(recruit.recruit_id)
-            if b is not None and b.away and not self.is_recruited(recruit.recruit_id):
-                continue
             if b is not None and b.invite and b.invite.get("state") == "waiting":
                 continue
             location = self.current_location(recruit)
