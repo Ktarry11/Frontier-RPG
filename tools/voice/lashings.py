@@ -54,3 +54,10 @@ VOICE = {
         "That's signed, dated and filed.\n\nThat's the whole of my profession in one afternoon. Something enormous happened, and the only part of it that'll still exist in forty years is a line in a book that two people put their names to while everybody else was busy being relieved.",
     ),
 }
+
+
+# THE STORY PASS (22 Nov 2026), to docs/quest_writing_standard.md; see tools/voice/lashings_story.py.
+from voice.lashings_story import STORY as _STORY
+for _qid, (_d, _a) in _STORY.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a, _old[2])

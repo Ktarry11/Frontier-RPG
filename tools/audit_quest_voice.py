@@ -170,7 +170,7 @@ def journal_third_person(q):
 
 # STORY-DONE ZONES. Kyle, 22 Nov 2026: one zone at a time, to docs/quest_writing_standard.md. Once a zone is on this
 # list, an offer under STORY_MIN sentences or a journal that narrates is a hard finding there, so it can't slip back.
-STORY_DONE = {"feralas", "hillsbrad", "stranglethorn_north", "stranglethorn_central", "stranglethorn_south", "shimmering_flats", "tanaris", "lower_boughs", "middle_boughs", "upper_boughs", "rootwater_isle", "harvest_finds", "dawnhaven", "aurelion", "great_settlement", "southern_needles", "aspen", "arathi", "plaguelands_south", "plaguelands_north", "plaguelands_epl_west", "plaguelands_epl_east", "ashenvale", "black_strand", "felwood", "abyssal_sands", "glittervein", "tempest_shallows", "ashen_reach", "underdark", "valley_of_trials", "moonglade", "underdark_dungeons", "deadwind", "stonetalon"}
+STORY_DONE = {"feralas", "hillsbrad", "stranglethorn_north", "stranglethorn_central", "stranglethorn_south", "shimmering_flats", "tanaris", "lower_boughs", "middle_boughs", "upper_boughs", "rootwater_isle", "harvest_finds", "dawnhaven", "aurelion", "great_settlement", "southern_needles", "aspen", "arathi", "plaguelands_south", "plaguelands_north", "plaguelands_epl_west", "plaguelands_epl_east", "ashenvale", "black_strand", "felwood", "abyssal_sands", "glittervein", "tempest_shallows", "ashen_reach", "underdark", "valley_of_trials", "moonglade", "underdark_dungeons", "deadwind", "stonetalon", "hillsbrad_dungeons", "orgrimmar", "lashings"}
 _STEM_OF = None
 
 

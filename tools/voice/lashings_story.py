@@ -1,0 +1,54 @@
+"""lashings story pass (22 Nov 2026), to docs/quest_writing_standard.md. Where the giver's speech sat in the accept
+line and the journal showed a summary or narration, the speech is now the description and the accept line a new short
+beat; the rest were written fresh. Turn-ins untouched."""
+
+STORY = {
+    'lsh_four_berths': (
+        "Senna's got four berths, and she's been turning ships away since the second winter. Three years ago that was an inconvenience, and now it's the whole town's throat. Half my room is sailors waiting for a berth.\n\nAnd a few miles up that coast there are hulls lashed together with about a hundred people on them, taking one sailing in six. This port has spent twenty years deciding that's somebody else's problem. Go and stand on the first deck, and come back and tell me if it still is.",
+        "Mind the planks between the hulls. They're slick, and nobody's going to fish you out.",
+    ),
+    'lsh_recognising_my_own_stock': (
+        "I buy what came off something and I sell it onto something else, and I've never once pretended otherwise.\n\nWhat I won't do is buy my own stock back. Twice this season somebody has put a crate on my counter that I sold, out of this shop, six weeks before.\n\nGet me the tags off them. Hesper inks every crate that leaves this port, and they've been re-inking over the top, badly.\n\nThe ones doing the re-inking are the Southsea riggers. The prize tags are on them.",
+        "Bring the crates too if you can carry them. I'd enjoy selling them a third time.",
+    ),
+    'lsh_my_own_powder': (
+        "I build things that mostly work and I'm honest about the mostly, so I'm going to be honest about this. I sold them the powder.\n\nI didn't know it was them. It was a freight agent I won't name and a standing order, four years of it, and I never once asked where it went, because the money was good and I had a workshop to replace.\n\nGo and get me a keg back. I want to see my own cooperage mark with a scrape through it.\n\nThe Southsea powdermonkeys keep the kegs. You won't get one without a fight.",
+        "Roll the keg, don't carry it on your shoulder. If somebody takes a shot at you, I'd rather it wasn't next to your ear.",
+    ),
+    'lsh_the_boarding_nets': (
+        "A fishing net is weighted evenly. A boarding net is weighted at the hem, so it drops flat over a deck and nobody under it can stand up.\n\nI've mended both for thirty years and I can tell them apart in the dark. Bring me what they're using and I'll tell the harbourmaster exactly what her crews are walking into.\n\nThe Southsea netcasters carry them.",
+        "Cut them free at the hem if you can. I want to see how they've been weighted.",
+    ),
+    'lsh_the_bosun': (
+        "Here's what I've worked out about that cove, and it's the only useful thing anybody has said about it in twenty years.\n\nThey're hulls lashed together, with one plank between each. There's no going round, for you or for them. That means you can take it apart one deck at a time and they can't flank you, and it also means every single plank has somebody standing on it.\n\nThe first one is Grell Tarpot. You'll hear him before you see him.\n\nHis swabbies will come at you on the plank before he does.",
+        "Fight him on the deck, not the plank. A plank is where he's spent twenty years practising.",
+    ),
+    'lsh_the_sailmaker': (
+        "There's a sailmaker on that fleet, and I've thought about that more than is healthy.\n\nNobody on those hulls has unfurled a sail in twenty years. So either she's had nothing to do for two decades, or she's been making something else, and I've seen the nets, so I know which.\n\nShe'll be on the careenage. That's the hull laid over to have its bottom scraped, and they never righted it, and I think about that one too.\n\nHulk rats have the run of that hull. Clear them on your way to her.",
+        "If she's got anything on her table half finished, bring it to me. I want to see what she's been making.",
+    ),
+    'lsh_the_powder_master': (
+        "Powder-Master Juss Wick keeps the powder hulk, which is the third hull up, and he's been keeping it for longer than I've been selling to him. It's my powder, and he's the man who's been counting it. He knows exactly where every barrel is, and I know that because I know how much I sent, and the harbourmaster knows how much has gone off in the last few years, and nobody has wasted the difference. Put him down, and bring me back one of my short kegs. I'd like my mark back, and I'd like him not to have it.",
+        "Don't fight near the open barrels. I know what's in them better than anyone.",
+    ),
+    'lsh_the_prize_court': (
+        "They keep books, and better books than the port does. The hull they call the prize court is where everything they take is logged and valued and divided, under articles, by Quartermaster Nadd Kell. I want the books, and not to be righteous about it. I want to know who's been buying, because somebody in this port has, for twenty years, and it isn't me, and I'd very much like to be able to prove that. Put the quartermaster down and bring me the prize tags with whatever ledger you can carry.",
+        "Bring the ledger dry. A smudged name is a name I can't use.",
+    ),
+    'lsh_the_articles': (
+        "You smooth out the chewed pages. These are ship's articles, the agreement every hand signs about shares, discipline and what happens to the wounded, for a ship that isn't a ship any more. Half of it has been eaten by something, but the signatures are mostly intact. Most of the hands signed with a cross, and a few wrote their names in careful capitals. Tally-Clerk Hesper Dunn in the port keeps every record anybody brings her, and she'll want this one.",
+        'You fold the articles along the old creases, careful of the chewed edge.',
+    ),
+    'lsh_rake': (
+        "Ardessa Rake has run that cove for twenty-two years, and I've sold her pitch and rope for most of them without knowing it. The thing about her that matters isn't that she's cruel.\n\nThere's a Southsea crew up in the Barrens under a man called Saltspray, who's loud and bad at it. She sent him there. That's what you do with a man who's loud and bad at it, when you're good at it and you intend to stay.\n\nShe keeps one hull like a ship, out of all of them. You'll know it when you're standing on it.",
+        "Don't let her talk. Twenty-two years running that cove means she's good at it.",
+    ),
+    'lsh_the_masts_are_gone': (
+        "Forty years I've priced freight on this coast, and every single price had the Southsea in it. A sixth for the cove, we called it. Nobody wrote it down, it was just in the number.\n\nI've spent this morning repricing everything, and I don't mind telling you it's made me feel strange. Go and stand on the Upper Yard, just east of this desk by the gate, and look up the coast, then come back.",
+        "Take your time looking. I did, and I still can't get used to it.",
+    ),
+    'lsh_the_last_column': (
+        "Every crate in, every crate out, which side of town it came from and which side it went to. People assume I keep the last two columns to be unpleasant.\n\nI keep them because in four years somebody is going to claim this town was always like this.\n\nIn four years somebody is also going to claim there was never a cove, or that it was nothing much, or that it fell apart on its own. Take Senna the closing entry, and we'll both have signed it.",
+        "Wait while she signs it. I'd like to know her hand was steady.",
+    ),
+}
