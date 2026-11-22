@@ -86,6 +86,13 @@ def _quest_item_name(item_id):
     return None
 
 
+
+#: first words of explore labels that are already instructions, so the objective line doesn't prefix "Find"
+_IMPERATIVE = {"Look", "Stand", "Walk", "Find", "Take", "Read", "Search", "Climb", "Go", "Listen", "Sit", "See", "Get",
+               "Mark", "Watch", "Ride", "Cross", "Follow", "Visit", "Press", "Finish", "Put", "Keep", "Set", "Scout",
+               "Count", "Cut", "Wade", "Tie", "Lay", "Touch", "Light", "Kneel", "Wait", "Enter", "Reach", "Check",
+               "Hold", "Show", "Leave", "Climb", "Swim", "Speak", "Ask", "Bring", "Pour", "Burn", "Place", "Ring"}
+
 class QuestDialogScreen(BaseScreen):
     def __init__(self, state_manager, npc):
         super().__init__(state_manager)
@@ -1265,7 +1272,12 @@ class QuestDialogScreen(BaseScreen):
                 # given IN Durotar about one den (playtest, 12 Nov: "quest text on Scouting the
                 # Prowler Den is messed up").
                 spot = field(obj, "label")
-                if spot:
+                # A label that's already an instruction ("Walk the north edge of the Fog Groves", "Stand at the
+                # memorial pole") reads as "Find Walk the north edge..." with the prefix; about 200 explore
+                # objectives are written that way, so they're shown as written (22 Nov 2026).
+                if spot and spot.split()[0] in _IMPERATIVE:
+                    out.append(spot.rstrip(".") + ".")
+                elif spot:
                     out.append(f"Find {spot}.")
                 elif field(obj, "target_x") is not None:
                     out.append(f"Find the place described, in {pretty}.")

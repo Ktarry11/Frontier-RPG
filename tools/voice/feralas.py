@@ -1,8 +1,681 @@
-"""Feralas's quests in the giver's own voice (22 Nov 2026).
+"""Feralas in the giver's own voice, written to docs/quest_writing_standard.md (22 Nov 2026).
 
-Kyle, 21 Nov 2026: no quests handed out in third person. The rewrites live in tools/voice/third_person_late.py with the
-other stragglers; this module folds Feralas's block in so tools/build_zone_voice.py can compile it.
+Kyle, 21-22 Nov 2026: no quests handed out in third person, a story of 5-6 coherent sentences, and "YOU MUST update
+your ways of working on writing quests". Feralas was 79 of 83 quests short or narrated in the journal. Each
+description is now the giver talking (what's happening, why it matters to them, one personal beat, the ask, the
+directions), and it's what both the offer window and the journal show. The accept line is a short, different beat.
+Every fact, name and direction the quests had is kept; turn-ins are untouched.
 """
-from voice.third_person_late import merge
 
-VOICE = merge("feralas", {})
+VOICE = {
+    # --- Camp Mojache: the refugees ---
+    "fe_down_off_the_mountain": (
+        "I've watched the foot of this pass for Camp Mojache for three years, and I tie a knot in this cord for "
+        "everyone who comes down it. Most of them are from Mulgore, and most of them haven't eaten in days by the time "
+        "they reach me. Every knot is somebody who made it over the range since the last moon. Chieftain Ahanu wants "
+        "the cord at every new moon, so she knows the trail's still open and how many to cook for. Take it to her in "
+        "Camp Mojache, west along the road and inside the totems.",
+        "Don't untie anything if it tangles. She reads those knots like a ledger, and she'll know if one's gone.",
+        None,
+    ),
+    "fe_wolves_on_the_trail": (
+        "The Longtooth Runners have worked out that the people coming down off the mountain are exhausted, and they "
+        "hunt the bottom of the pass now. I've buried two travellers this season who made it over the whole range and "
+        "died a mile from the camp. One of them still had his pack on, with a letter inside for somebody in Mojache. "
+        "I'd like those wolves to learn that the bottom of this trail isn't easy hunting any more. Thin them out where "
+        "the descent levels off, and don't stop until they think twice.",
+        "They lie up in the long grass where the descent levels off. Keep your back to the rocks.",
+        None,
+    ),
+    "fe_twice_the_mouths": (
+        "Camp Mojache was built for half the tauren who live in it now. When the first refugees walked in out of the "
+        "Needles, I didn't count them, I just opened the gate. Now I count every meal, and the count never comes out in "
+        "our favour. The Feralas Stags in the forest round the camp are the best meat we've got. Hunt them, and bring "
+        "the haunches to Wahya at the cook fires.",
+        "Wahya's the one stirring the biggest pot. She'll take the haunches off you before you've put them down.",
+        None,
+    ),
+    "fe_more_bedrolls_than_beds": (
+        "For three years I've had people sleeping on the floor of my inn and under bare poles behind it. The rain comes "
+        "straight through the lean-tos in the refugees' quarter, and the old ones have started to cough. An Ironfur "
+        "Bear's pelt sheds water like a roof, and those bears are the warmest thing in Feralas. Bring me their pelts "
+        "from the forest. I'll have them stitched into blankets before the next storm comes in off the coast.",
+        "Skin them whole if you can. A pelt full of holes is just a wet rug.",
+        None,
+    ),
+    "fe_the_nine_names": (
+        "Forty of us walked out of Mulgore together, and thirty-one reached Mojache. I say the other nine names every "
+        "night, at the memorial pole in the refugees' quarter. Every token on that pole is somebody who didn't get "
+        "here. I'd like someone who wasn't with us to stand where I stand, and then walk out to the bottom of the pass "
+        "on the east road, where we came down. See both before I tell you anything more.",
+        "Start at the pole, then go out to the pass. Take your time on the walk between them.",
+        None,
+    ),
+    "fe_what_the_grimtotem_took": (
+        "While we were burying our dead in Mulgore, the Grimtotem moved onto the empty ground in Feralas. The Grimtotem "
+        "Compound north of the arm road was Mojache's hunting camp before the merge, with the old lodges and the "
+        "springs. Their Usurpers took it, and their Bonecallers hex anyone who comes near the water. They turn our "
+        "refugees away at spearpoint, tauren turning away tauren. Drive them back from it.",
+        "Kill the Bonecallers first. A hex doesn't wear off while its caster is still chanting.",
+        None,
+    ),
+    "fe_harroks_totem": (
+        "Pathfinder Harrok leads the Grimtotem at the compound, and he wears a totem on his belt like a trophy. It was "
+        "carved for the Bloodhoof lodge before I was born, and a woman carried it out of Thunder Bluff on her back. She "
+        "didn't survive the Needles. Harrok found her pack where she fell, and he's worn her totem ever since. He "
+        "doesn't go far from the compound, so bring it back to us.",
+        "Take him down quickly, before he works out what you've come for and breaks it to spite you.",
+        None,
+    ),
+    "fe_raise_it_here": (
+        "I've raised the Bloodhoof totem beside Mojache's great totem. Raising it here means we've stopped waiting to "
+        "go home. I didn't think I'd ever be ready for that, and I'm still not sure I am. I want the camp to see "
+        "someone from outside it standing with us, so they know it isn't only the refugees who mourn. Come and stand "
+        "with us at the great totem tonight.",
+        "Come to the great totem tonight. You don't have to say anything, only stand with us.",
+        None,
+    ),
+    "fe_the_list": (
+        "I keep the list of everyone who reached Mojache, and everyone they're still looking for. Elder Longtread has "
+        "kept his own list at Camp Taurajo since the fall, and nobody's ever put the two side by side. Some of the "
+        "names I'm looking for might be on his, and some of his might be here. I've copied mine out in my best hand. "
+        "Ride it to him at Camp Taurajo if you can, because some of these people have waited three years.",
+        "If he asks who wrote it, tell him Brann Tallgrass. He knew my father, and he'll read it faster for that.",
+        None,
+    ),
+    "fe_the_crossed_off_names": (
+        "I've started a second page, for the names I've crossed off. Three hunters went down to the Lower Wilds in the "
+        "first winter to feed the camp, and none of them came back. I put them on that page, but I never found out how "
+        "they died. Their families still ask me, and I've got nothing to tell them. Search the riverbank for me, and if "
+        "the Lower Wilds Crocolisks are what took them, make the river safer for the next ones.",
+        "Look in the mud along the bank. A hunter carries his spear everywhere, and a spear doesn't rot.",
+        None,
+    ),
+    # --- Hadoken and the Woodpaw ---
+    "fe_woodpaw_in_the_hills": (
+        "I keep this camp fed, and since the merge doubled it, the Woodpaw have been raiding my hunting grounds. Their "
+        "Reavers come down out of the hills north-east of Mojache with their hyenas and take whatever my hunters bring "
+        "down. Last week they took a whole stag off two of my boys and left them to walk home with nothing. They've "
+        "worked out that we're feeding more people, and they think that makes us soft. Go up into Woodpaw Hills and "
+        "show them otherwise.",
+        "Kill the hyenas when you can. A Reaver without his dogs turns round and goes home.",
+        None,
+    ),
+    "fe_snares_on_the_trail": (
+        "The Woodpaw Trappers have been setting snares on our hunting trails, and last week one of them caught a "
+        "refugee girl by the ankle. Her ankle will heal, and my temper won't. The trappers carry their snares on their "
+        "belts up in Woodpaw Hills. Take every one off them and bring them to me. I'm going to burn them where the "
+        "gnolls can see the smoke.",
+        "Watch your own feet on the way up. They hide the loops under the leaf litter, right on the trail.",
+        None,
+    ),
+    "fe_the_rattles_go_quiet": (
+        "With their snares gone, the Woodpaw have pulled back to their camps, and their Woodpaw Mystics are shaking "
+        "their rattles all night. I know what that means, because I've heard it before. They're working themselves up "
+        "to come back. When the Mystics start rattling, the Woodpaw Brutes come down the hill a night later. I'd "
+        "rather we went up first.",
+        "Break up the camp before they're ready.",
+        None,
+    ),
+    "fe_grimfang": (
+        "Grimfang is the Woodpaw's alpha, bigger and older than the rest of them, and every scar on him is somebody "
+        "else's dead hunter. You broke up his pack, and he's taken it personally. He hunts the tops of Woodpaw Hills "
+        "alone now, looking for whoever did it. My father would have gone up there himself, with a spear and no "
+        "armour. I'm asking you instead. Let him find you.",
+        "He swings that spiked club wide. Stay inside the swing, and he can't get his weight behind it.",
+        None,
+    ),
+    # --- The camp's trades ---
+    "fe_belly_hides": (
+        "Half the refugees walked here in boots that were falling apart before they ever left Mulgore. I'm the camp's "
+        "hidewright, and I've been patching the same soles for three years. What I need is soft leather, and the Lower "
+        "Wilds Crocolisks have the softest belly hide in Feralas. Bring me the hides from the river. I'll have "
+        "everyone shod before the wet season, the children first.",
+        "Cut along the sides and keep the pale belly whole. The back hide's too stiff for anything but shields.",
+        None,
+    ),
+    "fe_old_grizzlegut": (
+        "Old Grizzlegut is an Ironfur the size of a lodge, and he's been fishing the Lower Wilds since before Mojache "
+        "had a palisade. He's killed two of Hadoken's hunters, and Hadoken wants him gone from the river. I want his "
+        "pelt, because it would keep a family warm for twenty years. He's down in the marsh where the river pools. I'd "
+        "come with you, but I'm a lot more use with a knife once he's down.",
+        "He stands up before he charges. When he does, get out of the way, and don't try to hold your ground.",
+        None,
+    ),
+    "fe_khadgars_whisker": (
+        "The refugees brought a coughing sickness out of the Needles, and it's going round the whole camp now. "
+        "Khadgar's Whisker settles the lungs, and I ran out of it a week ago. I'm brewing tea in every pot the inn will "
+        "lend me, and it still isn't enough. The Whisker grows wild along the river in the Lower Wilds and in the "
+        "clearings of the forest. Bring me what you can find.",
+        "Pick the ones with the white tips. They're the strongest, and they dry the fastest.",
+        None,
+    ),
+    "fe_darters_at_the_roost": (
+        "The Feralas Sprite Darters think my wind riders are rivals, and they dive at their eyes when they come in to "
+        "land. Two of my riders have been thrown already, and now the mounts are starting to refuse the roost. A wind "
+        "rider that won't land is no use to anybody. I've flown these routes for twenty years, and I've never had to "
+        "fight off something the size of my hand. Clear the darters out of the forest round the camp.",
+        "They're quick, but they're not clever. Stand near the roost and they'll come to you.",
+        None,
+    ),
+    "fe_a_lesson_in_the_wilds": (
+        "I teach every young tauren in the camp to fight, and the forest teaches better than I do. The ones from "
+        "Mulgore learned in a hurry, three years ago, while they were running. They've never had to stand and hunt "
+        "something that won't run from them. I'd like you to show them how it's done. Bring down Ironfur Bears in the "
+        "forest, where my students can watch from the trees.",
+        "Take your time with them. If you finish too fast, they'll think it's easy.",
+        None,
+    ),
+    "fe_goldthorn_for_the_fever": (
+        "A fever's going round the refugees' quarter now, and it's the children who've got it worst. Goldthorn brings a "
+        "fever down, and I'm out of it. It likes the drier ground along the arm road, west of the camp. I've been "
+        "sitting up with three of them since last night. Bring me what you can, and quickly.",
+        "Pull it up by the base, roots and all. The leaves alone won't brew strong enough for a child.",
+        None,
+    ),
+    "fe_spears_at_the_wind_riders": (
+        "The Grimtotem at the compound have started throwing spears at anything that flies over them. Their "
+        "Pathfinders throw, and their Earthbreakers cheer them on. Last week they brought down one of my wind riders. "
+        "I found her in the trees the next morning, with the spear still in her wing. I'd like her to be the last. "
+        "Clear them out of the compound.",
+        "The Pathfinders keep to the high ground, where they've got a clear throw. Go up after them.",
+        None,
+    ),
+    # --- Krueg, the Gordunni and the gate ---
+    "fe_ogres_on_the_arm_road": (
+        "I keep Orgrimmar's eye on Camp Mojache, and lately it's been on the Gordunni. They've built a forward outpost "
+        "west of the gate, and their Brutes have started stopping anything on the road to the coast. The Shamans with "
+        "them aren't stupid, either, and that worries me more than the Brutes do. A camp this size lives or dies by its "
+        "caravans. Break up the outpost and keep the road open.",
+        "Take the Shamans down before they get their totems planted. A Brute's just a Brute without them.",
+        None,
+    ),
+    "fe_what_the_mages_carry": (
+        "Every Gordunni Ogre Mage I've killed had a scroll on him, half burned. Ogres can barely read their own names, "
+        "so somebody's teaching them, or they're copying something out. I don't like not knowing which. The mages work "
+        "at the outpost and round the gate. Kill them and bring me what they're carrying.",
+        "Grab the scrolls before they finish burning. They put a light to them when they know they're losing.",
+        None,
+    ),
+    "fe_the_gate": (
+        "The Gordunni hold the great gate of Dire Maul, in the middle of the arm, and they've barricaded it with tree "
+        "trunks and chains. I want to know whether they're keeping people out or keeping something in. You can only "
+        "tell by getting close and seeing which way the chains face. Their Maulers and Warlords guard it day and night, "
+        "so you'll have to go through them. Look at the barricade properly, and come back and tell me.",
+        "Chains on the outside mean they're keeping us out. On the inside, it's worse, so look carefully.",
+        None,
+    ),
+    "fe_report_to_orgrimmar": (
+        "I've written up everything about the Gordunni and the gate of Dire Maul, and it needs to go to Elder Torgun in "
+        "Orgrimmar. He sits in the Valley of Wisdom, and he remembers the old stories about the city in Feralas. I "
+        "don't, and I've stopped pretending I do. Tell him the chains face inward. He'll know what that means better "
+        "than I do.",
+        "Take a wind rider from Shyn's roost, and don't stop to rest until the report's in his hands.",
+        None,
+    ),
+    "fe_gashtok": (
+        "Gash'tok the Gatekeeper commands the ogres at the gate of Dire Maul, and he calls himself its lord. He wears a "
+        "bent Highborne circlet, and he's huge, even for an ogre. When two of my friends and I went to look at the "
+        "gate, he killed them both, and he laughed while he did it. I got away because they made sure I did. He's "
+        "somewhere round the gate. I'd like you to finish what we started.",
+        "He laughs before he swings. When you hear it, move.",
+        None,
+    ),
+    # --- The Zukk'ash ---
+    "fe_mounds_in_the_forest": (
+        "A few months ago, mounds of raw earth started pushing up through the forest floor south of the camp, toward "
+        "the Hive Fields. Last night I watched Zukk'ash Swarmers come up out of one mound and go down into another. "
+        "They had far too many legs. I didn't sleep after that, and I don't think I'm going to tonight. Go and look at "
+        "the mounds, and kill whatever comes out of them.",
+        "Stand back from the mounds when you look. The ground round them is hollow, and it gives.",
+        None,
+    ),
+    "fe_resin_for_sale": (
+        "I came to Feralas to buy silithid resin, and I'm still buying. The Zukk'ash Tunnelers coat their tunnels with "
+        "it as they dig, and the engineers in Gadgetzan pay a fortune for it. It's about the only thing that still "
+        "sells, since you newcomers turned the whole market upside down. Here's the odd part, though. I weigh every "
+        "lump, and the grit in it's been changing. Bring me a good batch from the Hive Fields, and I'll pay like "
+        "always.",
+        "Usual rate, no haggling. Keep the lumps whole, because I weigh the grit, and powder tells me nothing.",
+        None,
+    ),
+    "fe_where_the_line_goes": (
+        "Orwin marked every mound he knows of on a map, then put a ruler on it, and they all fall on the same line. "
+        "Silithids don't dig in straight lines unless they're going somewhere. I want to know where. Walk the line "
+        "through the Hive Fields for me, mound by mound. Tell me what's at the end of it.",
+        "Follow the mounds, not the swarmers. The swarmers wander, and the line doesn't.",
+        None,
+    ),
+    "fe_into_the_hive": (
+        "The line of mounds ends at a hive mouth in the Hive Fields, and Orwin's calling it the Zukk'ash Hive. I've had "
+        "enough of things coming up out of the ground under my camp. I didn't bring these people out of the Needles to "
+        "have them eaten in their beds. Go down into the hive and kill its Hive Warriors and its Ravagers. Take friends, "
+        "because Hadoken says it goes down a long way.",
+        "Mark the walls as you go down. Hadoken's hunters say every gallery in there looks the same.",
+        None,
+    ),
+    "fe_the_deep_mother": (
+        "The hunters who've seen the hive's queen call her the Deep Mother, and I can't say I've got a better name. Her "
+        "chamber's where the main gallery levels out, a long way down. She lays the eggs, and the whole hive does "
+        "whatever she wants. Kill her, and the hive stops growing. I'll still buy the resin, mind, so don't go burning "
+        "it all.",
+        "Bring friends who can take a beating, and don't go down there tired.",
+        None,
+    ),
+    "fe_the_dig_head": (
+        "Past the Deep Mother's chamber, the Zukk'ash are still digging. A silithid the size of a kodo stands at the "
+        "head of the dig and drives the workers on, and the hunters call it Tunnelmaster Zix'tal. They heard it from "
+        "the far end, and they say it doesn't sound like the forest down there any more. A tunnel that long is going "
+        "somewhere, and I'd like to know where before it gets there. Kill the thing and see where they were digging.",
+        "Notice the air when you get down there. If it's dry, tell me, and I'll know what it means.",
+        None,
+    ),
+    "fe_through_to_the_other_side": (
+        "The Zukk'ash tunnel comes out in the Dry Deep, under the Abyssal Sands. The Dark Iron of Onyxhollow live below "
+        "it, and they ought to know somebody's dug a road to their door. I've written their geomancer a letter, and I "
+        "think it's polite. Walk the tunnel past where Zix'tal was digging, and you'll come out in the Dry Deep. "
+        "Onyxhollow's at the end of the descent, and the letter's for Vigdis Stonesong.",
+        "Be polite, she's a dwarf. Hand it over before you tell her a goblin wrote it.",
+        None,
+    ),
+    # --- Cedar Hollow: the transplants ---
+    "fe_which_trees_these_are": (
+        "I was a ranger in Olympic National Park for sixteen years, and I know every tree in these groves by name. The "
+        "big ones with the soft red bark are coast redwoods, and the dark ones are Sitka spruce. On Earth they only "
+        "ever grew on the Pacific coast of North America. Here they've come up in the middle of Feralas, and I need "
+        "fresh eyes on how they sit beside the old forest. Walk the north edge of the Fog Groves, then go into the "
+        "heart of them, and look at where ours stop and Feralas starts.",
+        "Touch the bark if you like. Redwood's soft, almost spongy, and you'll know it the moment you feel it.",
+        None,
+    ),
+    "fe_stalkers_in_the_fog": (
+        "The Feralas Stalkers have learned that we walk the groves in the fog, and that we can't see far in it. Back "
+        "home we had cougars, and you learned to make yourself big and loud. These cats don't care how big you are. "
+        "They've taken two of Walt's goats, and last week they followed Rosa home. She didn't sleep that night, and "
+        "she's the one who keeps the rest of us alive. Hunt them out of the groves for me.",
+        "They circle before they jump. If the fog goes quiet around you, turn round.",
+        None,
+    ),
+    "fe_old_seven_point": (
+        "Old Seven-Point came through with the trees, same as we did. He's a Roosevelt bull, bigger than any elk I ever "
+        "saw in Washington, and he leads the herd in the Fog Groves. This season he's charged three of us, and last "
+        "week he put Sam in the creek. I've hunted elk every fall for thirty years, and I've never had one come looking "
+        "for me. He'll be somewhere in the groves, bugling, so you'll hear him before you see him.",
+        "He drops his head before he comes. When it goes down, you've got about two seconds.",
+        None,
+    ),
+    "fe_meat_for_the_winter": (
+        "I keep Cedar Hollow fed through the wet season, and the wet season here goes on a long time. I logged out of "
+        "Forks for thirty years and hunted elk every fall, so I know what I'm doing with one. The Fog Grove Elk came "
+        "over with the trees, and there are more of them every year. I won't cut these trees, but I'll hunt the elk "
+        "that came with them. Bring me good cuts, and the hollow eats this winter.",
+        "Shoulder and haunch, and bleed them quick. I'll smoke whatever you bring the same night.",
+        None,
+    ),
+    "fe_what_i_owe_them": (
+        "There's a stump behind the hollow, and I'm the one who made it. I cut that tree the first week, for the cabin, "
+        "before I'd worked out where I was. It's a redwood, maybe four hundred years old, and it was one of the only "
+        "ones on a whole continent. I haven't cut a single tree since, and I never will. Go and look at that stump, and "
+        "then come back and tell me I'm a sentimental old fool.",
+        "It's behind the smokehouse, under the moss. You'll have to look for it, because I let it grow over.",
+        None,
+    ),
+    "fe_medicine_by_the_creek": (
+        "I was an ER nurse in Tacoma, and in Cedar Hollow I'm the only one there is. My pharmacy is whatever grows by "
+        "the creek. Right now I've got two people with broken bones and a man who won't stop coughing. The night elves "
+        "taught me that Purple Lotus makes a decent painkiller if you boil it right. It grows along the creeks and the "
+        "coast, so bring me what you can find.",
+        "Take the whole flower and some of the stem. The night elves swear the stem's where the good part is.",
+        None,
+    ),
+    "fe_bear_trouble": (
+        "Both of my broken bones came from the same thing, a Fog Grove Ironfur. They come into the hollow at night "
+        "after the smokehouse, and the settlers try to chase them off with sticks. Two men tried it this month, and I "
+        "set both their legs on my kitchen table. I'd like that to be the last time I do it. Please thin the bears out "
+        "before somebody tries again.",
+        "They come in on the north side, where the smokehouse is. Start there, and work out into the trees.",
+        None,
+    ),
+    "fe_a_letter_for_feathermoon": (
+        "I've written to the druid at Feathermoon Stronghold, Kindal Moonweaver, though I've never met her. She knows "
+        "every plant on this coast, and I'm guessing at half of them. The Sentinels keep their distance from us, and I "
+        "understand why, because we came out of nowhere. I'd still rather ask for help than lose a patient to pride. "
+        "The boat to the island leaves from Feathermoon Landing on the shore, so take her my letter.",
+        "If she asks, tell her I'm a nurse, not a healer. I don't want her expecting magic.",
+        None,
+    ),
+    "fe_fungus_that_shouldnt_be_here": (
+        "I studied fungus at Portland State, and I never thought it'd be the most useful thing I know. There's a grey "
+        "shelf fungus growing on the redwoods here that's native to the Pacific Northwest and nowhere else. It came over "
+        "with the trees, which I expected. What I didn't expect is that it's showing up on the Feralas trees too, "
+        "further from the groves every month. Look at the mushrooms at the edge of the groves, then go up the coast road "
+        "north and tell me if they're there too.",
+        "It's grey and flat, like a plate stuck to the bark. You won't mistake it for anything that belongs here.",
+        None,
+    ),
+    "fe_spores_on_the_hides": (
+        "I think the animals are carrying the spores, and that's why it's spreading so fast. The Feralas Stalkers range "
+        "further than anything else in the groves, so they're my first suspect. If I'm right, their fur will be full of "
+        "grey spores. Bring me fur from the stalkers and I'll look at it under my lens. It's the only one on this side "
+        "of the world, and I traded Walt a month of firewood for it.",
+        "Pull the fur from the back of the neck. That's what brushes against the bark when they climb.",
+        None,
+    ),
+    "fe_show_the_druid": (
+        "I've sealed my spore samples in a jar with wax, so nothing gets out on the way. They need to go to Kindal "
+        "Moonweaver at Feathermoon Stronghold, on the island. Rosa says she's the one who knows what the old forest can "
+        "survive. I'm not worried about the groves, because they're used to this fungus. I'm worried about the old "
+        "forest round them, and she'll understand the difference.",
+        "Keep the jar upright and out of the sun. If the wax cracks, bring it straight back to me.",
+        None,
+    ),
+    "fe_smoked_elk_for_the_inn": (
+        "Every Sentinel who walks past the transplants' hollow comes back talking about the smell from that smokehouse. "
+        "I'm told a settler named Walt Hollis smokes the best elk on the coast. I've never spoken to a settler in my "
+        "life, but I keep an inn, and an inn needs meat. I'd like to trade, my wine for his elk. Take him my offer in "
+        "Cedar Hollow.",
+        "Be polite with him. I'm told he's a proud man, and I'd rather we didn't start badly.",
+        None,
+    ),
+    # --- Feathermoon and the Hatecrest ---
+    "fe_the_crossing": (
+        "I keep the pier at Feathermoon Landing, and I decide who gets on the boat. The Sentinels let transplants land "
+        "on the island now, but only the ones I've watched for a while. I've watched you. Take this moon token, and the "
+        "crew will let you aboard with it. Shandris Feathermoon stands in front of the great hall, and she'll know I "
+        "sent you.",
+        "She's busy, so don't waste her time. Say who sent you, then let her talk.",
+        None,
+    ),
+    "fe_the_hatecrest_shore": (
+        "Since the merge, the Hatecrest naga have come up onto the beaches north of the landing, and they come at "
+        "night. Their Raiders hold the sand, and their Ruin-Diggers aren't fighting at all, they're digging. The naga "
+        "have raided this coast before, but in all the years I've held it, they've never once stopped to dig. This morning I counted eleven fresh holes below the landing. I want "
+        "to know why, but first I want them off my coast.",
+        "Hit the Raiders first. The Diggers won't stop to help them, which tells you how much the digging matters.",
+        None,
+    ),
+    "fe_sardor_isle": (
+        "The Hatecrest have taken Sardor Isle, off the north-west shore, and turned it into their camp on this coast. "
+        "Their Coral Guardians hold the sandbar, and their Tide Priestesses keep the camp. You can wade across the "
+        "sandbar at low tide, which is how they get back and forth. Every raid on our beaches starts from that island. "
+        "Wade across and break the camp.",
+        "Go at low tide and be back before it turns. The bar's under water by nightfall.",
+        None,
+    ),
+    "fe_orders_for_the_watch": (
+        "I need to know whether the Hatecrest are digging at Ravenwind, on the north coast, as well. The Sentinels' "
+        "Watch is as far north as Feathermoon reaches, and Sentinel Aerwyn Starbrook holds it. We haven't heard from "
+        "her in weeks, which isn't like her. Take my orders north up the coast road to her. If the naga are digging "
+        "there too, I need to know before they find what they're looking for.",
+        "Don't stop at Ravenwind on the way. Get to the Watch first, and let Aerwyn tell you what's there.",
+        None,
+    ),
+    "fe_night_diggers": (
+        "I watch the coast from Feathermoon to Sardor Isle, and I've been watching the Hatecrest Ruin-Diggers for a "
+        "month. They come up the beaches at night with picks and sacks, and they're careful. Whatever they find, they "
+        "wrap in kelp, like it's precious, and carry it back to the sea. Naga don't treat anything gently, so it must "
+        "matter to someone. Take it off them on the Hatecrest Shore and bring it to me.",
+        "Don't unwrap the kelp. I want to see it the way they packed it.",
+        None,
+    ),
+    "fe_makrura_on_the_beach": (
+        "The Hatecrest Makrura come up on the shore ahead of the naga, like scouts. They snap at anything that lands, "
+        "and our fishing boats can't get ashore at the landing any more. Elyssa's nets have sat dry for a week, and the "
+        "Sentinels are living on soup. I'd rather they weren't. Clear the makrura off the beaches.",
+        "Come at them from the land side. They watch the water, not the trees.",
+        None,
+    ),
+    "fe_tidelord_ssaravel": (
+        "Tidelord Ssaravel commands the Hatecrest on Sardor Isle, and he's the one with the maps. Every map we've taken "
+        "off the priestesses was copied from his. With his own maps in my hands, I'd know what they're digging for and "
+        "where they'll dig next. He calls up the sea when he's cornered, so watch your footing. He'll be on the isle.",
+        "When the water starts rising round your ankles, get to higher ground. He'll follow you up.",
+        None,
+    ),
+    "fe_hydras_on_sardor": (
+        "The naga keep Sardor Hydras on the isle like hounds, and they've started loosing them on the sandbar at "
+        "night. Each one has three heads, and every head bites. My Sentinels can't hold the bar while those things are "
+        "on it. I lost a good bow to one last night, and very nearly the arm that holds it. Kill them on Sardor Isle.",
+        "Watch all three heads, not just the one looking at you. It's the other two that bite.",
+        None,
+    ),
+    "fe_makrura_for_the_pot": (
+        "I feed the Sentinels on nightfin and makrura, and the makrura on the beaches have come up fat and bold since "
+        "the naga arrived. I think the naga feed them. They've got the sweetest tail meat on the coast. The Sentinels "
+        "are tired of my soup, and they've started telling me so. Bring me some tails from the Hatecrest Makrura on the "
+        "beach.",
+        "Cut the tail off at the last joint. That's where the meat is, and the rest is shell.",
+        None,
+    ),
+    "fe_lotus_for_the_draughts": (
+        "I brew the healing draughts for the Sentinels on the walls, and since the naga came, they've gone through them "
+        "faster than I can brew. Sungrass is the base of every one. It grows in the open, on the highlands and up the "
+        "north coast. I've stripped every patch within a day's walk of the stronghold. Bring me what you can find "
+        "further out.",
+        "Pick it in the morning if you can. Sungrass picked after noon goes bitter by the time it reaches me.",
+        None,
+    ),
+    "fe_skull_taker_murg": (
+        "Skull-Taker Murg leads the Gordunni at the Ruins of Isildien, and he takes a skull from everyone he kills. He "
+        "wears them on his belt. Two of them are my sisters'. I've asked the General to let me go after him, and she "
+        "says no, because I'd go alone. So I'm asking you instead.",
+        "He walks the dome at Isildien. When he's down, bring me the belt, and don't look too closely at it.",
+        None,
+    ),
+    "fe_watch_fires": (
+        "I keep the harbour, and I'm the one who lights the signal fire when the Watch in the north sends word. The "
+        "Watch lights a fire on the cliffs when it needs us, and I light ours to answer. It's been dark for a month. Go "
+        "up the coast road to the Sentinels' Watch and see they're all right. Then look under the Colossals on your way "
+        "back, because that's where the last fire was.",
+        "If they're in trouble, don't try to fix it yourself. Come back and tell me, and I'll bring the boats.",
+        None,
+    ),
+    # --- Latronicus and Isildien ---
+    "fe_what_isildien_was": (
+        "I keep the record of the Highborne ruins on this coast, and it's been a busy record since the merge. The Ruins "
+        "of Isildien are the biggest of them. Isildien was a library before the Sundering, the largest outside the "
+        "capital, and the dome's still standing, just about. Now the Gordunni are digging it out. Go and look at what "
+        "the ogres are doing to it, and come back and tell me how bad it is.",
+        "Look at the stairs. Whichever way they've dug down will tell me what they're after.",
+        None,
+    ),
+    "fe_ogres_in_the_dome": (
+        "The Gordunni at Isildien are working in shifts. The Isildien Diggers work the archive stair, and the Brutes "
+        "stand over them while they do. Every day they're down there, they break into another room of the archive. "
+        "Some of those rooms haven't been opened in ten thousand years, and I'd hoped to be the one who opened them. "
+        "Please stop them before there's nothing left to open.",
+        "Kill them on the stair if you can, and try not to bring the walls down doing it.",
+        None,
+    ),
+    "fe_pages_from_the_dome": (
+        "The ogres carried books out of the archive, and their Ogre Mages read the pages aloud to each other, badly. "
+        "I've listened from the rubble, and they understand a little more of it every night. A Highborne archivist "
+        "would have wept to hear it, and I very nearly did. I want those pages back before they understand the rest. "
+        "Bring me every page you can take off the mages at the dome.",
+        "Don't fold them. The ink's older than anything else on this coast, and it cracks.",
+        None,
+    ),
+    "fe_the_diggers": (
+        "I've laid the naga's relics and the ogres' pages side by side, and they point to the same place. The naga are "
+        "digging up the old roads, the ogres are digging up the archive, and both of them are looking for the way into "
+        "Eldre'Thalas. Your Horde has a man at Camp Mojache who watches the gate. Take him my notes, from someone who's "
+        "seen both. For once, the Sentinels and the Horde want the same thing.",
+        "He's an orc, and he'll want it short. Tell him the naga and the ogres are after the same door.",
+        None,
+    ),
+    # --- Kindal, the groves and the highlands ---
+    "fe_trees_that_dont_answer": (
+        "I've watched the Fog Groves from the walls for two years, and I've tried speaking to the trees. Every tree in "
+        "Feralas knows its own name and will tell you, if you know how to ask. The trees in the groves don't answer at "
+        "all. I want to know how the old forest is taking them, and how it's taking the people who came with them. Go "
+        "and stand among the redwoods, then visit Cedar Hollow, where the settlers live.",
+        "Don't tell the settlers I sent you. I'd rather hear how they are when nobody's watching.",
+        None,
+    ),
+    "fe_vouching_for_the_hollow": (
+        "I've decided to speak for Cedar Hollow to the General. Until she agrees, the settlers need something to show "
+        "any Sentinel who troubles them. This is the Sentinels' mark. If a patrol stops them, they show it, and the "
+        "Sentinel walks away. Take it to June Nakamura in Cedar Hollow, and tell her I'll keep my word.",
+        "Give it to June and nobody else. She's the one the others listen to.",
+        None,
+    ),
+    "fe_the_hippogryphs_are_restless": (
+        "The wild hippogryphs of the Frayfeather Highlands have turned on our patrols, and they've never attacked a "
+        "Sentinel before. The Skystalkers and Windwings dive at every patrol on the highlands now. I think something's "
+        "driving them, and I mean to find out what. For now, though, the patrols need the sky clear. Thin them before "
+        "someone's killed.",
+        "Don't chase the ones that flee. I only need them wary, not gone.",
+        None,
+    ),
+    "fe_highland_nests": (
+        "I want to know whether the wild hippogryphs of the Frayfeather Highlands have left their nests or only their "
+        "manners. They nest on the crags up on the highlands. If they've left the nests, something big has frightened "
+        "them, and I'll have to keep my mounts on the island. If they're still there, I can work round it. Go and look, "
+        "and don't touch the eggs.",
+        "Stay low on the crags and move slowly. A parent on the nest thinks anything quick is a hunter.",
+        None,
+    ),
+    "fe_antilus_the_soarer": (
+        "Antilus the Soarer is the patriarch of the Frayfeather Highlands, and he's older than this roost. For as long "
+        "as I've kept it, he's left our hippogryphs alone. Now he takes them out of the air, and I've lost two this "
+        "month. I can't fly the highland route while he's up there. I'd hoped he'd be the one to calm the others, and "
+        "he isn't going to. Bring him down, as cleanly as you can.",
+        "Keep the sun at your back. He likes to come out of it.",
+        None,
+    ),
+    "fe_the_old_walker": (
+        "The Old Walker is the eldest of the giants under the Twin Colossals, older than Feathermoon itself. For as long "
+        "as anyone remembers, he stood still. Now he walks, the ground shakes under him, and my hippogryphs won't fly "
+        "within a mile of the north coast. I've lost the whole route, and the Watch is cut off from the sky. Please stop "
+        "him.",
+        "He's slow, but every step knocks you off your feet. Don't stand where he's about to walk.",
+        None,
+    ),
+    # --- Jalara and the north coast ---
+    "fe_chimaeras_and_the_boats": (
+        "The Dread Chimaeras have nested on the Isle of Dread for as long as I've been alive, and they've never once "
+        "come out over the water. Now they're going for the Sentinels' boats on the way to the landing. I count them by "
+        "their scales, because I can't count them in the air. Wade out over the sandbar and kill them. Bring me their "
+        "scales so I know how many are left.",
+        "They rear back before they dive. When you see one do it, get your shield up.",
+        None,
+    ),
+    "fe_what_drove_them": (
+        "Something's driven the chimaeras out of their nests, and I want to know what. They nest on the old Highborne "
+        "tower at the heart of the Isle of Dread. The Dread Matriarch guards those nests, and she's never left them "
+        "before. If she leaves now, she'll take the young ones with her and nest somewhere worse. Cross the sandbar, "
+        "look at the tower, and make sure she's gone before that happens.",
+        "Look at the ground round the tower as well as the nests. Whatever drove them out came from somewhere.",
+        None,
+    ),
+    "fe_stalkers_on_the_north_coast": (
+        "Since the merge, the Feralas Stalkers have spread up the coast. Now they've followed the yetis' scent north, "
+        "and they hunt the coast road between the Forgotten Coast and the Sentinels' Watch. My runners won't take it "
+        "alone any more, and I don't blame them. Last week one of them came in with claw marks right through her pack. "
+        "Clear the road through the Twin Colossals.",
+        "They hunt the road at dusk. Walk it then, and they'll come to you.",
+        None,
+    ),
+    "fe_windwings_over_the_arches": (
+        "The Frayfeather Windwings have moved up to the Twin Colossals, and they're nesting on top of the arches. They "
+        "dive at anything that walks underneath. Our patrols to the Watch go right under them, and I've had two "
+        "Sentinels come back bleeding from the scalp. I don't care why they're up there, I need the patrols to get "
+        "through. Drive them off the arches.",
+        "Shoot them as they dive, not while they're perched. They're slower coming down.",
+        None,
+    ),
+    # --- Aerwyn and Ravenwind ---
+    "fe_ravenwinds_diggers": (
+        "The Hatecrest who came up with the merge are digging at the Ruins of Ravenwind, the same way they've been "
+        "digging on the south coast. Their Sea Witches call up the tide to wash the earth away from the old stones, and "
+        "their Raiders guard them while they do. I've got six Sentinels to hold this whole stretch of coast, and none "
+        "to spare for a ruin. I want them stopped before they're finished. Go up the coast and break up the digging.",
+        "Kill the Sea Witches before the tide comes in. Once the water's up, you'll be fighting knee deep.",
+        None,
+    ),
+    "fe_guardians_of_the_ruin": (
+        "The naga dug down to a road under Ravenwind, and now they've brought Ravenwind Guardians to hold it. They've "
+        "brought Ravenwind Hydras to keep it as well. My Sentinels can't get near it. If we break their hold, we can "
+        "bury the road again, and that'll slow them down. Go back to the ruins and break it.",
+        "The Guardians stand on the road itself. Draw them off it one at a time, and the hydras will follow.",
+        None,
+    ),
+    "fe_lady_szaressa": (
+        "Lady Szaressa commands the Hatecrest at Ravenwind, and the Guardians answer to her. When she's hurt, she wraps "
+        "herself in a ward of sea water, and my arrows just bounce off it. I've watched her shrug off a whole volley. "
+        "Everything they've dug up on this coast passes through her hands. Break the ward and finish her.",
+        "The ward doesn't last. Keep hitting it, and when it breaks, don't give her time to call it back.",
+        None,
+    ),
+    "fe_the_road_under_ravenwind": (
+        "The naga dug down to an old Highborne road under Ravenwind, and it runs inland. I want to see where it actually "
+        "goes. Find it in the ruins and follow it east, as far as the Twin Colossals. I've got a guess, and I don't like "
+        "it. If it goes where I think it does, Latronicus needs to know.",
+        "Stay on the old stones as you follow it. Where the road goes under the grass, look for the line of the kerbs.",
+        None,
+    ),
+    # --- Tahu and Rage Scar Hold ---
+    "fe_down_from_the_hold": (
+        "Hadoken sent me north from Mojache after the Rage Scar yetis. They didn't leave their hold even when the worlds "
+        "came together, and now they're down in the forest, angry and hungry. Some of them are singed, and yetis don't "
+        "go near fire if they can help it. I'd like to know why. Kill them and bring me their fur, the singed pieces "
+        "especially.",
+        "Look at the tips of the fur. If they're burned, those are the pieces I want most.",
+        None,
+    ),
+    "fe_what_drove_them_out": (
+        "Every yeti I've looked at is singed at the tips, so something hot drove them out of Rage Scar Hold. I want "
+        "someone to look inside the hold itself. It's up in the east hills, and the Rage Scar Matriarchs are still "
+        "guarding the mouth. They won't let you past easily. Go in and tell me what you see.",
+        "Look at the back wall, not just the floor. If something came in, it didn't come through the front.",
+        None,
+    ),
+    "fe_the_old_bull": (
+        "The Rage Scar Old Bull leads what's left of the yetis, and he's stopped running. He attacks anything that moves "
+        "now. Yesterday he threw one of the Sentinels into a tree, and she still can't lift her arm. I've hunted angry "
+        "animals before, and the old ones are always the worst. He's somewhere round Rage Scar Hold, in the forest to "
+        "the north. End it for him.",
+        "He'll charge the moment he sees you. Let him come, and step aside at the last moment.",
+        None,
+    ),
+    "fe_word_to_hadoken": (
+        "Hadoken sent me north, and he'll want to know what I found at Rage Scar Hold. Something came up from underneath "
+        "it, through the back wall, the same way the silithids came up under the forest at home. It's the strangest "
+        "thing I've seen since the merge. I'd go myself, but somebody has to keep watch on the hold. Tell him it came "
+        "from underneath, and he'll know to watch the ground.",
+        "He'll be at the hunters' fire in Mojache. Tell him straight, because he hates it when people dress things up.",
+        None,
+    ),
+    # --- Sylanna and the Dream Bough ---
+    "fe_warm_roots": (
+        "I came from Moonglade to the Dream Bough, a great tree whose roots reach into the Dream. They've been restless "
+        "since the merge. The stones of the Dreaming Arch at Moonglade have been warm at night for months, and the "
+        "Bough's roots touch the same Dream. I want to know whether these roots are warm too. Go and lay your hand on "
+        "them tonight, and tell me.",
+        "Lay your hand on the Bough's roots tonight, and tell me whether they're warm.",
+        None,
+    ),
+    "fe_darters_at_the_bough": (
+        "The Dream Bough Darters were the tree's guardians, and the Dream-Touched Treants were its gardeners. Since the "
+        "roots warmed, they've turned wild, and they attack anything that comes near, even me. I've sat with this tree "
+        "every night since I came from Moonglade, and now I can't reach its roots. I don't want them all dead, only "
+        "enough of them that I can sit with the tree again. Thin them out for me.",
+        "The treants are slow, and they won't follow you far. The darters will, so deal with those first.",
+        None,
+    ),
+    "fe_walkers_under_the_arches": (
+        "The Colossal Land Walkers and Sea Walkers have stood under the Twin Colossals since before the night elves came "
+        "to this forest. Now they're walking north-east, toward the Bough, and they trample everything in their way. I "
+        "don't know what they mean to do when they get there. I'd rather not find out. Stop them under the arches "
+        "before they get any closer.",
+        "The Sea Walkers keep to the water's edge, and the Land Walkers to the high ground. You'll need both.",
+        None,
+    ),
+    "fe_tell_moonglade": (
+        "I've written to Dreamwatcher Lethiel at Moonglade's Dreaming Arch. The roots are warm, the guardians are "
+        "dreaming badly, and the giants are walking. She needs to hear all of it, and soon. I can't leave the Bough "
+        "while it's like this. Take her my letter, and she'll know what it means, or she'll know who to ask.",
+        "Lethiel sits with the Dreaming Arch in Moonglade's north woods. Take her my letter.",
+        None,
+    ),
+}

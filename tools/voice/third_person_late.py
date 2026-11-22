@@ -197,36 +197,6 @@ THIRD = {
             None,
         ),
     },
-    "feralas": {
-        "fe_raise_it_here": (
-            "I've raised the Bloodhoof totem beside Mojache's great totem. Raising it here means we've stopped waiting "
-            "to go home. I didn't think I'd ever be ready for that, and I'm still not sure I am. I want the camp to "
-            "see someone from outside it standing with us, so they know it isn't only the refugees who mourn. Come "
-            "and stand with us at the great totem tonight.",
-            "Come to the great totem tonight. You don't have to say anything, only stand with us.",
-        ),
-        "fe_the_rattles_go_quiet": (
-            "With their snares gone, the Woodpaw have pulled back to their camps, and their Woodpaw Mystics are "
-            "shaking their rattles all night. I know what that means, because I've heard it before. They're working "
-            "themselves up to come back. When the Mystics start rattling, the Woodpaw Brutes come down the hill a "
-            "night later. I'd rather we went up first.",
-            "Break up the camp before they're ready.",
-        ),
-        "fe_warm_roots": (
-            "I came from Moonglade to the Dream Bough, a great tree whose roots reach into the Dream. They've been "
-            "restless since the merge. The stones of the Dreaming Arch at Moonglade have been warm at night for "
-            "months, and the Bough's roots touch the same Dream. I want to know whether these roots are warm too. Go "
-            "and lay your hand on them tonight, and tell me.",
-            "Lay your hand on the Bough's roots tonight, and tell me whether they're warm.",
-        ),
-        "fe_tell_moonglade": (
-            "I've written to Dreamwatcher Lethiel at Moonglade's Dreaming Arch. The roots are warm, the guardians are "
-            "dreaming badly, and the giants are walking. She needs to hear all of it, and soon. I can't leave the "
-            "Bough while it's like this. Take her my letter, and she'll know what it means, or she'll know who to "
-            "ask.",
-            "Lethiel sits with the Dreaming Arch in Moonglade's north woods. Take her my letter.",
-        ),
-    },
     "middle_boughs": {
         "mbq_sealed_for_now": (
             "I want you to stand at the Heartwood Hollow behind Heartwatch and listen, so you know what the watch is "

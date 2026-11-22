@@ -98,6 +98,16 @@ def main():
                 break
         quest = Quest(**{k: v for k, v in found.items()
                          if k in Quest.__init__.__code__.co_varnames})
+        # The text the game actually shows: the voice overlays (data/quests/text/) load over the quest files, so a
+        # shot built from the raw file alone shows text no player sees any more (22 Nov 2026).
+        try:
+            from world.quest_manager import get_quest_manager
+            live = get_quest_manager().quests.get(found.get("quest_id"))
+            if live is not None:
+                for f in ("description", "accept_text", "turn_in_text"):
+                    setattr(quest, f, getattr(live, f))
+        except Exception as e:                                    # noqa: BLE001
+            print(f"(overlay text not applied: {type(e).__name__}: {e})")
         # Look the giver's REAL name up, so the shot shows what a player
         # sees. Using giver_npc_id as the name made the header read
         # "durotar_tiragarde_scout" instead of "Watchwarden Kelgrim", which

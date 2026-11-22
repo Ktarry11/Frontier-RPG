@@ -139,6 +139,50 @@ def third_person(q):
     return False
 
 
+def _check_third(body, q):
+    giver = getattr(q, "giver_npc_id", None)
+    if isinstance(giver, str) and giver.startswith("item:"):
+        return False
+    name = _giver_names().get(getattr(q, "quest_id", ""), "")
+    if _FIRST.search(re.sub(r'"[^"]*"', "", body)):
+        return False
+    if re.match(rf"^(He|She|They)\s+{_SAYS}\b", body):
+        return True
+    for tok in re.findall(r"[A-Z][a-z']+", name):
+        if tok.lower() in _TITLE_WORDS or len(tok) < 3:
+            continue
+        if re.search(rf"\b{re.escape(tok)}('s)?\s+{_SAYS}\b", body) or re.search(rf"\b{re.escape(tok)}\b", body[:80]):
+            return True
+    return False
+
+
+def journal_third_person(q):
+    """The quest journal always prints `description`, whichever field the offer window picked. A narrator there is
+    the same failure as a narrator in the window."""
+    return _check_third((getattr(q, "description", "") or "").strip(), q)
+
+
+# STORY-DONE ZONES. Kyle, 22 Nov 2026: one zone at a time, to docs/quest_writing_standard.md. Once a zone is on this
+# list, an offer under STORY_MIN sentences or a journal that narrates is a hard finding there, so it can't slip back.
+STORY_DONE = {"feralas"}
+_STEM_OF = None
+
+
+def _stem_of(qid):
+    global _STEM_OF
+    if _STEM_OF is None:
+        _STEM_OF = {}
+        for f in (ROOT / "data/quests").glob("*.json"):
+            try:
+                doc = json.loads(f.read_text(encoding="utf-8"))
+            except Exception:                                    # noqa: BLE001
+                continue
+            for qd in (doc.get("quests") if isinstance(doc, dict) else doc) or []:
+                if isinstance(qd, dict) and qd.get("quest_id"):
+                    _STEM_OF[qd["quest_id"]] = f.stem
+    return _STEM_OF.get(qid)
+
+
 def story_sentences(q):
     """How many real sentences (three words or more) the offer body holds. The bar is STORY_MIN."""
     _field, body = offer_body(q)
@@ -149,6 +193,11 @@ def findings(q):
     out = []
     if third_person(q):
         out.append((offer_body(q)[0], "third person: the giver is talked about instead of talking"))
+    if _stem_of(getattr(q, "quest_id", "")) in STORY_DONE:
+        if story_sentences(q) < STORY_MIN:
+            out.append((offer_body(q)[0], f"story: under {STORY_MIN} sentences (docs/quest_writing_standard.md)"))
+        if journal_third_person(q):
+            out.append(("description", "third person in the journal: the description narrates the giver"))
     for f in FIELDS:
         text = getattr(q, f, "") or ""
         if not text.strip():
