@@ -133,6 +133,10 @@ def build_fourth_peg():
     zone.add_subzone("The Square", SQUARE["x0"], SQUARE["y0"], SQUARE["x1"] - SQUARE["x0"],
                      SQUARE["y1"] - SQUARE["y0"])
     zone.add_subzone("The North Rise", 28, 4, 56, 22)
+    # 22 Nov 2026, the townsfolk's districts (Kyle: "ensure ALL towns are actually populated")
+    zone.add_subzone("The Inn Corner", 6, 24, 30, 22)
+    zone.add_subzone("The Forge Side", 58, 24, 32, 32)
+    zone.add_subzone("The South Gate", 28, 48, 40, 22)
     return zone, L
 
 

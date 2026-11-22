@@ -198,6 +198,9 @@ def build_steamwheedle():
     zone.add_subzone("The Quay", QUAY["x0"] - 16, QUAY["y0"], W - QUAY["x0"] + 16, QUAY["y1"] - QUAY["y0"])
     zone.add_subzone("The Upper Yard", YARD["x0"], YARD["y0"],
                      YARD["x1"] - YARD["x0"], YARD["y1"] - YARD["y0"])
+    # 22 Nov 2026, the townsfolk's districts (Kyle: "ensure ALL towns are actually populated")
+    zone.add_subzone("The Scrap End", 8, 56, 40, 26)
+    zone.add_subzone("The Lighthouse Pier", 58, 70, 62, 22)
     return zone, L
 
 

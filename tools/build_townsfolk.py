@@ -68,6 +68,10 @@ TOWNS = {
     "splintertree": "Splintertree Post",
     "zoram": "Zoram Strand",
     "sun_rock_retreat": "Sun Rock Retreat",
+    "freewind_post": "Freewind Post",
+    "saltwheel": "Saltwheel",
+    "steamwheedle_port": "Steamwheedle Port",
+    "fourth_peg": "Fourth Peg",
 }
 SPACING = 3          # nobody stands closer than this to anyone else, if the district has room
 

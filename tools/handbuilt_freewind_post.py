@@ -394,6 +394,11 @@ def build_layout():
     L.z.add_subzone("The Landing", 62, 14, 68, 52)
     L.z.add_subzone("The Long Mesa", 13, 76, 102, 76)
     L.z.add_subzone("Windward", 130, 88, 58, 46)
+    # 22 Nov 2026, the townsfolk's districts (Kyle: "ensure ALL towns are actually populated")
+    L.z.add_subzone("The Traders' Edge", 10, 84, 28, 58)
+    L.z.add_subzone("The Lodge Circle", 38, 84, 50, 30)
+    L.z.add_subzone("The Crafters' Yards", 86, 104, 32, 44)
+    L.z.add_subzone("The Yurts", 38, 114, 48, 38)
     return L
 
 
