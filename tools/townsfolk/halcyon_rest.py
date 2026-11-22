@@ -61,4 +61,20 @@ PEOPLE = [
     ("hr_tf_tether_grandmother", "Nalani Kahale", "human", F, "Tethertown",
      "Ana and I are both from the islands back home, so we talk story by the fire in the evenings. I never thought I'd "
      "be living on an island again, and I certainly never thought it'd be floating."),
+    # ---- 22 Nov 2026, Kyle: "Small towns can be 15-20" (the frontier feel)
+    ("hr_tf_gate_lamplighter", "Lamplighter Odo Fenn", "aetherian", M, "The Rest Gate",
+     "I light the crystal lamps along the gangway at dusk, all forty of them. The Eighth Ring's children follow me down "
+     "the line every evening, and I've started letting them light the last one."),
+    ("hr_tf_hall_sweeper", "Bettany Crane", "aetherian", F, "The Guest Hall",
+     "I sweep the Guest Hall twice a day now, because twelve beds have turned into forty bedrolls. Nobody complains about "
+     "the floor, and I've decided that's the nicest thing a guest has ever said to me."),
+    ("hr_tf_ring_mason", "Halvard Ostrin", "aetherian", M, "The Pavilions",
+     "I built walls on the Eighth Ring for thirty years, and now I'm building pavilion floors so the children don't "
+     "sleep on the grass. Maela says I'm happier with a trowel than I ever was with a guild seal."),
+    ("hr_tf_steps_fruit_seller", "Rhenna Lowe", "aetherian", F, "The Market Steps",
+     "I bring fruit down from the Rest's orchards every morning and give half of it away by noon. The keeper says that's "
+     "bad trade, and then he takes a pear without paying, so I don't listen to him."),
+    ("hr_tf_tether_fisher", "Mateus Oliveira", "human", M, "Tethertown",
+     "I fished off the coast of Bahia my whole life, and now I fish the sky river off the end of a rock. The fish up here "
+     "have wings, and they're delicious, and I've stopped telling anyone back at the hearth how strange that is."),
 ]

@@ -115,7 +115,7 @@ TOWN = [
     (r"Echo Isles", ["ent_town_troll_gate"]),
     (r"Saltwheel", ["ent_town_wheel_arch"]),
     (r"Onyxhollow", ["ent_town_dark_iron_gate"]),               # the Dark Iron gatehouse, both sides
-    (r"Kael's Bastion", ["ent_town_highelf_gate"]),
+    (r"Kael's Bastion|Dawnrest", ["ent_town_highelf_gate"]),
     (r"Glittervein", ["ent_town_headframe_gate"]),
     (r"Cinderwharf", ["ent_town_charred_gate"]),
     (r"Saltspur", ["ent_town_whalerib_gate"]),

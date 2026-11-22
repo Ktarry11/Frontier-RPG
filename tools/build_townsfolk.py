@@ -51,6 +51,7 @@ TOWNS = {
     "mossroof": "Mossroof",
     "heartwatch": "Heartwatch",
     "highrest": "Highrest",
+    "dawnrest": "Dawnrest",
 }
 SPACING = 3          # nobody stands closer than this to anyone else, if the district has room
 

@@ -36,6 +36,7 @@ ZONES = {
     "aspen": "tools.handbuilt_aspen_wilderness",
     "amberleaf": "tools.handbuilt_dawnhaven_amberleaf",
     "duskfall": "tools.handbuilt_dawnhaven_duskfall",
+    "dawnrest": "tools.handbuilt_dawnhaven_dawnrest",
     "firstlight": "tools.handbuilt_firstlight_spire",
     "ascendant_bastions": "tools.handbuilt_worldtree_ascendant_bastions",
     "fading_firmament": "tools.handbuilt_worldtree_fading_firmament",

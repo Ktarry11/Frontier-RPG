@@ -55,6 +55,7 @@ MAPS = {
     SQ.AL: ("tools.handbuilt_dawnhaven_amberleaf", "START", ("Amberleaf Glade",)),
     SQ.DF: ("tools.handbuilt_dawnhaven_duskfall", "START", ("Duskfall Woods",)),
     SQ.FS: ("tools.handbuilt_firstlight_spire", "START", None),
+    "dawnrest": ("tools.handbuilt_dawnhaven_dawnrest", "START", None),          # the waystation town: reachability only
     SQ.GROTTO: (None, None, ("Amberleaf Glade", "Brinecoil Grotto")),
     SQ.VAULT: (None, None, ("Amberleaf Glade", "The Quiet Vault")),
     SQ.HOLLOW: (None, None, ("Duskfall Woods", "Saltspine Hollow")),

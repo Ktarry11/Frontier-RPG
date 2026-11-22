@@ -25,7 +25,7 @@ ring, so you walk south into it and arrive here on the camp's NORTH edge, on the
 
 HARD CONTRACTS (world/portal_manager.py)
   portal   (48,2) <-> The Upper Boughs (90,105): arrive (48,6) coming in, (90,101) going out
-  NPC ids  ub_* and hr_*: written by tools/build_upper_boughs_people.py from NPC_POSITIONS
+  NPC ids  ub_* and hi_*: written by tools/build_upper_boughs_people.py from NPC_POSITIONS
 """
 import numpy as np
 
@@ -128,10 +128,10 @@ NPC_POSITIONS = {
     # the Storm Circle
     "ub_storm_shaman":   (19, 30),    # Storm-Shaman Ixi
     # the Cloudside Rest
-    "hr_innkeeper":      (25, 45),    # the inn
+    "hi_innkeeper":      (25, 45),    # the inn
     # the Wyvern Ledge
     "ub_wyvern_tamer":   (78, 30),    # Gulok, who wants a wyvern of his own
-    "hr_wyvern_handler": (89, 33),    # the wyverns (the tier's flight path)
+    "hi_wyvern_handler": (89, 33),    # the wyverns (the tier's flight path)
     # the Weather Post
     "ub_transplant":     (68, 43),    # Ingrid, reading the weather
     # the Skywatch

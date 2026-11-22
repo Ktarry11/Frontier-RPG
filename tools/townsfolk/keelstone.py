@@ -60,4 +60,20 @@ PEOPLE = [
     ("kl_tf_stair_porter", "Porter Dain Merrow", "aetherian", M, "The Gate Stair",
      "I carry the wardens' supplies up the gangway from the plaza, sixty steps, twelve times a day. My cousin keeps the "
      "skiff landing on Crashfall. He says I've got the easier job, and I say he's never carried a crate of chain grease."),
+    # ---- 22 Nov 2026, Kyle: "Small towns can be 15-20" (the frontier feel)
+    ("kl_tf_chain_singer", "Hollis Wray", "aetherian", M, "The Chain Yard",
+     "The old wardens sang to the chains while they greased them, and I still do. Engineer Pell says the song doesn't "
+     "change anything, and I tell him it changes how the greasing goes."),
+    ("kl_tf_hall_page", "Page Amsel Dorne", "aetherian", F, "The Wardens' Hall",
+     "I carry messages between the wardens in the hall, and none of them ever agree. I've learned to walk slowly, so "
+     "that by the time I get there half of them have changed their minds."),
+    ("kl_tf_market_weaver", "Weaver Sabine Coll", "aetherian", F, "The Anchor Market",
+     "I weave the wardens' coats, white and blue with the chain trim, the same pattern for nine hundred years. I tried "
+     "a new stitch once and the Warden-Prime noticed from across the yard."),
+    ("kl_tf_tilt_welder", "Duncan MacRae", "human", M, "The Tilt Quarter",
+     "I welded pipe on the rigs out of Aberdeen with Margit, and she's still the boss up here. The island leans a bit "
+     "further every week, and she watches it the way she used to watch the North Sea."),
+    ("kl_tf_tilt_nurse", "Aiko Tanaka", "human", F, "The Tilt Quarter",
+     "I was a nurse in Kyoto, and now I mostly treat sprained ankles, because nobody up here's used to a floor that "
+     "slopes. The Aetherians come to me too, and they're very polite about their bruises."),
 ]

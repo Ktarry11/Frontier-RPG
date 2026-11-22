@@ -207,6 +207,7 @@ ZONE_BACKGROUND = {
     "Talrendis Landing": "coast",                 # the salvage camp on the bay
     "Amberleaf Glade": "fantasy_forest",          # Dawnhaven (docs/dawnhaven_brief.md): autumn woods to the shore
     "Duskfall Woods": "fantasy_forest",
+    "Dawnrest": "fantasy_forest",                 # the waystation town (no fights)
     "Firstlight Spire": "fantasy_forest",
     "Brinecoil Grotto": "dark_dungeon",
     "The Quiet Vault": "dark_dungeon",

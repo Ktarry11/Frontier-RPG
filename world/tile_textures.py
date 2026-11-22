@@ -375,6 +375,7 @@ ZONE_BIOME = {
     "Talrendis Landing": "mythical_forest",
     "Amberleaf Glade": "mythical_forest",      # Dawnhaven, painted (baked); the biome only names the fallback
     "Duskfall Woods": "mythical_forest",
+    "Dawnrest": "mythical_forest",
     "Firstlight Spire": "mythical_forest",
     "Rootwater Isle": "coast",                    # the World Tree's island: painted ground (baked)
     "The Lower Boughs": "tropical",               # the World Tree's first tier: painted ground (baked)

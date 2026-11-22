@@ -3,7 +3,9 @@ Hand-built Duskfall Woods (160x140), levels 5-9: the north of Dawnhaven, deep re
 outpost's heart and the road up to Firstlight Spire (docs/dawnhaven_brief.md).
 
     The Glade road ....... south edge (80,136): up from Amberleaf Glade
-    Dawnrest ............. the hub (80,108): an old waystation the Conclave has put a roof back on
+    The Old Camp ......... (80,108): where Dawnrest's camp stood before it moved down the road into the waystation,
+                           its own map since 22 Nov 2026 (Kyle: "a small town ... near the entrance between duskfall and
+                           amberleaf"); the Glade road in now comes up out of Dawnrest's north gate
     The Red Hollow ....... the west (34,96): the deepest woods, bears and lynxes and the spiders in the leaves
     Duskmere ............. the dark tarn (52,70)
     The Wildmana Thicket . the middle north (82,56): where the outpost's spilled magic pooled and woke
@@ -15,7 +17,7 @@ outpost's heart and the road up to Firstlight Spire (docs/dawnhaven_brief.md).
     The Spire road ....... north edge (80,4): up the headland to Firstlight Spire
 
 HARD CONTRACTS (world/portal_manager.py)
-  portals  Amberleaf Glade (80,136) <-> its north road (75,4); Firstlight Spire (80,4) <-> its south gate;
+  portals  Dawnrest (80,136) <-> its north gate (45,2) (Amberleaf Glade is through Dawnrest, on the same road); Firstlight Spire (80,4) <-> its south gate;
            Saltspine Hollow (20,32) <-> its way out; the Lightwell Deep (124,44) <-> its way out
 """
 import numpy as np
@@ -31,7 +33,7 @@ BLD = "assets/buildings/"
 DHP = "assets/tiles/dawnhaven/props/"           # Kyle's DH2 and DH4 (docs/dawnhaven_art_prompts.md)
 W, H = 160, 140
 
-PORTALS = {(80, 136): "Amberleaf Glade", (80, 4): "Firstlight Spire", (20, 32): "Saltspine Hollow",
+PORTALS = {(80, 136): "Dawnrest", (80, 4): "Firstlight Spire", (20, 32): "Saltspine Hollow",
            (124, 44): "The Lightwell Deep"}
 ARRIVALS = [(80, 133), (80, 7), (20, 35), (124, 47)]
 START = (80, 130)
@@ -116,19 +118,11 @@ SPEC = _Spec(NAME, W, H, ROADS, lakes=LAKES, deep_shrink=DEEP_SHRINK, sea=sea,
 
 NPC_POSITIONS = {
     # Dawnrest
-    "dh_selanne": (76, 104),        # Lightwarden Selanne Dawnsworn: the Lightwell, and putting the outpost back
-    "dh_aeron": (86, 105),          # Magister Aeron Ashveil: the wild magic, and what woke in it
-    "dh_lyra": (72, 112),           # Huntress Lyra Swiftbough: the Red Hollow
-    "dh_dawnrest_cook": (88, 113),  # Giulia Ferraro, a cook from Bologna, feeding Dawnrest
-    "dh_dawnrest_trader": (84, 100),
+    # Dawnrest's people live in Dawnrest now, its own map on the road in (tools/handbuilt_dawnhaven_dawnrest.py)
     # the Withered Spires: the outpost's last commander, still on watch
     "dh_halion": (116, 82),
     # Saltspine Shore: a Conclave scout watching the naga camp from the trees
     "dh_scout_nerys": (44, 50),
-    "dh_dawnrest_guard": (78, 97),  # townsfolk
-    "dh_dawnrest_carpenter": (89, 106),  # townsfolk
-    "dh_dawnrest_hunter": (68, 105),  # townsfolk
-    "dh_dawnrest_newcomer": (81, 117),  # townsfolk
 }
 
 
@@ -154,7 +148,7 @@ SUBZONES = [
     ("Duskmere", 36, 60, 32, 24, None),
     ("The Withered Spires", 104, 64, 44, 30, None),
     ("The Red Hollow", 10, 82, 46, 40, None),
-    ("Dawnrest", 64, 96, 32, 24, None),
+    ("Dawnrest", 64, 96, 32, 24, "The Old Camp"),     # the village moved into the waystation, its own map
 ]
 
 TREES = {
@@ -232,17 +226,12 @@ def dress(L):
     D = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir="assets/tiles/dungeon_props/", **kw)  # noqa: E731
     K = lambda n, x, y, h, **kw: L.prop(n, x, y, h, path_dir=DHP, **kw)          # noqa: E731
 
-    # ---- Dawnrest: the waystation with its roof back on, and the camp round it
-    B("dh_dawnrest", 80, 99, 10, solid="core")
-    B("be_pavilion", 70, 108, 6, solid="core")
-    B("be_storehouse", 92, 110, 6, solid="core")
-    B("be_market_stall", 86, 101, 4, solid="core")
-    K("dh_sun_crates", 94, 104, 3, solid="core")
+    # ---- the Old Camp: where Dawnrest's camp stood before the village moved down the road into the waystation. The
+    #      old hearth and a ruin are left, and the signpost still points the way.
+    B("be_ruined_house", 72, 102, 6, solid="core")
     K("dh_camp_hearth", 80, 109, 3, solid=False)
-    K("dh_handcart", 66, 114, 3, solid="core")
+    K("dh_red_log", 88, 104, 3, solid=False)
     P("br_signpost", 84, 118, 4)
-    # a skiff's hull on its stocks behind the storehouse, the boat they'll need one day
-    K("dh_wrecked_skiff", 97, 115, 4, solid="core")
     # ---- the Red Hollow: the old hunting lodge's ruins
     B("be_ruined_house", 28, 92, 6, solid="core")
     Z("az_toppled_column", 40, 100, 4, solid="core")

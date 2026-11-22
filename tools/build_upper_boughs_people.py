@@ -26,9 +26,9 @@ from world.zone_keys import zone_key  # noqa: E402
 
 M, F = "male", "female"
 
-SERVICES = {"hr_wyvern_handler": ["flight"], "hr_innkeeper": ["inn"]}
+SERVICES = {"hi_wyvern_handler": ["flight"], "hi_innkeeper": ["inn"]}
 FLIGHT_NODES = [
-    ("upper_boughs", {"name": HI.NAME, "zone": HI.NAME, "master": "hr_wyvern_handler", "pos": [-34, 139],
+    ("upper_boughs", {"name": HI.NAME, "zone": HI.NAME, "master": "hi_wyvern_handler", "pos": [-34, 139],
                       "continent": "eastern_kingdoms"}),
 ]
 
@@ -46,10 +46,10 @@ VENDORS = {
 }
 #: npc_id -> (name, race, gender, variant, facing, greeting)
 AMBIENT = {
-    "hr_innkeeper": ("Innkeeper Lo'mai", "troll", F, 6, "down",
+    "hi_innkeeper": ("Innkeeper Lo'mai", "troll", F, 6, "down",
                      "The Cloudside Rest is the last bed on the tree, and the wind rocks it all night long. Sleep here "
                      "and I'll mark you as one of mine, so you'll wake up in Highrest wherever you wander."),
-    "hr_wyvern_handler": ("Wyvern Rider Zakko", "troll", M, 8, "down",
+    "hi_wyvern_handler": ("Wyvern Rider Zakko", "troll", M, 8, "down",
                           "No bat could fly this high, the wind would tear it off the tree. Wyverns ride the wind instead "
                           "of fighting it, so mine will carry you down to the Settlement or out to any roost the Horde "
                           "keeps."),
@@ -146,9 +146,9 @@ def main():
             ad["npcs"].append(rec)
             made += 1
     # the inn keeps the mail, like every inn (qa_auction_house: a mailbox by every inn)
-    box = next((r for r in ad["npcs"] if r["npc_id"] == "mailbox_hr_innkeeper"), None)
+    box = next((r for r in ad["npcs"] if r["npc_id"] == "mailbox_hi_innkeeper"), None)
     if box is None:
-        box = {"npc_id": "mailbox_hr_innkeeper"}
+        box = {"npc_id": "mailbox_hi_innkeeper"}
         ad["npcs"].append(box)
     box.update(name="Mailbox", zone=zone_key(HI.NAME), x=HI.MAILBOX[0], y=HI.MAILBOX[1], facing="down",
                race="troll", appearance_variant=0, is_mailbox=True, prop="assets/tiles/market/props/mailbox_troll.png",

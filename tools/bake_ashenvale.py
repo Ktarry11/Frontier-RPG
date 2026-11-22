@@ -972,6 +972,7 @@ ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_S
                "stonetalon_west": STONETALON_WEST_SHEET, "sun_rock": SUN_ROCK_SHEET,
                "azshara_west": AZSHARA_SHEET,
                "dawnhaven_amberleaf": AMBERLEAF_SHEET, "dawnhaven_duskfall": DUSKFALL_SHEET,
+               "dawnhaven_dawnrest": DUSKFALL_SHEET,
                "firstlight_spire": FIRSTLIGHT_SHEET,
                "feralas_high_wilderness": FERALAS_SHEET, "feralas_twin_colossals": FERALAS_NORTH_SHEET,
                "feralas_forgotten_coast": FERALAS_COAST_SHEET, "feralas_mojache": FERALAS_MOJACHE_SHEET,
@@ -1455,6 +1456,9 @@ def bake(zone="west", preview=None, scale=4, only=None):
     elif zone == "dawnhaven_duskfall":
         # Duskfall Woods: Dawnhaven's north, red autumn (DUSKFALL_SHEET)
         from tools import handbuilt_dawnhaven_duskfall as M
+    elif zone == "dawnhaven_dawnrest":
+        # Dawnrest: the waystation town on the road in, Duskfall's red autumn (DUSKFALL_SHEET)
+        from tools import handbuilt_dawnhaven_dawnrest as M
     elif zone == "azshara_east":
         # East Azshara (docs/azshara_brief.md): the drowned coast (AZSHARA_EAST_SHEET)
         from tools import handbuilt_azshara_east as M
@@ -1523,7 +1527,7 @@ def main():
     if "--preview" in sys.argv:
         preview = sys.argv[sys.argv.index("--preview") + 1]
     sc = int(sys.argv[sys.argv.index("--scale") + 1]) if "--scale" in sys.argv else 4
-    zone = next((z for z in ("worldtree_fading_firmament", "worldtree_ascendant_bastions", "worldtree_aurelion", "worldtree_anchorfields", "worldtree_celestial_expanse", "worldtree_halcyon_rest", "worldtree_keelstone", "worldtree_dawnspear_wreck", "worldtree_lastlight", "worldtree_spearhold", "worldtree_mossroof", "worldtree_heartwatch", "worldtree_highrest", "worldtree_lenswatch", "worldtree_sunward_crown", "worldtree_cloudbreak", "worldtree_upper_boughs", "worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "dawnhaven_amberleaf", "dawnhaven_duskfall", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
+    zone = next((z for z in ("worldtree_fading_firmament", "worldtree_ascendant_bastions", "worldtree_aurelion", "worldtree_anchorfields", "worldtree_celestial_expanse", "worldtree_halcyon_rest", "worldtree_keelstone", "worldtree_dawnspear_wreck", "worldtree_lastlight", "worldtree_spearhold", "worldtree_mossroof", "worldtree_heartwatch", "worldtree_highrest", "worldtree_lenswatch", "worldtree_sunward_crown", "worldtree_cloudbreak", "worldtree_upper_boughs", "worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "dawnhaven_amberleaf", "dawnhaven_dawnrest", "dawnhaven_duskfall", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
     only = None
     if "--region" in sys.argv:       # x0,y0,x1,y1 in tiles: bake only the 20x20 chunks touching it (fast look-dev)
         x0, y0, x1, y1 = map(int, sys.argv[sys.argv.index("--region") + 1].split(","))

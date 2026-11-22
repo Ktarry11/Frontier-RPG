@@ -610,15 +610,19 @@ class PortalManager:
             "Haldarr Den": {(48, 97): ("West Azshara", 166, 154)},
             # ===== DAWNHAVEN (docs/dawnhaven_brief.md, 21 Nov 2026): the blood elves' isle =====
             "Amberleaf Glade": {
-                (75, 4): ("Duskfall Woods", 80, 133),          # arrive on the Glade road in
+                (75, 4): ("Dawnrest", 45, 69),                 # up the road into Dawnrest's south gate
                 (126, 94): ("Brinecoil Grotto", 40, 79),       # the naga's sea cave
                 (34, 20): ("The Quiet Vault", 40, 85),         # the garrison crypt under the Silent Barrow
             },
             "Duskfall Woods": {
-                (80, 136): ("Amberleaf Glade", 75, 7),         # back down to the Glade
+                (80, 136): ("Dawnrest", 45, 6),                # back down the road into Dawnrest's north gate
                 (80, 4): ("Firstlight Spire", 52, 86),         # inside the Spire's south gate
                 (20, 32): ("Saltspine Hollow", 46, 91),        # the naga's hold
                 (124, 44): ("The Lightwell Deep", 46, 87),     # under the Lightwell
+            },
+            "Dawnrest": {
+                (45, 73): ("Amberleaf Glade", 75, 7),          # down the road to the Glade
+                (45, 2): ("Duskfall Woods", 80, 133),          # on up the road into the woods
             },
             "Firstlight Spire": {
                 (52, 90): ("Duskfall Woods", 80, 7),           # out of the gate, onto the Spire road

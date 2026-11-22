@@ -113,6 +113,11 @@ REGIONS = {
     "Middle Boughs": (["middle_boughs"], ["heartwatch"], {}),
     # The Upper Boughs: Highrest, through the gate on the far side of its platform.
     "Upper Boughs": (["upper_boughs"], ["highrest"], {}),
+    # Dawnhaven: Firstlight Spire, Dawnrest (the waystation town on the road between the Glade and the woods, its own
+    # map: Kyle, "a small town ... near the entrance between duskfall and amberleaf"), and Amberwatch, the Conclave's
+    # camp in the Glade's ruined gatehouse where new arrivals start.
+    "Dawnhaven": (["amberleaf_glade", "duskfall_woods", "firstlight_spire"], ["firstlight_spire", "dawnrest"],
+                  {"amberleaf_glade": [(75, 88, 12)]}),
 }
 #: the share of a region's quests that must come from town. Never lower one.
 FLOORS = {"Durotar": 0.70, "Tirisfal": 0.70, "Silverpine": 0.70, "Barrens": 0.70, "Hillsbrad": 0.70,
@@ -121,7 +126,7 @@ FLOORS = {"Durotar": 0.70, "Tirisfal": 0.70, "Silverpine": 0.70, "Barrens": 0.70
           "Plaguelands": 0.70, "Thousand Needles": 0.70, "Tanaris": 0.70, "Aspen": 0.70, "Echo Isles": 0.70,
           "Celestial Expanse": 0.70, "Anchorfields": 0.70,
           "Ascendant Bastions": 0.55, "Fading Firmament": 0.70,
-          "Sunward Crown": 0.70, "Lower Boughs": 0.70, "Middle Boughs": 0.70, "Upper Boughs": 0.70}
+          "Sunward Crown": 0.70, "Lower Boughs": 0.70, "Middle Boughs": 0.70, "Upper Boughs": 0.70, "Dawnhaven": 0.70}
 
 
 def norm(s):

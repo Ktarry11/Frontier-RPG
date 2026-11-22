@@ -60,4 +60,20 @@ PEOPLE = [
     ("dw_tf_earthborn_walker", "Kwame Asante", "human", M, "The Skiff Moorings",
      "I woke up in the Ashwake three years ago and walked through the smoke until I found the wreck. I drove a taxi in "
      "Kumasi for twelve years, so I know how to find my way through anything. Now I help the skiff hands load cargo."),
+    # ---- 22 Nov 2026, Kyle: "Small towns can be 15-20" (the frontier feel)
+    ("dw_tf_gangway_guard", "Deckhand Yorin Pell", "aetherian", M, "The Gangway",
+     "I stand the gangway watch because the captain asked me to, and I'd stand it if she hadn't. She put this ship down "
+     "on purpose to keep it off those people, and I'll keep it standing now."),
+    ("dw_tf_mess_cook", "Cook Hanne Ostby", "aetherian", F, "The Stern Mess",
+     "I cooked for the Ascendancy's officers, and now I cook for anybody who sits down. The stew's the same, but the "
+     "company's better, and nobody salutes me for the second bowl."),
+    ("dw_tf_market_tinker", "Tinker Rolf Ashby", "aetherian", M, "The Sail Market",
+     "I take the broken fittings off the wreck and make them into something useful. A lance mount makes a fine lantern "
+     "hook, and I've sold eleven of them to people who'd never have bought a lance."),
+    ("dw_tf_sickbay_volunteer", "Marla Hale", "aetherian", F, "The Sickbay",
+     "I wasn't a healer before the crash, I sold ribbons in the Bastions. Surgeon Nell needed hands, so now I roll "
+     "bandages and hold people's hands while she works, and I'm better at it than I expected."),
+    ("dw_tf_earthborn_carpenter", "Tomas Ibarra", "human", M, "The Bow",
+     "I built fishing boats in Valparaiso, and this is the biggest boat I've ever worked on, even upside down in a "
+     "field. The crew think I'm mad for whistling while I patch the hull, and they might be right."),
 ]

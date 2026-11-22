@@ -16,13 +16,13 @@ Sunreach Conclave has taken it back, and it takes in whoever wakes up on its sho
     Brinecoil Cove ...... the south-east (122,100): the naga's landing, and their sea cave, Brinecoil Grotto (126,94)
     The Silent Barrow ... the north-west (34,26): the outpost's burial ground, and the vault under it, the Quiet
                           Vault (34,20)
-    The Duskfall road ... north edge (75,4): on into Duskfall Woods
+    The Duskfall road ... north edge (75,4): up to Dawnrest, the waystation on the road, and on into Duskfall Woods
 
 THE ART is Kyle's Azshara sheets for now (tools/bake_ashenvale.py dawnhaven_amberleaf paints from AZSHARA_SHEET), the
 be_ blood elf buildings, and Azshara's trees and ruins. Kyle: "Existing art now, sheets later".
 
 HARD CONTRACTS (world/portal_manager.py)
-  portals  Duskfall Woods (75,4) <-> its south road (80,136); Brinecoil Grotto (126,94) <-> its way out;
+  portals  Dawnrest (75,4) <-> its south gate (45,73) (Duskfall Woods is through Dawnrest, on the same road); Brinecoil Grotto (126,94) <-> its way out;
            the Quiet Vault (34,20) <-> its way out
 """
 import numpy as np
@@ -38,7 +38,7 @@ BLD = "assets/buildings/"
 DHP = "assets/tiles/dawnhaven/props/"           # Kyle's DH2 and DH4 (docs/dawnhaven_art_prompts.md)
 W, H = 150, 130
 
-PORTALS = {(75, 4): "Duskfall Woods", (126, 94): "Brinecoil Grotto", (34, 20): "The Quiet Vault"}
+PORTALS = {(75, 4): "Dawnrest", (126, 94): "Brinecoil Grotto", (34, 20): "The Quiet Vault"}
 ARRIVALS = [(75, 7), (126, 97), (34, 23)]
 START = (75, 110)      # the Waking Shore: where a new arrival stands up
 

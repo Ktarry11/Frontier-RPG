@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Dawnhaven's people (docs/dawnhaven_brief.md): Amberwatch, Dawnrest, the Withered Spires, Firstlight Spire, the
+"""Dawnhaven's people (docs/dawnhaven_brief.md): Amberwatch, Dawnrest (its own map since 22 Nov 2026), the Withered Spires, Firstlight Spire, the
 Durotar pier's dockhand, the services, the island's flight path, the Sunreach Conclave's move home, and the two
 recruits. Idempotent; positions come from the maps' NPC_POSITIONS (a person in one and not the other stops it).
 
@@ -25,6 +25,7 @@ from world.zone_keys import zone_key  # noqa: E402
 from tools.npc_data_guard import safe_update  # noqa: E402
 from tools import handbuilt_dawnhaven_amberleaf as AL  # noqa: E402
 from tools import handbuilt_dawnhaven_duskfall as DF  # noqa: E402
+from tools import handbuilt_dawnhaven_dawnrest as DR  # noqa: E402
 from tools import handbuilt_firstlight_spire as FS  # noqa: E402
 
 M, F = "male", "female"
@@ -70,13 +71,13 @@ AMBIENT = {
                            "Every boar and lynx on this island is a hide somebody needs. Learn to take it cleanly, and "
                            "Rosa will pay you in roofing.", {"trains_profession": ["skinning"]}),
     # ---- Dawnrest and the woods
-    "dh_selanne": (DF, "Lightwarden Selanne Dawnsworn", "blood_elf", F, 8, "down",
+    "dh_selanne": (DR, "Lightwarden Selanne Dawnsworn", "blood_elf", F, 8, "down",
                    "The Lightwell fed this whole outpost once, and it's dark now. Light it again, and Dawnhaven stops "
                    "being a ruin we're hiding in. It becomes a home.", {}),
-    "dh_aeron": (DF, "Magister Aeron Ashveil", "blood_elf", M, 17, "left",
+    "dh_aeron": (DR, "Magister Aeron Ashveil", "blood_elf", M, 17, "left",
                  "The outpost's magic didn't die when the well went dark. It spilled out into the woods. Some of it has woken up in the "
                  "thicket, and it's hungry.", {}),
-    "dh_lyra": (DF, "Huntress Lyra Swiftbough", "blood_elf", F, 9, "down",
+    "dh_lyra": (DR, "Huntress Lyra Swiftbough", "blood_elf", F, 9, "down",
                 "The Red Hollow feeds us, if you hunt it properly. Something's made the bears bold this year, and "
                 "the spiders bolder.", {}),
     "dh_halion": (DF, "Commander Halion Brightspear", "blood_elf", M, 10, "down",
@@ -101,6 +102,13 @@ AMBIENT = {
     "dh_banker": (FS, "MerchantTusk", "troll", M, 3, "down",
                   "Dere is only one bank, mon, and dere is only one me, even out here on de elves' island. Do not ask "
                   "how dat works. Hand me ya things.", {"is_banker": True, "sprite_scale": 2.0, "art_of": "org_banker"}),
+    "dr_innkeeper": (DR, "Innkeeper Seraphel Brightember", "blood_elf", F, 22, "down",
+                     "The Ember Hearth keeps a fire for everyone working the woods, elf or newcomer. Sleep here and "
+                     "I'll mark you as one of mine, so you'll wake up back in Dawnrest whenever you need to.", {}),
+    "mailbox_dr_innkeeper": (DR, "Mailbox", "blood_elf", M, 0, "down",
+                             "Dawnrest's mailbox by the Ember Hearth. The runners carry the letters up the road to the "
+                             "Spire every morning, and the innkeeper keeps the parcels by the fire.",
+                             {"is_mailbox": True, "prop": "assets/tiles/dawnhaven/props/dh_mailbox.png"}),
     "mailbox_dh_innkeeper": (FS, "Mailbox", "blood_elf", M, 0, "down",
                            "The Spire's mailbox. The innkeeper sorts the letters and the parcels, and the boat brings the "
                            "rest from Durotar.", {"is_mailbox": True,
@@ -145,16 +153,16 @@ AMBIENT = {
     "dh_rosa_helper": (AL, "Taelor Brightwood", "blood_elf", M, 21, "left",
                        "Rosa doesn't speak a word of Thalassian, and I'd never held a saw until this week. We "
                        "understand each other perfectly. She points, and I cut.", {}),
-    "dh_dawnrest_guard": (DF, "Guard Valandor Emberleaf", "blood_elf", M, 3, "down",
+    "dh_dawnrest_guard": (DR, "Guard Valandor Emberleaf", "blood_elf", M, 3, "down",
                           "Dawnrest had no roof for a thousand years, and it's got one now. I'd rather nothing came "
                           "down the road to test it.", {}),
-    "dh_dawnrest_carpenter": (DF, "Mirelle Oakensong", "blood_elf", F, 15, "down",
+    "dh_dawnrest_carpenter": (DR, "Mirelle Oakensong", "blood_elf", F, 15, "down",
                               "We put the roof back on with timber from the Red Hollow. It leaks over the hearth, which "
                               "means it leaks over the cook, which means I hear about it every night.", {}),
-    "dh_dawnrest_hunter": (DF, "Hunter Belathor Thornleaf", "blood_elf", M, 40, "right",
+    "dh_dawnrest_hunter": (DR, "Hunter Belathor Thornleaf", "blood_elf", M, 40, "right",
                            "Lyra takes the bears, and I take whatever she leaves. The stew's been good since you lot "
                            "started thinning the woods.", {}),
-    "dh_dawnrest_newcomer": (DF, "Andrés Calderón", "human", M, 13, "down",
+    "dh_dawnrest_newcomer": (DR, "Andrés Calderón", "human", M, 13, "down",
                              "I drove a lorry in Seville. Now I carry water for the elves, and honestly, the pay's about "
                              "the same. The view's a great deal better.", {}),
     "dh_spire_gate_south": (FS, "Spire Guard Lethandris", "blood_elf", M, 18, "down",
@@ -182,10 +190,10 @@ VENDORS = {
     "dh_amberwatch_trader": (AL, "Provisioner Faelin Sunleaf", "blood_elf", M, 26, "left", 4, False, FOOD + GOODS[:4],
                              "Food, water and the odd potion. Everything here came across on a boat or out of the "
                              "grove, and I'm not proud about which."),
-    "dh_dawnrest_cook": (DF, "Giulia Ferraro", "human", F, 5, "down", 7, False, FOOD,
+    "dh_dawnrest_cook": (DR, "Giulia Ferraro", "human", F, 5, "down", 7, False, FOOD,
                          "I cooked in Bologna for thirty years, and I'll tell you what I tell the elves. Nobody fights "
                          "well on an empty stomach, so sit down and eat."),
-    "dh_dawnrest_trader": (DF, "Quartermaster Ilyra Sunmantle", "blood_elf", F, 20, "down", 8, True, GOODS,
+    "dh_dawnrest_trader": (DR, "Quartermaster Ilyra Sunmantle", "blood_elf", F, 20, "down", 8, True, GOODS,
                            "Potions, bags and repairs. The Conclave keeps Dawnrest stocked for the people out in the "
                            "woods, and that's you now."),
     "dh_spire_provisioner": (FS, "Provisioner Aerith Goldmantle", "blood_elf", F, 18, "down", 9, False, FOOD + GOODS,
@@ -201,7 +209,7 @@ DOCKHAND = ("dh_durotar_dockhand", "Dockhand Grezza", "orc", F, 4, "left",
             "The elves' boat comes in from Dawnhaven every few days. Orgrimmar's up the road to the north, and Razor "
             "Hill's south-west of here. Mind the scorpids.")
 
-SERVICES = {"dh_innkeeper": ["inn"], "dh_flight_master": ["flight"]}
+SERVICES = {"dh_innkeeper": ["inn"], "dh_flight_master": ["flight"], "dr_innkeeper": ["inn"]}
 FLIGHT_NODES = [("firstlight_spire", {"name": "Firstlight Spire", "zone": FS.NAME, "master": "dh_flight_master",
                                        "pos": [62, -84], "continent": "kalimdor"})]
 
@@ -211,7 +219,7 @@ RECRUITS = {}
 
 
 def _check():
-    for mod in (AL, DF, FS):
+    for mod in (AL, DF, DR, FS):
         mine = {k for k, v in AMBIENT.items() if v[0] is mod} | {k for k, v in VENDORS.items() if v[0] is mod}
         if mine != set(mod.NPC_POSITIONS):
             raise SystemExit(f"{mod.NAME}: roster and layout disagree: {sorted(mine ^ set(mod.NPC_POSITIONS))}")

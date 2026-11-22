@@ -5725,6 +5725,7 @@ def _build_all_zones():
     from tools import handbuilt_talrendis_landing as dtl
     from tools import handbuilt_dawnhaven_amberleaf as ddha
     from tools import handbuilt_dawnhaven_duskfall as ddhd
+    from tools import handbuilt_dawnhaven_dawnrest as ddhr
     from tools import handbuilt_firstlight_spire as dfls
     from tools import handbuilt_deadwind_west as ddww
     from tools import handbuilt_deadwind_east as ddwe
@@ -5934,6 +5935,7 @@ def _build_all_zones():
         # ===== DAWNHAVEN (1-9, docs/dawnhaven_brief.md, 21 Nov 2026): the blood elves' isle off Azshara =====
         "Amberleaf Glade": ddha.generate_amberleaf_glade(),     # tools/handbuilt_dawnhaven_amberleaf.py, 1-6
         "Duskfall Woods": ddhd.generate_duskfall_woods(),       # tools/handbuilt_dawnhaven_duskfall.py, 5-9
+        "Dawnrest": ddhr.generate_dawnrest(),                   # the waystation town on the road in, 22 Nov 2026
         "Firstlight Spire": _firstlight_spire(dfls),            # the Sunreach Conclave's town, its own map
         # ===== DEADWIND PASS (55-60, docs/deadwind_brief.md, 18 Nov 2026): the leylines tore, and the wheel came through
         "Deadwind West": ddww.generate_deadwind_west(),         # tools/handbuilt_deadwind_west.py, 55-57

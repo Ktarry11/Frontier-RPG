@@ -57,4 +57,20 @@ PEOPLE = [
     ("ll_tf_earthborn_widower", "Anders Lindqvist", "human", M, "The Skiff Ledge",
      "Margit and I are both from the north of Sweden, which is a strange thing to share in a place like this. I fixed "
      "boats in Lulea, and now I patch the last skiff with whatever the islands drop."),
+    # ---- 22 Nov 2026, Kyle: "Small towns can be 15-20" (the frontier feel)
+    ("ll_tf_lamp_tender", "Tender Ysolt Marr", "aetherian", F, "The Lamp Walk",
+     "Every lamp in Lastlight is one somebody carried in from a dead island. I keep them all burning, and I keep a list "
+     "of where each one came from, because somebody should remember."),
+    ("ll_tf_shelter_cook", "Cook Brannoc Hale", "aetherian", M, "The Shelter",
+     "I cook with what the skiffs bring in, and some days that isn't much. Nobody's gone to bed hungry yet, and I mean "
+     "to keep it that way for as long as the pot holds out."),
+    ("ll_tf_steps_runner", "Runner Calla Wynn", "aetherian", F, "The Magistrate's Steps",
+     "I run the magistrate's notices up and down the steps, and most of them are names. Names of people who've come in, "
+     "and names of islands that have gone quiet, and I read every one of them out loud."),
+    ("ll_tf_forge_smith", "Smith Garran Doyle", "aetherian", M, "The Forge Shed",
+     "I mend the skiffs' fittings in the shed, and every skiff that comes in has something new broken on it. Archivist "
+     "Quell calls my shed the busiest room in Lastlight, and I've told her it's the only one with a working anvil."),
+    ("ll_tf_earthborn_singer", "Mariam Haddad", "human", F, "The Shelter",
+     "I sang in a choir in Beirut, and I sing in the shelter now, mostly to the children at night. The Aetherians don't "
+     "know the songs, but they've started humming along, and that's enough for me."),
 ]
