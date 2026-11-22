@@ -409,3 +409,16 @@ VOICE = {
         "Grael goes very quiet, which for him is remarkable.\n\nThis is a recipe, with suppliers on it. Half of these reagents came through Brill, and two of them came through this building.\n\nI'm going to have to tell the Apothecary something, and I'm going to have to decide tonight how much of it. Thank you, I think. Ask me again in a week.",
     ),
 }
+
+
+# THE STORY PASS (22 Nov 2026), to docs/quest_writing_standard.md; see tools/voice/tirisfal_story.py.
+from voice.tirisfal_story import STORY as _STORY
+for _qid, (_d, _a) in _STORY.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a, _old[2])
+
+
+from voice.tirisfal_beats import BEATS as _BEATS
+for _qid, _a in _BEATS.items():
+    _o = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_o[0], _a, _o[2])
