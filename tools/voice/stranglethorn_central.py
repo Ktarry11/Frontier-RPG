@@ -250,3 +250,9 @@ _S = {
 }
 
 VOICE = {qid: (d, a, None) for qid, (d, a) in _S.items()}
+
+
+from voice.stranglethorn_central_beats import BEATS as _BEATS
+for _qid, _a in _BEATS.items():
+    _o = VOICE[_qid]
+    VOICE[_qid] = (_o[0], _a, _o[2])

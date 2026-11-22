@@ -57,7 +57,8 @@ After:
 > learn that the bottom of this trail isn't easy hunting any more. Thin them out where the descent levels off, and don't
 > stop until they think twice."
 
-Accept: *"They wait where the descent levels off. Go in loud, and they'll scatter."*
+Accept: *"Go in loud. Wolves that hunt tired people don't expect anyone to fight back."* It's a new beat. It doesn't
+repeat "where the descent levels off" from the speech above it.
 
 ## Process
 
@@ -66,3 +67,9 @@ Accept: *"They wait where the descent levels off. Go in loud, and they'll scatte
 - Kyle reads the first zone of a batch before the rest goes ahead.
 - A finished zone goes on the story-done list in `tools/audit_quest_voice.py`, which makes "under 5 sentences" and "the
   journal narrates" hard failures there, so it can't slip back.
+- **Accept echo is a hard failure too.** If 60% or more of the accept line's content words are already in the speech,
+  the build refuses to write. The accept line must say something the speech didn't: a warning, a tip, an aside, a
+  reaction. Copying the speech's last sentence into the accept slot is the commonest way this goes wrong.
+- **Write every accept line with the whole speech in front of you.** Not a cut-down dump, and not the last 300
+  characters. Batching is fine; writing blind is not. Passing the checks is the floor, not the bar: read each line
+  against its speech and ask whether it adds anything.

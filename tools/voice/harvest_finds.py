@@ -222,3 +222,9 @@ VOICE["hf_waterlogged_phone_2"] = VOICE["hf_waterlogged_phone_2"][:2] + (
     "You put it in rice, and I keep a jar of it for exactly this. Let's see what it does. There, it's on, just for a "
     "second. A photo of a dog on a beach, a golden one with a stick. Then it's gone. Whoever's phone this was, they had "
     "a good dog. I'll keep it, if that's all right. I'd like to try again.",)
+
+
+from voice.harvest_finds_beats import BEATS as _BEATS
+for _qid, _a in _BEATS.items():
+    _o = VOICE[_qid]
+    VOICE[_qid] = (_o[0], _a, _o[2])

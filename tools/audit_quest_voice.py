@@ -170,7 +170,7 @@ def journal_third_person(q):
 
 # STORY-DONE ZONES. Kyle, 22 Nov 2026: one zone at a time, to docs/quest_writing_standard.md. Once a zone is on this
 # list, an offer under STORY_MIN sentences or a journal that narrates is a hard finding there, so it can't slip back.
-STORY_DONE = {"feralas", "hillsbrad", "stranglethorn_north", "stranglethorn_central", "stranglethorn_south", "shimmering_flats", "tanaris", "lower_boughs", "middle_boughs", "upper_boughs", "rootwater_isle", "harvest_finds", "dawnhaven", "aurelion", "great_settlement", "southern_needles", "aspen", "arathi", "plaguelands_south", "plaguelands_north", "plaguelands_epl_west", "plaguelands_epl_east", "ashenvale", "black_strand"}
+STORY_DONE = {"feralas", "hillsbrad", "stranglethorn_north", "stranglethorn_central", "stranglethorn_south", "shimmering_flats", "tanaris", "lower_boughs", "middle_boughs", "upper_boughs", "rootwater_isle", "harvest_finds", "dawnhaven", "aurelion", "great_settlement", "southern_needles", "aspen", "arathi", "plaguelands_south", "plaguelands_north", "plaguelands_epl_west", "plaguelands_epl_east", "ashenvale", "black_strand", "felwood", "abyssal_sands"}
 _STEM_OF = None
 
 
@@ -189,6 +189,32 @@ def _stem_of(qid):
     return _STEM_OF.get(qid)
 
 
+# ACCEPT ECHO. Kyle, 22 Nov 2026: the accept line is one short, DIFFERENT beat. A line that only repeats what the
+# speech above it already said ("Look at them properly while you're among them" under a speech that ends "while
+# you're among them, look at them properly") adds nothing, and 320 of them slipped through because no check asked.
+_ECHO_STOP = set("""that this with your they them have what when from there their will just here back come bring
+before would into been than then more some about like only need want make sure it's i'll i've don't they're you're
+you'll we'll he's she's that's there's what's can't won't isn't aren't didn't doesn't over still even much very also
+because while where which who's those these other every each again once well good right take takes give tell""".split())
+ECHO_SHARE = 0.6
+
+
+def _content_words(text):
+    return {w for w in re.findall(r"[a-z']{4,}", (text or "").lower()) if w not in _ECHO_STOP}
+
+
+def accept_echo(q):
+    """Share of the accept line's content words already in the description, when the accept line is the short beat
+    (the window shows the description). None when there is no short accept line to judge."""
+    acc = (getattr(q, "accept_text", "") or "").strip()
+    if not acc or len(acc) > 200:
+        return None
+    words = _content_words(acc)
+    if len(words) < 2:
+        return None
+    return len(words & _content_words(getattr(q, "description", ""))) / len(words)
+
+
 def story_sentences(q):
     """How many real sentences (three words or more) the offer body holds. The bar is STORY_MIN."""
     _field, body = offer_body(q)
@@ -204,6 +230,9 @@ def findings(q):
             out.append((offer_body(q)[0], f"story: under {STORY_MIN} sentences (docs/quest_writing_standard.md)"))
         if journal_third_person(q):
             out.append(("description", "third person in the journal: the description narrates the giver"))
+        share = accept_echo(q)
+        if share is not None and share >= ECHO_SHARE:
+            out.append(("accept_text", f"accept echo: {share:.0%} of the accept line repeats the speech; write a new beat"))
     for f in FIELDS:
         text = getattr(q, f, "") or ""
         if not text.strip():
