@@ -74,3 +74,10 @@ VOICE = {
         "Half a dozen kinds of toxin, if my scales are right, and they are. The trolls blend it, which is clever of them.\n\nI'll have an antidote on the shelf by the end of the week, labelled, dated and measured. You'll find the first one costs you nothing.",
     ),
 }
+
+
+# THE STORY PASS (22 Nov 2026): the giver's speech becomes the description; see tools/voice/arathi_story.py.
+from voice.arathi_story import STORY as _STORY
+for _qid, (_d, _a) in _STORY.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a, _old[2])
