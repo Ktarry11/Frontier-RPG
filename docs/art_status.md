@@ -9,6 +9,7 @@ again. (RC1 was asked for a second time on 21 Nov off a stale 17 Nov note, thoug
 
 | Sheet | What | Where | Notes |
 |---|---|---|---|
+| **TS1-TS7** | Icons for 138 character traits and 109 Sworn skills (they show a plain square) | `trait_and_sworn_icon_prompts.md` | Written 21 Nov |
 | **WALK** | Walk cycles on the new player sprites | not written | **Parked** (Kyle, 20 Nov: "Walk cycles will come after better sprites") |
 
 ## Delivered and in the game
