@@ -72,3 +72,16 @@ VOICE = {
         "You've given me a clearer picture than I had, and a worse one. Whatever comes of it, at least I'm not guessing any more.\n\nCome back if you see more, and you will.",
     ),
 }
+
+
+# THE STORY PASS (22 Nov 2026), to docs/quest_writing_standard.md; see tools/voice/southern_barrens_story.py.
+from voice.southern_barrens_story import STORY as _STORY
+for _qid, (_d, _a) in _STORY.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a, _old[2])
+
+
+from voice.southern_barrens_beats import BEATS as _BEATS
+for _qid, _a in _BEATS.items():
+    _o = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_o[0], _a, _o[2])
