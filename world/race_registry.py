@@ -67,6 +67,17 @@ _HUMAN_MALE_VARIANTS = [f"male_{i}" for i in range(1, 15)]
 _HUMAN_FEMALE_VARIANTS = [f"female_{i}" for i in range(1, 15)]
 _ORC_VARIANTS = [f"orc_{i}" for i in range(1, 23)]
 
+# THE TOWNSFOLK SHEETS (docs/townsfolk_npc_art_prompts.md, landed 22 Nov 2026; tools/asset_pipeline/
+# slice_townsfolk_sheets.py). Kyle: "Should we build more sprite sheets? Like 24/24 male/female for different races...
+# (Especially humans!!!)", and on the Earthborn, "adapt to the world. But they can have some unique flavor. But not so
+# unique we can't reuse". Twelve sheets of 24 working people, front-only, so NPC looks: each pool appends them AFTER
+# every look a save can hold, and `offer` keeps the character creator and the barber to the looks they had. The
+# shared unisex pools (orc, troll, Forsaken, tauren) split into men and women here for the first time.
+_TF = lambda prefix: [f"{prefix}{i}" for i in range(1, 25)]       # noqa: E731
+#: humans: the Earthborn (people from everywhere on Earth, dressed for this world) and Azerothian townsfolk
+_HUMAN_EARTH_MEN, _HUMAN_EARTH_WOMEN = _TF("earth_m"), _TF("earth_w")
+_HUMAN_TOWN_MEN, _HUMAN_TOWN_WOMEN = _TF("town_m"), _TF("town_w")
+
 # Goblin variants (Durotar has real WoW goblin presence - Ratchet, trade
 # outposts). 24 variants (12 male + 12 female) from the AI-generated
 # goblin contact sheet.
@@ -574,3 +585,37 @@ def pickable_looks(race_id, gender_id):
         return []
     places = gender.offer if gender.offer is not None else range(len(gender.variants))
     return [i for i in places if not look_is_missing(race_id, gender_id, i)]
+
+
+#: the townsfolk looks (see _TF above), appended LAST, after the player looks, so no place a save or an NPC record
+#: already holds moves. NPC looks only (Kyle: "These won't be selectable as players"): the creator's offer is left
+#: exactly as it was, and where a pool had no offer (every look offered) it's pinned to the looks that were there before.
+TOWNSFOLK_LOOKS = {("human", "male"): ["earth_m", "town_m"], ("human", "female"): ["earth_w", "town_w"],
+                   ("orc", "male"): ["orc_m"], ("orc", "female"): ["orc_w"],
+                   ("troll", "male"): ["troll_m"], ("troll", "female"): ["troll_w"],
+                   ("forsaken", "male"): ["forsaken_m"], ("forsaken", "female"): ["forsaken_w"],
+                   ("tauren", "male"): ["tauren_m"], ("tauren", "female"): ["tauren_w"]}
+
+
+def _add_townsfolk_looks():
+    for (race_id, gender_id), prefixes in TOWNSFOLK_LOOKS.items():
+        g = get_gender(race_id, gender_id)
+        if g is None or any(v.startswith(prefixes[0]) for v in g.variants):
+            continue
+        before = len(g.variants)
+        g.variants = list(g.variants) + [v for p in prefixes for v in _TF(p)]
+        if g.offer is None:
+            g.offer = list(range(before))
+
+
+def townsfolk_looks(race_id, gender_id, prefix=None):
+    """The places in a pool that hold townsfolk looks (optionally only one prefix, e.g. "earth_m")."""
+    g = get_gender(race_id, gender_id)
+    want = TOWNSFOLK_LOOKS.get((race_id, gender_id), [])
+    if prefix:
+        want = [p for p in want if p == prefix]
+    return [i for i, v in enumerate(g.variants if g else [])
+            if any(v.startswith(p) and v[len(p):].isdigit() for p in want)]
+
+
+_add_townsfolk_looks()

@@ -52,13 +52,28 @@ TOWNS = {
 SPACING = 3          # nobody stands closer than this to anyone else, if the district has room
 
 
-def _look(race, gender, nid):
-    from world.race_registry import get_gender, look_is_missing
+#: towns whose humans are Azerothian (the rest of the game's townsfolk humans are Earthborn)
+AZEROTHIAN_TOWNS = {"southshore"}
+
+
+def _look(race, gender, nid, stem=None):
+    """A look for a townsperson, stable across runs (a hash of the id). The townsfolk sheets (22 Nov 2026,
+    docs/townsfolk_npc_art_prompts.md) are working people drawn for exactly this, so a race that has them picks from
+    them: Earthborn looks for humans, Azerothian townsfolk looks in AZEROTHIAN_TOWNS. Other races pick from every drawn
+    look, as before."""
+    from world.race_registry import get_gender, look_is_missing, townsfolk_looks
+    h = int(hashlib.md5(nid.encode()).hexdigest(), 16)
     g = get_gender(race, gender)
-    places = [i for i in range(len(g.variants) if g else 0) if not look_is_missing(race, gender, i)]
+    tag = "m" if gender == "male" else "w"
+    if race == "human":
+        places = townsfolk_looks(race, gender, ("town_" if stem in AZEROTHIAN_TOWNS else "earth_") + tag)
+    else:
+        places = townsfolk_looks(race, gender)
+    places = [i for i in places if not look_is_missing(race, gender, i)]
+    if not places:
+        places = [i for i in range(len(g.variants) if g else 0) if not look_is_missing(race, gender, i)]
     if not places:
         return 0
-    h = int(hashlib.md5(nid.encode()).hexdigest(), 16)
     return places[h % len(places)]
 
 
@@ -230,7 +245,7 @@ def main():
                     amb["npcs"].append(rec)
                     by_id[nid] = rec
                 rec.update(name=pname, zone=key, x=x, y=y, race=race, gender=gender,
-                           appearance_variant=_look(race, gender, nid),
+                           appearance_variant=_look(race, gender, nid, stem),
                            facing=("down", "left", "right")[int(hashlib.md5(nid.encode()).hexdigest(), 16) % 3],
                            greeting=greet, townsfolk=True, district=district)
     if write:

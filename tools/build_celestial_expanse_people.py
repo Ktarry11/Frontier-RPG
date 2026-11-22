@@ -76,7 +76,7 @@ AMBIENT = {
     "ce_falls_watcher": ("Elder Merek Vale", "aetherian", M, 4, "down",
                          "I come here to watch the river go over the edge. It's gone over for as long as I've lived, "
                          "but lately I've started counting the islands that go over with it."),
-    "ce_golem_scholar": ("Scholar Idris Marrowell", "aetherian", M, 4, "right",
+    "ce_golem_scholar": ("Scholar Idris Marrowell", "aetherian", F, 0, "right",
                          "The House of Long Memory says the Kharad were here before we were, and the rest of the "
                          "houses laughed at us for it. Then their war-golems stood up. Nobody's laughing now, and I've "
                          "never been so frightened to be right."),
