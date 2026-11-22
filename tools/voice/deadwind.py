@@ -1,0 +1,381 @@
+"""Deadwind Pass and Ariden's Watch in the giver's own voice (21 Nov 2026).
+
+Kyle, 21 Nov 2026: no quests handed out in third person, and a story of five or six sentences. The offers here were
+narrated about the giver ("Kenji Watanabe maps the fallout..."); each is now the giver talking, with every fact, name
+and direction it had. Accept lines are kept short so the description stays the offer's body. Turn-ins are untouched.
+"""
+
+VOICE = {
+    "dw_the_runners_cart": (
+        "A crack opened in the mountain on the far side of the Rotvine Fen when the worlds came together. The "
+        "liquidators up in Deadwind Pass, newcomers every one of them, send a runner down through it for supplies. "
+        "Their runner, Tomas, has come through Grom'gol every week for a year, and I've come to like the boy. This "
+        "week he left with a handcart of iodine and bandages, and nobody at the far end has seen him. The tunnel's in "
+        "the rock past the fen, east of the Steps, so follow the cart ruts and find out what happened.",
+        "The tunnel's in the rock past the fen, east of the Steps. Follow the ruts. Tomas owes me for a sack of salt.",
+        None,
+    ),
+    "dw_still_clicking": (
+        "Tomas's dosimeter was hanging off the handle of his cart, and it's still counting. Kenji Watanabe can read a "
+        "dosimeter and tell you where a man walked and how long he stood there. I want to know where that boy went. "
+        "Kenji works at his map table in Ariden's Watch, north up the old pass road. Take it to him, and scrub at the "
+        "troughs before you hand it over.",
+        "Up the road to Deadman's Crossing, and the Watch is through the gate on your right. Scrub before you go in.",
+        None,
+    ),
+    "dw_the_board_by_the_pyre": (
+        "I keep the gate at Ariden's Watch, and every newcomer gets the same order from me. First you scrub at the "
+        "troughs, and then you go and read the board by the pyre, before you do anything else. Every name on that "
+        "board is someone Deadwind has taken since the camp was built. You should know who you're standing among. "
+        "Read all of it, every name.",
+        "Read all of it. Old Tobiah keeps the pyre and the board, and he'll want to know you did.",
+        None,
+    ),
+    "dw_what_a_liquidator_is": (
+        "I run Ariden's Watch, and I've got work for anyone Tobiah sends to me. The Tumour Wolves come down out of the "
+        "dead forest after our supply carts, and they've taken two drivers this month. Without the carts, this camp "
+        "starves in a fortnight. I want the road kept clear between the fence and Deadman's Crossing. Don't let them "
+        "bite you, and wash at the troughs every time you come back.",
+        "The Tumour Wolves hunt along the pass road. Don't get bitten, and wash at the troughs when you come back.",
+        None,
+    ),
+    "dw_readings_in_the_dead_forest": (
+        "I map the fallout across the whole pass, and I need three fresh readings from the west. One from the "
+        "Sickwater where it comes off the mountain, one from the Black Tarn where it pools, and one from the Widows' "
+        "Wood. I'll give you a dosimeter of my own to carry, made from Seep-glass and cat gut. Hold it at arm's length "
+        "and count to sixty, and don't stand in the water. At Fukushima we did this on foot for three years, house by "
+        "house, until we knew every field by its number.",
+        "Hold it at arm's length, count to sixty, and stay out of the water.",
+        None,
+    ),
+    "dw_downwind": (
+        "When the wind comes off the middle of the pass, the Fused Bats ride it west and roost in the tunnel. They "
+        "carry the fallout on their wings, and I've watched them do it every evening for a week. They hunt over the "
+        "Sickwater at dusk. I want them dead before they carry any more of it toward people. You'll want a scarf over "
+        "your mouth.",
+        "The Fused Bats roost in the tunnel and hunt over the Sickwater at dusk. Wear a scarf over your mouth.",
+        None,
+    ),
+    "dw_too_many_eyes": (
+        "The Many-Eyed Crows sit along the fence posts and watch the camp, and I swear they watch in shifts. The "
+        "Forsaken say crows like that carry what they see back to whatever made them. I don't care what they're "
+        "carrying, I care that they're watching. They're all over the dead forest. Shoot the ones on the fence first.",
+        "The crows are all over the dead forest. Shoot the ones on the fence first.",
+        None,
+    ),
+    "dw_the_ones_that_got_up": (
+        "The dead at Morgan's Plot don't stay in the ground any more, and I can't carry them all back to my pyre by "
+        "myself. They were buried once, properly, by people who loved them. Something dug them up and wore them, and "
+        "that isn't their fault. The Plot Risen walk the graves south of Coachman's Bend, under the cliff. Put them "
+        "back down, and I'll go out with the cart tonight and bring them home.",
+        "Morgan's Plot is south of Coachman's Bend, under the cliff. Put them down and leave them for me.",
+        None,
+    ),
+    "dw_samples_living": (
+        "I study what the Seep does to living things, and I want glands from the Pustule Boars, whole, before they "
+        "burst. The Undercity pays me to know what the Seep is, and I've got reasons of my own as well. Those reasons "
+        "are my business. The boars root all through the dead forest. Cut the glands out cleanly and don't squeeze "
+        "them, because I've lost two assistants to impatience.",
+        "The Pustule Boars root all through the dead forest. Cut the glands out cleanly, and don't squeeze them.",
+        None,
+    ),
+    "dw_what_master_ashgrave_keeps": (
+        "I'm Morwen Ashgrave's second, and I'm worried about her. She locks her own notes in the sealed store behind "
+        "the laboratory, and lately she's been taking samples in there and not bringing them out. I can't be seen "
+        "going in myself, because she'd know at once. The store is behind the laboratory, south-west of the pyre. The "
+        "lock is made for the living, so you'll get past it, and I only need you to look.",
+        "The sealed store's behind the laboratory, south-west of the pyre. Just look, and tell me what you saw.",
+        None,
+    ),
+    "dw_a_sample_of_her_own": (
+        "I took one of Morwen's vials out of the sealed store, and I don't know what to do with it. I could send it to "
+        "the Royal Apothecary Society, or I could throw it in the pyre. Before I decide, I want Morwen to know that "
+        "someone has found out. I want it to be you who hands it to her, not me. If she lies to you, I'll know what to "
+        "do with it, and if she doesn't, I'll have to think.",
+        "Give it to her and see what she says.",
+        None,
+    ),
+    "dw_what_the_wolves_carry": (
+        "I run the infirmary here, and I want to understand these tumours before they turn up in my patients. The "
+        "Tumour Wolves carry them in every stage, from the first swelling to the last. I've seen growths like these "
+        "before, at home, and I need to know if they behave the same. The wolves run the dead forest along the pass "
+        "road. Cut the growths out and wrap each one separately, because I'll want to know how fast they grow.",
+        "The Tumour Wolves run the dead forest along the pass road. Wrap each growth on its own.",
+        None,
+    ),
+    "dw_the_dying_stags": (
+        "The Dissolving Stags are coming apart while they're still walking. They come to the camp's fence at night, as "
+        "if someone in here could help them. I'm a doctor, and I can't. They graze the dead forest and the shore of "
+        "the Black Tarn. End it for them, please, and be quick about it.",
+        "The Dissolving Stags graze the dead forest and the Black Tarn's shore. Be quick, they've suffered enough.",
+        None,
+    ),
+    "dw_seep_glass": (
+        "I scavenge for the camp, and Kenji needs Seep-glass for the dosimeters he builds. The Tunnel Slagcrawlers grow "
+        "it on their backs. I won't let anybody else in the camp handle the glass, so bring it straight to me. The "
+        "slagcrawlers are in the cracked tunnel south of Delgado's fence. Wrap the shards before you pack them, and "
+        "don't keep one for yourself, however pretty it is.",
+        "The slagcrawlers are in the cracked tunnel south of Delgado's fence. Wrap the shards, and keep none.",
+        None,
+    ),
+    "dw_a_name_worn_away": (
+        "My family buried their dead at Morgan's Plot for two hundred years, and my son lies in the crypt on the north "
+        "side. When the tear opened, time ran fast over the Plot for a moment, and his name was worn off the stone. I "
+        "can't read it any more. I'd like someone to try, in case it's only my eyes. It's the small crypt on the north "
+        "side, with the angel beside it.",
+        "The small crypt on the north side, with the angel. Run your hand over the door.",
+        None,
+    ),
+    "dw_the_coachmans_plate": (
+        "My son drove the mail coach over the pass, before the plague came west. One winter he went off the road at "
+        "the bend below the Plot, and the coach went over with him. The wreck still lies at Coachman's Bend, north of "
+        "here on the road. The old coaches carried their driver's name on a brass plate. If it's still there, I'd know "
+        "his name again.",
+        "Coachman's Bend is north of here, on the road. Something crashes there every few minutes, so mind the road.",
+        None,
+    ),
+    "dw_again_and_again": (
+        "The tear kept a copy of my Edwin's last moment, and it plays it over and over at Coachman's Bend. The coach, "
+        "the ice, the drop, a thousand times. The Wagon Driver is what's left of him. If he's stopped outside that "
+        "moment, the next crash won't come. Catch him before he reaches the edge, and be gentle with him if you can.",
+        "Wait for the coach at Coachman's Bend and catch the Wagon Driver before the edge.",
+        None,
+    ),
+    "dw_hannas_potatoes": (
+        "I live on my own in a lean-to in the dead forest, west of Deadman's Crossing, and I grow potatoes in the "
+        "poisoned ground. The liquidators have asked me a dozen times to move into the Watch, and a dozen times I've "
+        "said no. I've lived in poisoned ground before. Now the Pustule Boars have found my garden, and they come out "
+        "of the trees at dawn. Chase them off for good, because I'm too old to sit up all night with a stick.",
+        "The Pustule Boars come out of the trees round my garden at dawn. Chase them off for good.",
+        None,
+    ),
+    "dw_spiders_in_the_root_cellar": (
+        "I keep my potatoes in a root cellar under the lean-to, and the Deadwind Widows from the wood to the "
+        "north-east have started nesting in it. I went down with a lamp this morning and came back up very quickly. "
+        "I'm not afraid of spiders, but these ones glow. They come from the Widows' Wood. Kill them where they breed, "
+        "and they'll stop coming to me.",
+        "They come from the Widows' Wood, in the north-east. Kill them where they breed.",
+        None,
+    ),
+    "dw_the_dogs": (
+        "I feed a pack of strays that followed Taras's dog Kashtan out of the Watch, and the Tumour Wolves have "
+        "started taking them at night. At home in Chernobyl, the dogs stayed when the people left, and the old women "
+        "fed them. I'm one of those old women. The wolves circle my place at dusk. Kill them, and come back for soup.",
+        "The Tumour Wolves circle my place at dusk. Kill them and you can have soup. The dogs won't share theirs.",
+        None,
+    ),
+    "dw_the_ogre_at_the_ravine": (
+        "An ogre came to the gate three nights ago, alone and unarmed, and asked for help in a child's voice. I sent him "
+        "away with a bone token and a promise that someone would come. I keep my promises, even to ogres. His name is "
+        "Grull, and he's waiting on the ravine road outside Grosh'gok Compound. Go west from Deadman's Crossing, up "
+        "Deadwind Ravine, and show him the token.",
+        "West from Deadman's Crossing, up Deadwind Ravine. Show him the token so he knows I kept my word.",
+        None,
+    ),
+    "dw_put_them_down_kindly": (
+        "My clan survived the tear, and that was worse than dying. They've swollen and fused together, and the ones "
+        "who can still think are frightened all the time. They were my uncles and my cousins, and they used to carry "
+        "me on their shoulders. They hold the ravine and the yard now. Put them down kindly, and hit them hard so it's "
+        "quick.",
+        "The Brutes and Two-Faces hold the ravine and the yard. Hit them hard, so it's quick.",
+        None,
+    ),
+    "dw_the_totem_in_the_bones": (
+        "Our clan totem had the handprint of every ogre born in the compound painted on it. When the light came, the "
+        "Sore-Shamans broke it apart for their fires. My own handprint is on it, from when I was very small. I want the "
+        "pieces back. The Sore-Shamans carry them in their bags, in the yard past the gate.",
+        "The Sore-Shamans carry the pieces in their bags, in the yard past the gate. Bring me every one.",
+        None,
+    ),
+    "dw_mograk": (
+        "Mog'grak was Grosh'gok's chief, and he's my father. When the light came, it fused him with the boy he used to "
+        "be, and the boy is the one who hurts people now. I can't fight my own father, so I'm asking you to do it for "
+        "me. He's somewhere in Grosh'gok Compound. You'll know him, because there are two of him.",
+        "He's somewhere in Grosh'gok Compound. Don't listen to the small one. He was always the cruel one.",
+        None,
+    ),
+    "dw_silk_for_the_beds": (
+        "I want silk from the inside of the Widows' Nest, from deep in the funnel where the glow never reached. It's "
+        "the only thing in the pass clean enough to sleep under. The living here don't sleep well as it is. I don't "
+        "sleep myself, but I keep the beds the way I'd want one kept. The Nest is in the crag at the top of the Widows' "
+        "Wood, north-east of the crossing.",
+        "The Widows' Nest is at the top of the Widows' Wood, north-east of the crossing. The clean silk's deep inside.",
+        None,
+    ),
+    "dw_the_last_egg": (
+        "The Silk Mother is a widow queen who has grown into her own cocoon at the bottom of the Widows' Nest, and her "
+        "eggs glow. I want the last of them alive, taken from the brood chamber itself. If the Seep can grow a brood "
+        "like that, it can grow a hand back. Halyna and Dr. Seitkali want the whole brood burned, and only one of us "
+        "can have it. The brood is at the top of the Throat, past the retreat holes.",
+        "The brood's at the top of the Throat. Kill the Silk Mother and bring me the egg she's sitting on, warm.",
+        None,
+    ),
+    "dw_burn_the_brood": (
+        "The Silk Mother has grown into her own cocoon at the bottom of the Widows' Nest, and every egg she lays "
+        "carries the Seep out into the pass. I want her killed and the brood burned, all of it. Morwen Ashgrave wants "
+        "the last egg alive for her studies, and only one of us can have it. The brood is at the top of the Throat, "
+        "past the retreat holes. Morwen will argue, and I don't care.",
+        "The brood's at the top of the Throat. Kill the Silk Mother and burn everything she's sitting on.",
+        None,
+    ),
+    "dw_a_dosimeter_for_time": (
+        "I've built a second dosimeter, one that measures time instead of fallout. There's a pendulum inside it, and "
+        "in some parts of the east the pendulum stops in the middle of a swing. I need readings from three of those "
+        "stopped places, and I need to know whether they're growing. Go east over the ford, down the gorge and up the "
+        "ramp on the far side. If the pendulum stops while you're holding it, step back until it starts again.",
+        "East over the ford, down the gorge and up the far ramp. Watch the pendulum, not the scenery.",
+        None,
+    ),
+    "dw_flicker_hounds": (
+        "I watch the middle of the pass for the Dark Lady, and the Flicker Hounds hunt my scouts across the Ashen "
+        "Rise. They're never quite where you see them, because a moment of them is always a little ahead. My first "
+        "scout lost an arm learning that. They run the open ground between the gorge and the rupture. Aim where "
+        "they're about to be.",
+        "The Flicker Hounds run the open ground between the gorge and the rupture. Aim where they're about to be.",
+        None,
+    ),
+    "dw_three_ages_of_a_wolf": (
+        "The Three-Age Wolves of the Ashen Rise have three heads, and I'm sure they're the same wolf at three ages. A "
+        "pup, a grown hunter and an old grey, and all three heads are hungry. They hunt the open ground and the slopes "
+        "under the Hanging Slide. Thin them out for me. Go for the old head first, because it's the one that "
+        "remembers how to fight.",
+        "They hunt the open ground and the slopes under the Hanging Slide. Go for the old head first.",
+        None,
+    ),
+    "dw_the_crow_king": (
+        "Every Many-Eyed Crow in Deadwind flies to the Drowned Hollow in the end, and I've seen why. Something there "
+        "has gathered the crows into itself until it's one bird made of hundreds. The Forsaken call it the Crow King, "
+        "and it sees everything every crow sees. It circles the Drowned Hollow, over the mere and the cave mouth. Take "
+        "it down and the crows will scatter.",
+        "The Crow King circles the Drowned Hollow, over the mere and the cave mouth. Take it down.",
+        None,
+    ),
+    "dw_this_evening": (
+        "I've watched Karazhan from my camp on the rim of the Sleeping Gorge for forty years. Every evening the light "
+        "in the tower's high window goes out at exactly the same moment. Since the tear, I think I've been living the "
+        "same evening over and over, and I only half know it. I'd like you to go to the tower's foot and look up at "
+        "that window. I can never tell from here whether the light's going out or coming on.",
+        "Down the gorge and east through the Vice, to the tower's gate. Look up at the high window.",
+        None,
+    ),
+    "dw_tell_halya": (
+        "The onlookers are gone, and I can hear myself again, a little. I need you to find Halya, my sister, and tell "
+        "her the readings were wrong. We measured the tear as if it were a hole, and it isn't a hole, it's something "
+        "the words keep slipping off. My name's stitched inside the collar of this coat, Mykola Bondar, so she'll know "
+        "it's me. Take her my notes from the bridge. Tell her I'm sorry I never came back up the rope.",
+        "Tell Halya the readings were wrong, and tell her I'm sorry. It isn't a hole. It's something I can't say yet.",
+        None,
+    ),
+    "dw_pages_in_the_wind": (
+        "When Karazhan sealed, its library came apart, and the Book Flocks blew out of the windows. Every page was "
+        "written by the tower's librarian, and I've noticed something strange about his hand. I've read three pages "
+        "already, and I can't stop thinking about them. The Book Flocks drift round Karazhan and the Stopped Places. "
+        "Catch the pages before the wind takes them over the gorge.",
+        "The Book Flocks drift round Karazhan and the Stopped Places. Catch the pages and bring them to me.",
+        None,
+    ),
+    "dw_the_master_isnt_dining": (
+        "Karazhan's servants wandered out before the tower sealed, and they're still serving a dinner nobody came to. "
+        "The Spectral Servants carry cold trays across the Vice, and the Ballroom Phantoms dance with anyone they "
+        "catch. They took my wife's dance the year the tower went dark. They gather at Karazhan's foot, round the old "
+        "stables. Let them rest, because dinner's been over for a very long time.",
+        "The servants and phantoms gather at Karazhan's foot, round the old stables. Let them rest.",
+        None,
+    ),
+    "dw_let_the_evening_end": (
+        "There's a doorway in the Stopped Places that stands on its own, with no wall round it. My evening comes in "
+        "through it every time it starts again. I want someone to walk through it from the other side and let the "
+        "evening finish. It's north-east of here, past the elder tree. Walk through it backwards, the way the evening "
+        "comes in.",
+        "It's north-east of here, past the elder tree. Walk through it backwards. I hope you see a morning.",
+        None,
+    ),
+    "dw_whats_in_the_water": (
+        "The fallout pools in the Drowned Hollow and drains down through the hill into a cave the Forsaken call the "
+        "Drowned Seep. I've got a theory about it. Every time the leeches in the Seep breed, the camp's well goes bad a "
+        "week later. The Seep is in the hill above the mere, in the south-west of Deadwind East. Clear the leeches and "
+        "we'll see if I'm right.",
+        "The Drowned Seep's in the hill above the mere, south-west of Deadwind East. Clear the leeches.",
+        None,
+    ),
+    "dw_the_drowned_thing": (
+        "At the bottom of the Drowned Seep is the sump, where everything the drain carries ends up. Something has "
+        "grown in it out of mud, roots and drowned animals. I want it dead before the Royal Apothecary Society hears "
+        "about it and wants it alive. Follow the channel down through the oxbows to the sump. Kill it, and I'll write "
+        "that it was already dead when you found it.",
+        "Follow the channel down through the oxbows to the sump. Stay out of the water.",
+        None,
+    ),
+    "dw_slag_for_the_spire": (
+        "I'm raising a containment spire at the edge of the rupture, to Kenji's design and with Morwen's runes. The "
+        "base needs weight, and the heaviest thing in the pass is the slag the Gorge Slagcrawlers carry. They crawl "
+        "the floor of the Sleeping Gorge. Bring me their slag and I'll pour the footings. I've built things to keep "
+        "people away from places before, and this one has to hold.",
+        "The Gorge Slagcrawlers crawl the floor of the Sleeping Gorge. Bring me their slag.",
+        None,
+    ),
+    "dw_the_four_chains": (
+        "The wheel's gondolas hang on chains over the glow crater, and Morwen's runes have to be cut into the chains "
+        "themselves for the spire to hold. I've got the runes pressed into wax tablets. I need someone to stand under the "
+        "wheel on both sides and press them on. The wheel is in the rupture, east of the Stopped Places. Hold each "
+        "tablet flat for a slow count of ten, and don't look up at the gondolas.",
+        "The wheel's in the rupture, east of the Stopped Places. Press the tablets on, and don't look up.",
+        None,
+    ),
+    "dw_raise_the_spire": (
+        "The containment spire is finished, and I want someone who helped build it standing at its foot when it "
+        "lights. Kenji will be there with his dosimeters, and Morwen with her runes. If it works, the glow from the "
+        "crater won't spread past it. The spire stands on the west edge of the rupture. Keep your eyes on Kenji's "
+        "needle, and if it drops, we've done it.",
+        "The spire's on the west edge of the rupture. Stand at its foot and watch Kenji's needle.",
+        None,
+    ),
+    "dw_the_craters_edge": (
+        "I want to salvage what's left of the first camp the liquidators built at the edge of the rupture, before they "
+        "pulled back to Ariden's Watch. There's good iron in it, and some of our first tools. The Bloated Walkers "
+        "wander through it, and when they burst, the seep goes everywhere. They shamble round the rupture. Kill them "
+        "from a distance if you can, and stand upwind.",
+        "The Bloated Walkers shamble round the rupture. Kill them from a distance, and stand upwind.",
+        None,
+    ),
+    "dw_broodmother_vexis": (
+        "The Silk Mother wasn't the first widow queen in Deadwind. Broodmother Vexis went down into the tear a month "
+        "before the camp was built, and the liquidators found her in the rim's west chamber, fused with her own clutch. "
+        "I want her heart, sealed. I've promised Dr. Seitkali I'll burn the rest, and she's going to watch me do it. "
+        "Vexis is in the Brood, the west chamber, round the rim from the crater floor.",
+        "Vexis is in the Brood, the west chamber, round the rim from the crater floor. Bring me her heart, sealed.",
+        None,
+    ),
+    "dw_archivist_nine": (
+        "Ariden's pages were written by Karazhan's librarian at nine different ages, and I've worked out where he "
+        "went. The rim's north chamber is shelved with black glass, every moment the tear has kept is filed on it, and "
+        "the librarian is still writing. We call him Archivist Nine. I want his first page, the one about the night the "
+        "tear opened. The Stacks are the north chamber, round the rim past the Brood.",
+        "The Stacks are the north chamber, past the Brood. Don't let him finish the sentence he reads you.",
+        None,
+    ),
+    "dw_deep_samples": (
+        "I want a sample from the very bottom of the Bubbler Pools, before the Wound's Heart dies and the seep changes. "
+        "I've decided which report I'm sending, and I need the samples to prove it. The Bubbler Oozes live round the "
+        "pools in the Reactor Hall's flooded basement. Seal each flask before you lift it out. Don't spill a drop on "
+        "your boots.",
+        "The Bubbler Oozes live round the pools in the Reactor Hall's flooded basement. Seal each flask.",
+        None,
+    ),
+    "dw_the_board_of_names": (
+        "The Wound's Heart is dead, and nothing in Deadwind is getting up again. I've put my brother Mykola's name back "
+        "on the board by the pyre, a little way under Tomas's. At home they read the names aloud every April, and I "
+        "want it done here too. I'd like you to read them out at the pyre, all of them. Start at the top, read slowly, "
+        "and don't stop until you reach Mykola.",
+        "Read them slowly. Everyone will be there, the Forsaken too. Don't stop until you get to Mykola.",
+        None,
+    ),
+    "dw_let_it_go_out": (
+        "My pyre hasn't gone out once since Ariden's Watch was built, because anything that died in Deadwind got up "
+        "again unless it was burned. Now nothing gets up. It's time to let the fire go out. I talked to every one of "
+        "them while they burned, and I'd rather not do this last part alone. Stand with me while it goes out, that's "
+        "all I ask.",
+        "Stand with me, that's all. I don't want someone who'll make a speech.",
+        None,
+    ),
+}
