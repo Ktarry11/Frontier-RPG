@@ -713,9 +713,25 @@ def register_baked(zone, baked_dir=BAKED_DIR, chunk=20):
             zone.add_obstacle_chunk(fn, cx, cy, w, h)
 
 
+#: the districts, where the townsfolk live (Kyle, 22 Nov 2026: "ensure ALL towns are actually populated", "capitals can be
+#: 50+"): the four quarters, the trade ring round the middle, and the two stairs. (key, x, y, w, h, display name)
+SUBZONES = [
+    ("Undercity", 0, 0, W, H, None),
+    ("The Royal Quarter", 0, 0, 94, 94, None),
+    ("The Magic Quarter", 106, 0, 94, 94, None),
+    ("The War Quarter", 0, 106, 94, 94, None),
+    ("The Apothecarium", 106, 106, 94, 94, None),
+    ("The Trade Ring", 62, 62, 76, 76, None),
+    ("The North Stair", 88, 0, 24, 48, None),
+    ("The South Stair", 88, 150, 24, 50, None),
+]
+
+
 def generate_undercity():
     L = build_layout()
     register_baked(L.zone)
+    for row in SUBZONES:
+        L.zone.add_subzone(*row)
     return L.zone
 
 

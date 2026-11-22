@@ -130,6 +130,11 @@ SUBZONES = [
     ("Southshore", 0, 0, W, H),
     ("Southshore Square", 38, 24, 20, 14),
     ("Southshore Quay", 34, 48, 28, 24),
+    # 22 Nov 2026, for the townsfolk (Kyle: "ensure ALL towns are actually populated")
+    ("The Chapel Green", 8, 6, 26, 24),
+    ("The Barracks Row", 62, 8, 32, 22),
+    ("The Farm Lane", 0, 30, 32, 24),
+    ("The East Cottages", 62, 34, 34, 18),
 ]
 
 # ---- baker config (read by tools/bake_hillsbrad.py; the same green country as the fields outside the gate) ----------

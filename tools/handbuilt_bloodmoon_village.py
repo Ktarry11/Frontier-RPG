@@ -90,6 +90,11 @@ def tile_kind(gx, gy):
 
 SUBZONES = [
     ("Bloodmoon Village", 2, 2, 42, 32),
+    # 22 Nov 2026, for the townsfolk (Kyle: "ensure ALL towns are actually populated")
+    ("The Elder's House", 2, 2, 20, 16),
+    ("The Altar Path", 2, 18, 20, 16),
+    ("The Watch Houses", 22, 2, 22, 16),
+    ("The Old Gate", 22, 18, 22, 16),
 ]
 
 # ---- baker config (read by tools/bake_silverpine.py; the same ground as Fenris Isle outside the gate) -------------

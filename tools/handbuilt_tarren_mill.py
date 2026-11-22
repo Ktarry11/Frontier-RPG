@@ -146,6 +146,9 @@ SUBZONES = [
     ("The Apothecarium", 52, 36, 36, 30),
     ("The Weir", 36, 6, 28, 20),
     ("Mill Row", 16, 62, 32, 22),
+    # 22 Nov 2026, for the townsfolk (Kyle: "ensure ALL towns are actually populated")
+    ("The Chapel Hill", 10, 12, 26, 26),
+    ("The Burnt Lane", 66, 56, 30, 28),
 ]
 
 # ---- baker config (read by tools/bake_hillsbrad.py) -----------------------------------------------------------

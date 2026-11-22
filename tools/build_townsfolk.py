@@ -57,12 +57,17 @@ TOWNS = {
     "crossroads": "Crossroads",
     "camp_taurajo": "Camp Taurajo",
     "ratchet": "Ratchet",
+    "undercity": "Undercity",
+    "sepulcher": "The Sepulcher",
+    "tarren_mill": "Tarren Mill",
+    "southshore": "Southshore",
+    "bloodmoon_village": "Bloodmoon Village",
 }
 SPACING = 3          # nobody stands closer than this to anyone else, if the district has room
 
 
 #: towns whose humans are Azerothian (the rest of the game's townsfolk humans are Earthborn)
-AZEROTHIAN_TOWNS = {"southshore"}
+AZEROTHIAN_TOWNS = {"southshore", "tarren_mill"}
 
 
 def _look(race, gender, nid, stem=None):
@@ -75,7 +80,10 @@ def _look(race, gender, nid, stem=None):
     g = get_gender(race, gender)
     tag = "m" if gender == "male" else "w"
     if race == "human":
-        places = townsfolk_looks(race, gender, ("town_" if stem in AZEROTHIAN_TOWNS else "earth_") + tag)
+        # an Earthborn anywhere looks Earthborn; an Azerothian human ("_az_" in the id, or anyone in an Azerothian
+        # town) wears the Azerothian townsfolk looks
+        azerothian = "_earth" not in nid and ("_az_" in nid or stem in AZEROTHIAN_TOWNS)
+        places = townsfolk_looks(race, gender, ("town_" if azerothian else "earth_") + tag)
     else:
         places = townsfolk_looks(race, gender)
     places = [i for i in places if not look_is_missing(race, gender, i)]

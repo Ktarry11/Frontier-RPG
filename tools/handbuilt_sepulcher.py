@@ -89,6 +89,10 @@ SUBZONES = [
     ("The Lower Court", 14, 47, 60, 20),
     ("The Keep Hall", 20, 8, 48, 18),
     ("Raven Hill Terrace", 3, 23, 22, 22),
+    # 22 Nov 2026, for the townsfolk (Kyle: "ensure ALL towns are actually populated")
+    ("The Apothecary Steps", 26, 27, 20, 18),
+    ("The Crafters' Row", 46, 26, 20, 19),
+    ("The Chapel Yard", 66, 18, 22, 26),
 ]
 
 # ---- baker config (read by tools/bake_silverpine.py) ----------------------------------------------

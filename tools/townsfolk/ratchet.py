@@ -28,10 +28,10 @@ PEOPLE = [
     ("rt_tf_orc_dockhand", "Dockhand Gruul", "orc", M, "The Harbor",
      "I unload the boats for the goblins because they pay in coin, not promises. The work's hard, but the sea air's "
      "better than the dust of the Barrens."),
-    ("rt_tf_sailor_human", "Bosun Maggie Hart", "human", F, "The Harbor",
+    ("rt_tf_az_sailor", "Bosun Maggie Hart", "human", F, "The Harbor",
      "I crew on the Booty Bay run, and Ratchet's the only port on this coast where nobody cares that I'm human. They "
      "care whether I pay my bar tab, and I always pay my bar tab."),
-    ("rt_tf_net_mender", "Old Barnaby", "human", M, "The Harbor",
+    ("rt_tf_az_net_mender", "Old Barnaby", "human", M, "The Harbor",
      "I mend nets on the pier, and I've mended nets on piers from Kul Tiras to here. The goblins pay better than the "
      "admirals ever did, and they don't make me salute anybody."),
     # ---- the Customs Gate
@@ -65,7 +65,7 @@ PEOPLE = [
      "I worked on container ships out of Santos, and now I crew on goblin boats, which are louder and much more "
      "dangerous. The pay's worse, but the stories are better."),
     # ---- the Broken Keel
-    ("rt_tf_keel_drunk", "Sozzled Pete", "human", M, "The Broken Keel",
+    ("rt_tf_az_keel_drunk", "Sozzled Pete", "human", M, "The Broken Keel",
      "I came ashore here for one drink and missed my ship, and that was eleven years ago. Molka keeps my stool warm, "
      "and I keep her in business."),
     ("rt_tf_keel_card_player", "Cards Quigley", "goblin", M, "The Broken Keel",
