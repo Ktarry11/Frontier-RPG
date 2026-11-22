@@ -1,0 +1,27 @@
+"""Accept lines rewritten as new beats, 22 Nov 2026: the old ones repeated the speech (accept echo)."""
+
+BEATS = {
+    'spn_wl_silka': "Burn the egg sacs as you pass them. Every one you leave is next season's problem.",
+    'spn_wl_skitter': "If anyone she's hung up is still breathing, cut them down first. Corvane would want that.",
+    'spn_wl_venom': 'Run first and look later. I mean that as an order, not a suggestion.',
+    'spn_wl_larder': "Keep your count on your fingers if you have to. Don't write anything down in there.",
+    'spn_wl_journal': 'You fold the silk back over the last line and keep the page flat against your chest.',
+    'spn_wl_velaxis': "Don't look into her eyes for long. Corvane says that's how the two before you stopped climbing.",
+    'sps_at_tomes': "Fold the pages along the edges they already have. Don't make new creases in a book like that.",
+    'sps_at_reagents': "Stopper the vials twice if you can. Whatever's in them has been eating corks for decades.",
+    'sps_at_helbrim': "Bring his last ledger if it's on the bench. I want the date he wrote under that order.",
+    'sps_at_atiesh': "If he offers to show you what he's been looking at, say no. Say it twice.",
+    'sps_at_orrery': 'Stand still while you wait. If you pace, I suspect it takes longer.',
+    'sps_sfk_bailey': "Notice what's missing as well as what's there. That's usually what people forget to tell me.",
+    'sps_sfk_hounds': "Break the kennel latches as you go. Then there's nothing to let them out of.",
+    'sps_sfk_rethilgore': 'If he still has a ring of names for the hounds, bring it. Brand would want to know which ones were his.',
+    'sps_sfk_razorclaw': "Don't look at what's on his table. I don't need to know, and neither do you.",
+    'sps_sfk_guards': "Salute the officers before you strike, if you can bear it. It's what they're waiting for.",
+    'sps_sfk_keys': 'Tie the rings shut before you carry them. Loose keys rattle, and the servitors listen for keys.',
+    'sps_sfk_silverlaine': "Approach him the way a petitioner would. He's never once been surprised by one.",
+    'sps_sfk_moonwalkers': 'Stay out of the moonlight through the windows. It does something to the ones still turning.',
+    'sps_sfk_cloister': "If the door's open, don't go through it. Just look, and come back to me.",
+    'sps_sfk_fenrus': 'Bring a light that burns long. Nobody knows how deep that crypt goes.',
+    'sps_sfk_sons': 'Kill the captains first if you can reach them. The rest lose the thread without them.',
+    'sps_sfk_arugal': 'Keep your eyes on his hands, not his face. The face is how he gets people listening.',
+}

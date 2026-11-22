@@ -124,3 +124,16 @@ VOICE = {
         "It's over, then.\n\nNot a clean ending. But it's a final one, and I've come round to thinking a final ending is the one I get.",
     ),
 }
+
+
+# THE STORY PASS (22 Nov 2026), to docs/quest_writing_standard.md; see tools/voice/silverpine_dungeons_story.py.
+from voice.silverpine_dungeons_story import STORY as _STORY
+for _qid, (_d, _a) in _STORY.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a, _old[2])
+
+
+from voice.silverpine_dungeons_beats import BEATS as _BEATS
+for _qid, _a in _BEATS.items():
+    _o = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_o[0], _a, _o[2])
