@@ -122,3 +122,10 @@ VOICE = {
         "Let me see. That one's a touch hot. The rest are good.\n\nBetter than most of my apprentices manage in their first year. Don't tell them I said so. This one's yours.",
     ),
 }
+
+
+# THE STORY PASS (22 Nov 2026), to docs/quest_writing_standard.md; see tools/voice/black_strand_story.py.
+from voice.black_strand_story import STORY as _STORY
+for _qid, (_d, _a) in _STORY.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a, _old[2])
