@@ -45,7 +45,9 @@ MARGIT, BARTOSZ, NGOZI = "af_tilt_lead", "af_tilt_surveyor", "af_tilt_medic"
 STEWARD, HEIR, TENDER, SIRAN, WADE = ("af_steward", "af_house_heir", "af_gear_tender", "af_slip_watcher",
                                       "af_drop_scavenger")
 
-HUB_GIVERS = {PRIME, CHAIN, ENGINEER, SCOUT, OLDW, SKIFF, MEASURER, STARS, ARCHIVIST, MARGIT, BARTOSZ, NGOZI}
+#: the people who stand in Keelstone, the Anchorfields' town (its own map since 22 Nov 2026, Kyle's town rule): the wardens,
+#: the House of Measures' reading room and Tiltside's Earthborn; the master of measures stays at the Observatory
+HUB_GIVERS = {PRIME, CHAIN, ENGINEER, SCOUT, OLDW, SKIFF, STARS, ARCHIVIST, MARGIT, BARTOSZ, NGOZI}
 #: the Aetherians pay the Aetherians; the Earthborn (Margit, Bartosz, Ngozi, Wade) pay nobody
 SKY_GIVERS = {PRIME, CHAIN, ENGINEER, SCOUT, OLDW, SKIFF, MEASURER, STARS, ARCHIVIST, STEWARD, HEIR, TENDER, SIRAN}
 

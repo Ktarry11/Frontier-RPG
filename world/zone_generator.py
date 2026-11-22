@@ -5749,6 +5749,7 @@ def _build_all_zones():
     from tools import handbuilt_worldtree_lenswatch as dwlw
     from tools import handbuilt_worldtree_celestial_expanse as dwce
     from tools import handbuilt_worldtree_halcyon_rest as dwhr
+    from tools import handbuilt_worldtree_keelstone as dwkl
     from tools import handbuilt_worldtree_anchorfields as dwaf
     from tools import handbuilt_worldtree_aurelion as dwau
     from tools import handbuilt_worldtree_ascendant_bastions as dwab
@@ -5954,6 +5955,7 @@ def _build_all_zones():
         "Lenswatch": dwlw.generate_lenswatch(),                   # the survey's town off the Crown's cloud (inn, flight)
         "The Celestial Expanse": dwce.generate_celestial_expanse(),  # islands down the great sky river (20 Nov 2026)
         "Halcyon Rest": dwhr.generate_halcyon_rest(),               # the Expanse's town (inn, flight), 22 Nov 2026
+        "Keelstone": dwkl.generate_keelstone(),                     # the Anchorfields' town (inn, flight), 22 Nov 2026
         "The Anchorfields": dwaf.generate_anchorfields(),          # the engine country, the shattered shelf (20 Nov 2026)
         "The Ascendant Bastions": dwab.generate_ascendant_bastions(),   # the Ascendancy's star fort (21 Nov 2026)
         "The Fading Firmament": dwff.generate_fading_firmament(),  # the dying heart, the last of the sky (21 Nov 2026)

@@ -96,13 +96,15 @@ REGIONS = {
     # ---- 22 Nov 2026, Caelora's towns (Kyle: "Lets build the towns, move the NPCs"): each sky map's camp is its own
     # town map now. The Celestial Expanse: Halcyon Rest, with Tethertown tied on below it.
     "Celestial Expanse": (["celestial_expanse"], ["halcyon_rest"], {}),
+    # The Anchorfields: Keelstone, with the House of Measures' reading room and Tiltside's Earthborn in it.
+    "Anchorfields": (["anchorfields"], ["keelstone"], {}),
 }
 #: the share of a region's quests that must come from town. Never lower one.
 FLOORS = {"Durotar": 0.70, "Tirisfal": 0.70, "Silverpine": 0.70, "Barrens": 0.70, "Hillsbrad": 0.70,
           "Arathi": 0.70, "Felwood": 0.70, "Tempest": 0.70, "Underdark": 0.70,
           "Fenris Isle": 0.70, "Stranglethorn": 0.70, "Stonetalon": 0.70, "Ashenvale": 0.70, "Black Strand": 0.70,
           "Plaguelands": 0.70, "Thousand Needles": 0.70, "Tanaris": 0.70, "Aspen": 0.70, "Echo Isles": 0.70,
-          "Celestial Expanse": 0.70}
+          "Celestial Expanse": 0.70, "Anchorfields": 0.70}
 
 
 def norm(s):

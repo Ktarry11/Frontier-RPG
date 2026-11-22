@@ -45,8 +45,8 @@ W, H = 300, 250
 SKP = "assets/tiles/sky/props/"
 BLD = "assets/buildings/"
 
-PORTALS = {(3, 74): "The Celestial Expanse", (188, 206): "The Keel"}
-ARRIVALS = [(10, 74), (188, 210)]
+PORTALS = {(3, 74): "The Celestial Expanse", (188, 206): "The Keel", (168, 88): "Keelstone"}
+ARRIVALS = [(10, 74), (188, 210), (168, 84)]
 START = (10, 74)          # the end of the aqueduct arm: everything must be reachable from here
 
 # ---------------------------------------------------------------- the shelf and its cracks
@@ -255,6 +255,7 @@ ROADS = {
     "slip_west":  ([(104, 170), (124, 192), (158, 190), (176, 192)], 2.2),
     "observe":    ([(206, 62), (240, 60), (276, 46)], 2.2),
     "listing":    ([(232, 130), (254, 138), (276, 144), (283, 160)], 2.2),
+    "keel_gate":  ([(168, 80), (168, 87)], 2.4),
 }
 
 
@@ -277,24 +278,10 @@ NPC_POSITIONS = {
     # the Estates: House Vaelith's old estate, half shut up
     "af_steward":          (80, 70),    # the estate's last steward
     "af_house_heir":       (68, 70),    # the young heir who stayed
-    # Keelstone: the Anchor-Wardens' hold
-    "af_warden_prime":     (166, 78),   # the Warden-Prime
-    "af_chainwright":      (172, 82),   # keeps the chains
-    "af_keel_engineer":    (162, 84),   # the engineer who reads the anchors
-    "af_warden_scout":     (176, 76),   # watches the Ascendancy
-    "af_old_warden":       (170, 74),   # the oldest warden, who remembers the last fall
-    "af_skiffmaster":      (164, 80),   # the flight path
-    "af_provisioner":      (164, 86),   # food
-    "af_trader":           (174, 86),   # goods
+    # Keelstone, the House of Measures' reading room and Tiltside's Earthborn live on the town's own map now
+    # (tools/handbuilt_worldtree_keelstone.py)
     # the Observatory: the House of Measures
     "af_measurer":         (280, 40),   # the house's master of measures
-    "af_star_reader":      (286, 44),   # reads the drift of the islands against the stars
-    "af_obs_archivist":    (278, 46),   # keeps the house's thousand-year records
-    # Tiltside: the Earthborn on the Listing Isle
-    "af_tilt_lead":        (282, 166),  # the camp's leader
-    "af_tilt_surveyor":    (288, 170),  # an Earthborn surveyor measuring the tilt
-    "af_tilt_medic":       (278, 172),  # the camp's medic
-    "af_tilt_trader":      (284, 174),  # odds and ends
     # out on the shards
     "af_gear_tender":      (90, 156),   # an engine-tender in the Gearwork
     "af_slip_watcher":     (196, 186),  # a warden posted at the Slipping Anchor
@@ -326,7 +313,6 @@ SUBZONES = [   # (table_key, x, y, w, h, display_name) - later registrations win
     ("The Listing Isle", 262, 120, 38, 86, None),
     ("The Aqueduct Arm", 0, 62, 34, 24, None),
     ("Keelstone", 152, 68, 34, 24, None),
-    ("Tiltside", 272, 156, 24, 26, None),
     ("The Observatory", 266, 28, 32, 28, None),
 ]
 
@@ -499,19 +485,15 @@ def dress(L):
     B("ae_chain_hoist", 214, 50, 6)
     B("ae_anchor_column", 214, 8, 7)
     B("ae_anchor_column", 236, 12, 7)
-    # ---- Keelstone: the wardens' hold
+    # ---- Keelstone's plaza, where the roads meet: the hold's wall tower and guard post, its gate on the south side
+    #      (the town is its own map), lamps and the wardens' banner
     B("ae_wall_tower", 150, 70, 10)
     B("ae_guard_post", 182, 72, 6)
-    B("ae_engine_bench", 160, 90, 3)
-    B("ae_supply_crates", 178, 90, 3)
-    B("ae_skiff_dock", 150, 82, 6)
-    B("ae_ceremonial_brazier", 168, 86, 3)
-    B("ae_barracks", 186, 78, 8)
-    B("ae_field_pavilion", 156, 64, 6)
+    B("ae_engine_bench", 158, 92, 3)
+    B("ae_supply_crates", 180, 92, 3)
     B("ae_orb_lantern", 158, 74, 4)
     B("ae_orb_lantern", 178, 70, 4)
     B("ae_banner", 164, 70, 5)
-    B("ae_bench", 172, 92, 3)
     # ---- the Gearwork: the engines that feed the anchors, waking wrong
     B("ae_crystal_engine", 62, 152, 9)
     B("ae_cooling_tower", 96, 144, 10)
@@ -531,12 +513,8 @@ def dress(L):
     B("ae_dead_engine", 166, 200, 6)
     S("ff_crystal_crater", 204, 196, 5, solid=False)
     L.prop("ent_door_ae_stair_down", 188, 203, 5, path_dir="assets/tiles/cave_entrances/", solid="core", nudge=0)
-    # ---- the Listing Isle and Tiltside: the leaning tower, and the Earthborn camped under it
+    # ---- the Listing Isle: the leaning tower; Tiltside's Earthborn moved up to Keelstone when it got too steep
     B("ae_leaning_tower", 283, 140, 12)
-    S("ff_camp_fire", 283, 168, 3, solid=False)
-    S("ff_patched_tent", 276, 162, 5)
-    S("ff_patched_tent", 290, 164, 5)
-    S("ff_salvage", 288, 180, 4)
     # ---- the Observatory: the House of Measures
     B("ae_observatory", 284, 34, 10)
     B("ae_armillary", 274, 44, 4)

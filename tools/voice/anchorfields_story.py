@@ -1,0 +1,121 @@
+"""The Anchorfields' story pass (22 Nov 2026), to docs/quest_writing_standard.md, written after Keelstone was built and
+its people moved in: the wardens, the House of Measures' reading room and Tiltside's Earthborn now stand in the town;
+the Master of Measures, House Vaelith, the engine-tender, the warden at the Third Anchor and Wade stay out on the
+shards. Every speech is the giver talking from where they now stand; every accept line is a new beat."""
+
+STORY = {
+    'afq_walk_the_anchors': (
+        "The council sent you to help, and I'm grateful, but I won't tell you about the anchors yet. You'll understand them better if you walk to them. The First stands north-east of Keelstone in its chain-field, the Second is in the Ascendancy's camp south-east of here, and the Third is south, past the long crack. Stand at the First, look at the Second from as close as the Ascendancy lets you, and stand under the Third. Come back and tell me which one frightened you.",
+        "Everyone says the Third. I'd like to know if you're everyone."),
+    'afq_the_bombers_over_keelstone': (
+        "The Ascendancy flies bomber constructs from the Second Anchor, south-east of here, right over my hold. Every Ascendancy Bomber Construct they launch drops its load on the chain-field and calls it an exercise. I've had two chainwrights burned this season, and one of them won't hold a hammer again. They park the constructs in their camp at the anchor's foot. Bring them down there, and we'll see how much they like exercising on foot.",
+        "Hit them on the ground. Once they're up, they're faster than anything we've got."),
+    'afq_anchor_marshal_corvan_sael': (
+        "Anchor-Marshal Corvan Sael took the Second Anchor six years ago and told the council the wardens were too old and too slow to keep it. His own engineers' logs say it's drifted further in those six years than in the six centuries before. I've written the council eleven letters about him, and I've had two answers. He commands from the Ascendancy's camp at the Second Anchor, south-east of Keelstone. I'm done writing letters, so go and take it back.",
+        "Leave his officers' logs where they fall. The council will want to read them in his own hand."),
+    'afq_the_keel_heart': (
+        "Pell's found what's wrong with the Third Anchor, and it's worse than slipping. The keel under it has cracked, and something's grown out of the crack, feeding on the keel's own light. We call it the Keel-Heart because nobody's got a better word for it. The way down is the door at the Slipping Anchor's foot, south of here past the long crack. Go down into the Keel and tear it out, before it eats the thing that's holding the shelf up.",
+        "When it goes, the whole keel will ring. Don't stop to listen, get out."),
+    'afq_the_councils_thanks': (
+        "The Third Anchor is holding, and the Warden-Prime has written the council the whole of it: the keel, the crack and the thing that grew out of it, with your name at the top. My skiffs don't fly to the city any more, because the Ascendancy shoots at anything over the Second Anchor. It'll have to go by hand. Take it west along the aqueduct arm to the Spillway, and up the sky-bridge into Aurelion. Gatewarden Tessa Vell keeps the Bridgefoot, and she'll see it reaches the council.",
+        "Don't let the arm's wind take it out of your hand. That report took him three nights to write."),
+    'afq_carrion_over_the_skiffs': (
+        "Every Carrion Gale Hawk on the Dropfield thinks my skiffs are big slow birds worth chasing. They're tearing the sail lines and fouling the crystal hoods, and I've lost two lines this month. The Dropfield is south-west of Keelstone, where the old island came down, and they nest on the wreck. I've tried scaring them off with lamps and they just come to look. Thin them out where they nest, out on the fallen island.",
+        "They dive from high up. Watch the sun, because that's where they'll come from."),
+    'afq_links_with_names': (
+        "Every link in the First Anchor's chains has a name and a wright who forged it, cut into the iron where you can read it. The wind's always blown across the chain-field north-east of Keelstone, but a Chain-Wind Elemental is the wind with a grudge. They scour the links until the names are gone, and a link without a name is a link nobody's checked. I've walked those chains every day for twenty years. Clear the elementals off them.",
+        "They gather where the chains cross. Stand at a crossing and they'll come to you."),
+    'afq_anchorlight': (
+        "The wardens have always tempered new links in anchorlight, the gold light the First Anchor gives off. Every Anchorlight Wisp in the chain-field, north-east of here, is a little of that light that's wandered off on its own. The Third Anchor needs new links badly, and I can't forge one properly without it. My forge is lit and waiting. Bring me the motes, and I'll forge what I can.",
+        "Catch them in your hands if you can. They dim when they're frightened."),
+    'afq_starfall': (
+        "A month ago a shard of something burning came down out of the sky into the First Anchor's chain-field, and it never went out. The wardens call it Starfall, the Burning Shard, and it's been drifting along the chains ever since, melting every link it touches. I've lost four links this month, and I can only forge one a week. The chain-field is north-east of Keelstone, under the anchor. Put it out before it reaches the anchor itself.",
+        "Don't let it touch you either. It melts warden iron, and you're softer than that."),
+    'afq_reading_the_third': (
+        "I read the anchors the way a healer reads a pulse, by listening, and I can't hear the Third at all. Its stone has started coming loose, and every Slipstone Elemental round its foot is a piece of the shelf that's woken up and walked off. They grind so loud there's nothing else to hear. The Third Anchor is south of Keelstone, past the long crack. Break them up, and I'll go down and listen.",
+        'Break them on the bare rock, not near the anchor. The pieces bounce.'),
+    'afq_out_of_the_crack': (
+        "Things are coming up out of the cracks round the Third Anchor, south of here, and I think they're coming from the keel itself. Every Keelcrack Crawler and Void-Touched Wisp down there arrived in the last few years. Before that, the old wardens' logs don't mention either of them once in a thousand years. I'd like to know what woke them. Drive them back down, and I'll find out where they're coming from.",
+        'The wisps follow light. Douse your lamp and the crawlers come to you instead.'),
+    'afq_the_unmoored': (
+        "Something drifts round the Third Anchor, south of Keelstone, and wherever it goes, the stone forgets how heavy it is. I call it the Unmoored. Every time it passes the anchor, the needle on my gauge jumps, and the anchor slips a little further. Weight is the one thing an anchor can't live without. Find it and end it.",
+        "Hold onto something solid when it's close. You'll feel yourself get lighter."),
+    'afq_count_their_wardens': (
+        "I've watched the Ascendancy at the Second Anchor from the bridge for six years, and I've counted their tents so often I could draw them asleep. From the bridge I can't see what they're doing to the anchor itself. Their camp is south-east of Keelstone, round the anchor's foot. Get inside it and look at what they've built round the anchor. Don't stop to fight anything that doesn't stop you first.",
+        "Count the engineers, not the soldiers. The engineers are the ones who'll tell us what's wrong."),
+    'afq_hold_the_line': (
+        "The Ascendancy calls its soldiers wardens, and not one of them has ever checked a chain. Every Ascendancy Warden in the camp at the Second Anchor guards the anchor's foot, and every Ascendancy Crystal-Weaver keeps their shield pylon up. The camp is south-east of here, over the bridge. I've watched both of them for six years from that bridge. Thin them out, and the real wardens can walk back in.",
+        "Break the pylon's weavers first. Without the shield, the rest of them get nervous."),
+    'afq_their_own_logs': (
+        "The council won't believe a warden who says the Ascendancy is losing the Second Anchor. They might believe the Ascendancy's own engineers. Every Ascendancy Engineer in the camp south-east of Keelstone carries a drift log, and they write in it every hour like good engineers. I'd frame one if I could. Bring me those logs.",
+        "Their logs are in a bronze case on the belt. Don't open them, the seal's what proves they're real."),
+    'afq_word_for_word': (
+        "My grandfather's grandfather saw an island fall, and the story's come down to me word for word, the way the wardens keep everything. I've told it to every new warden on their first night. I won't tell it to someone who hasn't stood where it happened, though. Go out to the Dropfield, south-west of Keelstone, and look at what's left of the island. Then come back and sit with me.",
+        "Stand on the cloud as long as you can bear it. The story's better if you're still cold."),
+    'afq_down_to_the_keel': (
+        "When the Third Anchor began to slip, a company of wardens went down into its keel to tend it, and they're still down there. They're something else now, and we call each one a Hollowed Warden. The Ballast Golem that walks the halls was set there to keep the shelf level, and it doesn't know friend from stranger any more. The door down is at the Slipping Anchor's foot, south of here. Clear the way down so the rest of us can follow.",
+        "If any of them still wears a warden's sash, bring it up. Their families are still in Keelstone."),
+    'afq_warden_captain_oris_hale': (
+        "I served under Warden-Captain Oris Hale when I was young. He led the company that went down into the Keel, and he never left a post in his life without being relieved. If he's down there, he's still holding the wardens' last post. Nobody ever came to relieve him, so he'll fight anyone who comes near. The Keel's door is at the foot of the Slipping Anchor, south of Keelstone. Go and relieve him, and know you'll have to do it with a blade.",
+        "Say the relief words before you strike. Oris Hale, your watch is ended. He'll know them."),
+    'afq_lights_that_move': (
+        "The stars don't move, so when an island moves against them, I can see it. I take my readings from the annex here, and from the Observatory when I go back up. Every Lantern Puffball on the shards glows just like a star and drifts just like an island, and it ruins my count every night. I lost a whole week of readings to them this month. Pop them, please, so I can see what's actually moving.",
+        "They float lowest over the Estates, west of here. That's where they spoil the most."),
+    'afq_clear_glass': (
+        "The Observatory's great lens was ground before the house had its name, and it's gone cloudy with age. Every Overflow Elemental in the Gearwork, south-west of Keelstone, sets into clear glass when it comes apart, the clearest glass there is. I've seen a piece of it, and I could read print through it from across the room. I've wanted a clear lens since I was an apprentice. Bring me enough, and I'll grind a new one to see the drift properly.",
+        "Carry it wrapped. One scratch and I'll have to grind the whole piece away."),
+    'afq_three_hands': (
+        "Our oldest pages are copies of stone plates in a hand nobody in the house can read, and we've copied them faithfully for a thousand years anyway. The island that fell carried a library. Every Wreck-Rubble Elemental on the Dropfield, south-west of here, is made of its stone, and some of them carry plates in their bodies. If there's one I haven't seen, I need to see it. Bring me what you find.",
+        'Brush the plates off with your sleeve, not your fingers. The cuts are shallow.'),
+    'afq_the_first_measure': (
+        "I've made a rubbing of the plate you brought back, and it's cut in three hands side by side. The wardens don't write their history down, they keep it by mouth, and some of it's older than our ledger. Old Warden Ebbe Tharn sits in the court of the Wardens' Hall most evenings. Take this rubbing to him and ask if anything in his stories has three hands in it. I'd go myself, but he talks to me like I'm a student.",
+        'If he starts a story, let him finish. He hates being interrupted, and so do I.'),
+    'afq_four_degrees_and_climbing': (
+        "We moved up to Keelstone when the Listing Isle got too steep to sleep on, but Bartosz still drives a stake out there every morning to see how far it's leaned. Every Tiltside Goat on the isle thinks a stake is something to butt. I kept rigs standing in the North Sea for twenty years, and I never once had a goat problem. The isle is east of Keelstone, past the Second Anchor's bridge. Clear the goats off the stakes.",
+        "They come back to the stakes like it's a game. Make it a game they lose."),
+    'afq_old_hornback': (
+        "The biggest goat on the Listing Isle is Old Hornback, and he's the real reason we moved up here. He charges anything that stands on his island, and he decided the whole camp was standing on it. Two of my people still have cracked ribs, and Bartosz won't go out to his marks alone. The isle is east of here, past the Second Anchor. Make him stop.",
+        "He paws the ground twice before he charges. You'll have time to move, but not much."),
+    'afq_stakes_in_the_ground': (
+        "I measured land in Krakow for twenty years, and you always take both ends of a slope on the same morning. The Listing Isle is east of Keelstone, and its high end is up by the leaning tower while the low tip points south. My marks are cut into both. Read them for me before noon, so the sun hasn't warmed the stone. I'll do the sum and tell the wardens how bad it's got.",
+        "Write the numbers down the moment you read them. Everyone thinks they'll remember, and nobody does."),
+    'afq_pins_for_the_marks': (
+        "Wooden stakes move, goats eat them, and I'm tired of both. Back home in Krakow I'd have had steel survey pins. Truesilver doesn't rust and doesn't shift, and Hollis says there's some in the shelf's stone round the shards. I'd like pins that are still there when someone's grandchildren measure this island. Mine me enough Truesilver, and I'll set them myself.",
+        "Pick the veins with the most shine. Dull truesilver's got too much lead in it."),
+    'afq_dust_in_the_lungs': (
+        "Half the people who go out to the Listing Isle come back coughing, and I've worked out why. Every Cliffside Moth on the isle sheds a fine dust when it flies, and it settles in everybody's chest. Back home in Ibadan I'd have had a pharmacy down the road, and here I've got a pot of tea and good intentions. The isle is east of Keelstone, past the Second Anchor. Clear the moths off it, and I'll do the rest.",
+        "Tie a cloth over your mouth before you start. I'd rather not treat you too."),
+    'afq_sprains_and_salves': (
+        "An Aetherian herbalist showed me how to make a salve from Khadgar's Whisker, and it works better than anything I had in Ibadan. Everyone who goes out to the Listing Isle walks on a slope, so everyone sprains something, and the wardens' chain yard isn't much kinder. It grows out on the shards, in the cracks where the soil's caught. I've bound four ankles this week alone. Gather me some Khadgar's Whisker, and I'll make enough for the whole town.",
+        "Take the leaves and leave the roots. It grows back, and I'll want more next month."),
+    'afq_a_bigger_ledger': (
+        "The House of Measures has written down the shelf's lean every night for a thousand years. For nine hundred of them, the number in our ledger barely moved. For the last forty it's moved every year, and since the change it's moved more than in the forty before. Keelstone is south-west of the Observatory, across the shelf. Take these figures to the Warden-Prime, and put them in his hand yourself.",
+        "He'll read them twice and then sit very still. Give him a moment before you speak."),
+    'afq_measure_the_lean': (
+        "Our oldest survey marks are cut into the shelf at its far edges, one past the Estates on the west side and one on the Listing Isle's low tip, south of here. The house has read them every year since before my great-grandmother was born. I'm too old for the walk now, and my knees tell me so every morning. Go and read both marks for me. I'll compare them against the stars tonight.",
+        "The marks are worn shallow. Run your thumb along the line if you can't see it."),
+    'afq_the_clocks_still_need_winding': (
+        "I keep House Vaelith's estate for a family that left for Aurelion when the shelf began to lean. The house's sentinels have guarded these grounds for six hundred years, and they've always known me. Now every Estate Sentinel has forgotten who belongs here. They won't let me into the clock tower to wind the clocks, and a house this old doesn't like its clocks stopped. Clear them out of my way.",
+        'Their cores sit behind the breastplate. One good blow there and they kneel.'),
+    'afq_the_garden_gone_wild': (
+        "The estate's garden drones were built to tend the lawns, and they did it beautifully for centuries. Every Garden Repair-Drone on the grounds has now decided that anything moving is a branch that needs cutting. The Orchard Fowl were brought in to eat the grubs, and they've eaten the fruit, the seed and half a hedge instead. I'm one steward, and I can't fight both. Clear them off the lawns.",
+        'The fowl scatter when the drones come. Let the drones herd them for you.'),
+    'afq_the_gardener': (
+        "The Gardener has tended these grounds since before my family had a name in Aurelion. It planted the orchard my grandmother's grandmother walked in, and it taught me the names of every tree. Now it's pulling up anything it doesn't recognise, and it doesn't recognise anyone any more. My family left me here to keep the house, and I can't keep it with the Gardener loose. I can't do it myself, so please do it for me.",
+        "Don't hurt the orchard if you can help it. It's the last thing it made that I still love."),
+    'afq_sounds_i_dont_know': (
+        "These engines have fed the anchors since before the houses had names, and the constructs that tend them have always been quiet. I know every engine in the Gearwork by its sound, and I've stopped knowing these. Every Overloaded Construct is crackling now, and every Scrap-Walker is grinding itself apart and walking anyway. If they break the engines, the anchors starve. Break them down first.",
+        "The crackling ones are the dangerous ones. Wait until they've discharged, then go in."),
+    'afq_sirans_report': (
+        "I write down everything the Third Anchor does, every hour, and I take it to the engineer once a week. This week I can't leave it, because it slipped twice in one night and I'm the only one posted here. Keelstone is north of the anchor, across the long crack. Take my report to Pell, and put it in his hand. He'll want to see the times.",
+        'Tell him the second slip was longer than the first. I wrote it down, but tell him anyway.'),
+    'afq_the_best_wreck_ive_ever_been_on': (
+        "I salvaged wrecks off Halifax for fifteen years, and this is the best wreck I've ever been on. An island fell here centuries ago, and nobody's picked it over properly since. Every Dropfield Stalker on it thinks I'm dinner, and every Wreck-Rubble Elemental thinks I'm stealing, which is fair. I've had to leave three good pieces half-dug this week. Clear them off long enough for me to work.",
+        'The stalkers hunt in the fog banks. Stay where you can see your own feet.'),
+    'afq_old_ballast': (
+        "Old Ballast was a weight, once, hung under the island that fell to keep it level. When the island went, it came down with it, and it's been sitting on the wreck's heaviest piece ever since, guarding it. I want what's under it, and I'm not ashamed to say so. Back home in Halifax I'd have hired a crane. Up here I've got you, so please move it.",
+        "It's slow to get up. Hit it hard before it's on its feet."),
+    'afq_engine_seven': (
+        "The seventh engine in the Gearwork fed the Third Anchor for nine hundred years. Last month it pulled itself off its mount and started walking. I call it Engine Seven, and now it's tearing into the other engines as if it's looking for something. I've tended these engines my whole life, and I've never seen one do that. Stop it, before it reaches the First Anchor's feed.",
+        'It hums before it lunges. When the hum stops, get out of its way.'),
+}

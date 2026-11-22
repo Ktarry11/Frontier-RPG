@@ -230,6 +230,7 @@ ZONE_BACKGROUND = {
     "Lenswatch": "sky",                           # the survey's island (a town: no fights)
     "The Celestial Expanse": "sky",               # the open day sky
     "Halcyon Rest": "sky",                        # the Expanse's town (no fights)
+    "Keelstone": "sky",                           # the Anchorfields' town (no fights)
     "The Anchorfields": "sky",                    # the dawn sky over the shelf
     "The Ascendant Bastions": "sky",              # the storm sky over the star fort
     "The Stormroost": "sky",                      # Caelora's hidden maps fight under their own sky

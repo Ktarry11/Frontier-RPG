@@ -790,6 +790,14 @@ ANCHOR_SHEET.update({
     "av_corrupt_ground": _sk("ff_crystal_ash"),
     "av_mossy_cobble":   _sk("ae_engraved_stone"),
 })
+#: Keelstone (sheets SK and AE): the Anchorfields' town, paved nearly end to end in the wardens' marble cobbles, the
+#: Anchorfields' dew grass where it isn't, pale deck on the gangway and the light bridge ("plaza").
+KEELSTONE_SHEET = dict(ANCHOR_SHEET)
+KEELSTONE_SHEET.update({
+    "av_road_centre":    _sk("ae_marble_cobbles"),
+    "av_road_edge":      _sk("ae_engraved_stone"),
+    "av_plaza_stone":    _sk("sk_deck_pale"),
+})
 #: The Ascendant Bastions (sheets SK, AE, FF, VY): the Ascendancy's ground under a storm. Wind grass, slate gravel and
 #: storm rock on the natural rocks; the fort, the quay, the piers and the gun platforms paved whole in dark slate cobbles
 #: (the module's paving_field); pale marble cobbled roads with engraved-stone verges; scorched bronze round the guns
@@ -957,6 +965,7 @@ ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_S
                "worldtree_celestial_expanse": EXPANSE_SHEET,
                "worldtree_halcyon_rest": HALCYON_SHEET,
                "worldtree_anchorfields": ANCHOR_SHEET,
+               "worldtree_keelstone": KEELSTONE_SHEET,
                "worldtree_aurelion": AURELION_SHEET,
                "worldtree_ascendant_bastions": ASC_SHEET,
                "worldtree_fading_firmament": FIRMAMENT_SHEET,
@@ -1485,7 +1494,7 @@ def main():
     if "--preview" in sys.argv:
         preview = sys.argv[sys.argv.index("--preview") + 1]
     sc = int(sys.argv[sys.argv.index("--scale") + 1]) if "--scale" in sys.argv else 4
-    zone = next((z for z in ("worldtree_fading_firmament", "worldtree_ascendant_bastions", "worldtree_aurelion", "worldtree_anchorfields", "worldtree_celestial_expanse", "worldtree_halcyon_rest", "worldtree_lenswatch", "worldtree_sunward_crown", "worldtree_cloudbreak", "worldtree_upper_boughs", "worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "dawnhaven_amberleaf", "dawnhaven_duskfall", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
+    zone = next((z for z in ("worldtree_fading_firmament", "worldtree_ascendant_bastions", "worldtree_aurelion", "worldtree_anchorfields", "worldtree_celestial_expanse", "worldtree_halcyon_rest", "worldtree_keelstone", "worldtree_lenswatch", "worldtree_sunward_crown", "worldtree_cloudbreak", "worldtree_upper_boughs", "worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "dawnhaven_amberleaf", "dawnhaven_duskfall", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
     only = None
     if "--region" in sys.argv:       # x0,y0,x1,y1 in tiles: bake only the 20x20 chunks touching it (fast look-dev)
         x0, y0, x1, y1 = map(int, sys.argv[sys.argv.index("--region") + 1].split(","))

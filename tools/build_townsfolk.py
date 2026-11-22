@@ -43,6 +43,7 @@ TOWNS = {
     "brill": "Brill",
     "undercity": "Undercity",
     "halcyon_rest": "Halcyon Rest",
+    "keelstone": "Keelstone",
 }
 SPACING = 3          # nobody stands closer than this to anyone else, if the district has room
 

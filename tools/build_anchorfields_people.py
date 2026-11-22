@@ -6,8 +6,9 @@ Earthborn camped at Tiltside on the Listing Isle, House Vaelith's estate, and th
 
 docs/worldtree_brief.md. Ancient, not new (Kyle, 20 Nov 2026: "aurelion is ancient, we are new"): the wardens have kept
 these anchors for a thousand years, the house has measured the shelf's lean for as long, and the failing is a long
-decline that's got faster; the player is the newcomer. Keelstone is a hold, not a town: traders and the zone's one
-flight path, no inn. Aetherian NPCs are men until the women's sheet lands. Transplants are factionless, and nobody up
+decline that's got faster; the player is the newcomer. Keelstone is the Anchorfields' town, on its own map since 22 Nov 2026 (Kyle's town rule;
+tools/handbuilt_worldtree_keelstone.py): the inn, the mail, the zone's one flight path, the House of Measures' reading
+room and Tiltside's Earthborn, who moved up off the Listing Isle. A person stands on whichever map lists them. Aetherian NPCs are men until the women's sheet lands. Transplants are factionless, and nobody up
 here knows what the change was.
 
 Every person stands where the map's NPC_POSITIONS says; a person in one and not the other stops the script.
@@ -20,14 +21,15 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from tools import handbuilt_worldtree_anchorfields as AF  # noqa: E402
+from tools import handbuilt_worldtree_keelstone as KL  # noqa: E402
 from tools.npc_data_guard import safe_update  # noqa: E402
 from world.zone_keys import zone_key  # noqa: E402
 
 M, F = "male", "female"
 
-SERVICES = {"af_skiffmaster": ["flight"]}
+SERVICES = {"af_skiffmaster": ["flight"], "kl_innkeeper": ["inn"]}
 FLIGHT_NODES = [
-    ("anchorfields", {"name": "Keelstone", "zone": AF.NAME, "master": "af_skiffmaster", "pos": [-16, 124],
+    ("anchorfields", {"name": "Keelstone", "zone": KL.NAME, "master": "af_skiffmaster", "pos": [-16, 124],
                       "continent": "eastern_kingdoms"}),
 ]
 
@@ -113,6 +115,14 @@ AMBIENT = {
     "af_drop_scavenger": ("Wade Prentiss", "human", M, 12, "left",
                           "I salvaged wrecks off Halifax for a living. A whole island fell here a few hundred years ago, "
                           "and nobody's ever properly picked it over. That's the best wreck I've ever been on."),
+    # ---- Keelstone's own (the town map)
+    "kl_innkeeper": ("Innkeeper Hesper Vane", "aetherian", F, 10, "down",
+                     "The Warden's Rest has put up every new warden on their first night for nine hundred years, and "
+                     "it'll put you up too. The beds are hard because wardens like them hard. If you want to come back "
+                     "here quickly, I'll mark your hearthstone."),
+    "kl_gatewarden": ("Gate-Warden Talric Ost", "aetherian", M, 7, "right",
+                      "I keep the gate, and I keep count of who comes through it. Since the Third Anchor started "
+                      "slipping, it's mostly been wardens coming home tired, and you're the first stranger in a month."),
 }
 
 
@@ -128,8 +138,11 @@ def check():
     from tools.build_tempest_quests import voice_problems
     bad = []
     mine = set(VENDORS) | set(AMBIENT)
-    if mine != set(AF.NPC_POSITIONS):
-        bad.append(f"roster and layout disagree: {sorted(mine ^ set(AF.NPC_POSITIONS))}")
+    both = set(AF.NPC_POSITIONS) & set(KL.NPC_POSITIONS)
+    if both:
+        bad.append(f"on both maps: {sorted(both)}")
+    if mine != set(AF.NPC_POSITIONS) | set(KL.NPC_POSITIONS):
+        bad.append(f"roster and layout disagree: {sorted(mine ^ (set(AF.NPC_POSITIONS) | set(KL.NPC_POSITIONS)))}")
     for k, v in list(VENDORS.items()) + list(AMBIENT.items()):
         bad += [f"{k}: {p}" for p in voice_problems(v[-1])]
         if not v[-1].isascii():
@@ -141,17 +154,23 @@ def check():
     return bad
 
 
+def where(nid):
+    """(zone key, x, y) for a person, from whichever map lists them."""
+    mod = KL if nid in KL.NPC_POSITIONS else AF
+    x, y = mod.NPC_POSITIONS[nid]
+    return zone_key(mod.NAME), x, y
+
+
 def main():
     bad = check()
     if bad:
         raise SystemExit("FAILED:\n  " + "\n  ".join(bad))
-    zone = zone_key(AF.NAME)
     vd, ad = load("data/npcs/vendors.json"), load("data/npcs/ambient_npcs.json")
     vby = {r["vendor_id"]: r for r in vd["vendors"]}
     aby = {r["npc_id"]: r for r in ad["npcs"]}
     made = moved = 0
     for vid, (name, race, gender, var, facing, gl, gear, stock, greet) in VENDORS.items():
-        x, y = AF.NPC_POSITIONS[vid]
+        zone, x, y = where(vid)
         rec = dict(vendor_id=vid, name=name, zone=zone, x=x, y=y, tile_sprite="npc", buys_from_player=True,
                    faction="neutral", gear_level=gl, sells_gear=gear, race=race, gender=gender,
                    appearance_variant=var, facing=facing, greeting=greet)
@@ -162,7 +181,7 @@ def main():
             vd["vendors"].append(rec)
             made += 1
     for nid, (name, race, gender, var, facing, greet) in AMBIENT.items():
-        x, y = AF.NPC_POSITIONS[nid]
+        zone, x, y = where(nid)
         rec = dict(npc_id=nid, name=name, zone=zone, x=x, y=y, greeting=greet, gender=gender, race=race,
                    appearance_variant=var, facing=facing)
         if nid in aby:
@@ -170,6 +189,15 @@ def main():
         else:
             ad["npcs"].append(rec)
             made += 1
+    # the Warden's Rest keeps the mail, like every inn (qa_auction_house: a mailbox by every inn)
+    box = next((r for r in ad["npcs"] if r["npc_id"] == "mailbox_kl_innkeeper"), None)
+    if box is None:
+        box = {"npc_id": "mailbox_kl_innkeeper"}
+        ad["npcs"].append(box)
+    box.update(name="Mailbox", zone=zone_key(KL.NAME), x=40, y=71, facing="down", race="aetherian",
+               appearance_variant=0, is_mailbox=True, prop="assets/buildings/ae_mail_pylon.png",
+               greeting="Keelstone's mail pylon by the Warden's Rest. The wardens' letters go out with the morning "
+                        "skiff, and they've gone out with it for longer than anyone's kept count.")
     save("data/npcs/vendors.json", vd)
     save("data/npcs/ambient_npcs.json", ad)
     td = load("data/travel/travel_data.json")

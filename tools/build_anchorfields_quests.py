@@ -48,6 +48,7 @@ ITEM_PREFIX = "afg_"
 #: quest zone key -> (map module, start attribute, encounter path)
 MAPS = {
     SQ.AF: ("tools.handbuilt_worldtree_anchorfields", "START", ("The Anchorfields",)),
+    "keelstone": ("tools.handbuilt_worldtree_keelstone", "START", None),     # a town: reachability only
     SQ.KL: (None, None, ("The Anchorfields", "The Keel")),
 }
 CAVES = {SQ.KL}

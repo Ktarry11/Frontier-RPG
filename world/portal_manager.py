@@ -866,6 +866,10 @@ class PortalManager:
             "The Anchorfields": {
                 (3, 74): ("The Celestial Expanse", 290, 32),        # back west along the arm: arrive (290,30) on the Spillway
                 (188, 206): ("The Keel", 42, 6),                    # down into the third anchor's keel: arrive (42,4)
+                (168, 88): ("Keelstone", 60, 94),                  # through Keelstone's gate: arrive (60,92) at the Gate Stair
+            },
+            "Keelstone": {
+                (60, 97): ("The Anchorfields", 168, 86),            # back out of the gate: arrive (168,84) on the plaza
             },
             "The Golem Vault": {
                 (42, 2): ("The Celestial Expanse", 90, 161),        # back up to the Golem Fields: arrive (90,159)
