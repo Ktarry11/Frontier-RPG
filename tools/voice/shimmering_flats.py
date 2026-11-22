@@ -194,3 +194,321 @@ VOICE = {
         "Nissa holds it up to the lamp and turns it slowly, and she doesn't open it.\n\nThat's my seam. It isn't my work, but it's my seam, the double fold. My mother taught me it, her people brought it here from somewhere else entirely, and I've never seen it on anything I didn't make.\n\nIt came up out of ground that's been dry for a very long time.\n\nI'm not opening it in front of you, and I'm not opening it tonight. Come back in the spring and I'll tell you what my family was doing under this pan before there was a town on it.",
     ),
 }
+
+
+# THE STORY PASS (22 Nov 2026), to docs/quest_writing_standard.md: the narration in each description and the speech
+# in each accept line folded into the giver talking; accept lines a short beat; turn-ins above kept. The two item
+# starters narrate to "you" on purpose.
+STORY = {
+    "swf_open_date": (
+        "I post the times for the Saltwheel Open on the first clear day after the winter wet, with entries at the "
+        "gantry, scrutineering at noon, and the flag at two. Nobody's entered for three seasons, and I post them anyway, "
+        "in a clean hand, and stand under the board for an hour in case somebody comes. The start line wants clearing "
+        "before anything else happens. The Dustwheel scrappers have been stripping the kerb markers since the wet, and "
+        "every marker they take is a yard of the line I can't certify. Clear them off the straight and bring me the "
+        "salvage tags they hang on whatever they strip.",
+        "The tags are numbered. I want to know which markers I've lost, not just how many.",
+    ),
+    "swf_open_scrutineer": (
+        "I've scrutineered every Open since I was old enough to hold the gauge, and nobody's asked me since the track "
+        "died. I said yes before Tozzik finished the sentence, which embarrassed us both. If anything runs on that "
+        "straight, it runs on a boiler, and I won't pass a boiler I haven't seen plate from. Bring me pieces off the "
+        "Dustwheel crews, because they're running the same pattern we did and running it badly, which makes their "
+        "failures useful to me. Bring me pry bars too, and those aren't for the race, they're for me.",
+        "Somebody once drove that straight with no boiler at all. I've taken one apart since, and I "
+        "wish I hadn't.",
+    ),
+    "swf_open_entries": (
+        "The board's up, the scrutineer's ready, and the entry column has been blank for three seasons. I won't ask "
+        "anyone directly, because asking would make it a favour, and a favour doesn't count as an entry. You aren't from "
+        "here and it costs you nothing, so you can ask for me. Nazzik holds the course record and will tell you so, "
+        "Grizzik keeps a crew for a race that doesn't run and pays half of it herself, and Mozz has fuel and no one to "
+        "sell it to. Ask all three, and don't persuade anybody, because I want to know what they say when nobody's "
+        "leaning on them.",
+        "Ask me about them first if you need to. Then go and ask them, and lean on nobody.",
+    ),
+    "swf_open_course": (
+        "The Mirage Raceway is a loop out across the northern pan and back to the straight. It was surveyed once, eleven "
+        "years ago, and nobody's walked it since the hives came up, so I've been posting a course I haven't seen. Go out "
+        "to the far turn and look at it, which is more than I've done. The glasswing darters have taken the north leg, "
+        "and they come off the ground fast enough to put a driver into the salt, so clear them. Bring me resin too, from "
+        "the drones that lay it on the Crust, south-west of town, because I need to know whether the course is fouled or "
+        "whether something's building on it.",
+        "Whichever one it turns out to be decides whether there's a race.",
+    ),
+    "swf_open_flagfall": (
+        "I've got a crew of hands on the payroll for a race that hasn't run since the wet before last, and Tozzik pays "
+        "half and I pay half. Here's the part nobody says in front of him. The Dustwheel know the date too, they've been "
+        "running the straight themselves since the wet, and they'll be on it at two whether we are or not. So the "
+        "straight gets cleared properly this time, wheelmen and boiler crews both. Bring the wheels back, the "
+        "flat-spotted ones off machines that were actually driven, because I want to see what they've been doing with my "
+        "course.",
+        "Flat spots tell you how a wheel was driven. Get me the ones with the worst of them.",
+    ),
+    "swf_open_record": (
+        "The flag dropped at two, and there was one entrant, on the straight alone, because the loop belongs to "
+        "something else now. I timed it myself, because the only other person who knows how was driving. Before I post "
+        "it, I want something done by somebody who wasn't here for the good years. Walk the straight, end to end, at the "
+        "pace a person walks. Then put the mound sentinels off the eastern mark and bring me plates off them, because "
+        "that's where the course used to turn, and I want to know what's standing on it now.",
+        "I'll post the time either way. I'd rather post it knowing.",
+    ),
+    "swf_dust_rights": (
+        "I own everything out on that track the day it stops moving. The rule's written down, it's older than the track, "
+        "and it's made me the richest wreck-picker on a pan with no wrecks left on it. Read it and you'll find it says "
+        "stopped, not slowed, not parked, and not abandoned by a crew that went into town for a season. The Dustwheel "
+        "scrappers have been taking things that haven't stopped moving yet. Clear them off my course and bring me their "
+        "pry bars.",
+        "Yes, it's a lot of effort for a rule nobody enforces. That's what a rule nobody enforces costs.",
+    ),
+    "swf_dust_cousins": (
+        "Nobody in Saltwheel calls the Dustwheel bandits. Pim has you putting them off the course, and she's right to, "
+        "but I want you to understand what you're doing, because she won't tell you. Half of them are somebody's cousin. "
+        "When the track died, some of us walked into town and some of us walked out onto the pan, and mostly it came down "
+        "to which way you were facing that week. Put off the boiler crews and bring me plates off them, and then come "
+        "back and ask me what we call them.",
+        "I want to be asked out loud. Don't let me off it.",
+    ),
+    "swf_dust_fuel": (
+        "I laid in enough fuel to run a full season the year before the track died, and I've been sitting on it since. "
+        "Before the sky changed I had two hundred racers on this pan, and now I've got six customers. The same season, "
+        "the mountain turned up in the north, which I'm told is a coincidence, by people who aren't selling fuel. The "
+        "wheelmen are burning something out there that isn't coming from me. Go after them and bring me their wheels, so "
+        "I can see what it's doing to the rubber.",
+        "I've done the arithmetic on who's at fault. I'll do it at you when you get back.",
+    ),
+    "swf_dust_axle": (
+        "There's a broken axle out past the far turn of the Mirage Raceway, worth more than anything else left on the "
+        "course. It's been there two seasons, and neither I nor the Dustwheel has taken it, though either of us could "
+        "have, any day, without being seen. Go and look at it, and don't bring it back, because I'm not asking you to. "
+        "Put the scrappers off it while you're there and bring me their tags. If they've tagged it, it's theirs by their "
+        "rule, and I want to know that for certain instead of suspecting it for another two years.",
+        "You'll know it when you see it. It's the only thing out there that hasn't been stripped.",
+    ),
+    "swf_dust_ledger": (
+        "I record every cart in and out and every barrel of salt, written down twice. The town is shrinking and I can "
+        "tell you by exactly how much, which makes me the least popular person in it. Pim sent you and didn't say why, "
+        "which means she's finally worked it out and can't stand to be the one who says it. Bring me the Dustwheel crews' "
+        "salvage tags and their pry bars, and put them on this bench. Then ask me what column they go in, the actual "
+        "question, and I'll give you the actual answer.",
+        "Nobody in this town has wanted the actual answer since the track died. Ask me anyway.",
+    ),
+    "swf_mound_five": (
+        "I can see five mounds from the east fence. Three years ago there were two, and the near one was twice as far "
+        "out. I say the number in the inn every evening, and they've started buying me drinks so that I say it quieter. "
+        "The skitterers come off the near one and work west along the fence line. Clear a dozen of them off and bring me "
+        "mandibles, and look at the salt on them when you take them, because it grows over the edge and doesn't blunt "
+        "it.",
+        "I want to know if that's true of all of them, or just the ones I've seen.",
+    ),
+    "swf_mound_moved": (
+        "The mound I call the near one isn't where it was at the start of the wet. Mounds don't move, and I've checked my "
+        "own sightings four times, off the same two fence posts I've always used. Go out to the First Mound and stand at "
+        "the foot of it, because I need somebody who hasn't been staring at it every evening to tell me what shape it "
+        "is. Kill the crawlers while you're there and bring me their resin. If they're laying fresh on the west face and "
+        "the east face is old, it didn't move, it grew toward the fence.",
+        "That's a different problem, with a different arithmetic attached. Bring me the resin.",
+    ),
+    "swf_mound_salt": (
+        "I seal everything in lead because salt air takes a cork in a season. I've been reading Brak's notes over his "
+        "shoulder in the inn, and I've noticed something he hasn't, because I think about salt as a substance and not a "
+        "price. Brak counts the mounds, and nobody asks what's coming out of them. The tunnelers bring spoil up and leave "
+        "it, so bring me loads of it, and more mandibles to set against it. The pan is salt all the way down, and if "
+        "what they're bringing up is dry, we've got a problem nobody in this town is equipped to think about.",
+        "Bring it in a sealed sack if you can. I want to know how dry it is, not how dry the walk made it.",
+    ),
+    "swf_mound_spitters": (
+        "I treat salt sores, sun, and whatever the bugs do to a hand, in that order, every season. The third one's been "
+        "climbing for two years, and I've stopped pretending it hasn't. A spitter gets resin into a wound and the wound "
+        "sets, with the dirt still in it, and then I'm cutting it open again in a fortnight. Clear the hive spitters off "
+        "the fence line along the Mounds, east of Saltwheel. Bring me sacs still under pressure, and scorpid barbs to set "
+        "against them, because the barbs keep their venom wet out here when everything else dries.",
+        "It's crude medicine, but it's the medicine available.",
+    ),
+    "swf_mound_mouths": (
+        "There are two ways down into the Undercrust, and they're most of the pan apart. The Crustfall is a shallow slot "
+        "by Crustbreak, and the Deep Shaft is out under the oldest mound on the map. I've assumed since I took this post "
+        "that they're two caves. Go to the Crustfall first, then all the way across to the Deep Shaft, and kill the "
+        "tunnelers in between. Stand at both and tell me whether the air coming out of them smells the same.",
+        "I'm not asking you to go in. If it smells the same, I've been counting two caves for four winters.",
+    ),
+    "swf_mound_queen": (
+        "One cave, two mouths, and at the heart of it something that's been laying since before anybody in Saltwheel was "
+        "born. I've stopped counting mounds, because there's no point counting the branches when you've found the root. "
+        "Go in at whichever mouth you like, they both get there, and the Undercrust is a long way south of town, under "
+        "the far edge of the pan. Kill the rippers on the way and bring me plates off the sentinels, because I want to "
+        "see whether what guards her is made the same as what comes out to the fence. I'm not coming, because my one "
+        "skill is counting, and down there there's nothing to count.",
+        "She's at the middle. You'll know her when the tunnels stop.",
+    ),
+    "swf_salt_one_trade": (
+        "I deal in salt, that's the whole business, and everybody laughed at me for twenty years for it. Nobody's "
+        "laughing now, and most of them are just gone. Salt's the only trade on this pan the Integration didn't touch, "
+        "because nothing that came through needed a racetrack, and everything that came through needs to eat. The salt "
+        "vultures are at the drying racks on the shore, and they've worked out that a rack is a table. Kill them and "
+        "bring me quills, because I use them for marking grades.",
+        "I'd buy the quills off you anyway. Bring every one you find.",
+    ),
+    "swf_salt_graded": (
+        "Salt from the shore is clean and salt from the crust isn't, and the difference is money. I grade it myself, by "
+        "eye, with a vulture quill, and I've never once been wrong in a way the buyer noticed. Go out onto the Crust and "
+        "bring me what the tunnelers have thrown up, because it's the deepest salt anybody can get at without digging, "
+        "and I've believed for twenty years the deepest is the cleanest. Put the crustback scorpids off the drying ground "
+        "while you're out there. They get into the stacks, and then somebody finds one in a barrel in Freewind Post and I "
+        "hear about it for a year.",
+        "I've believed that about deep salt on no evidence at all. Bring me some evidence.",
+    ),
+    "swf_salt_cart": (
+        "I sell what a person needs to walk out of Saltwheel, and business is thriving, because walking out is the only "
+        "option available. Jixa wants her salt in Freewind Post, and there's no cart, no bird and no road worth the word, "
+        "but there's you. The west crossing goes past the Brine, and the mirage basilisks have the Brine. Kill them and "
+        "bring me eyes, which I sell to people who think they're lucky, and before you ask, they aren't. Bring me scorpid "
+        "barbs as well, because those actually work for what I say they do.",
+        "There's no bird. I'll mention it again later, too.",
+    ),
+    "swf_salt_crossing": (
+        "Freewind Post sits over a long drop at the far end of the mesas, and between it and Saltwheel there's a pan, a "
+        "range, and nothing that flies for hire. I've been shipping to Spice-Trader Ovi there for eleven years, and we've "
+        "never met. She's never once haggled, which told me everything I needed to know about her and nothing about what "
+        "she looks like. These are the sacks, graded and sealed. When you get up there, ask her the question I've never "
+        "been able to put in a letter.",
+        "She'll know which question. If she doesn't, she isn't the woman I've been trading with.",
+    ),
+    "swf_salt_back": (
+        "I run four caravans a week up the ramp and not one of them on time. Ovi wants a cart on the Saltwheel pan, and "
+        "I've told her no every season because of what's on the road, and I don't mean the hives, I mean the crews. Clear "
+        "the Dustwheel scrappers off the west crossing and bring me their salvage tags. If the tags are numbered in "
+        "sequence, it's one outfit working a route, and I can negotiate with an outfit, but if they're scattered, it's "
+        "nobody, and I can't. Take Ovi's reply back down to Jixa Brinecount with you as well.",
+        "Ovi wrote it standing up, which from her is a great deal.",
+    ),
+    "swf_in_glass_pan": (
+        "I can tell you whether a thing came up out of the mesas or down off the mountain. The shard the salt crew "
+        "brought me did neither. It's pan fused to glass, and the only pan big enough to do that to itself is four days "
+        "east of anywhere I've been. I've been pricing things off that pan for eleven years on the word of carters who "
+        "never got out of the cart. Head east, past the last mesa, through the gap and out onto the white, and stand "
+        "where it came from.",
+        "I don't need you to bring me anything. The birds will be a problem, though, so bring me their quills.",
+    ),
+    "swf_in_other_end": (
+        "Four caravans a week come up that ramp, not one of them on time, and every one of them comes from the north. "
+        "Namka has a road with somebody at both ends of it now, and I've noticed there's a third end that nobody in "
+        "Freewind Post has ever walked. Nothing's come from the east in my working life, and there's supposed to be a "
+        "town out there. Walk to it, and put this in the hand of whoever keeps their books. Every town has one, and "
+        "they're always the person nobody talks to.",
+        "Kill the Dustwheel scrappers you meet on that road. If I'm sending carts, I want to know what's on it.",
+    ),
+    "swf_water_waterline": (
+        "There are shore stacks out on the western pan, lumps of rock the salt hasn't finished eating, and every one of "
+        "them carries a waterline. I noticed it with a gauge in my hand, looking for something else entirely. The "
+        "stain's at the same height on all of them, which means it's a waterline and not a coincidence, and it's a long "
+        "way above where any water's been in my lifetime. Go out to the stacks on the west shore and mark it for me, "
+        "because a vulture quill takes a mark on wet rock and holds it. Put the drones off the stacks while you're at it.",
+        "They're working the base of the stacks. I don't want my marks eaten.",
+    ),
+    "swf_water_three": (
+        "The tunnelers bring up dry spoil from under a pan that should be wet through, and I've held that fact for a "
+        "season, waiting for a second one. Now Oyla's brought me a waterline. So I've got two facts, the pan was deeper "
+        "and the ground beneath the pan is dry, and they don't sit together without a third thing between them. Bring me more "
+        "loads of spoil, from as far east as you're willing to walk, and basilisk eyes. The eyes cloud by taking up "
+        "whatever's in the air, and I can read a dry season off one the way you read a ring off a tree.",
+        "I need a few eyes to argue with each other. One on its own tells me nothing.",
+    ),
+    "swf_water_answer": (
+        "The melt is higher every spring on the mountain, nobody on the mesas can say where that water goes, and the pan "
+        "it should arrive on is drier than its own waterline. Those three have never been in one room, and you've stood "
+        "in all three, which nobody else this side of the range has done. I think the water arrives, and always has. I "
+        "think something underneath has been drinking it for longer than this town has existed, and the mountain has "
+        "started sending more. Go out to the Deep Pan, put off the mound sentinels round the oldest mound on it, and "
+        "bring me their plates and spoil from its foot.",
+        "Spoil from the very foot of it, mind. That's where I'll know if I'm right.",
+    ),
+    "swf_inn_no_bird": (
+        "There's a post outside this inn of exactly the kind a wind rider perches on, and there's never been a wind rider "
+        "on it. I've explained that to every arrival for eleven years, so before you ask, there was never a wind rider, "
+        "you came in on your feet, and that's how you're leaving. Bed, board and a bind, that's the full list. What I've "
+        "got is a flock of salt vultures roosting on the post, because it's the tallest thing in town and they aren't "
+        "fussy about what it was for. Kill those and bring me quills, and then I'll hear no more about birds from "
+        "anybody.",
+        "Your bed's the one at the end, when you're done.",
+    ),
+    "swf_inn_two_years": (
+        "Vozzi runs the beds and I run the bar, and we haven't exchanged a word in two years. The business has never been "
+        "better, and we've both noticed, which is the problem. She needs scourers for the pots, and she won't ask me for "
+        "them, and I'm not offering. So you're going to bring me mandibles and put them behind this bar, where she'll see "
+        "them when she comes through for the ice. She'll take them, she won't say anything, and that'll be that.",
+        "Then ask me what we fell out about. Everyone does eventually.",
+    ),
+    "swf_inn_hinges": (
+        "I can slow salt, but I can't stop it, and anyone who says otherwise is selling you grease. The inn's shutters "
+        "haven't latched in a year, and Vozzi's stopped mentioning it. Here's a thing the hives are better at than we "
+        "are, which I resent and which is true. Sentinel plate has salt grown right through it and still articulates, "
+        "and ours seizes in a season. Bring me sentinel plates and the wet resin, and let me find out whether it's the "
+        "plate or what they bed it in.",
+        "It's for a shutter. I'm aware of the scale of the ambition.",
+    ),
+    "swf_inn_stock": (
+        "I laid in years of stock the year before the track died, for a crowd that was coming and then didn't. It's all "
+        "still in the warehouse, in good order, because I've kept it that way, and you can decide whether that's "
+        "professional or sad. The Dustwheel have been into the back of the warehouse twice this season, and I'd rather "
+        "deal with it than report it. Reporting it means Winnow writes it down, and once Winnow writes something down "
+        "it's a fact about this town forever. Put off the boiler crews and bring me their plates and pry bars.",
+        "That's what they left behind. I want it accounted for.",
+    ),
+    "swf_solo_prices": (
+        "Everything on my table came across the pan on a cart with four bad wheels, so you'll think my prices are high, "
+        "and they are. Yes, they were lower four years ago, and that's about when the sky rearranged itself and half my "
+        "suppliers found more interesting customers. I'm not blaming you personally, I'm blaming the general situation, "
+        "of which you're a part. The saltcrust skitterers have got into my stock yard. Get them out and bring me their "
+        "mandibles.",
+        "They're in the sacks. They're always in the sacks.",
+    ),
+    "swf_solo_record": (
+        "The course record for the Saltwheel Open is mine, and nobody's touched it in eleven years. That's because "
+        "nobody's driven the course in three, I'm aware of that, and it doesn't take the record off me. There's a marker "
+        "stone at the north turn of the Mirage Raceway with a time cut into it. I want to know whether it's still "
+        "legible. I'm not going out to look, and I'm not going to explain why.",
+        "The darters are all over that leg. Clear them while you're up there.",
+    ),
+    "swf_solo_lead": (
+        "Salt air ruins a cork in a season, so I seal everything in lead and charge you for the lead. I've heard what "
+        "they say about lead, and I'd like you to drink it fast. The crustback scorpids keep their venom wet in air that "
+        "dries everything else, because of something in the sheath. If I can get at what the sheath is doing, I can stop "
+        "sealing in lead and stop charging you for it. Clear them off the drying ground and bring me their barbs.",
+        "I'd like to stop charging you for lead. I'd like that on the record.",
+    ),
+    "swf_solo_crew": (
+        "My crew haven't touched a running machine since the track died, and two of them have started forgetting things "
+        "you can't relearn off a book. So I'm sending you out to bring me work. Go after the Dustwheel wheelmen and bring "
+        "me their wheels and salvage tags, so I know which machine each wheel came off. My hands strip them, rebuild them "
+        "and put them on a shelf, and then I pay them. I'm not doing it for a race, I'm doing it so their hands remember "
+        "the work.",
+        "Bring me the worst wheels you find. The worse they are, the more my hands learn.",
+    ),
+    "swf_solo_shrinking": (
+        "Every cart in, every cart out, every barrel of salt, written down twice. I'm the least popular person in "
+        "Saltwheel, because I'm the only one who can answer the question this town asks itself at night. I need tunnel "
+        "spoil to weigh against last year's, and vulture quills to write with, because I've used mine up and the general "
+        "goods has stopped stocking them. That last part's a data point, and I've recorded it. Then ask me the question, "
+        "because everyone wants to and nobody does.",
+        "I'd like, once, to be asked instead of avoided.",
+    ),
+    "swf_item_entry_slip": (
+        "You turn the slip over. It's an entry for the Saltwheel Open, three seasons out of date, with the name scratched "
+        "out and written in again twice. It's the same hand each time, pressing harder every go. Somebody entered, "
+        "withdrew, entered, withdrew, and entered again, and then the race never happened. The gantry is where entries "
+        "are taken, and the man under it takes them whether or not anybody brings him one.",
+        "Watch for the wheelmen on your way in. They won't step aside for somebody carrying paper.",
+    ),
+    "swf_item_sealed_tin": (
+        "You turn the tin over. It's lead-sealed at every seam, and it was dug up out of pan that's been bone dry for "
+        "longer than anyone has been counting. Something rattles inside, and whatever's in there has never once been wet. The "
+        "tunnelers bring these up and leave them, which means there are more, and somebody was sealing things in lead on "
+        "this pan before anybody in Saltwheel was born. Go back to where the spoil comes up on the Brine, then put the "
+        "tin in front of the only person in town who seals things in lead.",
+        "Bring loads of the spoil with you. Brewer Nissa Tolk will want to see what it came out of.",
+    ),
+}
+for _qid, (_d, _a) in STORY.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a if _a is not None else _old[1], _old[2])
