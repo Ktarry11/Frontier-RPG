@@ -195,7 +195,18 @@ def main():
         entry = zones[name]
         z = entry["tilemap"] if isinstance(entry, dict) else entry
         key = zone_key(name)
-        taken = [(r["x"], r["y"]) for r in amb["npcs"] + ven["vendors"]
+        # recruits stand in towns too, and nobody may share their tile (tools/qa_recruits.py)
+        recs = json.loads((ROOT / "data/npcs/recruits.json").read_text(encoding="utf-8"))["recruits"]
+        for rr in recs:
+            for zk, xk, yk in (("zone", "x", "y"), ("home_town", "home_x", "home_y")):
+                if rr.get(zk) and rr.get(xk) is not None and zone_key(str(rr[zk])) == key:
+                    old_pos = {p[0]: (by_id[p[0]]["x"], by_id[p[0]]["y"]) for p in people if p[0] in by_id}
+                    for nid, pos in old_pos.items():
+                        if abs(pos[0] - rr[xk]) <= 1 and abs(pos[1] - rr[yk]) <= 1:
+                            by_id[nid]["x"] = -99          # move off a recruit's tile
+        taken = [(r["x"], r["y"]) for r in amb["npcs"] + ven["vendors"] + [
+                     {"zone": rr.get("zone"), "x": rr.get("x"), "y": rr.get("y")} for rr in recs] + [
+                     {"zone": rr.get("home_town"), "x": rr.get("home_x"), "y": rr.get("home_y")} for rr in recs]
                  if zone_key(str(r.get("zone", ""))) == key and r.get("npc_id") not in {p[0] for p in people}
                  and r.get("x") is not None]
         old = {p[0]: (by_id[p[0]]["x"], by_id[p[0]]["y"]) for p in people if p[0] in by_id}
