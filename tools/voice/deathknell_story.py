@@ -1,3 +1,6 @@
-"""deathknell needed no new speeches; its accept lines are in deathknell_beats."""
+"""Deathknell: two speeches now name what you are sent after, which the old accept line used to carry."""
 
-STORY = {}
+STORY = {
+    'dk_instructor_ossric': ("There's one in the Shadow Grave who's a lesson rather than a drill, so listen before you go down there swinging.\n\nOssric was the sexton. Before any of this, he buried half this village with his own hands, properly, with the rites, in the right order.\n\nNobody buried him. When it came round to his turn there was nobody left who did that work, and he went into the ground wrong or not at all.\n\nHe rises every night among the Wretched Zombies with the spade still in his hand and goes looking for the grave that was never dug for him. He's been at it for years. He's extremely good at digging, and he's never once found it.\n\nSo dig it. That's the whole task, and I'd like you to understand it as a kindness rather than a cull.", None),
+    'dk_gresk_hatchery': ("This is the last job on this claim, and it's the one that actually finishes it.\n\nIn the north-west corner of the Hollow there's a hatchery. Clutches of Brood Hatchlings hang in the silk, rows of them, and a warden called Skrix minds the lot.\n\nOn the far side there's the Pale Weaver, which I'd rather you heard about from me than met cold. It doesn't kill what it catches. It spins cocoons around the dead, the already dead, and it goes out and fetches them. Nobody, including me, has a satisfactory explanation for why.\n\nThat's Skrix, the Weaver, and the clutches, all of it in one go. Leave any of the three and we'll be doing this again by spring.", None),
+}
