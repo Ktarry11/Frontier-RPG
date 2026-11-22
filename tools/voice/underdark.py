@@ -145,3 +145,10 @@ VOICE = {
         "I left them on the bench all night and they kept drawing power the whole time. Whatever is putting it out isn't asking for anything back.\n\nI'd still like to know what happens if it stops.",
     ),
 }
+
+
+# THE STORY PASS (22 Nov 2026), to docs/quest_writing_standard.md; see tools/voice/underdark_story.py.
+from voice.underdark_story import STORY as _STORY
+for _qid, (_d, _a) in _STORY.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a, _old[2])
