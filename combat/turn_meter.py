@@ -173,6 +173,43 @@ class TurnMeter:
             # 1.5 - which can leave the meter below zero, so the slow caster waits longer for its next turn
             char.turn_meter = max(-TURN_THRESHOLD, char.turn_meter - TURN_THRESHOLD * speed)
     
+    # ------------------------------------------------------------------ the turn timeline (docs/turn_timeline_design.md)
+    # Kyle, 20 Nov 2026: a bar down the right of combat where "the order flows down like water. Whoever is at the top is
+    # last, whoever is at the bottom is moving next", and hovering a spell shows where its caster would land. Everything
+    # here reads the same numbers update() and consume_turn() use, so the bar shows what will happen, not a guess.
+
+    def fill_rate(self, char, extra_haste=0.0):
+        """How fast this combatant's meter fills, in meter per second, with any extra haste a spell would add."""
+        self._refresh_turn_speed(char)
+        rate = char.turn_speed * AGI_TO_TURN_SPEED * 100.0
+        if extra_haste:
+            own = getattr(char, "haste", 0.0) or 0.0
+            rate *= (100.0 + own + extra_haste) / max(1.0, 100.0 + own)
+        return max(1e-6, rate)
+
+    def time_to_turn(self, char):
+        """Seconds of meter time until this combatant's next turn (0 if it's due now)."""
+        return max(0.0, (TURN_THRESHOLD - char.turn_meter) / self.fill_rate(char))
+
+    def time_after_cast(self, char, speed=1.0, extra_haste=0.0):
+        """Where the caster's next turn would fall after a spell of this speed: the same sum consume_turn() does,
+        then the time to fill back up, at the haste the spell would leave them with."""
+        meter = max(-TURN_THRESHOLD, char.turn_meter - TURN_THRESHOLD * speed)
+        return max(0.0, (TURN_THRESHOLD - meter) / self.fill_rate(char, extra_haste))
+
+    def timeline_scale(self):
+        """The bar's height in meter time: one full turn at normal speed for the slowest living combatant, so every
+        next turn fits on it. Anything later sits at the top."""
+        living = [c for c in self.combatants if c.is_alive()]
+        if not living:
+            return 1.0
+        return TURN_THRESHOLD / min(self.fill_rate(c) for c in living)
+
+    def timeline(self):
+        """[(combatant, place)] for everyone alive, place 0 (moves next) to 1 (a full slow turn away) and above."""
+        scale = self.timeline_scale()
+        return [(c, self.time_to_turn(c) / scale) for c in self.combatants if c.is_alive()]
+
     def get_turn_order_preview(self):
         """Return sorted list of characters by turn meter (for UI display)."""
         alive_chars = [c for c in self.combatants if c.is_alive()]

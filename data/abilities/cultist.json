@@ -88,7 +88,8 @@
       "icon_id": null,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 3.03x steeper than it, biggest single-rank jump 1.39x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_horrorbolt",
@@ -158,7 +159,8 @@
       "damage_school": "shadow",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 3.56x steeper than it, biggest single-rank jump 1.42x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_wrath_of_the_black_empire",
@@ -213,7 +215,8 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.74x steeper than it, biggest single-rank jump 1.20x); overall size kept. tools/fix_rank_lines.py",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_sanity_tap",
@@ -236,7 +239,8 @@
         }
       ],
       "icon_id": null,
-      "restore_resource_type": "mana"
+      "restore_resource_type": "mana",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_gaze_of_cthun",
@@ -312,7 +316,8 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.80x steeper than it, biggest single-rank jump 1.25x); overall size kept. tools/fix_rank_lines.py",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_presence_of_cthun",
@@ -350,7 +355,8 @@
           "on_target": false,
           "real_time_seconds": null
         }
-      }
+      },
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_hammer_of_twilight",
@@ -412,7 +418,8 @@
           "effect_value": 239
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_entropic_slam",
@@ -469,7 +476,8 @@
           "effect_value": 135
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_twilight_domain",
@@ -492,7 +500,8 @@
           "effect_value": 100
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_sermon_of_dread",
@@ -552,7 +561,8 @@
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_horrifying_presence",
@@ -577,7 +587,8 @@
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_netherstrike",
@@ -620,7 +631,8 @@
         "resource": "insanity",
         "amount": 20
       },
-      "icon_id": null
+      "icon_id": null,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_whispers_of_cthun",
@@ -662,7 +674,8 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)",
         "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_presence_of_yshaarj",
@@ -699,7 +712,8 @@
           "on_target": true,
           "real_time_seconds": null
         }
-      }
+      },
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_dreadnought_shield",
@@ -722,7 +736,8 @@
       ],
       "icon_id": null,
       "buff_scope": "combat",
-      "absorb_pct_max_health": 0.25
+      "absorb_pct_max_health": 0.25,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_twilight_shieldtoss",
@@ -777,7 +792,8 @@
       "damage_school": "shadow",
       "_tuning": [
         "15 Nov 2026, class pass: every rank x0.54 - it sat at 2.97x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_presence_of_nzoth",
@@ -806,7 +822,8 @@
         "chance": 20,
         "icd": 1,
         "extra_attack": 1
-      }
+      },
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_whispers_of_nzoth",
@@ -831,7 +848,8 @@
       ],
       "icon_id": null,
       "buff_scope": "raid",
-      "exclusive_group": "cultist_whispers"
+      "exclusive_group": "cultist_whispers",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_eldritch_mending",
@@ -848,63 +866,65 @@
         {
           "rank": 1,
           "level_req": 2,
-          "cost": 20,
-          "effect_value": 66
+          "cost": 17,
+          "effect_value": 43
         },
         {
           "rank": 2,
           "level_req": 9,
-          "cost": 27,
-          "effect_value": 82
+          "cost": 23,
+          "effect_value": 53
         },
         {
           "rank": 3,
           "level_req": 16,
-          "cost": 34,
-          "effect_value": 98
+          "cost": 29,
+          "effect_value": 64
         },
         {
           "rank": 4,
           "level_req": 23,
-          "cost": 41,
-          "effect_value": 114
+          "cost": 35,
+          "effect_value": 74
         },
         {
           "rank": 5,
           "level_req": 29,
-          "cost": 47,
-          "effect_value": 128
+          "cost": 40,
+          "effect_value": 83
         },
         {
           "rank": 6,
           "level_req": 36,
-          "cost": 54,
-          "effect_value": 144
+          "cost": 46,
+          "effect_value": 94
         },
         {
           "rank": 7,
           "level_req": 43,
-          "cost": 61,
-          "effect_value": 160
+          "cost": 52,
+          "effect_value": 104
         },
         {
           "rank": 8,
           "level_req": 50,
-          "cost": 68,
-          "effect_value": 176
+          "cost": 58,
+          "effect_value": 114
         },
         {
           "rank": 9,
           "level_req": 58,
-          "cost": 75,
-          "effect_value": 194
+          "cost": 64,
+          "effect_value": 126
         }
       ],
       "icon_id": null,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.76x steeper than it, biggest single-rank jump 1.23x); overall size kept. tools/fix_rank_lines.py",
-        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
-      ]
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py",
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+      ],
+      "cast_speed": "quick"
     },
     {
       "ability_id": "cultist_devour_magic",
@@ -950,7 +970,8 @@
         }
       ],
       "icon_id": null,
-      "dispel_type": "magic"
+      "dispel_type": "magic",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_satiate",
@@ -1009,7 +1030,8 @@
       },
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_whispers_of_yoggsaron",
@@ -1034,7 +1056,8 @@
         }
       ],
       "icon_id": null,
-      "exclusive_group": "cultist_whispers"
+      "exclusive_group": "cultist_whispers",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_eldritch_shock",
@@ -1051,34 +1074,38 @@
         {
           "rank": 1,
           "level_req": 36,
-          "cost": 20,
-          "effect_value": 340,
+          "cost": 17,
+          "effect_value": 221,
           "heal_value": 375
         },
         {
           "rank": 2,
           "level_req": 43,
-          "cost": 20,
-          "effect_value": 378,
+          "cost": 17,
+          "effect_value": 246,
           "heal_value": 417
         },
         {
           "rank": 3,
           "level_req": 49,
-          "cost": 20,
-          "effect_value": 417,
+          "cost": 17,
+          "effect_value": 271,
           "heal_value": 460
         },
         {
           "rank": 4,
           "level_req": 56,
-          "cost": 20,
-          "effect_value": 455,
+          "cost": 17,
+          "effect_value": 296,
           "heal_value": 502
         }
       ],
       "icon_id": null,
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "cast_speed": "quick",
+      "_tuning": [
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+      ]
     },
     {
       "ability_id": "cultist_presence_of_yoggsaron",
@@ -1117,7 +1144,8 @@
           "on_target": true,
           "real_time_seconds": null
         }
-      }
+      },
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_dark_infusion",
@@ -1146,7 +1174,8 @@
         "chance": 100,
         "icd": 1,
         "heal_flat": 160
-      }
+      },
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_voidforged_edge",
@@ -1190,7 +1219,8 @@
           "on_target": true,
           "real_time_seconds": null
         }
-      }
+      },
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_rift",
@@ -1214,7 +1244,8 @@
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_empires_grasp",
@@ -1237,7 +1268,8 @@
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_voidborne",
@@ -1267,7 +1299,8 @@
         "amount": 1
       },
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_dreadfall",
@@ -1324,7 +1357,8 @@
           "effect_value": 142
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_entropic_strike",
@@ -1368,7 +1402,8 @@
       "_over_time_lifted": 3.3,
       "_tuning": [
         "15 Nov 2026, class pass: every rank x3.30 - its total was 0.21x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_tentacle_of_nzoth",
@@ -1389,7 +1424,8 @@
         }
       ],
       "icon_id": null,
-      "is_stun": true
+      "is_stun": true,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_darkwither",
@@ -1444,7 +1480,8 @@
         "amount": 10
       },
       "icon_id": null,
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_obliteration_beam",
@@ -1461,26 +1498,26 @@
         {
           "rank": 1,
           "level_req": 22,
-          "cost": 127,
-          "effect_value": 61
+          "cost": 146,
+          "effect_value": 92
         },
         {
           "rank": 2,
           "level_req": 32,
-          "cost": 155,
-          "effect_value": 75
+          "cost": 178,
+          "effect_value": 112
         },
         {
           "rank": 3,
           "level_req": 44,
-          "cost": 189,
-          "effect_value": 91
+          "cost": 217,
+          "effect_value": 136
         },
         {
           "rank": 4,
           "level_req": 58,
-          "cost": 229,
-          "effect_value": 110
+          "cost": 263,
+          "effect_value": 165
         }
       ],
       "generates": {
@@ -1490,8 +1527,10 @@
       "icon_id": null,
       "damage_school": "shadow",
       "_tuning": [
-        "15 Nov 2026, class pass: every rank x0.34 - it sat at 4.75x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
-      ]
+        "15 Nov 2026, class pass: every rank x0.34 - it sat at 4.75x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
+      ],
+      "cast_speed": "slow"
     },
     {
       "ability_id": "cultist_eldritch_devastation",
@@ -1531,7 +1570,8 @@
         }
       ],
       "icon_id": null,
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_visions",
@@ -1556,7 +1596,8 @@
         }
       ],
       "icon_id": null,
-      "buff_scope": "raid"
+      "buff_scope": "raid",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_ancient_curse",
@@ -1599,7 +1640,8 @@
       ],
       "_tuning": [
         "15 Nov 2026, class pass: every rank x1.43 - its total was 0.56x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_psychic_suppression",
@@ -1621,7 +1663,8 @@
       ],
       "icon_id": null,
       "is_stun": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_dreadfall_tank",
@@ -1680,7 +1723,8 @@
           "effect_value": 142
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_crushing_dissonance",
@@ -1703,7 +1747,8 @@
       ],
       "icon_id": null,
       "is_stun": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_void_strikes",
@@ -1753,7 +1798,8 @@
           "effect_value": 169
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_bulwark_of_shadow",
@@ -1777,7 +1823,8 @@
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_eldritch_bastion",
@@ -1800,7 +1847,8 @@
       ],
       "icon_id": null,
       "buff_scope": "combat",
-      "absorb_pct_max_health": 0.35
+      "absorb_pct_max_health": 0.35,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_armageddon",
@@ -1818,27 +1866,31 @@
         {
           "rank": 1,
           "level_req": 44,
-          "cost": 38,
-          "effect_value": 50,
+          "cost": 44,
+          "effect_value": 75,
           "heal_value": 60
         },
         {
           "rank": 2,
           "level_req": 52,
-          "cost": 42,
-          "effect_value": 56,
+          "cost": 48,
+          "effect_value": 84,
           "heal_value": 67
         },
         {
           "rank": 3,
           "level_req": 60,
-          "cost": 47,
-          "effect_value": 62,
+          "cost": 54,
+          "effect_value": 93,
           "heal_value": 74
         }
       ],
       "icon_id": null,
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "cast_speed": "slow",
+      "_tuning": [
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
+      ]
     },
     {
       "ability_id": "cultist_devour_curse",
@@ -1902,7 +1954,8 @@
         }
       ],
       "icon_id": null,
-      "dispel_type": "curse"
+      "dispel_type": "curse",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_greater_void_blessing",
@@ -1958,8 +2011,10 @@
       "icon_id": null,
       "buff_scope": "raid",
       "_tuning": [
-        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+        "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)",
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
+      ],
+      "cast_speed": "slow"
     },
     {
       "ability_id": "cultist_malevolence",
@@ -2021,7 +2076,8 @@
         "amount": 10
       },
       "icon_id": null,
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_void_shield",
@@ -2044,7 +2100,8 @@
       ],
       "icon_id": null,
       "absorb_pct_max_health": 0.18,
-      "buff_scope": "raid"
+      "buff_scope": "raid",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_forbidden_ritual",
@@ -2067,7 +2124,11 @@
       ],
       "icon_id": null,
       "buff_scope": "raid",
-      "absorb_pct_max_health": 0.12
+      "absorb_pct_max_health": 0.12,
+      "cast_speed": "slow",
+      "_tuning": [
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "cultist_abyssal_covenant",
@@ -2091,7 +2152,8 @@
         }
       ],
       "icon_id": null,
-      "buff_scope": "raid"
+      "buff_scope": "raid",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_dark_veil",
@@ -2116,7 +2178,8 @@
       ],
       "icon_id": null,
       "buff_scope": "combat",
-      "absorb_pct_max_health": 0.15
+      "absorb_pct_max_health": 0.15,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_void_embrace",
@@ -2133,11 +2196,15 @@
         {
           "rank": 1,
           "level_req": 50,
-          "cost": 60,
-          "effect_value": 300
+          "cost": 69,
+          "effect_value": 450
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "cast_speed": "slow",
+      "_tuning": [
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
+      ]
     },
     {
       "ability_id": "cultist_entropic_host",
@@ -2188,7 +2255,8 @@
           "effect_value": 265
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_isolate",
@@ -2212,7 +2280,8 @@
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_test_of_pride",
@@ -2235,7 +2304,8 @@
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_summon_faceless_destroyer",
@@ -2258,7 +2328,11 @@
       ],
       "icon_id": null,
       "_implementation_note": "Real pet summon, stubbed pending a real pet entity system - same gap as every other class's summon abilities this session.",
-      "summon_pet_template": "faceless_destroyer"
+      "summon_pet_template": "faceless_destroyer",
+      "cast_speed": "slow",
+      "_tuning": [
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "cultist_enslave",
@@ -2284,7 +2358,8 @@
       "creature_types": [
         "humanoid",
         "beast"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_summon_faceless_servant",
@@ -2308,7 +2383,11 @@
         }
       ],
       "icon_id": null,
-      "buff_scope": "raid"
+      "buff_scope": "raid",
+      "cast_speed": "slow",
+      "_tuning": [
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "cultist_shatter_void_rune",
@@ -2345,7 +2424,8 @@
       "damage_school": "shadow",
       "_tuning": [
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_doomcloak",
@@ -2370,7 +2450,8 @@
       ],
       "icon_id": null,
       "buff_scope": "combat",
-      "absorb_pct_max_health": 0.12
+      "absorb_pct_max_health": 0.12,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_eldritch_force",
@@ -2398,7 +2479,8 @@
         "amount": 30
       },
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_ritual_of_awakening",
@@ -2432,7 +2514,11 @@
         }
       ],
       "icon_id": null,
-      "_fix": "15 Nov 2026: the source says 'Battle-rez', but it was authored as a 999-2187 point heal on no cooldown for 40-88 mana - a full heal every turn. Found by the heal parity sim (Heretic read 2x every other healer). A battle resurrection now, on Blood Rite's shape (20-turn cooldown, 30-50% health)."
+      "_fix": "15 Nov 2026: the source says 'Battle-rez', but it was authored as a 999-2187 point heal on no cooldown for 40-88 mana - a full heal every turn. Found by the heal parity sim (Heretic read 2x every other healer). A battle resurrection now, on Blood Rite's shape (20-turn cooldown, 30-50% health).",
+      "cast_speed": "slow",
+      "_tuning": [
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "cultist_protection_from_light",
@@ -2457,7 +2543,8 @@
         }
       ],
       "icon_id": null,
-      "buff_scope": "raid"
+      "buff_scope": "raid",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "cultist_summon_mindbender",
@@ -2480,7 +2567,11 @@
       ],
       "icon_id": null,
       "_implementation_note": "Real pet summon, stubbed pending a real pet entity system.",
-      "summon_pet_template": "mindbender"
+      "summon_pet_template": "mindbender",
+      "cast_speed": "slow",
+      "_tuning": [
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "cultist_void_monstrosity_form",
@@ -2503,7 +2594,8 @@
       ],
       "icon_id": null,
       "shapeshift_form": "void_monstrosity",
-      "requires_talent": true
+      "requires_talent": true,
+      "cast_speed": "normal"
     }
   ]
 }

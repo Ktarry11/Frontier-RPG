@@ -88,7 +88,8 @@
       "icon_id": null,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.30x steeper than it, biggest single-rank jump 1.22x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "paladin_holy_light",
@@ -222,7 +223,8 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.35x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "paladin_consecration",
@@ -271,7 +273,8 @@
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.86x steeper than it, biggest single-rank jump 1.26x); overall size kept. tools/fix_rank_lines.py",
         "15 Nov 2026, deep dive: damage_school holy - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it"
       ],
-      "damage_school": "holy"
+      "damage_school": "holy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "paladin_blessing_of_might",
@@ -328,7 +331,8 @@
       "buff_scope": "raid",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "paladin_hammer_of_justice",
@@ -362,7 +366,8 @@
       "icon_id": null,
       "buff_scope": "combat",
       "is_stun": true,
-      "_source": "  DID NOT STUN. Its description is 'Stuns the target with a hammer of Light for 2 turns' and it carried no is_stun - just haste -25 and attack_power -30 standing in for the stun, so the player read 'stuns' and got a slow. The stun mechanic is live end to end (StatusEffect.is_stun -> StatusEffectMixin.is_stunned -> turn_meter skips the turn) and Paladin already has two real stuns in Repentance (2 turns / 5 cd) and Turn Evil (2/6). Matched to Repentance's 5-turn cooldown, up from 4, because a 2-turn hard stun on a 4-turn cooldown is half the fight. The haste/AP stand-in is removed - a stunned target cannot act at all, so debuffing its haste for the same two turns is dead weight."
+      "_source": "  DID NOT STUN. Its description is 'Stuns the target with a hammer of Light for 2 turns' and it carried no is_stun - just haste -25 and attack_power -30 standing in for the stun, so the player read 'stuns' and got a slow. The stun mechanic is live end to end (StatusEffect.is_stun -> StatusEffectMixin.is_stunned -> turn_meter skips the turn) and Paladin already has two real stuns in Repentance (2 turns / 5 cd) and Turn Evil (2/6). Matched to Repentance's 5-turn cooldown, up from 4, because a 2-turn hard stun on a 4-turn cooldown is half the fight. The haste/AP stand-in is removed - a stunned target cannot act at all, so debuffing its haste for the same two turns is dead weight.",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "paladin_divine_shield",
@@ -398,7 +403,8 @@
       ],
       "target_type": "self",
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "paladin_hammer_of_wrath",
@@ -708,7 +714,8 @@
       "icon_id": null,
       "_tuning": [
         "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "paladin_blessing_of_kings",
@@ -763,7 +770,8 @@
       "icon_id": null,
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "paladin_exorcism",
@@ -805,7 +813,8 @@
       "damage_school": "holy",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.30x steeper than it, biggest single-rank jump 1.26x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "paladin_seal_of_righteousness",
@@ -933,7 +942,8 @@
         }
       },
       "exclusive_group": "paladin_seal",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "paladin_turn_evil",
@@ -1195,7 +1205,8 @@
       },
       "exclusive_group": "paladin_seal",
       "buff_scope": "combat",
-      "_design_note": "Not learned from level alone - granted by the Seal of Command talent in the Retribution tree. Real proc: your melee attacks have a chance to deal a burst of Holy damage on the same hit. Judgement consumes this Seal for a bigger detonation than Seal of Righteousness, matching Seal of Command's real WOTLK identity as the harder-hitting, lower-uptime Retribution Seal."
+      "_design_note": "Not learned from level alone - granted by the Seal of Command talent in the Retribution tree. Real proc: your melee attacks have a chance to deal a burst of Holy damage on the same hit. Judgement consumes this Seal for a bigger detonation than Seal of Righteousness, matching Seal of Command's real WOTLK identity as the harder-hitting, lower-uptime Retribution Seal.",
+      "cast_speed": "normal"
     }
   ]
 }

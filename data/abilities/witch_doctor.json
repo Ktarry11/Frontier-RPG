@@ -90,7 +90,8 @@
       "icon_id": null,
       "_source": "CoA class tree: 'when you cast Malefic Wrath and Loa's Brew the ward will also cast it on your target'. The class's baseline Shadow nuke, on shaman_lightning_bolt's exact 9-rank curve.",
       "target_type": "enemy",
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_loas_brew",
@@ -159,7 +160,8 @@
       ],
       "icon_id": null,
       "_source": "CoA class tree names Loa's Brew alongside Malefic Wrath as what Mimic Ward echoes, and it is not a talent node in any of the three spec trees, so it is a class ability. Voodoo's page says that spec has 'no ally heal' - true of its TREE, which spends nothing on healing.",
-      "target_type": "ally"
+      "target_type": "ally",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_shrinking_jinx",
@@ -215,7 +217,8 @@
       "target_type": "enemy",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_hex_of_malice",
@@ -268,7 +271,8 @@
       "_source": "CoA: 'Curse an enemy, dealing shadow damage and an additional 96 Shadow damage over 24 seconds.' The DoT all three specs keep rolling - warlock_corruption's curve.",
       "target_type": "enemy",
       "damage_school": "shadow",
-      "_level_note": "Rank 1 moved from level 8 to 4, 29 Oct 2026. Kyle's call on the early-game finding: the class was soft at levels 5-20 and fine from 30, and the cause was how FEW damage buttons it had early rather than how hard they hit. Values unchanged at every rank, so nothing moves at 60."
+      "_level_note": "Rank 1 moved from level 8 to 4, 29 Oct 2026. Kyle's call on the early-game finding: the class was soft at levels 5-20 and fine from 30, and the cause was how FEW damage buttons it had early rather than how hard they hit. Values unchanged at every rank, so nothing moves at 60.",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_healing_ward",
@@ -283,52 +287,54 @@
         {
           "rank": 1,
           "level_req": 10,
-          "cost": 50,
-          "effect_value": 72
+          "cost": 42,
+          "effect_value": 47
         },
         {
           "rank": 2,
           "level_req": 18,
-          "cost": 68,
-          "effect_value": 88
+          "cost": 58,
+          "effect_value": 57
         },
         {
           "rank": 3,
           "level_req": 25,
-          "cost": 87,
-          "effect_value": 102
+          "cost": 74,
+          "effect_value": 66
         },
         {
           "rank": 4,
           "level_req": 32,
-          "cost": 105,
-          "effect_value": 116
+          "cost": 89,
+          "effect_value": 75
         },
         {
           "rank": 5,
           "level_req": 40,
-          "cost": 123,
-          "effect_value": 131
+          "cost": 105,
+          "effect_value": 85
         },
         {
           "rank": 6,
           "level_req": 48,
-          "cost": 142,
-          "effect_value": 147
+          "cost": 121,
+          "effect_value": 96
         },
         {
           "rank": 7,
           "level_req": 55,
-          "cost": 160,
-          "effect_value": 161
+          "cost": 136,
+          "effect_value": 105
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Drop a Healing Ward near you for 1 minute, healing 8 nearby allies within 30 yds for Spirit every 3 sec'. Both DPS specs' pages call this the class pool's only ally heal. A placed, pulsing ward becomes an instant party HoT, the same simplification every shipped Shaman totem uses.",
       "target_type": "party",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.34x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
-      ]
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.34x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py",
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+      ],
+      "cast_speed": "quick"
     },
     {
       "ability_id": "witch_doctor_lethargy_jinx",
@@ -370,7 +376,8 @@
       ],
       "icon_id": null,
       "_source": "CoA class tree: 'Jinx of Decay - Your Lethargy Jinx now also reduces the target's periodic healing received by -30%'. healing_taken_pct is the engine's real anti-heal key, read recipient-side in Character.heal.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_hexbreak",
@@ -392,7 +399,8 @@
       "icon_id": null,
       "_source": "CoA: 'Dispel duty is single-curse removal through Hexbreak'. 'Blessing of Hir'eek - Your Hexbreak now removes an additional curse effect' is the class tree's dispel_count upgrade, which is a talent, not this.",
       "target_type": "ally",
-      "dispel_type": "curse"
+      "dispel_type": "curse",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_shadowflare",
@@ -442,7 +450,8 @@
       "damage_school": "shadow",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.58x steeper than it, biggest single-rank jump 1.22x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_voljins_vigil",
@@ -472,7 +481,8 @@
         "icd": 0,
         "heal_flat": 45
       },
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_amphibimorph",
@@ -500,7 +510,8 @@
       "creature_types": [
         "humanoid",
         "beast"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_allcure_elixir",
@@ -525,7 +536,8 @@
       "dispel_type": [
         "poison",
         "disease"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_mimic_ward",
@@ -571,7 +583,8 @@
       "buff_scope": "combat",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_power_wuju",
@@ -609,7 +622,8 @@
       "icon_id": null,
       "_source": "CoA class tree: 'Loa Empowerment - Reduces the cost of your Wujus by -50% and increases the effectiveness of Power Wuju by 20%'. A Wuju is a thrown buff, so it buffs both halves of a party.",
       "target_type": "party",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_death_draught",
@@ -634,7 +648,8 @@
       "icon_id": null,
       "_source": "CoA: 'Drink a potent voodoo draught that slows your body to a deathlike stillness ... causing you to feign death which may trick enemies into ignoring you.' No feign-death mechanic exists, so one turn of heavy mitigation and a total threat drop stands in for it. Free to cast, like the real one.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_veil_of_darkness",
@@ -669,7 +684,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Envelop a target in a shadowy voodoo veil, increasing the damage you deal to them by 15% for 15 seconds.' damage_taken_pct on the target is read raw as a fraction in Character.take_damage. It amplifies everyone's damage, not only yours - the engine has no per-attacker-only amplification.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_big_bad_voodoo",
@@ -694,7 +710,8 @@
       "icon_id": null,
       "_source": "CoA class tree: 'One Armed Waltz - Big Bad Voodoo now only reduces damage dealt by 25% and reduces damage taken by an additional -5%', which says the baseline trades your damage for survival. Both sides are real keys: damage_taken_pct raw, damage_dealt_pct in percentage points through Ability._damage_multiplier.",
       "target_type": "party",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_bad_juju",
@@ -753,7 +770,8 @@
       "_source": "CoA: 'Bad Juju on cooldown (main nuke ...)'. 'Hurl a bolt of dark magic at an enemy, dealing Spirit Shadow damage, scaling with your Spirit.' The spec's centrepiece.",
       "target_type": "enemy",
       "damage_school": "shadow",
-      "_level_note": "Rank 1 moved from level 10 to 8, 29 Oct 2026. Kyle's call on the early-game finding: the class was soft at levels 5-20 and fine from 30, and the cause was how FEW damage buttons it had early rather than how hard they hit. Values unchanged at every rank, so nothing moves at 60."
+      "_level_note": "Rank 1 moved from level 10 to 8, 29 Oct 2026. Kyle's call on the early-game finding: the class was soft at levels 5-20 and fine from 30, and the cause was how FEW damage buttons it had early rather than how hard they hit. Values unchanged at every rank, so nothing moves at 60.",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_hexfire",
@@ -808,7 +826,8 @@
       "damage_school": "fire",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.71x steeper than it, biggest single-rank jump 1.21x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_shadow_puppets",
@@ -857,7 +876,8 @@
       "damage_school": "shadow",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.84x steeper than it, biggest single-rank jump 1.29x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_malignant_jinx",
@@ -880,7 +900,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Curse an enemy for 8 seconds, causing their next spell cast to silence them for 5 sec'; 'Malignant Jinx counters a dangerous cast with a silence'. GAP: there is no silence or school-lockout category, and is_stun would make this a stun, which it is not. A hard cut to what they deal is the nearest honest thing.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_war_golem",
@@ -923,7 +944,8 @@
       "_source": "CoA: 'Summon a War Golem for 10 seconds, absorbing damage dealt to you based on your Intellect, and redirecting harmful spells cast on nearby allies to itself.' The absorb is real (absorb_pct_max_health, the same field Cultist's Eldritch Bastion uses). The ally-spell redirect has no engine hook, so the magic mitigation stands in for it.",
       "absorb_pct_max_health": 0.22,
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_puppeteers_grasp",
@@ -944,7 +966,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Transform into a malignant spirit for 30 seconds, allowing you to cast Malefic Wrath and Bad Juju while moving, and periodically granting you a Spirit every 2 sec.' Nothing in the engine costs movement, so cast-while-moving becomes the real thing it buys: the next cast is free of its turn.",
-      "target_type": "self"
+      "target_type": "self",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_voice_of_bwonsamdi",
@@ -985,7 +1008,8 @@
       "buff_scope": "combat",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_potion_toss",
@@ -1116,7 +1140,8 @@
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.55x steeper than it, biggest single-rank jump 1.14x); overall size kept. tools/fix_rank_lines.py",
         "15 Nov 2026, deep dive: damage_school shadow - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it"
       ],
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_splash_potion",
@@ -1170,7 +1195,8 @@
       "target_type": "party",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.72x steeper than it, biggest single-rank jump 1.23x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_mojo_beam",
@@ -1185,46 +1211,48 @@
         {
           "rank": 1,
           "level_req": 26,
-          "cost": 55,
-          "effect_value": 146
+          "cost": 63,
+          "effect_value": 219
         },
         {
           "rank": 2,
           "level_req": 32,
-          "cost": 79,
-          "effect_value": 162
+          "cost": 91,
+          "effect_value": 243
         },
         {
           "rank": 3,
           "level_req": 39,
-          "cost": 103,
-          "effect_value": 182
+          "cost": 118,
+          "effect_value": 273
         },
         {
           "rank": 4,
           "level_req": 45,
-          "cost": 128,
-          "effect_value": 198
+          "cost": 147,
+          "effect_value": 297
         },
         {
           "rank": 5,
           "level_req": 52,
-          "cost": 152,
-          "effect_value": 218
+          "cost": 175,
+          "effect_value": 327
         },
         {
           "rank": 6,
           "level_req": 58,
-          "cost": 176,
-          "effect_value": 234
+          "cost": 202,
+          "effect_value": 351
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Bring mojo to an ally, healing for SP every 1 sec for 4 seconds. While channeling, you can instantly cast Potion Toss, Splash Potion and Spirit in a Bottle'. GAP: there is no channel state, so the weave window is gone and this is a four-turn single-target HoT - which is what the channel's healing actually was.",
       "target_type": "ally",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.86x steeper than it, biggest single-rank jump 1.26x); overall size kept. tools/fix_rank_lines.py"
-      ]
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.86x steeper than it, biggest single-rank jump 1.26x); overall size kept. tools/fix_rank_lines.py",
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
+      ],
+      "cast_speed": "slow"
     },
     {
       "ability_id": "witch_doctor_ingredient_jungle_shrooms",
@@ -1273,7 +1301,8 @@
       "exclusive_group": "witch_doctor_ingredient",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 2.03x steeper than it, biggest single-rank jump 1.33x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_ingredient_frog_bones",
@@ -1317,7 +1346,8 @@
       "absorb_pct_max_health": 0.12,
       "target_type": "party",
       "exclusive_group": "witch_doctor_ingredient",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_ingredient_bloodthistle",
@@ -1366,7 +1396,8 @@
         "icd": 0,
         "leech_pct": 0.05
       },
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_voodoo_cauldron",
@@ -1403,7 +1434,8 @@
       "icon_id": null,
       "_source": "CoA: 'Place down a Voodoo Cauldron for 15 seconds, increasing allies' healing received by 20% while near the cauldron'; 'drop Voodoo Cauldron ... on the tank's stack point'. The heals-received zone is a real key; the pulse is Jungle Shrooms' job and not duplicated here.",
       "target_type": "party",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_base_crystal_water",
@@ -1429,7 +1461,8 @@
       "absorb_pct_max_health": 0.1,
       "target_type": "party",
       "exclusive_group": "witch_doctor_base",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_master_mixologist",
@@ -1454,7 +1487,8 @@
       "icon_id": null,
       "_source": "CoA: 'For 10 seconds, the effectiveness of all Cauldron effects and Ingredients is increased by 100% and you can cast Spirit in a Bottle while moving.' healing_power_pct takes percentage POINTS (one of the ten keys Character._recalculate_derived_stats divides by 100), so 40 is +40%, not +4000%.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_reclamation",
@@ -1523,7 +1557,8 @@
       "is_instant": true,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.30x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_malefic_arrow",
@@ -1578,7 +1613,8 @@
       "damage_school": "nature",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.38x steeper than it, biggest single-rank jump 1.13x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_spirit_glaive",
@@ -1628,7 +1664,8 @@
       "damage_school": "shadow",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.69x steeper than it, biggest single-rank jump 1.26x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_spirit_shock",
@@ -1652,7 +1689,11 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Shock an enemy's spirit, silencing them for 4 seconds and interrupting non-player spellcasting'. GAP: no silence or interrupt category exists. A heavy Haste cut is the engine's real delay-their-turn lever (TurnMeter reads Haste off status effects), which is the closest thing to taking a cast away from them.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "quick",
+      "_tuning": [
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "witch_doctor_call_of_sseratus",
@@ -1696,7 +1737,8 @@
       "damage_school": "nature",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.91x steeper than it, biggest single-rank jump 1.40x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_spirit_eclipse",
@@ -1740,7 +1782,8 @@
       "damage_school": "shadow",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 2.13x steeper than it, biggest single-rank jump 1.47x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_frenzied_spirits",
@@ -1771,7 +1814,8 @@
         "icd": 0,
         "leech_pct": 0.02
       },
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_doctor_spirit_fetish",
@@ -1822,7 +1866,8 @@
       ],
       "_tuning": [
         "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     }
   ]
 }

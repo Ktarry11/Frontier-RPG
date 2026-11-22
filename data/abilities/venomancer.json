@@ -85,7 +85,8 @@
       "damage_school": "nature",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 2.98x steeper than it, biggest single-rank jump 1.34x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_serpents_fang",
@@ -167,7 +168,8 @@
       "damage_school": "nature",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 2.55x steeper than it, biggest single-rank jump 1.47x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_venom_fang",
@@ -232,7 +234,8 @@
       "icon_id": null,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 2.82x steeper than it, biggest single-rank jump 1.39x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_vile_sting",
@@ -255,7 +258,11 @@
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "quick",
+      "_tuning": [
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "venomancer_barbed_stinger",
@@ -281,7 +288,8 @@
       "icon_id": null,
       "requires_talent": true,
       "force_proc_group": "venomancer_venom_slot_a",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_emerald_veil",
@@ -346,7 +354,8 @@
       ],
       "icon_id": null,
       "_implementation_note": "Real tooltip also grants a 20-sec damage-absorb shield alongside the heal - this engine doesn't have a generic 'shield' status effect yet (only heal/hot/buff/debuff/dot). Flagging rather than half-implementing; revisit once a shield mechanic exists.",
-      "_rank_note": "15 Nov 2026: a Vizier healer had no direct heal until 14 (every other healer has one by 10); the heal parity sim read it at ~0 at level 10. A first rank at 6 now."
+      "_rank_note": "15 Nov 2026: a Vizier healer had no direct heal until 14 (every other healer has one by 10); the heal parity sim read it at ~0 at level 10. A first rank at 6 now.",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_antivenom",
@@ -368,7 +377,8 @@
         }
       ],
       "icon_id": null,
-      "dispel_type": "poison"
+      "dispel_type": "poison",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_green_salve",
@@ -433,7 +443,8 @@
         "15 Nov 2026, class pass: every rank x1.62 - its total was 0.49x what a hot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
         "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 0.8 (combat/heal_formula.rank_size). Vizier rolls three HoTs at once and healed a quarter more than the others."
       ],
-      "formula_identity": 0.8
+      "formula_identity": 0.8,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_beetle_pheromones",
@@ -489,7 +500,8 @@
       "buff_scope": "raid",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_nullifying_toxin",
@@ -511,7 +523,8 @@
       ],
       "icon_id": null,
       "is_stun": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_chitin_rush",
@@ -553,7 +566,8 @@
       "icon_id": null,
       "_tuning": [
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_debilitating_venom",
@@ -591,7 +605,8 @@
           "dispel_type": "poison",
           "on_target": true
         }
-      }
+      },
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_rejuvenating_venom",
@@ -673,7 +688,8 @@
         "chance": 20,
         "icd": 1,
         "smart_heal": 50
-      }
+      },
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_blight_venom",
@@ -711,7 +727,8 @@
           "dispel_type": "poison",
           "on_target": true
         }
-      }
+      },
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_shadras_prayer",
@@ -728,64 +745,64 @@
         {
           "rank": 1,
           "level_req": 2,
-          "cost": 50,
-          "effect_value": 68,
+          "cost": 42,
+          "effect_value": 44,
           "heal_value": 54
         },
         {
           "rank": 2,
           "level_req": 9,
-          "cost": 68,
-          "effect_value": 84,
+          "cost": 58,
+          "effect_value": 55,
           "heal_value": 67
         },
         {
           "rank": 3,
           "level_req": 16,
-          "cost": 87,
-          "effect_value": 100,
+          "cost": 74,
+          "effect_value": 65,
           "heal_value": 80
         },
         {
           "rank": 4,
           "level_req": 23,
-          "cost": 105,
-          "effect_value": 116,
+          "cost": 89,
+          "effect_value": 75,
           "heal_value": 93
         },
         {
           "rank": 5,
           "level_req": 30,
-          "cost": 124,
-          "effect_value": 134,
+          "cost": 105,
+          "effect_value": 87,
           "heal_value": 107
         },
         {
           "rank": 6,
           "level_req": 37,
-          "cost": 142,
-          "effect_value": 150,
+          "cost": 121,
+          "effect_value": 98,
           "heal_value": 120
         },
         {
           "rank": 7,
           "level_req": 44,
-          "cost": 160,
-          "effect_value": 166,
+          "cost": 136,
+          "effect_value": 108,
           "heal_value": 133
         },
         {
           "rank": 8,
           "level_req": 51,
-          "cost": 179,
-          "effect_value": 182,
+          "cost": 152,
+          "effect_value": 118,
           "heal_value": 146
         },
         {
           "rank": 9,
           "level_req": 58,
-          "cost": 197,
-          "effect_value": 199,
+          "cost": 167,
+          "effect_value": 129,
           "heal_value": 159
         }
       ],
@@ -794,12 +811,14 @@
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.34x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py",
         "15 Nov 2026, class pass: every rank x1.78 - its total was 0.45x what a hot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
         "15 Nov 2026, deep dive: the up-front heal CoA's tooltip gives it ('32 healing, plus 5 every 3 sec' at rank 1 - the direct part about 0.8x the HoT's total) as heal_value, which a HoT now lands on cast. Without it the Vizier had no spammable heal before Alkahest at 20 and sat at the healing aura's cap at 10 and 20.",
-        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 0.8 (combat/heal_formula.rank_size). Vizier rolls three HoTs at once and healed a quarter more than the others."
+        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 0.8 (combat/heal_formula.rank_size). Vizier rolls three HoTs at once and healed a quarter more than the others.",
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ],
       "_over_time_lifted": [
         1.78
       ],
-      "formula_identity": 0.8
+      "formula_identity": 0.8,
+      "cast_speed": "quick"
     },
     {
       "ability_id": "venomancer_alkahest",
@@ -854,7 +873,8 @@
       "formula_identity": 0.85,
       "_tuning": [
         "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 0.85 (combat/heal_formula.rank_size). Its big heal on a short cooldown, with the HoTs, put Vizier at the top."
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_mending_mist",
@@ -905,7 +925,8 @@
           "effect_value": 270
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_shadras_balm",
@@ -922,45 +943,47 @@
         {
           "rank": 1,
           "level_req": 24,
-          "cost": 230,
-          "effect_value": 164
+          "cost": 264,
+          "effect_value": 246
         },
         {
           "rank": 2,
           "level_req": 31,
-          "cost": 265,
-          "effect_value": 189
+          "cost": 305,
+          "effect_value": 284
         },
         {
           "rank": 3,
           "level_req": 38,
-          "cost": 300,
-          "effect_value": 214
+          "cost": 345,
+          "effect_value": 321
         },
         {
           "rank": 4,
           "level_req": 46,
-          "cost": 336,
-          "effect_value": 239
+          "cost": 386,
+          "effect_value": 358
         },
         {
           "rank": 5,
           "level_req": 53,
-          "cost": 371,
-          "effect_value": 265
+          "cost": 427,
+          "effect_value": 398
         },
         {
           "rank": 6,
           "level_req": 60,
-          "cost": 406,
-          "effect_value": 290
+          "cost": 467,
+          "effect_value": 435
         }
       ],
       "icon_id": null,
       "formula_identity": 0.8,
       "_tuning": [
-        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 0.8 (combat/heal_formula.rank_size). Vizier rolls three HoTs at once and healed a quarter more than the others."
-      ]
+        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 0.8 (combat/heal_formula.rank_size). Vizier rolls three HoTs at once and healed a quarter more than the others.",
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
+      ],
+      "cast_speed": "slow"
     },
     {
       "ability_id": "venomancer_blight_antidote",
@@ -983,7 +1006,8 @@
       ],
       "icon_id": null,
       "dispel_type": "curse",
-      "dispel_count": 2
+      "dispel_count": 2,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_carapace_crash",
@@ -1039,7 +1063,8 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.52x steeper than it, biggest single-rank jump 1.17x); overall size kept. tools/fix_rank_lines.py",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_hivebreak",
@@ -1102,7 +1127,8 @@
           "effect_value": 81
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_expulsion",
@@ -1161,7 +1187,8 @@
       "_over_time_lifted": 5.87,
       "_tuning": [
         "15 Nov 2026, class pass: every rank x5.87 - its total was 0.12x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_venomtip_poison",
@@ -1200,7 +1227,8 @@
       "damage_school": "nature",
       "_tuning": [
         "15 Nov 2026, deep dive: every rank x2.52 - a spender at 0.32x of what a spender of its level, cooldown and cast speed should hit for (tools/audit_ability_lines.py); now 0.8x"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_harden",
@@ -1225,7 +1253,8 @@
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_locust_swarm",
@@ -1250,7 +1279,8 @@
         }
       ],
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_nerubian_sting",
@@ -1266,34 +1296,36 @@
         {
           "rank": 1,
           "level_req": 20,
-          "cost": 20,
-          "effect_value": 77
+          "cost": 17,
+          "effect_value": 50
         },
         {
           "rank": 2,
           "level_req": 30,
-          "cost": 20,
-          "effect_value": 95
+          "cost": 17,
+          "effect_value": 62
         },
         {
           "rank": 3,
           "level_req": 42,
-          "cost": 20,
-          "effect_value": 116
+          "cost": 17,
+          "effect_value": 75
         },
         {
           "rank": 4,
           "level_req": 56,
-          "cost": 20,
-          "effect_value": 140
+          "cost": 17,
+          "effect_value": 91
         }
       ],
       "icon_id": null,
       "damage_school": "shadow",
       "_over_time_lifted": 3.5,
       "_tuning": [
-        "15 Nov 2026, class pass: every rank x3.50 - its total was 0.20x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
-      ]
+        "15 Nov 2026, class pass: every rank x3.50 - its total was 0.20x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+      ],
+      "cast_speed": "quick"
     },
     {
       "ability_id": "venomancer_withering_venom",
@@ -1336,7 +1368,8 @@
       "_over_time_lifted": 3.18,
       "_tuning": [
         "15 Nov 2026, class pass: every rank x3.18 - its total was 0.22x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_widowmaker",
@@ -1396,7 +1429,8 @@
         }
       ],
       "icon_id": null,
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_facemelter",
@@ -1434,7 +1468,8 @@
       "damage_school": "nature",
       "_tuning": [
         "15 Nov 2026, class pass: every rank x0.41 - it sat at 3.95x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_rotfang",
@@ -1471,7 +1506,8 @@
       "damage_school": [
         "nature",
         "shadow"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_spore",
@@ -1510,7 +1546,8 @@
         }
       ],
       "icon_id": null,
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_wilt",
@@ -1549,7 +1586,8 @@
         }
       ],
       "icon_id": null,
-      "damage_school": "nature"
+      "damage_school": "nature",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_mycosis",
@@ -1590,7 +1628,8 @@
         }
       ],
       "icon_id": null,
-      "damage_school": "nature"
+      "damage_school": "nature",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_decay",
@@ -1665,7 +1704,8 @@
       ],
       "_tuning": [
         "15 Nov 2026, class pass: every rank x1.80 - its total was 0.44x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_spider_form",
@@ -1687,7 +1727,8 @@
         }
       ],
       "icon_id": null,
-      "shapeshift_form": "spider"
+      "shapeshift_form": "spider",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_beetle_form",
@@ -1709,7 +1750,8 @@
         }
       ],
       "icon_id": null,
-      "shapeshift_form": "beetle"
+      "shapeshift_form": "beetle",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_weaver_form",
@@ -1732,7 +1774,8 @@
       ],
       "icon_id": null,
       "shapeshift_form": "weaver",
-      "requires_talent": true
+      "requires_talent": true,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "venomancer_vizier_form_ability",
@@ -1755,7 +1798,8 @@
       ],
       "icon_id": null,
       "shapeshift_form": "vizier_form",
-      "requires_talent": true
+      "requires_talent": true,
+      "cast_speed": "normal"
     }
   ]
 }

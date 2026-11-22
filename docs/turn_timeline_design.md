@@ -65,3 +65,22 @@ it stands.
    how fights pace.
 
 Kyle's call on the scale if he'd rather it be fixed (always one turn) than follow the slowest combatant.
+
+## Built (21 Nov 2026)
+
+- **The speed pass** (`tools/build_cast_speeds.py`): every castable ability in every class now carries `cast_speed`,
+  and every class has at least two quick spells and one slow one. One rule for all classes (names that say quick or
+  slow, interrupts and taunts quick, summonings and channels slow, then each class's biggest and smallest hit and heal),
+  with each class's exceptions in its OVERRIDES, sized by the 15 Nov rule so a speed never makes a spell better or
+  worse per turn of time. Free actions and the basic attack are left as they were.
+- **The maths** (`combat/turn_meter.py`): `time_to_turn`, `time_after_cast` (speed and any haste the spell grants),
+  `timeline_scale` (one full normal turn of the slowest living combatant) and `timeline`.
+- **The bar** (`ui/screens/combat_screen.py`, `_draw_turn_timeline`): down the right edge from the top of the screen to
+  the party, quarters and eighths, allies right and enemies left as small round faces, the actor ringed in gold,
+  markers side by side when they share a height, an arrow on anything past the top. Hovering an ability draws a
+  faded ghost of the actor where they'd land, with a caption: Quick cast, Normal cast, Slow: goes last, or Free: turn
+  goes on.
+- **Checks** (`tools/qa_turn_timeline.py`): 360 turns across six fights, the bar's next actor is who really acts every
+  time; every ghost lands exactly where it said; haste and the scale hold; and the speed pass is complete.
+- **Sims**: `tools/sim_viability.py` before and after shows no real change (solo wins moved 22 up and 22 down at three
+  fights each, which is noise; no group bracket lost a win; fights run about 0.7 turns longer on average).

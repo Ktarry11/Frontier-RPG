@@ -90,7 +90,8 @@
       "icon_id": null,
       "_source": "CoA: 'Flare Bolt is your default nuke', named as the main filler in all three specs' rotations. Deliberately mage_fireball's exact curve (44 to 132 damage, 30 to 102 mana) - the two Fire casters should scale together. CoA's 'Generates 20 Heat' has nowhere to go: Pyromancer is (MANA, None) in CLASS_RESOURCE_MAP.",
       "target_type": "enemy",
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "pyromancer_blaze",
@@ -163,7 +164,8 @@
       "damage_school": "fire",
       "_tuning": [
         "15 Nov 2026, class pass: a top rank at 60 added - its last rank came at 53, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "pyromancer_lava_shard",
@@ -228,7 +230,8 @@
       "_source": "CoA: 'Weave Lava Shard on cooldown for the hard hit', and Infernus makes it apply Burn. applies_dot_pct is the real engine hook for a nuke that also leaves a DoT (Shock already uses it), so the Burn application is modelled rather than written into the tooltip and dropped.",
       "target_type": "enemy",
       "damage_school": "fire",
-      "applies_dot_pct": 0.15
+      "applies_dot_pct": 0.15,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "pyromancer_dragons_wrath",
@@ -350,7 +353,8 @@
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.58x steeper than it, biggest single-rank jump 1.17x); overall size kept. tools/fix_rank_lines.py",
         "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 1.35 (combat/heal_formula.rank_size). Flameweaving still sat a fifth under at 50 and 60 after the first lift (1.25)."
       ],
-      "formula_identity": 1.35
+      "formula_identity": 1.35,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "pyromancer_meteor",
@@ -365,38 +369,38 @@
         {
           "rank": 1,
           "level_req": 18,
-          "cost": 58,
-          "effect_value": 69
+          "cost": 67,
+          "effect_value": 104
         },
         {
           "rank": 2,
           "level_req": 26,
-          "cost": 72,
-          "effect_value": 82
+          "cost": 83,
+          "effect_value": 123
         },
         {
           "rank": 3,
           "level_req": 34,
-          "cost": 86,
-          "effect_value": 94
+          "cost": 99,
+          "effect_value": 141
         },
         {
           "rank": 4,
           "level_req": 42,
-          "cost": 100,
-          "effect_value": 107
+          "cost": 115,
+          "effect_value": 160
         },
         {
           "rank": 5,
           "level_req": 50,
-          "cost": 114,
-          "effect_value": 119
+          "cost": 131,
+          "effect_value": 178
         },
         {
           "rank": 6,
           "level_req": 58,
-          "cost": 128,
-          "effect_value": 132
+          "cost": 147,
+          "effect_value": 198
         }
       ],
       "icon_id": null,
@@ -406,8 +410,10 @@
       "damage_school": "fire",
       "is_stun": true,
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.27x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
-      ]
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.27x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py",
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
+      ],
+      "cast_speed": "slow"
     },
     {
       "ability_id": "pyromancer_cindergrip",
@@ -437,7 +443,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Cindergrip roots a runner'. There is no root, so a heavy haste and dodge debuff stands in - the same substitution mage_frost_nova already ships.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "pyromancer_gaze_of_ysera",
@@ -466,7 +473,8 @@
         "undead",
         "mechanical",
         "elemental"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "pyromancer_dragon_leap",
@@ -576,7 +584,8 @@
       ],
       "_over_time_lifted": [
         1.35
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "pyromancer_volcanic_shell",
@@ -599,7 +608,8 @@
       "_source": "CoA class kit: 'Conjure a shield of magma and fire around you, absorbing damage. Lasts 10 seconds.' A real absorb - absorb_pct_max_health is the engine's shield field (see Cultist's Void Shield). SINGLE RANK on purpose: the absorb is a flat field on the ability, not per-rank, so extra ranks would raise the mana cost and absorb nothing more.",
       "target_type": "self",
       "absorb_pct_max_health": 0.22,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "pyromancer_inferno_barrier",
@@ -622,7 +632,8 @@
       "_source": "CoA class kit: 'Shield an ally with molten lava, absorbing damage. While active, attackers take Fire damage each time they deal damage to them.' The retaliation half needs an on-damage-taken proc the ability path cannot carry, so only the absorb is modelled. Single rank for the same reason as Volcanic Shell.",
       "target_type": "ally",
       "absorb_pct_max_health": 0.16,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "pyromancer_eruption",
@@ -662,7 +673,8 @@
       "buff_scope": "combat",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "pyromancer_ignite",
@@ -727,7 +739,8 @@
       "_source": "CoA Incineration: 'Burn an enemy, inflicting Fire damage over 21 seconds. Castable while moving.' is_instant for the moving clause. The 'dispelling it damages the dispeller' rider has no hook.",
       "target_type": "enemy",
       "damage_school": "fire",
-      "is_instant": true
+      "is_instant": true,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "pyromancer_explode",
@@ -785,7 +798,8 @@
       "icon_id": null,
       "_source": "CoA Incineration: the Ember spender the rotation dumps into, scaled by its Combustion talent 'for each of your Pyromancer periodic effects on the target'. The per-DoT scaling has no hook, so Combustion raises its damage flatly instead.",
       "target_type": "enemy",
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "pyromancer_pillar_of_flame",
@@ -836,7 +850,8 @@
       "requires_talent": true,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.29x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "pyromancer_pyroclasm",
@@ -874,7 +889,8 @@
       "requires_talent": true,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.25x steeper than it, biggest single-rank jump 1.14x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "pyromancer_fired_up",
@@ -912,50 +928,50 @@
         {
           "rank": 1,
           "level_req": 6,
-          "cost": 34,
-          "effect_value": 63
+          "cost": 29,
+          "effect_value": 41
         },
         {
           "rank": 2,
           "level_req": 13,
-          "cost": 46,
-          "effect_value": 76
+          "cost": 39,
+          "effect_value": 49
         },
         {
           "rank": 3,
           "level_req": 20,
-          "cost": 58,
-          "effect_value": 90
+          "cost": 49,
+          "effect_value": 58
         },
         {
           "rank": 4,
           "level_req": 27,
-          "cost": 70,
-          "effect_value": 104
+          "cost": 60,
+          "effect_value": 68
         },
         {
           "rank": 5,
           "level_req": 33,
-          "cost": 82,
-          "effect_value": 115
+          "cost": 70,
+          "effect_value": 75
         },
         {
           "rank": 6,
           "level_req": 40,
-          "cost": 94,
-          "effect_value": 129
+          "cost": 80,
+          "effect_value": 84
         },
         {
           "rank": 7,
           "level_req": 47,
-          "cost": 106,
-          "effect_value": 142
+          "cost": 90,
+          "effect_value": 92
         },
         {
           "rank": 8,
           "level_req": 54,
-          "cost": 118,
-          "effect_value": 156
+          "cost": 100,
+          "effect_value": 101
         }
       ],
       "icon_id": null,
@@ -963,9 +979,11 @@
       "target_type": "ally",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.51x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py",
-        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 1.35 (combat/heal_formula.rank_size). Flameweaving still sat a fifth under at 50 and 60 after the first lift (1.25)."
+        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 1.35 (combat/heal_formula.rank_size). Flameweaving still sat a fifth under at 50 and 60 after the first lift (1.25).",
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ],
-      "formula_identity": 1.35
+      "formula_identity": 1.35,
+      "cast_speed": "quick"
     },
     {
       "ability_id": "pyromancer_cinderheart",
@@ -980,44 +998,44 @@
         {
           "rank": 1,
           "level_req": 16,
-          "cost": 62,
-          "effect_value": 106
+          "cost": 71,
+          "effect_value": 159
         },
         {
           "rank": 2,
           "level_req": 23,
-          "cost": 79,
-          "effect_value": 124
+          "cost": 91,
+          "effect_value": 186
         },
         {
           "rank": 3,
           "level_req": 29,
-          "cost": 95,
-          "effect_value": 139
+          "cost": 109,
+          "effect_value": 208
         },
         {
           "rank": 4,
           "level_req": 36,
-          "cost": 112,
-          "effect_value": 156
+          "cost": 129,
+          "effect_value": 234
         },
         {
           "rank": 5,
           "level_req": 43,
-          "cost": 129,
-          "effect_value": 174
+          "cost": 148,
+          "effect_value": 261
         },
         {
           "rank": 6,
           "level_req": 49,
-          "cost": 145,
-          "effect_value": 189
+          "cost": 167,
+          "effect_value": 284
         },
         {
           "rank": 7,
           "level_req": 56,
-          "cost": 162,
-          "effect_value": 206
+          "cost": 186,
+          "effect_value": 309
         }
       ],
       "icon_id": null,
@@ -1025,9 +1043,11 @@
       "target_type": "ally",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.41x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py",
-        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 1.35 (combat/heal_formula.rank_size). Flameweaving still sat a fifth under at 50 and 60 after the first lift (1.25)."
+        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 1.35 (combat/heal_formula.rank_size). Flameweaving still sat a fifth under at 50 and 60 after the first lift (1.25).",
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
       ],
-      "formula_identity": 1.35
+      "formula_identity": 1.35,
+      "cast_speed": "slow"
     },
     {
       "ability_id": "pyromancer_cleansing_flames",
@@ -1083,7 +1103,8 @@
       "damage_school": "fire",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.27x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "pyromancer_phoenix_egg",
@@ -1135,7 +1156,8 @@
       ],
       "_over_time_lifted": [
         1.44
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "pyromancer_kaels_command",
@@ -1175,7 +1197,8 @@
       "icon_id": null,
       "_source": "CoA Flameweaving: 'Command your Phoenix to go dormant for 10 seconds. While dormant, it radiates healing to nearby allies every 2 sec.' A spec talent in CoA, so talent-gated here. Same pet-template gap as Phoenix Egg.",
       "target_type": "party",
-      "requires_talent": true
+      "requires_talent": true,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "pyromancer_roaring_pyre",
@@ -1216,7 +1239,8 @@
       ],
       "_over_time_lifted": [
         1.69
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "pyromancer_phoenix_dive",
@@ -1365,7 +1389,8 @@
       "damage_school": "fire",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "pyromancer_firefall",
@@ -1421,7 +1446,8 @@
       "damage_school": "fire",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.42x steeper than it, biggest single-rank jump 1.13x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "pyromancer_flames_of_neltharion",
@@ -1436,32 +1462,32 @@
         {
           "rank": 1,
           "level_req": 26,
-          "cost": 74,
-          "effect_value": 69
+          "cost": 63,
+          "effect_value": 45
         },
         {
           "rank": 2,
           "level_req": 34,
-          "cost": 93,
-          "effect_value": 79
+          "cost": 79,
+          "effect_value": 51
         },
         {
           "rank": 3,
           "level_req": 42,
-          "cost": 112,
-          "effect_value": 90
+          "cost": 95,
+          "effect_value": 58
         },
         {
           "rank": 4,
           "level_req": 50,
-          "cost": 131,
-          "effect_value": 100
+          "cost": 111,
+          "effect_value": 65
         },
         {
           "rank": 5,
           "level_req": 58,
-          "cost": 150,
-          "effect_value": 111
+          "cost": 128,
+          "effect_value": 72
         }
       ],
       "icon_id": null,
@@ -1469,8 +1495,10 @@
       "target_type": "enemy_aoe",
       "damage_school": "fire",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.35x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
-      ]
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.35x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py",
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+      ],
+      "cast_speed": "quick"
     },
     {
       "ability_id": "pyromancer_echo_of_nozdormu",
@@ -1517,7 +1545,8 @@
       "requires_talent": true,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.13x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "pyromancer_death_from_above",
@@ -1559,7 +1588,8 @@
       ],
       "_over_time_lifted": [
         1.56
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "pyromancer_breath_of_neltharion",
@@ -1595,7 +1625,8 @@
       ],
       "icon_id": null,
       "_source": "CoA Draconic: 'Breath superheated flames in a cone in front of you that melts the weapons of affected enemies, disarming their melee and ranged weapons for 6 seconds.' There is no disarm, and a debuff ability deals no damage in this engine, so the cone keeps the disarm half as a heavy attack-power cut and loses its damage. CoA's strengths page calls out both ('cones for real damage and disarms'), so this is a real halving.",
-      "target_type": "enemy_aoe"
+      "target_type": "enemy_aoe",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "pyromancer_draconic_invocation",
@@ -1724,7 +1755,8 @@
       "target_type": "self",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "pyromancer_inner_flame",
@@ -1773,7 +1805,8 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)",
         "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     }
   ]
 }

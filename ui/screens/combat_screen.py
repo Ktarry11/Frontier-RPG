@@ -1650,7 +1650,8 @@ class CombatScreen(BaseScreen):
         # of a fixed 400px box, and word-wrap instead of truncating with "..."
         # so messages don't get cut off mid-sentence.
         log_left_edge = 40
-        log_right_edge = SCREEN_WIDTH - 40
+        # the turn timeline takes a column down the right (docs/turn_timeline_design.md)
+        log_right_edge = SCREEN_WIDTH - 40 - self.TIMELINE_W
         log_width = log_right_edge - log_left_edge
         center_x = log_left_edge
         # The log used to start at a hardcoded y=190, sized for an enemy
@@ -1723,6 +1724,10 @@ class CombatScreen(BaseScreen):
                 self.renderer.draw_text(screen, hint, (log_right_edge - self.renderer.font_small.size(hint)[0] - 12,
                                                        self._log_rect.y + 14), size="small", color=(170, 160, 130))
         
+        # ===== TURN TIMELINE: down the right, between the enemies and the party =====
+        # the enemy strip is centred, so the right edge is clear from the top of the screen down
+        self._draw_turn_timeline(screen, 18, self._party_strip_top() - 12)
+
         # ===== PARTY STRIP: sits directly above the hotbar (Ryu/Phoebe style) =====
         self._draw_party_strip(screen, player)
         self._draw_pet_chips(screen, self.combat_engine.current_actor)
@@ -2134,6 +2139,115 @@ class CombatScreen(BaseScreen):
                                y + (i // 3) * (icon_size + gap), icon_size, icon_size)
             draw_effect_icon(self.renderer, screen, effect, rect)
             self._effect_hits.append((rect, effect, combatant))
+
+    # ------------------------------------------------------------------------------------------ the turn timeline
+    # Kyle, 20 Nov 2026: "a turn indicator on the right side of combat. Basically a line that's divided into 4 (0, .25,
+    # .5, .75, and 1) with smaller markings at the 1/8ths... Allies on the right of the bar and enemies on the left",
+    # "the order flows down like water. Whoever is at the top is last, whoever is at the bottom is moving next", and
+    # hovering a spell shows where its caster would land, "so we can plan". The places come from
+    # TurnMeter.timeline(), the same numbers the fight runs on.
+    TIMELINE_W = 120
+    TIMELINE_R = 13
+
+    def _timeline_ghost(self, actor, ability):
+        """Where the acting member would land after this ability: (place, label), or None if it's not a spell."""
+        tm = getattr(self.combat_engine, "turn_meter", None)
+        if tm is None or actor is None or ability is None or not hasattr(ability, "cast_speed"):
+            return None
+        free = getattr(ability, "is_instant", False)
+        if free and hasattr(ability, "talented_cooldown"):
+            try:
+                free = (ability.talented_cooldown(actor) or 0) >= 2
+            except Exception:
+                free = (getattr(ability, "cooldown", 0) or 0) >= 2
+        if free or getattr(actor, "next_cast_instant", False):
+            return 0.0, "Free action: your turn goes on"
+        speed = getattr(ability, "cast_speed", 1.0) or 1.0
+        haste = 0.0
+        if getattr(ability, "target_type", "") in ("self", "party", "all_allies", "ally") and \
+                getattr(ability, "effect_type", "") == "buff":
+            haste += float((getattr(ability, "stat_mods", None) or {}).get("haste", 0) or 0)
+        haste += float(((getattr(ability, "self_buff", None) or {}).get("mods") or {}).get("haste", 0) or 0)
+        place = tm.time_after_cast(actor, speed, haste) / tm.timeline_scale()
+        word = "Quick cast" if speed < 0.95 else "Slow cast" if speed > 1.05 else "Normal cast"
+        return place, word + (", hastes you" if haste > 0 else "")
+
+    def _timeline_face(self, who, size):
+        """A small round picture: a recruit's face, an enemy's art, or the class icon."""
+        from ui.recruit_portrait import get_recruit_face
+        img = None
+        if getattr(who, "is_monster", False) or not hasattr(who, "ability_book"):
+            img = get_creature_sprite(who.name, getattr(who, "monster_type", None), size,
+                                      bool(getattr(who, "is_boss", False)))
+        else:
+            img = get_recruit_face(getattr(who, "recruit_id", None), size)
+            if img is None:
+                from ui.class_portrait import get_class_icon
+                img = get_class_icon(getattr(who, "char_class", ""), size=size)
+        return img
+
+    def _draw_timeline_marker(self, screen, who, centre, ally, acting=False, ghost=False):
+        r = self.TIMELINE_R
+        ring = COLOR_GOLD if acting else ((90, 200, 110) if ally else (210, 80, 70))
+        surf = pygame.Surface((r * 2 + 4, r * 2 + 4), pygame.SRCALPHA)
+        c = (r + 2, r + 2)
+        self.renderer.draw_class_portrait(surf, c, r, self._timeline_face(who, r * 2), border_color=ring,
+                                          border_width=2)
+        if ghost:
+            surf.set_alpha(150)
+        screen.blit(surf, (centre[0] - r - 2, centre[1] - r - 2))
+
+    def _draw_turn_timeline(self, screen, top, bottom):
+        tm = getattr(self.combat_engine, "turn_meter", None)
+        if tm is None or bottom - top < 120:
+            return
+        x0 = SCREEN_WIDTH - 20 - self.TIMELINE_W
+        line_x = x0 + self.TIMELINE_W // 2
+        panel = pygame.Surface((self.TIMELINE_W, bottom - top + 16), pygame.SRCALPHA)
+        panel.fill((10, 10, 15, 165))
+        screen.blit(panel, (x0, top - 8))
+        self.renderer.draw_text(screen, "Turn order", (x0 + 10, top - 2), size="small", color=COLOR_GOLD)
+        y_top, y_bot = top + 46, bottom - 18
+        span = y_bot - y_top
+        ypos = lambda place: y_bot - min(1.0, max(0.0, place)) * span  # noqa: E731
+        # the line, its quarters and its eighths
+        pygame.draw.line(screen, (200, 190, 160), (line_x, y_top), (line_x, y_bot), 2)
+        for i in range(9):
+            y = int(y_bot - span * i / 8)
+            half = 9 if i % 2 == 0 else 4
+            pygame.draw.line(screen, (200, 190, 160), (line_x - half, y), (line_x + half, y), 2 if i % 2 == 0 else 1)
+        self.renderer.draw_text(screen, "next", (x0 + 6, y_bot + 2), size="small", color=(170, 160, 130))
+        foes = set(id(e) for e in self.combat_engine.living_enemies())
+        actor = self._acting_member()
+        rows = [(place, who, id(who) not in foes) for who, place in tm.timeline()]
+        # side by side when two land at the same height, stepping out from the line
+        taken = {True: [], False: []}
+        r = self.TIMELINE_R
+        for place, who, ally in sorted(rows, key=lambda t: t[0]):
+            y = int(ypos(place))
+            step = 0
+            while any(abs(y - ty) < r * 2 - 2 and s == step for ty, s in taken[ally]):
+                step += 1
+            taken[ally].append((y, step))
+            dx = (r + 6 + step * (r * 2 + 2)) * (1 if ally else -1)
+            self._draw_timeline_marker(screen, who, (line_x + dx, y), ally, acting=who is actor)
+            if place > 1.0:
+                tip = (line_x + dx, y_top - r - 4)
+                pygame.draw.polygon(screen, (230, 220, 180), [(tip[0] - 4, tip[1] + 5), (tip[0] + 4, tip[1] + 5),
+                                                              tip])
+        # the ghost: where the acting member lands if they cast what's under the mouse
+        hovered = self.hovered_ability if not self.targeting_mode else None
+        ghost = self._timeline_ghost(actor, hovered) if actor is not None else None
+        if ghost is not None:
+            place, label = ghost
+            gy = int(ypos(place))
+            gx = line_x + r + 6 + (r * 2 + 2)
+            pygame.draw.line(screen, COLOR_GOLD, (gx, int(ypos(0))), (gx, gy), 1)
+            self._draw_timeline_marker(screen, actor, (gx, gy), True, acting=True, ghost=True)
+            words = label.split(":")[0].split(",")[0] if place <= 1.0 else "Slow: goes last"
+            if label.startswith("Free"):
+                words = "Free: turn goes on"
+            self.renderer.draw_text(screen, words, (x0 + 10, top + 16), size="small", color=(235, 225, 190))
 
     def _draw_effect_hover(self, screen):
         """The tooltip for whichever effect is under the mouse. Called last, so it is on top."""

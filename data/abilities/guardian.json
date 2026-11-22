@@ -89,7 +89,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Heavy Blow (line hit, high threat, grants Vanguard's Might's party damage-reduction aura)'. The cheap high-threat filler - Warrior's heroic_strike curve.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_ram",
@@ -158,7 +159,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Ram is Shield Slam'. Shield-gated single-target payoff, so it sits on a short cooldown.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_pulverize",
@@ -227,7 +229,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Pulverize as your Energy-dump filler ... cleaves on multi-mob pulls', Devastate analog.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_advance",
@@ -294,7 +297,8 @@
       "is_stun": true,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.53x steeper than it, biggest single-rank jump 1.13x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_brace",
@@ -318,7 +322,8 @@
       "icon_id": null,
       "_source": "CoA: 'Brace and Raise Shield are Shield Block and Shield Wall'. Block CHANCE, not value - block_chance is the shield-gated roll (Character.BASE_BLOCK_CHANCE).",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_raise_shield",
@@ -342,7 +347,8 @@
       "icon_id": null,
       "_source": "Shield Wall analog - same -40% for 2 turns on a 12 turn cooldown as warrior_shield_wall, deliberately identical so neither plate tank has a better panic button.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_bastion",
@@ -366,7 +372,8 @@
       "icon_id": null,
       "_source": "CoA: 'Bastion is a group damage-reduction window'. The party-facing layer that makes CoA label Guardian support.",
       "target_type": "self",
-      "buff_scope": "party"
+      "buff_scope": "party",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_tower_formation",
@@ -392,7 +399,8 @@
       "icon_id": null,
       "_source": "CoA: 'Tower Formation a personal block/armor stance via the Formations'. Formations share one slot.",
       "target_type": "self",
-      "exclusive_group": "guardian_formation"
+      "exclusive_group": "guardian_formation",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_line_formation",
@@ -417,7 +425,8 @@
       "_source": "CoA: 'Formation cuts damage 10%', and Formations are mutually exclusive - same exclusive_group as Tower.  UNIT FIXED: physical_damage_taken_pct in an ability's stat_mods is in PERCENT POINTS (Character.take_damage divides the physical_/magic_ variants by 100), so -0.1 meant -0.1% and did essentially nothing. The bare damage_taken_pct key sits four lines away in the same method and IS a fraction - the convention is per-key with no naming rule. Verified by applying the key and taking a 1000-damage hit: 0.04 gave 736 damage, 4.0 gave 766. Caught by the unit check added to tools/validate_class.py, which flags both directions.",
       "target_type": "self",
       "buff_scope": "party",
-      "exclusive_group": "guardian_formation"
+      "exclusive_group": "guardian_formation",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_shield_challenge",
@@ -441,7 +450,8 @@
       "icon_id": null,
       "_source": "Single-target taunt, cheaper and shorter than the cry.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_hammer_of_the_law",
@@ -489,7 +499,8 @@
       "target_type": "enemy",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.42x steeper than it, biggest single-rank jump 1.14x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_lionheart",
@@ -537,7 +548,8 @@
       "target_type": "self",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 2.08x steeper than it, biggest single-rank jump 1.36x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_final_verdict",
@@ -552,38 +564,38 @@
         {
           "rank": 1,
           "level_req": 26,
-          "cost": 25,
-          "effect_value": 155
+          "cost": 29,
+          "effect_value": 232
         },
         {
           "rank": 2,
           "level_req": 32,
-          "cost": 25,
-          "effect_value": 172
+          "cost": 29,
+          "effect_value": 258
         },
         {
           "rank": 3,
           "level_req": 38,
-          "cost": 25,
-          "effect_value": 190
+          "cost": 29,
+          "effect_value": 285
         },
         {
           "rank": 4,
           "level_req": 44,
-          "cost": 25,
-          "effect_value": 207
+          "cost": 29,
+          "effect_value": 310
         },
         {
           "rank": 5,
           "level_req": 50,
-          "cost": 25,
-          "effect_value": 225
+          "cost": 29,
+          "effect_value": 338
         },
         {
           "rank": 6,
           "level_req": 56,
-          "cost": 25,
-          "effect_value": 243
+          "cost": 29,
+          "effect_value": 364
         }
       ],
       "icon_id": null,
@@ -592,9 +604,11 @@
       "execute_threshold_pct": 25,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.54x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py",
-        "15 Nov 2026, deep dive: damage_school physical - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it"
+        "15 Nov 2026, deep dive: damage_school physical - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it",
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
       ],
-      "damage_school": "physical"
+      "damage_school": "physical",
+      "cast_speed": "slow"
     },
     {
       "ability_id": "guardian_knights_calling",
@@ -640,7 +654,8 @@
       "icon_id": null,
       "_source": "CoA: 'the class kit's Knight's Calling, a periodic health-and-Energy restore that costs a class pick'.",
       "target_type": "self",
-      "restore_resource_type": "energy"
+      "restore_resource_type": "energy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_broad_sweep",
@@ -714,7 +729,8 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.33x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_ballad_of_steel",
@@ -774,7 +790,8 @@
       "target_type": "enemy",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_song_of_steel",
@@ -798,7 +815,8 @@
       "icon_id": null,
       "_source": "CoA: 'Song of Steel and Inspiring Presence scaling off your attack power = Ebon Might scaling off the Evoker'. This is the Augmentation half of the spec. || target_type self -> party, 5 Nov 2026. CoA: 'Boost the morale of party and raid members, increasing their attack or spell power by 95 for 15 seconds.' It is a party buff in CoA and was authored as self, so the Guardian's own support spec buffed nobody but the Guardian. target_type 'party' resolves to every living ally (abilities.py:2064) and degrades to the caster when no party context is supplied, so a 1v1 fight still works.",
       "target_type": "party",
-      "buff_scope": "party"
+      "buff_scope": "party",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_song_of_battle",
@@ -850,7 +868,8 @@
       "_tuning": [
         "15 Nov 2026, class pass: every rank x2.04 - its total was 0.34x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.50x steeper than it, biggest single-rank jump 1.18x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_inspiring_presence",
@@ -902,7 +921,8 @@
       "buff_scope": "party",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_standard_of_valiance",
@@ -927,7 +947,8 @@
       "icon_id": null,
       "_source": "CoA: 'Plant Standard of Valiance at the point or chokepoint (Stand Your Ground! reduces allies' physical damage taken while they stand in it, You Shall Not Fall! gives them stun and grip resistance)'.  UNIT FIXED: physical_damage_taken_pct in an ability's stat_mods is in PERCENT POINTS (Character.take_damage divides the physical_/magic_ variants by 100), so -0.12 meant -0.12% and did essentially nothing. The bare damage_taken_pct key sits four lines away in the same method and IS a fraction - the convention is per-key with no naming rule. Verified by applying the key and taking a 1000-damage hit: 0.04 gave 736 damage, 4.0 gave 766. Caught by the unit check added to tools/validate_class.py, which flags both directions. NOTE the sibling key is NOT affected: stun_duration_reduction_pct 0.3 is a fraction and is correct, as is the Stand Your Ground! TALENT node's own -0.03 - the same key read as a talent effect IS a fraction. || target_type self -> party, 5 Nov 2026. CoA's Stand Your Ground!: 'While standing in your Standard of Valiance, your allies' Physical damage taken is reduced by 10%.' The whole point of the standard is that allies benefit. Note physical_damage_taken_pct inside a status effect is divided by 100 and POSITIVE increases damage taken, so the -12 here is a 12% reduction for the party.",
       "target_type": "party",
-      "buff_scope": "party"
+      "buff_scope": "party",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_champions_presence",
@@ -951,7 +972,8 @@
       "icon_id": null,
       "_source": "CoA: 'Pop Champion's Presence for a haste burst window'. || target_type self -> party, 5 Nov 2026. CoA: 'Enrage all nearby allies, increasing their haste by 30% for 20 seconds.' Explicitly allies-only in CoA; held at 15% party-wide rather than CoA's 30%.",
       "target_type": "party",
-      "buff_scope": "party"
+      "buff_scope": "party",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_harrowing_melody",
@@ -974,7 +996,8 @@
       ],
       "icon_id": null,
       "_source": "CoA lists Harrowing Melody among the cooldowns Voice of an Angel resets.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_heros_march",
@@ -999,7 +1022,8 @@
       "icon_id": null,
       "_source": "CoA lists Hero's March with Liberation and Harrowing Melody as the Voice of an Angel reset targets.  UNIT FIXED: physical_damage_taken_pct in an ability's stat_mods is in PERCENT POINTS (Character.take_damage divides the physical_/magic_ variants by 100), so -0.05 meant -0.05% and did essentially nothing. The bare damage_taken_pct key sits four lines away in the same method and IS a fraction - the convention is per-key with no naming rule. Verified by applying the key and taking a 1000-damage hit: 0.04 gave 736 damage, 4.0 gave 766. Caught by the unit check added to tools/validate_class.py, which flags both directions. The haste 8.0 beside it was already right - haste is points too.",
       "target_type": "self",
-      "buff_scope": "party"
+      "buff_scope": "party",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_voice_of_an_angel",
@@ -1020,7 +1044,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Voice of an Angel instantly resets Liberation, Harrowing Melody, and Hero's March when you need them back'.",
-      "target_type": "self"
+      "target_type": "self",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_soldiers_decree",
@@ -1067,7 +1092,8 @@
       "exclusive_group": "guardian_decree",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_spellcasters_decree",
@@ -1114,7 +1140,8 @@
       "exclusive_group": "guardian_decree",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_sound_of_war",
@@ -1129,38 +1156,38 @@
         {
           "rank": 1,
           "level_req": 18,
-          "cost": 25,
-          "effect_value": 35
+          "cost": 21,
+          "effect_value": 23
         },
         {
           "rank": 2,
           "level_req": 26,
-          "cost": 25,
-          "effect_value": 42
+          "cost": 21,
+          "effect_value": 27
         },
         {
           "rank": 3,
           "level_req": 34,
-          "cost": 25,
-          "effect_value": 48
+          "cost": 21,
+          "effect_value": 31
         },
         {
           "rank": 4,
           "level_req": 42,
-          "cost": 25,
-          "effect_value": 54
+          "cost": 21,
+          "effect_value": 35
         },
         {
           "rank": 5,
           "level_req": 50,
-          "cost": 25,
-          "effect_value": 61
+          "cost": 21,
+          "effect_value": 40
         },
         {
           "rank": 6,
           "level_req": 58,
-          "cost": 25,
-          "effect_value": 67
+          "cost": 21,
+          "effect_value": 44
         }
       ],
       "icon_id": null,
@@ -1168,8 +1195,10 @@
       "target_type": "enemy_aoe",
       "max_targets": 3,
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py"
-      ]
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py",
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+      ],
+      "cast_speed": "quick"
     },
     {
       "ability_id": "guardian_battle_rush",
@@ -1224,7 +1253,8 @@
       "is_stun": true,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.44x steeper than it, biggest single-rank jump 1.13x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_spear_throw",
@@ -1239,46 +1269,48 @@
         {
           "rank": 1,
           "level_req": 24,
-          "cost": 25,
-          "effect_value": 62
+          "cost": 21,
+          "effect_value": 40
         },
         {
           "rank": 2,
           "level_req": 30,
-          "cost": 25,
-          "effect_value": 69
+          "cost": 21,
+          "effect_value": 45
         },
         {
           "rank": 3,
           "level_req": 36,
-          "cost": 25,
-          "effect_value": 77
+          "cost": 21,
+          "effect_value": 50
         },
         {
           "rank": 4,
           "level_req": 42,
-          "cost": 25,
-          "effect_value": 84
+          "cost": 21,
+          "effect_value": 55
         },
         {
           "rank": 5,
           "level_req": 48,
-          "cost": 25,
-          "effect_value": 91
+          "cost": 21,
+          "effect_value": 59
         },
         {
           "rank": 6,
           "level_req": 54,
-          "cost": 25,
-          "effect_value": 99
+          "cost": 21,
+          "effect_value": 64
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Spear Throw's healing-reduction debuff lets it punch through an enemy healer's output', 'Mortal Strike's anti-heal identity transplanted onto a shield-tank frame'. ranged_damage - it is thrown.",
       "target_type": "enemy",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.54x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py"
-      ]
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.54x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py",
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+      ],
+      "cast_speed": "quick"
     },
     {
       "ability_id": "guardian_reprisal",
@@ -1332,7 +1364,8 @@
       "target_type": "enemy",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.52x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_centurion_strike",
@@ -1380,7 +1413,8 @@
       "target_type": "enemy",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.53x steeper than it, biggest single-rank jump 1.17x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_heroism",
@@ -1401,7 +1435,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'lean on Heroism's free Pulverizes/Broad Sweeps once Glory or Favor peaks'.",
-      "target_type": "self"
+      "target_type": "self",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "guardian_marching_song",
@@ -1452,7 +1487,8 @@
       ],
       "_tuning": [
         "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     }
   ]
 }

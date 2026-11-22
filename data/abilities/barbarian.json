@@ -89,7 +89,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Smash and Ancestral Strike as your Energy fillers'. The cheap no-cooldown filler every spec presses, so it carries Warrior heroic_strike's curve exactly.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_barbaric_whirl",
@@ -150,7 +151,8 @@
       "max_targets": 5,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.27x steeper than it, biggest single-rank jump 1.08x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_unbridled_rage",
@@ -175,7 +177,8 @@
       "icon_id": null,
       "_source": "CoA: 'Unbridled Rage is your main burst window (+Physical damage, and it triggers Maximum Carnage's whirl)'. The class's signature enrage. This engine has no enrage STATE, so the three CoA abilities that only exist to keep Smash castable are plain buffs and Smash is ungated.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_defiance",
@@ -199,7 +202,8 @@
       "icon_id": null,
       "_source": "CoA: 'Defiance (damage taken cut 30-80% the lower your health)'. A buff's stat_mods are read raw by take_damage's taken_mult, so damage_taken_pct is a FRACTION here. The health-scaled 30-to-80% band has no hook on a cast buff, so it lands at the floor, 30%; the scaling half is covered by Blood and Glory's low_health_damage_reduction_pct in the Brutality tree.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_jawbreaker",
@@ -221,7 +225,8 @@
       "icon_id": null,
       "_source": "CoA: 'Jawbreaker - interrupting them and preventing any spell from that school from being cast for 4 seconds'. This engine has ONE crowd-control category, is_stun - status_effects.py says so outright ('one mechanic, is_stun, with no separate silence/root category') and StatusEffectMixin.is_stunned is what actually withholds a turn. So the interrupt is is_stun for one turn, which this ability already carries. School lockout has no hook. DEAD FLAG REMOVED 2026-10-29: stat_mods carried {'silenced': 1}, described here as 'the shipped convention's tooltip label'. Nothing reads it, and a stat_mod shaped exactly like the mechanism it is not IS the is_aoe trap - which is why tools/validate_class.py now ERRORS on stunned/silenced/rooted/stealthed rather than warning. It was removed from the emitted JSON earlier the same day and not ported here, so re-running this script silently restored it.",
       "target_type": "enemy",
-      "is_stun": true
+      "is_stun": true,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_headhunters_spear",
@@ -279,7 +284,8 @@
       },
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.28x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_maiming_spear",
@@ -329,7 +335,8 @@
       "target_type": "enemy",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_ancestral_roar",
@@ -383,7 +390,8 @@
       "target_type": "self",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.94x steeper than it, biggest single-rank jump 1.28x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_warband",
@@ -431,7 +439,8 @@
       "target_type": "party",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.52x steeper than it, biggest single-rank jump 1.17x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_thick_skull",
@@ -455,7 +464,8 @@
       "icon_id": null,
       "_source": "CoA: 'immune to all stun effects for 10 seconds ... Usable while stunned'. The usable-while-stunned half has no hook. The on-damage Born in Blood grant is carried by the Brutality tree's Savagery node instead.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_hodirs_wrath",
@@ -503,7 +513,8 @@
       },
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.42x steeper than it, biggest single-rank jump 1.17x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_smash",
@@ -563,7 +574,8 @@
       "target_type": "enemy",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.47x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_brutal_swing",
@@ -625,7 +637,8 @@
       "is_instant": true,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.28x steeper than it, biggest single-rank jump 1.08x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_decapitate",
@@ -680,7 +693,8 @@
       "execute_threshold_pct": 35,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.51x steeper than it, biggest single-rank jump 1.14x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_crush",
@@ -730,7 +744,8 @@
       "is_stun": true,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.26x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_onslaught",
@@ -753,7 +768,8 @@
       "icon_id": null,
       "_source": "CoA: 'Onslaught is an Energy battery that floods the bar for execute phases'. 45% of the pool, carried on the rank key that effect_type='restore_resource' actually reads - see restore(). It is also an enrage in CoA; nothing here can carry that.",
       "target_type": "self",
-      "restore_resource_type": "energy"
+      "restore_resource_type": "energy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_killing_spree",
@@ -795,7 +811,8 @@
       "target_type": "enemy",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.46x steeper than it, biggest single-rank jump 1.18x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_storm_of_steel",
@@ -841,7 +858,8 @@
       ],
       "_over_time_lifted": [
         1.53
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_throw_weapon",
@@ -856,56 +874,56 @@
         {
           "rank": 1,
           "level_req": 10,
-          "cost": 15,
-          "effect_value": 41
+          "cost": 13,
+          "effect_value": 27
         },
         {
           "rank": 2,
           "level_req": 16,
-          "cost": 15,
-          "effect_value": 47
+          "cost": 13,
+          "effect_value": 31
         },
         {
           "rank": 3,
           "level_req": 22,
-          "cost": 15,
-          "effect_value": 54
+          "cost": 13,
+          "effect_value": 35
         },
         {
           "rank": 4,
           "level_req": 28,
-          "cost": 15,
-          "effect_value": 61
+          "cost": 13,
+          "effect_value": 40
         },
         {
           "rank": 5,
           "level_req": 34,
-          "cost": 15,
-          "effect_value": 67
+          "cost": 13,
+          "effect_value": 44
         },
         {
           "rank": 6,
           "level_req": 40,
-          "cost": 15,
-          "effect_value": 74
+          "cost": 13,
+          "effect_value": 48
         },
         {
           "rank": 7,
           "level_req": 46,
-          "cost": 15,
-          "effect_value": 81
+          "cost": 13,
+          "effect_value": 53
         },
         {
           "rank": 8,
           "level_req": 52,
-          "cost": 15,
-          "effect_value": 87
+          "cost": 13,
+          "effect_value": 57
         },
         {
           "rank": 9,
           "level_req": 58,
-          "cost": 15,
-          "effect_value": 94
+          "cost": 13,
+          "effect_value": 61
         }
       ],
       "icon_id": null,
@@ -913,8 +931,10 @@
       "target_type": "enemy",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.33x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py",
-        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
-      ]
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py",
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+      ],
+      "cast_speed": "quick"
     },
     {
       "ability_id": "barbarian_gutspiller",
@@ -959,7 +979,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Launch a heavy axe at an enemy, causing them to bleed for 96 damage over 12 seconds. Every 6 sec the target has their Guts Spilled'. The nested Guts Spilled tick is folded into the one dot and Payback scales it.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_berserker_rush",
@@ -1004,7 +1025,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Berserker Rush's charge-root-then-leap-back', 'rooting them for 2 seconds, then leap backwards'. Root and reposition are both movement, which a turn fight has none of. The Born in Blood grant it carries in CoA is the Vengeance For Zul'jin talent, which is in the tree.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_berserker_axe",
@@ -1058,7 +1080,8 @@
       "target_type": "enemy",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.54x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_impaling_spear",
@@ -1098,7 +1121,8 @@
       "icon_id": null,
       "_source": "CoA: 'Impaling Spear is a frontal-line bleed via Spear Shards', 'Hurl a spear in a 30 yd frontal line ... At the spear's impact location the spear shatters'. The line and the shatter collapse into one capped AoE bleed.",
       "target_type": "enemy_aoe",
-      "max_targets": 4
+      "max_targets": 4,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_savage_revelry",
@@ -1156,7 +1180,8 @@
       },
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.93x steeper than it, biggest single-rank jump 1.28x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_axe_twirling",
@@ -1181,7 +1206,8 @@
       "icon_id": null,
       "_source": "CoA: 'Axe Twirling is your burst button, an Enrage that makes Throw Weapon, Gutspiller and Berserker Axe strike additional nearby enemies'. A buff cannot retarget another ability's cleave, so the window is a damage window; the cleave half is already in the kit as Brutal Swing and Barbaric Whirl.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_javelin_toss",
@@ -1196,34 +1222,36 @@
         {
           "rank": 1,
           "level_req": 38,
-          "cost": 30,
-          "effect_value": 147
+          "cost": 26,
+          "effect_value": 96
         },
         {
           "rank": 2,
           "level_req": 44,
-          "cost": 30,
-          "effect_value": 161
+          "cost": 26,
+          "effect_value": 105
         },
         {
           "rank": 3,
           "level_req": 50,
-          "cost": 30,
-          "effect_value": 174
+          "cost": 26,
+          "effect_value": 113
         },
         {
           "rank": 4,
           "level_req": 56,
-          "cost": 30,
-          "effect_value": 188
+          "cost": 26,
+          "effect_value": 122
         }
       ],
       "icon_id": null,
       "_source": "CoA: \"Open at range with Javelin Toss/Throw Weapon\", and Sen'jin's Guidance 'Transforms your Throw Weapon into Javelin Toss'. A transform has no hook, so it is its own later, bigger thrown attack and the talent buffs it.",
       "target_type": "enemy",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.45x steeper than it, biggest single-rank jump 1.17x); overall size kept. tools/fix_rank_lines.py"
-      ]
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.45x steeper than it, biggest single-rank jump 1.17x); overall size kept. tools/fix_rank_lines.py",
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+      ],
+      "cast_speed": "quick"
     },
     {
       "ability_id": "barbarian_keg_smash",
@@ -1290,7 +1318,8 @@
       "max_targets": 5,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.36x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_ancestral_fury",
@@ -1314,7 +1343,8 @@
       "icon_id": null,
       "_source": "CoA: 'Ancestral Fury and Frozen Blades stay up passively. Position so the whole group sits in your haste and crit auras.' An always-on aura, so it keeps the default wall-clock buff_scope rather than expiring with the fight.",
       "target_type": "party",
-      "buff_scope": "raid"
+      "buff_scope": "raid",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_breath_of_the_north",
@@ -1361,7 +1391,8 @@
       "_source": "CoA: 'Breath of the North whenever the Tankard is empty', 'dealing AP Frost damage to enemies in a 12 yd cone'. The empty-Tankard gate needs a second resource this class does not have, so it is a plain cooldown.",
       "target_type": "enemy_aoe",
       "max_targets": 4,
-      "damage_school": "frost"
+      "damage_school": "frost",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_frozen_blades",
@@ -1386,7 +1417,8 @@
       "icon_id": null,
       "_source": "CoA: 'Critical strikes now grant party and raid members 5% critical strike chance'. The crit-triggered half is flattened into a standing aura, which is how the spec page describes playing it anyway ('stay up passively').",
       "target_type": "party",
-      "buff_scope": "raid"
+      "buff_scope": "raid",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_frozen_tankard",
@@ -1427,7 +1459,8 @@
       "_source": "CoA: 'Frozen Tankard is a thrown Frost stun that flags Frozen', 'Open dangerous pulls with Frozen Tankard to stun'. The Frozen flag that Icebound Ancestry reads off it has no hook, so that node carries flat crit instead.",
       "target_type": "enemy",
       "damage_school": "frost",
-      "is_stun": true
+      "is_stun": true,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_ramhorn_rage",
@@ -1475,7 +1508,8 @@
       "target_type": "party",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.54x steeper than it, biggest single-rank jump 1.18x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_ancestors_call",
@@ -1497,7 +1531,11 @@
       "icon_id": null,
       "_source": "CoA: 'Call an Honored Ancestor to aid you in battle until dismissed that scales with your Agility and attack power ... Whenever you use Barbaric Whirl or Whirling Advance, your Honored Ancestor mimics it.' NOW A REAL HONORED ANCESTOR. This pointed at 'wolf' and summoned a pet named Wolf - the old note called a called spirit beast 'the closest honest reading', which it was while no ancestor template existed. One does now: a spirit warrior with high crit to match the Ancestry tree's own One With The Ancestors. TWO HALVES STILL UNHOOKED. Scaling off the owner's Agility and attack power is impossible by design - Pet._apply_template_stats reads exactly three owner TALENT keys (pet_damage, pet_health, pet_armor) and nothing else, deliberately, so an owner STAT has no route; The Spins and Might of Utgarde scale the pet through those talent keys instead. The mimic mechanic would need a pet to react to its owner's casts, which nothing in the pet system does; Spirit Whirl keeps the flavour as an ability the Ancestor casts itself.",
       "target_type": "self",
-      "summon_pet_template": "honored_ancestor"
+      "summon_pet_template": "honored_ancestor",
+      "cast_speed": "slow",
+      "_tuning": [
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "barbarian_war_cry",
@@ -1537,7 +1575,8 @@
       "buff_scope": "combat",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_splash_zone",
@@ -1577,7 +1616,8 @@
       "buff_scope": "combat",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_tavern_brawl",
@@ -1601,7 +1641,8 @@
       "icon_id": null,
       "_source": "CoA: \"Tavern Brawl! as the group haste cooldown for burn phases\", 'Enrage all nearby allies, increasing their haste by 30%'. The 5-minute exhaustion lockout has no hook; the 15-turn cooldown stands in for it.",
       "target_type": "party",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "barbarian_clanlords_totem",
@@ -1626,7 +1667,8 @@
       "icon_id": null,
       "_source": "CoA: \"Clanlord's Totem dropped at the fight to buff allies standing near it\", 'causing allied players ... to deal 35% AP additional damage as Frost'. There is no placed-object system and no 'your allies' damage becomes Frost' hook, so it is a party damage window. Not effect_type='totem_loadout' - that is the Shaman's totem-slot swap, a different mechanic entirely.",
       "target_type": "party",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     }
   ]
 }

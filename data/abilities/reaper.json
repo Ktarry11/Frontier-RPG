@@ -93,7 +93,8 @@
       "generates": {
         "resource": "souls",
         "amount": 10
-      }
+      },
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_murder",
@@ -160,7 +161,8 @@
       "generates": {
         "resource": "souls",
         "amount": 15
-      }
+      },
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_soul_strike",
@@ -233,7 +235,8 @@
       "_source": "CoA: Domination's 'Soul Strike as your Runic Power spender and health/Strength steal (Essence Binder)', and the class tree's Harvester's Scythe 'increases the amount leeched by Soul Strike'. damage_and_heal is the engine's only life-steal effect_type; note it resolves on the SPELL damage path, which is why this is Shadow-schooled and carries a high flat base rather than reading as a weapon hit.",
       "target_type": "enemy",
       "heal_scope": 1,
-      "damage_school": "shadow"
+      "damage_school": "shadow",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_wraithblade",
@@ -288,7 +291,8 @@
       "generates": {
         "resource": "souls",
         "amount": 25
-      }
+      },
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_soulrend",
@@ -344,7 +348,8 @@
       "_over_time_lifted": 2.5,
       "_tuning": [
         "15 Nov 2026, class pass: every rank x2.50 - its total was 0.28x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_spectre_stride",
@@ -396,7 +401,8 @@
       },
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.29x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_ghastly_screech",
@@ -447,7 +453,8 @@
       ],
       "_over_time_lifted": [
         1.96
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_deathwind",
@@ -498,7 +505,8 @@
       ],
       "_tuning": [
         "15 Nov 2026, class pass: every rank x1.55 - its total was 0.51x what a hot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_sinister_litany",
@@ -521,7 +529,8 @@
       "icon_id": null,
       "_source": "CoA class tree: 'Embrace your sinister thoughts, instantly generating 3 Reaped Souls.' 35% of a 100 pool stands in for 3 of a 5-stack bank.",
       "target_type": "self",
-      "restore_resource_type": "souls"
+      "restore_resource_type": "souls",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_tormented_souls",
@@ -545,7 +554,8 @@
       "icon_id": null,
       "_source": "CoA class tree: 'Tormented Souls: Reduces all direct damage you take by 10% and heals you for Stamina, removing 1 stack.' The stack-consuming heal has no hook; the 10% mitigation is literal. NOTE damage_taken_pct in a buff's stat_mods is read RAW by take_damage, so -0.10 is -10% - the OPPOSITE convention to the school-specific variants beside it, which are divided by 100. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect entirely - so THE `duration` FIELD WAS NEVER READ and this short combat cooldown was live for every fight in the next half hour. These are Icy Veins / Evasion-family cooldowns, which is exactly what 'combat' scope is for. Scoped to Reaper deliberately: FOUR talents in this class's rebuilt trees extend one of these durations (Harvest's Deathbringer on Harvest Time, Soul's Death Dealer on Ghostly Weapon) and every one of them was dead data while the duration was ignored. 65 buffs across 12 other classes still have the same shape - see tools/qa_buff_scope.py - and Kyle has parked that sweep as a separate balance decision; this is not it.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_withering_touch",
@@ -611,7 +621,8 @@
       "_tuning": [
         "15 Nov 2026, rank-depth pass (Kyle: \"ensure there are appropriate ranks for spells, abilities, buffs etc ... in line with Classic\"): ranks every 12 levels. Only the ARMOUR grows (along the same level line monster armour uses) - the world curve already grows attack/spell power and primary stats, and the other mods are percentages or flags. Each rank carries its own stat_mods (Ability.stat_mods), so the rest stays as written.",
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_limbo",
@@ -636,7 +647,8 @@
       "icon_id": null,
       "_source": "CoA class tree: 'Rip out of your mortal shell for 5 seconds, making you immune to all harmful spell effects and instantly restoring 30% of your maximum health and Runic Power.' All three specs name it as the answer to magic burst. There is no immunity primitive and no way to pair a heal with a buff on one cast, so it is a heavy magic-damage reduction plus a smaller flat one; the health-and-resource restore is gone and Jailer's Bargain carries the shield half of the class's defensive kit. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect entirely - so THE `duration` FIELD WAS NEVER READ and this short combat cooldown was live for every fight in the next half hour. These are Icy Veins / Evasion-family cooldowns, which is exactly what 'combat' scope is for. Scoped to Reaper deliberately: FOUR talents in this class's rebuilt trees extend one of these durations (Harvest's Deathbringer on Harvest Time, Soul's Death Dealer on Ghostly Weapon) and every one of them was dead data while the duration was ignored. 65 buffs across 12 other classes still have the same shape - see tools/qa_buff_scope.py - and Kyle has parked that sweep as a separate balance decision; this is not it.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_shadows_embrace",
@@ -658,7 +670,8 @@
       "icon_id": null,
       "_source": "CoA: Domination's 'Shadow's Embrace cleanses fear, charm and sleep one effect at a time'. Fear, charm and sleep are Magic in WoW's dispel schools, and magic is a real DispelType here, so this one survives translation intact.",
       "target_type": "ally",
-      "dispel_type": "magic"
+      "dispel_type": "magic",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_soulstone_lure",
@@ -680,7 +693,8 @@
       "icon_id": null,
       "_source": "CoA: Domination's 'hard CC stops at Mark of Terror's fear and Soulstone Lure's horrify'. A horrify is a stun here; is_stun is the only incapacitate the engine has.",
       "target_type": "enemy",
-      "is_stun": true
+      "is_stun": true,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_crows_harvest",
@@ -695,44 +709,44 @@
         {
           "rank": 1,
           "level_req": 10,
-          "cost": 30,
-          "effect_value": 36
+          "cost": 26,
+          "effect_value": 23
         },
         {
           "rank": 2,
           "level_req": 18,
-          "cost": 34,
-          "effect_value": 46
+          "cost": 29,
+          "effect_value": 30
         },
         {
           "rank": 3,
           "level_req": 26,
-          "cost": 39,
-          "effect_value": 56
+          "cost": 33,
+          "effect_value": 36
         },
         {
           "rank": 4,
           "level_req": 34,
-          "cost": 44,
-          "effect_value": 66
+          "cost": 37,
+          "effect_value": 43
         },
         {
           "rank": 5,
           "level_req": 42,
-          "cost": 51,
-          "effect_value": 76
+          "cost": 43,
+          "effect_value": 49
         },
         {
           "rank": 6,
           "level_req": 50,
-          "cost": 58,
-          "effect_value": 86
+          "cost": 49,
+          "effect_value": 56
         },
         {
           "rank": 7,
           "level_req": 58,
-          "cost": 66,
-          "effect_value": 96
+          "cost": 56,
+          "effect_value": 62
         }
       ],
       "icon_id": null,
@@ -742,7 +756,11 @@
       "generates": {
         "resource": "souls",
         "amount": 20
-      }
+      },
+      "cast_speed": "quick",
+      "_tuning": [
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+      ]
     },
     {
       "ability_id": "reaper_doomrend",
@@ -797,7 +815,8 @@
       "generates": {
         "resource": "souls",
         "amount": 15
-      }
+      },
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_slaughter",
@@ -857,7 +876,8 @@
       "_tuning": [
         "15 Nov 2026, class pass: every rank x0.70 - it sat at 2.27x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.37x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_harvesting_grounds",
@@ -881,7 +901,8 @@
       "icon_id": null,
       "_source": "CoA: 'enemies inside have their melee and ranged haste and movement speed reduced by -20%. For the duration, enemies that try to exit the harvesting ground will be pulled back to its center.' The haste slow is literal; the zone and the pull-back are not modellable.",
       "target_type": "enemy_aoe",
-      "max_targets": 5
+      "max_targets": 5,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_harvest_time",
@@ -907,7 +928,8 @@
       "_source": "CoA: 'Increases your damage and critical strike chance by 15% ... for 15 seconds', 'your burst window when you can commit to a heavy trade'. Taught by the Harvest Time talent; the Soul-Infusion-preservation clause has no equivalent with a single Souls pool. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect entirely - so THE `duration` FIELD WAS NEVER READ and this short combat cooldown was live for every fight in the next half hour. These are Icy Veins / Evasion-family cooldowns, which is exactly what 'combat' scope is for. Scoped to Reaper deliberately: FOUR talents in this class's rebuilt trees extend one of these durations (Harvest's Deathbringer on Harvest Time, Soul's Death Dealer on Ghostly Weapon) and every one of them was dead data while the duration was ignored. 65 buffs across 12 other classes still have the same shape - see tools/qa_buff_scope.py - and Kyle has parked that sweep as a separate balance decision; this is not it.",
       "target_type": "self",
       "requires_talent": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_blood_frenzy",
@@ -936,7 +958,8 @@
       "_source": "CoA: 'Deals AP Shadow Damage to your target every 0.75 sec for 7.5 seconds. At the end of the duration, the target takes an additional AP Shadow Damage.' The end-of-duration spike has no hook, so it is a plain heavy Shadow dot. Capstone-taught, like CoA's tier gate.",
       "target_type": "enemy",
       "damage_school": "shadow",
-      "requires_talent": true
+      "requires_talent": true,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_dirge",
@@ -1001,7 +1024,8 @@
       "strikes_both_weapons": true,
       "_tuning": [
         "15 Nov 2026 (Kyle: 'abilities like stormstrike that hit for both weapons ... Wildclaw'): strikes_both_weapons - the off hand lands with it when dual-wielding. Every other special is main-hand only, as in Classic."
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_deathchaser",
@@ -1066,7 +1090,8 @@
       ],
       "_tuning": [
         "15 Nov 2026, class pass: every rank x1.97 - its total was 0.41x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_reliquary_of_the_lost",
@@ -1121,7 +1146,8 @@
       "damage_school": "shadow",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.36x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_soulslam",
@@ -1170,7 +1196,8 @@
       "max_targets": 5,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.36x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_ghostly_weapon",
@@ -1194,7 +1221,8 @@
       "icon_id": null,
       "_source": "CoA: 'Imbue your weapon with ghostly power for 15 seconds, causing melee attacks to deal 25% additional damage as Frost damage.' An imbue that re-schools your autoattacks is not expressible, so it is a flat damage-dealt window; Lamenting's heal off that Frost damage is folded into the Soul tree as a leech proc. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect entirely - so THE `duration` FIELD WAS NEVER READ and this short combat cooldown was live for every fight in the next half hour. These are Icy Veins / Evasion-family cooldowns, which is exactly what 'combat' scope is for. Scoped to Reaper deliberately: FOUR talents in this class's rebuilt trees extend one of these durations (Harvest's Deathbringer on Harvest Time, Soul's Death Dealer on Ghostly Weapon) and every one of them was dead data while the duration was ignored. 65 buffs across 12 other classes still have the same shape - see tools/qa_buff_scope.py - and Kyle has parked that sweep as a separate balance decision; this is not it.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_deaths_presence",
@@ -1219,7 +1247,8 @@
       "_source": "CoA: 'Increases all damage dealt by party and raid members by 3%. Does not stack with similar effects.' The spec's whole party toolkit, which the reference lists as a weakness: 'A partner under pressure gets no heal, no shield and no CC-break from you.' || target_type 'self' -> 'party', 6 Nov 2026. CoA: 'Increases all damage dealt by party and raid members by 3%. Does not stack with similar effects.' A TALENT EFFECT CAN NEVER REACH AN ALLY, but a party-targeted ABILITY can - abilities.py:2064 resolves target_type 'party' to all living allies, and ui/screens/combat_screen.py:594 passes living_allies(); with no party context it degrades to the caster alone. This is the same call Kyle made on 5 Nov 2026 for Guardian's four auras (Song of Steel, Inspiring Presence, Standard of Valiance, Champion's Presence), applied to the one Reaper ability of the same shape. duration 0 with 'raid' scope is correct here and left alone: a passive aura is meant to sit there, unlike the combat cooldowns above.",
       "target_type": "party",
       "buff_scope": "raid",
-      "requires_talent": true
+      "requires_talent": true,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_endbringer",
@@ -1245,7 +1274,8 @@
       "_source": "CoA: 'Become an Endbringer for 15 seconds, increasing the damage of Dirge by 30%, the range by 20 yds, and causes it to generate 3 Reaped Souls. For the duration, Dirge will heal you for 75% of its damage dealt.' A buff cannot reach inside one named ability, so it is a general burst window; Gravesite's crit damage rides on the same talent. || buff_scope set to 'combat', 6 Nov 2026. It was never stated, so it inherited the engine's 'raid' default (abilities.py:644), which sets real_time_seconds to 30 real MINUTES and makes tick_status_effects skip the effect entirely - so THE `duration` FIELD WAS NEVER READ and this short combat cooldown was live for every fight in the next half hour. These are Icy Veins / Evasion-family cooldowns, which is exactly what 'combat' scope is for. Scoped to Reaper deliberately: FOUR talents in this class's rebuilt trees extend one of these durations (Harvest's Deathbringer on Harvest Time, Soul's Death Dealer on Ghostly Weapon) and every one of them was dead data while the duration was ignored. 65 buffs across 12 other classes still have the same shape - see tools/qa_buff_scope.py - and Kyle has parked that sweep as a separate balance decision; this is not it.",
       "target_type": "self",
       "requires_talent": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_sepulchral_renewal",
@@ -1266,7 +1296,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Resets the cooldown of Limbo, Soulslam, and Shade.' The reference calls this the answer to the spec's named weakness - 'Limbo and Shade are finite cooldowns. Spend both and there is a dead window.' reset_cooldowns is whole-book here rather than a named list.",
-      "target_type": "self"
+      "target_type": "self",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_dreadwake",
@@ -1281,44 +1312,44 @@
         {
           "rank": 1,
           "level_req": 12,
-          "cost": 30,
-          "effect_value": 46
+          "cost": 26,
+          "effect_value": 30
         },
         {
           "rank": 2,
           "level_req": 19,
-          "cost": 34,
-          "effect_value": 55
+          "cost": 29,
+          "effect_value": 36
         },
         {
           "rank": 3,
           "level_req": 26,
-          "cost": 39,
-          "effect_value": 63
+          "cost": 33,
+          "effect_value": 41
         },
         {
           "rank": 4,
           "level_req": 33,
-          "cost": 44,
-          "effect_value": 72
+          "cost": 37,
+          "effect_value": 47
         },
         {
           "rank": 5,
           "level_req": 40,
-          "cost": 51,
-          "effect_value": 80
+          "cost": 43,
+          "effect_value": 52
         },
         {
           "rank": 6,
           "level_req": 47,
-          "cost": 58,
-          "effect_value": 88
+          "cost": 49,
+          "effect_value": 57
         },
         {
           "rank": 7,
           "level_req": 54,
-          "cost": 66,
-          "effect_value": 97
+          "cost": 56,
+          "effect_value": 63
         }
       ],
       "icon_id": null,
@@ -1330,8 +1361,10 @@
         "amount": 15
       },
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.27x steeper than it, biggest single-rank jump 1.08x); overall size kept. tools/fix_rank_lines.py"
-      ]
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.27x steeper than it, biggest single-rank jump 1.08x); overall size kept. tools/fix_rank_lines.py",
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+      ],
+      "cast_speed": "quick"
     },
     {
       "ability_id": "reaper_requiem",
@@ -1346,38 +1379,38 @@
         {
           "rank": 1,
           "level_req": 18,
-          "cost": 34,
-          "effect_value": 40
+          "cost": 39,
+          "effect_value": 60
         },
         {
           "rank": 2,
           "level_req": 26,
-          "cost": 39,
-          "effect_value": 47
+          "cost": 45,
+          "effect_value": 70
         },
         {
           "rank": 3,
           "level_req": 34,
-          "cost": 44,
-          "effect_value": 54
+          "cost": 51,
+          "effect_value": 81
         },
         {
           "rank": 4,
           "level_req": 42,
-          "cost": 50,
-          "effect_value": 61
+          "cost": 57,
+          "effect_value": 92
         },
         {
           "rank": 5,
           "level_req": 50,
-          "cost": 57,
-          "effect_value": 68
+          "cost": 66,
+          "effect_value": 102
         },
         {
           "rank": 6,
           "level_req": 58,
-          "cost": 65,
-          "effect_value": 76
+          "cost": 75,
+          "effect_value": 114
         }
       ],
       "icon_id": null,
@@ -1389,8 +1422,10 @@
         "amount": 10
       },
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.30x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py"
-      ]
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.30x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py",
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
+      ],
+      "cast_speed": "slow"
     },
     {
       "ability_id": "reaper_bolstered_form",
@@ -1419,7 +1454,8 @@
         "resource": "mana",
         "amount": 60
       },
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_spectral_scythe",
@@ -1441,7 +1477,11 @@
       "icon_id": null,
       "_source": "CoA: 'Summons 1 Spectral Scythe for each Reaped Soul active which attack a nearby enemy for 20 seconds. Striking enemies with Soul Strike causes the Spectral Scythe to attack that enemy and 5 nearby enemies. Consumes Reaped Souls and Soul Infusion'. Souls-costed, as written. NOW A REAL SPECTRAL SCYTHE: this used to borrow faceless_destroyer, the Cultist's pet, on the reasoning that there was no spectral-blade template and pet_templates.py was shared. There is one now - a floating animated weapon rather than a body, lowest health and highest crit chance of any pet in the game. Still one body per cast, not one per banked soul (Character.EXTRA_PET_CAP has no Reaper entry), and the 5-target Soul Strike cleave is still not expressible on a pet.",
       "target_type": "self",
-      "summon_pet_template": "spectral_scythe"
+      "summon_pet_template": "spectral_scythe",
+      "cast_speed": "slow",
+      "_tuning": [
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "reaper_spectral_warden",
@@ -1464,7 +1504,11 @@
       "_source": "CoA: 'Summon a spectral guardian to fight along side you for 20 seconds and apply an absorption shield to up to 8 allies within 20 yds, absorbing Stamina damage.' NOW A REAL SPECTRAL WARDEN: this used to borrow voidwalker and summoned a pet named Voidwalker - the engine's existing tank-shaped shadow pet, which was the right shape and a Warlock demon. The template now exists, built as the durable counterpart to this class's own Spectral Scythe (more health and armour, deliberately less damage). summon_pet still cannot also shield the party and the group absorb is still lost - the template's _source records why a pet-cast absorb buff would be dead data rather than a fix. Taught by the Spirit Army talent.",
       "target_type": "self",
       "summon_pet_template": "spectral_warden",
-      "requires_talent": true
+      "requires_talent": true,
+      "cast_speed": "slow",
+      "_tuning": [
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "reaper_ethereal_guard",
@@ -1489,7 +1533,8 @@
       "_source": "CoA: 'Reduces the damage taken by party and raid members by -3%. Does not stack with similar effects. In addition, increases your melee haste by 10%.' One buff cannot aim two different stat sets at two different sets of targets, so the party mitigation is kept and the personal haste moves into the Hard Bargain talent. || target_type 'self' -> 'party', 6 Nov 2026. CoA: 'Reduces the damage taken by party and raid members by -3%. Does not stack with similar effects. In addition, increases your melee haste by 10%.' A talent effect can never reach an ally; a party-targeted ABILITY resolves to all living allies (abilities.py:2064) and degrades to the caster alone with no party context. Second Reaper aura converted the same way as Death's Presence, and the same call Kyle made for Guardian's four auras on 5 Nov 2026. A TANK's party damage reduction is the one that most needs to actually reach the party.",
       "target_type": "party",
       "buff_scope": "raid",
-      "requires_talent": true
+      "requires_talent": true,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_eater_of_souls",
@@ -1520,7 +1565,8 @@
         "icd": 0,
         "heal_flat": 70
       },
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "reaper_soulsight",
@@ -1545,7 +1591,8 @@
       "icon_id": null,
       "_source": "CoA: 'Increases critical strike chance of all party and raid members by 3%. Does not stack with similar effects.' The second half of what the reference calls 'Rare support from a tank'.",
       "target_type": "self",
-      "buff_scope": "raid"
+      "buff_scope": "raid",
+      "cast_speed": "normal"
     }
   ]
 }

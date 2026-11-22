@@ -85,7 +85,8 @@
           "effect_value": 124
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "hunter_arcane_shot",
@@ -180,7 +181,8 @@
       ],
       "icon_id": null,
       "target_type": "enemy_aoe",
-      "max_targets": 3
+      "max_targets": 3,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "hunter_aimed_shot",
@@ -243,51 +245,53 @@
         {
           "rank": 1,
           "level_req": 4,
-          "cost": 25,
-          "effect_value": 52
+          "cost": 21,
+          "effect_value": 34
         },
         {
           "rank": 2,
           "level_req": 16,
-          "cost": 39,
-          "effect_value": 86
+          "cost": 33,
+          "effect_value": 56
         },
         {
           "rank": 3,
           "level_req": 24,
-          "cost": 46,
-          "effect_value": 103
+          "cost": 39,
+          "effect_value": 67
         },
         {
           "rank": 4,
           "level_req": 32,
-          "cost": 53,
-          "effect_value": 120
+          "cost": 45,
+          "effect_value": 78
         },
         {
           "rank": 5,
           "level_req": 41,
-          "cost": 60,
-          "effect_value": 136
+          "cost": 51,
+          "effect_value": 88
         },
         {
           "rank": 6,
           "level_req": 50,
-          "cost": 67,
-          "effect_value": 153
+          "cost": 57,
+          "effect_value": 99
         },
         {
           "rank": 7,
           "level_req": 58,
-          "cost": 74,
-          "effect_value": 169
+          "cost": 63,
+          "effect_value": 110
         }
       ],
       "icon_id": null,
       "damage_school": "nature",
       "_tuning": [
-        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
-      ]
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py",
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+      ],
+      "cast_speed": "quick"
     },
     {
       "ability_id": "hunter_hunters_mark",
@@ -343,7 +347,8 @@
       "buff_scope": "combat",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "hunter_aspect_of_the_hawk",
@@ -401,7 +406,8 @@
       "exclusive_group": "hunter_aspect",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "hunter_explosive_trap",
@@ -444,7 +450,8 @@
       "_tuning": [
         "15 Nov 2026, class pass: every rank x1.84 - its total was 0.38x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "hunter_chimera_shot",
@@ -492,7 +499,8 @@
       "_over_time_lifted": 2.36,
       "_tuning": [
         "15 Nov 2026, class pass: every rank x2.36 - its total was 0.30x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "hunter_black_arrow",
@@ -531,7 +539,8 @@
       "_tuning": [
         "15 Nov 2026, class pass: every rank x2.10 - its total was 0.33x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "hunter_wyvern_sting",
@@ -582,7 +591,11 @@
       ],
       "is_instant": true,
       "icon_id": null,
-      "summon_pet_template": "wolf"
+      "summon_pet_template": "wolf",
+      "cast_speed": "slow",
+      "_tuning": [
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "hunter_mend_pet",
@@ -859,7 +872,8 @@
       "icon_id": null,
       "buff_scope": "combat",
       "exclusive_group": "hunter_aspect",
-      "_design_note": "Assumes the Wild's aspect, granting Nature resistance and increased critical strike chance - matches Aspect of the Wild's real WOTLK identity, previously missing entirely since the engine had no Nature resistance stat to grant."
+      "_design_note": "Assumes the Wild's aspect, granting Nature resistance and increased critical strike chance - matches Aspect of the Wild's real WOTLK identity, previously missing entirely since the engine had no Nature resistance stat to grant.",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "hunter_aspect_of_the_viper",
@@ -911,7 +925,8 @@
       "_design_note": "15 Nov 2026, the class pass: Hunters were the only mana users with no way to get mana back (no Spirit on their gear, no Meditation, no Evocation), so they ran dry in ~20 turns and spent the rest of a long fight on Shoot - half the median damage spec. Classic's answer: an aspect that trades Hawk's attack power for regen. mp5 is read every turn and sits on the world curve like all regen, so the top rank is ~5% of a geared level-60 Hunter's bar a turn. Free to cast, like swapping aspects should be.",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "hunter_trueshot_aura",
@@ -961,7 +976,8 @@
       ],
       "_tuning": [
         "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     }
   ]
 }

@@ -90,7 +90,8 @@
       "icon_id": null,
       "_source": "CoA class tree: 'Unearthed Pools reduces the cast time of Unmake'; Infinite's rotation uses it as a filler and Artificer transforms it into Artificer's Wand. Mage's Frostbolt curve - the class's cheap, always-available nuke.",
       "target_type": "enemy",
-      "damage_school": "arcane"
+      "damage_school": "arcane",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_wand_of_time",
@@ -159,7 +160,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: Wand of Time is a class ability that Infinite transforms into Timerend and Artificer uses as its fragment generator. ranged_damage, not spell_damage - it is a wand swing, and Artificer's Wand Expert ('increases your ranged attack power by 100% of your Spirit') only has something to scale if the engine's ranged_attack_power is what drives it.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_reverse_wound",
@@ -174,58 +176,60 @@
         {
           "rank": 1,
           "level_req": 4,
-          "cost": 40,
-          "effect_value": 64
+          "cost": 34,
+          "effect_value": 42
         },
         {
           "rank": 2,
           "level_req": 11,
-          "cost": 57,
-          "effect_value": 78
+          "cost": 48,
+          "effect_value": 51
         },
         {
           "rank": 3,
           "level_req": 18,
-          "cost": 74,
-          "effect_value": 93
+          "cost": 63,
+          "effect_value": 60
         },
         {
           "rank": 4,
           "level_req": 25,
-          "cost": 91,
-          "effect_value": 108
+          "cost": 77,
+          "effect_value": 70
         },
         {
           "rank": 5,
           "level_req": 33,
-          "cost": 108,
-          "effect_value": 124
+          "cost": 92,
+          "effect_value": 81
         },
         {
           "rank": 6,
           "level_req": 40,
-          "cost": 125,
-          "effect_value": 139
+          "cost": 106,
+          "effect_value": 90
         },
         {
           "rank": 7,
           "level_req": 47,
-          "cost": 142,
-          "effect_value": 153
+          "cost": 121,
+          "effect_value": 99
         },
         {
           "rank": 8,
           "level_req": 54,
-          "cost": 159,
-          "effect_value": 168
+          "cost": 135,
+          "effect_value": 109
         }
       ],
       "icon_id": null,
       "_source": "CoA says in all three spec pages that Reverse Wound is 'your only real self-heal'. Priest's Heal curve.",
       "target_type": "ally",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.36x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
-      ]
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.36x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py",
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+      ],
+      "cast_speed": "quick"
     },
     {
       "ability_id": "chronomancer_decomposition",
@@ -280,7 +284,8 @@
       "damage_school": "arcane",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.28x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_accelerated_recovery",
@@ -342,7 +347,8 @@
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.53x steeper than it, biggest single-rank jump 1.16x); overall size kept. tools/fix_rank_lines.py",
         "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 0.85 (combat/heal_formula.rank_size). Epoch on a one-turn cooldown plus a HoT that never stops put Time at the top."
       ],
-      "formula_identity": 0.85
+      "formula_identity": 0.85,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_roll_back",
@@ -368,7 +374,8 @@
         "magic",
         "poison",
         "disease"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_discordance",
@@ -424,7 +431,8 @@
       "damage_school": "arcane",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_time_out",
@@ -476,7 +484,8 @@
       "buff_scope": "combat",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_clasp_of_infinity",
@@ -501,7 +510,8 @@
       "_source": "CoA class tree: 'Conjure a magical binding upon an enemy that bounces to nearby enemies, rooting them in place for 4 seconds.' The engine has one crowd-control flag, is_stun, and no root - a bouncing root that still lets the target act is a heavy slow here, not a stun.",
       "target_type": "enemy_aoe",
       "max_targets": 3,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_babify",
@@ -528,7 +538,8 @@
       "creature_types": [
         "humanoid",
         "beast"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_fortify_timeline",
@@ -582,7 +593,8 @@
       "target_type": "party",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.45x steeper than it, biggest single-rank jump 1.14x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_timeguard",
@@ -607,7 +619,8 @@
       "_source": "CoA class tree: 'causing the next 3 instances of direct damage that would reduce the target below 35% health to deal 40% less damage'. No health-gated charge system exists, so it is a flat cut plus a real absorb for three turns.",
       "absorb_pct_max_health": 0.1,
       "target_type": "ally",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_hasten",
@@ -631,7 +644,8 @@
       "icon_id": null,
       "_source": "CoA class tree, referenced by The Bieko Effect, Maker of Realities and Unmaker of Realities; Artificer calls it 'Hasten to hand one ally haste and movement speed'.",
       "target_type": "ally",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_gravity_bomb",
@@ -675,7 +689,8 @@
       "damage_school": "arcane",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.75x steeper than it, biggest single-rank jump 1.27x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_chromatic_shard",
@@ -750,7 +765,8 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.29x steeper than it, biggest single-rank jump 1.08x); overall size kept. tools/fix_rank_lines.py",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_melt_reality",
@@ -811,7 +827,8 @@
       "damage_school": "arcane",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.50x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_anomaly_spike",
@@ -867,7 +884,8 @@
       "requires_talent": true,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.27x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_destabilize_time",
@@ -914,7 +932,8 @@
       "requires_talent": true,
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_infinite_horizon",
@@ -938,7 +957,8 @@
       "icon_id": null,
       "_source": "CoA: 'Increases the all damage dealt by party and raid members by 3%', and 'Infinite Horizon giving the group a flat damage buff is its one support note'. damage_dealt_pct is the engine's buff-granted damage key (read in Ability._damage_multiplier) and takes percentage POINTS, unlike the talent keys.",
       "target_type": "party",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_incarnation_of_chaos",
@@ -964,7 +984,8 @@
       "_source": "CoA: 'Transform into an Incarnate of Chaos, instantly resetting the cooldown of Chromatic Shard and causing your next cast to not incur a cooldown. In addition, your damage dealt is increased by 15% for 15 seconds.' Only the damage window is on the ability - the resets live on the Infinite Power and Aeon Rend talents, which have a real reset_cooldown proc payload to use.",
       "target_type": "self",
       "buff_scope": "combat",
-      "requires_talent": true
+      "requires_talent": true,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_epoch",
@@ -979,50 +1000,50 @@
         {
           "rank": 1,
           "level_req": 10,
-          "cost": 45,
-          "effect_value": 88
+          "cost": 52,
+          "effect_value": 132
         },
         {
           "rank": 2,
           "level_req": 17,
-          "cost": 66,
-          "effect_value": 105
+          "cost": 76,
+          "effect_value": 158
         },
         {
           "rank": 3,
           "level_req": 24,
-          "cost": 87,
-          "effect_value": 122
+          "cost": 100,
+          "effect_value": 183
         },
         {
           "rank": 4,
           "level_req": 31,
-          "cost": 108,
-          "effect_value": 139
+          "cost": 124,
+          "effect_value": 208
         },
         {
           "rank": 5,
           "level_req": 37,
-          "cost": 128,
-          "effect_value": 154
+          "cost": 147,
+          "effect_value": 231
         },
         {
           "rank": 6,
           "level_req": 44,
-          "cost": 149,
-          "effect_value": 171
+          "cost": 171,
+          "effect_value": 256
         },
         {
           "rank": 7,
           "level_req": 51,
-          "cost": 170,
-          "effect_value": 188
+          "cost": 195,
+          "effect_value": 282
         },
         {
           "rank": 8,
           "level_req": 58,
-          "cost": 191,
-          "effect_value": 205
+          "cost": 220,
+          "effect_value": 308
         }
       ],
       "icon_id": null,
@@ -1030,9 +1051,11 @@
       "target_type": "ally",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.65x steeper than it, biggest single-rank jump 1.18x); overall size kept. tools/fix_rank_lines.py",
-        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 0.85 (combat/heal_formula.rank_size). Epoch on a one-turn cooldown plus a HoT that never stops put Time at the top."
+        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 0.85 (combat/heal_formula.rank_size). Epoch on a one-turn cooldown plus a HoT that never stops put Time at the top.",
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
       ],
-      "formula_identity": 0.85
+      "formula_identity": 0.85,
+      "cast_speed": "slow"
     },
     {
       "ability_id": "chronomancer_correct_the_mistake",
@@ -1086,7 +1109,8 @@
       "target_type": "party",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.36x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_ripple",
@@ -1134,7 +1158,8 @@
       "target_type": "party",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.35x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_aeon_of_resilience",
@@ -1193,7 +1218,8 @@
       "exclusive_group": "chronomancer_aeon",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_aeon_of_protection",
@@ -1220,7 +1246,8 @@
       "target_type": "self",
       "buff_scope": "raid",
       "exclusive_group": "chronomancer_aeon",
-      "requires_talent": true
+      "requires_talent": true,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_aeon_of_renewal",
@@ -1247,7 +1274,8 @@
       "target_type": "self",
       "buff_scope": "raid",
       "exclusive_group": "chronomancer_aeon",
-      "requires_talent": true
+      "requires_talent": true,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_aeon_of_oblivion",
@@ -1274,7 +1302,8 @@
       "target_type": "self",
       "buff_scope": "raid",
       "exclusive_group": "chronomancer_aeon",
-      "requires_talent": true
+      "requires_talent": true,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_fabric_of_time",
@@ -1317,7 +1346,8 @@
       "requires_talent": true,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.47x steeper than it, biggest single-rank jump 1.19x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_buy_time",
@@ -1341,7 +1371,8 @@
       "target_type": "enemy_aoe",
       "max_targets": 4,
       "is_stun": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_artificers_wand",
@@ -1408,7 +1439,8 @@
       "requires_talent": true,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.43x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_crystal_cannon",
@@ -1423,32 +1455,32 @@
         {
           "rank": 1,
           "level_req": 30,
-          "cost": 15,
-          "effect_value": 37
+          "cost": 13,
+          "effect_value": 24
         },
         {
           "rank": 2,
           "level_req": 37,
-          "cost": 20,
-          "effect_value": 42
+          "cost": 17,
+          "effect_value": 27
         },
         {
           "rank": 3,
           "level_req": 44,
-          "cost": 25,
-          "effect_value": 47
+          "cost": 21,
+          "effect_value": 31
         },
         {
           "rank": 4,
           "level_req": 51,
-          "cost": 31,
-          "effect_value": 51
+          "cost": 26,
+          "effect_value": 33
         },
         {
           "rank": 5,
           "level_req": 58,
-          "cost": 36,
-          "effect_value": 56
+          "cost": 31,
+          "effect_value": 36
         }
       ],
       "icon_id": null,
@@ -1456,8 +1488,10 @@
       "target_type": "enemy",
       "requires_talent": true,
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.47x steeper than it, biggest single-rank jump 1.16x); overall size kept. tools/fix_rank_lines.py"
-      ]
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.47x steeper than it, biggest single-rank jump 1.16x); overall size kept. tools/fix_rank_lines.py",
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+      ],
+      "cast_speed": "quick"
     },
     {
       "ability_id": "chronomancer_shatter_echo",
@@ -1513,7 +1547,8 @@
       "requires_talent": true,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.48x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_singularity_core",
@@ -1540,7 +1575,8 @@
       "target_type": "self",
       "buff_scope": "combat",
       "exclusive_group": "chronomancer_continuum",
-      "requires_talent": true
+      "requires_talent": true,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_flux_emitter",
@@ -1567,7 +1603,8 @@
       "target_type": "self",
       "buff_scope": "combat",
       "exclusive_group": "chronomancer_continuum",
-      "requires_talent": true
+      "requires_talent": true,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_paradox_cannon",
@@ -1591,7 +1628,8 @@
       "_source": "CoA: 'Continuum Spell. Generate 1 Echo Fragment every 3 sec for 5 seconds, plus an additional 5 sec per Echo Fragment consumed.' A pure generator with nothing to generate - Echo Fragments are not a resource - so it banks the thing the rotation actually runs out of, and 'bank ahead with Paradox Cannon between pulls' still reads true. Deliberately NOT in the Continuum exclusive_group: restore_resource applies no status effect, so it has nothing to be exclusive with.",
       "target_type": "self",
       "restore_resource_type": "mana",
-      "requires_talent": true
+      "requires_talent": true,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_aether_compression",
@@ -1661,7 +1699,8 @@
       ],
       "_over_time_lifted": [
         1.67
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_unstable_chronoglass",
@@ -1685,7 +1724,8 @@
       "icon_id": null,
       "_source": "CoA: 'Place an Unstable Chronoglass at target location that will redirect the next 3 offensive enemy spell casts onto itself.' Redirection needs a placed object that can be targeted, and the pet system's templates all carry their own display_name, so summoning one would put 'Sentry Turret' on screen. Implemented instead as the outcome - the enemy's spells stop landing - the same way mage_counterspell stands in for a real interrupt.",
       "target_type": "enemy",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "chronomancer_borrowed_moments",
@@ -1735,7 +1775,8 @@
       ],
       "_tuning": [
         "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     }
   ]
 }

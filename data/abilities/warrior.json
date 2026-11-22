@@ -85,7 +85,8 @@
           "effect_value": 132
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "warrior_rend",
@@ -146,7 +147,8 @@
       "_tuning": [
         "15 Nov 2026, class pass: every rank x1.86 - its total was 0.38x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.35x steeper than it, biggest single-rank jump 1.27x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "warrior_thunder_clap",
@@ -196,7 +198,8 @@
         }
       ],
       "icon_id": null,
-      "target_type": "enemy_aoe"
+      "target_type": "enemy_aoe",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "warrior_battle_shout",
@@ -258,7 +261,8 @@
       "buff_scope": "combat",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "warrior_overpower",
@@ -307,7 +311,8 @@
           "effect_value": 140
         }
       ],
-      "icon_id": null
+      "icon_id": null,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "warrior_demoralizing_shout",
@@ -356,7 +361,8 @@
       "buff_scope": "combat",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "warrior_mortal_strike",
@@ -371,34 +377,36 @@
         {
           "rank": 1,
           "level_req": 30,
-          "cost": 30,
-          "effect_value": 110
+          "cost": 34,
+          "effect_value": 165
         },
         {
           "rank": 2,
           "level_req": 42,
-          "cost": 30,
-          "effect_value": 157
+          "cost": 34,
+          "effect_value": 236
         },
         {
           "rank": 3,
           "level_req": 50,
-          "cost": 30,
-          "effect_value": 181
+          "cost": 34,
+          "effect_value": 272
         },
         {
           "rank": 4,
           "level_req": 58,
-          "cost": 30,
-          "effect_value": 205
+          "cost": 34,
+          "effect_value": 308
         }
       ],
       "icon_id": null,
       "requires_talent": true,
       "_design_note": "Not learned from level alone - granted by the Mortal Strike talent in the Arms tree, matching real WOTLK where this is talent-exclusive to Arms, not a baseline ability. A vicious strike that deals heavy weapon damage and wounds the target.",
       "_tuning": [
-        "15 Nov 2026, deep dive: every rank x1.83, to 1.35x a Heroic Strike rank of the same level - it hit for LESS than the Heroic Strike beside it (Bloodthirst 1,110 vs 1,571 at 50; Mortal Strike's base 301 vs 376 at 30). In Classic the cooldown signature strike is the Warrior's biggest button."
-      ]
+        "15 Nov 2026, deep dive: every rank x1.83, to 1.35x a Heroic Strike rank of the same level - it hit for LESS than the Heroic Strike beside it (Bloodthirst 1,110 vs 1,571 at 50; Mortal Strike's base 301 vs 376 at 30). In Classic the cooldown signature strike is the Warrior's biggest button.",
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
+      ],
+      "cast_speed": "slow"
     },
     {
       "ability_id": "warrior_execute",
@@ -413,39 +421,41 @@
         {
           "rank": 1,
           "level_req": 24,
-          "cost": 15,
-          "effect_value": 68
+          "cost": 13,
+          "effect_value": 44
         },
         {
           "rank": 2,
           "level_req": 32,
-          "cost": 15,
-          "effect_value": 82
+          "cost": 13,
+          "effect_value": 53
         },
         {
           "rank": 3,
           "level_req": 40,
-          "cost": 15,
-          "effect_value": 96
+          "cost": 13,
+          "effect_value": 62
         },
         {
           "rank": 4,
           "level_req": 52,
-          "cost": 19,
-          "effect_value": 119
+          "cost": 16,
+          "effect_value": 77
         },
         {
           "rank": 5,
           "level_req": 58,
-          "cost": 19,
-          "effect_value": 128
+          "cost": 16,
+          "effect_value": 83
         }
       ],
       "icon_id": null,
       "execute_threshold_pct": 20,
       "_tuning": [
-        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
-      ]
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py",
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+      ],
+      "cast_speed": "quick"
     },
     {
       "ability_id": "warrior_bladestorm",
@@ -483,26 +493,26 @@
         {
           "rank": 1,
           "level_req": 30,
-          "cost": 15,
-          "effect_value": 42
+          "cost": 13,
+          "effect_value": 27
         },
         {
           "rank": 2,
           "level_req": 40,
-          "cost": 15,
-          "effect_value": 50
+          "cost": 13,
+          "effect_value": 32
         },
         {
           "rank": 3,
           "level_req": 52,
-          "cost": 15,
-          "effect_value": 59
+          "cost": 13,
+          "effect_value": 38
         },
         {
           "rank": 4,
           "level_req": 58,
-          "cost": 15,
-          "effect_value": 64
+          "cost": 13,
+          "effect_value": 42
         }
       ],
       "requires_talent": true,
@@ -510,8 +520,10 @@
       "icon_id": null,
       "_design_note": "Not learned from level alone - granted by the Devastate talent in the Protection tree. Deals damage to the target. Real WOTLK Devastate also applies a stacking Armor-reduction debuff (Sunder Armor) - not modeled here since combining a damage hit with a persistent debuff in one ability isn't supported yet, so this is damage-only.",
       "_tuning": [
-        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
-      ]
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py",
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+      ],
+      "cast_speed": "quick"
     },
     {
       "ability_id": "warrior_concussion_blow",
@@ -652,31 +664,35 @@
         {
           "rank": 1,
           "level_req": 20,
-          "cost": 20,
-          "effect_value": 48
+          "cost": 17,
+          "effect_value": 31
         },
         {
           "rank": 2,
           "level_req": 30,
-          "cost": 20,
-          "effect_value": 59
+          "cost": 17,
+          "effect_value": 38
         },
         {
           "rank": 3,
           "level_req": 42,
-          "cost": 20,
-          "effect_value": 73
+          "cost": 17,
+          "effect_value": 47
         },
         {
           "rank": 4,
           "level_req": 56,
-          "cost": 20,
-          "effect_value": 88
+          "cost": 17,
+          "effect_value": 57
         }
       ],
       "target_type": "enemy_aoe",
       "is_instant": true,
-      "icon_id": null
+      "icon_id": null,
+      "cast_speed": "quick",
+      "_tuning": [
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+      ]
     },
     {
       "ability_id": "warrior_disarm",
@@ -1131,7 +1147,8 @@
       ],
       "is_instant": true,
       "icon_id": null,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "warrior_commanding_shout",
@@ -1181,7 +1198,8 @@
       ],
       "_tuning": [
         "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     }
   ]
 }

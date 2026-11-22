@@ -93,7 +93,8 @@
       "generates": {
         "resource": "focus",
         "amount": 25
-      }
+      },
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_darkslayer",
@@ -171,7 +172,8 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.39x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_dawn_blade",
@@ -240,7 +242,8 @@
       ],
       "icon_id": null,
       "_source": "CoA scales Dawn Blade from both Black Knight (Bulwark of Darkness, Destroyer of Evil, Undying, Dawn Knight, Foresight, Blade of the Misbegotten) and Inquisition (Protector of Darkshire, Interrogator, Dusk), so it is a class strike, not a spec one. The melee half of the chassis, on the same curve as Shadowblast.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_vault",
@@ -264,7 +267,8 @@
       "icon_id": null,
       "_source": "CoA: 'Dash in the direction you are moving. Distance scales with movement speed.' Movement is not a thing this engine models, so the dash lands as the brief window of not-being-where-the-attack-is that it buys. Free, because every spec's escape plan is built on having it.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_witching_shroud",
@@ -289,7 +293,8 @@
       "icon_id": null,
       "_source": "UNIT FIXED 2026-10-29: magic_damage_taken_pct was authored -0.5 as though it were a fraction, delivering -0.5% magic mitigation on an ability whose entire point is immunity to harmful magic. In an ABILITY's stat_mods this key is PERCENT POINTS - Character.take_damage divides the physical_/magic_ variants by 100, while the bare damage_taken_pct key four lines away in the same method is added undivided and IS a fraction. The convention is per-key with no naming rule. The fix was made in the emitted JSON earlier the same day and not ported here, so re-running this script silently restored the broken value.  CoA: 'Enter a powerful stealth mode for 3 seconds, granting immunity to all harmful magic effects... Usable while stunned or feared.' cc_immune is the engine's real crowd-control immunity flag (StatusEffectMixin reads it before applying a stun), paired with heavy magic mitigation. The 'only usable for 10 seconds after being hit by a magical critical strike' condition has no hook, so it is a plain 12-turn cooldown instead.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_witchblood_tonic",
@@ -311,7 +316,8 @@
       "icon_id": null,
       "_source": "CoA: 'Drink a shadowy tonic, removing all curse effects from you and reducing all Magic damage taken by -40% for 10 seconds.' Both spec pages that mention it name only the cleanse ('Witchblood Tonic's curse cleanse'), so the cleanse is what it is - no effect_type does a dispel AND a buff in one cast, and the -40% magic window is dropped rather than faked. target_type 'ally' is the shipped convention for every friendly cleanse in the game.",
       "target_type": "ally",
-      "dispel_type": "curse"
+      "dispel_type": "curse",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_slayers_mark",
@@ -334,7 +340,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Mark an enemy, increasing the attack power of all attackers against that target by 150 and your critical strike chance against them by 3%.' A debuff's stat_mods land on the ENEMY here, so the attacker-side wording is turned round into the defender-side key that means the same thing - physical_damage_taken_pct on the marked target, read from status effects in Character.take_damage.  UNIT FIXED 2026-10-29: this was authored 0.08 as though the key were a fraction, so the mark increased damage taken by 0.08% - a debuff that did nothing. In an ABILITY's stat_mods this key is PERCENT POINTS (take_damage divides the physical_/magic_ variants by 100; the bare damage_taken_pct beside them is undivided and IS a fraction). The fix was made in the emitted JSON earlier the same day and not ported here, so re-running this script silently restored the broken value.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_inquisitors_trap",
@@ -358,7 +365,8 @@
       "icon_id": null,
       "_source": "CoA: 'a cruel trap... silencing them and all enemies in a 5 yd radius for 6 seconds.' There is no silence in this engine, and Guardian's Hammer of the Law set the precedent of NOT dressing a silence up as a stun, so it lands as a heavy haste debuff on the pack. The 'first enemy to approach' trigger has no hook either; it is cast.",
       "target_type": "enemy_aoe",
-      "max_targets": 5
+      "max_targets": 5,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_shadow_trap",
@@ -381,7 +389,8 @@
       "_source": "CoA: 'stunning them for 4 seconds and dealing AP Shadow damage over 8 seconds'. The real stun - is_stun is only read in the debuff branch, so a stun has to be a debuff and cannot also be the DoT. Both Boltslinger and Inquisition cite the class traps as the only hard control they have ('stuns and silences come from class-kit traps an enemy has to walk into'), so the stun is the half that matters.",
       "target_type": "enemy_aoe",
       "is_stun": true,
-      "max_targets": 5
+      "max_targets": 5,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_noctis_blade",
@@ -448,7 +457,8 @@
       "damage_school": "shadow",
       "_tuning": [
         "15 Nov 2026, deep dive: damage_school shadow - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_pommel_smash",
@@ -511,7 +521,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Pommel Smash strikes feed Shadowstorm, a chance to trigger a Shadowstorm burst', and Guardbreaker makes it cleave. The spec's cheap filler, so it is cheaper than Dawn Blade and has no cooldown.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_shadow_brand",
@@ -569,7 +580,8 @@
       "_over_time_lifted": 4.46,
       "_tuning": [
         "15 Nov 2026, class pass: every rank x4.46 - its total was 0.16x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_guard_strike",
@@ -623,7 +635,8 @@
       "target_type": "enemy",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.37x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_desecrate",
@@ -638,45 +651,49 @@
         {
           "rank": 1,
           "level_req": 16,
-          "cost": 30,
-          "effect_value": 36
+          "cost": 26,
+          "effect_value": 23
         },
         {
           "rank": 2,
           "level_req": 24,
-          "cost": 30,
-          "effect_value": 46
+          "cost": 26,
+          "effect_value": 30
         },
         {
           "rank": 3,
           "level_req": 32,
-          "cost": 30,
-          "effect_value": 56
+          "cost": 26,
+          "effect_value": 36
         },
         {
           "rank": 4,
           "level_req": 40,
-          "cost": 30,
-          "effect_value": 66
+          "cost": 26,
+          "effect_value": 43
         },
         {
           "rank": 5,
           "level_req": 48,
-          "cost": 30,
-          "effect_value": 76
+          "cost": 26,
+          "effect_value": 49
         },
         {
           "rank": 6,
           "level_req": 56,
-          "cost": 30,
-          "effect_value": 86
+          "cost": 26,
+          "effect_value": 56
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Desecrate up to 8 enemies in front of you, dealing Weapon Damage plus 18 as Shadow damage, piercing resistances. Only usable after avoiding an attack.' The avoidance gate has no hook - nothing records 'you just dodged' as a castable condition - so it is a plain cooldown. target_type enemy_aoe is what actually makes an ability hit more than one target; the is_aoe field several shipped files carry is never read.",
       "target_type": "enemy_aoe",
       "damage_school": "shadow",
-      "max_targets": 5
+      "max_targets": 5,
+      "cast_speed": "quick",
+      "_tuning": [
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+      ]
     },
     {
       "ability_id": "witch_hunter_chains_of_darkness",
@@ -701,7 +718,8 @@
       "icon_id": null,
       "_source": "CoA: 'Pull all nearby enemies to you, dealing shadow AP Shadow damage and taunting them for 3 seconds', listed in the control suite as 'pull plus taunt to yank a target off an ally'. {'taunt': 1} is the engine's real taunt flag, handled in Ability.use rather than any one effect_type branch; the shipped tank taunts across Cultist, Starcaller, Venomancer and Primalist all use exactly this shape.",
       "target_type": "enemy_aoe",
-      "max_targets": 5
+      "max_targets": 5,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_stoicism",
@@ -725,7 +743,8 @@
       "icon_id": null,
       "_source": "CoA never prints Stoicism's own tooltip, but two Black Knight talents exist only to modify it (Calm Under Pressure cuts its cooldown by 30 sec, Dark Barrier extends it by 5 sec), which makes it a real mitigation cooldown. Sized below Guardian's Raise Shield (-40%) because this spec gets Gaze of the Black Knight on top.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_march_of_the_black_king",
@@ -776,7 +795,8 @@
       "icon_id": null,
       "_source": "CoA: 'Expel darkness from within you, dealing 55 Shadow damage to nearby enemies over 10 seconds. Generates 5 Rage every 2 sec', and the spec's strengths say 'March of the Black King refunds Rage. You rarely go dry.' Frontier's Focus is CoA's Rage here (see the module docstring), so this is the tank's own Focus refill. NOTE the engine reads mana_restore_pct OFF THE RANK for restore_resource, not effect_value - Guardian's Knight's Calling omits it and restores 0.",
       "target_type": "self",
-      "restore_resource_type": "focus"
+      "restore_resource_type": "focus",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_witching_idol",
@@ -799,7 +819,8 @@
       "_source": "CoA: 'Drop a Witching Idol that periodically dispels fear, sleep, and charm effects every 3 sec from party members within 20 yds.' DispelType has only magic/curse/poison/disease, and fear, sleep and charm are all Magic effects in WoW, so it cleanses Magic - two at a time, standing in for the periodic tick, which has no hook.",
       "target_type": "ally",
       "dispel_type": "magic",
-      "dispel_count": 2
+      "dispel_count": 2,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_witchblight",
@@ -843,7 +864,8 @@
       "max_targets": 5,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.50x steeper than it, biggest single-rank jump 1.19x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_gaze_of_the_black_knight",
@@ -868,7 +890,8 @@
       "_source": "CoA: 'Apply a dark shield to yourself, absorbing AP damage and then gaze upon your party members, causing 25% of the damage they take to be transferred to you for 12 seconds.' The absorb is real (absorb_pct_max_health is read for cast buffs). The party-damage REDIRECTION is not expressible - no effect routes one combatant's incoming damage to another - so the mitigation lands on the Black Knight instead. CoA calls this 'rare group damage-redirection' and 'one long-cooldown panic button', and it is the spec's one real loss in translation.",
       "target_type": "self",
       "absorb_pct_max_health": 0.25,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_tormentor",
@@ -932,7 +955,8 @@
       "_over_time_lifted": 4.3,
       "_tuning": [
         "15 Nov 2026, class pass: every rank x4.30 - its total was 0.16x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_witchbane",
@@ -994,7 +1018,8 @@
       "_tuning": [
         "15 Nov 2026, class pass: every rank x4.56 - its total was 0.15x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.41x steeper than it, biggest single-rank jump 1.13x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_heartseeking_bolt",
@@ -1053,7 +1078,8 @@
       ],
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.52x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_twilight_frenzy",
@@ -1111,7 +1137,8 @@
       ],
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.44x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_damnation",
@@ -1159,7 +1186,8 @@
       ],
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.43x steeper than it, biggest single-rank jump 1.17x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_pavise",
@@ -1182,7 +1210,8 @@
       "_source": "CoA: Pavise Crossbowman 'teaches you how to use Shields and teaches you Pavise. Slam your shield into the ground, forming a pavise for 10 sec. While you remain near it, hostile spells targeting you are deflected.' The shield proficiency half is already true - weapon_types.json gives Witch Hunter shields - and spell deflection has no hook, so it lands as a real absorb. Authored at level 44 rather than talent-unlocked so the spec has it without spending its capstone, and the tree's Dead and Gone extends it.",
       "target_type": "self",
       "absorb_pct_max_health": 0.18,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_slayer",
@@ -1207,7 +1236,8 @@
       "icon_id": null,
       "_source": "CoA: 'Increases critical strike chance of all party and raid members by 3%... In addition, increases your critical strike chance by 3%.' The raid buff the spec's own blurb sells it on ('brings raid crit (Slayer)'). target_type 'party' with buff_scope 'combat' is the shipped shape for a real party buff; buff_scope only accepts 'raid' or 'combat' and silently rewrites anything else.",
       "target_type": "party",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_houndmasters_whistle",
@@ -1230,7 +1260,11 @@
       "_source": "CoA: 'Summons a permanent Shadowhound companion to aid you in combat. Your Shadowhound receives 25% of healing done to you.' NOW A REAL SHADOWHOUND. This pointed at 'wolf' and summoned a pet named Wolf - the most defensible of the mismatches fixed in Oct 2026, since a houndmaster's hound really is wolf-shaped, but CoA names the creature so it gets its own template. Built deliberately CLOSE to the wolf it replaced (130 health against 140, comparable damage) because that mapping was never a power problem, only a naming one. The healing redirect has no hook - a pet cannot reach its owner, which is the same gap the Wolf's own Furious Howl is approximated around. effect_type 'summon' summons NOTHING - four Tinker abilities shipped that way and were silently empty for months.",
       "target_type": "self",
       "is_instant": true,
-      "summon_pet_template": "shadowhound"
+      "summon_pet_template": "shadowhound",
+      "cast_speed": "slow",
+      "_tuning": [
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "witch_hunter_unleash_the_hounds",
@@ -1253,7 +1287,11 @@
       "_source": "CoA: 'Summon 1 Lesser Shadow Hound to aid you in combat for 20 seconds', with Kennel Master adding more. NOW A REAL LESSER SHADOWHOUND: this pointed at 'raptor' and summoned the Primalist's tameable beast on a Witch Hunter. The template is authored LESSER, as CoA says - plainly weaker than this class's own permanent Shadowhound in every stat. FIXED 2026-10-29, and the fix was in two places: Character.EXTRA_PET_CAP had no Witch Hunter entry, so max_extra_pets was 0 and Character.summon_pet ignored additional=True entirely - this level-20 button REPLACED the level-1 permanent Shadowhound with the weaker one, a button that downgraded you. The cap now carries 'Witch Hunter': 2, so additional_pet=True here is live data and both hounds field at once. CoA reads as a board anyway (Houndmaster's Call and Rampaging Hounds both say 'Hounds', plural).",
       "target_type": "self",
       "summon_pet_template": "lesser_shadowhound",
-      "additional_pet": true
+      "additional_pet": true,
+      "cast_speed": "slow",
+      "_tuning": [
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "witch_hunter_quickdraw",
@@ -1308,7 +1346,8 @@
       "generates": {
         "resource": "focus",
         "amount": 25
-      }
+      },
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_houndmasters_call",
@@ -1363,7 +1402,8 @@
       "damage_school": "shadow",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.29x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_darkflock",
@@ -1415,7 +1455,8 @@
       "_tuning": [
         "15 Nov 2026, class pass: every rank x3.34 - its total was 0.21x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_repulse",
@@ -1462,7 +1503,8 @@
       "_source": "CoA: 'Emit a burst of shadow from your musket that strikes enemies in front of you, dealing 57 Shadow damage and knocking all affected targets back.' The spec blurb calls it 'a frontal knockback' and its only on-demand control. There is no knockback and no position, so what survives is the cone damage.",
       "target_type": "enemy_aoe",
       "damage_school": "shadow",
-      "max_targets": 4
+      "max_targets": 4,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_decimate",
@@ -1487,7 +1529,8 @@
       "icon_id": null,
       "_source": "CoA: 'Empowers your Shadow Hounds for 20 seconds, granting them 30% increased damage and haste and allowing them to ignore Armor.' A cast buff cannot reach the pet: Pet reads its owner's pet_damage/pet_health/pet_armor TALENTS when it is built, and nothing else, so a temporary buff on the owner never touches it. The talent tree carries the real hound scaling (Dark Ranger, Loksey's Journal, Decimate's own node, Lethal Pursuit) and this ability keeps the burst window on the Houndmaster instead.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_darkfeast",
@@ -1535,7 +1578,8 @@
       "target_type": "self",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 2.08x steeper than it, biggest single-rank jump 1.36x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_rearmament",
@@ -1556,7 +1600,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Arm yourself against evil, resetting the cooldown of all Traps and Decimate', and the spec blurb leads with it - 'your Trap spells, reset on demand by Rearmament'. reset_cooldowns is a real effect_type; it does not take a filter, so it resets the whole book rather than only the traps, which is why its own cooldown is the longest in the class.",
-      "target_type": "self"
+      "target_type": "self",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_smite_evil",
@@ -1621,7 +1666,8 @@
       "_source": "CoA: 'Strike an enemy with your blade, dealing Weapon Damage plus 25 as Holy damage to them and 5 nearby enemies.' The spec's cheap cleaving filler; Flames of the Sinned in the tree gives it a chance to strike twice.",
       "target_type": "enemy_aoe",
       "damage_school": "holy",
-      "max_targets": 3
+      "max_targets": 3,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_dusk_blade",
@@ -1684,7 +1730,8 @@
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.28x steeper than it, biggest single-rank jump 1.08x); overall size kept. tools/fix_rank_lines.py",
         "15 Nov 2026 (Kyle: 'abilities like stormstrike that hit for both weapons ... Wildclaw'): strikes_both_weapons - the off hand lands with it when dual-wielding. Every other special is main-hand only, as in Classic."
       ],
-      "strikes_both_weapons": true
+      "strikes_both_weapons": true,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_purifiers_edge",
@@ -1747,7 +1794,8 @@
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.37x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py",
         "15 Nov 2026 (Kyle: 'abilities like stormstrike that hit for both weapons ... Wildclaw'): strikes_both_weapons - the off hand lands with it when dual-wielding. Every other special is main-hand only, as in Classic."
       ],
-      "strikes_both_weapons": true
+      "strikes_both_weapons": true,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_torchlight",
@@ -1803,7 +1851,8 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.41x steeper than it, biggest single-rank jump 1.13x); overall size kept. tools/fix_rank_lines.py",
         "15 Nov 2026, deep dive: every rank x2.43 - a spender at 0.33x of what a spender of its level, cooldown and cast speed should hit for (tools/audit_ability_lines.py); now 0.8x"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_fiery_judgement",
@@ -1818,32 +1867,32 @@
         {
           "rank": 1,
           "level_req": 26,
-          "cost": 30,
-          "effect_value": 48
+          "cost": 26,
+          "effect_value": 31
         },
         {
           "rank": 2,
           "level_req": 34,
-          "cost": 30,
-          "effect_value": 55
+          "cost": 26,
+          "effect_value": 36
         },
         {
           "rank": 3,
           "level_req": 42,
-          "cost": 30,
-          "effect_value": 63
+          "cost": 26,
+          "effect_value": 41
         },
         {
           "rank": 4,
           "level_req": 50,
-          "cost": 30,
-          "effect_value": 70
+          "cost": 26,
+          "effect_value": 46
         },
         {
           "rank": 5,
           "level_req": 58,
-          "cost": 30,
-          "effect_value": 77
+          "cost": 26,
+          "effect_value": 50
         }
       ],
       "icon_id": null,
@@ -1852,8 +1901,10 @@
       "damage_school": "fire",
       "max_targets": 4,
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.37x steeper than it, biggest single-rank jump 1.13x); overall size kept. tools/fix_rank_lines.py"
-      ]
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.37x steeper than it, biggest single-rank jump 1.13x); overall size kept. tools/fix_rank_lines.py",
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+      ],
+      "cast_speed": "quick"
     },
     {
       "ability_id": "witch_hunter_flourish",
@@ -1903,7 +1954,8 @@
       "max_targets": 4,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.52x steeper than it, biggest single-rank jump 1.17x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_stake",
@@ -1946,7 +1998,8 @@
       "execute_threshold_pct": 35,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.36x steeper than it, biggest single-rank jump 1.14x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_pyro_tonic",
@@ -1970,7 +2023,8 @@
       "icon_id": null,
       "_source": "CoA: 'Drink a fiery tonic, increasing your Fire damage dealt by 20% and your critical damage by 10% for 15 seconds.' damage_dealt_pct is the engine's one generic outgoing-damage buff key and it is PERCENT POINTS (divided by 100 in _damage_multiplier), unlike the tree's fire keys. There is no fire-only buff key - the per-school damage keys are talent-only - so 20% lands on all of the Inquisitor's damage rather than just the Fire half.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_monster_hunting",
@@ -1994,7 +2048,8 @@
       "icon_id": null,
       "_source": "CoA: 'Increases melee and ranged haste of party and raid members within 100 yds by 10%.' The raid buff the spec's S-tier raid rating is partly sold on ('brings raid haste (Monster Hunting)'). The '+10% damage against Undead and Demons' half has no creature-type hook.",
       "target_type": "party",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "witch_hunter_hunters_ward",
@@ -2044,7 +2099,8 @@
       ],
       "_tuning": [
         "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     }
   ]
 }

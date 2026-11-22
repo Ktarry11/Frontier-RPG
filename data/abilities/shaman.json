@@ -86,7 +86,8 @@
         }
       ],
       "icon_id": null,
-      "damage_school": "nature"
+      "damage_school": "nature",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "shaman_earth_shock",
@@ -185,7 +186,8 @@
         }
       ],
       "icon_id": null,
-      "damage_school": "fire"
+      "damage_school": "fire",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "shaman_flame_shock",
@@ -470,7 +472,8 @@
       "buff_scope": "combat",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "shaman_frost_shock",
@@ -564,7 +567,8 @@
       "damage_school": "nature",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.23x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "shaman_stormstrike",
@@ -652,7 +656,8 @@
       "requires_talent": true,
       "icon_id": null,
       "damage_school": "nature",
-      "_design_note": "Not learned from level alone - granted by the Thunderstorm talent in the Elemental tree. Calls down lightning, damaging all nearby enemies and restoring some of your Mana."
+      "_design_note": "Not learned from level alone - granted by the Thunderstorm talent in the Elemental tree. Calls down lightning, damaging all nearby enemies and restoring some of your Mana.",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "shaman_feral_spirit",
@@ -754,7 +759,8 @@
       "_tuning": [
         "15 Nov 2026, class pass: every rank x0.71 - it sat at 2.24x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "shaman_mana_tide_totem",
@@ -844,7 +850,8 @@
         "heal_flat": 300
       },
       "_design_note": "Not learned from level alone - granted by the Earth Shield talent in the Restoration tree. Real proc: heals the target for a flat amount whenever they take damage. Simplification note: real WOTLK Earth Shield has 6 CHARGES (consumed one per heal, expires when depleted) rather than a duration or ICD - this engine's proc schema doesn't have a charge-count concept yet, so this is approximated as an ICD-gated proc with an effectively permanent duration instead. A real charge system would be a genuinely separate feature.",
-      "buff_scope": "raid"
+      "buff_scope": "raid",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "shaman_cleanse_spirit",
@@ -867,7 +874,8 @@
       "requires_talent": true,
       "dispel_type": "curse",
       "icon_id": null,
-      "_design_note": "Not learned from level alone - granted by the Cleanse Spirit talent in the Restoration tree. Removes one Curse effect from the target."
+      "_design_note": "Not learned from level alone - granted by the Cleanse Spirit talent in the Restoration tree. Removes one Curse effect from the target.",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "shaman_strength_of_earth_totem",
@@ -943,7 +951,8 @@
       "icon_id": null,
       "_design_note": "Earth totem. Increases Strength and Agility for your party. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this instantly buffs the whole party instead.",
       "exclusive_group": "shaman_totem_earth",
-      "_source": "Element slot 'earth' added 6 Nov 2026 as exclusive_group 'shaman_totem_earth', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks."
+      "_source": "Element slot 'earth' added 6 Nov 2026 as exclusive_group 'shaman_totem_earth', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks.",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "shaman_searing_totem",
@@ -1055,7 +1064,8 @@
       "_source": "Element slot 'water' added 6 Nov 2026 as exclusive_group 'shaman_totem_water', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks.",
       "_tuning": [
         "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "shaman_windfury_totem",
@@ -1106,7 +1116,8 @@
         "extra_attack": true
       },
       "exclusive_group": "shaman_totem_air",
-      "_source": "Element slot 'air' added 6 Nov 2026 as exclusive_group 'shaman_totem_air', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks."
+      "_source": "Element slot 'air' added 6 Nov 2026 as exclusive_group 'shaman_totem_air', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks.",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "shaman_call_of_ancestors",
@@ -1203,7 +1214,8 @@
       "_tuning": [
         "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)",
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "shaman_rockbiter_weapon",
@@ -1310,7 +1322,8 @@
         "bonus_pct": 0.1
       },
       "exclusive_group": "shaman_imbue",
-      "buff_scope": "raid"
+      "buff_scope": "raid",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "shaman_flametongue_weapon",
@@ -1408,7 +1421,8 @@
       },
       "damage_school": "fire",
       "exclusive_group": "shaman_imbue",
-      "buff_scope": "raid"
+      "buff_scope": "raid",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "shaman_frostbrand_weapon",
@@ -1494,7 +1508,8 @@
       "_source": "  DESCRIPTION: removed stat-sheet figures per Kyle's standing rule, and real-world durations - \"Lasts 30 min\" means nothing in a turn-based game, and the real duration lives in this entry's own duration/buff_scope fields. Original: \"Imbue your weapon with biting cold: 35% of your melee hits add a heavy Frost strike and slow the target. The control imbue. Only one imbue can be active at a time.\"",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "shaman_windfury_weapon",
@@ -1544,7 +1559,8 @@
         "extra_attack": true
       },
       "exclusive_group": "shaman_imbue",
-      "buff_scope": "raid"
+      "buff_scope": "raid",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "shaman_hex",
@@ -1876,7 +1892,8 @@
       "icon_id": null,
       "_design_note": "Earth totem. Increases Armor for your party. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this applies instantly instead.",
       "exclusive_group": "shaman_totem_earth",
-      "_source": "Element slot 'earth' added 6 Nov 2026 as exclusive_group 'shaman_totem_earth', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks."
+      "_source": "Element slot 'earth' added 6 Nov 2026 as exclusive_group 'shaman_totem_earth', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks.",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "shaman_shamanistic_rage",
@@ -1973,7 +1990,8 @@
       "_source": "Element slot 'water' added 6 Nov 2026 as exclusive_group 'shaman_totem_water', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks.",
       "_tuning": [
         "16 Nov 2026, support pass: resistance runs 0-60 points here, 1.25% each, capped at 75% (Character.RESIST_MAX), and this buff's top rank gave 166 on its own (Kyle: \"lmao over 700 magic resistance\"). Now 22 at the top rank, about 28% reduction."
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "resource_type": "mana",
@@ -2021,7 +2039,8 @@
       "_source": "Element slot 'fire' added 6 Nov 2026 as exclusive_group 'shaman_totem_fire', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks.",
       "_tuning": [
         "16 Nov 2026, support pass: resistance runs 0-60 points here, 1.25% each, capped at 75% (Character.RESIST_MAX), and this buff's top rank gave 166 on its own (Kyle: \"lmao over 700 magic resistance\"). Now 22 at the top rank, about 28% reduction."
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "resource_type": "mana",
@@ -2069,7 +2088,8 @@
       "_source": "Element slot 'air' added 6 Nov 2026 as exclusive_group 'shaman_totem_air', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks.",
       "_tuning": [
         "16 Nov 2026, support pass: resistance runs 0-60 points here, 1.25% each, capped at 75% (Character.RESIST_MAX), and this buff's top rank gave 166 on its own (Kyle: \"lmao over 700 magic resistance\"). Now 22 at the top rank, about 28% reduction."
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "shaman_cure_toxins",

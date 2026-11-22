@@ -36,55 +36,55 @@
           "rank": 1,
           "level_req": 1,
           "cost": 0,
-          "effect_value": 36
+          "effect_value": 23
         },
         {
           "rank": 2,
           "level_req": 6,
           "cost": 0,
-          "effect_value": 45
+          "effect_value": 29
         },
         {
           "rank": 3,
           "level_req": 12,
           "cost": 0,
-          "effect_value": 54
+          "effect_value": 35
         },
         {
           "rank": 4,
           "level_req": 18,
           "cost": 0,
-          "effect_value": 63
+          "effect_value": 41
         },
         {
           "rank": 5,
           "level_req": 24,
           "cost": 0,
-          "effect_value": 72
+          "effect_value": 47
         },
         {
           "rank": 6,
           "level_req": 32,
           "cost": 0,
-          "effect_value": 81
+          "effect_value": 53
         },
         {
           "rank": 7,
           "level_req": 40,
           "cost": 0,
-          "effect_value": 90
+          "effect_value": 58
         },
         {
           "rank": 8,
           "level_req": 48,
           "cost": 0,
-          "effect_value": 99
+          "effect_value": 64
         },
         {
           "rank": 9,
           "level_req": 56,
           "cost": 0,
-          "effect_value": 108
+          "effect_value": 70
         }
       ],
       "icon_id": null,
@@ -93,7 +93,11 @@
       "generates": {
         "resource": "archery_points",
         "amount": 12
-      }
+      },
+      "cast_speed": "quick",
+      "_tuning": [
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+      ]
     },
     {
       "ability_id": "ranger_skullpiercer",
@@ -147,7 +151,8 @@
       "target_type": "enemy",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.39x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_toxic_dart",
@@ -162,44 +167,44 @@
         {
           "rank": 1,
           "level_req": 8,
-          "cost": 20,
-          "effect_value": 110
+          "cost": 17,
+          "effect_value": 72
         },
         {
           "rank": 2,
           "level_req": 16,
-          "cost": 20,
-          "effect_value": 146
+          "cost": 17,
+          "effect_value": 95
         },
         {
           "rank": 3,
           "level_req": 24,
-          "cost": 20,
-          "effect_value": 181
+          "cost": 17,
+          "effect_value": 118
         },
         {
           "rank": 4,
           "level_req": 32,
-          "cost": 20,
-          "effect_value": 216
+          "cost": 17,
+          "effect_value": 140
         },
         {
           "rank": 5,
           "level_req": 40,
-          "cost": 20,
-          "effect_value": 252
+          "cost": 17,
+          "effect_value": 164
         },
         {
           "rank": 6,
           "level_req": 48,
-          "cost": 20,
-          "effect_value": 287
+          "cost": 17,
+          "effect_value": 187
         },
         {
           "rank": 7,
           "level_req": 56,
-          "cost": 20,
-          "effect_value": 322
+          "cost": 17,
+          "effect_value": 209
         }
       ],
       "icon_id": null,
@@ -207,8 +212,10 @@
       "target_type": "enemy",
       "_over_time_lifted": 2.21,
       "_tuning": [
-        "15 Nov 2026, class pass: every rank x2.21 - its total was 0.32x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
-      ]
+        "15 Nov 2026, class pass: every rank x2.21 - its total was 0.32x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+      ],
+      "cast_speed": "quick"
     },
     {
       "ability_id": "ranger_crippling_shot",
@@ -231,7 +238,8 @@
       ],
       "icon_id": null,
       "_source": "CoA class tree: 'slowing movement speed by -50% and knocking them off their mounts'. There is no movement speed in a turn engine; a haste cut is the same thing here, and haste on a debuff is read live by turn_meter.py's get_status_stat_mod('haste').",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_snapseed",
@@ -288,7 +296,8 @@
       ],
       "icon_id": null,
       "_source": "CoA class tree: 'Toss a snapseed at an enemy, dealing ranged AP Physical damage and knocking them back'. The knockback has no engine hook.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_knockout",
@@ -312,7 +321,8 @@
       "icon_id": null,
       "_source": "CoA class tree: 'Knock an enemy out, incapacitating them for 4 seconds and removing bleed and poison effects from them'. is_stun carries the incapacitate. Stripping the target's own DoTs would need a hostile dispel, which effect_type 'dispel' does not do (it cleanses allies).",
       "is_stun": true,
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_briar_veil",
@@ -336,7 +346,8 @@
       "icon_id": null,
       "_source": "CoA class tree: 'increasing your dodge chance by 50% and causing dodging attacks to restore 2% maximum health and 5 Focus'. The dodge is real; the on-dodge refund has no proc trigger (the engine dispatches on_damage_taken, not on_avoid).",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_adrenaline_rush",
@@ -360,7 +371,8 @@
       "icon_id": null,
       "_source": "CoA class tree: 'Surge with vitality, dispeling all harmful effects from yourself and increasing your movement speed by 40%'. One ability cannot both buff and dispel, so this is the haste window CoA's Archery rotation presses ('Adrenaline Rush open distance').",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_elude",
@@ -384,7 +396,8 @@
       "icon_id": null,
       "_source": "CoA gates a third of the class tree behind Elude ('Elude stealth-window abilities'). There is no stealth in this engine, so Elude lands as the opener window its own talents describe - CoA's Woodland Stalker is 'While in Elude, your critical strike chance is increased by 20%'.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_survival_potion",
@@ -444,7 +457,8 @@
       "target_type": "self",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.83x steeper than it, biggest single-rank jump 1.23x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_instinct",
@@ -495,7 +509,8 @@
       "icon_id": null,
       "_source": "CoA: 'Casting Instinct now also restores 40 extra Focus' (Brigand) and 'Increases the effectiveness of Instinct'. The one ability that refills the bank directly, which matters because nothing in the engine regenerates archery_points. mana_restore_pct is the rank key Ability.mana_restore_pct actually reads - effect_value is ignored by the restore_resource branch.",
       "target_type": "self",
-      "restore_resource_type": "archery_points"
+      "restore_resource_type": "archery_points",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_precision_shot",
@@ -552,7 +567,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Precision Shot (main nuke, scales per stack)'. The Aimed Shot of the spec and the thing every Archery talent is pointed at.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_hunting_shot",
@@ -608,7 +624,8 @@
       "generates": {
         "resource": "archery_points",
         "amount": 15
-      }
+      },
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_serrated_shot",
@@ -623,38 +640,38 @@
         {
           "rank": 1,
           "level_req": 14,
-          "cost": 25,
-          "effect_value": 166
+          "cost": 29,
+          "effect_value": 249
         },
         {
           "rank": 2,
           "level_req": 22,
-          "cost": 25,
-          "effect_value": 199
+          "cost": 29,
+          "effect_value": 298
         },
         {
           "rank": 3,
           "level_req": 30,
-          "cost": 25,
-          "effect_value": 232
+          "cost": 29,
+          "effect_value": 348
         },
         {
           "rank": 4,
           "level_req": 38,
-          "cost": 25,
-          "effect_value": 265
+          "cost": 29,
+          "effect_value": 398
         },
         {
           "rank": 5,
           "level_req": 46,
-          "cost": 25,
-          "effect_value": 298
+          "cost": 29,
+          "effect_value": 447
         },
         {
           "rank": 6,
           "level_req": 54,
-          "cost": 25,
-          "effect_value": 331
+          "cost": 29,
+          "effect_value": 496
         }
       ],
       "icon_id": null,
@@ -663,8 +680,10 @@
       "_over_time_lifted": 2.52,
       "_tuning": [
         "15 Nov 2026, class pass: every rank x2.52 - its total was 0.28x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.31x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py"
-      ]
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.31x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py",
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
+      ],
+      "cast_speed": "slow"
     },
     {
       "ability_id": "ranger_deadshot",
@@ -728,7 +747,8 @@
       ],
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.43x steeper than it, biggest single-rank jump 1.13x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_neurotoxin_arrow",
@@ -782,7 +802,8 @@
       "target_type": "enemy",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_incendiary_shot",
@@ -831,7 +852,8 @@
       "max_targets": 5,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.33x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_poison_quiver",
@@ -883,7 +905,8 @@
       "exclusive_group": "ranger_quiver",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_searing_quiver",
@@ -908,7 +931,8 @@
       "_source": "CoA: Searing Quiver is the burst option against Poison's sustained pressure, so it carries crit where Poison carries flat power.",
       "target_type": "self",
       "buff_scope": "raid",
-      "exclusive_group": "ranger_quiver"
+      "exclusive_group": "ranger_quiver",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_ravage",
@@ -984,7 +1008,8 @@
       },
       "_tuning": [
         "15 Nov 2026, class pass: a top rank at 60 added - its last rank came at 53, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_wild_strike",
@@ -1051,7 +1076,8 @@
       "generates": {
         "resource": "archery_points",
         "amount": 14
-      }
+      },
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_flank",
@@ -1108,7 +1134,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Flank from behind for the Beatdown/Bounty payoff'. Position is not a concept here, so the bonus Flank gets for being behind the target is baked into its base damage rather than conditional.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_assault",
@@ -1163,7 +1190,8 @@
       "execute_threshold_pct": 20,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.40x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_vipers_bite",
@@ -1215,7 +1243,8 @@
       },
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.42x steeper than it, biggest single-rank jump 1.14x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_throatpunch",
@@ -1238,7 +1267,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Throatpunch (spell-school interrupt/lockout)'. A school lockout is not expressible - 'silenced' as a debuff stat_mod is read by nothing - so this is the heaviest haste cut in the kit, which is the closest a turn engine gets to taking someone's next cast away.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_quills",
@@ -1287,7 +1317,8 @@
       "max_targets": 5,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_dirty_blades",
@@ -1333,7 +1364,8 @@
       "buff_scope": "combat",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_emerald_arrow",
@@ -1387,7 +1419,8 @@
       "target_type": "enemy",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_woodland_arrow",
@@ -1438,7 +1471,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'chain Woodland Arrow during the pull to shave the Horn cooldown back down ... so a buff is active on nearly every pull'. The cooldown refund cannot live on the ability (nothing lets a cast reduce another ability's cooldown), so it moved onto Blow the Horns! in the tree, which is the other half of the same CoA mechanic.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_whipvine_arrow",
@@ -1487,7 +1521,8 @@
       "max_targets": 3,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.36x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_falconstrike",
@@ -1541,7 +1576,8 @@
       "target_type": "enemy",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.41x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_summon_war_falcon",
@@ -1593,7 +1629,8 @@
       "generates": {
         "resource": "archery_points",
         "amount": 8
-      }
+      },
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_horn_of_alacrity",
@@ -1622,7 +1659,8 @@
       "generates": {
         "resource": "archery_points",
         "amount": 8
-      }
+      },
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_battle_screech",
@@ -1668,7 +1706,8 @@
       "buff_scope": "combat",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_frenzy",
@@ -1692,7 +1731,8 @@
       "icon_id": null,
       "_source": "CoA: 'Frenzy's haste', 'Enrage all nearby allies, increasing their haste by 30% for 20 seconds. After being affected by this spell, allies cannot benefit from similar effects for 5 minutes'. The exhaustion debuff is not modellable, so the long cooldown carries it.",
       "target_type": "party",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_freedom",
@@ -1716,7 +1756,8 @@
       "icon_id": null,
       "_source": "CoA: 'Freedom cleanses roots and snares off the group'.  REBUILT: was effect_type 'dispel' with dispel_type 'movement', which is NOT a DispelType member (NONE/MAGIC/CURSE/POISON/DISEASE), and remove_debuff_by_dispel_type treats an unmatched school as a guaranteed no-match - so this ability removed nothing, ever. There is no movement to impair in a turn engine; its one incapacitate mechanic is is_stun. Now a buff granting cc_immune, the live key Cultist's Voidborne and Dark Veil already use, and apply_status_effect now CLEARS existing is_stun debuffs when cc_immune lands - so this both breaks the ally free and keeps them free for the duration, which is what the description promises.  PORTED INTO THIS SCRIPT 2026-10-29: the rebuild above was made in the emitted JSON and never ported here, so re-running this script reverted it back to the dead dispel. Unlike the unit errors beside it this one is NOT caught by tools/validate_class.py - ranger passes at 0 errors either way, because a dispel_type the engine never matches is structurally valid and merely inert.",
       "target_type": "party",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_thalassian_brand",
@@ -1760,7 +1801,8 @@
       "_tuning": [
         "15 Nov 2026, class pass: every rank x4.81 - its total was 0.15x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.42x steeper than it, biggest single-rank jump 1.17x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_command_aura",
@@ -1784,7 +1826,8 @@
       "icon_id": null,
       "_source": "CoA: 'Command Aura's shared bonus damage', 'causing allied players to deal 35% ranged AP additional damage when they deal direct damage'. An on-hit rider on every ally is not expressible; a party attack power window is. attack_power_pct is percentage POINTS.",
       "target_type": "party",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "ranger_farstriders_mark",
@@ -1834,7 +1877,8 @@
       ],
       "_tuning": [
         "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     }
   ]
 }

@@ -36,55 +36,55 @@
           "rank": 1,
           "level_req": 1,
           "cost": 0,
-          "effect_value": 26
+          "effect_value": 17
         },
         {
           "rank": 2,
           "level_req": 6,
           "cost": 0,
-          "effect_value": 33
+          "effect_value": 21
         },
         {
           "rank": 3,
           "level_req": 12,
           "cost": 0,
-          "effect_value": 40
+          "effect_value": 26
         },
         {
           "rank": 4,
           "level_req": 18,
           "cost": 0,
-          "effect_value": 47
+          "effect_value": 31
         },
         {
           "rank": 5,
           "level_req": 24,
           "cost": 0,
-          "effect_value": 54
+          "effect_value": 35
         },
         {
           "rank": 6,
           "level_req": 32,
           "cost": 0,
-          "effect_value": 61
+          "effect_value": 40
         },
         {
           "rank": 7,
           "level_req": 40,
           "cost": 0,
-          "effect_value": 68
+          "effect_value": 44
         },
         {
           "rank": 8,
           "level_req": 48,
           "cost": 0,
-          "effect_value": 75
+          "effect_value": 49
         },
         {
           "rank": 9,
           "level_req": 56,
           "cost": 0,
-          "effect_value": 82
+          "effect_value": 53
         }
       ],
       "icon_id": null,
@@ -93,7 +93,11 @@
         "amount": 20
       },
       "_source": "CoA: 'Open with Righteous Lunge to close the gap; it grants its own Oath', and 'Righteous Lunge is the only real engage'. Its Oath 'makes your abilities damage and heal for more'. The baseline builder for every spec.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "quick",
+      "_tuning": [
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+      ]
     },
     {
       "ability_id": "templar_chastise",
@@ -163,7 +167,8 @@
       "icon_id": null,
       "_source": "CoA: Chastise is the Oath Breaker all three specs share ('dump an Oath Breaker: Chastise, Blade of Faith, Divine Fury or Righteous Upheaval'). The cheap finisher, so it carries no cooldown - the Oath bank is its gate.",
       "target_type": "enemy",
-      "damage_school": "holy"
+      "damage_school": "holy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_condemn",
@@ -240,7 +245,8 @@
       "damage_school": "holy",
       "_tuning": [
         "15 Nov 2026, class pass: a top rank at 60 added - its last rank came at 53, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_holy_cleave",
@@ -309,7 +315,8 @@
       "_source": "CoA: 'Build Holy Cleave for the extra-target Oath; around 10 stacks covers a normal pull'. Its Oath 'makes your abilities strike an additional nearby target', which has no engine hook, so the cleave is on the ability itself.",
       "target_type": "enemy_aoe",
       "max_targets": 3,
-      "damage_school": "holy"
+      "damage_school": "holy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_temple_guardian",
@@ -375,7 +382,8 @@
       "target_type": "party",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.27x steeper than it, biggest single-rank jump 1.08x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_benediction",
@@ -441,7 +449,8 @@
       "target_type": "ally",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.35x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_blade_of_faith",
@@ -499,7 +508,8 @@
       "icon_id": null,
       "_source": "CoA: 'Blade of Faith, a long, hard-critting DoT' and 'Unleash a devastating Oath Breaker ... dealing AP Holy damage over 21 seconds'. Chained against Righteous Upheaval rather than spammed.",
       "target_type": "enemy",
-      "damage_school": "holy"
+      "damage_school": "holy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_divine_force",
@@ -555,7 +565,8 @@
       "is_stun": true,
       "_tuning": [
         "15 Nov 2026, deep dive: every rank x2.37 - a spender at 0.34x of what a spender of its level, cooldown and cast speed should hit for (tools/audit_ability_lines.py); now 0.8x"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_interdict",
@@ -578,7 +589,8 @@
       ],
       "icon_id": null,
       "_source": "CoA: 'Interdict silences a target and locks Undead and Demons out of healing'. No silence or cast-interrupt mechanic exists, so this follows the shipped Rogue Kick convention and guts the target's spell hit chance instead.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_libram_of_consecration",
@@ -603,7 +615,8 @@
       "_source": "CoA: 'Libram of Consecration adds Holy damage to your damaging abilities' and 'Only one Libram can be active at a time'. damage_dealt_pct is the key a BUFF has to use - a buff's stat_mods never reach _damage_multiplier's talent lookups.",
       "target_type": "self",
       "buff_scope": "combat",
-      "exclusive_group": "templar_libram"
+      "exclusive_group": "templar_libram",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_libram_of_zeal",
@@ -628,7 +641,8 @@
       "_source": "CoA Zealot: 'Libram of Zeal ... increasing your melee haste by 20%'.",
       "target_type": "self",
       "buff_scope": "combat",
-      "exclusive_group": "templar_libram"
+      "exclusive_group": "templar_libram",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_libram_of_grace",
@@ -676,7 +690,8 @@
       "target_type": "party",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.47x steeper than it, biggest single-rank jump 1.16x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_testament_of_fortitude",
@@ -730,7 +745,8 @@
       "target_type": "self",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.37x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_testament_of_will",
@@ -754,7 +770,8 @@
       "icon_id": null,
       "_source": "CoA class tree: 'Break an ally free of worldly constraints, making them immune to all movement impairing effects for 10 seconds'. REMOVED NOTHING, EVER, UNTIL 2026-10-29. The old note here said 'no immunity window exists; a movement dispel is the honest half' - but the dispel half was not honest, it was inert: dispel_type 'movement' is not a DispelType (the real members are NONE/MAGIC/CURSE/POISON/DISEASE) and remove_debuff_by_dispel_type treats an unmatched school as a guaranteed no-match, so every cast logged 'has no Movement effect to remove!'. An immunity window DOES exist now - cc_immune - and it is the better match anyway, because CoA's own wording is immunity rather than removal. apply_status_effect also clears active stuns when cc_immune lands, so this breaks them free AND keeps them free, which is the whole tooltip.",
       "target_type": "ally",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_testament_of_faith",
@@ -802,7 +819,8 @@
       "target_type": "ally",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.62x steeper than it, biggest single-rank jump 1.20x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_testament_of_hope",
@@ -827,7 +845,8 @@
       "_source": "CoA class tree: 'Summons 2 copies of yourself that charge at a nearby enemy and aid you in combat ... each copy reduces all damage you take by -10%'. summon_pet needs a template from combat/pet_templates.py and none of the fifteen is a mirror of the caster, so the copies are represented by the mitigation they grant: two copies, -10% each, -20%. damage_taken_pct is a FRACTION.",
       "target_type": "self",
       "buff_scope": "combat",
-      "exclusive_group": "templar_testament"
+      "exclusive_group": "templar_testament",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_vindication",
@@ -888,7 +907,8 @@
         "amount": 20
       },
       "_source": "CoA Zealot: 'Righteous Lunge and Vindication are your Oath builders, each granting an Oath, and Vindication triggers Zealotry'. Its own Oath gives 'your damaging abilities a 10% chance to trigger Zealotry'.",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_righteous_upheaval",
@@ -942,7 +962,8 @@
       "target_type": "enemy",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.37x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_force_of_golganneth",
@@ -986,7 +1007,8 @@
       "damage_school": "holy",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.37x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_norgannons_wrath",
@@ -1025,7 +1047,8 @@
       "requires_talent": true,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.37x steeper than it, biggest single-rank jump 1.20x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_sacred_swing",
@@ -1041,43 +1064,43 @@
           "rank": 1,
           "level_req": 10,
           "cost": 0,
-          "effect_value": 32
+          "effect_value": 21
         },
         {
           "rank": 2,
           "level_req": 18,
           "cost": 0,
-          "effect_value": 41
+          "effect_value": 27
         },
         {
           "rank": 3,
           "level_req": 26,
           "cost": 0,
-          "effect_value": 50
+          "effect_value": 32
         },
         {
           "rank": 4,
           "level_req": 34,
           "cost": 0,
-          "effect_value": 59
+          "effect_value": 38
         },
         {
           "rank": 5,
           "level_req": 42,
           "cost": 0,
-          "effect_value": 68
+          "effect_value": 44
         },
         {
           "rank": 6,
           "level_req": 50,
           "cost": 0,
-          "effect_value": 77
+          "effect_value": 50
         },
         {
           "rank": 7,
           "level_req": 58,
           "cost": 0,
-          "effect_value": 86
+          "effect_value": 56
         }
       ],
       "icon_id": null,
@@ -1087,7 +1110,11 @@
       },
       "_source": "CoA Oathkeeper: 'Sacred Swing (usable off an avoided attack)' and 'Use Sacred Swing on cooldown whenever it's up, after a dodge or parry, for cheap AoE damage and a Staffguard absorb'. The dodge/parry gate has no engine hook - no ability can require a recent avoidance - so it sits on a 2 turn cooldown instead, which is the closest honest throttle. Staffguard is the talent that reads it.",
       "target_type": "enemy_aoe",
-      "max_targets": 3
+      "max_targets": 3,
+      "cast_speed": "quick",
+      "_tuning": [
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+      ]
     },
     {
       "ability_id": "templar_reckoning",
@@ -1140,7 +1167,8 @@
       "_source": "CoA Oathkeeper: 'Spend into Reckoning as your default Oath Breaker while leveling. It deals AoE Holy damage and restores Energy per enemy struck'. The Energy refund is dropped - a finisher that refunded Combo would undo its own cost, and the Templar has no second pool to refund into. Sacred Resistance is the talent that reads it.",
       "target_type": "enemy_aoe",
       "max_targets": 4,
-      "damage_school": "holy"
+      "damage_school": "holy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_absolution",
@@ -1164,7 +1192,8 @@
       "icon_id": null,
       "_source": "CoA Oathkeeper: 'Taunt all enemies within 8 yds for 4 seconds', 'Pull with Absolution to taunt and establish threat' and 'Use Absolution to peel adds off the actual healer'. Implemented as a threat_generation_pct buff, the convention Guardian's Challenging Cry (200) and Cultist's Twilight Domain (180) already use - an ability buff's stat_mods are percentage POINTS here, unlike a talent's effects, which are fractions.",
       "target_type": "self",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_barrier_of_light",
@@ -1188,7 +1217,8 @@
       "icon_id": null,
       "_source": "CoA Oathkeeper: 'Emit saving light, increasing the healing received by nearby allies by 40% for 15 seconds. For the duration, threat generated by your allies is redirected to you.' The redirect half is dropped: one stat_mods dict applies to every recipient, so a threat key here would land on the allies too, which is backwards.",
       "target_type": "party",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_tome_of_light",
@@ -1212,7 +1242,8 @@
       "absorb_pct_max_health": 0.4,
       "target_type": "self",
       "buff_scope": "combat",
-      "requires_talent": true
+      "requires_talent": true,
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_argent_blade",
@@ -1285,7 +1316,8 @@
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.30x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py",
         "15 Nov 2026, deep dive: damage_school holy - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it"
       ],
-      "damage_school": "holy"
+      "damage_school": "holy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_titanstrike",
@@ -1300,43 +1332,43 @@
         {
           "rank": 1,
           "level_req": 22,
-          "cost": 40,
-          "effect_value": 233,
+          "cost": 46,
+          "effect_value": 350,
           "heal_value": 70
         },
         {
           "rank": 2,
           "level_req": 29,
-          "cost": 40,
-          "effect_value": 266,
+          "cost": 46,
+          "effect_value": 399,
           "heal_value": 92
         },
         {
           "rank": 3,
           "level_req": 36,
-          "cost": 40,
-          "effect_value": 300,
+          "cost": 46,
+          "effect_value": 450,
           "heal_value": 114
         },
         {
           "rank": 4,
           "level_req": 43,
-          "cost": 40,
-          "effect_value": 333,
+          "cost": 46,
+          "effect_value": 500,
           "heal_value": 136
         },
         {
           "rank": 5,
           "level_req": 50,
-          "cost": 40,
-          "effect_value": 367,
+          "cost": 46,
+          "effect_value": 550,
           "heal_value": 158
         },
         {
           "rank": 6,
           "level_req": 57,
-          "cost": 40,
-          "effect_value": 400,
+          "cost": 46,
+          "effect_value": 600,
           "heal_value": 180
         }
       ],
@@ -1346,9 +1378,11 @@
       "execute_threshold_pct": 35,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.41x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py",
-        "15 Nov 2026, deep dive: damage_school holy - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it"
+        "15 Nov 2026, deep dive: damage_school holy - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it",
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
       ],
-      "damage_school": "holy"
+      "damage_school": "holy",
+      "cast_speed": "slow"
     },
     {
       "ability_id": "templar_righteous_tempest",
@@ -1399,7 +1433,8 @@
       "damage_school": "physical",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.39x steeper than it, biggest single-rank jump 1.13x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_scarlet_hammer",
@@ -1448,7 +1483,8 @@
       "damage_school": "holy",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.42x steeper than it, biggest single-rank jump 1.14x); overall size kept. tools/fix_rank_lines.py"
-      ]
+      ],
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_crusaders_brand",
@@ -1471,7 +1507,8 @@
       ],
       "icon_id": null,
       "_source": "CoA Crusader: 'Crusader's Brand pins a runner so they cannot flee, mount, or speed away, and reveals them through stealth'. No movement, mount or stealth systems exist, so the pin is a haste slow, the shipped convention for a snare (Rogue's Crippling Poison, -30).",
-      "target_type": "enemy"
+      "target_type": "enemy",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_divine_charge",
@@ -1495,7 +1532,8 @@
       "icon_id": null,
       "_source": "CoA Crusader: 'Divine Charge gives the party a mounted speed burst outdoors that does not break on casting', 'Divine Charge only works outdoors, so it is not your dungeon opener'. There is no indoor/outdoor gate and no movement speed, so it is a party haste window. The trample damage is dropped.",
       "target_type": "party",
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_testament_of_strength",
@@ -1523,7 +1561,8 @@
       "exclusive_group": "templar_testament",
       "proc": {
         "bypass_execute_threshold": true
-      }
+      },
+      "cast_speed": "normal"
     },
     {
       "ability_id": "templar_templars_oath",
@@ -1574,7 +1613,8 @@
       ],
       "_tuning": [
         "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
-      ]
+      ],
+      "cast_speed": "normal"
     }
   ]
 }
