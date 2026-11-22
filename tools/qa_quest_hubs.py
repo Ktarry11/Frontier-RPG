@@ -103,6 +103,9 @@ REGIONS = {
     "Ascendant Bastions": (["ascendant_bastions"], ["dawnspear_wreck"], {}),
     # The Fading Firmament: Lastlight, with the House of Long Memory's rooms moved in from Forgewatch.
     "Fading Firmament": (["fading_firmament"], ["lastlight"], {}),
+    # The Sunward Crown: Lenswatch (with the Annex and the survey's scholars) and Spearhold, the trolls' camp on its own
+    # small map (Kyle: "Tiny camp, no hearth or flight. But seperate map").
+    "Sunward Crown": (["sunward_crown", "lenswatch"], ["lenswatch", "spearhold"], {}),
 }
 #: the share of a region's quests that must come from town. Never lower one.
 FLOORS = {"Durotar": 0.70, "Tirisfal": 0.70, "Silverpine": 0.70, "Barrens": 0.70, "Hillsbrad": 0.70,
@@ -110,7 +113,8 @@ FLOORS = {"Durotar": 0.70, "Tirisfal": 0.70, "Silverpine": 0.70, "Barrens": 0.70
           "Fenris Isle": 0.70, "Stranglethorn": 0.70, "Stonetalon": 0.70, "Ashenvale": 0.70, "Black Strand": 0.70,
           "Plaguelands": 0.70, "Thousand Needles": 0.70, "Tanaris": 0.70, "Aspen": 0.70, "Echo Isles": 0.70,
           "Celestial Expanse": 0.70, "Anchorfields": 0.70,
-          "Ascendant Bastions": 0.55, "Fading Firmament": 0.70}
+          "Ascendant Bastions": 0.55, "Fading Firmament": 0.70,
+          "Sunward Crown": 0.70}
 
 
 def norm(s):

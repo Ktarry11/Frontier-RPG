@@ -25,7 +25,7 @@ renderer paints the cloud sea under that.
 HARD CONTRACTS (world/portal_manager.py)
   portal   (2,46) <-> The Sunward Crown (295,130): you arrive at (7,46) coming in and (289,130) going out
            (119,13), the skiff off the Roost <-> The Celestial Expanse's landing on Crashfall (103,206)
-  NPC ids  lw_*: written by tools/build_sunward_crown_people.py from NPC_POSITIONS
+  NPC ids  lw_* and the sc_* who moved in: written by tools/build_sunward_crown_people.py from NPC_POSITIONS
 """
 import numpy as np
 
@@ -48,12 +48,15 @@ ISLAND = [(14, 34), (24, 22), (40, 24), (50, 14), (66, 18), (80, 26), (92, 34), 
 #: the two islets anchored off it: the Skiff Roost to the north-east, the Lens Hall's rock to the south
 ROOST = [(96, 12), (110, 6), (122, 14), (118, 28), (102, 28)]
 HALL = [(38, 82), (58, 79), (78, 84), (72, 93), (46, 93)]
+#: the Annex's rock, south-west: the survey's guests from Earth, moved in off the cloud (22 Nov 2026, Kyle's town rule)
+ANNEX = [(3, 70), (16, 66), (30, 72), (27, 88), (6, 88)]
 #: plank and light across the drop: the gangway in from the west, the ship's gangway out east
 BRIDGES = [
     ([(0, 46), (16, 46)], 2.6),             # the gangway from the Crown's dock
     ([(114, 50), (124, 50)], 2.2),          # the ship's gangway
     ([(88, 34), (100, 24)], 2.2),           # the light bridge up to the Skiff Roost
     ([(60, 72), (60, 82)], 2.4),            # the stair down to the Lens Hall
+    ([(22, 60), (17, 71)], 2.2),            # the plank down to the Annex
 ]
 #: the ship's deck: a long hull moored off the east edge (walkable: its deck is the "plaza" layer)
 SHIP = ([(118, 42), (126, 44), (126, 58), (118, 60)])
@@ -104,7 +107,8 @@ def sea(gx, gy):
     gx = np.asarray(gx, float)
     gy = np.asarray(gy, float)
     land = np.minimum.reduce([_poly(gx, gy, ISLAND) + _wob(gx, gy), _poly(gx, gy, ROOST) + 0.5 * _wob(gx, gy),
-                              _poly(gx, gy, HALL) + 0.5 * _wob(gx, gy), bridge_mask(gx, gy)])
+                              _poly(gx, gy, HALL) + 0.5 * _wob(gx, gy), _poly(gx, gy, ANNEX) + 0.5 * _wob(gx, gy),
+                              bridge_mask(gx, gy)])
     edge = np.maximum.reduce([-1.0 - gx, gx - (W - 1.0), 2.0 - gy, gy - (H - 3.0)])
     return np.maximum(land, edge * 3.0)
 
@@ -125,7 +129,7 @@ MESAS = []
 RIDGES = []
 WOODS = []
 BELTS = []
-CLEARINGS = [(62, 46, 52, 30), (110, 18, 10, 8), (58, 86, 18, 6)]
+CLEARINGS = [(62, 46, 52, 30), (110, 18, 10, 8), (58, 86, 18, 6), (16, 78, 10, 7)]
 CORRUPT_PATCHES = []
 BURNED_PATCHES = []
 BLUEBELL_PATCHES = [(40, 66, 6, 4), (84, 62, 6, 4), (24, 58, 4, 3)]
@@ -144,6 +148,7 @@ ROADS = {
     "roost":    ([(76, 46), (86, 36), (100, 24), (106, 20)], 2.2),
     "hall":     ([(60, 48), (60, 70), (60, 84)], 2.4),
     "lens":     ([(62, 46), (62, 38)], 2.2),
+    "annex":    ([(30, 48), (24, 58), (17, 72), (15, 80)], 2.0),
 }
 
 SPEC = E.Spec(NAME, W, H, ROADS, rivers=RIVERS, lakes=LAKES, deep_shrink=DEEP_SHRINK, sea=sea, islets=ISLETS,
@@ -163,6 +168,15 @@ NPC_POSITIONS = {
     "lw_smith":          (78, 44),     # a crystalsmith who repairs
     "lw_archivist":      (64, 86),     # the Lens Hall's archivist
     "lw_shipwright":     (108, 54),    # the survey ship's master
+    # the survey's people who came in off the crown (22 Nov 2026): the scholar from the Parley Stones, the archivist
+    # who reads the Sunken Seal, and the Annex, the survey's guests from Earth, on their own rock
+    "sc_parley_scholar": (74, 50),     # Ilaren Vey, in the court
+    "sc_seal_watcher":   (52, 87),     # Archivist Elyon Sarre, at the Lens Hall with his rubbings of the seal
+    "sc_annex_lead":     (14, 75),     # Leandro Arrieta
+    "sc_annex_doctor":   (22, 82),     # Dr. Rania Azar
+    "sc_annex_engineer": (9, 81),      # Pavel Novak
+    "sc_climber":        (27, 80),     # Ewan Docherty
+    "sc_annex_trader":   (15, 85),     # Beatriz Lobo
 }
 
 
@@ -179,7 +193,17 @@ def road_dist(gx, gy, names=None):
 
 
 CAVES = {}
-SUBZONES = [("Lenswatch", 0, 0, W, H, None)]
+#: the districts (later registrations win on overlap). The townsfolk live in these (tools/townsfolk/lenswatch.py).
+SUBZONES = [
+    ("Lenswatch", 0, 0, W, H, None),
+    ("The Landing", 0, 36, 30, 22, None),
+    ("The Guesthouse", 14, 16, 34, 22, None),
+    ("The Survey Court", 40, 24, 50, 40, None),
+    ("The Skiff Roost", 90, 0, 40, 32, None),
+    ("The Mooring", 90, 36, 40, 30, None),
+    ("The Lens Hall", 34, 76, 46, 20, None),
+    ("The Annex", 0, 64, 32, 32, None),
+]
 
 
 def drop_mask(L=None):
@@ -259,6 +283,12 @@ def dress(L):
     S("sk_crystal_gold", 28, 60, 4)
     S("sk_crystal_blue", 90, 62, 4)
     S("sk_crystal_spire", 116, 12, 6)
+    # ---- the Annex: the survey's pavilions for its guests from Earth, and what the guests have done to them
+    B("ae_field_pavilion", 10, 76, 5)
+    B("ae_refugee_pavilion", 22, 78, 5)
+    B("ae_engine_bench", 6, 84, 3)
+    B("ae_soup_table", 20, 86, 3)
+    B("ae_lamp_post", 26, 72, 4)
 
 
 def register_baked(zone):

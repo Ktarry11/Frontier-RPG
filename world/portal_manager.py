@@ -805,6 +805,10 @@ class PortalManager:
             "The Sunward Crown": {
                 (100, 164): ("The Cloudbreak", 32, 18),             # back down through the mural: arrive (32,16)
                 (295, 130): ("Lenswatch", 7, 48),                   # over the gangway: arrive (7,46) on the Landing
+                (36, 121): ("Spearhold", 40, 58),                   # into the war camp: arrive (40,56) on the way in
+            },
+            "Spearhold": {
+                (40, 61): ("The Sunward Crown", 38, 128),           # back out of the camp: arrive (38,126) on the road
             },
             "Lenswatch": {
                 (2, 46): ("The Sunward Crown", 289, 132),           # back over the gangway: arrive (289,130) at the dock

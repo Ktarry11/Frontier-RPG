@@ -44,7 +44,7 @@ DROPS = ROOT / "data/creatures/quest_drops.json"
 FACTIONS = ROOT / "data/factions/factions.json"
 RATE = 0.75
 MAX_PER_GIVER = 4      # Kyle's standing rule
-HUB_SHARE = 0.7        # Kyle's ~70%: Spearhold, Lenswatch and the Annex give most of them
+HUB_SHARE = 0.7        # Kyle's ~70%: Lenswatch and Spearhold, each its own map, give most of them
 
 #: who pays for a quest: the trolls pay the Highbough Tribes, the envoy Orgrimmar, the survey the Aetherians; the
 #: Earthborn pay nobody (transplants are factionless)
@@ -60,6 +60,7 @@ ITEM_PREFIX = "scg_"
 MAPS = {
     SQ.SC: ("tools.handbuilt_worldtree_sunward_crown", "START", ("The Sunward Crown",)),
     SQ.LW: ("tools.handbuilt_worldtree_lenswatch", "START", None),       # a town: reachability only
+    "spearhold": ("tools.handbuilt_worldtree_spearhold", "START", None),  # the trolls' camp: reachability only
 }
 CAVES = set()
 

@@ -383,6 +383,7 @@ ZONE_BIOME = {
     "The Cloudbreak": "tropical",                 # the last branches: painted ground (baked)
     "The Sunward Crown": "tropical",              # the crown and the cloud: painted ground (baked)
     "Lenswatch": "tropical",                      # the survey's island: painted ground (baked)
+    "Spearhold": "tropical",                      # the trolls' war camp: painted ground (baked)
     "The Celestial Expanse": "tropical",          # the islands down the sky river: painted ground (baked)
     "Halcyon Rest": "tropical",                   # the Expanse's town: painted ground (baked)
     "Keelstone": "tropical",                      # the Anchorfields' town: painted ground (baked)

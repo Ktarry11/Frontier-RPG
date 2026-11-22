@@ -719,6 +719,9 @@ CROWN_SHEET = {
     "av_corrupt_ground": _sk("sk_crown_bark"),
     "av_satyr_earth":    _sk("sk_cloud_solid"),
 }
+#: Spearhold (sheets SK and WT): the trolls' war camp at the back of the crown, the Crown's own gold canopy (CROWN_SHEET)
+#: with the tree's deck planks on the way in ("plaza").
+SPEARHOLD_SHEET = dict(CROWN_SHEET)
 #: Lenswatch (sheets SK): the survey's anchored island. Bare island rock with gold grass where it's caught soil, white
 #: stone where the camp is paved ("paved"), pale deck on the gangways and the ship ("plaza"), the court's pools, and
 #: the rock underside hanging below (sky_cut).
@@ -976,6 +979,7 @@ ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_S
                "worldtree_cloudbreak": CLOUDBREAK_SHEET,
                "worldtree_sunward_crown": CROWN_SHEET,
                "worldtree_lenswatch": LENSWATCH_SHEET,
+               "worldtree_spearhold": SPEARHOLD_SHEET,
                "worldtree_celestial_expanse": EXPANSE_SHEET,
                "worldtree_halcyon_rest": HALCYON_SHEET,
                "worldtree_anchorfields": ANCHOR_SHEET,
@@ -1510,7 +1514,7 @@ def main():
     if "--preview" in sys.argv:
         preview = sys.argv[sys.argv.index("--preview") + 1]
     sc = int(sys.argv[sys.argv.index("--scale") + 1]) if "--scale" in sys.argv else 4
-    zone = next((z for z in ("worldtree_fading_firmament", "worldtree_ascendant_bastions", "worldtree_aurelion", "worldtree_anchorfields", "worldtree_celestial_expanse", "worldtree_halcyon_rest", "worldtree_keelstone", "worldtree_dawnspear_wreck", "worldtree_lastlight", "worldtree_lenswatch", "worldtree_sunward_crown", "worldtree_cloudbreak", "worldtree_upper_boughs", "worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "dawnhaven_amberleaf", "dawnhaven_duskfall", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
+    zone = next((z for z in ("worldtree_fading_firmament", "worldtree_ascendant_bastions", "worldtree_aurelion", "worldtree_anchorfields", "worldtree_celestial_expanse", "worldtree_halcyon_rest", "worldtree_keelstone", "worldtree_dawnspear_wreck", "worldtree_lastlight", "worldtree_spearhold", "worldtree_lenswatch", "worldtree_sunward_crown", "worldtree_cloudbreak", "worldtree_upper_boughs", "worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "dawnhaven_amberleaf", "dawnhaven_duskfall", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
     only = None
     if "--region" in sys.argv:       # x0,y0,x1,y1 in tiles: bake only the 20x20 chunks touching it (fast look-dev)
         x0, y0, x1, y1 = map(int, sys.argv[sys.argv.index("--region") + 1].split(","))

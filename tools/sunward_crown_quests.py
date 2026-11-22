@@ -47,8 +47,10 @@ ZULMO, RANJO, HEZZA, ILAREN, ELYON, MUZZA, SAREN, DAKZIN = ("sc_gatewatch", "sc_
                                                            "sc_parley_scholar", "sc_seal_watcher", "sc_line_scout",
                                                            "sc_dockhand", "sc_falls_hunter")
 
+#: the people in Lenswatch (with the Annex and the survey's two scholars, moved in 22 Nov 2026) and in Spearhold, the
+#: trolls' camp on its own small map (Kyle: "Tiny camp, no hearth or flight. But seperate map")
 HUB_GIVERS = {RAKKUZI, JINRA, TAZKAL, ZANSHI, GARROK, DESTREN, TAVIAN, CORYN, HALDANE, SELLIS, LEANDRO, RANIA, PAVEL,
-              EWAN}
+              EWAN, ILAREN, ELYON}
 TRIBE_GIVERS = {RAKKUZI, JINRA, TAZKAL, ZANSHI, ZULMO, RANJO, HEZZA, MUZZA, DAKZIN}
 HORDE_GIVERS = {GARROK}
 SKY_GIVERS = {DESTREN, TAVIAN, CORYN, HALDANE, SELLIS, ILAREN, ELYON, SAREN}
@@ -352,7 +354,7 @@ def build():
     A(Q("scq_mark_the_rifts", "Mark the Rifts", CORYN, 48, 48, "Riftmarker's",
         "Lensmaster Coryn Aldaer can see a coin on the ground from Lenswatch, but he can't see where the cloud is too "
         "thin to stand on. He wants three of the tears in the shelf marked for the lens.",
-        [explore(*RIFT_NORTH, "Mark the tear north of the Annex"), explore(*RIFT_WEST, "Mark the tear west of the Annex"),
+        [explore(*RIFT_NORTH, "Mark the tear north-west of the Survey Dock"), explore(*RIFT_WEST, "Mark the tear south-east of the Parley Stones"),
          explore(*RIFT_SOUTH, "Mark the tear south of the Survey Dock")],
         "The great lens looks straight through cloud, and that's the trouble, because it can't tell me where the cloud "
         "stops holding you up. There are three tears in the shelf I want marked, one north of the Annex, one west of "

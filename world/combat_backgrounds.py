@@ -228,6 +228,7 @@ ZONE_BACKGROUND = {
     "The Cloudbreak": "jungle",                   # the last branches (no fights)
     "The Sunward Crown": "sky",                   # above the cloud, in full sun
     "Lenswatch": "sky",                           # the survey's island (a town: no fights)
+    "Spearhold": "sky",                           # the trolls' war camp on the Crown (no fights)
     "The Celestial Expanse": "sky",               # the open day sky
     "Halcyon Rest": "sky",                        # the Expanse's town (no fights)
     "Keelstone": "sky",                           # the Anchorfields' town (no fights)

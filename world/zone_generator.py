@@ -5747,6 +5747,7 @@ def _build_all_zones():
     from tools import handbuilt_worldtree_cloudbreak as dwcb
     from tools import handbuilt_worldtree_sunward_crown as dwsc
     from tools import handbuilt_worldtree_lenswatch as dwlw
+    from tools import handbuilt_worldtree_spearhold as dwsh
     from tools import handbuilt_worldtree_celestial_expanse as dwce
     from tools import handbuilt_worldtree_halcyon_rest as dwhr
     from tools import handbuilt_worldtree_keelstone as dwkl
@@ -5955,6 +5956,7 @@ def _build_all_zones():
         "The Cloudbreak": dwcb.generate_cloudbreak(),             # the last branches and the mural (the Crown's cutscene)
         "The Sunward Crown": dwsc.generate_sunward_crown(),       # the crown and the cloud shelf: first contact (20 Nov 2026)
         "Lenswatch": dwlw.generate_lenswatch(),                   # the survey's town off the Crown's cloud (inn, flight)
+        "Spearhold": dwsh.generate_spearhold(),                   # the trolls' war camp on the Crown (no inn, no flight)
         "The Celestial Expanse": dwce.generate_celestial_expanse(),  # islands down the great sky river (20 Nov 2026)
         "Halcyon Rest": dwhr.generate_halcyon_rest(),               # the Expanse's town (inn, flight), 22 Nov 2026
         "Keelstone": dwkl.generate_keelstone(),                     # the Anchorfields' town (inn, flight), 22 Nov 2026

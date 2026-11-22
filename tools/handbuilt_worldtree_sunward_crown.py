@@ -53,8 +53,8 @@ SKP = "assets/tiles/sky/props/"
 WTP = "assets/tiles/worldtree/props/"
 BLD = "assets/buildings/"
 
-PORTALS = {(100, 164): "The Cloudbreak", (295, 130): "Lenswatch"}
-ARRIVALS = [(100, 169), (289, 130)]
+PORTALS = {(100, 164): "The Cloudbreak", (295, 130): "Lenswatch", (36, 121): "Spearhold"}
+ARRIVALS = [(100, 169), (289, 130), (38, 126)]
 LATER_PORTALS = {}
 START = (100, 169)      # the Mural Gate: everything must be reachable from here
 
@@ -418,25 +418,11 @@ NPC_POSITIONS = {
     "sc_gatewatch":      (106, 167),   # a troll who sits by the broken mural and counts who comes up
     "sc_mural_piece":    (94, 168),    # a fallen piece of the mural: walk up to it to watch the cutscene again
     "sc_lookdown":       (90, 127),    # an old troll at the end of the Lookdown, showing the climbers the ground
-    # Spearhold: the Highbough war camp
-    "sc_warleader":      (36, 119),    # Zan'kaji's war-leader on the crown
-    "sc_envoy":          (42, 124),    # Orgrimmar's envoy, trying to keep it from becoming a war
-    "sc_witchdoctor":    (30, 124),    # the camp's witch doctor, who reads the seal's light
-    "sc_spear_scout":    (44, 116),    # scout of the Taken Crown
-    "sc_spear_provisioner": (28, 118),  # food and drink
-    "sc_spear_trader":   (46, 128),    # the camp's trader
-    "sc_wyvern_rider":   (32, 130),    # a rider whose wyverns hate the sky beasts
+    # Spearhold is its own small map now (tools/handbuilt_worldtree_spearhold.py); the Annex and the survey's two
+    # scholars moved into Lenswatch (22 Nov 2026, Kyle's town rule)
     # the Parley Stones
-    "sc_parley_scholar": (170, 116),   # the Patient Lens scholar who stayed at the stones (an ally through the sky)
     "sc_parley_troll":   (182, 121),   # the troll who stood for the Highbough at the parley
     # the Sunken Seal
-    "sc_seal_watcher":   (172, 58),    # an Aetherian archivist reading the old stone
-    # the Annex: the survey's guests from Earth, and the climbers who came up the tree
-    "sc_annex_lead":     (236, 137),   # the Earthborn who's lived three years with the Aetherians (an ally)
-    "sc_annex_doctor":   (244, 143),   # an Earth doctor the scholars keep asking questions
-    "sc_annex_engineer": (230, 142),   # an Earth engineer the survey wants to recruit
-    "sc_climber":        (246, 136),   # a transplant climber who came up the tree
-    "sc_annex_trader":   (232, 146),   # swaps what the Earthborn make for what they need
     # the Falls of Light
     "sc_falls_hunter":   (56, 194),    # a troll hunter after the sky beasts at the falls
     # the Survey Dock
@@ -468,7 +454,6 @@ SUBZONES = [   # (table_key, x, y, w, h, display_name) - later registrations win
     ("The Sunken Seal", 158, 42, 40, 40, None),
     ("The Chainhold", 204, 14, 70, 48, None),
     ("The Parley Stones", 158, 104, 36, 28, None),
-    ("The Annex", 216, 126, 44, 28, None),
     ("The Survey Dock", 262, 118, 38, 24, None),
     ("The Stormbank", 194, 184, 106, 56, None),
     ("The Driftlets", 150, 192, 50, 46, None),
@@ -638,17 +623,11 @@ def dress(L):
     # ---- the Lookdown: lanterns at the end of the branch, over the Hollow
     S("sk_stone_lantern", 85, 124, 4)
     S("sk_stone_lantern", 92, 124, 4)
-    # ---- Spearhold: a war camp at the back of the horseshoe. The war-leader's fire in the middle; spears facing
-    #      east across the Hollow at the cloud; the wyverns' roost on the south edge; the trader and provisioner either side
-    B("gs_brazier", 36, 122, 4)
-    B("gs_loa_totem", 50, 115, 6)
-    B("gs_loa_totem", 50, 130, 6)
-    T("wt_bark_leanto", 24, 115, 5)
-    T("wt_bark_leanto", 26, 130, 5)
-    T("wt_sap_barrels", 50, 122, 4)
-    T("wt_wyvern_nest", 36, 134, 5)
-    T("wt_high_lookout", 20, 122, 9)
-    T("wt_wind_charms", 40, 112, 5)
+    # ---- Spearhold: the way into the war camp at the back of the horseshoe (the camp is its own small map); the
+    #      trolls' totems either side of it, wind charms on the branch above
+    B("gs_loa_totem", 30, 118, 6)
+    B("gs_loa_totem", 42, 118, 6)
+    T("wt_wind_charms", 36, 112, 5)
     # ---- the Goldenwood: the pools under the gold, an old shrine the roots have swallowed, a fallen gold log
     S("sk_flower_log", 76, 58, 4)
     S("sk_vine_column", 54, 42, 6)
@@ -700,16 +679,9 @@ def dress(L):
     B("ae_bombard_tower", 258, 46, 7)
     B("ae_war_standard", 236, 44, 6)
     B("ae_ammo_rack", 228, 40, 3)
-    # ---- the Annex: the survey's pavilions for its guests, and what the Earth people have done to them. Tents in a
-    #      row along the north, the workbench in the south, a lamp at each end
-    B("ae_field_pavilion", 230, 134, 6)
-    B("ae_field_pavilion", 240, 133, 6)
-    B("ae_refugee_pavilion", 250, 140, 6)
-    B("ae_engine_bench", 226, 146, 3)
+    # ---- where the Annex stood on the cloud: the survey moved its guests into Lenswatch; two lamps left on the path
     B("ae_lamp_post", 226, 138, 4)
     B("ae_lamp_post", 252, 146, 4)
-    B("ae_belongings", 238, 148, 3)
-    B("ae_soup_table", 246, 147, 3)
     # ---- the Survey Dock: the dock's pylons and the survey skiff moored off the cloud's edge
     B("ae_skiff_dock", 280, 135, 6)
     B("ae_survey_skiff", 288, 142, 9, allow_overlap=True)

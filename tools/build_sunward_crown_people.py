@@ -27,11 +27,12 @@ sys.path.insert(0, str(ROOT))
 
 from tools import handbuilt_worldtree_lenswatch as LW  # noqa: E402
 from tools import handbuilt_worldtree_sunward_crown as SC  # noqa: E402
+from tools import handbuilt_worldtree_spearhold as SH  # noqa: E402
 from tools.npc_data_guard import safe_update  # noqa: E402
 from world.zone_keys import zone_key  # noqa: E402
 
 M, F = "male", "female"
-MAPS = {"crown": SC, "lens": LW}
+MAPS = {"crown": SC, "lens": LW, "spear": SH}
 
 SERVICES = {"lw_innkeeper": ["inn"], "lw_skiffmaster": ["flight"]}
 FLIGHT_NODES = [
@@ -47,13 +48,13 @@ SMITHING = ["whetstone", "flux_strong", "coal", "kit_field_repair"]
 
 #: vendor_id -> (map, name, race, gender, variant, facing, gear_level, sells_gear, stock, greeting)
 VENDORS = {
-    "sc_spear_provisioner": ("crown", "Provisioner Juzzi", "troll", F, 7, "right", 49, False, FOOD,
+    "sc_spear_provisioner": ("spear", "Provisioner Juzzi", "troll", F, 7, "right", 49, False, FOOD,
                              "Everything here came up the tree on somebody's back, so eat slowly. The sky people "
                              "offered us their food at the parley, and the war-leader threw it over the edge."),
-    "sc_spear_trader": ("crown", "Trader Ko'rin", "troll", M, 14, "left", 49, False, GOODS,
+    "sc_spear_trader": ("spear", "Trader Ko'rin", "troll", M, 14, "left", 49, False, GOODS,
                         "Arrows, potions and rope, and I'll buy anything you pull off a dead soldier. Their crystal "
                         "fetches a good price down at the Settlement, so don't leave it lying on the cloud."),
-    "sc_annex_trader": ("crown", "Beatriz Lobo", "human", F, 9, "down", 49, False, FOOD[:4] + ["parchment", "vial_crystal"],
+    "sc_annex_trader": ("lens", "Beatriz Lobo", "human", F, 9, "down", 49, False, FOOD[:4] + ["parchment", "vial_crystal"],
                         "I ran a cafe in Porto, and now I make soap, candles and something close to coffee out of "
                         "what the scholars throw away. They think I'm a genius. I trade it all for whatever I can't "
                         "make myself."),
@@ -80,28 +81,28 @@ AMBIENT = {
                     "is Stranglethorn, and the village I was born in is somewhere in it. I come out here every morning "
                     "to make sure it's still there."),
     # ---- Spearhold
-    "sc_warleader": ("crown", "War-Leader Rakkuzi", "troll", M, 11, "right",
+    "sc_warleader": ("spear", "War-Leader Rakkuzi", "troll", M, 11, "right",
                      "The sky people walked onto our tree and called it a meeting. Then their soldiers fell on the "
                      "meeting, and now they hold the north arm. Zan'kaji sent me up here to throw them off it, and "
                      "I'm going to, whatever Orgrimmar's envoy has to say about it."),
-    "sc_envoy": ("crown", "Envoy Garrok Blackmane", "orc", M, 6, "left",
+    "sc_envoy": ("spear", "Envoy Garrok Blackmane", "orc", M, 6, "left",
                  "The Warchief sent me to keep the Horde out of a war it doesn't understand. The trolls want blood, the "
                  "scholars want to talk, and the soldiers who hit the parley want the whole tree. I'm trying to work "
                  "out which of them is lying to me, and so far it looks like all three."),
-    "sc_witchdoctor": ("crown", "Witch Doctor Zanshi", "troll", F, 6, "right",
+    "sc_witchdoctor": ("spear", "Witch Doctor Zanshi", "troll", F, 6, "right",
                        "There's light coming up through the cloud east of here, where the old stones sink into it. "
                        "It isn't sunlight, and it gets stronger every time the sky ships fire their guns. The loa "
                        "won't tell me what it is, and that scares me more than the soldiers do."),
-    "sc_spear_scout": ("crown", "Scout Jinra", "troll", F, 13, "down",
+    "sc_spear_scout": ("spear", "Scout Jinra", "troll", F, 13, "down",
                        "The soldiers dug in across the north arm in a single night. They've got poles that hum and "
                        "throw up a shield, and guns that throw lightning. I counted their lancers twice, and both "
                        "times I came back with a bigger number."),
-    "sc_wyvern_rider": ("crown", "Rider Taz'kal", "troll", M, 9, "left",
+    "sc_wyvern_rider": ("spear", "Rider Taz'kal", "troll", M, 9, "left",
                         "My wyverns won't fly anywhere near the beasts on the islets. They've never been scared of "
                         "anything in their lives, and now they shake in their roosts at night. Something up here is "
                         "bigger than they are, and they know it."),
     # ---- the Parley Stones
-    "sc_parley_scholar": ("crown", "Ilaren Vey", "aetherian", M, 2, "right",
+    "sc_parley_scholar": ("lens", "Ilaren Vey", "aetherian", M, 2, "right",
                           "I came down here to talk, and I was halfway through my first sentence when the "
                           "Ascendancy's ship came down on the stones. They're my own people, and they fired on me "
                           "without a word. My house says the ground is primitive. I'm starting to think the ground's "
@@ -111,24 +112,24 @@ AMBIENT = {
                         "trade when the sky ship came down, and I saw his face. He was as surprised as I was. The "
                         "war-leader won't believe that, but I was there and he wasn't."),
     # ---- the Sunken Seal
-    "sc_seal_watcher": ("crown", "Archivist Elyon Sarre", "aetherian", M, 4, "down",
+    "sc_seal_watcher": ("lens", "Archivist Elyon Sarre", "aetherian", M, 4, "down",
                         "This ring was old before the first of our cities ever left the ground. The Kharad built it, "
                         "the giants, and they cut warnings into every stone. I can read about one word in three, and "
                         "every word I can read means keep it shut."),
     # ---- the Annex
-    "sc_annex_lead": ("crown", "Leandro Arrieta", "human", M, 15, "down",
+    "sc_annex_lead": ("lens", "Leandro Arrieta", "human", M, 15, "down",
                       "I was a paragliding instructor in Bariloche, and I woke up on a rock in the sky with my wing in "
                       "shreds. The scholars found me two weeks later. I've lived with them for three years now. "
                       "They're good people, mostly, but not one of them has ever asked me if I want to go home."),
-    "sc_annex_doctor": ("crown", "Dr. Rania Azar", "human", F, 6, "left",
+    "sc_annex_doctor": ("lens", "Dr. Rania Azar", "human", F, 6, "left",
                         "I was a doctor in Beirut, and now I'm the only doctor for thirty people on a cloud. The "
                         "scholars stand behind me while I work and write down everything I do. Yesterday one of them "
                         "asked me why we bother to set a broken bone. I'm still working out how to answer him."),
-    "sc_annex_engineer": ("crown", "Pavel Novak", "human", M, 16, "right",
+    "sc_annex_engineer": ("lens", "Pavel Novak", "human", M, 16, "right",
                           "The survey wants me to look at their engines, the ones that hold whole cities up in the "
                           "sky, and they want my opinion. I designed bridges in Brno. I said yes before anyone could "
                           "change their mind."),
-    "sc_climber": ("crown", "Ewan Docherty", "human", M, 17, "left",
+    "sc_climber": ("lens", "Ewan Docherty", "human", M, 17, "left",
                    "I climbed that tree from the roots, every branch of it, and I thought I'd be the first one to the "
                    "top. It turns out there were thirty people already living on a cloud up here, and not one of them "
                    "had to climb."),
