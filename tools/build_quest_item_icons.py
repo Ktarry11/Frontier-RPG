@@ -9,9 +9,11 @@ items is intentional (hue shifts can come later).
     python3 tools/build_quest_item_icons.py      # rewrites the json and checks every icon file exists
 """
 import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
 
 GROUPS = {
     # documents
@@ -136,7 +138,90 @@ TANARIS = {
     "qi_page": "gv_copied_column lsh_closing_entry gv_works_order_paper",
     "qi_amber": "gv_cut_plate",
 }
-GROUPS.update(TANARIS)
+# Merge, not update: a plain update would replace a shared icon's whole list with Tanaris's, which is how the
+# Barrens' and Lordaeron's mappings for qi_tablet, qi_ore, qi_crystal and the rest went missing (fixed 22 Nov 2026).
+for _icon, _ids in TANARIS.items():
+    GROUPS[_icon] = (GROUPS.get(_icon, "") + " " + _ids).strip()
+
+ICON_DIRS = ["quest_items", "vendor_trash"]
+
+
+def _quest_items():
+    """Every quest item the game can hand you, {item_id: (name, explicit icon_id or None)}: creature drops
+    (data/creatures/quest_drops.json) and the items givers hand over or give back (grant_items in data/quests)."""
+    out = {}
+    drops = json.loads((ROOT / "data" / "creatures" / "quest_drops.json").read_text(encoding="utf-8"))["drops"]
+    for rows in drops.values():
+        for it in rows:
+            if it.get("category", "quest") == "quest":
+                out.setdefault(it["item_id"], (it.get("name"), it.get("icon_id")))
+    for f in sorted((ROOT / "data" / "quests").glob("*.json")):
+        d = json.loads(f.read_text(encoding="utf-8"))
+        for q in (d.get("quests") if isinstance(d, dict) else None) or []:
+            for key in ("on_accept", "on_turn_in"):
+                for it in (q.get("grant_items") or {}).get(key) or []:
+                    out.setdefault(it["item_id"], (it.get("name"), it.get("icon_id")))
+    return out
+
+
+def _icon_path(icon):
+    for d in ICON_DIRS:
+        p = ROOT / "assets" / "icons" / d / f"{icon}.png"
+        if p.exists():
+            return p
+    return None
+
+
+_HUES = {}
+
+
+def _dominant_hue(icon, how="h"):
+    """The main colour on the HSV wheel (0-360) of the part of the icon that turns: the whole icon's strongly
+    coloured pixels in "h" mode, only the seal-and-ribbon pixels in "s" mode. None when there's too little of it."""
+    from quest_item_icon_rules import SAT_FLOOR
+    key = (icon, how)
+    if key not in _HUES:
+        import numpy as np
+        from PIL import Image
+        img = Image.open(_icon_path(icon)).convert("RGBA")
+        a = np.array(img)[..., 3] > 128
+        hsv = np.array(img.convert("RGB").convert("HSV")).astype(float)
+        m = a & (hsv[..., 1] > (SAT_FLOOR if how == "s" else 90)) & (hsv[..., 2] > 60)
+        if m.sum() < (0.01 if how == "s" else 0.08) * max(1, a.sum()):
+            _HUES[key] = None
+        else:
+            ang = hsv[..., 0][m] / 256 * 2 * np.pi
+            _HUES[key] = float(np.degrees(np.arctan2(np.sin(ang).mean(), np.cos(ang).mean())) % 360)
+    return _HUES[key]
+
+
+def auto_icons(table):
+    """Icons for every quest item GROUPS doesn't name (Kyle, 22 Nov 2026: "For quest icons we can just use existing
+    icons and reuse, hue shift etc."). tools/quest_item_icon_rules.py picks the base icon by name; an icon's second
+    and later items are hue shifted round the wheel, and a colour in the name turns it to that colour."""
+    from quest_item_icon_rules import OFFSETS, colour_target, mode, pick
+    uses = {}
+    for icon in table.values():
+        uses[icon] = uses.get(icon, 0) + 1
+    auto = {}
+    for item_id, (name, explicit) in sorted(_quest_items().items()):
+        if item_id in table or explicit:
+            continue
+        base, _ = pick(item_id, name)
+        n = uses.get(base, 0)
+        uses[base] = n + 1
+        how = mode(base)
+        if how is None:
+            auto[item_id] = base
+            continue
+        shift = OFFSETS[n % len(OFFSETS)]
+        target = colour_target(name)
+        if target is not None and _dominant_hue(base, how) is not None:
+            shift = round(target - _dominant_hue(base, how)) % 360
+            if shift < 12 or shift > 348:
+                shift = 0
+        auto[item_id] = base if not shift else f"{base}~{how}{shift}"
+    return auto
 
 
 def main():
@@ -146,14 +231,16 @@ def main():
             if item_id in table and table[item_id] != icon:
                 raise SystemExit(f"{item_id} mapped twice: {table[item_id]} and {icon}")
             table[item_id] = icon
-    icon_dirs = [ROOT / "assets" / "icons" / "quest_items", ROOT / "assets" / "icons" / "vendor_trash"]
-    missing = sorted({i for i in table.values() if not any((d / f"{i}.png").exists() for d in icon_dirs)})
+    auto = auto_icons(table)
+    table.update(auto)
+    missing = sorted({i for i in table.values() if _icon_path(i.split("~")[0]) is None})
     if missing:
         raise SystemExit(f"missing icon files: {missing}")
     out = {"_notes": "quest item_id -> icon id. Built by tools/build_quest_item_icons.py. Used by entities/loot_item.py "
                      "when a quest item has no explicit icon_id.", "icons": dict(sorted(table.items()))}
     (ROOT / "data" / "items" / "quest_item_icons.json").write_text(json.dumps(out, indent=1) + "\n", encoding="utf-8")
-    print(len(table), "quest items mapped to", len(set(table.values())), "icons")
+    print(len(table), "quest items mapped to", len({i.split("~")[0] for i in table.values()}), "icons,",
+          len(auto), "of them by name,", sum(1 for i in table.values() if "~" in i), "hue shifted")
 
 
 if __name__ == "__main__":

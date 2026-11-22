@@ -567,6 +567,18 @@ class IconRenderer:
         if cache_key in self.surface_cache:
             return self.surface_cache[cache_key]
 
+        # "<icon>~h<degrees>" and "<icon>~s<degrees>": an existing icon with its hue turned (Kyle, 22 Nov 2026: "For
+        # quest icons we can just use existing icons and reuse, hue shift etc."). "h" turns the whole icon, "s" only
+        # its strongly coloured parts (a letter's seal, not its paper). tools/build_quest_item_icons.py writes these
+        # ids into data/items/quest_item_icons.json so a bag of letters doesn't look like one letter twenty times.
+        if "~" in icon_id and icon_id.split("~", 1)[1][:1] in ("h", "s"):
+            base, _, rest = icon_id.partition("~")
+            surface = self._hue_shifted(base, rest[1:], size, only_strong=(rest[0] == "s"))
+            if surface is None:
+                surface = self.get_icon_surface(base, size)
+            self.surface_cache[cache_key] = surface
+            return surface
+
         # Real icon art first - this is the actual fix. icon_id matches
         # ability_id (or talent_id) 1:1 by convention (see
         # icon_migration_and_ui.py's get_ability_icon_surface, which
@@ -604,6 +616,28 @@ class IconRenderer:
         except Exception as e:
             print(f"Warning: Failed to render icon {icon_id}: {e}")
             return self._make_fallback_surface(size, "#FF0000")
+
+    #: "~s" icons only turn pixels at least this saturated (matches tools/quest_item_icon_rules.py SAT_FLOOR)
+    STRONG_SAT = 170
+
+    def _hue_shifted(self, base: str, deg: str, size: int, only_strong: bool = False):
+        """The base icon's art with its hue rotated by deg (boss_icon_tint.hue_shift: only the hue moves, so the
+        shading and outline stay exactly as painted). None when there's no art for the base."""
+        try:
+            import pygame
+            from PIL import Image
+            from boss_icon_tint import hue_shift
+            for icon_dir in (self.QUEST_ITEM_ICON_DIR, self.VENDOR_TRASH_ICON_DIR, self.CONSUMABLE_ICON_DIR,
+                             self.COLLECTION_ICON_DIR):
+                path = icon_dir / f"{base}.png"
+                if path.exists():
+                    img = hue_shift(Image.open(path), float(deg), self.STRONG_SAT if only_strong else 0)
+                    if img.size != (size, size):
+                        img = img.resize((size, size), Image.LANCZOS)
+                    return pygame.image.fromstring(img.tobytes(), img.size, "RGBA").convert_alpha()
+        except Exception as e:
+            print(f"Warning: hue shift failed for {base}~{deg}: {e}")
+        return None
 
     @staticmethod
     def _make_fallback_surface(size: int, color_hex: str):

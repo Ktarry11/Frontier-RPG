@@ -18,9 +18,11 @@ import numpy as np
 from PIL import Image
 
 
-def hue_shift(img, degrees):
+def hue_shift(img, degrees, min_sat=0):
     """Return a copy of img (RGBA) with its Hue channel rotated by
-    `degrees` (0-360, wraps). Saturation, Value and Alpha are untouched."""
+    `degrees` (0-360, wraps). Saturation, Value and Alpha are untouched.
+    With min_sat (0-255), only pixels at least that saturated turn, so a quest
+    letter's wax seal changes colour and its paper doesn't (22 Nov 2026)."""
     img = img.convert("RGBA")
     r, g, b, a = img.split()
     hsv = Image.merge("RGB", (r, g, b)).convert("HSV")
@@ -28,7 +30,11 @@ def hue_shift(img, degrees):
 
     h_arr = np.array(h, dtype=np.int16)
     shift = int(round(degrees / 360 * 256)) % 256
-    h_arr = (h_arr + shift) % 256
+    turned = (h_arr + shift) % 256
+    if min_sat:
+        h_arr = np.where(np.array(s, dtype=np.int16) >= min_sat, turned, h_arr)
+    else:
+        h_arr = turned
     h_new = Image.fromarray(h_arr.astype("uint8"), "L")
 
     rgb_new = Image.merge("HSV", (h_new, s, v)).convert("RGB")
