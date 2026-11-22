@@ -306,7 +306,23 @@ def build_layout():
     return L
 
 
+#: The quarters as named places on the map, so the map labels them and the townsfolk (tools/townsfolk/timbermaw_hold.py)
+#: can live in each one. Kyle, 21 Nov 2026: "Also timbermaw hold is dead...for a capital city".
+DISTRICTS = [   # (name, x, y, w, h); the Basin is registered last so it wins where the rim's boxes touch it
+    ("The Elders' Terrace", 78, 22, 74, 32),
+    ("The Long Hall", 14, 38, 58, 50),
+    ("The Honey Terraces", 156, 48, 52, 46),
+    ("The Carvers' Quarter", 166, 96, 50, 44),
+    ("The Market", 124, 144, 72, 40),
+    ("The Workshops", 24, 144, 72, 40),
+    ("The Tunnel Mouth", 4, 90, 38, 36),
+    ("The Basin", 88, 84, 74, 52),
+]
+
+
 def generate_timbermaw_hold():
     L = build_layout()
+    for name, x, y, w, h in DISTRICTS:
+        L.zone.add_subzone(name, x, y, w, h)
     AK.K.register_baked(L.zone, sys.modules[__name__])
     return L.zone
