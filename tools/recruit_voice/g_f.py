@@ -94,7 +94,7 @@ VOICE = {
             "Federico wants to write the tree's first proper contract between the trolls and the climbers, and have "
             "both sides read it aloud before they sign. He also keeps a list of the promises he made at home and "
             "couldn't keep. He means to work through it, one way or another, and he hasn't told anyone what's at the "
-            "top.",
+            "top. He reads the whole list through every night before he sleeps.",
     },
     "fiona_witchhunter": {
         "greeting":
