@@ -92,3 +92,13 @@ def dress(L):
 
 
 AK.install(sys.modules[__name__])
+
+#: the districts, where the townsfolk live (Kyle, 22 Nov 2026: "ensure ALL towns are actually populated"; names made up to
+#: fit, "a lot of these are homebrew so make up names fitting the lore"). (key, x, y, w, h, display name)
+SUBZONES = [
+    ('Zoram Strand', 0, 0, 60, 50, None),
+    ('The Lookout Tower', 10, 2, 24, 20, None),
+    ('The Strand Houses', 34, 6, 24, 22, None),
+    ("The Boatwrights' Beach", 4, 20, 22, 20, None),
+    ("The Fishers' Shore", 18, 28, 32, 20, None),
+]

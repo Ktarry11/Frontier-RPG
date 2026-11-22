@@ -35,7 +35,9 @@ MAIL_WHITE = (225, 230, 245)
 AUCTION_ROSE = (240, 125, 160)
 #: Reputation quartermasters. Kyle, 17 Nov 2026: "Let's have a map icon for Rep Vendors? So they're easy to find."
 #: A banner on a pole in lime, so it reads apart from the shop's coin and the flight master's green "!" by shape
-#: as well as colour. It replaces the coin on a quartermaster: one glyph per person.
+#: as well as colour. It replaces the coin on a quartermaster: one glyph per person. Since 22 Nov 2026 it's the
+#: mercantile mark instead (Kyle: "a special mercantile icon on the map for rep vendors"): a merchant's balance, ringed
+#: in lime and gold and a size larger than the other glyphs.
 REP_LIME = (175, 240, 85)
 #: The order glyphs are drawn in: later ones sit on top. Mailboxes stand beside the inn, so they go under it.
 MARKER_ORDER = ("mail", "auction", "shop", "rep", "frontier", "forge", "sawmill", "prof", "class", "inn", "ride",
@@ -637,12 +639,21 @@ class MapScreen(BaseScreen):
             pygame.draw.line(screen, AUCTION_ROSE, (cx - 2, cy - 2), (cx + 3, cy + 3), 1)
             pygame.draw.line(screen, AUCTION_ROSE, (cx - 4, cy + 4), (cx + 1, cy + 4), 2)
         elif kind == "rep":
-            # a banner on a pole: the pole down the left, the flag out to the right with a notch in its tail
-            pygame.draw.circle(screen, dark, (cx, cy), 8)
-            pygame.draw.circle(screen, REP_LIME, (cx, cy), 8, 2)
-            pygame.draw.line(screen, REP_LIME, (cx - 3, cy - 5), (cx - 3, cy + 5), 2)
-            pygame.draw.polygon(screen, REP_LIME, [(cx - 2, cy - 5), (cx + 5, cy - 5), (cx + 3, cy - 2),
-                                                   (cx + 5, cy + 1), (cx - 2, cy + 1)])
+            # THE MERCANTILE MARK (Kyle, 22 Nov 2026: "a special mercantile icon on the map for rep vendors"). A
+            # merchant's balance in lime inside a double ring, lime within gold, and a size up from every other glyph,
+            # so a quartermaster reads as a different kind of shop from the plain coin at a glance: the beam across
+            # the top on its post, a pan hanging from each end, and the foot it stands on.
+            r = max(9, int(10 * scale))
+            pygame.draw.circle(screen, dark, (cx, cy), r + 1)
+            pygame.draw.circle(screen, HEARTH_GOLD, (cx, cy), r + 1, 1)
+            pygame.draw.circle(screen, REP_LIME, (cx, cy), r - 1, 2)
+            pygame.draw.line(screen, REP_LIME, (cx, cy - 5), (cx, cy + 4), 2)            # the post
+            pygame.draw.line(screen, REP_LIME, (cx - 5, cy - 4), (cx + 5, cy - 4), 2)    # the beam
+            pygame.draw.line(screen, REP_LIME, (cx - 3, cy + 5), (cx + 3, cy + 5), 2)    # the foot
+            for px in (cx - 5, cx + 5):                                                   # the pans
+                pygame.draw.line(screen, REP_LIME, (px, cy - 3), (px, cy - 1), 1)
+                pygame.draw.polygon(screen, REP_LIME, [(px - 3, cy), (px + 3, cy), (px + 1, cy + 2), (px - 1, cy + 2)])
+            pygame.draw.circle(screen, HEARTH_GOLD, (cx, cy - 5), 1)                     # the pin at the top
         elif kind == "frontier":
             # the Frontier Mark itself, ringed in gold so it sits with the other glyphs
             from ui.sprite_loader import get_icon_sprite

@@ -117,3 +117,16 @@ def dress(L):
 
 
 AK.install(sys.modules[__name__])
+
+#: the districts, where the townsfolk live (Kyle, 22 Nov 2026: "ensure ALL towns are actually populated"; names made up to
+#: fit, "a lot of these are homebrew so make up names fitting the lore"). (key, x, y, w, h, display name)
+SUBZONES = [
+    ('Splintertree Post', 0, 0, 90, 70, None),
+    ('The Command Tent', 32, 16, 26, 26, None),
+    ('The Guard Post', 68, 12, 22, 22, None),
+    ('The Barracks', 4, 24, 28, 22, None),
+    ('The Supply Depot', 58, 34, 24, 18, None),
+    ('The Forge', 8, 46, 30, 24, None),
+    ('The Mess Hall', 50, 48, 24, 14, None),
+    ('The South Gate', 34, 56, 20, 14, None),
+]

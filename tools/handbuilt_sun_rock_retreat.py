@@ -140,3 +140,16 @@ def dress(L):
 
 
 AK.install(sys.modules[__name__])
+
+#: the districts, where the townsfolk live (Kyle, 22 Nov 2026: "ensure ALL towns are actually populated"; names made up to
+#: fit, "a lot of these are homebrew so make up names fitting the lore"). (key, x, y, w, h, display name)
+SUBZONES = [
+    ('Sun Rock Retreat', 0, 0, 100, 84, None),
+    ('The Great Lodge', 36, 8, 30, 28, None),
+    ('The Refugee Tents', 62, 10, 28, 28, None),
+    ('The Hearth Lodge', 8, 26, 26, 20, None),
+    ('The Bonfire', 34, 36, 32, 22, None),
+    ("The Envoys' Camp", 74, 38, 26, 30, None),
+    ('The Wyvern Roost', 4, 52, 24, 16, None),
+    ("The Crafters' Terrace", 18, 62, 74, 22, None),
+]

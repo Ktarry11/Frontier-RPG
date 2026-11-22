@@ -62,6 +62,12 @@ TOWNS = {
     "tarren_mill": "Tarren Mill",
     "southshore": "Southshore",
     "bloodmoon_village": "Bloodmoon Village",
+    "booty_bay": "Booty Bay",
+    "gromgol": "Grom'gol",
+    "astranaar": "Astranaar",
+    "splintertree": "Splintertree Post",
+    "zoram": "Zoram Strand",
+    "sun_rock_retreat": "Sun Rock Retreat",
 }
 SPACING = 3          # nobody stands closer than this to anyone else, if the district has room
 

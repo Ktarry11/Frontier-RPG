@@ -279,3 +279,15 @@ def generate_gromgol():
     L = build_layout()
     K.register_baked(L.zone, sys.modules[__name__])
     return L.zone
+
+#: the districts, where the townsfolk live (Kyle, 22 Nov 2026: "ensure ALL towns are actually populated"; names made up to
+#: fit, "a lot of these are homebrew so make up names fitting the lore"). (key, x, y, w, h, display name)
+SUBZONES = [
+    ("Grom'gol", 0, 0, 64, 56, None),
+    ('The Berths', 14, 6, 36, 16, None),
+    ('The Forge Yard', 46, 8, 18, 26, None),
+    ('The Command Tents', 8, 22, 24, 22, None),
+    ('The Longhouse', 32, 22, 24, 18, None),
+    ('The Beast Pens', 36, 40, 28, 16, None),
+    ('The South Gate', 10, 44, 24, 12, None),
+]

@@ -427,3 +427,15 @@ def generate_booty_bay():
     L = build_layout()
     K.register_baked(L.zone, sys.modules[__name__])
     return L.zone
+
+#: the districts, where the townsfolk live (Kyle, 22 Nov 2026: "ensure ALL towns are actually populated"; names made up to
+#: fit, "a lot of these are homebrew so make up names fitting the lore"). (key, x, y, w, h, display name)
+SUBZONES = [
+    ('Booty Bay', 0, 0, 104, 60, None),
+    ('The Tunnel Gate', 24, 0, 24, 16, None),
+    ('The Harbour Ring', 24, 16, 36, 22, None),
+    ('The Inn Deck', 6, 26, 22, 22, None),
+    ('The Counting Row', 24, 38, 30, 22, None),
+    ('The East Quay', 74, 12, 30, 22, None),
+    ('The Fish Market', 74, 34, 30, 26, None),
+]

@@ -138,3 +138,16 @@ def dress(L):
 
 
 AK.install(sys.modules[__name__])
+
+#: the districts, where the townsfolk live (Kyle, 22 Nov 2026: "ensure ALL towns are actually populated"; names made up to
+#: fit, "a lot of these are homebrew so make up names fitting the lore"). (key, x, y, w, h, display name)
+SUBZONES = [
+    ('Astranaar', 0, 0, 110, 90, None),
+    ('The Moon Guard Tower', 6, 12, 30, 26, None),
+    ('The Sentinel Hall', 36, 12, 40, 26, None),
+    ('The North Houses', 76, 8, 34, 26, None),
+    ('The Training Grove', 6, 40, 32, 26, None),
+    ('The Lakeside Houses', 76, 34, 34, 32, None),
+    ('The Refuge Lawn', 36, 58, 34, 32, None),
+    ("The Druids' Glade", 70, 66, 40, 24, None),
+]
