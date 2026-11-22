@@ -67,3 +67,10 @@ VOICE = {
         "All three needles stopped at the same moment.\n\nThe vents are still smoking, but it's an ordinary volcano now, and I know how to watch one of those. When the bay at Kagoshima vanished three years ago I didn't think I'd be doing this work again.",
     ),
 }
+
+
+# THE STORY PASS (22 Nov 2026), to docs/quest_writing_standard.md; see tools/voice/ashen_reach_story.py.
+from voice.ashen_reach_story import STORY as _STORY
+for _qid, (_d, _a) in _STORY.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a, _old[2])

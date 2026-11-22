@@ -1,0 +1,134 @@
+"""ashen_reach story pass (22 Nov 2026), to docs/quest_writing_standard.md. Where the giver's speech sat in the accept
+line and the journal showed a summary or narration, the speech is now the description and the accept line a new short
+beat; the rest were written fresh. Turn-ins untouched."""
+
+STORY = {
+    'tmp_four_barges': (
+        "A whole run of my barges never arrived, and I think the naga have them.\n\nThe current off the landing runs north along the west shore. Anything that sinks in the bay washes up on the Scoured Coast, and the Stormscale Naga Raiders have been there since the sea route opened three years ago. They keep trophies, so they'll have the nameboards.\n\nLeave by the town gate and cross the Ashen Reach to its far west shore, past the Cinder Flats. Kill the Raiders and bring back any nameboards you find.",
+        "Bring me every nameboard you find, even the broken ones. I'll piece the names together.",
+    ),
+    'tmp_bad_luck_or_bad_seamanship': (
+        "The Harbourmaster says naga sank those barges and the Underwriter says her pilots did. I'm paid to find out which.\n\nI did this work for nine years in Singapore before I came through. A barge that ran aground is holed underneath. A barge that was boarded is damaged along the rail.\n\nTwo of the wrecks are lying on the Scoured Coast, on the far west shore of the Reach, a good walk apart. Look at where each hull is broken. Bring me some of the hooks the Raiders carry as well, so I can match them to the damage.",
+        "Look at the rails on both sides of each hull. Boarders don't always come from the seaward side.",
+    ),
+    'tmp_the_wreck_captain': (
+        "The Adjuster's report names someone the coast surveyor has been telling me about for months.\n\nShe says a naga gives the orders from the old wrecks, and she calls it Wreck-Captain Vess'ira. The raiders bring everything they take back to it.\n\nIt stays on the Scoured Coast on the west shore of the Reach. It'll come out for someone who's hunting it. My crews won't sail until it's dead.",
+        "If it's got a ledger or a list in there, bring it. I'd like to know what it took.",
+    ),
+    'tmp_a_harbour_chart': (
+        "I've finished my chart of this coast and it needs to get to Harbourmaster Skezz.\n\nThe last two times I tried to take it myself I lost a boat. She needs it before she sends another barge round the west side.\n\nCinderwharf is on the north-east shore. Head east across the Cinder Flats to the town gate. She's on the wharf at the north end of town.",
+        "Keep it rolled and dry. If it gets wet, I've lost a season's work.",
+    ),
+    'tmp_older_than_the_ashclaim': (
+        "Someone was sailing to this island long before the goblins found it, and I'd like to know who.\n\nThe old wrecks on this shore are oak and brass, and the brass is better than anything my people cast. The Scourcoast Crabs pick the fittings off and carry them around.\n\nThey're all along the waterline, north and south of here. Bring me some of the fittings and I'll look for a maker's mark.",
+        "Don't polish them. The green on the brass tells me how long it's been in the water.",
+    ),
+    'tmp_pitch_for_two_boats': (
+        "My last two boats both leak and I've got no pitch to seal them.\n\nThere's tar on this island, though. It seeps up warm round the vents, and the Tarfoot Gorillas walk through it until their feet are caked in it.\n\nThey're in the open ash country east of this coast, between here and the Works. Bring me the tar off their feet.",
+        "Scrape it off into a pot while it's still soft. Once it sets, I can't work it.",
+    ),
+    'tmp_weighed_at_the_gate': (
+        "If you're going out to the Works, can you take the weigh book with you?\n\nI weigh every cart of ore that comes through this gate. Assayer Ruddi weighs the same carts when they leave the Works. If his book and hers don't match, someone's stealing on the road.\n\nThe Works is a long walk west of here, past the Cinder Flats. Follow the cart ruts.",
+        "Tell her I've initialled every page. If she finds one I haven't, it's not mine.",
+    ),
+    'tmp_the_ore_road': (
+        "I've got sixty people in this yard, and I'd like to keep all of them.\n\nThe ore goes out by cart across the Cinder Flats to the town gate. The Sulphur Raptors run down the carts for the mules. The Ashplain Basilisks lie in the ruts looking like rock until a carter steps on one.\n\nThe Flats are north-east of the yard. Walk the cart road and kill what's on it.",
+        "Watch where you step in the ruts. If a rock blinks, it isn't a rock.",
+    ),
+    'tmp_things_that_walk_through_fire': (
+        "I can deal with the animals on the Flats. The fire elementals are the problem.\n\nThe Scoria Fire Elementals come up out of the vents and wander in straight lines, and anything they walk into burns. Last week one walked through the tool store.\n\nThe Deedkeeper says there weren't any on this island when the dwarves left. They started appearing after the day the world changed. They're on the Cinder Flats, north-east of here. Put out as many as you can.",
+        "Don't stand in their path to fight them. Step in from the side.",
+    ),
+    'tmp_old_scoria': (
+        "There's one elemental out on the Flats that's much bigger than the rest, and it doesn't wander.\n\nThe carters call it Old Scoria. It stands in the middle of the Cinder Flats for days, and the small ones come up out of the ground around it. My scout thinks it's calling them.\n\nIt's north-east of the yard, where the crust is darkest. It'll come up if someone goes looking for it. If you can kill it, we might get some peace.",
+        "Clear the small ones round it first, or you'll be fighting all of them at once.",
+    ),
+    'tmp_brass_in_a_month': (
+        "The air off these vents eats my gaskets faster than I can cut them. The dwarves say the vents were gentle before the day the world changed.\n\nI've found something that holds up. The Steamvent Oozes live in the steam vents and their skin isn't bothered by acid at all. A strip I cut off a dead one has lasted a month in my worst flue.\n\nThey're on the Scoured Coast, north-west of the Works, wherever there's steam coming out of the rocks. Bring me their membranes.",
+        "Cut the membranes in long strips if you can. I can trim long, but I can't stretch short.",
+    ),
+    'tmp_drive_belts': (
+        "The winding gear at the mine head runs on leather belts, and the heat down the shaft ruins them in a week.\n\nThe only hide I've seen that doesn't mind the heat belongs to the Ashplain Basilisks. They lie on hot rock all day.\n\nThey're out on the Cinder Flats, north-east of here. Try to bring me whole hides.",
+        "Skin them along the belly. The back's too thick to bend round a wheel.",
+    ),
+    'tmp_the_number_he_wont_like': (
+        "I've worked out why we're short of ore, and the Underwriter won't like it.\n\nNobody's stealing it, because the seam is running out. Every cart is a little poorer than the last, and the upper workings will be finished within a year. The rich ore is deeper, under the Emberdeep.\n\nI can't leave the scales. Please take this to Underwriter Nix in the Merchant House in Cinderwharf. Head east across the Flats to the town gate.",
+        'Hand it over and step back. He tends to wave his arms when the numbers are bad.',
+    ),
+    'tmp_yellow_crust': (
+        "The alchemist in town has been buying something off the carters for pennies, and I want to know what it's worth.\n\nIt's a yellow crust that forms round the fissures. The Ventborn Flame Spirits come out of those fissures covered in it. If I'm right about the colour, there's gold in it.\n\nThe fissures are on the Emberdeep Approach, east of the yard on the way to the big door. Bring the crust back to my scales.",
+        'Scrape it off clean, without the rock under it. I want to weigh the crust and nothing else.',
+    ),
+    'tmp_walking_into_the_face': (
+        "I can't fire a charge while something's standing in front of it.\n\nThe Crag Earth Elementals walk up out of the Emberdeep Approach and into my blast faces. I think the drilling draws them. Then I've got to pull every charge out by hand before I can try again.\n\nThe Approach is east of the red shed, on the way to the big door. Break up the ones you find before they reach my faces.",
+        'If you see a charge lying loose out there, leave it alone and come and get me.',
+    ),
+    'tmp_a_pulse': (
+        "I've told the Foreman this mountain has a pulse, and she wants me to prove it.\n\nBefore the change I had forty instruments at Sakurajima. Here I've got three tiltmeters I built from clock parts. If I put them at three vents far apart and they all move at the same moment, then one thing is moving under the whole island.\n\nPut the first on the Cinder Flats, north-east of here. Put the second at the steam vent on the Scoured Coast, to the north-west. Put the third at the big fissure on the Emberdeep Approach, south-east of the yard. Set each one level on bare rock.",
+        'Note the time you set each one, as close as you can. The timing is the whole experiment.',
+    ),
+    'tmp_what_the_drakes_carry': (
+        "I need a sample from the lake under the mountain, and I can't get close enough to take one.\n\nThe Calderaborn Drakes roost inside the crater and swallow hot glass from the edge of the lake. Before I came through I'd have sent a drone over the rim. Here I need you to cut open a drake.\n\nThey hunt over the Emberdeep Approach, south-east of the yard. Bring me the glass while it's fresh, because it changes as it cools.",
+        'Wrap the glass in wet cloth the moment you have it. That slows the cooling.',
+    ),
+    'tmp_the_mountains_heart': (
+        "Everything I've measured points to one chamber on the west side of the lake. The Doorwarden says there's something in it.\n\nHis people call it The Mountain's Heart. It beats every nine minutes, and the fire elementals come up on the beat.\n\nThe door to the Emberdeep is east of the yard, at the end of the Approach. The chamber is deep in, on the western shore of the lake. I'm sorry to be sending you into it.",
+        "Count the minutes between beats when you're close. If it speeds up, get out.",
+    ),
+    'tmp_where_the_vents_moved': (
+        "I've got three marker posts at the edges of the Flats, and I can't get round them this week.\n\nEach post has a rope pegged out to the nearest vent. If the vent moves, the rope goes slack or burns through. That tells me where it's safe to send the carts. I turned my ankle two days ago.\n\nOne post is to the north-west, one is to the north-east, and the third is south-east toward the town gate. Check the rope at each one.",
+        "If a rope's burned through, peg a new one if you can. I've left spares at each post.",
+    ),
+    'tmp_the_ventlord': (
+        "There's something on the Emberdeep Approach that opens new vents wherever it walks.\n\nI saw it at dawn on the south edge of the Flats. It came up the slope from the big door, as tall as the winding tower, and the ground split and steamed where it stepped. The Doorwarden's people call it Karrath the Ventlord.\n\nIt walks the Approach, south of here. It'll come out to meet someone who's hunting it. If it ever reaches the Works, we're finished.",
+        "Don't stand still near it. The ground splits wherever it's been, and it might split under you.",
+    ),
+    'tmp_the_door_was_sealed': (
+        "If you're going down there, you should hear what I know first.\n\nAsk me about the seal and the day it broke. After that, I'd like you to take my door book to Keeper Morn in Cinderwharf. He keeps the old rites, and the seal on this door was one of them.\n\nThe town is north-east of here across the Cinder Flats. Morn is on the Shrine Terrace in the south-west of the hold.",
+        "Mind the step down from the door. It's worn hollow, and people trip on it every week.",
+    ),
+    'tmp_whatever_came_off_the_boat': (
+        "The stew at the Tapped Vein is usually whatever came off the boat, and this week nothing came off the boat. I've fed carters, miners and the odd lost goblin on less, but I'd rather not find out how much less. The carters say the Scourcoast Crabs on the west shore taste smoked already, because of the vents. Leave by the town gate and go west across the Reach to the Scoured Coast. Bring me some Scourcoast Crab Meat and I'll get the pot on.",
+        "Crack them on a rock before you carry them. I don't want the shells, just what's inside.",
+    ),
+    'tmp_no_questions_about_the_powder': (
+        "I need a keg taken to Blaster Orrin at the Works, and I'd rather you didn't ask what's in it.\n\nHe's at the red shed on the south side of the yard and he's expecting it. If anyone at the gate asks, it's pickled fish.\n\nThe Works is west of town across the Cinder Flats. Carry it level and keep it away from anything that's burning.",
+        "Walk, don't run, and don't let anyone smoke near you on the road.",
+    ),
+    'tmp_the_landing_shelf': (
+        "The venture needs the deep ore, and the deep ore is past a door I can't get a survey party through.\n\nJust inside the Emberdeep there's a shelf of rock where a party could set up. The Doorwarden says it's held by a pack of hounds made of cinders, led by one he calls Pack-Alpha Cinderhound.\n\nLeave by the town gate and go south-west across the Reach. The door is at the end of the Emberdeep Approach, east of the Works. Kill the alpha and the pack should scatter.",
+        "If the pack doesn't scatter, come back. I'd rather rethink it than lose you.",
+    ),
+    'tmp_geyser_rights': (
+        "My surveyors are on the shelf now, and they've sent back a note about steam.\n\nThere's a field of geysers on the west side of the lake that could drive every engine the Works needs. There's also something living in it that boiled one of my surveyors. The Doorwarden calls it Thrass.\n\nThe field is a short way in from the Landing Shelf, to the west. The door is at the end of the Emberdeep Approach, south-west of town. Please get rid of Thrass, the Geyser Spirit.",
+        "Time the geysers before you go in. They go up on a pattern, and you'll want to know it.",
+    ),
+    'tmp_a_scale_that_stays_hot': (
+        "I've heard there's a serpent in the Emberdeep whose scales never cool, and I'd like one for the forge.\n\nA smith spends half his time waiting for metal to come back up to heat. A plate that stayed hot on its own would save me hours. The Doorwarden's people call it The Molten Serpent.\n\nIt's in the middle of the Emberdeep, past the geysers. The door is south-west of town at the end of the Emberdeep Approach. I only need one scale.",
+        "Carry it in tongs if you've got them. Don't put it in your pack.",
+    ),
+    'tmp_what_the_vents_cough_up': (
+        "There are crawlers in the Emberdeep that live on raw sulphur, and I want what's in them.\n\nEach Sulphur Crawler stores the sulphur in a gland, purer than anything I can make. With it I can make an acid that will take the rivets out of those iron masks without hurting the person wearing one.\n\nThe door is south-west of town at the end of the Emberdeep Approach. The Crawlers are on the Basalt Shelf, east of the lake. Bring me the glands whole.",
+        "Keep them in a sealed jar. If one bursts in your pack, you'll smell it for a month.",
+    ),
+    'tmp_the_oracle': (
+        "There's a name in my rolls with no date of death, and I think I know why.\n\nYsmel Ashhold was the city's seer. The roll says she went into the mountain to ask it a question, the year before Khaz Varun went dark, and never came back. The Doorwarden tells me something in the Emberdeep calls itself Flame Oracle Ysmel.\n\nShe's in a ring of standing stones on the east side of the lake. The door is south-west of town at the end of the Emberdeep Approach. I'd like her to be at rest.",
+        "If she asks you anything, tell her the city's coming back. I think she'd want to know.",
+    ),
+    'tmp_the_deep_claim': (
+        "The last thing on my shelf is a claim marker.\n\nIt's a Dark Iron stake with the Thane's seal on one side and the Underwriter's on the other. It's meant to be driven into the floor of the caldera at the bottom of the Emberdeep once someone kills what lives there. The Doorwarden calls that thing The Caldera.\n\nThe door is south-west of town at the end of the Emberdeep Approach, and the caldera floor is as deep as the Emberdeep goes. Nobody has taken the stake yet.",
+        "Take the stake with you and drive it in yourself. You'll have earned that.",
+    ),
+    'tmp_kin_under_another_roof': (
+        "The old Thane is at rest and the hall is quiet, and there's someone who should be told.\n\nThere's another Dark Iron hold called Onyxhollow, under the Black Strand far to the west across the sea. Its Thane is Morgrim. Our families traded before either city went quiet, and he should hear from us that Khaz Varun has a living Thane again.\n\nIt's a long way. Take the bird from the pad to Saltspur, cross to Kalimdor, and go down through the Abyssal Sands to the Black Strand. Onyxhollow's gate is at the end of the slag road.",
+        'Tell him we kept a flame for his people too, before we knew they were still there.',
+    ),
+    'tmp_the_tide_chart': (
+        "You unroll the sheet of sharkskin you took from the Raider's belt. It's pricked with small holes, and when you hold it up to the light the holes show this coast with a line running between the reefs. Somebody made this carefully and kept it close. The line doesn't follow any channel you'd guess from the shore. Coast-Surveyor Mizzi is camped on the Scoured Coast and has been trying to chart these waters, so she'd know what the line means.",
+        'You roll the chart up again. The light still comes through the holes in your hands.',
+    ),
+    'tmp_lantern_nineteen': (
+        "You pull the lantern out of the cooling elemental. It was stuck in its side, half melted. It's the kind the Ashclaim gives its carters, and the brass plate on the bottom is stamped with the number nineteen. The glass is gone and the handle has run like wax. Foreman Brakka at the Ashclaim Works signs those lanterns out, and she'll know whose it was.",
+        'You wrap the lantern in a cloth. Somebody signed it out, and somebody never signed it back in.',
+    ),
+}
