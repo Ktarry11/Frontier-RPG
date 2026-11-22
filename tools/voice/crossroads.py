@@ -63,3 +63,16 @@ VOICE = {
         "This is from Sergra Darkthorn? Read it to me, because my eyes aren't what they were.\n\n'The Crossroads holds.' I haven't had a letter that began well since the bluffs fell. I'm going to have it read out at the fire tonight, and I'm going to have it read twice.\n\nYou were there. Then sit, and eat, and afterwards I'll tell you what lies south of this camp, because the road you opened doesn't end here.",
     ),
 }
+
+
+# THE STORY PASS (22 Nov 2026), to docs/quest_writing_standard.md; see tools/voice/crossroads_story.py.
+from voice.crossroads_story import STORY as _STORY
+for _qid, (_d, _a) in _STORY.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a, _old[2])
+
+
+from voice.crossroads_beats import BEATS as _BEATS
+for _qid, _a in _BEATS.items():
+    _o = VOICE[_qid]
+    VOICE[_qid] = (_o[0], _a, _o[2])
