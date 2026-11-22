@@ -1,0 +1,214 @@
+"""felwood story pass (22 Nov 2026), to docs/quest_writing_standard.md. Where the giver's speech sat in the accept
+line and the journal showed a summary or narration, the speech is now the description and the accept line a new short
+beat; the rest were written fresh. Turn-ins untouched."""
+
+STORY = {
+    'fw_the_road_north': (
+        "You've got the look of somebody who's done with Ashenvale, and I've got a job for that look. You lot always want to see what's over the next hill.\n\nThe road behind my camp goes north out of the trees and into Felwood. It used to be somewhere nobody came back from. Now there's a town up there, the Emerald Sanctuary, and the elves running it have been sending my scouts home with honey and good manners.\n\nI owe them a reply. Take this letter up the road, past the old watch at Morlos'Aren, and turn east at the fork. Give it to the Arch Druid. Try not to let her talk you into planting anything.",
+        "Keep to the road once you're past the fork. Felwood's prettier than it was, but it still bites.",
+    ),
+    'fw_seeds_for_thornbark': (
+        "You're new, so you get the easy one, and you'll learn where everything is on the way.\n\nI was a courier in Lisbon before I came through, three years ago now. I rode a scooter up hills that would make a goat cry. Here I walk, and I carry seeds, and honestly it's better.\n\nThis pouch is for Old Thornbark. He's the treant in the grove at the south end of town, past the shrine. You'll know him because he's the one who looks like a tree until he says hello.",
+        "Talk to him slowly. He answers eventually, and it's worth the wait.",
+    ),
+    'fw_roots_in_clean_ground': (
+        "The treants of Hollowbark Glade are the oldest things in the south, and they woke up angry.\n\nThey remember the fel. They don't know it's gone, so they strike at anything that walks under them, elf or furbolg or you. We can't reason with them yet. We can calm them, and we can take a little of their heartwood while they're calm. The transplants call that pruning, and they're not wrong.\n\nThe glade's south-west of the town, over the lower ford. Bring the treants down and gather the splinters they drop. Every one of those will grow into something that remembers being clean.",
+        "Wrap the splinters in moss when you pick them up. They dry out quicker than you'd think.",
+    ),
+    'fw_grandfather_hollowbark': (
+        "There's one treant in that glade the others follow, and he's the reason none of them will settle.\n\nWe call him Grandfather Hollowbark. He was old when the Highborne were young. He doesn't see us, he sees the fel that isn't there any more, and he fights it every hour he's awake.\n\nHe doesn't come out often. Go back to the glade and wait for him. Put him down gently if you can, and hard if you have to. When he's still, the rest will listen.",
+        "When it's done, sit with him a moment before you leave. The others will see.",
+    ),
+    'fw_hold_the_fel_line': (
+        "Everything south of the barricade is ours, and everything north of it wants to be.\n\nThe Fel Line is the band of dying forest at the top of the valley, where North Felwood bleeds through. The wolves up there have caught the fever, and the imps come down the road in the dark to set fires. The Sentinels can hold the barricade, and so can I, but none of us can be out in front of it as well. That's where you lot come in.\n\nGo north up the road, past the healed craters, to where the trees start to die. Thin out the Blighted Wolves and the Felwood Imps. Fire's the one thing I'm afraid of, and I'd like the imps a long way from me.",
+        'If you see smoke up there, come back and tell me before you do anything else.',
+    ),
+    'fw_sentry_duty': (
+        "The wolves and the imps were the Legion's leftovers, but these aren't.\n\nThe demons have set Felguard Sentries just south of the North Felwood gate, with Border Felhounds running between them. They aren't attacking. They're watching us, and that's worse. Something up north wants to know how many of us there are.\n\nGo up to the Fel Line and take the sentries down, hounds first. Blind them for me.",
+        'Come back by the road, not through the trees. I want to see you coming.',
+    ),
+    'fw_haskzar': (
+        "The sentries answered to something, and my scouts have finally seen it.\n\nHask'zar the Scarred is a doomguard with a burning whip. He took a Sentinel's glaive across the face the night we drove the Legion north, and he's been walking the Fel Line ever since, waiting for us to get careless.\n\nI don't intend to get careless. I intend to send you. He doesn't show himself often, so be patient up there, and don't fight him alone if you can help it.",
+        'Mind the whip. It reaches further than it looks, and it burns where it lands.',
+    ),
+    'fw_arms_for_the_north': (
+        "The quartermaster asked me to ask you. She says I look more patient than she is, and she's right.\n\nEvery Felguard Sentry on the Fel Line carries an axe forged in the Twisting Nether. Ilyssa says that if she can get the heads into her forge, she can beat the fel out of them and get good steel back. The Sanctuary has a forge and no iron, and the Legion has plenty.\n\nI stand on that line every night, so I've watched those axes come down. Take them off the sentries and bring me the heads. I'll carry them to her, because they're heavy and I'm a tree.",
+        "The heads stay warm for a while after. Don't put them in anything that burns.",
+    ),
+    'fw_the_morlosaren_watch': (
+        "The captain asked me to find somebody with good eyes and nothing to do, and you look like you've got one of those.\n\nMorlos'Aren was a Sentinel watch on the road in from Ashenvale. They lost half of it to the Legion and took the other half back. Nobody's stood on the tower since spring, and Captain Saranis wants to know whether it's worth manning again or whether it's just stones and a view.\n\nIt's south down the main road, past the burned treehouse. You walked right by it on your way in. Have a proper look this time, and then go and tell the captain in the Sentinel hall what you saw.",
+        "Climb the stair if it'll hold you. The view from the top is what the captain needs.",
+    ),
+    'fw_cousins_in_the_north': (
+        "The Timbermaw remember when the Deadwood were our cousins. Some of us remember their names.\n\nBarrowpaw is one of ours who went north with the Sentinels, to the camp at Talonbranch. He went the same week the first of you lot came up the road. He watches Felpaw Village, where the Deadwood live now. He hasn't asked for anything, which means he needs something.\n\nTake him this totem. It's carved with his family's marks. Go north through the gate at the top of the Fel Line and follow the road until you see Sentinel tents. He'll be the one sitting apart from the elves, pretending he isn't homesick.",
+        "Tell him the honey trees are full this year. That'll mean more to him than the totem.",
+    ),
+    'fw_honey_for_the_lodge': (
+        "The grizzlies have found our honey trees, and they've decided they like us.\n\nThey don't like us. They like the honey. Every Old-Growth Grizzly in the forest has been tearing open our hollow trees, and the lodge is running short. A furbolg without honey in winter is a sad thing to see, and the ones who came through from your world eat it faster than we do.\n\nThe grizzlies come down out of Shatter Scar Vale, north of the Sanctuary. Take back what they've stolen. The bears will live, and so will we.",
+        'Bring the comb back whole if you can. Broken comb weeps all over everything.',
+    ),
+    'fw_ursa_mossjaw': (
+        "There's one bear the Timbermaw don't hunt. We make offerings to her instead.\n\nUrsa Mossjaw has lived in Shatter Scar Vale since before the craters healed. The old furbolgs say she's the forest's own grudge, wearing fur. Lately she's been coming down to the road and killing anyone who passes.\n\nThe offerings have stopped working. Go to the vale, north up the road, and end it. Make it clean. She's earned that much.",
+        "Leave something at the foot of the old offering stone on your way back. I'd like her sent off properly.",
+    ),
+    'fw_hides_for_trading': (
+        "Burlrock trades with everybody, and everybody wants furs for the winter.\n\nThe Greywood Nightsabers and Timberline Wolves of the open forest have the best coats in the valley. Burlrock can't hunt, because he's too fond of talking, so he's asked me to ask you.\n\nThey're all through South Felwood, west of the Sanctuary. Bring the pelts back to me and I'll see they get to him.",
+        'Skin them carefully. Burlrock pays by the hide, and a hole costs him a customer.',
+    ),
+    'fw_what_the_lake_remembers': (
+        "Iris Lake was the first water the druids cleansed. I stood beside it while they did it, and I watched it turn from green to silver.\n\nNow the Lakeshore Crocolisks have moved in, and they snap at the druids who go down to draw water. The water's clean, but nobody can reach it.\n\nThe lake's east of the main road, south of the Sanctuary. Clear the crocolisks from the shore, and then go and stand by the moonwell. Tell me whether it still feels the way it did.",
+        "Kneel by the water when you get there. You'll feel it better close to.",
+    ),
+    'fw_old_mossback': (
+        "Old Mossback and I've known each other for six hundred years, and we've never once got along.\n\nHe's a snapjaw the size of a cart, and he lives at the bottom of Iris Lake. The fel made him mean. The cleansing made him meaner, because now he can taste the difference.\n\nHe's taken two druids this month. Go back to the lake and wait for him to surface. Tell him Thornbark sends his regards.",
+        "Wait at the shallow end. He likes to come up where he thinks you won't expect him.",
+    ),
+    'fw_bandages_and_bitterroot': (
+        "I was an emergency doctor in Lagos until I came through, and I never thought I'd be grinding turtle shell for medicine. Yet here we are.\n\nThe green film on an Iris Snapjaw's shell is full of something that stops a wound from going bad. The druids showed me, and then they showed me how bad it smells. It works better than anything I brought with me.\n\nThe snapjaws are in Iris Lake, east of the road south of town. Scrape their shells for me, and don't let them take your hand while you do it.",
+        'Bring the scrapings in a jar with a lid. That smell gets into cloth and never leaves.',
+    ),
+    'fw_the_fel_fever': (
+        "Three Sentinels came back from the Fel Line with a fever I can't name, and the wolves up there have it too.\n\nIt's not an infection I know. It's not anything I know. If I can look at the blood of the animals that carry it, I might understand how it moves. Then I might be able to stop it.\n\nThe Blighted Wolves run the Fel Line at the north end of the valley. Bring me their blood, sealed, and don't let any of it touch you.",
+        "Wear gloves, and burn them after. I'd rather lose a pair of gloves than a pair of hands.",
+    ),
+    'fw_timber_for_the_barricade': (
+        "I built houses outside Krakow for twenty years, until the day the world changed. Now I build barricades, and the Sentinels tell me I'm slow. I tell them it's called doing it properly.\n\nThe stakes on the Fel Line keep rotting. The fel gets into soft wood and eats it from the inside. What I need is old, hard wood, and the oldest wood in the valley walks around the Ruins of Constellas wearing ivy.\n\nThe ruins are west of the road, over the upper ford. The Ivybound Treants there drop limbs when they're beaten. Bring me the best of it.",
+        "Pick the limbs with the tightest grain. If it rings when you knock it, it's good.",
+    ),
+    'fw_stakes_on_the_line': (
+        "The stakes are cut and tarred, and somebody has to carry them up to the line.\n\nThat somebody isn't me, because my knees are fifty-three years old. You're younger, and you already know the way.\n\nThe barricade crosses the main road at the bottom of the Fel Line, north of the healed craters. Get the stakes up there, and make sure the Sentinels put the pointed end up this time.",
+        "If they've put any in upside down already, turn them round while you're there.",
+    ),
+    'fw_hinges_that_hold': (
+        "I want the Sanctuary's gate to outlast all of us, and nothing in this forest will do it.\n\nThere's an old Dark Iron city called Khaz Varun under Tempest Isle, across the sea. A dwarf trader who's been selling to the transplants since it happened told me their iron never rusts, and that the Iron Golems still walking its halls are held together with the best hinges ever forged.\n\nIt's a long way, I know. Take the boat to Tempest Isle and find the gate in the Shallows. Bring me the hinges off those golems and I'll hang a gate that the Legion itself couldn't shift.",
+        'Bring the pins as well as the plates. A hinge without its pin is just a nice piece of iron.',
+    ),
+    'fw_catalogue_of_the_regrowth': (
+        "I'm cataloguing everything that grows back. When I came through three years ago I didn't know any of these plants existed, and now I know more of them than I know people here.\n\nI need eyes in three places I can't get to myself: Hollowbark Glade in the south-west, the Ruins of Constellas in the west, and Shatter Scar Vale up the road to the north. Each of them is coming back in its own way.\n\nGo and stand in each one, look around properly, and come back and tell me what's growing. You don't have to know the names. I'll ask the right questions.",
+        "Count the colours if nothing else. Colour tells me a lot more than you'd think.",
+    ),
+    'fw_something_grows_under_tanaris': (
+        "A Dark Iron prospector came through and told me something I haven't been able to stop thinking about.\n\nUnder the Abyssal Sands in Tanaris there's a black strand of jungle, and under that there's a silithid hive called the Royal Hive. The resin they build it from traps living things and keeps them alive. If something green can live in there, in the dark, I need to know how.\n\nIt's the far side of the world. Go down through the Black Strand to the Royal Hive and bring me resin from the Resin Weavers who make it. It might teach us how to keep the Sanctuary green through the winter.",
+        "Seal the resin in a jar before it sets. Once it hardens, I can't learn anything from it.",
+    ),
+    'fw_the_long_way_round': (
+        "There's a doctor on Tempest Isle called Imani Mwangi. She came through the same way I did, and we've been writing to each other for a year.\n\nThe last boat took my letter and lost it. I think the captain used it to light his pipe. So I'm asking you, because you'll get there and he won't.\n\nTake a boat to Tempest Isle and go to Ashclaim Landing. She works in the medic's tent. Tell her the Sanctuary's growing and I'm still walking.",
+        'Keep it inside your shirt, not in a pocket. Pockets fall into the sea.',
+    ),
+    'fw_supper_for_sixty': (
+        "There's a bed and a hot meal for everyone in this town, and that's a promise I'm finding harder to keep every week. Luis does wonders in the kitchen, but he can't cook what he hasn't got. The transplants eat like they're still making up for the day they arrived, and I'd never tell one of them to slow down. The Silverhorn Stags in the open forest west of the Sanctuary and the Moss-Tusk Boars up in Shatter Scar Vale, north of town, are fat this season. Bring me Silverhorn Venison and Moss-Tusk Flanks for the pot, and I'll see that you never go to bed hungry here.",
+        "Luis likes the boar fatty, so don't bother bringing me the lean ones.",
+    ),
+    'fw_prowlers_in_the_ruins': (
+        "The Sentinels stand on the line, and so do I. The difference is that they talk more.\n\nThe Ruins of Constellas are the forest's now, but the forest isn't always kind. The Ruin Prowlers hunt anyone who goes in, and the Moonlit Wisps are what's left of the Highborne who died there, and they don't remember being people.\n\nGo west over the upper ford and clear the ruins. Be gentle with the wisps if you can. They didn't choose this.",
+        "If a wisp drifts away from you, let it go. They're not all looking for a fight.",
+    ),
+    'fw_saberfang_the_elder': (
+        "There's a saber-cat in the Ruins of Constellas older than most of the trees, and he's started hunting druids. Saberfang the Elder used to keep the prowlers in line, and now he leads them. Something in the fel's last breath got into him, and it's still there. I've stood in one place long enough to know a patient hunter when I see one, and he's patient. Go back to Constellas, west over the upper ford, and find him.",
+        "He's clever, and he'll come at you from behind, so keep a wall at your back.",
+    ),
+    'fw_talonbranch_holds': (
+        "This is as far north as the Reclamation holds, and some nights it doesn't feel like holding. The Plaguefang Wolves and the Fel-Rotted Bears come at the stakes every night, and twice now they've been through my stores.\n\nThey aren't hunting us, and they don't care which of us were born here and which came through. They're sick, and they're angry, and we're the only living thing up here that doesn't smell of fel.\n\nThey roam the whole valley between here and the south gate. Thin them out. The captain's Sentinels need one night's sleep, and so do I.",
+        "Bring back anything they've chewed open from my stores. I like to know what's gone.",
+    ),
+    'fw_eyes_on_jaedenar': (
+        "There's a hold cut into the west wall of the valley. The Highborne built it, and the Shadow Council took it.\n\nThey call it Jaedenar. Everything wrong with North Felwood comes out of its gate. I need to know how many of them there are, and I need them to know we're watching.\n\nGo west along the road from the falls until you reach the Black Gate. Look at it properly, and then kill the Acolytes and Warlocks camped in front of it.",
+        "Count the ones on the gate before you start. After, I'll want to know how many came out.",
+    ),
+    'fw_the_moonstone': (
+        "You turn the moonstone over in your hand. It's a Sentinel's stone on a broken chain, and you took it off a satyr. The chain was snapped, not unclasped, and the setting is scratched where someone tried to pry the stone loose. The name cut into the back is Vor'alith. Somebody in the Emerald Sanctuary will know who that was, and Captain Saranis keeps the Sentinel hall there.",
+        'You close your hand around it and turn back toward the Sanctuary.',
+    ),
+    'fw_voralith_the_turncloak': (
+        "I've sent word north. The Talonbranch scouts have seen a satyr outside Jaedenar who carries a Sentinel's glaive.\n\nThat has to be Vor'alith. He sold Morlos'Aren to the Jadefire and took their gift, and now he guards the Council's door. I'd go myself, but somebody has to hold this town.\n\nGo to Jaedenar's gate on the west wall of North Felwood and wait for him. Give him back his moonstone. Then finish it.",
+        "He'll try to talk. He always did. Don't let him finish.",
+    ),
+    'fw_poison_in_the_falls': (
+        "I was a paramedic in Toronto, and up here I'm the one who sees what the river does to people. It comes off Hyjal's wall at Bloodvenom Falls, east of the road, and it's poisoning the whole valley. The Seepage Oozes breed in the pool at the bottom, and they're spreading downstream into the south.\n\nArathel thinks that if he understands the water, he might be able to turn it. Rivers where I'm from got poisoned too, and people turned them back, and I've told him so.\n\nGo to the falls. Kill the oozes and bring me the water, sealed, and I'll pass it on to him. Don't drink it, obviously.",
+        'Fill the flask from the middle of the pool. The edges are worse, and I want the real thing.',
+    ),
+    'fw_the_bloodvenom_rot': (
+        "The samples Marcus passed me all came from one source. There's something at the bottom of the falls' pool, feeding the poison and growing on it.\n\nI've been calling it the Bloodvenom Rot, for want of anything better. It's an ooze the size of a lodge, and it only rises when the pool is disturbed.\n\nGo back to the falls and disturb it. If it dies, the river might start running clean, one stretch at a time.",
+        'Throw something in to wake it, and stand well back from the edge when you do.',
+    ),
+    'fw_ironwood_that_remembers': (
+        "Irontree Woods was the greatest stand of ironwood in Kalimdor. Now it's dead, standing up.\n\nBut not all of it. The Warpwood Treants that walk there still have a thread of green in their hearts. If I can get those splinters back to the Sanctuary, Old Thornbark thinks he can grow them.\n\nIrontree Woods is north-west of here, past the crater. Bring me the heartsplinters. Try to imagine the woods the way they were while you're doing it.",
+        'Pick the splinters that are greenest at the core. Those are the ones that might take.',
+    ),
+    'fw_ironbark_the_blighted': (
+        "The warpwood answer to something. The oldest of them is still walking, and he's the reason nothing in those woods will heal.\n\nIronbark the Blighted was the woods' guardian. The fel turned him against everything he was meant to protect, and he's still guarding it, from us.\n\nGo back to Irontree Woods and put him to rest. The woods will thank you, even if they can't say it.",
+        'If he speaks before the end, remember what he says. Thornbark will want to hear it.',
+    ),
+    'fw_felpaw_village': (
+        "Felpaw was my cousins' village. I still know every path in and out of it, and I'll tell you which ones they're watching.\n\nThe Deadwood drank the fel water because it was all there was, and it took them. They're not my cousins any more. They're something wearing their fur.\n\nFelpaw Village is north-east of the camp, up the eastern track. Fight the warriors and the den watchers. I can't do it myself. I'd see faces.",
+        'Go in from the south path. They watch the eastern track more closely than they used to.',
+    ),
+    'fw_the_totems_of_felpaw': (
+        "The Deadwood shamans carry fetishes that hum with fel. I think that's how the sickness keeps hold of them.\n\nIf I can take enough of them back to Grumhall, the Timbermaw elders might be able to understand the hold it has on them. And if they can understand it, maybe they can break it, one cousin at a time.\n\nGo back to Felpaw and take the fetishes off the Deadwood Shamans. Don't listen to the humming.",
+        'Wrap them in something thick. The humming stops if you muffle it, mostly.',
+    ),
+    'fw_chieftain_grimpelt': (
+        "Grimpelt was the first of my cousins to drink the fel water, and he made the others follow.\n\nHe's chieftain of Felpaw now, and as long as he's alive none of them will even think about coming back. He doesn't fight often. When he does, it's with a log the size of a canoe.\n\nGo back to Felpaw and find him, and end it. I'll tell the elders it was done properly.",
+        "Stay out from under that log. He swings it wide, and he doesn't tire quickly.",
+    ),
+    'fw_to_timbermaw_hold': (
+        "Beyond the valley's north end is the Timbermaw Tunnel, my people's road through the mountain. It runs on to Winterspring and Moonglade, and our home, Timbermaw Hold, is a long way past it in Azshara.\n\nThe elders closed it when the fel came. Thornclaw guards the door now, and he's never let anyone through who wasn't Timbermaw. I'd like you to meet him, because one day he'll open it, and I want him to know your face.\n\nGo north to the end of the road. The gate's between the two totems.",
+        'Greet him the furbolg way, with your hands open. He notices manners.',
+    ),
+    'fw_what_the_fel_does': (
+        "Nkechi sent you up here with blood samples? She's the best doctor south of here, and the only one, which helps.\n\nI was a paramedic in Toronto before I came through. Up here it's burns, bites and things I don't have names for yet. The Jadefire Stags have the fever too, but they don't die of it. Something in their antlers fights it, and I'd like to know what.\n\nThe stags wander the open wastes and the woods to the north-west. Bring me their antlers. Gently, if you can.",
+        "Bring me a shed antler if you find one on the ground. I'd rather not take one off a living stag.",
+    ),
+    'fw_sedatives': (
+        "This one's going to sound odd, so bear with me.\n\nThe Felbrand Hellhounds in the crater have a gland that calms them down after they've killed. I've seen it work. If I can get the oil out of it, I can make a sedative strong enough to hold someone through the worst of the fever.\n\nThe crater's west of the road, south of the woods. The hounds run with the felguard there. Bring me the glands and I'll explain the rest once I'm sure it works.",
+        'Seal each gland in its own pouch. If two touch, the oil spoils.',
+    ),
+    'fw_fire_in_the_crater': (
+        "I can't let you through the tunnel, but I can tell you what keeps me awake at this door.\n\nThere's a crater west of the road where an infernal came down when the Legion first arrived. They never left it. The Felbrand Felguard and their hounds drill there every day, and the imps watch the road for them.\n\nGo south to the crater and break the drill. If the Legion is getting ready for something, I'd rather it wasn't ready.",
+        'Kill the imps on the road first. If they see you coming, the rest will be ready.',
+    ),
+    'fw_pyrrhax_the_fallen_star': (
+        "The thing that made the crater is still in it. Pyrrhax the Fallen Star fell from the sky and burned a hole in the forest, and he's been sitting at the bottom of Felbrand Crater ever since, keeping it burning. Everything in that crater is his, the felguard and the hounds and the imps on the road. I've kept this door a long time, and on a clear night I can see the glow of him from here. Go back down into the crater, west of the road, and put out the star.",
+        "He doesn't come out often, but he'll come out for you. Don't stand where he lands.",
+    ),
+    'fw_jadefire_glen': (
+        "The satyrs in the south-west took the Highborne ruins there and built their fel braziers on top of them, and they call it Jadefire Glen. The Jadefire Rogues raid the road, and the Jadefire Tricksters play games with the scouts until somebody dies. They're the reason nobody walks to Talonbranch alone, whether they were born in this forest or came out of nowhere three years ago like you. I'd clear it myself if I could leave this door. The glen's south-west of the road, near the south gate, so go and clear it out.",
+        "Don't let the Tricksters talk to you. They're better at talking than you are at not listening.",
+    ),
+    'fw_prince_aelvorn': (
+        "The satyrs of Jadefire Glen follow a lord who calls himself a prince. Aelvorn the Unmade was Highborne once. He drank from the Well, and then from something worse, and he's been unmaking himself a little more every century. Now he rules a glen of satyrs and calls it a kingdom, and on still nights I can hear his court singing from this door. Go back to Jadefire Glen, south-west of the road near the south gate, and end his reign at the heart of it, among the braziers.",
+        "Knock the braziers over as you go. His court won't like fighting in the dark.",
+    ),
+    'fw_beyond_the_black_gate': (
+        "You've seen the gate. Now I need you to go through it.\n\nThe first thing inside is Hold-Warden Gorvash, who keeps the yard and plants his banner where his guards can see it. Past him, in the Hall of Whispers, Inquisitor Xel'thas decides who lives. Nobody has walked out past either of them.\n\nTake a full party. Go in through the Black Gate on the west wall, kill the Warden and the Inquisitor, and come back and tell me what's beyond them.",
+        "Keep someone watching the way back. Nobody has walked out, and I'd like you to be first.",
+    ),
+    'fw_the_duskwhisper_sisters': (
+        "There are two sisters in Jaedenar who were Sentinels once. I trained them.\n\nThe Duskwhisper Sisters made a pact with an eredar called Zeth'rak the Pactbound, and they keep him in the Black Library, west of the Hall of Whispers. They drain the life from anyone they catch and give it to each other. I've lost four scouts to them.\n\nGo into Jaedenar and end them. Kill the sisters first. The demon is only there because of them.",
+        "If either of them asks about me, tell them nothing. They'll use it.",
+    ),
+    'fw_close_the_portals': (
+        "Every demon in North Felwood came through a door the Council opened, and Kaz'reth opens the doors.\n\nHe's the Master Summoner. He works from the Summoner's Sanctum at the top of the Hold, and his summoners carry pages of a codex that tells them how. Kill him, and take the pages, and I'll find out how to close what they've opened.\n\nYou'll find the Sanctum north of the Hall of Whispers. Don't read the pages.",
+        "Bundle the pages face-in and tie them shut. I'll read them so you don't have to.",
+    ),
+    'fw_what_lives_in_the_maw': (
+        "My patients describe the same thing when the fever's at its worst. An eye, and tentacles, and the feeling of coming apart.\n\nThe scouts say it's real. There's something in a side cave of Jaedenar's pit called the Maw. They call it the Entropic Horror, and it unmakes anything it looks at. I think it's what's feeding the fever.\n\nGo down into the pit and find the Maw, and kill The Entropic Horror. Then come back and tell me whether my patients stop dreaming about it.",
+        "Don't look at it longer than you need to. My patients say that's how it gets in.",
+    ),
+    'fw_the_chained_ancient': (
+        "The Council has an ancient in chains at the bottom of their pit, and they've been pouring the fel into him for a hundred years.\n\nHis name was Grimbark. He was a guardian of this forest before any of us came. They've made him into something that feeds on the fel and grows from it, and there's no saving what he is now.\n\nGo into Jaedenar's pit and find the Chained Grove, west of the descent. Free him the only way that's left.",
+        'Break the chains if you can, after. He should go without them.',
+    ),
+    'fw_highborne_stonework': (
+        "The elves tell me Jaedenar was built by the Highborne, and that nobody alive knows how they cut the arches.\n\nI'd like to know how they cut the arches. The Jaedenar Felguard pull the keystones out to use as weights, from what the scouts tell me, and they carry them round on their belts.\n\nIf you're going into the Hold anyway, bring me some of those stones. I'll build the Sanctuary a gatehouse the Highborne would have been jealous of.",
+        "Look at the cut faces before you carry them off. I'd like to know if they're marked.",
+    ),
+    'fw_doom_in_the_pit': (
+        "Under the Hold there's a pit, and in the pit there's a doomlord. Doomlord Kazrak commands the demons the Council summons. He wears armour forged in the Nether, and it gets thicker the longer you give him. The way down into Jaedenar's Summoning Pit is behind the Summoner's dais, inside the hold on the west wall of the valley. I've seen what climbs up out of that pit, and I'd like it to stop. Kill Kazrak, and the pit's army has no general.",
+        "Bring weapons that can cut that armour, and don't let the fight drag on.",
+    ),
+    'fw_the_unbound': (
+        "Everything the Council has done in Felwood has been for one thing, and it's sitting on a throne at the bottom of their pit. Zar'gothrax the Unbound is a demon lord they called through and couldn't send back. The Council serves him now, whether they admit it or not, and as long as he sits there the fel will keep coming. I've lost more Sentinels to that pit than I'll ever say out loud. Go all the way down through Jaedenar, on the west wall of the valley, to the Burning Throne, and kill him.",
+        "He'll hold on at the end. When he does, hit him again.",
+    ),
+}
