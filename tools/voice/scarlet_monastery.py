@@ -22,3 +22,8 @@ VOICE = {
         None,
     ),
 }
+
+
+# Kyle, 21 Nov 2026: no quests handed out in third person (tools/voice/third_person_late.py)
+from voice.third_person_late import merge as _merge
+_merge("scarlet_monastery", VOICE)

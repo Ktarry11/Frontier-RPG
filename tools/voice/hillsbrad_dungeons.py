@@ -78,3 +78,8 @@ VOICE = {
         "It's finished now.\n\nThe Syndicate won't end. There's always another cousin with a sash. But the man who could pay wizards and buy a valley's thieves is on the floor of a hall his family had no claim to, and the ledger, the postings and the name all go north together.\n\nYou walked three roads for this. I'll see every one of them is in the dispatch.",
     ),
 }
+
+
+# Kyle, 21 Nov 2026: no quests handed out in third person (tools/voice/third_person_late.py)
+from voice.third_person_late import merge as _merge
+_merge("hillsbrad_dungeons", VOICE)

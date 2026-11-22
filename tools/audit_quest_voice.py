@@ -76,8 +76,79 @@ def load():
     return by_file
 
 
+# THIRD PERSON. Kyle, 21 Nov 2026: "Azshara is doing that weird third person shit again with quests", then "make some
+# kind of note that doesnt have quests handed out in third person...and likely something else that has a story and aims
+# for at least 5-6 sentences of coherant structure". The body the offer window prints (the same pick the dialog makes,
+# ui/screens/quest_dialog_screen.py) has to be the giver talking: "Okkar says the caravans won't run" from Okkar's own
+# mouth is a narrator, not a person. Caught when the body names its own giver with a verb after it, or opens on
+# He/She/They, and has no first person anywhere outside quotes.
+_GIVERS = None
+_TITLE_WORDS = {"grunt", "elder", "overseer", "bloodwarden", "provisioner", "innkeeper", "captain", "sergeant", "the",
+                "of", "high", "lord", "lady", "keeper", "warden", "scout", "quartermaster", "doctor", "master",
+                "mistress", "apothecary", "deathstalker", "loremaster", "magister", "commander", "chieftain", "old"}
+_SAYS = (r"(says|said|wants|needs|thinks|has|had|asks|is|was|reckons|believes|knows|figures|would|will|won't|can't|"
+         r"swears|hopes|tells|told|keeps|runs|sent|sends)")
+_FIRST = re.compile(r"\b(I|I'm|I've|I'll|I'd|me|my|mine|we|we're|we've|we'll|our|us)\b")
+STORY_MIN = 5
+
+
+def _giver_names():
+    global _GIVERS
+    if _GIVERS is None:
+        names = {}
+        for fn, key in (("data/npcs/ambient_npcs.json", "npc_id"), ("data/npcs/vendors.json", "vendor_id")):
+            for v in json.loads((ROOT / fn).read_text(encoding="utf-8")).values():
+                if isinstance(v, list):
+                    names.update({r[key]: r.get("name", "") for r in v if isinstance(r, dict) and r.get(key)})
+        by_quest = {}
+        for f in (ROOT / "data/quests").glob("*.json"):
+            try:
+                doc = json.loads(f.read_text(encoding="utf-8"))
+            except Exception:                                    # noqa: BLE001
+                continue
+            for qd in (doc.get("quests") if isinstance(doc, dict) else doc) or []:
+                if isinstance(qd, dict) and qd.get("quest_id"):
+                    by_quest[qd["quest_id"]] = names.get(qd.get("giver_npc_id") or "", "")
+        _GIVERS = by_quest
+    return _GIVERS
+
+
+def offer_body(q):
+    """(field, text): what the offer window prints as the giver's words, by the dialog's own rule."""
+    desc, speech = (getattr(q, "description", "") or "").strip(), (getattr(q, "accept_text", "") or "").strip()
+    if len(speech) > len(desc) or (len(desc) > 200 and len(speech) > 200):
+        return "accept_text", speech
+    return "description", desc
+
+
+def third_person(q):
+    giver = getattr(q, "giver_npc_id", None)
+    if isinstance(giver, str) and giver.startswith("item:"):
+        return False                                     # an item starter narrates to "you" on purpose
+    name = _giver_names().get(getattr(q, "quest_id", ""), "")
+    _field, body = offer_body(q)
+    if _FIRST.search(re.sub(r'"[^"]*"', "", body)):
+        return False
+    if re.match(rf"^(He|She|They)\s+{_SAYS}\b", body):
+        return True
+    for tok in re.findall(r"[A-Z][a-z']+", name):
+        if tok.lower() in _TITLE_WORDS or len(tok) < 3:
+            continue
+        if re.search(rf"\b{re.escape(tok)}('s)?\s+{_SAYS}\b", body) or re.search(rf"\b{re.escape(tok)}\b", body[:80]):
+            return True
+    return False
+
+
+def story_sentences(q):
+    """How many real sentences (three words or more) the offer body holds. The bar is STORY_MIN."""
+    _field, body = offer_body(q)
+    return len([x for x in re.split(r"(?<=[.!?])\s+", body.strip()) if len(x.split()) >= 3])
+
+
 def findings(q):
     out = []
+    if third_person(q):
+        out.append((offer_body(q)[0], "third person: the giver is talked about instead of talking"))
     for f in FIELDS:
         text = getattr(q, f, "") or ""
         if not text.strip():
@@ -117,10 +188,13 @@ def main():
         for stem, qs in by_file.items():
             n = sum(len(findings(q)) for q in qs)
             bad_q = sum(1 for q in qs if findings(q))
-            rows.append((n / len(qs), stem, len(qs), bad_q, n, refrains(qs)))
-        print(f"{'file':34s} {'quests':>6s} {'flagged':>7s} {'findings':>8s} {'per q':>6s}  refrains")
-        for per, stem, nq, bq, n, ref in sorted(rows, reverse=True):
-            print(f"{stem:34s} {nq:6d} {bq:7d} {n:8d} {per:6.2f}  {ref or ''}")
+            third = sum(1 for q in qs if third_person(q))
+            short = sum(1 for q in qs if story_sentences(q) < STORY_MIN)
+            rows.append((n / len(qs), stem, len(qs), bad_q, n, third, short, refrains(qs)))
+        print(f"{'file':34s} {'quests':>6s} {'flagged':>7s} {'findings':>8s} {'per q':>6s} {'3rd p':>5s} "
+              f"{'<' + str(STORY_MIN) + ' sent':>7s}  refrains")
+        for per, stem, nq, bq, n, third, short, ref in sorted(rows, reverse=True):
+            print(f"{stem:34s} {nq:6d} {bq:7d} {n:8d} {per:6.2f} {third:5d} {short:7d}  {ref or ''}")
         return 0
     total = 0
     for stem, qs in by_file.items():
@@ -135,6 +209,8 @@ def main():
                 print(f"{stem} | {q.quest_id} | {q.title}")
                 for f, p in fs:
                     print(f"    {f:12s} {p}")
+            if "--story" in sys.argv and story_sentences(q) < STORY_MIN:
+                print(f"{stem} | {q.quest_id} | {q.title}\n    {'story':12s} {story_sentences(q)} sentences, aim for 5-6")
         ref = refrains(qs)
         print(f"== {stem}: {n} findings in {len(qs)} quests; refrains {ref or 'none'}\n")
         total += n + sum(ref.values())

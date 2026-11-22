@@ -78,7 +78,9 @@ def build(stem, qm, findings, write):
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     if "--all" in sys.argv:
-        args = sorted(p.stem for p in (ROOT / "tools/voice").glob("*.py") if p.stem != "__init__")
+        # helper modules (stonetalon_3p, third_person_late) feed a zone's module and have no quest file of their own
+        args = sorted(p.stem for p in (ROOT / "tools/voice").glob("*.py")
+                      if p.stem != "__init__" and (ROOT / f"data/quests/{p.stem}.json").exists())
     with contextlib.redirect_stdout(io.StringIO()):
         from world.quest_manager import QuestManager
         from audit_quest_voice import findings
