@@ -99,3 +99,164 @@ VOICE = {
         "It's signed by a centaur. There's a centaur's mark on a tauren document, and somebody expects me to read it out at the corral gate.\n\nI drove that road for twenty years and never once paid a toll on it. I also never once had to ask who kept it up. All right, then, we'll pay.",
     ),
 }
+
+
+# THE STORY PASS (22 Nov 2026), to docs/quest_writing_standard.md: the narration and the speech folded into the giver
+# talking; accept lines a short beat; turn-ins above kept.
+STORY = {
+    "fw_light_caravans": (
+        "I've complained about the ramp for three years, because the ramp is safe to complain about. The real problem is "
+        "on my tally sheet. Every caravan that comes up arrives lighter than it left, by an amount too regular to be theft "
+        "and too large to be spillage, and the drivers have stopped mentioning it. The road east runs between the Sisters, "
+        "through a gap you have to go through, and that's where it happens. Go and stand in that gap, kill the Galak "
+        "Outriders, and bring me their tally slips.",
+        "They write it down, and that's the part I can't get past. They aren't robbing us so much as invoicing us.",
+    ),
+    "fw_one_road_in": (
+        "The single ramp is a better defence than Thunder Bluff ever had, and I know exactly what it means to say that. "
+        "For two weeks something's been working the bottom of the ramp after dark, coming up far enough to be seen and "
+        "then going back down, a little further every night. I'm nearly sure it's hyena, and nearly sure is why I'm "
+        "sending somebody instead of going myself. Work the bottom of the ramp and the scrub on either side, kill the "
+        "Dustmane Hyenas, and go out as far as the first bend of the Windward Road. If something's teaching them this ramp "
+        "is worth walking up, I want to know whether it's a pack or a person.",
+        "Look at how they move as well as how many there are. A pack moves differently when someone's steering it.",
+    ),
+    "fw_feed_below": (
+        "I keep every four-legged animal in the city on the Landing, because kodo won't cross a rope bridge, and they "
+        "worked that out faster than we did. So the pens are up here and the feed is down there, and twice a season "
+        "somebody has to go down and cut it. There's grass worth cutting in the wash beds, the only green on the whole "
+        "floor, green because that's where the year's water went. The best of them are under the Seam, north-west of the "
+        "ramp foot, where the elk graze them down. Take a blade down and bring back what you can carry.",
+        "Watch for scorpids in the shade of the cut banks. They're in there because it's cool, and they won't move for "
+        "you.",
+    ),
+    "fw_the_spill": (
+        "On a clear day I can see the dark line of the aspen along the north, and three years ago that line was sky. "
+        "Things have been coming down it, mostly elk, walking south until the timber ran out and finding red hardpan and "
+        "forty degrees of heat. They can't find the pass again, and the cats came after them and are doing no better. I'm "
+        "not asking you to cull them, and I wouldn't call it that. Kill the Sunstruck Elk and the Downslope Lynx on the "
+        "Seam, and finish what the sun has started.",
+        "Get close enough that it's quick. That's the whole task, and I'm sorry it's one.",
+    ),
+    "fw_wrong_climate": (
+        "I treat falls, mostly, off ladders more than off edges. Lately I've been treating drivers coming up the ramp with "
+        "heat sickness in a season they've worked their whole lives. I think the floor is getting hotter, and I'd like to "
+        "be wrong. An animal that starves and an animal that cooks don't leave the same marrow. Bring me marrow from the "
+        "elk dying on the Seam, and a scrape of the ground they're dying on.",
+        "If it's the heat, I'll have to go and tell Namka the floor is changing under a city that can't move.",
+    ),
+    "fw_harpies_weave": (
+        "I build better bows than my mother did, and I've never stopped being annoyed about why. I've spent a season "
+        "watching harpy nests through a glass from the Windward top. They're woven, laid in courses like thatch, with a "
+        "turn at the end of each course that I can't do and can't stop thinking about. Bring me the weave, a piece with "
+        "the courses still in it, big enough that I can see where the turn goes. You'll have to kill the Sheerwing Harpies "
+        "to get it, and no, I haven't found a way round that.",
+        "Not a handful of feathers. I want the weave whole.",
+    ),
+    "fw_the_anvil": (
+        "I've got the highest standing ground in Thousand Needles, and a list of the four mesas nobody's ever been on top "
+        "of. The Anvil is the nearest, the great flat rock at the far west end of the floor, past Needle's Eye. For eleven "
+        "nights there's been a light up there that moves along the rim and goes out and comes back, and I've counted the "
+        "pattern, and it doesn't repeat. Get round the base and as high as the scree will take you, close enough to see "
+        "what's making that light. The Sheerwing Rooktenders come down to hunt at dusk, so take a few on the way.",
+        "I'm not asking you to climb the unclimbable. Just get close enough to see.",
+    ),
+    "fw_toll_ledger": (
+        "I write down everything that crosses this top, and it isn't suspicion. It's that we lost a city once without a "
+        "list of what was in it. Bohl brought me a handful of Galak tally slips, and I haven't slept properly since, "
+        "because they're better kept than mine, with a running balance and a fourth column I can't identify. I need more, "
+        "and I don't mean slips. I need leaves out of the book the slips come from, and you'll find those on whoever's "
+        "senior in a toll party.",
+        "If they're keeping a balance against us, I want to know what for before the council decides for me.",
+    ),
+    "fw_at_the_ramp_foot": (
+        "I watch everything that comes up the ramp, because everything that reaches this city comes up it. I'm not a "
+        "nervous man, and I've been nervous for a month. Galak outriders have started standing at the bottom, in daylight, "
+        "in numbers, where the whole Landing can look down and count them. The Khan's Chosen are the ones with the "
+        "standard, and their Wranglers hold the kodo back at Broadback, south-west of the ramp. Go down and make the ground "
+        "in front of that ramp expensive, as far as Broadback.",
+        "I'm not asking for a war. I want them standing somewhere I can't see from my own gate.",
+    ),
+    "fw_hollowhorn_wants_less": (
+        "I price everything by the back that carried it up the ramp, and lately every back costs more because of what's "
+        "standing at the bottom. I'm not interested in the philosophy. I've got a column for what the escort costs, and "
+        "I'd like it to be a smaller number by the end of the season. The Galak Windcatchers sit high and see a caravan's "
+        "dust an hour out, and the riders under the Khan's Chosen are formed up before the drivers know they've been seen. "
+        "Take out the windcatchers and the Chosen, and my escort column halves.",
+        "Kill the windcatchers and the riders are guessing. Guessing riders are cheap riders.",
+    ),
+    "fw_the_parley": (
+        "I built this city, and I can't get used to having built something again. I've listened to the warden, the "
+        "quartermaster and the clerk, I've read the fourth column in the Galak ledger, and I've reached a conclusion the "
+        "council will hate. The Galak aren't raiding Freewind, they're charging it for a road they maintain, and nobody on "
+        "either side has ever once said so out loud. This word goes to the gap at the Sisters, to whoever's standing there, "
+        "and it goes into a hand. Don't stick it in the ground or leave it on a stone.",
+        "Walk up with it held where they can see it, and don't draw anything. If that frightens you, you've understood.",
+    ),
+    "fw_clay_up_the_ramp": (
+        "If you want to understand this city, stand at the bottom of the ramp for a day. My clay comes up it in sacks from "
+        "a pit four days west, and every pot in Freewind is priced to match. There's clay in the salt pans at Saltwatch, "
+        "south of the ramp foot, two days closer, and everyone's told me it won't fire, and nobody's tried. Dig me good "
+        "sacks off the pans. Dig below the crust, because the crust is salt and salt ruins a pot, and under it there's "
+        "grey clay I want to see.",
+        "The things that live on those pans are made of the same salt. Don't let them put it on you.",
+    ),
+    "fw_older_than_the_wrong": (
+        "I've spent three years looking for the dead of Thunder Bluff and not finding them, and I've found the one comfort "
+        "to be had in not finding them. I've been out to Dryhollow twice. What's wrong with Dryhollow was wrong before the "
+        "Integration, and it'll be wrong after, because not everything broken in this world was broken by Earth arriving. "
+        "Go out to Dryhollow, south of the ramp beyond the salt pans, and stand in the middle of it for as long as you can "
+        "manage. Then come back and tell me what you felt.",
+        "The Dryhollow Basilisks won't let you stand anywhere for long, so thin them first.",
+    ),
+    "fw_the_glass_pan": (
+        "I can tell you whether a thing came up out of the mesas or down off the mountain, but I can't always tell you "
+        "what either one is, and I'm honest about that. A salt crew came back from the far side of Dryhollow talking about "
+        "a pan fused to glass, a flat sheet of it with the sky in it, and they wouldn't go back. The glass pan is at the "
+        "south edge of Dryhollow, south of the ramp and on past Saltwatch. Go and look at it, and bring me pieces off the "
+        "edge. The crew told me something lives out there and is still making the glass.",
+        "Take your pieces off the rim, and don't go to the middle. Nothing I want is worth that.",
+    ),
+    "fw_pale_wood_wrong_wood": (
+        "Every plank in this city came off a mountain that wasn't here three years ago, and I've been told that's the "
+        "strange part. The bridges need relaying before the windy season, three spans, and the rope gets all the "
+        "attention, because rope is frightening and decking isn't, which is exactly backwards. A deck board that splits is how somebody falls. Aspen takes a bend and holds "
+        "it, and nothing that grew down here bends, which is why the bowyer's been insufferable lately. Mill me lengths at the bench, and bring up sound aspen bolts from the "
+        "stacks in the Drowning Floor, the cave at the foot of Broadback, west of the ramp.",
+        "The blind kodo bed down on the stacks. Mind them, and don't take the rotten bolts.",
+    ),
+    "fw_where_the_water_goes": (
+        "I know where everything that came up the ramp this season is, and I'll tell you to stop asking about anything "
+        "that didn't. What I can't account for is water. Thousand Needles floods once a year, hard, and then it's dry for "
+        "twelve months, and that much water doesn't evaporate, it goes somewhere. At the foot of Broadback there's a wash "
+        "that runs in and doesn't run out. Go and stand at the mouth of it and look down.",
+        "The Saltpan Kodo shelter in its mouth. Clear enough of them to get a proper look.",
+    ),
+    "fw_the_drowned": (
+        "I hold the names of everyone who was in Thunder Bluff when the ground took the city, in order, and I say them "
+        "through once a season, which takes most of a night. Dral's told me what's down the hole at Broadback. There are "
+        "things walking in it with salt set hard over them, and they have hands, and somebody somewhere has a list with "
+        "their names on it. Bring back anything the saltbound shamblers carry that was made instead of grown, a notched "
+        "stick, a ring, a tally. They're in the Drowning Floor, the cave at the foot of Broadback, west of the ramp.",
+        "Whether you put them down out of mercy is yours to decide. I wouldn't argue with either answer.",
+    ),
+    "fw_yearmaw": (
+        "I've stopped keeping a column for the hole at Broadback and started keeping a page. The salt crews tell each other "
+        "a story they don't tell outsiders, about something in the standing water at the bottom that waits all year for the "
+        "flood. When the cave fills, everything in it drowns at once, and the thing in the sump has its one meal. The flood "
+        "is four months out, so it's as hungry as it ever gets. It's in the lowest bay of the Drowning Floor, at the foot of "
+        "Broadback, west of the ramp, and the crews call it Yearmaw.",
+        "It has no eyes, and three of my drivers told me it waits until you move.",
+    ),
+    "fw_the_road_is_open": (
+        "I've got something I haven't had in three years, a road and somebody to talk to at both ends of it. The Galak "
+        "will let a caravan through, the price is written down, and the thing at the bottom of the hole under Broadback is "
+        "dead. There's nothing left between Camp Taurajo and this city except distance, and we've solved distance before. "
+        "Take this north to Wrangler Tull at Camp Taurajo, all of it, the terms, the toll, the schedule, and the Galak's "
+        "own hand at the bottom. That mark took longer to get than the rest put together.",
+        "Tull asked whether kodo could go down. Tell him yes, tell him what it costs, and watch his face.",
+    ),
+}
+for _qid, (_d, _a) in STORY.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a if _a is not None else _old[1], _old[2])
