@@ -266,3 +266,15 @@ if __name__ == "__main__":
     print(NAME, W, "x", H, "| reachable", n, "| unreachable", bad, "| skipped", getattr(L, "skipped", None))
     if "--preview" in sys.argv:
         AK.preview(L, sys.argv[sys.argv.index("--preview") + 1])
+
+#: the districts, where the townsfolk live (Kyle, 22 Nov 2026: "ensure ALL towns are actually populated"; names made up to
+#: fit). (key, x, y, w, h, display name)
+SUBZONES = [
+    ('Moonglade', 0, 0, 200, 170, None),
+    ('The Tauren Camp', 144, 34, 48, 32, None),
+    ('The Great Moonwell', 154, 66, 46, 24, None),
+    ('The Pier', 124, 82, 30, 22, None),
+    ('The Circle Hall', 148, 96, 52, 26, None),
+    ('Nighthaven Lane', 144, 122, 56, 22, None),
+    ('The Market Green', 150, 144, 50, 24, None),
+]

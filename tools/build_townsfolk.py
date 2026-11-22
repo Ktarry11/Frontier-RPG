@@ -76,6 +76,11 @@ TOWNS = {
     "onyxhollow": "Onyxhollow",
     "camp_mojache": "Camp Mojache",
     "feathermoon_stronghold": "Feathermoon Stronghold",
+    "emerald_sanctuary": "Emerald Sanctuary",
+    "moonglade": "Moonglade",
+    "talrendis_landing": "Talrendis Landing",
+    "firstlight_spire": "Firstlight Spire",
+    "timbermaw_tunnel": "Timbermaw Tunnel",
 }
 SPACING = 3          # nobody stands closer than this to anyone else, if the district has room
 

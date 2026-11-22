@@ -166,3 +166,17 @@ def dress(L):
 
 
 AK.install(sys.modules[__name__])
+
+#: the districts, where the townsfolk live (Kyle, 22 Nov 2026: "ensure ALL towns are actually populated"; names made up to
+#: fit). (key, x, y, w, h, display name)
+SUBZONES = [
+    ('Talrendis Landing', 0, 0, 112, 92, None),
+    ('The Gatehouse', 10, 0, 44, 18, None),
+    ('The Inn', 2, 16, 32, 18, None),
+    ('The Command Hall', 54, 4, 30, 24, None),
+    ('The Orc Camp', 84, 8, 28, 50, None),
+    ('The Dig', 38, 24, 46, 32, None),
+    ('The Conclave Pavilions', 2, 34, 36, 30, None),
+    ('The Shared Fire', 38, 56, 52, 18, None),
+    ('The Landing Shore', 2, 70, 108, 22, None),
+]

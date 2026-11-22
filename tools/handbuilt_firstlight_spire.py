@@ -165,3 +165,18 @@ def dress(L):
 
 
 AK.install(sys.modules[__name__])
+
+#: the districts, where the townsfolk live (Kyle, 22 Nov 2026: "ensure ALL towns are actually populated"; names made up to
+#: fit). (key, x, y, w, h, display name)
+SUBZONES = [
+    ('Firstlight Spire', 0, 0, 104, 92, None),
+    ('The Conclave Hall', 4, 14, 32, 24, None),
+    ('The Spire Court', 36, 6, 32, 36, None),
+    ('The Library', 68, 20, 32, 28, None),
+    ('The Inn Steps', 4, 38, 32, 18, None),
+    ('The Bank Row', 24, 54, 26, 16, None),
+    ('The Hawk Roost', 2, 60, 24, 22, None),
+    ("The Crafters' Lane", 56, 60, 40, 28, None),
+    ('The Pier Steps', 84, 48, 20, 18, None),
+    ('The South Gate', 38, 70, 20, 22, None),
+]

@@ -135,3 +135,16 @@ def dress(L):
 
 
 AK.install(sys.modules[__name__])
+
+#: the districts, where the townsfolk live (Kyle, 22 Nov 2026: "ensure ALL towns are actually populated"; names made up to
+#: fit). (key, x, y, w, h, display name)
+SUBZONES = [
+    ('Emerald Sanctuary', 0, 0, 104, 88, None),
+    ('The Sentinel Line', 28, 4, 48, 24, None),
+    ('The Inn Glade', 4, 24, 26, 22, None),
+    ('The Roost', 4, 46, 26, 22, None),
+    ('The Supply Tents', 26, 44, 14, 20, None),
+    ('The Moonwell', 36, 36, 34, 26, None),
+    ('The Timbermaw Lodges', 72, 32, 32, 36, None),
+    ('The Treehouse Grove', 34, 64, 42, 24, None),
+]
