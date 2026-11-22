@@ -91,7 +91,7 @@
       "_source": "CoA class tree: 'Unearthed Pools reduces the cast time of Unmake'; Infinite's rotation uses it as a filler and Artificer transforms it into Artificer's Wand. Mage's Frostbolt curve - the class's cheap, always-available nuke.",
       "target_type": "enemy",
       "damage_school": "arcane",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_wand_of_time",
@@ -161,7 +161,7 @@
       "icon_id": null,
       "_source": "CoA: Wand of Time is a class ability that Infinite transforms into Timerend and Artificer uses as its fragment generator. ranged_damage, not spell_damage - it is a wand swing, and Artificer's Wand Expert ('increases your ranged attack power by 100% of your Spirit') only has something to scale if the engine's ranged_attack_power is what drives it.",
       "target_type": "enemy",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_reverse_wound",
@@ -176,50 +176,50 @@
         {
           "rank": 1,
           "level_req": 4,
-          "cost": 34,
-          "effect_value": 42
+          "cost": 37,
+          "effect_value": 53
         },
         {
           "rank": 2,
           "level_req": 11,
-          "cost": 48,
-          "effect_value": 51
+          "cost": 52,
+          "effect_value": 64
         },
         {
           "rank": 3,
           "level_req": 18,
-          "cost": 63,
-          "effect_value": 60
+          "cost": 68,
+          "effect_value": 76
         },
         {
           "rank": 4,
           "level_req": 25,
-          "cost": 77,
-          "effect_value": 70
+          "cost": 83,
+          "effect_value": 88
         },
         {
           "rank": 5,
           "level_req": 33,
-          "cost": 92,
-          "effect_value": 81
+          "cost": 100,
+          "effect_value": 102
         },
         {
           "rank": 6,
           "level_req": 40,
-          "cost": 106,
-          "effect_value": 90
+          "cost": 115,
+          "effect_value": 114
         },
         {
           "rank": 7,
           "level_req": 47,
-          "cost": 121,
-          "effect_value": 99
+          "cost": 131,
+          "effect_value": 125
         },
         {
           "rank": 8,
           "level_req": 54,
-          "cost": 135,
-          "effect_value": 109
+          "cost": 146,
+          "effect_value": 138
         }
       ],
       "icon_id": null,
@@ -227,9 +227,10 @@
       "target_type": "ally",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.36x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py",
-        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost",
+        "21 Nov 2026: a short cast (Kyle: \"we have instant, short, medium, long\"), re-sized from the quick size to the short one (tools/build_cast_speeds.py)"
       ],
-      "cast_speed": "quick"
+      "cast_speed": "short"
     },
     {
       "ability_id": "chronomancer_decomposition",
@@ -285,7 +286,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.28x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_accelerated_recovery",
@@ -348,7 +349,7 @@
         "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 0.85 (combat/heal_formula.rank_size). Epoch on a one-turn cooldown plus a HoT that never stops put Time at the top."
       ],
       "formula_identity": 0.85,
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_roll_back",
@@ -375,7 +376,7 @@
         "poison",
         "disease"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_discordance",
@@ -432,7 +433,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_time_out",
@@ -485,7 +486,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_clasp_of_infinity",
@@ -511,7 +512,7 @@
       "target_type": "enemy_aoe",
       "max_targets": 3,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_babify",
@@ -539,7 +540,7 @@
         "humanoid",
         "beast"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_fortify_timeline",
@@ -594,7 +595,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.45x steeper than it, biggest single-rank jump 1.14x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_timeguard",
@@ -620,7 +621,7 @@
       "absorb_pct_max_health": 0.1,
       "target_type": "ally",
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_hasten",
@@ -645,7 +646,7 @@
       "_source": "CoA class tree, referenced by The Bieko Effect, Maker of Realities and Unmaker of Realities; Artificer calls it 'Hasten to hand one ally haste and movement speed'.",
       "target_type": "ally",
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_gravity_bomb",
@@ -690,7 +691,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.75x steeper than it, biggest single-rank jump 1.27x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_chromatic_shard",
@@ -766,7 +767,7 @@
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.29x steeper than it, biggest single-rank jump 1.08x); overall size kept. tools/fix_rank_lines.py",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_melt_reality",
@@ -828,7 +829,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.50x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_anomaly_spike",
@@ -843,38 +844,38 @@
         {
           "rank": 1,
           "level_req": 16,
-          "cost": 20,
-          "effect_value": 39
+          "cost": 17,
+          "effect_value": 25
         },
         {
           "rank": 2,
           "level_req": 24,
-          "cost": 27,
-          "effect_value": 47
+          "cost": 23,
+          "effect_value": 31
         },
         {
           "rank": 3,
           "level_req": 32,
-          "cost": 34,
-          "effect_value": 54
+          "cost": 29,
+          "effect_value": 35
         },
         {
           "rank": 4,
           "level_req": 40,
-          "cost": 40,
-          "effect_value": 62
+          "cost": 34,
+          "effect_value": 40
         },
         {
           "rank": 5,
           "level_req": 48,
-          "cost": 47,
-          "effect_value": 69
+          "cost": 40,
+          "effect_value": 45
         },
         {
           "rank": 6,
           "level_req": 56,
-          "cost": 54,
-          "effect_value": 76
+          "cost": 46,
+          "effect_value": 49
         }
       ],
       "icon_id": null,
@@ -883,9 +884,10 @@
       "damage_school": "arcane",
       "requires_talent": true,
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.27x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.27x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py",
+        "21 Nov 2026: a instant cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "instant"
     },
     {
       "ability_id": "chronomancer_destabilize_time",
@@ -933,7 +935,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_infinite_horizon",
@@ -958,7 +960,7 @@
       "_source": "CoA: 'Increases the all damage dealt by party and raid members by 3%', and 'Infinite Horizon giving the group a flat damage buff is its one support note'. damage_dealt_pct is the engine's buff-granted damage key (read in Ability._damage_multiplier) and takes percentage POINTS, unlike the talent keys.",
       "target_type": "party",
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_incarnation_of_chaos",
@@ -985,7 +987,7 @@
       "target_type": "self",
       "buff_scope": "combat",
       "requires_talent": true,
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_epoch",
@@ -1055,7 +1057,7 @@
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
       ],
       "formula_identity": 0.85,
-      "cast_speed": "slow"
+      "cast_speed": "long"
     },
     {
       "ability_id": "chronomancer_correct_the_mistake",
@@ -1110,7 +1112,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.36x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_ripple",
@@ -1159,7 +1161,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.35x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_aeon_of_resilience",
@@ -1219,7 +1221,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_aeon_of_protection",
@@ -1247,7 +1249,7 @@
       "buff_scope": "raid",
       "exclusive_group": "chronomancer_aeon",
       "requires_talent": true,
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_aeon_of_renewal",
@@ -1275,7 +1277,7 @@
       "buff_scope": "raid",
       "exclusive_group": "chronomancer_aeon",
       "requires_talent": true,
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_aeon_of_oblivion",
@@ -1303,7 +1305,7 @@
       "buff_scope": "raid",
       "exclusive_group": "chronomancer_aeon",
       "requires_talent": true,
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_fabric_of_time",
@@ -1347,7 +1349,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.47x steeper than it, biggest single-rank jump 1.19x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_buy_time",
@@ -1372,7 +1374,7 @@
       "max_targets": 4,
       "is_stun": true,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_artificers_wand",
@@ -1440,7 +1442,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.43x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_crystal_cannon",
@@ -1491,7 +1493,7 @@
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.47x steeper than it, biggest single-rank jump 1.16x); overall size kept. tools/fix_rank_lines.py",
         "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ],
-      "cast_speed": "quick"
+      "cast_speed": "instant"
     },
     {
       "ability_id": "chronomancer_shatter_echo",
@@ -1548,7 +1550,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.48x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_singularity_core",
@@ -1576,7 +1578,7 @@
       "buff_scope": "combat",
       "exclusive_group": "chronomancer_continuum",
       "requires_talent": true,
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_flux_emitter",
@@ -1604,7 +1606,7 @@
       "buff_scope": "combat",
       "exclusive_group": "chronomancer_continuum",
       "requires_talent": true,
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_paradox_cannon",
@@ -1629,7 +1631,7 @@
       "target_type": "self",
       "restore_resource_type": "mana",
       "requires_talent": true,
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_aether_compression",
@@ -1700,7 +1702,7 @@
       "_over_time_lifted": [
         1.67
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_unstable_chronoglass",
@@ -1725,7 +1727,7 @@
       "_source": "CoA: 'Place an Unstable Chronoglass at target location that will redirect the next 3 offensive enemy spell casts onto itself.' Redirection needs a placed object that can be targeted, and the pet system's templates all carry their own display_name, so summoning one would put 'Sentry Turret' on screen. Implemented instead as the outcome - the enemy's spells stop landing - the same way mage_counterspell stands in for a real interrupt.",
       "target_type": "enemy",
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "chronomancer_borrowed_moments",
@@ -1776,7 +1778,7 @@
       "_tuning": [
         "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     }
   ]
 }

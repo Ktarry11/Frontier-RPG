@@ -2169,7 +2169,8 @@ class CombatScreen(BaseScreen):
             haste += float((getattr(ability, "stat_mods", None) or {}).get("haste", 0) or 0)
         haste += float(((getattr(ability, "self_buff", None) or {}).get("mods") or {}).get("haste", 0) or 0)
         place = tm.time_after_cast(actor, speed, haste) / tm.timeline_scale()
-        word = "Quick cast" if speed < 0.95 else "Slow cast" if speed > 1.05 else "Normal cast"
+        from combat.abilities import cast_speed_label
+        word = cast_speed_label(speed)
         return place, word + (", hastes you" if haste > 0 else "")
 
     def _timeline_face(self, who, size):
@@ -2244,7 +2245,7 @@ class CombatScreen(BaseScreen):
             gx = line_x + r + 6 + (r * 2 + 2)
             pygame.draw.line(screen, COLOR_GOLD, (gx, int(ypos(0))), (gx, gy), 1)
             self._draw_timeline_marker(screen, actor, (gx, gy), True, acting=True, ghost=True)
-            words = label.split(":")[0].split(",")[0] if place <= 1.0 else "Slow: goes last"
+            words = label.split(":")[0].split(",")[0] if place <= 1.0 else "Long cast: goes last"
             if label.startswith("Free"):
                 words = "Free: turn goes on"
             self.renderer.draw_text(screen, words, (x0 + 10, top + 16), size="small", color=(235, 225, 190))

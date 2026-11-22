@@ -9,7 +9,8 @@ lands, "so we can plan". A plan is only as good as the bar, so this runs fights 
   1. ORDER: before every turn, whoever the timeline puts lowest is who actually acts next.
   2. THE GHOST: after a cast of any speed, the caster lands exactly where time_after_cast() said they would.
   3. HASTE: a hasted combatant's next turn comes sooner on the bar, by the haste.
-  4. THE SPEED PASS: every class's castable abilities carry a speed, with at least two quick and one slow
+  4. THE SPEED PASS: every class's castable abilities carry one of instant, short, medium and long, with at least
+     two instant, one short and one long
      (tools/build_cast_speeds.py --check).
 """
 import os
@@ -56,7 +57,7 @@ def main():
                 gap = abs(tm.time_to_turn(predicted) - tm.time_to_turn(acted)) if predicted.is_alive() else 1
                 if gap > 0.002:         # a dead heat inside one tick can go either way
                     problems.append(f"seed {seed}: the bar said {predicted.name} moves next, {acted.name} did")
-            speed = random.choice((0.6, 1.0, 1.5))
+            speed = random.choice((0.6, 0.8, 1.0, 1.5))     # instant, short, medium, long
             want = tm.time_after_cast(acted, speed)
             tm.consume_turn(acted, speed)
             got = tm.time_to_turn(acted)

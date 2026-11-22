@@ -84,3 +84,14 @@ Kyle's call on the scale if he'd rather it be fixed (always one turn) than follo
   time; every ghost lands exactly where it said; haste and the scale hold; and the speed pass is complete.
 - **Sims**: `tools/sim_viability.py` before and after shows no real change (solo wins moved 22 up and 22 down at three
   fights each, which is noise; no group bracket lost a win; fights run about 0.7 turns longer on average).
+
+## Four speeds (21 Nov 2026)
+
+Kyle: "we have instant, short, medium, long" (0.6, 0.8, 1.0 and 1.5 of a turn). Instant is the snap actions (shocks,
+stings, throws, Corruption, Shadow Word: Pain), short the quick casts that still take a moment (Lesser Healing Wave,
+Flash Heal, Flash of Light, Regrowth, Mind Blast, Searing Pain, Frostbolt, Steady Shot), medium the ordinary turn,
+long the big deliberate casts. The three-speed tags were migrated (quick became instant or short, normal medium, slow
+long), the 1.5-second casts were re-sized from the instant size to the short one (0.82x for 0.92x the cost), and every
+class now has at least two instant, one short and one long. The tooltip and the ghost say Instant cast, Short cast,
+Medium cast or Long cast; a free action says Free action. So the shaman's example now reads exactly as Kyle gave it:
+Earth Shock barely moves him, Lesser Healing Wave lands a little higher, Healing Wave sends him to the top.

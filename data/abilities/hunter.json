@@ -33,60 +33,63 @@
         {
           "rank": 1,
           "level_req": 1,
-          "cost": 20,
-          "effect_value": 42
+          "cost": 18,
+          "effect_value": 34
         },
         {
           "rank": 2,
           "level_req": 6,
-          "cost": 25,
-          "effect_value": 52
+          "cost": 23,
+          "effect_value": 43
         },
         {
           "rank": 3,
           "level_req": 12,
-          "cost": 30,
-          "effect_value": 62
+          "cost": 28,
+          "effect_value": 51
         },
         {
           "rank": 4,
           "level_req": 18,
-          "cost": 35,
-          "effect_value": 73
+          "cost": 32,
+          "effect_value": 60
         },
         {
           "rank": 5,
           "level_req": 24,
-          "cost": 40,
-          "effect_value": 83
+          "cost": 37,
+          "effect_value": 68
         },
         {
           "rank": 6,
           "level_req": 32,
-          "cost": 45,
-          "effect_value": 93
+          "cost": 41,
+          "effect_value": 76
         },
         {
           "rank": 7,
           "level_req": 40,
-          "cost": 50,
-          "effect_value": 104
+          "cost": 46,
+          "effect_value": 85
         },
         {
           "rank": 8,
           "level_req": 48,
-          "cost": 55,
-          "effect_value": 114
+          "cost": 51,
+          "effect_value": 93
         },
         {
           "rank": 9,
           "level_req": 56,
-          "cost": 60,
-          "effect_value": 124
+          "cost": 55,
+          "effect_value": 102
         }
       ],
       "icon_id": null,
-      "cast_speed": "normal"
+      "cast_speed": "short",
+      "_tuning": [
+        "21 Nov 2026: a short cast for the turn timeline (tools/build_cast_speeds.py), sized 0.82x for 0.92x the cost"
+      ]
     },
     {
       "ability_id": "hunter_arcane_shot",
@@ -132,7 +135,7 @@
       ],
       "icon_id": null,
       "damage_school": "arcane",
-      "cast_speed": "quick",
+      "cast_speed": "instant",
       "_tuning": [
         "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)"
       ]
@@ -182,7 +185,7 @@
       "icon_id": null,
       "target_type": "enemy_aoe",
       "max_targets": 3,
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "hunter_aimed_shot",
@@ -226,7 +229,7 @@
         }
       ],
       "icon_id": null,
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "15 Nov 2026: a slow cast (Kyle: \"Speed sets next turn\"), sized 1.5x for 1.15x the cost (tools/apply_cast_speeds.py)",
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.40x steeper than it, biggest single-rank jump 1.17x); overall size kept. tools/fix_rank_lines.py"
@@ -291,7 +294,7 @@
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py",
         "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ],
-      "cast_speed": "quick"
+      "cast_speed": "instant"
     },
     {
       "ability_id": "hunter_hunters_mark",
@@ -348,7 +351,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "hunter_aspect_of_the_hawk",
@@ -407,7 +410,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "hunter_explosive_trap",
@@ -451,7 +454,7 @@
         "15 Nov 2026, class pass: every rank x1.84 - its total was 0.38x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "hunter_chimera_shot",
@@ -500,7 +503,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: every rank x2.36 - its total was 0.30x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "hunter_black_arrow",
@@ -540,7 +543,7 @@
         "15 Nov 2026, class pass: every rank x2.10 - its total was 0.33x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "hunter_wyvern_sting",
@@ -592,7 +595,7 @@
       "is_instant": true,
       "icon_id": null,
       "summon_pet_template": "wolf",
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
       ]
@@ -873,7 +876,7 @@
       "buff_scope": "combat",
       "exclusive_group": "hunter_aspect",
       "_design_note": "Assumes the Wild's aspect, granting Nature resistance and increased critical strike chance - matches Aspect of the Wild's real WOTLK identity, previously missing entirely since the engine had no Nature resistance stat to grant.",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "hunter_aspect_of_the_viper",
@@ -926,7 +929,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "hunter_trueshot_aura",
@@ -977,7 +980,7 @@
       "_tuning": [
         "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     }
   ]
 }

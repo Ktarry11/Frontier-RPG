@@ -92,7 +92,7 @@
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.70x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py",
         "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ],
-      "cast_speed": "quick"
+      "cast_speed": "instant"
     },
     {
       "ability_id": "stormbringer_discharge",
@@ -168,7 +168,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 2.44x steeper than it, biggest single-rank jump 1.21x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_call_of_the_storm",
@@ -226,7 +226,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_electrocute",
@@ -298,7 +298,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.63x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_conjure_storm",
@@ -366,7 +366,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: every rank x0.62 - it sat at 2.60x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_invigorating_surge",
@@ -383,63 +383,64 @@
         {
           "rank": 1,
           "level_req": 6,
-          "cost": 25,
-          "effect_value": 111
+          "cost": 23,
+          "effect_value": 91
         },
         {
           "rank": 2,
           "level_req": 13,
-          "cost": 25,
-          "effect_value": 135
+          "cost": 23,
+          "effect_value": 111
         },
         {
           "rank": 3,
           "level_req": 20,
-          "cost": 25,
-          "effect_value": 159
+          "cost": 23,
+          "effect_value": 130
         },
         {
           "rank": 4,
           "level_req": 26,
-          "cost": 25,
-          "effect_value": 180
+          "cost": 23,
+          "effect_value": 148
         },
         {
           "rank": 5,
           "level_req": 33,
-          "cost": 25,
-          "effect_value": 203
+          "cost": 23,
+          "effect_value": 166
         },
         {
           "rank": 6,
           "level_req": 40,
-          "cost": 25,
-          "effect_value": 227
+          "cost": 23,
+          "effect_value": 186
         },
         {
           "rank": 7,
           "level_req": 46,
-          "cost": 25,
-          "effect_value": 248
+          "cost": 23,
+          "effect_value": 203
         },
         {
           "rank": 8,
           "level_req": 53,
-          "cost": 25,
-          "effect_value": 272
+          "cost": 23,
+          "effect_value": 223
         },
         {
           "rank": 9,
           "level_req": 60,
-          "cost": 25,
-          "effect_value": 296
+          "cost": 23,
+          "effect_value": 243
         }
       ],
       "icon_id": "stormbringer_invigorating_surge",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.76x steeper than it, biggest single-rank jump 1.20x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.76x steeper than it, biggest single-rank jump 1.20x); overall size kept. tools/fix_rank_lines.py",
+        "21 Nov 2026: a short cast for the turn timeline (tools/build_cast_speeds.py), sized 0.82x for 0.92x the cost"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "short"
     },
     {
       "ability_id": "stormbringer_whirlwind_aegis",
@@ -524,7 +525,7 @@
         "15 Nov 2026, rank-depth pass (Kyle: \"ensure there are appropriate ranks for spells, abilities, buffs etc ... in line with Classic\"): ranks every 12 levels. Only the ARMOUR grows (along the same level line monster armour uses) - the world curve already grows attack/spell power and primary stats, and the other mods are percentages or flags. Each rank carries its own stat_mods (Ability.stat_mods), so the rest stays as written.",
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_call_of_the_wind",
@@ -576,7 +577,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_gust_of_wind",
@@ -600,7 +601,7 @@
       "icon_id": null,
       "is_stun": true,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_storm_alert",
@@ -635,7 +636,7 @@
       "icon_id": "stormbringer_storm_alert",
       "is_stun": true,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_crushing_pressure",
@@ -660,7 +661,7 @@
       "icon_id": null,
       "exclusive_group": "stormbringer_pressure",
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_static_lock",
@@ -690,7 +691,7 @@
       ],
       "icon_id": "stormbringer_static_lock",
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_stormbreaker",
@@ -712,7 +713,7 @@
       ],
       "icon_id": "stormbringer_stormbreaker",
       "dispel_type": "magic",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_shocking_aegis",
@@ -739,7 +740,7 @@
       "icon_id": "stormbringer_shocking_aegis",
       "buff_scope": "raid",
       "exclusive_group": "stormbringer_aegis",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_atmospheric_pressure",
@@ -764,7 +765,7 @@
       "icon_id": null,
       "exclusive_group": "stormbringer_pressure",
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_stabilizing_pressure",
@@ -790,7 +791,7 @@
       "icon_id": null,
       "buff_scope": "raid",
       "exclusive_group": "stormbringer_pressure",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_razorwind",
@@ -811,7 +812,7 @@
         }
       ],
       "icon_id": "stormbringer_razorwind",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_tempest_aegis",
@@ -844,7 +845,7 @@
       "icon_id": null,
       "buff_scope": "raid",
       "exclusive_group": "stormbringer_aegis",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_freewind",
@@ -881,7 +882,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.32x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_charge",
@@ -910,7 +911,7 @@
       },
       "icon_id": "stormbringer_charge",
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_arm_of_thorim",
@@ -967,7 +968,7 @@
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 2.00x steeper than it, biggest single-rank jump 1.55x); overall size kept. tools/fix_rank_lines.py",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_forked_lightning",
@@ -1024,7 +1025,7 @@
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.82x steeper than it, biggest single-rank jump 1.50x); overall size kept. tools/fix_rank_lines.py",
         "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ],
-      "cast_speed": "quick"
+      "cast_speed": "instant"
     },
     {
       "ability_id": "stormbringer_volt",
@@ -1070,7 +1071,7 @@
       },
       "icon_id": "stormbringer_volt",
       "damage_school": "nature",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_aeroblast",
@@ -1110,7 +1111,7 @@
       ],
       "icon_id": null,
       "damage_school": "nature",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_stormflow",
@@ -1154,7 +1155,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: every rank x2.91 - its total was 0.24x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_drown",
@@ -1196,7 +1197,7 @@
       ],
       "icon_id": null,
       "damage_school": "frost",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_summon_air_elemental",
@@ -1221,7 +1222,7 @@
       "requires_talent": true,
       "icon_id": null,
       "summon_pet_template": "air_elemental",
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
       ]
@@ -1248,7 +1249,7 @@
       ],
       "icon_id": null,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_torrential_wrath",
@@ -1306,7 +1307,7 @@
       ],
       "icon_id": null,
       "damage_school": "frost",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_deluge",
@@ -1352,7 +1353,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_storm_ascendance",
@@ -1386,7 +1387,7 @@
         }
       },
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_clear_skies",
@@ -1417,7 +1418,7 @@
       "_tuning": [
         "15 Nov 2026: + spell_hit_rating 1 - hit and spell hit are separate stats now, and this is 'all spells and attacks'"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "stormbringer_tailwind",

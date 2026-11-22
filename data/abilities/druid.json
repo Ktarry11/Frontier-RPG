@@ -87,7 +87,7 @@
       ],
       "icon_id": null,
       "damage_school": "nature",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "druid_moonfire",
@@ -156,7 +156,7 @@
       ],
       "icon_id": null,
       "_source": " || Duration 3 -> 4 turns, 6 Nov 2026. Kyle: 'we KNOW rejuv should not be the same duration as regrowth or wild growth etc.' He was right and ours were backwards - Rejuvenation ran 4 turns while Regrowth, the long-tail spell, was tied for SHORTEST at 3, and Wild Growth, the emergency AoE, matched the blanket. Bucket: tail - the dot you open with and leave running. The window is measured, not guessed: tools/sim_class_balance.py plus a boss-multiplier run put trash fights at 2-3 turns (p90 4-5) and boss fights at 5-6 (p90 8-10), so realised damage for a dot applied on turn 1 is 2t 100%, 3t 91%, 4t 78%, 5t 66%, 6t 57% on trash. WoW's RELATIVE ordering is preserved (Wild Growth < Rejuvenation < Regrowth) rather than its absolute seconds, which belong to a game with far longer fights. PER-TICK IS HELD AT THE SHIPPED VALUE and the total scales with duration, because effect_value is the TOTAL across the duration (abilities.py:2695) - moving duration alone would thin a fixed total instead of changing the spell's strength.",
-      "cast_speed": "quick",
+      "cast_speed": "instant",
       "_tuning": [
         "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)",
         "15 Nov 2026, class pass: every rank x0.65 - it sat at 2.47x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
@@ -238,7 +238,7 @@
         "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ],
       "formula_identity": 1.2,
-      "cast_speed": "quick"
+      "cast_speed": "instant"
     },
     {
       "ability_id": "druid_mark_of_the_wild",
@@ -311,7 +311,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "druid_mangle",
@@ -367,7 +367,7 @@
       ],
       "_design_note": "Mangles the target with savage claws. Requires Bear or Dire Bear Form - matches real WOTLK where Mangle literally cannot be cast without being shapeshifted. 2026-11-06: requires_talent set. Mangle IS a talent in the real 3.3.5a Feral tree (row 8), and druid_feral now carries the unlock node. It was form-gated to bear/dire_bear only, which is NOT a talent gate - without this flag the talent node would have unlocked an ability every druid already had, which is exactly the 'three talent points buying nothing' bug Kyle flagged for moonkin/tree_of_life/dire_bear earlier in the same session. The form gate is unchanged and still applies.",
       "requires_talent": true,
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "druid_entangling_roots",
@@ -403,7 +403,7 @@
       ],
       "icon_id": null,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "druid_starfire",
@@ -448,7 +448,7 @@
       ],
       "icon_id": null,
       "damage_school": "arcane",
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "15 Nov 2026: a slow cast (Kyle: \"Speed sets next turn\"), sized 1.5x for 1.15x the cost (tools/apply_cast_speeds.py)",
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.26x steeper than it, biggest single-rank jump 1.18x); overall size kept. tools/fix_rank_lines.py"
@@ -521,7 +521,7 @@
       ],
       "target_type": "ally",
       "icon_id": null,
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "15 Nov 2026, Kyle: \"long cast, lower cost, high heal vs lower heal, faster cast, higher cost... ensure that they have their places in combat. Like healing wave vs lesser healing wave\" - picked \"Speed sets next turn\" and \"Add the classic set\". Now a slow cast: 1.5x for 1.15x the cost.",
         "15 Nov 2026: a slow cast now (cast_speed), so its 2-turn cooldown went (it compensated for authored values ~1.3x the healer line) and its ranks sit on the slow-heal line, 1.5x a normal heal - like Healing Wave, Holy Light and Greater Heal. Resto measured 0.42 of the median healer keeping a tank up (tools/sim_heal_scenarios.py).",
@@ -573,7 +573,7 @@
         "15 Nov 2026, class pass: every rank x0.57 - it sat at 2.80x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "druid_swiftmend",
@@ -696,7 +696,7 @@
       "_over_time_lifted": [
         1.89
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "druid_starfall",
@@ -736,7 +736,7 @@
         "15 Nov 2026, deep dive: damage_school arcane - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it"
       ],
       "damage_school": "arcane",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "druid_typhoon",
@@ -760,7 +760,7 @@
       "icon_id": null,
       "damage_school": "nature",
       "_design_note": "Not learned from level alone - granted by the Typhoon talent in the Balance tree. A violent gust of wind blasts all enemies for Nature damage.",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "druid_berserk",
@@ -848,7 +848,7 @@
         "amount": 20
       },
       "_feral_rework": "15 Nov 2026: Cat Form had no combo points and hit ~40% as hard as a Rogue (Claw 73 vs Sinister Strike 125 at 56); the parity sim put Feral at 0.3x the median spec. Rebuilt on the Rogue's builder/finisher shape and numbers. Was ranks [(20, 40, 40), (30, 40, 49), (42, 40, 60), (56, 40, 73)], cooldown as before.",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "druid_rake",
@@ -896,7 +896,7 @@
         "amount": 20
       },
       "_feral_rework": "15 Nov 2026: Cat Form had no combo points and hit ~40% as hard as a Rogue (Claw 73 vs Sinister Strike 125 at 56); the parity sim put Feral at 0.3x the median spec. Rebuilt on the Rogue's builder/finisher shape and numbers. Was ranks [(22, 40, 44), (32, 40, 54), (44, 40, 66), (58, 40, 79)], cooldown as before.",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "druid_shred",
@@ -989,7 +989,7 @@
       "icon_id": null,
       "secondary_cost": 40,
       "_feral_rework": "15 Nov 2026: Cat Form had no combo points and hit ~40% as hard as a Rogue (Claw 73 vs Sinister Strike 125 at 56); the parity sim put Feral at 0.3x the median spec. Rebuilt on the Rogue's builder/finisher shape and numbers. Was ranks [(26, 35, 48), (36, 35, 58), (48, 35, 70), (58, 41, 82)], cooldown as before.",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "druid_ravage",
@@ -1054,26 +1054,26 @@
         {
           "rank": 1,
           "level_req": 26,
-          "cost": 45,
-          "effect_value": 46
+          "cost": 41,
+          "effect_value": 38
         },
         {
           "rank": 2,
           "level_req": 36,
-          "cost": 45,
-          "effect_value": 55
+          "cost": 41,
+          "effect_value": 45
         },
         {
           "rank": 3,
           "level_req": 48,
-          "cost": 45,
-          "effect_value": 67
+          "cost": 41,
+          "effect_value": 55
         },
         {
           "rank": 4,
           "level_req": 58,
-          "cost": 53,
-          "effect_value": 79
+          "cost": 49,
+          "effect_value": 65
         }
       ],
       "target_type": "enemy_aoe",
@@ -1084,7 +1084,10 @@
       ],
       "is_instant": true,
       "icon_id": null,
-      "cast_speed": "normal"
+      "cast_speed": "short",
+      "_tuning": [
+        "21 Nov 2026: a short cast for the turn timeline (tools/build_cast_speeds.py), sized 0.82x for 0.92x the cost"
+      ]
     },
     {
       "ability_id": "druid_maul",
@@ -1151,7 +1154,7 @@
       ],
       "is_instant": true,
       "icon_id": null,
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "druid_bash",
@@ -1192,44 +1195,44 @@
         {
           "rank": 1,
           "level_req": 12,
-          "cost": 63,
-          "effect_value": 119
+          "cost": 58,
+          "effect_value": 98
         },
         {
           "rank": 2,
           "level_req": 18,
-          "cost": 73,
-          "effect_value": 139
+          "cost": 67,
+          "effect_value": 114
         },
         {
           "rank": 3,
           "level_req": 24,
-          "cost": 85,
-          "effect_value": 160
+          "cost": 78,
+          "effect_value": 131
         },
         {
           "rank": 4,
           "level_req": 32,
-          "cost": 98,
-          "effect_value": 187
+          "cost": 90,
+          "effect_value": 153
         },
         {
           "rank": 5,
           "level_req": 40,
-          "cost": 113,
-          "effect_value": 215
+          "cost": 104,
+          "effect_value": 176
         },
         {
           "rank": 6,
           "level_req": 48,
-          "cost": 127,
-          "effect_value": 239
+          "cost": 117,
+          "effect_value": 196
         },
         {
           "rank": 7,
           "level_req": 56,
-          "cost": 141,
-          "effect_value": 267
+          "cost": 130,
+          "effect_value": 219
         }
       ],
       "target_type": "ally",
@@ -1237,9 +1240,10 @@
       "_source": "29 Oct 2026, Kyle: \"Resto druid is designed to be a hot Healer, we need to buff its hots.\" READ THE INSTRUMENT NOTE IN tools/sim_role_balance.py BEFORE RE-TUNING THIS. The 94-healing-a-turn figure that prompted the request was mostly a measurement fault: the healer sim re-cast the top-priority heal every turn at the same patient, and status_effects refreshes a same-effect_id application, so every HoT was wiped one turn after it landed and credited with a single tick - then divided by casts under a per-turn label. Measured properly the spec was on 182/turn, tenth of thirteen rather than last by 2.5x, and one of only four healers that never runs dry in a 40-turn window. So this is a modest lift into the middle of the field, not the 3x the broken number argued for. Rejuvenation 144 -> 230 (36 -> 57 a turn), Regrowth 117 -> 200 (39 -> 67). Costs follow at 1.42 heal/mana, anchored to priest_renew - the one HoT the game authors above the 1.25 heal/mana constant that Priest Heal, Shaman Healing Wave, Paladin Holy Light and every Sun Cleric, Venomancer, Starcaller, Primalist and Tinker heal sit on. Regrowth was the real defect: at 117 for 135 mana it was on 0.87, BELOW the constant, the only primary-healer heal in the game priced worse than the economy. Healing Touch (134) and Swiftmend left alone on purpose - the spec should stay weakest on burst and strongest on rolling HoTs, which is what makes it read as a different healer from Priest. Durations left at 4 and 3; worth noting they are the shortest HoTs in the field (Venomancer runs 10, 8 and 7, Primalist 8 and 6, Sun Cleric 6) but that is a separate design question. || Duration 3 -> 4 turns, 6 Nov 2026. Kyle: 'we KNOW rejuv should not be the same duration as regrowth or wild growth etc.' He was right and ours were backwards - Rejuvenation ran 4 turns while Regrowth, the long-tail spell, was tied for SHORTEST at 3, and Wild Growth, the emergency AoE, matched the blanket. Bucket: tail - a direct heal with a long weak trailing hot. The window is measured, not guessed: tools/sim_class_balance.py plus a boss-multiplier run put trash fights at 2-3 turns (p90 4-5) and boss fights at 5-6 (p90 8-10), so realised damage for a dot applied on turn 1 is 2t 100%, 3t 91%, 4t 78%, 5t 66%, 6t 57% on trash. WoW's RELATIVE ordering is preserved (Wild Growth < Rejuvenation < Regrowth) rather than its absolute seconds, which belong to a game with far longer fights. PER-TICK IS HELD AT THE SHIPPED VALUE and the total scales with duration, because effect_value is the TOTAL across the duration (abilities.py:2695) - moving duration alone would thin a fixed total instead of changing the spell's strength.",
       "formula_identity": 1.2,
       "_tuning": [
-        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 1.2 (combat/heal_formula.rank_size). Restoration's core heals are all on a one-turn cooldown and it sat a quarter under the others."
+        "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 1.2 (combat/heal_formula.rank_size). Restoration's core heals are all on a one-turn cooldown and it sat a quarter under the others.",
+        "21 Nov 2026: a short cast for the turn timeline (tools/build_cast_speeds.py), sized 0.82x for 0.92x the cost"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "short"
     },
     {
       "ability_id": "druid_thorns",
@@ -1307,7 +1311,7 @@
       "is_instant": true,
       "icon_id": null,
       "_design_note": "Real WOTLK Thorns makes enemies who melee the target take Nature damage. This engine has no reflect-damage-on-being-hit mechanic at all, so Thorns has always been an approximation. DEAD UNTIL 2026-10-29, in two ways at once: the stat_mod was {'physical_damage': 0.03}, and (a) 'physical_damage' is not a stat key anything in entities/ or combat/ reads, and (b) the buff branch int()s every non-_pct key, so 0.03 truncated to 0 - the buff landed carrying {'physical_damage': 0}. Two independent reasons for it to do nothing, which is why neither was noticed. Now damage_dealt_pct 3.0, a key the engine really reads (Ability._damage_multiplier) in PERCENT POINTS, so the +3% the old value was evidently reaching for actually applies. STILL AN APPROXIMATION: a real Thorns wants a reflect mechanic, which is Kyle's call and a bigger change than this.",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "druid_barkskin",
@@ -1437,7 +1441,7 @@
       ],
       "icon_id": null,
       "shapeshift_form": "bear",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "druid_cat_form",
@@ -1460,7 +1464,7 @@
       ],
       "icon_id": null,
       "shapeshift_form": "cat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "druid_moonkin_form",
@@ -1484,7 +1488,7 @@
       "icon_id": null,
       "shapeshift_form": "moonkin",
       "requires_talent": true,
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "druid_tree_of_life",
@@ -1508,7 +1512,7 @@
       "icon_id": null,
       "shapeshift_form": "tree_of_life",
       "requires_talent": true,
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "druid_dire_bear_form",
@@ -1532,7 +1536,7 @@
       "icon_id": null,
       "shapeshift_form": "dire_bear",
       "requires_talent": true,
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "druid_remove_curse",

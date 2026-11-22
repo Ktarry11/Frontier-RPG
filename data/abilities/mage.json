@@ -87,7 +87,7 @@
       ],
       "icon_id": null,
       "damage_school": "fire",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "mage_frostbolt",
@@ -102,61 +102,64 @@
         {
           "rank": 1,
           "level_req": 1,
-          "cost": 25,
-          "effect_value": 42
+          "cost": 23,
+          "effect_value": 34
         },
         {
           "rank": 2,
           "level_req": 6,
-          "cost": 32,
-          "effect_value": 53
+          "cost": 29,
+          "effect_value": 43
         },
         {
           "rank": 3,
           "level_req": 12,
-          "cost": 40,
-          "effect_value": 64
+          "cost": 37,
+          "effect_value": 52
         },
         {
           "rank": 4,
           "level_req": 18,
-          "cost": 48,
-          "effect_value": 74
+          "cost": 44,
+          "effect_value": 61
         },
         {
           "rank": 5,
           "level_req": 24,
-          "cost": 55,
-          "effect_value": 85
+          "cost": 51,
+          "effect_value": 70
         },
         {
           "rank": 6,
           "level_req": 32,
-          "cost": 62,
-          "effect_value": 96
+          "cost": 57,
+          "effect_value": 79
         },
         {
           "rank": 7,
           "level_req": 40,
-          "cost": 70,
-          "effect_value": 106
+          "cost": 64,
+          "effect_value": 87
         },
         {
           "rank": 8,
           "level_req": 48,
-          "cost": 78,
-          "effect_value": 117
+          "cost": 72,
+          "effect_value": 96
         },
         {
           "rank": 9,
           "level_req": 56,
-          "cost": 85,
-          "effect_value": 128
+          "cost": 78,
+          "effect_value": 105
         }
       ],
       "icon_id": null,
       "damage_school": "frost",
-      "cast_speed": "normal"
+      "cast_speed": "short",
+      "_tuning": [
+        "21 Nov 2026: a short cast for the turn timeline (tools/build_cast_speeds.py), sized 0.82x for 0.92x the cost"
+      ]
     },
     {
       "ability_id": "mage_arcane_missiles",
@@ -169,7 +172,7 @@
       "description": "Launches a volley of arcane missiles at the target, dealing Arcane damage. A slow cast.",
       "icon_id": null,
       "damage_school": "arcane",
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "ranks": [
         {
           "rank": 1,
@@ -268,7 +271,7 @@
       "icon_id": null,
       "target_type": "enemy_aoe",
       "damage_school": "arcane",
-      "cast_speed": "quick",
+      "cast_speed": "instant",
       "_tuning": [
         "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ]
@@ -313,7 +316,7 @@
       "icon_id": null,
       "target_type": "enemy_aoe",
       "damage_school": "fire",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "mage_blizzard",
@@ -355,7 +358,7 @@
       "icon_id": null,
       "target_type": "enemy_aoe",
       "damage_school": "frost",
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
       ]
@@ -418,7 +421,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "mage_arcane_intellect",
@@ -482,7 +485,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "mage_frost_nova",
@@ -524,7 +527,7 @@
       "damage_school": "frost",
       "is_stun": true,
       "_source": "FROST NOVA FREEZES (Kyle, 20 Nov 2026, chose 'Frost Nova freezes' for the mage's survival). It was a 3-turn slow (-20 haste) on a 3-turn cooldown and kept nothing off you. Now it hits one row for a little frost damage (about half an Arcane Explosion, like Classic) and freezes it: a frozen enemy loses its turns, the turn-based form of Classic's root that a melee mob can't reach you through. 2 turns on a 6-turn cooldown (Classic's 25 seconds); it's crowd control, so it costs the turn. Stuns diminish (combat/status_effects.py): a rare or a boss is frozen one turn and can't be frozen again for four. Breaking on damage has no hook, so it holds.",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "mage_pyroblast",
@@ -565,7 +568,7 @@
       "requires_talent": true,
       "damage_school": "fire",
       "_design_note": "Not learned from level alone - granted by the Pyroblast talent in the Fire tree, matching real WOTLK where this is talent-exclusive to Fire, not a baseline ability. A massive fiery boulder that deals devastating damage.",
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "15 Nov 2026: a slow cast (Kyle: \"Speed sets next turn\"), sized 1.5x for 1.15x the cost (tools/apply_cast_speeds.py)",
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.37x steeper than it, biggest single-rank jump 1.18x); overall size kept. tools/fix_rank_lines.py"
@@ -601,7 +604,7 @@
       "_design_note": "Not learned from level alone - granted by the Ice Barrier talent in the Frost tree, matching real WOTLK where this is talent-exclusive to Frost, not a baseline ability. Surrounds you with ice, absorbing incoming damage.",
       "absorb_pct_max_health": 0.18,
       "_source": "  ICE BARRIER DID NOT ABSORB ANYTHING. Its own description says 'surrounds you with ice, absorbing incoming damage' and it carried no absorb at all - just {\"armor\": 150, \"magic_resistance\": 60}, armour and resistance standing in for the mechanic. In Classic this spell is a pure absorb shield, and the engine has supported absorbs the whole time (StatusEffect.absorb soaks the RAW incoming amount before every other defensive stat, see Character.take_damage). 22 abilities across the CoA classes already use absorb_pct_max_health, a FRACTION of the recipient's max health, in a 0.06-0.40 band; 0.18 matches the cloth peers (Pyromancer's Inferno Barrier 0.16, Chronomancer's Infinite Shield 0.18, Bloodmage's Blood Veil 0.18). The armour/resistance stand-in is REMOVED rather than kept alongside, because keeping both would double-count the same defensive intent and leave Mage's barrier stronger than every peer's - a one-line revert if that trade is unwanted.",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "mage_presence_of_mind",
@@ -791,7 +794,7 @@
       "is_instant": true,
       "icon_id": null,
       "damage_school": "fire",
-      "cast_speed": "quick",
+      "cast_speed": "instant",
       "_tuning": [
         "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)"
       ]
@@ -840,7 +843,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: resistance runs 0-60 points here, 1.25% each, capped at 75% (Character.RESIST_MAX), and this buff's top rank gave 74 on its own (Kyle: \"lmao over 700 magic resistance\"). Now 18 at the top rank, about 22% reduction."
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "mage_mana_shield",
@@ -979,7 +982,7 @@
       "is_instant": true,
       "icon_id": "mage_ice_lance",
       "damage_school": "frost",
-      "cast_speed": "quick",
+      "cast_speed": "instant",
       "_tuning": [
         "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)",
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.31x steeper than it, biggest single-rank jump 1.19x); overall size kept. tools/fix_rank_lines.py"
@@ -1038,7 +1041,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "mage_frostfall",
@@ -1063,7 +1066,7 @@
       "requires_talent": true,
       "heal_scope": "party",
       "damage_school": "frost",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "mage_remove_curse",

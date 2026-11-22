@@ -97,7 +97,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.29x steeper than it, biggest single-rank jump 1.22x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "knight_of_xoroth_sever",
@@ -169,7 +169,7 @@
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.48x steeper than it, biggest single-rank jump 1.27x); overall size kept. tools/fix_rank_lines.py",
         "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ],
-      "cast_speed": "quick"
+      "cast_speed": "instant"
     },
     {
       "ability_id": "knight_of_xoroth_meatsaw",
@@ -232,7 +232,7 @@
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.50x steeper than it, biggest single-rank jump 1.27x); overall size kept. tools/fix_rank_lines.py",
         "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ],
-      "cast_speed": "quick"
+      "cast_speed": "instant"
     },
     {
       "ability_id": "knight_of_xoroth_skulltaker",
@@ -293,7 +293,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.64x steeper than it, biggest single-rank jump 1.29x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "knight_of_xoroth_melt",
@@ -351,7 +351,7 @@
         "15 Nov 2026, class pass: every rank x2.73 - its total was 0.26x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.55x steeper than it, biggest single-rank jump 1.29x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "knight_of_xoroth_flames_of_xoroth",
@@ -366,38 +366,38 @@
         {
           "rank": 1,
           "level_req": 16,
-          "cost": 30,
-          "effect_value": 55
+          "cost": 28,
+          "effect_value": 45
         },
         {
           "rank": 2,
           "level_req": 24,
-          "cost": 30,
-          "effect_value": 66
+          "cost": 28,
+          "effect_value": 54
         },
         {
           "rank": 3,
           "level_req": 32,
-          "cost": 30,
-          "effect_value": 76
+          "cost": 28,
+          "effect_value": 62
         },
         {
           "rank": 4,
           "level_req": 40,
-          "cost": 30,
-          "effect_value": 87
+          "cost": 28,
+          "effect_value": 71
         },
         {
           "rank": 5,
           "level_req": 48,
-          "cost": 30,
-          "effect_value": 97
+          "cost": 28,
+          "effect_value": 80
         },
         {
           "rank": 6,
           "level_req": 56,
-          "cost": 30,
-          "effect_value": 107
+          "cost": 28,
+          "effect_value": 88
         }
       ],
       "icon_id": null,
@@ -406,9 +406,10 @@
       "max_targets": 4,
       "damage_school": "fire",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.64x steeper than it, biggest single-rank jump 1.31x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.64x steeper than it, biggest single-rank jump 1.31x); overall size kept. tools/fix_rank_lines.py",
+        "21 Nov 2026: a short cast for the turn timeline (tools/build_cast_speeds.py), sized 0.82x for 0.92x the cost"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "short"
     },
     {
       "ability_id": "knight_of_xoroth_chains_of_malice",
@@ -458,7 +459,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.47x steeper than it, biggest single-rank jump 1.30x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "knight_of_xoroth_dread",
@@ -483,7 +484,7 @@
       "_source": "The class tree's Dread, which is the one node whose tooltip the scrape could not capture ('(see builder tooltip)'), so the MECHANIC here is Frontier's choice rather than CoA's: the kit otherwise has no taunt, and Defiance is a main tank. Implemented as a threat_generation_pct buff, the convention Guardian's Challenging Cry (200) and Cultist's Twilight Domain (180) already use - ability buff stat_mods are percent POINTS here, unlike talent effects, which are fractions.",
       "target_type": "self",
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "knight_of_xoroth_black_shield",
@@ -507,7 +508,7 @@
       "target_type": "self",
       "absorb_pct_max_health": 0.18,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "knight_of_xoroth_demon_heart",
@@ -556,7 +557,7 @@
         "resource": "deathfire",
         "amount": 20
       },
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "knight_of_xoroth_juggernaut",
@@ -581,7 +582,7 @@
       "_source": "CoA: 'Consume all of your Demon's Blood to become a juggernaut, reducing all damage taken by 30% for 10 seconds.' The tick-healing half and the Demon's Blood cost are not modellable; -25% for 3 turns on a 12-turn cooldown sits just under Warrior's Shield Wall (-40%, 2 turns) deliberately, since every spec gets this one.",
       "target_type": "self",
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "knight_of_xoroth_unleash_pestilence",
@@ -631,7 +632,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.81x steeper than it, biggest single-rank jump 1.39x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "knight_of_xoroth_pestilence_of_death",
@@ -657,7 +658,7 @@
       "_source": "CoA: 'Emanate a pestilence, increasing your critical damage by 10%.' No buff-sourced crit-DAMAGE key exists (crit_damage_physical is read off talents only), so it grants crit CHANCE instead. One Pestilence at a time, so the two share an exclusive_group.",
       "target_type": "self",
       "exclusive_group": "knight_of_xoroth_pestilence",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "knight_of_xoroth_pestilence_of_apocalypse",
@@ -682,7 +683,7 @@
       "_source": "CoA: 'causing targets within 8 yds to take 10% increased Fire damage from you'. The engine has no per-enemy aura; damage_dealt_pct on the Knight is the same arithmetic from the other side.",
       "target_type": "self",
       "exclusive_group": "knight_of_xoroth_pestilence",
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
       ]
@@ -752,7 +753,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.46x steeper than it, biggest single-rank jump 1.27x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "knight_of_xoroth_call_hellfire_imp",
@@ -779,7 +780,7 @@
         "resource": "rage",
         "amount": 20
       },
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
       ]
@@ -806,7 +807,7 @@
       "target_type": "self",
       "summon_pet_template": "hellfire_abyssal",
       "requires_talent": true,
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
       ]
@@ -865,7 +866,7 @@
         "15 Nov 2026, class pass: every rank x0.71 - it sat at 2.26x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.67x steeper than it, biggest single-rank jump 1.36x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "knight_of_xoroth_sacrificial_circle",
@@ -914,7 +915,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.31x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "knight_of_xoroth_curse_of_xoroth",
@@ -963,7 +964,7 @@
         "15 Nov 2026, class pass: every rank x2.36 - its total was 0.30x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.57x steeper than it, biggest single-rank jump 1.38x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "knight_of_xoroth_legions_presence",
@@ -988,7 +989,7 @@
       "_source": "CoA: 'Emanate an aura to allies within 25 yds for 15 seconds, increasing their damage dealt by 10%.' target_type party is what makes a buff land on allies; buff_scope only chooses between a 30-minute raid buff and a turn-based combat one.",
       "target_type": "party",
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "knight_of_xoroth_gore",
@@ -1054,7 +1055,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.51x steeper than it, biggest single-rank jump 1.28x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "knight_of_xoroth_warbringer",
@@ -1104,7 +1105,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.60x steeper than it, biggest single-rank jump 1.34x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "knight_of_xoroth_brimstone_bludgeon",
@@ -1149,7 +1150,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.48x steeper than it, biggest single-rank jump 1.18x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "knight_of_xoroth_burning_blade",
@@ -1196,7 +1197,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "knight_of_xoroth_searing_blade",
@@ -1246,7 +1247,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.71x steeper than it, biggest single-rank jump 1.36x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "knight_of_xoroth_seeking_flame",
@@ -1312,7 +1313,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.67x steeper than it, biggest single-rank jump 1.30x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "knight_of_xoroth_hellmaw",
@@ -1376,7 +1377,7 @@
       "_over_time_lifted": [
         1.76
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "knight_of_xoroth_hellfire_form",
@@ -1402,7 +1403,7 @@
       "_source": "CoA: 'Enter your Hellfire Form, increasing your Fire damage dealt by 20% and Fire critical strike chance by 15% for 15 seconds', 'the Metamorphosis-style transformation cooldown'. Not effect_type shapeshift: combat/forms.py is a shared file and has no Hellfire Form, so it is a buff. damage_dealt_pct is school-agnostic in this engine, so the Fire restriction is lost.",
       "target_type": "self",
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "knight_of_xoroth_hellstorm",
@@ -1447,7 +1448,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.49x steeper than it, biggest single-rank jump 1.19x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "knight_of_xoroth_hellfire_ward",
@@ -1498,7 +1499,7 @@
       "_tuning": [
         "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     }
   ]
 }

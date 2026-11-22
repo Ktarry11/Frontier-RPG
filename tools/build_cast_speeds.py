@@ -1,28 +1,34 @@
 #!/usr/bin/env python3
-"""The speed pass: every class's spells quick, normal or slow, sized for it, and checked.
+"""The speed pass: every class's spells instant, short, medium or long, sized for it, and checked.
 
     PYTHONPATH=. python3 tools/build_cast_speeds.py            # show what would change
     PYTHONPATH=. python3 tools/build_cast_speeds.py --apply    # write it into data/abilities
     PYTHONPATH=. python3 tools/build_cast_speeds.py --check    # the QA: fail if any class is missing a speed
 
 Kyle, 20 Nov 2026, for the turn timeline (docs/turn_timeline_design.md): hovering Earth Shock barely moves the shaman,
-Lesser Healing Wave lands him between the enemies, Greater Healing Wave pushes him to last. For that to mean something
-in every class, every kit needs quick, normal and slow spells. Only seven classes had any (tools/apply_cast_speeds.py,
-15 Nov, from Classic's cast times); this does the rest, and tags everything else "normal" so every castable ability
-says what it is.
+Lesser Healing Wave lands him between the enemies, Greater Healing Wave pushes him to last. And on 21 Nov: "we have
+instant, short, medium, long". So every castable ability in every class carries one of the four
+(combat/abilities.CAST_SPEEDS: 0.6, 0.8, 1.0 and 1.5 of a turn).
 
 THE RULE, the same for every class, with each class's own exceptions in OVERRIDES:
   - Free actions (instant with a cooldown of 2 or more) and the basic attack never use up the turn, so they're left
     as they are.
-  - SLOW: the big, deliberate casts. Names that say so (Greater, Aimed, Pyroblast, Tranquility, a summoning, a
+  - LONG: the big, deliberate casts. Names that say so (Greater, Aimed, Pyroblast, Tranquility, a summoning, a
     channel, a resurrection), then the class's biggest no-or-short-cooldown hit and its biggest heal.
-  - QUICK: the snap actions. Names that say so (Shock, Flash, Lesser, Jab, Lance, Throw, Sting), interrupts and
-    taunts, then the class's smallest hit and smallest heal.
-  - Every class ends with at least two quick and one slow, and no more than about a third quick or a fifth slow.
+  - INSTANT: the snap actions. Names that say so (Shock, Jab, Lance, Throw, Sting), interrupts and taunts, then the
+    class's smallest hit.
+  - SHORT: the quick casts that still take a moment. Names that say so (Flash, Lesser), the class's smallest direct
+    heal, and its next smallest hit.
+  - Every class ends with at least two instant, one short and one long.
 
-SIZING, the 15 Nov rule, so a speed never makes a spell better or worse per turn of time: a slow spell is 1.5x for
-1.15x the cost; a quick one 0.65x for 0.85x the cost. Only damage, healing and absorbs are sized; a slow summoning or
-a quick taunt just costs the time. Idempotent: anything already tagged is left alone.
+SIZING, so a speed never makes a spell better or worse per turn of time: long is 1.5x for 1.15x the cost, short
+0.82x for 0.92x, instant 0.65x for 0.85x. Only damage, healing and absorbs are sized; a long summoning or an instant
+taunt just costs the time. Idempotent: anything already tagged is left alone.
+
+The 21 Nov migration (run once, kept for the record): the three-speed tags became the four. Quick spells that are
+Classic's 1.5-second casts (the Flash heals, Lesser Healing Wave, Mind Blast, Searing Pain, and any direct heal) became
+short and were re-sized from the instant size to the short one; the rest became instant; normal became medium; slow
+became long.
 """
 import json
 import re
@@ -31,29 +37,40 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DIR = ROOT / "data" / "abilities"
-SIZE = {"slow": (1.5, 1.15), "quick": (0.65, 0.85)}
+SIZE = {"long": (1.5, 1.15), "short": (0.82, 0.92), "instant": (0.65, 0.85)}
+NAMES = ("instant", "short", "medium", "long")
+OLD = {"quick": "instant", "normal": "medium", "slow": "long"}
 SIZED_TYPES = {"damage", "spell_damage", "ranged_damage", "heal", "damage_and_heal", "dot", "spell_dot", "hot",
                "absorb", "shield"}
 HIT_TYPES = {"damage", "spell_damage", "ranged_damage", "damage_and_heal", "dot", "spell_dot"}
 HEAL_TYPES = {"heal", "hot"}
-SLOW_WORDS = re.compile(
+LONG_WORDS = re.compile(
     r"\b(greater|aimed|pyroblast|starfire|chaos bolt|soul fire|meteor|cataclysm|tranquility|rebirth|resurrect\w*|"
     r"revive|redemption|channel\w*|drain|blizzard|rain of|hurricane|requiem|apocalypse|armageddon|supernova|comet|"
     r"summon\w*|ritual|incantation|hymn|mass|grand|obliterat\w*|annihilat\w*)\b", re.I)
-QUICK_WORDS = re.compile(
-    r"\b(shock|flash|lesser|quick|swift|jab|lance|dart|flick|snap|spark|zap|sting|nip|kick|pummel|counter\w*|"
-    r"rebuke|interrupt|taunt|throw|toss|lunge|renew|shiv|prick)\b", re.I)
-SLOW_TYPES = {"revive", "summon_pet"}
+SHORT_WORDS = re.compile(r"\b(flash|lesser|mend|mind blast|searing pain)\b", re.I)
+INSTANT_WORDS = re.compile(
+    r"\b(shock|quick|swift|jab|lance|dart|flick|snap|spark|zap|sting|nip|kick|pummel|counter\w*|rebuke|interrupt|"
+    r"taunt|throw|toss|lunge|renew|shiv|prick)\b", re.I)
+LONG_TYPES = {"revive", "summon_pet"}
 
-#: per-class exceptions after reading the result: ability_id -> speed ("normal" to undo a rule's pick)
+#: per-class exceptions after reading the result: ability_id -> speed ("medium" to undo a rule's pick)
 OVERRIDES = {
-    # Chaos Bolt is the warlock's big slow cast, every summoning takes the time, and Drain Life is a channel
-    "warlock": {"warlock_shadowburn": "quick", "warlock_chaos_bolt": "slow", "warlock_summon_imp": "slow", "warlock_summon_voidwalker": "slow",
-                "warlock_summon_succubus": "slow", "warlock_summon_felhunter": "slow", "warlock_drain_life": "slow"},
-    # the heavy blow is the slow one, the finisher the quick one; a bleed is a normal swing
-    "warrior": {"warrior_rend": "normal", "warrior_mortal_strike": "slow", "warrior_execute": "quick"},
+    # Chaos Bolt is the warlock's big long cast, every summoning takes the time, and Drain Life is a channel
+    "warlock": {"warlock_shadowburn": "instant", "warlock_corruption": "instant", "warlock_shadow_bolt": "medium",
+                "warlock_chaos_bolt": "long", "warlock_summon_imp": "long",
+                "warlock_summon_voidwalker": "long", "warlock_summon_succubus": "long",
+                "warlock_summon_felhunter": "long", "warlock_drain_life": "long"},
+    # the heavy blow is the long one, the finisher the instant one; a bleed is a medium swing
+    "warrior": {"warrior_rend": "medium", "warrior_mortal_strike": "long", "warrior_execute": "instant"},
     # Ambush is the wind-up; Rupture is an ordinary finisher
-    "rogue": {"rogue_rupture": "normal", "rogue_ambush": "slow"},
+    "rogue": {"rogue_rupture": "medium", "rogue_ambush": "long"},
+    # Shadow Word: Pain goes on in an instant; Mind Sear is a channel
+    "priest": {"priest_shadow_word_pain": "instant", "priest_mind_sear": "long"},
+    # Regrowth is Classic's two-second heal; Swipe is a plain swing
+    "druid": {"druid_regrowth": "short", "druid_swipe": "medium"},
+    # raising the archers takes its time; the corpse going up is the quick one
+    "necromancer": {"necromancer_animate_skeletal_archers": "medium", "necromancer_corpse_explosion": "short"},
 }
 
 
@@ -67,55 +84,7 @@ def top(e):
     return (e.get("ranks") or [{}])[-1]
 
 
-def picks_for(cls, abilities):
-    """{ability_id: speed} for this class's untagged castable abilities."""
-    pool = [e for e in abilities if castable(e)]
-    out = {e["ability_id"]: e["cast_speed"] for e in pool if e.get("cast_speed")}
-    free = [e for e in pool if not e.get("cast_speed")]
-    n = len(pool)
-    cap_q, cap_s = max(2, round(n * 0.33)), max(1, round(n * 0.2))
-    count = lambda sp: sum(1 for v in out.values() if v == sp)  # noqa: E731
-
-    def take(e, sp):
-        if e["ability_id"] not in out and count(sp) < (cap_q if sp == "quick" else cap_s):
-            out[e["ability_id"]] = sp
-
-    # words and kinds first (small things first for quick, big things first for slow, so a cap keeps the right ones)
-    by_val = sorted(free, key=lambda e: top(e).get("effect_value") or 0)
-    for e in reversed(by_val):
-        if SLOW_WORDS.search(e["name"]) or e.get("effect_type") in SLOW_TYPES:
-            take(e, "slow")
-    for e in by_val:
-        if QUICK_WORDS.search(e["name"]) or e.get("taunt") or e.get("interrupt") or e.get("interrupts"):
-            take(e, "quick")
-    # then the class's own extremes: biggest and smallest repeatable hit and heal
-    short = [e for e in free if (e.get("cooldown") or 0) <= 3 and e["ability_id"] not in out
-             and (top(e).get("effect_value") or 0) > 0]
-    hits = sorted([e for e in short if e.get("effect_type") in HIT_TYPES], key=lambda e: top(e)["effect_value"])
-    heals = sorted([e for e in short if e.get("effect_type") in HEAL_TYPES], key=lambda e: top(e)["effect_value"])
-    if len(heals) >= 2 and not any(out.get(e["ability_id"]) == "slow" for e in abilities
-                                    if e.get("effect_type") in HEAL_TYPES):
-        take(heals[-1], "slow")
-    if len(heals) >= 2 and not any(out.get(e["ability_id"]) == "quick" for e in abilities
-                                    if e.get("effect_type") in HEAL_TYPES):
-        take(heals[0], "quick")
-    for e in reversed(hits):
-        if count("slow") >= 1 or len(hits) < 2:
-            break
-        take(e, "slow")
-    for e in hits:
-        if count("quick") >= 2:
-            break
-        if out.get(e["ability_id"]) is None:
-            take(e, "quick")
-    for e in pool:
-        out.setdefault(e["ability_id"], "normal")
-    out.update({k: v for k, v in OVERRIDES.get(cls, {}).items() if k in out})
-    return out
-
-
-def size(e, speed):
-    mult, cmult = SIZE[speed]
+def resize(e, mult, cmult):
     if e.get("effect_type") not in SIZED_TYPES:
         return False
     for r in e.get("ranks", []):
@@ -126,24 +95,96 @@ def size(e, speed):
     return True
 
 
+def migrate(e):
+    """The 21 Nov three-to-four step for one ability. Returns a note, or None if nothing changed."""
+    old = e.get("cast_speed")
+    if old not in OLD:
+        return None
+    new = OLD[old]
+    if old == "quick" and (SHORT_WORDS.search(e["name"]) or e.get("effect_type") == "heal"):
+        new = "short"
+        (im, ic), (sm, sc) = SIZE["instant"], SIZE["short"]
+        resize(e, sm / im, sc / ic)
+        e.setdefault("_tuning", []).append(
+            "21 Nov 2026: a short cast (Kyle: \"we have instant, short, medium, long\"), re-sized from the quick size "
+            "to the short one (tools/build_cast_speeds.py)")
+    e["cast_speed"] = new
+    return f"{old} -> {new}"
+
+
+def picks_for(cls, abilities):
+    """{ability_id: speed} for this class's castable abilities that have none yet, plus a short one if it lacks it."""
+    pool = [e for e in abilities if castable(e)]
+    out = {e["ability_id"]: e["cast_speed"] for e in pool if e.get("cast_speed")}
+    free = [e for e in pool if not e.get("cast_speed")]
+    n = len(pool)
+    caps = {"instant": max(2, round(n * 0.3)), "short": max(1, round(n * 0.15)), "long": max(1, round(n * 0.2))}
+    count = lambda sp: sum(1 for v in out.values() if v == sp)  # noqa: E731
+
+    def take(e, sp, over_medium=False):
+        cur = out.get(e["ability_id"])
+        if (cur is None or (over_medium and cur == "medium")) and count(sp) < caps[sp]:
+            out[e["ability_id"]] = sp
+
+    by_val = sorted(free, key=lambda e: top(e).get("effect_value") or 0)
+    for e in reversed(by_val):
+        if LONG_WORDS.search(e["name"]) or e.get("effect_type") in LONG_TYPES:
+            take(e, "long")
+    for e in by_val:
+        if e["ability_id"] in out:
+            continue
+        if SHORT_WORDS.search(e["name"]):
+            take(e, "short")
+        elif INSTANT_WORDS.search(e["name"]) or e.get("taunt") or e.get("interrupt") or e.get("interrupts"):
+            take(e, "instant")
+    # the class's own extremes, from what's still plain
+    plain = [e for e in pool if out.get(e["ability_id"]) in (None, "medium") and (e.get("cooldown") or 0) <= 3
+             and (top(e).get("effect_value") or 0) > 0 and not e["ability_id"].endswith("_attack")]
+    hits = sorted([e for e in plain if e.get("effect_type") in HIT_TYPES], key=lambda e: top(e)["effect_value"])
+    heals = sorted([e for e in plain if e.get("effect_type") in HEAL_TYPES], key=lambda e: top(e)["effect_value"])
+    if len(heals) >= 2 and count("long") < 1:
+        take(heals[-1], "long")
+    for e in reversed(hits):
+        if count("long") >= 1 or len(hits) < 2:
+            break
+        take(e, "long")
+    for e in hits:
+        if count("instant") >= 2:
+            break
+        take(e, "instant", over_medium=True)
+    if count("short") < 1:
+        direct = [e for e in heals if e.get("effect_type") == "heal" and out.get(e["ability_id"]) in (None, "medium")]
+        rest = [e for e in hits if out.get(e["ability_id"]) in (None, "medium")]
+        for e in direct[:1] + rest[:1]:
+            if count("short") >= 1:
+                break
+            take(e, "short", over_medium=True)
+    for e in pool:
+        out.setdefault(e["ability_id"], "medium")
+    out.update({k: v for k, v in OVERRIDES.get(cls, {}).items() if k in out})
+    return out
+
+
+def classes():
+    for path in sorted(DIR.glob("*.json")):
+        if path.stem.startswith("_") or path.stem == "asher_unique":
+            continue
+        yield path
+
+
 def check():
     problems = []
-    for path in sorted(DIR.glob("*.json")):
+    for path in classes():
         cls = path.stem
-        if cls.startswith("_") or cls == "asher_unique":
-            continue
-        abilities = json.loads(path.read_text(encoding="utf-8"))["abilities"]
-        pool = [e for e in abilities if castable(e)]
-        untagged = [e["ability_id"] for e in pool if not e.get("cast_speed")]
-        if untagged:
-            problems.append(f"{cls}: {len(untagged)} castable abilities have no speed (e.g. {untagged[0]})")
+        pool = [e for e in json.loads(path.read_text(encoding="utf-8"))["abilities"] if castable(e)]
+        bad = [e["ability_id"] for e in pool if e.get("cast_speed") not in NAMES]
+        if bad:
+            problems.append(f"{cls}: {len(bad)} castable abilities have no speed of the four (e.g. {bad[0]})")
         speeds = [e.get("cast_speed") for e in pool]
-        if speeds.count("quick") < 2 or speeds.count("slow") < 1:
-            problems.append(f"{cls}: {speeds.count('quick')} quick and {speeds.count('slow')} slow "
-                            f"(needs at least 2 and 1)")
-        for e in pool:
-            if e.get("cast_speed") not in (None, "quick", "normal", "slow"):
-                problems.append(f"{cls}: {e['ability_id']} has speed {e.get('cast_speed')!r}")
+        need = {"instant": 2, "short": 1, "long": 1}
+        short_of = [f"{speeds.count(k)} {k}" for k, v in need.items() if speeds.count(k) < v]
+        if short_of:
+            problems.append(f"{cls}: only {', '.join(short_of)} (needs 2 instant, 1 short, 1 long)")
     for p in problems:
         print("  -", p)
     print(f"cast speeds: {'OK' if not problems else str(len(problems)) + ' problems'}")
@@ -154,36 +195,39 @@ def main():
     if "--check" in sys.argv:
         return check()
     apply = "--apply" in sys.argv
-    totals = {"quick": 0, "normal": 0, "slow": 0}
-    for path in sorted(DIR.glob("*.json")):
+    totals = {k: 0 for k in NAMES}
+    migrated = 0
+    for path in classes():
         cls = path.stem
-        if cls.startswith("_") or cls == "asher_unique":
-            continue
         doc = json.loads(path.read_text(encoding="utf-8"))
+        for e in doc["abilities"]:
+            if migrate(e):
+                migrated += 1
         picks = picks_for(cls, doc["abilities"])
-        shown = {"quick": [], "slow": []}
+        shown = {"instant": [], "short": [], "long": []}
         for e in doc["abilities"]:
             sp = picks.get(e["ability_id"])
-            # an override can still turn a plain "normal" into quick or slow on a later run; nothing else is re-tagged
-            retag = e.get("cast_speed") == "normal" and OVERRIDES.get(cls, {}).get(e["ability_id"]) in SIZE
-            if not sp or (e.get("cast_speed") and not retag):
+            cur = e.get("cast_speed")
+            # an existing tag only moves from medium: to short or instant when the class is missing one, or by an override
+            moves = cur == "medium" and (sp in ("short", "instant")
+                                         or OVERRIDES.get(cls, {}).get(e["ability_id"]) == sp)
+            if not sp or sp == cur or (cur and not moves):
                 continue
-            if retag:
-                totals["normal"] -= 1
             e["cast_speed"] = sp
             totals[sp] += 1
-            if sp != "normal":
-                sized = size(e, sp)
+            if sp in SIZE:
                 mult, cmult = SIZE[sp]
+                sized = resize(e, mult, cmult)
                 e.setdefault("_tuning", []).append(
                     f"21 Nov 2026: a {sp} cast for the turn timeline (tools/build_cast_speeds.py)"
                     + (f", sized {mult}x for {cmult}x the cost" if sized else ""))
                 shown[sp].append(e["name"])
-        print(f"{cls:16} quick: {', '.join(shown['quick']) or '-'}")
-        print(f"{'':16} slow:  {', '.join(shown['slow']) or '-'}")
+        if any(shown.values()):
+            print(f"{cls:16} " + "  ".join(f"{k}: {', '.join(v)}" for k, v in shown.items() if v))
         if apply:
             path.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"{totals} {'written' if apply else 'would be written'}")
+    print(f"{migrated} migrated from three speeds to four; new picks {totals} "
+          f"{'written' if apply else 'would be written'}")
     return 0
 
 

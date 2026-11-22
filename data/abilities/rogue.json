@@ -91,7 +91,7 @@
         "amount": 20
       },
       "_source": "Combo-point GENERATOR, wired 5 Nov 2026 when the Rogue gained combo points (Kyle's call). Grants 20 of the 0-100 combo pool - one combo point on the same scale Templar already uses. the baseline builder.",
-      "cast_speed": "quick",
+      "cast_speed": "instant",
       "_tuning": [
         "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ]
@@ -152,7 +152,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: a top rank at 60 added - its last rank came at 53, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "rogue_eviscerate",
@@ -207,7 +207,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 51, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "rogue_rupture",
@@ -259,7 +259,7 @@
         "15 Nov 2026, class pass: every rank x2.45 - its total was 0.29x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.57x steeper than it, biggest single-rank jump 1.30x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "rogue_evasion",
@@ -299,7 +299,7 @@
       "requires_talent": false,
       "_design_note": "Not learned from level alone - granted by the Evasion talent in the Combat tree, matching real WOTLK where this is talent-exclusive, not baseline. The rogue's dodge chance will increase for a short time.",
       "_source": "UNGATED 5 Nov 2026. It was requires_talent, and its only unlock node was a node in rogue_combat whose talent_id was rogue_combat_RIPOSTE while its display name read 'Evasion' - a leftover from an earlier pass. The Combat rebuild gave Riposte its own correctly-named node (Riposte IS a real 3.3.5a Combat talent at row 2), which left Evasion with nothing unlocking it. Ungating is the faithful fix rather than inventing an Evasion talent: in real WoW Evasion is a baseline rogue ability learned from a trainer at level 8, and it appears nowhere in any of the three 3.3.5a talent trees.",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "rogue_expose_armor",
@@ -351,7 +351,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "rogue_adrenaline_rush",
@@ -399,7 +399,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "rogue_mutilate",
@@ -451,7 +451,7 @@
         "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ],
       "strikes_both_weapons": true,
-      "cast_speed": "quick"
+      "cast_speed": "instant"
     },
     {
       "ability_id": "rogue_cold_blood",
@@ -492,26 +492,26 @@
         {
           "rank": 1,
           "level_req": 20,
-          "cost": 35,
-          "effect_value": 70
+          "cost": 32,
+          "effect_value": 57
         },
         {
           "rank": 2,
           "level_req": 30,
-          "cost": 35,
-          "effect_value": 86
+          "cost": 32,
+          "effect_value": 71
         },
         {
           "rank": 3,
           "level_req": 42,
-          "cost": 35,
-          "effect_value": 106
+          "cost": 32,
+          "effect_value": 87
         },
         {
           "rank": 4,
           "level_req": 56,
-          "cost": 35,
-          "effect_value": 129
+          "cost": 32,
+          "effect_value": 106
         }
       ],
       "requires_talent": true,
@@ -528,9 +528,10 @@
         1.59
       ],
       "_tuning": [
-        "15 Nov 2026, class pass: every rank x1.59 - its total was 0.50x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+        "15 Nov 2026, class pass: every rank x1.59 - its total was 0.50x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
+        "21 Nov 2026: a short cast for the turn timeline (tools/build_cast_speeds.py), sized 0.82x for 0.92x the cost"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "short"
     },
     {
       "ability_id": "rogue_shadow_dance",
@@ -790,7 +791,7 @@
       "_over_time_lifted": [
         1.37
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "rogue_cheap_shot",
@@ -863,7 +864,7 @@
       "_over_time_lifted": [
         1.82
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "rogue_ambush",
@@ -910,7 +911,7 @@
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.25x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py",
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
       ],
-      "cast_speed": "slow"
+      "cast_speed": "long"
     },
     {
       "ability_id": "rogue_crippling_poison",
@@ -1091,7 +1092,7 @@
       "damage_school": "nature",
       "secondary_cost": 20,
       "_source": "Combo-point FINISHER, wired 5 Nov 2026: secondary_cost 20 means it spends 1 combo point(s) ON TOP OF its Energy cost, via the new Ability.secondary_cost. poison finisher, usable at 1 point. Cost set from measured fight length (2-3 turns trash, 5-6 boss), not from real WoW's 5-point finishers, which would never fire here. Damage does NOT scale with points spent - no engine mechanism reads a live resource amount.",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "rogue_fan_of_knives",
@@ -1127,7 +1128,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.41x steeper than it, biggest single-rank jump 1.20x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "rogue_preparation",
@@ -1227,7 +1228,7 @@
       "_tuning": [
         "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     }
   ]
 }

@@ -35,50 +35,50 @@
         {
           "rank": 1,
           "level_req": 1,
-          "cost": 23,
-          "effect_value": 49
+          "cost": 20,
+          "effect_value": 32
         },
         {
           "rank": 2,
           "level_req": 6,
-          "cost": 30,
-          "effect_value": 58
+          "cost": 26,
+          "effect_value": 38
         },
         {
           "rank": 3,
           "level_req": 12,
-          "cost": 36,
-          "effect_value": 68
+          "cost": 31,
+          "effect_value": 44
         },
         {
           "rank": 4,
           "level_req": 20,
-          "cost": 43,
-          "effect_value": 82
+          "cost": 37,
+          "effect_value": 53
         },
         {
           "rank": 5,
           "level_req": 28,
-          "cost": 50,
-          "effect_value": 97
+          "cost": 42,
+          "effect_value": 63
         },
         {
           "rank": 6,
           "level_req": 36,
-          "cost": 56,
-          "effect_value": 111
+          "cost": 48,
+          "effect_value": 72
         },
         {
           "rank": 7,
           "level_req": 44,
-          "cost": 63,
-          "effect_value": 125
+          "cost": 54,
+          "effect_value": 81
         },
         {
           "rank": 8,
           "level_req": 54,
-          "cost": 69,
-          "effect_value": 143
+          "cost": 59,
+          "effect_value": 93
         }
       ],
       "icon_id": null,
@@ -86,9 +86,10 @@
       "scales_with_target_stacks_of": "tinker_napalm",
       "damage_per_stack_pct": 0.02,
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.29x steeper than it, biggest single-rank jump 1.24x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.29x steeper than it, biggest single-rank jump 1.24x); overall size kept. tools/fix_rank_lines.py",
+        "21 Nov 2026: a instant cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "instant"
     },
     {
       "ability_id": "tinker_build_sentry_turret",
@@ -113,7 +114,7 @@
       "target_type": "self",
       "_implementation_note": "Was effect_type=\"summon\", which the ability engine never branches on - only \"summon_pet\", and only with a summon_pet_template. This ability spent its mana and summoned nothing. Fixed 2026-10-28 alongside the four new constructs in combat/pet_templates.py.",
       "additional_pet": true,
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
       ]
@@ -182,7 +183,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.28x steeper than it, biggest single-rank jump 1.23x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "tinker_repair_shot",
@@ -256,7 +257,7 @@
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py",
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
       ],
-      "cast_speed": "slow"
+      "cast_speed": "long"
     },
     {
       "ability_id": "tinker_sticky_bomb",
@@ -306,7 +307,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: every rank x0.64 - it sat at 2.50x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "tinker_defibrillate",
@@ -340,7 +341,7 @@
         }
       ],
       "icon_id": null,
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
       ]
@@ -366,7 +367,7 @@
       "icon_id": null,
       "is_stun": true,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "tinker_piercing_augmentation",
@@ -393,7 +394,7 @@
       "icon_id": null,
       "buff_scope": "raid",
       "exclusive_group": "tinker_round",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "tinker_bomb_toss",
@@ -444,7 +445,7 @@
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.51x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py",
         "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ],
-      "cast_speed": "quick"
+      "cast_speed": "instant"
     },
     {
       "ability_id": "tinker_rocket_launcher",
@@ -494,7 +495,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 2.19x steeper than it, biggest single-rank jump 1.52x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "tinker_magic_augmentation",
@@ -562,7 +563,7 @@
       "icon_id": null,
       "buff_scope": "raid",
       "exclusive_group": "tinker_round",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "tinker_build_shield_beacon",
@@ -624,7 +625,7 @@
       "icon_id": null,
       "exclusive_group": "tinker_beacon",
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "tinker_mana_module",
@@ -677,7 +678,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "tinker_nanobot_reconstruction",
@@ -742,7 +743,7 @@
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.64x steeper than it, biggest single-rank jump 1.19x); overall size kept. tools/fix_rank_lines.py",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "tinker_emergency_heal",
@@ -797,7 +798,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.99x steeper than it, biggest single-rank jump 1.31x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "tinker_aether_augmentation",
@@ -824,7 +825,7 @@
       "icon_id": null,
       "buff_scope": "raid",
       "exclusive_group": "tinker_round",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "tinker_med_pack",
@@ -880,7 +881,7 @@
         "15 Nov 2026, class pass: every rank x1.83 - its total was 0.38x what a hot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.36x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "tinker_stim_rounds",
@@ -917,7 +918,7 @@
           "max_targets": 2
         }
       },
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "tinker_nanobot_swarm",
@@ -959,7 +960,7 @@
           "school": "magic"
         }
       },
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "tinker_zap",
@@ -977,35 +978,36 @@
         {
           "rank": 1,
           "level_req": 38,
-          "cost": 76,
-          "effect_value": 72
+          "cost": 82,
+          "effect_value": 91
         },
         {
           "rank": 2,
           "level_req": 45,
-          "cost": 86,
-          "effect_value": 82
+          "cost": 93,
+          "effect_value": 103
         },
         {
           "rank": 3,
           "level_req": 52,
-          "cost": 96,
-          "effect_value": 92
+          "cost": 104,
+          "effect_value": 116
         },
         {
           "rank": 4,
           "level_req": 58,
-          "cost": 104,
-          "effect_value": 99
+          "cost": 113,
+          "effect_value": 125
         }
       ],
       "icon_id": null,
       "_tuning": [
         "15 Nov 2026: ranks 111/222/332 -> 111/126/141. A spammable heal that doubled and tripled in 14 levels (every other Tinker heal steps ~10% a rank); at 52 it healed 2.2x a main heal per cast and Invention measured 3.7x the median healer at 60.",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py",
-        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost",
+        "21 Nov 2026: a short cast (Kyle: \"we have instant, short, medium, long\"), re-sized from the quick size to the short one (tools/build_cast_speeds.py)"
       ],
-      "cast_speed": "quick"
+      "cast_speed": "short"
     },
     {
       "ability_id": "tinker_my_greatest_invention",
@@ -1105,7 +1107,7 @@
       "icon_id": null,
       "exclusive_group": "tinker_module",
       "buff_scope": "raid",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "tinker_build_mechano_bear",
@@ -1129,7 +1131,7 @@
       "summon_pet_template": "mechano_bear",
       "target_type": "self",
       "_implementation_note": "Was effect_type=\"summon\", which the ability engine never branches on - only \"summon_pet\", and only with a summon_pet_template. This ability spent its mana and summoned nothing. Fixed 2026-10-28 alongside the four new constructs in combat/pet_templates.py.",
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
       ]
@@ -1186,7 +1188,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.51x steeper than it, biggest single-rank jump 1.16x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "tinker_mechsuit_laser_beam",
@@ -1241,7 +1243,7 @@
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.50x steeper than it, biggest single-rank jump 1.17x); overall size kept. tools/fix_rank_lines.py",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "tinker_mechsuit_combustion",
@@ -1297,7 +1299,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 2.22x steeper than it, biggest single-rank jump 1.50x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "tinker_build_rusthound",
@@ -1321,7 +1323,7 @@
       "summon_pet_template": "rusthound",
       "target_type": "self",
       "_implementation_note": "Was effect_type=\"summon\", which the ability engine never branches on - only \"summon_pet\", and only with a summon_pet_template. This ability spent its mana and summoned nothing. Fixed 2026-10-28 alongside the four new constructs in combat/pet_templates.py.",
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
       ]
@@ -1349,7 +1351,7 @@
       ],
       "icon_id": null,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "tinker_arcane_bionics",
@@ -1375,7 +1377,7 @@
       ],
       "icon_id": null,
       "buff_scope": "raid",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "tinker_mechsuit_form",
@@ -1425,7 +1427,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "tinker_healing_radiator",
@@ -1491,7 +1493,7 @@
       ],
       "icon_id": null,
       "exclusive_group": "tinker_beacon",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "tinker_nanobot_cleanser",
@@ -1518,7 +1520,7 @@
         "poison",
         "disease"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "tinker_battery_reclaimer",
@@ -1543,7 +1545,7 @@
         }
       ],
       "icon_id": null,
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "tinker_build_ziggi_6k",
@@ -1568,7 +1570,7 @@
         }
       ],
       "icon_id": null,
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
       ]
@@ -1623,7 +1625,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 2.37x steeper than it, biggest single-rank jump 1.58x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "tinker_hyperblast_barrage",
@@ -1663,7 +1665,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: every rank x0.70 - it sat at 2.29x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     }
   ]
 }

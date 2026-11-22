@@ -87,7 +87,7 @@
       ],
       "icon_id": null,
       "damage_school": "nature",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "shaman_earth_shock",
@@ -138,7 +138,7 @@
       ],
       "icon_id": null,
       "damage_school": "nature",
-      "cast_speed": "quick",
+      "cast_speed": "instant",
       "_tuning": [
         "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)",
         "15 Nov 2026, class pass: a top rank at 60 added - its last rank came at 53, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
@@ -187,7 +187,7 @@
       ],
       "icon_id": null,
       "damage_school": "fire",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "shaman_flame_shock",
@@ -244,7 +244,7 @@
       ],
       "icon_id": null,
       "_level_note": "Rank 1 moved from level 10 to 6, 29 Oct 2026. Kyle's call on the early-game finding: the class was soft at levels 5-20 and fine from 30, and the cause was how FEW damage buttons it had early rather than how hard they hit. Values unchanged at every rank, so nothing moves at 60.",
-      "cast_speed": "quick",
+      "cast_speed": "instant",
       "_tuning": [
         "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)",
         "15 Nov 2026, deep dive: damage_school fire - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it"
@@ -318,7 +318,7 @@
       ],
       "target_type": "ally",
       "icon_id": null,
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "15 Nov 2026, Kyle: \"long cast, lower cost, high heal vs lower heal, faster cast, higher cost... ensure that they have their places in combat. Like healing wave vs lesser healing wave\" - picked \"Speed sets next turn\" and \"Add the classic set\". Now a slow cast: 1.5x for 1.15x the cost.",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 51, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
@@ -337,44 +337,47 @@
         {
           "rank": 1,
           "level_req": 20,
-          "cost": 66,
-          "effect_value": 59
+          "cost": 71,
+          "effect_value": 74
         },
         {
           "rank": 2,
           "level_req": 28,
-          "cost": 79,
-          "effect_value": 70
+          "cost": 86,
+          "effect_value": 88
         },
         {
           "rank": 3,
           "level_req": 36,
-          "cost": 92,
-          "effect_value": 80
+          "cost": 100,
+          "effect_value": 101
         },
         {
           "rank": 4,
           "level_req": 44,
-          "cost": 106,
-          "effect_value": 90
+          "cost": 115,
+          "effect_value": 114
         },
         {
           "rank": 5,
           "level_req": 52,
-          "cost": 119,
-          "effect_value": 100
+          "cost": 129,
+          "effect_value": 126
         },
         {
           "rank": 6,
           "level_req": 58,
-          "cost": 129,
-          "effect_value": 108
+          "cost": 140,
+          "effect_value": 136
         }
       ],
       "target_type": "ally",
       "icon_id": null,
-      "cast_speed": "quick",
-      "_design_note": "15 Nov 2026, Kyle: \"long cast, lower cost, high heal vs lower heal, faster cast, higher cost... ensure that they have their places in combat. Like healing wave vs lesser healing wave\" - picked \"Speed sets next turn\" and \"Add the classic set\". quick cast: 0.65x a normal heal for 0.85x its cost."
+      "cast_speed": "short",
+      "_design_note": "15 Nov 2026, Kyle: \"long cast, lower cost, high heal vs lower heal, faster cast, higher cost... ensure that they have their places in combat. Like healing wave vs lesser healing wave\" - picked \"Speed sets next turn\" and \"Add the classic set\". quick cast: 0.65x a normal heal for 0.85x its cost.",
+      "_tuning": [
+        "21 Nov 2026: a short cast (Kyle: \"we have instant, short, medium, long\"), re-sized from the quick size to the short one (tools/build_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "shaman_chain_heal",
@@ -413,7 +416,7 @@
       ],
       "target_type": "party",
       "icon_id": null,
-      "cast_speed": "normal",
+      "cast_speed": "medium",
       "_design_note": "15 Nov 2026, Kyle: \"long cast, lower cost, high heal vs lower heal, faster cast, higher cost... ensure that they have their places in combat. Like healing wave vs lesser healing wave\" - picked \"Speed sets next turn\" and \"Add the classic set\". normal cast: 0.6x a normal heal for 1.1x its cost.",
       "max_recipients": 3
     },
@@ -473,7 +476,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "shaman_frost_shock",
@@ -521,7 +524,7 @@
       ],
       "icon_id": null,
       "buff_scope": "combat",
-      "cast_speed": "quick",
+      "cast_speed": "instant",
       "_tuning": [
         "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)",
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
@@ -568,7 +571,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.23x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "shaman_stormstrike",
@@ -657,7 +660,7 @@
       "icon_id": null,
       "damage_school": "nature",
       "_design_note": "Not learned from level alone - granted by the Thunderstorm talent in the Elemental tree. Calls down lightning, damaging all nearby enemies and restoring some of your Mana.",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "shaman_feral_spirit",
@@ -760,7 +763,7 @@
         "15 Nov 2026, class pass: every rank x0.71 - it sat at 2.24x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "shaman_mana_tide_totem",
@@ -851,7 +854,7 @@
       },
       "_design_note": "Not learned from level alone - granted by the Earth Shield talent in the Restoration tree. Real proc: heals the target for a flat amount whenever they take damage. Simplification note: real WOTLK Earth Shield has 6 CHARGES (consumed one per heal, expires when depleted) rather than a duration or ICD - this engine's proc schema doesn't have a charge-count concept yet, so this is approximated as an ICD-gated proc with an effectively permanent duration instead. A real charge system would be a genuinely separate feature.",
       "buff_scope": "raid",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "shaman_cleanse_spirit",
@@ -875,7 +878,7 @@
       "dispel_type": "curse",
       "icon_id": null,
       "_design_note": "Not learned from level alone - granted by the Cleanse Spirit talent in the Restoration tree. Removes one Curse effect from the target.",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "shaman_strength_of_earth_totem",
@@ -952,7 +955,7 @@
       "_design_note": "Earth totem. Increases Strength and Agility for your party. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this instantly buffs the whole party instead.",
       "exclusive_group": "shaman_totem_earth",
       "_source": "Element slot 'earth' added 6 Nov 2026 as exclusive_group 'shaman_totem_earth', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks.",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "shaman_searing_totem",
@@ -1065,7 +1068,7 @@
       "_tuning": [
         "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "shaman_windfury_totem",
@@ -1117,7 +1120,7 @@
       },
       "exclusive_group": "shaman_totem_air",
       "_source": "Element slot 'air' added 6 Nov 2026 as exclusive_group 'shaman_totem_air', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks.",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "shaman_call_of_ancestors",
@@ -1215,7 +1218,7 @@
         "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)",
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "shaman_rockbiter_weapon",
@@ -1323,7 +1326,7 @@
       },
       "exclusive_group": "shaman_imbue",
       "buff_scope": "raid",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "shaman_flametongue_weapon",
@@ -1422,7 +1425,7 @@
       "damage_school": "fire",
       "exclusive_group": "shaman_imbue",
       "buff_scope": "raid",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "shaman_frostbrand_weapon",
@@ -1509,7 +1512,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "shaman_windfury_weapon",
@@ -1560,7 +1563,7 @@
       },
       "exclusive_group": "shaman_imbue",
       "buff_scope": "raid",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "shaman_hex",
@@ -1893,7 +1896,7 @@
       "_design_note": "Earth totem. Increases Armor for your party. PLACEHOLDER: real WOTLK totems are placed, persistent objects with a range check - no totem-placement system exists here, so this applies instantly instead.",
       "exclusive_group": "shaman_totem_earth",
       "_source": "Element slot 'earth' added 6 Nov 2026 as exclusive_group 'shaman_totem_earth', giving the real one-totem-per-element rule. Enforcement is per-target (status_effects.py:717), so it holds against same-element totems that land on the same side - see tools/fix_shaman_totems.py for the two documented leaks.",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "shaman_shamanistic_rage",
@@ -1991,7 +1994,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: resistance runs 0-60 points here, 1.25% each, capped at 75% (Character.RESIST_MAX), and this buff's top rank gave 166 on its own (Kyle: \"lmao over 700 magic resistance\"). Now 22 at the top rank, about 28% reduction."
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "resource_type": "mana",
@@ -2040,7 +2043,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: resistance runs 0-60 points here, 1.25% each, capped at 75% (Character.RESIST_MAX), and this buff's top rank gave 166 on its own (Kyle: \"lmao over 700 magic resistance\"). Now 22 at the top rank, about 28% reduction."
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "resource_type": "mana",
@@ -2089,7 +2092,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: resistance runs 0-60 points here, 1.25% each, capped at 75% (Character.RESIST_MAX), and this buff's top rank gave 166 on its own (Kyle: \"lmao over 700 magic resistance\"). Now 22 at the top rank, about 28% reduction."
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "shaman_cure_toxins",

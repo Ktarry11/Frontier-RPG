@@ -44,7 +44,9 @@ def main():
         L = doc if isinstance(doc, list) else doc.get("abilities", doc)
         for e in L:
             speed = tags.get(e.get("ability_id"))
-            if not speed or e.get("cast_speed") == speed:
+            # any speed at all means done: on 21 Nov the tags became instant/short/medium/long
+            # (tools/build_cast_speeds.py), and re-sizing a spell twice would double its change
+            if not speed or e.get("cast_speed"):
                 continue
             mult, cmult = SIZE[speed]
             before = [(r["level_req"], r.get("effect_value"), r.get("cost")) for r in e["ranks"]][-1]

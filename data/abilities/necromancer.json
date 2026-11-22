@@ -99,7 +99,7 @@
         "15 Nov 2026, class pass: x0.75. A FREE builder (0 life force, generates it) hitting at a full nuke's value with no resource gate - Mage pays mana for the same number and runs dry; Rogue's builder is energy-gated. Every Necromancer spec needed a 0.4-0.6 damage aura to sit at parity.",
         "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ],
-      "cast_speed": "quick"
+      "cast_speed": "instant"
     },
     {
       "ability_id": "necromancer_lichfrost",
@@ -178,7 +178,7 @@
         "15 Nov 2026, class pass: x0.75. A FREE builder (0 life force, generates it) hitting at a full nuke's value with no resource gate - Mage pays mana for the same number and runs dry; Rogue's builder is energy-gated. Every Necromancer spec needed a 0.4-0.6 damage aura to sit at parity.",
         "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ],
-      "cast_speed": "quick"
+      "cast_speed": "instant"
     },
     {
       "ability_id": "necromancer_flesh_to_worms",
@@ -256,7 +256,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: a top rank at 60 added - its last rank came at 53, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "necromancer_glacial_tap",
@@ -295,44 +295,44 @@
         {
           "rank": 1,
           "level_req": 16,
-          "cost": 25,
-          "effect_value": 55
+          "cost": 23,
+          "effect_value": 45
         },
         {
           "rank": 2,
           "level_req": 23,
-          "cost": 25,
-          "effect_value": 65
+          "cost": 23,
+          "effect_value": 53
         },
         {
           "rank": 3,
           "level_req": 30,
-          "cost": 25,
-          "effect_value": 74
+          "cost": 23,
+          "effect_value": 61
         },
         {
           "rank": 4,
           "level_req": 37,
-          "cost": 25,
-          "effect_value": 83
+          "cost": 23,
+          "effect_value": 68
         },
         {
           "rank": 5,
           "level_req": 44,
-          "cost": 25,
-          "effect_value": 92
+          "cost": 23,
+          "effect_value": 75
         },
         {
           "rank": 6,
           "level_req": 51,
-          "cost": 25,
-          "effect_value": 101
+          "cost": 23,
+          "effect_value": 83
         },
         {
           "rank": 7,
           "level_req": 58,
-          "cost": 25,
-          "effect_value": 110
+          "cost": 23,
+          "effect_value": 90
         }
       ],
       "icon_id": null,
@@ -341,9 +341,10 @@
       "max_targets": 4,
       "damage_school": "shadow",
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.36x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.36x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py",
+        "21 Nov 2026: a short cast for the turn timeline (tools/build_cast_speeds.py), sized 0.82x for 0.92x the cost"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "short"
     },
     {
       "ability_id": "necromancer_deaths_due",
@@ -366,7 +367,7 @@
       "_source": "CoA: 'Force a target to accept the reality of death, removing any invulnerability or immunity effects from them'. An enemy purge - the same shape as shaman_purge and stormbringer_razorwind. The 5-second curse and its below-20% payoff have no hook and are dropped.",
       "target_type": "enemy",
       "dispel_type": "magic",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "necromancer_anti_magic_shell",
@@ -416,7 +417,7 @@
       "_source": "CoA class tree: 'Upon taking damage which would bring you below 10% health, become a Shade ... Reaching your Phylactery in this state revives you with 40% of your maximum health'. There is no cheat-death mechanic and no world position to walk back to, so it is a heavy mitigation window instead - the thing the Shade would have bought. Both Death and Rime list a pre-placed Phylactery as one of the only things that works through a stunlock.",
       "target_type": "self",
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "necromancer_ghoulify",
@@ -467,7 +468,7 @@
       "target_type": "enemy_aoe",
       "max_targets": 5,
       "is_stun": true,
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "necromancer_unholy_frenzy",
@@ -515,7 +516,7 @@
       "icon_id": null,
       "_source": "CoA: all three spec pages list 'brings combat rez', and Animation names it: 'Call of The Scourge, an in-combat battle res'. effect_value is the percent of max health revived at, matching tinker_defibrillate.",
       "target_type": "ally",
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
       ]
@@ -590,7 +591,7 @@
       "_over_time_lifted": [
         1.71
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "necromancer_lichplague",
@@ -650,7 +651,7 @@
       "_over_time_lifted": [
         1.91
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "necromancer_virulency",
@@ -705,7 +706,7 @@
       "_over_time_lifted": [
         2.04
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "necromancer_harvest_plague",
@@ -761,7 +762,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.45x steeper than it, biggest single-rank jump 1.14x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "necromancer_apothecarys_cauldron",
@@ -851,7 +852,7 @@
         "15 Nov 2026, class pass: every rank x2.08 - its total was 0.34x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.56x steeper than it, biggest single-rank jump 1.15x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "necromancer_glacial_impact",
@@ -907,7 +908,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.45x steeper than it, biggest single-rank jump 1.14x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "necromancer_command_bonefreeze",
@@ -972,7 +973,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "necromancer_chilling_presence",
@@ -1043,7 +1044,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.48x steeper than it, biggest single-rank jump 1.19x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "necromancer_raise_ghoul",
@@ -1068,7 +1069,7 @@
       "is_instant": true,
       "summon_pet_template": "ghoul",
       "additional_pet": true,
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
       ]
@@ -1096,7 +1097,7 @@
       "is_instant": true,
       "summon_pet_template": "skeletal_mage",
       "additional_pet": true,
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
       ]
@@ -1124,7 +1125,7 @@
       "is_instant": true,
       "summon_pet_template": "banshee",
       "additional_pet": true,
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
       ]
@@ -1152,7 +1153,7 @@
       "is_instant": true,
       "summon_pet_template": "abomination",
       "additional_pet": true,
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
       ]
@@ -1224,7 +1225,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.48x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "necromancer_animate_plaguefather",
@@ -1283,7 +1284,7 @@
         "15 Nov 2026, class pass: every rank x2.09 - its total was 0.34x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.55x steeper than it, biggest single-rank jump 1.16x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "necromancer_animate_bone_wraith",
@@ -1335,7 +1336,7 @@
         "15 Nov 2026, class pass: every rank x2.96 - its total was 0.24x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.48x steeper than it, biggest single-rank jump 1.16x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "necromancer_animate_tomb_king",
@@ -1507,7 +1508,7 @@
       "_tuning": [
         "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     }
   ]
 }

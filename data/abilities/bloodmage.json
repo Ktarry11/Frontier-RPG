@@ -94,7 +94,7 @@
         "resource": "rage",
         "amount": 20
       },
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_bloodmoon_blast",
@@ -162,7 +162,7 @@
         "resource": "vitality",
         "amount": 12
       },
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_blood_tap",
@@ -214,7 +214,7 @@
       "_source": "CoA: Fleshweaver 'builds it in caster form by paying your own health to cast; Blood Tap and your other health-cost spells'. restore_resource reads mana_restore_pct as a percentage of the NAMED pool, so the rank table carries it; warlock_life_tap is the same shape in reverse.",
       "target_type": "self",
       "restore_resource_type": "rage",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_fleshcraft",
@@ -272,7 +272,7 @@
       "icon_id": null,
       "_source": "CoA class kit: 'Mend blood and bone, healing an ally for 50% of their maximum health and applies Sated.' A percent-of-max-health heal has no engine hook - heals are flat plus healing power - so this is a large flat heal on a long cooldown. Sated has no hook either; the cooldown is what stops it being spammed.",
       "target_type": "ally",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_blood_pact",
@@ -298,7 +298,7 @@
       "_source": "CoA: 'exchanging health for enhanced reflexes, increasing your chance to dodge and reducing the chance for ranged attacks to hit you by 50%'. There is no ranged-specific avoidance stat, so the ranged half lands as parry.",
       "target_type": "self",
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_liquify",
@@ -323,7 +323,7 @@
       "_source": "CoA: 'immune to damage from spells and attacks, but preventing you from attacking or casting spells'. Full immunity plus a self-silence is not expressible, so this is a very large damage reduction with no downside - deliberately short and on a long cooldown to pay for the half the engine cannot charge you for.",
       "target_type": "self",
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_hemostasis",
@@ -347,7 +347,7 @@
       "target_type": "enemy",
       "is_stun": true,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_lunge",
@@ -405,7 +405,7 @@
       "icon_id": null,
       "_source": "CoA's class tree points at Lunge from three directions - Bloodleaper cuts its cooldown, Dark Intent heals you when you use it, Cruel Intent adds auto attacks to it - so the ability itself has to exist.",
       "target_type": "enemy",
-      "cast_speed": "quick",
+      "cast_speed": "instant",
       "_tuning": [
         "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ]
@@ -432,7 +432,7 @@
       "target_type": "ally",
       "absorb_pct_max_health": 0.18,
       "buff_scope": "raid",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_blood_rite",
@@ -466,7 +466,7 @@
       "icon_id": null,
       "_source": "THE ONE INVENTED NAME IN THIS FILE. All four spec pages state the class 'brings combat rez' in their raid rating, and none of them names the ability; it is not in the talent export either. Shipping the capability with a flagged name is more faithful to the reference than dropping a stated raid slot. effect_value is the percent of max health revived at, as effect_type revive reads it.",
       "target_type": "ally",
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
       ]
@@ -553,7 +553,7 @@
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_keleseths_calamity",
@@ -610,7 +610,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.31x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_atheranns_anguish",
@@ -673,7 +673,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.25x steeper than it, biggest single-rank jump 1.07x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_sanguine_rupture",
@@ -743,7 +743,7 @@
         "resource": "rage",
         "amount": 22
       },
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_taldarams_torment",
@@ -800,7 +800,7 @@
         "resource": "rage",
         "amount": 26
       },
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_shadow_hemorrhage",
@@ -878,7 +878,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: a top rank at 60 added - its last rank came at 53, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_malediction",
@@ -903,7 +903,7 @@
       "_source": "CoA: 'dealing Shadow damage over 12 seconds and increasing the damage they take from your next 5 direct damage spells by 20%'. The rotation wants the damage-taken half ('Use Malediction on anything tanky for the damage-taken debuff'), and an ability applies one effect, so the DoT half is left to Shadow Hemorrhage. magic_damage_taken_pct in a status effect's stat_mods is percent POINTS - get_status_stat_mod is divided by 100 for this key, unlike plain damage_taken_pct.",
       "target_type": "enemy",
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_vampiric_fang",
@@ -969,7 +969,7 @@
       "_source": "CoA: 'Expends Thirst Stacks. Steal health from an enemy. Damage increased by 10% for each Thirst stack.' Thirst is Vitality here, so this is the class's one Vitality spender - the reference is emphatic that it 'must be used on a timer, before Thirst caps'.",
       "target_type": "enemy",
       "damage_school": "shadow",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_blood_craving",
@@ -995,7 +995,7 @@
       "_source": "CoA: 'for the duration you cannot be interrupted or silenced, and you regain 5% of your maximum health and 15% of your missing Rage every 2 sec'. The health restore lands as increased healing received, since a buff cannot also be a heal-over-time.",
       "target_type": "self",
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_transgression",
@@ -1030,7 +1030,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_blood_curse",
@@ -1057,7 +1057,7 @@
       "target_type": "self",
       "exclusive_group": "bloodmage_curse",
       "buff_scope": "raid",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_accursed_form",
@@ -1085,7 +1085,7 @@
       "target_type": "self",
       "exclusive_group": "bloodmage_curse",
       "buff_scope": "raid",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_veinburst",
@@ -1154,7 +1154,7 @@
         "resource": "rage",
         "amount": 20
       },
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_reave",
@@ -1213,7 +1213,7 @@
       "_source": "CoA: 'dealing 125% Weapon Damage plus 26. the enemy is bleeding, below 35% health, or you are behind them, deal 100% additional Shadow damage for each condition met.' Only the below-35% condition is expressible, as execute_threshold_pct; bleeding and positional have no hooks. CoA strips its Rage cost in form, which the engine cannot do conditionally, so it has a real cost.",
       "target_type": "enemy",
       "execute_threshold_pct": 35,
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_ravenous_strike",
@@ -1283,7 +1283,7 @@
         "15 Nov 2026, deep dive: damage_school shadow - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it"
       ],
       "damage_school": "shadow",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_aortic_assault",
@@ -1341,7 +1341,7 @@
         "15 Nov 2026, class pass: every rank x2.32 - its total was 0.30x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.35x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_crimson_maw",
@@ -1390,7 +1390,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.29x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_bloodsurge",
@@ -1438,7 +1438,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_final_embrace",
@@ -1465,7 +1465,7 @@
       "_source": "CoA: 'Final Embrace (a dramatically improved version of your transformation)'. Not in the curse exclusive_group - it is a window on top of a form, not another form.",
       "target_type": "self",
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_endure_the_curse",
@@ -1490,7 +1490,7 @@
       "_source": "CoA: 'Reduce all damage taken by -30% for 10 seconds. While active, taking damage that would reduce your health below 10% will instantly heal you for 30%.' The one-time death save has no hook. 'Endure the Curse is for when you are the one being trained.'",
       "target_type": "self",
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_eternal_curse",
@@ -1519,7 +1519,7 @@
       "target_type": "self",
       "exclusive_group": "bloodmage_curse",
       "buff_scope": "raid",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_bloodfang_bite",
@@ -1583,7 +1583,7 @@
       "icon_id": null,
       "_source": "CoA: 'Ravenous Bite and Bloodfang Bite carry both your threat and your self-healing.' The threat filler.",
       "target_type": "enemy",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_claw_sweep",
@@ -1598,45 +1598,48 @@
         {
           "rank": 1,
           "level_req": 16,
-          "cost": 25,
-          "effect_value": 40
+          "cost": 21,
+          "effect_value": 26
         },
         {
           "rank": 2,
           "level_req": 24,
-          "cost": 25,
-          "effect_value": 50
+          "cost": 21,
+          "effect_value": 32
         },
         {
           "rank": 3,
           "level_req": 32,
-          "cost": 25,
-          "effect_value": 60
+          "cost": 21,
+          "effect_value": 39
         },
         {
           "rank": 4,
           "level_req": 40,
-          "cost": 25,
-          "effect_value": 70
+          "cost": 21,
+          "effect_value": 46
         },
         {
           "rank": 5,
           "level_req": 48,
-          "cost": 25,
-          "effect_value": 80
+          "cost": 21,
+          "effect_value": 52
         },
         {
           "rank": 6,
           "level_req": 56,
-          "cost": 25,
-          "effect_value": 90
+          "cost": 21,
+          "effect_value": 58
         }
       ],
       "icon_id": null,
       "_source": "CoA: 'Claw Sweep spreads threat across the pack', and Uncanny Movement 'now generates additional threat' off it. The pull-holding cleave.",
       "target_type": "enemy_aoe",
       "max_targets": 4,
-      "cast_speed": "normal"
+      "cast_speed": "instant",
+      "_tuning": [
+        "21 Nov 2026: a instant cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+      ]
     },
     {
       "ability_id": "bloodmage_rotclaw",
@@ -1694,7 +1697,7 @@
         "resource": "rage",
         "amount": 26
       },
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_blood_howl",
@@ -1719,7 +1722,7 @@
       "_source": "CoA: 'Blood Howl is a real AoE taunt'. Taunts are threat_generation_pct buffs here; 200 points matches Guardian's Challenging Cry so neither tank has a better pull button.",
       "target_type": "self",
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_night_hunters_howl",
@@ -1745,7 +1748,7 @@
       "target_type": "enemy_aoe",
       "max_targets": 5,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_eternal_resolve",
@@ -1772,7 +1775,7 @@
       "_source": "CoA: 'increasing your melee attack speed, maximum health, and healing received by 50%'. All three halves exist as real stat_mod keys; max_health_pct is the fraction one.",
       "target_type": "self",
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_monstrous_hunger",
@@ -1794,7 +1797,7 @@
       "icon_id": null,
       "_source": "CoA: 'Monstrous Hunger turns your next 6 Bloodfang Bites into halved-GCD enrage hits'. enable_instant_cast is the engine's halved-GCD equivalent - an instant does not end your turn. The Shadow Bats it summons need a pet template that does not exist, so they are not here.",
       "target_type": "self",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_sanguine_mend",
@@ -1858,7 +1861,7 @@
       "icon_id": null,
       "_source": "CoA: 'Sanguine Mend as your primary tank/spot heal'. The spec's bread and butter, and the reason its Rage engine has to keep turning.",
       "target_type": "ally",
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
       ]
@@ -1931,7 +1934,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.25x steeper than it, biggest single-rank jump 1.07x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_hemoglobe",
@@ -1984,7 +1987,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.37x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_crimson_tide",
@@ -2045,7 +2048,7 @@
       "_over_time_lifted": [
         1.96
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_dark_liturgy",
@@ -2060,38 +2063,38 @@
         {
           "rank": 1,
           "level_req": 20,
-          "cost": 30,
-          "effect_value": 89
+          "cost": 32,
+          "effect_value": 112
         },
         {
           "rank": 2,
           "level_req": 27,
-          "cost": 30,
-          "effect_value": 102
+          "cost": 32,
+          "effect_value": 129
         },
         {
           "rank": 3,
           "level_req": 34,
-          "cost": 30,
-          "effect_value": 116
+          "cost": 32,
+          "effect_value": 146
         },
         {
           "rank": 4,
           "level_req": 41,
-          "cost": 30,
-          "effect_value": 129
+          "cost": 32,
+          "effect_value": 163
         },
         {
           "rank": 5,
           "level_req": 48,
-          "cost": 30,
-          "effect_value": 142
+          "cost": 32,
+          "effect_value": 179
         },
         {
           "rank": 6,
           "level_req": 55,
-          "cost": 30,
-          "effect_value": 156
+          "cost": 32,
+          "effect_value": 197
         }
       ],
       "icon_id": null,
@@ -2099,9 +2102,10 @@
       "target_type": "party",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.34x steeper than it, biggest single-rank jump 1.10x); overall size kept. tools/fix_rank_lines.py",
-        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost",
+        "21 Nov 2026: a short cast (Kyle: \"we have instant, short, medium, long\"), re-sized from the quick size to the short one (tools/build_cast_speeds.py)"
       ],
-      "cast_speed": "quick"
+      "cast_speed": "short"
     },
     {
       "ability_id": "bloodmage_darkfallen_lament",
@@ -2151,7 +2155,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.49x steeper than it, biggest single-rank jump 1.18x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_arterial_bind",
@@ -2176,7 +2180,7 @@
       "max_targets": 5,
       "is_stun": true,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_purify_blood",
@@ -2199,7 +2203,7 @@
       "_source": "CoA: 'Purify Blood only removes a disease from an ally'. disease is a real DispelType, so this works as written.",
       "target_type": "ally",
       "dispel_type": "disease",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_hemal_excision",
@@ -2222,7 +2226,7 @@
       "_source": "CoA: 'Hemal Excision only siphons curses'. The reactivate-to-place-it-on-an-enemy half has no hook; curse is a real DispelType, so the removal works.",
       "target_type": "ally",
       "dispel_type": "curse",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_sanguine_essence",
@@ -2263,7 +2267,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_gorge",
@@ -2287,7 +2291,7 @@
       "_source": "CoA: 'Instantly gain 10 stacks of Pooled Vitality every 5 sec for 15 seconds', and 'Pop Gorge before a hard pull to bank 10 stacks of Pooled Vitality for an empowered heal.' Pooled Vitality is Vitality here, so this is the pool's bulk builder.",
       "target_type": "self",
       "restore_resource_type": "vitality",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_vampyrs_kiss",
@@ -2344,7 +2348,7 @@
         "resource": "rage",
         "amount": 20
       },
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_bloodthorns",
@@ -2418,7 +2422,7 @@
         "15 Nov 2026, rank-depth pass (Kyle: \"ensure there are appropriate ranks for spells, abilities, buffs etc ... in line with Classic\"): ranks every 12 levels. Only the ARMOUR grows (along the same level line monster armour uses) - the world curve already grows attack/spell power and primary stats, and the other mods are percentages or flags. Each rank carries its own stat_mods (Ability.stat_mods), so the rest stays as written.",
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "bloodmage_bloodbond",
@@ -2469,7 +2473,7 @@
       "_tuning": [
         "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     }
   ]
 }

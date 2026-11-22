@@ -87,7 +87,7 @@
       ],
       "icon_id": null,
       "damage_school": "holy",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "priest_heal",
@@ -159,7 +159,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "priest_flash_heal",
@@ -174,50 +174,53 @@
         {
           "rank": 1,
           "level_req": 20,
-          "cost": 66,
-          "effect_value": 59
+          "cost": 71,
+          "effect_value": 74
         },
         {
           "rank": 2,
           "level_req": 26,
-          "cost": 76,
-          "effect_value": 67
+          "cost": 82,
+          "effect_value": 85
         },
         {
           "rank": 3,
           "level_req": 32,
-          "cost": 86,
-          "effect_value": 75
+          "cost": 93,
+          "effect_value": 95
         },
         {
           "rank": 4,
           "level_req": 38,
-          "cost": 96,
-          "effect_value": 82
+          "cost": 104,
+          "effect_value": 103
         },
         {
           "rank": 5,
           "level_req": 44,
-          "cost": 106,
-          "effect_value": 90
+          "cost": 115,
+          "effect_value": 114
         },
         {
           "rank": 6,
           "level_req": 50,
-          "cost": 116,
-          "effect_value": 98
+          "cost": 126,
+          "effect_value": 124
         },
         {
           "rank": 7,
           "level_req": 56,
-          "cost": 126,
-          "effect_value": 105
+          "cost": 136,
+          "effect_value": 132
         }
       ],
       "target_type": "ally",
       "icon_id": null,
-      "cast_speed": "quick",
-      "_design_note": "15 Nov 2026, Kyle: \"long cast, lower cost, high heal vs lower heal, faster cast, higher cost... ensure that they have their places in combat. Like healing wave vs lesser healing wave\" - picked \"Speed sets next turn\" and \"Add the classic set\". quick cast: 0.65x a normal heal for 0.85x its cost."
+      "cast_speed": "short",
+      "_design_note": "15 Nov 2026, Kyle: \"long cast, lower cost, high heal vs lower heal, faster cast, higher cost... ensure that they have their places in combat. Like healing wave vs lesser healing wave\" - picked \"Speed sets next turn\" and \"Add the classic set\". quick cast: 0.65x a normal heal for 0.85x its cost.",
+      "_tuning": [
+        "21 Nov 2026: a short cast (Kyle: \"we have instant, short, medium, long\"), re-sized from the quick size to the short one (tools/build_cast_speeds.py)"
+      ]
     },
     {
       "ability_id": "priest_greater_heal",
@@ -256,7 +259,7 @@
       ],
       "target_type": "ally",
       "icon_id": null,
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_design_note": "15 Nov 2026, Kyle: \"long cast, lower cost, high heal vs lower heal, faster cast, higher cost... ensure that they have their places in combat. Like healing wave vs lesser healing wave\" - picked \"Speed sets next turn\" and \"Add the classic set\". slow cast: 1.5x a normal heal for 1.15x its cost."
     },
     {
@@ -272,64 +275,65 @@
         {
           "rank": 1,
           "level_req": 1,
-          "cost": 28,
-          "effect_value": 92
+          "cost": 24,
+          "effect_value": 60
         },
         {
           "rank": 2,
           "level_req": 6,
-          "cost": 36,
-          "effect_value": 121
+          "cost": 31,
+          "effect_value": 79
         },
         {
           "rank": 3,
           "level_req": 12,
-          "cost": 43,
-          "effect_value": 150
+          "cost": 37,
+          "effect_value": 98
         },
         {
           "rank": 4,
           "level_req": 18,
-          "cost": 50,
-          "effect_value": 179
+          "cost": 42,
+          "effect_value": 116
         },
         {
           "rank": 5,
           "level_req": 24,
-          "cost": 58,
-          "effect_value": 208
+          "cost": 49,
+          "effect_value": 135
         },
         {
           "rank": 6,
           "level_req": 32,
-          "cost": 66,
-          "effect_value": 237
+          "cost": 56,
+          "effect_value": 154
         },
         {
           "rank": 7,
           "level_req": 40,
-          "cost": 73,
-          "effect_value": 266
+          "cost": 62,
+          "effect_value": 173
         },
         {
           "rank": 8,
           "level_req": 48,
-          "cost": 80,
-          "effect_value": 295
+          "cost": 68,
+          "effect_value": 192
         },
         {
           "rank": 9,
           "level_req": 56,
-          "cost": 88,
-          "effect_value": 324
+          "cost": 75,
+          "effect_value": 211
         }
       ],
       "icon_id": null,
       "damage_school": "shadow",
       "_tuning": [
-        "15 Nov 2026, deep dive: damage_school shadow - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it"
+        "15 Nov 2026, deep dive: damage_school shadow - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it",
+        "21 Nov 2026: a instant cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "instant"
     },
     {
       "ability_id": "priest_renew",
@@ -399,7 +403,7 @@
         "15 Nov 2026, class pass: every rank x1.71 - its total was 0.47x what a hot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
         "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ],
-      "cast_speed": "quick"
+      "cast_speed": "instant"
     },
     {
       "ability_id": "priest_power_word_fortitude",
@@ -462,7 +466,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "priest_mind_blast",
@@ -477,39 +481,40 @@
         {
           "rank": 1,
           "level_req": 10,
-          "cost": 38,
-          "effect_value": 35
+          "cost": 41,
+          "effect_value": 44
         },
         {
           "rank": 2,
           "level_req": 20,
-          "cost": 59,
-          "effect_value": 51
+          "cost": 64,
+          "effect_value": 64
         },
         {
           "rank": 3,
           "level_req": 32,
-          "cost": 79,
-          "effect_value": 66
+          "cost": 86,
+          "effect_value": 83
         },
         {
           "rank": 4,
           "level_req": 46,
-          "cost": 99,
-          "effect_value": 83
+          "cost": 107,
+          "effect_value": 105
         },
         {
           "rank": 5,
           "level_req": 60,
-          "cost": 120,
-          "effect_value": 98
+          "cost": 130,
+          "effect_value": 124
         }
       ],
       "icon_id": null,
       "damage_school": "shadow",
-      "cast_speed": "quick",
+      "cast_speed": "short",
       "_tuning": [
-        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)"
+        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)",
+        "21 Nov 2026: a short cast (Kyle: \"we have instant, short, medium, long\"), re-sized from the quick size to the short one (tools/build_cast_speeds.py)"
       ]
     },
     {
@@ -570,7 +575,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "priest_holy_fire",
@@ -618,7 +623,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.27x steeper than it, biggest single-rank jump 1.18x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "priest_penance",
@@ -664,7 +669,7 @@
         "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 1.3 (combat/heal_formula.rank_size). Discipline sat a quarter under the others; Penance is its own heal."
       ],
       "formula_identity": 1.3,
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "priest_circle_of_healing",
@@ -733,7 +738,7 @@
       "icon_id": null,
       "shapeshift_form": "shadowform",
       "_design_note": "Shapeshift into Shadowform, increasing Spell Power against Shadow damage. Not learned from level alone - granted by the Shadowform talent in the Shadow tree.",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "priest_silence",
@@ -807,7 +812,7 @@
       "_over_time_lifted": [
         1.95
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "priest_vampiric_touch",
@@ -835,7 +840,7 @@
         "15 Nov 2026, deep dive: damage_school shadow - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it"
       ],
       "damage_school": "shadow",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "priest_mind_sear",
@@ -850,8 +855,8 @@
         {
           "rank": 1,
           "level_req": 50,
-          "cost": 100,
-          "effect_value": 92
+          "cost": 115,
+          "effect_value": 138
         }
       ],
       "target_type": "enemy_aoe",
@@ -861,12 +866,13 @@
       "damage_school": "shadow",
       "_tuning": [
         "15 Nov 2026, deep dive: damage_school shadow - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it",
-        "15 Nov 2026, class pass: every rank x1.43 - its total was 0.56x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
+        "15 Nov 2026, class pass: every rank x1.43 - its total was 0.56x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
+        "21 Nov 2026: a long cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
       ],
       "_over_time_lifted": [
         1.43
       ],
-      "cast_speed": "normal"
+      "cast_speed": "long"
     },
     {
       "ability_id": "priest_fade",
@@ -1077,7 +1083,7 @@
       "buff_scope": "raid",
       "is_instant": true,
       "icon_id": null,
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "priest_divine_spirit",
@@ -1122,7 +1128,7 @@
       "_tuning": [
         "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     }
   ]
 }

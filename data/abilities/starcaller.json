@@ -86,7 +86,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 3.58x steeper than it, biggest single-rank jump 1.41x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_lunar_lance",
@@ -143,7 +143,7 @@
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py",
         "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ],
-      "cast_speed": "quick"
+      "cast_speed": "instant"
     },
     {
       "ability_id": "starcaller_celestial_strike",
@@ -215,7 +215,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.35x steeper than it, biggest single-rank jump 1.26x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_celestial_cleave",
@@ -271,7 +271,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.76x steeper than it, biggest single-rank jump 1.24x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_command",
@@ -295,7 +295,7 @@
       ],
       "icon_id": null,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_eclipse_of_fury",
@@ -356,7 +356,7 @@
       ],
       "icon_id": null,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_lunar_authority",
@@ -380,7 +380,7 @@
         }
       ],
       "icon_id": null,
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_starsweep",
@@ -439,7 +439,7 @@
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.85x steeper than it, biggest single-rank jump 1.32x); overall size kept. tools/fix_rank_lines.py",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_celestial_aegis",
@@ -465,7 +465,7 @@
       "icon_id": null,
       "exclusive_group": "starcaller_aegis",
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_aspect_of_the_moonwell",
@@ -525,7 +525,7 @@
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)",
         "17 Nov 2026: authored mp5 lowered to 4 so the support formula sizes it by rank (it was a flat 18/15 from the first rank: 18 mp5 at level 6) (tools/build_long_party_buffs.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_lunar_eclipse",
@@ -584,7 +584,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_huntress_shot",
@@ -650,7 +650,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 3.62x steeper than it, biggest single-rank jump 1.38x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_moon_arrow",
@@ -666,63 +666,64 @@
         {
           "rank": 1,
           "level_req": 2,
-          "cost": 25,
-          "effect_value": 25
+          "cost": 21,
+          "effect_value": 16
         },
         {
           "rank": 2,
           "level_req": 8,
-          "cost": 25,
-          "effect_value": 30
+          "cost": 21,
+          "effect_value": 20
         },
         {
           "rank": 3,
           "level_req": 14,
-          "cost": 25,
-          "effect_value": 36
+          "cost": 21,
+          "effect_value": 23
         },
         {
           "rank": 4,
           "level_req": 20,
-          "cost": 25,
-          "effect_value": 41
+          "cost": 21,
+          "effect_value": 27
         },
         {
           "rank": 5,
           "level_req": 26,
-          "cost": 25,
-          "effect_value": 46
+          "cost": 21,
+          "effect_value": 30
         },
         {
           "rank": 6,
           "level_req": 34,
-          "cost": 25,
-          "effect_value": 53
+          "cost": 21,
+          "effect_value": 34
         },
         {
           "rank": 7,
           "level_req": 42,
-          "cost": 25,
-          "effect_value": 60
+          "cost": 21,
+          "effect_value": 39
         },
         {
           "rank": 8,
           "level_req": 50,
-          "cost": 25,
-          "effect_value": 67
+          "cost": 21,
+          "effect_value": 44
         },
         {
           "rank": 9,
           "level_req": 58,
-          "cost": 25,
-          "effect_value": 74
+          "cost": 21,
+          "effect_value": 48
         }
       ],
       "icon_id": null,
       "_tuning": [
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.36x steeper than it, biggest single-rank jump 1.25x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.36x steeper than it, biggest single-rank jump 1.25x); overall size kept. tools/fix_rank_lines.py",
+        "21 Nov 2026: a instant cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "instant"
     },
     {
       "ability_id": "starcaller_moonwell_splash",
@@ -739,60 +740,61 @@
         {
           "rank": 1,
           "level_req": 8,
-          "cost": 52,
-          "effect_value": 72
+          "cost": 56,
+          "effect_value": 91
         },
         {
           "rank": 2,
           "level_req": 15,
-          "cost": 76,
-          "effect_value": 86
+          "cost": 82,
+          "effect_value": 108
         },
         {
           "rank": 3,
           "level_req": 22,
-          "cost": 99,
-          "effect_value": 101
+          "cost": 107,
+          "effect_value": 127
         },
         {
           "rank": 4,
           "level_req": 29,
-          "cost": 123,
-          "effect_value": 116
+          "cost": 133,
+          "effect_value": 146
         },
         {
           "rank": 5,
           "level_req": 35,
-          "cost": 148,
-          "effect_value": 128
+          "cost": 160,
+          "effect_value": 161
         },
         {
           "rank": 6,
           "level_req": 42,
-          "cost": 172,
-          "effect_value": 143
+          "cost": 186,
+          "effect_value": 180
         },
         {
           "rank": 7,
           "level_req": 49,
-          "cost": 196,
-          "effect_value": 157
+          "cost": 212,
+          "effect_value": 198
         },
         {
           "rank": 8,
           "level_req": 56,
-          "cost": 219,
-          "effect_value": 172
+          "cost": 237,
+          "effect_value": 217
         }
       ],
       "icon_id": null,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.77x steeper than it, biggest single-rank jump 1.21x); overall size kept. tools/fix_rank_lines.py",
         "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 0.9 (combat/heal_formula.rank_size). Two cooldown-free core heals both at the top of their shape put Moon Priest a fifth over the others.",
-        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost",
+        "21 Nov 2026: a short cast (Kyle: \"we have instant, short, medium, long\"), re-sized from the quick size to the short one (tools/build_cast_speeds.py)"
       ],
       "formula_identity": 0.9,
-      "cast_speed": "quick"
+      "cast_speed": "short"
     },
     {
       "ability_id": "starcaller_elunes_purification",
@@ -818,7 +820,7 @@
         "poison",
         "disease"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_hand_of_elune",
@@ -881,7 +883,7 @@
         "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 0.9 (combat/heal_formula.rank_size). Two cooldown-free core heals both at the top of their shape put Moon Priest a fifth over the others.",
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
       ],
-      "cast_speed": "slow"
+      "cast_speed": "long"
     },
     {
       "ability_id": "starcaller_moonflow",
@@ -937,7 +939,7 @@
         "15 Nov 2026, class pass: every rank x0.63 - it sat at 2.52x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.39x steeper than it, biggest single-rank jump 1.11x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_starfire_shot",
@@ -994,7 +996,7 @@
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py",
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
       ],
-      "cast_speed": "slow"
+      "cast_speed": "long"
     },
     {
       "ability_id": "starcaller_aspect_of_the_huntress",
@@ -1019,7 +1021,7 @@
       ],
       "icon_id": null,
       "exclusive_group": "starcaller_aspect",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_starcall",
@@ -1064,7 +1066,7 @@
         "15 Nov 2026, class pass: every rank x0.33 - it sat at 4.82x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.25x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_trueshot",
@@ -1099,7 +1101,7 @@
       ],
       "icon_id": null,
       "damage_school": "arcane",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_aspect_of_the_stars",
@@ -1137,7 +1139,7 @@
           "real_time_seconds": null
         }
       },
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_aspect_of_the_warden",
@@ -1166,7 +1168,7 @@
         "icd": 1,
         "extra_attack": 1
       },
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_fan_of_knives",
@@ -1210,7 +1212,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.33x steeper than it, biggest single-rank jump 1.28x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_umbral_blade",
@@ -1255,7 +1257,7 @@
         "15 Nov 2026, class pass: every rank x0.36 - it sat at 4.40x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.34x steeper than it, biggest single-rank jump 1.29x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_wardens_blade",
@@ -1299,7 +1301,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.30x steeper than it, biggest single-rank jump 1.26x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_starburst",
@@ -1361,7 +1363,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.31x steeper than it, biggest single-rank jump 1.25x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_chosen_of_the_moon",
@@ -1387,7 +1389,7 @@
       ],
       "icon_id": null,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_moonlit_bulwark",
@@ -1411,7 +1413,7 @@
       "icon_id": null,
       "buff_scope": "combat",
       "absorb_pct_max_health": 0.3,
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_vengeance_of_elune",
@@ -1450,7 +1452,7 @@
         "15 Nov 2026, class pass: every rank x0.56 - it sat at 2.84x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_celestial_impact",
@@ -1474,7 +1476,7 @@
       "icon_id": null,
       "is_stun": true,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_shrouded_stars",
@@ -1499,7 +1501,7 @@
       ],
       "icon_id": null,
       "buff_scope": "raid",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_aspect_of_the_cosmos",
@@ -1539,7 +1541,7 @@
           "max_stacks": 3
         }
       },
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_starlight",
@@ -1590,7 +1592,7 @@
       "_over_time_lifted": [
         1.35
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_rain_of_comets",
@@ -1620,7 +1622,7 @@
         "15 Nov 2026, class pass: every rank x1.58 - its total was 0.51x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
       ],
-      "cast_speed": "slow"
+      "cast_speed": "long"
     },
     {
       "ability_id": "starcaller_flow_of_waters",
@@ -1645,7 +1647,7 @@
       ],
       "icon_id": null,
       "buff_scope": "raid",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_prayer_of_elune",
@@ -1695,7 +1697,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_aspect_of_the_goddess",
@@ -1720,7 +1722,7 @@
       ],
       "icon_id": null,
       "exclusive_group": "starcaller_aspect",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_moonlit_slumber",
@@ -1748,7 +1750,7 @@
         "mechanical",
         "elemental"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_celestial_form",
@@ -1773,7 +1775,7 @@
       ],
       "icon_id": null,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_celestial_awakening",
@@ -1808,7 +1810,7 @@
       ],
       "icon_id": null,
       "_fix": "15 Nov 2026: written as a battle resurrection but authored as a 999+ point heal on no cooldown - a full heal every turn (the heal parity sim read the spec at 2x). A battle resurrection now, 20-turn cooldown, like Blood Rite and Ritual of Awakening.",
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
       ]
@@ -1862,7 +1864,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_stellar_convergence",
@@ -1887,7 +1889,7 @@
       ],
       "icon_id": null,
       "buff_scope": "raid",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_vigil_of_the_watchers",
@@ -1912,7 +1914,7 @@
       ],
       "icon_id": null,
       "buff_scope": "raid",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_sentinel_glaive",
@@ -1955,7 +1957,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.29x steeper than it, biggest single-rank jump 1.27x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_astral_blade",
@@ -1998,7 +2000,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.29x steeper than it, biggest single-rank jump 1.26x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_halt",
@@ -2022,7 +2024,7 @@
       "icon_id": null,
       "is_stun": true,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_vigil_of_the_moon",
@@ -2062,7 +2064,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_avatar_of_vengeance",
@@ -2096,7 +2098,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "starcaller_moonwells_blessing",
@@ -2147,7 +2149,7 @@
       "_tuning": [
         "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     }
   ]
 }

@@ -33,8 +33,8 @@
         {
           "rank": 1,
           "level_req": 1,
-          "cost": 30,
-          "effect_value": 44
+          "cost": 31,
+          "effect_value": 45
         },
         {
           "rank": 2,
@@ -51,7 +51,7 @@
         {
           "rank": 4,
           "level_req": 18,
-          "cost": 57,
+          "cost": 56,
           "effect_value": 77
         },
         {
@@ -64,19 +64,19 @@
           "rank": 6,
           "level_req": 32,
           "cost": 75,
-          "effect_value": 99
+          "effect_value": 98
         },
         {
           "rank": 7,
           "level_req": 40,
           "cost": 84,
-          "effect_value": 110
+          "effect_value": 111
         },
         {
           "rank": 8,
           "level_req": 48,
           "cost": 93,
-          "effect_value": 121
+          "effect_value": 122
         },
         {
           "rank": 9,
@@ -87,7 +87,8 @@
       ],
       "icon_id": null,
       "damage_school": "shadow",
-      "cast_speed": "normal"
+      "cast_speed": "medium",
+      "_tuning": []
     },
     {
       "ability_id": "warlock_corruption",
@@ -102,64 +103,65 @@
         {
           "rank": 1,
           "level_req": 1,
-          "cost": 25,
-          "effect_value": 95
+          "cost": 21,
+          "effect_value": 62
         },
         {
           "rank": 2,
           "level_req": 6,
-          "cost": 32,
-          "effect_value": 125
+          "cost": 27,
+          "effect_value": 81
         },
         {
           "rank": 3,
           "level_req": 12,
-          "cost": 39,
-          "effect_value": 155
+          "cost": 33,
+          "effect_value": 101
         },
         {
           "rank": 4,
           "level_req": 18,
-          "cost": 46,
-          "effect_value": 185
+          "cost": 39,
+          "effect_value": 120
         },
         {
           "rank": 5,
           "level_req": 24,
-          "cost": 53,
-          "effect_value": 215
+          "cost": 45,
+          "effect_value": 140
         },
         {
           "rank": 6,
           "level_req": 32,
-          "cost": 60,
-          "effect_value": 245
+          "cost": 51,
+          "effect_value": 159
         },
         {
           "rank": 7,
           "level_req": 40,
-          "cost": 67,
-          "effect_value": 275
+          "cost": 57,
+          "effect_value": 179
         },
         {
           "rank": 8,
           "level_req": 48,
-          "cost": 74,
-          "effect_value": 305
+          "cost": 63,
+          "effect_value": 198
         },
         {
           "rank": 9,
           "level_req": 56,
-          "cost": 81,
-          "effect_value": 335
+          "cost": 69,
+          "effect_value": 218
         }
       ],
       "icon_id": null,
       "damage_school": "shadow",
       "_tuning": [
-        "15 Nov 2026, deep dive: damage_school shadow - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it"
+        "15 Nov 2026, deep dive: damage_school shadow - it had none, so it landed as generic 'magic' and no school talent (Shadow Weaving, +shadow/fire/holy damage) ever touched it",
+        "21 Nov 2026: a instant cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "instant"
     },
     {
       "ability_id": "warlock_immolate",
@@ -213,7 +215,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 51, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "warlock_summon_imp",
@@ -237,7 +239,7 @@
       "is_instant": false,
       "icon_id": null,
       "summon_pet_template": "imp",
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
       ]
@@ -264,7 +266,7 @@
       "is_instant": false,
       "icon_id": null,
       "summon_pet_template": "voidwalker",
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
       ]
@@ -291,7 +293,7 @@
       "is_instant": false,
       "icon_id": null,
       "summon_pet_template": "succubus",
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
       ]
@@ -318,7 +320,7 @@
       "is_instant": false,
       "icon_id": null,
       "summon_pet_template": "felhunter",
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
       ]
@@ -378,7 +380,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "warlock_drain_life",
@@ -431,7 +433,7 @@
       "damage_school": "shadow",
       "drains_pct": 100,
       "_drain_note": "15 Nov 2026, Kyle (a friend's playtest): \"Drain life doesn't take life.\" It was plain Shadow damage with a description saying so. drains_pct (combat/abilities.py) heals the caster for that share of the damage dealt; Classic's Drain Life returns all of it.",
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
       ]
@@ -486,7 +488,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "warlock_unstable_affliction",
@@ -535,7 +537,7 @@
       "_over_time_lifted": [
         1.61
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "warlock_shadowburn",
@@ -576,7 +578,7 @@
       "requires_talent": true,
       "damage_school": "shadow",
       "_design_note": "Not learned from level alone - granted by the Shadowburn talent in the Destruction tree, matching real WOTLK where this is talent-exclusive, not baseline. Deals Shadow damage, dealing extra damage to targets below 20% health.",
-      "cast_speed": "quick",
+      "cast_speed": "instant",
       "_tuning": [
         "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ]
@@ -685,7 +687,7 @@
       "icon_id": null,
       "damage_school": "fire",
       "_design_note": "Not learned from level alone - granted by the Conflagrate talent in the Destruction tree. Real WOTLK detonates your Immolate DoT for burst Fire damage - simplified here to a direct Fire-flavored damage hit since consuming another DoT for burst isn't a general mechanic yet.",
-      "cast_speed": "quick",
+      "cast_speed": "instant",
       "_tuning": [
         "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
@@ -712,7 +714,7 @@
       "icon_id": null,
       "damage_school": "fire",
       "_design_note": "Not learned from level alone - granted by the Chaos Bolt talent in the Destruction tree. Deals massive Chaos damage that cannot be resisted.",
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
       ]
@@ -863,52 +865,53 @@
         {
           "rank": 1,
           "level_req": 12,
-          "cost": 30,
-          "effect_value": 27
+          "cost": 32,
+          "effect_value": 34
         },
         {
           "rank": 2,
           "level_req": 18,
-          "cost": 35,
-          "effect_value": 32
+          "cost": 38,
+          "effect_value": 40
         },
         {
           "rank": 3,
           "level_req": 24,
-          "cost": 40,
-          "effect_value": 36
+          "cost": 43,
+          "effect_value": 45
         },
         {
           "rank": 4,
           "level_req": 32,
-          "cost": 47,
-          "effect_value": 43
+          "cost": 51,
+          "effect_value": 54
         },
         {
           "rank": 5,
           "level_req": 40,
-          "cost": 54,
-          "effect_value": 49
+          "cost": 58,
+          "effect_value": 62
         },
         {
           "rank": 6,
           "level_req": 48,
-          "cost": 60,
-          "effect_value": 55
+          "cost": 65,
+          "effect_value": 69
         },
         {
           "rank": 7,
           "level_req": 56,
-          "cost": 67,
-          "effect_value": 62
+          "cost": 73,
+          "effect_value": 78
         }
       ],
       "is_instant": true,
       "icon_id": null,
       "damage_school": "fire",
-      "cast_speed": "quick",
+      "cast_speed": "short",
       "_tuning": [
-        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)"
+        "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)",
+        "21 Nov 2026: a short cast (Kyle: \"we have instant, short, medium, long\"), re-sized from the quick size to the short one (tools/build_cast_speeds.py)"
       ]
     },
     {
@@ -973,7 +976,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: every rank x1.64 - its total was 0.49x what a dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "warlock_curse_of_recklessness",
@@ -1027,7 +1030,7 @@
       "is_instant": true,
       "icon_id": null,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "warlock_banish",
@@ -1104,7 +1107,7 @@
       "_tuning": [
         "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     }
   ]
 }

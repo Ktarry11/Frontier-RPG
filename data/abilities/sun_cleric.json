@@ -36,65 +36,66 @@
         {
           "rank": 1,
           "level_req": 1,
-          "cost": 26,
-          "effect_value": 32
+          "cost": 28,
+          "effect_value": 40
         },
         {
           "rank": 2,
           "level_req": 8,
-          "cost": 32,
-          "effect_value": 40
+          "cost": 35,
+          "effect_value": 50
         },
         {
           "rank": 3,
           "level_req": 15,
-          "cost": 38,
-          "effect_value": 49
+          "cost": 41,
+          "effect_value": 62
         },
         {
           "rank": 4,
           "level_req": 22,
-          "cost": 44,
-          "effect_value": 57
+          "cost": 48,
+          "effect_value": 72
         },
         {
           "rank": 5,
           "level_req": 28,
-          "cost": 51,
-          "effect_value": 64
+          "cost": 55,
+          "effect_value": 81
         },
         {
           "rank": 6,
           "level_req": 35,
-          "cost": 57,
-          "effect_value": 72
+          "cost": 62,
+          "effect_value": 91
         },
         {
           "rank": 7,
           "level_req": 42,
-          "cost": 63,
-          "effect_value": 81
+          "cost": 68,
+          "effect_value": 102
         },
         {
           "rank": 8,
           "level_req": 49,
-          "cost": 69,
-          "effect_value": 89
+          "cost": 75,
+          "effect_value": 112
         },
         {
           "rank": 9,
           "level_req": 56,
-          "cost": 75,
-          "effect_value": 97
+          "cost": 81,
+          "effect_value": 122
         }
       ],
       "icon_id": null,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the healer line (x0.95 of Priest's Heal, no cooldown). Authored +65 a rank to 558 at 56 - about 3x Heal's line on a spammable heal; Blessings healed 1.8x the median healer.",
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.31x); overall size kept. tools/fix_rank_lines.py",
-        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost",
+        "21 Nov 2026: a short cast (Kyle: \"we have instant, short, medium, long\"), re-sized from the quick size to the short one (tools/build_cast_speeds.py)"
       ],
-      "cast_speed": "quick"
+      "cast_speed": "short"
     },
     {
       "ability_id": "sun_cleric_sunflare",
@@ -161,7 +162,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 3.22x steeper than it, biggest single-rank jump 1.43x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_devotion_of_grace",
@@ -220,7 +221,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_vow_of_light",
@@ -257,7 +258,7 @@
         },
         "smart_heal_pct": 10
       },
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_vow_of_grace",
@@ -329,7 +330,7 @@
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)",
         "17 Nov 2026: authored mp5 lowered to 4 so the support formula sizes it by rank (it was a flat 18/15 from the first rank: 18 mp5 at level 6) (tools/build_long_party_buffs.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_sanctify",
@@ -356,7 +357,7 @@
         "poison",
         "disease"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_shine",
@@ -418,7 +419,7 @@
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.27x steeper than it, biggest single-rank jump 1.09x); overall size kept. tools/fix_rank_lines.py",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_dawn",
@@ -445,7 +446,7 @@
       "icon_id": null,
       "_implementation_note": "The real mechanic empowers the next 10 casts over a 1-min window, once per sec - this engine doesn't have a 'next N casts' counter primitive, modeled as a short flat self-buff window instead. Same class of gap as Runemaster's Lunar Eclipse.",
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_vow_of_radiance",
@@ -482,7 +483,7 @@
         },
         "bonus_pct": 0.12
       },
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_glare",
@@ -506,7 +507,7 @@
       "icon_id": null,
       "is_stun": true,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_devotion_of_dawn",
@@ -568,7 +569,7 @@
       "icon_id": null,
       "buff_scope": "raid",
       "exclusive_group": "sun_cleric_devotion",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_judgement_day",
@@ -594,7 +595,7 @@
       "icon_id": null,
       "is_stun": true,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_justice",
@@ -611,34 +612,35 @@
         {
           "rank": 1,
           "level_req": 20,
-          "cost": 49,
-          "effect_value": 70
+          "cost": 42,
+          "effect_value": 46
         },
         {
           "rank": 2,
           "level_req": 30,
-          "cost": 60,
-          "effect_value": 86
+          "cost": 51,
+          "effect_value": 56
         },
         {
           "rank": 3,
           "level_req": 42,
-          "cost": 74,
-          "effect_value": 106
+          "cost": 63,
+          "effect_value": 69
         },
         {
           "rank": 4,
           "level_req": 56,
-          "cost": 90,
-          "effect_value": 129
+          "cost": 76,
+          "effect_value": 84
         }
       ],
       "icon_id": null,
       "strikes_both_weapons": true,
       "_tuning": [
-        "15 Nov 2026 (Kyle: 'abilities like stormstrike that hit for both weapons ... Wildclaw'): strikes_both_weapons - the off hand lands with it when dual-wielding. Every other special is main-hand only, as in Classic."
+        "15 Nov 2026 (Kyle: 'abilities like stormstrike that hit for both weapons ... Wildclaw'): strikes_both_weapons - the off hand lands with it when dual-wielding. Every other special is main-hand only, as in Classic.",
+        "21 Nov 2026: a instant cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "instant"
     },
     {
       "ability_id": "sun_cleric_devotion_of_radiance",
@@ -685,7 +687,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_vow_of_dawn",
@@ -725,7 +727,7 @@
           "max_targets": 2
         }
       },
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_gavel_of_wrath",
@@ -748,7 +750,7 @@
       "icon_id": null,
       "exclusive_group": "sun_cleric_gavel",
       "dispel_type": "magic",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_sunslam",
@@ -796,7 +798,7 @@
       "_over_time_lifted": [
         1.91
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_devotion_of_emperors",
@@ -822,7 +824,7 @@
       "icon_id": null,
       "buff_scope": "raid",
       "exclusive_group": "sun_cleric_devotion",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_vow_of_the_eclipse",
@@ -868,7 +870,7 @@
           "real_time_seconds": null
         }
       },
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_dawnsear",
@@ -920,7 +922,7 @@
       ],
       "icon_id": null,
       "damage_school": "fire",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_rapture",
@@ -964,7 +966,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: every rank x0.61 - it sat at 2.61x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_radiant_flame",
@@ -1013,7 +1015,7 @@
       "_tuning": [
         "15 Nov 2026, class pass: every rank x1.99 - its total was 0.40x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_daybreak",
@@ -1065,7 +1067,7 @@
         }
       ],
       "icon_id": null,
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_bless",
@@ -1123,7 +1125,7 @@
         }
       ],
       "icon_id": null,
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_blessing_of_purity",
@@ -1150,7 +1152,7 @@
       ],
       "icon_id": null,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_blessing_of_retribution",
@@ -1175,7 +1177,7 @@
       ],
       "icon_id": null,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_blessing_of_triumph",
@@ -1201,7 +1203,7 @@
       ],
       "icon_id": null,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_blessing_of_absolution",
@@ -1242,7 +1244,7 @@
       ],
       "icon_id": null,
       "damage_school": "holy",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_radiant_cascade",
@@ -1292,7 +1294,7 @@
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py",
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
       ],
-      "cast_speed": "slow"
+      "cast_speed": "long"
     },
     {
       "ability_id": "sun_cleric_sunshine",
@@ -1314,7 +1316,7 @@
         }
       ],
       "icon_id": null,
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_revivify",
@@ -1349,7 +1351,7 @@
       ],
       "icon_id": null,
       "_fix": "15 Nov 2026: written as a battle resurrection but authored as a 999+ point heal on no cooldown - a full heal every turn (the heal parity sim read the spec at 2x). A battle resurrection now, 20-turn cooldown, like Blood Rite and Ritual of Awakening.",
-      "cast_speed": "slow",
+      "cast_speed": "long",
       "_tuning": [
         "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py)"
       ]
@@ -1395,7 +1397,7 @@
       "_tuning": [
         "15 Nov 2026 (Kyle: 'abilities like stormstrike that hit for both weapons ... Wildclaw'): strikes_both_weapons - the off hand lands with it when dual-wielding. Every other special is main-hand only, as in Classic."
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_champion_of_the_sun",
@@ -1420,7 +1422,7 @@
       ],
       "icon_id": null,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_march_of_the_valkyr",
@@ -1446,7 +1448,7 @@
       ],
       "icon_id": null,
       "buff_scope": "raid",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_valkyrs_calling",
@@ -1469,7 +1471,7 @@
       ],
       "icon_id": null,
       "damage_school": "holy",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_gavel_of_light",
@@ -1539,7 +1541,7 @@
       ],
       "icon_id": null,
       "exclusive_group": "sun_cleric_gavel",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_seraphic_bulwark",
@@ -1564,7 +1566,7 @@
       ],
       "icon_id": null,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_scroll_of_hope",
@@ -1589,7 +1591,7 @@
       ],
       "icon_id": null,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_justicars_wrath",
@@ -1649,7 +1651,7 @@
       ],
       "icon_id": null,
       "damage_school": "holy",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_dawnbreak_talent",
@@ -1682,7 +1684,7 @@
           "max_targets": 3
         }
       },
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_hammer_of_kings",
@@ -1715,7 +1717,7 @@
         "15 Nov 2026, class pass: every rank x1.47 - its total was 0.54x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py",
         "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
       ],
-      "cast_speed": "quick"
+      "cast_speed": "instant"
     },
     {
       "ability_id": "sun_cleric_solar_nova",
@@ -1750,7 +1752,7 @@
       ],
       "icon_id": null,
       "damage_school": "holy",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "ability_id": "sun_cleric_injunction",
@@ -1774,7 +1776,7 @@
       ],
       "icon_id": null,
       "buff_scope": "combat",
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     },
     {
       "resource_type": "mana",
@@ -1845,7 +1847,7 @@
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
       ],
-      "cast_speed": "normal"
+      "cast_speed": "medium"
     }
   ]
 }
