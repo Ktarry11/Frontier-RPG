@@ -53,6 +53,7 @@ ITEM_PREFIX = "lbg_"
 #: quest zone key -> (map module, start attribute, encounter path)
 MAPS = {
     SQ.LB: ("tools.handbuilt_worldtree_lower_boughs", "START", ("The Lower Boughs",)),
+    "mossroof": ("tools.handbuilt_worldtree_mossroof", "START", None),          # the hub: reachability only
     SQ.KH: (None, None, ("The Lower Boughs", "The Knothollow")),
 }
 CAVES = {SQ.KH}

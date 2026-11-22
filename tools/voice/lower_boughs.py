@@ -121,7 +121,7 @@ _S = {
     ),
     "lbq_amber_in_the_water": (
         "Where the sap pools in the bark, it wakes up. The Amberdrip Oozes slide down into the river and foul it, and the "
-        "fish are only the start of what's wrong. Kill the oozes along the Great Bough. Bring me clots of their amber too, "
+        "fish are only the start of what's wrong. Go down the ladders and kill the oozes along the Greenwater Bough. Bring me clots of their amber too, "
         "because I'll read those as well. Whatever's caught in that amber will tell me how new it is.",
         "The clots are heavy. Carry them wrapped, or the sap gets on everything.",
     ),
@@ -228,3 +228,10 @@ from voice.lower_boughs_beats import BEATS as _BEATS
 for _qid, _a in _BEATS.items():
     _o = VOICE[_qid]
     VOICE[_qid] = (_o[0], _a, _o[2])
+
+
+# THE STORY PASS (22 Nov 2026), to docs/quest_writing_standard.md; see tools/voice/lower_boughs_story.py.
+from voice.lower_boughs_story import STORY as _STORY
+for _qid, (_d, _a) in _STORY.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a, _old[2])

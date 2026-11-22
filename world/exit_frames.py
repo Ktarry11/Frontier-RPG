@@ -105,6 +105,8 @@ TOWN = [
     (r"Lastlight", ["ent_town_lastlight_gate"]),
     (r"Lenswatch", ["ent_town_lenswatch_gate"]),
     (r"Aurelion", ["ent_town_ae_ceremonial_gate"]),
+    # the World Tree's troll villages and camps
+    (r"Mossroof|Heartwatch|Highrest|Spearhold", ["ent_town_troll_gate"]),
     (r"Taurajo|Freewind", ["ent_town_tauren_totems"]),
     (r"Astranaar", ["ent_town_nightelf_bridge"]),
     (r"Zoram", ["ent_moonlit_arch"]),

@@ -4,8 +4,9 @@ trolls out on the boughs. Idempotent.
 
     PYTHONPATH=. python3 tools/build_middle_boughs_people.py
 
-docs/worldtree_brief.md. A small group of quest givers, not a town (the city is just below): two traders, no inn, no
-flight path. Kyle, 14 Nov 2026: "we should start having more earth people throughout zones", more of them the higher
+docs/worldtree_brief.md. Heartwatch was a handful of givers on the outpost platform; since 22 Nov 2026 it's its own map
+and the tier's hub (Kyle: "we do need hubs in the boughs"), with an inn, the mail and the bats
+(tools/handbuilt_worldtree_heartwatch.py). The lift and the two scouts stay out where their work is. Kyle, 14 Nov 2026: "we should start having more earth people throughout zones", more of them the higher
 the zone; here, a plant pathologist from Bengaluru who came up to study the rot.
 
 Every person stands where the map's NPC_POSITIONS says; a person in one and not the other stops the script.
@@ -18,10 +19,17 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from tools import handbuilt_worldtree_middle_boughs as LB  # noqa: E402
+from tools import handbuilt_worldtree_heartwatch as HW  # noqa: E402
 from tools.npc_data_guard import safe_update  # noqa: E402
 from world.zone_keys import zone_key  # noqa: E402
 
 M, F = "male", "female"
+
+SERVICES = {"hw_bat_handler": ["flight"], "hw_innkeeper": ["inn"]}
+FLIGHT_NODES = [
+    ("middle_boughs", {"name": HW.NAME, "zone": HW.NAME, "master": "hw_bat_handler", "pos": [-36, 143],
+                      "continent": "eastern_kingdoms"}),
+]
 
 #: vendor_id -> (name, race, gender, variant, facing, gear_level, sells_gear, stock, greeting)
 VENDORS = {
@@ -38,6 +46,12 @@ VENDORS = {
 }
 #: npc_id -> (name, race, gender, variant, facing, greeting)
 AMBIENT = {
+    "hw_innkeeper": ("Innkeeper Rozha", "troll", F, 5, "down",
+                     "The Lichen Hearth keeps a fire going day and night, because the cold up here gets into the stone. "
+                     "Sleep by it and I'll mark you as one of mine, so the tree brings you back to Heartwatch."),
+    "hw_bat_handler": ("Bat Handler Tez'ra", "troll", F, 3, "down",
+                       "My bats fly down to the Settlement and out to every roost the Horde keeps. They don't like the "
+                       "mist under the boughs, so they climb high and fast, and you'll want to hold on."),
     "mb_shadowhunter": ("Shadow Hunter Vokra", "troll", F, 12, "down",
                         "Heartwatch watches one thing, and it's the split in the trunk behind me. Something down in "
                         "the heartwood is eating this tree, and until we know what, nobody goes in and nothing comes "
@@ -84,24 +98,33 @@ def check():
     from tools.build_tempest_quests import voice_problems
     bad = []
     mine = set(VENDORS) | set(AMBIENT)
-    if mine != set(LB.NPC_POSITIONS):
-        bad.append(f"roster and layout disagree: {sorted(mine ^ set(LB.NPC_POSITIONS))}")
+    placed = set(LB.NPC_POSITIONS) | set(HW.NPC_POSITIONS)
+    if set(LB.NPC_POSITIONS) & set(HW.NPC_POSITIONS):
+        bad.append(f"on both maps: {sorted(set(LB.NPC_POSITIONS) & set(HW.NPC_POSITIONS))}")
+    if mine != placed:
+        bad.append(f"roster and layout disagree: {sorted(mine ^ placed)}")
     for k, v in list(VENDORS.items()) + list(AMBIENT.items()):
         bad += [f"{k}: {p}" for p in voice_problems(v[-1])]
     return bad
+
+
+def where(nid):
+    """(zone key, x, y) for a person, from whichever map lists them."""
+    mod = HW if nid in HW.NPC_POSITIONS else LB
+    x, y = mod.NPC_POSITIONS[nid]
+    return zone_key(mod.NAME), x, y
 
 
 def main():
     bad = check()
     if bad:
         raise SystemExit("FAILED:\n  " + "\n  ".join(bad))
-    zone = zone_key(LB.NAME)
     vd, ad = load("data/npcs/vendors.json"), load("data/npcs/ambient_npcs.json")
     vby = {r["vendor_id"]: r for r in vd["vendors"]}
     aby = {r["npc_id"]: r for r in ad["npcs"]}
     made = moved = 0
     for vid, (name, race, gender, var, facing, gl, gear, stock, greet) in VENDORS.items():
-        x, y = LB.NPC_POSITIONS[vid]
+        zone, x, y = where(vid)
         rec = dict(vendor_id=vid, name=name, zone=zone, x=x, y=y, tile_sprite="npc", buys_from_player=True,
                    faction="neutral", gear_level=gl, sells_gear=gear, race=race, gender=gender,
                    appearance_variant=var, facing=facing, greeting=greet)
@@ -112,7 +135,7 @@ def main():
             vd["vendors"].append(rec)
             made += 1
     for nid, (name, race, gender, var, facing, greet) in AMBIENT.items():
-        x, y = LB.NPC_POSITIONS[nid]
+        zone, x, y = where(nid)
         rec = dict(npc_id=nid, name=name, zone=zone, x=x, y=y, greeting=greet, gender=gender, race=race,
                    appearance_variant=var, facing=facing)
         if nid in aby:
@@ -120,6 +143,27 @@ def main():
         else:
             ad["npcs"].append(rec)
             made += 1
+    # the inn keeps the mail, like every inn (qa_auction_house: a mailbox by every inn)
+    box = next((r for r in ad["npcs"] if r["npc_id"] == "mailbox_hw_innkeeper"), None)
+    if box is None:
+        box = {"npc_id": "mailbox_hw_innkeeper"}
+        ad["npcs"].append(box)
+    box.update(name="Mailbox", zone=zone_key(HW.NAME), x=HW.MAILBOX[0], y=HW.MAILBOX[1], facing="down",
+               race="troll", appearance_variant=0, is_mailbox=True, prop="assets/tiles/market/props/mailbox_troll.png",
+               greeting="Heartwatch's mailbox by the Lichen Hearth. The bats carry the letters down to the Settlement in the morning, and Rozha keeps what comes back up dry by her fire.")
+    save("data/npcs/vendors.json", vd)
+    save("data/npcs/ambient_npcs.json", ad)
+    td = load("data/travel/travel_data.json")
+    for k, v in SERVICES.items():
+        td["services"][k] = sorted(set(td["services"].get(k, [])) | set(v))
+    for key, node in FLIGHT_NODES:
+        td["flight_nodes"][key] = node
+    save("data/travel/travel_data.json", td)
+    # safe_update only moves people, so the ones who moved maps get their zone here
+    for rows, idk in ((vd["vendors"], "vendor_id"), (ad["npcs"], "npc_id")):
+        for r in rows:
+            if r[idk] in HW.NPC_POSITIONS:
+                r["zone"] = zone_key(HW.NAME)
     save("data/npcs/vendors.json", vd)
     save("data/npcs/ambient_npcs.json", ad)
     print(f"The Middle Boughs: {made} created, {moved} moved ({len(VENDORS) + len(AMBIENT)} people)")

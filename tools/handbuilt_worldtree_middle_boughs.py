@@ -12,7 +12,8 @@ over a drop that's all mist now, the canopy long gone below it.
     The Root Stair ........ the ledge's north end (16,18): on up to the Upper Boughs
     The Heartwood Hollow .. the split in the trunk behind Heartwatch (16,46): the dungeon (a door for later)
     Shriekhollow .......... a hollow in the trunk off the Rotting Bough's root (16,82): the harpies' nest, the cave
-    Heartwatch ............ the shadow hunters' stone outpost on the terraces (safe)
+    Heartwatch ............ the shadow hunters' hold, its door on the outpost platform (44,42): its own map since
+                            22 Nov 2026 (Kyle: "we do need hubs in the boughs"); the platform outside stays safe ground
     The Old Terraces ...... the ledge along the trunk, the first climbers' stone
     The Lichen Reach ...... the north bough: pale lichen, old shrines, and a construct that fell out of the sky
     The Rotting Bough ..... the middle bough: bark rot, sap blight, and the things that live in the rot
@@ -26,7 +27,8 @@ Ground: MIDDLE_BOUGHS_SHEET in tools/bake_ashenvale.py (Kyle's sheet W1): lichen
 and lashed planks on the bridges (plaza_field).
 
 HARD CONTRACTS (world/portal_manager.py)
-  portals  The Great Settlement (16,128) <-> the city's High Lift (162,14); Shriekhollow (16,82) <-> its mouth
+  portals  The Great Settlement (16,128) <-> the city's High Lift (162,14); Shriekhollow (16,82) <-> its mouth;
+           Heartwatch (44,42) <-> its Watch Gate (46,69)
   later    The Upper Boughs (16,18); The Heartwood Hollow (16,46)
 """
 import numpy as np
@@ -41,8 +43,9 @@ WTP = "assets/tiles/worldtree/props/"
 SP = "assets/tiles/stranglethorn/props/"
 BLD = "assets/buildings/"
 
-PORTALS = {(16, 128): "The Great Settlement", (16, 82): "Shriekhollow", (16, 18): "The Upper Boughs"}
-ARRIVALS = [(20, 128), (20, 82), (20, 18)]
+PORTALS = {(16, 128): "The Great Settlement", (16, 82): "Shriekhollow", (16, 18): "The Upper Boughs",
+           (44, 42): "Heartwatch"}
+ARRIVALS = [(20, 128), (20, 82), (20, 18), (44, 46)]
 #: drawn now, opened later: the stair on up the trunk and the dungeon in the heartwood
 LATER_PORTALS = {(16, 46): "The Heartwood Hollow"}
 START = (34, 50)        # Heartwatch: everything must be reachable from here
@@ -169,6 +172,7 @@ ROADS = {
     "heart":    ([(28, 46), (18, 46)], 2.6),
     "hollow":   ([(29, 82), (18, 82)], 2.4),
     "lift":     ([(27, 128), (18, 128)], 2.6),
+    "hold":     ([(28, 47), (44, 47), (44, 44)], 2.4),
     "reach":    ([(28, 26), (58, 22), (90, 16), (122, 21), (144, 17)], 2.8),
     "rot":      ([(29, 76), (58, 70), (88, 79), (118, 70), (144, 79)], 3.0),
     "hollows":  ([(28, 120), (54, 126), (84, 132), (114, 126), (140, 135)], 2.8),
@@ -196,15 +200,7 @@ SPEC = _Spec(NAME, W, H, ROADS, rivers=RIVERS, lakes=LAKES, deep_shrink=DEEP_SHR
 
 #: Heartwatch and the people out on the boughs (tools/build_middle_boughs_people.py writes their records)
 NPC_POSITIONS = {
-    "mb_shadowhunter":   (34, 44),     # Heartwatch's shadow hunter, keeper of the Heartwood Hollow
-    "mb_loa_speaker":    (40, 52),     # the loa-speaker who listens to the tree
-    "mb_bark_doctor":    (28, 56),     # treats the rot
-    "mb_huntmaster":     (42, 44),     # hunts the harpies
-    "mb_stonekeeper":    (28, 38),     # keeps the old terraces
-    "mb_scholar":        (44, 58),     # the Settlement's scholar after the fallen construct
-    "mb_transplant":     (38, 60),     # a transplant who came up to work the rot
-    "mb_provisioner":    (32, 58),     # food and drink
-    "mb_trader":         (46, 49),     # the outpost's trader
+    # Heartwatch's own people live in the hold now (tools/handbuilt_worldtree_heartwatch.py)
     "mb_liftkeeper":     (24, 124),    # at the High Lift
     "mb_scout_reach":    (100, 18),    # out on the Lichen Reach
     "mb_scout_hollows":  (60, 125),    # watching the harpies' bough
@@ -230,7 +226,7 @@ SUBZONES = [   # (table_key, x, y, w, h, display_name) - later registrations win
     ("The Lichen Reach", 40, 0, 140, 46, None),
     ("The Rotting Bough", 40, 46, 140, 44, None),
     ("The Hollow Bough", 40, 90, 140, 60, None),
-    ("Heartwatch", 18, 36, 34, 30, None),
+    ("Heartwatch", 18, 36, 34, 30, "Before Heartwatch"),    # the hold is through the door, its own map
 ]
 
 #: what grows this high: lichen, moss, side branches and dead stubs; the leaves are thinning
@@ -345,7 +341,7 @@ def dress(L):
     G("wt_knot_hole", 15, 80, 9, road_ok=True, allow_overlap=True, nudge=1)
     # ---- Heartwatch: the shadow hunters' stone outpost on the old terraces
     G("wt_stone_tower", 24, 40, 12)
-    G("wt_stone_tower_squat", 44, 40, 8)
+    # (the hold's door stands where its squat tower was: world/exit_frames.py frames it)
     G("wt_old_shrine", 46, 58, 7)
     # the totem and the fires guard the sealed split, not the middle of the platform
     B("gs_loa_totem", 22, 52, 6)

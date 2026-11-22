@@ -571,6 +571,36 @@
         -84
       ],
       "continent": "kalimdor"
+    },
+    "lower_boughs": {
+      "name": "Mossroof",
+      "zone": "Mossroof",
+      "master": "mr_bat_handler",
+      "pos": [
+        -37,
+        150
+      ],
+      "continent": "eastern_kingdoms"
+    },
+    "middle_boughs": {
+      "name": "Heartwatch",
+      "zone": "Heartwatch",
+      "master": "hw_bat_handler",
+      "pos": [
+        -36,
+        143
+      ],
+      "continent": "eastern_kingdoms"
+    },
+    "upper_boughs": {
+      "name": "Highrest",
+      "zone": "Highrest",
+      "master": "hr_wyvern_handler",
+      "pos": [
+        -34,
+        139
+      ],
+      "continent": "eastern_kingdoms"
     }
   },
   "flight_cost": {
@@ -916,6 +946,21 @@
     ],
     "ll_innkeeper": [
       "inn"
+    ],
+    "mr_bat_handler": [
+      "flight"
+    ],
+    "mr_innkeeper": [
+      "inn"
+    ],
+    "hw_bat_handler": [
+      "flight"
+    ],
+    "hw_innkeeper": [
+      "inn"
+    ],
+    "hr_wyvern_handler": [
+      "flight"
     ]
   }
 }

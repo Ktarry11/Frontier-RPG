@@ -774,6 +774,10 @@ class PortalManager:
                 (40, 16): ("Rootwater Isle", 114, 51),              # down the Root Stair: arrive (114,49) at its foot
                 (62, 16): ("The Knothollow", 40, 6),                # into the trunk: arrive (40,4) inside the knot
                 (130, 16): ("The Great Settlement", 24, 20),        # up the Great Lift: arrive (24,18) at the Liftfoot
+                (80, 16): ("Mossroof", 50, 66),                     # up the ladders: arrive (50,64) at the Ladderfoot
+            },
+            "Mossroof": {
+                (50, 69): ("The Lower Boughs", 80, 22),             # back down the ladders: arrive (80,20) on the ledge
             },
             "The Great Settlement": {
                 (24, 14): ("The Lower Boughs", 130, 22),            # down the Great Lift: arrive (130,20) on the ledge
@@ -786,6 +790,10 @@ class PortalManager:
                 (16, 128): ("The Great Settlement", 162, 20),       # down the High Lift: arrive (162,18) at its foot
                 (16, 82): ("Shriekhollow", 40, 6),                  # into the hollow: arrive (40,4) inside the split
                 (16, 18): ("The Upper Boughs", 76, 91),             # up the Root Stair: arrive (76,89) on the ring
+                (44, 42): ("Heartwatch", 46, 66),                   # into the hold: arrive (46,64) at the Watch Gate
+            },
+            "Heartwatch": {
+                (46, 69): ("The Middle Boughs", 44, 48),            # back out of the hold: arrive (44,46) on the platform
             },
             "Shriekhollow": {
                 (40, 2): ("The Middle Boughs", 20, 84),             # out of the hollow: arrive (20,82) on the terraces
@@ -794,6 +802,10 @@ class PortalManager:
                 (74, 86): ("The Middle Boughs", 20, 20),            # down the Root Stair: arrive (20,18) on the terraces
                 (68, 66): ("The Stormsplit", 40, 6),                # into the lightning split: arrive (40,4)
                 (90, 52): ("The Cloudbreak", 32, 118),              # up the Cloud Way: arrive (32,116) on the last branches
+                (90, 105): ("Highrest", 48, 8),                     # out over the cloud: arrive (48,6) at the Windgate
+            },
+            "Highrest": {
+                (48, 2): ("The Upper Boughs", 90, 103),             # back to the ring: arrive (90,101) on the platform
             },
             "The Stormsplit": {
                 (40, 2): ("The Upper Boughs", 65, 70),              # out of the split: arrive (65,68) on the ring

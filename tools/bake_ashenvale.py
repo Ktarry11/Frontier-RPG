@@ -552,6 +552,8 @@ LOWER_BOUGHS_SHEET = {
     "av_corrupt_ground": _wt("wt_dappled_bark"),
     "av_satyr_earth":    _wt("wt_shade_bark"),
 }
+#: Mossroof (sheet W1): the Lower Boughs' village as its own map, the tier's own bark, planks and canopy drop.
+MOSSROOF_SHEET = dict(LOWER_BOUGHS_SHEET)
 #: The Middle Boughs (Kyle's sheet W1): lichen bark and moss on the boughs, the rot as the "corrupt" patches with its
 #: mushrooms as the "fel" speckle, sap blight as the "burned" ones, harpy litter as the "bluebell" ones, the first
 #: climbers' stone as paving, lashed planks on the bridges (the "plaza" layer), the trunk as the west wall, and the drop
@@ -589,6 +591,8 @@ MIDDLE_BOUGHS_SHEET = {
     "av_corrupt_ground": _wt("wt_rot_bark"),
     "av_satyr_earth":    _wt("wt_shade_bark"),
 }
+#: Heartwatch (sheet W1): the Middle Boughs' hold as its own map, the tier's own lichen bark, climbers' stone and mist.
+HEARTWATCH_SHEET = dict(MIDDLE_BOUGHS_SHEET)
 #: The Upper Boughs (Kyle's sheets W1 and SK): pale wind-scoured bark, lichen, storm-black bark where the lightning
 #: struck ("burned"), the wind-stripped tips ("corrupt"), gold where the light first comes down from above ("bluebell"),
 #: lashed planks on the skiff's deck and the rope walk ("plaza"), the trunk as the column in the middle, and the drop as
@@ -630,6 +634,8 @@ UPPER_BOUGHS_SHEET = {
     "av_corrupt_ground": _wt("wt_wind_bark"),
     "av_satyr_earth":    _wt("wt_wind_bark"),
 }
+#: Highrest (sheets W1 and SK): the Upper Boughs' camp as its own map, the tier's own wind-scoured bark, planks and cloud.
+HIGHREST_SHEET = dict(UPPER_BOUGHS_SHEET)
 #: The Cloudbreak (sheets W1 and SK): wind-scoured bark on the last branches, hung with fog low down ("corrupt") and lit
 #: gold near the top ("bluebell"), the rope ladders' rungs ("plaza"), the chamber's heartwood floor ("paved"), the old
 #: stone wall the mural is painted on (the cliff), and cloud all round, thick enough that the drop doesn't show.
@@ -980,6 +986,9 @@ ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_S
                "worldtree_sunward_crown": CROWN_SHEET,
                "worldtree_lenswatch": LENSWATCH_SHEET,
                "worldtree_spearhold": SPEARHOLD_SHEET,
+               "worldtree_mossroof": MOSSROOF_SHEET,
+               "worldtree_heartwatch": HEARTWATCH_SHEET,
+               "worldtree_highrest": HIGHREST_SHEET,
                "worldtree_celestial_expanse": EXPANSE_SHEET,
                "worldtree_halcyon_rest": HALCYON_SHEET,
                "worldtree_anchorfields": ANCHOR_SHEET,
@@ -1514,7 +1523,7 @@ def main():
     if "--preview" in sys.argv:
         preview = sys.argv[sys.argv.index("--preview") + 1]
     sc = int(sys.argv[sys.argv.index("--scale") + 1]) if "--scale" in sys.argv else 4
-    zone = next((z for z in ("worldtree_fading_firmament", "worldtree_ascendant_bastions", "worldtree_aurelion", "worldtree_anchorfields", "worldtree_celestial_expanse", "worldtree_halcyon_rest", "worldtree_keelstone", "worldtree_dawnspear_wreck", "worldtree_lastlight", "worldtree_spearhold", "worldtree_lenswatch", "worldtree_sunward_crown", "worldtree_cloudbreak", "worldtree_upper_boughs", "worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "dawnhaven_amberleaf", "dawnhaven_duskfall", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
+    zone = next((z for z in ("worldtree_fading_firmament", "worldtree_ascendant_bastions", "worldtree_aurelion", "worldtree_anchorfields", "worldtree_celestial_expanse", "worldtree_halcyon_rest", "worldtree_keelstone", "worldtree_dawnspear_wreck", "worldtree_lastlight", "worldtree_spearhold", "worldtree_mossroof", "worldtree_heartwatch", "worldtree_highrest", "worldtree_lenswatch", "worldtree_sunward_crown", "worldtree_cloudbreak", "worldtree_upper_boughs", "worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "dawnhaven_amberleaf", "dawnhaven_duskfall", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
     only = None
     if "--region" in sys.argv:       # x0,y0,x1,y1 in tiles: bake only the 20x20 chunks touching it (fast look-dev)
         x0, y0, x1, y1 = map(int, sys.argv[sys.argv.index("--region") + 1].split(","))

@@ -4,8 +4,10 @@ trolls out on the high boughs. Idempotent.
 
     PYTHONPATH=. python3 tools/build_upper_boughs_people.py
 
-docs/worldtree_brief.md. A camp, not a town: two traders, no inn, no flight path (the wind up here would take a bat
-off the tree). Kyle, 14 Nov 2026: "we should start having more earth people throughout zones", more of them the
+docs/worldtree_brief.md. Highrest was a camp on the ring's platform with no inn and no flight path; since 22 Nov 2026
+it's its own map and the tier's hub (Kyle: "we do need hubs in the boughs"), with an inn, the mail and a flight path
+(tools/handbuilt_worldtree_highrest.py). Still no bats (the wind up here would take a bat off the tree): the flight path
+is the wyverns, who ride it. The stair, the ladder and the two scouts stay out where their work is. Kyle, 14 Nov 2026: "we should start having more earth people throughout zones", more of them the
 higher the zone; here, a mountaineer and meteorologist from Tromso who came up to read the weather from the top.
 
 Every person stands where the map's NPC_POSITIONS says; a person in one and not the other stops the script.
@@ -17,11 +19,18 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from tools import handbuilt_worldtree_upper_boughs as UB  # noqa: E402
+from tools import handbuilt_worldtree_upper_boughs as LB  # noqa: E402
+from tools import handbuilt_worldtree_highrest as HI  # noqa: E402
 from tools.npc_data_guard import safe_update  # noqa: E402
 from world.zone_keys import zone_key  # noqa: E402
 
 M, F = "male", "female"
+
+SERVICES = {"hr_wyvern_handler": ["flight"], "hr_innkeeper": ["inn"]}
+FLIGHT_NODES = [
+    ("upper_boughs", {"name": HI.NAME, "zone": HI.NAME, "master": "hr_wyvern_handler", "pos": [-34, 139],
+                      "continent": "eastern_kingdoms"}),
+]
 
 #: vendor_id -> (name, race, gender, variant, facing, gear_level, sells_gear, stock, greeting)
 VENDORS = {
@@ -37,6 +46,13 @@ VENDORS = {
 }
 #: npc_id -> (name, race, gender, variant, facing, greeting)
 AMBIENT = {
+    "hr_innkeeper": ("Innkeeper Lo'mai", "troll", F, 6, "down",
+                     "The Cloudside Rest is the last bed on the tree, and the wind rocks it all night long. Sleep here "
+                     "and I'll mark you as one of mine, so you'll wake up in Highrest wherever you wander."),
+    "hr_wyvern_handler": ("Wyvern Rider Zakko", "troll", M, 8, "down",
+                          "No bat could fly this high, the wind would tear it off the tree. Wyverns ride the wind instead "
+                          "of fighting it, so mine will carry you down to the Settlement or out to any roost the Horde "
+                          "keeps."),
     "ub_windwarden": ("Windwarden Kazra'jin", "troll", M, 11, "down",
                       "Highrest is as far as anyone lives. Above us the branches get too thin to build on, and then "
                       "there's only cloud. I've climbed into it three times, and three times I came back down."),
@@ -84,24 +100,33 @@ def check():
     from tools.build_tempest_quests import voice_problems
     bad = []
     mine = set(VENDORS) | set(AMBIENT)
-    if mine != set(UB.NPC_POSITIONS):
-        bad.append(f"roster and layout disagree: {sorted(mine ^ set(UB.NPC_POSITIONS))}")
+    placed = set(LB.NPC_POSITIONS) | set(HI.NPC_POSITIONS)
+    if set(LB.NPC_POSITIONS) & set(HI.NPC_POSITIONS):
+        bad.append(f"on both maps: {sorted(set(LB.NPC_POSITIONS) & set(HI.NPC_POSITIONS))}")
+    if mine != placed:
+        bad.append(f"roster and layout disagree: {sorted(mine ^ placed)}")
     for k, v in list(VENDORS.items()) + list(AMBIENT.items()):
         bad += [f"{k}: {p}" for p in voice_problems(v[-1])]
     return bad
+
+
+def where(nid):
+    """(zone key, x, y) for a person, from whichever map lists them."""
+    mod = HI if nid in HI.NPC_POSITIONS else LB
+    x, y = mod.NPC_POSITIONS[nid]
+    return zone_key(mod.NAME), x, y
 
 
 def main():
     bad = check()
     if bad:
         raise SystemExit("FAILED:\n  " + "\n  ".join(bad))
-    zone = zone_key(UB.NAME)
     vd, ad = load("data/npcs/vendors.json"), load("data/npcs/ambient_npcs.json")
     vby = {r["vendor_id"]: r for r in vd["vendors"]}
     aby = {r["npc_id"]: r for r in ad["npcs"]}
     made = moved = 0
     for vid, (name, race, gender, var, facing, gl, gear, stock, greet) in VENDORS.items():
-        x, y = UB.NPC_POSITIONS[vid]
+        zone, x, y = where(vid)
         rec = dict(vendor_id=vid, name=name, zone=zone, x=x, y=y, tile_sprite="npc", buys_from_player=True,
                    faction="neutral", gear_level=gl, sells_gear=gear, race=race, gender=gender,
                    appearance_variant=var, facing=facing, greeting=greet)
@@ -112,7 +137,7 @@ def main():
             vd["vendors"].append(rec)
             made += 1
     for nid, (name, race, gender, var, facing, greet) in AMBIENT.items():
-        x, y = UB.NPC_POSITIONS[nid]
+        zone, x, y = where(nid)
         rec = dict(npc_id=nid, name=name, zone=zone, x=x, y=y, greeting=greet, gender=gender, race=race,
                    appearance_variant=var, facing=facing)
         if nid in aby:
@@ -120,6 +145,27 @@ def main():
         else:
             ad["npcs"].append(rec)
             made += 1
+    # the inn keeps the mail, like every inn (qa_auction_house: a mailbox by every inn)
+    box = next((r for r in ad["npcs"] if r["npc_id"] == "mailbox_hr_innkeeper"), None)
+    if box is None:
+        box = {"npc_id": "mailbox_hr_innkeeper"}
+        ad["npcs"].append(box)
+    box.update(name="Mailbox", zone=zone_key(HI.NAME), x=HI.MAILBOX[0], y=HI.MAILBOX[1], facing="down",
+               race="troll", appearance_variant=0, is_mailbox=True, prop="assets/tiles/market/props/mailbox_troll.png",
+               greeting="Highrest's mailbox by the Cloudside Rest. Zakko's wyverns carry the letters down, and the ones that come up Lo'mai weighs down with a stone so the wind doesn't read them first.")
+    save("data/npcs/vendors.json", vd)
+    save("data/npcs/ambient_npcs.json", ad)
+    td = load("data/travel/travel_data.json")
+    for k, v in SERVICES.items():
+        td["services"][k] = sorted(set(td["services"].get(k, [])) | set(v))
+    for key, node in FLIGHT_NODES:
+        td["flight_nodes"][key] = node
+    save("data/travel/travel_data.json", td)
+    # safe_update only moves people, so the ones who moved maps get their zone here
+    for rows, idk in ((vd["vendors"], "vendor_id"), (ad["npcs"], "npc_id")):
+        for r in rows:
+            if r[idk] in HI.NPC_POSITIONS:
+                r["zone"] = zone_key(HI.NAME)
     save("data/npcs/vendors.json", vd)
     save("data/npcs/ambient_npcs.json", ad)
     print(f"The Upper Boughs: {made} created, {moved} moved ({len(VENDORS) + len(AMBIENT)} people)")

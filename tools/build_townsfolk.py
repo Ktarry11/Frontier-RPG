@@ -48,6 +48,9 @@ TOWNS = {
     "lastlight": "Lastlight",
     "lenswatch": "Lenswatch",
     "spearhold": "Spearhold",
+    "mossroof": "Mossroof",
+    "heartwatch": "Heartwatch",
+    "highrest": "Highrest",
 }
 SPACING = 3          # nobody stands closer than this to anyone else, if the district has room
 

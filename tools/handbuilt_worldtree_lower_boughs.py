@@ -11,7 +11,8 @@ come up over the far end of the Great Bough on ropes from the jungle below.
     The Root Stair ........ the ledge's west end (40,16): down to Rootwater Isle
     The Knothollow ........ a great knot in the trunk off the ledge (62,16): the cave into the wood
     The Great Lift ........ the ledge's east end (130,16): up to the Great Settlement
-    Mossroof .............. the trolls' village at the foot of the Great Bough (safe)
+    Mossroof .............. the trolls' village, up the ladders off the ledge (80,16): its own map since 22 Nov 2026
+                            (Kyle: "we do need hubs in the boughs"); the ledge under it stays safe ground
     The Trunk Ledge ....... the ledge along the trunk's foot
     The Greenwater Bough .. the Great Bough and its river
     The Howling Bough ..... the west bough, the sap-drunk apes
@@ -28,7 +29,7 @@ sky"). Ground: LOWER_BOUGHS_SHEET in tools/bake_ashenvale.py (Kyle's sheet W1). 
 
 HARD CONTRACTS (world/portal_manager.py)
   portals  Rootwater Isle (40,16) <-> the Root Stair's foot on the island; The Knothollow (62,16) <-> its mouth;
-           The Great Settlement (130,16) <-> the city's Liftfoot (24,14)
+           The Great Settlement (130,16) <-> the city's Liftfoot (24,14); Mossroof (80,16) <-> its Ladderfoot (50,69)
 """
 import numpy as np
 
@@ -42,8 +43,9 @@ WTP = "assets/tiles/worldtree/props/"
 SP = "assets/tiles/stranglethorn/props/"
 BLD = "assets/buildings/"
 
-PORTALS = {(40, 16): "Rootwater Isle", (62, 16): "The Knothollow", (130, 16): "The Great Settlement"}
-ARRIVALS = [(40, 20), (62, 20), (130, 20)]
+PORTALS = {(40, 16): "Rootwater Isle", (62, 16): "The Knothollow", (130, 16): "The Great Settlement",
+           (80, 16): "Mossroof"}
+ARRIVALS = [(40, 20), (62, 20), (130, 20), (80, 20)]
 LATER_PORTALS = {}
 START = (92, 30)        # Mossroof: everything must be reachable from here
 
@@ -143,6 +145,7 @@ ROADS = {
     "stair":  ([(40, 24), (40, 18)], 2.6),
     "knot":   ([(62, 25), (62, 18)], 2.4),
     "lift":   ([(130, 26), (130, 18)], 2.6),
+    "ladders": ([(80, 27), (80, 18)], 2.4),
     "great":  ([(90, 28), (84, 40), (83, 60), (80, 92), (82, 120), (84, 136)], 3.0),
     "west":   ([(36, 26), (32, 56), (25, 84), (20, 112), (23, 132)], 2.8),
     "east":   ([(148, 26), (153, 58), (160, 86), (164, 112), (166, 128)], 2.8),
@@ -165,14 +168,7 @@ SPEC = _Spec(NAME, W, H, ROADS, rivers=RIVERS, lakes=LAKES, deep_shrink=DEEP_SHR
 
 #: the trolls of Mossroof and out on the boughs (tools/build_lower_boughs_people.py writes their records)
 NPC_POSITIONS = {
-    "lb_elder":          (92, 24),     # Mossroof's elder
-    "lb_hunter":         (84, 30),     # the bough-hunter
-    "lb_shaman":         (100, 30),    # the river's shaman
-    "lb_ropemaster":     (106, 24),    # keeps the bridges and the ropes
-    "lb_scholar":        (78, 24),     # buys sky-bones for the Settlement's scholars
-    "lb_transplant":     (98, 36),     # a transplant who climbed for the view and stayed
-    "lb_provisioner":    (82, 36),     # food and drink
-    "lb_trader":         (104, 36),    # the village's trader
+    # Mossroof's own people live in the village now (tools/handbuilt_worldtree_mossroof.py)
     "lb_stairwarden":    (44, 22),     # at the top of the Root Stair
     "lb_liftkeeper":     (126, 22),    # at the Great Lift
     "lb_scout_west":     (34, 72),     # watching the apes from the west bough
@@ -200,7 +196,7 @@ SUBZONES = [   # (table_key, x, y, w, h, display_name) - later registrations win
     ("The Silkwood", 112, 40, 68, 100, None),
     ("The Greenwater Bough", 64, 40, 50, 80, None),
     ("The Climbers' Cut", 64, 118, 52, 32, None),
-    ("Mossroof", 72, 14, 40, 28, None),
+    ("Mossroof", 72, 14, 40, 28, "Under Mossroof"),     # the village is up the ladders, its own map
 ]
 
 #: what grows on a branch: leaf crowns, curtains of moss and vine, side branches, ferns
@@ -292,21 +288,17 @@ def dress(L):
     B("wt_loa_face", 92, 12, 12, solid="core", allow_overlap=True, nudge=2)
     G("wt_stair_landing", 46, 20, 4, solid="core", nudge=3)
     G("wt_knot_hole", 62, 13, 9, solid="core", road_ok=True, allow_overlap=True, nudge=1)
-    # ---- Mossroof: moss-roofed treehouses on platforms at the trunk's foot
-    G("wt_treehouse", 80, 20, 8, solid="core", nudge=4)
+    # ---- under Mossroof: the village's lowest houses round the foot of its ladders (the village is its own map)
     G("wt_treehouse", 106, 20, 8, solid="core", nudge=4)
     G("wt_treehouse_small", 74, 32, 6, solid="core", nudge=4)
     G("wt_treehouse_small", 112, 32, 6, solid="core", nudge=4)
     G("wt_platform_ladder", 70, 22, 5, solid="core", nudge=3)
-    G("wt_cook_shelter", 84, 40, 5, solid="core", nudge=3)
-    G("wt_hammock", 102, 40, 4, solid="core", nudge=3)
     G("wt_cistern_house", 116, 22, 6, solid="core", nudge=4)
     B("gs_loa_totem", 92, 34, 5, solid="core", nudge=3)
     B("gs_lantern_post", 86, 26, 4, solid="core", nudge=3)
     B("gs_lantern_post", 98, 26, 4, solid="core", nudge=3)
     B("gs_lantern_post", 46, 26, 4, solid="core", nudge=3)
     B("gs_lantern_post", 124, 26, 4, solid="core", nudge=3)
-    B("gs_prayer_streamers", 100, 22, 5, solid="core", nudge=3)
     G("wt_rope_post", 88, 44, 4, solid="core", nudge=3)
     G("wt_rope_post", 52, 102, 4, solid="core", nudge=3)
     G("wt_rope_post", 128, 100, 4, solid="core", nudge=3)

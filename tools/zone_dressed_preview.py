@@ -30,6 +30,9 @@ os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 TILE_PX = 32
 
 ZONES = {
+    "mossroof": "tools.handbuilt_worldtree_mossroof",
+    "heartwatch": "tools.handbuilt_worldtree_heartwatch",
+    "highrest": "tools.handbuilt_worldtree_highrest",
     "aspen": "tools.handbuilt_aspen_wilderness",
     "amberleaf": "tools.handbuilt_dawnhaven_amberleaf",
     "duskfall": "tools.handbuilt_dawnhaven_duskfall",

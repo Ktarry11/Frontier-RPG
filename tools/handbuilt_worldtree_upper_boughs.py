@@ -12,7 +12,8 @@ branch tips.
     The Root Stair ........ the trunk's south-west face (74,86): down to the Middle Boughs
     The Stormsplit ........ the trunk's west face (68,66): a lightning-split hollow in the trunk, the tier's cave
     The Cloud Way ......... the ring's north side (90,52): the stair on up into the cloud, the Cloudbreak
-    Highrest .............. the last troll camp, on the ring's south side (safe)
+    Highrest .............. the last troll camp, through the gate on the far side of its platform (90,105): its own map
+                            since 22 Nov 2026 (Kyle: "we do need hubs in the boughs"); the platform stays safe ground
     The Trunk Ring ........ the ledge round the trunk
     The Wyvern Roosts ..... the east branch, bending south
     The Storm Bough ....... the south-east branch, blackened by lightning
@@ -28,7 +29,7 @@ curve the same way, because up here the wind decides everything.
 
 HARD CONTRACTS (world/portal_manager.py)
   portals  The Middle Boughs (74,86) <-> its Root Stair (16,18); The Stormsplit (68,66) <-> its mouth;
-           The Cloudbreak (90,52) <-> the foot of its ladder
+           The Cloudbreak (90,52) <-> the foot of its ladder; Highrest (90,105) <-> its Windgate (48,2)
 """
 import numpy as np
 
@@ -47,8 +48,9 @@ RING = (90, 71, 27, 24)
 #: Highrest's platform, lashed onto the ring's south side over the drop
 HIGHREST = (90, 99, 18, 7)
 
-PORTALS = {(74, 86): "The Middle Boughs", (68, 66): "The Stormsplit", (90, 52): "The Cloudbreak"}
-ARRIVALS = [(76, 89), (65, 68), (90, 55)]
+PORTALS = {(74, 86): "The Middle Boughs", (68, 66): "The Stormsplit", (90, 52): "The Cloudbreak",
+           (90, 105): "Highrest"}
+ARRIVALS = [(76, 89), (65, 68), (90, 55), (90, 101)]
 LATER_PORTALS = {}
 START = (90, 96)        # Highrest: everything must be reachable from here
 
@@ -161,6 +163,7 @@ ROADS = {
     "stair":    ([(80, 92), (76, 88)], 2.2),
     "hollow":   ([(65, 72), (65, 68)], 2.2),
     "cloud":    ([(90, 52), (90, 56)], 2.2),
+    "camp":     ([(90, 96), (90, 104)], 2.4),
     "roosts":   ([(116, 68), (138, 63), (156, 70), (166, 88)], 2.6),
     "storm":    ([(106, 92), (117, 110), (112, 128)], 2.6),
     "gale_s":   ([(72, 92), (58, 108), (38, 115)], 2.6),
@@ -184,14 +187,7 @@ SPEC = _Spec(NAME, W, H, ROADS, rivers=RIVERS, lakes=LAKES, deep_shrink=DEEP_SHR
 
 #: Highrest and the people out on the branches (tools/build_upper_boughs_people.py writes their records)
 NPC_POSITIONS = {
-    "ub_windwarden":     (90, 97),    # Highrest's warden, the last of the climbers' captains
-    "ub_wyvern_tamer":   (95, 99),    # wants a wyvern egg, and then a wyvern
-    "ub_storm_shaman":   (85, 100),     # listens to the storms
-    "ub_skywatcher":     (96, 96),     # the Settlement's skywatcher, after the skiff
-    "ub_old_climber":    (84, 96),     # the oldest troll who's ever been this high
-    "ub_transplant":     (102, 101),    # a transplant who climbed for the weather
-    "ub_provisioner":    (79, 99),     # food and drink
-    "ub_trader":         (110, 98),   # the camp's trader
+    # Highrest's own people live in the camp now (tools/handbuilt_worldtree_highrest.py)
     "ub_stairwarden":    (79, 90),     # at the top of the Root Stair
     "ub_ladderkeeper":   (95, 55),     # at the foot of the Cloud Way
     "ub_scout_roosts":   (140, 66),    # watching the wyverns
@@ -220,7 +216,7 @@ SUBZONES = [   # (table_key, x, y, w, h, display_name) - later registrations win
     ("The Gale", 0, 20, 70, 110, None),
     ("The Thunderhawk Reach", 70, 0, 52, 44, None),
     ("The Skiff Wreck", 104, 18, 56, 34, None),
-    ("Highrest", 70, 88, 42, 16, None),
+    ("Highrest", 70, 88, 42, 16, "Highrest's Platform"),    # the camp is through the gate, its own map
 ]
 
 #: greenery this high: wind-bent branches, lichen, the last leaves turning gold where the light comes down
@@ -335,17 +331,11 @@ def dress(L):
     B("wt_loa_face", 90, 82, 13, allow_overlap=True)
     B("gs_trunk_tower_house", 103, 81, 13, allow_overlap=True)
     B("gs_trunk_stair", 80, 82, 9, allow_overlap=True)
-    # ---- Highrest: a camp, not a scatter. One fire in the middle with the people round it; the lookout on the outer
-    #      edge watching the cloud, with the camp's totem guarding the edge beside it; the lean-to and the hammock along
-    #      the far rim; the trader's barrels stacked behind his stall; charms hung on the windward rim, not in the way.
-    B("gs_brazier", 90, 101, 4)
+    # ---- Highrest's platform: the camp itself is through the gate on its far side (its own map since 22 Nov 2026);
+    #      out here the lookout still watches the cloud and the totem still guards the edge
     G("wt_high_lookout", 76, 104, 9)
     B("gs_loa_totem", 70, 101, 6)
-    G("wt_bark_leanto", 100, 105, 5)
-    G("wt_hammock", 106, 104, 4)
-    G("wt_sap_barrels", 113, 100, 4)
-    G("wt_wind_charms", 84, 106, 5)
-    G("wt_wind_charms", 95, 106, 5)
+    G("wt_sap_barrels", 108, 100, 4)
     # ---- the ring: nothing standing on the walkway; the shade's growth sits against the trunk
     G("wt_shelf_fungus", 106, 82, 4)
     G("wt_knot_hole", 112, 76, 5)

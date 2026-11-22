@@ -4,9 +4,10 @@ boughs. Idempotent.
 
     PYTHONPATH=. python3 tools/build_lower_boughs_people.py
 
-docs/worldtree_brief.md. The Lower Boughs get a small group of quest givers, not a town (Kyle, 19 Nov 2026: "Great
-settlement will be large but not capital city large"; the city is the next stop up): two traders, no inn, no flight
-path. "Transplants live here too ... a handful in the Lower Boughs who climbed for the view and stayed."
+docs/worldtree_brief.md. "Transplants live here too ... a handful in the Lower Boughs who climbed for the view and
+stayed." Mossroof was a handful of givers on the ledge with no inn and no flight path; since 22 Nov 2026 it's its own
+map and the tier's hub (Kyle: "we do need hubs in the boughs"), with an inn, the mail and the bats
+(tools/handbuilt_worldtree_mossroof.py). The stair, the lift and the two scouts stay out where their work is.
 
 Every person stands where the map's NPC_POSITIONS says; a person in one and not the other stops the script.
 """
@@ -18,10 +19,17 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from tools import handbuilt_worldtree_lower_boughs as LB  # noqa: E402
+from tools import handbuilt_worldtree_mossroof as MR  # noqa: E402
 from tools.npc_data_guard import safe_update  # noqa: E402
 from world.zone_keys import zone_key  # noqa: E402
 
 M, F = "male", "female"
+
+SERVICES = {"mr_bat_handler": ["flight"], "mr_innkeeper": ["inn"]}
+FLIGHT_NODES = [
+    ("lower_boughs", {"name": "Mossroof", "zone": MR.NAME, "master": "mr_bat_handler", "pos": [-37, 150],
+                      "continent": "eastern_kingdoms"}),
+]
 
 #: vendor_id -> (name, race, gender, variant, facing, gear_level, sells_gear, stock, greeting)
 VENDORS = {
@@ -56,6 +64,12 @@ AMBIENT = {
     "lb_transplant": ("Aroha Tane", "human", F, 3, "left",
                       "I climbed trees for a living back home, big kauri in the north of New Zealand. Then I heard about "
                       "this one. I came up for the view, and I'm still here."),
+    "mr_innkeeper": ("Innkeeper Wajia", "troll", F, 4, "down",
+                     "The Hanging Hammocks has a hammock for everybody who climbed this far, and a pot of fish stew under "
+                     "them. Sleep here and I'll mark you as one of mine, so the tree brings you back to Mossroof."),
+    "mr_bat_handler": ("Bat Handler Juno'ka", "troll", M, 9, "down",
+                       "My bats fly up to the Settlement and down to Grom'gol, and anywhere else the Horde's put a roost. "
+                       "They hate the dark under the boughs, so they fly fast, and you'll want to hold on tight."),
     "lb_stairwarden": ("Stairwarden Mozu", "troll", M, 7, "down",
                        "The Root Stair goes all the way down to the landing on Rootwater, and every step of it's been "
                        "worn smooth by somebody's feet. Mind the bottom ones, they're wet."),
@@ -83,24 +97,33 @@ def check():
     from tools.build_tempest_quests import voice_problems
     bad = []
     mine = set(VENDORS) | set(AMBIENT)
-    if mine != set(LB.NPC_POSITIONS):
-        bad.append(f"roster and layout disagree: {sorted(mine ^ set(LB.NPC_POSITIONS))}")
+    placed = set(LB.NPC_POSITIONS) | set(MR.NPC_POSITIONS)
+    if set(LB.NPC_POSITIONS) & set(MR.NPC_POSITIONS):
+        bad.append(f"on both maps: {sorted(set(LB.NPC_POSITIONS) & set(MR.NPC_POSITIONS))}")
+    if mine != placed:
+        bad.append(f"roster and layout disagree: {sorted(mine ^ placed)}")
     for k, v in list(VENDORS.items()) + list(AMBIENT.items()):
         bad += [f"{k}: {p}" for p in voice_problems(v[-1])]
     return bad
+
+
+def where(nid):
+    """(zone key, x, y) for a person, from whichever map lists them."""
+    mod = MR if nid in MR.NPC_POSITIONS else LB
+    x, y = mod.NPC_POSITIONS[nid]
+    return zone_key(mod.NAME), x, y
 
 
 def main():
     bad = check()
     if bad:
         raise SystemExit("FAILED:\n  " + "\n  ".join(bad))
-    zone = zone_key(LB.NAME)
     vd, ad = load("data/npcs/vendors.json"), load("data/npcs/ambient_npcs.json")
     vby = {r["vendor_id"]: r for r in vd["vendors"]}
     aby = {r["npc_id"]: r for r in ad["npcs"]}
     made = moved = 0
     for vid, (name, race, gender, var, facing, gl, gear, stock, greet) in VENDORS.items():
-        x, y = LB.NPC_POSITIONS[vid]
+        zone, x, y = where(vid)
         rec = dict(vendor_id=vid, name=name, zone=zone, x=x, y=y, tile_sprite="npc", buys_from_player=True,
                    faction="neutral", gear_level=gl, sells_gear=gear, race=race, gender=gender,
                    appearance_variant=var, facing=facing, greeting=greet)
@@ -111,7 +134,7 @@ def main():
             vd["vendors"].append(rec)
             made += 1
     for nid, (name, race, gender, var, facing, greet) in AMBIENT.items():
-        x, y = LB.NPC_POSITIONS[nid]
+        zone, x, y = where(nid)
         rec = dict(npc_id=nid, name=name, zone=zone, x=x, y=y, greeting=greet, gender=gender, race=race,
                    appearance_variant=var, facing=facing)
         if nid in aby:
@@ -119,8 +142,23 @@ def main():
         else:
             ad["npcs"].append(rec)
             made += 1
+    # the Hanging Hammocks keeps the mail, like every inn (qa_auction_house: a mailbox by every inn)
+    box = next((r for r in ad["npcs"] if r["npc_id"] == "mailbox_mr_innkeeper"), None)
+    if box is None:
+        box = {"npc_id": "mailbox_mr_innkeeper"}
+        ad["npcs"].append(box)
+    box.update(name="Mailbox", zone=zone_key(MR.NAME), x=MR.MAILBOX[0], y=MR.MAILBOX[1], facing="down", race="troll",
+               appearance_variant=0, is_mailbox=True, prop="assets/tiles/market/props/mailbox_troll.png",
+               greeting="Mossroof's mailbox by the Hanging Hammocks. Innkeeper Wajia sends the letters up to the "
+                        "Settlement with the bats, and what comes back down she sorts by the fire.")
     save("data/npcs/vendors.json", vd)
     save("data/npcs/ambient_npcs.json", ad)
+    td = load("data/travel/travel_data.json")
+    for k, v in SERVICES.items():
+        td["services"][k] = sorted(set(td["services"].get(k, [])) | set(v))
+    for key, node in FLIGHT_NODES:
+        td["flight_nodes"][key] = node
+    save("data/travel/travel_data.json", td)
     print(f"The Lower Boughs: {made} created, {moved} moved ({len(VENDORS) + len(AMBIENT)} people)")
 
 

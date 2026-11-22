@@ -54,6 +54,7 @@ ITEM_PREFIX = "ubg_"
 #: quest zone key -> (map module, start attribute, encounter path)
 MAPS = {
     SQ.UB: ("tools.handbuilt_worldtree_upper_boughs", "START", ("The Upper Boughs",)),
+    "highrest": ("tools.handbuilt_worldtree_highrest", "START", None),          # the hub: reachability only
     SQ.SS: (None, None, ("The Upper Boughs", "The Stormsplit")),
     SQ.CB: ("tools.handbuilt_worldtree_cloudbreak", "START", None),      # nothing lives there: reachability only
 }

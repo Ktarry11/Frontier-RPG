@@ -106,6 +106,13 @@ REGIONS = {
     # The Sunward Crown: Lenswatch (with the Annex and the survey's scholars) and Spearhold, the trolls' camp on its own
     # small map (Kyle: "Tiny camp, no hearth or flight. But seperate map").
     "Sunward Crown": (["sunward_crown", "lenswatch"], ["lenswatch", "spearhold"], {}),
+    # ---- 22 Nov 2026, the World Tree's boughs (Kyle: "Actually, no we do need hubs in the boughs"): each tier's village
+    # is its own map. The Lower Boughs: Mossroof, up the ladders off the ledge.
+    "Lower Boughs": (["lower_boughs"], ["mossroof"], {}),
+    # The Middle Boughs: Heartwatch, the shadow hunters' hold off the outpost platform.
+    "Middle Boughs": (["middle_boughs"], ["heartwatch"], {}),
+    # The Upper Boughs: Highrest, through the gate on the far side of its platform.
+    "Upper Boughs": (["upper_boughs"], ["highrest"], {}),
 }
 #: the share of a region's quests that must come from town. Never lower one.
 FLOORS = {"Durotar": 0.70, "Tirisfal": 0.70, "Silverpine": 0.70, "Barrens": 0.70, "Hillsbrad": 0.70,
@@ -114,7 +121,7 @@ FLOORS = {"Durotar": 0.70, "Tirisfal": 0.70, "Silverpine": 0.70, "Barrens": 0.70
           "Plaguelands": 0.70, "Thousand Needles": 0.70, "Tanaris": 0.70, "Aspen": 0.70, "Echo Isles": 0.70,
           "Celestial Expanse": 0.70, "Anchorfields": 0.70,
           "Ascendant Bastions": 0.55, "Fading Firmament": 0.70,
-          "Sunward Crown": 0.70}
+          "Sunward Crown": 0.70, "Lower Boughs": 0.70, "Middle Boughs": 0.70, "Upper Boughs": 0.70}
 
 
 def norm(s):
