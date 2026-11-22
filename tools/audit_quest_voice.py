@@ -156,13 +156,18 @@ def _check_third(body, q):
     return False
 
 
+# Givers that are things, not people (a skeleton, a grave marker). Like item starters they narrate to "you", because
+# the remains can't talk.
+OBJECT_GIVERS = {"durotar_skeleton_marker"}
+
+
 def journal_third_person(q):
     """The quest journal always prints `description`, whichever field the offer window picked. A narrator there is
     the same failure as a narrator in the window. Stricter than the window check: a giver talking says I, me, my, we
     or us somewhere, so a description with no first person at all is narration even when it never names the giver
     ("Twice a week Hillsbrad's militia walk up the tower road..."). Item starters narrate to "you" on purpose."""
     giver = getattr(q, "giver_npc_id", None)
-    if not giver or (isinstance(giver, str) and giver.startswith("item:")):
+    if not giver or (isinstance(giver, str) and giver.startswith("item:")) or giver in OBJECT_GIVERS:
         return False
     body = (getattr(q, "description", "") or "").strip()
     return not _FIRST.search(re.sub(r'"[^"]*"', "", body)) or _check_third(body, q)
@@ -170,7 +175,7 @@ def journal_third_person(q):
 
 # STORY-DONE ZONES. Kyle, 22 Nov 2026: one zone at a time, to docs/quest_writing_standard.md. Once a zone is on this
 # list, an offer under STORY_MIN sentences or a journal that narrates is a hard finding there, so it can't slip back.
-STORY_DONE = {"feralas", "hillsbrad", "stranglethorn_north", "stranglethorn_central", "stranglethorn_south", "shimmering_flats", "tanaris", "lower_boughs", "middle_boughs", "upper_boughs", "rootwater_isle", "harvest_finds", "dawnhaven", "aurelion", "great_settlement", "southern_needles", "aspen", "arathi", "plaguelands_south", "plaguelands_north", "plaguelands_epl_west", "plaguelands_epl_east", "ashenvale", "black_strand", "felwood", "abyssal_sands", "glittervein", "tempest_shallows", "ashen_reach", "underdark", "valley_of_trials", "moonglade", "underdark_dungeons", "deadwind", "stonetalon", "hillsbrad_dungeons", "orgrimmar", "lashings", "scarlet_monastery", "razor_hill", "timbermaw_tunnel", "royal_hive", "plaguelands_turnins", "crossroads", "hidden_zones"}
+STORY_DONE = {"feralas", "hillsbrad", "stranglethorn_north", "stranglethorn_central", "stranglethorn_south", "shimmering_flats", "tanaris", "lower_boughs", "middle_boughs", "upper_boughs", "rootwater_isle", "harvest_finds", "dawnhaven", "aurelion", "great_settlement", "southern_needles", "aspen", "arathi", "plaguelands_south", "plaguelands_north", "plaguelands_epl_west", "plaguelands_epl_east", "ashenvale", "black_strand", "felwood", "abyssal_sands", "glittervein", "tempest_shallows", "ashen_reach", "underdark", "valley_of_trials", "moonglade", "underdark_dungeons", "deadwind", "stonetalon", "hillsbrad_dungeons", "orgrimmar", "lashings", "scarlet_monastery", "razor_hill", "timbermaw_tunnel", "royal_hive", "plaguelands_turnins", "crossroads", "hidden_zones", "durotar", "sepulcher", "ashenvale_dungeons", "fenris_isle", "central_barrens"}
 _STEM_OF = None
 
 
