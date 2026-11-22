@@ -213,3 +213,16 @@ VOICE = {
         "That's three seasons of missing reed-cutters put right.\n\nIt was a magnificent animal, and I won't have anyone say otherwise.",
     ),
 }
+
+
+# THE STORY PASS (22 Nov 2026), to docs/quest_writing_standard.md; see tools/voice/central_barrens_hub_story.py.
+from voice.central_barrens_hub_story import STORY as _STORY
+for _qid, (_d, _a) in _STORY.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a, _old[2])
+
+
+from voice.central_barrens_hub_beats import BEATS as _BEATS
+for _qid, _a in _BEATS.items():
+    _o = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_o[0], _a, _o[2])
