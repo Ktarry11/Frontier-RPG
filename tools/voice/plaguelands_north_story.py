@@ -1,0 +1,154 @@
+"""plaguelands_north story pass (22 Nov 2026), to docs/quest_writing_standard.md. Where the giver's speech sat in the accept
+line and the journal showed a summary or narration, the speech is now the description and the accept line a new short
+beat; the rest were written fresh. Turn-ins untouched."""
+
+STORY = {
+    'pln_the_gate_of_hearthglen': (
+        "I'm Lena Fischer, and I keep the Pale Watch. Welcome to the last town before Hearthglen.\n\nBefore I send anybody up that road, I want them to have seen it with their own eyes. People hear 'the Crusade' and think of a few zealots with torches. Go and look at the walls, and the towers, and the people on them.\n\nOut the gate and straight up the King's Road. You'll see the gate long before you reach it. Don't draw steel, and don't let them get a good look at your face. Then come back down and tell me what you saw.",
+        "Look, and come back. Don't draw steel up there.",
+    ),
+    'pln_sentries_on_the_road': (
+        "Every Scarlet Sentry on the road below Hearthglen turns back anyone who isn't wearing red. That was fine while they stayed up there. Lately they've been coming down at night, closer every time, and last night one of them was close enough to read our gate.\n\nPush them back up the hill, north of here. They stand in pairs on the road and in the fields under the gate. They'll call for help if they can, so don't let one run. Keep it quick and keep it quiet.",
+        "Don't let one run. They'll call the rest if they can.",
+    ),
+    'pln_crossbows_on_the_wall': (
+        "Hearthglen's answered us. With the sentries gone, they've put a Scarlet Crossbowman in every hedge along the road. One of Mateo's scouts took a bolt yesterday from a hedgerow he'd walked past a hundred times.\n\nI want them out of the fields north of here. They hide in the hedges and the ditches below the walls. A crossbow takes a while to wind and they know you know it, so close the distance fast and don't stand still in the open.",
+        "Close the distance while they're winding. That's your moment.",
+    ),
+    'pln_word_from_the_watch': (
+        "I've watched Hearthglen's gate for a month, and I've written down everything I've seen. Hale is pulling his people in behind the walls. Patrols, wagons, the lumber crews from Northridge. I don't think he's planning to sit behind those walls. I think he's getting ready to come out of them.\n\nRory needs this. He's at the Bulwark now, at the keep in the Order's quarter on the south side of the street. Fly if you can, the roostkeeper's by the south wall. Give it to Rory and wait while he reads it, because he'll have an answer.",
+        "Wait while he reads it, because he'll have an answer.",
+    ),
+    'pln_a_letter_for_brill': (
+        "Lena's written to the Order's man in Brill, and she's asked me to send it with someone, since I send him a cask of beer every month anyway. Flamewarden Teodor Novak watches the Scarlet Monastery from a window over the inn, and he's very good at it.\n\nIf Hale marches out of Hearthglen, the Monastery marches with him. Teodor needs to know what Lena knows.\n\nGo south to the Bulwark and out its west gate into Tirisfal, then on to Brill. Teodor lodges over the inn. He'll offer you a drink, and you should take it. It's my beer, and it's the only good beer in Tirisfal.",
+        "Take the drink when he offers it. It's my beer.",
+    ),
+    'pln_worgs_on_the_road': (
+        "I'm Mateo, and I keep the Watch's roads open, and the Rotting Worgs have worked out that the road is where the food walks.\n\nThey run in packs and they don't let go once they've got you. I've had two runners come in with half a leg each this week.\n\nThey work the roads just outside the gate, mostly at dusk. Break the packs up. Don't fight more than two at once, and keep moving, because they go for your legs.",
+        'Never more than two at once, and keep moving.',
+    ),
+    'pln_skeletal_wanderers': (
+        "The Skeletal Wanderers walk the roads with nowhere to go. I think they were travellers once, caught on the road when the plague came, and they've just kept walking ever since.\n\nThey're slow, but there are a lot of them, and they never stop. When they see you they turn round and follow, all of them, until you're backed against something.\n\nThey gather on the roads. Clear them off, and don't let them pin you against a wall.",
+        "Don't let them back you against a wall. They never stop coming.",
+    ),
+    'pln_down_to_the_river': (
+        "We haul every barrel of water up from the Thondroril, the river on the east side of the fields, and it's a long way round to the only path we trust.\n\nI'd like a shorter one. Somewhere on the bank the dead don't use, where we can put a barrel at the bottom and a marker at the top.\n\nGo east from the gate, through the fields and down to the river. Find somewhere quiet and stand on it. You'll know it when you see it, because nothing will be trying to eat you.",
+        "You'll know the right spot, because nothing will be trying to eat you.",
+    ),
+    'pln_the_blighted_herd': (
+        "There's a herd of Blighted Stags in the fields north of the Watch. Most days they graze. When something spooks them they run, and they run straight at our walls, and twice now they've come through the gate before we could shut it.\n\nI'd like the herd thinned before the third time. They graze in the fields north and east of the town. Don't stand in front of them when they bolt. Pick off the ones on the edge of the herd and let the rest run.",
+        'Take the ones on the edge, and let the rest bolt past you.',
+    ),
+    'pln_travellers_keepsakes': (
+        "Mateo told me about the Skeletal Wanderers on the roads, and I can't stop thinking about them. This is the last bed before Hearthglen, and some of those travellers might have slept under this roof. If they had pockets, some of them still have whatever was in them. A ring, a letter, a toy for somebody waiting at home.\n\nI'd like to write down what they were. Somebody might still be waiting for one of them, and the Order keeps a book of names at the Bulwark.\n\nThey walk the roads all round the Watch. Not every one of them has anything left. Bring me what you find and I'll write it all down.",
+        'Bring me whatever you find, however small.',
+    ),
+    'pln_riverbank_ghouls': (
+        "I'm Noah, and I patch up whoever makes it back through the gate. Lately that's been people who went down to the river.\n\nThe Riverbank Ghouls hide in the reeds along the Thondroril and drag people into the water. The ones who come back have bites I can't keep clean.\n\nThey lie on the banks east of the town and come at you out of the water. Stay on the high ground and let them climb to you.",
+        'Stay on the high ground and let them climb to you.',
+    ),
+    'pln_sludge_samples': (
+        "There's a cauldron at Gahrron's Withering, east of here. The Cauldron Sludge that crawls out of that cauldron is the plague at its purest, near enough, and that's exactly what I want.\n\nI think I can make a serum. Not a cure, nothing that good, but something that slows the sickness long enough to get somebody to a priest. I need to start with the real thing.\n\nThe sludges crawl round the cauldron at the Withering. Kill one and scoop what's left into a jar. Keep the lid on tight and don't breathe it in.",
+        "Keep the lid on tight, and don't breathe it in.",
+    ),
+    'pln_the_withering': (
+        "The cauldron at Gahrron's Withering is the Cult's. The Withering Cultists stir it, and the Withering Ghouls carry the plague out to the fields in buckets, like they're watering a crop.\n\nI want that cauldron left with nobody to stir it.\n\nIt's east of the Watch, past the dead orchard. The cultists stand at the cauldron and the ghouls work round it. Kill the cultists first. They'll heal the rest, and I'd rather not be patching you up afterward.",
+        "Kill the cultists first, or they'll heal the rest.",
+    ),
+    'pln_gahrron_the_withered': (
+        "Gahrron owned the farm the Withering is named for. He died there, and the Cult raised him to guard their cauldron, and now Gahrron the Withered walks his own fields thinking they're still his.\n\nI'd like him put to rest, so we can burn the place clean. It won't heal while he's walking it.\n\nHe's near the cauldron at Gahrron's Withering, north-east of here. He's slow, but he's strong, and the sickness comes off him in waves. Take friends, and take something for the nausea. I'll have more of it here when you get back.",
+        'Take friends, and something for the nausea.',
+    ),
+    'pln_a_serum_for_felwood': (
+        "Noah's made a serum. It doesn't cure anything, and he wants me to be clear about that, but it slows the plague down long enough to matter. He asked me to send it with a hawk, and the hawks won't carry glass, so I'm asking you.\n\nThere's a doctor at the Emerald Sanctuary in Felwood, Dr. Nkechi Adeyemi, who's treating a sickness that sounds a lot like this one. She sent Noah the kit he's been using all month, and he'd like to send her something back.\n\nTake the zeppelin from Tirisfal to Orgrimmar, then go north through Ashenvale to Felwood. The Sanctuary's the clean glade in the middle of it. Keep the vial out of the sun.",
+        'Keep the vial out of the sun the whole way.',
+    ),
+    'pln_the_inquisitors': (
+        "I was a priestess in Hearthglen. When the Hearthglen Inquisitors started questioning the newcomers, I stood in the room while they did it. I held the candle. I didn't say a word.\n\nThen one day I walked out, and I kept walking until I reached this town. I think I'm still walking.\n\nThe inquisitors go down into the fields north of here in pairs, looking for anyone to question. I want them stopped. They'll burn you if they can, so don't let them finish a prayer.",
+        "Don't let them finish a prayer.",
+    ),
+    'pln_the_confessions': (
+        "The inquisitors carry the confessions they've forced out of people, signed and sealed, so they can be read out before a burning. Every one of them has a name on it.\n\nI'd like those names remembered by somebody who isn't going to burn them.\n\nThe Hearthglen Inquisitors walk the fields north of here, and they keep the confessions in their satchels. Not all of them will have one. Bring me whatever you find, and please don't read them. They aren't true, and the people who signed them knew it.",
+        "Please don't read them. They aren't true.",
+    ),
+    'pln_the_book_of_names': (
+        "Chaplain Odile Marchand keeps a book of names, everyone the Order knows of who died in the Plaguelands. She brought it down from Sorrow Hill when the Order moved into the Bulwark, and it's the only thing she carried herself.\n\nI'd like the people in these confessions to go into her book. Their names should be somewhere other than Hearthglen's ledgers.\n\nGo south to the Bulwark. The Order's chapel is on the south side of the street. Tell her they're from me, and that I'm sorry there are so many.",
+        "Tell her they're from me, and that I'm sorry there are so many.",
+    ),
+    'pln_high_inquisitor_faulk': (
+        "High Inquisitor Faulk runs the inquisition at Hearthglen. He kept me in a cell there for a month. He's the one who decided the newcomers were the Scourge's agents, and Amalie says he decided it on a Tuesday, between breakfast and prayers.\n\nOn feast days he walks the fields himself, with the Hearthglen Inquisitors at his back. Today's a feast day.\n\nHe'll be in Hearthglen Fields, below the walls, close to the gate. He's got a temper and a lot of fire, and he heals himself when he's hurt. Bring friends, and bring someone who can stop his prayers.",
+        "Bring someone who can stop his prayers, because he'll heal himself.",
+    ),
+    'pln_northridge': (
+        "I'm Jonah, and I built every wall in this town, and I built them out of green wood because it's all I could get.\n\nThe Crusade runs a lumber camp at Northridge, in the west, and the Scarlet Lumberjacks and Scarlet Sawyers up there cut the best oak in the north. All of it goes up the hill to Hearthglen.\n\nI'd like the camp emptied. The lumberjacks are in the woods and the sawyers are at the mill. They're working men with axes, so don't underestimate them.",
+        "They're working men with axes. Don't take them lightly.",
+    ),
+    'pln_woodsman_archers': (
+        "With the lumberjacks gone, the Crusade's sent Scarlet Woodsman Archers into Northridge's trees to guard the timber. They're good shots, and they know those woods better than I do.\n\nI can't send wagons in while they're up there. They hide in the trees round the camp, north-west of here. Look up, because they like the high branches, and don't let them pin you down in the open.",
+        'Look up, because they like the high branches.',
+    ),
+    'pln_seasoned_oak': (
+        "The wall round the Watch is green wood, and it's started to warp. Another winter and I'll be able to post letters through the gaps.\n\nThe Scarlet Sawyers at Northridge, north-west of here, carry the camp's best seasoned planks to the carts. Seasoned oak won't warp. I want enough to rebuild the gate, at least.\n\nTake the planks off the sawyers before they reach the carts. Look for Hearthglen's stamp, because that's the good stuff.",
+        "Look for Hearthglen's stamp on the planks. That's the good stuff.",
+    ),
+    'pln_foreman_harrow': (
+        "Foreman Harrow runs Northridge for the Crusade. He's the one who sent the archers out, and he came back to the camp yesterday with a fresh crew.\n\nAs long as he's there, the camp fills up again every time we empty it.\n\nHe's at the mill in the middle of Northridge, north-west of here. He's a big man with a big axe, and he doesn't like visitors. Take friends with you.",
+        "He's a big man with a big axe, so take friends.",
+    ),
+    'pln_saw_blades': (
+        "My father can't cut timber without saws, and the Crusade took every saw in the Plaguelands up to the Northridge Lumber Camp. He's been shaping planks with a hatchet, and it shows. He won't ask anyone for help, so I'm asking for him.\n\nThe Scarlet Lumberjacks carry good steel blades, forged in Hearthglen. They carry them on their backs in the woods.\n\nBring me the blades and leave the handles. He'll want to make his own handles. He's a carpenter, not a smith, and he'll tell you so.",
+        "The blades only. He'll make his own handles.",
+    ),
+    'pln_snapjaws_on_the_thondroril': (
+        "I'm Oona, and I catch the Watch's supper. I fish the Thondroril, mostly, and the Thondroril Snapjaws keep taking my catch, and my lines, and once my boot.\n\nThey're big and they're mean, and nothing in that river has ever told them no.\n\nThey sun themselves on the banks east of the town. Watch out for the bite, because they don't let go. Stay out of the water.",
+        'Stay out of the water, and mind the bite.',
+    ),
+    'pln_plague_bats': (
+        "The Plague Bats come out over the Thondroril at dusk, and they've started going for my hawks. Oona's been fighting them off the river with a fishing rod, and I've lost a hawk to them already this month. I'm sure they carry the plague.\n\nThey roost in the trees along the river. They're fast, so don't chase them. Stand still on the bank and let them come to you, because they will.",
+        "Don't chase them. Stand still on the bank and they'll come.",
+    ),
+    'pln_antler_hooks': (
+        "I've run out of hooks, and there's nowhere out here to buy them. I carve my own from antler, the way my grandfather taught me.\n\nThe Blighted Stags in the fields have antlers that are still sound under the grime, because I've checked.\n\nThey graze north and east of the town. Bring me the tines, not the whole rack. I don't need a rack, I need hooks.",
+        'The tines, not the whole rack. I need hooks.',
+    ),
+    'pln_old_thondroril': (
+        "There's one snapjaw in the Thondroril I've never been able to move. Old Thondroril is older than the plague and bigger than a cart, and the Thondroril Snapjaws follow him round like he's their king.\n\nHe sits on the deep pools, where the big fish are. I've been looking at those fish for months.\n\nHe keeps to the deepest pool and comes up when he's hungry. Kill the young ones while you wait. Stay on the bank, because he's stronger in the water.",
+        "Stay on the bank. He's stronger in the water.",
+    ),
+    'pln_the_patrol_roster': (
+        "I'm Wendel, and I kept Hearthglen's books until I read what I was writing down, and then I left. I still keep books. It's an old habit.\n\nThe Scarlet Sentries carry the week's roster, which tells everyone where to stand on the walls. If I had a copy, the Watch would know those walls as well as I used to.\n\nThe sentries on the road north of here, below the gate, carry it in a leather case at the belt. Bring it back dry, please. The ink runs.",
+        'Bring it back dry, please, because the ink runs.',
+    ),
+    'pln_hearthglens_hounds': (
+        "The roster says Hearthglen sends its Scarlet War Hounds out at night, to hunt anyone near the walls. I used to feed those dogs. They were good dogs, once. They'd sit for a crust.\n\nThey aren't good dogs any more. They're what Hearthglen made them.\n\nThey hunt the fields north of here, below the walls, at night and in packs. Don't let them circle you. Back up against something and let them come.",
+        "Back up against something, and don't let them circle you.",
+    ),
+    'pln_the_water_under_the_hill': (
+        "I've fished the Thondroril every day since the Watch went up, and the river's gone wrong. There's water running into it out of the hill, and it tastes of the grave. The fish won't go near it.\n\nIt's coming out of the Weeping Cave. Something in there keeps the water moving, the Cave Drowned and the Seepwater Shades, I'm told.\n\nThe cave's in the hill on the east side, up above the river. You'll hear it before you see it, because the water never stops running down the walls. Mind your feet in there. It's slick all the way down.",
+        "Mind your feet in there. It's slick all the way down.",
+    ),
+    'pln_the_weeper': (
+        "Oona told me about the water out of the Weeping Cave, and I know the story behind it. I wish I didn't.\n\nWhen Hearthglen took a family for questioning, the mother went looking for them. She went into the cave because somebody told her they'd been taken out that way. She went into the pool at the end of it, and she never came out. The Weeper is her. I'm nearly sure of it.\n\nThe pool's at the far end of the cave, past both galleries. She'll know you're coming, because she's been waiting for somebody for years. Be gentle if you can, and be quick if you can't.",
+        "Be gentle if you can, and quick if you can't.",
+    ),
+    'pln_the_hermits_account': (
+        "I remember every name in Hearthglen's ledgers, and one of them belonged to a hermit who lived in the cave above the river. He paid his tithe in fish, every quarter, for eleven years.\n\nWhen the plague came, the Crusade stopped taking his fish, and he stopped coming down. I'm told The Drowned Hermit still keeps his cell in the roof of the Weeping Cave, and that he won't let anyone past.\n\nHis cell's up through the roof of the upper gallery, about halfway along. He'll have his oar, I expect. He never went anywhere without it. Close his account for me, would you?",
+        'Close his account for me, would you?',
+    ),
+    'pln_supplies_from_felwood': (
+        "I've heard from the Order of the Pale Flame that their field medic at the Pale Watch is stitching people up with thread he boils in a pot. I was an emergency doctor in Lagos. I know exactly what that means.\n\nSo I've packed everything the Sanctuary can spare. Sutures, dressings, a bottle of something strong.\n\nIt's a long way, I know. Get yourself to the Eastern Kingdoms, through Tirisfal to the Bulwark, and keep going north up the King's Road. The Pale Watch's gate is off the road where it starts to climb toward Hearthglen. Don't let anyone ration the sutures.",
+        "Don't let anyone ration the sutures on the way.",
+    ),
+    'pln_closing_hearthglens_books': (
+        "I kept the ledgers in Hearthglen for eleven years. I know what the Crusade spends and what it burns, and I know who signs for both.\n\nGrand Crusader Victor Hale signs for both. He commands Hearthglen from Mardenholde Keep, up the hill past the town, and every order that sends a patrol out to burn a farm comes from his desk.\n\nI walked out with nothing but my pen. Go up to the keep and close his books for him. You'll have to go through the town first, and the town won't let you pass quietly.",
+        "The town won't let you through quietly. Bring your company.",
+    ),
+    'pln_the_infirmary': (
+        "I'm Beatriz Couto. I ran a cafe in Porto before the Integration, and now I run the last bed before Hearthglen, so I hear what comes out of it.\n\nWhat comes out of the infirmary is screaming. Chirurgeon Maeve Ostrowski cuts newcomers open to look for the plague, and she never finds it, and she keeps looking. High Clerist Hendrick stands at the door and blesses the work.\n\nTwo of my guests came out of that infirmary. One of them still can't hold a cup. Go into Hearthglen and stop them both, please.",
+        'Stop them both, please, the chirurgeon and the clerist.',
+    ),
+    'pln_the_kennels': (
+        "My hawks won't fly over Hearthglen, and I know why. The Crusade keeps hounds there, and the hounds are trained to run down anyone who flees the town.\n\nHuntsman Radley keeps the kennels. He breeds the Hearthglen Mastiffs himself and sends them after anyone who runs, and he's proud of how few get away. I trained sheepdogs in Donegal before the Integration. What he does to his dogs makes me sick.\n\nGo into the town, kill him and his mastiffs, and give the next runner a chance.",
+        "Give the next runner a chance. That's all I want.",
+    ),
+}
