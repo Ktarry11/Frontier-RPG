@@ -284,6 +284,14 @@ class CastScreen(BaseScreen):
     # ------------------------------------------------------------------
 
     def update(self, dt):
+        # Cooldowns keep draining while this screen is open. They only ever drained in the overworld's update, which
+        # doesn't run while Cast is up, so a heal cast here stayed locked until you left (Kyle, 21 Nov 2026: "healing
+        # spells having that 1 sec CD out of combat means i cant heal up with them more than once").
+        party = self.state_manager.get_party() if hasattr(self.state_manager, "get_party") else None
+        for member in getattr(party, "members", None) or []:
+            book = getattr(member, "ability_book", None)
+            if book is not None and hasattr(book, "tick_all_cooldowns_seconds"):
+                book.tick_all_cooldowns_seconds(dt)
         if self.message_timer > 0:
             self.message_timer -= dt
             if self.message_timer <= 0:

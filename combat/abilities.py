@@ -2630,8 +2630,12 @@ class Ability:
         # is set either way and drains in real time out of combat. free=True
         # still skips it - a proc firing an ability is not the player
         # choosing to spend their own cooldown-gated action.
+        # Out of combat a one-turn cooldown isn't set at all: it exists to stop a spell being cast twice in a row in a
+        # fight, and outside one it only stopped you healing up (Kyle, 21 Nov 2026). Longer cooldowns still apply out
+        # here and drain in real time, so the big cooldown heals stay unspammable (his 7 Nov ask).
         if not free:
-            self.turns_remaining = self.talented_cooldown(caster)
+            cd = self.talented_cooldown(caster)
+            self.turns_remaining = cd if (in_combat or cd > 1) else 0
         
         # Apply effect
         if self.delayed and not free and engine is not None and hasattr(engine, "queue_delayed"):
