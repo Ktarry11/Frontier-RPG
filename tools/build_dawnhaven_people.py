@@ -100,7 +100,7 @@ AMBIENT = {
                          "Azshara on a calm day, and they think the boat is beneath them.", {}),
     "dh_banker": (FS, "MerchantTusk", "troll", M, 3, "down",
                   "Dere is only one bank, mon, and dere is only one me, even out here on de elves' island. Do not ask "
-                  "how dat works. Hand me ya things.", {"is_banker": True, "sprite_scale": 2.0}),
+                  "how dat works. Hand me ya things.", {"is_banker": True, "sprite_scale": 2.0, "art_of": "org_banker"}),
     "mailbox_dh_innkeeper": (FS, "Mailbox", "blood_elf", M, 0, "down",
                            "The Spire's mailbox. The innkeeper sorts the letters and the parcels, and the boat brings the "
                            "rest from Durotar.", {"is_mailbox": True,

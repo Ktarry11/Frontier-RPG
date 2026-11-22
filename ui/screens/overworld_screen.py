@@ -89,6 +89,12 @@ class OverworldScreen(BaseScreen):
         self.teleport_menu_open = False
         self.teleport_rects = []          # [(rect, destination)] built each frame while open
         self.teleport_close_rect = None
+        # Kyle, 21 Nov 2026: "also need a scroll bar for teleport option". The towns outgrew the
+        # screen, so the list scrolls (wheel or the bar) a row at a time, every column together.
+        from ui.scrollbar import ScrollBar
+        self.teleport_bar = ScrollBar()
+        self.teleport_scroll = 0
+        self.teleport_max_scroll = 0
         # THE HEROIC DOOR (world/heroic.py, Kyle 18 Nov 2026: pick Normal or Heroic at the dungeon's door, at 60).
         # (zone, x, y) of the dungeon being walked into while the choice is up; its buttons are built each frame.
         self.heroic_door = None
@@ -151,6 +157,15 @@ class OverworldScreen(BaseScreen):
         # The teleport menu takes over ALL input while it is open, so a click on a town can never
         # also be a movement key or a tab click underneath it.
         if self.teleport_menu_open:
+            moved = self.teleport_bar.handle_event(event, self.teleport_scroll)
+            if moved is not None:
+                self.teleport_scroll = moved
+                return
+            if event.type == pygame.MOUSEWHEEL:
+                self.teleport_scroll = max(0, min(self.teleport_max_scroll, self.teleport_scroll - event.y))
+                return
+            if event.type == pygame.MOUSEBUTTONDOWN and getattr(event, "button", 1) in (4, 5):
+                return          # the old wheel buttons; MOUSEWHEEL above already moved the list
             if event.type == pygame.MOUSEBUTTONDOWN:
                 for rect, dest in self.teleport_rects:
                     if rect.collidepoint(event.pos):
@@ -955,6 +970,7 @@ class OverworldScreen(BaseScreen):
             elif action == "teleport":
                 self._release_movement_keys()
                 self.teleport_menu_open = True
+                self.teleport_scroll = 0
             elif action == "test_levels":
                 self._open_testing()
             return
@@ -1802,8 +1818,14 @@ class OverworldScreen(BaseScreen):
             groups.setdefault(d["continent"], []).append(d)
         rows = max((len(v) for v in groups.values()), default=1)
         col_w, row_h, gap = 300, 30, 6
-        box_w = len(groups) * (col_w + 24) + 24
-        box_h = 96 + rows * (row_h + gap) + 60
+        step = row_h + gap
+        # As many rows as fit on the screen; the rest scroll.
+        visible = max(1, min(rows, (SCREEN_HEIGHT - 16 - 96 - 60) // step))
+        self.teleport_max_scroll = max(0, rows - visible)
+        self.teleport_scroll = max(0, min(self.teleport_scroll, self.teleport_max_scroll))
+        bar_room = 24 if self.teleport_max_scroll else 0
+        box_w = len(groups) * (col_w + 24) + 24 + bar_room
+        box_h = 96 + visible * step + 60
         box = pygame.Rect((SCREEN_WIDTH - box_w) // 2, max(8, (SCREEN_HEIGHT - box_h) // 2), box_w, box_h)
         self.renderer.draw_rect(screen, box, (25, 25, 30))
         self.renderer.draw_rect(screen, box, (130, 110, 180), fill=False)
@@ -1812,17 +1834,18 @@ class OverworldScreen(BaseScreen):
 
         here = self.zone_manager.current_zone.name if self.zone_manager.current_zone else None
         self.teleport_rects = []
+        list_top = box.y + 90
         for c, (continent, towns) in enumerate(groups.items()):
             x = box.x + 24 + c * (col_w + 24)
             self.renderer.draw_text(screen, CONTINENT_TITLES.get(continent, continent),
                                     (x, box.y + 60), color=(200, 200, 100))
-            y = box.y + 90
-            for d in towns:
-                rect = pygame.Rect(x, y, col_w, row_h)
+            for i, d in enumerate(towns[self.teleport_scroll:self.teleport_scroll + visible]):
+                rect = pygame.Rect(x, list_top + i * step, col_w, row_h)
                 colour = (60, 90, 60) if d["zone"] == here else (45, 45, 70)
                 self.renderer.draw_button(screen, rect, d["label"], color=colour)
                 self.teleport_rects.append((rect, d))
-                y += row_h + gap
+        track = pygame.Rect(box.right - 20, list_top, 10, visible * step - gap)
+        self.teleport_bar.draw(screen, track, self.teleport_scroll, self.teleport_max_scroll, visible)
         self.teleport_close_rect = pygame.Rect(0, 0, 140, 36)
         self.teleport_close_rect.midbottom = (box.centerx, box.bottom - 14)
         self.renderer.draw_button(screen, self.teleport_close_rect, "Close")

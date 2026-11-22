@@ -53,6 +53,9 @@ class AmbientNPC:
         #: on Kyle's instruction. The renderer bottom-aligns sprites, so a bigger one grows
         #: upward rather than sinking into the floor.
         self.sprite_scale = float(data.get("sprite_scale", 1.0) or 1.0)
+        # another NPC's own art (assets/npcs/leaders/<art_of>/): MerchantTusk is one troll banking in every town, so
+        # every town's banker wears Orgrimmar's banker's picture instead of each needing its own copy
+        self.art_of = data.get("art_of")
         #: A mailbox is an "NPC" you walk up to that opens the mail (world/mail.py), drawn as a prop rather than a
         #: person: `prop` is the image (assets/ui/auction/icons/mailbox_<culture>.png until Kyle's prop sheet).
         self.is_mailbox = bool(data.get("is_mailbox", False))

@@ -161,7 +161,7 @@ HOLD_AMBIENT = {
 }
 #: flags carried on top of the plain record (the bank role, the trainers)
 HOLD_FLAGS = {
-    "th_banker": {"is_banker": True, "sprite_scale": 2.0},
+    "th_banker": {"is_banker": True, "sprite_scale": 2.0, "art_of": "org_banker"},
     "ct_timbermaw_hold": {"trains_class": "*"},
 }
 HOLD_TRAINERS = {

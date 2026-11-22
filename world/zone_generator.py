@@ -5589,7 +5589,92 @@ def _firstlight_spire(mod):
     return z
 
 
+# ---------------------------------------------------------------------------------------------- the saved world
+# Kyle, 21 Nov 2026: startup went from about a minute to three, because every launch built all 247 maps from scratch
+# (about 100 seconds on this machine; 87 the day before, the difference being the 23 new maps). The world is now built
+# once and saved to .cache/; the next launch loads the saved copy in a few seconds. It's rebuilt only when something
+# that builds it changes: any .py file in world/ or tools/, any game data file, any tile art, or this module. The key
+# is each such file's path, size and modified time, checked again after a build so a file the build itself writes
+# doesn't force a rebuild on every launch. FRONTIER_NO_ZONE_CACHE=1 builds fresh and saves nothing.
+import os as _os
+from pathlib import Path as _Path
+
+_ROOT = _Path(__file__).resolve().parent.parent
+_CACHE_DIR = _ROOT / ".cache"
+_CACHE_VERSION = 1
+#: what the world is built from; data/saves holds the player's own files and never counts
+_KEY_DIRS = (("world", (".py",)), ("tools", (".py",)), ("data", (".json",)), ("assets/tiles", None))
+_KEY_SKIP = ("data/saves", "data/_saves_qa_backup", "tools/building_sheets")
+
+
+def _world_key():
+    import hashlib
+    h = hashlib.sha1(f"v{_CACHE_VERSION}".encode())
+    for top in ("config.py",):
+        st = (_ROOT / top).stat()
+        h.update(f"{top}|{st.st_size}|{st.st_mtime_ns}".encode())
+    for rel, exts in _KEY_DIRS:
+        base = _ROOT / rel
+        for dirpath, dirnames, filenames in _os.walk(base):
+            rd = _os.path.relpath(dirpath, _ROOT).replace(_os.sep, "/")
+            if rd.startswith(_KEY_SKIP) or "__pycache__" in rd:
+                dirnames[:] = []
+                continue
+            dirnames.sort()
+            for fn in sorted(filenames):
+                if exts and not fn.endswith(exts):
+                    continue
+                try:
+                    st = _os.stat(_os.path.join(dirpath, fn))
+                except OSError:
+                    continue
+                h.update(f"{rd}/{fn}|{st.st_size}|{st.st_mtime_ns}".encode())
+    return h.hexdigest()[:16]
+
+
+def _load_saved_world(key):
+    import pickle
+    import zlib
+    path = _CACHE_DIR / f"world_{key}.pkl.z"
+    if not path.exists():
+        return None
+    try:
+        return pickle.loads(zlib.decompress(path.read_bytes()))
+    except Exception as e:                      # a half-written or old file: build fresh instead
+        print(f"[world] saved world unreadable ({e}); building fresh")
+        return None
+
+
+def _save_world(key, zones):
+    import pickle
+    import zlib
+    try:
+        _CACHE_DIR.mkdir(exist_ok=True)
+        tmp = _CACHE_DIR / f"world_{key}.tmp"
+        tmp.write_bytes(zlib.compress(pickle.dumps(zones, protocol=5), 1))
+        for old in _CACHE_DIR.glob("world_*.pkl.z"):
+            old.unlink()
+        tmp.replace(_CACHE_DIR / f"world_{key}.pkl.z")
+    except Exception as e:
+        print(f"[world] couldn't save the built world ({e}); the next launch will build it again")
+
+
 def create_all_zones():
+    """Every map in the game: the saved copy when nothing that builds it has changed, otherwise built fresh and
+    saved (see the note above)."""
+    if _os.environ.get("FRONTIER_NO_ZONE_CACHE"):
+        return _build_all_zones()
+    key = _world_key()
+    zones = _load_saved_world(key)
+    if zones is not None:
+        return zones
+    print("[world] building the world (this happens once after an update; later launches load it in seconds)")
+    zones = _build_all_zones()
+    _save_world(_world_key(), zones)
+    return zones
+
+
+def _build_all_zones():
     """Create all zones: starter + expanded world zones."""
     from tools.zone_expansion_generators import (
         generate_deathknell,

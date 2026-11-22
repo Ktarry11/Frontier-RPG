@@ -41,7 +41,7 @@ TRAINERS = {
     "pt_gs_wood": ["woodcutting", "woodworking"],
     "pt_gs_cook": ["cooking", "fishing"],
 }
-FLAGS = {"gs_banker": {"is_banker": True, "sprite_scale": 2.0}}
+FLAGS = {"gs_banker": {"is_banker": True, "sprite_scale": 2.0, "art_of": "org_banker"}}
 MAILBOX = ("mailbox_gs_innkeeper", (95, 85), "assets/tiles/market/props/mailbox_troll.png")
 MOVABLE = ("gs_quartermaster",)
 

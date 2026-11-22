@@ -41,7 +41,7 @@ TRAINERS = {
     "pt_au_wood": ["woodcutting", "woodworking"],
     "pt_au_cook": ["cooking", "fishing"],
 }
-FLAGS = {"au_banker": {"is_banker": True, "sprite_scale": 2.0}}
+FLAGS = {"au_banker": {"is_banker": True, "sprite_scale": 2.0, "art_of": "org_banker"}}
 MAILBOX = ("mailbox_au_innkeeper", (140, 220), "assets/buildings/ae_mail_pylon.png")
 MOVABLE = ("au_quartermaster",)
 

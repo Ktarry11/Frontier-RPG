@@ -1085,7 +1085,7 @@ class TilemapRenderer:
                         sy = screen_y + self.tile_size - sprite.get_height() + 2
                         screen.blit(sprite, (sx, sy))
                     continue
-                leader_path = f"assets/npcs/leaders/{getattr(npc, 'npc_id', '')}"
+                leader_path = f"assets/npcs/leaders/{getattr(npc, 'art_of', None) or getattr(npc, 'npc_id', '')}"
                 if os.path.exists(f"{leader_path}/down.png"):
                     sprite = get_npc_sprite(leader_path, getattr(npc, "facing", "down"),
                                             tile_height=tile_h)
