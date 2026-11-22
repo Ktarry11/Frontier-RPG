@@ -170,3 +170,10 @@ VOICE = {
         "She'll keep it. She'll keep it in the same box and she'll date the box, because that's what we're like.\n\nSomebody in forty years is going to open that and find out exactly when a region stopped drying out. They won't get it from a speech. They'll get it from two clerks nobody listened to.",
     ),
 }
+
+
+# THE STORY PASS (22 Nov 2026), to docs/quest_writing_standard.md; see tools/voice/glittervein_story.py.
+from voice.glittervein_story import STORY as _STORY
+for _qid, (_d, _a) in _STORY.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a, _old[2])
