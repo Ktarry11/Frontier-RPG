@@ -108,6 +108,7 @@ SUBZONES = [
     ("Gallery Three", 10, 38, 76, 12),
     ("Gallery Two", 10, 52, 78, 12),
     ("Gallery One", 12, 66, 72, 12),
+    ("The Gate Row", 10, 76, 76, 14),        # 22 Nov 2026, for the townsfolk (the stores, the stable, the gatehouse)
 ]
 
 # ---- baker config (read by tools/bake_underdark_zone.py) --------------------------------------------------------

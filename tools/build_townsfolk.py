@@ -81,6 +81,10 @@ TOWNS = {
     "talrendis_landing": "Talrendis Landing",
     "firstlight_spire": "Firstlight Spire",
     "timbermaw_tunnel": "Timbermaw Tunnel",
+    "hammerfall": "Hammerfall",
+    "arathi_west": "Arathi West",
+    "saltspur_landing": "Saltspur Landing",
+    "kaels_bastion": "Kael's Bastion",
 }
 SPACING = 3          # nobody stands closer than this to anyone else, if the district has room
 
