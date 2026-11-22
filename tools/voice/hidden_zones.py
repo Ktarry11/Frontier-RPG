@@ -122,3 +122,10 @@ VOICE = {
         "I can see a wagon wheel sticking up out of the sand! It could be Grandma's wagon wheel, for all I know.\n\nYou've done more in a day than my family did in a century.",
     ),
 }
+
+
+# THE STORY PASS (22 Nov 2026), to docs/quest_writing_standard.md; see tools/voice/hidden_zones_story.py.
+from voice.hidden_zones_story import STORY as _STORY
+for _qid, (_d, _a) in _STORY.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a, _old[2])
