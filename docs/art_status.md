@@ -9,13 +9,13 @@ again. (RC1 was asked for a second time on 21 Nov off a stale 17 Nov note, thoug
 
 | Sheet | What | Where | Notes |
 |---|---|---|---|
-| **TS1-TS7** | Icons for 138 character traits and 109 Sworn skills (they show a plain square) | `trait_and_sworn_icon_prompts.md` | Written 21 Nov |
 | **WALK** | Walk cycles on the new player sprites | not written | **Parked** (Kyle, 20 Nov: "Walk cycles will come after better sprites") |
 
 ## Delivered and in the game
 
 | Doc | Sheets | Landed |
 |---|---|---|
+| `trait_and_sworn_icon_prompts.md` | TS1-TS7 (T1-T4, S1-S3): 138 character trait icons and 109 Sworn skill icons with the gold ring, sliced by `tools/asset_pipeline/slice_ability_icons.py` to `assets/icons/abilities/`. All 247 in | 21 Nov |
 | `sky_and_dawnhaven_figures_art_prompts.md` | FG1: fourteen figures, Corvo and Lysse, Ilaren Vey and Leandro Arrieta, and Dawnhaven's six cave bosses and four rares | 21 Nov |
 | `start_zone_art_prompts.md` | SZ1: the four start zone paintings for character creation's picker, sliced by `tools/slice_start_zone_art.py` | 21 Nov |
 | `keepsake_icons_k4_art_prompts.md` | K4: the last 16 keepsake icons (Dawnhaven's three bears, Sheet 6's twelve and the Mural Shard). Every keepsake now has its own icon | 21 Nov |
