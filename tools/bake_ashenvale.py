@@ -1298,6 +1298,25 @@ def sky_cut(rgb, X, Y, P):
     lift = float(sky.get("cloud_lift", 0.0))     # walkable cloud lit brighter than the ground's shading leaves it
     if lift:
         rgb = rgb * (1 + lift * cl_here * land)[..., None]
+    if cloud_fn is not None:
+        # WALKABLE CLOUD THAT LOOKS SOLID. Kyle, 21 Nov 2026, on the Sunward Crown: "the cloud tiles... need to APPEAR
+        # dense....right now it looks like im out of bounds... if we use cloud tiles they need to LOOK solid". The
+        # shelf used the same soft cumulus as the sky far below, so standing on it read as standing on nothing. Now
+        # it's shaded as a surface: big soft mounds lit from the top left, with shadow pooling in the dips between
+        # them, so it reads as ground you could kick. Only where the cloud is land (cl_here * land); the drop and
+        # the rock islands are untouched.
+        hf = P.noise(4.5, "cloud_relief", octaves=2)
+        h = P.sample_field(hf, X, Y)
+        e = TILE_PX * 0.35
+        hx = P.sample_field(hf, X + e, Y) - P.sample_field(hf, X - e, Y)
+        hy = P.sample_field(hf, X, Y + e) - P.sample_field(hf, X, Y - e)
+        relief = 1.0 - 1.7 * (0.5 * hx + hy)               # facing the top light brightens, away darkens
+        relief = relief * (0.86 + 0.20 * h)                # the dips between mounds sit in a little shadow
+        k = (cl_here * land)[..., None]
+        rgb = rgb * (1 - k) + rgb * np.clip(relief, 0.76, 1.16)[..., None] * k
+        # a firm, slightly shadowed lip where the cloud ends, so its edge reads as an edge
+        lip = smoothstep(-1.4, -0.2, s) * (1 - smoothstep(-0.2, 0.3, s)) * cl_here
+        rgb = rgb * (1 - 0.22 * lip)[..., None]
     alpha = np.maximum(land, under_a)
     return rgb, alpha
 
@@ -1427,7 +1446,15 @@ def bake(zone="west", preview=None, scale=4, only=None):
         P.drop = None
     scores = build_scores(P, M)
     out = ROOT / M.BAKED_DIR
-    written = P.bake(MATERIALS, scores, out, chunk_tiles=20, post=post, only=only)
+    mats = MATERIALS
+    if getattr(P, "sky_spec", None) and P.sky_spec.get("cloud"):
+        # Walkable cloud drawn at near scale, its puffs a few tiles across, so it reads as cloud right under your
+        # feet and not as the cloud sea a mile below (Kyle, 21 Nov 2026: "if we use cloud tiles they need to LOOK
+        # solid"). Only the sky maps; the satyr earth this slot paints elsewhere keeps its scale.
+        mats = dict(MATERIALS)
+        a, b, sc_ = mats["satyr"]
+        mats["satyr"] = (a, b, sc_ * float(P.sky_spec.get("cloud_scale", 2.6)))
+    written = P.bake(mats, scores, out, chunk_tiles=20, post=post, only=only)
     print(f"baked {len(written)} chunks -> {out}")
     if preview:
         full = Image.new("RGB", (M.W * TILE_PX, M.H * TILE_PX))

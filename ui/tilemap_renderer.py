@@ -774,6 +774,9 @@ class TilemapRenderer:
         # through the normal per-tile texture pipeline.
         from world.cutscenes import get_cutscenes
         _cs = get_cutscenes()
+        if getattr(tilemap, "sky", None):
+            self._draw_contact_shadows(screen, camera, viewport_rect, tilemap,
+                                       player_draw_pos or player_pos, vendors, recruits, ambient_npcs)
         for lm in getattr(tilemap, "landmarks", []):
             if (lm.get("cutscene_hide") or lm.get("cutscene_show")) and not _cs.shown(lm):
                 continue        # a prop a cutscene changes (the Cloudbreak's mural, whole and then broken)
@@ -1265,6 +1268,55 @@ class TilemapRenderer:
     SKY_DIR = "assets/tiles/sky/backdrop/"
     _sky_cache = {}
 
+    # CONTACT SHADOWS ON SKY MAPS. Kyle, 21 Nov 2026, on the Sunward Crown's cloud: "right now it looks like im out of
+    # bounds... if we use cloud tiles they need to LOOK solid". A soft dark ellipse under everyone and everything
+    # standing on a sky map puts their weight on the ground, so the cloud under them reads as a floor. Drawn once,
+    # before the props and the people, so every one of them stands on its own shadow.
+    def _shadow(self, w, h):
+        key = ("contact_shadow", w, h)
+        surf = self._sky_cache.get(key)
+        if surf is None:
+            surf = pygame.Surface((w, h), pygame.SRCALPHA)
+            steps = 7
+            for i in range(steps):
+                f = 1 - i / steps
+                r = pygame.Rect(0, 0, max(2, int(w * f)), max(2, int(h * f)))
+                r.center = (w // 2, h // 2)
+                pygame.draw.ellipse(surf, (34, 28, 54, 34), r)
+            self._sky_cache[key] = surf
+        return surf
+
+    def _draw_contact_shadows(self, screen, camera, viewport_rect, tilemap, player_pos, vendors, recruits, npcs):
+        ts = self.tile_size
+        people = [(getattr(o, "x", None), getattr(o, "y", None)) for o in (vendors or []) + (recruits or []) + (npcs or [])]
+        if player_pos:
+            people.append((player_pos[0], player_pos[1]))
+        body = self._shadow(int(ts * 0.95), int(ts * 0.38))
+        for x, y in people:
+            if x is None or y is None:
+                continue
+            sx, sy = camera.world_to_screen(x, y, ts)
+            sx += viewport_rect.x
+            sy += viewport_rect.y
+            if not viewport_rect.colliderect(pygame.Rect(sx - ts, sy - ts, ts * 3, ts * 3)):
+                continue
+            screen.blit(body, (sx + (ts - body.get_width()) // 2, sy + ts - body.get_height() * 2 // 3))
+        for lm in getattr(tilemap, "landmarks", []):
+            key = str(lm.get("sprite_key", ""))
+            if "cave_entrances/" in key or lm.get("match_ground"):
+                continue
+            w_t, h_t = lm["width_tiles"], lm["height_tiles"]
+            sx, sy = camera.world_to_screen(lm["anchor_x"], lm["anchor_y"], ts)
+            sx += viewport_rect.x
+            sy += viewport_rect.y
+            if (sx + w_t * ts < viewport_rect.left or sx > viewport_rect.right
+                    or sy + h_t * ts < viewport_rect.top or sy > viewport_rect.bottom + ts):
+                continue
+            w = int(w_t * ts * 0.72)
+            h = max(int(ts * 0.5), int(w * 0.28))
+            sh = self._shadow(w, h)
+            screen.blit(sh, (sx + (w_t * ts - w) // 2, sy + h_t * ts - h * 2 // 3))
+
     def _sky_layer(self, name, size, strength=1.0):
         key = (name, size, round(strength, 2))
         surf = self._sky_cache.get(key)
@@ -1305,7 +1357,8 @@ class TilemapRenderer:
         screen.set_clip(prev)
 
     def _draw_sun(self, screen, viewport_rect, sky):
-        sun = sky.get("sun", 0.55)
+        # Kyle, 21 Nov 2026: "drop the overall lighting effect by about 20% - its fun to start but gets glaring"
+        sun = sky.get("sun", 0.55) * 0.8
         if not sun:
             return
         surf = self._sky_layer("sun_rays", (viewport_rect.width, viewport_rect.height), sun)
