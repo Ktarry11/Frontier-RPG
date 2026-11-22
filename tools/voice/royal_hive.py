@@ -17,3 +17,10 @@ VOICE = {
         "The pillars have stopped ringing hollow.\n\nThat's the first good news I've had about the roof since the ground shook three years ago.",
     ),
 }
+
+
+# THE STORY PASS (22 Nov 2026), to docs/quest_writing_standard.md; see tools/voice/royal_hive_story.py.
+from voice.royal_hive_story import STORY as _STORY
+for _qid, (_d, _a) in _STORY.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a, _old[2])
