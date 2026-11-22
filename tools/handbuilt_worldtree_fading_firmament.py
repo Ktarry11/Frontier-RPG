@@ -53,8 +53,9 @@ SKP = "assets/tiles/sky/props/"
 BLD = "assets/buildings/"
 ENT = "assets/tiles/cave_entrances/"
 
-PORTALS = {(122, 257): "The Ascendant Bastions", (178, 14): "The Hearthdeep", (244, 50): "The Hollow Engine"}
-ARRIVALS = [(122, 251), (178, 18), (244, 54)]
+PORTALS = {(122, 257): "The Ascendant Bastions", (178, 14): "The Hearthdeep", (244, 50): "The Hollow Engine",
+           (100, 190): "Lastlight"}
+ARRIVALS = [(122, 251), (178, 18), (244, 54), (100, 194)]
 START = (122, 251)          # the top of the Firmament Road: everything must be reachable from here
 
 WOUND_C = (156, 122)        # the hole in the sky
@@ -315,6 +316,7 @@ ROADS = {
     "pad_forge": ([(166, 22), (184, 22)], 2.0),
     "pad_eng":   ([(236, 66), (222, 54)], 2.0),
     "pad_green": ([(72, 74), (64, 64)], 2.0),
+    "lastlight": ([(100, 198), (100, 191)], 2.4),
 }
 
 
@@ -334,21 +336,8 @@ SPEC = _Spec(NAME, W, H, ROADS, rivers=RIVERS, lakes=LAKES, deep_shrink=DEEP_SHR
 NPC_POSITIONS = {
     # the Road's End
     "ff_road_warden":      (116, 240),  # the Aetherian who keeps count of who comes up the road
-    # Lastlight: the last people, round the last lit shrine
-    "ff_shrine_keeper":    (100, 192),  # keeps the shrine lit; the camp's heart
-    "ff_last_magistrate":  (92, 196),   # the Firmament's last magistrate, who stayed with her people
-    "ff_orla":             (106, 196),  # Magister Orla Thessan, come north after her student
-    "ff_skiffmaster":      (104, 204),  # the flight path: the last skiff that still flies out
-    "ff_provisioner":      (90, 204),   # food
-    "ff_trader":           (108, 206),  # goods
-    "ff_salvager":         (84, 198),   # an Earthborn who salvages what the islands drop
-    "ff_child_minder":     (98, 208),   # an Earthborn teacher with the camp's children
-    "ff_lamp_cutter":      (104, 212),  # cuts the shrine's crystals, the last crystal-cutter left
-    # Forgewatch: the House of Long Memory's scholars at the Threefold Forge
-    "ff_long_memory":      (152, 18),   # Archivist of the House of Long Memory, laughed at for a thousand years
-    "ff_forge_scholar":    (148, 26),   # her student, who reads Kharad runes
-    "ff_earthborn_smith":  (160, 30),   # an Earthborn blacksmith the scholars brought for the forge
-    "ff_forgewatch_guard": (144, 20),   # a Lens warden on the camp's edge
+    # Lastlight and the House of Long Memory's scholars live on the town's own map now
+    # (tools/handbuilt_worldtree_lastlight.py)
     # out on the islands
     "ff_last_resident":    (52, 146),   # the one man in the Emptied Quarter who won't go
     "ff_gardener":         (22, 34),    # tends the one tree still green, on the Last Green
@@ -380,7 +369,6 @@ SUBZONES = [   # (table_key, x, y, w, h, display_name) - later registrations win
     ("The Coldforges", 52, 26, 74, 50, None),
     ("The Last Green", 6, 14, 36, 32, None),
     ("The Threefold Forge", 136, 0, 62, 40, None),
-    ("Forgewatch", 138, 10, 26, 24, None),
     ("The Dead Engines", 198, 30, 92, 76, None),
     ("The Siege Line", 204, 106, 88, 100, None),
     ("The Breaking", 152, 196, 52, 42, None),
@@ -539,17 +527,11 @@ def dress(L):
     # ---- the Road's End: the road's last marker, and the warden's post
     B("ae_crystal_beacon", 130, 240, 5)
     B("ae_guard_post", 110, 234, 6)
-    # ---- Lastlight: the shrine still lit, the camp round it
-    S("ff_lit_shrine", 100, 188, 5)
-    S("ff_last_crystal", 95, 186, 3)
-    B("ae_refugee_pavilion", 86, 190, 7)
-    B("ae_refugee_pavilion", 114, 192, 7)
+    # ---- Lastlight: outside the town's gate (the town is its own map), where the road from the Bastions ends; the
+    #      shrine's glow over the wall, a dead lamp left at the turn
+    S("ff_fallen_lantern", 92, 200, 2, solid=False)
+    S("ff_last_crystal", 108, 194, 3)
     S("ff_patched_tent", 82, 210, 5)
-    S("ff_patched_tent", 116, 214, 5)
-    S("ff_camp_fire", 100, 200, 3, solid=False)
-    S("ff_salvage", 78, 202, 3)
-    B("ae_skiff_dock", 122, 204, 6)
-    B("ae_soup_table", 92, 210, 3)
     # ---- the Emptied Quarter: the houses left open, the kiosks, the toy on the step
     for (x, y) in [(46, 136), (70, 140), (78, 160), (46, 162), (62, 172), (30, 130)]:
         S("ff_abandoned_home", x, y, 7)
@@ -579,9 +561,7 @@ def dress(L):
     B("ae_great_forge", 166, 34, 7)                 # the cutter's hearth
     S("sk_rune_circle_broken", 172, 22, 6, solid=False)
     L.prop("ent_door_forge_flue", 178, 11, 5, path_dir=ENT, solid="core", nudge=0, allow_overlap=True)
-    # ---- Forgewatch: the House of Long Memory's tents
-    B("ae_field_pavilion", 150, 14, 6)
-    S("ff_patched_tent", 144, 28, 5)
+    # ---- where Forgewatch stood: the House of Long Memory moved its rooms into Lastlight; a desk left behind
     B("ae_chart_desk", 158, 16, 3)
     # ---- the Dead Engines: the great engines gone black, the snapped anchors, the way inside
     B("ae_dead_engine", 244, 44, 12)                # the Hollow Engine itself, its hatch at its foot

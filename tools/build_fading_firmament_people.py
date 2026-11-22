@@ -5,9 +5,10 @@ scholars at Forgewatch, and the few still out on the islands. Idempotent.
     PYTHONPATH=. python3 tools/build_fading_firmament_people.py
 
 docs/worldtree_brief.md. The Firmament's people left in stages over centuries; the ones at Lastlight are the ones who
-wouldn't, round the one shrine still lit. Lastlight is a camp, not a town: traders and the zone's one flight path, no
-inn. Forgewatch is the House of Long Memory's camp at the Threefold Forge (the house the others laugh at for saying the
-Kharad were here first). The Aetherians wear the AE-M and AE-W looks picked for their jobs (world/race_registry.py: men
+wouldn't, round the one shrine still lit. Lastlight is the Firmament's town, on its own map since 22 Nov 2026 (Kyle's town rule;
+tools/handbuilt_worldtree_lastlight.py): the last inn, the mail, the zone's one flight path, and the House of Long
+Memory's rooms, moved in from Forgewatch at the Threefold Forge (the house the others laugh at for saying the Kharad
+were here first). A person stands on whichever map lists them. The Aetherians wear the AE-M and AE-W looks picked for their jobs (world/race_registry.py: men
 5+N for m-N, women N-1 for w-N). Transplants are factionless, and nobody up here knows what the change was.
 
 Magister Orla Thessan came north after her student (tools/build_ascendant_bastions_people.py); Ascendant-General Maelis
@@ -24,14 +25,15 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from tools import handbuilt_worldtree_fading_firmament as FF  # noqa: E402
+from tools import handbuilt_worldtree_lastlight as LL  # noqa: E402
 from tools.npc_data_guard import safe_update  # noqa: E402
 from world.zone_keys import zone_key  # noqa: E402
 
 M, F = "male", "female"
 
-SERVICES = {"ff_skiffmaster": ["flight"]}
+SERVICES = {"ff_skiffmaster": ["flight"], "ll_innkeeper": ["inn"]}
 FLIGHT_NODES = [
-    ("fading_firmament", {"name": "Lastlight", "zone": FF.NAME, "master": "ff_skiffmaster", "pos": [-6, 104],
+    ("fading_firmament", {"name": "Lastlight", "zone": LL.NAME, "master": "ff_skiffmaster", "pos": [-6, 104],
                           "continent": "eastern_kingdoms"}),
 ]
 
@@ -102,6 +104,14 @@ AMBIENT = {
     "ff_turncoat": ("Quartermaster Ivo Darrance", "aetherian", M, 15, "down",
                     "I fed the Ascendancy's army for twenty years. I've seen what the general means to do with it, "
                     "and I've stopped wanting to be the one who feeds it."),
+    # ---- Lastlight's own (the town map)
+    "ll_innkeeper": ("Innkeeper Marit Sollen", "aetherian", F, 10, "down",
+                     "There were nine inns on the Firmament when I was a girl, and this is the last of them. I keep the "
+                     "beds made because people still come up the road. If you want to come back here quickly, I'll mark "
+                     "your hearthstone."),
+    "ll_gatewarden": ("Lamplighter Toben Ash", "aetherian", M, 7, "right",
+                      "I keep the gate and I light the lamps on the walk, every evening, from the shrine's own crystal. "
+                      "There were forty lamps on this walk once. I light the four we've got left very carefully."),
 }
 
 
@@ -117,8 +127,11 @@ def check():
     from tools.build_tempest_quests import voice_problems
     bad = []
     mine = set(VENDORS) | set(AMBIENT)
-    if mine != set(FF.NPC_POSITIONS):
-        bad.append(f"roster and layout disagree: {sorted(mine ^ set(FF.NPC_POSITIONS))}")
+    both = set(FF.NPC_POSITIONS) & set(LL.NPC_POSITIONS)
+    if both:
+        bad.append(f"on both maps: {sorted(both)}")
+    if mine != set(FF.NPC_POSITIONS) | set(LL.NPC_POSITIONS):
+        bad.append(f"roster and layout disagree: {sorted(mine ^ (set(FF.NPC_POSITIONS) | set(LL.NPC_POSITIONS)))}")
     for k, v in list(VENDORS.items()) + list(AMBIENT.items()):
         bad += [f"{k}: {p}" for p in voice_problems(v[-1])]
         if not v[-1].isascii():
@@ -130,17 +143,23 @@ def check():
     return bad
 
 
+def where(nid):
+    """(zone key, x, y) for a person, from whichever map lists them."""
+    mod = LL if nid in LL.NPC_POSITIONS else FF
+    x, y = mod.NPC_POSITIONS[nid]
+    return zone_key(mod.NAME), x, y
+
+
 def main():
     bad = check()
     if bad:
         raise SystemExit("FAILED:\n  " + "\n  ".join(bad))
-    zone = zone_key(FF.NAME)
     vd, ad = load("data/npcs/vendors.json"), load("data/npcs/ambient_npcs.json")
     vby = {r["vendor_id"]: r for r in vd["vendors"]}
     aby = {r["npc_id"]: r for r in ad["npcs"]}
     made = moved = 0
     for vid, (name, race, gender, var, facing, gl, gear, stock, greet) in VENDORS.items():
-        x, y = FF.NPC_POSITIONS[vid]
+        zone, x, y = where(vid)
         rec = dict(vendor_id=vid, name=name, zone=zone, x=x, y=y, tile_sprite="npc", buys_from_player=True,
                    faction="neutral", gear_level=gl, sells_gear=gear, race=race, gender=gender,
                    appearance_variant=var, facing=facing, greeting=greet)
@@ -152,7 +171,7 @@ def main():
             vd["vendors"].append(rec)
             made += 1
     for nid, (name, race, gender, var, facing, greet) in AMBIENT.items():
-        x, y = FF.NPC_POSITIONS[nid]
+        zone, x, y = where(nid)
         rec = dict(npc_id=nid, name=name, zone=zone, x=x, y=y, greeting=greet, gender=gender, race=race,
                    appearance_variant=var, facing=facing)
         if nid in aby:
@@ -160,6 +179,15 @@ def main():
         else:
             ad["npcs"].append(rec)
             made += 1
+    # the inn keeps the mail, like every inn (qa_auction_house: a mailbox by every inn)
+    box = next((r for r in ad["npcs"] if r["npc_id"] == "mailbox_ll_innkeeper"), None)
+    if box is None:
+        box = {"npc_id": "mailbox_ll_innkeeper"}
+        ad["npcs"].append(box)
+    box.update(name="Mailbox", zone=zone_key(LL.NAME), x=32, y=54, facing="down", race="aetherian",
+               appearance_variant=0, is_mailbox=True, prop="assets/buildings/ae_mail_pylon.png",
+               greeting="Lastlight's mail goes out on the last skiff. Most of the letters are to people who left, and "
+                        "most of them never get answered.")
     save("data/npcs/vendors.json", vd)
     save("data/npcs/ambient_npcs.json", ad)
     td = load("data/travel/travel_data.json")

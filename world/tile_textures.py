@@ -387,6 +387,7 @@ ZONE_BIOME = {
     "Halcyon Rest": "tropical",                   # the Expanse's town: painted ground (baked)
     "Keelstone": "tropical",                      # the Anchorfields' town: painted ground (baked)
     "Dawnspear Wreck": "tropical",                # the Bastions' town: painted ground (baked)
+    "Lastlight": "tropical",                      # the Firmament's town: painted ground (baked)
     "The Anchorfields": "tropical",               # the shattered shelf: painted ground (baked)
     "The Ascendant Bastions": "tropical",         # the star fort: painted ground (baked)
     "The Fading Firmament": "tropical",           # the dying heart: painted ground (baked)

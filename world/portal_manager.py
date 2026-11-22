@@ -836,6 +836,10 @@ class PortalManager:
             },
             "The Fading Firmament": {
                 (122, 257): ("The Ascendant Bastions", 160, 10),    # back down the Firmament Road: arrive (160,8)
+                (100, 190): ("Lastlight", 60, 90),                  # through Lastlight's gate: arrive (60,88) on the Lamp Walk
+            },
+            "Lastlight": {
+                (60, 93): ("The Fading Firmament", 100, 196),       # back out of the gate: arrive (100,194) at the road's end
                 (178, 14): ("The Hearthdeep", 48, 6),               # down into the Threefold Forge's roots: arrive (48,4)
                 (244, 50): ("The Hollow Engine", 46, 6),            # in through the dead engine's hatch: arrive (46,4)
             },

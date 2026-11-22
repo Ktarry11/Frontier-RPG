@@ -34,7 +34,7 @@ DROPS = ROOT / "data/creatures/quest_drops.json"
 FACTIONS = ROOT / "data/factions/factions.json"
 RATE = 0.75
 MAX_PER_GIVER = 4      # Kyle's standing rule
-HUB_SHARE = 0.7        # Kyle's ~70%: Lastlight and Forgewatch give most of them
+HUB_SHARE = 0.7        # Kyle's ~70%: Lastlight, the Firmament's town, gives most of them
 
 #: who pays for a quest: the Aetherians pay the Aetherians; the Earthborn pay nobody (transplants are factionless)
 FACTION_BY_GIVER = {g: "aetherians" for g in SQ.SKY_GIVERS}
@@ -45,6 +45,7 @@ ITEM_PREFIX = "ffg_"
 
 #: quest zone key -> (map module, start attribute, encounter path)
 MAPS = {
+    "lastlight": ("tools.handbuilt_worldtree_lastlight", "START", None),     # a town: reachability only
     SQ.FF: ("tools.handbuilt_worldtree_fading_firmament", "START", ("The Fading Firmament",)),
     SQ.HD: (None, None, ("The Fading Firmament", "The Hearthdeep")),
     SQ.WS: (None, None, ("The Fading Firmament", "The Wellspring")),

@@ -232,6 +232,7 @@ ZONE_BACKGROUND = {
     "Halcyon Rest": "sky",                        # the Expanse's town (no fights)
     "Keelstone": "sky",                           # the Anchorfields' town (no fights)
     "Dawnspear Wreck": "sky",                     # the Bastions' town (no fights)
+    "Lastlight": "sky",                           # the Firmament's town (no fights)
     "The Anchorfields": "sky",                    # the dawn sky over the shelf
     "The Ascendant Bastions": "sky",              # the storm sky over the star fort
     "The Stormroost": "sky",                      # Caelora's hidden maps fight under their own sky

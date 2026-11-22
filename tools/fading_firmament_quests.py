@@ -40,11 +40,12 @@ WARDEN = "ff_road_warden"
 # ---- Lastlight
 SABINE, ILSE, ORLA, DORRAN = "ff_shrine_keeper", "ff_last_magistrate", "ff_orla", "ff_skiffmaster"
 ANSEL, SIPHO, MARGIT = "ff_lamp_cutter", "ff_salvager", "ff_child_minder"
-# ---- Forgewatch
+# ---- the House of Long Memory, whose rooms moved from Forgewatch into Lastlight (22 Nov 2026, Kyle's town rule)
 THEODORA, RHUN, KWABENA, CORRA = "ff_long_memory", "ff_forge_scholar", "ff_earthborn_smith", "ff_forgewatch_guard"
 # ---- out on the islands
 BENEDEK, YLLEN, IVO = "ff_last_resident", "ff_gardener", "ff_turncoat"
 
+#: everyone who stands in Lastlight, the Firmament's town (its own map since 22 Nov 2026)
 HUB_GIVERS = {SABINE, ILSE, ORLA, DORRAN, ANSEL, SIPHO, MARGIT, THEODORA, RHUN, KWABENA, CORRA}
 #: the Aetherians pay the Aetherians; the Earthborn pay nobody
 SKY_GIVERS = {WARDEN, SABINE, ILSE, ORLA, DORRAN, ANSEL, THEODORA, RHUN, CORRA, BENEDEK, YLLEN, IVO}
