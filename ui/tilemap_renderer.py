@@ -1445,16 +1445,32 @@ class TilemapRenderer:
     # places in it. Which props glow and how is GLOW_KINDS, matched on the prop's art name, so new maps light themselves.
     #: (words in the art name, colour, radius in tiles, how high up the prop the light sits, 0 top to 1 bottom)
     GLOW_KINDS = (
-        (("fel_brazier", "fel_fire", "fel_crystal", "fel_lamp"), (90, 230, 60), 3.2, 0.35),
+        (("fel_brazier", "fel_fire", "fel_crystal", "fel_lamp", "fel_pylon", "fel_obelisk", "fel_mushroom",
+          "fel_bonfire"), (90, 230, 60), 3.2, 0.35),
         (("plague_cauldron", "plague_vat", "plague_brazier"), (140, 220, 50), 3.0, 0.45),
-        (("moon_lantern", "moonwell", "moon_lamp", "wisp_lamp"), (120, 170, 255), 3.0, 0.3),
+        (("moon_lantern", "moonwell", "moon_lamp", "wisp_lamp", "moon_rune"), (120, 170, 255), 3.0, 0.3),
         (("glow_mushroom", "mushroom_ring", "glowcap"), (60, 220, 200), 2.4, 0.6),
-        (("lantern", "lamp_post", "lamppost", "sconce", "candle", "lamp"), (255, 180, 90), 2.6, 0.25),
+        (("glow_coral", "coral_cluster"), (70, 210, 255), 2.2, 0.55),
+        (("lightning_core", "thunder_tower", "storm_pillar", "lightning_stump", "spark"), (150, 190, 255), 2.8, 0.35),
+        (("lava_pool", "lava_fissure", "lava_well", "slag_pool", "magma"), (255, 120, 40), 3.6, 0.5),
+        (("void_crystal",), (170, 100, 255), 2.4, 0.5),
+        (("crystal_blue", "crystal_cyan", "crystal_spire", "crystal_float", "lattice", "crystal_1", "crystal_2",
+          "crystal_3", "crystal_shard", "crystal_pillar", "ice_crystal"), (120, 200, 255), 2.2, 0.5),
+        (("lantern", "lamp_post", "lamppost", "sconce", "candle", "candelabra", "lamp", "harbour_lamp"),
+         (255, 180, 90), 2.6, 0.25),
         (("brazier", "bonfire", "campfire", "fire_pit", "firepit", "pyre", "torch", "hearth", "forge", "beacon"),
          (255, 140, 50), 3.4, 0.55),
     )
+    #: a word in the name that recolours whatever kind of light it is: a spirit brazier burns blue, a fel torch green
+    GLOW_TINTS = (
+        (("fel",), (90, 230, 60)),
+        (("spirit", "blue", "frost", "ice", "moon"), (110, 170, 255)),
+        (("void", "shadow", "twilight"), (170, 90, 255)),
+        (("plague",), (140, 220, 50)),
+        (("holy", "sun_"), (255, 220, 140)),
+    )
     #: words that mean the fire's out (a burned pyre, an unlit brazier), whatever else the name says
-    GLOW_NEVER = ("unlit", "burned", "burnt", "extinguished", "cold_", "_out")
+    GLOW_NEVER = ("unlit", "burned", "burnt", "extinguished", "cold_", "_out", "_dim", "dim_", "dead_", "ashes")
     _glow_tex = {}
 
     @classmethod
@@ -1464,9 +1480,16 @@ class TilemapRenderer:
         name = sprite_key.rsplit("/", 1)[-1].lower()
         if any(w in name for w in cls.GLOW_NEVER):
             return None
-        for words, colour, radius, height in tuple(own) + cls.GLOW_KINDS:
+        for words, colour, radius, height in tuple(own):
             if any(w in name for w in words):
                 return (colour, radius, height) if colour else None     # a map's kind with no colour: stays dark
+        for words, colour, radius, height in cls.GLOW_KINDS:
+            if any(w in name for w in words):
+                for tint_words, tint in cls.GLOW_TINTS:
+                    if any(t in name for t in tint_words):
+                        colour = tint
+                        break
+                return colour, radius, height
         return None
 
     def _glow_surface(self, colour, radius_px, strength):

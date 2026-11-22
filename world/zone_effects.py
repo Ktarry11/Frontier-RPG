@@ -3,8 +3,8 @@
 Kyle, 21 Nov 2026: "I gave you a shit load of visual effect art. You used it in the SC starting zone and also the sky
 zones. Can you start to incorporate it through azeroth too." And: "let's test it with ONE zone!" Eastern Tirisfal went
 first; once Kyle had seen it, the Underdark, Ashenvale and Azshara followed, then every other overworld map and town
-in Azeroth through one preset per kind of country (21 Nov 2026). Caves are still to come. The standing rule for all
-of it: "supplement zones but NOT dominate them. They should complement the zone."
+in Azeroth through one preset per kind of country, then every cave, dungeon and hidden place, each assessed on its
+own (21 Nov 2026). The standing rule for all of it: "supplement zones but NOT dominate them. They should complement the zone."
 
 A map's effects are five optional layers, drawn by ui/tilemap_renderer.py over the world in this order:
 
@@ -152,8 +152,10 @@ PLAGUE = {          # the Plaguelands: a sick yellow-green haze in the low place
 # hanging in the air, the Seep glowing up from below, and everything that's contaminated lighting its ground green.
 # Round the rupture in the east the tear itself pulses now and then.
 DEADWIND_GLOWS = [
-    (("seep_pool", "seep_boulder", "glow_crater", "slag_crystals", "fume_vent", "egg_sacs", "tumour", "eye_mushroom",
-      "flesh_pods", "flesh_mass", "black_well"), (170, 230, 60), 2.6, 0.5),
+    (("seep_pool", "seep_boulder", "glow_crater", "slag", "fume_vent", "egg_sacs", "tumour", "eye_mushroom",
+      "flesh_pods", "flesh_mass", "flesh_sac", "black_well", "ooze", "heart_mass", "wound_pit", "eye_cluster",
+      "open_pod"), (170, 230, 60), 2.6, 0.5),
+    (("fz_crystal_pillar", "fz_glass_shard", "stopped_blast"), (180, 120, 255), 2.4, 0.45),
     (("air_tear", "rift_crack", "time_doorway", "false_reflection", "glass_spire", "floating_rock"),
      (180, 120, 255), 2.6, 0.45),
     (("containment_spire",), (120, 220, 255), 3.0, 0.3),
@@ -266,6 +268,196 @@ for _p, _maps, _towns in (
         ZONES[_n] = _town(_p)
 ZONES["Moonglade"] = MOONGLADE
 ZONES["Undercity"] = UNDERCITY
+
+# ---------------------------------------------------------------------------------------------- caves and dungeons
+# Kyle, 21 Nov 2026: "we can do some caves and skull/frontier zones. Since the hidden zones don't always follow logic
+# they need to be assessed properly." Each cave below was looked at on its own (its props, its name, what it's for)
+# and given the treatment that fits it, not its parent's. Underground, the props carry most of the light: the
+# vignette keeps the edges dark so the braziers, crystals and glowing things have somewhere to show.
+def _cave(vig=0.26, **extra):
+    fx = {"shade": [{"layer": "shade_cave_vignette", "strength": vig}], "glows": {"strength": 0.8}}
+    tint = extra.pop("tint", None)
+    if tint:
+        fx["shade"].append(tint)
+    fx.update(extra)
+    return fx
+
+
+_fog = lambda layer, k, floor=0.3: {"layer": layer, "strength": k, "floor": floor, "tile": 18,  # noqa: E731
+                                    "speed": (-3, 1)}
+_lt = lambda layer, k: {"layer": layer, "strength": k, "breathe": 0.12}  # noqa: E731
+EARTH = _cave()                                                        # dens, burrows, beast caves
+MINE = _cave(0.3, tint={"layer": "shade_dust_haze", "strength": 0.08})    # dust in the lamplight
+DAYLIT = _cave(0.2, light=_lt("light_cave_skylight", 0.18))            # open to the sky somewhere
+FIRE = _cave(0.28, weather=[_fog("atm_steam", 0.16, 0.25)], light=_lt("light_ember_underglow", 0.2))
+GROTTO = _cave(0.28, tint={"layer": "shade_underwater", "strength": 0.14})  # sea caves: a cool green-blue cast
+DROWNED = _cave(0.28, tint={"layer": "shade_underwater", "strength": 0.18})
+CRYPT = _cave(0.28, tint={"layer": "shade_haunted", "strength": 0.16}, weather=[_fog("atm_ground_fog", 0.18)])
+PLAGUE_CAVE = _cave(0.28, tint={"layer": "shade_haunted", "strength": 0.16}, weather=[_fog("atm_plague_fog", 0.16)],
+                    light=_lt("light_plague_miasma", 0.12))
+HALLS = _cave(0.24)                                                    # keeps, monasteries: built and lit rooms
+CATHEDRAL = _cave(0.22, light=_lt("light_holy_column", 0.14))
+FEL_CAVE = _cave(0.3, light=_lt("light_fel_glow", 0.14))
+NEST = _cave(0.3, tint={"layer": "shade_haunted", "strength": 0.12})  # webs and hives: close and dark
+HIVE = _cave(0.28, tint={"layer": "shade_dust_haze", "strength": 0.1})
+ICE = _cave(0.28, tint={"layer": "shade_night", "strength": 0.1}, light=_lt("light_winter_sun", 0.14))
+CRYSTAL = _cave(0.3, tint={"layer": "shade_night", "strength": 0.1}, light=_lt("light_crystal_cave", 0.16))
+GREEN = _cave(0.26, weather=[_fog("atm_swamp_mist", 0.14)], light=_lt("light_cave_skylight", 0.12))
+MOONWELL = _cave(0.26, light=_lt("light_moonlight", 0.16))
+SHIP = _cave(0.28)
+ARCANE = _cave(0.26, light=_lt("light_arcane_shimmer", 0.12))
+STORM_CAVE = _cave(0.26, weather=[{"layer": "wx_rain_light", "strength": 0.16, "floor": 0.1, "tile": 14,
+                                   "speed": (-40, 220)}],
+                   events=[{"layer": "sky_lightning_flash", "every": (15, 35), "dur": 0.9, "strength": 0.35,
+                            "flash": True}])
+FADED = _cave(0.28, weather=[_fog("atm_void_wisps", 0.14, 0.25)], light=_lt("light_dusk", 0.12))
+FOUNDRY = _cave(0.26, weather=[_fog("atm_steam", 0.12, 0.25)], light=_lt("light_ember_underglow", 0.12))
+BLOODY = _cave(0.32, light=_lt("light_ember_underglow", 0.12))
+DEEP_DARK = _cave(0.36, tint={"layer": "shade_underwater", "strength": 0.14})
+DREAM = _cave(0.28, weather=[_fog("atm_swamp_mist", 0.16)], light=_lt("light_arcane_shimmer", 0.1))
+FALLOUT_CAVE = lambda k: _cave(  # noqa: E731
+    0.28, tint={"layer": "shade_haunted", "strength": 0.12}, weather=[_fog("atm_plague_fog", 0.12 + k * 0.3)],
+    glows={"strength": 0.85, "kinds": DEADWIND_GLOWS}, light=_lt("light_plague_miasma", 0.14 + k * 0.4))
+
+CAVES = [
+    (EARTH, ("The Den", "Dustwind Cave", "Boulder'gor", "Boulderfist Hall", "Razorfen Kraul", "The Broodspiral",
+            "The Thornheart Warren")),
+    (MINE, ("Azurelode Mine", "Boulder Lode Mine", "Windshear Mine", "Drywhisker Deeps")),
+    (DAYLIT, ("Thunder Ridge", "Drygulch Ravine", "Serena's Hollow", "The Eldest's Crown", "The Eldest Sequoia",
+             "Shriekhollow", "The Sunken Kraal")),
+    (FIRE, ("Ragefire Chasm", "The Emberdeep", "The Ashvent", "The Cinderwell")),
+    (GROTTO, ("Sunken Grotto of the Deep", "The Tidewrack", "Wrackline Hold", "Sunken Temple Grotto",
+             "Hetaera's Grotto", "The Lashings", "The Drownbell")),
+    (DROWNED, ("Blackfathom Deeps", "The Drowned Shrine", "The Drowned Barrow", "The Drowning Floor",
+              "The Drowned Palace", "The Drowned Palace: The Queen's Vault")),
+    (CRYPT, ("Scholomance", "Scholomance: Lower Halls", "Scarlet Crypt", "The Marris Crypt", "Shadowfang Keep",
+            "The Ossuary Below", "Scourge Cave")),
+    (PLAGUE_CAVE, ("Stratholme", "Stratholme: Service Entrance", "Stratholme: Slaughter Square", "Plague Depths",
+                  "The Writhing Deep", "The Weeping Cave", "The Bone Mines")),
+    (HALLS, ("Hearthglen", "Hearthglen: Mardenholde Keep", "Scarlet Monastery: Graveyard",
+            "Scarlet Monastery: Library", "Scarlet Monastery: Armory", "Durnholde Keep", "Dun Garok",
+            "Stromgarde Keep", "Tiragarde Keep", "Ambermill Tower", "Gurbashi Arena", "Zalazane's Hollow")),
+    (CATHEDRAL, ("Scarlet Monastery: Cathedral",)),
+    (FEL_CAVE, ("Burning Blade Coven", "Skull Rock", "Jaedenar", "Shadowpine Altar", "Haldarr Den", "Grom's Rest",
+               "The Rotroot Deeps")),
+    (NEST, ("Night Web's Hollow", "Widow's Lair", "The Zukk'ash Hive")),
+    (HIVE, ("The Royal Hive", "The Undercrust", "The Dry Deep")),
+    (ICE, ("The Frostward Descent", "The Weeping Ice", "Howling Barrows")),
+    (CRYSTAL, ("The Mother Vein", "The Cistern")),
+    (GREEN, ("Wailing Caverns", "Rotvine Hollow", "Veilfall Cave", "The Knothollow", "The World-Root Hollow")),
+    (MOONWELL, ("Moonwell Hollow",)),
+    (SHIP, ("The Bloodsail Raider", "The Raider's Hold", "The Galleon's Hold", "The Captain's Cabin")),
+    (ARCANE, ("The Golem Vault", "The Keel", "The Ascendant Spire", "The Ascendant Spire: The Command Spire")),
+    (STORM_CAVE, ("The Stormsplit", "The Storm-Well")),
+    (FADED, ("The Hearthdeep", "The Wellspring", "The Hollow Engine")),
+    (FOUNDRY, ("The Gravity Foundry", "The Gravity Foundry: The Keelworks", "Khaz Varun, the Black Hollow")),
+    (BLOODY, ("The Blood Pits",)),
+    (DEEP_DARK, ("The Lightless Reach",)),
+    (DREAM, ("The Dreaming Root",)),
+]
+for _p, _names in CAVES:
+    for _n in _names:
+        ZONES[_n] = _p
+ZONES["The Widows' Nest"] = FALLOUT_CAVE(0.0)
+ZONES["The Drowned Seep"] = FALLOUT_CAVE(0.15)
+ZONES["The Exclusion Zone"] = FALLOUT_CAVE(0.1)
+ZONES["The Exclusion Zone: The Reactor Hall"] = FALLOUT_CAVE(0.2)
+ZONES["The Exclusion Zone: The Foot"] = dict(FALLOUT_CAVE(0.3), events=[
+    {"layer": "sky_rift_glow", "every": (20, 40), "dur": 1.2, "strength": 0.24, "flash": True}])
+ZONES["The Galleon's Weather Deck"] = ISLES          # out on deck, under the open sky
+ZONES["Rocky Pass"] = ASPEN                        # a pass through the aspens, open to the sky
+
+# ------------------------------------------------------------------------------------- the hidden places (spoilers)
+# Each from its own brief in its builder, never from the map it hides in: they don't follow their neighbours' logic.
+_storm_bolts = [{"layer": "sky_lightning_flash", "every": (10, 25), "dur": 0.9, "strength": 0.4, "flash": True},
+                {"layer": "sky_lightning_a", "every": (25, 50), "dur": 0.6, "strength": 0.5, "flash": True},
+                {"layer": "sky_lightning_b", "every": (25, 50), "dur": 0.6, "strength": 0.5, "flash": True}]
+_rainbow = {"layer": "sky_rainbow", "every": (70, 140), "dur": 8.0, "strength": 0.28}
+HIDDEN = {
+    # grey sand, grey water, the old dead under it
+    "The Saltgrave": {"shade": {"layer": "shade_storm_gloom", "strength": 0.22},
+                      "weather": [_fog("atm_ground_fog", 0.24), {"layer": "wx_sea_spray", "strength": 0.1,
+                                  "floor": 0.2, "tile": 14, "speed": (-20, 4)}],
+                      "glows": {"strength": 0.8}, "light": _lt("light_overcast", 0.06)},
+    # sand fired to glass, fire still walking about
+    "The Glasswaste": {"shade": {"layer": "shade_dust_haze", "strength": 0.12}, "weather": [_shimmer(0.26)],
+                       "glows": {"strength": 0.8}, "light": _lt("light_desert_glare", 0.24)},
+    # a dead pine wood in a fog that never lifts
+    "The Weeping Pines": {"shade": [{"layer": "shade_haunted", "strength": 0.28},
+                                    {"layer": "shade_canopy_dapple", "strength": 0.16, "tile": 11,
+                                     "drift": (1.0, 0.3)}],
+                          "weather": [_fog("atm_ground_fog", 0.38), _fog("atm_fog_bank", 0.12, 0.35)],
+                          "glows": {"strength": 0.8}, "light": _lt("light_moonlight", 0.12)},
+    # mangroves in water gone green with sap
+    "The Tanglewood Shoals": dict(JUNGLE, weather=[_fog("atm_swamp_mist", 0.24)]),
+    # a lagoon where drowned gods are still listening
+    "The Drowned Idols": dict(JUNGLE, shade=[JUNGLE["shade"], {"layer": "shade_haunted", "strength": 0.14}],
+                              weather=[_fog("atm_swamp_mist", 0.2)]),
+    # a caravan under the dunes, the sand moving
+    "The Buried Caravan": dict(DUNES, weather=[_shimmer(0.18), {"layer": "wx_sandstorm", "strength": 0.12,
+                                               "floor": 0.15, "tile": 16, "speed": (-30, 4)}]),
+    # a grove the moon has never once seen
+    "The Moonless Glade": {"shade": [{"layer": "shade_night", "strength": 0.3},
+                                     {"layer": "shade_haunted", "strength": 0.2}],
+                           "weather": [_fog("atm_void_wisps", 0.14, 0.25)], "glows": {"strength": 0.85}},
+    # a moor always under a storm, lightning called down on the stones
+    "The Stormcrag": dict(STORM, events=_storm_bolts),
+    # the plague got to the lost orchard first
+    "The Ashen Orchard": {"shade": {"layer": "shade_haunted", "strength": 0.24},
+                          "weather": [_fog("atm_plague_fog", 0.16), {"layer": "wx_ashfall", "strength": 0.12,
+                                      "floor": 0.12, "tile": 14, "speed": (-3, 6)}],
+                          "glows": {"strength": 0.75}, "light": _lt("light_plague_miasma", 0.12)},
+    # a caldera of boiling springs and steaming flats
+    "The Painted Springs": {"weather": [_fog("atm_steam", 0.2, 0.25), _shimmer(0.1)], "glows": {"strength": 0.75},
+                            "light": _lt("light_sun_bloom", 0.16)},
+    # a forest from before forests, black water, air thick enough to drink
+    "The Coal Forest": {"shade": {"layer": "shade_jungle_canopy", "strength": 0.24, "tile": 12, "drift": (1.0, 0.3)},
+                        "weather": [_fog("atm_swamp_mist", 0.24)], "glows": {"strength": 0.75},
+                        "light": _lt("light_jungle_shafts", 0.18)},
+    # a cold fen where lights move over the water at night
+    "The Lanternmere": {"shade": {"layer": "shade_haunted", "strength": 0.2},
+                        "weather": [_fog("atm_ground_fog", 0.3), {"layer": "atm_fireflies", "strength": 0.3,
+                                    "floor": 0.15, "tile": 16, "speed": (-2, -1)}],
+                        "glows": {"strength": 0.8}, "light": _lt("light_moonlight", 0.18)},
+    # sealed in its wardstones, late afternoon forever
+    "The Sunward Waystation": {"shade": {"layer": "shade_canopy_dapple", "strength": 0.16, "tile": 11,
+                                         "drift": (1.2, 0.3)},
+                               "weather": [{"layer": "atm_golden_motes", "strength": 0.26, "floor": 0.15, "tile": 16,
+                                            "speed": (-2, -1)}],
+                               "glows": {"strength": 0.75}, "light": _lt("light_golden_canopy", 0.3)},
+    # a steppe under snow since the Integration
+    "The Long Winter": {"shade": {"layer": "shade_storm_gloom", "strength": 0.12},
+                        "weather": [{"layer": "wx_snow_light", "strength": 0.3, "floor": 0.1, "tile": 14,
+                                     "speed": (-8, 30)}],
+                        "glows": {"strength": 0.8}, "light": _lt("light_winter_sun", 0.22)},
+    # terraces of rain pools on the bark, and a rainbow now and then
+    "The Raincatch": {"shade": {"layer": "shade_jungle_canopy", "strength": 0.16, "tile": 12, "drift": (1.0, 0.3)},
+                      "weather": [{"layer": "wx_drizzle", "strength": 0.2, "floor": 0.1, "tile": 14,
+                                   "speed": (-10, 60)}],
+                      "events": [_rainbow], "glows": {"strength": 0.75}, "light": _lt("light_overcast", 0.06)},
+    # the Amazon's tallest crowns, caught in the tree
+    "The Kapok Crowns": dict(JUNGLE, weather=[{"layer": "atm_golden_motes", "strength": 0.18, "floor": 0.15,
+                                               "tile": 16, "speed": (-2, -1)}]),
+    # an eyrie under a thunderhead that never moves
+    "The Stormroost": dict(STORM, events=_storm_bolts),
+    # a model of the heavens: stars cross it
+    "The Orrery": {"shade": {"layer": "shade_night", "strength": 0.14},
+                   "events": [{"layer": "sky_shooting_stars", "every": (15, 35), "dur": 1.8, "strength": 0.55},
+                              {"layer": "sky_falling_star", "every": (40, 80), "dur": 2.2, "strength": 0.5}],
+                   "glows": {"strength": 0.8}, "light": _lt("light_arcane_shimmer", 0.16)},
+    # a cloud shelf full of lost ships
+    "The Cloudwreck": {"shade": {"layer": "shade_cloud_shadows", "strength": 0.18, "tile": 16, "drift": (3.0, 1.0)},
+                       "weather": [_fog("atm_fog_bank", 0.16, 0.35)], "glows": {"strength": 0.75},
+                       "light": _lt("light_sun_bloom", 0.16)},
+    # a table mountain in the sky, waterfalls pouring off into nothing
+    "The Lost Tepui": {"shade": {"layer": "shade_cloud_shadows", "strength": 0.16, "tile": 16, "drift": (3.0, 1.0)},
+                       "weather": [_fog("atm_waterfall_mist", 0.16, 0.35)], "events": [_rainbow],
+                       "glows": {"strength": 0.75}, "light": _lt("light_sun_bloom", 0.2)},
+    # the hidden libraries under the Underdark
+    "The Unwritten Stacks": dict(UNDERDARK, light=_lt("light_arcane_shimmer", 0.14)),
+    "The Palimpsest Vault": dict(UNDERDARK, light=_lt("light_arcane_shimmer", 0.18)),
+}
+ZONES.update(HIDDEN)
 
 KEYS = ("shade", "weather", "glows", "particles", "life", "events", "light")
 
