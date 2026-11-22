@@ -1,0 +1,25 @@
+"""Accept lines rewritten as new beats, 22 Nov 2026: the old ones repeated the speech (accept echo)."""
+
+BEATS = {
+    'durotar_skullrock_approach': "Watch for the relief points. Hit them as the patrol changes, and they'll be a man short.",
+    'durotar_skullrock_gazzuz': "Don't listen to anything it says. A demon's voice is the oldest trick it has.",
+    'durotar_vulture_feathers': 'Pluck them from the wing, not the tail. The long ones fetch double.',
+    'durotar_prowler_den': 'Go in from downwind. Those cats smell an orc long before they see one.',
+    'dur_eyes_on_road': 'Bring me one of their tails if you can. The drivers will want to see the pack is smaller.',
+    'dur_old_redtooth': "Bring me the notched ear when it's done. The drivers won't believe it otherwise.",
+    'dur_scorpid_season': "Leave the small ones under their rocks. It's the big ones on the road I care about.",
+    'dur_warm_blanket': "Pick the pelts with the thickest fur at the neck. That's where the cold gets in.",
+    'dur_stormbinders': "If the sky starts to crackle while you're up there, get off the high ground fast.",
+    'dur_rumblejaw': "Bring a tooth back if you can. I'd like to put my hand on one that isn't in a mark.",
+    'dur_cinders_on_wind': 'Wet a cloth and tie it over your mouth before you go down. I wish I had.',
+    'dur_houndmaster': "If any of the hounds runs off when he falls, let it. It's only following orders it no longer has.",
+    'dur_glitter': "Don't polish the chunks on the way back. The dirt tells me which beast they came out of.",
+    'dur_matron_sowbelly': "If the farmhands start praying while you fight her, don't stop. It only makes her stronger.",
+    'dur_net_and_hook': "Cut the nets down as you go. I'd rather the crabs had nowhere to move back into.",
+    'dur_gillfin': "If you find the hub of a wagon wheel in his nest, bring it. I'd like to settle that argument.",
+    'dur_kolkar_reckoning': "If you see a cart with a blue axle up there, it's mine. Leave it, and tell me where it is.",
+    'dur_bloodhoof': "Stand your ground when he charges. He's lame on the left, and he swerves to favour it.",
+    'dur_safe_road_south': "If you meet any recruits on the road, walk them as far as the gate. They'll remember it.",
+    'dur_road_tax': "Count the pouches before you hand them over. I'll know if any go missing between here and there.",
+    'dur_last_words': "You fold the letter back the way it was. Whoever Tamsin is, they've waited a long time for this.",
+}
