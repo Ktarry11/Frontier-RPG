@@ -30,8 +30,9 @@ PEOPLE = [
      "Ratchet's the only port on this coast where nobody cares that a sailor's human. They care whether the "
      "bar tab's paid, and mine always is."),
     ("rt_tf_az_net_mender", "Old Barnaby", "human", M, "The Harbor",
-     "From Kul Tiras to here, every pier I've ever sat on had nets that needed mending. The goblins pay better"
-     " than the admirals did, and nobody salutes."),
+     "From Kul Tiras to here, every pier had nets that needed mending. A sailor in from Tanaris swore a whole "
+     "goblin caravan went under the dunes out east and never came up, but he owes me money, so I don't believe"
+     " a word."),
     ("rt_tf_customs_aide", "Aide Fennick", "goblin", M, "The Customs Gate",
      "Prynn and I search the wagons, and we find something every single day. Most of it's cheese, which isn't "
      "illegal, but the smugglers hide it like it is."),

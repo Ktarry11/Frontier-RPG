@@ -25,8 +25,9 @@ PEOPLE = [
      "Same six stories every evening while the tables get wiped. They don't get better, but the people telling"
      " them seem to need it."),
     ("br_tf_tavern_card_player", "Silas Blackwood", "forsaken", M, "Gallows' End Tavern",
-     "Two years of cards with the same three fellows, and none of us remembers the rules the same way. Every "
-     "game is a new argument, and it passes the time."),
+     "One of the fellows at my table came over from Silverpine, and he swears some of the pines up there weep "
+     "like mourners. A whole grove of them nobody walks into, he says, and he was buried under a pine, so he "
+     "might be biased."),
     ("br_tf_tavern_orc", "Grunt Nazgra", "orc", F, "Gallows' End Tavern",
      "The Warchief sent me to Brill to keep an eye on things, and the things have been very quiet. The "
      "Forsaken don't talk much, but they're good company once you stop staring."),

@@ -48,8 +48,9 @@ PEOPLE = [
      "I read the bounty board out loud for the grunts who never learned their letters. I add a little to the "
      "stories, so the bounties sound more exciting than they are."),
     ("xr_tf_inn_regular", "Grizzled Torvak", "orc", M, "The Inn Yard",
-     "Twenty years at Boorka's, every night, and there's a groove in the bench to prove it. Nobody else sits "
-     "there, and I'd like to see them try."),
+     "Twenty years at Boorka's, and the old drovers' best story is a quilboar village the earth swallowed "
+     "somewhere off the western edge of the plains. They tell it best after the fourth drink, and worst after "
+     "the fifth."),
     ("xr_tf_bard", "Lutegrip Dorn", "orc", M, "The Inn Yard",
      "The young grunts don't know the words to the old clan songs, but they stamp along every evening in the "
      "inn yard. That's how a song lives on."),

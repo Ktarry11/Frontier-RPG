@@ -149,7 +149,12 @@ class Secrets:
             return None
         self.found.add(sid)
         s = self.by_id(sid)
-        return s.get("found_text") or "You've found a hidden place."
+        text = s.get("found_text") or "You've found a hidden place."
+        if self.counts_secrets(tm):
+            got, total = self.zone_progress(tm.name)
+            if total:
+                text += f" ({got}/{total} here)"
+        return text
 
     # ------------------------------------------------------------------ map and chests
     #: How close you have to be before a hidden cache or seller is drawn at all.
@@ -196,6 +201,38 @@ class Secrets:
         out = {(x, y) for (z, x, y) in self._caches if z == zone_name}
         out |= {(x, y) for (z, x, y) in self._doors if z == zone_name}
         return out
+
+    # ------------------------------------------------------------------ the secrets counter
+    # Kyle, 22 Nov 2026, for a friend who asked for one: "Say there are 3 chests and 1 zone. It would show 0/4. But in the
+    # skull zone it won't show anything. Caves and Dungeons won't either." Counts only, never places: what a zone holds is
+    # its hidden caches, its hidden sellers and its ways into hidden zones, one each, and a thing counts as found once
+    # you've stood on the secret ground it's in.
+    @staticmethod
+    def _parts(s):
+        return int(bool(s.get("cache"))) + int(bool(s.get("vendor"))) + int(bool(s.get("door")))
+
+    @staticmethod
+    def counts_secrets(tilemap):
+        """Does this map show a secrets counter? Open-world maps and towns only: never a cave, a dungeon or a hidden
+        zone (the skull and frontier zones are for stumbling into, and nothing counts what's inside them)."""
+        if tilemap is None or getattr(tilemap, "is_cave", False):
+            return False
+        name = getattr(tilemap, "name", "")
+        from world.hidden_zones import is_hidden
+        from world.zone_classification import is_dungeon
+        return not (is_hidden(name) or is_dungeon(name))
+
+    def zone_progress(self, zone_name):
+        """(found, total) secrets in a zone, for the map's counter."""
+        found = total = 0
+        for s in self.secrets:
+            if s["zone"] != zone_name:
+                continue
+            n = self._parts(s)
+            total += n
+            if s["id"] in self.found:
+                found += n
+        return found, total
 
     def is_door(self, zone_name, x, y):
         return (zone_name, x, y) in self._doors

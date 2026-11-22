@@ -35,8 +35,8 @@ PEOPLE = [
      "Everything out of the longhouse pot has a little jungle in it. The trolls bring fruit, the hunters bring"
      " raptor, and the grunts eat it all without asking."),
     ("gg_tf_long_veteran", "Old Thrak", "orc", M, "The Longhouse",
-     "This camp was three tents and a fire when we built it, and the jungle's tried to kill me plenty of times"
-     " since. Still here, and I'll die here if it lets me."),
+     "This camp was three tents and a fire when we built it. The trolls tell of idols drowned in the water up "
+     "north, with eyes that still open at night, and the troll who told me also says his spear is haunted."),
     ("gg_tf_long_shaman", "Witch Doctor Kwazi", "troll", M, "The Longhouse",
      "De jungle spirits have never come into de longhouse, mon. Either de nightly blessing works, or de "
      "spirits don't like orc cooking."),

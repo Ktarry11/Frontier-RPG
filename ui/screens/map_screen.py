@@ -42,6 +42,8 @@ REP_LIME = (175, 240, 85)
 #: The order glyphs are drawn in: later ones sit on top. Mailboxes stand beside the inn, so they go under it.
 MARKER_ORDER = ("mail", "auction", "shop", "rep", "frontier", "forge", "sawmill", "prof", "class", "inn", "ride",
                 "flight")
+#: A point of interest's painted medallion (the npc dot stays a dot: towns are full of them)
+POI_MEDALLION = {"portal": "portal", "boat": "boat", "chest": "chest", "quest_marker": "poi"}
 #: The Frontier Quartermasters (heroic stage 2, tools/build_heroic_rewards.py). Kyle, 21 Nov 2026: "we should have an
 #: icon for them on the map, maybe use the frontier mark to indicate where they are". Drawn as the mark itself.
 
@@ -336,6 +338,8 @@ class MapScreen(BaseScreen):
                 kind = row[x]
                 if kind in poi_colors and (x, y) not in unmarked:
                     px, py = self._tile_to_screen(tilemap, rect, x, y)
+                    if self._medallion(screen, POI_MEDALLION.get(kind, ""), px, py):
+                        continue
                     pygame.draw.circle(screen, poi_colors[kind], (px, py), 4)
                     pygame.draw.circle(screen, (20, 20, 20), (px, py), 4, 1)
 
@@ -473,8 +477,9 @@ class MapScreen(BaseScreen):
         # ON TOP of it. The player is never where an NPC is (they stand beside them), so the
         # disc stays readable next to the icon instead of over it.
         px, py = self._tile_to_screen(tilemap, rect, zm.player_x, zm.player_y)
-        pygame.draw.circle(screen, (255, 255, 255), (px, py), 7)
-        pygame.draw.circle(screen, (220, 40, 40), (px, py), 5)
+        if not self._medallion(screen, "player", px, py):
+            pygame.draw.circle(screen, (255, 255, 255), (px, py), 7)
+            pygame.draw.circle(screen, (220, 40, 40), (px, py), 5)
         self._icons_over_player = 0
         for kind in MARKER_ORDER:
             for tx, ty in sorted(markers[kind]):
@@ -490,14 +495,15 @@ class MapScreen(BaseScreen):
                                 color=(220, 200, 120))
         ly += 36
         legend = [
-            ((220, 40, 40), "You are here"),
-            (poi_colors["portal"], "Portal / cave entrance"),
-            (poi_colors["npc"], "NPC / vendor"),
-            (poi_colors["chest"], "Treasure"),
-            (poi_colors["quest_marker"], "Point of interest"),
+            ((220, 40, 40), "You are here", "player"),
+            (poi_colors["portal"], "Portal / cave entrance", "portal"),
+            (poi_colors["npc"], "NPC / vendor", None),
+            (poi_colors["chest"], "Treasure", "chest"),
+            (poi_colors["quest_marker"], "Point of interest", "poi"),
         ]
-        for color, text in legend:
-            pygame.draw.circle(screen, color, (lx + 7, ly + 7), 6)
+        for color, text, medal in legend:
+            if not (medal and self._medallion(screen, medal, lx + 7, ly + 7, 0.8)):
+                pygame.draw.circle(screen, color, (lx + 7, ly + 7), 6)
             self.renderer.draw_text(screen, text, (lx + 22, ly), color=(200, 200, 210))
             ly += 26
         # Tracked gathering nodes - only the kinds this player can actually see.
@@ -550,6 +556,17 @@ class MapScreen(BaseScreen):
         self.renderer.draw_text(screen, f"Position: {zm.player_x}, {zm.player_y}",
                                 (lx, ly), color=(150, 150, 165))
 
+        # THE SECRETS COUNTER, bottom right (Kyle, 22 Nov 2026: "We could put it in the map, when we hit M in the bottom
+        # right maybe? So per zone"). Open-world maps and towns only, and only where there's something to find.
+        from world.secrets import get_secrets
+        if get_secrets().counts_secrets(tilemap):
+            got, total = get_secrets().zone_progress(tilemap.name)
+            if total:
+                label = f"Secrets {got}/{total}"
+                sw = self.renderer.font_normal.size(label)[0]
+                self.renderer.draw_text(screen, label, (SCREEN_WIDTH - sw - 24, SCREEN_HEIGHT - 34),
+                                        color=(230, 200, 120) if got < total else (150, 230, 120))
+
         footer = "M or ESC: close map"
         fw = self.renderer.font_normal.size(footer)[0]
         self.renderer.draw_text(screen, footer,
@@ -570,7 +587,34 @@ class MapScreen(BaseScreen):
         known = set(getattr(player, "known_professions", []) or [])
         return known & set(self.TRACK_PROFESSION.values())
 
+    #: THE PAINTED MEDALLIONS (sheet MI1, docs/map_icon_art_prompts.md, 22 Nov 2026). Kyle: "Let's just get an art
+    #: prompt for all the map icons bro." Every glyph has its painted medallion in assets/icons/map/<name>.png; the
+    #: drawn ones below stay as the fallback if a file's missing. Size is the diameter at scale 1.
+    MEDALLION_SIZE = {"hearth": 26, "rep": 24, "player": 22, "portal": 16, "boat": 16, "chest": 16, "poi": 16,
+                      "ore": 16, "herb": 16, "wood": 16, "fish": 16}
+    _medallions = {}
+
+    def _medallion(self, screen, name, cx, cy, scale=1.0):
+        """Blit the painted medallion `name` centred on (cx, cy); False if there's no art for it."""
+        size = max(8, int(self.MEDALLION_SIZE.get(name, 20) * scale))
+        key = (name, size)
+        if key not in self._medallions:
+            import os
+            path = f"assets/icons/map/{name}.png"
+            art = None
+            if os.path.exists(path):
+                from ui.sprite_loader import get_icon_sprite
+                art = get_icon_sprite(path, size)
+            self._medallions[key] = art
+        art = self._medallions[key]
+        if art is None:
+            return False
+        screen.blit(art, (cx - art.get_width() // 2, cy - art.get_height() // 2))
+        return True
+
     def _draw_track_dot(self, screen, kind, cx, cy):
+        if self._medallion(screen, kind, cx, cy):
+            return
         color = self.TRACK_COLORS[kind]
         pts = [(cx, cy - 5), (cx + 5, cy), (cx, cy + 5), (cx - 5, cy)]
         pygame.draw.polygon(screen, (10, 10, 12), [(x + (1 if x > cx else -1 if x < cx else 0),
@@ -578,7 +622,10 @@ class MapScreen(BaseScreen):
         pygame.draw.polygon(screen, color, pts)
 
     def _draw_service_icon(self, screen, kind, cx, cy, scale=1.0):
-        """Small procedural map glyphs: flight '!' / inn house / horseshoe / hearth star."""
+        """Small procedural map glyphs: flight '!' / inn house / horseshoe / hearth star. The painted medallion wins
+        where there is one (the Frontier Mark keeps its own art and ring below)."""
+        if kind != "frontier" and self._medallion(screen, kind, cx, cy, scale):
+            return
         dark = (20, 20, 20)
         if kind == "flight":
             pygame.draw.circle(screen, dark, (cx, cy), 8)

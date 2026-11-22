@@ -32,8 +32,8 @@ PEOPLE = [
      "Every recruit gets knocked down at least once in the morning sparring. They thank me for it later, "
      "usually once they've stopped limping."),
     ("as_tf_lake_fisher", "Fisher Dorian Leafbrook", "night_elf", M, "The Lakeside Houses",
-     "The young fish go back into the lake, every one. It's fed this town for a thousand years, and it should "
-     "feed it for a thousand more."),
+     "The young fish go back into the lake, every one. My grandmother used to say there's a glade far off in "
+     "the southern woods where the moon never shines at all, but she also said the lake fish could sing."),
     ("as_tf_gnome_cousin", "Fizzbin Rimble", "gnome", M, "The Lakeside Houses",
      "My cousin keeps the inn, and I fix everything in it that breaks. The night elves don't trust anything "
      "with gears, but they trust me, which is almost the same thing."),

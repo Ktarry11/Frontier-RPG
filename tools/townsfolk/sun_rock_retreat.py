@@ -23,8 +23,9 @@ PEOPLE = [
      "Every blanket for the families who came up with nothing has a pattern from our old valley in it. That "
      "way the children don't forget where they're from."),
     ("sr_tf_hearth_regular", "Old Yansa", "tauren", M, "The Hearth Lodge",
-     "Stories by the hearth for anyone who'll listen, most of them true. The ones that aren't are better than "
-     "the ones that are."),
+     "Stories by the hearth for anyone who'll listen. My favourite is my grandfather's, about springs painted "
+     "every colour, hidden behind the stone high in the western peaks, and he also swore he could talk to "
+     "eagles."),
     ("sr_tf_hearth_cook", "Cook Ahanu", "tauren", M, "The Hearth Lodge",
      "The innkeeper takes the credit for my stew. Everyone comes back for seconds, and that's all the credit a"
      " cook needs."),

@@ -23,8 +23,8 @@ PEOPLE = [
      "We came over from de Echo Isles when de sea witch's naga got too bold. Razor Hill took us in, and my "
      "boys are learnin' to fight like orcs, which I'm still decidin' how I feel about."),
     ("rzh_tf_market_haggler", "Ruga", "orc", F, "The Market Corner",
-     "Arguing with the goblin about his prices is the best entertainment in Razor Hill. Never bought a thing "
-     "from him, and never will."),
+     "My cousin swears the sand out west of the valley turns to glass if you walk far enough into the rocks. "
+     "He also swears a scorpid spoke to him once, so I keep arguing with the goblin instead."),
     ("rzh_tf_goblin_errand", "Pip Sparkfuse", "goblin", M, "The Market Corner",
      "Half of Prizzle's errands are just to keep me away from the shop when something's about to explode. You "
      "can hear it from the well."),

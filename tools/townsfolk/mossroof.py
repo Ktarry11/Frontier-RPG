@@ -14,8 +14,9 @@ PEOPLE = [
      "You're number nine up the ladders today. Yesterday it was eleven, but two of them were the same goblin "
      "going back for his hat."),
     ("mr_tf_lantern_lighter", "Lantern-Keeper Usha", "troll", F, "The Ladderfoot",
-     "Nobody should climb into the dark, so the lanterns at the top of the ladders get lit every evening. "
-     "Moths come first, then bats come for the moths."),
+     "Nobody should climb into the dark, so the lanterns get lit every evening. My auntie says somewhere up in"
+     " the bark there's a pool that catches all the rain, but she also says the tree talks to her, so take "
+     "that how you like."),
     ("mr_tf_elder_grandson", "Tamu", "troll", M, "The Elder's Deck",
      "Elder Tal'vani is my grandmother, and she's never once let me win at bones. She says the boughs won't "
      "let me win either, so I may as well get used to it now."),

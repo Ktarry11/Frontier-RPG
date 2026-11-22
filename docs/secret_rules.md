@@ -5,8 +5,8 @@ The rules every secret, hidden seller, hidden zone and Easter egg follows. Build
 `tools/build_easter_eggs.py`. The engine: `world/secrets.py`, `world/hidden_zones.py`.
 
 ## Hidden means hidden
-- **Truly hidden.** The way in looks like the rock, trees or wall it's cut from (world/secrets.py). Nothing on the map,
-  in a quest or in an NPC's lines points at one.
+- **Truly hidden.** The way in looks like the rock, trees or wall it's cut from (world/secrets.py). Nothing on the map
+  or in a quest points at one, and nothing in an NPC's lines does either, except the odd rumour (below).
 - **Placed blind and never told.** Kyle is never told where a secret, a hidden seller, a hidden door or a hidden zone is:
   counts and names only. Builders print counts. No hints in docs or code comments.
 - **Nothing in the way.** No secret touches a portal, an NPC, a road or another secret.
@@ -21,6 +21,24 @@ everything blobs."
   hidden map that already exists. Names and shapes only, never the parent, the door or anything that points at either.
 - **No two the same topology.** Check the sheet before anything ships. The tree's first cut copied two existing shapes
   (a ring round a lake; pods on necks) and was redrawn.
+
+## Rumours (22 Nov 2026)
+Kyle: "Let's put hidden zones hints inside NPC text sometimes like 'A friend of mine talked about a hidden x around/
+direction of y.....but he likes to make up stories' and give super vague hints once in a while", "Not often, but a small
+amount", "They can be subtle and not obvious."
+- **A few, and secondhand.** Now and then a townsperson repeats something a cousin, a grandmother or a drinking friend
+  swears is out there, and undercuts it in the same breath. Never more than one in a town, and only in a handful of towns.
+- **Super vague.** A region and a quality at most ("somewhere off the western edge of the plains", "weeping pines"),
+  never a landmark you could walk straight to, a coordinate, or the hidden zone's name.
+- **Never told.** Kyle isn't told which townsfolk carry one or which places they point at, here or anywhere.
+- **Never for** Azshara's hidden content, Hearthglen's chain, the ???? seller, or the unnamed faction.
+
+## The secrets counter (22 Nov 2026)
+Kyle, for a friend who asked: "Say there are 3 chests and 1 zone. It would show 0/4. But in the skull zone it won't show
+anything. Caves and Dungeons won't either." The map (M) shows "Secrets found/total" bottom right for the zone you're in:
+its hidden caches, hidden sellers and ways into hidden zones, one each, found once you've stood on their secret ground.
+Open-world maps and towns only, never a cave, a dungeon or a hidden zone (`Secrets.counts_secrets`, `zone_progress`).
+A counter is a count, so it obeys "counts and names only".
 
 ## Hidden sellers
 - Rare pieces, no flavour text (flavour is for epics and up), at three quarters of the old price, from a pool of seven

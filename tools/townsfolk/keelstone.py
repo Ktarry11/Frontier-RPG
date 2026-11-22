@@ -25,8 +25,9 @@ PEOPLE = [
      "Thirty years of evenings in this court arguing with Ebbe about the Dropfield. He says the chains broke "
      "so the island fell, and the truth is the other way round."),
     ("kl_tf_baker", "Baker Lisane Holt", "aetherian", F, "The Anchor Market",
-     "The wardens' bread is baked before the morning watch goes out, before the chains are even up. The "
-     "Earthborn taught me bagels, and the wardens eat every one."),
+     "The wardens' bread is baked before the morning watch goes out. My grandmother swore the House of "
+     "Measures once built a machine of the heavens and hid it from the council somewhere out on the shelf, and"
+     " she was never right about anything else."),
     ("kl_tf_market_child", "Little Teo Holt", "aetherian", M, "The Anchor Market",
      "Mama bakes and I carry the baskets. When I'm big I'm going to be a warden and grease the chains like "
      "Ostrel, because he gets to climb the highest of anybody."),
