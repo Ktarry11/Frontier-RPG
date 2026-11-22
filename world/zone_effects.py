@@ -145,12 +145,37 @@ PLAGUE = {          # the Plaguelands: a sick yellow-green haze in the low place
     "glows": {"strength": 0.75},
     "light": {"layer": "light_plague_miasma", "strength": 0.16, "breathe": 0.12},
 }
-HAUNTED = {         # Deadwind: dead quiet, fog on the ground, moonlight
-    "shade": {"layer": "shade_haunted", "strength": 0.34},
-    "weather": [{"layer": "atm_ground_fog", "strength": 0.3, "floor": 0.3, "tile": 18, "speed": (-3, 1)}],
-    "glows": {"strength": 0.8},
-    "light": {"layer": "light_moonlight", "strength": 0.18, "breathe": 0.1},
+# Deadwind Pass is a fallout zone, not a haunted wood (Kyle, 21 Nov 2026: "Why is deadwind pass haunted? It's more
+# complex. Look at the liquidators"). docs/deadwind_brief.md: the Seep's sick green-yellow glow gets into soil, water
+# and flesh; time is broken round the tear; the colours are dead grey-brown, sickly green-yellow, bruise purple and
+# rust, and the only warm light is the Watch's pyre. So: a bruised vignette, a low yellow-green haze, fallout dust
+# hanging in the air, the Seep glowing up from below, and everything that's contaminated lighting its ground green.
+# Round the rupture in the east the tear itself pulses now and then.
+DEADWIND_GLOWS = [
+    (("seep_pool", "seep_boulder", "glow_crater", "slag_crystals", "fume_vent", "egg_sacs", "tumour", "eye_mushroom",
+      "flesh_pods", "flesh_mass", "black_well"), (170, 230, 60), 2.6, 0.5),
+    (("air_tear", "rift_crack", "time_doorway", "false_reflection", "glass_spire", "floating_rock"),
+     (180, 120, 255), 2.6, 0.45),
+    (("containment_spire",), (120, 220, 255), 3.0, 0.3),
+    (("copper_still", "vial_rack", "laboratory"), (150, 230, 70), 2.0, 0.6),
+    (("great_pyre", "burn_bin"), (255, 140, 50), 3.6, 0.55),
+    (("stopped_fire", "ember_ash"), (255, 120, 40), 2.0, 0.6),
+]
+DEADWIND = {
+    "shade": {"layer": "shade_haunted", "strength": 0.22},
+    "weather": [{"layer": "atm_plague_fog", "strength": 0.16, "floor": 0.3, "tile": 18, "speed": (-3, 1)},
+                {"layer": "wx_ashfall", "strength": 0.14, "floor": 0.12, "tile": 14, "speed": (-3, 6)}],
+    "glows": {"strength": 0.8, "kinds": DEADWIND_GLOWS},
+    "light": {"layer": "light_plague_miasma", "strength": 0.16, "breathe": 0.12},
 }
+DEADWIND_RUPTURE = dict(
+    DEADWIND,
+    shade={"layer": "shade_haunted", "strength": 0.26},
+    weather=[{"layer": "atm_plague_fog", "strength": 0.22, "floor": 0.3, "tile": 18, "speed": (-3, 1)},
+             {"layer": "wx_ashfall", "strength": 0.16, "floor": 0.12, "tile": 14, "speed": (-3, 6)}],
+    events=[{"layer": "sky_rift_glow", "every": (25, 50), "dur": 1.2, "strength": 0.22, "flash": True}],
+    light={"layer": "light_plague_miasma", "strength": 0.22, "breathe": 0.15},
+)
 FEL = {             # Felwood: the corruption lights the mist green from below
     "shade": {"layer": "shade_haunted", "strength": 0.26},
     "weather": [{"layer": "atm_swamp_mist", "strength": 0.24, "floor": 0.25, "tile": 18, "speed": (-3, 1)}],
@@ -221,7 +246,8 @@ for _p, _maps, _towns in (
      ("Tarren Mill", "Southshore", "Hammerfall", "Saltspur Landing")),
     (PLAGUE, ("Western Plaguelands South", "Western Plaguelands North", "Eastern Plaguelands West",
               "Eastern Plaguelands East"), ("The Bulwark", "The Pale Watch", "Light's Hope Chapel")),
-    (HAUNTED, ("Deadwind West", "Deadwind East"), ("Ariden's Watch",)),
+    (DEADWIND, ("Deadwind West",), ("Ariden's Watch",)),
+    (DEADWIND_RUPTURE, ("Deadwind East",), ()),
     (FEL, ("North Felwood", "South Felwood"), ("Emerald Sanctuary", "Timbermaw Tunnel")),
     (HIGHWOOD, ("Stonetalon West",), ("Sun Rock Retreat",)),
     (BLASTED, ("Stonetalon East",), ()),

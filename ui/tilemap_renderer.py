@@ -1453,6 +1453,8 @@ class TilemapRenderer:
         (("brazier", "bonfire", "campfire", "fire_pit", "firepit", "pyre", "torch", "hearth", "forge", "beacon"),
          (255, 140, 50), 3.4, 0.55),
     )
+    #: words that mean the fire's out (a burned pyre, an unlit brazier), whatever else the name says
+    GLOW_NEVER = ("unlit", "burned", "burnt", "extinguished", "cold_", "_out")
     _glow_tex = {}
 
     @classmethod
@@ -1460,9 +1462,11 @@ class TilemapRenderer:
         """own: a map's own kinds (tilemap.glows["kinds"], same shape as GLOW_KINDS), tried first, so the Underdark
         can light its own mushrooms and crystals in their own colours."""
         name = sprite_key.rsplit("/", 1)[-1].lower()
+        if any(w in name for w in cls.GLOW_NEVER):
+            return None
         for words, colour, radius, height in tuple(own) + cls.GLOW_KINDS:
             if any(w in name for w in words):
-                return colour, radius, height
+                return (colour, radius, height) if colour else None     # a map's kind with no colour: stays dark
         return None
 
     def _glow_surface(self, colour, radius_px, strength):
