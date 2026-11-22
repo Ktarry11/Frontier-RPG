@@ -1,0 +1,26 @@
+"""Accept lines rewritten as new beats, 22 Nov 2026: the old ones repeated the speech (accept echo)."""
+
+BEATS = {
+    'spn_trunk_walk': "Mark anything new on the map as you go. I'll copy it in when you're back.",
+    'spn_ravenna_rite': "When it's done, sit with her a while if she'll let you. She's been alone with that window long enough.",
+    'spn_scout_survey': "Don't follow any of them past where they stop. Whoever's mapping this wood is ahead of us.",
+    'spn_farthing_hounds': "Shut the gate behind you when it's done. I'd like to see it stay shut one night.",
+    'spn_olsens_seed': 'Keep the sacks dry. Wet seed rots before it ever sees the ground.',
+    'spn_old_hob': "Bring me his collar if it's still on him. I'll hang it on the bench.",
+    'spn_farmhand_locket': "You close the locket gently, careful of the hair inside, and turn toward Olsen's Farthing.",
+    'spn_rh_moss': "Bag each clipping separately. If they touch, I can't tell which stone they came from.",
+    'spn_rh_watchman': "Let him finish his round first if you can. He'd hate to be stopped halfway.",
+    'spn_df_harrowers': "Don't stand at the headland. That's where they turn, and they turn hard.",
+    'spn_df_straw': "Don't cut the stitching. Unpick it instead, because she'd want it done properly.",
+    'spn_df_ring': 'You rub the band clean with your thumb, and the letters come up a little clearer.',
+    'spn_gate_hold': "If a newly risen comes up the road while you're out there, walk them to the door.",
+    'spn_orchard_blight': "Smoke the wasps out before you go in. They're slower when the hive's full of it.",
+    'spn_orchard_cores': "Carry them in an iron pot. They'll scorch through anything softer.",
+    'spn_orchard_keeper': "Don't let him prune you. He's very good at it.",
+    'spn_pools_beasts': 'Leave the far bank alone for now. I only need one place to stand.',
+    'spn_muckmaw': 'Throw something into the water to bring it up, and stand well back when you do.',
+    'spn_sd_skitterers': "Burn any egg sacs you find on the way. That's the swarm before it's a swarm.",
+    'spn_sd_longleg': 'Keep walking when you feel it watching. Stopping is what it waits for.',
+    'spn_sd_lair': "Hold a candle at the mouth. If the flame leans in, something's breathing down there.",
+    'spn_orchard_graft': 'Wrap the cut ends in wet moss and keep them out of the sun. That buys them a few days.',
+}
