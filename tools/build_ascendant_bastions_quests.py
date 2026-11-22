@@ -34,7 +34,7 @@ DROPS = ROOT / "data/creatures/quest_drops.json"
 FACTIONS = ROOT / "data/factions/factions.json"
 RATE = 0.75
 MAX_PER_GIVER = 4      # Kyle's standing rule
-HUB_SHARE = 0.7        # Kyle's ~70%: Dawnspear Wreck and the Yard Pens give most of them
+HUB_SHARE = 0.55       # Dawnspear Wreck gives most; the Yard Pens are held, so Kyle kept them out of town (22 Nov 2026)
 
 #: who pays for a quest: the Aetherians pay the Aetherians; the Earthborn pay nobody (transplants are factionless)
 FACTION_BY_GIVER = {g: "aetherians" for g in SQ.SKY_GIVERS}
@@ -46,6 +46,7 @@ ITEM_PREFIX = "abg_"
 #: quest zone key -> (map module, start attribute, encounter path)
 MAPS = {
     SQ.AB: ("tools.handbuilt_worldtree_ascendant_bastions", "START", ("The Ascendant Bastions",)),
+    "dawnspear_wreck": ("tools.handbuilt_worldtree_dawnspear_wreck", "START", None),     # a town: reachability only
     SQ.GF1: (None, None, ("The Ascendant Bastions", "The Gravity Foundry")),
     SQ.GF2: (None, None, ("The Ascendant Bastions", "The Gravity Foundry: The Keelworks")),
     SQ.AS1: (None, None, ("The Ascendant Bastions", "The Ascendant Spire")),

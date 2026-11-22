@@ -98,13 +98,17 @@ REGIONS = {
     "Celestial Expanse": (["celestial_expanse"], ["halcyon_rest"], {}),
     # The Anchorfields: Keelstone, with the House of Measures' reading room and Tiltside's Earthborn in it.
     "Anchorfields": (["anchorfields"], ["keelstone"], {}),
+    # The Ascendant Bastions: Dawnspear Wreck. The Yard Pens stay a camp of their own because the conscripts are held
+    # there (Kyle, 22 Nov 2026: "Keep the pens as is"), so this one floor sits under 70% by his call.
+    "Ascendant Bastions": (["ascendant_bastions"], ["dawnspear_wreck"], {}),
 }
 #: the share of a region's quests that must come from town. Never lower one.
 FLOORS = {"Durotar": 0.70, "Tirisfal": 0.70, "Silverpine": 0.70, "Barrens": 0.70, "Hillsbrad": 0.70,
           "Arathi": 0.70, "Felwood": 0.70, "Tempest": 0.70, "Underdark": 0.70,
           "Fenris Isle": 0.70, "Stranglethorn": 0.70, "Stonetalon": 0.70, "Ashenvale": 0.70, "Black Strand": 0.70,
           "Plaguelands": 0.70, "Thousand Needles": 0.70, "Tanaris": 0.70, "Aspen": 0.70, "Echo Isles": 0.70,
-          "Celestial Expanse": 0.70, "Anchorfields": 0.70}
+          "Celestial Expanse": 0.70, "Anchorfields": 0.70,
+          "Ascendant Bastions": 0.55}
 
 
 def norm(s):

@@ -56,9 +56,9 @@ CURTAIN_R = 42                # the pentagon of the curtain walls, corner radius
 TIP_R = 64                    # how far each arrowhead bastion reaches past its corner
 TIPS = (-90, -18, 54, 126, 198)          # one bastion due north, the gate in the south curtain (90)
 
-PORTALS = {(4, 206): "Aurelion", (160, 124): "The Gravity Foundry", (160, 54): "The Ascendant Spire",
+PORTALS = {(4, 206): "Aurelion", (40, 209): "Dawnspear Wreck", (160, 124): "The Gravity Foundry", (160, 54): "The Ascendant Spire",
            (160, 4): "The Fading Firmament"}
-ARRIVALS = [(10, 206), (160, 128), (160, 48), (160, 8)]
+ARRIVALS = [(10, 206), (160, 128), (160, 48), (160, 8), (40, 205)]
 #: the citadel stands this many tiles in from the fort's edge; the band outside it is the apron you walk
 CITADEL_INSET = 7
 LATER_PORTALS = {}
@@ -316,6 +316,7 @@ ROADS = {
     "fort_east": ([(212, 84), (230, 106)], 2.6),
     "gunline":   ([(234, 110), (260, 128), (284, 148), (282, 156), (268, 186)], 2.4),
     "pens":      ([(240, 168), (256, 186), (262, 194)], 2.4),
+    "wreck_gate": ([(40, 204), (40, 208)], 2.4),
     "harvest":   ([(234, 102), (254, 42), (264, 34)], 2.2),
     "north":     ([(160, 52), (160, 36), (160, 6)], 2.4),
     "fort_nw":   ([(118, 66), (82, 50), (54, 40)], 2.2),
@@ -336,15 +337,7 @@ SPEC = _Spec(NAME, W, H, ROADS, rivers=RIVERS, lakes=LAKES, deep_shrink=DEEP_SHR
 
 #: everyone on the Bastions who isn't trying to kill you (tools/build_ascendant_bastions_people.py writes them)
 NPC_POSITIONS = {
-    # Dawnspear Wreck: the deserters' camp in the fallen war-skiff
-    "ab_wreck_captain":    (40, 200),   # the Dawnspear's last captain, who brought her down on purpose
-    "ab_unsworn_scholar":  (34, 204),   # a scholar of the Patient Lens, here to watch her old student
-    "ab_lancer_deserter":  (46, 206),   # a lancer who put his lance down
-    "ab_wreck_surgeon":    (36, 210),   # the camp's surgeon
-    "ab_skiffmaster":      (36, 206),   # the flight path: the free skiffs, who land here and nowhere nearer
-    "ab_provisioner":      (44, 212),   # food
-    "ab_trader":           (50, 200),   # goods
-    "ab_lookout":          (54, 196),   # watches the fort from the wreck's bow
+    # Dawnspear Wreck's people live on the town's own map now (tools/handbuilt_worldtree_dawnspear_wreck.py)
     # the Yard Pens: the Earthborn conscripts
     "ab_pens_foreman":     (258, 194),  # an Earthborn welder the yard can't do without
     "ab_pens_medic":       (266, 198),  # a nurse among the conscripts
@@ -671,13 +664,11 @@ def dress(L):
     B("ae_storm_collector", 256, 26, 10)
     B("ae_storm_collector", 276, 34, 10)
     B("ae_shield_pylon", 266, 22, 7)
-    # ---- Dawnspear Wreck: the fallen war-skiff and the camp in its shadow
+    # ---- Dawnspear Wreck: the islet outside the camp's gate (the town is its own map), the war-skiff's mast and
+    #      spar sticking up over the wall
     B("ae_war_skiff", 40, 196, 10, allow_overlap=True)
-    S("ff_camp_fire", 40, 206, 3, solid=False)
-    S("ff_patched_tent", 30, 200, 5)
-    S("ff_patched_tent", 52, 210, 5)
-    B("ae_supply_crates", 48, 214, 3)
-    B("ae_skiff_dock", 18, 200, 6)
+    B("ae_lamp_post", 34, 206, 4)
+    B("ae_lamp_post", 46, 206, 4)
     # ---- the Yard Pens: the conscripts' compound
     S("ff_patched_tent", 254, 190, 5)
     S("ff_patched_tent", 272, 202, 5)

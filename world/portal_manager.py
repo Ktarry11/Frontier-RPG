@@ -829,6 +829,10 @@ class PortalManager:
                 (160, 124): ("The Gravity Foundry", 90, 136),       # the citadel's south gate: arrive (90,134)
                 (160, 54): ("The Ascendant Spire", 90, 7),          # the citadel's north gate: arrive (90,5)
                 (160, 4): ("The Fading Firmament", 122, 253),       # up the Firmament Road: arrive (122,251) at its top
+                (40, 209): ("Dawnspear Wreck", 60, 10),             # through the wreck's gate: arrive (60,8) on the Gangway
+            },
+            "Dawnspear Wreck": {
+                (60, 3): ("The Ascendant Bastions", 40, 207),       # back out of the gate: arrive (40,205) on the islet
             },
             "The Fading Firmament": {
                 (122, 257): ("The Ascendant Bastions", 160, 10),    # back down the Firmament Road: arrive (160,8)

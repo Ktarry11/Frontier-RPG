@@ -851,6 +851,13 @@ AURELION_SHEET.update({
     "av_lake_deep":      _sk("ae_reflecting_pool"),
     "av_stream_bed":     _sk("ae_gold_pool"),
 })
+#: Dawnspear Wreck (sheets SK, AE, FF, VY): the Bastions' town, the Bastions' own ground (ASC_SHEET): wind grass and slate
+#: on the islet, salvaged bronze deck plates under the sails ("paved" and the road), burnt bronze where the halves hit.
+DAWNSPEAR_SHEET = dict(ASC_SHEET)
+DAWNSPEAR_SHEET.update({
+    "av_road_centre":    _sk("ae_engine_plates"),
+    "av_elven_paving":   _sk("ae_engine_plates"),
+})
 #: The Fading Firmament (sheets SK and FF): the dying heart under a failing violet dusk. Dead grey grass over the
 #: islands with grey crystal ash where it's worn through, the void's violet light coming up through cracks at the rims
 #: ("beach"), violet crystal rubble where the ground's breaking ("corrupt") speckled with violet shards ("fel"), burnt
@@ -968,6 +975,7 @@ ZONE_SHEETS = {"wpl_south": WPL_SHEET, "wpl_north": WPL_SHEET, "epl_west": EPL_S
                "worldtree_keelstone": KEELSTONE_SHEET,
                "worldtree_aurelion": AURELION_SHEET,
                "worldtree_ascendant_bastions": ASC_SHEET,
+               "worldtree_dawnspear_wreck": DAWNSPEAR_SHEET,
                "worldtree_fading_firmament": FIRMAMENT_SHEET,
                "worldtree_great_settlement": GREAT_SETTLEMENT_SHEET}
 
@@ -1494,7 +1502,7 @@ def main():
     if "--preview" in sys.argv:
         preview = sys.argv[sys.argv.index("--preview") + 1]
     sc = int(sys.argv[sys.argv.index("--scale") + 1]) if "--scale" in sys.argv else 4
-    zone = next((z for z in ("worldtree_fading_firmament", "worldtree_ascendant_bastions", "worldtree_aurelion", "worldtree_anchorfields", "worldtree_celestial_expanse", "worldtree_halcyon_rest", "worldtree_keelstone", "worldtree_lenswatch", "worldtree_sunward_crown", "worldtree_cloudbreak", "worldtree_upper_boughs", "worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "dawnhaven_amberleaf", "dawnhaven_duskfall", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
+    zone = next((z for z in ("worldtree_fading_firmament", "worldtree_ascendant_bastions", "worldtree_aurelion", "worldtree_anchorfields", "worldtree_celestial_expanse", "worldtree_halcyon_rest", "worldtree_keelstone", "worldtree_dawnspear_wreck", "worldtree_lenswatch", "worldtree_sunward_crown", "worldtree_cloudbreak", "worldtree_upper_boughs", "worldtree_middle_boughs", "worldtree_great_settlement", "worldtree_lower_boughs", "worldtree_rootwater_isle", "feralas_high_wilderness", "feralas_forgotten_coast", "feralas_twin_colossals", "deadwind_west", "deadwind_east", "azshara_east", "azshara_central", "azshara_west", "dawnhaven_amberleaf", "dawnhaven_duskfall", "wpl_south", "wpl_north", "epl_west", "epl_east", "felwood_north", "felwood_south", "stonetalon_east", "stonetalon_west", "east") if z in sys.argv), "west")
     only = None
     if "--region" in sys.argv:       # x0,y0,x1,y1 in tiles: bake only the 20x20 chunks touching it (fast look-dev)
         x0, y0, x1, y1 = map(int, sys.argv[sys.argv.index("--region") + 1].split(","))

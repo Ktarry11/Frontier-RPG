@@ -6,7 +6,10 @@ Pens, and the two the Ascendancy kept on out on the islands. Idempotent.
 
 docs/worldtree_brief.md. This is the enemy's own ground, so nobody here is safe in the open: the wreck is the one place
 the free skiffs dare to land, and the pens are where the yard keeps the Earthborn it put to work on the warships.
-Dawnspear Wreck is a camp, not a town: traders and the zone's one flight path, no inn. The Aetherians wear the AE-M
+Dawnspear Wreck is the Bastions' town, on its own map since 22 Nov 2026 (Kyle's town rule;
+tools/handbuilt_worldtree_dawnspear_wreck.py): the inn in the stern, the mail and the zone's one flight path. The Yard
+Pens stay where they are, because the conscripts are held there (Kyle's call). A person stands on whichever map lists
+them. The Aetherians wear the AE-M
 and AE-W looks picked for their jobs (world/race_registry.py: men 5+N for m-N, women N-1 for w-N). Transplants are
 factionless, and nobody up here knows what the change was.
 
@@ -25,14 +28,15 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from tools import handbuilt_worldtree_ascendant_bastions as AB  # noqa: E402
+from tools import handbuilt_worldtree_dawnspear_wreck as DW  # noqa: E402
 from tools.npc_data_guard import safe_update  # noqa: E402
 from world.zone_keys import zone_key  # noqa: E402
 
 M, F = "male", "female"
 
-SERVICES = {"ab_skiffmaster": ["flight"]}
+SERVICES = {"ab_skiffmaster": ["flight"], "dw_steward": ["inn"]}
 FLIGHT_NODES = [
-    ("ascendant_bastions", {"name": "Dawnspear Wreck", "zone": AB.NAME, "master": "ab_skiffmaster", "pos": [-12, 112],
+    ("ascendant_bastions", {"name": "Dawnspear Wreck", "zone": DW.NAME, "master": "ab_skiffmaster", "pos": [-12, 112],
                             "continent": "eastern_kingdoms"}),
 ]
 
@@ -96,6 +100,15 @@ AMBIENT = {
                           "I kept these collectors for the old house that owned this rock, before the Ascendancy came. "
                           "They kept me on because nobody else knows how to make the storm behave. Neither do I, most "
                           "days."),
+    # ---- Dawnspear Wreck's own (the town map)
+    "dw_steward": ("Steward Corla Venn", "aetherian", F, 13, "down",
+                   "I ran the Dawnspear's mess for eleven years, and I'm still running it, only now the ship's lying on "
+                   "her side. The bunks are in the stern and the stew's always on. If you want to come back here quickly, "
+                   "I'll mark your hearthstone."),
+    "dw_gatewarden": ("Gate-Keeper Brannoc Hale", "aetherian", M, 22, "right",
+                      "I wore the Ascendancy's bronze for nine years before I came down with the captain. Now I keep the "
+                      "gangway, and I look hard at everybody who comes down it, because the fort would love to know "
+                      "who lives here."),
 }
 
 
@@ -111,8 +124,11 @@ def check():
     from tools.build_tempest_quests import voice_problems
     bad = []
     mine = set(VENDORS) | set(AMBIENT)
-    if mine != set(AB.NPC_POSITIONS):
-        bad.append(f"roster and layout disagree: {sorted(mine ^ set(AB.NPC_POSITIONS))}")
+    both = set(AB.NPC_POSITIONS) & set(DW.NPC_POSITIONS)
+    if both:
+        bad.append(f"on both maps: {sorted(both)}")
+    if mine != set(AB.NPC_POSITIONS) | set(DW.NPC_POSITIONS):
+        bad.append(f"roster and layout disagree: {sorted(mine ^ (set(AB.NPC_POSITIONS) | set(DW.NPC_POSITIONS)))}")
     for k, v in list(VENDORS.items()) + list(AMBIENT.items()):
         bad += [f"{k}: {p}" for p in voice_problems(v[-1])]
         if not v[-1].isascii():
@@ -124,17 +140,23 @@ def check():
     return bad
 
 
+def where(nid):
+    """(zone key, x, y) for a person, from whichever map lists them."""
+    mod = DW if nid in DW.NPC_POSITIONS else AB
+    x, y = mod.NPC_POSITIONS[nid]
+    return zone_key(mod.NAME), x, y
+
+
 def main():
     bad = check()
     if bad:
         raise SystemExit("FAILED:\n  " + "\n  ".join(bad))
-    zone = zone_key(AB.NAME)
     vd, ad = load("data/npcs/vendors.json"), load("data/npcs/ambient_npcs.json")
     vby = {r["vendor_id"]: r for r in vd["vendors"]}
     aby = {r["npc_id"]: r for r in ad["npcs"]}
     made = moved = 0
     for vid, (name, race, gender, var, facing, gl, gear, stock, greet) in VENDORS.items():
-        x, y = AB.NPC_POSITIONS[vid]
+        zone, x, y = where(vid)
         rec = dict(vendor_id=vid, name=name, zone=zone, x=x, y=y, tile_sprite="npc", buys_from_player=True,
                    faction="neutral", gear_level=gl, sells_gear=gear, race=race, gender=gender,
                    appearance_variant=var, facing=facing, greeting=greet)
@@ -145,7 +167,7 @@ def main():
             vd["vendors"].append(rec)
             made += 1
     for nid, (name, race, gender, var, facing, greet) in AMBIENT.items():
-        x, y = AB.NPC_POSITIONS[nid]
+        zone, x, y = where(nid)
         rec = dict(npc_id=nid, name=name, zone=zone, x=x, y=y, greeting=greet, gender=gender, race=race,
                    appearance_variant=var, facing=facing)
         if nid in aby:
@@ -153,6 +175,15 @@ def main():
         else:
             ad["npcs"].append(rec)
             made += 1
+    # the Stern Mess keeps the mail, like every inn (qa_auction_house: a mailbox by every inn)
+    box = next((r for r in ad["npcs"] if r["npc_id"] == "mailbox_dw_steward"), None)
+    if box is None:
+        box = {"npc_id": "mailbox_dw_steward"}
+        ad["npcs"].append(box)
+    box.update(name="Mailbox", zone=zone_key(DW.NAME), x=36, y=38, facing="down", race="aetherian",
+               appearance_variant=0, is_mailbox=True, prop="assets/buildings/ae_mail_pylon.png",
+               greeting="The wreck's mail goes out with the free skiffs, when they dare to fly. The pylon came off the "
+                        "Dawnspear's bridge, and it still has the Ascendancy's mark scratched off it.")
     save("data/npcs/vendors.json", vd)
     save("data/npcs/ambient_npcs.json", ad)
     td = load("data/travel/travel_data.json")

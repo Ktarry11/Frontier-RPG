@@ -38,14 +38,19 @@ AS1, AS2 = "the_ascendant_spire", "the_ascendant_spire:_the_command_spire"
 # ---- Dawnspear Wreck
 ISOLDE, ORLA, TAVIN, NELL = "ab_wreck_captain", "ab_unsworn_scholar", "ab_lancer_deserter", "ab_wreck_surgeon"
 FEN, PELL = "ab_lookout", "ab_skiffmaster"
+CORLA = "dw_steward"       # the Stern Mess's steward, who keeps the inn (22 Nov 2026)
 # ---- the Yard Pens
 ROSA, SIOBHAN, TOMASZ, HAMZA = "ab_pens_foreman", "ab_pens_medic", "ab_pens_rigger", "ab_pens_cook"
 # ---- out on the islands
 ANSELM, EDDA = "ab_archive_clerk", "ab_harvest_keeper"
 
-HUB_GIVERS = {ISOLDE, ORLA, TAVIN, NELL, FEN, PELL, ROSA, SIOBHAN, TOMASZ, HAMZA}
+#: the people who stand in Dawnspear Wreck, the Bastions' town (its own map since 22 Nov 2026, Kyle's town rule). The Yard
+#: Pens stay where they are because the conscripts are held there (Kyle, 22 Nov 2026: "Keep the pens as is"), so only
+#: their dungeon quests moved into town: the Foundry-Master to the skiffmaster, the Pourmasters to the surgeon, the Book
+#: of Home to the steward, who also took the surgeon's ash wisps to stay under four.
+HUB_GIVERS = {ISOLDE, ORLA, TAVIN, NELL, FEN, PELL, CORLA}
 #: the Aetherians pay the Aetherians; the Earthborn in the pens pay nobody
-SKY_GIVERS = {ISOLDE, ORLA, TAVIN, NELL, FEN, PELL, ANSELM, EDDA}
+SKY_GIVERS = {ISOLDE, ORLA, TAVIN, NELL, FEN, PELL, ANSELM, EDDA, CORLA}
 
 
 def k(target, n, zone=AB):
@@ -171,7 +176,7 @@ def build():
         requires_quests=["abq_the_unlaunched"]))
 
     # ---- the Gravity Foundry (56-58), through the south gate
-    A(Q("abq_the_foundry_master", "The Foundry-Master", HAMZA, 57, 57, "Foundry-Breaker's",
+    A(Q("abq_the_foundry_master", "The Foundry-Master", PELL, 57, 57, "Foundry-Breaker's",
         "Every week the Gravity Foundry takes people out of the Yard Pens to work the pour, and Foundry-Master Cassor "
         "Vane picks them. Hamza Qureshi wants him dead in his own gallery.",
         [boss("Foundry-Master Cassor Vane", GF1)],
@@ -181,7 +186,7 @@ def build():
         "Cassor Vane is dead? Then nobody's going down to the pour tomorrow.\n\nI'm making a proper curry tonight, the way we "
         "did it back home on a Friday. I've been saving the spice for something worth celebrating.",
         requires_quests=["abq_the_overseers"]))
-    A(Q("abq_the_pourmasters", "The Pourmasters", SIOBHAN, 57, 57, "Burnsalver's",
+    A(Q("abq_the_pourmasters", "The Pourmasters", NELL, 57, 57, "Burnsalver's",
         "Half the burns Siobhan Keane treats come out of the Gravity Foundry's quench halls. She wants Pourmaster Ilka "
         "and her brother Dov stopped.",
         [boss("Pourmaster Ilka", GF1)],
@@ -223,7 +228,7 @@ def build():
         "There won't be any more of them, then. Thank you.\n\nI'll tell the ones who came back. I think it'll help "
         "them more than anything I've given them.",
         requires_quests=["abq_burn_salve"]))
-    A(Q("abq_the_book_of_home", "The Book of Home", HAMZA, 60, 60, "Rememberer's",
+    A(Q("abq_the_book_of_home", "The Book of Home", CORLA, 60, 60, "Rememberer's",
         "The people in the Yard Pens kept a book of everything they remembered from home, and Archivist-Censor Mallen "
         "Roe took it to be burned. Hamza Qureshi wants the man who burns things stopped.",
         [boss("Archivist-Censor Mallen Roe", AS1)],
@@ -368,7 +373,7 @@ def build():
         "That's enough for a month, if the guns are kind, and they won't be.\n\nI'll mix it tonight. You'd be "
         "surprised how many deserters come in with burns on their hands. Most of them grabbed a gun barrel on the way "
         "out."))
-    A(Q("abq_ash_in_the_lungs", "Ash in the Lungs", NELL, 54, 55, "Ashclearer's",
+    A(Q("abq_ash_in_the_lungs", "Ash in the Lungs", CORLA, 54, 55, "Ashclearer's",
         "The Forge-Ash Wisp drifts out of the citadel's chimneys and settles round the wreck, and everyone in camp is "
         "coughing. Surgeon Nell Avary wants the air cleared.",
         [k("Forge-Ash Wisp", 10)],
