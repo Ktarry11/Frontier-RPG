@@ -4,7 +4,8 @@ Rows of the art sheet: plain open-world boxes, regional open-world chests, bette
 The look is a pure function of (zone, tile position, boss?) so it never needs saving and never flickers."""
 import os
 
-PLAIN = ["plain_box", "rope_crate", "iron_banded", "burlap_crate", "travel_trunk"]
+#: Sheet CH1 (22 Nov 2026, docs/chest_art_prompts.md) redrew the everyday four; the old burlap crate retired with it.
+PLAIN = ["plain_box", "rope_crate", "iron_banded", "travel_trunk"]
 
 # zone key -> regional look (used for roughly half the open-world chests there; the rest are plain)
 REGIONAL = {
@@ -24,6 +25,13 @@ REGIONAL = {
     "western_plaguelands_south": "chained_cursed",       # the Plaguelands (docs/plaguelands_design.md)
     "western_plaguelands_north": "chained_cursed", "eastern_plaguelands_west": "chained_cursed",
     "eastern_plaguelands_east": "chained_cursed",
+    # sheet CH1's new regional chests (22 Nov 2026): the desert's sandstone, Feralas' and Stonetalon's living wood
+    "northern_tanaris": "sandstone_coffer", "steamwheedle_port": "goblin_lockbox", "the_abyssal_sands": "sandstone_coffer",
+    "fourth_peg": "sandstone_coffer", "glittervein": "sandstone_coffer", "the_shimmering_flats": "sandstone_coffer",
+    "saltwheel": "goblin_lockbox", "southern_thousand_needles": "savannah", "freewind_post": "savannah",
+    "the_forgotten_coast": "wildwood", "the_high_wilderness": "wildwood", "the_twin_colossals": "wildwood",
+    "camp_mojache": "wildwood", "feathermoon_stronghold": "moonwood", "stonetalon_west": "wildwood",
+    "stonetalon_east": "wildwood", "sun_rock_retreat": "savannah", "the_aspen_wilderness": "wildwood",
 }
 
 # dungeon key -> (side-room looks, boss-reward look)
