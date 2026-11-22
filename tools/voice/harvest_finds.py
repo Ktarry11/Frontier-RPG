@@ -1,0 +1,224 @@
+"""Harvest finds in their own voice (22 Nov 2026), to docs/quest_writing_standard.md.
+
+Each find is a pair: an item starter (the odd thing you dug, picked, skinned or fished up, narrated to "you" on purpose)
+and a follow-up from whoever you showed it to, now in that person's own voice. Five or six sentences each; the old
+accept speech is folded into the description and the accept line is a short beat. Turn-ins untouched.
+"""
+
+_S = {
+    "hf_ticking_copper_1": (
+        "A nugget of copper ore is ticking in your hand. It isn't like a clock, which is what you'd expect, but slower, "
+        "and it skips now and then the way a sleeper's breath does. There's nothing in it to wind. The goblin in Razor "
+        "Hill, Prizzle Boltwrench, builds things that tick and takes apart anything else that does. If anyone can say "
+        "what's inside a nugget of copper, it's her.",
+        "Take it to Prizzle Boltwrench in Razor Hill.",
+    ),
+    "hf_ticking_copper_2": (
+        "I'm an engineer, and I don't open up things that tick on their own. I've had seven inventions explode on me this "
+        "year, and none of them felt like this one does. There's a tauren at the shrine in the Central Barrens, Keeper "
+        "Ahnmar Stonetotem, who says the stone talks to him. I always laughed at that, and I'm not laughing now. Take it "
+        "to him, and tell him I didn't drop it.",
+        "Carry it in both hands. I'd hate for it to wake up on the road.",
+    ),
+    "hf_tin_fossil_tooth_1": (
+        "A fossil tooth is sunk in a lump of tin ore, longer than your hand, as if something bit the rock. You can't get "
+        "it out without cracking it, and you shouldn't try. A smith would know how. There's a forge at Camp Taurajo, and "
+        "Forge Baine has steady hands. He'd be the one to free it.",
+        "Take it to Forge Baine at Camp Taurajo.",
+    ),
+    "hf_tin_fossil_tooth_2": (
+        "I've split a lot of ore and found shells in it, and once a fern pressed flat, but I've never found a tooth. "
+        "There's a bonehunter out on the plain, Rurk Gravetusk, who says giants walked the Barrens once. I've always said "
+        "he spends too long in the sun. Take him the tooth, and let him tell you which of us is right. He's in the "
+        "Southern Barrens, digging.",
+        "If he says I'm wrong, don't tell me until I've had a drink.",
+    ),
+    "hf_singing_mithril_1": (
+        "A shard of mithril ore is humming, one clear note you feel in your teeth more than you hear. When you hold it "
+        "near a stone, a lower note answers it. You've never heard ore do anything like that. The scholar at the Ring in "
+        "Arathi, Innik Barrowmouth, has spent years on why the old stones stand where they do. He'll want to hear this.",
+        "Take it to Scholar Innik Barrowmouth in Arathi.",
+    ),
+    "hf_singing_mithril_2": (
+        "I've measured these stones for nine years, and I've never once heard them make a sound until your shard. I'd bet "
+        "my notes it was cut from the vein the builders used. I need you to carry it round the circle on the Ring Road, "
+        "slowly, and listen for where the note changes. Don't hurry it. If it means what I think it means, the stones "
+        "were never a calendar at all.",
+        "I'll write down whatever you tell me. Every place the note changes, mind.",
+    ),
+    "hf_thorium_fingerprint_1": (
+        "Somebody's fingerprint is pressed into a glassy face of thorium ore. Somebody touched this while it was molten, "
+        "and the glass kept the print. That isn't possible, and it's sitting in your hand anyway. There's a geologist out "
+        "on the Black Strand, Noor Haddad, who came through from Earth. She'll know how hot rock has to be to take a "
+        "print.",
+        "Take it to Noor Haddad on the Black Strand.",
+    ),
+    "hf_thorium_fingerprint_2": (
+        "That's a real print, I'd stake my career on it, made in a second of heat and then cold, and somebody's hand was on the rock in that second. "
+        "The Liquidators at Ariden's Watch keep a board with the names of everyone who came through near the wound in "
+        "Deadwind. Their surveyor, Kenji Watanabe, took prints when people would let him. Take the stone to him. If the "
+        "print's on his board, somebody's family deserves to know where it ended up.",
+        "Hand it to Kenji himself. He'll want to check his cards before he says anything.",
+    ),
+    "hf_mutated_silverleaf_1": (
+        "A sprig of silverleaf has grown a leaf it shouldn't have, and its veins have gone purple. Herbalists will tell "
+        "you silverleaf never sports. This one has, or something's made it. Apothecary Shazra teaches herb lore in "
+        "Orgrimmar. He'll want to see a silverleaf that broke the rule.",
+        "Take it to Apothecary Shazra in Orgrimmar.",
+    ),
+    "hf_mutated_silverleaf_2": (
+        "That's not a sport, that's something in the ground, because purple runs in a plant when it's drinking what it "
+        "shouldn't. I've seen it once before, in a crate of herbs off a Forsaken ship. Zurm brews in the Drag, and he's "
+        "tasted more bad water than anyone in this city. Take him the sprig and ask him what it's been drinking. Don't let "
+        "him eat it, because he'll try.",
+        "Apothecary Zurm, in the Drag. You'll smell his shop before you find it.",
+    ),
+    "hf_bleeding_kingsblood_1": (
+        "You cut a kingsblood, and it won't stop bleeding. Kingsblood's named for its colour, and it isn't supposed to "
+        "bleed at all. This one's warm, too, like a hand. Sun Rock's herbalist, Nawa Greenmane, knows every plant that "
+        "came back after the fires. She'll know if this is one of them.",
+        "Take it to Herbalist Nawa Greenmane at Sun Rock Retreat.",
+    ),
+    "hf_bleeding_kingsblood_2": (
+        "Plants only bleed like this when the ground under them is hurt. The goblins have been cutting the old trees on "
+        "the Venture Cutline, roots and all. Walk the cutline for me and see whether anything else on it bleeds. Don't "
+        "touch it if it is. Come back and tell me what you saw.",
+        "Look at the stumps as well as the flowers. The roots will tell you more.",
+    ),
+    "hf_unfading_fadeleaf_1": (
+        "A fadeleaf has stopped fading halfway. Fadeleaf goes clear as glass within an hour of picking, and this one's "
+        "been half clear since you pulled it. It's stuck partway, and you've never heard of that happening. Apothecary "
+        "Vashka at Hammerfall works fadeleaf into the potions that make a scout hard to see. She'll know what it's meant "
+        "to do.",
+        "Take it to Apothecary Vashka at Hammerfall.",
+    ),
+    "hf_unfading_fadeleaf_2": (
+        "A fadeleaf that won't finish fading would make a potion that hides half of you, which is worse than useless. "
+        "Dellwyn Voss, our other apothecary, has been writing about the Sunken Mere for months. His water samples from it "
+        "stopped settling halfway down the jar, and nobody can tell him why. He'll want this leaf beside them. He's just "
+        "across the yard.",
+        "Tell him to put it next to the jars. He'll see what I mean straight away.",
+    ),
+    "hf_dreaming_dreamfoil_1": (
+        "A sprig of dreamfoil curled its leaves shut the moment you picked it, like eyes closing. Now it's breathing, "
+        "slowly, the way a sleeper breathes. You can feel it against your palm. You've picked a lot of dreamfoil, and none of it ever did this. If anyone knows a plant that sleeps, it's "
+        "the herbwarden in Nighthaven, Mylla Starbloom.",
+        "Take it to Herbwarden Mylla Starbloom in Nighthaven.",
+    ),
+    "hf_dreaming_dreamfoil_2": (
+        "Half the beds in my garden curl shut at night now, and I didn't want it to be true until somebody else brought "
+        "me one. Dr. Sandvik on the west shore studies sleepers. She's the only one in the glade who'll measure it instead "
+        "of praying over it. I'd rather know than wonder, and so would she. Take it to her.",
+        "Count its breaths on the way if you like. She'll count them again anyway.",
+    ),
+    "hf_scratched_hide_map_1": (
+        "Somebody scratched a map into this hide while it was still on the beast, and the beast healed round it. There's "
+        "a path, a rock like a tusk, and an X. It's crude, but whoever did it knew what they were marking. You can almost follow the path with a finger. The tanner in "
+        "Razor Hill, Urzul, has handled every hide in Durotar, and he might know the rock.",
+        "Take it to Tanner Urzul in Razor Hill.",
+    ),
+    "hf_scratched_hide_map_2": (
+        "That's an old smuggler's mark. They'd scratch a map into a young boar so it carried the way for them, because "
+        "nobody looks twice at a boar. The tusk rock's out on Kolkar Crag. Whatever was buried there's probably long "
+        "gone, but smugglers always left something for the next crew. Go and find the rock, and come back and tell me "
+        "what you find.",
+        "We'll split whatever's there. I don't expect much, and neither should you.",
+    ),
+    "hf_tagged_ear_1": (
+        "The beast you skinned wore a wildlife tag, plastic and printed with a number, the sort a ranger clips on a deer "
+        "back on Earth. It came through with the rest of you. You look at the number for a long time. The huntsman at "
+        "Tarren Mill, Dell Varrow, was a gamekeeper before the Integration. He'll know what to make of it.",
+        "Take it to Huntsman Dell Varrow at Tarren Mill.",
+    ),
+    "hf_tagged_ear_2": (
+        "That's a deer tag from the Peak District, and I clipped hundreds like it. If one tagged beast came through, "
+        "there'll be more of the herd near where it landed. The Foothill Pastures look the most like home, and that's "
+        "where I'd go if I were a confused deer. Have a look round for me. Count any ear with a tag in it.",
+        "Don't frighten them if you find them. They've had a hard enough time already.",
+    ),
+    "hf_great_scale_1": (
+        "The beast you skinned had a scale stuck in its hide as big as a shield. Nothing that size lives in Stranglethorn, "
+        "or nothing anyone talks about. It's hard as iron and the damp hasn't touched it, which is strange in a jungle. "
+        "The smith at Grom'gol, Dorgun, knows armour. He'll know if it's anything he can use.",
+        "Take it to Smith Dorgun at Grom'gol.",
+    ),
+    "hf_great_scale_2": (
+        "That's a crocolisk scale, but the croc that grew it would be the size of a boat. The fishers say they've seen "
+        "something like that in the Snapjaw Marsh. Go and look in the marsh, and tell me how big it is. Don't fight it if "
+        "it's there, just look. If it's shedding scales like this, I want to be the smith who makes a shield out of the "
+        "next one.",
+        "Look for the wake if you can't see the croc. A wake tells you plenty.",
+    ),
+    "hf_stitched_hide_1": (
+        "This is two hides stitched into one, and they were stitched while the animals were alive, because the edges "
+        "healed together. The stitching's neat and careful, which is somehow worse. Somebody did this on purpose, and took "
+        "their time. Anders Holm keeps the hawks at the Bulwark and knows every beast in these fields. He'll want to know "
+        "what's out there.",
+        "Take it to Anders Holm at the Bulwark.",
+    ),
+    "hf_stitched_hide_2": (
+        "My hawks won't go near this hide, and that's the Cult's needlework. They've started stitching living beasts "
+        "together to make something stronger than either. Dorian Vesk, our apothecary, has been studying what the Scourge "
+        "brew in the fields. If they're stitching living things now, he'll want to know what they use to keep them alive "
+        "while they do it. Take him the hide.",
+        "Hold it away from the hawks on your way past. They've had enough of it.",
+    ),
+    "hf_message_bottle_1": (
+        "You fish up a bottle with a goblin's note inside. You'd have to break the bottle to read the note properly, but "
+        "you can make out the hand through the glass. One word's clear enough, and it's Ratchet. The cork's been sealed with wax, carefully, by somebody who meant it to travel. The fishmonger there, "
+        "Gribble, knows every crew that ever sailed out of that harbour, and he'll know who wrote it.",
+        "Take it to Fishmonger Gribble in Ratchet.",
+    ),
+    "hf_message_bottle_2": (
+        "That's my cousin Snazz's writing, and he went down with the Silver Sprocket off the Merchant Coast three years "
+        "ago. He says here he buried the crew's pay before she sank, under a rock with a gull's nest on it. Snazz never "
+        "told the truth in his life, but he never lied about money. Go to the Merchant Coast, find the rock with the "
+        "gull's nest, and dig under it. If there's a box, half's yours.",
+        "If there's nothing, then Snazz finally told a lie I'll laugh at, and that's worth something too.",
+    ),
+    "hf_waterlogged_phone_1": (
+        "You fish up a phone, from home. The glass is cracked and there's water behind it, but it isn't crushed. You turn "
+        "it over a few times and press the side, out of habit, and nothing happens. The tinker in Ratchet, Sprocket, opens "
+        "anything with a seam in it. Maybe there's still something in there worth saving.",
+        "Take it to Tinker Sprocket in Ratchet.",
+    ),
+    "hf_waterlogged_phone_2": (
+        "Earth tech, no gears, no steam, just a slab of glass with a tiny brain behind it, and it's full of water. I can't "
+        "fix the brain, but I know who'd have the trick for drying it. Dr. Hannah Lindqvist at Sun Rock Retreat is from "
+        "Earth, and she studies volcanoes. She'll know what these things want. Take it to her.",
+        "Bring me a drawing of the insides if she opens it. I'd love to see how the tiny brain's wired.",
+    ),
+    "hf_kelp_journal_1": (
+        "A journal comes up wrapped in kelp and tied tight, so the last pages stayed dry. Somebody did that before it went "
+        "over the side, which means they wanted it found. The knots are a sailor's, pulled tight with wet hands. The skulls in the margins make it a Bloodsail mate's. The fisher "
+        "who works the Snapjaw nets, Netsetter Ulua, has pulled Bloodsail wrecks out of that water before.",
+        "Take it to Netsetter Ulua in Stranglethorn.",
+    ),
+    "hf_kelp_journal_2": (
+        "I've pulled Bloodsail wrecks out of this water for years, and I've never found one of these. The last page names a cove on the Drowned Coast where this mate meant to hide from his own captain. He wanted "
+        "out, and the Bloodsail don't let anyone out. Go down to the Drowned Coast and find the cove he wrote about. If he "
+        "made it, there'll be a camp, and if he didn't, there'll be something worse. Either way, he wrote it down so "
+        "somebody would come looking.",
+        "Look for a post or a mark. A man hiding still wants somebody to know he was there.",
+    ),
+    "hf_rubber_duck_1": (
+        "A rubber bath duck from Earth comes up in your line, bobbing about in a fishing pool like it belongs there. The "
+        "tag round its neck says Mo. Somebody's child had this, somewhere, once. You hold it longer than you mean to. The Wakened in Moonglade keep a list of "
+        "everyone who came through with them, and Ilyssa Moonwater, who keeps the pier at Nighthaven, will know whose "
+        "name to check.",
+        "Take it to Ilyssa Moonwater at Nighthaven.",
+    ),
+    "hf_rubber_duck_2": (
+        "Danny Kowalczyk talks about his boys every night on the pier, and the youngest one's called Mo. I don't know if "
+        "this duck is theirs, and I don't think it matters. He'll want to hold something from home that floated all this "
+        "way. Take it to him on the pier. Let him decide what it means.",
+        "Give it to him gently. He's carried a lot this year.",
+    ),
+}
+
+VOICE = {qid: (d, a, None) for qid, (d, a) in _S.items()}
+# the turn-in's "that's the trick" trips the voice bar's aphorism check; same words otherwise
+VOICE["hf_waterlogged_phone_2"] = VOICE["hf_waterlogged_phone_2"][:2] + (
+    "You put it in rice, and I keep a jar of it for exactly this. Let's see what it does. There, it's on, just for a "
+    "second. A photo of a dog on a beach, a golden one with a stick. Then it's gone. Whoever's phone this was, they had "
+    "a good dog. I'll keep it, if that's all right. I'd like to try again.",)
