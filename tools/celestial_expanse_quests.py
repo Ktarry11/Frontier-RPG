@@ -145,7 +145,7 @@ def build():
     A(Q("ceq_the_wards_were_kharad", "The Wards Were Kharad", ILAREN, 49, 49, "Wardreader's",
         "Ilaren has copied the letter the Ward-Sparks leave behind. There's a scholar from the House of Long Memory on "
         "the Golem Fields who has spent her whole life on the Kharad, and Ilaren wants her to see it.",
-        [deliver("ce_q_ward_sketch", "Take Ilaren's sketch to Scholar Idris Marrowell on the Golem Fields")],
+        [deliver("ce_q_ward_sketch", "Take Ilaren's sketch to Scholar Idris Marrowell at Halcyon Rest")],
         "My house used to laugh at the House of Long Memory. They said the Kharad built the old stones before we came, "
         "and we said they were telling children's stories. Idris Marrowell is up on the Golem Fields, upriver from "
         "here. Take her this, and tell her I'm sorry we laughed.",
