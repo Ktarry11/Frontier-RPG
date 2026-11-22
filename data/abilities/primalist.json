@@ -35,50 +35,50 @@
         {
           "rank": 1,
           "level_req": 1,
-          "cost": 9,
-          "effect_value": 21
+          "cost": 4,
+          "effect_value": 12
         },
         {
           "rank": 2,
           "level_req": 8,
-          "cost": 17,
-          "effect_value": 27
+          "cost": 8,
+          "effect_value": 15
         },
         {
           "rank": 3,
           "level_req": 16,
-          "cost": 26,
-          "effect_value": 33
+          "cost": 13,
+          "effect_value": 18
         },
         {
           "rank": 4,
           "level_req": 24,
-          "cost": 37,
-          "effect_value": 39
+          "cost": 18,
+          "effect_value": 22
         },
         {
           "rank": 5,
           "level_req": 32,
-          "cost": 48,
-          "effect_value": 46
+          "cost": 24,
+          "effect_value": 25
         },
         {
           "rank": 6,
           "level_req": 40,
-          "cost": 62,
-          "effect_value": 52
+          "cost": 31,
+          "effect_value": 29
         },
         {
           "rank": 7,
           "level_req": 48,
-          "cost": 76,
-          "effect_value": 58
+          "cost": 38,
+          "effect_value": 32
         },
         {
           "rank": 8,
           "level_req": 56,
-          "cost": 92,
-          "effect_value": 64
+          "cost": 45,
+          "effect_value": 35
         }
       ],
       "generates": {
@@ -89,7 +89,8 @@
       "_design_note": "Fling stones at an enemy, dealing Physical damage and generating Rage. Shares a cooldown with other Seismic spells. (Real physical damage - was previously miscategorized as a spell effect_type, which incorrectly scaled it off Spell Power; fixed to match its own confirmed screenshot data.)",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 3.21x steeper than it, biggest single-rank jump 1.39x); overall size kept. tools/fix_rank_lines.py",
-        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost",
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): instant is now 0.25 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
       ],
       "cast_speed": "instant"
     },
@@ -305,63 +306,64 @@
         {
           "rank": 1,
           "level_req": 6,
-          "cost": 29,
-          "effect_value": 162
+          "cost": 30,
+          "effect_value": 144
         },
         {
           "rank": 2,
           "level_req": 13,
-          "cost": 29,
-          "effect_value": 196
+          "cost": 30,
+          "effect_value": 174
         },
         {
           "rank": 3,
           "level_req": 20,
-          "cost": 29,
-          "effect_value": 231
+          "cost": 30,
+          "effect_value": 205
         },
         {
           "rank": 4,
           "level_req": 26,
-          "cost": 29,
-          "effect_value": 261
+          "cost": 30,
+          "effect_value": 231
         },
         {
           "rank": 5,
           "level_req": 33,
-          "cost": 29,
-          "effect_value": 296
+          "cost": 30,
+          "effect_value": 262
         },
         {
           "rank": 6,
           "level_req": 40,
-          "cost": 29,
-          "effect_value": 330
+          "cost": 30,
+          "effect_value": 293
         },
         {
           "rank": 7,
           "level_req": 46,
-          "cost": 29,
-          "effect_value": 360
+          "cost": 30,
+          "effect_value": 319
         },
         {
           "rank": 8,
           "level_req": 53,
-          "cost": 29,
-          "effect_value": 394
+          "cost": 30,
+          "effect_value": 349
         },
         {
           "rank": 9,
           "level_req": 60,
-          "cost": 29,
-          "effect_value": 430
+          "cost": 30,
+          "effect_value": 381
         }
       ],
       "icon_id": null,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 2.05x steeper than it, biggest single-rank jump 1.28x); overall size kept. tools/fix_rank_lines.py",
         "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 1.35 (combat/heal_formula.rank_size). Grovekeeper sat well under the 75% of a dedicated healer a damage-healer is held to.",
-        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost",
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): long is now 1.0 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
       ],
       "formula_identity": 1.35,
       "cast_speed": "long"
@@ -954,43 +956,43 @@
         {
           "rank": 1,
           "level_req": 22,
-          "cost": 26,
-          "effect_value": 56,
+          "cost": 21,
+          "effect_value": 48,
           "heal_value": 111
         },
         {
           "rank": 2,
           "level_req": 29,
-          "cost": 29,
-          "effect_value": 65,
+          "cost": 24,
+          "effect_value": 55,
           "heal_value": 129
         },
         {
           "rank": 3,
           "level_req": 36,
-          "cost": 34,
-          "effect_value": 74,
+          "cost": 28,
+          "effect_value": 63,
           "heal_value": 147
         },
         {
           "rank": 4,
           "level_req": 44,
-          "cost": 38,
-          "effect_value": 82,
+          "cost": 31,
+          "effect_value": 70,
           "heal_value": 164
         },
         {
           "rank": 5,
           "level_req": 51,
-          "cost": 42,
-          "effect_value": 91,
+          "cost": 34,
+          "effect_value": 78,
           "heal_value": 182
         },
         {
           "rank": 6,
           "level_req": 58,
-          "cost": 46,
-          "effect_value": 100,
+          "cost": 38,
+          "effect_value": 85,
           "heal_value": 200
         }
       ],
@@ -998,7 +1000,8 @@
       "damage_school": "nature",
       "_tuning": [
         "15 Nov 2026, Kyle approved: this ability is a Primalist core spell now (learned by level), because every one of the four trees has talents that boost it - as a single tree's unlock, those talents were dead for the other three (tools/validate_class.py: 18 dead references). This node, which used to teach it, improves it instead.",
-        "21 Nov 2026: a short cast for the turn timeline (tools/build_cast_speeds.py), sized 0.82x for 0.92x the cost"
+        "21 Nov 2026: a short cast for the turn timeline (tools/build_cast_speeds.py), sized 0.82x for 0.92x the cost",
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): short is now 0.5 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
       ],
       "cast_speed": "short"
     },
@@ -1535,45 +1538,47 @@
         {
           "rank": 1,
           "level_req": 24,
-          "cost": 122,
-          "effect_value": 76
+          "cost": 114,
+          "effect_value": 85
         },
         {
           "rank": 2,
           "level_req": 31,
-          "cost": 141,
-          "effect_value": 88
+          "cost": 133,
+          "effect_value": 99
         },
         {
           "rank": 3,
           "level_req": 38,
-          "cost": 160,
-          "effect_value": 99
+          "cost": 150,
+          "effect_value": 112
         },
         {
           "rank": 4,
           "level_req": 46,
-          "cost": 178,
-          "effect_value": 110
+          "cost": 168,
+          "effect_value": 124
         },
         {
           "rank": 5,
           "level_req": 53,
-          "cost": 197,
-          "effect_value": 122
+          "cost": 185,
+          "effect_value": 138
         },
         {
           "rank": 6,
           "level_req": 60,
-          "cost": 216,
-          "effect_value": 134
+          "cost": 204,
+          "effect_value": 150
         }
       ],
       "icon_id": null,
       "_tuning": [
         "15 Nov 2026, class pass: every rank x0.65 - it sat at 2.47x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
         "16 Nov 2026, the healing formula's every-healer pass (tools/calibrate_spec_auras.py --kind healing, healers held within 10% by hand): formula_identity 1.3 (combat/heal_formula.rank_size). Grovekeeper's HoTs, the same reason.",
-        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost",
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): instant is now 0.25 of the meter against medium's 0.75 (tools/build_cast_speeds.py)",
+        "21 Nov 2026: an over-time spell refreshes rather than stacks, so it's sized by 0.4 of its speed's time saving, not all of it (instant: 0.73x a medium one; tools/build_cast_speeds.py)"
       ],
       "formula_identity": 1.3,
       "cast_speed": "instant"

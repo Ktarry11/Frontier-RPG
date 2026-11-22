@@ -1167,50 +1167,51 @@
         {
           "rank": 1,
           "level_req": 16,
-          "cost": 26,
-          "effect_value": 34
+          "cost": 13,
+          "effect_value": 19
         },
         {
           "rank": 2,
           "level_req": 22,
-          "cost": 31,
-          "effect_value": 38
+          "cost": 15,
+          "effect_value": 21
         },
         {
           "rank": 3,
           "level_req": 28,
-          "cost": 35,
-          "effect_value": 43
+          "cost": 17,
+          "effect_value": 24
         },
         {
           "rank": 4,
           "level_req": 36,
-          "cost": 40,
-          "effect_value": 49
+          "cost": 20,
+          "effect_value": 27
         },
         {
           "rank": 5,
           "level_req": 44,
-          "cost": 45,
-          "effect_value": 56
+          "cost": 22,
+          "effect_value": 31
         },
         {
           "rank": 6,
           "level_req": 52,
-          "cost": 51,
-          "effect_value": 62
+          "cost": 25,
+          "effect_value": 34
         },
         {
           "rank": 7,
           "level_req": 60,
-          "cost": 56,
-          "effect_value": 68
+          "cost": 28,
+          "effect_value": 38
         }
       ],
       "icon_id": null,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.26x); overall size kept. tools/fix_rank_lines.py",
-        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost",
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): instant is now 0.25 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
       ],
       "cast_speed": "instant"
     },
@@ -1228,50 +1229,51 @@
         {
           "rank": 1,
           "level_req": 16,
-          "cost": 26,
-          "effect_value": 34
+          "cost": 13,
+          "effect_value": 19
         },
         {
           "rank": 2,
           "level_req": 22,
-          "cost": 31,
-          "effect_value": 38
+          "cost": 15,
+          "effect_value": 21
         },
         {
           "rank": 3,
           "level_req": 28,
-          "cost": 35,
-          "effect_value": 43
+          "cost": 17,
+          "effect_value": 24
         },
         {
           "rank": 4,
           "level_req": 36,
-          "cost": 40,
-          "effect_value": 49
+          "cost": 20,
+          "effect_value": 27
         },
         {
           "rank": 5,
           "level_req": 44,
-          "cost": 45,
-          "effect_value": 56
+          "cost": 22,
+          "effect_value": 31
         },
         {
           "rank": 6,
           "level_req": 52,
-          "cost": 51,
-          "effect_value": 62
+          "cost": 25,
+          "effect_value": 34
         },
         {
           "rank": 7,
           "level_req": 60,
-          "cost": 56,
-          "effect_value": 68
+          "cost": 28,
+          "effect_value": 38
         }
       ],
       "icon_id": null,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.26x); overall size kept. tools/fix_rank_lines.py",
-        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost",
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): instant is now 0.25 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
       ],
       "cast_speed": "instant"
     },
@@ -1289,44 +1291,45 @@
         {
           "rank": 1,
           "level_req": 18,
-          "cost": 39,
-          "effect_value": 57
+          "cost": 32,
+          "effect_value": 49
         },
         {
           "rank": 2,
           "level_req": 24,
-          "cost": 44,
-          "effect_value": 64
+          "cost": 36,
+          "effect_value": 55
         },
         {
           "rank": 3,
           "level_req": 30,
-          "cost": 50,
-          "effect_value": 71
+          "cost": 41,
+          "effect_value": 61
         },
         {
           "rank": 4,
           "level_req": 38,
-          "cost": 57,
-          "effect_value": 81
+          "cost": 46,
+          "effect_value": 69
         },
         {
           "rank": 5,
           "level_req": 46,
-          "cost": 65,
-          "effect_value": 92
+          "cost": 53,
+          "effect_value": 79
         },
         {
           "rank": 6,
           "level_req": 54,
-          "cost": 73,
-          "effect_value": 102
+          "cost": 60,
+          "effect_value": 87
         }
       ],
       "icon_id": null,
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.30x steeper than it, biggest single-rank jump 1.25x); overall size kept. tools/fix_rank_lines.py",
-        "21 Nov 2026: a short cast for the turn timeline (tools/build_cast_speeds.py), sized 0.82x for 0.92x the cost"
+        "21 Nov 2026: a short cast for the turn timeline (tools/build_cast_speeds.py), sized 0.82x for 0.92x the cost",
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): short is now 0.5 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
       ],
       "cast_speed": "short"
     },
@@ -1430,33 +1433,34 @@
         {
           "rank": 1,
           "level_req": 26,
-          "cost": 97,
-          "effect_value": 218
+          "cost": 101,
+          "effect_value": 193
         },
         {
           "rank": 2,
           "level_req": 36,
-          "cost": 116,
-          "effect_value": 260
+          "cost": 121,
+          "effect_value": 231
         },
         {
           "rank": 3,
           "level_req": 48,
-          "cost": 140,
-          "effect_value": 309
+          "cost": 146,
+          "effect_value": 274
         },
         {
           "rank": 4,
           "level_req": 58,
-          "cost": 164,
-          "effect_value": 351
+          "cost": 171,
+          "effect_value": 311
         }
       ],
       "icon_id": null,
       "damage_school": "nature",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.33x steeper than it, biggest single-rank jump 1.26x); overall size kept. tools/fix_rank_lines.py",
-        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost",
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): long is now 1.0 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
       ],
       "cast_speed": "long"
     },
@@ -1546,26 +1550,26 @@
         {
           "rank": 1,
           "level_req": 22,
-          "cost": 53,
-          "effect_value": 111
+          "cost": 55,
+          "effect_value": 98
         },
         {
           "rank": 2,
           "level_req": 32,
-          "cost": 64,
-          "effect_value": 134
+          "cost": 67,
+          "effect_value": 119
         },
         {
           "rank": 3,
           "level_req": 44,
-          "cost": 78,
-          "effect_value": 160
+          "cost": 81,
+          "effect_value": 142
         },
         {
           "rank": 4,
           "level_req": 58,
-          "cost": 95,
-          "effect_value": 194
+          "cost": 99,
+          "effect_value": 172
         }
       ],
       "generates": {
@@ -1576,7 +1580,8 @@
       "damage_school": "attunement",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.29x steeper than it, biggest single-rank jump 1.27x); overall size kept. tools/fix_rank_lines.py",
-        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost",
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): long is now 1.0 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
       ],
       "cast_speed": "long"
     },

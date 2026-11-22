@@ -2162,7 +2162,8 @@ class CombatScreen(BaseScreen):
                 free = (getattr(ability, "cooldown", 0) or 0) >= 2
         if free or getattr(actor, "next_cast_instant", False):
             return 0.0, "Free action: your turn goes on"
-        speed = getattr(ability, "cast_speed", 1.0) or 1.0
+        from combat.abilities import MEDIUM_SPEED
+        speed = getattr(ability, "cast_speed", MEDIUM_SPEED) or MEDIUM_SPEED
         haste = 0.0
         if getattr(ability, "target_type", "") in ("self", "party", "all_allies", "ally") and \
                 getattr(ability, "effect_type", "") == "buff":

@@ -104,56 +104,56 @@
         {
           "rank": 1,
           "level_req": 1,
-          "cost": 52,
-          "effect_value": 78
+          "cost": 54,
+          "effect_value": 69
         },
         {
           "rank": 2,
           "level_req": 8,
-          "cost": 69,
-          "effect_value": 102
+          "cost": 72,
+          "effect_value": 90
         },
         {
           "rank": 3,
           "level_req": 15,
-          "cost": 86,
-          "effect_value": 124
+          "cost": 90,
+          "effect_value": 110
         },
         {
           "rank": 4,
           "level_req": 22,
-          "cost": 103,
-          "effect_value": 148
+          "cost": 107,
+          "effect_value": 131
         },
         {
           "rank": 5,
           "level_req": 29,
-          "cost": 120,
-          "effect_value": 172
+          "cost": 125,
+          "effect_value": 153
         },
         {
           "rank": 6,
           "level_req": 36,
-          "cost": 137,
-          "effect_value": 196
+          "cost": 143,
+          "effect_value": 174
         },
         {
           "rank": 7,
           "level_req": 43,
-          "cost": 154,
-          "effect_value": 219
+          "cost": 161,
+          "effect_value": 194
         },
         {
           "rank": 8,
           "level_req": 50,
-          "cost": 171,
-          "effect_value": 243
+          "cost": 178,
+          "effect_value": 215
         },
         {
           "rank": 9,
           "level_req": 58,
-          "cost": 189,
-          "effect_value": 268
+          "cost": 197,
+          "effect_value": 238
         }
       ],
       "target_type": "ally",
@@ -161,7 +161,8 @@
       "cast_speed": "long",
       "_tuning": [
         "15 Nov 2026, Kyle: \"long cast, lower cost, high heal vs lower heal, faster cast, higher cost... ensure that they have their places in combat. Like healing wave vs lesser healing wave\" - picked \"Speed sets next turn\" and \"Add the classic set\". Now a slow cast: 1.5x for 1.15x the cost.",
-        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
+        "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py",
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): long is now 1.0 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
       ]
     },
     {
@@ -419,20 +420,20 @@
         {
           "rank": 1,
           "level_req": 44,
-          "cost": 38,
-          "effect_value": 59
+          "cost": 19,
+          "effect_value": 33
         },
         {
           "rank": 2,
           "level_req": 56,
-          "cost": 59,
-          "effect_value": 69
+          "cost": 29,
+          "effect_value": 38
         },
         {
           "rank": 3,
           "level_req": 60,
-          "cost": 79,
-          "effect_value": 72
+          "cost": 39,
+          "effect_value": 40
         }
       ],
       "icon_id": null,
@@ -440,7 +441,8 @@
       "cast_speed": "instant",
       "_tuning": [
         "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)",
-        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.56x steeper than it, biggest single-rank jump 1.25x); overall size kept. tools/fix_rank_lines.py"
+        "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.56x steeper than it, biggest single-rank jump 1.25x); overall size kept. tools/fix_rank_lines.py",
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): instant is now 0.25 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
       ]
     },
     {
@@ -456,32 +458,32 @@
         {
           "rank": 1,
           "level_req": 26,
-          "cost": 41,
-          "effect_value": 49
+          "cost": 33,
+          "effect_value": 42
         },
         {
           "rank": 2,
           "level_req": 34,
-          "cost": 48,
-          "effect_value": 58
+          "cost": 39,
+          "effect_value": 50
         },
         {
           "rank": 3,
           "level_req": 41,
-          "cost": 55,
-          "effect_value": 66
+          "cost": 45,
+          "effect_value": 56
         },
         {
           "rank": 4,
           "level_req": 48,
-          "cost": 63,
-          "effect_value": 73
+          "cost": 51,
+          "effect_value": 62
         },
         {
           "rank": 5,
           "level_req": 56,
-          "cost": 69,
-          "effect_value": 82
+          "cost": 56,
+          "effect_value": 70
         }
       ],
       "target_type": "ally",
@@ -492,7 +494,8 @@
       "cast_speed": "short",
       "_tuning": [
         "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)",
-        "21 Nov 2026: a short cast (Kyle: \"we have instant, short, medium, long\"), re-sized from the quick size to the short one (tools/build_cast_speeds.py)"
+        "21 Nov 2026: a short cast (Kyle: \"we have instant, short, medium, long\"), re-sized from the quick size to the short one (tools/build_cast_speeds.py)",
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): short is now 0.5 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
       ]
     },
     {
@@ -598,38 +601,38 @@
         {
           "rank": 1,
           "level_req": 20,
-          "cost": 71,
-          "effect_value": 74
+          "cost": 58,
+          "effect_value": 63
         },
         {
           "rank": 2,
           "level_req": 27,
-          "cost": 83,
-          "effect_value": 86
+          "cost": 68,
+          "effect_value": 73
         },
         {
           "rank": 3,
           "level_req": 34,
-          "cost": 96,
-          "effect_value": 97
+          "cost": 78,
+          "effect_value": 83
         },
         {
           "rank": 4,
           "level_req": 42,
-          "cost": 110,
-          "effect_value": 110
+          "cost": 90,
+          "effect_value": 94
         },
         {
           "rank": 5,
           "level_req": 49,
-          "cost": 123,
-          "effect_value": 121
+          "cost": 100,
+          "effect_value": 103
         },
         {
           "rank": 6,
           "level_req": 56,
-          "cost": 136,
-          "effect_value": 132
+          "cost": 111,
+          "effect_value": 113
         }
       ],
       "target_type": "ally",
@@ -638,7 +641,8 @@
       "cast_speed": "short",
       "_tuning": [
         "15 Nov 2026, Kyle: \"long cast, lower cost, high heal vs lower heal, faster cast, higher cost... ensure that they have their places in combat. Like healing wave vs lesser healing wave\" - picked \"Speed sets next turn\" and \"Add the classic set\". Now a quick cast: 0.65x for 0.85x the cost.",
-        "21 Nov 2026: a short cast (Kyle: \"we have instant, short, medium, long\"), re-sized from the quick size to the short one (tools/build_cast_speeds.py)"
+        "21 Nov 2026: a short cast (Kyle: \"we have instant, short, medium, long\"), re-sized from the quick size to the short one (tools/build_cast_speeds.py)",
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): short is now 0.5 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
       ]
     },
     {
@@ -788,26 +792,26 @@
         {
           "rank": 1,
           "level_req": 20,
-          "cost": 38,
-          "effect_value": 37
+          "cost": 19,
+          "effect_value": 20
         },
         {
           "rank": 2,
           "level_req": 30,
-          "cost": 47,
-          "effect_value": 45
+          "cost": 23,
+          "effect_value": 25
         },
         {
           "rank": 3,
           "level_req": 42,
-          "cost": 58,
-          "effect_value": 55
+          "cost": 29,
+          "effect_value": 30
         },
         {
           "rank": 4,
           "level_req": 56,
-          "cost": 71,
-          "effect_value": 66
+          "cost": 35,
+          "effect_value": 37
         }
       ],
       "is_instant": true,
@@ -815,7 +819,8 @@
       "damage_school": "holy",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.30x steeper than it, biggest single-rank jump 1.26x); overall size kept. tools/fix_rank_lines.py",
-        "21 Nov 2026: a instant cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+        "21 Nov 2026: a instant cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost",
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): instant is now 0.25 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
       ],
       "cast_speed": "instant"
     },

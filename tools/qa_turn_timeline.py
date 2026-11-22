@@ -57,7 +57,7 @@ def main():
                 gap = abs(tm.time_to_turn(predicted) - tm.time_to_turn(acted)) if predicted.is_alive() else 1
                 if gap > 0.002:         # a dead heat inside one tick can go either way
                     problems.append(f"seed {seed}: the bar said {predicted.name} moves next, {acted.name} did")
-            speed = random.choice((0.6, 0.8, 1.0, 1.5))     # instant, short, medium, long
+            speed = random.choice((0.25, 0.5, 0.75, 1.0))   # instant, short, medium, long
             want = tm.time_after_cast(acted, speed)
             tm.consume_turn(acted, speed)
             got = tm.time_to_turn(acted)

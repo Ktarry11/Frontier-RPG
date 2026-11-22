@@ -1302,7 +1302,7 @@ class Ability:
         if self.is_instant and (self.cooldown or 0) >= 2:
             cost_bits.append("Free action")
         else:
-            cost_bits.append(cast_speed_label(getattr(self, "cast_speed", 1.0) or 1.0))
+            cost_bits.append(cast_speed_label(getattr(self, "cast_speed", MEDIUM_SPEED) or MEDIUM_SPEED))
         if self.cooldown:
             shown_cd = self.talented_cooldown(caster) if caster is not None else self.cooldown
             if shown_cd:
@@ -5799,26 +5799,30 @@ def _normalize_requires_form(raw):
 #: Kyle, 21 Nov 2026, for the turn timeline: "we have instant, short, medium, long". Instant is the snap actions
 #: (shocks, stings, throws), short the 1.5-second casts (Lesser Healing Wave, Flash Heal), medium the ordinary turn and
 #: long the big deliberate casts. The old words still read: quick is instant, normal medium, slow long.
-CAST_SPEEDS = {"instant": 0.6, "short": 0.8, "medium": 1.0, "long": 1.5,
-               "quick": 0.6, "normal": 1.0, "slow": 1.5}
+#: And on the timeline (21 Nov 2026): "Instant should lift .25 of the bar max", and he picked the speeds on the
+#: quarter marks, so the four sit on the bar's 0.25, 0.5, 0.75 and 1. Everything untagged, monsters included, acts at
+#: medium, and config.AGI_TO_TURN_SPEED came down by the same 0.75 so a fight takes as long in seconds as before.
+CAST_SPEEDS = {"instant": 0.25, "short": 0.5, "medium": 0.75, "long": 1.0,
+               "quick": 0.25, "normal": 0.75, "slow": 1.0}
 CAST_SPEED_NAMES = ("instant", "short", "medium", "long")
+MEDIUM_SPEED = CAST_SPEEDS["medium"]
 
 
 def cast_speed_label(speed):
     """The tooltip's and the timeline's word for a speed: Instant cast, Short cast, Medium cast or Long cast."""
-    if speed < 0.7:
+    if speed < 0.375:
         return "Instant cast"
-    if speed < 0.95:
+    if speed < 0.625:
         return "Short cast"
-    if speed <= 1.05:
+    if speed < 0.875:
         return "Medium cast"
     return "Long cast"
 
 
 def cast_speed_value(v):
     if isinstance(v, (int, float)) and not isinstance(v, bool):
-        return max(0.3, min(2.5, float(v)))
-    return CAST_SPEEDS.get(str(v or "medium").lower(), 1.0)
+        return max(0.2, min(2.0, float(v)))
+    return CAST_SPEEDS.get(str(v or "medium").lower(), MEDIUM_SPEED)
 
 
 def _ability_from_data(entry):

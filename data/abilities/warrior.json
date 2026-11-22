@@ -163,45 +163,46 @@
         {
           "rank": 1,
           "level_req": 6,
-          "cost": 18,
-          "effect_value": 39
+          "cost": 15,
+          "effect_value": 33
         },
         {
           "rank": 2,
           "level_req": 14,
-          "cost": 18,
-          "effect_value": 51
+          "cost": 15,
+          "effect_value": 44
         },
         {
           "rank": 3,
           "level_req": 22,
-          "cost": 18,
-          "effect_value": 61
+          "cost": 15,
+          "effect_value": 52
         },
         {
           "rank": 4,
           "level_req": 32,
-          "cost": 18,
-          "effect_value": 72
+          "cost": 15,
+          "effect_value": 61
         },
         {
           "rank": 5,
           "level_req": 42,
-          "cost": 18,
-          "effect_value": 83
+          "cost": 15,
+          "effect_value": 71
         },
         {
           "rank": 6,
           "level_req": 54,
-          "cost": 23,
-          "effect_value": 102
+          "cost": 19,
+          "effect_value": 87
         }
       ],
       "icon_id": null,
       "target_type": "enemy_aoe",
       "cast_speed": "short",
       "_tuning": [
-        "21 Nov 2026: a short cast for the turn timeline (tools/build_cast_speeds.py), sized 0.82x for 0.92x the cost"
+        "21 Nov 2026: a short cast for the turn timeline (tools/build_cast_speeds.py), sized 0.82x for 0.92x the cost",
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): short is now 0.5 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
       ]
     },
     {
@@ -380,26 +381,26 @@
         {
           "rank": 1,
           "level_req": 30,
-          "cost": 34,
-          "effect_value": 165
+          "cost": 35,
+          "effect_value": 146
         },
         {
           "rank": 2,
           "level_req": 42,
-          "cost": 34,
-          "effect_value": 236
+          "cost": 35,
+          "effect_value": 209
         },
         {
           "rank": 3,
           "level_req": 50,
-          "cost": 34,
-          "effect_value": 272
+          "cost": 35,
+          "effect_value": 241
         },
         {
           "rank": 4,
           "level_req": 58,
-          "cost": 34,
-          "effect_value": 308
+          "cost": 35,
+          "effect_value": 273
         }
       ],
       "icon_id": null,
@@ -407,7 +408,8 @@
       "_design_note": "Not learned from level alone - granted by the Mortal Strike talent in the Arms tree, matching real WOTLK where this is talent-exclusive to Arms, not a baseline ability. A vicious strike that deals heavy weapon damage and wounds the target.",
       "_tuning": [
         "15 Nov 2026, deep dive: every rank x1.83, to 1.35x a Heroic Strike rank of the same level - it hit for LESS than the Heroic Strike beside it (Bloodthirst 1,110 vs 1,571 at 50; Mortal Strike's base 301 vs 376 at 30). In Classic the cooldown signature strike is the Warrior's biggest button.",
-        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost"
+        "21 Nov 2026: a slow cast for the turn timeline (tools/build_cast_speeds.py), sized 1.5x for 1.15x the cost",
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): long is now 1.0 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
       ],
       "cast_speed": "long"
     },
@@ -424,39 +426,40 @@
         {
           "rank": 1,
           "level_req": 24,
-          "cost": 13,
-          "effect_value": 44
+          "cost": 6,
+          "effect_value": 24
         },
         {
           "rank": 2,
           "level_req": 32,
-          "cost": 13,
-          "effect_value": 53
+          "cost": 6,
+          "effect_value": 29
         },
         {
           "rank": 3,
           "level_req": 40,
-          "cost": 13,
-          "effect_value": 62
+          "cost": 6,
+          "effect_value": 34
         },
         {
           "rank": 4,
           "level_req": 52,
-          "cost": 16,
-          "effect_value": 77
+          "cost": 8,
+          "effect_value": 43
         },
         {
           "rank": 5,
           "level_req": 58,
-          "cost": 16,
-          "effect_value": 83
+          "cost": 8,
+          "effect_value": 46
         }
       ],
       "icon_id": null,
       "execute_threshold_pct": 20,
       "_tuning": [
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py",
-        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost",
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): instant is now 0.25 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
       ],
       "cast_speed": "instant"
     },
@@ -496,26 +499,26 @@
         {
           "rank": 1,
           "level_req": 30,
-          "cost": 13,
-          "effect_value": 27
+          "cost": 6,
+          "effect_value": 15
         },
         {
           "rank": 2,
           "level_req": 40,
-          "cost": 13,
-          "effect_value": 32
+          "cost": 6,
+          "effect_value": 18
         },
         {
           "rank": 3,
           "level_req": 52,
-          "cost": 13,
-          "effect_value": 38
+          "cost": 6,
+          "effect_value": 21
         },
         {
           "rank": 4,
           "level_req": 58,
-          "cost": 13,
-          "effect_value": 42
+          "cost": 6,
+          "effect_value": 23
         }
       ],
       "requires_talent": true,
@@ -524,7 +527,8 @@
       "_design_note": "Not learned from level alone - granted by the Devastate talent in the Protection tree. Deals damage to the target. Real WOTLK Devastate also applies a stacking Armor-reduction debuff (Sunder Armor) - not modeled here since combining a damage hit with a persistent debuff in one ability isn't supported yet, so this is damage-only.",
       "_tuning": [
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py",
-        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost",
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): instant is now 0.25 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
       ],
       "cast_speed": "instant"
     },
@@ -667,26 +671,26 @@
         {
           "rank": 1,
           "level_req": 20,
-          "cost": 17,
-          "effect_value": 31
+          "cost": 8,
+          "effect_value": 17
         },
         {
           "rank": 2,
           "level_req": 30,
-          "cost": 17,
-          "effect_value": 38
+          "cost": 8,
+          "effect_value": 21
         },
         {
           "rank": 3,
           "level_req": 42,
-          "cost": 17,
-          "effect_value": 47
+          "cost": 8,
+          "effect_value": 26
         },
         {
           "rank": 4,
           "level_req": 56,
-          "cost": 17,
-          "effect_value": 57
+          "cost": 8,
+          "effect_value": 32
         }
       ],
       "target_type": "enemy_aoe",
@@ -694,7 +698,8 @@
       "icon_id": null,
       "cast_speed": "instant",
       "_tuning": [
-        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost",
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): instant is now 0.25 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
       ]
     },
     {

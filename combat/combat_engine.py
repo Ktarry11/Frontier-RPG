@@ -653,7 +653,8 @@ class CombatEngine:
                     free = (ability.cooldown or 0) >= 2
             if not (free or consumed_free_cast):
                 # the spell's cast speed decides when this caster's next turn comes (abilities.CAST_SPEEDS)
-                actor._cast_speed = getattr(ability, "cast_speed", 1.0) or 1.0
+                from combat.abilities import MEDIUM_SPEED
+                actor._cast_speed = getattr(ability, "cast_speed", MEDIUM_SPEED) or MEDIUM_SPEED
                 self._end_turn(actor)
         
         return success, message
@@ -957,8 +958,10 @@ class CombatEngine:
 
     def _end_turn(self, actor):
         """Shared turn-end logic: consume turn, decrement cooldowns, restore resources."""
-        speed = getattr(actor, "_cast_speed", 1.0) or 1.0
-        actor._cast_speed = 1.0
+        # anything that isn't a tagged spell (a monster's swing, a pass, an item) is a medium action
+        from combat.abilities import MEDIUM_SPEED
+        speed = getattr(actor, "_cast_speed", MEDIUM_SPEED) or MEDIUM_SPEED
+        actor._cast_speed = MEDIUM_SPEED
         self.turn_meter.consume_turn(actor, speed)
         self.current_actor = None
         self.combat_phase = "resolution"

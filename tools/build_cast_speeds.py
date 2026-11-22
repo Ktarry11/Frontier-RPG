@@ -8,7 +8,8 @@
 Kyle, 20 Nov 2026, for the turn timeline (docs/turn_timeline_design.md): hovering Earth Shock barely moves the shaman,
 Lesser Healing Wave lands him between the enemies, Greater Healing Wave pushes him to last. And on 21 Nov: "we have
 instant, short, medium, long". So every castable ability in every class carries one of the four
-(combat/abilities.CAST_SPEEDS: 0.6, 0.8, 1.0 and 1.5 of a turn).
+(combat/abilities.CAST_SPEEDS: 0.25, 0.5, 0.75 and 1.0 of the meter, the timeline's quarter marks: Kyle, 21 Nov
+2026, "Instant should lift .25 of the bar max").
 
 THE RULE, the same for every class, with each class's own exceptions in OVERRIDES:
   - Free actions (instant with a cooldown of 2 or more) and the basic attack never use up the turn, so they're left
@@ -21,8 +22,8 @@ THE RULE, the same for every class, with each class's own exceptions in OVERRIDE
     heal, and its next smallest hit.
   - Every class ends with at least two instant, one short and one long.
 
-SIZING, so a speed never makes a spell better or worse per turn of time: long is 1.5x for 1.15x the cost, short
-0.82x for 0.92x, instant 0.65x for 0.85x. Only damage, healing and absorbs are sized; a long summoning or an instant
+SIZING, so a speed never makes a spell better or worse per turn of time: long is 1.33x for 1.2x the cost, short
+0.7x for 0.75x, instant 0.36x for 0.42x (all against a medium spell). Only damage, healing and absorbs are sized; a long summoning or an instant
 taunt just costs the time. Idempotent: anything already tagged is left alone.
 
 The 21 Nov migration (run once, kept for the record): the three-speed tags became the four. Quick spells that are
@@ -37,7 +38,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DIR = ROOT / "data" / "abilities"
-SIZE = {"long": (1.5, 1.15), "short": (0.82, 0.92), "instant": (0.65, 0.85)}
+#: against a plain medium spell. Since 21 Nov the speeds sit on the timeline's quarter marks (instant 0.25, short 0.5,
+#: medium 0.75, long 1.0 of the meter), so an instant comes round three times as often as a medium and a long a third
+#: less often: each is sized to the same damage per turn of time, a touch more for the faster ones, and dearer per point.
+SIZE = {"long": (1.33, 1.2), "short": (0.70, 0.75), "instant": (0.36, 0.42)}
+#: heals and damage over time refresh rather than stack, so they're sized by 0.4 of the time a speed saves
+#: (combat/heal_formula.OVER_TIME_SHARE): a fast one isn't cast three times as often
+SIZE_OVER_TIME = {"long": (1.13, 1.08), "short": (0.87, 0.90), "instant": (0.73, 0.80)}
+OVER_TIME = {"dot", "spell_dot", "hot"}
 NAMES = ("instant", "short", "medium", "long")
 OLD = {"quick": "instant", "normal": "medium", "slow": "long"}
 SIZED_TYPES = {"damage", "spell_damage", "ranged_damage", "heal", "damage_and_heal", "dot", "spell_dot", "hot",
@@ -216,7 +224,7 @@ def main():
             e["cast_speed"] = sp
             totals[sp] += 1
             if sp in SIZE:
-                mult, cmult = SIZE[sp]
+                mult, cmult = (SIZE_OVER_TIME if e.get("effect_type") in OVER_TIME else SIZE)[sp]
                 sized = resize(e, mult, cmult)
                 e.setdefault("_tuning", []).append(
                     f"21 Nov 2026: a {sp} cast for the turn timeline (tools/build_cast_speeds.py)"

@@ -21,7 +21,7 @@ class TurnMeter:
 
     #: How much of a head start a combatant can start a fight with, as a fraction of
     #: TURN_THRESHOLD. See _opening_meter.
-    OPENING_SPREAD = 0.45
+    OPENING_SPREAD = 0.45 * 0.75        # the same head start in turns since a medium action became 0.75 of the meter
 
     @staticmethod
     def _opening_meter(char):
@@ -154,7 +154,7 @@ class TurnMeter:
         char.turn_meter = TURN_THRESHOLD * max(0.0, min(1.0, head_start))
         self._refresh_turn_speed(char)
 
-    def consume_turn(self, char, speed=1.0):
+    def consume_turn(self, char, speed=0.75):
         """Character takes their turn. Reset their meter to whatever
         overflowed past the threshold, not a hard 0.
 
@@ -191,15 +191,16 @@ class TurnMeter:
         """Seconds of meter time until this combatant's next turn (0 if it's due now)."""
         return max(0.0, (TURN_THRESHOLD - char.turn_meter) / self.fill_rate(char))
 
-    def time_after_cast(self, char, speed=1.0, extra_haste=0.0):
+    def time_after_cast(self, char, speed=0.75, extra_haste=0.0):
         """Where the caster's next turn would fall after a spell of this speed: the same sum consume_turn() does,
         then the time to fill back up, at the haste the spell would leave them with."""
         meter = max(-TURN_THRESHOLD, char.turn_meter - TURN_THRESHOLD * speed)
         return max(0.0, (TURN_THRESHOLD - meter) / self.fill_rate(char, extra_haste))
 
     def timeline_scale(self):
-        """The bar's height in meter time: one full turn at normal speed for the slowest living combatant, so every
-        next turn fits on it. Anything later sits at the top."""
+        """The bar's height in meter time: one whole meter for the slowest living combatant, which is a long cast, so
+        instant, short, medium and long land on the quarter marks (Kyle, 21 Nov 2026: "Instant should lift .25 of the
+        bar max"). Anything later sits at the top."""
         living = [c for c in self.combatants if c.is_alive()]
         if not living:
             return 1.0

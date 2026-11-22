@@ -95,3 +95,15 @@ long), the 1.5-second casts were re-sized from the instant size to the short one
 class now has at least two instant, one short and one long. The tooltip and the ghost say Instant cast, Short cast,
 Medium cast or Long cast; a free action says Free action. So the shaman's example now reads exactly as Kyle gave it:
 Earth Shock barely moves him, Lesser Healing Wave lands a little higher, Healing Wave sends him to the top.
+
+## On the quarter marks (21 Nov 2026)
+
+Kyle: "Instant should lift .25 of the bar max", and he picked the speeds on the quarter marks: instant 0.25, short
+0.5, medium 0.75 and long 1.0 of the meter. The bar's top is one whole meter for the slowest combatant, so a long cast
+lands at the top and the four speeds sit on its four marks. Everything untagged, monsters included, acts at medium,
+and `config.AGI_TO_TURN_SPEED` came down to 0.75 so a fight takes as long in seconds as before (it has more turns in
+it). Direct spells are sized to the time (instant 0.36x, short 0.7x, long 1.33x a medium one, dearer per point the
+faster they are); heals and damage over time refresh rather than stack, so they're sized by 0.4 of the time saved
+(instant 0.73x, short 0.87x, long 1.13x; `combat/heal_formula.OVER_TIME_SHARE`). Sims against the pre-pass baseline:
+group bosses unchanged, solo wins 30 up and 18 down at three fights each, and two healers that had been the weakest
+by far (Restoration druid, Vizier venomancer) came up into the pack.

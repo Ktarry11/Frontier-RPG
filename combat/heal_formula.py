@@ -13,7 +13,7 @@ Everything is a share of T(L), the max health of a geared Protection Warrior of 
 
   Lrank  the level the rank is learned at (an outlevelled rank falls behind as T grows; downranking keeps its
          penalty on the power part, combat/ability_scaling.py)
-  S      cast speed: quick 0.6, normal 1.0, slow 1.5 (combat/abilities.CAST_SPEEDS)
+  S      cast speed against a medium cast: instant 1/3, short 2/3, medium 1, long 4/3 (combat/abilities.CAST_SPEEDS)
   A      area: one target 1.0; the party 0.45 each, two or three 0.6 each, after combat's own AoE share
   W      cooldown weight: a heal you can only cast every few turns is bigger (ability_scaling.cooldown_weight)
 
@@ -35,6 +35,10 @@ SPEC_CAP = 1.25         # every healing talent and the spec aura together: at mo
 #: rest by a quarter to a third, because each cast of a HoT was worth 1.2 heals and they stack. At 1.0 a HoT is a
 #: heal delivered later, which is what it is in a turn-based fight.
 HOT_FACTOR = 1.0
+#: how much of a cast's speed a heal or damage over time is sized by (21 Nov 2026, the quarter-mark speeds): these
+#: refresh rather than stack, so a fast one doesn't land three times as often, and sized like a direct spell an
+#: instant Rejuvenation fell to a third and cost the Restoration druid a fifth of its solo wins at 52 and 58
+OVER_TIME_SHARE = 0.4
 HYBRID_FACTOR = 0.75    # the heal on a damage spell
 #: narrowed the night it went in (the every-healer pass): at 0.8-1.25 a class's core heal could sit a fifth under its
 #: shape (Pyromancer's Ember Touch, the Witch Doctor's Loa's Brew) and a big cooldown heal a quarter over (Alkahest)
@@ -105,7 +109,13 @@ def shape(entry):
     """S x A x W for this ability."""
     from combat.abilities import cast_speed_value
     from combat.ability_scaling import cooldown_weight
-    return cast_speed_value(entry.get("cast_speed")) * area(entry) * cooldown_weight(entry.get("cooldown", 0))
+    from combat.abilities import MEDIUM_SPEED
+    s = cast_speed_value(entry.get("cast_speed")) / MEDIUM_SPEED
+    if entry.get("effect_type") == "hot":
+        # a HoT can't be stacked (a second cast refreshes it), so a fast one isn't cast three times as often: it moves
+        # 0.4 of the way toward the time it saves (instant 0.73, short 0.87, long 1.13 of a medium one)
+        s = 1.0 + (s - 1.0) * OVER_TIME_SHARE
+    return s * area(entry) * cooldown_weight(entry.get("cooldown", 0))
 
 
 KIND_FACTOR = {"heal": 1.0, "hot": HOT_FACTOR, "heal_value": HYBRID_FACTOR}
@@ -186,7 +196,7 @@ def shield_size(ability, caster):
         lv = ability.current_rank.get("level_req", 1) or 1
     except Exception:                                   # noqa: BLE001
         lv = getattr(caster, "level", 1) or 1
-    entry = {"cast_speed": getattr(ability, "cast_speed", 1.0) or 1.0, "target_type": ability.target_type,
+    entry = {"cast_speed": getattr(ability, "cast_speed", None), "target_type": ability.target_type,
              "heal_scope": getattr(ability, "heal_scope", None), "max_targets": getattr(ability, "max_targets", None),
              "cooldown": getattr(ability, "cooldown", 0)}
     sh = shape(entry)

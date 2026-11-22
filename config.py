@@ -27,7 +27,9 @@ COLOR_GOLD = (200, 150, 50)
 # Combat
 BASE_TURN_METER_MAX = 100.0
 TURN_THRESHOLD = 100.0  # When meter hits this, character gets a turn
-AGI_TO_TURN_SPEED = 1.0  # AGI * this = turn speed multiplier
+AGI_TO_TURN_SPEED = 0.75  # AGI * this = turn speed multiplier. 0.75 since 21 Nov 2026: a medium action spends 0.75 of
+                          # the meter (combat/abilities.CAST_SPEEDS), so the meter fills 0.75 as fast and a turn takes
+                          # as long in seconds as it always did
 
 # UI
 BUTTON_WIDTH = 200

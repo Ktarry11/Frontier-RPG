@@ -317,31 +317,31 @@
           "rank": 1,
           "level_req": 8,
           "cost": 0,
-          "effect_value": 21
+          "effect_value": 12
         },
         {
           "rank": 2,
           "level_req": 20,
           "cost": 0,
-          "effect_value": 28
+          "effect_value": 16
         },
         {
           "rank": 3,
           "level_req": 32,
           "cost": 0,
-          "effect_value": 35
+          "effect_value": 19
         },
         {
           "rank": 4,
           "level_req": 44,
           "cost": 0,
-          "effect_value": 42
+          "effect_value": 23
         },
         {
           "rank": 5,
           "level_req": 56,
           "cost": 0,
-          "effect_value": 49
+          "effect_value": 27
         }
       ],
       "icon_id": null,
@@ -354,7 +354,8 @@
       },
       "cast_speed": "instant",
       "_tuning": [
-        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost",
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): instant is now 0.25 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
       ]
     },
     {
@@ -700,37 +701,37 @@
           "rank": 1,
           "level_req": 12,
           "cost": 0,
-          "effect_value": 20
+          "effect_value": 11
         },
         {
           "rank": 2,
           "level_req": 21,
           "cost": 0,
-          "effect_value": 25
+          "effect_value": 14
         },
         {
           "rank": 3,
           "level_req": 30,
           "cost": 0,
-          "effect_value": 31
+          "effect_value": 17
         },
         {
           "rank": 4,
           "level_req": 39,
           "cost": 0,
-          "effect_value": 37
+          "effect_value": 20
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 0,
-          "effect_value": 43
+          "effect_value": 24
         },
         {
           "rank": 6,
           "level_req": 57,
           "cost": 0,
-          "effect_value": 49
+          "effect_value": 27
         }
       ],
       "icon_id": null,
@@ -744,7 +745,8 @@
       "strikes_both_weapons": true,
       "_tuning": [
         "15 Nov 2026 (Kyle: 'abilities like stormstrike that hit for both weapons ... Wildclaw'): strikes_both_weapons - the off hand lands with it when dual-wielding. Every other special is main-hand only, as in Classic.",
-        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost"
+        "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost",
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): instant is now 0.25 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
       ],
       "cast_speed": "instant"
     },
@@ -1322,43 +1324,43 @@
           "rank": 1,
           "level_req": 10,
           "cost": 0,
-          "effect_value": 25
+          "effect_value": 21
         },
         {
           "rank": 2,
           "level_req": 18,
           "cost": 0,
-          "effect_value": 32
+          "effect_value": 27
         },
         {
           "rank": 3,
           "level_req": 26,
           "cost": 0,
-          "effect_value": 39
+          "effect_value": 33
         },
         {
           "rank": 4,
           "level_req": 34,
           "cost": 0,
-          "effect_value": 47
+          "effect_value": 40
         },
         {
           "rank": 5,
           "level_req": 42,
           "cost": 0,
-          "effect_value": 54
+          "effect_value": 46
         },
         {
           "rank": 6,
           "level_req": 50,
           "cost": 0,
-          "effect_value": 61
+          "effect_value": 52
         },
         {
           "rank": 7,
           "level_req": 58,
           "cost": 0,
-          "effect_value": 69
+          "effect_value": 59
         }
       ],
       "icon_id": null,
@@ -1373,7 +1375,8 @@
       "strikes_both_weapons": true,
       "_tuning": [
         "15 Nov 2026 (Kyle: 'abilities like stormstrike that hit for both weapons ... Wildclaw'): strikes_both_weapons - the off hand lands with it when dual-wielding. Every other special is main-hand only, as in Classic.",
-        "21 Nov 2026: a short cast for the turn timeline (tools/build_cast_speeds.py), sized 0.82x for 0.92x the cost"
+        "21 Nov 2026: a short cast for the turn timeline (tools/build_cast_speeds.py), sized 0.82x for 0.92x the cost",
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): short is now 0.5 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
       ],
       "cast_speed": "short"
     },
