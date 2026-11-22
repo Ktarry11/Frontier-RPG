@@ -82,7 +82,7 @@ VOICE = {
     "dw_what_master_ashgrave_keeps": (
         "I'm Morwen Ashgrave's second, and I'm worried about her. She locks her own notes in the sealed store behind "
         "the laboratory, and lately she's been taking samples in there and not bringing them out. I can't be seen "
-        "going in myself, because she'd know at once. The store is behind the laboratory, south-west of the pyre. The "
+        "going in myself, because she'd know at once. The store is behind the laboratory, south-east of here. The "
         "lock is made for the living, so you'll get past it, and I only need you to look.",
         "The sealed store's behind the laboratory, south-west of the pyre. Just look, and tell me what you saw.",
         None,
@@ -379,3 +379,16 @@ VOICE = {
         None,
     ),
 }
+
+
+# THE STORY PASS (22 Nov 2026), to docs/quest_writing_standard.md; see tools/voice/deadwind_story.py.
+from voice.deadwind_story import STORY as _STORY
+for _qid, (_d, _a) in _STORY.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a, _old[2])
+
+
+from voice.deadwind_beats import BEATS as _BEATS
+for _qid, _a in _BEATS.items():
+    _o = VOICE[_qid]
+    VOICE[_qid] = (_o[0], _a, _o[2])
