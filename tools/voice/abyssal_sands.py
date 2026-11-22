@@ -99,3 +99,10 @@ VOICE = {
         "All three, and you never came up once.\n\nThen I know where my team ended up, and I can get down there myself to see to them. I've wanted to for a long time.",
     ),
 }
+
+
+# THE STORY PASS (22 Nov 2026), to docs/quest_writing_standard.md; see tools/voice/abyssal_sands_story.py.
+from voice.abyssal_sands_story import STORY as _STORY
+for _qid, (_d, _a) in _STORY.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a, _old[2])
