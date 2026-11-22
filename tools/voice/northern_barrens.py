@@ -102,3 +102,16 @@ VOICE = {
         "It's done now. I won't pretend that's a clean kind of victory, and I'd think less of you if you did.\n\nBut the road's safer, and some days that has to be enough. Most days out here, it is.",
     ),
 }
+
+
+# THE STORY PASS (22 Nov 2026), to docs/quest_writing_standard.md; see tools/voice/northern_barrens_story.py.
+from voice.northern_barrens_story import STORY as _STORY
+for _qid, (_d, _a) in _STORY.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a, _old[2])
+
+
+from voice.northern_barrens_beats import BEATS as _BEATS
+for _qid, _a in _BEATS.items():
+    _o = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_o[0], _a, _o[2])
