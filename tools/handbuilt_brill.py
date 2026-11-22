@@ -86,6 +86,15 @@ def tile_kind(gx, gy):
 
 
 SUBZONES = [
+    # the village's streets as named places, so the map labels them and the townsfolk (tools/townsfolk/brill.py) live
+    # all along them (Kyle, 21 Nov 2026: "we need towns as hubs...POPULATED towns"); the three old places go last so
+    # they win where they overlap
+    ("The West Road", 8, 36, 22, 16),
+    ("The South Lane", 32, 48, 22, 24),
+    ("The Market Lane", 62, 44, 22, 18),
+    ("The East Lane", 54, 22, 18, 16),
+    ("The East Gate", 74, 34, 18, 16),
+    ("Brill Square", 40, 32, 22, 16),
     ("Gallows' End Tavern", 28, 42, 18, 14),
     ("Brill Town Hall", 38, 14, 22, 24),
     ("Brill Graveyard", 8, 10, 32, 24),
