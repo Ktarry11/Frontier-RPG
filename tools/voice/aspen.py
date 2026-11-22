@@ -104,3 +104,169 @@ VOICE = {
         "Tull reads it through twice, then lays his hand flat on the table on top of it. \"So we were wrong to call it a wall,\" he says. \"It's a country. Somebody else's country, dropped on top of ours, and we've spent three years treating it like weather.\" He doesn't say anything else for a long time, and he doesn't move his hand.",
     ),
 }
+
+
+# THE STORY PASS (22 Nov 2026), to docs/quest_writing_standard.md: narration and speech folded into the giver talking;
+# accept lines a short beat; turn-ins above kept. The cable end and the survey pin are item starters.
+STORY = {
+    "asp_winch_house": (
+        "I worked the north winch eleven years, and I was off shift the morning the ground changed. The house is still "
+        "standing, because it was always on the Barrens side, and the ledgers are still in it. So is a season of mail that "
+        "was stacked and waiting to go down and never went. I've come back up most weeks since, and I haven't once been "
+        "able to open the box. The ledgers are in the iron chest under the drum, and the mail's loose in the sorting rack, "
+        "some of it blown into the scrub by now.",
+        "Bring whatever's still readable. I'd rather hold it than keep guessing.",
+    ),
+    "asp_cable_run": (
+        "The main cable still comes off the drum and runs the thirty feet it always ran, and then it goes into the granite "
+        "as though the granite had grown around it. That's approximately what happened. The rock didn't fall on the cable, "
+        "it arrived where the cable already was. Follow it down to the face and look at where it enters. The harpies have "
+        "been at the loose ends for their nests, so bring me pieces, and I can tell you how it parted.",
+        "Mind the rim. It's a long way down, and there are only a few places to do it on purpose.",
+    ),
+    "asp_wrong_side": (
+        "I keep the Seam, which in practice means watching things die slowly on the wrong side of it. The kodo are the "
+        "worst. They're Barrens animals standing in snow, three years into a winter their kind has no word for, at a line "
+        "they won't cross back over because there's nothing on the other side any more either. I won't dress it up for "
+        "you. They're suffering, and the only thing anyone can do for them is the thing nobody volunteers for.",
+        "Do it clean and from the front. They won't run, and it's worse if you make them try.",
+    ),
+    "asp_red_ground": (
+        "The camp downslope has lived under trees for three years and hasn't once stood on its own ground. I've been "
+        "quietly carrying Barrens soil down off the Seam, a sack at a time. It won't grow anything. It's for the floor of "
+        "the elder's lodge, so there's red dirt under somebody's feet when something important is being said over it. "
+        "Take it off the dust side of the line, not the mould side, because it has to be the real thing.",
+        "The scavengers nest in the dead scrub, and a person crouching is a person not watching. Deal with them first.",
+    ),
+    "asp_rope_trade": (
+        "I arrived on the rim with forty coils of rope and the conviction that a cliff without a road down is the finest "
+        "business proposition on the continent. I'm right about that, and I'm also nearly out of rope. Harpy sinew is the "
+        "only thing up here strong enough to replace it. A full load of coils sees me through the season, and I pay fair, "
+        "which in my family is treated as a confession. Take the Rimcliff Harpy Windcallers first, and bring me the sinew.",
+        "The plain ones mob you, but the callers turn a mob into a problem. Come back in one piece.",
+    ),
+    "asp_ways_down": (
+        "I run the chutes, which every elder in the camp has told me not to do. A chute is an avalanche path, swept bare "
+        "every few winters by something enormous coming down it, and that's exactly what makes it the only walkable line on "
+        "a face of loose rock. The dangerous ground and the only road are the same ground, and I find that funnier than "
+        "they do. The elders want a trail crew before anyone goes down, and I'd like to show them why it's possible. Walk three of them for me, the middle chute under the Lift first, because it's the widest, then the west "
+        "gully and the east.",
+        "Walk them, don't run them, and never late on a warm afternoon. That's when they go.",
+    ),
+    "asp_rim_harpies": (
+        "I've been counting harpies since the thaw, and I don't care for the number. On the escarpment I can make sense of "
+        "them, because a harpy belongs on a cliff. It's the ones further down that trouble me, roosting in aspen crowns, "
+        "in trees, which harpies don't do, so something's taught them. Work the rim first, then the stands beneath it. I'm "
+        "not asking for a cull, only enough of a dent that I can tell Orgrimmar the number went down once.",
+        "The tree-roosters are the dangerous ones. You won't see them until they're already dropping.",
+    ),
+    "asp_the_load": (
+        "You turn the wire over in your hands. It's lift cable, the heavy grade, wound into the base of a harpy nest with "
+        "the patience of something that simply liked the shape of it. The end hasn't been cut, it's been drawn out thin "
+        "and snapped, the way wire goes when it's pulled past what it can hold. Something was hanging on this when the "
+        "ground changed. Nalu Stillgrass kept that winch eleven years, and she'll know what a loaded cable end looks like.",
+        "Look at the cliff face under the Lift on the way, where the main line enters the rock.",
+    ),
+    "asp_green_wood": (
+        "I've been told aspen is poor timber by three separate people who'd never put a hand on it. Green, it's heavy and "
+        "soaking and splits like wet rope, and seasoned, it goes light as nothing and takes a nail without argument. The "
+        "camp's been seasoning it wrong for two winters, because everything any of us knew about wood was about a different "
+        "wood, under a different sky. I want sound bolts off standing dead, not fallen, because fallen has been lying in the "
+        "wet. The bolts will tell me whether the rot runs up from the root or down from the crown.",
+        "Watch the lynx in the deadfall. You'll be bent over with an axe and your back to the slope.",
+    ),
+    "asp_first_planks": (
+        "Knowing which way the rot runs won't give you a floor. Longstand has a saw, a pile of bolts stacked the right way "
+        "up at last, and not one person who's cut a board that came out true. I'd like the first honest stack this camp has "
+        "produced, with somebody else's hands on the saw while I stand behind them and watch. I want boards I'd put in a "
+        "wall, not attempts. Mill me planks at the camp saw.",
+        "Take your time on the first cut. Every board after it follows that one, whether you want it to or not.",
+    ),
+    "asp_winter_meat": (
+        "I hunted open plain my whole life, where you find a herd at dawn and have it by noon. Up here the elk walk into "
+        "timber and stop existing. I've got better at it, but I'm not good at it yet, and the camp has to eat through a "
+        "winter nobody has measured. Work the edges of the stands, because the elk cross between cover in the same places "
+        "every day. Bring me good haunches off the aspen elk, and leave the thin ones.",
+        "We aren't so short that we take a poor animal, and I'd rather not find out what we become once we start.",
+    ),
+    "asp_wolf_nights": (
+        "The wolves aren't the problem. They were here before the camp, and they've taken nothing but offal. The problem is "
+        "that nobody in the camp sleeps, because the pack works the dark timber behind the sheds, and every one of us grew "
+        "up somewhere you could see a thing coming from a long way off. Thin the pack on Blackneedle Rise, east of camp, "
+        "where the lodgepole starts, but don't take all of them. One bear has been at the smokehouse and stopped being "
+        "frightened of people, and that one's a separate matter.",
+        "I won't have it said we came into somebody else's country and emptied it, so leave some.",
+    ),
+    "asp_uphill_boar": (
+        "I watch Elkhorn, because it's the only place in this zone where you can see anything at all. What I've been "
+        "watching is quilboar coming up out of the Barrens in numbers, into a cold they've no clothing for. They were "
+        "pushed, because the mountain took their ground the same week it took the Lift, and pointing that out has never "
+        "once made anybody friendlier. The highrunners come up off the Slide, west of this meadow, at first light. Drop the "
+        "frostspeakers first, because whatever they're doing, it keeps the rest of them on their feet.",
+        "They're fast and they're desperate. That's two problems arriving at once.",
+    ),
+    "asp_broken_dams": (
+        "My benches are a stair of beaver ponds, and the dams have held every spring without anybody's help since long "
+        "before the camp arrived. This year three have gone inside a month. The quilboar have been cutting them, because a "
+        "drained pond is dry ground to den in. The dencarvers are down at the third pond on the Beaverdam Benches, a long "
+        "way south of camp down the valley. Clear them out, and bring the stolen timber back up when you're done.",
+        "The beavers will rebuild either way, but they rebuild faster with their own sticks.",
+    ),
+    "asp_surveyors_pin": (
+        "You turn it over. It's a surveyor's pin, brass, stamped with a number and a maker's mark you've never seen, and it "
+        "was in a quilboar den, wrapped in hide, kept. The number is the part that stops you. Numbered pins come in a "
+        "sequence, and a sequence means somebody walked this ground with a chain and a book before any of this was here. "
+        "Hesta Coldshoulder keeps the watch up near the ice, and she has an eye for things that don't add up.",
+        "The dencarvers will have more of them. They keep anything that shines.",
+    ),
+    "asp_higher_every_spring": (
+        "I've measured the creek on the benches for three years with a stick and a notch, and I know that won't pass for "
+        "science. It's higher every spring, not by much, but by enough that I can't explain it with snowfall any more. The "
+        "water's coming out of a hole in the rim that wasn't a hole when I started counting. The mouth of the Weeping Ice is "
+        "on the east side of the rim, above the old slide. Go in as far as the shaft where the daylight comes down, the "
+        "Moulin, and tell me what the floor is.",
+        "No further than the shaft this trip. If the floor's wet rock, I'm right about where my water's going.",
+    ),
+    "asp_the_thaw": (
+        "A glacier holds on to everything it ever picked up, and a melting one hands it all back in roughly the order it "
+        "took it. I want whatever the ice has been letting go of this spring, before the meltwater carries it down into "
+        "the ponds where I'll never find it. Work the wet end of the Weeping Ice, near the shaft, where things are coming "
+        "out of the wall. The bears denned in that cave when it was only a cave, and they aren't pleased with the company. "
+        "I'd like considerably fewer of them in there.",
+        "Mind you aren't between the bears and the way out. It's the only warm part of the place.",
+    ),
+    "asp_cornered_cold": (
+        "The query from Tarren Mill asked whether there are yeti in Kalimdor, and my answer is that there are, at the "
+        "frozen end of a cave that's getting smaller every year. They came across inside the ice, and nobody carried them. "
+        "They're refugees of the same accident that moved my people, and I've noticed, and it hasn't changed what has to be "
+        "done. The Weeping Ice is the cave on the east side of the rim, north-east of camp, where Hesta keeps watch. Go in "
+        "by the shaft and work inward.",
+        "If you meet the big one before you're ready, come back out. He'll still be there, because he has nowhere else.",
+    ),
+    "asp_rimehowl": (
+        "At the far end of the Weeping Ice, past the braided passages and the standing meltwater, the glacier is still a "
+        "glacier. That's where Rimehowl is, because it's the last ground left that's what he was made for, and there's "
+        "nowhere for him to leave it to. He's in the Sink, and if you follow the water down, it'll take you there. He's "
+        "bigger than the others and he isn't stupid. Take people with you, because I wouldn't go in alone.",
+        "He'll give ground and let the cold work for him. Don't let a long fight become his fight.",
+    ),
+    "asp_what_came_across": (
+        "I've set two facts side by side, and I don't care for the shape they make. A mountain arrived, and inside it was a glacier, and inside the glacier were animals that have no business on "
+        "this continent. The range came with its own country folded up inside it, and nobody's asked how much of that "
+        "country is still alive in there. I've put the hair and the apothecary's own letter into one bundle with my mark "
+        "burned into the wrap, and Rimehowl's hide goes in first, from the bottom of the Weeping Ice, north-east of camp. "
+        "Then take the bundle down off the mountain to Wrangler Tull at Camp Taurajo.",
+        "Three years ago he asked whether there was still a road south. He'll want to be sitting down for the answer.",
+    ),
+    "asp_is_freewind_real": (
+        "Elder Mura's been told by three caravan drivers who didn't know each other that there's a tauren city south of "
+        "the pass, built on top of three mesas. She's asked me to find someone to carry a question down to it, because I'm "
+        "needed on the chutes. She's been a long time without good news and won't spend any of it in advance, but the "
+        "drivers all described the same ramp, and people inventing a city don't agree about the ramp. Take this down the "
+        "pass to High Elder Namka Windhollow, whoever speaks for that place. She's the one the Elder means.",
+        "It's one question, and it isn't a polite one. She wants to know if they're holding.",
+    ),
+}
+for _qid, (_d, _a) in STORY.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a if _a is not None else _old[1], _old[2])
