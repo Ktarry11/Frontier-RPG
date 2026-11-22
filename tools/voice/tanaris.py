@@ -159,3 +159,276 @@ VOICE = {
         "Pell lays it flat and goes through four ledgers without finding the company, and she doesn't hurry it.\n\nIt isn't in any book I hold, or in any the harbourmaster holds either. The mark, though, I've seen. It's on two deposits in my own strongroom, both unclaimed, both lodged the season before Vaile took that cove. Somebody's still owed something down there, and they aren't coming for it, and I'll have to work out why.",
     ),
 }
+
+
+# THE STORY PASS (22 Nov 2026), to docs/quest_writing_standard.md: narration and speech folded into the giver talking;
+# accept lines a short beat; turn-ins above kept. The two item starters narrate to "you" on purpose.
+STORY = {
+    "tan_berth_turned_away": (
+        "I've got four berths, and I've been turning ships away since the second winter. I can tell you to the day when "
+        "the queue started, because I started it, and I've never once got to the bottom of it. A ship waiting outside "
+        "the heads is a ship somebody can board, and twice this season somebody has. Clear the Drownbell Deckhands off "
+        "the shore road and bring me their tally sticks. The notches aren't days, they're a count of something, and I'd "
+        "like to know whether my queue is on that list.",
+        "I've looked at two of the sticks already. Bring me enough that I can be sure.",
+    ),
+    "tan_berth_the_yard": (
+        "Senna wants rock cut, and she's wanted it for a year, and she hasn't once walked up this hill to say so. I've "
+        "got the crews, the gear and the appetite to cut two berths out of that rock, and no reason at all to do the quay "
+        "a favour. All right, here's my price, and it isn't money. My powder crews work the stone out past the yard, and "
+        "the Thornback Scorpids are in there with them. Bring me their barbs, and sunstone cores off the elementals, "
+        "because the cores run hot enough to set a charge and I'd rather not buy fuse.",
+        "Barbs and cores first, and then Senna gets her rock.",
+    ),
+    "tan_berth_signed": (
+        "I keep a record of every crate in and out of this port, and which side of town it came from. I've waited three "
+        "years for the two halves of this town to need the same piece of paper, and now they do. There's no clean paper "
+        "left in Steamwheedle, so you're going to the dead city for it, the Gadgetzan Ruins, west of the port across the "
+        "open sand. The scrapjaws nest in the counting houses and have chewed three years of Gadgetzan's books into "
+        "bedding. Bring me the pages, then come back and ask me what I keep those last two columns for.",
+        "Ask me properly when you're back, and I'll tell you properly.",
+    ),
+    "tan_berth_keelmaker": (
+        "I've had more work in three years than in the twenty before them, and every job of it came off the yard. I'm "
+        "the only one on the quay who isn't bitter about that, and it's cost me friends. Two berths is a hole in the "
+        "rock, and a dry dock is a hole in the rock with a gate on it, so while they're cutting, I'd rather they cut the "
+        "second thing. The gate wants glass and heat. Kill the Sunbleached Basilisks for their eyes, which hold the sun "
+        "and will show me my water level in the dark, and bring me sunstone cores for the forge.",
+        "Set into a sight-glass, those eyes are worth more than the whole basilisk.",
+    ),
+    "tan_berth_the_noise": (
+        "They start cutting rock at first light, and they don't stop, and I've been setting hands for a fortnight. "
+        "They're all yard hands, and before you say it, they aren't careless, they're the ones doing the lifting. The "
+        "cove crews have worked out that a town making that much noise isn't listening, so kill their Drownbell "
+        "Powdermonkeys off the shore. The hyenas have come in close for the spoil tip as well. Kill the Bonefield Hyenas "
+        "and bring me their jaws, because I'm sick of guessing which bite I'm looking at.",
+        "The powdermonkeys first. A town that's busy cutting rock doesn't watch its back.",
+    ),
+    "tan_berth_done": (
+        "Berth five took eleven days, and berth six took nine, because by then the quay crews had stopped standing at "
+        "the top of the hill watching. I've reached the bottom of my queue for the first time since the second winter, "
+        "and I don't know what to do with the afternoon. Walk the new front from end to end, and tell me whether it "
+        "reads as one quay or two. Then finish what started this, and kill more of the Drownbell Deckhands on the shore, "
+        "south-west of the port gate. Bring me their bosuns' whistles, because a harbour that can read the signals "
+        "outside the heads gets a night's sleep.",
+        "One quay or two. Tell me honestly, because I'll be asking everyone else as well.",
+    ),
+    "tan_gad_the_press": (
+        "My whole workshop came out of Gadgetzan on three carts, and everything heavier than a cart is still in it. "
+        "There's a drop press four days west, through the wall, on the second street off the east gate, and it weighs "
+        "more than this shed. I talk about it more than I talk about most people, and I know that. I'm not asking you "
+        "to bring it, I'm asking you to tell me it's still there, because the Sandfury have been prying the brass off "
+        "everything in that town. Kill the Gadgetzan Scrapjaws in the way, and bring me pried fittings, so I know how "
+        "far in the Sandfury have got.",
+        "Second street off the east gate. You'll know it, because it's the one thing nobody could carry off.",
+    ),
+    "tan_gad_mazzic": (
+        "I didn't leave Gadgetzan, I was carried out on a door by two people whose names I never got. I'd like that "
+        "distinction kept, because everybody says we left, as if it was a decision. Ask me about it properly, and I'll "
+        "tell you, and then ask me about the wells, because the quay crowd haven't once asked me about those in three "
+        "years. Bring me whatever the scrapjaws haven't finished chewing out of the counting houses in the Gadgetzan "
+        "Ruins, west of the port. I want to see a figure in my own town's hand.",
+        "It's further than it looks. Ask me your questions before you go.",
+    ),
+    "tan_gad_the_wells": (
+        "A desert city lives on its wells, and Gadgetzan had them, with a wall round the lot. I can name every one of "
+        "them, and I grew up drinking from four. The deep well is in the west quarter, under the broken wall, and I want "
+        "you to go and look down it. The Sandfury will be there, because they're everywhere in that town now, and their "
+        "charms would tell me whether they're living in it or just working it. Look down the well, because that's what I "
+        "need, and the rest is me being curious in my old age.",
+        "Bring me a few of their charms. Which it turns out to be decides what I think of them.",
+    ),
+    "tan_gad_the_answer": (
+        "A mountain came down in the north three years ago, and the water under this region tipped with it. On the pan "
+        "they worked out where it all goes, and nobody worked out what it stopped doing on the way. You've stood where "
+        "that water ends up, and I've got the figures for where it used to start. Go back into the city and read me the "
+        "north quarter, where the shallow wells went first, and bring me more pages. Then go on west past Gadgetzan to "
+        "Zul'Farrak Ruins, kill the Sandfury Hexxers, and bring me their fetishes, because the trolls were marking that "
+        "water table long before any of us.",
+        "I want a goblin column and a troll fetish on the same bench, to see whether they agree.",
+    ),
+    "tan_gad_the_press_again": (
+        "I've known for three years the press can't be moved, and I've just been told why the town died. If the wells had "
+        "held, I'd still be in that town with that press and a lintel with my name on it, poorer and happier. Both of "
+        "those are true, and I've stopped trying to pick one. The Sandfury hold Zul'Farrak's east gate, far west of here "
+        "beyond the dead city, and I need it clear for a hoist. Kill the Sandfury Axethrowers, and bring me their axes so "
+        "I can see what they're using, and more fittings.",
+        "I want to say it once and not again. I'm going back for that press.",
+    ),
+    "tan_gad_salvage": (
+        "I buy what came off something and sell it to whoever needs it on something else, and half of what crosses my "
+        "counter came out of Gadgetzan. I won't pretend otherwise, and if that bothers you, it's still for sale. The "
+        "scrapjaws nest in the good buildings, which is where the good brass is, so my suppliers and my competition are "
+        "the same animal. Kill the Gadgetzan Scrapjaws in the Gadgetzan Ruins, west of the port, and bring me fittings "
+        "and pages. The pages are for Hesper, who pays better for paper than I do for brass.",
+        "That says something about this town I find hard to look at.",
+    ),
+    "tan_zf_still_there": (
+        "I had a shop with a stone front and my name cut into the lintel, and it's still standing, in a walled town with "
+        "nobody in it. Four days further west there's a troll ruin with a great many people in it, and I think about "
+        "that more than I let on. Everybody calls it the ruins, but I've been out there, and it's a broken building with "
+        "people in it, which is a completely different thing. I'd like somebody else to go and confirm it, so I can stop "
+        "sounding mad about it at the bar. Walk up to the broken face of Zul'Farrak Ruins, and kill the Sandfury "
+        "Scavengers on the way.",
+        "Bring me their charms, so I've got something to put on the bar when they laugh.",
+    ),
+    "tan_zf_what_happened": (
+        "Something happened at Zul'Farrak, and it wasn't three years ago, because the break in that pyramid is older "
+        "than anybody in Steamwheedle. There are four stories, a flood, a god, a war, and a thing they let out and put "
+        "back, and I believe none of them, which I consider the right number. Kill the Sandfury Hexxers and bring me "
+        "their fetishes, because they're the only thing out there anybody's ever written on. Bring me the axethrowers' "
+        "notched axes too, because an axe tells you who somebody expects to fight. The ruins are as far west as Tanaris "
+        "goes, past the dead city.",
+        "Every one of the four stories is told by a goblin who's never been within a mile of it.",
+    ),
+    "tan_zf_the_marks": (
+        "A low-water mark cut three times is a record, and I know a record when I see one, and I want the rest of it. If "
+        "they cut a mark three times, they cut it somewhere permanent, and a fetish isn't permanent, so it'll be on the "
+        "pyramid. Look at the south face of Zul'Farrak, where the steps are still whole, at the far west of the desert "
+        "beyond Gadgetzan. Kill the Sandfury Axethrowers to get a look at it, and bring me their charms. They're grave "
+        "charms, the graves give me a date, and a date is what I'm short of.",
+        "You can't miss a pyramid. Read me the marks on the steps.",
+    ),
+    "tan_zf_the_offer": (
+        "Nobody in Steamwheedle has ever gone to Zul'Farrak to ask a question, and that's three years, four stories, "
+        "eleven marks, and not one conversation. I point this out at the bar, and I'm told I don't understand trolls, by "
+        "people who've never met one. I won't pretend this is a peace mission, because you'll have to go through a great "
+        "many Sandfury Hexxers to stand anywhere one will hear you. They're at Zul'Farrak Ruins, west across the whole "
+        "desert. Bring me their fetishes, and come back and tell me what you make of it.",
+        "I'd like one person in this town to have an opinion they arrived at by looking.",
+    ),
+    "tan_zf_the_axe": (
+        "I've been looking at a Sandfury throwing axe on my bench for a fortnight. The balance is wrong for a person, "
+        "with a short haft and a heavy head, and it wants to go up, at something a lot taller than a troll. I've worked "
+        "out what, and I don't like it. Kill the Sandfury Axethrowers at Zul'Farrak Ruins, at the western end of the "
+        "desert, and bring me more of those axes, and sunstone cores, so I can get my forge hot enough to test what the "
+        "heads are tempered for. I've got a guess, and I'd like to be wrong, and I haven't been wrong about steel in "
+        "twenty years.",
+        "Bring me the heaviest heads you can find. They're the ones that'll tell me.",
+    ),
+    "tan_cove_whose_claim": (
+        "I hold what people don't want to carry and write down what they don't want to forget. Before Vaile's crew, "
+        "there was a working party in that cove with a diving bell, a winch and a claim in order, and then there wasn't. "
+        "The company that filed that claim isn't in any book I have. Kill the Drownbell Deckhands in the Drownbell cove, "
+        "south-west of the port gate, and bring me their tallies, and the crawler shells. The crawlers are all over the "
+        "lower cove eating something, and I'd like to know whether it's fish.",
+        "I'll pay for the answer, and I'll pay better than the brokers.",
+    ),
+    "tan_cove_the_bell": (
+        "A goblin-built diving bell sits on the floor of a flooded chamber in the Drownbell with its chain still on the "
+        "winch. I've heard it described three times, and I want to know whether it can be raised, because anything raised "
+        "comes to my yard. The mouth of the Drownbell is south-west of the port, where the shore turns. Go in at the "
+        "mouth, down the dry gallery, and as far as the wet end, killing the cutthroats on the way. Bring me the "
+        "tidecallers' focuses, because they keep the water moving down there, and Faz can tell me from them whether the "
+        "bell can still come up.",
+        "Don't go to the bottom. The wet end's as far as I need you.",
+    ),
+    "tan_cove_two_went_down": (
+        "The pirates haven't touched the bell, because two of them went down to look at it in the first season and "
+        "neither came back up. I buy off Vaile's people, and I'm not proud of it, and I won't lie to you about it. The "
+        "ones who come up to trade will haggle about anything in that cove except the bottom chamber, where they just go "
+        "quiet. Kill the Bilge Crawlers and bring me their shells, and the bosuns' whistles. The whistles are how they "
+        "call each other down there, and I want to know whether there's a call for the bottom.",
+        "That's the one fact about the Drownbell every version of the story agrees on.",
+    ),
+    "tan_cove_the_warden": (
+        "I've worked out what's between the pirates and the bell, and it isn't the water. There's a careenage down there, "
+        "where they haul a hull over to work its bottom, which means that cove was a working yard before it was a pirate "
+        "hole, and a working yard has a watchman. Somebody left a watch on that salvage, and it hasn't been told to stop. "
+        "Kill the Drownbell Bosuns in the middle of the cove, south-west of our gate, and bring me their whistles and "
+        "focuses. I'm not asking you to go to the careenage yet.",
+        "Clear the middle first. You don't want that watchman and Vaile's crew behind you at once.",
+    ),
+    "tan_cove_vaile": (
+        "She took this cove off people who were only trying to lift something out of it, and she's held it for two years "
+        "without once going to the bottom of her own cave. A harbourmaster with pirates a mile down the coast isn't a "
+        "harbourmaster, she's a hostage with a ledger. The bottom chamber of the Drownbell is through the wet gallery and "
+        "down, south-west of the port. Kill the Cove Tidecallers first, because I'd rather you fought her in still water "
+        "than in her own current, and bring me their focuses for Quill. Then kill Captain Vaile Drownbell.",
+        "I've got six berths now, and I'd like to use all six.",
+    ),
+    "tan_road_nothing_back": (
+        "I could run a cart north onto the pan tomorrow. I haven't, and the reason isn't the hives, it's that a cart goes "
+        "out full and comes back empty, and an empty cart is a wage with no freight under it. Everybody assumes it's "
+        "danger, and it's really arithmetic. The Dunecrest Raptors hold the first stretch of the road, west from our gate "
+        "before it turns north for the pan, so kill them and bring me their claws to price the guard hire. Walk the "
+        "nineteen-mile stretch while you're out, because that's where the axles go, and I want to know whether it's the "
+        "surface or the load.",
+        "Clearing those raptors makes the crossing a proposition instead of a gamble.",
+    ),
+    "tan_road_the_bones": (
+        "The bonefields on either side of the caravan road aren't a graveyard, they're a feeding ground with a very long "
+        "history and a very regular supply. The bone out there goes down four feet, and the top foot is kodo and cart "
+        "ox, and the rest isn't. I'd like to know what the supply was before there were carts. Kill the Bonefield Hyenas "
+        "and bring me their jaws, which will tell me what's been eating out there this century. Bring me vulture quills "
+        "too, because a sun-stiff quill makes the best splint-splice I've ever used.",
+        "I won't apologise for the detour with the quills.",
+    ),
+    "tan_road_the_salt": (
+        "I buy my salt from a woman on the pan who's never once been late in eleven years. I've never met her, and until "
+        "this season I'd never thought that was strange. Her town's dying and mine isn't, and she still gets the cart "
+        "out, and that's the whole trade, really. Take her this order for next season, which is bigger than last "
+        "season's, because I'd like her to hear that from a person instead of reading it off a slip. Clear the Thornback "
+        "Scorpids off the dry crossing on the way and bring me their barbs, and the order goes to Jixa Brinecount in "
+        "Saltwheel.",
+        "The crossing's the worst of it, so go light.",
+    ),
+    "tan_road_the_cart": (
+        "An order going north and salt coming south is freight in both directions, and that's all that's ever stood "
+        "between this road and a route. I'm going to be unbearable about having been right that it was arithmetic. The "
+        "Sunstone Elementals sit on the dry crossing, where the surface is worst, and clearing them clears the worst "
+        "mile. Bring me their cores for Hack's road crew, and raptor claws to price the guard hire. Walk the Bonefields "
+        "crossing one more time, and if it's still the surface, I'll say so in writing and eat my words.",
+        "Freight both ways. I've waited a long time to say that out loud.",
+    ),
+    "tan_solo_beds": (
+        "I've got forty beds, and I've had forty beds since my mother ran the house, and the town has twice the people it "
+        "did three years ago. I could put twenty more upstairs, and I won't. The day I do, the yard crowd stop sleeping "
+        "in their own sheds and start sleeping in my house, and then I'm running a barracks. The Carrion Vultures have "
+        "found the kitchen midden. Kill them and bring me their quills, which I sell, and they're most of what I make in "
+        "a bad week.",
+        "I'd rather you didn't repeat that last part to anyone.",
+    ),
+    "tan_solo_salt_air": (
+        "I temper for salt air or for dry sand, and I can't temper for both. Everything I make goes onto a ship or into "
+        "the desert, and the two want opposite things from a piece of steel. It's hot work, and it's hot already, so I'm "
+        "at the anvil before the sun and done when it's overhead. Kill the Sunstone Elementals and bring me their cores. "
+        "A core holds a working heat for half a day without a bellows, and in this climate that turns a punishment back "
+        "into a trade.",
+        "And no, I won't temper you something that does both, so pick one.",
+    ),
+    "tan_solo_bird": (
+        "I'm the only flight master for a very long way, and I price like it. I get asked about the pan north of here at "
+        "least once a week, always by somebody who's just walked off it. There's a post out on that pan, north of the "
+        "dead city, and there's no bird on it, because a bird needs feeding, feeding needs somebody paying, and six "
+        "customers don't pay for a wyvern. I'd love to be wrong. The Carrion Vultures roost over the Bonefields, west of "
+        "the port, and harry my runs, so kill them and bring me their quills for fletching.",
+        "Fletching's a wyvern-keeper's problem nobody expects. Bring me plenty.",
+    ),
+    "tan_solo_counter": (
+        "My grandfather chandlered this quay, and his father before him, and nothing has changed at this counter. "
+        "Everything has changed forty yards that way. Rope, pitch, canvas and lamp oil, the same four things, at the "
+        "same prices, over the same counter. The cove crews have been taking pitch off the quay at night, and pitch is "
+        "the one thing I can't replace inside a season. They come up from the Drownbell cove, south-west of the gate, so "
+        "kill the Drownbell Powdermonkeys and bring me their tallies, and crawler shells.",
+        "They've invented three new trades forty yards that way. I'm selling rope.",
+    ),
+    "tan_item_well_token": (
+        "You turn the token over. It's stamped brass from Gadgetzan's public well, dated three years ago and numbered in "
+        "the eleven thousands. That's eleven thousand draws from a public well in a town of four hundred, in one season. "
+        "Somebody was drawing and drawing, and the well was giving less every week. It's four days east to the port, and "
+        "into the hand of Old Mazzic, the only person there who'll know what the number means.",
+        "Kill the Gadgetzan Scrapjaws on your way out. They nest where the tokens are, which is where the queue was.",
+    ),
+    "tan_item_salvage_claim": (
+        "You turn the claim over. It grants salvage rights on something in the Drownbell, filed in order and "
+        "countersigned twice, once by a company nobody in Steamwheedle has heard of, and once by a hand that didn't write "
+        "its name, only a mark. Whoever held this was lifting something out of that cove, and had every right to. A "
+        "working party leaves more behind than a crew does, so the careenage they worked is the place to start. After "
+        "that, the claim belongs in front of the only person in the port who keeps a book of who's allowed to own what.",
+        "Kill the Drownbell Bosuns to get to the careenage and back, then take it to Strongbox-Keeper Pell.",
+    ),
+}
+for _qid, (_d, _a) in STORY.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a if _a is not None else _old[1], _old[2])
