@@ -1,0 +1,22 @@
+"""plaguelands_turnins story pass (22 Nov 2026), to docs/quest_writing_standard.md. Where the giver's speech sat in the accept
+line and the journal showed a summary or narration, the speech is now the description and the accept line a new short
+beat; the rest were written fresh. Turn-ins untouched."""
+
+STORY = {
+    'pl_ts_minions_scourgestones': (
+        "The lesser dead carry Minion's Scourgestones, little slivers of the necromancy that keeps them walking. The ghouls and skeletons in the west have most of them.\n\nI break them down here, on holy ground, where it's safe to. The Dawn remembers who brings them, and so do I.\n\nBring me a handful whenever you have them. I'll take them as often as you've got them.",
+        "Don't keep them in the same pouch as your food. They taste of the grave afterwards.",
+    ),
+    'pl_ts_invaders_scourgestones': (
+        "The Scourge that march in the east carry heavier shards. Invader's Scourgestones, we call them, and they're cold enough to hurt. The dead round Stratholme and Terrordale carry most of them.\n\nArchmage Hale breaks the little ones himself. These go in a lead box under my counter until the Dawn can carry them somewhere safe, and the Dawn pays twice over for every one.\n\nBring me a handful whenever you can. Wear gloves, because they bite.",
+        "Count them before you hand them over. I pay by the stone, and I don't round up.",
+    ),
+    'pl_ts_corruptors_scourgestone': (
+        "The Scourge's named horrors carry Corruptor's Scourgestones, a fist of crystal that feels like it's watching you. I want every one of them destroyed, and the Dawn pays well for each. I've broken three on this holy ground so far, and each one took longer to break than the last. If you've killed one of the Scourge's named horrors and you've got its stone, bring it to me and nobody else. I'll break it here, where it's safe to.",
+        "Don't keep it in your pack overnight. Bring it straight to me.",
+    ),
+    'pl_ts_crusaders_insignia': (
+        "Every Scarlet in the Plaguelands carries a Crusader's Insignia, a red flame on a white field. Odile used to count them, and now the Order's asked me to, since I'm the one who pays for them.\n\nThe Scarlets camp all round Andorhal, south-east of the wall, and every one of them carries a badge. Every badge is one fewer fanatic burning somebody's farm. Bring me a handful whenever you have them. I'll write each one down for Odile's book, and then the smith melts them into buckles.",
+        'If any of the badges have names scratched on the back, keep those apart. Odile likes to know.',
+    ),
+}
