@@ -33,4 +33,6 @@ BEATS = {
     'plw_the_three_ziggurats': "Rest between the three. Nobody's timing you.",
     'plw_what_grew_in_the_jar': 'If the lid starts to lift, put your hand on it and walk faster.',
     'plw_word_for_sun_rock': "Wait while she reads it, if she'll let you. I'd like to know what she makes of it.",
+    'plw_spores_for_the_sanctuary': "Hand it to Yuki and nobody else. She's the only one who'll know what she's looking at.",
+    'plw_carrion_grubs': 'Kick the ditch covers back on as you go. They breed under anything that keeps the light off.',
 }

@@ -43,4 +43,6 @@ BEATS = {
     'pls_uthers_rest': 'Take off your helm when you get there. Nobody will ask you to, which is why it matters.',
     'pls_what_the_plague_is_made_of': "Tell Merrow I've kept a copy of my notes, in case anything goes wrong on the way.",
     'pls_what_we_kill': 'Bring me their insignia. I want to know which companies are out there now.',
+    'pls_the_ghost_in_the_barn': 'Speak to him before you raise your weapon. He might stop to listen.',
+    'pls_the_fallen_of_andorhal': "Wipe the rings clean before you hand them over. I'd rather not see them the way they look now.",
 }

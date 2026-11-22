@@ -68,7 +68,7 @@ repeat "where the descent levels off" from the speech above it.
 - A finished zone goes on the story-done list in `tools/audit_quest_voice.py`, which makes "under 5 sentences" and "the
   journal narrates" hard failures there, so it can't slip back.
 - **Accept echo is a hard failure too.** If 60% or more of the accept line's content words are already in the speech,
-  the build refuses to write. The accept line must say something the speech didn't: a warning, a tip, an aside, a
+  the build refuses to write. So does any run of six words lifted straight out of the speech. The accept line must say something the speech didn't: a warning, a tip, an aside, a
   reaction. Copying the speech's last sentence into the accept slot is the commonest way this goes wrong.
 - **Write every accept line with the whole speech in front of you.** Not a cut-down dump, and not the last 300
   characters. Batching is fine; writing blind is not. Passing the checks is the floor, not the bar: read each line

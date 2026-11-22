@@ -33,4 +33,6 @@ BEATS = {
     'hf_ogre_iron': "The bands come off easier if you heat them first. I'll lend you a torch if you want one.",
     'hf_the_kodo_wont_settle': 'Stay on the road between circles. The grass there hides holes a kodo would break a leg in.',
     'hf_the_supply_road': "If you find the nails, count them. The berserkers have no use for boot nails, and I'd like to know why they took them.",
+    'are_the_barrow_door': "Don't go lookin' for more. De road is enough.",
+    'are_gallowmast': "Smash the lamps when you're done with the crews. A dark rock wrecks nobody.",
 }

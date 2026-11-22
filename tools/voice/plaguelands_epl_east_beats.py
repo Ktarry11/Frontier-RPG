@@ -33,4 +33,6 @@ BEATS = {
     'ple_whats_in_the_water': 'Bring as many as you can. One stone is a guess, and a handful is an answer.',
     'ple_wild_bats': "Go at dusk, when they leave the trees. They're easier to hit in the open.",
     'ple_word_to_lights_hope': 'Run if you can. The sooner he has it, the sooner the captain hears back.',
+    'ple_the_medics_network': "Tell Marcus the poultice works better warm. He'll want to know before he tries it.",
+    'ple_where_daddy_is': "Come straight back and tell me what he says, won't you? I'll be right here!",
 }

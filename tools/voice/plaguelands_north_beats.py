@@ -23,7 +23,7 @@ BEATS = {
     'pln_the_blighted_herd': 'Watch the young ones. They spook first, and the whole herd follows them.',
     'pln_the_book_of_names': "Wait while she writes them in, if she'll let you. I'd like someone to have seen it done.",
     'pln_the_confessions': 'Carry them close and out of the rain. That ink is the last thing some of those hands ever wrote.',
-    'pln_the_gate_of_hearthglen': "Count the towers and the people on each one. I'll want the numbers.",
+    'pln_the_gate_of_hearthglen': 'Keep your hood up on the road. They write down faces up there.',
     'pln_the_hermits_account': "If you find his oar, bring it back. He'd want somebody to keep it.",
     'pln_the_infirmary': "If anyone's still on a table when you get there, get them out first.",
     'pln_the_inquisitors': "If you find anyone they've caught, bring them here, because we've got room.",
@@ -35,4 +35,5 @@ BEATS = {
     'pln_woodsman_archers': 'Bring their bows back if you can. My wagons could use the guard.',
     'pln_word_from_the_watch': "Tell him I wrote it at night. He'll understand why the hand's shaky.",
     'pln_worgs_on_the_road': 'Wrap your shins in leather before you go. My runners wish they had.',
+    'pln_foreman_harrow': "If his ledgers are at the mill, bring me the last page. I'd like to know where the oak's been going.",
 }

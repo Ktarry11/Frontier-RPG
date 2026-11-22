@@ -170,7 +170,7 @@ def journal_third_person(q):
 
 # STORY-DONE ZONES. Kyle, 22 Nov 2026: one zone at a time, to docs/quest_writing_standard.md. Once a zone is on this
 # list, an offer under STORY_MIN sentences or a journal that narrates is a hard finding there, so it can't slip back.
-STORY_DONE = {"feralas", "hillsbrad", "stranglethorn_north", "stranglethorn_central", "stranglethorn_south", "shimmering_flats", "tanaris", "lower_boughs", "middle_boughs", "upper_boughs", "rootwater_isle", "harvest_finds", "dawnhaven", "aurelion", "great_settlement", "southern_needles", "aspen", "arathi", "plaguelands_south", "plaguelands_north", "plaguelands_epl_west", "plaguelands_epl_east", "ashenvale", "black_strand", "felwood", "abyssal_sands", "glittervein", "tempest_shallows", "ashen_reach", "underdark", "valley_of_trials", "moonglade"}
+STORY_DONE = {"feralas", "hillsbrad", "stranglethorn_north", "stranglethorn_central", "stranglethorn_south", "shimmering_flats", "tanaris", "lower_boughs", "middle_boughs", "upper_boughs", "rootwater_isle", "harvest_finds", "dawnhaven", "aurelion", "great_settlement", "southern_needles", "aspen", "arathi", "plaguelands_south", "plaguelands_north", "plaguelands_epl_west", "plaguelands_epl_east", "ashenvale", "black_strand", "felwood", "abyssal_sands", "glittervein", "tempest_shallows", "ashen_reach", "underdark", "valley_of_trials", "moonglade", "underdark_dungeons", "deadwind", "stonetalon"}
 _STEM_OF = None
 
 
@@ -197,6 +197,7 @@ before would into been than then more some about like only need want make sure i
 you'll we'll he's she's that's there's what's can't won't isn't aren't didn't doesn't over still even much very also
 because while where which who's those these other every each again once well good right take takes give tell""".split())
 ECHO_SHARE = 0.6
+ECHO_RUN = 6
 
 
 def _content_words(text):
@@ -209,10 +210,17 @@ def accept_echo(q):
     acc = (getattr(q, "accept_text", "") or "").strip()
     if not acc or len(acc) > 200:
         return None
+    desc = getattr(q, "description", "") or ""
+    # a run of ECHO_RUN words lifted straight out of the speech is an echo however few content words it has
+    # ("Second street off the east gate" under a speech that already says it)
+    seq = re.findall(r"[a-z']+", acc.lower())
+    flat = " " + " ".join(re.findall(r"[a-z']+", desc.lower())) + " "
+    if any(" " + " ".join(seq[i:i + ECHO_RUN]) + " " in flat for i in range(len(seq) - ECHO_RUN + 1)):
+        return 1.0
     words = _content_words(acc)
     if len(words) < 2:
         return None
-    return len(words & _content_words(getattr(q, "description", ""))) / len(words)
+    return len(words & _content_words(desc)) / len(words)
 
 
 def story_sentences(q):

@@ -38,4 +38,9 @@ BEATS = {
     'dw_what_master_ashgrave_keeps': "Leave everything exactly where it is. She'll notice a jar out of place.",
     'dw_what_the_wolves_carry': "Label each one with the date. The speed is what I'm after.",
     'dw_whats_in_the_water': "Don't drink from the well for a week after. I'll know by then whether I was right.",
+    'dw_the_coachmans_plate': 'Something crashes there every few minutes, so mind the road.',
+    'dw_the_last_egg': 'Wrap the egg in my shawl and keep it against you. It has to stay warm the whole way.',
+    'dw_burn_the_brood': "Burn everything she's sitting on, even if it looks dead. Nothing in that nest is dead.",
+    'dw_mograk': "Don't listen to the small one. He was always the cruel one.",
+    'dw_what_a_liquidator_is': 'Check the cart wheels as you pass them. The wolves gnaw the spokes, and a cart that breaks down is a cart they get.',
 }
