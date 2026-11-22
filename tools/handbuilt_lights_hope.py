@@ -36,6 +36,15 @@ PORTALS = {(48, 77): "Eastern Plaguelands East"}
 ARRIVALS = [(48, 74)]
 START = (48, 72)
 
+SUBZONES = [   # 22 Nov 2026, for the townsfolk
+    ("The Chapel Square", 34, 22, 30, 20),
+    ("The Infirmary", 8, 36, 26, 16),
+    ("The Command Row", 62, 30, 30, 20),
+    ("Crown Guard's Corner", 6, 52, 30, 18),
+    ("The Cemetery", 56, 58, 30, 14),
+    ("The Gate Road", 38, 46, 18, 26),
+]
+
 ROADS = {
     "gate":     ([(48, 78), (48, 66), (48, 54), (48, 42)], 4.0),
     "west":     ([(48, 54), (36, 50), (24, 44)], 3.0),

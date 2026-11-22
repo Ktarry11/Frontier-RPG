@@ -43,6 +43,16 @@ PORTALS = {(48, 1): "Deadwind West"}
 ARRIVALS = [(48, 5)]
 START = (48, 8)
 
+SUBZONES = [   # 22 Nov 2026, for the townsfolk
+    ("The Wash Line", 34, 4, 30, 18),
+    ("The Pyre", 36, 26, 24, 22),
+    ("The Command House", 62, 14, 30, 30),
+    ("The Infirmary", 8, 26, 28, 20),
+    ("The Laboratory", 8, 48, 30, 22),
+    ("The Inn Yard", 38, 58, 26, 16),
+    ("The Supply Yard", 64, 44, 30, 26),
+]
+
 ROADS = {
     "gate":   ([(48, 0), (48, 12), (48, 22)], 3.2),
     # the ring round the pyre

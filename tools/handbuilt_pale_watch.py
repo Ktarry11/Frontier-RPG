@@ -35,6 +35,14 @@ PORTALS = {(85, 36): "Western Plaguelands North"}
 ARRIVALS = [(82, 36)]
 START = (80, 36)
 
+SUBZONES = [   # 22 Nov 2026, for the townsfolk
+    ("The Watch Square", 34, 26, 32, 14),
+    ("The Inn Row", 16, 22, 18, 14),
+    ("The Back", 4, 10, 16, 28),
+    ("The South Side", 40, 42, 44, 14),
+    ("The Creek Bank", 4, 52, 70, 14),
+]
+
 ROADS = {
     "street": ([(86, 36), (72, 36), (58, 36), (44, 36), (30, 37), (18, 38)], 3.6),
     "inn":    ([(26, 36), (26, 31)], 2.6),

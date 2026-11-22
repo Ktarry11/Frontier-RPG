@@ -85,6 +85,12 @@ TOWNS = {
     "arathi_west": "Arathi West",
     "saltspur_landing": "Saltspur Landing",
     "kaels_bastion": "Kael's Bastion",
+    "lights_hope_chapel": "Light's Hope Chapel",
+    "bulwark": "The Bulwark",
+    "pale_watch": "The Pale Watch",
+    "aridens_watch": "Ariden's Watch",
+    "cinderwharf": "Cinderwharf",
+    "tempest_shallows": "Tempest Shallows",
 }
 SPACING = 3          # nobody stands closer than this to anyone else, if the district has room
 

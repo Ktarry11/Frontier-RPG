@@ -42,6 +42,14 @@ PORTALS = {(3, 40): "Eastern Tirisfal", (100, 40): "Western Plaguelands South"}
 ARRIVALS = [(6, 40), (97, 40)]
 START = (8, 40)
 
+SUBZONES = [   # 22 Nov 2026, for the townsfolk
+    ("The West Gate", 6, 26, 26, 20),
+    ("The Forsaken Row", 32, 14, 36, 22),
+    ("The Apothecary's Yard", 68, 14, 30, 24),
+    ("The King's Road", 32, 36, 36, 12),
+    ("The Order's Lane", 30, 50, 64, 24),
+]
+
 ROADS = {
     "street":  ([(2, 40), (14, 40), (30, 40), (52, 40), (74, 40), (88, 40), (101, 40)], 4.0),
     # the Forsaken's lanes, north to their doors
