@@ -99,3 +99,10 @@ VOICE = {
         "It's done, and the stacks are standing.\n\nI read a page on the way back up, and it's our work. It isn't copied, it's continued. Three years of Codex survey, carried on past where we stopped, in a hand that isn't any of ours, and the entries are better than ours.\n\nI'm going to open a column for it. I don't have a word yet.",
     ),
 }
+
+
+# THE STORY PASS (22 Nov 2026), to docs/quest_writing_standard.md; see tools/voice/underdark_dungeons_story.py.
+from voice.underdark_dungeons_story import STORY as _STORY
+for _qid, (_d, _a) in _STORY.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a, _old[2])
