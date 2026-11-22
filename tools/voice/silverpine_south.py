@@ -224,3 +224,16 @@ VOICE = {
         "Hobart hangs each one on its own numbered hook without being told which.\n\nThat's the shift in.\n\nThirty-one years I called that at the end of a day. I'd not expected to call it again.",
     ),
 }
+
+
+# THE STORY PASS (22 Nov 2026), to docs/quest_writing_standard.md; see tools/voice/silverpine_south_story.py.
+from voice.silverpine_south_story import STORY as _STORY
+for _qid, (_d, _a) in _STORY.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a, _old[2])
+
+
+from voice.silverpine_south_beats import BEATS as _BEATS
+for _qid, _a in _BEATS.items():
+    _o = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_o[0], _a, _o[2])
