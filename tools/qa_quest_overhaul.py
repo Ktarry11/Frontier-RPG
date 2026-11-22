@@ -120,6 +120,9 @@ def main():
             if os.path.exists(f"world/quest_dialogue_{stem}.py"):
                 for qid, tid, p in topic_findings(stem):
                     bad.append(f"voice: {stem} topic {qid}/{tid}: {p}")
+    # Every town keeps its people: Kyle's floors per tier, no big clumps, few "I" openers (tools/qa_townsfolk.py).
+    from qa_townsfolk import findings as townsfolk_findings
+    bad += townsfolk_findings()
     print(f"{len(done)} zones through the overhaul: {', '.join(sorted(done))}")
     if voiced:
         print(f"{len(voiced)} held to the plain-voice bar: {', '.join(voiced)}")
