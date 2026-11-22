@@ -192,7 +192,7 @@ THIRD = {
         "The risen walk the Mulgore Rim in the south-east. Take the samples from the ones you put down.",
     ),
     "st_what_raised_them": (
-        "I want to see what the risen see. There's a cairn at the edge of the Rim, right where the dark begins, and I "
+        "I want to see what the risen see. There's a cairn at the edge of the Mulgore Rim, south of here, right where the dark begins, and I "
         "believe the thing that raises them reaches up out of Mulgore there. I'd like you to stand at that cairn and "
         "tell me what you feel. Thin out the risen guarding it first, or you won't be standing long. Stay as long as "
         "you can bear it, and then come back and tell me everything.",

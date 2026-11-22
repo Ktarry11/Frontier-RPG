@@ -166,3 +166,16 @@ from voice.stonetalon_3p import THIRD as _THIRD          # noqa: E402
 for _qid, (_d, _a) in _THIRD.items():
     _old = VOICE.get(_qid, (None, None, None))
     VOICE[_qid] = (_d, _a if _a is not None else _old[1], _old[2])
+
+
+# THE STORY PASS (22 Nov 2026), to docs/quest_writing_standard.md; see tools/voice/stonetalon_story.py.
+from voice.stonetalon_story import STORY as _STORY
+for _qid, (_d, _a) in _STORY.items():
+    _old = VOICE.get(_qid, (None, None, None))
+    VOICE[_qid] = (_d, _a, _old[2])
+
+
+from voice.stonetalon_beats import BEATS as _BEATS
+for _qid, _a in _BEATS.items():
+    _o = VOICE[_qid]
+    VOICE[_qid] = (_o[0], _a, _o[2])
