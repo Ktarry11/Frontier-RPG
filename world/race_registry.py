@@ -359,9 +359,22 @@ def get_variant_folder(race_id, gender_id, variant_index):
     return gender.variants[index]
 
 
+#: race names written the way people say them, not the registry's ids. Eleven NPCs (Zoram Strand's, the Bulwark's,
+#: Kael's Bastion's flight master) were written "night elf", "blood elf" and "undead", found no look and drew as flat
+#: squares (found 21 Nov 2026, from Kyle's "looks like some npcs dont load").
+RACE_ALIASES = {"undead": "forsaken", "scourge": "forsaken"}
+
+
+def race_key(race_id):
+    """The registry id for a race however it was written: "Night Elf", "blood elf" and "undead" all resolve."""
+    key = str(race_id or "").strip().lower().replace(" ", "_").replace("-", "_")
+    return RACE_ALIASES.get(key, key)
+
+
 def sprite_base_path(race_id, gender_id, variant_index):
     """Full relative path (from project root) to the folder containing
     this appearance's down/left/right/up.png frames."""
+    race_id = race_key(race_id)
     race = get_race(race_id)
     variant_folder = get_variant_folder(race_id, gender_id, variant_index)
     if race is None or variant_folder is None:

@@ -273,7 +273,14 @@ def get_npc_sprite(base_path, direction, tile_width=None, tile_height=None):
         return None
     if tile_width is None and tile_height is None:
         return None
-    return _npc_frame(f"{base_path}/{direction}.png", tile_width, tile_height)
+    # FRONT-ONLY LOOKS. Many NPC looks are drawn facing the viewer and nothing else (the 48 blood elf townsfolk, the
+    # Aetherians, every recruit). An NPC placed facing left on one of them asked for a left.png that doesn't exist
+    # and drew as the flat gold square (Kyle, 21 Nov 2026, of Provisioner Faelin Sunleaf: "the blank square").
+    # A missing facing falls back to the front view.
+    path = f"{base_path}/{direction}.png"
+    if direction != "down" and not os.path.exists(path):
+        path = f"{base_path}/down.png"
+    return _npc_frame(path, tile_width, tile_height)
 
 
 def get_walk_sprite(base_path, direction, frame, tile_height):
