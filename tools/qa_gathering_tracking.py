@@ -97,13 +97,18 @@ def main():
     total = sum(len(here.get(k, [])) for k in ("ore", "herb", "wood"))
     check(len(nodes) == total, f"all three trades: {len(nodes)} tracked of {total}")
 
-    # 4. drawn where it is
+    # 4. drawn where it is. The nodes are painted medallions now (sheet MI1, 22 Nov 2026), not flat diamonds in
+    # TRACK_COLORS, so "drawn" means the map at the node's tile looks different from the same map with no trade
+    # tracked.
+    show([])
+    blank = screen.copy()
+    nodes, _ = show(["mining", "herbalism", "woodcutting", "tailoring"])
     rect = ms._map_rect(tilemap)
     hit = 0
     sample = nodes[:40]
     for kind, x, y in sample:
         px, py = ms._tile_to_screen(tilemap, rect, x, y)
-        if tuple(screen.get_at((px, py)))[:3] == ms.TRACK_COLORS[kind]:
+        if tuple(screen.get_at((px, py))) != tuple(blank.get_at((px, py))):
             hit += 1
     check(hit >= len(sample) * 0.8, f"only {hit} of {len(sample)} tracked nodes are drawn at their own position")
 

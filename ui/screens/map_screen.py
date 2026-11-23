@@ -40,8 +40,8 @@ AUCTION_ROSE = (240, 125, 160)
 #: in lime and gold and a size larger than the other glyphs.
 REP_LIME = (175, 240, 85)
 #: The order glyphs are drawn in: later ones sit on top. Mailboxes stand beside the inn, so they go under it.
-MARKER_ORDER = ("mail", "auction", "shop", "rep", "frontier", "forge", "sawmill", "prof", "class", "inn", "ride",
-                "flight")
+MARKER_ORDER = ("mail", "auction", "bank", "shop", "rep", "frontier", "forge", "sawmill", "prof", "class", "inn",
+                "ride", "flight", "leader")
 #: A point of interest's painted medallion (the npc dot stays a dot: towns are full of them)
 POI_MEDALLION = {"portal": "portal", "boat": "boat", "chest": "chest", "quest_marker": "poi"}
 #: The Frontier Quartermasters (heroic stage 2, tools/build_heroic_rewards.py). Kyle, 21 Nov 2026: "we should have an
@@ -338,7 +338,10 @@ class MapScreen(BaseScreen):
                 kind = row[x]
                 if kind in poi_colors and (x, y) not in unmarked:
                     px, py = self._tile_to_screen(tilemap, rect, x, y)
-                    if self._medallion(screen, POI_MEDALLION.get(kind, ""), px, py):
+                    medal = POI_MEDALLION.get(kind, "")
+                    if kind == "portal" and self._leads_to_dungeon(zm, tilemap.name, x, y):
+                        medal = "dungeon"
+                    if self._medallion(screen, medal, px, py):
                         continue
                     pygame.draw.circle(screen, poi_colors[kind], (px, py), 4)
                     pygame.draw.circle(screen, (20, 20, 20), (px, py), 4, 1)
@@ -385,7 +388,10 @@ class MapScreen(BaseScreen):
             service_npcs += list(vendor_mgr.get_vendors_in_zone(tilemap.name))
         markers = {"inn": set(), "ride": set(), "flight": set(), "class": set(), "prof": set(),
                    "forge": set(), "sawmill": set(), "shop": set(), "rep": set(), "mail": set(), "auction": set(),
-                   "frontier": set()}
+                   "frontier": set(), "bank": set(), "leader": set()}
+        # FACTION LEADERS wear the crown and banner, BANKERS the strongbox (sheet MI1's last three, wired 22 Nov
+        # 2026). A leader is whoever data/factions/factions.json names; the secret faction names nobody.
+        leaders = self._leader_ids()
         from world.faction_manager import quartermaster_ids
         rep_vendors = quartermaster_ids()
         for npc in service_npcs:
@@ -394,6 +400,11 @@ class MapScreen(BaseScreen):
             # a mailbox is an "NPC" that's a prop (world/ambient_npc_manager.py); it gets its own glyph
             if getattr(npc, "is_mailbox", False):
                 markers["mail"].add((npc.x, npc.y))
+                continue
+            if (getattr(npc, "npc_id", None) or getattr(npc, "vendor_id", None)) in leaders:
+                markers["leader"].add((npc.x, npc.y))
+            if getattr(npc, "is_banker", False):
+                markers["bank"].add((npc.x, npc.y))
                 continue
             svcs = services_for_npc(npc)
             for svc in svcs:
@@ -497,25 +508,18 @@ class MapScreen(BaseScreen):
         legend = [
             ((220, 40, 40), "You are here", "player"),
             (poi_colors["portal"], "Portal / cave entrance", "portal"),
+            ((170, 30, 40), "Dungeon entrance", "dungeon"),
             (poi_colors["npc"], "NPC / vendor", None),
             (poi_colors["chest"], "Treasure", "chest"),
             (poi_colors["quest_marker"], "Point of interest", "poi"),
         ]
-        for color, text, medal in legend:
-            if not (medal and self._medallion(screen, medal, lx + 7, ly + 7, 0.8)):
-                pygame.draw.circle(screen, color, (lx + 7, ly + 7), 6)
-            self.renderer.draw_text(screen, text, (lx + 22, ly), color=(200, 200, 210))
-            ly += 26
         # Tracked gathering nodes - only the kinds this player can actually see.
         # No crystal row: there are no crystal nodes to mine (Kyle, 12 Nov: "there is no crystal
         # mining. Delete crystals."). Crystals only ever come out of an ore vein as a bonus.
-        for kind, text in (("ore", "Ore vein (Mining)"),
-                           ("herb", "Herb (Herbalism)"), ("wood", "Tree (Woodcutting)"),
-                           ("fish", "Fishing pool (Fishing)")):
-            if self.TRACK_PROFESSION[kind] in known:
-                self._draw_track_dot(screen, kind, lx + 7, ly + 7)
-                self.renderer.draw_text(screen, text, (lx + 22, ly), color=(200, 200, 210))
-                ly += 26
+        gathering = [(kind, text) for kind, text in (("ore", "Ore vein (Mining)"),
+                                                     ("herb", "Herb (Herbalism)"), ("wood", "Tree (Woodcutting)"),
+                                                     ("fish", "Fishing pool (Fishing)"))
+                     if self.TRACK_PROFESSION[kind] in known]
         # Service icons are glyphs, so the legend uses the same drawing code as the map.
         services = (("shop", "Vendor (buy / sell)"), ("rep", "Reputation quartermaster"),
                     ("frontier", "Frontier Quartermaster (Frontier Marks)"),
@@ -523,11 +527,24 @@ class MapScreen(BaseScreen):
                     ("ride", "Riding trainer / mounts"), ("hearth", "Your hearth is bound here"),
                     ("class", "Class trainer"), ("prof", "Profession trainers"),
                     ("forge", "Forge (ore to bars)"), ("sawmill", "Sawmill (logs to planks)"),
-                    ("mail", "Mailbox"), ("auction", "Auction house"))
-        # Twelve glyphs, the boss row and the size and position lines have to fit above the footer even
-        # when all four gathering rows are showing: the rows close up a little when they'd run over it.
+                    ("mail", "Mailbox"), ("auction", "Auction house"), ("bank", "Bank"),
+                    ("leader", "Faction leader"))
+        # Every row shares one spacing, worked out so the whole legend (and the size and position lines under it)
+        # fits above the footer even with all four gathering rows showing. It was 26 for the first rows and a
+        # squeezed 16 for the rest, which stopped fitting once the bank, leader and dungeon rows came in.
+        rows = len(legend) + len(gathering) + len(services) + 1          # + the Boss row
         room = SCREEN_HEIGHT - 60 - 64 - ly
-        step = max(16, min(26, room // (len(services) + 1)))   # 16 since the rep row (17 Nov) made it thirteen
+        step = max(15, min(26, room // rows))
+        icon_scale = 0.8 if step >= 20 else 0.7
+        for color, text, medal in legend:
+            if not (medal and self._medallion(screen, medal, lx + 7, ly + 7, icon_scale)):
+                pygame.draw.circle(screen, color, (lx + 7, ly + 7), 6)
+            self.renderer.draw_text(screen, text, (lx + 22, ly), color=(200, 200, 210))
+            ly += step
+        for kind, text in gathering:
+            self._draw_track_dot(screen, kind, lx + 7, ly + 7)
+            self.renderer.draw_text(screen, text, (lx + 22, ly), color=(200, 200, 210))
+            ly += step
         for kind, text in services:
             self._draw_service_icon(screen, kind, lx + 7, ly + 7, scale=0.7)
             self.renderer.draw_text(screen, text, (lx + 22, ly), color=(200, 200, 210))
@@ -591,7 +608,35 @@ class MapScreen(BaseScreen):
     #: prompt for all the map icons bro." Every glyph has its painted medallion in assets/icons/map/<name>.png; the
     #: drawn ones below stay as the fallback if a file's missing. Size is the diameter at scale 1.
     MEDALLION_SIZE = {"hearth": 26, "rep": 24, "player": 22, "portal": 16, "boat": 16, "chest": 16, "poi": 16,
-                      "ore": 16, "herb": 16, "wood": 16, "fish": 16}
+                      "ore": 16, "herb": 16, "wood": 16, "fish": 16, "dungeon": 20, "leader": 24, "bank": 20}
+
+    @staticmethod
+    def _leader_ids():
+        """The npc ids of the faction leaders data/factions/factions.json names (secret factions name none)."""
+        if not hasattr(MapScreen, "_leaders_cache"):
+            import json
+            try:
+                with open("data/factions/factions.json", encoding="utf-8") as f:
+                    facs = json.load(f)["factions"]
+            except (OSError, ValueError, KeyError):
+                facs = {}
+            MapScreen._leaders_cache = {(f.get("leader") or {}).get("npc_id") for f in facs.values()
+                                        if not f.get("secret")} - {None}
+        return MapScreen._leaders_cache
+
+    @staticmethod
+    def _leads_to_dungeon(zm, zone, x, y):
+        """Is the portal at (x, y) a dungeon's door? Never true for a hidden zone's way in, which stays a plain
+        portal so the map doesn't tell anyone that one door is special."""
+        pm = getattr(zm, "portal_manager", None)
+        dest = pm.get_destination(zone, x, y) if pm is not None else None
+        if not dest:
+            return False
+        from world.hidden_zones import is_hidden
+        from world.secrets import get_secrets
+        from world.zone_classification import is_dungeon
+        # and never a door standing on secret ground nobody has found yet: that stays a plain portal too
+        return is_dungeon(dest[0]) and not is_hidden(dest[0]) and not get_secrets().is_hidden_tile(zone, x, y)
     _medallions = {}
 
     def _medallion(self, screen, name, cx, cy, scale=1.0):

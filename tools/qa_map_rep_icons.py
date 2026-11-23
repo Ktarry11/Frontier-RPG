@@ -46,7 +46,8 @@ def main():
     surf = pygame.Surface((40, 40))
     scr = MS.MapScreen.__new__(MS.MapScreen)
     MS.MapScreen._draw_service_icon(scr, surf, "rep", 20, 20)
-    if not any(tuple(surf.get_at((x, y)))[:3] == MS.REP_LIME for x in range(40) for y in range(40)):
+    # the painted medallion (sheet MI1, 22 Nov 2026) or the lime fallback glyph: either way something lands
+    if not any(tuple(surf.get_at((x, y)))[:3] != (0, 0, 0) for x in range(40) for y in range(40)):
         bad.append("the rep glyph drew nothing")
     if '("rep", "Reputation quartermaster")' not in Path("ui/screens/map_screen.py").read_text(encoding="utf-8"):
         bad.append("the map legend doesn't name the rep glyph")
