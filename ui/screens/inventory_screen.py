@@ -1104,6 +1104,14 @@ class InventoryScreen(BaseScreen):
         if hovered_item and self.pending_destroy_item is None:
             in_bag = any(hovered_item is it for it in bag.inventory)
             self._draw_item_tooltip(screen, hovered_item, mouse_pos, show_sell_price=in_bag)
+            # WHAT IT WOULD REPLACE (Kyle, 23 Nov 2026: "when hovering over gear in backpack, it should also show
+            # 'currently equiped'"): the worn item's card beside the bag item's, both rings or trinkets for a pair.
+            if in_bag:
+                main, prev = self.last_tooltip_rect, None
+                for worn in self._equipped_to_compare(hovered_item):
+                    self._draw_item_tooltip(screen, worn, mouse_pos, heading="Currently Equipped",
+                                            beside=main, below=prev)
+                    prev = self.last_tooltip_rect
 
         if self.pending_destroy_item is not None:
             self._render_destroy_confirmation(screen)
@@ -1563,7 +1571,23 @@ class InventoryScreen(BaseScreen):
             pass
         return str(mat_id).replace("_", " ").title()
 
-    def _draw_item_tooltip(self, screen, item, mouse_pos, show_sell_price=False):
+    def _equipped_to_compare(self, item):
+        """What the subject is wearing where this bag item would go: the one item in its slot, or both rings or both
+        trinkets for a paired slot. Empty for anything that isn't gear or has nothing worn there."""
+        subject = self._get_subject()
+        eq = getattr(subject, "equipment", None)
+        if eq is None or not getattr(item, "is_gear", True) or not eq.has_slot_for(item) \
+                or getattr(item, "slot", None) == "bag":        # a bag isn't swapped for a bag, it's added
+            return []
+        from entities.equipment import PAIRED_SLOTS
+        slot = eq._resolve_slot(item)
+        slots = PAIRED_SLOTS.get(getattr(item, "slot", None)) or [slot]
+        return [w for w in (eq.get_equipped(sl) for sl in slots) if w is not None and w is not item]
+
+    def _draw_item_tooltip(self, screen, item, mouse_pos, show_sell_price=False, heading=None, beside=None,
+                           below=None):
+        """The item's card at the mouse. With beside (a card already drawn), it goes next to that card instead,
+        and heading is a grey line above the name: "Currently Equipped" (Kyle, 23 Nov 2026)."""
         if not getattr(item, "is_gear", True):
             if getattr(item, "collection_id", None):
                 from ui.collection_tooltip import collection_lines
@@ -1752,17 +1776,32 @@ class InventoryScreen(BaseScreen):
 
         # The card grows to its widest line (up to a limit) instead of letting a long line run out
         # through the border. Kyle, 14 Nov: "Ensure text is in the box."
-        widest = max([self.renderer.font_normal.size(t)[0] for t in lines + [sell_line] if t] or [0])
+        widest = max([self.renderer.font_normal.size(t)[0] for t in lines + [sell_line, heading] if t] or [0])
         box_w = min(460, max(300, widest + 22))
-        box_h = 20 * (len(lines) + (1 if sell_line else 0)) + 16
-        x = min(mouse_pos[0] + 16, SCREEN_WIDTH - box_w - 10)
-        y = min(mouse_pos[1] + 16, SCREEN_HEIGHT - box_h - 10)
+        box_h = 20 * (len(lines) + (1 if sell_line else 0) + (1 if heading else 0)) + 16
+        if below is not None:
+            # a second ring or trinket: under the first compared card
+            x = below.left
+            y = max(10, min(below.bottom + 6, SCREEN_HEIGHT - box_h - 10))
+        elif beside is not None:
+            # next to the card it's compared with: to its right, or its left when the right runs off the screen
+            x = beside.right + 6
+            if x + box_w > SCREEN_WIDTH - 10:
+                x = beside.left - box_w - 6
+            x = max(10, x)
+            y = max(10, min(beside.top, SCREEN_HEIGHT - box_h - 10))
+        else:
+            x = min(mouse_pos[0] + 16, SCREEN_WIDTH - box_w - 10)
+            y = min(mouse_pos[1] + 16, SCREEN_HEIGHT - box_h - 10)
         rect = pygame.Rect(x, y, box_w, box_h)
 
         self.renderer.draw_rect(screen, rect, (15, 15, 20))
         self.renderer.draw_rect(screen, rect, item.get_rarity_color(), fill=False)
 
         ty = y + 8
+        if heading:
+            self.renderer.draw_text(screen, heading, (x + 10, ty), color=(150, 150, 160))
+            ty += 20
         first_warning = len(lines) - len(warning_lines)
         for i, line in enumerate(lines):
             if i == 0:
