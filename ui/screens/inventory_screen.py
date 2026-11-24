@@ -1627,7 +1627,18 @@ class InventoryScreen(BaseScreen):
                 lines.extend(self.renderer.wrap_text(item.description, body_w))
             if getattr(item, "quantity", 1) > 1:
                 lines.append(f"Quantity: {item.quantity}")
-            box_h = 20 * len(lines) + 16
+            # WHAT A VENDOR GIVES, as on gear (Kyle, 23 Nov 2026: "vendor trash should show what it sells for like
+            # other items do"): each, and for the stack when there's more than one.
+            sell_line = ""
+            price = int(getattr(item, "sell_price", 0) or 0)
+            if show_sell_price and price > 0 and getattr(item, "is_sellable", True):
+                from ui.coin_format import format_coins
+                qty = int(getattr(item, "quantity", 1) or 1)
+                sell_line = f"Sell Price: {format_coins(price)}" + (
+                    f" each ({format_coins(price * qty)} for {qty})" if qty > 1 else "")
+                if self.renderer.font_normal.size(sell_line)[0] > body_w:
+                    box_w = min(460, self.renderer.font_normal.size(sell_line)[0] + 22)
+            box_h = 20 * (len(lines) + (1 if sell_line else 0)) + 16
             x = min(mouse_pos[0] + 16, SCREEN_WIDTH - box_w - 10)
             y = min(mouse_pos[1] + 16, SCREEN_HEIGHT - box_h - 10)
             box_rect = pygame.Rect(x, y, box_w, box_h)
@@ -1638,6 +1649,9 @@ class InventoryScreen(BaseScreen):
                 # colour follows the name block rather than just line 0.
                 color = COLOR_WHITE if i < len(name_lines) else (170, 170, 170)
                 self.renderer.draw_text(screen, line, (x + 8, y + 8 + i * 20), color=color)
+            if sell_line:
+                self.renderer.draw_text(screen, sell_line, (x + 8, y + 8 + len(lines) * 20), color=COLOR_GOLD)
+            self.last_tooltip_rect = box_rect
             return
 
         # Upgrade-kit state rides on this line as a badge rather than in the
