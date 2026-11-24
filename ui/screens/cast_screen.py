@@ -42,7 +42,7 @@ class CastScreen(BaseScreen):
     ROSTER_Y = PANEL_Y
     ROSTER_WIDTH = 320
     ROSTER_HEIGHT = SCREEN_HEIGHT - PANEL_Y - PANEL_BOTTOM_MARGIN
-    ROSTER_ROW_HEIGHT = 100
+    ROSTER_ROW_HEIGHT = 110        # room for the resource bar's numbers and a secondary-resource bar (23 Nov 2026)
 
     # Right column: selected member's ability list. Runs to the same 40px
     # right margin the roster uses on the left, rather than stopping at a
@@ -154,15 +154,25 @@ class CastScreen(BaseScreen):
         return out
 
     def _can_afford(self, actor, ability):
-        from combat.abilities import get_class_resource, ResourceType
-        resource = get_class_resource(actor.char_class)
+        """Paid from the ABILITY's own pool (Invigorating Surge spends Static, not the Stormbringer's mana), the same
+        check combat makes (Ability._has_resource)."""
         cost = ability.talented_cost(actor) if hasattr(ability, "talented_cost") else 0
-        pools = {
-            ResourceType.MANA: actor.current_mana,
-            ResourceType.RAGE: actor.current_rage,
-            ResourceType.ENERGY: actor.current_energy,
-        }
-        return pools.get(resource, 9999) >= cost
+        if hasattr(ability, "_has_resource"):
+            return ability._has_resource(actor, cost)
+        return True
+
+    @staticmethod
+    def _pool_name(rtype):
+        from ui.screens.combat_screen import CombatScreen
+        key = getattr(rtype, "value", rtype)
+        return CombatScreen.RESOURCE_DISPLAY_NAMES.get(key, str(key).replace("_", " ").title())
+
+    def _ability_cost_label(self, actor, ability, cost):
+        """"19 Static", "53 Mana": the pool this ability really spends (Kyle, 23 Nov 2026: "invigorating surge is
+        showing as mana when its static")."""
+        rtype = ability._effective_resource_type(actor) if hasattr(ability, "_effective_resource_type") \
+            else getattr(ability, "resource_type", None)
+        return f"{int(cost)} {self._pool_name(rtype)}"
 
     def _resource_abbrev(self, actor):
         from combat.abilities import get_class_resource, ResourceType
@@ -405,24 +415,37 @@ class CastScreen(BaseScreen):
                                     (bar_x + bar_w - hp_w - 4, bar_y - 1),
                                     font_size=12, color=(235, 235, 240))
 
-            # Resource bar (Mana/Rage/Energy) - same "see the mana of the
-            # character using it" ask this screen already honored in the
-            # ability-cost display, now visible at a glance on the roster
-            # too, not just after you've already picked them.
-            resource = get_class_resource(member.char_class)
-            pools = {
-                ResourceType.MANA: (member.current_mana, getattr(member, "mana", 0), (90, 130, 230)),
-                ResourceType.RAGE: (member.current_rage, 100, (200, 70, 70)),
-                ResourceType.ENERGY: (member.current_energy, 100, (210, 200, 60)),
-            }
-            pool = pools.get(resource)
-            res_y = bar_y + 18
-            if pool is not None and pool[1]:
-                cur, mx, res_color = pool
-                res_pct = max(0.0, min(1.0, cur / mx)) if mx else 0
-                pygame.draw.rect(screen, (20, 20, 24), (bar_x, res_y, bar_w, 6))
-                pygame.draw.rect(screen, res_color, (bar_x, res_y, int(bar_w * res_pct), 6))
-                pygame.draw.rect(screen, (80, 80, 90), (bar_x, res_y, bar_w, 6), 1)
+            # RESOURCE BARS, with their numbers (Kyle, 23 Nov 2026: "we should also indicate how much mana there is an
+            # have a spot for secondary resources (rage/energy/static)"): the class's main pool, then its second one
+            # (a Stormbringer's Static, a Rogue's combo points) when it has one, each labelled and coloured as in
+            # combat.
+            from combat.abilities import get_class_secondary_resource
+            from ui.screens.combat_screen import CombatScreen
+            res_y = bar_y + 15
+            pools = [get_class_resource(member.char_class, member), get_class_secondary_resource(member.char_class)]
+            colours = {ResourceType.MANA: (90, 130, 230), ResourceType.RAGE: (200, 70, 70),
+                       ResourceType.ENERGY: (210, 200, 60)}
+            for rtype in pools:
+                if rtype is None or not hasattr(member, "get_resource"):
+                    continue
+                cur = member.get_resource(rtype)
+                mx = member.get_resource_max(rtype)
+                if not mx:
+                    continue
+                colour = colours.get(rtype) or CombatScreen.SECONDARY_RESOURCE_COLORS.get(
+                    getattr(rtype, "value", rtype), (180, 180, 180))
+                pct = max(0.0, min(1.0, cur / mx))
+                pygame.draw.rect(screen, (20, 20, 24), (bar_x, res_y, bar_w, 12))
+                pygame.draw.rect(screen, colour, (bar_x, res_y, int(bar_w * pct), 12))
+                pygame.draw.rect(screen, (80, 80, 90), (bar_x, res_y, bar_w, 12), 1)
+                # the row is 104 tall: name, health, two pools and the buffs fit with 14 a bar
+                self.renderer.draw_text(screen, self._pool_name(rtype), (bar_x + 4, res_y - 1),
+                                        font_size=11, color=(235, 235, 240))
+                txt = f"{max(0, round(cur))}/{round(mx)}"
+                tw = self.renderer._get_font(font_size=11).size(txt)[0]
+                self.renderer.draw_text(screen, txt, (bar_x + bar_w - tw - 4, res_y - 1),
+                                        font_size=11, color=(235, 235, 240))
+                res_y += 14
 
             # Active buffs/debuffs - per Kyle's ask. Filtered to BUFF/
             # DEBUFF only (StatusEffectMixin also tracks DOT/HOT ticks,
@@ -438,7 +461,7 @@ class CastScreen(BaseScreen):
             # without a real icon_id yet, so this never shows a blank gap.
             from combat.status_effects import EffectType, is_displayable_buff
             buffs = [e for e in member._effects() if is_displayable_buff(e)]
-            buff_y = res_y + 14
+            buff_y = res_y + 2
             BUFF_ICON_SIZE = 20
             if buffs:
                 # The same square the combat and party screens draw (ui/effect_tooltip.draw_effect_icon): the
@@ -550,9 +573,9 @@ class CastScreen(BaseScreen):
                                     font_size=18, color=color)
 
             cost = ability.talented_cost(actor) if hasattr(ability, "talented_cost") else 0
-            if cost and resource_label:
+            if cost:
                 cost_color = (150, 150, 160) if affordable else (140, 90, 90)
-                self.renderer.draw_text(screen, f"{int(cost)} {resource_label}",
+                self.renderer.draw_text(screen, self._ability_cost_label(actor, ability, cost),
                                         (text_x, rect.y + 28),
                                         font_size=14, color=cost_color)
 
