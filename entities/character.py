@@ -4801,7 +4801,8 @@ class Character(StatusEffectMixin):
             # built is not a gift from the player
             if bm.has(rid) and bm.get(rid).in_party:
                 bm.on_gear_given(rid, slot or getattr(item, "slot", None),
-                                 better=self._gear_power(item) > self._gear_power(previous))
+                                 better=self._gear_power(item) > self._gear_power(previous),
+                                 item_id=getattr(item, "item_id", None))
         except Exception as exc:
             print(f"[Character] friendship update failed: {exc}")
 

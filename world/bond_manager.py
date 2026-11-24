@@ -35,7 +35,11 @@ STINT = [6, 8, 11, 14, 18]
 #: outings you do without them before they're back, by stage
 BREAK = [4, 4, 3, 3, 2]
 #: trust for each kind of thing done together
-GAIN = {"quest": 3, "dungeon": 8, "boss": 1, "upgrade": 5, "rest": 2}
+GAIN = {"quest": 3, "dungeon": 8, "boss": 1, "upgrade": 2, "rest": 2}
+#: GIFTS ARE A NICE GESTURE, NOT A LADDER (Kyle, 23 Nov 2026: "giving blues to party members is way too easy to get
+#: friendship with them...its crazy how fast it climbs. We need to reduce it down"). An upgrade was worth 5 trust,
+#: more than a quest, as often as you could hand them gear, and the same item could be taken back and given again
+#: for 3 a go. Now: 2 trust, at most one gift per outing counts, and an item only ever counts once.
 MOOD_START, WARN, LEAVE = 70, 35, 20
 GRIND_KILLS = 60            # open-world kills with no outing in between = one dose of boredom (was 30, 21 Nov 2026)
 LEVEL_UP_MOOD = 6           # the player gaining a level is progress, and the party feels it
@@ -74,6 +78,8 @@ class Bond:
         self.pending = None             # a moment waiting to be shown (id)
         self.in_party = False
         self.invite = None              # a letter asking them to meet you (world/recruit_mail.py)
+        self.gift_outing = -1           # the outing (BondManager.deeds) whose gift already counted
+        self.gifted = []                # item ids they've already been thanked for
 
     # -- reading
     @property
@@ -537,7 +543,7 @@ class BondManager:
         self._trust(b, -2)
         self.say(rid, self.line(rid, "gear_taken"))
 
-    def on_gear_given(self, rid, slot, better):
+    def on_gear_given(self, rid, slot, better, item_id=None):
         b = self.bonds.get(rid)
         if b is None:
             return
@@ -547,8 +553,15 @@ class BondManager:
         if lt and lt[0] != rid and lt[1] == slot and self.deeds - lt[2] <= 1:
             self.rel.on_gear_moved(lt[0], rid, better)       # handed from one of them to another
         if better:
-            self._trust(b, GAIN["upgrade"])
-            self._mood(b, 8)
+            # one gift an outing counts, and never the same item twice (see GAIN): handing someone five blues in a
+            # row, or the same blue five times, is one gift
+            fresh = item_id is None or item_id not in b.gifted
+            if fresh and b.gift_outing != self.deeds:
+                b.gift_outing = self.deeds
+                self._trust(b, GAIN["upgrade"])
+                self._mood(b, 5)
+            if item_id is not None and fresh:
+                b.gifted = (b.gifted + [item_id])[-300:]
             self.say(rid, self.line(rid, "gear_upgrade"))
 
     def on_quest_abandoned(self, party=None):
