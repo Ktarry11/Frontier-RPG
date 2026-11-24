@@ -956,14 +956,17 @@ class QuestDialogScreen(BaseScreen):
         """
         item = choice.item
         label = getattr(choice, "armor_type_label", "") or ""
+        # WHAT IT IS, the bag's and the vendor's own words (ui/item_kind.py): "One-Hand Mace", "Two-Hand Axe",
+        # "Leather Chest". The label said only "Mace (Str/Agi)", so a reward never said how many hands it took
+        # (Kyle, 23 Nov 2026). The label's stat tag, the "(Str/Agi)" part, is kept after it.
+        from ui.item_kind import item_kind
+        kind = item_kind(item)
+        tag = label[label.index("("):] if "(" in label and label.endswith(")") else ""
+        if kind:
+            return f"{kind} {tag}".strip()
         if label and label != item.name:
             return label
-        slot = (item.slot or "").rstrip("0123456789").replace("_", " ").title()
-        if item.weapon_type:
-            return item.weapon_type.replace("_2h", " (Two-Hand)").replace("_1h", " (One-Hand)").replace("_", " ").title()
-        if item.armor_type and item.armor_type not in ("none", "bag"):
-            return f"{item.armor_type.title()} {slot}"
-        return slot
+        return (item.slot or "").rstrip("0123456789").replace("_", " ").title()
 
     @staticmethod
     def _stat_lines(item, short=False):
@@ -1114,7 +1117,7 @@ class QuestDialogScreen(BaseScreen):
             fallback=self.state_manager.player.level)
 
         self.renderer.draw_text(screen, quest.title, (40, 90), color=COLOR_WHITE)
-        self._draw_wrapped_text(screen, quest.turn_in_text, (40, 130), max_width=SCREEN_WIDTH - 80)
+        end = self._draw_wrapped_text(screen, quest.turn_in_text, (40, 130), max_width=SCREEN_WIDTH - 80)
 
         scaled_exp = quest.get_scaled_exp_reward(player_level)
         reward_lines = [f"Reward: {scaled_exp} XP"]
@@ -1128,11 +1131,15 @@ class QuestDialogScreen(BaseScreen):
             reward_lines.append(f"+ {coins(quest.reward_gold)}")
         if quest.gear_reward_gear_level is not None:
             reward_lines.append("+ choice of gear")
+        # The rewards start under what was said, however long it ran. They sat at a fixed y of 260, and a turn-in
+        # speech of three paragraphs ran straight through them (Kyle, 23 Nov 2026: "weird ass overlap").
+        ry = max(260, int(end or 130) + 16)
         for i, line in enumerate(reward_lines):
-            self.renderer.draw_text(screen, line, (40, 260 + i * 26), color=COLOR_GOLD)
+            self.renderer.draw_text(screen, line, (40, ry + i * 26), color=COLOR_GOLD)
 
         if self.result_message:
-            self.renderer.draw_text(screen, self.result_message, (40, 380), color=(120, 220, 140))
+            self.renderer.draw_text(screen, self.result_message, (40, max(380, ry + len(reward_lines) * 26 + 16)),
+                                    color=(120, 220, 140))
 
         self.renderer.draw_button(screen, self.turn_in_button, "Turn In")
 
