@@ -5,9 +5,10 @@
 
 Kyle, 16 Nov 2026: "enemies STILL get stun locked bro" (a level 56 boss held by Frostbite turn after turn). With a
 two-turn stun thrown at the target every single one of its turns, for 20 turns:
-  1. a boss is stunned on at most one turn in four, never two turns running;
+  1. a boss is never stunned at all (23 Nov 2026, a friend's playtest Kyle passed on: "Bosses should be immune to
+     stuns"; it was one turn in four);
   2. anything else is stunned on at most two turns in five, and never three turns running;
-  3. both are still stunned at all (the rule cuts stun-lock, not stuns).
+  3. anything else is still stunned at all (the rule cuts stun-lock, not stuns).
 """
 import os
 import sys
@@ -41,22 +42,20 @@ def main():
     mob.is_boss = False
     pb, pm = pattern(boss), pattern(mob)
     print(f"boss: {pb}\nmob:  {pm}")
-    if "SS" in pb:
-        bad.append("a boss was stunned two turns running")
-    if any(pb[i:i + 4].count("S") > 1 for i in range(len(pb) - 3)):
-        bad.append("a boss was stunned more than once in four turns")
+    if "S" in pb:
+        bad.append("a boss was stunned; bosses are immune to stuns")
     if "SSS" in pm:
         bad.append("a mob was stunned three turns running")
     if any(pm[i:i + 5].count("S") > 2 for i in range(len(pm) - 4)):
         bad.append("a mob was stunned more than twice in five turns")
-    if "S" not in pb or "S" not in pm:
-        bad.append("stuns stopped landing altogether")
+    if "S" not in pm:
+        bad.append("stuns stopped landing on ordinary enemies")
     if bad:
         print(f"FAIL ({len(bad)})")
         for b in bad:
             print("  -", b)
         return 1
-    print("PASS - stuns diminish: no boss or mob can be held turn after turn")
+    print("PASS - bosses shrug off stuns, and nothing else can be held turn after turn")
     return 0
 
 

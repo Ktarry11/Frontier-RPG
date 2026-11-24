@@ -141,7 +141,8 @@ def main():
         check("too powerful" in str(r[1]), f"Banish on a boss should say why; it says {r[1]!r}")
     r = cast("Paladin", "paladin_hammer_of_justice", "Felhound", boss=True)
     if r:
-        check(r[0] and r[2], f"an ordinary stun should still land on a boss ({r[1]})")
+        # bosses are immune to stuns since 23 Nov 2026, and a spell that's only a stun is refused before it's paid for
+        check(not r[0] and "immune to stuns" in str(r[1]), f"a stun on a boss should be refused, saying why ({r[1]})")
 
     # the same rule when the effect arrives without a cast (area effects, procs)
     from combat.status_effects import StatusEffect, EffectType

@@ -1041,6 +1041,12 @@ class StatusEffectMixin:
         if effect.effect_type == EffectType.DEBUFF and effect.is_stun:
             if self.get_status_stat_mod("cc_immune") > 0:
                 return f"{self.name} is immune to {effect.name}!"
+            # BOSSES CAN'T BE STUNNED (a friend's playtest, passed on by Kyle 23 Nov 2026: "Wailing caverns with a
+            # level 21 group just sails through... Bosses should be immune to stuns maybe"). Every boss, dungeon or
+            # field or rare: stun-locking one turned its fight into a free one. Interrupts still work (a silence on a
+            # boss lasts a turn, above).
+            if getattr(self, "is_boss", False):
+                return f"{self.name} is immune to {effect.name}!"
 
             # WRONG KIND OF CREATURE for this crowd control (Banish on a naga, Polymorph on an
             # elemental, Fear on something mechanical). A single-target cast is refused before

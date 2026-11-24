@@ -2501,6 +2501,12 @@ class Ability:
             reason = blocked_reason(self.ability_id, self.name, target)
             if reason:
                 return False, reason
+            # A BOSS SHRUGS OFF STUNS (see StatusEffectMixin.apply_status_effect): a spell that is nothing but a
+            # stun is refused before it's paid for, the same courtesy as the wrong creature type. A hit with a
+            # stun rider still lands its damage.
+            if (self.is_stun and getattr(target, "is_boss", False)
+                    and self.effect_type in ("debuff", "stun")):
+                return False, f"{getattr(target, 'name', 'The boss')} is immune to stuns."
 
         # Execute-style HP gate (Warrior Execute's real 20%, Stormbringer
         # Electrocute's real 35%, ...). Checked BEFORE resource consumption
