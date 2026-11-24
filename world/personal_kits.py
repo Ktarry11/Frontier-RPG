@@ -164,9 +164,13 @@ def get_sworn(recruit_id, sworn=None):
 def _passive_blocks(character):
     """Every passive block this character has: kit, Sworn (if sworn), racial."""
     rid = getattr(character, "recruit_id", None)
-    return [((get_kit(rid) or {}).get("passives"), "Personal", "Personal Trait"),
-            ((get_sworn(rid) or {}).get("passives"), "Sworn", "Sworn"),
-            ((racial_of(character) or {}).get("passives"), "Racial", None)]
+    racial = racial_of(character) or {}
+    return ([((get_kit(rid) or {}).get("passives"), "Personal", "Personal Trait"),
+             ((get_sworn(rid) or {}).get("passives"), "Sworn", "Sworn"),
+             (racial.get("passives"), "Racial", None)]
+            # a race's other always-on bonuses, each its own named block (Axe Specialization, Arcane Affinity, Brawn:
+            # true passives since 23 Nov 2026, not buttons on the hotbar)
+            + [(b, "Racial", None) for b in racial.get("extra_passives") or [] if isinstance(b, dict)])
 
 
 def racial_of(character):
@@ -235,6 +239,27 @@ def is_combat_key(key):
     return key in COMBAT_KEYS or (key.endswith("_damage_pct") and not key.endswith("_crit_damage_pct"))
 
 
+#: passives that only count while the main hand holds a weapon of this kind: {key: weapon-type prefix}
+WEAPON_PASSIVES = {"axe_expertise": "axe"}
+
+
+def weapon_expertise(character):
+    """Expertise from a passive that only counts with a weapon kind in the main hand (an Orc's Axe Specialization:
+    5 with an axe, nothing without). Read by the dodge and parry roll in entities/monster.py."""
+    eq = getattr(character, "equipment", None)
+    weapon = eq.get_main_hand_weapon() if eq is not None else None
+    wtype = str(getattr(weapon, "weapon_type", "") or "")
+    total = 0.0
+    for block, _, _ in _passive_blocks(character):
+        if not isinstance(block, dict):
+            continue
+        for key, prefix in WEAPON_PASSIVES.items():
+            v = block.get(key)
+            if isinstance(v, (int, float)) and wtype.startswith(prefix):
+                total += v
+    return total
+
+
 def combat_passives_for(character):
     """This character's kit and racial passives that combat reads by name, as fractions.
     Character.get_talent_effects adds these to what talents, stances and forms give."""
@@ -258,8 +283,8 @@ def _scalars(block):
         return {}
     out = {}
     for k, v in block.items():
-        if k.startswith("_") or not isinstance(v, (int, float)) or is_combat_key(k):
-            continue      # combat keys go through combat_passives_for, never both
+        if k.startswith("_") or not isinstance(v, (int, float)) or is_combat_key(k) or k in WEAPON_PASSIVES:
+            continue      # combat keys go through combat_passives_for, weapon ones through weapon_expertise
         out[k] = v / 100.0 if k in FRACTION_KEYS else v
     return out
 
@@ -276,6 +301,7 @@ PASSIVE_LABELS = {
     "heal_healthy_target_pct": "Healing on Allies Above 80% Health",
     "hot_tick_growth_pct": "Heals Over Time Grow Each Turn",
     "heal_leaves_hot_pct": "Heals Leave a Slow Growth",
+    "axe_expertise": "Expertise with an Axe",
 }
 
 

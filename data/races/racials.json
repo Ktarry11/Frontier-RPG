@@ -37,7 +37,9 @@
     "",
     "DEAD-KEY CHECK, run before committing: every stat key here was checked against the engine. arcane_damage_pct is live (combat/abilities.py reads <school>_damage_pct through an f-string, which a naive grep misses). expertise, pet_damage, stun_duration_reduction_pct, crit_damage_physical and cc_immune are all live. spell_power_pct was DEAD and is now live - entities/character.py had a final multiplier for attack_power_pct and healing_power_pct but none for spell power, so Orc's Blood Fury would have done half its job. reputation_gain_pct is still dead and is marked as such on the Human entry rather than left to be discovered.",
     "",
-    "COOLDOWNS MATCH THE PERSONAL KITS: 10-15 turns on anything that swings a fight, is_instant so it does not cost the turn, and no boss_immune. Kyle, 6 Nov: 'if they have cooldowns that long, they can work in boss fights.' War Stomp and Arcane Torrent lost the flag and the caveat sentence with it - a 12-turn stun or silence is a trump card a boss fight can carry."
+    "COOLDOWNS MATCH THE PERSONAL KITS: 10-15 turns on anything that swings a fight, is_instant so it does not cost the turn, and no boss_immune. Kyle, 6 Nov: 'if they have cooldowns that long, they can work in boss fights.' War Stomp and Arcane Torrent lost the flag and the caveat sentence with it - a 12-turn stun or silence is a trump card a boss fight can carry.",
+    "",
+    "TRUE PASSIVES (Kyle, 23 Nov 2026: \"Yeah make them true passives\"). Axe Specialization, Arcane Affinity and Brawn were written as always-on bonuses but authored as castable buffs, so they sat on the hotbar as buttons. They are 'extra_passives' blocks now, read through the same channels as 'passives' (world/personal_kits._passive_blocks) and listed under Core with the race's other passive. axe_expertise is read where the dodge and parry roll is (entities/monster.py), only while the main hand holds an axe."
   ],
   "human": {
     "label": "Human",
@@ -128,29 +130,14 @@
             "effect_value": 15
           }
         ]
-      },
+      }
+    ],
+    "extra_passives": [
       {
-        "ability_id": "racial_orc_axe_specialization",
-        "name": "Axe Specialization",
-        "wow": "Axe Specialization - expertise with axes",
-        "engine": "needs: weapon-type-conditional expertise",
-        "effect_type": "buff",
-        "target_type": "self",
-        "cooldown": 0,
-        "duration": 0,
-        "is_instant": true,
-        "stat_mods": {
-          "expertise": 5
-        },
-        "description": "While wielding an axe, your attacks are 5 expertise harder to dodge or parry.",
-        "ranks": [
-          {
-            "rank": 1,
-            "level_req": 1,
-            "cost": 0,
-            "effect_value": 5
-          }
-        ]
+        "_name": "Axe Specialization",
+        "_wow": "Axe Specialization - expertise with axes",
+        "axe_expertise": 5,
+        "_text": "While wielding an axe, your attacks are 5 expertise harder to dodge or parry."
       }
     ]
   },
@@ -186,29 +173,13 @@
             "effect_value": 6
           }
         ]
-      },
+      }
+    ],
+    "extra_passives": [
       {
-        "ability_id": "racial_blood_elf_arcane_affinity",
-        "name": "Arcane Affinity",
-        "wow": "Arcane Affinity - an affinity for arcane magic",
-        "engine": "needs: school-scoped damage bonus as a passive ability",
-        "effect_type": "buff",
-        "target_type": "self",
-        "cooldown": 0,
-        "duration": 0,
-        "is_instant": true,
-        "stat_mods": {
-          "arcane_damage_pct": 5
-        },
-        "description": "Your arcane damage is increased by 5%.",
-        "ranks": [
-          {
-            "rank": 1,
-            "level_req": 1,
-            "cost": 0,
-            "effect_value": 5
-          }
-        ]
+        "_name": "Arcane Affinity",
+        "_wow": "Arcane Affinity - an affinity for arcane magic",
+        "arcane_damage_pct": 5
       }
     ]
   },
@@ -296,29 +267,13 @@
             "effect_value": 0
           }
         ]
-      },
+      }
+    ],
+    "extra_passives": [
       {
-        "ability_id": "racial_tauren_brawn",
-        "name": "Brawn",
-        "wow": "Tauren critical strikes deal more damage than other races'",
-        "engine": "existing (crit_damage_physical)",
-        "effect_type": "buff",
-        "target_type": "self",
-        "cooldown": 0,
-        "duration": 0,
-        "is_instant": true,
-        "stat_mods": {
-          "crit_damage_physical": 0.04
-        },
-        "description": "Your critical strikes deal 4% more damage.",
-        "ranks": [
-          {
-            "rank": 1,
-            "level_req": 1,
-            "cost": 0,
-            "effect_value": 4
-          }
-        ]
+        "_name": "Brawn",
+        "_wow": "Tauren critical strikes deal more damage than other races'",
+        "crit_damage_physical": 4
       }
     ]
   }

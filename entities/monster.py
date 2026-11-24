@@ -1264,6 +1264,12 @@ class Monster(StatusEffectMixin):
                 if hasattr(attacker, "get_talent_effect"):
                     expertise += attacker.get_talent_effect("expertise", 0.0) or 0.0
                 expertise += getattr(attacker, "expertise", 0) or 0
+                # an always-on bonus that needs a weapon kind in hand (an Orc's Axe Specialization)
+                try:
+                    from world.personal_kits import weapon_expertise
+                    expertise += weapon_expertise(attacker)
+                except Exception:
+                    pass
                 # ...and from a BUFF on the attacker. A talent's expertise was read and a
                 # buff's was not, so Carolina Santos's "attacks cannot be dodged or parried"
                 # (expertise 50 for 3 turns) removed nothing.
