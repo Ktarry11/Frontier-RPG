@@ -20,7 +20,16 @@ THE RULE, the same for every class, with each class's own exceptions in OVERRIDE
     class's smallest hit.
   - SHORT: the quick casts that still take a moment. Names that say so (Flash, Lesser), the class's smallest direct
     heal, and its next smallest hit.
-  - Every class ends with at least two instant, one short and one long.
+  - Every class ends with at least one short and one long.
+  - NO SPAMMABLE INSTANT HITS (Kyle, 23 Nov 2026: "why is scrapshot instant cast? We should not have damage skills
+    that are low mana with no cooldown being instant lol. Are other things like this"). Anything that hurts an enemy
+    and is instant needs a cooldown of 2 turns or more. The 23 Nov pass (no_spam_instants) settled the 30 there were:
+    the snap actions and the damage over time stayed instant and took a 2-turn cooldown (a shock, a lance, a throw, a
+    sting, a lunge, Quick Shot, Arcane Shot, Exorcism, Cleave and the two rage sweeps; Moonfire, Shadow Word: Pain,
+    Corruption, Ignite, Hammer of Kings and Nerubian Sting), and the fillers and builders became short casts, re-sized
+    from the instant size to the short one (Sinister Strike, Mutilate, Devastate, the Runemaster's blades...). Scrap
+    Shot became medium, the 1.88-second cast its CoA screenshot shows. The old rule of two instants per class went with
+    it: four classes had nothing instant left but their spam.
 
 SIZING, so a speed never makes a spell better or worse per turn of time: long is 1.33x for 1.2x the cost, short
 0.7x for 0.75x, instant 0.36x for 0.42x (all against a medium spell). Only damage, healing and absorbs are sized; a long summoning or an instant
@@ -61,6 +70,13 @@ INSTANT_WORDS = re.compile(
     r"\b(shock|quick|swift|jab|lance|dart|flick|snap|spark|zap|sting|nip|kick|pummel|counter\w*|rebuke|interrupt|"
     r"taunt|throw|toss|lunge|renew|shiv|prick)\b", re.I)
 LONG_TYPES = {"revive", "summon_pet"}
+
+#: the 23 Nov 2026 pass (no_spam_instants): which instant hits keep their speed and take a cooldown instead of slowing
+SNAP_KEEPS = re.compile(r"\b(shock|lance|throw|sting|lunge|quick|arcane shot|exorcism|cleave|claw sweep|meatsaw)\b",
+                        re.I)
+SPAM_COOLDOWN = 2
+#: a filler that slows goes to short, unless named here
+SLOW_TO = {"tinker_scrap_shot": "medium"}
 
 #: per-class exceptions after reading the result: ability_id -> speed ("medium" to undo a rule's pick)
 OVERRIDES = {
@@ -120,6 +136,38 @@ def migrate(e):
     return f"{old} -> {new}"
 
 
+def spam_instant(e):
+    """An instant hit with no real cooldown: what Kyle's 23 Nov rule forbids."""
+    return (castable(e) and e.get("cast_speed") == "instant" and (e.get("cooldown") or 0) < SPAM_COOLDOWN
+            and e.get("effect_type") in HIT_TYPES)
+
+
+def no_spam_instants(e):
+    """Kyle, 23 Nov 2026: no instant damage without a cooldown. A snap action or a damage over time keeps its speed and
+    takes a 2-turn cooldown; anything else slows to short (or SLOW_TO) and is re-sized from the instant size to it.
+    Returns a note, or None if the ability was fine."""
+    if not spam_instant(e):
+        return None
+    over_time = e.get("effect_type") in OVER_TIME
+    if over_time or SNAP_KEEPS.search(e["name"]):
+        e["cooldown"] = SPAM_COOLDOWN
+        e.setdefault("_tuning", []).append(
+            "23 Nov 2026: stays instant with a 2-turn cooldown (Kyle: \"We should not have damage skills that are low "
+            "mana with no cooldown being instant\"; tools/build_cast_speeds.py no_spam_instants)")
+        return f"{e['name']}: instant, now a {SPAM_COOLDOWN}-turn cooldown"
+    to = SLOW_TO.get(e["ability_id"], "short")
+    sizes = SIZE_OVER_TIME if over_time else SIZE
+    (im, ic) = sizes["instant"]
+    (tm, tc) = sizes.get(to, (1.0, 1.0))
+    resize(e, tm / im, tc / ic)
+    e["cast_speed"] = to
+    e.setdefault("_tuning", []).append(
+        f"23 Nov 2026: a {to} cast, not instant, re-sized from the instant size to the {to} one (Kyle: \"We should not "
+        f"have damage skills that are low mana with no cooldown being instant\"; tools/build_cast_speeds.py "
+        f"no_spam_instants)")
+    return f"{e['name']}: instant -> {to}"
+
+
 def picks_for(cls, abilities):
     """{ability_id: speed} for this class's castable abilities that have none yet, plus a short one if it lacks it."""
     pool = [e for e in abilities if castable(e)]
@@ -156,10 +204,7 @@ def picks_for(cls, abilities):
         if count("long") >= 1 or len(hits) < 2:
             break
         take(e, "long")
-    for e in hits:
-        if count("instant") >= 2:
-            break
-        take(e, "instant", over_medium=True)
+    # (no "two instants" top-up any more: an instant hit needs a cooldown, Kyle 23 Nov 2026)
     if count("short") < 1:
         direct = [e for e in heals if e.get("effect_type") == "heal" and out.get(e["ability_id"]) in (None, "medium")]
         rest = [e for e in hits if out.get(e["ability_id"]) in (None, "medium")]
@@ -189,10 +234,13 @@ def check():
         if bad:
             problems.append(f"{cls}: {len(bad)} castable abilities have no speed of the four (e.g. {bad[0]})")
         speeds = [e.get("cast_speed") for e in pool]
-        need = {"instant": 2, "short": 1, "long": 1}
+        need = {"short": 1, "long": 1}
         short_of = [f"{speeds.count(k)} {k}" for k, v in need.items() if speeds.count(k) < v]
         if short_of:
-            problems.append(f"{cls}: only {', '.join(short_of)} (needs 2 instant, 1 short, 1 long)")
+            problems.append(f"{cls}: only {', '.join(short_of)} (needs 1 short, 1 long)")
+        spam = [e["name"] for e in pool if spam_instant(e)]
+        if spam:
+            problems.append(f"{cls}: instant damage with no cooldown: {', '.join(spam)} (Kyle, 23 Nov 2026)")
     for p in problems:
         print("  -", p)
     print(f"cast speeds: {'OK' if not problems else str(len(problems)) + ' problems'}")
@@ -211,6 +259,9 @@ def main():
         for e in doc["abilities"]:
             if migrate(e):
                 migrated += 1
+            note = no_spam_instants(e)
+            if note:
+                print(f"{cls:16} {note}")
         picks = picks_for(cls, doc["abilities"])
         shown = {"instant": [], "short": [], "long": []}
         for e in doc["abilities"]:

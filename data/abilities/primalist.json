@@ -35,50 +35,50 @@
         {
           "rank": 1,
           "level_req": 1,
-          "cost": 4,
-          "effect_value": 12
+          "cost": 7,
+          "effect_value": 23
         },
         {
           "rank": 2,
           "level_req": 8,
-          "cost": 8,
-          "effect_value": 15
+          "cost": 14,
+          "effect_value": 29
         },
         {
           "rank": 3,
           "level_req": 16,
-          "cost": 13,
-          "effect_value": 18
+          "cost": 23,
+          "effect_value": 35
         },
         {
           "rank": 4,
           "level_req": 24,
-          "cost": 18,
-          "effect_value": 22
+          "cost": 32,
+          "effect_value": 43
         },
         {
           "rank": 5,
           "level_req": 32,
-          "cost": 24,
-          "effect_value": 25
+          "cost": 43,
+          "effect_value": 49
         },
         {
           "rank": 6,
           "level_req": 40,
-          "cost": 31,
-          "effect_value": 29
+          "cost": 55,
+          "effect_value": 56
         },
         {
           "rank": 7,
           "level_req": 48,
-          "cost": 38,
-          "effect_value": 32
+          "cost": 68,
+          "effect_value": 62
         },
         {
           "rank": 8,
           "level_req": 56,
-          "cost": 45,
-          "effect_value": 35
+          "cost": 80,
+          "effect_value": 68
         }
       ],
       "generates": {
@@ -90,9 +90,10 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 3.21x steeper than it, biggest single-rank jump 1.39x); overall size kept. tools/fix_rank_lines.py",
         "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost",
-        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): instant is now 0.25 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): instant is now 0.25 of the meter against medium's 0.75 (tools/build_cast_speeds.py)",
+        "23 Nov 2026: a short cast, not instant, re-sized from the instant size to the short one (Kyle: \"We should not have damage skills that are low mana with no cooldown being instant\"; tools/build_cast_speeds.py no_spam_instants)"
       ],
-      "cast_speed": "instant"
+      "cast_speed": "short"
     },
     {
       "ability_id": "primalist_wildclaw",

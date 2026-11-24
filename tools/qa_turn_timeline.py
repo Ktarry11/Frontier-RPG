@@ -10,7 +10,7 @@ lands, "so we can plan". A plan is only as good as the bar, so this runs fights 
   2. THE GHOST: after a cast of any speed, the caster lands exactly where time_after_cast() said they would.
   3. HASTE: a hasted combatant's next turn comes sooner on the bar, by the haste.
   4. THE SPEED PASS: every class's castable abilities carry one of instant, short, medium and long, with at least
-     two instant, one short and one long
+     one short and one long, and nothing that hurts an enemy instant without a 2-turn cooldown (Kyle, 23 Nov 2026)
      (tools/build_cast_speeds.py --check).
 """
 import os

@@ -499,26 +499,26 @@
         {
           "rank": 1,
           "level_req": 30,
-          "cost": 6,
-          "effect_value": 15
+          "cost": 11,
+          "effect_value": 29
         },
         {
           "rank": 2,
           "level_req": 40,
-          "cost": 6,
-          "effect_value": 18
+          "cost": 11,
+          "effect_value": 35
         },
         {
           "rank": 3,
           "level_req": 52,
-          "cost": 6,
-          "effect_value": 21
+          "cost": 11,
+          "effect_value": 41
         },
         {
           "rank": 4,
           "level_req": 58,
-          "cost": 6,
-          "effect_value": 23
+          "cost": 11,
+          "effect_value": 45
         }
       ],
       "requires_talent": true,
@@ -528,9 +528,10 @@
       "_tuning": [
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py",
         "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost",
-        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): instant is now 0.25 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): instant is now 0.25 of the meter against medium's 0.75 (tools/build_cast_speeds.py)",
+        "23 Nov 2026: a short cast, not instant, re-sized from the instant size to the short one (Kyle: \"We should not have damage skills that are low mana with no cooldown being instant\"; tools/build_cast_speeds.py no_spam_instants)"
       ],
-      "cast_speed": "instant"
+      "cast_speed": "short"
     },
     {
       "ability_id": "warrior_concussion_blow",
@@ -662,7 +663,7 @@
       "ability_id": "warrior_cleave",
       "name": "Cleave",
       "resource_type": "rage",
-      "cooldown": 1,
+      "cooldown": 2,
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
@@ -699,7 +700,8 @@
       "cast_speed": "instant",
       "_tuning": [
         "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost",
-        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): instant is now 0.25 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): instant is now 0.25 of the meter against medium's 0.75 (tools/build_cast_speeds.py)",
+        "23 Nov 2026: stays instant with a 2-turn cooldown (Kyle: \"We should not have damage skills that are low mana with no cooldown being instant\"; tools/build_cast_speeds.py no_spam_instants)"
       ]
     },
     {

@@ -681,7 +681,7 @@
       "ability_id": "pyromancer_ignite",
       "name": "Ignite",
       "resource_type": "mana",
-      "cooldown": 0,
+      "cooldown": 2,
       "effect_type": "spell_dot",
       "duration": 5,
       "stat_mods": {},
@@ -745,7 +745,8 @@
       "_tuning": [
         "21 Nov 2026: a instant cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost",
         "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): instant is now 0.25 of the meter against medium's 0.75 (tools/build_cast_speeds.py)",
-        "21 Nov 2026: an over-time spell refreshes rather than stacks, so it's sized by 0.4 of its speed's time saving, not all of it (instant: 0.73x a medium one; tools/build_cast_speeds.py)"
+        "21 Nov 2026: an over-time spell refreshes rather than stacks, so it's sized by 0.4 of its speed's time saving, not all of it (instant: 0.73x a medium one; tools/build_cast_speeds.py)",
+        "23 Nov 2026: stays instant with a 2-turn cooldown (Kyle: \"We should not have damage skills that are low mana with no cooldown being instant\"; tools/build_cast_speeds.py no_spam_instants)"
       ]
     },
     {

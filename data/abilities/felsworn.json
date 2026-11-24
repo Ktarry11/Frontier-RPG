@@ -701,37 +701,37 @@
           "rank": 1,
           "level_req": 12,
           "cost": 0,
-          "effect_value": 11
+          "effect_value": 21
         },
         {
           "rank": 2,
           "level_req": 21,
           "cost": 0,
-          "effect_value": 14
+          "effect_value": 27
         },
         {
           "rank": 3,
           "level_req": 30,
           "cost": 0,
-          "effect_value": 17
+          "effect_value": 33
         },
         {
           "rank": 4,
           "level_req": 39,
           "cost": 0,
-          "effect_value": 20
+          "effect_value": 39
         },
         {
           "rank": 5,
           "level_req": 48,
           "cost": 0,
-          "effect_value": 24
+          "effect_value": 47
         },
         {
           "rank": 6,
           "level_req": 57,
           "cost": 0,
-          "effect_value": 27
+          "effect_value": 52
         }
       ],
       "icon_id": null,
@@ -746,9 +746,10 @@
       "_tuning": [
         "15 Nov 2026 (Kyle: 'abilities like stormstrike that hit for both weapons ... Wildclaw'): strikes_both_weapons - the off hand lands with it when dual-wielding. Every other special is main-hand only, as in Classic.",
         "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost",
-        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): instant is now 0.25 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
+        "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): instant is now 0.25 of the meter against medium's 0.75 (tools/build_cast_speeds.py)",
+        "23 Nov 2026: a short cast, not instant, re-sized from the instant size to the short one (Kyle: \"We should not have damage skills that are low mana with no cooldown being instant\"; tools/build_cast_speeds.py no_spam_instants)"
       ],
-      "cast_speed": "instant"
+      "cast_speed": "short"
     },
     {
       "ability_id": "felsworn_felhoof_charge",
