@@ -244,7 +244,7 @@ PET_TEMPLATES = {
         "resource_type": "mana",
         "crit_chance": 6.0,
         "speed": 1.1,
-        "level_req": 20,
+        "level_req": 10,
         "_source": "Stormbringer Wind's Tempest's Call summon, built during the pet-system push (Oct 2026, Kyle: 'We need the pet system up and running... since we have hunters, warlocks, primalist, and wind spec stormbringer'). Unlike Hunter/Warlock/Primalist (all acquired through the real taming/summon SCREEN via pets_for_class), this pet_type is never passed to pets_for_class - Stormbringer summons it directly by casting stormbringer_summon_air_elemental, same as any other ability, so this template only needs to exist for get_pet_template to find, not for the screen's roster listing. level_req 20 matches the real ability's own level_req. A caster-style ranged pet (base_attack 0, real base_spell_power) rather than a melee beast, matching real WoW air elementals and this spec's own lightning/wind theme. NOTE: a tier-5 Wind talent, Lexicon of Servitude ('Increases your Air Elemental's damage by 6% per rank'), reads a pet_damage key. That key WAS unread when this note was written; entities/pet.py now reads pet_damage and pet_health off the owner's talents, so the talent works. Separately, the real CoA Lexicon of Servitude does something else entirely - 'causing your next Summon: Air Elemental to be instant cast and cost no mana' - which matters because the spec page calls the slow re-summon its biggest weakness",
         "abilities": [
             {

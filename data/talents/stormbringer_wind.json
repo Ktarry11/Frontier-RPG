@@ -131,7 +131,7 @@
         "pet_damage": 0.04
       },
       "connected_to": [
-        "stormbringer_wind_tailwind"
+        "stormbringer_wind_tempests_call"
       ],
       "_source": "CoA verbatim: 'Your Aeroblast now grants your Air Elemental a stack of Invigoration. Increases the damage of your Air Elemental by 3% for 15 seconds, stacking 10 times. Additional applications do not refresh duration.' TWO WALLS: no proc payload can apply an effect to a PET (apply_effect lands on the caster or the trigger's target), and nothing reads another effect's stack count. Ten stacks of 3% is 30%, granted flat - the ceiling a fully-stacked elemental would have reached, without the ramp. CoA's Everlasting Invigoration and Aurat Scripts both modify this stacking buff and so have nothing to modify; their value is folded into the nodes below."
     },
@@ -140,18 +140,18 @@
       "name": "Tailwind",
       "description": "Teaches Tailwind, which raises your damage and grants the party haste for 40 Static.",
       "node_type": "passive",
-      "tier": 1,
+      "tier": 4,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -2,
-      "hex_y": -4,
+      "hex_x": -3,
+      "hex_y": 2,
       "effects": {
         "unlock_ability": "stormbringer_tailwind"
       },
       "connected_to": [
-        "stormbringer_wind_unrelenting_winds"
+        "stormbringer_wind_enveloping_winds"
       ],
-      "_source": "CoA verbatim: 'Tap into the swift winds, increasing your damage by 10% and granting all allied players 5% increased haste for 15 sec.' LOAD-BEARING UNLOCK: stormbringer_tailwind carries requires_talent. The ability is target_type 'party', so the ally haste is real. CoA's Gift of Air rider ('your critical strikes now extend the duration of your Tailwind by 1.5 sec') is not built - no payload extends a live effect's duration."
+      "_source": "CoA verbatim: 'Tap into the swift winds, increasing your damage by 10% and granting all allied players 5% increased haste for 15 sec.' LOAD-BEARING UNLOCK: stormbringer_tailwind carries requires_talent. The ability is target_type 'party', so the ally haste is real. CoA's Gift of Air rider ('your critical strikes now extend the duration of your Tailwind by 1.5 sec') is not built - no payload extends a live effect's duration. SWAPPED WITH TAILWIND (Kyle, 23 Nov 2026: \"swap it with tailwind\", after asking when Wind learns its Air Elemental: at tier 4 it came at level 25 at the earliest). Tempest's Call is tier 1 now, five points in, about level 10; Tailwind took its place in tier 4."
     },
     {
       "talent_id": "stormbringer_wind_unrelenting_winds",
@@ -361,7 +361,7 @@
         "pet_armor": 0.1
       },
       "connected_to": [
-        "stormbringer_wind_tempests_call"
+        "stormbringer_wind_tailwind"
       ],
       "_source": "CoA over 2 ranks: 'Increases the duration of Invigoration by 5 sec.' Invigoration is not a live effect here, so its duration cannot be extended. Re-pointed at the other two pet keys the engine reads, which is a longer-lived elemental rather than a longer buff - the same intent through the keys that exist. CoA's Aurat Scripts ('increases the damage gained per stack of Invigoration by 2%') fails for the same reason and is folded into Invigoration's flat 30%."
     },
@@ -388,18 +388,18 @@
       "name": "Tempest's Call",
       "description": "Teaches Summon: Air Elemental, calling the elemental that this whole spec is built around.",
       "node_type": "passive",
-      "tier": 4,
+      "tier": 1,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": -3,
-      "hex_y": 2,
+      "hex_x": -2,
+      "hex_y": -4,
       "effects": {
         "unlock_ability": "stormbringer_summon_air_elemental"
       },
       "connected_to": [
-        "stormbringer_wind_enveloping_winds"
+        "stormbringer_wind_unrelenting_winds"
       ],
-      "_source": "CoA's Tempest Calling node, whose Builder description is the unresolved token '$4c', paired with its Air Elemental ability ('$4e' - also unresolved). So there is no verbatim text to port and the node is named from CoA's own title. THE MOST LOAD-BEARING UNLOCK IN THE TREE: stormbringer_summon_air_elemental carries requires_talent, so without this node the Air Elemental cannot be summoned at all - and six other nodes here scale it. Kept at tier 4 as the old tree had it, rather than moved earlier, because moving it would change every existing Wind build."
+      "_source": "CoA's Tempest Calling node, whose Builder description is the unresolved token '$4c', paired with its Air Elemental ability ('$4e' - also unresolved). So there is no verbatim text to port and the node is named from CoA's own title. THE MOST LOAD-BEARING UNLOCK IN THE TREE: stormbringer_summon_air_elemental carries requires_talent, so without this node the Air Elemental cannot be summoned at all - and six other nodes here scale it. Kept at tier 4 as the old tree had it, rather than moved earlier, because moving it would change every existing Wind build. SWAPPED WITH TAILWIND (Kyle, 23 Nov 2026: \"swap it with tailwind\", after asking when Wind learns its Air Elemental: at tier 4 it came at level 25 at the earliest). Tempest's Call is tier 1 now, five points in, about level 10; Tailwind took its place in tier 4."
     },
     {
       "talent_id": "stormbringer_wind_enveloping_winds",

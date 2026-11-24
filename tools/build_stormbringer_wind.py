@@ -210,7 +210,7 @@ N.append(node(
     "Increases the damage your Air Elemental deals by a further 30%.",
     1, -4,
     effects={"pet_damage": 0.30},
-    connect=["tailwind"],
+    connect=["tempests_call"],
     source="CoA verbatim: 'Your Aeroblast now grants your Air Elemental a "
            "stack of Invigoration. Increases the damage of your Air Elemental "
            "by 3% for 15 seconds, stacking 10 times. Additional applications "
@@ -227,9 +227,9 @@ N.append(node(
     "tailwind", "Tailwind",
     "Teaches Tailwind, which raises your damage and grants the party haste "
     "for 40 Static.",
-    1, -2,
+    4, -3,                       # swapped with Tempest's Call, 23 Nov 2026 (Kyle: "swap it with tailwind")
     effects={"unlock_ability": "stormbringer_tailwind"},
-    connect=["unrelenting_winds"],
+    connect=["enveloping_winds"],
     source="CoA verbatim: 'Tap into the swift winds, increasing your damage "
            "by 10% and granting all allied players 5% increased haste for 15 "
            "sec.' LOAD-BEARING UNLOCK: stormbringer_tailwind carries "
@@ -380,7 +380,7 @@ N.append(node(
     "Increases the health and armour of your Air Elemental by 30%.",
     3, 0,
     effects={"pet_health": 0.30, "pet_armor": 0.30},
-    connect=["tempests_call"],
+    connect=["tailwind"],
     source="CoA over 2 ranks: 'Increases the duration of Invigoration by 5 "
            "sec.' Invigoration is not a live effect here, so its duration "
            "cannot be extended. Re-pointed at the other two pet keys the "
@@ -408,9 +408,9 @@ N.append(node(
     "tempests_call", "Tempest's Call",
     "Teaches Summon: Air Elemental, calling the elemental that this whole "
     "spec is built around.",
-    4, -3,
+    1, -2,                       # tier 1 since 23 Nov 2026: the spec's pet at about level 10, not 25
     effects={"unlock_ability": "stormbringer_summon_air_elemental"},
-    connect=["enveloping_winds"],
+    connect=["unrelenting_winds"],
     source="CoA's Tempest Calling node, whose Builder description is the "
            "unresolved token '$4c', paired with its Air Elemental ability "
            "('$4e' - also unresolved). So there is no verbatim text to port "
