@@ -4814,7 +4814,11 @@ class Character(StatusEffectMixin):
             self.inventory.append(displaced_offhand)
 
         self._recalculate_derived_stats()
-        self._tell_bonds_equipped(item, previous, slot_before)
+        # THE SLOT IT WENT INTO, not the item's own word for it: a ring says "ring" and goes in ring1 or ring2, a bow
+        # says "main_hand" and goes in ranged. Taking gear off records the real slot, so the "wants the gear you took
+        # replaced" note never cleared when a ring, a trinket or a bow went back in (Kyle, 23 Nov 2026).
+        landed = next((k for k, v in self.equipment.slots.items() if v is item), slot_before)
+        self._tell_bonds_equipped(item, previous, landed)
         return True
 
     @staticmethod

@@ -226,6 +226,19 @@ class BondManager:
                 out.append(m)
         return out
 
+    def _prune_short(self, b):
+        """Forget any "you took my gear" slot that is full again, however it got filled (a save from before the
+        23 Nov 2026 fix kept a refilled ring or trinket on the list for good, and the mood kept dropping for it)."""
+        if not b.short:
+            return
+        for ch in self._characters(b.rid):
+            eq = getattr(ch, "equipment", None)
+            if eq is None:
+                continue
+            filled = {k for k, v in eq.slots.items() if v is not None}
+            pairs = {k.rstrip("12") for k in filled if k[-1:] in "12"}
+            b.short = [s for s in b.short if s not in filled and s.rstrip("12") not in pairs]
+
     def regrant_sworn(self, party):
         """After a save loads: the party was rebuilt before the bonds were, so every grant() then
         saw nobody Sworn. Put each member's Sworn skill back (or take a stale one off)."""
@@ -419,6 +432,7 @@ class BondManager:
         here = self._in(party)
         self.ease_breaks(BREAK_TICK["job"])
         for b in here:
+            self._prune_short(b)
             b.outings += 1
             b.kills = 0
             b.last_with_you = self.deeds
@@ -573,6 +587,14 @@ class BondManager:
             return
         if slot in b.short:
             b.short.remove(slot)
+        else:
+            # a pair counts as one place: a ring given back fills the ring you took, whichever finger it lands on
+            # (and an old caller's generic "ring" or "trinket" still fills one of the pair)
+            base = str(slot or "").rstrip("12")
+            for k in (f"{base}1", f"{base}2"):
+                if k in b.short:
+                    b.short.remove(k)
+                    break
         lt, self._last_taken = self._last_taken, None
         if lt and lt[0] != rid and lt[1] == slot and self.deeds - lt[2] <= 1:
             self.rel.on_gear_moved(lt[0], rid, better)       # handed from one of them to another
@@ -677,6 +699,7 @@ class BondManager:
             return "Thinks this place is too dangerous."
         if b.warned == "wipe":
             return "Shaken by the wipes."
+        self._prune_short(b)              # never say it about a slot that's full again
         if b.short:
             return "Wants the gear you took replaced."
         if b.warned == "bored" or b.mood < WARN:
