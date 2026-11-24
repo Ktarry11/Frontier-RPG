@@ -8,11 +8,20 @@
       "y": 20,
       "tile_sprite": "npc",
       "sells": [
+        "bread_and_cheese",
+        "roasted_meat",
+        "meal_tough_jerky",
+        "drink_waterskin",
+        "small_burlap_sack",
+        "green_dyed_sack",
+        "worn_leather_satchel",
+        "buckled_saddlebag",
         "healing_potion_minor",
-        "guardian_elixir_minor",
-        "battle_elixir_minor",
+        "mana_potion_minor",
         "vial_empty",
-        "mana_potion_minor"
+        "parchment",
+        "guardian_elixir_minor",
+        "battle_elixir_minor"
       ],
       "buys_from_player": true,
       "faction": "neutral",
@@ -20,7 +29,8 @@
       "sells_gear": false,
       "race": "orc",
       "appearance_variant": 17,
-      "greeting": "New recruits always need more than the valley gives them. I try to fill the gap."
+      "greeting": "New recruits always need more than the valley gives them. I try to fill the gap.",
+      "_general_goods": "23 Nov 2026: every starting zone's vendor carries the same general goods first (food, water, the four level-1 bags, minor potions, a vial and parchment), then its own extras. Kyle: \"all starting locations should have access to general goods vendors. Ones that sell food, water, and bags... We should make it more uniform between all starting zones.\""
     },
     {
       "vendor_id": "razorhill_vendor",
@@ -316,10 +326,19 @@
       "y": 41,
       "tile_sprite": "npc",
       "sells": [
+        "bread_and_cheese",
+        "roasted_meat",
+        "meal_tough_jerky",
+        "drink_waterskin",
+        "small_burlap_sack",
+        "green_dyed_sack",
+        "worn_leather_satchel",
+        "buckled_saddlebag",
+        "healing_potion_minor",
         "mana_potion_minor",
-        "guardian_elixir_minor",
         "vial_empty",
         "parchment",
+        "guardian_elixir_minor",
         "runed_copper_rod"
       ],
       "buys_from_player": true,
@@ -328,7 +347,8 @@
       "sells_gear": false,
       "appearance_variant": 8,
       "race": "forsaken",
-      "greeting": "The Forsaken require supplies like any living thing. Mostly."
+      "greeting": "The Forsaken require supplies like any living thing. Mostly.",
+      "_general_goods": "23 Nov 2026: every starting zone's vendor carries the same general goods first (food, water, the four level-1 bags, minor potions, a vial and parchment), then its own extras. Kyle: \"all starting locations should have access to general goods vendors. Ones that sell food, water, and bags... We should make it more uniform between all starting zones.\""
     },
     {
       "vendor_id": "brill_innkeeper",
@@ -9545,20 +9565,25 @@
         "bread_and_cheese",
         "roasted_meat",
         "meal_tough_jerky",
-        "meal_trailbread",
         "drink_waterskin",
+        "small_burlap_sack",
+        "green_dyed_sack",
+        "worn_leather_satchel",
+        "buckled_saddlebag",
+        "healing_potion_minor",
+        "mana_potion_minor",
+        "vial_empty",
+        "parchment",
+        "meal_trailbread",
         "drink_barley_beer",
         "cook_flour",
         "cook_honey",
         "cook_spice",
         "cook_mushroom",
         "cook_fruit",
-        "cook_water",
-        "healing_potion_minor",
-        "mana_potion_minor",
-        "vial_empty",
-        "parchment"
-      ]
+        "cook_water"
+      ],
+      "_general_goods": "23 Nov 2026: every starting zone's vendor carries the same general goods first (food, water, the four level-1 bags, minor potions, a vial and parchment), then its own extras. Kyle: \"all starting locations should have access to general goods vendors. Ones that sell food, water, and bags... We should make it more uniform between all starting zones.\""
     },
     {
       "vendor_id": "dh_dawnrest_cook",
