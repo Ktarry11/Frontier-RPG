@@ -2793,6 +2793,10 @@ class StatusEffectMixin:
         EVERY class (real WoW: Spirit contributes to HP regen regardless
         of your resource type, not just casters).
         """
+        # Rage and Static bleed away out of combat, walking or standing still (Kyle, 23 Nov 2026: "static and rage
+        # should slowly disapate out of combat"). First, so no early return below can skip it.
+        if hasattr(self, "decay_built_resources"):
+            self.decay_built_resources(dt)
         spirit = getattr(self, "effective_spirit", 0)
         if spirit <= 0:
             return

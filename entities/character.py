@@ -2773,10 +2773,19 @@ class Character(StatusEffectMixin):
         "runes": 4,
     }
 
-    #: Secondary resources that bleed away outside combat, and how fast per
-    #: overworld step. Static behaves like Rage: built in a fight, gone by
-    #: the next one, so you can't walk around permanently charged.
-    SECONDARY_DECAY_PER_STEP = {"static": 2}
+    #: RAGE AND STATIC BLEED AWAY OUTSIDE COMBAT, a share of the pool every real second, walking or standing still
+    #: (Kyle, 23 Nov 2026: "static and rage should slowly disapate out of combat"). Both are built in a fight and
+    #: shouldn't carry into the next one. They used to drop 2 per overworld step, and only for the player: standing
+    #: still kept them forever, and a recruit's rage never went down at all. 2.5% of the pool a second empties a full
+    #: bar in about 40 seconds. Ticked from StatusEffectMixin.tick_out_of_combat_regen, every party member, every frame.
+    OUT_OF_COMBAT_DECAY_PER_SECOND = {"rage": 0.025, "static": 0.025}
+
+    def decay_built_resources(self, dt):
+        """Bleed rage and static off by OUT_OF_COMBAT_DECAY_PER_SECOND of their pool over dt real seconds."""
+        for key, share in self.OUT_OF_COMBAT_DECAY_PER_SECOND.items():
+            have = self.get_resource(key)
+            if have > 0:
+                self.set_resource(key, max(0.0, have - self.get_resource_max(key) * share * dt))
 
     @staticmethod
     def _resource_key(resource_type):
@@ -4268,9 +4277,8 @@ class Character(StatusEffectMixin):
         """
         Called once per overworld tile moved (not a time tick).
           - Energy (Rogue only): 15 per step
-          - Rage: decays by 2 per step (Rage has no out-of-combat source,
-            so a Warrior shouldn't be able to wander around perpetually
-            primed for a fight - it bleeds off between fights, matching WoW).
+          (Rage and Static used to decay here, 2 per step; since 23 Nov 2026
+            they bleed off per real second instead - decay_built_resources.)
 
         Mana regen moved OFF this step-based path and onto
         StatusEffectMixin.tick_out_of_combat_regen (a real per-second
@@ -4285,14 +4293,8 @@ class Character(StatusEffectMixin):
         if resource == ResourceType.ENERGY:
             self.current_energy = min(self.max_energy, self.current_energy + 15)
 
-        if self.current_rage > 0:
-            self.current_rage = max(0, self.current_rage - 2)
-
-        # Secondary resources that decay (currently Static). Same reasoning
-        # as Rage: these are built during a fight and shouldn't carry over.
-        for key, rate in self.SECONDARY_DECAY_PER_STEP.items():
-            if self.secondary_resources.get(key, 0) > 0:
-                self.set_resource(key, self.secondary_resources[key] - rate)
+        # Rage and Static no longer decay per step: they bleed off per real second, standing still too, for every
+        # party member (decay_built_resources, 23 Nov 2026).
     
     def get_stat_sheet(self):
         """Return formatted stat sheet. core_stats shows EFFECTIVE values (base + gear),
