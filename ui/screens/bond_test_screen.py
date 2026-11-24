@@ -285,7 +285,7 @@ class BondTestScreen(BaseScreen):
             self.renderer.draw_text(screen, bm.name_of(rid), (cx + 8, cy + 6), font_size=15, color=COLOR_GOLD)
             nxt = THRESHOLDS[b.stage + 1] if b.stage + 1 < len(STAGES) else None
             where = ("with you" if self._member(rid) is not None else
-                     f"away, {max(0, b.break_left)} to go" if b.away else "at home")
+                     f"away, {max(0, b.break_left):.1f} jobs to go" if b.away else "at home")
             rows = [
                 f"{STAGE_NAMES[b.stage_key]}  ({b.trust:.0f}" + (f"/{nxt})" if nxt else ")"),
                 f"Mood {b.mood:.0f}.  Trip {b.outings}/{b.stint_len}",

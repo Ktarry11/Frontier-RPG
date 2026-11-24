@@ -108,6 +108,7 @@ class TravelManager:
         """Spend the hearth: starts the cooldown, unmounts, returns the bind dict to teleport to."""
         self.hearth_steps_left = self.hearth_cooldown()
         self.mounted = False
+        _hearth_eases_breaks()
         return dict(self.bind)
 
     # the Collection's Hearthstone of the Second Home: its own bind (set at any innkeeper), its own cooldown
@@ -133,6 +134,7 @@ class TravelManager:
     def use_second_hearth(self):
         self.hearth2_steps_left = self.hearth_cooldown()
         self.mounted = False
+        _hearth_eases_breaks()
         return dict(self.bind2)
 
     def on_step(self):
@@ -480,3 +482,12 @@ def reset_travel_manager(start_id=None):
     global _travel_manager
     _travel_manager = TravelManager(start_id)
     return _travel_manager
+
+
+def _hearth_eases_breaks():
+    """Hearthing home counts toward a recruit's break (world/bond_manager.BREAK_TICK, 23 Nov 2026)."""
+    try:
+        from world.bond_manager import get_bond_manager
+        get_bond_manager().on_hearth()
+    except Exception as exc:
+        print(f"[Travel] break tick failed: {exc}")

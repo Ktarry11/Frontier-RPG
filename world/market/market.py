@@ -810,6 +810,12 @@ class Market:
         Before anybody has opened an auction house there's nothing to work out: the clock just moves (the book is
         filled the first time an auctioneer or a mailbox is used, so starting a game costs nothing)."""
         hours = max(0.0, float(hours))
+        # a recruit's break counts down on the same clock (world/bond_manager.on_market_hours, 23 Nov 2026)
+        try:
+            from world.bond_manager import get_bond_manager
+            get_bond_manager().on_market_hours(hours)
+        except Exception as exc:
+            print(f"market: break tick failed: {exc}")
         if not self.started:
             self.clock += hours
             if self.mail is not None:

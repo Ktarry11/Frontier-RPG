@@ -34,6 +34,13 @@ THRESHOLDS = [0, 20, 60, 130, 220]
 STINT = [6, 8, 11, 14, 18]
 #: outings you do without them before they're back, by stage
 BREAK = [4, 4, 3, 3, 2]
+#: A BREAK IS ONE COUNTER EVERYTHING TICKS (Kyle, 23 Nov 2026: "we dont have our main healer to DO the dungeon lol.
+#: Rather than 'whichever comes first' --- we have a counter that everything ticks towards?"). BREAK is still counted
+#: in jobs, and a job is still a quest handed in or a dungeon finished, but the rest of the game chips at it too:
+#: time on the market clock (play time on any screen, and flights, which move the clock by their length), fights won
+#: and hearthing home. Four market hours, ten minutes of play, are worth a job.
+BREAK_TICK = {"job": 1.0, "fight": 0.1, "hearth": 0.5}
+BREAK_MARKET_HOURS_PER_JOB = 4.0
 #: trust for each kind of thing done together
 GAIN = {"quest": 3, "dungeon": 8, "boss": 1, "upgrade": 2, "rest": 2}
 #: GIFTS ARE A NICE GESTURE, NOT A LADDER (Kyle, 23 Nov 2026: "giving blues to party members is way too easy to get
@@ -410,14 +417,7 @@ class BondManager:
         party = party or self.party
         self.deeds += 1
         here = self._in(party)
-        for b in self.bonds.values():
-            if b.away:
-                b.break_left -= 1
-                if b.break_left <= 0:
-                    b.away = False
-                    if b.stage >= STAGES.index("friend"):
-                        self.log.append((b.rid, self.line(b.rid, "send_word")))
-                        self._notify(self.line(b.rid, "send_word"))
+        self.ease_breaks(BREAK_TICK["job"])
         for b in here:
             b.outings += 1
             b.kills = 0
@@ -436,8 +436,32 @@ class BondManager:
         if zone is None or not self._is_dungeon(zone):
             self.safe_point(party)
 
+    def ease_breaks(self, amount):
+        """Count `amount` jobs off every break (see BREAK_TICK). Anyone whose break runs out is home and can be hired,
+        and a Friend or better sends word."""
+        if amount <= 0:
+            return
+        for b in self.bonds.values():
+            if not b.away:
+                continue
+            b.break_left -= amount
+            if b.break_left <= 1e-9:
+                b.break_left = 0
+                b.away = False
+                if b.stage >= STAGES.index("friend"):
+                    self.log.append((b.rid, self.line(b.rid, "send_word")))
+                    self._notify(self.line(b.rid, "send_word"))
+
+    def on_market_hours(self, hours):
+        """The market clock moved (world/market/market.Market.advance): play time on any screen, or a flight."""
+        self.ease_breaks(float(hours) / BREAK_MARKET_HOURS_PER_JOB)
+
+    def on_hearth(self):
+        self.ease_breaks(BREAK_TICK["hearth"])
+
     def on_kills(self, enemies, party=None, zone=None):
         party = party or self.party
+        self.ease_breaks(BREAK_TICK["fight"])           # any fight won, with them along or not
         here = self._in(party)
         if not here:
             return

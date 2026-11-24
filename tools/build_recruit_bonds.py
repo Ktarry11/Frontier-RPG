@@ -251,8 +251,8 @@ BONDS = {
             "mail_yes": "I was hoping you'd write! I'll set out for {town} this afternoon. Look for me in the taproom, I'll be the one who's already ordered for both of us.",
             "mail_later": "It's good to hear from you, truly. I'm not quite ready to come out yet, though. Carry on for a while without me and I'll be glad to see you after.",
             "mail_see_me": "Thank you for writing, but I don't want to settle this on paper. Come to Astranaar and we'll talk, just the two of us, and then we can start again.",
-            "on_break": "Adrián has gone back to Astranaar for a while. Come back after you've "
-                        "done a few more jobs.",
+            "on_break": "Adrián has gone back to Astranaar for a while. Come back and look "
+                        "for them in a little while.",
         },
     },
 
