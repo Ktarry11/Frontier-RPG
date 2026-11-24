@@ -373,6 +373,13 @@ class SkillsScreen(BaseScreen):
             rects.append(pygame.Rect(slot_x, slot_y, self.SLOT_PX, self.SLOT_PX))
         return rects
 
+    @staticmethod
+    def _remember(player, aid):
+        """Whatever the player puts on or takes off a bar, level-ups leave alone from then on (Kyle, 23 Nov 2026:
+        racials and traits kept coming back on level-up; Character._autofill_hotbar)."""
+        if isinstance(aid, str) and hasattr(player, "_remember_slotted"):
+            player._remember_slotted(aid)
+
     def handle_event(self, event):
         """Handle input."""
         if event.type == pygame.KEYDOWN:
@@ -486,6 +493,7 @@ class SkillsScreen(BaseScreen):
                 slot_rect = self._hotbar_slot_rect(i)
                 
                 if slot_rect.collidepoint(mouse_x, mouse_y):
+                    self._remember(player, player.hotbar[i])
                     if right_click:
                         player.hotbar[i] = None       # right-click always clears
                         self.selected_ability = None
@@ -495,6 +503,7 @@ class SkillsScreen(BaseScreen):
                             player.hotbar[i] = self.selected_ability
                         else:
                             player.hotbar[i] = self.selected_ability.ability_id
+                            self._remember(player, player.hotbar[i])
                         self.selected_ability = None
                     else:
                         # Clear the slot
@@ -505,6 +514,7 @@ class SkillsScreen(BaseScreen):
             # real hotbar, writes to player.extra_slots instead.
             for i, slot_rect in enumerate(self._extra_slot_rects()):
                 if slot_rect.collidepoint(mouse_x, mouse_y):
+                    self._remember(player, player.extra_slots[i])
                     if right_click:
                         player.extra_slots[i] = None
                         self.selected_ability = None
@@ -513,6 +523,7 @@ class SkillsScreen(BaseScreen):
                             player.extra_slots[i] = self.selected_ability
                         else:
                             player.extra_slots[i] = self.selected_ability.ability_id
+                            self._remember(player, player.extra_slots[i])
                         self.selected_ability = None
                     else:
                         player.extra_slots[i] = None

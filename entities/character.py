@@ -2698,6 +2698,13 @@ class Character(StatusEffectMixin):
             # get instantly re-flooded with everything already learned.
             self.hotbar_autofilled_ids = {a for a in self.hotbar if a}
         self._prune_unlearned_hotbar()
+        # ANYTHING ALREADY SLOTTED, ON EITHER BAR, HAS HAD ITS SAY (Kyle, 23 Nov 2026: "on leveling up, the game tries
+        # to slot in our racial skills / character traits again in the hotbar"). The memo only held what this method
+        # had placed itself, so a racial or a trait the player had put on the extra slots by hand (or that came back
+        # from the data on load) wasn't in it, and every level-up put a second copy on the main bar.
+        for aid in list(self.hotbar) + list(getattr(self, "extra_slots", None) or []):
+            if isinstance(aid, str):
+                self.hotbar_autofilled_ids.add(aid)
         for ability in self.get_learned_abilities():
             if ability.ability_id in self.hotbar_autofilled_ids:
                 continue
@@ -4890,8 +4897,15 @@ class Character(StatusEffectMixin):
             ability = self.ability_book.get_ability(ability_id)
             if ability:
                 self.hotbar[hotbar_slot] = ability_id
+                self._remember_slotted(ability_id)
                 return True
         return False
+
+    def _remember_slotted(self, ability_id):
+        """The player put this ability somewhere: _autofill_hotbar never places it again, even after it's taken off."""
+        if not hasattr(self, "hotbar_autofilled_ids"):
+            self.hotbar_autofilled_ids = set()
+        self.hotbar_autofilled_ids.add(ability_id)
     
     def unslot_ability(self, hotbar_slot):
         """Remove ability from hotbar slot."""
@@ -4905,6 +4919,7 @@ class Character(StatusEffectMixin):
             ability = self.ability_book.get_ability(ability_id)
             if ability:
                 self.extra_slots[extra_slot] = ability_id
+                self._remember_slotted(ability_id)
                 return True
         return False
 
