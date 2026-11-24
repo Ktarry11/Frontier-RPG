@@ -276,7 +276,7 @@ class Renderer:
         # undercount by up to ~1 point vs. the character sheet's own
         # display_health, which rounds (see StatusEffectMixin.display_health).
         if show_text:
-            text = f"{round(current)}/{round(max_val)}"
+            text = f"{max(0, round(current))}/{round(max_val)}"      # overkill leaves health below 0
             text_surface = self.font_normal.render(text, True, COLOR_WHITE)
             text_rect = text_surface.get_rect(center=bar_rect.center)
             screen.blit(text_surface, text_rect)

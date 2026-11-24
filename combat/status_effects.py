@@ -788,8 +788,10 @@ class StatusEffectMixin:
         underlying math exact while every UI read gets a clean int. Uses
         round() rather than int() truncation so 205.9 displays as 206, not
         205 - matches how a player would expect an HP bar to read.
+        Never below 0: the killing blow can leave current_health negative (overkill), and a downed character read
+        "-92/283" on the combat screen (23 Nov 2026).
         """
-        return round(self.current_health)
+        return max(0, round(self.current_health))
 
     @property
     def display_mana(self):
