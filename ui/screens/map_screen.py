@@ -499,6 +499,31 @@ class MapScreen(BaseScreen):
                     self._draw_service_icon(screen, kind, fx, fy)
                     self._icons_over_player += 1
 
+        # QUESTS READY TO HAND IN: the yellow "?" the NPC wears overhead, on the map too (Kyle, 23 Nov 2026: "is
+        # there ANY way to put a yellow ? at a NPC whos ready to turn in a quest"). Same answer as the overhead one
+        # (QuestManager.get_indicator_for_npc), drawn last and just above the NPC so it covers nothing.
+        self._turn_in_marks = []
+        try:
+            from world.quest_manager import get_quest_manager
+            from world.secrets import get_secrets
+            qm = get_quest_manager()
+            player = getattr(self.state_manager, "player", None)
+            level = getattr(player, "level", 1) or 1
+            secrets = get_secrets()
+            for npc in service_npcs:
+                if getattr(npc, "hidden", False) or getattr(npc, "is_mailbox", False):
+                    continue
+                nid = getattr(npc, "vendor_id", None) or getattr(npc, "npc_id", None)
+                if not nid or qm.get_indicator_for_npc(nid, level) != "gold_question":
+                    continue
+                if secrets.is_hidden_tile(tilemap.name, npc.x, npc.y):
+                    continue
+                qx, qy = self._tile_to_screen(tilemap, rect, npc.x, npc.y)
+                self._draw_turn_in_mark(screen, qx, qy - 14)
+                self._turn_in_marks.append(nid)
+        except Exception as exc:                                        # a marker must never cost the map
+            print(f"[Map] turn-in markers: {exc}")
+
         # Legend
         lx = SCREEN_WIDTH - 290
         ly = 110
@@ -512,6 +537,7 @@ class MapScreen(BaseScreen):
             (poi_colors["npc"], "NPC / vendor", None),
             (poi_colors["chest"], "Treasure", "chest"),
             (poi_colors["quest_marker"], "Point of interest", "poi"),
+            ((255, 214, 92), "Quest ready to turn in", "turn_in"),
         ]
         # Tracked gathering nodes - only the kinds this player can actually see.
         # No crystal row: there are no crystal nodes to mine (Kyle, 12 Nov: "there is no crystal
@@ -537,7 +563,9 @@ class MapScreen(BaseScreen):
         step = max(15, min(26, room // rows))
         icon_scale = 0.8 if step >= 20 else 0.7
         for color, text, medal in legend:
-            if not (medal and self._medallion(screen, medal, lx + 7, ly + 7, icon_scale)):
+            if medal == "turn_in":
+                self._draw_turn_in_mark(screen, lx + 7, ly + 8, radius=7)
+            elif not (medal and self._medallion(screen, medal, lx + 7, ly + 7, icon_scale)):
                 pygame.draw.circle(screen, color, (lx + 7, ly + 7), 6)
             self.renderer.draw_text(screen, text, (lx + 22, ly), color=(200, 200, 210))
             ly += step
@@ -609,6 +637,17 @@ class MapScreen(BaseScreen):
     #: drawn ones below stay as the fallback if a file's missing. Size is the diameter at scale 1.
     MEDALLION_SIZE = {"hearth": 26, "rep": 24, "player": 22, "portal": 16, "boat": 16, "chest": 16, "poi": 16,
                       "ore": 16, "herb": 16, "wood": 16, "fish": 16, "dungeon": 20, "leader": 24, "bank": 20}
+
+    def _draw_turn_in_mark(self, screen, cx, cy, radius=9):
+        """A gold "?" on a dark disc with a gold ring: the overhead turn-in marker, map-sized."""
+        gold = (255, 214, 92)
+        pygame.draw.circle(screen, (20, 20, 20), (cx, cy), radius)
+        pygame.draw.circle(screen, gold, (cx, cy), radius, 2)
+        from ui import theme
+        font = pygame.font.Font(theme.FONT_BOLD if hasattr(theme, "FONT_BOLD") else theme.FONT_REGULAR,
+                                radius + 6)
+        g = font.render("?", True, gold)
+        screen.blit(g, g.get_rect(center=(cx, cy)))
 
     @staticmethod
     def _leader_ids():
