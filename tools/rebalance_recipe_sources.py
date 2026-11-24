@@ -66,7 +66,10 @@ SOURCES = {
     "woodworking": ("data/crafting/recipes.json", "woodworking"),
     "engineering": ("data/crafting/recipes.json", "engineering"),
     "cooking": ("data/crafting/recipes.json", "cooking"),
-    "woodcutting": ("data/crafting/recipes.json", "woodcutting"),
+    # NOT woodcutting, and smelting was never here: wood into planks and ore into bars are the first step of every
+    # crafting line, so they always come from the trainer (Kyle, 23 Nov 2026: "smelting or wood to planks should
+    # generally be taught by trainers at least", after this pass had put Ashwood Plank, the first tree's plank, on a
+    # pattern vendor and nobody could level woodworking).
 }
 
 #: Kyle's band. The tool aims at the middle rather than an edge.
