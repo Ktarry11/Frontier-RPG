@@ -329,6 +329,14 @@ class CastScreen(BaseScreen):
 
         if self.hovered_ability is not None and not self.picking_target:
             self._render_tooltip(screen, self.hovered_ability, self.mouse_pos)
+        elif not self.picking_target:
+            # A BUFF'S TOOLTIP (Kyle, 23 Nov 2026: "also let us hover over them to see remaining duration"): the same
+            # box the combat screen and the Party screen's Buffs tab draw, with what it does and the time left.
+            for rect, effect, member in getattr(self, "_effect_hits", ()):
+                if rect.collidepoint(self.mouse_pos):
+                    from ui.effect_tooltip import draw_effect_tooltip
+                    draw_effect_tooltip(self.renderer, screen, effect, self.mouse_pos, holder=member)
+                    break
 
     def _render_tooltip(self, screen, ability, pos):
         """Hover tooltip for an ability. ONE implementation, in ui/ability_tooltip.py -
@@ -340,6 +348,7 @@ class CastScreen(BaseScreen):
 
     def _render_roster(self, screen):
         self._roster_rects = []
+        self._effect_hits = []
         pygame.draw.rect(screen, (50, 50, 60),
                          (self.ROSTER_X, self.ROSTER_Y, self.ROSTER_WIDTH, self.ROSTER_HEIGHT), 2)
         self.renderer.draw_text(screen, "Party", (self.ROSTER_X + 10, self.HEADER_Y),
@@ -431,25 +440,22 @@ class CastScreen(BaseScreen):
             buffs = [e for e in member._effects() if is_displayable_buff(e)]
             buff_y = res_y + 14
             BUFF_ICON_SIZE = 20
-            if buffs and self.icon_ui_helper:
+            if buffs:
+                # The same square the combat and party screens draw (ui/effect_tooltip.draw_effect_icon): the
+                # buff's own ability art, or the stand-in for its kind, with its coloured border and turns left.
+                # This row used the old icon helper, whose fallback for anything without an icon_id was a plain
+                # blue tile, so every buff here read as an empty blue box (Kyle, 23 Nov 2026: "icons bro").
+                from ui.effect_tooltip import draw_effect_icon
                 icon_x = text_x
                 for effect in buffs[:6]:
-                    surface = self.icon_ui_helper.get_status_effect_icon_surface(effect, size=BUFF_ICON_SIZE)
-                    if surface:
-                        screen.blit(surface, (icon_x, buff_y))
+                    icon_rect = pygame.Rect(icon_x, buff_y, BUFF_ICON_SIZE, BUFF_ICON_SIZE)
+                    draw_effect_icon(self.renderer, screen, effect, icon_rect, show_count=False)
+                    # hover it for what it does and how long it has left (Kyle, 23 Nov 2026)
+                    self._effect_hits.append((icon_rect, effect, member))
                     icon_x += BUFF_ICON_SIZE + 4
                 if len(buffs) > 6:
                     self.renderer.draw_text(screen, f"+{len(buffs) - 6}", (icon_x, buff_y + 2),
                                             font_size=12, color=(160, 210, 160))
-            elif buffs:
-                # No icon helper wired (e.g. a headless/test render) -
-                # same text fallback as before, so this never renders
-                # nothing at all just because icons aren't available.
-                buff_text = "  ".join(e.name for e in buffs[:3])
-                if len(buffs) > 3:
-                    buff_text += f"  +{len(buffs) - 3}"
-                self.renderer.draw_text(screen, buff_text, (text_x, buff_y),
-                                        font_size=13, color=(160, 210, 160))
             else:
                 self.renderer.draw_text(screen, "No active buffs", (text_x, buff_y),
                                         font_size=13, color=(90, 90, 95))
