@@ -322,6 +322,11 @@ class Party:
                 member.clear_combat_effects()
                 if hasattr(member, "_recalculate_derived_stats"):
                     member._recalculate_derived_stats()
+            # A PET SUMMONED FOR A TIME LEAVES WITH THE FIGHT (Kyle, 23 Nov 2026: "diego's clockwork beetle is
+            # permanant...which is wrong"). A summon with a lifespan (Diego's beetle: 5 turns) only ever ran out on
+            # its own turns, so a fight that ended first left it following the party for good.
+            if hasattr(member, "release_temporary_pets"):
+                member.release_temporary_pets()
 
     # ------------------------------------------------------------------
     # Progression

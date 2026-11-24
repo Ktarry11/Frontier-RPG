@@ -5476,7 +5476,8 @@ class Ability:
             if self.pet_lifespan:
                 # LAID TO REST AFTERWARDS (Wave 4, Stelios): the engine ends it after this many of its turns
                 result._lifespan = int(self.pet_lifespan)
-                return f"{caster.name} raises {result.name} for {int(self.pet_lifespan)} turns!"
+                verb = "raises" if getattr(result, "creature_type", "") == "undead" else "summons"
+                return f"{caster.name} {verb} {result.name} for {int(self.pet_lifespan)} turns!"
             return f"{caster.name} summons {result.name}!"
 
         elif self.effect_type == "restore_resource":
@@ -5954,6 +5955,10 @@ def _ability_from_data(entry):
             setattr(ability, key, float(entry[key]))
     if entry.get("pet_lifespan"):
         ability.pet_lifespan = int(entry["pet_lifespan"])
+    elif entry.get("effect_type") == "summon_pet" and int(entry.get("duration") or 0) > 0:
+        # A SUMMON WITH A DURATION IS A SUMMON FOR THAT LONG (23 Nov 2026): Diego's beetle says "It fights for 5
+        # turns and then stops working again" and carried duration 5, which nothing read, so it stayed for good.
+        ability.pet_lifespan = int(entry["duration"])
     if entry.get("requires_fallen_enemy"):
         ability.requires_fallen_enemy = True
     for key in ("enemy_mods", "cleanses", "target_mods", "riposte", "self_buff", "creature_bonus"):

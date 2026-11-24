@@ -1014,6 +1014,16 @@ class Character(StatusEffectMixin):
         out = [self.active_pet] if self.active_pet else []
         return out + list(self.extra_pets)
 
+    def release_temporary_pets(self):
+        """Let go of every pet summoned for a set number of turns (it carries _lifespan): they last a fight, never
+        longer. A permanent pet is untouched."""
+        temp = lambda p: p is not None and getattr(p, "_lifespan", None) is not None  # noqa: E731
+        if temp(self.active_pet):
+            self.active_pet = None
+        self.extra_pets = [p for p in self.extra_pets if not temp(p)]
+        if self.active_pet is None and self.extra_pets:
+            self.active_pet = self.extra_pets.pop(0)
+
     def dismiss_pet(self):
         """Release the active pet, if any. Real WoW: Hunters can only
         dismiss between fights (no in-combat dismiss), which this engine
