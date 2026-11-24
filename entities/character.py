@@ -936,7 +936,7 @@ class Character(StatusEffectMixin):
         stance = get_stance(stance_id)
         return True, f"{self.name} shifts into {stance['name']}."
 
-    def summon_pet(self, template_id, name=None, additional=False):
+    def summon_pet(self, template_id, name=None, additional=False, temporary=False):
         """Summon/tame a pet, replacing any currently active one. Returns
         (success, message_or_pet) - False and an error string if this
         character doesn't meet the template's level_req, otherwise True
@@ -974,6 +974,22 @@ class Character(StatusEffectMixin):
         # Necromancer's first raise fills the main slot and the next three go
         # to extras - four bodies from four abilities, rather than three plus
         # an empty primary.
+        # A SUMMON FOR A TIME (Diego's beetle: 5 turns) stands beside whatever is out, never in place of it, and goes
+        # when the fight ends (Party.restore_after_combat). It used to take the main slot, so it sent the
+        # Tinker's real pet away and then left nothing behind.
+        if temporary:
+            self.extra_pets = [p for p in self.extra_pets if p.template_id != template_id]
+            self.extra_pets.append(pet)
+            return True, pet
+
+        pet._additional = bool(additional)
+        # ONE OF EACH (Kyle, 23 Nov 2026: "tinkerer can only have 1 sentry turret....not 2.... 1 cannon and one
+        # pet"). A turret summoned with no pet out took the main slot, and the next turret went to the extras
+        # beside it because only the extras were checked for a duplicate.
+        if additional and self.active_pet is not None and self.active_pet.template_id == template_id:
+            self.active_pet = pet               # re-summoning the same construct refreshes it
+            return True, pet
+
         if additional and self.max_extra_pets and self.active_pet is None:
             self.active_pet = pet
             return True, pet
@@ -986,6 +1002,17 @@ class Character(StatusEffectMixin):
             self.extra_pets.append(pet)
             return True, pet
 
+        # The real pet arriving while a construct holds the main slot: the construct steps aside into the extras
+        # (if the class may field one) instead of being thrown away, so a Tinker ends with its turret AND its pet.
+        old = self.active_pet
+        construct = old is not None and (getattr(old, "_additional", False) or any(
+            getattr(ab, "additional_pet", False) and getattr(ab, "summon_pet_template", None) == old.template_id
+            for ab in self.ability_book.get_all_abilities()))          # a loaded save doesn't carry the flag
+        if construct and self.max_extra_pets:
+            self.extra_pets = [p for p in self.extra_pets if p.template_id != old.template_id]
+            if len(self.extra_pets) >= self.max_extra_pets:
+                self.extra_pets.pop(0)
+            self.extra_pets.append(old)
         self.active_pet = pet
         return True, self.active_pet
 
@@ -998,7 +1025,8 @@ class Character(StatusEffectMixin):
     #: level-1 permanent Shadowhound with a weaker Lesser Shadowhound, so
     #: pressing it made you worse. CoA reads as a pack either way -
     #: Houndmaster's Call and Rampaging Hounds both say "Hounds", plural.
-    EXTRA_PET_CAP = {"Tinker": 2, "Necromancer": 3, "Witch Hunter": 2}
+    #: Tinker: one construct beside its pet (Kyle, 23 Nov 2026: "1 cannon and one pet"); it was 2.
+    EXTRA_PET_CAP = {"Tinker": 1, "Necromancer": 3, "Witch Hunter": 2}
 
     @property
     def max_extra_pets(self):

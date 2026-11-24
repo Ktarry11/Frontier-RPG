@@ -5469,7 +5469,7 @@ class Ability:
             # ("several bodies soaking and dealing damage at once"). The cap
             # and the no-duplicates rule live on Character.
             success, result = caster.summon_pet(
-                self.summon_pet_template, additional=self.additional_pet)
+                self.summon_pet_template, additional=self.additional_pet, temporary=bool(self.pet_lifespan))
             if not success:
                 self._refund_failed_cast(caster, cost=cost)
                 return result

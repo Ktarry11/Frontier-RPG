@@ -147,7 +147,8 @@ def main():
     # a 720px screen. Five party members hid that; a full party plus a
     # Necromancer's four minions is nine rows and the last three were drawn off
     # the bottom - valid targets with no pixels and no way to click them.
-    for cls, cap in (("necromancer", 3), ("tinker", 2), ("witch_hunter", 2)):
+    # Tinker: one construct beside its pet (Kyle, 23 Nov 2026: "1 cannon and one pet")
+    for cls, cap in (("necromancer", 3), ("tinker", 1), ("witch_hunter", 2)):
         c = Character("T", cls, level=60)
         check(f"{cls} can actually summon its extra pets",
               c.max_extra_pets == cap, f"got {c.max_extra_pets}, want {cap}")
