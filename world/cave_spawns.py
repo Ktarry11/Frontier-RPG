@@ -328,6 +328,7 @@ class CaveSpawnManager:
             m = self.creature_manager.spawn_creature(name, level)
             if m:
                 m.location_type = "cave"
+                m.spawn_zone = self.cave_name      # a zone row's "includes" can name the cave
                 from world.difficulty import apply_health
                 apply_health(m)
                 out.append(m)
@@ -339,6 +340,7 @@ class CaveSpawnManager:
             spawn_point.creature_name, spawn_point.level)
         if monster:
             monster.location_type = "cave"
+            monster.spawn_zone = self.cave_name      # a zone row's "includes" can name the cave
             from world.difficulty import apply_health
             apply_health(monster)
         return monster

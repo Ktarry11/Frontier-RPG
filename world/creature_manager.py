@@ -395,6 +395,8 @@ class CreatureManager:
         # Create Monster using template + ability kit
         monster = Monster(creature_name, template_name, level, kit=ability_kit)
         monster._heroic = is_heroic          # elite on top of its own row (world/difficulty.factor)
+        # where it spawned, for the zone rows in data/balance/monster_difficulty.json ("zones", Deathknell's -15%)
+        monster.spawn_zone = zone_name
 
         # A CREATURE RESISTS WHAT IT CASTS. The template gives a type
         # baseline (undead shrug off shadow, demons shrug off fire), but

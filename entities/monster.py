@@ -1383,7 +1383,8 @@ class Monster(StatusEffectMixin):
             if Monster._creature_manager is None:
                 from world.creature_manager import CreatureManager
                 Monster._creature_manager = CreatureManager()
-            new = Monster._creature_manager.spawn_creature(ph["into"], level=ph.get("level") or self.level)
+            new = Monster._creature_manager.spawn_creature(ph["into"], level=ph.get("level") or self.level,
+                                                           zone_name=getattr(self, "spawn_zone", None))
             if new is None:
                 raise KeyError(f"phase of '{self.name}' turns into '{ph['into']}', which isn't a creature")
             if getattr(self, "location_type", None):

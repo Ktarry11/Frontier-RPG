@@ -160,6 +160,10 @@ def factor(monster, what):
     low = table().get("low_level") or {}
     if (getattr(monster, "level", 99) or 99) < int(low.get("below_level", 0)):
         f *= float(low.get(what, 1.0))
+    # A WHOLE ZONE TUNED (Kyle, 23 Nov 2026: "Deathknell is overtuned, drop whole zone damage by 15% and HP by 10%"):
+    # the table's "zones" rows, on top of everything above, for every creature that spawns in the zone or in one of
+    # the caves its row "includes".
+    f *= zone_factor(getattr(monster, "spawn_zone", None), what)
     # A ROW THAT CHANGES WITH LEVEL: "by_level" is [[level, health, damage], ...], read straight between its points
     # and flat past either end, on top of the row's own numbers (the rare row, tuned with tools/sim_campaign.py's
     # rare census so every level band lands in Kyle's 75-90%).
@@ -179,6 +183,24 @@ def factor(monster, what):
     return f
 
 
+@lru_cache(maxsize=1)
+def _zone_rows():
+    out = {}
+    for name, row in (table().get("zones") or {}).items():
+        if name.startswith("_") or not isinstance(row, dict):
+            continue
+        for z in [name] + list(row.get("includes") or ()):
+            out[z] = row
+    return out
+
+
+def zone_factor(zone, what):
+    """The "zones" row's multiplier for a creature that spawned in this zone (or one of its caves), 1.0 elsewhere."""
+    if not zone:
+        return 1.0
+    return float((_zone_rows().get(zone) or {}).get(what, 1.0))
+
+
 def _by_level(steps, level, col):
     pts = sorted(steps)
     if level <= pts[0][0]:
@@ -192,10 +214,12 @@ def _by_level(steps, level, col):
 
 def apply_health(monster):
     """Scale a freshly made monster's health for where it stands. Idempotent per monster."""
-    if getattr(monster, "_difficulty_kind", None) == kind_of(monster):
-        return
     old = getattr(monster, "_difficulty_health", 1.0)
     new = factor(monster, "health")
+    # Idempotent on the factor itself, not just the kind: a cave's own zone row (spawn_zone, set after the
+    # creature is made) changes the factor without changing the kind.
+    if getattr(monster, "_difficulty_kind", None) == kind_of(monster) and abs(new - old) < 1e-9:
+        return
     monster.max_health = max(1, int(monster.max_health / old * new))
     monster.current_health = monster.max_health
     monster._difficulty_health = new
