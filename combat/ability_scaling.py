@@ -246,7 +246,9 @@ def curved_ranks(entry):
             r["heal_value"] = int(round(new if new is not None else curved))
         if r.get("absorb"):
             r["absorb"] = int(round(r["absorb"] * m))
-        if r.get("cost") and entry.get("resource_type", "mana") == "mana" and USE_MANA_TABLE:
+        # "fixed_cost": the data's costs are meant exactly (Shock, 23 Nov 2026: 15% of the bar at each rank's level)
+        if r.get("cost") and entry.get("resource_type", "mana") == "mana" and USE_MANA_TABLE \
+                and not entry.get("fixed_cost"):
             r["cost"] = max(1, int(round(r["cost"] * mana_cost_multiplier(entry.get("ability_id"), et, lv)
                                          * (size if et in HEALS else 1.0))))
         out.append(r)

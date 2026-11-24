@@ -36,49 +36,49 @@
         {
           "rank": 1,
           "level_req": 1,
-          "cost": 13,
+          "cost": 65,
           "effect_value": 21
         },
         {
           "rank": 2,
           "level_req": 8,
-          "cost": 18,
+          "cost": 84,
           "effect_value": 27
         },
         {
           "rank": 3,
           "level_req": 16,
-          "cost": 25,
+          "cost": 138,
           "effect_value": 33
         },
         {
           "rank": 4,
           "level_req": 24,
-          "cost": 32,
+          "cost": 202,
           "effect_value": 39
         },
         {
           "rank": 5,
           "level_req": 32,
-          "cost": 40,
+          "cost": 256,
           "effect_value": 45
         },
         {
           "rank": 6,
           "level_req": 40,
-          "cost": 47,
+          "cost": 318,
           "effect_value": 52
         },
         {
           "rank": 7,
           "level_req": 48,
-          "cost": 56,
+          "cost": 398,
           "effect_value": 58
         },
         {
           "rank": 8,
           "level_req": 56,
-          "cost": 66,
+          "cost": 508,
           "effect_value": 64
         }
       ],
@@ -92,9 +92,11 @@
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.70x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py",
         "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost",
         "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): instant is now 0.25 of the meter against medium's 0.75 (tools/build_cast_speeds.py)",
-        "23 Nov 2026: stays instant with a 2-turn cooldown (Kyle: \"We should not have damage skills that are low mana with no cooldown being instant\"; tools/build_cast_speeds.py no_spam_instants)"
+        "23 Nov 2026: stays instant with a 2-turn cooldown (Kyle: \"We should not have damage skills that are low mana with no cooldown being instant\"; tools/build_cast_speeds.py no_spam_instants)",
+        "23 Nov 2026: a builder that costs: each rank 15% of a Stormbringer's own mana at that level, fixed (not scaled by data/balance/mana_costs.json). Kyle: \"shock should also be a lot more expensive....since stormbringers have this [Discharge, which spends Static and restores mana]....shock should not be that spamable bro....a true stormbringer needs to alternate between builder and spender.\" It had cost 3-4% of the bar below level 20."
       ],
-      "cast_speed": "instant"
+      "cast_speed": "instant",
+      "fixed_cost": true
     },
     {
       "ability_id": "stormbringer_discharge",
@@ -305,7 +307,7 @@
     {
       "ability_id": "stormbringer_conjure_storm",
       "name": "Conjure Storm",
-      "resource_type": "mana",
+      "resource_type": "static",
       "cooldown": 6,
       "effect_type": "spell_damage",
       "duration": 0,
@@ -317,56 +319,57 @@
         {
           "rank": 1,
           "level_req": 8,
-          "cost": 0,
+          "cost": 50,
           "effect_value": 62
         },
         {
           "rank": 2,
           "level_req": 14,
-          "cost": 0,
+          "cost": 50,
           "effect_value": 73
         },
         {
           "rank": 3,
           "level_req": 20,
-          "cost": 0,
+          "cost": 50,
           "effect_value": 85
         },
         {
           "rank": 4,
           "level_req": 26,
-          "cost": 0,
+          "cost": 50,
           "effect_value": 97
         },
         {
           "rank": 5,
           "level_req": 32,
-          "cost": 0,
+          "cost": 50,
           "effect_value": 109
         },
         {
           "rank": 6,
           "level_req": 40,
-          "cost": 0,
+          "cost": 50,
           "effect_value": 125
         },
         {
           "rank": 7,
           "level_req": 48,
-          "cost": 0,
+          "cost": 50,
           "effect_value": 141
         },
         {
           "rank": 8,
           "level_req": 56,
-          "cost": 0,
+          "cost": 50,
           "effect_value": 157
         }
       ],
       "icon_id": "stormbringer_conjure_storm",
       "damage_school": "nature",
       "_tuning": [
-        "15 Nov 2026, class pass: every rank x0.62 - it sat at 2.60x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)"
+        "15 Nov 2026, class pass: every rank x0.62 - it sat at 2.60x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
+        "23 Nov 2026: costs 50 Static (Kyle: \"conjure storm should have a 50 static cost\"); it was free."
       ],
       "cast_speed": "medium"
     },
