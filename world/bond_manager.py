@@ -547,6 +547,14 @@ class BondManager:
                     b.leave_cause = "zone"
             else:
                 b.high_zones = 0
+                # SOMEWHERE SAFE AGAIN, SO THE FEAR GOES (Kyle, 24 Nov 2026: "'thinks this place is too dangerous'
+                # won't drop. I stepped foot in SM and now people stay scared everywhere"). The warning was only ever
+                # cleared by asking them to stay or by a new stint, so one step into a high zone hung over the rest
+                # of the stint wherever the party went.
+                # Only the WARNING clears. Someone who already decided to go (three high zones running) still goes
+                # at the next town; that decision is real and the party line says so plainly.
+                if b.warned == "zone":
+                    b.warned = None
             if b.short and b.mood > LEAVE:
                 self._mood(b, -3 * b.dial("pride"))
         if self._is_town(zone):
@@ -695,7 +703,9 @@ class BondManager:
             return ""
         if b.leave_cause == "wipe":
             return "Will finish this run, then go home."
-        if b.leave_cause == "zone" or b.warned == "zone":
+        if b.leave_cause == "zone":
+            return "Had enough of the danger. Going home at the next town."
+        if b.warned == "zone":
             return "Thinks this place is too dangerous."
         if b.warned == "wipe":
             return "Shaken by the wipes."
