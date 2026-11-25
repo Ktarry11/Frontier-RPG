@@ -263,7 +263,7 @@ N.append(node(
 N.append(node(
     "turbo_guns", "Turbo Guns",
     "Increases the damage of Mechsuit: Combustion by 10% per rank.",
-    2, 2, -2, ranks=2,
+    3, 3, 0, ranks=2,            # tier 3 since 24 Nov 2026: swapped with Build: Mechsuit (Kyle: "Lets do Tier 2")
     effects={"ability_tinker_mechsuit_combustion_damage": 0.10},
     connect=["overload"],
     source="CoA: 'Reduces the cast time of your Mechsuit: Combustion by 0.25 "
@@ -459,7 +459,7 @@ N.append(unlock(
 N.append(unlock(
     "build_mechsuit", "Build: Mechsuit", "tinker_mechsuit_form",
     "Climb into the suit. Your abilities change while you are in it.",
-    3, 3, 0, connect=["mechsuit_laser_beam"],
+    2, 2, -2, connect=["mechsuit_laser_beam"],   # tier 2 since 24 Nov 2026 (was tier 3, "which is late")
     source="The gateway for the whole mechsuit kit: the two abilities below "
            "require the form, and several nodes in this tree carry "
            "require_mechsuit. Same tier as before the rebuild."))

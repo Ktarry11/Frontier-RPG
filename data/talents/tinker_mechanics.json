@@ -255,18 +255,18 @@
       "name": "Turbo Guns",
       "description": "Increases the damage of Mechsuit: Combustion by 3% per rank.",
       "node_type": "passive",
-      "tier": 2,
+      "tier": 3,
       "max_points": 3,
       "cost_per_point": 1,
-      "hex_x": 2,
-      "hex_y": -2,
+      "hex_x": 3,
+      "hex_y": 0,
       "effects": {
         "ability_tinker_mechsuit_combustion_damage": 0.03
       },
       "connected_to": [
         "tinker_mechanics_overload"
       ],
-      "_source": "CoA: 'Reduces the cast time of your Mechsuit: Combustion by 0.25 sec and its damage is increased by 20%.' Cast time is meaningless here, so only the damage half ports. SPLIT from 1 rank of 20% into 2 ranks of 10% - the same ceiling, not a buff. The rebuilt tree held 29 points with only 28 below tier 6, against a gate of 30, so its capstone was unreachable at any level. See tools/qa_talent_tiers_reachable.py.",
+      "_source": "CoA: 'Reduces the cast time of your Mechsuit: Combustion by 0.25 sec and its damage is increased by 20%.' Cast time is meaningless here, so only the damage half ports. SPLIT from 1 rank of 20% into 2 ranks of 10% - the same ceiling, not a buff. The rebuilt tree held 29 points with only 28 below tier 6, against a gate of 30, so its capstone was unreachable at any level. See tools/qa_talent_tiers_reachable.py. MOVED TO TIER 2 (Kyle, 24 Nov 2026: \"We need to move around mech suit ability for tinkerer. Currently Tier 3 which is late. Lets do Tier 2.\"): it swapped places with Turbo Guns, which took its tier 3 spot. The suit's first rank came down from level 24 to 18, the level Makeshift Dynamite (the only source of the Scrap it costs, also tier 2) arrives.",
       "_tuning": [
         "15 Nov 2026, class pass (Kyle: 'edit some of them hand by hand but DONT lose the cool CoA identity'): 4% -> 3% a rank (Combustion stack)"
       ]
@@ -595,18 +595,18 @@
       "name": "Build: Mechsuit",
       "description": "Learn Build: Mechsuit. Climb into the suit. Your abilities change while you are in it.",
       "node_type": "active",
-      "tier": 3,
+      "tier": 2,
       "max_points": 1,
       "cost_per_point": 1,
-      "hex_x": 3,
-      "hex_y": 0,
+      "hex_x": 2,
+      "hex_y": -2,
       "effects": {
         "unlock_ability": "tinker_mechsuit_form"
       },
       "connected_to": [
         "tinker_mechanics_mechsuit_laser_beam"
       ],
-      "_source": "The gateway for the whole mechsuit kit: the two abilities below require the form, and several nodes in this tree carry require_mechsuit. Same tier as before the rebuild."
+      "_source": "The gateway for the whole mechsuit kit: the two abilities below require the form, and several nodes in this tree carry require_mechsuit. Same tier as before the rebuild. MOVED TO TIER 2 (Kyle, 24 Nov 2026: \"We need to move around mech suit ability for tinkerer. Currently Tier 3 which is late. Lets do Tier 2.\"): it swapped places with Turbo Guns, which took its tier 3 spot. The suit's first rank came down from level 24 to 18, the level Makeshift Dynamite (the only source of the Scrap it costs, also tier 2) arrives."
     },
     {
       "talent_id": "tinker_mechanics_mechsuit_laser_beam",
