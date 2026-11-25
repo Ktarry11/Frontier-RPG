@@ -28,7 +28,9 @@ THE RULE, the same for every class, with each class's own exceptions in OVERRIDE
     sting, a lunge, Quick Shot, Arcane Shot, Exorcism, Cleave and the two rage sweeps; Moonfire, Shadow Word: Pain,
     Corruption, Ignite, Hammer of Kings and Nerubian Sting), and the fillers and builders became short casts, re-sized
     from the instant size to the short one (Sinister Strike, Mutilate, Devastate, the Runemaster's blades...). Scrap
-    Shot became medium, the 1.88-second cast its CoA screenshot shows. The old rule of two instants per class went with
+    Shot became medium, the 1.88-second cast its CoA screenshot shows. Shock went on to medium with no cooldown on 24
+    Nov (Kyle: "Shock doesnt get a cooldown. Keep it as medium cast ... its the main spender"), its mana cost already
+    making it something you alternate with Discharge. The old rule of two instants per class went with
     it: four classes had nothing instant left but their spam.
 
 SIZING, so a speed never makes a spell better or worse per turn of time: long is 1.33x for 1.2x the cost, short
