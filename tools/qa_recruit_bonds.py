@@ -246,6 +246,16 @@ def main():
         bm.on_deed("quest", party, zone=Z("Ragefire Chasm"))
     check(any(p.startswith(T) or p.endswith(T) for p in bm.pairs_heard), "Tarek and Adrián never talked")
 
+    # 11b: asking someone to stay partway through a trip buys real time (Kyle, 25 Nov 2026: "they had 8/14 and you ask
+    # them to stay, they say yes, then nothing changes?")
+    rm, bm, party = fresh()
+    hire(rm, bm, party, T)
+    t = bm.get(T)
+    t.outings, t.stint_len, t.warned = 8, 14, "bored"
+    check(bm.ask_to_stay(T), "Tarek couldn't be asked to stay while restless")
+    check(t.stint_len >= 14 + 3, f"asking Tarek to stay at 8/14 left him at {t.outings}/{t.stint_len}")
+    check(not bm.ask_to_stay(T), "Tarek could be asked to stay twice in one trip")
+
     # 12
     data = rm.to_dict()
     with contextlib.redirect_stdout(io.StringIO()):

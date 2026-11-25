@@ -55,6 +55,7 @@ DEPARTURES_PER_SAFE_POINT = 1
 ZONE_GAP = 3                # a zone this many levels above them is too high
 NEGLECT_OUTINGS = 25        # this many outings without them earns a tease when they rejoin
 PAIR_OUTINGS = 8            # outings two of them share before pair banter appears
+STAY_EXTRA_MIN = 3          # asking someone to stay adds at least this many outings (half a trip for their stage)
 
 
 class Bond:
@@ -382,20 +383,31 @@ class BondManager:
         return True
 
     def ask_to_stay(self, rid):
-        """The player asks them to stay for one more outing. Once a stint, never after an angry walkout."""
+        """The player asks them to stay. Once a stint, never after an angry walkout.
+
+        ASKING BUYS REAL TIME (Kyle, 25 Nov 2026: "when you ask a member to stay, they still sit at the same amount of
+        actions left. Like if they had 8/14 and you ask them to stay, they say yes, then nothing changes?"). It used to
+        set the trip to one past what they'd done, max(14, 9) = 14 at 8 of 14, so it only did anything for someone at
+        the very end of their trip; for a restless or frightened one partway through it cleared the warning and the
+        counter sat still. Now a yes adds half a trip for their stage (at least STAY_EXTRA_MIN) on top of whatever is
+        left, wherever they are in it."""
         b = self.bonds.get(rid)
         if b is None or not b.in_party or b.asked_this_stint or b.angry:
             return False
         if not (b.warned or b.leave_cause):
             return False
         b.asked_this_stint = True
-        b.stint_len = max(b.stint_len, b.outings + 1)
+        b.stint_len = max(b.stint_len, b.outings) + self.stay_extra(b)
         if b.leave_cause in ("stint", "bored"):
             b.leave_cause = None
         b.mood = max(b.mood, WARN + 5)
         b.warned = None
         self.say(rid, self.line(rid, "asked_to_stay"))
         return True
+
+    def stay_extra(self, b):
+        """How many outings a yes to "stay" adds: half a trip for their stage, never fewer than STAY_EXTRA_MIN."""
+        return max(STAY_EXTRA_MIN, round(STINT[b.stage] / 2))
 
     def safe_point(self, party=None):
         """A town, or a quest handed in outside a dungeon. Anyone due to go goes now, but only one at a time unless
