@@ -180,6 +180,10 @@ def factor(monster, what):
         lo, hi = int(late.get("from_level", 30)), int(late.get("full_level", 50))
         k = min(1.0, max(0.0, (lv - lo) / max(1, hi - lo)))
         f *= 1.0 + (float(late[what]) - 1.0) * k
+    # THE PLAYER'S OWN SETTING (world/player_difficulty.py; Kyle, 25 Nov 2026: "A way for my friend, or myself, to test
+    # some things out"): last, on top of everything the game itself does, 1x unless they changed it in the Difficulty menu.
+    from world.player_difficulty import multiplier as _player
+    f *= _player(monster, what)
     return f
 
 
@@ -210,6 +214,22 @@ def _by_level(steps, level, col):
             k = (level - a[0]) / max(1, b[0] - a[0])
             return float(a[col]) + (float(b[col]) - float(a[col])) * k
     return float(pts[-1][col])
+
+
+def refresh_health(monster):
+    """A creature that was made before the player changed their Difficulty setting (a cave pack already standing)
+    takes the new health at the start of its fight, keeping how hurt it already was. Nothing happens if the
+    factor hasn't changed, or for a creature apply_health never touched."""
+    if getattr(monster, "_difficulty_kind", None) is None:
+        return
+    old = getattr(monster, "_difficulty_health", 1.0)
+    new = factor(monster, "health")
+    if abs(new - old) < 1e-9 or old <= 0:
+        return
+    frac = monster.current_health / max(1, monster.max_health)
+    monster.max_health = max(1, int(monster.max_health / old * new))
+    monster.current_health = max(1, int(round(monster.max_health * frac))) if monster.current_health > 0 else 0
+    monster._difficulty_health = new
 
 
 def apply_health(monster):

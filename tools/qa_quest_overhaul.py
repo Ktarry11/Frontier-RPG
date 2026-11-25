@@ -123,6 +123,9 @@ def main():
     # Every town keeps its people: Kyle's floors per tier, no big clumps, few "I" openers (tools/qa_townsfolk.py).
     from qa_townsfolk import findings as townsfolk_findings
     bad += townsfolk_findings()
+    # The player's own Difficulty menu: 1x is the game as tuned, each tab moves only its own monsters and stat.
+    from qa_player_difficulty import findings as player_difficulty_findings
+    bad += player_difficulty_findings()
     print(f"{len(done)} zones through the overhaul: {', '.join(sorted(done))}")
     if voiced:
         print(f"{len(voiced)} held to the plain-voice bar: {', '.join(voiced)}")

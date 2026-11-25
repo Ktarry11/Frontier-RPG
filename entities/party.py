@@ -155,9 +155,14 @@ class Party:
         # Shared overflow storage, for the same reason the purse is shared - see entities/bank.py.
         # the player's own experience rate, 0.5x to 3x (world/xp_rate.py)
         self.xp_rate = 1.0
+        # the player's own monster health and damage per kind of place (world/player_difficulty.py)
+        from world.player_difficulty import fresh as _fresh_difficulty
+        self.difficulty = _fresh_difficulty()
         try:
             from world.xp_rate import bind
             bind(self)
+            from world.player_difficulty import bind as _bind_difficulty
+            _bind_difficulty(self)
         except Exception:
             pass
         # the Collection's heirlooms: the leader's count for the whole party (world/collection.py)
@@ -402,6 +407,7 @@ class Party:
                      for m in [self.player] + self.all_recruits()},
             "copper": self.copper,
             "xp_rate": self.xp_rate,
+            "difficulty": self.difficulty,
             "bank": self.bank.to_dict(),
             "mail": self.mail.to_dict() if self.mail is not None else None,
             "market": self.market.to_dict() if self.market is not None else None,
@@ -414,6 +420,8 @@ class Party:
         party = cls(player)
         from world.xp_rate import RATES, DEFAULT
         party.xp_rate = data.get("xp_rate", DEFAULT) if data.get("xp_rate", DEFAULT) in RATES else DEFAULT
+        from world.player_difficulty import clean as _clean_difficulty
+        party.difficulty = _clean_difficulty(data.get("difficulty"))
         for entry in data.get("members", []):
             party.members.append(Character.from_dict(entry))
         for entry in data.get("bench", []):

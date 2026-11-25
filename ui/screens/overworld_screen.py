@@ -111,9 +111,33 @@ class OverworldScreen(BaseScreen):
         # one; R still rides whichever was picked last.
         self.mount_picker = False
         self.mount_picker_rects = []      # [(rect, mount id or None for "dismount")]
+        # THE DIFFICULTY MENU (world/player_difficulty.py; Kyle, 25 Nov 2026: "a small box where the EXP bar is, that
+        # opens a new menu. We can call it 'Difficulty'"). The experience rate lives in it now too.
+        self.difficulty_open = False
+        self.difficulty_tab = "xp"
+        self.difficulty_rects = []        # [(rect, action)] action: ("xp", rate) | ("diff", cat, what, v) | ("reset",) | ("close",)
+        self.difficulty_panel = None
+        self.difficulty_button = None
     
     def handle_event(self, event):
         """Handle input."""
+        if self.difficulty_open:
+            if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                for rect, action in self.difficulty_rects:
+                    if rect.collidepoint(event.pos):
+                        self._difficulty_pick(action)
+                        break
+                else:
+                    if self.difficulty_panel is None or not self.difficulty_panel.collidepoint(event.pos):
+                        self.difficulty_open = False
+            elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                self.difficulty_open = False
+            elif event.type == pygame.KEYDOWN and event.key in (pygame.K_TAB, pygame.K_RIGHT, pygame.K_LEFT):
+                keys = [t[0] for t in self._diff_tabs()]
+                step = -1 if event.key == pygame.K_LEFT or (pygame.key.get_mods() & pygame.KMOD_SHIFT) else 1
+                cur = getattr(self, "difficulty_tab", "xp")
+                self.difficulty_tab = keys[(keys.index(cur) + step) % len(keys)] if cur in keys else keys[0]
+            return
         if self.mount_picker:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 for rect, mid in self.mount_picker_rects:
@@ -451,12 +475,10 @@ class OverworldScreen(BaseScreen):
         
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouse_pos = event.pos
-            for rate, r in getattr(self, "xp_rate_rects", []):       # the experience rate (world/xp_rate.py)
-                if r.collidepoint(mouse_pos):
-                    from world.xp_rate import set_rate, label
-                    if set_rate(self.state_manager.get_party(), rate):
-                        self._notify(f"Experience from quests and kills is now {label(rate)}.", (230, 200, 120))
-                    return
+            if self.difficulty_button is not None and self.difficulty_button.collidepoint(mouse_pos):
+                self._release_movement_keys()                      # the Difficulty menu (experience rate inside it)
+                self.difficulty_open = True
+                return
             if self.ENCOUNTER_BADGE.collidepoint(mouse_pos):       # the badge is a switch too, like E
                 self.encounters_enabled = not self.encounters_enabled
                 return
@@ -760,32 +782,236 @@ class OverworldScreen(BaseScreen):
     XP_TOGGLE_X, XP_TOGGLE_W = 840, 230
 
     def _render_xp_toggle(self, screen):
-        """Kyle, 18 Nov 2026: "a toggle tab in the bottom of the screen where it looks nice... 0.5x, 1x, 1.5x, 2x,
-        2.5x, or 3x EXP which will be for quests and kills. So people can pick their own level of fun." Six
-        segments in one pill; the chosen one lit gold."""
-        from world.xp_rate import RATES, current, label
-        rate = current()
+        """The Difficulty box, where the experience pill used to be (Kyle, 25 Nov 2026: "add a small box where the EXP
+        bar is, that opens a new menu. We can call it 'Difficulty'"). It says the experience rate at a glance, and
+        "custom" when any monster setting is off 1x, so nobody forgets they turned something up."""
+        from world.xp_rate import current, label
+        from world.player_difficulty import is_default
         x, y, w = self.XP_TOGGLE_X, self.BADGE_Y, self.XP_TOGGLE_W
-        self.renderer.draw_text(screen, "Experience from quests and kills", (x, y - 24), font_size=14,
-                                color=(170, 170, 180))
-        outer = pygame.Rect(x, y, w, 38)
-        pygame.draw.rect(screen, (22, 22, 30), outer, border_radius=19)
-        pygame.draw.rect(screen, (90, 80, 50), outer, 2, border_radius=19)
-        seg = (w - 8) / len(RATES)
-        self.xp_rate_rects = []
+        r = pygame.Rect(x, y, w, 38)
+        self.difficulty_button = r
+        hover = r.collidepoint(pygame.mouse.get_pos())
+        custom = not is_default()
+        pygame.draw.rect(screen, (44, 38, 26) if hover else (28, 26, 32), r, border_radius=8)
+        pygame.draw.rect(screen, (214, 180, 96) if hover else (130, 108, 60), r, 2, border_radius=8)
+        # a small jewel: gold when any monster setting is off 1x, so nobody forgets they turned something up
+        cx, cy = r.x + 18, r.centery
+        jewel = (214, 180, 96) if custom else (84, 76, 60)
+        pygame.draw.polygon(screen, jewel, [(cx, cy - 6), (cx + 6, cy), (cx, cy + 6), (cx - 6, cy)])
+        self._diff_blit(screen, "Difficulty", 16, (240, 220, 160) if hover else (222, 210, 170), "bold",
+                        midleft=(r.x + 32, r.centery - 1))
+        self._diff_blit(screen, f"EXP {label(current())}", 13, (214, 180, 96) if current() != 1.0 else (150, 142, 128),
+                        "italic", midright=(r.right - 14, r.centery))
+
+    # THE DIFFICULTY WINDOW. Kyle, 25 Nov 2026: "Make the tabbed window look nice and elegant... not slop lol". One tab
+    # for experience and one for each kind of place; each tab is a notched slider or two, the way a settings window in
+    # a real game reads, with the house frame (Renderer.draw_panel) and Lora throughout.
+    DIFF_W, DIFF_H = 900, 540
+    DIFF_EASIER = (128, 196, 214)       # a step below 1x reads cool
+    DIFF_HARDER = (226, 168, 84)        # a step above reads warm
+
+    def _diff_font(self, size, face="regular"):
+        from ui import theme
+        cache = self.__dict__.setdefault("_diff_fonts", {})
+        key = (size, face)
+        if key not in cache:
+            path = {"bold": theme.FONT_BOLD, "italic": theme.FONT_ITALIC}.get(face, theme.FONT_REGULAR)
+            cache[key] = pygame.font.Font(path, size)
+        return cache[key]
+
+    def _diff_blit(self, screen, text, size, color, face="regular", **anchor):
+        surf = self._diff_font(size, face).render(text, True, color)
+        rect = surf.get_rect(**anchor)
+        screen.blit(surf, rect)
+        return rect
+
+    def _diff_tabs(self):
+        from world import player_difficulty as pd
+        return [("xp", "Experience", 0)] + [(c, t, {"skull": 1, "frontier": 2}.get(c, 0)) for c, t in pd.CATEGORIES]
+
+    @staticmethod
+    def _diff_change_text(v, noun):
+        if abs(v - 1.0) < 1e-9:
+            return "As tuned"
+        pct = int(round((v - 1.0) * 100))
+        return f"{'+' if pct > 0 else ''}{pct}% {noun}"
+
+    def _diff_slider(self, screen, area, y, title, noun, values, chosen, action_of, label):
+        """A track with a notch per step. The stretch from 1x to the chosen step is lit (warm for harder, cool for
+        easier), the chosen notch is a gold jewel, and the step labels sit under the notches."""
+        from ui import theme
         mouse = pygame.mouse.get_pos()
-        font = self.renderer._get_font(font_size=15)
-        for i, r in enumerate(RATES):
-            cell = pygame.Rect(int(x + 4 + i * seg), y + 4, int(seg) - 2, 30)
-            on = r == rate
-            hover = cell.collidepoint(mouse)
+        x0, x1 = area.x + 44, area.right - 44
+        self._diff_blit(screen, title, 18, theme.TEXT, "bold", topleft=(area.x + 28, y))
+        tone = theme.TEXT_DIM if abs(chosen - 1.0) < 1e-9 else (self.DIFF_HARDER if chosen > 1 else self.DIFF_EASIER)
+        self._diff_blit(screen, self._diff_change_text(chosen, noun), 15, tone, "italic",
+                        topright=(area.right - 28, y + 3))
+        ty = y + 50
+        xs = [x0 + (x1 - x0) * i / (len(values) - 1) for i in range(len(values))]
+        pygame.draw.line(screen, (12, 11, 14), (x0, ty + 1), (x1, ty + 1), 6)
+        pygame.draw.line(screen, (58, 52, 44), (x0, ty), (x1, ty), 4)
+        one = values.index(1.0) if 1.0 in values else 0
+        pick = values.index(chosen) if chosen in values else one
+        if pick != one:
+            a, b = sorted((xs[one], xs[pick]))
+            pygame.draw.line(screen, self.DIFF_HARDER if pick > one else self.DIFF_EASIER, (a, ty), (b, ty), 4)
+        hovered = None
+        for i, v in enumerate(values):
+            cx = int(xs[i])
+            hit = pygame.Rect(cx - 30, ty - 22, 60, 58)
+            if hit.collidepoint(mouse):
+                hovered = i
+            self.difficulty_rects.append((hit, action_of(v)))
+        for i, v in enumerate(values):
+            cx = int(xs[i])
+            if i == pick:
+                glow = pygame.Surface((44, 44), pygame.SRCALPHA)
+                pygame.draw.circle(glow, (214, 180, 96, 46), (22, 22), 21)
+                pygame.draw.circle(glow, (214, 180, 96, 70), (22, 22), 15)
+                screen.blit(glow, (cx - 22, ty - 22))
+                pygame.draw.circle(screen, (40, 30, 14), (cx, ty), 11)
+                pygame.draw.circle(screen, theme.ACCENT, (cx, ty), 9)
+                pygame.draw.circle(screen, (250, 228, 160), (cx - 2, ty - 3), 3)
+            else:
+                lit = (min(one, pick) <= i <= max(one, pick)) and pick != one
+                fill = (self.DIFF_HARDER if pick > one else self.DIFF_EASIER) if lit else (30, 28, 34)
+                pygame.draw.circle(screen, (12, 11, 14), (cx, ty), 8)
+                pygame.draw.circle(screen, fill, (cx, ty), 6)
+                ring = theme.FRAME_SELECTED if i == hovered else (theme.FRAME if i == one else theme.FRAME_INNER)
+                pygame.draw.circle(screen, ring, (cx, ty), 7, 1)
+            col = theme.TEXT_HEADING if i == pick else (theme.TEXT if i == hovered else theme.TEXT_DIM)
+            self._diff_blit(screen, label(v), 15, col, "bold" if i == pick else "regular", midtop=(cx, ty + 18))
+
+    def _diff_button(self, screen, rect, text):
+        from ui import theme
+        hover = rect.collidepoint(pygame.mouse.get_pos())
+        self.renderer.draw_vgradient(screen, rect, theme.BTN_TOP_HOVER if hover else theme.BTN_TOP,
+                                     theme.BTN_BOTTOM_HOVER if hover else theme.BTN_BOTTOM)
+        pygame.draw.rect(screen, theme.FRAME_SELECTED if hover else theme.FRAME, rect, 1)
+        self._diff_blit(screen, text, 15, theme.TEXT_HEADING if hover else theme.TEXT, center=rect.center)
+
+    def _render_difficulty(self, screen):
+        """Experience, then monster health and damage for each of the four kinds of place, each set on its own from
+        0.5x to 2x (Kyle, 25 Nov 2026). 1x everywhere is the game exactly as tuned."""
+        from ui import theme
+        from ui.skull_mark import skull
+        from world.xp_rate import RATES, current, label as xp_label
+        from world import player_difficulty as pd
+        overlay = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
+        overlay.fill((6, 5, 8, 175))
+        screen.blit(overlay, (0, 0))
+        panel = pygame.Rect((SCREEN_WIDTH - self.DIFF_W) // 2, (SCREEN_HEIGHT - self.DIFF_H) // 2,
+                            self.DIFF_W, self.DIFF_H)
+        self.difficulty_panel = panel
+        self.difficulty_rects = []
+        self.renderer.draw_panel(screen, panel)
+        tab = getattr(self, "difficulty_tab", "xp")
+        mouse = pygame.mouse.get_pos()
+
+        # heading, and a gold rule with a jewel in its middle
+        self._diff_blit(screen, "Difficulty", 30, theme.TEXT_HEADING, "bold", topleft=(panel.x + 32, panel.y + 20))
+        self._diff_blit(screen, "Shape the world to your liking. At 1x everywhere it plays exactly as it was tuned.",
+                        15, theme.TEXT_DIM, "italic", topleft=(panel.x + 34, panel.y + 62))
+        ry = panel.y + 94
+        pygame.draw.line(screen, theme.FRAME_INNER, (panel.x + 32, ry), (panel.right - 32, ry), 1)
+        mid = panel.centerx
+        pygame.draw.polygon(screen, theme.ACCENT, [(mid, ry - 5), (mid + 5, ry), (mid, ry + 5), (mid - 5, ry)])
+
+        # the tabs
+        tabs = self._diff_tabs()
+        gap, tx, tw_all = 8, panel.x + 32, panel.width - 64
+        tw = (tw_all - gap * (len(tabs) - 1)) // len(tabs)
+        ty, th = panel.y + 112, 58
+        body = pygame.Rect(panel.x + 32, ty + th - 1, tw_all, 270)
+        for n, (key, title, n_sk) in enumerate(tabs):
+            r = pygame.Rect(tx + n * (tw + gap), ty, tw, th)
+            on = key == tab
+            hover = r.collidepoint(mouse) and not on
+            top, bottom = ((50, 46, 52), (30, 28, 34)) if on else (((40, 38, 44), (24, 23, 28)) if hover
+                                                                   else ((28, 27, 32), (18, 17, 21)))
+            self.renderer.draw_vgradient(screen, r, top, bottom)
+            frame = theme.FRAME if on else (theme.FRAME_INNER if hover else (62, 56, 44))
+            pygame.draw.lines(screen, frame, False, [(r.x, r.bottom), (r.x, r.y), (r.right - 1, r.y),
+                                                     (r.right - 1, r.bottom)], 1)
             if on:
-                pygame.draw.rect(screen, (200, 160, 60), cell, border_radius=15)
-            elif hover:
-                pygame.draw.rect(screen, (50, 46, 34), cell, border_radius=15)
-            txt = font.render(label(r), True, (30, 22, 10) if on else ((240, 220, 160) if hover else (190, 180, 150)))
-            screen.blit(txt, txt.get_rect(center=cell.center))
-            self.xp_rate_rects.append((r, cell))
+                pygame.draw.line(screen, theme.ACCENT, (r.x + 1, r.y + 1), (r.right - 2, r.y + 1), 2)
+            # the tab's name, with its skulls the way the zone banner wears them
+            name_col = theme.TEXT_HEADING if on else (theme.TEXT if hover else theme.TEXT_DIM)
+            name = self._diff_font(15, "bold").render(title, True, name_col)
+            mark = skull(14) if n_sk else None
+            mw = (mark.get_width() + 3) * n_sk if mark else 0
+            nx = r.centerx - (name.get_width() + mw + (4 if mark else 0)) // 2
+            screen.blit(name, (nx, r.y + 9))
+            for k in range(n_sk):
+                screen.blit(mark, (nx + name.get_width() + 5 + k * (mark.get_width() + 3), r.y + 12))
+            # what it's set to, small underneath
+            if key == "xp":
+                v = current()
+                sub, changed = xp_label(v), v != 1.0
+            else:
+                h, d = pd.get(key, "health"), pd.get(key, "damage")
+                sub, changed = f"HP {pd.label(h)}   Dmg {pd.label(d)}", (h != 1.0 or d != 1.0)
+            self._diff_blit(screen, sub, 12, theme.ACCENT if changed else (112, 106, 98), "italic",
+                            midtop=(r.centerx, r.y + 34))
+            self.difficulty_rects.append((r, ("tab", key)))
+
+        # the page under the chosen tab, joined to it
+        self.renderer.draw_vgradient(screen, body, (30, 28, 34), theme.PANEL_INSET_BOTTOM)
+        pygame.draw.rect(screen, theme.FRAME, body, 1)
+        on_r = pygame.Rect(tx + [t[0] for t in tabs].index(tab) * (tw + gap), ty, tw, th)
+        pygame.draw.line(screen, (30, 28, 34), (on_r.x + 1, body.y), (on_r.right - 2, body.y), 1)
+
+        blurbs = {
+            "xp": "How much experience quests and kills give you.",
+            "open": "The open world, its rares, and the small caves along the way.",
+            "dungeon": "Five-player dungeons, bosses and trash alike, and every heroic run.",
+            "skull": "Hidden places, marked with one skull beside their name.",
+            "frontier": "The deepest hidden places, marked with two skulls.",
+        }
+        self._diff_blit(screen, blurbs[tab], 15, theme.TEXT_DIM, "italic", topleft=(body.x + 28, body.y + 20))
+        if tab == "xp":
+            self._diff_slider(screen, body, body.y + 100, "Experience from quests and kills", "experience",
+                              RATES, current(), lambda v: ("xp", v), xp_label)
+        else:
+            self._diff_slider(screen, body, body.y + 56, "Monster health", "health", pd.STEPS, pd.get(tab, "health"),
+                              lambda v, c=tab: ("diff", c, "health", v), pd.label)
+            self._diff_slider(screen, body, body.y + 160, "Monster damage", "damage", pd.STEPS,
+                              pd.get(tab, "damage"), lambda v, c=tab: ("diff", c, "damage", v), pd.label)
+
+        # footer
+        fy = panel.bottom - 58
+        self._diff_blit(screen, "Applies from your next fight, and saves with this character.", 14, theme.TEXT_DIM,
+                        "italic", midleft=(panel.x + 34, fy + 19))
+        done = pygame.Rect(panel.right - 32 - 120, fy, 120, 38)
+        reset = pygame.Rect(done.x - 12 - 190, fy, 190, 38)
+        self._diff_button(screen, reset, "Reset all to 1x")
+        self._diff_button(screen, done, "Done")
+        self.difficulty_rects.append((reset, ("reset",)))
+        self.difficulty_rects.append((done, ("close",)))
+
+    def _difficulty_pick(self, action):
+        party = self.state_manager.get_party()
+        kind = action[0]
+        if kind == "close":
+            self.difficulty_open = False
+        elif kind == "tab":
+            self.difficulty_tab = action[1]
+        elif kind == "xp":
+            from world.xp_rate import set_rate, label
+            if set_rate(party, action[1]):
+                self._notify(f"Experience from quests and kills is now {label(action[1])}.", (230, 200, 120))
+        elif kind == "diff":
+            from world import player_difficulty as pd
+            _k, cat, what, v = action
+            if pd.set_step(party, cat, what, v):
+                self._notify(f"{dict(pd.CATEGORIES)[cat]}: {dict(pd.WHATS)[what].lower()} is now {pd.label(v)}.",
+                             (230, 200, 120))
+        elif kind == "reset":
+            from world import player_difficulty as pd
+            from world.xp_rate import set_rate
+            pd.reset(party)
+            set_rate(party, 1.0)
+            self._notify("Everything is back to 1x: experience, monster health and monster damage.", (230, 200, 120))
 
     def _render_status_badges(self, screen):
         """New mail (a gold badge that breathes, with the raised flag and how many letters are waiting) and the
@@ -1742,6 +1968,8 @@ class OverworldScreen(BaseScreen):
             self._render_rest_picker(screen)
         if self.mount_picker:
             self._render_mount_picker(screen)
+        if self.difficulty_open:
+            self._render_difficulty(screen)
 
         # Last, so nothing in the HUD draws over it.
         self._render_banter(screen)

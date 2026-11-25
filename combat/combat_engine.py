@@ -67,6 +67,14 @@ class CombatEngine:
         # real list is self.enemies.
         self.enemies = list(enemies) if enemies else ([enemy] if enemy else [])
         self.enemy = self.enemies[0] if self.enemies else None
+        # A pack made before the player changed their Difficulty setting takes the new health now
+        # (world/player_difficulty.py, world/difficulty.refresh_health).
+        try:
+            from world.difficulty import refresh_health
+            for _e in self.enemies:
+                refresh_health(_e)
+        except Exception:
+            pass
 
         self.allies = self.party.members
 
