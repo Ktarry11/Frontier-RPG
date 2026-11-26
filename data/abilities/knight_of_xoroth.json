@@ -246,48 +246,48 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Deals damage to the target.",
+      "description": "Deals damage to the target. Spends all your Deathfire, +20% damage for each.",
       "ranks": [
         {
           "rank": 1,
           "level_req": 12,
-          "cost": 4,
+          "cost": 1,
           "effect_value": 99
         },
         {
           "rank": 2,
           "level_req": 19,
-          "cost": 4,
+          "cost": 1,
           "effect_value": 117
         },
         {
           "rank": 3,
           "level_req": 26,
-          "cost": 4,
+          "cost": 1,
           "effect_value": 135
         },
         {
           "rank": 4,
           "level_req": 33,
-          "cost": 4,
+          "cost": 1,
           "effect_value": 153
         },
         {
           "rank": 5,
           "level_req": 40,
-          "cost": 4,
+          "cost": 1,
           "effect_value": 171
         },
         {
           "rank": 6,
           "level_req": 47,
-          "cost": 4,
+          "cost": 1,
           "effect_value": 188
         },
         {
           "rank": 7,
           "level_req": 54,
-          "cost": 4,
+          "cost": 1,
           "effect_value": 206
         }
       ],
@@ -297,7 +297,11 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.64x steeper than it, biggest single-rank jump 1.29x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "medium"
+      "cast_speed": "medium",
+      "spends_all": true,
+      "per_stack_damage": 0.2,
+      "per_stack_norm": 4,
+      "_spend_all_source": "CoA: +20% damage per Demonfire (record 66622). Normalised so 4 stacks hits as the rank numbers say."
     },
     {
       "ability_id": "knight_of_xoroth_melt",
@@ -825,36 +829,36 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Deals Fire damage to up to 5 targets. Generates 30 Rage.",
+      "description": "Deals Fire damage to up to 5 targets. Generates 30 Rage. Spends all your Deathfire, +100% damage for each.",
       "ranks": [
         {
           "rank": 1,
           "level_req": 24,
-          "cost": 4,
+          "cost": 1,
           "effect_value": 58
         },
         {
           "rank": 2,
           "level_req": 32,
-          "cost": 4,
+          "cost": 1,
           "effect_value": 67
         },
         {
           "rank": 3,
           "level_req": 40,
-          "cost": 4,
+          "cost": 1,
           "effect_value": 76
         },
         {
           "rank": 4,
           "level_req": 48,
-          "cost": 4,
+          "cost": 1,
           "effect_value": 85
         },
         {
           "rank": 5,
           "level_req": 56,
-          "cost": 4,
+          "cost": 1,
           "effect_value": 94
         }
       ],
@@ -871,7 +875,11 @@
         "15 Nov 2026, class pass: every rank x0.71 - it sat at 2.26x of what an ability of its level, cooldown, AoE share, cast speed and role should be (tools/fix_strong_outliers.py)",
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.67x steeper than it, biggest single-rank jump 1.36x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "medium"
+      "cast_speed": "medium",
+      "spends_all": true,
+      "per_stack_damage": 1.0,
+      "per_stack_norm": 4,
+      "_spend_all_source": "CoA: +100% damage per Demonfire. Normalised so 4 stacks hits as the rank numbers say."
     },
     {
       "ability_id": "knight_of_xoroth_sacrificial_circle",
@@ -1328,42 +1336,42 @@
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
-      "description": "Deals Fire/Shadow damage to the target over time for 3 turns.",
+      "description": "Deals Fire/Shadow damage to the target over time for 3 turns. Spends all your Deathfire, +20% damage for each.",
       "ranks": [
         {
           "rank": 1,
           "level_req": 16,
-          "cost": 4,
+          "cost": 1,
           "effect_value": 205
         },
         {
           "rank": 2,
           "level_req": 24,
-          "cost": 4,
+          "cost": 1,
           "effect_value": 242
         },
         {
           "rank": 3,
           "level_req": 32,
-          "cost": 4,
+          "cost": 1,
           "effect_value": 281
         },
         {
           "rank": 4,
           "level_req": 40,
-          "cost": 4,
+          "cost": 1,
           "effect_value": 319
         },
         {
           "rank": 5,
           "level_req": 48,
-          "cost": 4,
+          "cost": 1,
           "effect_value": 358
         },
         {
           "rank": 6,
           "level_req": 56,
-          "cost": 4,
+          "cost": 1,
           "effect_value": 395
         }
       ],
@@ -1382,7 +1390,11 @@
       "_over_time_lifted": [
         1.76
       ],
-      "cast_speed": "medium"
+      "cast_speed": "medium",
+      "spends_all": true,
+      "per_stack_damage": 0.2,
+      "per_stack_norm": 4,
+      "_spend_all_source": "CoA: +20% direct and periodic damage per Demonfire. Normalised so 4 stacks hits as the rank numbers say."
     },
     {
       "ability_id": "knight_of_xoroth_hellfire_form",
@@ -1418,30 +1430,30 @@
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Deals Fire damage to up to 6 targets.",
+      "description": "Deals Fire damage to up to 6 targets. Spends all your Deathfire, +15% damage for each.",
       "ranks": [
         {
           "rank": 1,
           "level_req": 38,
-          "cost": 5,
+          "cost": 1,
           "effect_value": 124
         },
         {
           "rank": 2,
           "level_req": 44,
-          "cost": 5,
+          "cost": 1,
           "effect_value": 136
         },
         {
           "rank": 3,
           "level_req": 50,
-          "cost": 5,
+          "cost": 1,
           "effect_value": 147
         },
         {
           "rank": 4,
           "level_req": 56,
-          "cost": 5,
+          "cost": 1,
           "effect_value": 159
         }
       ],
@@ -1453,7 +1465,11 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.49x steeper than it, biggest single-rank jump 1.19x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "medium"
+      "cast_speed": "medium",
+      "spends_all": true,
+      "per_stack_damage": 0.15,
+      "per_stack_norm": 5,
+      "_spend_all_source": "CoA lengthens Embers per Demonfire; Frontier has no Embers, so +15% damage per stack instead. Normalised so 5 stacks hits as the rank numbers say."
     },
     {
       "ability_id": "knight_of_xoroth_hellfire_ward",

@@ -1296,7 +1296,10 @@ class Ability:
             # the player has 40 Static banked right now.
             resource_label = self.resource_type.value.replace("_", " ").title()
             shown_cost = self.talented_cost(caster) if caster is not None else int(self.cost)
-            cost_bits.append(f"Cost: {shown_cost} {resource_label}")
+            if self.spends_all:
+                cost_bits.append(f"Cost: all your {resource_label} (at least 1)")
+            else:
+                cost_bits.append(f"Cost: {shown_cost} {resource_label}")
         # cast speed (CAST_SPEEDS): when your next turn comes. A free action (instant with a cooldown of 2 or more)
         # doesn't end the turn at all, so it says that instead.
         if self.is_instant and (self.cooldown or 0) >= 2:
@@ -2425,7 +2428,9 @@ class Ability:
                     need = self._talent(caster, "heal_healthy_target_pct")
             # the aura balances healers' kits against each other, so it sits outside the cap (ability_scaling)
             return spec * aura * (1.0 + buff_pct / 100.0) * (1.0 + need)
-        return (1.0 + per_ability) * (1.0 + global_key) * (1.0 + buff_pct / 100.0) * aura
+        # stacks a spend-all spender used multiply the whole hit, so +20% a stack is +20% a stack (1.0 otherwise)
+        spent = self._spend_all_factor() if school != "healing" else 1.0
+        return (1.0 + per_ability) * (1.0 + global_key) * (1.0 + buff_pct / 100.0) * aura * spent
 
     def is_available(self):
         """Check if ability is off cooldown."""
@@ -2596,8 +2601,14 @@ class Ability:
 
         if free:
             cost = 0
+            # a free cast of a spend-all spender (a proc) hits as a normal spend and takes nothing
+            self._spent_stacks = self.per_stack_norm
         else:
             cost = self.talented_cost(caster)
+            if self.spends_all and hasattr(caster, "get_resource"):
+                banked = int(caster.get_resource(self._effective_resource_type(caster)))
+                cost = max(1, banked)
+                self._spent_stacks = banked
             if not self._has_resource(caster, cost):
                 # say WHICH pool is short: a finisher with energy but no combo points said "Not enough energy"
                 if self.secondary_cost and not self._has_secondary_resource(caster):
@@ -3641,6 +3652,18 @@ class Ability:
             if form_resource is not None:
                 return form_resource
         return self.resource_type
+
+    spends_all = False
+    per_stack_damage = 0.0
+    per_stack_norm = 4
+    _spent_stacks = 0
+
+    def _spend_all_factor(self):
+        """The damage factor from stacks this cast spent (1.0 for anything that isn't a spend-all spender)."""
+        if not self.spends_all or not self.per_stack_damage:
+            return 1.0
+        n = self._spent_stacks
+        return (1.0 + self.per_stack_damage * n) / (1.0 + self.per_stack_damage * self.per_stack_norm)
 
     def _has_resource(self, caster, cost=None):
         """Check if caster has enough of this ability's resource.
@@ -6003,6 +6026,13 @@ def _ability_from_data(entry):
     # A SPECIAL THAT STRIKES WITH BOTH WEAPONS (Stormstrike, Mutilate, Wildclaw...); every other special is the
     # main hand's (15 Nov 2026)
     ability.strikes_both_weapons = bool(entry.get("strikes_both_weapons"))
+    # SPEND EVERY STACK (Kyle, 26 Nov 2026, after the CoA reconstruction's Knight of Xoroth notes: "Eleven spender
+    # families require at least one stack and reserve the current amount... Skulltaker and Warbringer gain 20% and 18%
+    # damage per Demonfire"). spends_all: needs 1, takes everything banked. per_stack_damage: the bonus per stack spent,
+    # normalised so per_stack_norm stacks hit exactly as the ability's numbers say (4 = what it used to cost).
+    ability.spends_all = bool(entry.get("spends_all", False))
+    ability.per_stack_damage = float(entry.get("per_stack_damage", 0.0) or 0.0)
+    ability.per_stack_norm = int(entry.get("per_stack_norm", 4) or 4)
     return ability
 
 
