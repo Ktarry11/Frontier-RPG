@@ -113,6 +113,14 @@ class OverworldScreen(BaseScreen):
         self.mount_picker_rects = []      # [(rect, mount id or None for "dismount")]
         # THE DIFFICULTY MENU (world/player_difficulty.py; Kyle, 25 Nov 2026: "a small box where the EXP bar is, that
         # opens a new menu. We can call it 'Difficulty'"). The experience rate lives in it now too.
+        # THE INTERACTIVE PARTY (world/conversations.py; Kyle, 25 Nov 2026: "Right now we are wall flowers"): faces of
+        # recruits who want a word, the conversation window, and the window for an argument they pulled you into
+        self.talk = None                  # {"conv": ..., "reply": None | str}
+        self.talk_rects = []              # [(rect, rid)] faces in the sidebar, or [(rect, choice)] in the window
+        self.arg_modal = None             # {"ask": ..., "options": [(label, choice)], "reply": [(rid, text)] | None}
+        self.arg_rects = []
+        self.talk_rects_window = []
+        self.ask_chip = None
         self.difficulty_open = False
         self.difficulty_tab = "xp"
         self.difficulty_rects = []        # [(rect, action)] action: ("xp", rate) | ("diff", cat, what, v) | ("reset",) | ("close",)
@@ -121,6 +129,12 @@ class OverworldScreen(BaseScreen):
     
     def handle_event(self, event):
         """Handle input."""
+        if self.talk or self.arg_modal:
+            if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                self._party_talk_click(event.pos)
+            elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                self._close_party_talk()
+            return
         if self.difficulty_open:
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 for rect, action in self.difficulty_rects:
@@ -475,6 +489,13 @@ class OverworldScreen(BaseScreen):
         
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouse_pos = event.pos
+            if self.ask_chip is not None and self.ask_chip.collidepoint(mouse_pos):
+                self._open_argument()
+                return
+            for rect, rid in self.talk_rects:
+                if rect.collidepoint(mouse_pos):
+                    self._open_talk(rid)
+                    return
             if self.difficulty_button is not None and self.difficulty_button.collidepoint(mouse_pos):
                 self._release_movement_keys()                      # the Difficulty menu (experience rate inside it)
                 self.difficulty_open = True
@@ -1779,12 +1800,179 @@ class OverworldScreen(BaseScreen):
         t = min(1.0, getattr(self, "_slide_elapsed", 0.0) / dur)
         return src[0] + (px - src[0]) * t, src[1] + (py - src[1]) * t
     
+    # ------------------------------------------------------------------ the interactive party
+    def _talk_ids(self):
+        from world.bond_manager import get_bond_manager
+        try:
+            return [m.recruit_id for m in get_bond_manager()._members(self.state_manager.get_party())]
+        except Exception:
+            return []
+
+    def _render_talk_faces(self, screen, x, y):
+        """Recruits with something to say, as faces with a speech mark. Never inside a dungeon run."""
+        from world.conversations import get_conversations
+        from ui.recruit_portrait import get_recruit_face
+        from world.zone_classification import is_dungeon_any
+        self.talk_rects = []
+        zone = getattr(getattr(self.zone_manager, "current_zone", None), "name", None)
+        if zone and is_dungeon_any(zone):
+            return
+        cv = get_conversations()
+        waiting = [rid for rid in self._talk_ids() if cv.waiting(rid)]
+        if not waiting:
+            return
+        self.renderer.draw_text(screen, "Wants a word with you", (x, y), font_size=14, color=(214, 186, 110))
+        y += 22
+        mouse = pygame.mouse.get_pos()
+        for i, rid in enumerate(waiting[:4]):
+            r = pygame.Rect(x + i * 58, y, 50, 50)
+            face = get_recruit_face(rid, 46)
+            pygame.draw.rect(screen, (30, 28, 34), r, border_radius=6)
+            if face is not None:
+                screen.blit(face, (r.x + 2, r.y + 2))
+            pygame.draw.rect(screen, (226, 190, 100) if r.collidepoint(mouse) else (150, 125, 70), r, 2,
+                             border_radius=6)
+            bubble = pygame.Rect(r.right - 18, r.y - 8, 22, 16)
+            pygame.draw.ellipse(screen, (245, 236, 210), bubble)
+            pygame.draw.polygon(screen, (245, 236, 210), [(bubble.x + 6, bubble.bottom - 3),
+                                                          (bubble.x + 3, bubble.bottom + 4), (bubble.x + 11, bubble.bottom - 2)])
+            for k in range(3):
+                pygame.draw.circle(screen, (60, 50, 40), (bubble.x + 6 + k * 5, bubble.centery), 1)
+            self.talk_rects.append((r, rid))
+
+    def _open_talk(self, rid):
+        from world.conversations import get_conversations
+        conv = get_conversations().open(rid)
+        if conv:
+            self._release_movement_keys()
+            self.talk = {"conv": conv, "reply": None}
+
+    def _open_argument(self):
+        from world.banter_manager import get_banter_manager
+        from world.conversations import get_conversations
+        banter = get_banter_manager()
+        beat = banter.current
+        ask = getattr(beat, "ask", None) if beat else None
+        if not ask:
+            return
+        beat.ask_taken = True
+        opts = get_conversations().ask_options(ask)
+        if opts:
+            self._release_movement_keys()
+            # the window repeats what the asker actually said to the player, their own words
+            said = next((t for rid, _n, t in reversed(beat.lines) if rid == ask.get("asker")), "")
+            self.arg_modal = {"ask": ask, "options": opts, "reply": None, "line": said.strip('"')}
+
+    def _close_party_talk(self):
+        if self.arg_modal and self.arg_modal.get("reply") is None:
+            from world.conversations import get_conversations
+            get_conversations().wallflower(self.arg_modal["ask"])
+        self.talk = None
+        self.arg_modal = None
+
+    def _party_talk_click(self, pos):
+        from world.conversations import get_conversations
+        cv = get_conversations()
+        for rect, choice in self.arg_rects if self.arg_modal else self.talk_rects_window:
+            if not rect.collidepoint(pos):
+                continue
+            if choice == "close":
+                self.talk, self.arg_modal = None, None
+                return
+            if self.talk is not None:
+                rid = self.talk["conv"]["rid"]
+                self.talk["reply"] = cv.choose(rid, choice) or "..."
+            elif self.arg_modal is not None:
+                lines = cv.resolve(self.arg_modal["ask"], choice)
+                # they've said it here; don't show the same reaction again in the banter panel
+                from world.bond_manager import get_bond_manager
+                q = get_bond_manager().rel.queue
+                if q and q[0][2] == lines:
+                    q.pop(0)
+                self.arg_modal["reply"] = lines or []
+            return
+
+    def _talk_window(self, screen, speaker_rid, line, options, reply_lines):
+        """The shared window: who's talking, what they said, then the player's choices or their answer."""
+        from ui import theme
+        from ui.recruit_portrait import get_recruit_face
+        from world.bond_manager import get_bond_manager
+        overlay = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
+        overlay.fill((6, 5, 8, 160))
+        screen.blit(overlay, (0, 0))
+        w, h = 760, 430
+        panel = pygame.Rect((SCREEN_WIDTH - w) // 2, (SCREEN_HEIGHT - h) // 2, w, h)
+        self.renderer.draw_panel(screen, panel)
+        bm = get_bond_manager()
+        face = get_recruit_face(speaker_rid, 72)
+        if face is not None:
+            screen.blit(face, (panel.x + 24, panel.y + 24))
+        self._diff_blit(screen, bm.name_of(speaker_rid), 22, theme.TEXT_HEADING, "bold",
+                        topleft=(panel.x + 112, panel.y + 26))
+        y = panel.y + 60
+        font = self._diff_font(17, "italic")
+        def wrap(text, width, f):
+            out, cur = [], ""
+            for word in text.split():
+                cand = f"{cur} {word}".strip()
+                if f.size(cand)[0] > width and cur:
+                    out.append(cur)
+                    cur = word
+                else:
+                    cur = cand
+            return out + ([cur] if cur else [])
+        for ln in wrap(f"\"{line}\"", w - 140, font):
+            screen.blit(font.render(ln, True, theme.TEXT), (panel.x + 112, y))
+            y += 24
+        y = max(y + 14, panel.y + 120)
+        rects = []
+        mouse = pygame.mouse.get_pos()
+        if reply_lines is None:
+            ofont = self._diff_font(16)
+            for label, choice in options:
+                lines = wrap(label, w - 80, ofont)
+                r = pygame.Rect(panel.x + 24, y, w - 48, 14 + 22 * len(lines))
+                hover = r.collidepoint(mouse)
+                pygame.draw.rect(screen, (50, 44, 34) if hover else (30, 28, 34), r, border_radius=6)
+                pygame.draw.rect(screen, theme.FRAME_SELECTED if hover else theme.FRAME_INNER, r, 1, border_radius=6)
+                for i, ln in enumerate(lines):
+                    screen.blit(ofont.render(ln, True, theme.TEXT_HEADING if hover else theme.TEXT),
+                                (r.x + 14, r.y + 7 + 22 * i))
+                rects.append((r, choice))
+                y = r.bottom + 8
+        else:
+            rfont = self._diff_font(16)
+            for rid, text in reply_lines:
+                self._diff_blit(screen, bm.name_of(rid).split()[0], 15, theme.ACCENT, "bold", topleft=(panel.x + 24, y))
+                y += 22
+                for ln in wrap(f"\"{text}\"", w - 60, rfont):
+                    screen.blit(rfont.render(ln, True, theme.TEXT), (panel.x + 24, y))
+                    y += 22
+                y += 8
+            done = pygame.Rect(panel.right - 24 - 120, panel.bottom - 24 - 38, 120, 38)
+            self._diff_button(screen, done, "Done")
+            rects.append((done, "close"))
+        return rects
+
+    def _render_party_talk(self, screen):
+        conv = self.talk["conv"]
+        reply = self.talk["reply"]
+        self.talk_rects_window = self._talk_window(
+            screen, conv["rid"], conv["line"], conv["options"],
+            None if reply is None else [(conv["rid"], reply)])
+
+    def _render_argument(self, screen):
+        ask = self.arg_modal["ask"]
+        line = self.arg_modal.get("line", "")
+        self.arg_rects = self._talk_window(screen, ask["asker"], line, self.arg_modal["options"],
+                                           self.arg_modal["reply"])
+
     def _render_banter(self, screen):
         from world.banter_manager import get_banter_manager
         if not hasattr(self, "_banter_panel"):
             from ui.banter_panel import BanterPanel
             self._banter_panel = BanterPanel(self.renderer)
-        self._banter_panel.render(screen, get_banter_manager().current)
+        self.ask_chip = self._banter_panel.render(screen, get_banter_manager().current)
 
     def render(self, screen):
         """Draw overworld."""
@@ -1943,6 +2131,8 @@ class OverworldScreen(BaseScreen):
                 info_y += 26
                 break
 
+        self._render_talk_faces(screen, info_x, info_y + 6)
+
         # NO TILE-COLOUR LEGEND HERE ANY MORE. Grass/Water/Stone/NPC/Portal/Boss swatches were a
         # key to the placeholder colours from before the world had art. Kyle, 10 Nov: "I think
         # its time to remove THESE blocks from the UI screen." The map screen keeps its own
@@ -1973,6 +2163,10 @@ class OverworldScreen(BaseScreen):
 
         # Last, so nothing in the HUD draws over it.
         self._render_banter(screen)
+        if self.talk:
+            self._render_party_talk(screen)
+        if self.arg_modal:
+            self._render_argument(screen)
 
     def _enter_dungeon(self, pick):
         """The heroic door's answer: walk in as Normal, start a heroic run (once per market day), or stay."""

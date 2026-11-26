@@ -197,6 +197,11 @@ class BondManager:
             b.stage += 1
             st = STAGE_NAMES[b.stage_key]
             self.log.append((b.rid, f"[{self.name_of(b.rid)} is now {'an' if st[0] in 'AEIOU' else 'a'} {st}.]"))
+            try:
+                from world.conversations import get_conversations
+                get_conversations().on_stage(b.rid, b.stage_key)
+            except Exception:
+                pass
             if b.stage_key == "sworn":
                 self._give_keepsake(b)
                 self._give_sworn_skill(b)
@@ -459,6 +464,11 @@ class BondManager:
         for rid, v in self.rel.on_outing([b.rid for b in here], kind).items():
             if v:
                 self._mood(self.bonds[rid], v)
+        try:
+            from world.conversations import get_conversations
+            get_conversations().on_outing([b.rid for b in here])
+        except Exception:
+            pass
         if zone is None or not self._is_dungeon(zone):
             self.safe_point(party)
 
@@ -517,9 +527,17 @@ class BondManager:
         """The whole party died. Returns the ids of anyone who walked out on the spot."""
         party = party or self.party
         gone = []
-        self.rel.on_wipe([b.rid for b in self._in(party)])
+        self.rel.on_wipe([b.rid for b in self._in(party)], first_down=getattr(self, "last_first_down", None))
+        try:
+            from world.conversations import get_conversations
+            get_conversations().on_wipe([b.rid for b in self._in(party)], getattr(self, "last_first_down", None))
+        except Exception:
+            pass
+        self.last_first_down = None
+        ids = [x.rid for x in self._in(party)]
         for b in self._in(party):
-            b.wipes += 1
+            # a found family takes a wipe together: it counts half toward walking out (world/group_dynamics.py)
+            b.wipes += 0.5 if self.rel.groups.family_softens_wipes(b.rid, ids) else 1
             nerve = b.dial("nerve")
             self._mood(b, -12 * (1.5 - nerve))
             limit = 2 + round(nerve * 3)
@@ -547,6 +565,13 @@ class BondManager:
         party = party or self.party
         if left_cleared_dungeon:
             self.on_deed("dungeon", party, zone)
+        self.rel.zone = getattr(zone, "name", zone)      # a crew is named after where it formed
+        try:
+            from world.zone_classification import is_dungeon_any
+            if is_dungeon_any(self.rel.zone):
+                self.rel.groups.on_dungeon([m.recruit_id for m in self._members(party)])
+        except Exception:
+            pass
         lo = self._zone_level(zone)
         for m in self._members(party):
             b = self.bonds[m.recruit_id]
@@ -573,10 +598,26 @@ class BondManager:
             self.rel.on_rest([m.recruit_id for m in self._members(party)])
             self.safe_point(party)
 
+    def on_fight_won(self, party, first_down=None, standing=None, saves=None, boss=False):
+        """Wave 4 (world/group_dynamics.py): call-outs, rivals' respect, saves turned into fondness."""
+        ids = [m.recruit_id for m in self._members(party or self.party)]
+        try:
+            self.rel.groups.on_fight_won(ids, first_down=first_down, standing=standing, saves=saves, boss=boss)
+            from world.conversations import get_conversations
+            get_conversations().on_fight_won(ids, first_down=first_down, boss=boss)
+        except Exception:
+            pass
+
     def on_close_call(self, party, hurt):
         """Members who ended a fight on almost nothing (combat_engine)."""
-        self.rel.on_close_call([m.recruit_id for m in self._members(party or self.party)],
-                               [getattr(m, "recruit_id", None) for m in hurt])
+        ids = [m.recruit_id for m in self._members(party or self.party)]
+        hurt_ids = [getattr(m, "recruit_id", None) for m in hurt]
+        self.rel.on_close_call(ids, hurt_ids)
+        try:
+            from world.conversations import get_conversations
+            get_conversations().on_close_call(ids, hurt_ids)
+        except Exception:
+            pass
 
     # ------------------------------------------------------------ gear
     def may_take(self, rid):
@@ -618,6 +659,11 @@ class BondManager:
         lt, self._last_taken = self._last_taken, None
         if lt and lt[0] != rid and lt[1] == slot and self.deeds - lt[2] <= 1:
             self.rel.on_gear_moved(lt[0], rid, better)       # handed from one of them to another
+            try:
+                from world.conversations import get_conversations
+                get_conversations().on_gear_taken(lt[0], given_to=rid)
+            except Exception:
+                pass
         if better:
             # one gift an outing counts, and never the same item twice (see GAIN): handing someone five blues in a
             # row, or the same blue five times, is one gift
@@ -803,7 +849,8 @@ class BondManager:
         return {"deeds": self.deeds, "pair_time": self.pair_time, "pairs_heard": self.pairs_heard,
                 "towns": dict(self.towns),
                 "bonds": {rid: b.to_dict() for rid, b in self.bonds.items()},
-                "relationships": self.rel.to_dict()}
+                "relationships": self.rel.to_dict(),
+                "conversations": __import__("world.conversations", fromlist=["x"]).get_conversations().to_dict()}
 
     def load_state(self, d):
         d = d or {}
@@ -815,6 +862,8 @@ class BondManager:
             if rid in self.bonds:
                 self.bonds[rid].load(bd)
         self.rel.load_state(d.get("relationships"))
+        from world.conversations import get_conversations
+        get_conversations().load_state(d.get("conversations"))
 
 
 _bond_manager = None
@@ -830,3 +879,5 @@ def get_bond_manager():
 def reset_bond_manager():
     global _bond_manager
     _bond_manager = None
+    from world.conversations import reset_conversations
+    reset_conversations()

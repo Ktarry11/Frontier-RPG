@@ -122,6 +122,30 @@ class BondTestScreen(BaseScreen):
                 bm.rel.queue.clear()
             self.note = "Ten outings"
             return
+        elif key in ("group", "argue", "talk"):
+            # the interactive party (world/group_dynamics.py, world/conversations.py)
+            ids = self._party_ids()
+            from world.conversations import get_conversations
+            cv = get_conversations()
+            if key == "group":
+                if len(ids) < 3:
+                    self.note = "Bring three recruits along for a group scene."
+                    return
+                bm.rel.groups.scene(ids, "outing")
+                self.note = "Group scene"
+            elif key == "argue":
+                cv.pending_ask = None
+                self.note = "Argument" if cv.start_argument(ids) else "No written argument for anyone here"
+            else:
+                import random as _r
+                for rid in _r.sample(ids, len(ids)):
+                    for kind, sub in (("aftermath", "wipe"), ("confrontation", "risks"), ("history", None),
+                                      ("development", None), ("aftermath", "near_death")):
+                        if cv.want(rid, kind, sub, force=True):
+                            self.note = f"{bm.name_of(rid).split()[0]} wants a word ({kind})"
+                            return
+                self.note = "Nobody here has lines to talk to you yet"
+            return
         elif key == "beat":
             ids = self._party_ids()
             if len(ids) < 2:
@@ -245,7 +269,8 @@ class BondTestScreen(BaseScreen):
             self.renderer.draw_button(screen, r, label)
             self.rects.append(("event", key, None, r))
             x += w + 8
-        for key, label in (("ten", "10 outings"), ("beat", "Next beat")):
+        for key, label in (("ten", "10 outings"), ("beat", "Next beat"), ("group", "Group scene"),
+                           ("argue", "Argument"), ("talk", "Wants a word")):
             w = self.renderer.font_normal.size(label)[0] + 26
             if x + w > SCREEN_WIDTH - 30:
                 x, y = 30, y + 44
@@ -338,6 +363,21 @@ class BondTestScreen(BaseScreen):
         if not pairs:
             self.renderer.draw_text(screen, "Bring two or more recruits along to see how they get on.",
                                     (30, py), font_size=13, color=(150, 150, 160))
+        # GROUPS (world/group_dynamics.py): the party's mood, crews and families, each person's role, how they
+        # come across in this company, how they've grown, and what they make of you (world/conversations.py)
+        if ids and py < SCREEN_HEIGHT - 60:
+            py += 8
+            self.renderer.draw_text(screen, "Groups", (30, py), color=(150, 200, 160))
+            py += 22
+            from world.conversations import get_conversations
+            cv = get_conversations()
+            rows = rm.groups.panel(ids) + [(bm.name_of(r).split()[0] + " on you", cv.describe_impression(r))
+                                           for r in ids if rm.groups.has(r)]
+            for label, text in rows:
+                self._fit(screen, f"{label}: {text}", 30, py, half, 13, (220, 220, 225))
+                py += 18
+                if py > SCREEN_HEIGHT - 16:
+                    break
 
         log = [(rid, t) for rid, t in rm.log] or list(bm.log)
         rows_left = max(1, (SCREEN_HEIGHT - 16 - ly) // 18)

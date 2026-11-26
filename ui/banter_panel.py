@@ -9,7 +9,9 @@ acknowledging it stops being flavour and becomes an interruption, which is how a
 supposed to make companions feel alive ends up being the thing people turn off first.
 
 So: bottom-left, out of the way of the minimap and the action bar, small portrait, a few lines, no
-buttons. The reply appears a couple of seconds after the opener so it reads as an answer rather than
+buttons. ONE EXCEPTION (Kyle, 25 Nov 2026: "Diego says 'NAME - What do you think' Then you can talk to diego and make
+a decision? Right now we are wall flowers"): when an argument turns to the player, a small "wants your take" chip
+appears under the last line. It's still ignorable: leave it and they settle it themselves. The reply appears a couple of seconds after the opener so it reads as an answer rather than
 as two people talking at once.
 """
 import pygame
@@ -33,11 +35,12 @@ class BanterPanel:
         self.renderer = renderer
 
     def render(self, screen, beat):
+        """Draws the beat. Returns the "wants your take" chip's rect when an argument is asking the player, else None."""
         if beat is None:
-            return
+            return None
         rows = beat.lines[:beat.revealed]
         if not rows:
-            return
+            return None
         # a long conversation rolls: the newest lines stay, the oldest scroll away, so the panel
         # never grows to cover half the screen
         rows = rows[-MAX_ROWS:]
@@ -69,6 +72,22 @@ class BanterPanel:
                 self.renderer.draw_text(screen, line, (tx, y + 20 + i * LINE_H), font_size=TEXT_SIZE,
                                         color=(222, 222, 230))
             y += rh
+        ask = getattr(beat, "ask", None)
+        if ask and beat.revealed >= len(beat.lines) and not getattr(beat, "ask_taken", False):
+            name = next((n for rid, n, _t in beat.lines if rid == ask.get("asker")), "They")
+            label = f"{name.split()[0]} wants your take"
+            font = self.renderer._get_font(font_size=15)
+            w = font.size(label)[0] + 34
+            chip = pygame.Rect(panel.right - w - PAD, panel.y - 34, w, 28)
+            hover = chip.collidepoint(pygame.mouse.get_pos())
+            pygame.draw.rect(screen, (70, 58, 30) if hover else (44, 38, 26), chip, border_radius=6)
+            pygame.draw.rect(screen, (226, 190, 100) if hover else (180, 150, 80), chip, 2, border_radius=6)
+            cx, cy = chip.x + 14, chip.centery
+            pygame.draw.polygon(screen, (226, 190, 100), [(cx, cy - 5), (cx + 5, cy), (cx, cy + 5), (cx - 5, cy)])
+            txt = font.render(label, True, (245, 228, 170))
+            screen.blit(txt, txt.get_rect(midleft=(chip.x + 26, chip.centery)))
+            return chip
+        return None
 
     def _lines(self, text, max_width, font_size=TEXT_SIZE):
         """The text broken to fit, measured with the same font it's drawn in - the mistake

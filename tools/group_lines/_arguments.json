@@ -1,0 +1,91 @@
+[
+  {"id": "grill_upgrade", "between": ["diego_tinker", "sebastian_bloodmage"], "asker": "sebastian_bloodmage", "stakes": "low",
+   "sides": {"diego_tinker": "let him fit the bellows", "sebastian_bloodmage": "nobody touches the grill"},
+   "third": "Diego builds his own grill, and you two have a cook-off in the next town.",
+   "lines": [
+     ["diego_tinker", "Listen, listen, if I put a little spring bellows under your grill, my friend, the coals stay perfect all night without you touching them!"],
+     ["sebastian_bloodmage", "Without touching them? Che, the touching is the whole point, the fire tells you things with your hands in it."],
+     ["diego_tinker", "Sure, sure, and my bellows tells you things without burning your hair off. Your eyebrows are half gone, look at them."]
+   ]},
+  {"id": "baseball", "between": ["diego_tinker", "sebastian_bloodmage"], "asker": "diego_tinker", "stakes": "low",
+   "sides": {"diego_tinker": "baseball is the real game", "sebastian_bloodmage": "football is the only game"},
+   "third": "In the next town, you each teach the other one your game, and then you never mention it again.",
+   "lines": [
+     ["sebastian_bloodmage", "Football, che, is the only sport where a whole country cries on the same day. Name me another one."],
+     ["diego_tinker", "Baseball, my friend! In Maracaibo the whole street stops for the Aguilas, the whole street, even the dogs."],
+     ["sebastian_bloodmage", "Baseball is a picnic where somebody occasionally runs, boludo. My grandmother could play it in her slippers."]
+   ]},
+  {"id": "who_cooks", "between": ["sebastian_bloodmage", "yiannis_paladin"], "asker": "yiannis_paladin", "stakes": "low",
+   "sides": {"sebastian_bloodmage": "Sebastian cooks tonight", "yiannis_paladin": "Yiannis cooks tonight"},
+   "third": "Sebastian does the meat, Yiannis does everything else, and you both sit down to eat it.",
+   "lines": [
+     ["yiannis_paladin", "Tonight I cook, my friend, a proper Cretan supper, slow, with oil and lemon and patience."],
+     ["sebastian_bloodmage", "Patience is for people who aren't hungry, che. I've already got the fire going and the meat salted."],
+     ["yiannis_paladin", "You salted it already? Panagia mou, without asking the old man, at his own fire on his own beach?"]
+   ]},
+  {"id": "football_rugby", "between": ["sebastian_bloodmage", "rhodri_knight"], "asker": "rhodri_knight", "stakes": "low",
+   "sides": {"sebastian_bloodmage": "football's the real sport", "rhodri_knight": "rugby's the real sport"},
+   "third": "Whoever loses an arm wrestle has to sit through the other one's game and cheer.",
+   "lines": [
+     ["sebastian_bloodmage", "Football is art, che, twenty two people and one ball and the whole world holding its breath."],
+     ["rhodri_knight", "Football's twenty two lads falling over when the wind blows, butt. Rugby's where you find out who you are."],
+     ["sebastian_bloodmage", "Rugby is a fight in the mud that somebody decided to write rules for afterwards, boludo."]
+   ]},
+  {"id": "the_charge", "between": ["diego_tinker", "rhodri_knight"], "asker": "rhodri_knight", "stakes": "high",
+   "sides": {"diego_tinker": "blow the door now", "rhodri_knight": "check the charge twice first"},
+   "third": "Diego rigs it, Rhodri checks it, and nobody at all stands in front of that door.",
+   "lines": [
+     ["diego_tinker", "She's ready, my friends, the charge is on the hinge, everybody step back and I light it, yes?"],
+     ["rhodri_knight", "No, hang on, mun, you haven't checked the wire, I watched you twist it with your teeth."],
+     ["diego_tinker", "My teeth are very precise, my friend, they've done more wiring than your whole crew put together!"]
+   ]},
+  {"id": "fire_size", "between": ["sebastian_bloodmage", "sondre_stormbringer"], "asker": "sondre_stormbringer", "stakes": "low",
+   "sides": {"sebastian_bloodmage": "a big fire tonight", "sondre_stormbringer": "a small fire tonight"},
+   "third": "A small fire out here tonight, and the biggest fire in the next town, I promise.",
+   "lines": [
+     ["sebastian_bloodmage", "More wood, chicos, more wood! A big fire, a proper one, so the meat cooks right and the cold stays out."],
+     ["sondre_stormbringer", "The wind is going to back round before midnight, and a big fire in a backing wind is how you lose a camp."],
+     ["sebastian_bloodmage", "Che, the fire and I have an understanding, we've been friends since before you were born."]
+   ]},
+  {"id": "storm_battery", "between": ["diego_tinker", "sondre_stormbringer"], "asker": "diego_tinker", "stakes": "high",
+   "sides": {"diego_tinker": "one little spark for the machine", "sondre_stormbringer": "no lightning near anyone"},
+   "third": "Try it once, in open ground, with everybody standing well back and Sondre calling it.",
+   "lines": [
+     ["diego_tinker", "Just one spark, my friend, one tiny little lightning into this coil, and she runs for a week!"],
+     ["sondre_stormbringer", "No, I am sorry, there is no such thing as one tiny lightning. You are standing right next to the coil."],
+     ["diego_tinker", "So I stand a bit further away! Come on, you're always so careful, it's a coil, not a barn."],
+     ["sondre_stormbringer", "Please do not say that word to me, not about this."]
+   ]},
+  {"id": "the_front", "between": ["rhodri_knight", "sondre_stormbringer"], "asker": "sondre_stormbringer", "stakes": "high",
+   "sides": {"rhodri_knight": "Rhodri holds the front", "sondre_stormbringer": "everyone stays behind the storm"},
+   "third": "Rhodri holds the front, Sondre goes wide on the flank where there's nobody to hit.",
+   "lines": [
+     ["rhodri_knight", "I'm stood in front, butt, that's where I go, that's what I'm for, end of discussion."],
+     ["sondre_stormbringer", "If you stand in front, you stand where my storm lands, and I will have to hold it back for you."],
+     ["rhodri_knight", "Then hold it back, mun, I'm not moving, I've had bigger things than weather land on me."]
+   ]},
+  {"id": "motor_boat", "between": ["diego_tinker", "yiannis_paladin"], "asker": "diego_tinker", "stakes": "low",
+   "sides": {"diego_tinker": "put a motor on the boat", "yiannis_paladin": "the boat keeps its oars"},
+   "third": "Diego builds a motor, Yiannis keeps the oars, and the boat gets both.",
+   "lines": [
+     ["diego_tinker", "Your boat, my friend, imagine it with a little clockwork motor, you'd be at the reef before breakfast!"],
+     ["yiannis_paladin", "Before breakfast, you say? Re, the whole point of the morning is the rowing, slow, with the sea waking up around you."],
+     ["diego_tinker", "The sea can wake up faster, it won't mind, I'll make the motor quiet, almost quiet."]
+   ]},
+  {"id": "sail_or_net", "between": ["sondre_stormbringer", "yiannis_paladin"], "asker": "yiannis_paladin", "stakes": "low",
+   "sides": {"sondre_stormbringer": "sailing is knowing the sea", "yiannis_paladin": "fishing is knowing the sea"},
+   "third": "Tomorrow morning, one boat: Sondre sails it and Yiannis fishes from it.",
+   "lines": [
+     ["sondre_stormbringer", "With respect, you only know the top of the water from a fishing boat. Sailing, you have to read all of it."],
+     ["yiannis_paladin", "Only the top of it? Little one, I have been under that water since I was nine, holding my breath for octopus."],
+     ["sondre_stormbringer", "Under it, yes, but a sailor has to argue with the wind as well, and the wind always argues back."]
+   ]},
+  {"id": "night_song", "between": ["rhodri_knight", "yiannis_paladin"], "asker": "rhodri_knight", "stakes": "low",
+   "sides": {"rhodri_knight": "a Welsh hymn tonight", "yiannis_paladin": "a Cretan song tonight"},
+   "third": "A duet, and whoever forgets the words first does the washing up.",
+   "lines": [
+     ["rhodri_knight", "Right, song time, boys, and tonight it's Calon Lan, proper, in four parts if you lot can manage two."],
+     ["yiannis_paladin", "Ela, every night the Welsh hymns, my friend. Tonight a mantinada, and I will make one about your beard."],
+     ["rhodri_knight", "My beard is a national treasure, butt, you leave it out of your poetry."]
+   ]}
+]

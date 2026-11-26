@@ -1007,14 +1007,35 @@ class CombatEngine:
                 actor.current_health = 0
                 self.combat_log.append(f"{actor.name} is laid to rest.")
 
+    def _note_downs(self):
+        """Wave 4 (world/group_dynamics.py): who in the party went down first, and how low anyone got."""
+        order = self.__dict__.setdefault("_down_order", [])
+        low = self.__dict__.setdefault("_lowest", {})
+        for m in getattr(self.party, "members", []) or []:
+            hp = getattr(m, "health", 0) or 0
+            if not hp:
+                continue
+            frac = max(0.0, m.current_health / hp)
+            rid = getattr(m, "recruit_id", None) or getattr(m, "name", "")
+            low[rid] = min(low.get(rid, 1.0), frac)
+            if m.current_health <= 0 and rid not in order:
+                order.append(rid)
+
     def _check_combat_end(self):
         """Check for victory (all enemies down) or defeat (party wiped)."""
+        self._note_downs()
         if not self.living_enemies():
             self._resolve_victory()
         elif not self.living_allies():
             self.is_active = False
             self.victory = False
             self.combat_log.append("Defeat! The party has been wiped out!")
+            try:
+                from world.bond_manager import get_bond_manager
+                order = getattr(self, "_down_order", [])
+                get_bond_manager().last_first_down = order[0] if order else None
+            except Exception:
+                pass
             self.party.restore_after_combat()
 
     _loot_item_drop_table = None  # class-level cache, loaded once across all CombatEngine instances
@@ -1107,6 +1128,22 @@ class CombatEngine:
         if alive:
             # Wave 3: the healer who pulled them through, and a friend who saw it (relationship_manager)
             get_bond_manager().on_close_call(self.party, alive)
+        # Wave 4: who went down first, who was still up at the end, and the near-deaths a healer turned round
+        try:
+            order = getattr(self, "_down_order", [])
+            members = getattr(self.party, "members", []) or []
+            standing = [getattr(m, "recruit_id", None) for m in members if m.current_health > 0]
+            low = getattr(self, "_lowest", {})
+            healers = [getattr(m, "recruit_id", None) for m in members if m.current_health > 0
+                       and getattr(m, "char_class", "") in ("Priest", "Paladin", "Druid", "Shaman", "Sun Cleric",
+                                                             "Bloodmage", "Chronomancer", "Primalist")]
+            saves = [(h, rid) for rid, f in low.items() if f <= 0.10 and rid in standing
+                     for h in healers[:1] if h and h != rid]
+            get_bond_manager().on_fight_won(self.party, first_down=order[0] if order else None,
+                                            standing=[s for s in standing if s], saves=saves,
+                                            boss=any(getattr(e, "is_boss", False) for e in self.enemies))
+        except Exception:
+            pass
 
         # XP is summed across every enemy, then awarded to the whole roster.
         # Active members get full value, benched get a reduced share.

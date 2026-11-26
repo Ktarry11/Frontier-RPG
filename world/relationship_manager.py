@@ -249,7 +249,11 @@ class RelationshipManager:
         self.recent = []                # line ids from the last few beats, whoever said them
         self.log = []
         self._chem = {}
+        self.last_ask = None            # the argument the beat just popped pulls the player into, if any
         self._load()
+        # Wave 4: the party as a group (world/group_dynamics.py), on top of the pairs
+        from world.group_dynamics import GroupDynamics
+        self.groups = GroupDynamics(self)
 
     def _load(self):
         try:
@@ -412,6 +416,11 @@ class RelationshipManager:
         if key is None or key in r.milestones:
             return
         r.milestones.append(key)
+        try:
+            from world.conversations import get_conversations
+            get_conversations().on_pair_changed(r.a, r.b, key)
+        except Exception:
+            pass
         if key == "turn_friendly" and "make_up" in r.milestones:
             return
         x, y = self._by_talk(r.a, r.b)
@@ -443,7 +452,15 @@ class RelationshipManager:
             self._milestone(r, self._move(r, delta))
             for me, other in ((a, b), (b, a)):
                 mood[me] += {"close": 5, "friendly": 3, "grating": -2, "rivals": -4}.get(r.state, 0)
-        if len(ids) >= 2:
+        took = False
+        try:
+            took = self.groups.on_outing(ids, kind, zone=getattr(self, "zone", None))
+            extra = self.groups.mood_effect(ids)
+            for i in mood:
+                mood[i] += extra
+        except Exception:
+            pass
+        if len(ids) >= 2 and not took:
             self._sig_or_ambient(ids, AMBIENT_CHANCE)
         return {i: max(-6.0, min(6.0, v)) for i, v in mood.items()}
 
@@ -479,6 +496,11 @@ class RelationshipManager:
     def on_rest(self, ids):
         """Arriving in a town: sometimes they talk while they settle in."""
         ids = [i for i in ids if i in self.traits]
+        try:
+            if self.groups.on_rest(ids):
+                return
+        except Exception:
+            pass
         if len(ids) >= 2:
             self._sig_or_ambient(ids, REST_CHANCE, tags=False)
 
@@ -700,8 +722,15 @@ class RelationshipManager:
             return 1.0
 
     # ------------------------------------------------------------ events
-    def on_wipe(self, ids):
+    def on_wipe(self, ids, first_down=None):
         ids = [i for i in ids if i in self.traits]
+        try:
+            if self.groups.on_wipe(ids, first_down):
+                for a, b in self.pairs_in(ids):
+                    self.rel(a, b).wipes += 1
+                return
+        except Exception:
+            pass
         if len(ids) < 2:
             return
         for a, b in self.pairs_in(ids):
@@ -725,6 +754,11 @@ class RelationshipManager:
         """hurt: recruit ids who ended a fight on almost nothing. A healer in the party pulled them
         through; a friend who saw it goes grey."""
         ids = [i for i in ids if i in self.traits]
+        try:
+            if self.groups.on_close_call(ids, hurt):
+                return
+        except Exception:
+            pass
         for h in [x for x in hurt if x in self.traits]:
             healers = [x for x in ids if x != h and "healer" in self._t(x).get("is", [])]
             for x in healers:
@@ -749,6 +783,7 @@ class RelationshipManager:
             return
         r = self.rel(giver, taker)
         r.gifts += 1
+        self.groups.on_gear_moved(giver, taker)
         sulk = r.state in BAD or (self._dial(giver, "pride") >= 1.2 and r.state not in GOOD)
         if self._beat([(taker, "handed_down", None), (giver, "hand_sulk" if sulk else "hand_fine", None)],
                       r, 2):
@@ -756,6 +791,7 @@ class RelationshipManager:
 
     def on_left(self, rid, ids):
         """rid went home; a close friend still in the party says so."""
+        self.groups.on_left(rid, ids)
         for x in ids:
             if x != rid and self.state(rid, x) == "close":
                 self._beat([(x, "friend_left", rid)], self.rel(rid, x), 2)
@@ -776,7 +812,9 @@ class RelationshipManager:
         self.queue = [q for q in self.queue if now - q[1] <= STALE]
         if not self.queue:
             return None
-        return self.queue.pop(0)[2]
+        item = self.queue.pop(0)
+        self.last_ask = item[3] if len(item) > 3 else None
+        return item[2]
 
     def summary(self, rid):
         """[(other rid, state)] for everyone rid has met, warmest first. For the party screen."""
@@ -789,11 +827,15 @@ class RelationshipManager:
 
     # ------------------------------------------------------------ save
     def to_dict(self):
-        return {k: r.to_dict() for k, r in self.rels.items()}
+        out = {k: r.to_dict() for k, r in self.rels.items()}
+        out["__groups__"] = self.groups.to_dict()
+        return out
 
     def load_state(self, d):
         self.rels = {}
-        for k, rd in (d or {}).items():
+        d = dict(d or {})
+        self.groups.load_state(d.pop("__groups__", None))
+        for k, rd in d.items():
             a, _, b = k.partition("|")
             r = Rel(a, b)
             r.load(rd)

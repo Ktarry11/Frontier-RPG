@@ -2430,7 +2430,7 @@ class Ability:
             return spec * aura * (1.0 + buff_pct / 100.0) * (1.0 + need)
         # stacks a spend-all spender used multiply the whole hit, so +20% a stack is +20% a stack (1.0 otherwise)
         spent = self._spend_all_factor() if school != "healing" else 1.0
-        return (1.0 + per_ability) * (1.0 + global_key) * (1.0 + buff_pct / 100.0) * aura * spent
+        return (1.0 + per_ability) * (1.0 + global_key) * (1.0 + buff_pct / 100.0) * aura * spent * _crew_bonus(caster)
 
     def is_available(self):
         """Check if ability is off cooldown."""
@@ -5857,6 +5857,20 @@ def cast_speed_value(v):
     if isinstance(v, (int, float)) and not isinstance(v, bool):
         return max(0.2, min(2.0, float(v)))
     return CAST_SPEEDS.get(str(v or "medium").lower(), MEDIUM_SPEED)
+
+
+def _crew_bonus(caster):
+    """Wave 4 crew perk (world/group_dynamics.py): +3% for a crew all in the party, +5% for a found family."""
+    rid = getattr(caster, "recruit_id", None)
+    if not rid:
+        return 1.0
+    try:
+        from world.bond_manager import get_bond_manager
+        bm = get_bond_manager()
+        ids = [m.recruit_id for m in bm._members(bm.party)]
+        return 1.0 + bm.rel.groups.crew_bonus(rid, ids)
+    except Exception:
+        return 1.0
 
 
 def _ability_from_data(entry):

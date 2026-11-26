@@ -126,6 +126,9 @@ def main():
     # The player's own Difficulty menu: 1x is the game as tuned, each tab moves only its own monsters and stat.
     from qa_player_difficulty import findings as player_difficulty_findings
     bad += player_difficulty_findings()
+    # The interactive party: voices, moods, crews, talks, arguments, shades of grey, arcs, saves.
+    from qa_group_dynamics import findings as group_dynamics_findings
+    bad += group_dynamics_findings()
     print(f"{len(done)} zones through the overhaul: {', '.join(sorted(done))}")
     if voiced:
         print(f"{len(voiced)} held to the plain-voice bar: {', '.join(voiced)}")

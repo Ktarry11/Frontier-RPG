@@ -175,6 +175,16 @@ class BanterManager:
     def update(self, dt):
         self.since_last_beat += dt
         if self.current and not self.current.update(dt):
+            ask = getattr(self.current, "ask", None)
+            if ask and not getattr(self.current, "ask_taken", False):
+                # they turned to the player and got nothing: they settle it themselves (world/conversations.py)
+                try:
+                    from world.conversations import get_conversations
+                    cv = get_conversations()
+                    if cv.pending_ask is ask:
+                        cv.wallflower(ask)
+                except Exception:
+                    pass
             self.current = None
         if self.current is None:
             self._relationship_beat()
@@ -191,6 +201,14 @@ class BanterManager:
         if lines:
             self.current = BanterBeat([(rid, bm.name_of(rid), f"\"{t}\"") for rid, t in lines], hold=6.0)
             self.since_last_beat = 0.0
+            ask = getattr(bm.rel, "last_ask", None)
+            if ask:
+                # an argument that pulls the player in (Kyle, 25 Nov 2026: "Diego says 'NAME - What do you think'
+                # Then you can talk to diego and make a decision"): the beat stays up a while longer for the answer
+                self.current.ask = ask
+                self.current.remaining += 12.0
+                from world.conversations import get_conversations
+                get_conversations().pending_ask = ask
 
     def _eligible(self, trigger, party_ids, kind, zone=None, exclude=(), topic=None):
         out = []
