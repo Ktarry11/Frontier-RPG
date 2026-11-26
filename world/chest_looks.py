@@ -86,7 +86,12 @@ DUNGEONS = {
     "stratholme:_slaughter_square": (["undead_rusted", "chained_cursed"], "ossuary"),
     "hearthglen": (["dark_oak", "steel_strongbox"], "royal_gold"),
     "hearthglen:_mardenholde_keep": (["steel_strongbox", "iron_banded"], "ornate_gold"),
+    # sheet CH3 (26 Nov 2026) finally drew the molten chest: the fire dungeons' boss reward
+    "ragefire_chasm": (["dark_iron", "steel_strongbox"], "molten"),
+    "molten_core": (["dark_iron", "void_obsidian"], "molten"),
 }
+#: Boss-reward chests draw one size up from the 1.15-tile everyday chest.
+BOSS_SCALE = 1.4
 DUNGEON_DEFAULT = (["dark_oak", "steel_strongbox", "dark_oak", "ornate_gold"], "royal_gold")
 
 
@@ -112,10 +117,10 @@ def chest_look(zone_name, x, y, is_boss=False, is_cave=False):
 _sprite_cache = {}
 
 
-def chest_sprite(look, tile_size):
-    """Scaled pygame Surface for a look (about 1.15 tiles wide), or None if the file is missing."""
+def chest_sprite(look, tile_size, boss=False):
+    """Scaled pygame Surface for a look (about 1.15 tiles wide, BOSS_SCALE tiles for a boss chest), or None if missing."""
     import pygame
-    k = (look, tile_size)
+    k = (look, tile_size, boss)
     if k not in _sprite_cache:
         path = f"assets/tiles/chests/ch_{look}.png"
         surf = None
@@ -123,7 +128,7 @@ def chest_sprite(look, tile_size):
             try:
                 img = pygame.image.load(path)
                 img = img.convert_alpha() if pygame.display.get_surface() is not None else img
-                w = int(tile_size * 1.15)
+                w = int(tile_size * (BOSS_SCALE if boss else 1.15))
                 surf = pygame.transform.smoothscale(img, (w, round(img.get_height() * w / img.get_width())))
             except pygame.error:
                 surf = None

@@ -854,8 +854,9 @@ class TilemapRenderer:
                     continue
                 if not _secrets.shows(tilemap.name, x, y, player_pos):
                     continue        # a secret's cache: not drawn until you're in there with it
-                look = chest_look(tilemap.name, x, y, is_boss_chest(tilemap, x, y), getattr(tilemap, "is_cave", False))
-                csprite = chest_sprite(look, self.tile_size)
+                _boss = is_boss_chest(tilemap, x, y)
+                look = chest_look(tilemap.name, x, y, _boss, getattr(tilemap, "is_cave", False))
+                csprite = chest_sprite(look, self.tile_size, _boss)
                 if csprite is None:
                     continue
                 cx, cy = camera.world_to_screen(x, y, self.tile_size)
