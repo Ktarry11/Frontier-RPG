@@ -2816,6 +2816,11 @@ class Character(StatusEffectMixin):
         # the tight "bank a few, spend carefully" resource tension it was
         # designed around. 4 matches the documented intent exactly.
         "runes": 4,
+        # DEATHFIRE IS SIX REAL STACKS, CoA's Demonfire cap (Kyle, 26 Nov 2026: "for Knight of Xorath they only have 6
+        # demon fire stacks"). It used to be a 0-100 pool with one stack worth 10, which let a Knight bank ten stacks.
+        # Every builder, spender and talent amount was divided by 10 in the same change (Infernal Strike +2, Sever +1,
+        # Skulltaker 4, Hellstorm 5).
+        "deathfire": 6,
     }
 
     #: RAGE AND STATIC BLEED AWAY OUTSIDE COMBAT, a share of the pool every real second, walking or standing still
@@ -2842,7 +2847,8 @@ class Character(StatusEffectMixin):
         key = self._resource_key(resource_type)
         if key in self._RESOURCE_ATTRS:
             return getattr(self, self._RESOURCE_ATTRS[key][0], 0)
-        return self.secondary_resources.get(key, 0)
+        # never more than the pool holds: a save from before a cap shrank (Deathfire's 100 to 6) reads as full, not 40/6
+        return min(self.secondary_resources.get(key, 0), self.get_resource_max(resource_type))
 
     def get_resource_max(self, resource_type):
         """Maximum for any resource, including talent bonuses.

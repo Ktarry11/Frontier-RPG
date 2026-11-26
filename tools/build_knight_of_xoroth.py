@@ -154,6 +154,9 @@ def ability(aid, name, effect_type, description, rank_table, *, cooldown=0,
     return out
 
 
+# NOTE (26 Nov 2026): Deathfire became six real stacks (Character.SECONDARY_RESOURCE_MAX_OVERRIDE "deathfire": 6) and
+# the shipped data was divided by 10 by hand. This builder still writes the old tens; the data has moved on from it
+# anyway, so don't rerun it over data/abilities/knight_of_xoroth.json without scaling these first.
 def deathfire(amount):
     """`generates` payload for a Deathfire builder. 10 Deathfire = one CoA
     Demonfire stack (see RESOURCES in the module docstring)."""

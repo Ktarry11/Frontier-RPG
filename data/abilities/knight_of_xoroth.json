@@ -30,7 +30,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Deals damage to the target. Generates 20 Deathfire.",
+      "description": "Deals damage to the target. Generates 2 Deathfire.",
       "ranks": [
         {
           "rank": 1,
@@ -92,7 +92,7 @@
       "target_type": "enemy",
       "generates": {
         "resource": "deathfire",
-        "amount": 20
+        "amount": 2
       },
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.29x steeper than it, biggest single-rank jump 1.22x); overall size kept. tools/fix_rank_lines.py"
@@ -107,7 +107,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Deals damage to the target. Generates 10 Deathfire.",
+      "description": "Deals damage to the target. Generates 1 Deathfire.",
       "ranks": [
         {
           "rank": 1,
@@ -163,7 +163,7 @@
       "target_type": "enemy",
       "generates": {
         "resource": "deathfire",
-        "amount": 10
+        "amount": 1
       },
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.48x steeper than it, biggest single-rank jump 1.27x); overall size kept. tools/fix_rank_lines.py",
@@ -251,48 +251,48 @@
         {
           "rank": 1,
           "level_req": 12,
-          "cost": 40,
+          "cost": 4,
           "effect_value": 99
         },
         {
           "rank": 2,
           "level_req": 19,
-          "cost": 40,
+          "cost": 4,
           "effect_value": 117
         },
         {
           "rank": 3,
           "level_req": 26,
-          "cost": 40,
+          "cost": 4,
           "effect_value": 135
         },
         {
           "rank": 4,
           "level_req": 33,
-          "cost": 40,
+          "cost": 4,
           "effect_value": 153
         },
         {
           "rank": 5,
           "level_req": 40,
-          "cost": 40,
+          "cost": 4,
           "effect_value": 171
         },
         {
           "rank": 6,
           "level_req": 47,
-          "cost": 40,
+          "cost": 4,
           "effect_value": 188
         },
         {
           "rank": 7,
           "level_req": 54,
-          "cost": 40,
+          "cost": 4,
           "effect_value": 206
         }
       ],
       "icon_id": null,
-      "_source": "CoA: 'dump stacked Demonfire into Skulltaker for its scaling finisher: more damage per stack'. The class's single-target Deathfire spender, shared by all three specs. 40 Deathfire is CoA's 4-stack spend.",
+      "_source": "CoA: 'dump stacked Demonfire into Skulltaker for its scaling finisher: more damage per stack'. The class's single-target Deathfire spender, shared by all three specs. 4 Deathfire is CoA's 4-stack spend.",
       "target_type": "enemy",
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.64x steeper than it, biggest single-rank jump 1.29x); overall size kept. tools/fix_rank_lines.py"
@@ -523,7 +523,7 @@
       "effect_type": "restore_resource",
       "duration": 0,
       "stat_mods": {},
-      "description": "Restores rage to you. Generates 20 Deathfire.",
+      "description": "Restores rage to you. Generates 2 Deathfire.",
       "ranks": [
         {
           "rank": 1,
@@ -560,7 +560,7 @@
       "restore_resource_type": "rage",
       "generates": {
         "resource": "deathfire",
-        "amount": 20
+        "amount": 2
       },
       "cast_speed": "medium"
     },
@@ -752,7 +752,7 @@
       "damage_school": "fire",
       "generates": {
         "resource": "deathfire",
-        "amount": 20
+        "amount": 2
       },
       "requires_talent": true,
       "_tuning": [
@@ -830,31 +830,31 @@
         {
           "rank": 1,
           "level_req": 24,
-          "cost": 40,
+          "cost": 4,
           "effect_value": 58
         },
         {
           "rank": 2,
           "level_req": 32,
-          "cost": 40,
+          "cost": 4,
           "effect_value": 67
         },
         {
           "rank": 3,
           "level_req": 40,
-          "cost": 40,
+          "cost": 4,
           "effect_value": 76
         },
         {
           "rank": 4,
           "level_req": 48,
-          "cost": 40,
+          "cost": 4,
           "effect_value": 85
         },
         {
           "rank": 5,
           "level_req": 56,
-          "cost": 40,
+          "cost": 4,
           "effect_value": 94
         }
       ],
@@ -1004,7 +1004,7 @@
       "effect_type": "damage",
       "duration": 0,
       "stat_mods": {},
-      "description": "Deals damage to the target. Generates 10 Deathfire.",
+      "description": "Deals damage to the target. Generates 1 Deathfire.",
       "ranks": [
         {
           "rank": 1,
@@ -1054,7 +1054,7 @@
       "target_type": "enemy",
       "generates": {
         "resource": "deathfire",
-        "amount": 10
+        "amount": 1
       },
       "requires_talent": true,
       "_tuning": [
@@ -1313,7 +1313,7 @@
       "damage_school": "fire",
       "generates": {
         "resource": "deathfire",
-        "amount": 10
+        "amount": 1
       },
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.67x steeper than it, biggest single-rank jump 1.30x); overall size kept. tools/fix_rank_lines.py"
@@ -1333,37 +1333,37 @@
         {
           "rank": 1,
           "level_req": 16,
-          "cost": 40,
+          "cost": 4,
           "effect_value": 205
         },
         {
           "rank": 2,
           "level_req": 24,
-          "cost": 40,
+          "cost": 4,
           "effect_value": 242
         },
         {
           "rank": 3,
           "level_req": 32,
-          "cost": 40,
+          "cost": 4,
           "effect_value": 281
         },
         {
           "rank": 4,
           "level_req": 40,
-          "cost": 40,
+          "cost": 4,
           "effect_value": 319
         },
         {
           "rank": 5,
           "level_req": 48,
-          "cost": 40,
+          "cost": 4,
           "effect_value": 358
         },
         {
           "rank": 6,
           "level_req": 56,
-          "cost": 40,
+          "cost": 4,
           "effect_value": 395
         }
       ],
@@ -1400,7 +1400,7 @@
         {
           "rank": 1,
           "level_req": 40,
-          "cost": 40,
+          "cost": 4,
           "effect_value": 100
         }
       ],
@@ -1423,25 +1423,25 @@
         {
           "rank": 1,
           "level_req": 38,
-          "cost": 50,
+          "cost": 5,
           "effect_value": 124
         },
         {
           "rank": 2,
           "level_req": 44,
-          "cost": 50,
+          "cost": 5,
           "effect_value": 136
         },
         {
           "rank": 3,
           "level_req": 50,
-          "cost": 50,
+          "cost": 5,
           "effect_value": 147
         },
         {
           "rank": 4,
           "level_req": 56,
-          "cost": 50,
+          "cost": 5,
           "effect_value": 159
         }
       ],

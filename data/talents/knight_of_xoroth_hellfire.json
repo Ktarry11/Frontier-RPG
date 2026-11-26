@@ -470,7 +470,7 @@
     {
       "talent_id": "knight_of_xoroth_hellfire_grotesque",
       "name": "Grotesque",
-      "description": "Your fire strikes grant 5 Deathfire.",
+      "description": "Your fire strikes sometimes grant 1 Deathfire.",
       "node_type": "passive",
       "tier": 4,
       "max_points": 3,
@@ -483,7 +483,7 @@
       ],
       "proc": {
         "trigger": "on_damage_cast",
-        "chance": 33,
+        "chance": 17,
         "icd": 1,
         "ability_filter": [
           "knight_of_xoroth_hellmaw",
@@ -492,7 +492,7 @@
         ],
         "grant_resource": {
           "resource": "deathfire",
-          "amount": 5
+          "amount": 1
         }
       },
       "_source": "CoA verbatim: 'While Hellfire Form is active, your Seeking Flame now has no cooldown and generates an additional Demonfire.' The 'while active' gate has no key and the cooldown half is already carried by the Seeking Flame node at tier 1. What survives is the extra Demonfire, granted off every fire strike rather than only in form - DEATHFIRE IS REAL (ResourceType.DEATHFIRE, four abilities generate into it), verified through gain_resource on the War tree. 1-turn icd so a multi-strike turn does not flood the pool."

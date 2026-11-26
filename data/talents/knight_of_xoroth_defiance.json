@@ -160,7 +160,7 @@
     {
       "talent_id": "knight_of_xoroth_defiance_demonfire_retaliation",
       "name": "Demonfire Retaliation",
-      "description": "Being attacked has a 30% chance to grant 10 Deathfire.",
+      "description": "Being attacked has a 30% chance to grant 1 Deathfire.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -177,7 +177,7 @@
         "icd": 0,
         "grant_resource": {
           "resource": "deathfire",
-          "amount": 10
+          "amount": 1
         }
       },
       "_source": "CoA verbatim: 'Grants you a 30% chance to generate a stack of Demonfire when attacked.' PORTS EXACTLY - on_damage_taken is a live trigger, CoA's 30% is kept, and DEATHFIRE IS A REAL SECONDARY RESOURCE (verified through gain_resource on the War tree). CoA's '1 stack' is 10 here because Frontier's generators work in tens - Sever grants 10, Infernal Strike 20 - so one CoA Demonfire is worth roughly ten Deathfire. A tank that makes resource by being hit is the same loop as Venomancer Fortitude's Exposed Flesh."
@@ -334,7 +334,7 @@
     {
       "talent_id": "knight_of_xoroth_defiance_demons_breath",
       "name": "Demon's Breath",
-      "description": "Your critical strikes with Shieldgore erupt for fire damage and grant 10 Deathfire.",
+      "description": "Your critical strikes with Shieldgore erupt for fire damage and grant 1 Deathfire.",
       "node_type": "passive",
       "tier": 3,
       "max_points": 3,
@@ -356,10 +356,10 @@
         "school": "fire",
         "grant_resource": {
           "resource": "deathfire",
-          "amount": 10
+          "amount": 1
         }
       },
-      "_source": "CoA verbatim: 'Critical strikes with Shieldgore now unleash an eruption of hellfire, causing Fire damage and generating 1 additional Demonfire.' PORTS WHOLE - a proc can carry BOTH a damage_flat payload and a grant_resource, so both halves of CoA's text fire from one node. CoA's '1 Demonfire' is 10 Deathfire, matching Frontier's tens-based generators."
+      "_source": "CoA verbatim: 'Critical strikes with Shieldgore now unleash an eruption of hellfire, causing Fire damage and generating 1 additional Demonfire.' PORTS WHOLE - a proc can carry BOTH a damage_flat payload and a grant_resource, so both halves of CoA's text fire from one node. CoA's '1 Demonfire' is 1 Deathfire, one stack in Frontier's six-stack Deathfire."
     },
     {
       "talent_id": "knight_of_xoroth_defiance_infernal_bulwark",

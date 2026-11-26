@@ -201,7 +201,7 @@
     {
       "talent_id": "knight_of_xoroth_war_bringer_of_destruction",
       "name": "Bringer of Destruction",
-      "description": "Taking a critical hit grants you 10 Deathfire and 5 Rage.",
+      "description": "Taking a critical hit grants you 1 Deathfire and 5 Rage.",
       "node_type": "passive",
       "tier": 1,
       "max_points": 3,
@@ -218,7 +218,7 @@
         "icd": 3,
         "grant_resource": {
           "resource": "deathfire",
-          "amount": 10
+          "amount": 1
         }
       },
       "_source": "CoA verbatim: 'Critical damage taken now grants you 1 Demonfire and 5 Rage. Can only occur once every 3 sec.' DEATHFIRE IS REAL (ResourceType.DEATHFIRE, four abilities generate into it), so there is somewhere for this to go. A proc carries ONE grant_resource, so the Rage half cannot be granted alongside it - the Deathfire is the half that matters, since three nodes here spend it. CoA's 3-second limit ports as icd 3. There is no 'critical damage taken' trigger, only on_damage_taken, so it fires on any hit - held to once every 3 turns, which is close to CoA's rate for a crit."
@@ -226,7 +226,7 @@
     {
       "talent_id": "knight_of_xoroth_war_carver",
       "name": "Carver",
-      "description": "Your critical strikes with Gore grant 10 Deathfire.",
+      "description": "Your critical strikes with Gore grant 1 Deathfire.",
       "node_type": "passive",
       "tier": 2,
       "max_points": 3,
@@ -246,7 +246,7 @@
         ],
         "grant_resource": {
           "resource": "deathfire",
-          "amount": 10
+          "amount": 1
         }
       },
       "_source": "CoA's level 30 passive: 'Critical strikes with Gore now generate 1 additional Demonfire.' PORTS CLEANLY - on_crit with an ability_filter on Gore, granting into the real Deathfire pool. CoA's '1 Demonfire' is 10 here because Frontier's generators work in tens (Sever grants 10, Infernal Strike 20), so one CoA Demonfire is worth roughly ten Deathfire."
