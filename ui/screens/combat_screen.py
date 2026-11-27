@@ -1356,8 +1356,9 @@ class CombatScreen(BaseScreen):
         this used to be a 40-line copy of the same box drawn in two other screens.
         """
         from ui.ability_tooltip import draw_ability_tooltip
-        draw_ability_tooltip(self.renderer, screen, ability, pos,
-                             getattr(self.state_manager, "player", None))
+        # the one whose bar it is: Diego's Scrap Shot estimates off Diego's gear, not the hero's
+        caster = self._acting_member() or getattr(self.state_manager, "player", None)
+        draw_ability_tooltip(self.renderer, screen, ability, pos, caster)
 
     def _draw_stance_selector(self, screen, player):
         """Warrior-only stance buttons on the right edge (see
@@ -1538,6 +1539,7 @@ class CombatScreen(BaseScreen):
 
             pygame.draw.rect(screen, fill, card_rect)
             pygame.draw.rect(screen, border_color, card_rect, 3 if is_acting else 2)
+            self._card_hits.append((card_rect, member))
 
             tx = card_rect.x + 8
             ty = card_rect.y + 6
@@ -1613,6 +1615,7 @@ class CombatScreen(BaseScreen):
     def render(self, screen):
         """Draw combat screen with redesigned layout."""
         self._effect_hits = []
+        self._card_hits = []
         if not self.combat_engine:
             return
 
@@ -2100,14 +2103,26 @@ class CombatScreen(BaseScreen):
         if not effects:
             return
 
-        from ui.effect_tooltip import draw_effect_icon
+        from ui.effect_tooltip import draw_effect_icon, sort_harmful_first
         icon_size = self.MINI_EFFECT_ICON
         gap = 3
         x, y = pos
-        for i, effect in enumerate(effects[:self.MINI_EFFECT_MAX]):
+        # debuffs first: when there are more than fit, it's buffs that drop off the end, never the debuff
+        effects = sort_harmful_first(effects)
+        shown = effects[:self.MINI_EFFECT_MAX]
+        hidden = len(effects) - len(shown)
+        if hidden:
+            shown = effects[:self.MINI_EFFECT_MAX - 1]
+            hidden = len(effects) - len(shown)
+        for i, effect in enumerate(shown):
             rect = pygame.Rect(x + i * (icon_size + gap), y, icon_size, icon_size)
             draw_effect_icon(self.renderer, screen, effect, rect)
             self._effect_hits.append((rect, effect, combatant))
+        if hidden:
+            rect = pygame.Rect(x + len(shown) * (icon_size + gap), y, icon_size, icon_size)
+            pygame.draw.rect(screen, (30, 30, 36), rect)
+            pygame.draw.rect(screen, (150, 150, 160), rect, 1)
+            self.renderer.draw_text(screen, f"+{hidden}", (rect.x + 2, rect.y + 3), font_size=12, color=(220, 220, 220))
 
     #: Party-roster effect squares. They were 12px blanks - a border colour and nothing else,
     #: so you could see THAT someone had a debuff and never which. 20px is the smallest that
@@ -2259,6 +2274,14 @@ class CombatScreen(BaseScreen):
                 self.hovered_effect = effect
                 return draw_effect_tooltip(self.renderer, screen, effect, self.mouse_pos, holder)
         self.hovered_effect = None
+        # anywhere else on a party card: everything that member carries, debuffs first
+        for rect, member in getattr(self, "_card_hits", []):
+            if rect.collidepoint(self.mouse_pos) and member.is_alive():
+                effects = [e for e in member._effects()
+                           if is_displayable_buff(e) or e.effect_type in (EffectType.DOT, EffectType.HOT)]
+                if effects:
+                    from ui.effect_tooltip import draw_holder_effects_panel
+                    return draw_holder_effects_panel(self.renderer, screen, member, effects, rect)
         return None
 
     #: Shortest a targeting row may be compressed to and still be comfortably clickable.

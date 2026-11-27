@@ -314,3 +314,75 @@ def draw_effect_icon(renderer, screen, effect, rect, show_count=True):
             g = f.render(f"x{stacks}", True, COLOR_GOLD)
             pygame.draw.rect(screen, (0, 0, 0), (rect.x + 1, rect.y, g.get_width() + 1, g.get_height() - 2))
             screen.blit(g, (rect.x + 1, rect.y - 1))
+
+
+def _is_harmful(effect):
+    return effect.effect_type in (EffectType.DEBUFF, EffectType.DOT)
+
+
+def sort_harmful_first(effects):
+    """Debuffs and DoTs ahead of buffs, so a strip that runs out of room never hides the thing hurting you."""
+    return sorted(effects, key=lambda e: 0 if _is_harmful(e) else 1)
+
+
+def _effect_summary(effect, holder):
+    """One short line for the panel: what it does right now (the tooltip's first body line)."""
+    lines = effect_lines(effect, holder)
+    for text, color in lines[2:]:
+        if color == COLOR_WHITE and not text.endswith("left"):
+            return text
+    return ""
+
+
+def draw_holder_effects_panel(renderer, screen, holder, effects, anchor):
+    """EVERYTHING ON ONE PARTY MEMBER, for hovering their card in combat (Kyle, 26 Nov 2026: "diego was getting
+    wrecked. I know he had a debuff on him but i couldnt see it because too many buffs"). Debuffs first under a red
+    heading, then buffs, each with its icon, what it does now and the time left. Sits above `anchor` (the card)."""
+    harmful = [e for e in effects if _is_harmful(e)]
+    helpful = [e for e in effects if not _is_harmful(e)]
+    font = renderer._get_font(font_size=FONT_SIZE)
+    icon, row_h = 20, max(LINE_HEIGHT, 24)
+    rows = [(f"{getattr(holder, 'name', 'Ally')}", None, COLOR_WHITE)]
+    if harmful:
+        rows.append((f"Debuffs ({len(harmful)})", None, (230, 80, 80)))
+        rows += [(e, True, None) for e in harmful]
+    else:
+        rows.append(("No debuffs", None, MUTED))
+    if helpful:
+        rows.append((f"Buffs ({len(helpful)})", None, (220, 190, 90)))
+        rows += [(e, False, None) for e in helpful]
+
+    def text_of(e):
+        bits = [e.name or "Effect"]
+        summ = _effect_summary(e, holder)
+        if summ:
+            bits.append(summ)
+        left = remaining_short(e)
+        return ": ".join(bits) + (f"  ({left})" if left else "")
+
+    widths = []
+    for r in rows:
+        if r[1] is None:
+            widths.append(font.size(r[0])[0])
+        else:
+            widths.append(icon + 6 + font.size(text_of(r[0]))[0])
+    box_w = min(max(widths) + PADDING * 2, SCREEN_WIDTH - 20)
+    box_h = len(rows) * row_h + PADDING * 2
+    x = max(4, min(anchor.centerx - box_w // 2, SCREEN_WIDTH - box_w - 4))
+    y = anchor.top - box_h - 6
+    if y < 4:
+        y = min(anchor.bottom + 6, SCREEN_HEIGHT - box_h - 4)
+    border = (230, 80, 80) if harmful else (120, 120, 130)
+    pygame.draw.rect(screen, (15, 15, 20), (x, y, box_w, box_h))
+    pygame.draw.rect(screen, border, (x, y, box_w, box_h), 2)
+    ty = y + PADDING
+    for r in rows:
+        if r[1] is None:
+            renderer.draw_text(screen, r[0], (x + PADDING, ty + 2), font_size=FONT_SIZE, color=r[2])
+        else:
+            e = r[0]
+            draw_effect_icon(renderer, screen, e, pygame.Rect(x + PADDING, ty + 1, icon, icon), show_count=False)
+            col = KIND_COLORS.get(e.effect_type, (COLOR_WHITE, None))[0]
+            renderer.draw_text(screen, text_of(e), (x + PADDING + icon + 6, ty + 2), font_size=FONT_SIZE, color=col)
+        ty += row_h
+    return pygame.Rect(x, y, box_w, box_h)

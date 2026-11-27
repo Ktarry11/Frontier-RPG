@@ -1358,7 +1358,12 @@ class Ability:
                          f"Base healing: {self._range_text(self.heal_value or 0)}")
         elif self.effect_type == "damage_and_restore_mana":
             lines.append(f"Base damage: {self._range_text(self.effect_value)}  |  Restores {self.mana_restore_pct}% mana")
-        elif self.effect_type in ("buff", "debuff") and self.stat_mods:
+        # what it will roughly do for THIS caster (estimate_line)
+        if self.effect_type not in ("buff", "debuff"):
+            est = self.estimate_line(caster)
+            if est:
+                lines.append(est)
+        if self.effect_type in ("buff", "debuff") and self.stat_mods:
             # WHAT THIS RANK GIVES, not what was written down. The authored mods are scaled by the rank
             # (effect_value) and by potency talents when cast, so Flametongue Rank 8 printed "+12 Spell Power"
             # and gave 29 (Kyle, 16 Nov 2026: "It says 12 but it gives 29 spell power").
@@ -1409,6 +1414,88 @@ class Ability:
             lines.append(desc)
 
         return lines
+
+    def _avg_weapon(self, caster, use_ranged=False, both=False):
+        """The caster's average weapon roll, sampled without disturbing the game's dice or the caster."""
+        if not hasattr(caster, "get_weapon_damage_roll"):
+            return 0
+        import random
+        state = random.getstate()
+        saved = {k: getattr(caster, k) for k in ("_last_offhand_part", "_last_offhand_missed") if hasattr(caster, k)}
+        try:
+            rolls = [caster.get_weapon_damage_roll(use_ranged=use_ranged, include_offhand=both,
+                                                   offhand_hit_chance=100.0) for _ in range(24)]
+        except Exception:
+            rolls = [0]
+        finally:
+            random.setstate(state)
+            for k, v in saved.items():
+                setattr(caster, k, v)
+        return sum(rolls) / max(1, len(rolls))
+
+    def estimate_line(self, caster):
+        """WHAT IT WILL ROUGHLY DO for this caster, with their gear, talents and buffs right now (Kyle, 26 Nov 2026:
+        "i get a lot of attacks but i dont know what one hits the hardest"). The same formula each effect branch of
+        _apply_effect uses, at the average roll, before the target's armour or resistance and without a crit."""
+        if caster is None or not hasattr(caster, "attack_power"):
+            return None
+        et = self.effect_type
+        aoe = self.AOE_DAMAGE_MULTIPLIER if self.target_type in ("enemy_aoe", "all_enemies") else 1.0
+        had_stack = hasattr(self, "_stack_bonus")
+        old_stack = getattr(self, "_stack_bonus", None)
+        self._stack_bonus = 0
+        try:
+            each = " each" if aoe != 1.0 else ""
+            if et in ("damage", "ranged_damage"):
+                ranged = et == "ranged_damage"
+                ap = getattr(caster, "ranged_attack_power", 0) if ranged else caster.attack_power
+                both = self.is_basic_attack(caster) or bool(getattr(self, "strikes_both_weapons", False))
+                v = (self.effect_value + ap * _scaling_coef(self, "ap", caster)
+                     + self._avg_weapon(caster, use_ranged=ranged, both=(both and not ranged)))
+                v *= self._damage_multiplier(caster, "physical") * aoe
+                return f"Hits for about {int(v)}{each} with your gear"
+            if et in ("spell_damage", "damage_and_heal", "damage_and_restore_mana"):
+                school = self._resolve_damage_school(caster) or "magic"
+                if et == "spell_damage":
+                    v = (self.effect_value + caster.get_effective_spell_power(school) * _scaling_coef(self, "sp", caster)
+                         + self._avg_weapon(caster, use_ranged=True))
+                else:
+                    v = self.effect_value + _spell_power(caster) * _scaling_coef(self, "sp", caster)
+                v *= self._damage_multiplier(caster, "spell") * aoe
+                low, high = self.roll_range(int(v))
+                text = f"Hits for about {low} to {high}{each} with your gear"
+                if et == "damage_and_heal" and self.heal_value:
+                    h = (self.heal_value + _heal_power(caster) * _scaling_coef(self, "heal", caster)) \
+                        * self._damage_multiplier(caster, "healing")
+                    text += f", heals about {int(h)}"
+                return text
+            if et in ("dot", "spell_dot"):
+                school = self._resolve_damage_school(caster) if self.damage_school is not None else (
+                    "magic" if et == "spell_dot" else "physical")
+                magic = school != "physical"
+                power = (caster.get_effective_spell_power(school) * _scaling_coef(self, "dot_sp", caster) if magic
+                         else caster.attack_power * _scaling_coef(self, "dot_ap", caster))
+                v = (self.effect_value + power) * self._damage_multiplier(caster, "spell" if magic else "physical") * aoe
+                turns = max(1, self.talented_duration(caster))
+                return f"Deals about {int(v)}{each} over {turns} turns with your gear"
+            if et == "heal":
+                v = (self.effect_value + _heal_power(caster) * _scaling_coef(self, "heal", caster)) \
+                    * self._damage_multiplier(caster, "healing")
+                low, high = self.roll_range(int(v))
+                return f"Heals for about {low} to {high} with your gear"
+            if et == "hot":
+                v = (self.effect_value + _heal_power(caster) * _scaling_coef(self, "hot", caster)) \
+                    * self._damage_multiplier(caster, "healing")
+                turns = max(1, self.talented_duration(caster))
+                return f"Heals about {int(v)} over {turns} turns with your gear"
+        except Exception:
+            return None
+        finally:
+            if had_stack:
+                self._stack_bonus = old_stack
+            else:
+                del self._stack_bonus
+        return None
 
     def _tooltip_description(self):
         """The authored description as the tooltip shows it, minus what has gone stale (the support pass, 16 Nov
