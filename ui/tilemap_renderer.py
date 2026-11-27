@@ -1253,6 +1253,9 @@ class TilemapRenderer:
         # a hidden seller or a hidden cache is behind it (world/secrets.py), so they really are hidden;
         # and see-through when the player is behind it, so you can still see yourself back there.
         self._draw_occluders(screen, camera, viewport_rect, tilemap, player_pos, vendors)
+        # THE PATHFINDER'S LANTERN (world/pathfinder.py): carried, it lights the walkable ground two tiles round you,
+        # over the rock or trees a hidden passage is drawn as
+        self._draw_pathfinder_light(screen, camera, viewport_rect, tilemap, player_pos, player)
         # ENVIRONMENT EFFECTS (docs/environment_effects_art_prompts.md): shade first (multiplied), then the scrolling
         # weather and fog layers and the drifting particles, then light over everything
         _shade = getattr(tilemap, "shade", None)
@@ -1304,6 +1307,38 @@ class TilemapRenderer:
                 pygame.draw.ellipse(surf, (34, 28, 54, 34), r)
             self._sky_cache[key] = surf
         return surf
+
+    def _draw_pathfinder_light(self, screen, camera, viewport_rect, tilemap, player_pos, player):
+        if not player_pos:
+            return
+        try:
+            from world import pathfinder
+            if not pathfinder.owns_lantern(player):
+                return
+            tiles = pathfinder.lit_tiles(tilemap, int(player_pos[0]), int(player_pos[1]))
+        except Exception:
+            return
+        ts = self.tile_size
+        cache = getattr(self, "_lantern_glow", None)
+        if cache is None or cache["ts"] != ts:
+            ring = pygame.Surface((ts, ts), pygame.SRCALPHA)
+            pygame.draw.rect(ring, (170, 205, 230, 80), (1, 1, ts - 2, ts - 2), 1, border_radius=max(2, ts // 6))
+            self._lantern_glow = cache = {"ts": ts, "ring": ring, "glow": {}}
+        for x, y, strength in tiles:
+            sx, sy = camera.world_to_screen(x, y, ts)
+            sx += viewport_rect.x
+            sy += viewport_rect.y
+            if not viewport_rect.colliderect(pygame.Rect(sx, sy, ts, ts)):
+                continue
+            key = round(strength, 1)
+            glow = cache["glow"].get(key)
+            if glow is None:
+                # warm lantern light, added to whatever is drawn there (rock and trees included)
+                glow = pygame.Surface((ts, ts))
+                glow.fill((int(52 * key), int(48 * key), int(30 * key)))
+                cache["glow"][key] = glow
+            screen.blit(glow, (sx, sy), special_flags=pygame.BLEND_RGB_ADD)
+            screen.blit(cache["ring"], (sx, sy))
 
     def _draw_contact_shadows(self, screen, camera, viewport_rect, tilemap, player_pos, vendors, recruits, npcs):
         ts = self.tile_size

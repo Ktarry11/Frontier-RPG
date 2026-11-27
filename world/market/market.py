@@ -43,11 +43,15 @@ COARSE = 6.0
 #: "target" is how many NPC listings a book holds. Kyle, 16 Nov 2026: "Lets populate the AH by around 300% more items
 #: across the board!" (2,600 and 1,700 before, so four times as many). Measured that day: opening the book takes
 #: about two seconds, a day of play works out in about three, and the market adds about four megabytes to a save.
+#: Kyle, 27 Nov 2026: "what i'd like to see on average is another 1250-1500 (Additional) Auctions per day across all
+#: the catagories". Measured over a market day: about 24,050 new NPC listings a day before, about 25,400 after (+1,360)
+#: across both books. New listings track the book's size (they replace what sells and expires), so both targets went
+#: up by the same share, about 5.8%, which keeps every category's slice of the mix as it was.
 MARKETS = {
     "horde": {"name": "Horde Auction House", "cut": 0.05, "deposit": 0.15, "gear_traffic": 1.0, "odd": 1.0,
-              "target": 13000},
+              "target": 13750},
     "goblin": {"name": "Steamwheedle Auction House", "cut": 0.15, "deposit": 0.25, "gear_traffic": 1.2,
-               "odd": 1.5, "target": 8500},
+               "odd": 1.5, "target": 9000},
 }
 #: which book an auctioneer opens
 AUCTIONEER_MARKET = {

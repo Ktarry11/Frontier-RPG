@@ -216,6 +216,10 @@ class Consumable:
                 word = "Well fed" if self.buff_category == "food" else "Refreshed"
                 log_msg += f" {word}: {bonus_text(self.stat_bonuses)} for 30 minutes."
 
+        elif self.consumable_type == "curio":
+            # carried, not used: the Pathfinder's Lantern works from the bags (world/pathfinder.py)
+            return False
+
         elif self.consumable_type == "lure":
             # Beast Lure: no stats. While it burns, beasts answer the party's encounter rolls more
             # often - effect_value is the percentage (25 lesser, 50 normal, 100 greater) - so a

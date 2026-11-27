@@ -34,7 +34,8 @@ def _hours(h):
 
 #: the class forms a look can dress, as players know them (combat/forms.py)
 _FORM_NAME = {"bear": "Bear Form", "dire_bear": "Dire Bear Form", "cat": "Cat Form", "moonkin": "Moonkin Form",
-              "tree_of_life": "Tree of Life", "spider": "Spider Form", "beetle": "Beetle Form"}
+              "tree_of_life": "Tree of Life", "spider": "Spider Form", "beetle": "Beetle Form",
+              "cursed": "Bloodmage curse forms"}
 
 
 class CollectionScreen(BaseScreen):

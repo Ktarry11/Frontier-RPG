@@ -18083,6 +18083,193 @@
       "needs_art": false
     },
     {
+      "id": "look_curse_sanguine",
+      "name": "Sanguine Sigil",
+      "kind": "form",
+      "price": 600000,
+      "rarity": "common",
+      "blurb": "A silver medallion carved with crimson runes. Your curse becomes a lean silver worgen with blood magic on its arms.",
+      "effect": {
+        "form_id": "look_curse_sanguine",
+        "form_name": "Sanguine Worgen",
+        "look_of": "cursed",
+        "facings": "assets/forms/curse_sanguine"
+      },
+      "icon_id": "col_look_curse_sanguine",
+      "art": "col_look_curse_sanguine",
+      "needs_art": false
+    },
+    {
+      "id": "look_curse_bloodforged",
+      "name": "Crimson Shard",
+      "kind": "form",
+      "price": 1800000,
+      "rarity": "uncommon",
+      "blurb": "A jagged shard of blood crystal. Your curse grows crimson crystal from its shoulders, spine and arms.",
+      "effect": {
+        "form_id": "look_curse_bloodforged",
+        "form_name": "Bloodforged Worgen",
+        "look_of": "cursed",
+        "facings": "assets/forms/curse_bloodforged"
+      },
+      "icon_id": "col_look_curse_bloodforged",
+      "art": "col_look_curse_bloodforged",
+      "needs_art": false
+    },
+    {
+      "id": "look_curse_crimson_flame",
+      "name": "Emberheart Charm",
+      "kind": "form",
+      "price": 4500000,
+      "rarity": "rare",
+      "blurb": "An iron charm holding a flame that never goes out. Your curse burns rust red, with scarlet fire along its back.",
+      "effect": {
+        "form_id": "look_curse_crimson_flame",
+        "form_name": "Crimson Flame Worgen",
+        "look_of": "cursed",
+        "facings": "assets/forms/curse_crimson_flame"
+      },
+      "icon_id": "col_look_curse_crimson_flame",
+      "art": "col_look_curse_crimson_flame",
+      "needs_art": false
+    },
+    {
+      "id": "look_curse_vampiric",
+      "name": "Mark of the Thirsting",
+      "kind": "form",
+      "price": 4500000,
+      "rarity": "rare",
+      "blurb": "A pale ivory token carved with two long fangs. Your curse turns pale and aristocratic, veins of red across it.",
+      "effect": {
+        "form_id": "look_curse_vampiric",
+        "form_name": "Vampiric Worgen",
+        "look_of": "cursed",
+        "facings": "assets/forms/curse_vampiric"
+      },
+      "icon_id": "col_look_curse_vampiric",
+      "art": "col_look_curse_vampiric",
+      "needs_art": false
+    },
+    {
+      "id": "look_curse_ascended_bloodlord",
+      "name": "Bloodlord's Seal",
+      "kind": "form",
+      "price": 7000000,
+      "rarity": "epic",
+      "blurb": "A black and crimson seal around a burning ruby. Your curse becomes the Bloodlord, armoured, a red core in its chest.",
+      "effect": {
+        "form_id": "look_curse_ascended_bloodlord",
+        "form_name": "Ascended Bloodlord",
+        "look_of": "cursed",
+        "facings": "assets/forms/curse_ascended_bloodlord"
+      },
+      "icon_id": "col_look_curse_ascended_bloodlord",
+      "art": "col_look_curse_ascended_bloodlord",
+      "needs_art": false
+    },
+    {
+      "id": "look_curse_bloodied_bear",
+      "name": "Bloodied Bear Claw",
+      "kind": "form",
+      "price": 600000,
+      "rarity": "common",
+      "blurb": "A bear claw wrapped in bloodstained hide. Your curse takes the shape of a hulking dark grey dire bear.",
+      "effect": {
+        "form_id": "look_curse_bloodied_bear",
+        "form_name": "Bloodied Bear",
+        "look_of": "cursed",
+        "facings": "assets/forms/curse_bloodied_bear"
+      },
+      "icon_id": "col_look_curse_bloodied_bear",
+      "art": "col_look_curse_bloodied_bear",
+      "needs_art": false
+    },
+    {
+      "id": "look_curse_sanguine_bear",
+      "name": "Runebound Bear Mark",
+      "kind": "form",
+      "price": 1800000,
+      "rarity": "uncommon",
+      "blurb": "A grey stone with glowing crimson runes. Your curse becomes a silver bear carved with blood runes.",
+      "effect": {
+        "form_id": "look_curse_sanguine_bear",
+        "form_name": "Sanguine Bear",
+        "look_of": "cursed",
+        "facings": "assets/forms/curse_sanguine_bear"
+      },
+      "icon_id": "col_look_curse_sanguine_bear",
+      "art": "col_look_curse_sanguine_bear",
+      "needs_art": false
+    },
+    {
+      "id": "look_curse_bloodforged_bear",
+      "name": "Heart of the Bloodforged",
+      "kind": "form",
+      "price": 4500000,
+      "rarity": "rare",
+      "blurb": "Black crystal around a pulsing crimson core. Your curse becomes a black bear bristling with blood crystal.",
+      "effect": {
+        "form_id": "look_curse_bloodforged_bear",
+        "form_name": "Bloodforged Bear",
+        "look_of": "cursed",
+        "facings": "assets/forms/curse_bloodforged_bear"
+      },
+      "icon_id": "col_look_curse_bloodforged_bear",
+      "art": "col_look_curse_bloodforged_bear",
+      "needs_art": false
+    },
+    {
+      "id": "look_curse_crimson_flame_bear",
+      "name": "Emberhide Totem",
+      "kind": "form",
+      "price": 1800000,
+      "rarity": "uncommon",
+      "blurb": "A charred bear totem with glowing cracks. Your curse becomes a rust red bear wreathed in scarlet flame.",
+      "effect": {
+        "form_id": "look_curse_crimson_flame_bear",
+        "form_name": "Crimson Flame Bear",
+        "look_of": "cursed",
+        "facings": "assets/forms/curse_crimson_flame_bear"
+      },
+      "icon_id": "col_look_curse_crimson_flame_bear",
+      "art": "col_look_curse_crimson_flame_bear",
+      "needs_art": false
+    },
+    {
+      "id": "look_curse_vampiric_bear",
+      "name": "Pale Fang Idol",
+      "kind": "form",
+      "price": 4500000,
+      "rarity": "rare",
+      "blurb": "A white stone bear head with long fangs. Your curse becomes a pale bear with red veins across its face.",
+      "effect": {
+        "form_id": "look_curse_vampiric_bear",
+        "form_name": "Vampiric Bear",
+        "look_of": "cursed",
+        "facings": "assets/forms/curse_vampiric_bear"
+      },
+      "icon_id": "col_look_curse_vampiric_bear",
+      "art": "col_look_curse_vampiric_bear",
+      "needs_art": false
+    },
+    {
+      "id": "look_curse_ascended_bear",
+      "name": "Bloodlord's Heartstone",
+      "kind": "form",
+      "price": 7000000,
+      "rarity": "epic",
+      "blurb": "A black and crimson relic around a red heart. Your curse becomes a towering armoured bear with a burning core.",
+      "effect": {
+        "form_id": "look_curse_ascended_bear",
+        "form_name": "Ascended Bear",
+        "look_of": "cursed",
+        "facings": "assets/forms/curse_ascended_bear"
+      },
+      "icon_id": "col_look_curse_ascended_bear",
+      "art": "col_look_curse_ascended_bear",
+      "needs_art": false
+    },
+    {
       "id": "title_exalted_orgrimmar",
       "name": "Title: of Orgrimmar",
       "kind": "title",

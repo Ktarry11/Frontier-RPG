@@ -1323,5 +1323,234 @@
     "It is exactly that. {player}, you're watching. Notice how much better that cut was."
    ]
   ]
+ },
+ {
+  "id": "the_morning_run",
+  "cast": [
+   "iker_guardian",
+   "dan_warrior",
+   "callum_venomancer",
+   "sebastian_bloodmage"
+  ],
+  "affinity": 0.2,
+  "lines": [
+   [
+    "iker_guardian",
+    "Champions, up, up, morning run, three laps of the camp before breakfast! Who's with me? Everybody's with me!"
+   ],
+   [
+    "dan_warrior",
+    "It's half five, Iker. I've not had a brew, and I'm not running anywhere till I've had two."
+   ],
+   [
+    "callum_venomancer",
+    "I'm in, mate, as long as we go past the creek. There's a nest of something I want to check on."
+   ],
+   [
+    "sebastian_bloodmage",
+    "Che, nobody runs before my grill is lit. You run, you come back, you eat, that's the order of the universe."
+   ],
+   [
+    "iker_guardian",
+    "Okay, okay, Callum and me, and {player} obviously, the three champions! The rest of you, cheer from the fire."
+   ],
+   [
+    "dan_warrior",
+    "I'll cheer, love, from under my blanket. Don't expect it to be loud."
+   ]
+  ],
+  "choice": {
+   "asker": "iker_guardian",
+   "options": [
+    {
+     "text": "Fine, three laps. Then breakfast.",
+     "impression": "jokes",
+     "trust": {
+      "iker_guardian": 1
+     },
+     "reply": [
+      [
+       "iker_guardian",
+       "Aupa, that's my champion! Venga, Callum, the creek is lap one."
+      ],
+      [
+       "sebastian_bloodmage",
+       "Three laps, then the best breakfast of your life, chicos, I promise."
+      ]
+     ]
+    },
+    {
+     "text": "I'm with Dan. Brew first.",
+     "impression": "stays_out",
+     "trust": {
+      "dan_warrior": 1
+     },
+     "reply": [
+      [
+       "dan_warrior",
+       "Now that's a sensible person, that is. Kettle's on, sit down."
+      ],
+      [
+       "iker_guardian",
+       "Traitors, both of you, but I'll win you over by Tuesday."
+      ]
+     ]
+    }
+   ],
+   "silent": [
+    [
+     "callum_venomancer",
+     "Silence means yes in Iker's rules, mate, sorry, so get your shoes on."
+    ]
+   ]
+  }
+ },
+ {
+  "id": "water_tea_wine",
+  "cast": [
+   "driss_shaman",
+   "tarek_templar",
+   "yiannis_paladin"
+  ],
+  "affinity": 0.6,
+  "lines": [
+   [
+    "driss_shaman",
+    "My friends, water first, always, then tea, poured from high so it sings. That's how a guest is welcomed at my fire."
+   ],
+   [
+    "tarek_templar",
+    "Water first, yes, but water I've checked. Then food, habibi, nobody drinks tea on an empty stomach in my house."
+   ],
+   [
+    "yiannis_paladin",
+    "Ela, children, water, then food, then wine, a little wine, and then the stories start. This is civilisation."
+   ],
+   [
+    "driss_shaman",
+    "Three hosts at one fire, and nobody's allowed to serve anybody. This could be a very long evening."
+   ],
+   [
+    "tarek_templar",
+    "Then we split it, like engineers. Driss pours the water, I cook, Yiannis brings the wine, and everybody's a guest."
+   ],
+   [
+    "yiannis_paladin",
+    "And {player} is the guest of honour, so {player} eats first. Sit, sit, child, before the three of us start fighting over you."
+   ]
+  ]
+ },
+ {
+  "id": "the_cold_ones",
+  "cast": [
+   "eino_barbarian",
+   "sondre_stormbringer",
+   "ivan_warrior",
+   "rhodri_knight"
+  ],
+  "affinity": 0.4,
+  "lines": [
+   [
+    "eino_barbarian",
+    "The sauna's ready now. Sondre and Ivan understand what it's for, and Rhodri will learn tonight."
+   ],
+   [
+    "sondre_stormbringer",
+    "Ah, finally, at last. In Bergen we'd sit in one and then jump off the pier into the fjord. It's very sensible, I promise."
+   ],
+   [
+    "ivan_warrior",
+    "In Novosibirsk we have the banya, with birch branches, and then snow. Here there is no snow, so I'll accept the river."
+   ],
+   [
+    "rhodri_knight",
+    "Hang on, boys, you're telling me you sit in a hot box on purpose, then jump in cold water, also on purpose? Duw, you're all mad."
+   ],
+   [
+    "eino_barbarian",
+    "Joo, we're mad. Come in, sit, say nothing for twenty minutes. You'll understand after."
+   ],
+   [
+    "sondre_stormbringer",
+    "{player}, you're coming too. Nobody's exempt, Eino's very strict about it."
+   ]
+  ],
+  "choice": {
+   "asker": "eino_barbarian",
+   "options": [
+    {
+     "text": "Twenty minutes of silence? I'm in.",
+     "impression": "listens",
+     "trust": {
+      "eino_barbarian": 2
+     },
+     "reply": [
+      [
+       "eino_barbarian",
+       "That's good, then. The rule is no talking, and you already understand it."
+      ],
+      [
+       "rhodri_knight",
+       "Right, I'll come too, but if I faint, somebody carry me out, isn't it."
+      ]
+     ]
+    },
+    {
+     "text": "I'll mind the river and catch whoever jumps in.",
+     "impression": "protective",
+     "reply": [
+      [
+       "ivan_warrior",
+       "Good, a lifeguard. I'll be first in, and I'm very heavy."
+      ],
+      [
+       "eino_barbarian",
+       "Fine, next time you come in. That's a promise you're making."
+      ]
+     ]
+    }
+   ],
+   "silent": [
+    [
+     "eino_barbarian",
+     "No answer means yes, in a sauna, so come and sit."
+    ]
+   ]
+  }
+ },
+ {
+  "id": "the_barber_and_the_blade",
+  "cast": [
+   "enzo_cultist",
+   "orlando_witchdoctor",
+   "cristobal_knight"
+  ],
+  "affinity": 0.3,
+  "lines": [
+   [
+    "orlando_witchdoctor",
+    "Enzo, mi amor, sit in my chair, please, I can't look at that hair for one more day. Who cut it, a sabre?"
+   ],
+   [
+    "enzo_cultist",
+    "Nobody touches my hair, Orlando, uaglio. It's part of the look, the opponent sees it and knows he's lost."
+   ],
+   [
+    "cristobal_knight",
+    "Hermano, the opponent sees it and thinks a seagull landed on your head. Let the man cut it."
+   ],
+   [
+    "enzo_cultist",
+    "Mannaggia, from the man who lost his eyebrows to a barbecue? Fine, Orlando, a trim, only a trim."
+   ],
+   [
+    "orlando_witchdoctor",
+    "Ay, a trim, of course, papi, I'm very trustworthy. {player}, hold the mirror, and don't let him see until I'm done."
+   ],
+   [
+    "cristobal_knight",
+    "This is going to be the best thing that's happened all week. Somebody fetch the others."
+   ]
+  ]
  }
 ]

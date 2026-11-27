@@ -188,13 +188,25 @@ def look_of(cid):
     return (e.get("effect") or {}).get("look_of")
 
 
+def look_slot(form_id):
+    """The look a class form wears: its own, except the Bloodmage's three curses (Blood Curse, Accursed, Eternal), which
+    share one, keyed "cursed" (Kyle, 27 Nov 2026: one worgen as the baseline, eleven looks sold on the AH for all of
+    them)."""
+    try:
+        from combat.forms import CURSED_FORMS
+    except Exception:
+        CURSED_FORMS = ()
+    return "cursed" if form_id in CURSED_FORMS else form_id
+
+
 def class_form_path(form_id, facing, looks=None):
     """The picture a character in a class form walks the map as, relative to the game root, or None if that form
     isn't drawn. `looks` is TravelManager.form_looks: a learned, drawn look replaces the plain form."""
     if not form_id:
         return None
-    cid = (looks or {}).get(form_id)
-    if cid and look_of(cid) == form_id and learned(cid) and art_ready(cid):
+    slot = look_slot(form_id)
+    cid = (looks or {}).get(slot)
+    if cid and look_of(cid) == slot and learned(cid) and art_ready(cid):
         return f"{get_entry(cid)['effect']['facings']}_{facing}.png"
     if (CLASS_FORM_DIR / f"{form_id}_{facing}.png").exists():
         return f"assets/forms/{form_id}_{facing}.png"

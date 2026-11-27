@@ -436,6 +436,41 @@ for cid, base, name, rar, blurb in FORM_LOOKS:
     add(f"look_{cid}", f"Look: {name}", "form", LOOK_PRICE[rar], rar, blurb,
         {"form_id": f"look_{cid}", "form_name": name, "look_of": base, "facings": f"assets/forms/{cid}"}, _icon)
 
+# BLOODMAGE CURSE LOOKS (Kyle, 27 Nov 2026, with the worgen and bear sheets and the icon sheet: "set one worgen form as
+# baseline and then the 6 bear forms and the other 5 worgen forms can be items randomly sold on the AH to change shape
+# shift form"). The Bloodied Worgen is every curse's own picture (assets/forms/cursed_*, accursed_*, eternal_*); these
+# eleven dress all three curses at once (look_of "cursed", world/collection.look_slot), worgen or bear. Item names and
+# icons are Kyle's.
+CURSE_LOOK_PRICE = {"common": 60, "uncommon": 180, "rare": 450, "epic": 700}
+CURSE_LOOKS = (
+    ("curse_sanguine", "Sanguine Sigil", "Sanguine Worgen", "common",
+     "A silver medallion carved with crimson runes. Your curse becomes a lean silver worgen with blood magic on its arms."),
+    ("curse_bloodforged", "Crimson Shard", "Bloodforged Worgen", "uncommon",
+     "A jagged shard of blood crystal. Your curse grows crimson crystal from its shoulders, spine and arms."),
+    ("curse_crimson_flame", "Emberheart Charm", "Crimson Flame Worgen", "rare",
+     "An iron charm holding a flame that never goes out. Your curse burns rust red, with scarlet fire along its back."),
+    ("curse_vampiric", "Mark of the Thirsting", "Vampiric Worgen", "rare",
+     "A pale ivory token carved with two long fangs. Your curse turns pale and aristocratic, veins of red across it."),
+    ("curse_ascended_bloodlord", "Bloodlord's Seal", "Ascended Bloodlord", "epic",
+     "A black and crimson seal around a burning ruby. Your curse becomes the Bloodlord, armoured, a red core in its chest."),
+    ("curse_bloodied_bear", "Bloodied Bear Claw", "Bloodied Bear", "common",
+     "A bear claw wrapped in bloodstained hide. Your curse takes the shape of a hulking dark grey dire bear."),
+    ("curse_sanguine_bear", "Runebound Bear Mark", "Sanguine Bear", "uncommon",
+     "A grey stone with glowing crimson runes. Your curse becomes a silver bear carved with blood runes."),
+    ("curse_bloodforged_bear", "Heart of the Bloodforged", "Bloodforged Bear", "rare",
+     "Black crystal around a pulsing crimson core. Your curse becomes a black bear bristling with blood crystal."),
+    ("curse_crimson_flame_bear", "Emberhide Totem", "Crimson Flame Bear", "uncommon",
+     "A charred bear totem with glowing cracks. Your curse becomes a rust red bear wreathed in scarlet flame."),
+    ("curse_vampiric_bear", "Pale Fang Idol", "Vampiric Bear", "rare",
+     "A white stone bear head with long fangs. Your curse becomes a pale bear with red veins across its face."),
+    ("curse_ascended_bear", "Bloodlord's Heartstone", "Ascended Bear", "epic",
+     "A black and crimson relic around a red heart. Your curse becomes a towering armoured bear with a burning core."),
+)
+for cid, item_name, form_name, rar, blurb in CURSE_LOOKS:
+    add(f"look_{cid}", item_name, "form", CURSE_LOOK_PRICE[rar], rar, blurb,
+        {"form_id": f"look_{cid}", "form_name": form_name, "look_of": "cursed", "facings": f"assets/forms/{cid}"},
+        f"col_look_{cid}")
+
 # ---------------------------------------------------------------- Exalted titles
 # Kyle, 18 Nov 2026: "each faction should get a title for reaching exalted with them." Learned the moment a faction
 # reaches Exalted (world/faction_manager.award -> world/collection.grant), never sold: FOUND ONLY. The faction's own

@@ -12,6 +12,7 @@ Checks, through the real code:
   3. every look in the Collection dresses a real class form, has all four facings, and isn't a wearable disguise
   4. the travel save keeps the chosen looks
   5. the map draws the form: the renderer's sprite for a Bear Form character is the bear, not the person
+  6. the Bloodmage's three curses walk as the baseline worgen, and one curse look (worgen or bear) dresses all three
 """
 import os
 import sys
@@ -69,6 +70,15 @@ def main():
               f"a learned look didn't show: {C.class_form_path('bear', 'up', {'bear': look})}")
         check(C.class_form_path("cat", "up", {"cat": look}) == "assets/forms/cat_up.png",
               "a bear look dressed Cat Form")
+        # the Bloodmage's curses share one look (Kyle, 27 Nov 2026): one learned curse look dresses all three
+        curse = "look_curse_vampiric_bear"
+        temp.learned[curse] = 1
+        for f in ("cursed", "accursed", "eternal"):
+            check(C.class_form_path(f, "left", {"cursed": curse}) == "assets/forms/curse_vampiric_bear_left.png",
+                  f"a curse look didn't dress {f}: {C.class_form_path(f, 'left', {'cursed': curse})}")
+            check(C.class_form_path(f, "down") == f"assets/forms/{f}_down.png", f"{f} has no baseline worgen")
+        check(C.class_form_path("bear", "left", {"cursed": curse}) == "assets/forms/bear_left.png",
+              "a curse look dressed a druid's Bear Form")
         for e in looks:
             temp.learned[e["id"]] = 1
         check(not set(C.form_ids()) & {e["id"] for e in looks}, "a look can be worn as a disguise")
