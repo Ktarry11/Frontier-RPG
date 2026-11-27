@@ -1109,5 +1109,219 @@
     ]
    ]
   }
+ },
+ {
+  "id": "the_shift_workers",
+  "cast": [
+   "junseo_reaper",
+   "dan_warrior",
+   "ivan_warrior",
+   "tomas_warrior"
+  ],
+  "affinity": 0.5,
+  "lines": [
+   [
+    "dan_warrior",
+    "Four of us who did proper shifts, round one fire. Steel, trams, rigging, and Jun-seo's shipyard. Nobody here's had a lie in for thirty years."
+   ],
+   [
+    "ivan_warrior",
+    "Eleven years on Route 13, I woke at three every morning. I still wake at three, here, with no tram."
+   ],
+   [
+    "junseo_reaper",
+    "Five in the morning for me, the end of the night shift. My body still wants to clock off at five."
+   ],
+   [
+    "tomas_warrior",
+    "Load out at two in the morning, every tour. I still check the rigging in my sleep, crew."
+   ],
+   [
+    "dan_warrior",
+    "And {player} sleeps till the sun's up, look at them, never done a night shift in their life, the lucky sod."
+   ],
+   [
+    "junseo_reaper",
+    "It's okay, it's easier than the factory for everyone. Let them sleep, somebody should."
+   ]
+  ]
+ },
+ {
+  "id": "two_fellers",
+  "cast": [
+   "eino_barbarian",
+   "leif_primalist"
+  ],
+  "affinity": 0.7,
+  "lines": [
+   [
+    "leif_primalist",
+    "Nice stand of trees over there, Eino. Pretty old, I'd say."
+   ],
+   [
+    "eino_barbarian",
+    "Joo, very old. Leave them standing."
+   ],
+   [
+    "leif_primalist",
+    "Yep, that's what I was thinking too. Didn't want to say it first."
+   ],
+   [
+    "eino_barbarian",
+    "Good, then we agree, and that's enough talking for today."
+   ],
+   [
+    "leif_primalist",
+    "{player} keeps looking at us like we're broken. We're fine, I promise, this is a conversation."
+   ],
+   [
+    "eino_barbarian",
+    "A long one, for us. My throat is tired."
+   ]
+  ]
+ },
+ {
+  "id": "three_healers",
+  "cast": [
+   "thiago_paladin",
+   "liam_suncleric",
+   "nicolas_bloodmage"
+  ],
+  "affinity": 0.4,
+  "lines": [
+   [
+    "thiago_paladin",
+    "Gente, three healers at one fire, so let's settle it. Who here is worst at looking after themselves?"
+   ],
+   [
+    "liam_suncleric",
+    "Easy, mate, Nicolas. He's told everybody not to drag him if he goes down, which is the worst rule I've ever heard."
+   ],
+   [
+    "nicolas_bloodmage",
+    "Oe, Liam, you haven't slept a full night in fifteen years, pata, and you're judging me?"
+   ],
+   [
+    "thiago_paladin",
+    "And I've sat up with somebody else every night since I got here, so we're all terrible, uai. Good, at least we're honest."
+   ],
+   [
+    "liam_suncleric",
+    "Here's a better question, team. Who's going to make {player} drink some water before bed? They never do."
+   ],
+   [
+    "nicolas_bloodmage",
+    "All three of us, causas, at once. They can't say no to three medics."
+   ]
+  ],
+  "choice": {
+   "asker": "thiago_paladin",
+   "options": [
+    {
+     "text": "Fine, I'll drink the water. Happy?",
+     "impression": "jokes",
+     "reply": [
+      [
+       "thiago_paladin",
+       "Very happy, meu irmao, that's the best patient I've had all week."
+      ],
+      [
+       "liam_suncleric",
+       "Good on ya, now all of us drink some, that's an order, team."
+      ]
+     ]
+    },
+    {
+     "text": "Only if all three of you go to sleep early.",
+     "impression": "protective",
+     "trust": {
+      "thiago_paladin": 1,
+      "liam_suncleric": 1,
+      "nicolas_bloodmage": 1
+     },
+     "reply": [
+      [
+       "nicolas_bloodmage",
+       "Ya, okay, that's fair, a deal. The patient negotiates, causas."
+      ],
+      [
+       "thiago_paladin",
+       "Uai, outplayed by our own patient. Fine, early to bed, all of us."
+      ]
+     ]
+    }
+   ],
+   "silent": [
+    [
+     "liam_suncleric",
+     "Not answering, eh? That's a no, then. Thiago, get the water, mate."
+    ]
+   ]
+  }
+ },
+ {
+  "id": "careful_and_reckless",
+  "cast": [
+   "henrik_mage",
+   "diego_tinker",
+   "cristobal_knight"
+  ],
+  "affinity": -0.3,
+  "lines": [
+   [
+    "cristobal_knight",
+    "Hermanos, there's a fire in the next valley, I can smell it. We go now, we put it out, simple."
+   ],
+   [
+    "diego_tinker",
+    "And I've got a machine that sprays water, my friends, nearly finished, sure, sure! Twenty minutes and she'll be perfect!"
+   ],
+   [
+    "henrik_mage",
+    "Neither of you has asked what's burning, how big it is, or which way the wind is going. Those are the only questions that matter."
+   ],
+   [
+    "cristobal_knight",
+    "Henrik, I fought wildfires for twelve years, I know how to read a fire. You read numbers."
+   ],
+   [
+    "henrik_mage",
+    "Then read it aloud, please, and I'll write it down. Diego, your machine stays here until somebody's checked the pressure."
+   ],
+   [
+    "diego_tinker",
+    "Ay, the pressure is fine, mostly, probably. {player}, tell him, she only exploded once, and it was a small one."
+   ]
+  ]
+ },
+ {
+  "id": "the_slow_lesson",
+  "cast": [
+   "junseo_reaper",
+   "haruto_runemaster"
+  ],
+  "affinity": 0.8,
+  "lines": [
+   [
+    "haruto_runemaster",
+    "Jun-seo, a moment. You cut too quickly. The knife is ahead of your mind again."
+   ],
+   [
+    "junseo_reaper",
+    "Aigo, I know, I know. My hands want to finish, it's the line, nine years of it."
+   ],
+   [
+    "haruto_runemaster",
+    "Then put the knife down for a breath. Look at the wood. Decide the cut. Only then, the knife."
+   ],
+   [
+    "junseo_reaper",
+    "Okay, okay, slowly. Look, decide, then cut. It's like learning to walk again."
+   ],
+   [
+    "haruto_runemaster",
+    "It is exactly that. {player}, you're watching. Notice how much better that cut was."
+   ]
+  ]
  }
 ]

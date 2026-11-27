@@ -567,5 +567,93 @@
      ["rhys_ranger", "Diego, please, cariad, that machine's been clanking for an hour, and Tegan's pulling her feathers out. Turn it off, I'm begging you."],
      ["diego_tinker", "Five minutes, my friend, she's nearly working, I can hear it, sure, sure! When she's done she'll be very quiet, I promise."],
      ["rhys_ranger", "Then finish her inside the tent, with the flap shut. Tegan can glare at you from out here, and she will, mind."]
+   ]},
+  {"id": "the_quarter", "between": ["enzo_cultist", "marco_paladin"], "asker": "enzo_cultist", "stakes": "low",
+   "sides": {"enzo_cultist": "the best pizza fritta is on Via Toledo, everyone knows", "marco_paladin": "the best is the little window off Vico Lungo, for fifty years"},
+   "third": "They agree to disagree, and agree that anybody from outside the Spanish Quarter wouldn't understand anyway.",
+   "lines": [
+     ["enzo_cultist", "Marco, uaglio, you're from the Quartieri too, so you know. The best pizza fritta is the stand on Via Toledo, no question."],
+     ["marco_paladin", "Allora, Enzo, no, the stand on Via Toledo is for tourists. The little window off Vico Lungo, the old woman, fifty years. That is pizza fritta."],
+     ["enzo_cultist", "Mannaggia, the old woman with the cat? Okay, okay, she's very good, I'll give you that. But Toledo is faster when you're late."]
+   ]},
+  {"id": "the_touch", "between": ["adrian_templar", "enzo_cultist"], "asker": "enzo_cultist", "stakes": "low",
+   "sides": {"enzo_cultist": "that touch was mine, clean, before the counter", "adrian_templar": "it was simultaneous, no point to either of you"},
+   "third": "They fence the point again with Adrian refereeing properly, and Enzo wins it, fairly, by a hair.",
+   "lines": [
+     ["enzo_cultist", "Adrian, you saw it, you're a referee. My touch landed first, clean, before his counter. That's my point."],
+     ["adrian_templar", "With respect, Enzo, I saw both land at once. Simultaneous, no point awarded, and I'd make the same call in a final."],
+     ["enzo_cultist", "Madonna, a real referee, at last, and he's against me. Fine, again, from en garde, and you watch my feet this time, properly."]
+   ]},
+  {"id": "the_felling_cut", "between": ["eino_barbarian", "leif_primalist"], "asker": "leif_primalist", "stakes": "low",
+   "sides": {"leif_primalist": "notch it on the downhill side, let it fall down the slope", "eino_barbarian": "fall it across the slope, it won't slide into the camp"},
+   "third": "Eino cuts the notch, Leif sets the back cut, and the tree lands exactly between both of their marks.",
+   "lines": [
+     ["leif_primalist", "Eino, notch her on the downhill side and she'll go right down the slope, nice and easy. Pretty simple, I figure."],
+     ["eino_barbarian", "Downhill, it slides, into the camp. Across the slope, it stops. I've seen both."],
+     ["leif_primalist", "Huh, yep, fair, I didn't look at the camp. Okay, you notch, I'll do the back cut, and we'll see who's buying the coffee."]
+   ]},
+  {"id": "the_quiet_one", "between": ["berat_tinker", "eino_barbarian"], "asker": "berat_tinker", "stakes": "low",
+   "sides": {"berat_tinker": "Eino needs to talk, it's not healthy to keep everything in", "eino_barbarian": "talking is not required, the silence is fine"},
+   "third": "Berat talks, Eino listens, and once an hour Eino says one word, which Berat celebrates like a birthday.",
+   "lines": [
+     ["berat_tinker", "Eino, my dear, family, you've said four words today, I counted! Open your mouth, I'll even check your teeth while you talk."],
+     ["eino_barbarian", "Four is enough. Teeth are fine, thank you."],
+     ["berat_tinker", "That's six now, he's warming up! Okay, I talk, you listen, and every hour you give me one word, deal?"]
+   ]},
+  {"id": "load_rating", "between": ["henrik_mage", "tomas_warrior"], "asker": "tomas_warrior", "stakes": "medium",
+   "sides": {"tomas_warrior": "the bridge looks fine, rig a line and cross it now", "henrik_mage": "measure the load first, the left cable is fraying"},
+   "third": "Henrik measures, Tomas rigs a safety line to the good cable, and they cross one at a time.",
+   "lines": [
+     ["tomas_warrior", "Henrik, the bridge looks solid, crew. I'll rig a line across, everybody clips in, and we're over in ten minutes."],
+     ["henrik_mage", "Looks solid is not a load rating, Tomas. The left cable is fraying at the third anchor. I'd like twenty minutes to measure."],
+     ["tomas_warrior", "Twenty minutes, then, and I'll tie the safety line to your good cable. You measure, I rig, and nobody falls today."]
+   ]},
+  {"id": "the_prototype", "between": ["diego_tinker", "henrik_mage"], "asker": "diego_tinker", "stakes": "low",
+   "sides": {"diego_tinker": "switch it on now and see what happens, that's how you learn", "henrik_mage": "calculate what happens first, and stand further back"},
+   "third": "Diego switches it on from behind Henrik's ice wall, and the thing only partly explodes.",
+   "lines": [
+     ["diego_tinker", "Henrik, my friend, she's ready, I'm switching her on, sure, sure! The only way to know is to try, that's science!"],
+     ["henrik_mage", "That is the opposite of science, Diego. Science is knowing before you try. Give me five minutes and a pencil, please."],
+     ["diego_tinker", "Five minutes, okay, but I'm switching her on at the end anyway! Build me a wall of ice to hide behind, and we'll both be happy."]
+   ]},
+  {"id": "the_carry", "between": ["liam_suncleric", "thiago_paladin"], "asker": "thiago_paladin", "stakes": "medium",
+   "sides": {"thiago_paladin": "carry him flat, on a stretcher, four people, slowly", "liam_suncleric": "fireman's carry, now, we can't wait for a stretcher out here"},
+   "third": "They build a quick stretcher from two spears and a cloak, and carry him flat but fast.",
+   "lines": [
+     ["thiago_paladin", "Liam, meu irmao, his back might be hurt, we carry him flat, four of us, on a stretcher. Slowly, please, I'm begging."],
+     ["liam_suncleric", "Mate, we're in the open with things in the trees. Fireman's carry, now, and we sort the back out under cover."],
+     ["thiago_paladin", "Then a stretcher in two minutes, two spears and a cloak, uai. Flat and fast, both of us happy, and nobody's spine folded in half."]
+   ]},
+  {"id": "the_deserter", "between": ["ryan_warlock", "thiago_paladin"], "asker": "thiago_paladin", "stakes": "medium",
+   "sides": {"thiago_paladin": "the boy who ran from the fight deserves another chance", "ryan_warlock": "he ran once, he'll run again, don't count on him"},
+   "third": "They give the boy a small job at the back, and he does it, and Ryan says nothing for once.",
+   "lines": [
+     ["thiago_paladin", "Ryan, the boy ran, yes, he was terrified. Give him another chance, meu irmao, people get braver if somebody believes in them."],
+     ["ryan_warlock", "And people who run once run twice, lads, I've watched it in boardrooms for twelve years. Don't build anything on him."],
+     ["thiago_paladin", "Then a small job, at the back, nothing that kills anybody if he runs. And if he stays, you buy him a drink."]
+   ]},
+  {"id": "one_more_rep", "between": ["iker_guardian", "junseo_reaper"], "asker": "iker_guardian", "stakes": "low",
+   "sides": {"iker_guardian": "ten more reps, everybody, come on, push through", "junseo_reaper": "rest when the body says rest, I did nine years of pushing"},
+   "third": "Iker counts reps for everybody else, and Jun-seo carves, and Iker lets him, eventually.",
+   "lines": [
+     ["iker_guardian", "Jun-seo, champion, ten more reps, come on, push through, you're the fastest one here, venga, venga!"],
+     ["junseo_reaper", "Iker, I did nine years of ten more. The foreman shouted it every hour. Today I rest, please."],
+     ["iker_guardian", "Okay, okay, no shouting, I hear you. You carve, and I'll count your cuts instead, quietly, it's still coaching."]
+   ]},
+  {"id": "who_pours", "between": ["dan_warrior", "junseo_reaper"], "asker": "dan_warrior", "stakes": "low",
+   "sides": {"dan_warrior": "I buy the first round, always, sit down", "junseo_reaper": "I pour for everybody, it's what I do"},
+   "third": "Dan buys the round, Jun-seo pours it, and neither of them lets the other say thank you.",
+   "lines": [
+     ["dan_warrior", "Sit down, lad, I'm getting these, I always get the first round. Don't argue, it's tradition."],
+     ["junseo_reaper", "Dan, please, I always pour, at every rest, for everyone. If I don't pour, my hands don't know what to do."],
+     ["dan_warrior", "Right, then, I pay and you pour, and neither of us says thank you. Sorted, that's a proper shift agreement."]
+   ]},
+  {"id": "the_flourish", "between": ["enzo_cultist", "henrik_mage"], "asker": "henrik_mage", "stakes": "low",
+   "sides": {"henrik_mage": "your flourishes cost time and margin, fight plainly", "enzo_cultist": "style is part of the blade, uaglio, it frightens them"},
+   "third": "Henrik times Enzo's next fight with and without the flourish, and the flourish costs four tenths of a second.",
+   "lines": [
+     ["henrik_mage", "Enzo, I timed your last fight. The spin before the final strike cost you four tenths of a second and most of your safety margin."],
+     ["enzo_cultist", "Four tenths of a second of pure beauty, Henrik! The enemy sees that and knows he's losing, it's half the fight."],
+     ["henrik_mage", "Then flourish when they're already down, and fight plainly when they're not. I'll keep timing, and we'll both learn something."]
    ]}
 ]
