@@ -2528,6 +2528,8 @@ class Character(StatusEffectMixin):
         self._sync_talent_procs()
         self._sync_cryo_converted_abilities()
         self._grant_free_training()
+        from combat import spec_kits as _sk
+        _sk.apply(self)
         for ability in self.ability_book.get_all_abilities():
             trained = None
             if self.training_enabled and getattr(ability, "trainable", False):
@@ -2690,6 +2692,20 @@ class Character(StatusEffectMixin):
             ability.refresh_rank_for_level(self.level)
             if ability.is_learned and not was:
                 newly = True
+        # THE SPEC MAY HAVE CHANGED WITH THIS POINT (combat/spec_kits.py): re-derive every spec-locked ability
+        from combat import spec_kits as _sk
+        before = {a.ability_id: getattr(a, "is_learned", True) for a in self.ability_book.get_all_abilities()
+                  if getattr(a, "specs", None)}
+        if before:
+            _sk.apply(self)
+            for a in self.ability_book.get_all_abilities():
+                if a.ability_id in before:
+                    trained = None
+                    if getattr(self, "training_enabled", False) and getattr(a, "trainable", False):
+                        trained = self.trained_ranks.get(a.ability_id, 0)
+                    a.refresh_rank_for_level(self.level, trained)
+                    if a.is_learned and not before[a.ability_id]:
+                        newly = True
         if newly:
             self._autofill_hotbar()
         else:

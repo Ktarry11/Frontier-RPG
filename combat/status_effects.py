@@ -1998,9 +1998,21 @@ class StatusEffectMixin:
                 _src = getattr(effect, "source_caster", None)
                 _lvl = getattr(_src, "level", None)
                 _school = effect.damage_school
+                _amount = effect.tick_potency()
                 if _school in (None, "physical"):
+                    # A bleed is armoured like the blow that opened it - at the caster's level - but can't be dodged
+                    # or parried. (Ignoring armour outright, Classic's rule, made every bleed in the game ~1.5x what
+                    # the kits were tuned for: Rend out-damaged Mortal Strike two to one.)
                     _school = "bleed"
-                dealt = self.take_damage(effect.tick_potency(), _school, attacker_level=_lvl,
+                    try:
+                        from entities.character import Character as _C
+                        _arm = getattr(self, "armor", 0) or 0
+                        _mit = (_C.armor_mitigation_from(_arm, _lvl) if hasattr(self, "talent_trees")
+                                else _C.mitigation_from(_arm, _lvl))
+                        _amount = max(1, int(_amount * (1.0 - _mit)))
+                    except Exception:                          # noqa: BLE001
+                        pass
+                dealt = self.take_damage(_amount, _school, attacker_level=_lvl,
                                          attacker=_src if (_src is not None and _src is not self) else None)
                 # A CURSE THAT TENDS THE PARTY (Wave 4, Graham): each tick heals the caster's side.
                 heal_pct = getattr(effect, "party_heal_pct", 0) or 0

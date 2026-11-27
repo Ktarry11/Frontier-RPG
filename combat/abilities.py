@@ -1039,6 +1039,11 @@ class Ability:
         # spent. talent_unlocked defaults True for ordinary abilities
         # (requires_talent=False), so this AND has no effect on them.
         level_met = level >= self.ranks[0]["level_req"]
+        # A SPEC'S OWN SPELL (combat/spec_kits.py, Kyle 27 Nov 2026: "there's no real split between coa specs"): only a
+        # character in that spec knows it. spec_ok is set by the character before this runs; True for everything else.
+        if not getattr(self, "spec_ok", True):
+            self.is_learned = False
+            return
         if self.requires_talent:
             # A talent-granted ability is known the moment its talent has a point in it: the talent IS the lesson.  (It
             # used to also demand rank 1's level, so a level-12 Warrior who took Mortal Strike - rank 1 at level 30 -
@@ -6364,6 +6369,9 @@ def _ability_from_data(entry):
             setattr(ability, key, True)
     if entry.get("max_recipients"):
         ability.max_recipients = int(entry["max_recipients"])
+    # the specs that learn this ability (combat/spec_kits.py); absent = every spec of the class
+    if isinstance(entry.get("specs"), list) and entry["specs"]:
+        ability.specs = [str(x) for x in entry["specs"]]
     # the share of a physical strike that rides on the weapon (combat/weapon_damage.py); data may name its own
     if isinstance(entry.get("weapon_share"), (int, float)):
         ability.weapon_share = float(entry["weapon_share"])

@@ -303,7 +303,12 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.63x steeper than it, biggest single-rank jump 1.12x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "medium"
+      "cast_speed": "medium",
+      "specs": [
+        "stormbringer_lightning",
+        "stormbringer_maelstrom"
+      ],
+      "_spec_source": "27 Nov 2026, the CoA spec split (combat/spec_kits.py): spec from the live client's CharacterAdvancementData tabs and tooltips (github.com/Bharph/coa-preservation-data). Maelstrom is the tab the old client calls Gifts (renamed from Thunder in 2024)."
     },
     {
       "ability_id": "stormbringer_conjure_storm",
@@ -698,7 +703,11 @@
       ],
       "icon_id": "stormbringer_static_lock",
       "buff_scope": "combat",
-      "cast_speed": "medium"
+      "cast_speed": "medium",
+      "specs": [
+        "stormbringer_wind"
+      ],
+      "_spec_source": "27 Nov 2026, the CoA spec split (combat/spec_kits.py): spec from the live client's CharacterAdvancementData tabs and tooltips (github.com/Bharph/coa-preservation-data). Maelstrom is the tab the old client calls Gifts (renamed from Thunder in 2024)."
     },
     {
       "ability_id": "stormbringer_stormbreaker",
@@ -889,7 +898,11 @@
       "_tuning": [
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 1.32x steeper than it, biggest single-rank jump 1.32x); overall size kept. tools/fix_rank_lines.py"
       ],
-      "cast_speed": "medium"
+      "cast_speed": "medium",
+      "specs": [
+        "stormbringer_wind"
+      ],
+      "_spec_source": "27 Nov 2026, the CoA spec split (combat/spec_kits.py): spec from the live client's CharacterAdvancementData tabs and tooltips (github.com/Bharph/coa-preservation-data). Maelstrom is the tab the old client calls Gifts (renamed from Thunder in 2024)."
     },
     {
       "ability_id": "stormbringer_charge",
@@ -918,7 +931,11 @@
       },
       "icon_id": "stormbringer_charge",
       "buff_scope": "combat",
-      "cast_speed": "medium"
+      "cast_speed": "medium",
+      "specs": [
+        "stormbringer_lightning"
+      ],
+      "_spec_source": "27 Nov 2026, the CoA spec split (combat/spec_kits.py): spec from the live client's CharacterAdvancementData tabs and tooltips (github.com/Bharph/coa-preservation-data). Maelstrom is the tab the old client calls Gifts (renamed from Thunder in 2024)."
     },
     {
       "ability_id": "stormbringer_arm_of_thorim",
@@ -975,7 +992,12 @@
         "15 Nov 2026, class pass: ranks put on the authored line (they ran 2.00x steeper than it, biggest single-rank jump 1.55x); overall size kept. tools/fix_rank_lines.py",
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 52, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ],
-      "cast_speed": "medium"
+      "cast_speed": "medium",
+      "specs": [
+        "stormbringer_lightning",
+        "stormbringer_maelstrom"
+      ],
+      "_spec_source": "27 Nov 2026, the CoA spec split (combat/spec_kits.py): spec from the live client's CharacterAdvancementData tabs and tooltips (github.com/Bharph/coa-preservation-data). Maelstrom is the tab the old client calls Gifts (renamed from Thunder in 2024)."
     },
     {
       "ability_id": "stormbringer_forked_lightning",
@@ -1033,7 +1055,11 @@
         "21 Nov 2026: a quick cast for the turn timeline (tools/build_cast_speeds.py), sized 0.65x for 0.85x the cost",
         "21 Nov 2026: re-sized for the quarter-mark speeds (Kyle: \"Instant should lift .25 of the bar max\"): instant is now 0.25 of the meter against medium's 0.75 (tools/build_cast_speeds.py)"
       ],
-      "cast_speed": "instant"
+      "cast_speed": "instant",
+      "specs": [
+        "stormbringer_lightning"
+      ],
+      "_spec_source": "27 Nov 2026, the CoA spec split (combat/spec_kits.py): spec from the live client's CharacterAdvancementData tabs and tooltips (github.com/Bharph/coa-preservation-data). Maelstrom is the tab the old client calls Gifts (renamed from Thunder in 2024)."
     },
     {
       "ability_id": "stormbringer_volt",
@@ -1079,7 +1105,11 @@
       },
       "icon_id": "stormbringer_volt",
       "damage_school": "nature",
-      "cast_speed": "medium"
+      "cast_speed": "medium",
+      "specs": [
+        "stormbringer_lightning"
+      ],
+      "_spec_source": "27 Nov 2026, the CoA spec split (combat/spec_kits.py): spec from the live client's CharacterAdvancementData tabs and tooltips (github.com/Bharph/coa-preservation-data). Maelstrom is the tab the old client calls Gifts (renamed from Thunder in 2024)."
     },
     {
       "ability_id": "stormbringer_aeroblast",
@@ -1119,7 +1149,11 @@
       ],
       "icon_id": null,
       "damage_school": "nature",
-      "cast_speed": "medium"
+      "cast_speed": "medium",
+      "specs": [
+        "stormbringer_wind"
+      ],
+      "_spec_source": "27 Nov 2026, the CoA spec split (combat/spec_kits.py): spec from the live client's CharacterAdvancementData tabs and tooltips (github.com/Bharph/coa-preservation-data). Maelstrom is the tab the old client calls Gifts (renamed from Thunder in 2024)."
     },
     {
       "ability_id": "stormbringer_stormflow",
@@ -1163,7 +1197,11 @@
       "_tuning": [
         "15 Nov 2026, class pass: every rank x2.91 - its total was 0.24x what a spell_dot of its level, cooldown and cast speed should total (a CoA per-tick number entered as a total?). tools/fix_weak_over_time.py"
       ],
-      "cast_speed": "medium"
+      "cast_speed": "medium",
+      "specs": [
+        "stormbringer_maelstrom"
+      ],
+      "_spec_source": "27 Nov 2026, the CoA spec split (combat/spec_kits.py): spec from the live client's CharacterAdvancementData tabs and tooltips (github.com/Bharph/coa-preservation-data). Maelstrom is the tab the old client calls Gifts (renamed from Thunder in 2024)."
     },
     {
       "ability_id": "stormbringer_drown",
@@ -1205,7 +1243,11 @@
       ],
       "icon_id": null,
       "damage_school": "frost",
-      "cast_speed": "medium"
+      "cast_speed": "medium",
+      "specs": [
+        "stormbringer_maelstrom"
+      ],
+      "_spec_source": "27 Nov 2026, the CoA spec split (combat/spec_kits.py): spec from the live client's CharacterAdvancementData tabs and tooltips (github.com/Bharph/coa-preservation-data). Maelstrom is the tab the old client calls Gifts (renamed from Thunder in 2024)."
     },
     {
       "ability_id": "stormbringer_summon_air_elemental",
@@ -1257,7 +1299,11 @@
       ],
       "icon_id": null,
       "buff_scope": "combat",
-      "cast_speed": "medium"
+      "cast_speed": "medium",
+      "specs": [
+        "stormbringer_wind"
+      ],
+      "_spec_source": "27 Nov 2026, the CoA spec split (combat/spec_kits.py): spec from the live client's CharacterAdvancementData tabs and tooltips (github.com/Bharph/coa-preservation-data). Maelstrom is the tab the old client calls Gifts (renamed from Thunder in 2024)."
     },
     {
       "ability_id": "stormbringer_torrential_wrath",
@@ -1395,7 +1441,12 @@
         }
       },
       "buff_scope": "combat",
-      "cast_speed": "medium"
+      "cast_speed": "medium",
+      "specs": [
+        "stormbringer_lightning",
+        "stormbringer_maelstrom"
+      ],
+      "_spec_source": "27 Nov 2026, the CoA spec split (combat/spec_kits.py): spec from the live client's CharacterAdvancementData tabs and tooltips (github.com/Bharph/coa-preservation-data). Maelstrom is the tab the old client calls Gifts (renamed from Thunder in 2024)."
     },
     {
       "ability_id": "stormbringer_clear_skies",
@@ -1426,7 +1477,11 @@
       "_tuning": [
         "15 Nov 2026: + spell_hit_rating 1 - hit and spell hit are separate stats now, and this is 'all spells and attacks'"
       ],
-      "cast_speed": "medium"
+      "cast_speed": "medium",
+      "specs": [
+        "stormbringer_maelstrom"
+      ],
+      "_spec_source": "27 Nov 2026, the CoA spec split (combat/spec_kits.py): spec from the live client's CharacterAdvancementData tabs and tooltips (github.com/Bharph/coa-preservation-data). Maelstrom is the tab the old client calls Gifts (renamed from Thunder in 2024)."
     },
     {
       "ability_id": "stormbringer_tailwind",
@@ -1452,7 +1507,11 @@
       "icon_id": null,
       "requires_talent": true,
       "is_instant": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "specs": [
+        "stormbringer_wind"
+      ],
+      "_spec_source": "27 Nov 2026, the CoA spec split (combat/spec_kits.py): spec from the live client's CharacterAdvancementData tabs and tooltips (github.com/Bharph/coa-preservation-data). Maelstrom is the tab the old client calls Gifts (renamed from Thunder in 2024)."
     },
     {
       "ability_id": "stormbringer_aerodynamics",
@@ -1500,7 +1559,11 @@
       "buff_scope": "combat",
       "_tuning": [
         "16 Nov 2026, support pass: a rank every 10 levels to 58 (tools/regrade_buff_ranks.py); its flat stats are sized from each rank's level (combat/support_formula.py)"
-      ]
+      ],
+      "specs": [
+        "stormbringer_wind"
+      ],
+      "_spec_source": "27 Nov 2026, the CoA spec split (combat/spec_kits.py): spec from the live client's CharacterAdvancementData tabs and tooltips (github.com/Bharph/coa-preservation-data). Maelstrom is the tab the old client calls Gifts (renamed from Thunder in 2024)."
     },
     {
       "ability_id": "stormbringer_kiss_of_the_clouds",
@@ -1527,7 +1590,11 @@
       "icon_id": null,
       "requires_talent": true,
       "is_instant": true,
-      "buff_scope": "combat"
+      "buff_scope": "combat",
+      "specs": [
+        "stormbringer_wind"
+      ],
+      "_spec_source": "27 Nov 2026, the CoA spec split (combat/spec_kits.py): spec from the live client's CharacterAdvancementData tabs and tooltips (github.com/Bharph/coa-preservation-data). Maelstrom is the tab the old client calls Gifts (renamed from Thunder in 2024)."
     },
     {
       "ability_id": "stormbringer_ride_the_lightning",
@@ -1557,7 +1624,436 @@
       "icon_id": null,
       "requires_talent": true,
       "is_instant": true,
-      "damage_school": "nature"
+      "damage_school": "nature",
+      "specs": [
+        "stormbringer_lightning"
+      ],
+      "_spec_source": "27 Nov 2026, the CoA spec split (combat/spec_kits.py): spec from the live client's CharacterAdvancementData tabs and tooltips (github.com/Bharph/coa-preservation-data). Maelstrom is the tab the old client calls Gifts (renamed from Thunder in 2024)."
+    },
+    {
+      "ability_id": "stormbringer_call_lightning",
+      "name": "Call Lightning",
+      "resource_type": "static",
+      "cooldown": 2,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Call down a massive bolt of lightning, dealing heavy Nature damage to one enemy.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 50,
+          "effect_value": 199
+        },
+        {
+          "rank": 2,
+          "level_req": 18,
+          "cost": 50,
+          "effect_value": 243
+        },
+        {
+          "rank": 3,
+          "level_req": 26,
+          "cost": 50,
+          "effect_value": 286
+        },
+        {
+          "rank": 4,
+          "level_req": 34,
+          "cost": 50,
+          "effect_value": 330
+        },
+        {
+          "rank": 5,
+          "level_req": 42,
+          "cost": 50,
+          "effect_value": 374
+        },
+        {
+          "rank": 6,
+          "level_req": 50,
+          "cost": 50,
+          "effect_value": 417
+        },
+        {
+          "rank": 7,
+          "level_req": 58,
+          "cost": 50,
+          "effect_value": 461
+        }
+      ],
+      "damage_school": "nature",
+      "cast_speed": "long",
+      "icon_id": null,
+      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line."
+    },
+    {
+      "ability_id": "stormbringer_eye_of_the_storm",
+      "name": "Eye of the Storm",
+      "resource_type": "mana",
+      "cooldown": 4,
+      "effect_type": "spell_dot",
+      "duration": 2,
+      "stat_mods": {},
+      "description": "Mark an enemy: the storm deals Nature damage to every enemy around it for 2 turns.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 16,
+          "cost": 40,
+          "effect_value": 263
+        },
+        {
+          "rank": 2,
+          "level_req": 26,
+          "cost": 55,
+          "effect_value": 325
+        },
+        {
+          "rank": 3,
+          "level_req": 36,
+          "cost": 69,
+          "effect_value": 386
+        },
+        {
+          "rank": 4,
+          "level_req": 46,
+          "cost": 84,
+          "effect_value": 448
+        },
+        {
+          "rank": 5,
+          "level_req": 56,
+          "cost": 98,
+          "effect_value": 510
+        }
+      ],
+      "damage_school": "nature",
+      "cast_speed": "instant",
+      "icon_id": null,
+      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line."
+    },
+    {
+      "ability_id": "stormbringer_body_of_lightning",
+      "name": "Body of Lightning",
+      "resource_type": "static",
+      "cooldown": 8,
+      "effect_type": "restore_resource",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Infuse an ally with lightning, restoring 15% of their maximum Mana.",
+      "target_type": "ally",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 22,
+          "cost": 25,
+          "effect_value": 100,
+          "mana_restore_pct": 15
+        }
+      ],
+      "is_instant": true,
+      "icon_id": null,
+      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line."
+    },
+    {
+      "ability_id": "stormbringer_updraft",
+      "name": "Updraft",
+      "resource_type": "static",
+      "cooldown": 3,
+      "effect_type": "spell_dot",
+      "duration": 3,
+      "stat_mods": {},
+      "description": "Raise a whirling updraft under the enemy line that cuts them each turn.",
+      "target_type": "enemy_aoe",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 25,
+          "cost": 20,
+          "effect_value": 393
+        },
+        {
+          "rank": 2,
+          "level_req": 35,
+          "cost": 20,
+          "effect_value": 470
+        },
+        {
+          "rank": 3,
+          "level_req": 45,
+          "cost": 20,
+          "effect_value": 546
+        },
+        {
+          "rank": 4,
+          "level_req": 55,
+          "cost": 20,
+          "effect_value": 622
+        }
+      ],
+      "damage_school": "nature",
+      "cast_speed": "instant",
+      "icon_id": null,
+      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line."
+    },
+    {
+      "ability_id": "stormbringer_gale",
+      "name": "Gale",
+      "resource_type": "mana",
+      "cooldown": 1,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Blast an enemy and up to 2 nearby enemies with a powerful gust of wind.",
+      "target_type": "enemy_aoe",
+      "max_targets": 3,
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 20,
+          "cost": 40,
+          "effect_value": 161
+        },
+        {
+          "rank": 2,
+          "level_req": 28,
+          "cost": 52,
+          "effect_value": 188
+        },
+        {
+          "rank": 3,
+          "level_req": 36,
+          "cost": 63,
+          "effect_value": 216
+        },
+        {
+          "rank": 4,
+          "level_req": 44,
+          "cost": 75,
+          "effect_value": 244
+        },
+        {
+          "rank": 5,
+          "level_req": 52,
+          "cost": 87,
+          "effect_value": 271
+        },
+        {
+          "rank": 6,
+          "level_req": 60,
+          "cost": 98,
+          "effect_value": 299
+        }
+      ],
+      "generates": {
+        "resource": "static",
+        "amount": 20
+      },
+      "damage_school": "nature",
+      "cast_speed": "instant",
+      "icon_id": null,
+      "specs": [
+        "stormbringer_maelstrom"
+      ],
+      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line."
+    },
+    {
+      "ability_id": "stormbringer_stormcloud",
+      "name": "Stormcloud",
+      "resource_type": "mana",
+      "cooldown": 5,
+      "effect_type": "debuff",
+      "duration": 3,
+      "stat_mods": {
+        "magic_damage_taken_pct": 15.0
+      },
+      "description": "Hang a storm cloud over an enemy, increasing the magic damage it takes by 15% for 3 turns.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 33,
+          "cost": 45,
+          "effect_value": 100
+        }
+      ],
+      "buff_scope": "combat",
+      "cast_speed": "instant",
+      "icon_id": null,
+      "specs": [
+        "stormbringer_maelstrom"
+      ],
+      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line."
+    },
+    {
+      "ability_id": "stormbringer_megawatt_missile",
+      "name": "Megawatt Missile",
+      "resource_type": "mana",
+      "cooldown": 3,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "A slow, crushing bolt of storm energy that builds your Static.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 45,
+          "cost": 70,
+          "effect_value": 780
+        },
+        {
+          "rank": 2,
+          "level_req": 52,
+          "cost": 88,
+          "effect_value": 856
+        },
+        {
+          "rank": 3,
+          "level_req": 59,
+          "cost": 106,
+          "effect_value": 933
+        }
+      ],
+      "generates": {
+        "resource": "static",
+        "amount": 20
+      },
+      "damage_school": "nature",
+      "cast_speed": "long",
+      "icon_id": null,
+      "specs": [
+        "stormbringer_maelstrom"
+      ],
+      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line."
+    },
+    {
+      "ability_id": "stormbringer_thunder_king",
+      "name": "Thunder King",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "damage_dealt_pct": 15,
+        "haste": 10.0
+      },
+      "description": "Crown yourself in thunder: more damage and faster casting for a few turns.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 50,
+          "cost": 60,
+          "effect_value": 100
+        }
+      ],
+      "buff_scope": "combat",
+      "is_instant": true,
+      "icon_id": null,
+      "specs": [
+        "stormbringer_maelstrom"
+      ],
+      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line."
+    },
+    {
+      "ability_id": "stormbringer_fluxblast",
+      "name": "Fluxblast",
+      "resource_type": "static",
+      "cooldown": 2,
+      "effect_type": "spell_damage",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Blast an enemy with unstable flux, dealing Arcane damage.",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 48,
+          "cost": 20,
+          "effect_value": 623
+        },
+        {
+          "rank": 2,
+          "level_req": 54,
+          "cost": 20,
+          "effect_value": 673
+        },
+        {
+          "rank": 3,
+          "level_req": 60,
+          "cost": 20,
+          "effect_value": 723
+        }
+      ],
+      "damage_school": "arcane",
+      "cast_speed": "instant",
+      "icon_id": null,
+      "specs": [
+        "stormbringer_lightning"
+      ],
+      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line."
+    },
+    {
+      "ability_id": "stormbringer_lightning_cage",
+      "name": "Lightning Cage",
+      "resource_type": "mana",
+      "cooldown": 10,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "damage_dealt_pct": 20
+      },
+      "description": "Cage yourself in lightning: your spells hit harder for a few turns and your Static surges.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 40,
+          "cost": 50,
+          "effect_value": 100
+        }
+      ],
+      "generates": {
+        "resource": "static",
+        "amount": 50
+      },
+      "buff_scope": "combat",
+      "is_instant": true,
+      "icon_id": null,
+      "specs": [
+        "stormbringer_lightning"
+      ],
+      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line."
+    },
+    {
+      "ability_id": "stormbringer_windsurf",
+      "name": "Windsurf",
+      "resource_type": "mana",
+      "cooldown": 8,
+      "effect_type": "buff",
+      "duration": 3,
+      "stat_mods": {
+        "haste": 10.0
+      },
+      "description": "Your Air Elemental shields you, absorbing damage, and your haste is increased by 10% for 3 turns.",
+      "target_type": "self",
+      "absorb_pct_max_health": 0.15,
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 45,
+          "cost": 50,
+          "effect_value": 100
+        }
+      ],
+      "buff_scope": "combat",
+      "is_instant": true,
+      "icon_id": null,
+      "specs": [
+        "stormbringer_wind"
+      ],
+      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line."
     }
   ]
 }

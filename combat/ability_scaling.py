@@ -297,7 +297,9 @@ AP_BASE = 0.5            # physical special, per point of attack power (the weap
 #: bleeds 0.10. Kyle: "Damage-over-time abilities scale extremely poorly." Raised so a DoT takes the same share of
 #: your power, against its size, as a direct hit of its kind.
 DOT_SP_BASE = 1.7        # a spell DoT, total over its duration
-DOT_AP_BASE = 1.0        # a physical DoT (a bleed), total
+DOT_AP_BASE = 0.35       # a physical DoT (a bleed), total. Not raised with the spell DoT: since the same day a bleed
+#                          ignores armour and ticks at its caster's level, and attack power runs ~5x spell power in
+#                          size, so at 1.0 Rend dealt 3,840 over 3 turns against Mortal Strike's 2,059 (27 Nov 2026)
 HOT_BASE = 0.8           # a HoT, total (the healing formula replaces it: see below)
 
 #: cooldown (turns) -> weight. A cast you can only make every few turns carries more of your power,

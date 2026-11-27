@@ -69,9 +69,11 @@ def offers(character):
     out = []
     if not getattr(character, "training_enabled", False):
         return out
+    from combat import spec_kits as _sk
+    _sk.apply(character)
     for ability in character.ability_book.get_all_abilities():
-        if not getattr(ability, "trainable", False):
-            continue
+        if not getattr(ability, "trainable", False) or not getattr(ability, "spec_ok", True):
+            continue        # another spec's spell is not on this trainer's list (combat/spec_kits.py)
         have = character.trained_ranks.get(ability.ability_id, 0)
         top = _highest_available_rank(ability, character.level)
         if top > have:
@@ -106,7 +108,7 @@ def upcoming(character, limit=6):
     if not getattr(character, "training_enabled", False):
         return out
     for ability in character.ability_book.get_all_abilities():
-        if not getattr(ability, "trainable", False):
+        if not getattr(ability, "trainable", False) or not getattr(ability, "spec_ok", True):
             continue
         have = max(character.trained_ranks.get(ability.ability_id, 0),
                    _highest_available_rank(ability, character.level))
