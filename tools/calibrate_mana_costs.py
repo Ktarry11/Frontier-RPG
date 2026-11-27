@@ -44,13 +44,18 @@ os.chdir(ROOT)
 os.environ.setdefault("SDL_VIDEODRIVER", "dummy")
 os.environ.setdefault("SDL_AUDIODRIVER", "dummy")
 
-TARGET = 20
+TARGET = 14
+#: Kyle, 27 Nov 2026: mana "should be a meaningful consideration during prolonged encounters". Measured with the
+#: combat pass in: geared healers lasted 20-60 casts of their main heal (Moon Priest 58, Heretic 53, Brewing 49),
+#: damage specs 9-17 turns of their rotation. Damage now runs dry in ~14 turns of nonstop casting, a main heal in ~12.
+#: The table is the whole tightening: combat/mana_economy's HEAL_TIGHTEN and DAMAGE_TIGHTEN are 1.0.
+HEAL_DEFAULT_TARGET = 12
 #: PER-CLASS HEAL TARGETS (Kyle, 15 Nov 2026): "Healing wave should be more expensive than holy light ... holy
 #: pally gets illumination. So they usually last longer anyways. This allows shamans to not cast as much to save
 #: mana." Restoration's Healing Wave heals ~2x a Holy Light (its talents stack +39% on it), so it is priced for 16
 #: casts from a full bar instead of 20 - 25% dearer as a share of the bar. Its smaller heals move with it.
-HEAL_TARGET = {"shaman": 16}
-SAMPLES = 6
+HEAL_TARGET = {"shaman": 10}
+SAMPLES = 4
 ROTATION_TURNS = 20
 LEVELS = [10, 20, 30, 40, 50, 60]
 OUT = ROOT / "data/balance/mana_costs.json"
@@ -138,7 +143,7 @@ def main():
             if not pools or a is None or cost <= 0:
                 continue
             pool, regen = statistics.mean(pools), statistics.mean(regens)
-            target = HEAL_TARGET.get(cls, TARGET) if kind == "heal" else TARGET
+            target = HEAL_TARGET.get(cls, HEAL_DEFAULT_TARGET) if kind == "heal" else TARGET
             f = (pool / target + regen) / cost
             rows.setdefault(cls, {}).setdefault(kind, {}).setdefault(lv, []).append(f)
             detail.append((cls, kind, spec, lv, round(pool), round(regen), a.name, cost, round(f, 2)))

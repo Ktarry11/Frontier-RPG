@@ -1905,6 +1905,11 @@ class Ability:
         # Clamped so a stack of reductions discounts rather than inverts.
         pct = min(0.90, max(-0.90, pct))
         cost = cost * (1.0 - pct)
+        # THE SPEC'S OWN MANA FACTOR (combat/mana_economy.spec_factor, 27 Nov 2026): the cost table is per class, so a
+        # spec whose rotation spends much more or less than its class-mates (Fire against Arcane Mage) is evened here
+        if getattr(getattr(self, "resource_type", None), "value", None) == "mana" and caster is not None:
+            from combat.mana_economy import spec_factor
+            cost *= spec_factor(caster, self.effect_type)
         # repeat_discount: cheaper for each cast in a row (Jun-seo, Osvaldo), down to a floor.
         deal = self.repeat_discount
         if deal and getattr(caster, "_last_ability_id", None) == self.ability_id:

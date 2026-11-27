@@ -11,10 +11,12 @@ is also cheaper." He asked for:
 
 TWO RULES, applied where abilities are built so they reach every class and every rank:
 
-1. TIGHTEN (combat/ability_scaling.curved_ranks): every mana cost is multiplied on top of the per-class table
-   (data/balance/mana_costs.json, which sized each class's main spell at ~20 casts from a full bar): heals by
-   HEAL_TIGHTEN, damage and everything else by DAMAGE_TIGHTEN. A main heal now lasts ~16 casts, a main nuke ~17,
-   before regen.
+1. THE TABLES (data/balance/mana_costs.json). Per class, by level, a multiplier for its damage spells and one for its
+   heals (tools/calibrate_mana_costs.py), then per SPEC (tools/calibrate_spec_mana.py, spec_factor below, applied in
+   Ability.talented_cost) so every spec - not just its class's median - runs dry in about the same time: damage
+   specs ~14 turns of their real rotation, healers ~12 casts of their main heal (Restoration Shaman 10), levels
+   10-60, geared, regen counted. Measured after both (27 Nov 2026): damage 12.4-16.1 turns, heals 9.9-13.5 casts.
+   HEAL_TIGHTEN / DAMAGE_TIGHTEN stay as a global knob at 1.0.
 
 2. THE HEAL LADDER (apply_heal_ladder, from get_class_abilities): within a class, the medium-cast single-target
    direct heal with the most ranks is the ANCHOR (Priest Heal; a class with no medium heal anchors on its main heal
@@ -26,8 +28,10 @@ TWO RULES, applied where abilities are built so they reach every class and every
    and every tick counted). Heals on longer cooldowns and party heals are left to the table: their own decisions.
 """
 
-HEAL_TIGHTEN = 1.25
-DAMAGE_TIGHTEN = 1.15
+#: 1.0 since the table was recalibrated to the tighter targets (tools/calibrate_mana_costs.py: ~14 turns of damage,
+#: ~12 casts of a main heal); kept as the knob for a quick global nudge
+HEAL_TIGHTEN = 1.0
+DAMAGE_TIGHTEN = 1.0
 
 #: healing per mana against the anchor, by cast speed (combat/abilities.CAST_SPEEDS)
 HPM = {0.25: 0.55, 0.5: 0.6, 0.75: 1.0, 1.0: 0.95}
@@ -87,3 +91,45 @@ def apply_heal_ladder(abilities):
             if not ref.get("effect_value") or not size:
                 continue
             r["cost"] = max(1, int(round(ref["cost"] * (size / ref["effect_value"]) / hpm)))
+
+
+# ---- 3. SPEC FACTORS: data/balance/mana_costs.json "specs" (written by tools/calibrate_spec_mana.py): per spec, by
+# level, a multiplier on its mana costs so every spec runs dry in about the same turns as its target, not just its
+# class's median. A character with no spec yet pays 1.0.
+_SPEC = None
+
+
+def _spec_table():
+    global _SPEC
+    if _SPEC is None:
+        try:
+            import json
+            from pathlib import Path
+            _SPEC = json.loads((Path(__file__).resolve().parent.parent / "data/balance/mana_costs.json")
+                               .read_text(encoding="utf-8")).get("specs", {})
+        except (OSError, ValueError):
+            _SPEC = {}
+    return _SPEC
+
+
+def spec_factor(caster, effect_type):
+    if not hasattr(caster, "talent_trees"):
+        return 1.0
+    table = _spec_table()
+    if not table:
+        return 1.0
+    try:
+        from entities.proficiency import active_spec
+        spec = active_spec(caster)
+    except Exception:                                           # noqa: BLE001
+        return 1.0
+    row = (table.get(spec) or {}).get("heal" if effect_type in ("heal", "hot", "damage_and_heal") else "damage")
+    if not row:
+        return 1.0
+    lv = getattr(caster, "level", 1) or 1
+    if lv <= row[0][0]:
+        return row[0][1]
+    for (a, fa), (b, fb) in zip(row, row[1:]):
+        if a <= lv <= b:
+            return fa + (fb - fa) * (lv - a) / max(1, b - a)
+    return row[-1][1]
