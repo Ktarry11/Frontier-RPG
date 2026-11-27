@@ -8,6 +8,31 @@ from entities.talent_node import TalentNode, form_matches
 class TalentTree:
     """A single talent tree for a spec (e.g., Warrior Arms)."""
     
+    _CLASS_NAMES = None
+
+    @property
+    def spec_label(self):
+        """The specialisation on its own - 'Hellfire', not 'of Xoroth Hellfire' (Kyle, 27 Nov 2026: "The class and
+        specialisation names are incorrectly displayed"). spec_name is "<Class> <Spec>", and four classes have two- or
+        three-word names (Knight of Xoroth, Sun Cleric, Witch Doctor, Witch Hunter); every screen used to cut at the
+        first space."""
+        if TalentTree._CLASS_NAMES is None:
+            import glob, json
+            names = set()
+            for f in glob.glob("data/abilities/*.json"):
+                try:
+                    d = json.load(open(f, encoding="utf-8"))
+                except (OSError, ValueError):
+                    continue
+                if isinstance(d, dict) and isinstance(d.get("class"), str):
+                    names.add(d["class"])
+            TalentTree._CLASS_NAMES = sorted(names, key=len, reverse=True)
+        for cls in TalentTree._CLASS_NAMES:
+            if self.spec_name.lower().startswith(cls.lower() + " "):
+                return self.spec_name[len(cls) + 1:]
+        parts = self.spec_name.split(" ", 1)
+        return parts[1] if len(parts) > 1 else self.spec_name
+
     def __init__(self, spec_name, tree_id, description=""):
         """
         Args:

@@ -1756,18 +1756,23 @@ class CombatScreen(BaseScreen):
         # a cramped layout still shows a few lines rather than none, and never more than the 8
         # this was always written for.
         LOG_LINE_H = 25
-        room = self._party_strip_top() - (center_y + 40) - 6
+        room = self._party_strip_top() - (center_y + 32) - 14
         max_visible_lines = max(3, min(8, room // LOG_LINE_H))
 
+        # THE NUMBERS STAY IN THE BOX (Kyle, 27 Nov 2026: "Shift combat text upwards slightly so all numbers remain
+        # inside the combat text box. Darken the combat text background"). The box was 25 + lines + 10 tall but the
+        # lines started 40 below its top, so the last line hung ~15px out of it; the heading gap is 32 now and the box
+        # holds every line with a margin, on a darker fill.
+        LOG_HEAD_GAP = 32
         if self.combat_background:
-            log_panel_h = 25 + max_visible_lines * LOG_LINE_H + 10
+            log_panel_h = 8 + LOG_HEAD_GAP + max_visible_lines * LOG_LINE_H + 8
             log_panel = pygame.Rect(log_left_edge - 10, center_y - 8, log_width + 20, log_panel_h)
             panel_surf = pygame.Surface(log_panel.size, pygame.SRCALPHA)
-            panel_surf.fill((10, 10, 15, 165))
+            panel_surf.fill((6, 6, 10, 220))
             screen.blit(panel_surf, log_panel.topleft)
 
         self.renderer.draw_text(screen, "Combat Log", (center_x, center_y), size="large", color=COLOR_GOLD)
-        center_y += 40
+        center_y += LOG_HEAD_GAP
         
         # Wrap each message to fit the available width, then take the last N
         # wrapped lines so the log still shows recent history even if some
@@ -1795,7 +1800,7 @@ class CombatScreen(BaseScreen):
         self._log_max_scroll = max(0, total - max_visible_lines)
         self.log_scroll = max(0, min(self.log_scroll, self._log_max_scroll))
         log_start = max(0, total - max_visible_lines - self.log_scroll)
-        self._log_rect = pygame.Rect(log_left_edge - 10, center_y - 48, log_width + 20,
+        self._log_rect = pygame.Rect(log_left_edge - 10, center_y - 40, log_width + 20,
                                      40 + max_visible_lines * LOG_LINE_H + 18)
         shown = all_wrapped_lines[log_start:log_start + max_visible_lines]
         newest = shown[-1][2] if shown else None

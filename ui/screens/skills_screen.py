@@ -259,7 +259,7 @@ class SkillsScreen(BaseScreen):
             if tab_key not in groups:
                 groups[tab_key] = []
                 tree = player.talent_trees.get(tab_key)
-                label = tree.spec_name if tree else tab_key
+                label = tree.spec_label if tree else tab_key
                 # Trim the redundant class-name prefix real spec_name
                 # values carry ("Mage Fire" -> "Fire") since the tab bar
                 # already lives inside this specific character's

@@ -386,8 +386,7 @@ class TalentTreeScreen:
         locked = getattr(self.character, "locked_spec", None)
         tree = self.character.talent_trees.get(locked) if locked else None
         if tree is not None:
-            parts = tree.spec_name.split(" ", 1)
-            return parts[1] if len(parts) > 1 else tree.spec_name
+            return tree.spec_label
         return str(locked)
     
     def update(self, dt):
@@ -425,7 +424,7 @@ class TalentTreeScreen:
         # Name the character in the title. When this screen can be opened for
         # any party member, "Priest Holy Talent Tree" alone doesn't tell you
         # whose points you're about to spend.
-        title_text = f"{tree.spec_name} Talent Tree"
+        title_text = f"{tree.spec_label} Talent Tree"
         if getattr(self.character, "locked_spec", None):
             title_text = f"{self.character.name} - {title_text}"
         title = self.font_large.render(title_text, True, self.color_text)
@@ -473,7 +472,7 @@ class TalentTreeScreen:
         tab_y = 92
         tab_h = 32
         for tree_id, t in self.character.talent_trees.items():
-            label = f"{t.spec_name.split(' ', 1)[-1]} ({t.total_points_spent()})"
+            label = f"{t.spec_label} ({t.total_points_spent()})"
             label_surface = self.font_medium.render(label, True, self.color_text)
             tab_w = label_surface.get_width() + 24
             rect = pygame.Rect(tab_x, tab_y, tab_w, tab_h)
@@ -484,7 +483,7 @@ class TalentTreeScreen:
             # companion gave up) but are visibly greyed so it's obvious why
             # clicking a talent does nothing.
             if locked:
-                label = f"{t.spec_name.split(' ', 1)[-1]} (locked)"
+                label = f"{t.spec_label} (locked)"
                 label_surface = self.font_medium.render(label, True, (130, 130, 140))
                 rect.width = label_surface.get_width() + 24
                 fill = (55, 45, 45) if active else (32, 30, 34)

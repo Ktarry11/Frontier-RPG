@@ -509,8 +509,7 @@ class PartyScreen(BaseScreen):
         tree = member.talent_trees.get(tree_id)
         if tree is not None:
             # spec_name is stored as "Priest Holy"; drop the class prefix.
-            parts = tree.spec_name.split(" ", 1)
-            return parts[1] if len(parts) > 1 else tree.spec_name
+            return tree.spec_label
         return tree_id.replace("_", " ").title()
 
     #: Colors for the two effect kinds, matching how buffs/debuffs already
@@ -875,13 +874,35 @@ class PartyScreen(BaseScreen):
         bottom = panel.bottom - 120                 # the action buttons sit below this
         rid = getattr(member, "recruit_id", None)
         in_party = [getattr(m, "recruit_id", None) for m in party.members if getattr(m, "recruit_id", None)]
+        if rid and rm.has(rid):
+            self._rel_names = [bm.name_of(r.other(rid)) for r in rm.rels.values() if rid in (r.a, r.b)] + \
+                [bm.name_of(o) for o in in_party if o != rid]
+        else:
+            self._rel_names = [f"{bm.name_of(a)} & {bm.name_of(c)}" for i, a in enumerate(in_party)
+                               for c in in_party[i + 1:]]
+
+        # COLUMNS THAT DON'T COLLIDE (Kyle, 27 Nov 2026: "Player relationships visually overlap with allies in the
+        # Relationship tab"). The name column was a fixed 210px, so "Adrian Navarro & Tarek Haddad" ran under the
+        # state; it's sized to the longest name now (capped, with names cut to fit), the state and bar follow it, and
+        # a note that won't fit beside the bar drops under the row.
+        name_font = self.renderer._get_font(font_size=15)
+        name_w = min(int(width * 0.42), max(140, max((name_font.size(n)[0] for n in self._rel_names), default=0) + 18))
+        label_w = max(name_font.size(lbl)[0] for lbl, _c in self.REL_LABELS.values()) + 18
+
+        def fit(text, w):
+            while name_font.size(text)[0] > w and len(text) > 4:
+                text = text[:-2].rstrip() + "."
+            return text
 
         def row(name, state, affinity, note, yy):
             label, colour = self.REL_LABELS.get(state, (state.title(), COLOR_MUTED))
-            self.renderer.draw_text(screen, name, (x, yy), font_size=15, color=COLOR_WHITE)
-            self.renderer.draw_text(screen, label, (x + 210, yy), font_size=15, color=colour)
+            self.renderer.draw_text(screen, fit(name, name_w - 12), (x, yy), font_size=15, color=COLOR_WHITE)
+            self.renderer.draw_text(screen, label, (x + name_w, yy), font_size=15, color=colour)
             # affinity, -100 to 100, from the middle of the bar
-            bx, bw = x + 340, max(120, width - 340 - 220)
+            bx = x + name_w + label_w
+            note_w = self.renderer._get_font(font_size=13).size(note)[0] + 12 if note else 0
+            bw = max(100, min(260, x + width - bx - note_w))
+            under = bool(note) and bx + bw + note_w > x + width
             bar = pygame.Rect(bx, yy + 4, bw, 10)
             pygame.draw.rect(screen, (28, 28, 34), bar)
             mid = bar.centerx
@@ -891,8 +912,12 @@ class PartyScreen(BaseScreen):
             pygame.draw.rect(screen, colour, fill)
             pygame.draw.line(screen, (90, 90, 100), (mid, bar.y - 2), (mid, bar.bottom + 1))
             pygame.draw.rect(screen, (70, 70, 80), bar, 1)
+            if note and under:
+                self.renderer.draw_text(screen, note, (x + 14, yy + 19), font_size=13, color=COLOR_MUTED)
+                return 42
             if note:
                 self.renderer.draw_text(screen, note, (bar.right + 12, yy + 1), font_size=13, color=COLOR_MUTED)
+            return 26
 
         if rid and rid in bm.bonds:
             b = bm.bonds[rid]
@@ -900,7 +925,10 @@ class PartyScreen(BaseScreen):
             stage = STAGE_NAMES[b.stage_key]
             toward = f"  -  trust {int(b.trust)}/{nxt} to {STAGE_NAMES[STAGES[b.stage + 1]]}" if nxt else ""
             self.renderer.draw_text(screen, f"With you: {stage}{toward}", (x, y), font_size=16, color=COLOR_GOLD)
-            y += 30
+            y += 26
+            # a rule between the bond with you and the recruits' own ties, so the two lists never read as one
+            pygame.draw.line(screen, (90, 80, 60), (x, y), (x + width, y))
+            y += 10
         if rid and rm.has(rid):
             self.renderer.draw_text(screen, f"{member.name} and the others", (x, y), font_size=14, color=COLOR_HEADER)
             y += 24
@@ -930,8 +958,7 @@ class PartyScreen(BaseScreen):
                     bits.append("in party")
                 if r and r.outings:
                     bits.append(f"{r.outings} outing{'s' if r.outings != 1 else ''} together")
-                row(bm.name_of(o), state, r.affinity if r else 0, ", ".join(bits), y)
-                y += 26
+                y += row(bm.name_of(o), state, r.affinity if r else 0, ", ".join(bits), y)
                 shown += 1
             return
         # the hero (or anyone without a recruit record): every pair in the party
@@ -948,8 +975,7 @@ class PartyScreen(BaseScreen):
             r = rm.rels.get(rm.key(a, c))
             state = r.state if r else rm.state(a, c)
             note = f"{r.outings} outing{'s' if r.outings != 1 else ''} together" if r and r.outings else ""
-            row(f"{bm.name_of(a)} & {bm.name_of(c)}", state, r.affinity if r else 0, note, y)
-            y += 26
+            y += row(f"{bm.name_of(a)} & {bm.name_of(c)}", state, r.affinity if r else 0, note, y)
 
     def _render_party_buffs(self, screen, party, panel, top):
         """Every member's buffs on one page, so a missing one is visible.

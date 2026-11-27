@@ -1434,7 +1434,9 @@ class Ability:
         # ability is aimed anywhere other than its effect_type's default and whether it has
         # anything extra to say - see _shape_line.
         shape = self._shape_line()
-        if shape and not self._shape_is_obvious():
+        shielded = (self.absorb or self.absorb_pct_max_health) and caster is not None \
+            and hasattr(caster, "attack_power")      # "Absorbs about N ... for N turns" already says it all
+        if shape and not shielded and not self._shape_is_obvious() and not self._shape_said_by_description(shape):
             lines.append(shape)
 
         # Who it works on, for crowd control that cares what the target IS.
@@ -1456,7 +1458,35 @@ class Ability:
         if desc:
             lines.append(desc)
 
-        return lines
+        return self._without_repeats(lines)
+
+    _REPEAT_FILLER = frozenset({"your", "whole", "the", "a", "an", "one", "you", "and", "for", "of", "with", "to",
+                                "about", "gear", "lasts", "turn", "turns"})
+
+    def _without_repeats(self, lines):
+        """NO SENTENCE SAYS THE SAME THING TWICE (Kyle, 27 Nov 2026: "Audit ability descriptions for duplicated or
+        repetitive wording"). Measured over every class's book: 105 tooltips repeated a generated line in their
+        authored description - "Generates 20 Rage" then "Generates 20 Rage.", "Requires Cat Form" twice, "Heals your
+        whole party" then "Heals your party." The first, more exact line stays; a later sentence whose words are
+        three-quarters the same as one already shown is dropped (a line that becomes empty goes with it)."""
+        import re
+        def words(t):
+            ws = {w[:5] for w in re.findall(r"[a-z0-9]+", t.lower())}
+            return ws - {w[:5] for w in self._REPEAT_FILLER}
+        kept, seen = lines[:1], []
+        for line in lines[1:]:
+            parts = [p for p in re.split(r"(?<=[.!?])\s+|;\s+", str(line)) if p.strip()]
+            out = []
+            for part in parts:
+                w = words(part)
+                dup = len(w) >= 1 and any(len(w | s) and len(w & s) / len(w | s) >= 0.75 for s in seen)
+                if not dup:
+                    out.append(part)
+                    if w:
+                        seen.append(w)
+            if out:
+                kept.append(line if len(out) == len(parts) else " ".join(out))
+        return kept
 
     def _avg_weapon(self, caster, use_ranged=False, both=False):
         """The caster's average weapon roll, sampled without disturbing the game's dice or the caster."""
@@ -1624,6 +1654,20 @@ class Ability:
         return desc
 
     #: Words that mean an authored description is saying something the generated line cannot.
+    _SHAPE_FILLER = frozenset({"your", "whole", "the", "a", "an", "one", "you", "and", "for", "of"})
+
+    def _shape_said_by_description(self, shape):
+        """True when the authored description already says everything the shape line would (Kyle, 27 Nov 2026:
+        Correct the Mistake read "Heals your whole party" then "Heals your party."). Every word that matters in the
+        shape line - its verb stem, its target, its turns - must appear in the description."""
+        import re
+        desc = (self._tooltip_description() or "").lower()
+        if not desc:
+            return False
+        words = lambda t: {w[:5] for w in re.findall(r"[a-z0-9]+", t.lower())} - {w[:5] for w in self._SHAPE_FILLER}
+        need = words(shape)
+        return bool(need) and need <= words(desc)
+
     def _shape_is_obvious(self):
         """True when _shape_line would only repeat what the lines above already said."""
         if self.is_aoe or self.is_stun or self.absorb or self.absorb_pct_max_health:
