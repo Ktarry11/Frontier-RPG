@@ -353,8 +353,9 @@ class CastScreen(BaseScreen):
         this used to be a 40-line copy of the same box drawn in two other screens.
         """
         from ui.ability_tooltip import draw_ability_tooltip
+        # the member doing the casting, so the estimate is off their gear
         draw_ability_tooltip(self.renderer, screen, ability, pos,
-                             getattr(self.state_manager, "player", None))
+                             self.selected_caster or getattr(self.state_manager, "player", None))
 
     def _render_roster(self, screen):
         self._roster_rects = []

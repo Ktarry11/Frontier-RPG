@@ -996,5 +996,5 @@ class SkillsScreen(BaseScreen):
         this used to be a 40-line copy of the same box drawn in two other screens.
         """
         from ui.ability_tooltip import draw_ability_tooltip
-        draw_ability_tooltip(self.renderer, screen, ability, pos,
-                             getattr(self.state_manager, "player", None))
+        # whoever's spellbook this is, so the estimate is off THEIR gear (a recruit's, not the hero's)
+        draw_ability_tooltip(self.renderer, screen, ability, pos, self._get_subject())
