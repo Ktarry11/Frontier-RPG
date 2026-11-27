@@ -9,7 +9,8 @@ for r in party:
     assert g.has(r), r
 def drain(tag):
     while True:
-        item = rm.pop_beat(99)
+        from world import relationship_manager as _RM
+        item = rm.pop_beat(_RM.GAP)      # one scene per drain at the real gap (26 Nov 2026: talk is rarer now)
         if not item: break
         print(f"--- {tag}" + (f"  [ASK: {rm.last_ask['asker']} wants your take]" if rm.last_ask else ""))
         for rid, t in item:

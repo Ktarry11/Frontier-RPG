@@ -285,7 +285,9 @@ def findings():
     if anchor:
         for ev in ("wipe", "crew_formed", "fondness_to", "carried"):
             g.push(anchor, ev)
-        if g.arc_state.get(anchor):
+        # an anchor can still notice a drift (g_changed rides on arc_state as "pending"), but never makes arc progress
+        st = g.arc_state.get(anchor) or {}
+        if st.get("progress") or st.get("stage") or st.get("path") == "alt":
             bad.append(f"arc: anchor {anchor} got an arc")
 
     # 10 save
