@@ -503,7 +503,7 @@ class MonsterAbility:
                 if first_actual is None:
                     first_actual = actual
             if self.is_aoe and len(targets) > 1:
-                msg = f"{caster.name} uses {self.name} on everyone ({', '.join(lines)})!"
+                msg = f"{caster.name} uses {self.name} on {getattr(self, '_aoe_label', 'everyone')} ({', '.join(lines)})!"
             else:
                 msg = (f"{caster.name} uses {self.name} on "
                        f"{targets[0].name} for {first_actual} damage!")
@@ -541,7 +541,7 @@ class MonsterAbility:
                     source_name=caster.name)
                 msgs.append(t.apply_status_effect(effect))
             if self.is_aoe and len(targets) > 1:
-                return True, f"{caster.name} uses {self.name} on everyone. {' '.join(msgs)}"
+                return True, f"{caster.name} uses {self.name} on {getattr(self, '_aoe_label', 'everyone')}. {' '.join(msgs)}"
             return True, f"{caster.name} uses {self.name}. {msgs[0]}"
 
         # buff / debuff

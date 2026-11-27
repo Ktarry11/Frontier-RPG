@@ -5488,9 +5488,10 @@
         "mana_cost": 40,
         "school": "nature",
         "duration": 2,
-        "stat_mods": {
-          "attack_power": -999
-        }
+        "stat_mods": {},
+        "is_stun": true,
+        "authored_mechanic": "stun",
+        "_sleep": "A real stun (was attack_power -999 as a stand-in, from before monsters could stun; Kyle 26 Nov 2026: 'Likely didn't have stun mechanism when sleep ability was made'). Two turns, not three: a three-turn stun from a boss is a dead healer."
       }
     ],
     "verdan_the_everliving": [
@@ -5512,11 +5513,13 @@
         "school": "physical",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
+          "duration": 2,
           "stat_mods": {
-            "agility": -999
+            "agility": -30,
+            "haste": -15
           }
-        }
+        },
+        "_root": "A root (was agility -999 as a stand-in). Slows the target's turns instead: -30 Agility and -15% haste, 2 turns."
       },
       {
         "name": "Stomp",
@@ -5609,11 +5612,12 @@
         "school": "magic",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
-          "stat_mods": {
-            "attack_power": -999
-          }
-        }
+          "duration": 2,
+          "stat_mods": {},
+          "is_stun": true
+        },
+        "authored_mechanic": "stun",
+        "_sleep": "A real stun (was attack_power -999 as a stand-in, from before monsters could stun; Kyle 26 Nov 2026: 'Likely didn't have stun mechanism when sleep ability was made'). Two turns, not three: a three-turn stun from a boss is a dead healer."
       },
       {
         "name": "Terrifying Screech",
@@ -14553,11 +14557,12 @@
         "school": "nature",
         "rider": {
           "effect": "debuff",
-          "duration": 3,
-          "stat_mods": {
-            "attack_power": -999
-          }
-        }
+          "duration": 2,
+          "stat_mods": {},
+          "is_stun": true
+        },
+        "authored_mechanic": "stun",
+        "_sleep": "A real stun (was attack_power -999 as a stand-in, from before monsters could stun; Kyle 26 Nov 2026: 'Likely didn't have stun mechanism when sleep ability was made'). Two turns, not three: a three-turn stun from a boss is a dead healer."
       },
       {
         "name": "Rootmend",

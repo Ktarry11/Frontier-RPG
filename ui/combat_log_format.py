@@ -23,7 +23,7 @@ BIG = ((255, 170, 70), (255, 200, 120))             # someone falls, victory, de
 MUTED = ((150, 150, 162), (190, 190, 200))          # ticks, fades, gains, prompts, system notes
 
 NUMBER = re.compile(r"\d+")
-AOE = re.compile(r"^(?P<who>.+?) uses (?P<what>.+?) on everyone \((?P<hits>.*)\)(?P<rest>.*)$")
+AOE = re.compile(r"^(?P<who>.+?) uses (?P<what>.+?) on (?P<scope>everyone|the front row) \((?P<hits>.*)\)(?P<rest>.*)$")
 AOE_HIT = re.compile(r"(?P<n>\d+) to (?P<name>[^,()]+)")
 
 #: small stuff: the log keeps it, but it shouldn't compete with the actions
@@ -79,7 +79,7 @@ def format_message(msg, allies=(), enemies=()):
     if m:
         hits = [(h.group("name").strip(), h.group("n")) for h in AOE_HIT.finditer(m.group("hits"))]
         if hits:
-            lines = [f"{m.group('who')} uses {m.group('what')} on everyone:"]
+            lines = [f"{m.group('who')} uses {m.group('what')} on {m.group('scope')}:"]
             lines.append("    " + "  |  ".join(f"{_first(n)} {v}" for n, v in hits))
             rest = m.group("rest").strip(" !")
             if rest:

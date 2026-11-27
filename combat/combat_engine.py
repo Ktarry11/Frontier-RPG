@@ -244,10 +244,13 @@ class CombatEngine:
         thousand each: front row only). A spell (Thundercrack, a breath, a nova) still reaches everyone. With nobody
         left standing in front, the swing falls on the back row, as a single-target melee hit already does."""
         living = self.living_allies()
+        ability._aoe_label = "everyone"
         if getattr(ability, "school", "physical") != "physical":
             return living
         from entities.party import FRONT_ROW
         front = [a for a in living if getattr(a, "row", FRONT_ROW) == FRONT_ROW]
+        if front and len(front) < len(living):
+            ability._aoe_label = "the front row"     # what the log says it hit
         return front or living
 
     def _enemy_tempo(self):
