@@ -189,7 +189,12 @@ def findings():
             full = [t for v in (g.lines.get(rid) or {}).values() for t in (v if isinstance(v, list) else [v])]
             full += [t for v in (rm.lines.get(rid) or {}).values() for t in (v if isinstance(v, list) else [v])]
             full += [t for a in args for w, t in a["lines"] if w == rid]
-            if not any(frag in re.sub(r"\{[^}]*\}", "", t).replace("  ", " ").lower() for t in full):
+            # a {his|her} address form is spoken as one of its two words, so try each before giving up
+            def forms(t):
+                yield re.sub(r"\{[^}]*\}", "", t)
+                for i in (1, 2):
+                    yield re.sub(r"\{([^{}|]+)\|([^{}|]+)\}", lambda m: m.group(i), t).replace("{name}", "")
+            if not any(frag in f.replace("  ", " ").lower() for t in full for f in forms(t)):
                 bad.append(f"play: {rid} said a line that isn't in their own pool: {text[:60]}")
                 break
 

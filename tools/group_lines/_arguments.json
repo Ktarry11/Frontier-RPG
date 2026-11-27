@@ -239,5 +239,53 @@
      ["pavlo_knight", "Haruto, tell your students when they do well, please, and often. A fourteen-year-old who hears it once a year stops trying."],
      ["haruto_runemaster", "My master praised me once in eleven years, Pavlo, and I have remembered that sentence for thirty. Rare praise is never forgotten."],
      ["pavlo_knight", "And how many of his other students stayed long enough to hear it, do you think? I would guess very few, my friend."]
+   ]},
+  {"id": "backburn", "between": ["cristobal_knight", "liam_suncleric"], "asker": "liam_suncleric", "stakes": "medium",
+   "sides": {"liam_suncleric": "light a backburn and let the fire meet nothing", "cristobal_knight": "cut a firebreak and hold the line by hand"},
+   "third": "They cut the break together, and Liam lights a small backburn off it while Cristobal watches the wind.",
+   "lines": [
+     ["liam_suncleric", "Mate, if that grass goes up, we backburn from the creek. Fire meets burnt ground, runs out of food, done."],
+     ["cristobal_knight", "Hermano, a backburn in this wind? She'll jump it and laugh at us. We cut a break by hand, wide, and we hold it."],
+     ["liam_suncleric", "Holding it by hand is how you lose people, and I'd rather not lose anyone today. Small backburn, off your break, deal?"]
+   ]},
+  {"id": "the_wolves", "between": ["callum_venomancer", "giorgi_primalist"], "asker": "giorgi_primalist", "stakes": "medium",
+   "sides": {"giorgi_primalist": "the wolves taking the sheep must be driven off or killed", "callum_venomancer": "find out why they're hungry and move them on"},
+   "third": "Callum tracks the pack to find what pushed it down, and Giorgi guards the flock until he's back.",
+   "lines": [
+     ["giorgi_primalist", "Callum, the wolves took three sheep this week. A shepherd does not talk with wolves, my friend. He stands in front of the flock."],
+     ["callum_venomancer", "Fair enough, mate, but something's pushed them down off the high ground. Find that, and the wolves go home on their own."],
+     ["giorgi_primalist", "And while you are finding it, the wolves are eating. Kargi, go and look, quickly, and I will stand here being large."]
+   ]},
+  {"id": "the_haircut", "between": ["haruto_runemaster", "orlando_witchdoctor"], "asker": "orlando_witchdoctor", "stakes": "low",
+   "sides": {"orlando_witchdoctor": "Haruto needs a proper haircut, and soon", "haruto_runemaster": "his hair is tied back correctly and needs nothing"},
+   "third": "Orlando trims it, and Haruto corrects his grip on the scissors, and both of them are pleased.",
+   "lines": [
+     ["orlando_witchdoctor", "Haruto, mi amor, please, sit in my chair for ten minutes. That hair has been tied back the same way since the old world."],
+     ["haruto_runemaster", "It is tied back correctly, and it has given me no trouble for thirty years. I do not see the problem."],
+     ["orlando_witchdoctor", "The problem is it's beautiful hair and you're hiding it, with love. Ten minutes, and you can correct how I hold the scissors."]
+   ]},
+  {"id": "port_or_capital", "between": ["cristobal_knight", "matias_reaper"], "asker": "cristobal_knight", "stakes": "low",
+   "sides": {"cristobal_knight": "Valparaiso is the heart of Chile, and the Wanderers are its team", "matias_reaper": "Santiago is the real Chile, and nobody cares about the Wanderers"},
+   "third": "They agree Chile is the best country in two worlds, and argue about the football all night anyway.",
+   "lines": [
+     ["cristobal_knight", "Matias, hermano, tell them the truth. Valparaiso is the soul of Chile, the hills, the port, the Wanderers, everything."],
+     ["matias_reaper", "Ya, the soul, okay. Santiago is the whole body, weon, and nobody in Santiago remembers the Wanderers play football."],
+     ["cristobal_knight", "Chucha, the disrespect! Come to the port one day and say that, and my mother will feed you until you take it back."]
+   ]},
+  {"id": "who_sleeps", "between": ["liam_suncleric", "minh_chronomancer"], "asker": "minh_chronomancer", "stakes": "low",
+   "sides": {"minh_chronomancer": "Liam sleeps tonight, and Minh keeps watch", "liam_suncleric": "Minh sleeps tonight, and Liam keeps watch"},
+   "third": "Both of them sleep, and the youngest in camp keeps watch, under protest from both.",
+   "lines": [
+     ["minh_chronomancer", "Liam, you have been awake for two days. I will take the watch, and you will sleep. That is the sequence."],
+     ["liam_suncleric", "Mate, you've got bags under your eyes I could carry shopping in. You sleep, I'll watch, I don't sleep anyway."],
+     ["minh_chronomancer", "That is precisely the problem with both of us, I think. Perhaps tonight neither of us is the right person for this job."]
+   ]},
+  {"id": "wine_or_tea", "between": ["bakyt_hunter", "giorgi_primalist"], "asker": "giorgi_primalist", "stakes": "low",
+   "sides": {"giorgi_primalist": "a good evening needs wine and a toast", "bakyt_hunter": "a good evening needs tea and quiet"},
+   "third": "A toast with tea, which offends Giorgi slightly and pleases Bakyt enormously.",
+   "lines": [
+     ["giorgi_primalist", "Bakyt, my friend, a table without wine is only furniture. One cup, one toast, and then your tea, I promise."],
+     ["bakyt_hunter", "Tea first, always tea first, friend. Wine makes young men loud and old men sleepy, and I am already old."],
+     ["giorgi_primalist", "Then I make the toast with tea, and the ancestors will forgive me. Gaumarjos, to stubborn old herders, both of us."]
    ]}
 ]
