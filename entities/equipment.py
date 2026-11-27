@@ -65,6 +65,20 @@ class Equipment:
     def __init__(self):
         self.slots = {slot: None for slot in EQUIPMENT_SLOTS}
 
+    def slot_options(self, item):
+        """Every slot this item may go in: a one-handed weapon either hand, a ring either ring slot, a trinket
+        either trinket slot, everything else its own slot (27 Nov 2026: dual wield and drag-to-equip need to
+        name the slot; the item only ever said "main_hand")."""
+        wtype = getattr(item, "weapon_type", None)
+        if wtype and _load_weapon_type_hand(wtype) == "ranged":
+            return ["ranged"]
+        if wtype and _load_weapon_type_hand(wtype) == "main_or_off":
+            return ["main_hand", "off_hand"]
+        pair = PAIRED_SLOTS.get(getattr(item, "slot", None))
+        if pair:
+            return list(pair)
+        return [item.slot] if getattr(item, "slot", None) in self.slots else []
+
     def _resolve_slot(self, item):
         """Map a generic paired-slot item (ring/trinket) to a concrete slot.
 
@@ -102,7 +116,7 @@ class Equipment:
         except Exception:
             return False
 
-    def equip(self, item):
+    def equip(self, item, slot=None):
         """
         Equip an item into its slot. Returns (previous_item_in_slot,
         displaced_item_or_None) - the second element is only ever
@@ -121,7 +135,7 @@ class Equipment:
         could both be equipped at once, since only the main_hand-equip
         direction was ever guarded.
         """
-        target_slot = self._resolve_slot(item)
+        target_slot = slot if (slot and slot in self.slot_options(item)) else self._resolve_slot(item)
         if target_slot not in self.slots:
             return None
 

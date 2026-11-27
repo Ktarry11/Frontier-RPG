@@ -1256,6 +1256,10 @@ class Character(StatusEffectMixin):
     def toggle_tank_stance(self):
         """Turn this class's tank stance on or off (combat/tank_stance.py). Free, and it keeps your resource: it's a
         posture, not a new pool. Returns (success, message)."""
+        # THE SHAMAN'S IS EARTHEN GUARDIAN (27 Nov 2026, Kyle: "Shaman tank has talents for Earthen Guardian but does
+        # not have an actual Earthen Guardian tank stance/form"): it only had an old menu, never a spell to cast
+        if self.char_class == "Shaman":
+            return self.toggle_guardian_stance()
         from combat.tank_stance import stance_for_class
         stance = stance_for_class(self.char_class)
         if not stance:
@@ -1306,6 +1310,9 @@ class Character(StatusEffectMixin):
             self.intellect += level_bonus * 1.0
             self.spirit += level_bonus * 0.9
             self.stamina += level_bonus * 0.5
+            # Enhancement fights in melee: a level-60 Shaman had 10 Strength and 88 attack power (27 Nov 2026)
+            self.strength += level_bonus * 0.7
+            self.agility += level_bonus * 0.3
         elif self.char_class == "Rogue":
             self.agility += level_bonus * 1.0
             self.strength += level_bonus * 0.8
@@ -1330,7 +1337,8 @@ class Character(StatusEffectMixin):
             self.intellect += level_bonus * 0.8
             self.spirit += level_bonus * 0.7
             self.stamina += level_bonus * 0.5
-            self.agility += level_bonus * 0.3
+            self.agility += level_bonus * 0.5
+            self.strength += level_bonus * 0.5     # bear and cat fight in melee (27 Nov 2026)
         elif self.char_class == "Paladin":
             self.strength += level_bonus * 0.9
             self.intellect += level_bonus * 0.6
@@ -2056,6 +2064,11 @@ class Character(StatusEffectMixin):
         main_hand = self.equipment.get_main_hand_weapon()
         if main_hand and main_hand.weapon_damage_max > 0:
             total += random.randint(main_hand.weapon_damage_min, main_hand.weapon_damage_max)
+        else:
+            # FISTS (27 Nov 2026): an empty hand rolled 0, so a naked character's Attack was attack power alone.
+            # It rolls like a poor weapon of its level (combat/weapon_damage.unarmed_range).
+            from combat.weapon_damage import unarmed_range
+            total += random.randint(*unarmed_range(self.level))
 
         # what the off hand added to this roll (after the world curve), and whether it swung and missed - the
         # combat log shows the two hands separately and a white swing's off hand can land when the main hand
@@ -4824,7 +4837,28 @@ class Character(StatusEffectMixin):
                 if isinstance(c, str) and book.get_ability(c) is None:
                     bar[i] = None
 
-    def equip_item(self, item):
+    def auto_equip_slot(self, item):
+        """Where a click sends this item when the player names no slot. A one-handed weapon goes in the OFF hand
+        when this character can dual wield, the main hand already holds a one-hander and the off hand is free or
+        holds a lesser weapon - otherwise a second sword could only ever replace the first (27 Nov 2026: "Dual
+        wielding is effectively missing from the game")."""
+        from entities.proficiency import is_one_handed_weapon, can_dual_wield
+        if not is_one_handed_weapon(getattr(item, "weapon_type", None)):
+            return None
+        if not can_dual_wield(self):
+            return "main_hand"      # an off-hand-rolled sword is still a sword for someone who can't dual wield
+        mh = self.equipment.slots.get("main_hand")
+        oh = self.equipment.slots.get("off_hand")
+        if mh is None or not is_one_handed_weapon(getattr(mh, "weapon_type", None)):
+            return None
+        if oh is None:
+            return "off_hand"
+        if is_one_handed_weapon(getattr(oh, "weapon_type", None)) and self._gear_power(oh) < self._gear_power(mh) \
+                and self._gear_power(item) <= self._gear_power(mh):
+            return "off_hand"
+        return None
+
+    def equip_item(self, item, slot=None):
         """
         Equip an item from inventory. Moves any displaced item(s) back to
         inventory. Returns True if equipped successfully.
@@ -4846,8 +4880,13 @@ class Character(StatusEffectMixin):
         if getattr(self, "recruit_id", None) == "asher_coleman":
             return False
 
+        if slot is None:
+            slot = self.auto_equip_slot(item)
         from entities.proficiency import can_equip
-        allowed, _reason = can_equip(self, item)
+        allowed, _reason = can_equip(self, item, slot=slot)
+        if not allowed and slot == "off_hand" and getattr(item, "slot", None) != "off_hand":
+            slot = None
+            allowed, _reason = can_equip(self, item)
         if not allowed:
             return False
 
@@ -4860,7 +4899,7 @@ class Character(StatusEffectMixin):
             return False
 
         slot_before = getattr(item, "slot", None)
-        result = self.equipment.equip(item)
+        result = self.equipment.equip(item, slot=slot)
         previous, displaced_offhand = result if isinstance(result, tuple) else (result, None)
 
         self.inventory.remove(item)

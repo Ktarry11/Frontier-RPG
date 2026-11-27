@@ -2126,6 +2126,28 @@
       "_tuning": [
         "16 Nov 2026, support pass: added so this healer can cleanse a party member (tools/add_missing_cleanses.py)"
       ]
+    },
+    {
+      "ability_id": "shaman_earthen_guardian",
+      "name": "Earthen Guardian",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "tank_stance",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Become an Earthen Guardian: you take 5% less damage, deal and heal 20% less, and your threat is tripled. Stays on until you cast it again.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "cast_speed": "medium",
+      "_source": "27 Nov 2026, Kyle: 'Shaman tank has talents for Earthen Guardian but does not have an actual Earthen Guardian tank stance/form.' combat/guardian_stance.py existed with only an old menu (ui/screens/guardian_screen.py) to reach it; this is the spell. Its toggle charges guardian_stance's own activation cost."
     }
   ]
 }

@@ -997,7 +997,8 @@ class PartyScreen(BaseScreen):
         y = box.y - scroll
         from ui.effect_tooltip import draw_effect_icon
         for member in everyone:
-            effects = [e for e in member._effects() if is_displayable_buff(e)]
+            from combat.form_buff import shown_effects
+            effects = shown_effects(member)        # forms and stances first (combat/form_buff.py)
             tag = " (you)" if member is getattr(party, "player", None) else ""
             self.renderer.draw_text(screen, f"{member.name}{tag}", (x, y),
                                     font_size=14, color=COLOR_WHITE)
@@ -1021,7 +1022,9 @@ class PartyScreen(BaseScreen):
                 if stacks > 1:
                     label += f" x{stacks}"
                 secs = getattr(effect, "real_time_seconds", None)
-                if secs is not None:
+                if getattr(effect, "is_posture", False):
+                    remaining = "active"
+                elif secs is not None:
                     remaining = (f"{int(secs // 60)}m" if secs >= 60
                                  else f"{max(0, int(secs))}s")
                 else:

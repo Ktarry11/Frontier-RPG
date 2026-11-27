@@ -1990,7 +1990,18 @@ class StatusEffectMixin:
                         self._discard_effect(effect)
                         messages.append(f"{effect.name} fades from {self.name}.")
                     continue
-                dealt = self.take_damage(effect.tick_potency(), effect.damage_school)
+                # A TICK KNOWS WHO CAST IT (27 Nov 2026, Kyle: "Many DOT abilities appear to deal less damage than
+                # their tooltips indicate"). Ticks were dealt with no attacker level, so armour and resistance used
+                # the level-1 curve (a level-60 Rend tick lost 81% to a warrior's armour against 30% for the same
+                # blow struck directly) and a physical tick could be dodged or parried. A bleed now ignores armour
+                # and can't be avoided, as in Classic; a spell tick is resisted at its caster's level.
+                _src = getattr(effect, "source_caster", None)
+                _lvl = getattr(_src, "level", None)
+                _school = effect.damage_school
+                if _school in (None, "physical"):
+                    _school = "bleed"
+                dealt = self.take_damage(effect.tick_potency(), _school, attacker_level=_lvl,
+                                         attacker=_src if (_src is not None and _src is not self) else None)
                 # A CURSE THAT TENDS THE PARTY (Wave 4, Graham): each tick heals the caster's side.
                 heal_pct = getattr(effect, "party_heal_pct", 0) or 0
                 healer = getattr(effect, "source_caster", None)

@@ -104,6 +104,23 @@ def draw_unit_frame(renderer, screen, char, x, y, width, big=False, highlight=Fa
         subtitle = f"Lv {getattr(char, 'level', 1)} {getattr(char, 'char_class', '')}"
         if big and getattr(char, "prestige_level", 0):
             subtitle += f"  -  Prestige {char.prestige_level}"
+    # IN A FORM OR STANCE: say which, beside the level, and pin its icon to the portrait (Kyle, 27 Nov 2026: "an
+    # indicator beside party members' names when they are shapeshifted in the open world")
+    postures = []
+    try:
+        from combat.form_buff import posture_effects
+        postures = posture_effects(char)
+    except Exception:                                           # noqa: BLE001
+        postures = []
+    if postures and alive:
+        subtitle = f"{subtitle}  -  {postures[0].name}"
+        try:
+            from ui.effect_tooltip import draw_effect_icon
+            s_ = 16 if big else 14
+            draw_effect_icon(renderer, screen, postures[0], pygame.Rect(prect.right - s_ + 3, prect.bottom - s_ + 3,
+                                                                         s_, s_), show_count=False)
+        except Exception:                                       # noqa: BLE001
+            pass
     line = subtitle if alive else "Down"
     renderer.draw_text(screen, line, (tx, ty), font_size=12 if big else 11,
                        color=theme.TEXT_DIM if alive else theme.BAD)

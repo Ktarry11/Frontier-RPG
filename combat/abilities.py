@@ -1297,6 +1297,11 @@ class Ability:
         lines = []
         rank_suffix = f" (Rank {self.rank_number})" if len(self.ranks) > 1 else ""
         lines.append(f"{self.name}{rank_suffix}")
+        # THE FORM IT NEEDS, RIGHT UNDER THE NAME (Kyle, 27 Nov 2026: "display the required form directly underneath
+        # the skill name ... without requiring players to read the entire tooltip")
+        req = self.form_requirement_text()
+        if req:
+            lines.append(req)
         reach = self.reach_text()
         if reach:
             lines.append(reach)
@@ -1326,7 +1331,9 @@ class Ability:
         if self.is_instant and (self.cooldown or 0) >= 2:
             cost_bits.append("Free action")
         else:
-            cost_bits.append(cast_speed_label(getattr(self, "cast_speed", MEDIUM_SPEED) or MEDIUM_SPEED))
+            _sp = getattr(self, "cast_speed", MEDIUM_SPEED) or MEDIUM_SPEED
+            # how much of the turn bar it uses, so "Short" means something you can compare (27 Nov 2026)
+            cost_bits.append(f"{cast_speed_label(_sp)} ({int(round(_sp * 100))}% of a turn)")
         if self.cooldown:
             shown_cd = self.talented_cooldown(caster) if caster is not None else self.cooldown
             if shown_cd:
@@ -1391,8 +1398,11 @@ class Ability:
                          f"Base healing: {self._range_text(self.heal_value or 0)}")
         elif self.effect_type == "damage_and_restore_mana":
             lines.append(f"Base damage: {self._range_text(self.effect_value)}  |  Restores {self.mana_restore_pct}% mana")
+        # WHAT A FORM OR STANCE GIVES (Kyle, 27 Nov 2026: "a lot of these forms just say you shape-shifting but they
+        # don't say what they add"): its stats, its resource and its threat, from the same tables that apply them
+        lines.extend(self.posture_lines())
         # what it will roughly do for THIS caster (estimate_line)
-        if self.effect_type not in ("buff", "debuff"):
+        if self.effect_type not in ("buff", "debuff") or self.absorb or self.absorb_pct_max_health:
             est = self.estimate_line(caster)
             if est:
                 lines.append(est)
@@ -1466,6 +1476,42 @@ class Ability:
                 setattr(caster, k, v)
         return sum(rolls) / max(1, len(rolls))
 
+    def shield_amount(self, caster, recipient=None):
+        """How much this shield absorbs, cast by `caster` on `recipient` - the cast and the tooltip both ask here, so
+        they can't disagree (Kyle, 27 Nov 2026: "Abilities that say 'absorbs damage' must display an actual
+        numerical absorption value", "scale appropriately with level, gear, spell power and talents").
+
+        EVERY CHARACTER'S SHIELD IS HEALING-SHAPED (combat/heal_formula.py): a share of a same-level tank's health at
+        the level its rank is learned, by its cast speed, area and cooldown, plus power - healing power for a shield
+        on someone else, the better of spell and healing power for one on yourself - times SHIELD_FACTOR. Its
+        authored size (absorb_pct_max_health) keeps its character against a 25% reference, within 0.6-1.4x. Healing
+        talents and ability_<id>_potency on top. Self-shields used to be a share of the caster's OWN health, so a
+        naked level-60 Mage's Ice Barrier held ~220 and nothing but Stamina moved it.
+
+        A monster's or a pet's shield keeps the share-of-health rule; a flat absorb is its rank's number."""
+        recipient = recipient if recipient is not None else caster
+        amt = int(self.current_rank.get("absorb", self.absorb) or 0)
+        if not self.absorb_pct_max_health:
+            return amt
+        pot = self._talent(caster, f"ability_{self.ability_id}_potency") if caster is not None else 0.0
+        from combat import heal_formula as _hf
+        from combat import ability_scaling as _as
+        if not (caster is not None and hasattr(caster, "talent_trees") and _as.USE_HEAL_FORMULA and _hf.enabled()):
+            return max(1, int(getattr(recipient, "health", 0) * self.absorb_pct_max_health * (1.0 + (pot or 0.0))))
+        lv = self.current_rank.get("level_req", 1) or 1
+        entry = {"cast_speed": getattr(self, "cast_speed", None), "target_type": self.target_type,
+                 "heal_scope": getattr(self, "heal_scope", None), "max_targets": getattr(self, "max_targets", None),
+                 "cooldown": getattr(self, "cooldown", 0)}
+        base = _hf.BARE_SHARE * (_hf.tank(lv) or 0) * _hf.shape(entry)
+        power = _heal_power(caster)
+        if self.target_type not in ("ally", "party"):
+            power = max(power, _spell_power(caster))
+        identity = max(0.6, min(1.4, self.absorb_pct_max_health / 0.25)) if self.target_type not in ("ally", "party") \
+            else 1.0
+        spec = self._damage_multiplier(caster, "healing", recipient=recipient)
+        size = (base + power * _scaling_coef(self, "heal", caster)) * _hf.SHIELD_FACTOR * identity * spec
+        return max(1, int(size * (1.0 + (pot or 0.0))))
+
     def estimate_line(self, caster):
         """WHAT IT WILL ROUGHLY DO for this caster, with their gear, talents and buffs right now (Kyle, 26 Nov 2026:
         "i get a lot of attacks but i dont know what one hits the hardest"). The same formula each effect branch of
@@ -1479,14 +1525,31 @@ class Ability:
         self._stack_bonus = 0
         try:
             each = " each" if aoe != 1.0 else ""
+            if self.absorb or self.absorb_pct_max_health:
+                who = " on an ally" if self.target_type == "ally" else (" on each ally" if self.target_type == "party" else "")
+                return f"Absorbs about {self.shield_amount(caster)} damage{who} for {max(1, self.talented_duration(caster))} turns with your gear"
             if et in ("damage", "ranged_damage"):
-                ranged = et == "ranged_damage"
-                ap = getattr(caster, "ranged_attack_power", 0) if ranged else caster.attack_power
-                both = self.is_basic_attack(caster) or bool(getattr(self, "strikes_both_weapons", False))
-                v = (self.effect_value + ap * _scaling_coef(self, "ap", caster)
-                     + self._avg_weapon(caster, use_ranged=ranged, both=(both and not ranged)))
-                v *= self._damage_multiplier(caster, "physical") * aoe
-                return f"Hits for about {int(v)}{each} with your gear"
+                # the same pipeline the strike uses (combat/weapon_damage.py), at the weapon's average roll
+                from combat import weapon_damage as _WD
+                ranged = et == "ranged_damage" or _WD.uses_ranged_weapon(self, caster)
+                mode = "ranged" if ranged else ("both" if (self.is_basic_attack(caster)
+                                                          or getattr(self, "strikes_both_weapons", False)) else "main")
+                avg = _WD.average_roll(caster, mode)
+                oh = (_WD.average_roll(caster, "both") - _WD.average_roll(caster, "main")) if not ranged else 0.0
+                note = ""
+                if oh > 0 and self.is_basic_attack(caster):
+                    # a white swing's off hand rolls its own (dual-wield) hit chance
+                    avg -= oh * (1.0 - max(0.0, min(100.0, getattr(caster, "hit_chance_off_hand", 100.0))) / 100.0)
+                v = _WD.strike(self, caster, avg, ranged=ranged)
+                mult = self._damage_multiplier(caster, "physical")
+                v *= mult * aoe
+                if oh > 0 and mode == "main" and et == "damage":
+                    from combat.ability_scaling import AP_BASE
+                    swing = (oh / max(1e-9, _WD.OFFHAND_PENALTY)) + (caster.attack_power or 0) * AP_BASE
+                    swing *= _WD.OFFHAND_PENALTY * (caster._offhand_bonus() if hasattr(caster, "_offhand_bonus") else 1.0)
+                    swing *= getattr(caster, "hit_chance_off_hand", 100.0) / 100.0
+                    note = f", plus an off-hand swing of about {int(swing)}"
+                return f"Hits for about {int(v)}{each} with your gear{note}"
             if et in ("spell_damage", "damage_and_heal", "damage_and_restore_mana"):
                 school = self._resolve_damage_school(caster) or "magic"
                 if et == "spell_damage":
@@ -1510,7 +1573,9 @@ class Ability:
                          else caster.attack_power * _scaling_coef(self, "dot_ap", caster))
                 v = (self.effect_value + power) * self._damage_multiplier(caster, "spell" if magic else "physical") * aoe
                 turns = max(1, self.talented_duration(caster))
-                return f"Deals about {int(v)}{each} over {turns} turns with your gear"
+                # ticks are sized off the base duration, so a talent that lengthens it adds ticks (the cast does the same)
+                per = int(v / max(1, self.duration or 1))
+                return f"Deals about {per * turns}{each} over {turns} turns ({per} a turn) with your gear"
             if et == "heal":
                 v = (self.effect_value + _heal_power(caster) * _scaling_coef(self, "heal", caster)) \
                     * self._damage_multiplier(caster, "healing")
@@ -1520,7 +1585,18 @@ class Ability:
                 v = (self.effect_value + _heal_power(caster) * _scaling_coef(self, "hot", caster)) \
                     * self._damage_multiplier(caster, "healing")
                 turns = max(1, self.talented_duration(caster))
-                return f"Heals about {int(v)} over {turns} turns with your gear"
+                per = int(v / max(1, self.duration or 1))
+                party = self.target_type in ("party", "all_allies") or getattr(self, "heal_scope", None) == "party"
+                if party:
+                    per = int(per * self.AOE_DAMAGE_MULTIPLIER)      # the cast takes the same share per ally
+                up = ""
+                if self.heal_value:
+                    share = self.heal_value / max(1.0, self.heal_value + (self.effect_value or 0))
+                    d = (self.heal_value + _heal_power(caster) * _scaling_coef(self, "heal", caster) * share) \
+                        * self._damage_multiplier(caster, "healing") * (self.AOE_DAMAGE_MULTIPLIER if party else 1.0)
+                    up = f"{int(d)} now, then "
+                return (f"Heals {'each ally ' if party else ''}about {up}{per * turns} over {turns} turns "
+                        f"({per} a turn) with your gear")
         except Exception:
             return None
         finally:
@@ -1571,6 +1647,8 @@ class Ability:
         "All enemies burns") and had to agree with it, which it did not. Leading with the verb
         sidesteps agreement entirely and reads like a tooltip rather than a lab report.
         """
+        if self.effect_type in ("shapeshift", "tank_stance"):
+            return ""        # posture_lines says what it does; "Changes the form of you" said nothing
         who = {
             "self": "you",
             "ally": "one ally",
@@ -1622,14 +1700,7 @@ class Ability:
             extras.append("stuns")
         if self.absorb or self.absorb_pct_max_health:
             extras.append("absorbs damage")
-        if self.requires_form:
-            # requires_form can be a list of acceptable forms; "['defensive']" is not a word.
-            forms = self.requires_form
-            if isinstance(forms, (list, tuple, set)):
-                forms = " or ".join(str(f).replace("_", " ") for f in forms)
-            else:
-                forms = str(forms).replace("_", " ")
-            extras.append(f"requires {forms} form")
+        # (the form it needs has its own line under the name now: form_requirement_text)
         if self.requires_ranged_weapon:
             extras.append("requires a ranged weapon")
         if self.execute_threshold_pct:
@@ -1637,6 +1708,69 @@ class Ability:
         if extras:
             line = (line + "; " if line else "") + ", ".join(extras)
         return line[0].upper() + line[1:] if line else ""
+
+    def posture_lines(self):
+        """'While in this form: +250% Armor, +25% Max Health ...' for a shapeshift or tank stance, else []."""
+        data, extra = None, []
+        if self.effect_type == "shapeshift" and self.shapeshift_form_id:
+            from combat.forms import get_form
+            data = get_form(self.shapeshift_form_id) or {}
+            rt = getattr(data.get("resource_type"), "value", None)
+            if rt and rt != "mana":
+                extra.append(f"Uses {rt.title()} instead of Mana")
+            if data.get("no_parry"):
+                extra.append("Can't parry or block")
+            from combat.tank_stance import TANK_FORMS, TANK_THREAT_PCT
+            if self.shapeshift_form_id in TANK_FORMS:
+                extra.append(f"Threat generated x{int(1 + TANK_THREAT_PCT / 100)}")
+        elif self.effect_type == "tank_stance":
+            if str(self.ability_id) == "shaman_earthen_guardian":
+                from combat.guardian_stance import get_guardian_stance
+                data = get_guardian_stance()
+                extra.append(f"Threat generated x{int(data.get('threat_multiplier', 3))}")
+            else:
+                from combat.tank_stance import TANK_STANCES, TANK_THREAT_PCT
+                data = next((v for v in TANK_STANCES.values()
+                             if str(self.ability_id).endswith(v["id"])), None) or {}
+                extra.append(f"Threat generated x{int(1 + TANK_THREAT_PCT / 100)}")
+        if data is None:
+            return []
+        bits = []
+        from combat.form_buff import describe_mods
+        bits = describe_mods(data.get("stat_mods"))
+        out = []
+        if bits or extra:
+            out.append("While active: " + ", ".join(bits + extra))
+        out.append("Stays on until you cast it again")
+        return out
+
+    #: what a requires_form id is called on a card
+    FORM_WORDS = {"mortal": "Mortal Form", "cursed": "Blood Curse", "accursed": "Accursed Form",
+                  "eternal": "Eternal Curse", "mechsuit": "Mechsuit", "battle": "Battle Stance",
+                  "defensive": "Defensive Stance", "berserker": "Berserker Stance"}
+
+    def form_requirement_text(self):
+        """'Requires Bear Form or Dire Bear Form', or '' when the ability needs no form."""
+        forms = self.requires_form
+        if not forms:
+            return ""
+        if not isinstance(forms, (list, tuple, set)):
+            forms = [forms]
+        names = []
+        for f in forms:
+            word = self.FORM_WORDS.get(str(f))
+            if word is None:
+                try:
+                    from combat.forms import get_form
+                    word = (get_form(str(f)) or {}).get("name")
+                except Exception:                                   # noqa: BLE001
+                    word = None
+            word = word or str(f).replace("_", " ").title() + " Form"
+            if word not in names:
+                names.append(word)
+        if "Mortal Form" in names and len(names) == 1:
+            return "Requires Mortal Form (cast from a curse, you return to Mortal Form)"
+        return "Requires " + (", ".join(names[:-1]) + " or " + names[-1] if len(names) > 1 else names[0])
 
     def scaled_stat_mods(self, caster=None):
         """The stat mods this rank actually applies: the authored mods times the rank's scalar and, with a
@@ -3005,6 +3139,12 @@ class Ability:
                 engine=engine)
 
             events = getattr(self, "_last_threat_events", None) or []
+            # WEAPON PROCS FIRE OFF EVERY MELEE WEAPON STRIKE, ONCE A CAST (Kyle, 27 Nov 2026: "Windfury should be
+            # able to interact with appropriate abilities, including Stormstrike"; "Ensure abilities do not
+            # incorrectly trigger multiple procs"). It was the basic Attack only, and per recipient.
+            from combat import weapon_damage as _WDp
+            _weapon_strike = _WDp.is_melee_weapon_strike(self, caster)
+            _swing_fired = False
             for recipient, evt_amount, is_damage in events:
                 if evt_amount <= 0:
                     continue
@@ -3027,7 +3167,8 @@ class Ability:
                 # "any damage source." Fired as its own separate trigger
                 # (not folded into ON_DAMAGE_CAST's matching) so imbue
                 # procs can listen for exactly this and nothing broader.
-                if is_damage and self.is_basic_attack(caster):
+                if is_damage and _weapon_strike and not _swing_fired:
+                    _swing_fired = True
                     proc_msgs += caster.fire_proc_trigger(
                         ProcTrigger.ON_WEAPON_SWING,
                         {"amount": evt_amount, "target": evt_target,
@@ -4421,14 +4562,21 @@ class Ability:
                 # else that was already using this branch) are completely
                 # unaffected - same main-hand roll + attack_power as
                 # before.
-                if self.effect_type == "ranged_damage":
+                from combat import weapon_damage as _WD
+                _ranged = self.effect_type == "ranged_damage" or _WD.uses_ranged_weapon(self, caster)
+                if _ranged:
                     # The gun's own accuracy, not the main hand's borrowed
                     # name, and never the dual-wield penalty - Kyle, 6 Nov:
                     # "the gun should be impacted by hit chance associated
                     # with the gun and not with the fact it has two weapons."
+                    # A SHOT ROLLS THE BOW (27 Nov 2026): Steady Shot, Aimed Shot and the other reach-"ranged"
+                    # specials used to roll the melee weapon and melee attack power.
                     hit_chance = getattr(caster, "hit_chance_ranged", hit_chance)
                     weapon_dmg = caster.get_weapon_damage_roll(use_ranged=True) if hasattr(caster, "get_weapon_damage_roll") else 0
                     ap = getattr(caster, "ranged_attack_power", 0)
+                    if hasattr(caster, "_last_offhand_part"):
+                        caster._last_offhand_part = 0
+                        caster._last_offhand_missed = False
                 else:
                     # A SPECIAL DOES NOT PAY THE DUAL-WIELD PENALTY. One
                     # attack roll (the hit_chance above, which is the main
@@ -4453,12 +4601,13 @@ class Ability:
                         include_offhand=_both, offhand_hit_chance=off_chance)
                         if hasattr(caster, "get_weapon_damage_roll") else 0)
                     ap = caster.attack_power
-                base_damage = int(self.effect_value + ap * _scaling_coef(self, "ap", caster)) + weapon_dmg
+                # THE PIPELINE (combat/weapon_damage.py): the weapon carries its share of the whole strike
+                base_damage = int(_WD.strike(self, caster, weapon_dmg, ranged=_ranged))
                 _phys_mult = self._damage_multiplier(caster, "physical", recipient=target) * aoe_mult
                 base_damage = int(base_damage * _phys_mult)
                 # the two hands, for the log and for a white swing whose main hand misses
-                _oh_part = (getattr(caster, "_last_offhand_part", 0) or 0) if self.effect_type == "damage" else 0
-                _oh_missed = bool(getattr(caster, "_last_offhand_missed", False)) if self.effect_type == "damage" else False
+                _oh_part = (getattr(caster, "_last_offhand_part", 0) or 0) if not _ranged else 0
+                _oh_missed = bool(getattr(caster, "_last_offhand_missed", False)) if not _ranged else False
                 _oh_note = (f" (off hand +{int(_oh_part * _phys_mult)})" if _oh_part
                             else (" (off hand misses)" if _oh_missed else ""))
                 # THE OFF HAND KEEPS SWINGING (15 Nov 2026). A special is the main hand's (Classic), but in WoW the
@@ -4468,7 +4617,7 @@ class Ability:
                 # weapon (Fury 734 a Cleave against Arms' 1,120 a Heroic Strike). Both-weapon strikes
                 # (Stormstrike...) carry the off hand INSIDE the strike instead: it lands and crits with it.
                 _oh_swing = None
-                if (self.effect_type == "damage" and not self.is_basic_attack(caster)
+                if (self.effect_type == "damage" and not _ranged and not self.is_basic_attack(caster)
                         and not getattr(self, "strikes_both_weapons", False)
                         and hasattr(caster, "offhand_swing_roll")):
                     _oh_swing = caster.offhand_swing_roll(_hit_vs(caster, recipients[0], "white", 100.0))
@@ -4482,7 +4631,7 @@ class Ability:
                     # Casters/monsters without hit_chance_physical (e.g. Monster
                     # class) are treated as always hitting - only Character has
                     # a hit chance stat for now.
-                    if random.uniform(0, 100) > _hit_vs(caster, t, "ranged" if self.effect_type == "ranged_damage" else ("white" if self.is_basic_attack(caster) else "ability"), hit_chance):
+                    if random.uniform(0, 100) > _hit_vs(caster, t, "ranged" if _ranged else ("white" if self.is_basic_attack(caster) else "ability"), hit_chance):
                         # A WHITE SWING'S HANDS ARE INDEPENDENT: the main hand missed, the off hand may still land
                         if self.is_basic_attack(caster) and _oh_part and t is recipients[0]:
                             oh_damage = max(1, int(_oh_part * _phys_mult))
@@ -5090,21 +5239,7 @@ class Ability:
             # scales to each ally's own health rather than the caster's.
             for recipient in recipients:
                 # a rank may carry its own shield size (recruit abilities grow at 15/30/45/60)
-                shield_amt = int(self.current_rank.get("absorb", self.absorb) or 0)
-                if self.absorb_pct_max_health:
-                    # ability_<id>_potency scales a shield's size like it scales stat_mods (Arcane Shielding on Mana
-                    # Shield, 20 Nov 2026, when Mana Shield became a real absorb)
-                    pot = self._talent(caster, f"ability_{self.ability_id}_potency") if caster is not None else 0.0
-                    shield_amt = max(1, int(getattr(recipient, "health", 0)
-                                            * self.absorb_pct_max_health * (1.0 + (pot or 0.0))))
-                    # a shield on somebody else is healing-shaped (combat/heal_formula.shield_size)
-                    from combat import heal_formula as _hf
-                    from combat import ability_scaling as _as
-                    if _as.USE_HEAL_FORMULA:
-                        sized = _hf.shield_size(self, caster)
-                        if sized is not None:
-                            spec = self._damage_multiplier(caster, "healing", recipient=recipient)
-                            shield_amt = max(1, int(sized * spec))
+                shield_amt = self.shield_amount(caster, recipient)
                 effect = StatusEffect(
                     absorb=shield_amt,
                     effect_id=self.ability_id, name=self.name,
@@ -6169,6 +6304,9 @@ def _ability_from_data(entry):
             setattr(ability, key, True)
     if entry.get("max_recipients"):
         ability.max_recipients = int(entry["max_recipients"])
+    # the share of a physical strike that rides on the weapon (combat/weapon_damage.py); data may name its own
+    if isinstance(entry.get("weapon_share"), (int, float)):
+        ability.weapon_share = float(entry["weapon_share"])
     # CAST SPEED (Kyle, 15 Nov 2026: "Speed sets next turn"): quick / normal / slow, or a number of turns
     ability.cast_speed = cast_speed_value(entry.get("cast_speed"))
     # A SPECIAL THAT STRIKES WITH BOTH WEAPONS (Stormstrike, Mutilate, Wildclaw...); every other special is the
@@ -6235,4 +6373,7 @@ def get_class_abilities(char_class):
         book.add_ability(ability)
     for entry in _load_universal_ability_data():
         book.add_ability(_ability_from_data(entry))
+    # Flash Heal costs about what Heal does and heals less; Greater Heal costs more (combat/mana_economy.py)
+    from combat.mana_economy import apply_heal_ladder
+    apply_heal_ladder(book.get_all_abilities())
     return book

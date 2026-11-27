@@ -310,7 +310,7 @@ class InventoryScreen(BaseScreen):
         """
         return self.state_manager.player
 
-    def _equip_on_subject(self, subject, item):
+    def _equip_on_subject(self, subject, item, slot=None):
         """Equip an item from the bag source (see _bag_source) onto the
         subject. Returns True on success. If the subject isn't the bag's
         owner (gearing a companion from the player's bag), the item is
@@ -329,7 +329,9 @@ class InventoryScreen(BaseScreen):
 
         from entities.proficiency import can_equip
 
-        allowed, reason = can_equip(subject, item)
+        allowed, reason = can_equip(subject, item, slot=slot or subject.auto_equip_slot(item))
+        if not allowed and slot is None:
+            allowed, reason = can_equip(subject, item)
         if not allowed:
             self.equip_error = reason or f"{subject.name} cannot equip that."
             self.equip_error_timer = 3.0
@@ -337,7 +339,7 @@ class InventoryScreen(BaseScreen):
 
         source = self._bag_source(subject)
         if source is subject:
-            return subject.equip_item(item)
+            return subject.equip_item(item, slot=slot)
 
         # Hand the item from the source (player) to the subject
         # (companion), equip it there, and undo the handoff if it somehow
@@ -347,7 +349,7 @@ class InventoryScreen(BaseScreen):
             return False
         source.inventory.remove(item)
         subject.inventory.append(item)
-        equipped = subject.equip_item(item)
+        equipped = subject.equip_item(item, slot=slot)
         if not equipped:
             subject.inventory.remove(item)
             source.inventory.append(item)
@@ -548,6 +550,28 @@ class InventoryScreen(BaseScreen):
             self._close()
             return
 
+        drag = getattr(self, "_drag", None)
+        if drag is not None and event.type == pygame.MOUSEMOTION:
+            drag["pos"] = event.pos
+            if abs(event.pos[0] - drag["start"][0]) + abs(event.pos[1] - drag["start"][1]) > 6:
+                drag["moved"] = True
+            return
+        if drag is not None and event.type == pygame.MOUSEBUTTONUP:
+            self._drag = None
+            item = drag["item"]
+            if not drag["moved"]:
+                self._equip_on_subject(subject, item)
+                return
+            for slot_key, rect in self.slot_rects.items():
+                if rect.collidepoint(event.pos):
+                    if slot_key not in subject.equipment.slot_options(item):
+                        self.equip_error = f"{item.name} doesn't go in that slot."
+                        self.equip_error_timer = 2.5
+                        return
+                    self._equip_on_subject(subject, item, slot=slot_key)
+                    return
+            return
+
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouse_pos = event.pos
 
@@ -740,7 +764,11 @@ class InventoryScreen(BaseScreen):
                                 return
                         self.pending_destroy_item = item
                         return
-                    self._equip_on_subject(subject, item)
+                    # DRAG OR CLICK (Kyle, 27 Nov 2026: "Allow players to drag equipment directly into equipment
+                    # slots. Retain the existing clicking method"): the press arms a drag; releasing on a slot
+                    # equips into THAT slot (an off-hand sword, the second ring), releasing without moving is the
+                    # old click.
+                    self._drag = {"item": item, "start": mouse_pos, "pos": mouse_pos, "moved": False}
                     self.selected_item = None
                     return
 
@@ -1100,6 +1128,20 @@ class InventoryScreen(BaseScreen):
                                     (20, summary_y + 30), color=(230, 110, 110))
 
         self.renderer.draw_button(screen, self.close_button, "Close")
+
+        drag = getattr(self, "_drag", None)
+        if drag is not None and drag.get("moved"):
+            # the slots it can go in light up, and the item rides the cursor
+            for slot_key in subject.equipment.slot_options(drag["item"]):
+                r = self.slot_rects.get(slot_key)
+                if r is not None:
+                    pygame.draw.rect(screen, (120, 210, 120), r, 2)
+            dx, dy = drag["pos"]
+            box = pygame.Rect(dx - 20, dy - 20, 40, 40)
+            pygame.draw.rect(screen, (30, 30, 36), box)
+            if not self._draw_item_icon(screen, drag["item"], box):
+                pygame.draw.rect(screen, (150, 150, 160), box, 2)
+            hovered_item = None
 
         if hovered_item and self.pending_destroy_item is None:
             in_bag = any(hovered_item is it for it in bag.inventory)

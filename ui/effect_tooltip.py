@@ -129,6 +129,16 @@ def effect_lines(effect, holder=None):
         name += f"  ({stacks} of {cap} stacks)"
     lines = [(name, border)]
 
+    # A FORM OR STANCE (combat/form_buff.py): say what it is and that it lasts until you leave it
+    if getattr(effect, "is_posture", False):
+        lines.append((f"{getattr(effect, 'posture_kind', 'Form')} - active until you cast it again", MUTED))
+        note = getattr(effect, "posture_note", "") or ""
+        if note:
+            lines.append((note, COLOR_WHITE))
+        from combat.form_buff import describe_mods
+        lines.extend((b, COLOR_WHITE) for b in describe_mods(getattr(effect, "stat_mods", None)))
+        return lines
+
     # What KIND of thing it is - which is also what can take it off.
     kind = KIND_NAMES.get(effect.effect_type, "Effect")
     school = getattr(effect, "dispel_type", None)

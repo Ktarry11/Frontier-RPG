@@ -1158,9 +1158,10 @@ class CombatScreen(BaseScreen):
             return 0
         # Hidden carriers (a talent's or trinket's proc rider) stay hidden; everything else is
         # shown, and each chip is registered so hovering it says what it does.
-        live = [e for e in combatant._effects()
-                if is_displayable_buff(e) or e.effect_type in (EffectType.DOT, EffectType.HOT)]
-        effects = [(e.name, (getattr(e, "absorb", 0) or e.duration), e.effect_type, e) for e in live]
+        from combat.form_buff import shown_effects
+        live = shown_effects(combatant, include_over_time=True)
+        effects = [(e.name, ("" if getattr(e, "is_posture", False) else (getattr(e, "absorb", 0) or e.duration)),
+                    e.effect_type, e) for e in live]
         if not effects:
             return 0
 
@@ -1175,7 +1176,7 @@ class CombatScreen(BaseScreen):
             # Abbreviate long names so chips stay readable - the turn counter
             # is the part that actually matters at a glance.
             short = name if len(name) <= 14 else name[:13] + "."
-            label = f"{short} {turns}"
+            label = f"{short} {turns}".rstrip()
             text_w = self.renderer.font_normal.size(label)[0]
             chip_w = text_w + 10
 
@@ -2200,9 +2201,8 @@ class CombatScreen(BaseScreen):
         red=DoT, green=HoT), just smaller and single-row since roster space
         is tight.
         """
-        effects = [e for e in combatant._effects()
-                   if is_displayable_buff(e)
-                   or e.effect_type in (EffectType.DOT, EffectType.HOT)]
+        from combat.form_buff import shown_effects
+        effects = shown_effects(combatant, include_over_time=True)
         if not effects:
             return
 
@@ -2242,9 +2242,8 @@ class CombatScreen(BaseScreen):
         buff icons), debuffs get a purple border (WoW: purple/red debuff
         icons), matching the visual language players already know.
         """
-        effects = [e for e in combatant._effects()
-                   if is_displayable_buff(e)
-                   or e.effect_type in (EffectType.DOT, EffectType.HOT)]
+        from combat.form_buff import shown_effects
+        effects = shown_effects(combatant, include_over_time=True)
         if not effects:
             return
 
@@ -2380,8 +2379,8 @@ class CombatScreen(BaseScreen):
         # anywhere else on a party card: everything that member carries, debuffs first
         for rect, member in getattr(self, "_card_hits", []):
             if rect.collidepoint(self.mouse_pos) and member.is_alive():
-                effects = [e for e in member._effects()
-                           if is_displayable_buff(e) or e.effect_type in (EffectType.DOT, EffectType.HOT)]
+                from combat.form_buff import shown_effects
+                effects = shown_effects(member, include_over_time=True)
                 if effects:
                     from ui.effect_tooltip import draw_holder_effects_panel
                     return draw_holder_effects_panel(self.renderer, screen, member, effects, rect)

@@ -223,7 +223,7 @@ def can_wear_weapon_type(char_class, weapon_type):
     return weapon_type in class_map[char_class]
 
 
-def can_equip(character, item):
+def can_equip(character, item, slot=None):
     """
     Full equip check. Returns (allowed: bool, reason: str).
 
@@ -254,7 +254,7 @@ def can_equip(character, item):
     # slot from item.slot, so it cannot ask who is equipping. A shield or a
     # tome in the off-hand is not dual-wielding - only a one-handed WEAPON is
     # (is_one_handed_weapon keys on hand == "main_or_off").
-    if getattr(item, "slot", None) == "off_hand" and is_one_handed_weapon(weapon_type):
+    if (slot or getattr(item, "slot", None)) == "off_hand" and is_one_handed_weapon(weapon_type):
         if not can_dual_wield(character):
             # Distinguish "not yet" from "never". A Hunter at 19 is three
             # quests from dual wielding and a Priest never will, and one
@@ -262,6 +262,13 @@ def can_equip(character, item):
             needed = dual_wield_level(character)
             if needed and (getattr(character, "level", 0) or 0) < needed:
                 return False, f"Dual wield requires level {needed}"
+            entry = _load_weapon_types().get("dual_wield", {}).get(getattr(character, "char_class", None))
+            specs = entry.get("specs") if isinstance(entry, dict) else None
+            if isinstance(specs, list) and specs:
+                pre = str(character.char_class).lower().replace(" ", "_") + "_"
+                names = " or ".join((s[len(pre):] if s.startswith(pre) else s).replace("_", " ").title()
+                                    for s in specs if isinstance(s, str))
+                return False, f"Dual wield needs the {names} spec (most of your talent points there)"
             return False, f"{character.char_class} cannot dual wield"
 
     required_level = getattr(item, "required_level", 0) or 0

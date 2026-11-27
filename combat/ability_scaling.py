@@ -218,6 +218,30 @@ def heal_trim(level_req):
     return 1.0 - (1.0 - HEAL_TRIM_FLOOR) * k
 
 
+#: a self-shield authored as one rank gets a rank every SHIELD_RANK_EVERY levels to 60 (27 Nov 2026, Kyle: "Attach
+#: skill ranks to absorption abilities")
+SHIELD_RANK_EVERY = 12
+
+
+def _shield_ranks(entry, ranks):
+    if not entry.get("absorb_pct_max_health") or len(ranks) != 1:
+        return ranks
+    first = ranks[0]
+    lv0 = first.get("level_req", 1) or 1
+    if lv0 > 60 - SHIELD_RANK_EVERY:
+        return ranks
+    out = [dict(first, rank=1)]
+    lv = lv0 + SHIELD_RANK_EVERY
+    while lv <= 60:
+        r = dict(first, rank=len(out) + 1, level_req=lv)
+        if first.get("cost"):
+            # the mana table prices by rank level; the authored cost grows with the rank like the curve's line
+            r["cost"] = int(round(first["cost"] * (1 + AUTHORED_SLOPE * (lv - 1)) / (1 + AUTHORED_SLOPE * (lv0 - 1))))
+        out.append(r)
+        lv += SHIELD_RANK_EVERY
+    return out
+
+
 def curved_ranks(entry):
     """The entry's ranks with the curve applied (a new list; the data is never edited in place).
 
@@ -229,7 +253,8 @@ def curved_ranks(entry):
     ranks = entry.get("ranks") or []
     et = entry.get("effect_type")
     out = []
-    for r in ranks:
+    ranks = _shield_ranks(entry, ranks)
+    for i, r in enumerate(ranks):
         lv = r.get("level_req", 1)
         m = rank_multiplier(lv)
         r = dict(r)
@@ -249,8 +274,9 @@ def curved_ranks(entry):
         # "fixed_cost": the data's costs are meant exactly (Shock, 23 Nov 2026: 15% of the bar at each rank's level)
         if r.get("cost") and entry.get("resource_type", "mana") == "mana" and USE_MANA_TABLE \
                 and not entry.get("fixed_cost"):
+            from combat.mana_economy import tighten as _tighten
             r["cost"] = max(1, int(round(r["cost"] * mana_cost_multiplier(entry.get("ability_id"), et, lv)
-                                         * (size if et in HEALS else 1.0))))
+                                         * (size if et in HEALS else 1.0) * _tighten(et))))
         out.append(r)
     return out
 
@@ -266,8 +292,12 @@ USE_MANA_TABLE = True
 SP_BASE = 1.5            # direct spell damage, per point of spell power
 HEAL_BASE = 1.2          # direct heal, per point of healing power (the healing formula replaces it: see below)
 AP_BASE = 0.5            # physical special, per point of attack power (the weapon roll is on top)
-DOT_SP_BASE = 1.0        # a spell DoT, total over its duration
-DOT_AP_BASE = 0.3        # a physical DoT (a bleed), total
+#: DoTs scaled at half a direct spell's share of power per point of base (a bleed at a third) - measured 27 Nov 2026
+#: across every class at 60: direct spells 0.90 coefficient per 1,000 base, spell DoTs 0.49, physical specials 0.34,
+#: bleeds 0.10. Kyle: "Damage-over-time abilities scale extremely poorly." Raised so a DoT takes the same share of
+#: your power, against its size, as a direct hit of its kind.
+DOT_SP_BASE = 1.85       # a spell DoT, total over its duration
+DOT_AP_BASE = 1.0        # a physical DoT (a bleed), total
 HOT_BASE = 0.8           # a HoT, total (the healing formula replaces it: see below)
 
 #: cooldown (turns) -> weight. A cast you can only make every few turns carries more of your power,
@@ -359,7 +389,7 @@ USE_RANK_POWER = True
 
 KIND_ATTR = {"sp": "sp_coefficient", "heal": "heal_coefficient", "ap": "ap_coefficient",
              "dot_sp": "dot_sp_coefficient", "dot_ap": "dot_ap_coefficient", "hot": "hot_coefficient"}
-DEFAULTS = {"sp": 1.5, "heal": 1.2, "ap": 0.5, "dot_sp": 1.0, "dot_ap": 0.3, "hot": 0.8}
+DEFAULTS = {"sp": 1.5, "heal": 1.2, "ap": 0.5, "dot_sp": DOT_SP_BASE, "dot_ap": DOT_AP_BASE, "hot": 0.8}
 
 
 def coefficients(ability):

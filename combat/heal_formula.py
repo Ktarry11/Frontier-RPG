@@ -34,7 +34,7 @@ SPEC_CAP = 1.25         # every healing talent and the spec aura together: at mo
 #: several HoTs at once (Vizier's three, the Sun Cleric's two, the Chronomancer's Accelerated Recovery) out-healed the
 #: rest by a quarter to a third, because each cast of a HoT was worth 1.2 heals and they stack. At 1.0 a HoT is a
 #: heal delivered later, which is what it is in a turn-based fight.
-HOT_FACTOR = 1.0
+HOT_FACTOR = 1.25   # 27 Nov 2026, Kyle: "Healing-over-time abilities also scale extremely poorly" - a HoT is now a heal and a quarter, delivered later
 #: how much of a cast's speed a heal or damage over time is sized by (21 Nov 2026, the quarter-mark speeds): these
 #: refresh rather than stack, so a fast one doesn't land three times as often, and sized like a direct spell an
 #: instant Rejuvenation fell to a third and cost the Restoration druid a fifth of its solo wins at 52 and 58
