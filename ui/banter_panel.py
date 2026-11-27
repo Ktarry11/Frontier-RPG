@@ -75,7 +75,7 @@ class BanterPanel:
         ask = getattr(beat, "ask", None)
         if ask and beat.revealed >= len(beat.lines) and not getattr(beat, "ask_taken", False):
             name = next((n for rid, n, _t in beat.lines if rid == ask.get("asker")), "They")
-            label = f"{name.split()[0]} wants your take"
+            label = f"{name.split()[0]} is asking you" if ask.get("kind") == "topic" else f"{name.split()[0]} wants your take"
             font = self.renderer._get_font(font_size=15)
             w = font.size(label)[0] + 34
             chip = pygame.Rect(panel.right - w - PAD, panel.y - 34, w, 28)

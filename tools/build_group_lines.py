@@ -54,12 +54,12 @@ REQUIRED = (
     "talk_door_closed",
 )
 #: keys that need two or more lines, because they come up often
-TWICE = ("g_roast", "g_fire_back", "g_pile_on", "g_loved", "g_unguarded", "arg_ask")
+TWICE = ("t_raise", "g_roast", "g_fire_back", "g_pile_on", "g_loved", "g_unguarded", "arg_ask")
 ARC_KEYS = ("arc_cracks", "arc_turn", "arc_become", "arc_failed")
 #: the lines an arc's Become replaces: each arc recruit writes "<key>_after" for these
 AFTER = ("g_roast", "g_after_wipe", "g_toast", "g_crew", "g_quiet_line", "g_loved")
 #: keys said TO someone, so {name} is allowed
-NAMED = re.compile(r"^(g_love_|g_hate_|g_respect|g_nod|g_call_out|g_stung|g_concede|g_callback_|g_former_rivals|"
+NAMED = re.compile(r"^(t_react_|g_love_|g_hate_|g_respect|g_nod|g_call_out|g_stung|g_concede|g_callback_|g_former_rivals|"
                    r"g_admire|g_include|arg_|talk_relationship_|talk_confrontation_(favour|dislike|wrong|decided)|"
                    r"talk_aftermath_blame_self|talk_(lands|shrug|stings)_relationship|milestone|g_take_side)")
 KILL = ("for what it's worth", "if i'm honest", "i'll hold you to it", "for the record", "here's the thing",
@@ -108,9 +108,84 @@ def conv_lines(conv):
         yield o.get("reply", "")
 
 
+#: campfire topics (tools/group_lines/_topics.json): every voiced recruit answers every topic, and has these
+#: keys to raise one, react to someone's answer (said to them, so {name}), and bring the player in
+TOPIC_KEYS = ("t_raise", "t_react_warm", "t_react_laugh", "t_react_tease", "t_react_same", "t_ask_player",
+              "t_guess_player")
+
+
+def load_scenes():
+    """(topics, ensembles): the group scenes for three, four and five people, the player counted."""
+    def rd(name):
+        f = SRC / name
+        return json.loads(f.read_text(encoding="utf-8")) if f.exists() else []
+    return rd("_topics.json"), rd("_ensembles.json")
+
+
+def check_scenes(data, bad):
+    topics, ensembles = load_scenes()
+    ids = set(data)
+    seen = set()
+    for tp in topics:
+        tid = tp.get("id")
+        if tid in seen:
+            bad.append(f"topic id '{tid}' is used twice")
+        seen.add(tid)
+        if "{" in tp.get("question", "") or not tp.get("question"):
+            bad.append(f"topic {tid}: needs a plain question")
+        if len(tp.get("player") or []) < 3:
+            bad.append(f"topic {tid}: needs at least three answers for the player")
+        for o in tp.get("player") or []:
+            if o.get("tone") not in ("listens", "jokes", "truth", "stays_out", "protective", "responsible"):
+                bad.append(f"topic {tid}: player answer has no known tone: {o.get('text')}")
+    for en in ensembles:
+        eid = en.get("id")
+        if eid in seen:
+            bad.append(f"ensemble id '{eid}' is used twice (topics and ensembles share ids)")
+        seen.add(eid)
+        cast = en.get("cast") or []
+        if not 2 <= len(cast) <= 4:
+            bad.append(f"ensemble {eid}: cast must be 2 to 4 recruits (the player makes 3 to 5)")
+        for rid in cast:
+            if rid not in ids:
+                bad.append(f"ensemble {eid}: {rid} has no wave 4 file")
+        said = [r for r, _t in en.get("lines", [])]
+        for rid in cast:
+            if rid not in said:
+                bad.append(f"ensemble {eid}: {rid} is cast but never speaks")
+        if not any("{player}" in t for _r, t in en.get("lines", [])):
+            bad.append(f"ensemble {eid}: the player is never mentioned")
+        allrows = list(en.get("lines", []))
+        ch = en.get("choice")
+        if ch:
+            if ch.get("asker") not in cast:
+                bad.append(f"ensemble {eid}: the choice's asker isn't in the cast")
+            if len(ch.get("options") or []) < 2:
+                bad.append(f"ensemble {eid}: a choice needs two or more options")
+            for o in ch.get("options") or []:
+                allrows += o.get("reply") or []
+                if not o.get("reply"):
+                    bad.append(f"ensemble {eid}: option '{o.get('text')}' has no reply")
+            allrows += ch.get("silent") or []
+            if not ch.get("silent"):
+                bad.append(f"ensemble {eid}: a choice needs a 'silent' reply for when the player says nothing")
+        for rid, t in allrows:
+            if rid not in cast:
+                bad.append(f"ensemble {eid}: {rid} speaks but isn't cast")
+            check_line(rid, f"ensemble {eid}", t, bad)
+            if "{name}" in t:
+                bad.append(f"ensemble {eid}: write names out, no {{name}}")
+    return topics
+
+
 def load():
     files = sorted(p for p in SRC.glob("*.json") if not p.name.startswith("_"))
     data = {p.stem: json.loads(p.read_text(encoding="utf-8")) for p in files}
+    # campfire-topic lines live beside the recruit files, one file per batch: {rid: {key: line or [lines]}}
+    for tf in sorted((SRC / "topics").glob("*.json")):
+        for rid, keys in json.loads(tf.read_text(encoding="utf-8")).items():
+            if rid in data:
+                data[rid].setdefault("lines", {}).update(keys)
     args = json.loads((SRC / "_arguments.json").read_text(encoding="utf-8")) if (SRC / "_arguments.json").exists() \
         else []
     orient = json.loads((SRC / "_orientation.json").read_text(encoding="utf-8")) \
@@ -145,6 +220,10 @@ def check(data, args, orient):
             bad.append(f"{rid}: no arc (a shape, or anchor: true)")
         if orient.get(rid):
             need.append("g_admire")
+        for t in texts(lines.get("t_raise") or []):
+            if "{topic}" not in t:
+                bad.append(f"{rid} t_raise: must hold {{topic}}, where the question goes")
+        need += list(TOPIC_KEYS) + [f"topic_{tp['id']}" for tp in load_scenes()[0]]
         for k in need:
             if not lines.get(k):
                 bad.append(f"{rid}: missing {k}")
@@ -179,6 +258,7 @@ def check(data, args, orient):
     for g, who in grams.items():
         if len(who) >= 3:
             bad.append(f"shared phrasing across {len(who)} recruits: '{' '.join(g)}' ({', '.join(sorted(who))})")
+    check_scenes(data, bad)
     ids = set(data)
     for a in args:
         for rid in a.get("between", []):
@@ -197,7 +277,9 @@ def build(data, args, orient):
             "orientation": {rid: o for rid, o in orient.items() if rid in data},
             "history": {rid: d.get("history") or [] for rid, d in data.items()},
             "milestones": {rid: d.get("milestones") or {} for rid, d in data.items()},
-            "arguments": args}
+            "arguments": args,
+            "topics": load_scenes()[0],
+            "ensembles": load_scenes()[1]}
 
 
 def main():

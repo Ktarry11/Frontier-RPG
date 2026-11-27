@@ -16,6 +16,10 @@ Plan: claude/group_dynamics_plan.md. Holds:
   9  an arc moves through its turning points, and an anchor never gets one
   10 it all saves and loads
   11 no code names a pilot recruit (the 101 others must be data only)
+  12 group scenes with the player in them (27 Nov 2026): every campfire topic plays for two, three and four recruits,
+     every placeholder is filled, the player is asked or talked about some of the time, every answer the player can
+     give gets a reaction, an unanswered question settles itself; every written ensemble plays for its cast and only
+     once, every choice resolves, and silence has its own reply
 """
 import json
 import os
@@ -294,6 +298,88 @@ def findings():
         st = g.arc_state.get(anchor) or {}
         if st.get("progress") or st.get("stage") or st.get("path") == "alt":
             bad.append(f"arc: anchor {anchor} got an arc")
+
+    # 12 group scenes with the player in them
+    pname = g._player_name()
+    asked = guessed = 0
+    for n in (2, 3, 4):
+        party = random.sample(ids, n)
+        for tp in g.topics:
+            rm.queue.clear()
+            g.topics_heard.clear()
+            g.topics = [tp]
+            played = g._topic(party, "rest")
+            g.topics = json.loads(Path("data/npcs/group_lines.json").read_text(encoding="utf-8"))["topics"]
+            if not played:
+                bad.append(f"topic {tp['id']}: didn't play for {party}")
+                continue
+            # (a reaction can tip a pair into a new state, whose own beat may queue ahead of the topic)
+            item = next((q for q in rm.queue if q[2] and tp["question"] in q[2][0][1]), None)
+            if item is None:
+                bad.append(f"topic {tp['id']}: the question isn't in the opener")
+                continue
+            for rid, text in item[2]:
+                if "{" in text or "}" in text:
+                    bad.append(f"topic {tp['id']}: {rid} left a placeholder: {text[:60]}")
+                if rid not in party:
+                    bad.append(f"topic {tp['id']}: {rid} spoke but isn't in the party")
+            guessed += any(pname in t for _r, t in item[2][1:]) and len(item) < 4
+            if len(item) > 3:
+                asked += 1
+                ask = item[3]
+                opts = cv.ask_options(ask)
+                if len(opts) != len(tp["player"]):
+                    bad.append(f"topic {tp['id']}: the player's answers didn't come through")
+                for _label, choice in opts:
+                    lines = cv.resolve(ask, choice)
+                    if not lines:
+                        bad.append(f"topic {tp['id']}: answer {choice} got no reaction")
+                    for rid, t in lines:
+                        if "{" in t or pname not in t and rid == ask["asker"] and "{name}" in t:
+                            bad.append(f"topic {tp['id']}: a reaction to the player is broken: {t[:60]}")
+                cv.wallflower(ask)
+    if not asked:
+        bad.append("topics: the player was never asked anything in twenty four topics")
+    if not guessed:
+        bad.append("topics: the player was never talked about in twenty four topics")
+    for e in g.ensembles:
+        rm.queue.clear()
+        g.ensembles_heard = [x["id"] for x in g.ensembles if x["id"] != e["id"]]   # only this one is left to play
+        if not g._ensemble(list(e["cast"])) or g.ensembles_heard[-1:] != [e["id"]]:
+            bad.append(f"ensemble {e['id']}: didn't play for its own cast")
+            continue
+        first = e["lines"][0][1][:20]
+        item = next((q for q in rm.queue if q[2] and q[2][0][1].startswith(first[:12])), rm.queue[0])
+        if not any(pname in t for _r, t in item[2]):
+            bad.append(f"ensemble {e['id']}: the player's name never made it in")
+        if any("{" in t for _r, t in item[2]):
+            bad.append(f"ensemble {e['id']}: a placeholder was left in")
+        g.ensembles_heard = [x["id"] for x in g.ensembles if x["id"] != e["id"]] + [e["id"]]
+        if g._ensemble(list(e["cast"])):
+            bad.append(f"ensemble {e['id']}: played twice")
+        if e.get("choice"):
+            if len(item) < 4:
+                bad.append(f"ensemble {e['id']}: has a choice but never asked the player")
+                continue
+            for _label, choice in cv.ask_options(item[3]):
+                if not cv.resolve(item[3], choice):
+                    bad.append(f"ensemble {e['id']}: choice {choice} has no reply")
+            rm.queue.clear()
+            cv.wallflower(item[3])
+            if not rm.queue:
+                bad.append(f"ensemble {e['id']}: silence got no reply")
+    # a party of the player and two recruits gets these scenes on its own
+    rm.queue.clear()
+    g.topics_heard.clear()
+    two = random.sample(ids, 2)
+    got = 0
+    for _ in range(200):
+        got += bool(g._small_scene(two, "rest"))
+        rm.queue.clear()
+        g.topics_heard.clear()
+    if got < 150:
+        bad.append(f"small party: the player and two recruits only got a scene {got} times in 200 tries")
+    g.ensembles_heard.clear()
 
     # 10 save
     d = bm.to_dict()

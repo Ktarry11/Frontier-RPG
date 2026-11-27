@@ -42,6 +42,7 @@ EFFECTS
   nothing in combat.
 """
 import json
+import math
 import random
 import re
 import zlib
@@ -190,6 +191,36 @@ def familiarity(outings):
     return 0.1 + min(0.8, outings * 0.02)
 
 
+#: Where a pair SETTLES (Kyle, 27 Nov 2026: "Right now everyone is just super friendly all the time" / "not
+#: everyone will love each other, respect and dislike, absolutely. but not every group is another found family").
+#: Until then affinity climbed every outing, so 88% of pairs were close friends by eighty outings. Now each pair
+#: drifts toward its own ceiling, set by its chemistry, a little familiarity, and what's happened between them
+#: (Rel.memory), and the ceiling flattens out at the ends so nobody runs off to +100 or -100. What grates is loud at
+#: first and softens over about a hundred outings, never to nothing. Over every pair of the 113 (tools/sim in
+#: claude/group_scenes_design.md), before wipes, saves and group scenes move them:
+#:   20 outings: about 9% rivals, 16% grating, 37% nodding, 33% friendly, 5% close
+#:   80 outings: about 1% rivals, 7% grating, 32% nodding, 37% friendly, 23% close
+SETTLE_LIKE = 6.0       # what they like in each other, per point of chemistry
+SETTLE_CLASH = 12.0     # what grates, per point; it softens with time but never below FADE_FLOOR
+SETTLE_OFFSET = 6.0     # travelling together isn't the same as liking each other
+FAMILIAR_CAP = 8.0      # the most that time alone ever adds
+FAMILIAR_RATE = 0.15    # per outing, up to the cap
+FADE_FLOOR = 0.25
+FADE_OUTINGS = 100.0
+SETTLE_CAP = 85.0       # the ceiling flattens toward this (tanh), so it's a ceiling and not a runaway
+SETTLE_SOFT = 45.0
+SETTLE_RATE = 0.07      # the share of the gap to its ceiling a pair closes per outing
+MEMORY = 0.4            # how much of a real event's push stays in where they settle
+MEMORY_MIN = 2.0        # small talk (a chat, a question) warms the moment and fades; only bigger things stick
+
+
+def settle_target(lasting, fading, outings, memory=0.0):
+    fd = max(FADE_FLOOR, 1.0 - outings / FADE_OUTINGS)
+    raw = (lasting * SETTLE_LIKE + fading * fd * SETTLE_CLASH - SETTLE_OFFSET
+           + min(FAMILIAR_CAP, FAMILIAR_RATE * outings))
+    return SETTLE_CAP * math.tanh(raw / SETTLE_SOFT) + memory
+
+
 def next_state(old, a):
     """Where a pair stands at affinity a, given where they stood. Each state holds on a little past
     the line that got them into it, so one bad day doesn't undo a friendship."""
@@ -232,6 +263,7 @@ class Rel:
         self.heard = []                 # line ids already used for this pair, so it doesn't repeat
         self.sig_step = 0               # next step of their signature arc, if they have one
         self.sig_at = 0                 # outings when the last signature step played
+        self.memory = 0.0               # what's happened between them, kept in where they settle
 
     def other(self, rid):
         return self.b if rid == self.a else self.a
@@ -409,9 +441,18 @@ class RelationshipManager:
         self.log = self.log[-60:]
         return True
 
-    def _move(self, r, amount):
-        """Change affinity and work out the new state. Returns the milestone key, if any."""
+    def _chem_parts(self, a, b):
+        k = self.key(a, b)
+        if k not in self._chem:
+            self._chem[k] = chemistry_parts(self.traits.get(a, {}), self.traits.get(b, {}), a, b)
+        return self._chem[k]
+
+    def _move(self, r, amount, event=True):
+        """Change affinity and work out the new state. Returns the milestone key, if any. An event (a wipe, a save,
+        something said) also shifts where the pair settles, so it isn't simply pulled back out of them."""
         r.affinity = max(-100.0, min(100.0, r.affinity + amount))
+        if event and abs(amount) >= MEMORY_MIN:
+            r.memory = max(-60.0, min(60.0, getattr(r, "memory", 0.0) + amount * MEMORY))
         old = "nodding" if r.state == "strangers" else r.state
         new = next_state(old, r.affinity)
         r.state = new
@@ -459,10 +500,12 @@ class RelationshipManager:
             r.outings += 1
             if not r.met_said:
                 continue                # they get to know each other once they've been introduced
-            delta = (self.chem(a, b, r.outings) * PULL + familiarity(r.outings)) * talk_speed(self._t(a), self._t(b))
+            lasting, fading = self._chem_parts(a, b)
+            target = settle_target(lasting, fading, r.outings, r.memory)
+            delta = SETTLE_RATE * (target - r.affinity) * talk_speed(self._t(a), self._t(b))
+            self._milestone(r, self._move(r, delta, event=False))
             if kind in ("dungeon", "boss") and r.state in BAD:
-                delta += 0.5            # a hard job done together earns a grudging nod
-            self._milestone(r, self._move(r, delta))
+                self._milestone(r, self._move(r, 0.5))   # a hard job done together earns a grudging nod
             for me, other in ((a, b), (b, a)):
                 mood[me] += {"close": 5, "friendly": 3, "grating": -2, "rivals": -4}.get(r.state, 0)
         took = False

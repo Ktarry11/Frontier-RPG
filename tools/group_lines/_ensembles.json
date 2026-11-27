@@ -1,0 +1,203 @@
+[
+ {"id": "three_medics", "cast": ["liam_suncleric", "nicolas_bloodmage", "esteban_bloodmage"], "affinity": 0.5,
+  "lines": [
+   ["esteban_bloodmage", "Colleagues, a professional question. When {player} takes a hit and walks it off, as they always do, should we intervene?"],
+   ["liam_suncleric", "Nah, mate, if they're breathing fine and the colour's good, I sit them down for five minutes and a cup of tea."],
+   ["nicolas_bloodmage", "I check the colour twice, ya. But {player} holds their side all the way back sometimes, causas, I've seen it."],
+   ["esteban_bloodmage", "Then two of us have noticed and nobody has acted. That's a poor record for three medics, and I include myself."],
+   ["liam_suncleric", "Fair point, Esteban, though you'd have had them on a table with your sleeves rolled up by now, admit it."],
+   ["esteban_bloodmage", "I would have examined them properly, yes. That's what the word medicine means, Liam, despite what the Blue Mountains taught you."],
+   ["nicolas_bloodmage", "Oe, both of you, before you start. Let's just ask {player} how they feel."]
+  ],
+  "choice": {"asker": "nicolas_bloodmage",
+   "options": [
+    {"text": "I'm fine, stop fussing, all three of you.", "impression": "jokes", "reply": [
+     ["liam_suncleric", "Ha, fair enough, that's a patient who's going to live. Kettle on, then."],
+     ["esteban_bloodmage", "Noted, under protest. I'll check them tomorrow regardless."]]},
+    {"text": "Since you ask, it does hurt. Somebody have a look.", "impression": "truth", "trust": {"nicolas_bloodmage": 1}, "reply": [
+     ["nicolas_bloodmage", "Ya, I knew it, thank you for saying it, pata. Sit down, I'll look."],
+     ["esteban_bloodmage", "And I'll observe, quietly, with only minor comments."]]},
+    {"text": "Whoever's least smug gets to look.", "impression": "jokes", "reply": [
+     ["liam_suncleric", "That rules Esteban out, then, sorry, mate."],
+     ["esteban_bloodmage", "It rules everyone out, I'd say. Nicolas, you're the least objectionable, go on."]]}],
+   "silent": [["liam_suncleric", "Not answering, eh? That's a yes, they hurt. Nicolas, you're up, mate."]]}},
+
+ {"id": "three_cooks", "cast": ["tarek_templar", "sebastian_bloodmage", "yiannis_paladin"], "affinity": 0.5,
+  "lines": [
+   ["sebastian_bloodmage", "Chicos, it's simple, I do the meat, everybody else stands back and admires. That's how a grill works."],
+   ["yiannis_paladin", "Ela, Sebastian, the meat is nothing without the fish, and the fish is mine. Children, tell him."],
+   ["tarek_templar", "And neither of you is cooking anything until I've checked the water you washed it in. That stream is a disgrace."],
+   ["sebastian_bloodmage", "Che, Tarek, you check water like my grandmother checked boyfriends, very suspicious and never satisfied."],
+   ["tarek_templar", "Your grandmother was right, then, about both. Meanwhile {player} hasn't eaten since this morning, and that's the real problem here."],
+   ["yiannis_paladin", "Panagia mou, the child is starving while three old men argue about the stove. Shame on all of us."],
+   ["sebastian_bloodmage", "Fine, fine, first plate to {player}, and then we go back to arguing about who's best. Nobody touches my grill."]
+  ]},
+
+ {"id": "night_people", "cast": ["owen_cultist", "minh_chronomancer", "ivan_warrior"], "affinity": 0.4,
+  "lines": [
+   ["minh_chronomancer", "Four in the morning, and here we are again, the three of us. I believe this is a pattern, gentlemen."],
+   ["owen_cultist", "Night people, see, it's in the bones. Eight years on the M4 and you never sleep proper again, mind."],
+   ["ivan_warrior", "Eleven years on Route 13, and I sleep perfectly well. I'm awake because Owen is humming."],
+   ["owen_cultist", "Duw, was I? Sorry, bach, I don't always notice. Chapel hymns, they creep in when it's quiet."],
+   ["minh_chronomancer", "It's fine, it helps me keep time. Owen hums, I count, Ivan complains, and {player} sleeps through all of it."],
+   ["ivan_warrior", "{player} sleeps like a passenger at the end of the line. Mouth open, very peaceful, I'm jealous."],
+   ["owen_cultist", "Leave them be, now then. Somebody in this camp ought to get a full night, and it won't be us three."]
+  ]},
+
+ {"id": "two_locksmiths", "cast": ["marco_paladin", "emre_rogue"], "affinity": 0.3,
+  "lines": [
+   ["emre_rogue", "Marco, have you noticed {player} carries a knife and no picks? One day they'll try it on a chest, my friend, a kitchen knife on a chest."],
+   ["marco_paladin", "Madonna, I've thought the same. The lock will cry, Emre, I'll hear it from the road."],
+   ["emre_rogue", "We have to teach them, it's a moral duty. Somebody who treats a lock like that will eventually treat a door like that."],
+   ["marco_paladin", "Allora, I teach the patience, you teach the listening, and {player} learns to put the knife away first."],
+   ["emre_rogue", "Agreed, though your patience is slower than my listening, and my listening is very slow."],
+   ["marco_paladin", "Piano, piano, my friend, that's the whole lesson. The lock was never in a hurry, only the knife."]
+  ],
+  "choice": {"asker": "emre_rogue",
+   "options": [
+    {"text": "Fine, teach me. No knives, I promise.", "impression": "listens", "trust": {"emre_rogue": 1, "marco_paladin": 1}, "reply": [
+     ["emre_rogue", "Tamam, a student at last. Sit down, and be quiet, that's the first lesson."],
+     ["marco_paladin", "And the second is also be quiet. You'll be good, I think, eventually."]]},
+    {"text": "It opened, didn't it?", "impression": "jokes", "reply": [
+     ["marco_paladin", "It opened, yes, the way a window opens when you throw a chair through it."],
+     ["emre_rogue", "We'll try again in a week, when the lock has stopped grieving."]]}],
+   "silent": [["emre_rogue", "Silence, which in a student is promising. We start tomorrow, whether you agree or not."]]}},
+
+ {"id": "two_welshmen", "cast": ["rhodri_knight", "owen_cultist"], "affinity": 0.6,
+  "lines": [
+   ["rhodri_knight", "Owen, butt, I've been teaching {player} to say Llanfairpwllgwyngyll and it's a disgrace, isn't it."],
+   ["owen_cultist", "Now then, Rhodri, nobody says the whole thing on the first go. Took me till I was twelve, and I'm from Barry."],
+   ["rhodri_knight", "Barry, that's barely Wales, mind, that's Cardiff's back garden. Ponty's the real thing."],
+   ["owen_cultist", "Duw, here we go. You valleys boys and your hills, all rain and no chips."],
+   ["rhodri_knight", "We've got chips, we've got rugby, and we've got a choir in every chapel. {player}, back me up here, butt."],
+   ["owen_cultist", "Don't drag the poor soul into it. They can't even say the name of the village yet."]
+  ]},
+
+ {"id": "careless_and_fair", "cast": ["adrian_templar", "callum_venomancer"], "affinity": -0.5,
+  "lines": [
+   ["adrian_templar", "Callum, I gave the plan once, clearly. Front holds, back heals, nobody wanders off. And then you wandered off."],
+   ["callum_venomancer", "Mate, there was a snake, a beauty, a new one, nobody's ever seen it. I couldn't just leave it there."],
+   ["adrian_templar", "There were also four bandits, which everybody had seen, and {player} was in the middle of them."],
+   ["callum_venomancer", "And {player} was fine, mate, they handled it, they always do. I was gone for thirty seconds."],
+   ["adrian_templar", "Forty one seconds. I count, Callum, it's what I did for twenty one years, and it was forty one."],
+   ["callum_venomancer", "Strewth, you actually counted, didn't you? Fair enough, I'll give you that, that's dedication."],
+   ["adrian_templar", "It isn't dedication, it's the minimum. {player}, you were there, tell him."]
+  ],
+  "choice": {"asker": "adrian_templar",
+   "options": [
+    {"text": "Adrian's right, Callum. Stay with the group.", "impression": "truth", "trust": {"adrian_templar": 1, "callum_venomancer": -1}, "reply": [
+     ["adrian_templar", "Thank you, {player}, fairly said. That's all I wanted."],
+     ["callum_venomancer", "Yeah, alright, I hear you. I'll stay put, mostly, unless it's a really good snake."]]},
+    {"text": "I was fine. But next time, take me with you to see the snake.", "impression": "jokes", "trust": {"callum_venomancer": 1}, "reply": [
+     ["callum_venomancer", "Ha, now that's a deal, mate! You and me, snake hunting, Adrian can count."],
+     ["adrian_templar", "Hostia, now there are two of them. I'll start counting for both of you, then."]]},
+    {"text": "Sort it out between yourselves.", "impression": "stays_out", "reply": [
+     ["adrian_templar", "Fair enough, it's ours to settle. Callum, forty one seconds, and we'll leave it there."],
+     ["callum_venomancer", "Forty one, mate, fine, I'll get it down to twenty."]]}],
+   "silent": [["callum_venomancer", "Nobody's backing you, Adrian, see? Forty one seconds of my life well spent, mate."],
+              ["adrian_templar", "Silence isn't agreement, Callum. I'll be keeping count."]]}},
+
+ {"id": "cynic_and_teacher", "cast": ["ryan_warlock", "pavlo_knight"], "affinity": -0.3,
+  "lines": [
+   ["ryan_warlock", "I'll say it, lads, since nobody else will. People here are no better than at home. Same greed, worse teeth."],
+   ["pavlo_knight", "And why do you think that is, Ryan? Because you've decided it already, so every greedy man proves you right."],
+   ["ryan_warlock", "Or because I spent twelve years watching people sell their own grandmothers, and I'm good at spotting the type."],
+   ["pavlo_knight", "Then spot this one, Ryan. {player} walks into other people's trouble every week for nothing, and never asks for a fee."],
+   ["ryan_warlock", "True enough, I've watched it. That's either a very good person or a very bad investor."],
+   ["pavlo_knight", "In my experience, class, the two often go together. You might try it some time."],
+   ["ryan_warlock", "I might, teacher, I might. Don't hold your breath, mind, I've got a reputation to keep."]
+  ]},
+
+ {"id": "three_quiet_men", "cast": ["matias_reaper", "haruto_runemaster", "leif_primalist"], "affinity": 0.6,
+  "lines": [
+   ["leif_primalist", "Quiet night, this. Yep, the three of us, nobody talking, and {player} doing all the talking. Works for me."],
+   ["haruto_runemaster", "I find it restful. {player} talks, and the three of us listen, like a good audience at a recital."],
+   ["matias_reaper", "On the bus it was the same, ya. One talks, forty listen, and the forty are happy."],
+   ["leif_primalist", "Huh, that's true, I never thought about it like that. Somebody has to fill the air, I guess, and it's not going to be me."],
+   ["haruto_runemaster", "Nor me, I'm afraid. I spent twenty years making one mark a day and saying nothing."],
+   ["matias_reaper", "Then we are the passengers, cabros, and {player} is the radio. It's good, ya, a good bus."]
+  ]},
+
+ {"id": "the_spanish_table", "cast": ["cristobal_knight", "nicolas_bloodmage", "orlando_witchdoctor", "sebastian_bloodmage"], "affinity": 0.4,
+  "lines": [
+   ["sebastian_bloodmage", "Chicos, four of us at one fire, and we all speak Spanish, and nobody can understand anybody else. Que hermoso, chicos."],
+   ["orlando_witchdoctor", "Ay, papi, you speak Argentinian, that's singing, not Spanish. Puerto Rico speaks it properly, mi amor."],
+   ["cristobal_knight", "Properly, he says? Hermano, you drop half the letters, it's like listening to a radio in a tunnel!"],
+   ["nicolas_bloodmage", "And Chileans, pata, you talk so fast even Chileans need subtitles. Cachai, weon, all that."],
+   ["cristobal_knight", "Oye, that's Chilean poetry, Nicolas. Peruvians just say causa to everything and hope for the best."],
+   ["orlando_witchdoctor", "Mi gente, enough, {player} is sitting there looking at us like we're a telenovela with no subtitles."],
+   ["sebastian_bloodmage", "Then {player} learns one word tonight, che, and it's the most important one, which is asado."]
+  ],
+  "choice": {"asker": "orlando_witchdoctor",
+   "options": [
+    {"text": "Asado. Now feed me.", "impression": "jokes", "trust": {"sebastian_bloodmage": 1}, "reply": [
+     ["sebastian_bloodmage", "Perfecto, a fluent speaker already! First plate, chicos, the student has earned it."],
+     ["cristobal_knight", "One word and you're already more Argentinian than me, que verguenza."]]},
+    {"text": "Teach me something from all four of you.", "impression": "listens", "trust": {"orlando_witchdoctor": 1, "nicolas_bloodmage": 1}, "reply": [
+     ["orlando_witchdoctor", "Ay, mi amor, a diplomat! Okay, one word each, and nobody fights."],
+     ["nicolas_bloodmage", "Mine is chevere, pata, it means good, and it fixes most things."]]},
+    {"text": "I understood all of it, actually.", "impression": "truth", "reply": [
+     ["cristobal_knight", "All of it? Hermanos, we've been insulting each other in front of a witness!"],
+     ["orlando_witchdoctor", "Then you heard what he said about my letters, and you'll defend my honour, papi."]]}],
+   "silent": [["nicolas_bloodmage", "{player} says nothing, causas. Smart, that's how you survive a table like this one."]]}},
+
+ {"id": "dan_and_the_softies", "cast": ["dan_warrior", "marcus_stormbringer", "berat_tinker"], "affinity": 0.2,
+  "lines": [
+   ["marcus_stormbringer", "So the interesting thing about tonight's sky, team, is the pressure gradient, which, sorry, I'll keep it short, is fascinating."],
+   ["berat_tinker", "Marcus, family, you're beautiful, come here, I'm hugging you now, nobody stop me."],
+   ["dan_warrior", "Give over, the pair of you. One of you's explaining the clouds and the other's hugging the bloke explaining the clouds."],
+   ["berat_tinker", "Dan, my dear, you need a hug more than anyone here. Your jaw is so tight I can hear your molars from here."],
+   ["dan_warrior", "My molars are fine, ta. {player}, tell them I don't need a hug, love, before he gets any closer."],
+   ["marcus_stormbringer", "Statistically, Dan, you're the one who'd benefit most. I could show you the numbers, sorry, if you like."],
+   ["dan_warrior", "You lot are a nightmare. Right, one hug, and if either of you mentions it tomorrow I'm off home."]
+  ]},
+
+ {"id": "two_herders", "cast": ["bakyt_hunter", "giorgi_primalist"], "affinity": 0.6,
+  "lines": [
+   ["giorgi_primalist", "Bakyt, my friend, look at {player} walking. Like a lamb on the first day, all legs, very brave."],
+   ["bakyt_hunter", "Jakshy, a good lamb. It doesn't know the mountain yet, but it walks anyway. This is the best kind."],
+   ["giorgi_primalist", "In Kazbegi we put the young ones in the middle of the flock, so the wolves find the old ones first."],
+   ["bakyt_hunter", "In the Tian Shan the same. Then we are the old ones, Giorgi, and {player} walks in the middle."],
+   ["giorgi_primalist", "Good, then this is decided. Old shepherds on the outside, my friend, and the lamb safe inside."]
+  ]},
+
+ {"id": "the_readers", "cast": ["silas_rogue", "tomas_warrior", "diego_tinker"], "affinity": 0.1,
+  "lines": [
+   ["silas_rogue", "A little game, ladies and gents. I read each of you from across the fire, and you tell me if I'm wrong."],
+   ["diego_tinker", "Me first, me first, my friend, read me, I'm an open book, a very messy book with pictures!"],
+   ["silas_rogue", "Diego, you've taken apart four things today and put back three. The fourth is in your left pocket."],
+   ["diego_tinker", "That's, okay, that's frightening, yes, it's a hinge, I'll put it back, sure, sure, later."],
+   ["tomas_warrior", "Don't read me, Silas, I'm not interested in being read. I check my knots, I go to bed."],
+   ["silas_rogue", "You already did, Tomas, twice, and you checked {player}'s straps when they weren't looking. Kind of you."],
+   ["tomas_warrior", "Somebody has to, crew, they tie a knot like a man who's never fallen. Don't make it a thing, Silas."]
+  ]},
+
+ {"id": "the_edge_of_the_fire", "cast": ["adrian_templar", "tarek_templar"], "affinity": 1.0,
+  "lines": [
+   ["tarek_templar", "Adrian's doing it again, {player}. Standing at the edge with his hands behind his back, waiting for permission."],
+   ["adrian_templar", "I'm not waiting for anything, Tarek. I'm standing, which is allowed, and I'm counting heads."],
+   ["tarek_templar", "You counted them ten minutes ago, habibi. There are still the same number of heads, I promise you."],
+   ["adrian_templar", "Then I'll count them again properly, to be thorough. It isn't a crime to be thorough."],
+   ["tarek_templar", "It's a crime to let the food go cold. {player}, tell him to sit, he listens to you more than me."]
+  ],
+  "choice": {"asker": "tarek_templar",
+   "options": [
+    {"text": "Adrian, sit down. There's a place next to me.", "impression": "protective", "trust": {"adrian_templar": 2, "tarek_templar": 1}, "reply": [
+     ["adrian_templar", "Well, if you insist, then I'll sit, properly. Thank you, {player}."],
+     ["tarek_templar", "You see that, {player}? Three years I've been trying that. Here, bread, both of you."]]},
+    {"text": "Let him count. Tarek, just save him a plate.", "impression": "listens", "reply": [
+     ["tarek_templar", "Fine, a plate saved, and I'll guard it like a well. He'll come, he always does."],
+     ["adrian_templar", "I will come, eventually, once I've finished. Thank you for the plate, Tarek."]]}],
+   "silent": [["tarek_templar", "Nobody's going to make you, then, Adrian. So I'm just going to put the bread next to you and walk away."],
+              ["adrian_templar", "That's very sneaky, Tarek. Fine, I'm sitting, and only because the bread is warm."]]}},
+
+ {"id": "the_port_city", "cast": ["esteban_bloodmage", "cristobal_knight"], "affinity": -0.4,
+  "lines": [
+   ["cristobal_knight", "Esteban, two men from Valparaiso, and you've never once come to a fiesta. Not one, hermano, it's a scandal."],
+   ["esteban_bloodmage", "I spent nineteen years sewing up what came out of those fiestas, Cristobal. I've seen enough of them from the other end."],
+   ["cristobal_knight", "Ay, that's dark, even for you. You need to dance, it would do you good, doctor's orders."],
+   ["esteban_bloodmage", "I'm the doctor, so the orders are mine, and they say no. You, on the other hand, should stop running into burning things."],
+   ["cristobal_knight", "Somebody has to run in, Esteban, or there's nothing left for you to sew up afterwards."],
+   ["esteban_bloodmage", "That's a fair point, and an irritating one. {player}, I'd appreciate it if you didn't encourage him."]
+  ]}
+]

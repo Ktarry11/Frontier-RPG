@@ -152,8 +152,10 @@ def main(argv):
     for a, b, want, n in (("bakyt_hunter", "giorgi_primalist", ("close",), 30),
                           ("emiliano_pyromancer", "haruto_runemaster", ("rivals",), 40),
                           ("dan_warrior", "camille_ranger", ("friendly", "close", "nodding"), 60),
-                          # "grates with careless people at first, and then likes them if they try"
-                          ("adrian_templar", "callum_venomancer", ("grating", "nodding"), 80)):
+                          # "grates with careless people at first, and then likes them if they try": since 27 Nov
+                          # 2026 pairs settle instead of climbing forever, so a clash this strong softens slowly,
+                          # rivals at first and only grating by a hundred outings with nothing else between them
+                          ("adrian_templar", "callum_venomancer", ("grating", "nodding"), 100)):
         rm.rels.pop(rm.key(a, b), None)
         for _ in range(n):
             rm.on_outing([a, b], "quest")

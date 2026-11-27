@@ -39,6 +39,14 @@ BAD = ("grating", "rivals")
 
 #: chance a group scene takes the place of the ordinary pair chat at the end of an outing, with 3+ along
 GROUP_CHANCE = 0.4
+#: the player and two recruits (a group of three): the chance of a topic or ensemble at an outing (x1.5 at a rest)
+SMALL_SCENE_CHANCE = 0.25
+#: campfire topics: how many recent topics are held back, and the odds the player is asked or talked about
+TOPIC_MEMORY = 5
+TOPIC_ASK = 0.3
+TOPIC_GUESS = 0.35
+#: what a reaction to someone's answer does between the two of them (small: this is chat, not an event)
+REACT_MOVE = {"t_react_warm": 1.0, "t_react_laugh": 0.8, "t_react_same": 1.2, "t_react_tease": -0.6}
 #: shared outings before a trio of mutual friends becomes a crew, and a four becomes a family
 CREW_OUTINGS, FAMILY_OUTINGS = 6, 10
 #: the perks, as a fraction of damage and healing done, while the whole crew or family is in the party
@@ -161,6 +169,10 @@ class GroupDynamics:
         self.recent = []                # line ids in the last few group scenes
         self.outings = 0
         self.last_mood = "easy"
+        self.topics, self.ensembles = [], []
+        self.topics_heard = []          # campfire topic ids, most recent last
+        self.ensembles_heard = []       # written ensembles already played (each plays once)
+        self._fill = {}                 # extra placeholders for the beat being built ({topic})
         self._load()
 
     def _load(self):
@@ -171,6 +183,8 @@ class GroupDynamics:
         self.lines = raw.get("lines") or {}
         self.arcs = raw.get("arcs") or {}
         self.orient = raw.get("orientation") or {}
+        self.topics = raw.get("topics") or []
+        self.ensembles = raw.get("ensembles") or []
 
     # ------------------------------------------------------------------ basics
     def t(self, rid):
@@ -241,6 +255,8 @@ class GroupDynamics:
                 keep = text.startswith(("I ", "I'"))
                 text = f"{self.first(who)}, {text if keep else text[0].lower() + text[1:]}"
             text = text.replace("{player}", self._player_name())
+            for k, v in self._fill.items():
+                text = text.replace("{" + k + "}", v)
             out.append((rid, self.rm.address(text, who)))
         if priority <= 1 and ids[0] in self.recent:
             return False
@@ -413,6 +429,8 @@ class GroupDynamics:
         for rid in ids:
             self.push(rid, "long_stint", 0.25)
         self._drift_from_company(ids)
+        if len(ids) == 2 and random.random() < SMALL_SCENE_CHANCE and self._small_scene(ids, "outing"):
+            return True
         if len(ids) < 3 and not self._pair_growth(ids):
             return False
         played = self._milestones(ids)
@@ -426,6 +444,8 @@ class GroupDynamics:
 
     def on_rest(self, ids):
         ids = self.ids(ids)
+        if len(ids) == 2:
+            return random.random() < SMALL_SCENE_CHANCE * 1.5 and self._small_scene(ids, "rest")
         if len(ids) < 3:
             return False
         m = self.mood(ids)
@@ -769,6 +789,8 @@ class GroupDynamics:
         options += [("admire", 1)]
         options += [("callback", 2)]
         options += [("argue", 2)]
+        options += [("topic", 4 if when == "rest" else 2)]
+        options += [("ensemble", 5)]
         if when == "rest":
             options += [("toast", 3)]
         random.shuffle(options)
@@ -776,9 +798,123 @@ class GroupDynamics:
         for name, w in options:
             if w <= 0:
                 continue
-            if getattr(self, f"_{name}")(ids):
+            if (self._topic(ids, when) if name == "topic" else getattr(self, f"_{name}")(ids)):
                 return True
         return False
+
+    # ------------------------------------------------------------------ scenes with the player in them
+    # (Kyle, 27 Nov 2026: "Are there inter-party conversations with groups of 3, 4, and 5 (player included)" /
+    # "we dont need to always respond, but more mention of us during some of the interactions". A party of the
+    # player and two recruits is a group of three, so these play from two recruits up.)
+    def _small_scene(self, ids, when):
+        """The player and two recruits: a written ensemble for these two if there is one, else a campfire topic."""
+        return self._ensemble(ids) or self._topic(ids, when)
+
+    def _topic(self, ids, when="outing"):
+        """A campfire question: somebody raises it, two or three answer in their own words, somebody reacts to
+        somebody else's answer (warmly, or not), and the player is asked, or talked about, or neither."""
+        fresh = [tp for tp in self.topics if tp["id"] not in self.topics_heard[-TOPIC_MEMORY:]
+                 and when in (tp.get("when") or ["rest", "outing"])]
+        random.shuffle(fresh)
+        for tp in fresh:
+            key = "topic_" + tp["id"]
+            who = [x for x in ids if self.can(x, key)]
+            if len(who) < 2:
+                continue
+            raiser = self.pick(who, "instigator", need="t_raise")
+            if not raiser:
+                continue
+            rest = [x for x in who if x != raiser]
+            random.shuffle(rest)
+            answer = [raiser] + rest[:2]
+            parts = [(raiser, "t_raise")] + [(x, key) for x in answer]
+            # somebody reacts to somebody else's answer, and it isn't always kind. Only a person who hasn't answered
+            # yet can say "that's mine too" (t_react_same): it's the answer they'd have given
+            quiet = [x for x in ids if x not in answer]
+            if quiet and random.random() < 0.4:
+                r, a = random.choice(quiet), random.choice(answer)
+            else:
+                r, a = random.sample(answer, 2)
+            react = self._react_key(r, a, can_same=r not in answer)
+            if self.can(r, react):
+                parts.append((r, react, a))
+            ask = None
+            roll = random.random()
+            if roll < TOPIC_ASK:
+                asker = random.choice(answer)
+                if self.can(asker, "t_ask_player"):
+                    parts.append((asker, "t_ask_player"))
+                    ask = {"kind": "topic", "topic": tp["id"], "asker": asker, "witnesses": list(ids)}
+            elif roll < TOPIC_ASK + TOPIC_GUESS:
+                g = random.choice(answer)
+                if self.can(g, "t_guess_player"):
+                    parts.append((g, "t_guess_player"))
+            self._fill = {"topic": tp["question"]}
+            try:
+                ok = self.beat(parts, priority=2, ask=ask)    # topics_heard keeps them from repeating
+            finally:
+                self._fill = {}
+            if not ok:
+                continue
+            self.topics_heard = (self.topics_heard + [tp["id"]])[-12:]
+            self.move(r, a, REACT_MOVE.get(react, 0))
+            for x in answer:
+                for y in answer:
+                    if x < y and self.state(x, y) not in BAD:
+                        self.move(x, y, 0.3)    # sitting round a fire telling stories, the small warmth of it
+            return True
+        return False
+
+    def _react_key(self, r, a, can_same=False):
+        """How r takes a's answer: by where they stand, and by r's own manner. Friends tease too."""
+        st = self.state(r, a)
+        t = self.t(r)
+        if st in BAD:
+            w = {"t_react_tease": 6, "t_react_laugh": 1, "t_react_same": 0.5, "t_react_warm": 0.2}
+        elif st in GOOD:
+            w = {"t_react_warm": 3, "t_react_laugh": 3, "t_react_same": 2, "t_react_tease": 2}
+        else:
+            w = {"t_react_tease": 3, "t_react_laugh": 2, "t_react_same": 1.5, "t_react_warm": 1}
+        if t.get("humour") in ("dry", "joker") or "sarcastic" in t.get("is", []):
+            w["t_react_tease"] *= 1.6
+        if t.get("manner") == "gentle":
+            w["t_react_warm"] *= 1.6
+            w["t_react_tease"] *= 0.6
+        if not can_same:
+            w.pop("t_react_same")
+        keys = list(w)
+        return random.choices(keys, weights=[w[k] for k in keys])[0]
+
+    def _ensemble(self, ids):
+        """A written conversation for exactly these people, or some of them: two to four recruits and the player.
+        Each plays once. Some stop for the player's answer; most just talk about them."""
+        here = set(ids)
+        fits = [e for e in self.ensembles if e["id"] not in self.ensembles_heard and set(e["cast"]) <= here]
+        if not fits:
+            return False
+        fits.sort(key=lambda e: -len(e["cast"]))       # the biggest scene this party can play
+        e = fits[0] if random.random() < 0.7 else random.choice(fits)
+        rows = []
+        name = self._player_name()
+        for rid, text in e["lines"]:
+            rows.append((rid, self.rm.address(text.replace("{player}", name), None)))
+        ask = None
+        ch = e.get("choice")
+        if ch:
+            ask = {"kind": "ensemble", "ensemble": e["id"], "asker": ch["asker"], "witnesses": list(ids)}
+        item = (2, self.rm._deeds(), rows) if ask is None else (2, self.rm._deeds(), rows, ask)
+        self.rm.queue.append(item)
+        self.rm.queue.sort(key=lambda q: -q[0])
+        self.rm.queue = self.rm.queue[:3]
+        for rid, text in rows:
+            self.rm.log.append((rid, text))
+        self.rm.log = self.rm.log[-60:]
+        self.ensembles_heard.append(e["id"])
+        for a in e["cast"]:
+            for b in e["cast"]:
+                if a < b:
+                    self.move(a, b, float(e.get("affinity", 0)))
+        return True
 
     def _roast(self, ids):
         i = self.pick(ids, "instigator", need="g_roast")
@@ -1185,7 +1321,8 @@ class GroupDynamics:
     # ------------------------------------------------------------------ save
     def to_dict(self):
         return {k: getattr(self, k) for k in ("crews", "together", "drift", "arc_state", "story", "called_back",
-                                              "sore", "truce", "first_down", "admired_at", "noticed", "outings")} | \
+                                              "sore", "truce", "first_down", "admired_at", "noticed", "outings",
+                                              "topics_heard", "ensembles_heard")} | \
             {"sore_meta": {k: list(v) for k, v in getattr(self, "_sore_meta", {}).items()}}
 
     def load_state(self, d):
@@ -1195,5 +1332,7 @@ class GroupDynamics:
             setattr(self, k, dict(d.get(k) or {}))
         self.first_down = list(d.get("first_down") or [])
         self.noticed = list(d.get("noticed") or [])
+        self.topics_heard = list(d.get("topics_heard") or [])
+        self.ensembles_heard = list(d.get("ensembles_heard") or [])
         self.outings = int(d.get("outings") or 0)
         self._sore_meta = {k: tuple(v) for k, v in (d.get("sore_meta") or {}).items()}

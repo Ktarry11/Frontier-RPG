@@ -514,8 +514,83 @@ class Conversations:
         self.args_heard.append(arg["id"])
         return True
 
+    # ------------------------------------------------------------------ campfire topics and ensembles
+    def _topic(self, tid):
+        return next((t for t in self.rm().groups.topics if t["id"] == tid), None)
+
+    def _ens(self, eid):
+        return next((e for e in self.rm().groups.ensembles if e["id"] == eid), None)
+
+    def _to_player(self, rid, key):
+        """rid's line for key, said to the player ({name} is the player here)."""
+        g = self.rm().groups
+        opts = g.line_opts(rid, key)
+        if not opts:
+            return None
+        pn = g._player_name()
+        return self.rm().address(random.choice(opts).replace("{name}", pn).replace("{player}", pn), None)
+
+    #: how a group takes the player's own answer to a campfire question, by its tone
+    #: (t_react_same isn't used here: it means "that's my answer too", and they've already given theirs)
+    TONE_REACT = {"jokes": ("t_react_laugh", "t_react_tease"), "truth": ("t_react_warm", "t_react_laugh"),
+                  "listens": ("t_react_warm", "t_react_laugh"), "stays_out": ("t_react_tease", "t_react_warm"),
+                  "protective": ("t_react_warm", "t_react_laugh"), "responsible": ("t_react_warm", "t_react_laugh")}
+
+    def _resolve_topic(self, ask, choice):
+        tp = self._topic(ask.get("topic")) or {}
+        opts = tp.get("player") or []
+        try:
+            opt = opts[int(choice[3:])]
+        except (ValueError, IndexError):
+            opt = {"tone": "stays_out"}
+        tone = opt.get("tone", "listens")
+        first, second = self.TONE_REACT.get(tone, ("t_react_warm", "t_react_laugh"))
+        others = [w for w in ask.get("witnesses", []) if w != ask["asker"]]
+        random.shuffle(others)
+        lines = []
+        a = self._to_player(ask["asker"], first)
+        if a:
+            lines.append((ask["asker"], a))
+        if others and random.random() < 0.6:
+            b = self._to_player(others[0], second)
+            if b:
+                lines.append((others[0], b))
+        for w in ask.get("witnesses", []):
+            self.impress(w, tone)
+        if tone != "stays_out":
+            self.trust(ask["asker"], 0.5)
+        return lines
+
+    def _resolve_ensemble(self, ask, choice):
+        e = self._ens(ask.get("ensemble")) or {}
+        ch = e.get("choice") or {}
+        try:
+            opt = (ch.get("options") or [])[int(choice[3:])]
+        except (ValueError, IndexError):
+            return self._silent_ensemble(ask)
+        pn = self.rm().groups._player_name()
+        lines = [(rid, self.rm().address(t.replace("{player}", pn), None)) for rid, t in opt.get("reply") or []]
+        for w in ask.get("witnesses", []):
+            if opt.get("impression"):
+                self.impress(w, opt["impression"])
+        for rid, n in (opt.get("trust") or {}).items():
+            self.trust(rid, n)
+        return lines
+
+    def _silent_ensemble(self, ask):
+        e = self._ens(ask.get("ensemble")) or {}
+        pn = self.rm().groups._player_name()
+        return [(rid, self.rm().address(t.replace("{player}", pn), None))
+                for rid, t in (e.get("choice") or {}).get("silent") or []]
+
     def ask_options(self, ask):
-        """[(label, choice)] for the argument the player was pulled into."""
+        """[(label, choice)] for whatever the player was pulled into: an argument, a campfire question, a scene."""
+        if ask.get("kind") == "topic":
+            tp = self._topic(ask.get("topic")) or {}
+            return [(o["text"], f"opt{i}") for i, o in enumerate(tp.get("player") or [])]
+        if ask.get("kind") == "ensemble":
+            ch = (self._ens(ask.get("ensemble")) or {}).get("choice") or {}
+            return [(o["text"], f"opt{i}") for i, o in enumerate(ch.get("options") or [])]
         arg = next((a for a in self.arguments if a["id"] == ask["arg"]), None)
         if not arg:
             return []
@@ -528,6 +603,13 @@ class Conversations:
     def resolve(self, ask, choice):
         """The player's call on an argument. They don't always take it. Queues the reaction; returns its lines."""
         rm = self.rm()
+        if ask.get("kind") in ("topic", "ensemble"):
+            lines = self._resolve_topic(ask, choice) if ask["kind"] == "topic" else self._resolve_ensemble(ask, choice)
+            lines = [(r, t) for r, t in lines if t]
+            if lines:
+                rm.queue.insert(0, (3, rm._deeds(), lines))
+            self.pending_ask = None
+            return lines
         g = rm.groups
         a, b = ask["asker"], ask["other"]
         arg = next((x for x in self.arguments if x["id"] == ask["arg"]), {})
@@ -586,6 +668,17 @@ class Conversations:
     def wallflower(self, ask):
         """The player never answered: they settle it themselves, with a jab at the wallflower."""
         rm = self.rm()
+        if ask.get("kind") in ("topic", "ensemble"):
+            # nobody minds much: a question at the fire can go unanswered (Kyle: "we dont need to always respond")
+            lines = self._silent_ensemble(ask) if ask["kind"] == "ensemble" else []
+            if ask["kind"] == "topic" and random.random() < 0.5:
+                g = self._to_player(ask["asker"], "t_guess_player")
+                lines = [(ask["asker"], g)] if g else []
+            lines = [(r, t) for r, t in lines if t]
+            if lines:
+                rm.queue.insert(0, (2, rm._deeds(), lines))
+            self.pending_ask = None
+            return
         a, b = ask["asker"], ask["other"]
         line = self.say(a, "arg_wallflower", b)
         if line:
