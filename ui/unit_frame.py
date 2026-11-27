@@ -113,7 +113,14 @@ def draw_unit_frame(renderer, screen, char, x, y, width, big=False, highlight=Fa
     except Exception:                                           # noqa: BLE001
         postures = []
     if postures and alive:
-        subtitle = f"{subtitle}  -  {postures[0].name}"
+        # FITS THE FRAME (Kyle, 27 Nov 2026: "his accursed form text is running off his party card"): the whole line if
+        # it fits, else the class gives way to the form ("Lv 60 - Accursed Form"), else the form is cut to fit
+        full = f"{subtitle}  -  {postures[0].name}"
+        short = f"Lv {getattr(char, 'level', 1)}  -  {postures[0].name}"
+        subtitle = full if sub_font.size(full)[0] <= tw else short
+        while sub_font.size(subtitle)[0] > tw and len(subtitle) > 6:
+            subtitle = subtitle[:-2].rstrip() + "."
+
         try:
             from ui.effect_tooltip import draw_effect_icon
             s_ = 16 if big else 14
