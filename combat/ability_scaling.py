@@ -296,7 +296,7 @@ AP_BASE = 0.5            # physical special, per point of attack power (the weap
 #: across every class at 60: direct spells 0.90 coefficient per 1,000 base, spell DoTs 0.49, physical specials 0.34,
 #: bleeds 0.10. Kyle: "Damage-over-time abilities scale extremely poorly." Raised so a DoT takes the same share of
 #: your power, against its size, as a direct hit of its kind.
-DOT_SP_BASE = 1.85       # a spell DoT, total over its duration
+DOT_SP_BASE = 1.7        # a spell DoT, total over its duration
 DOT_AP_BASE = 1.0        # a physical DoT (a bleed), total
 HOT_BASE = 0.8           # a HoT, total (the healing formula replaces it: see below)
 
@@ -423,8 +423,16 @@ def apply(ability, entry):
     Holy Light vs Tinker's Repair Shot). The coefficient is now multiplied by the same cast-speed value."""
     c = coefficients(ability)
     try:
-        from combat.abilities import cast_speed_value
-        speed = cast_speed_value(entry.get("cast_speed"))
+        from combat.abilities import cast_speed_value, MEDIUM_SPEED
+        # AGAINST A MEDIUM CAST (27 Nov 2026). This multiplied by the raw speed, written when a normal cast was 1.0;
+        # the quarter-mark speeds (21 Nov) made medium 0.75, short 0.5 and instant 0.25, so every coefficient in the
+        # game quietly lost a quarter, and an instant HoT kept a quarter of its power: a full epic healing set added
+        # 11% to a level-60 Regrowth. Speed is a share of a medium cast again, and a DoT or HoT (which refreshes rather
+        # than stacks) moves OVER_TIME_SHARE of the way, the same rule the healing formula sizes its base by.
+        speed = cast_speed_value(entry.get("cast_speed")) / MEDIUM_SPEED
+        if entry.get("effect_type") in ("dot", "spell_dot", "hot"):
+            from combat.heal_formula import OVER_TIME_SHARE
+            speed = 1.0 + (speed - 1.0) * OVER_TIME_SHARE
     except Exception:                                          # noqa: BLE001
         speed = 1.0
     if speed != 1.0:

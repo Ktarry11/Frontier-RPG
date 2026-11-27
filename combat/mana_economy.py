@@ -22,8 +22,8 @@ TWO RULES, applied where abilities are built so they reach every class and every
    level, by its size and a healing-per-mana share for its speed:
         cost = anchor cost x (its heal / the anchor's heal) / HPM[speed]
    A short heal at 0.6 of the anchor's efficiency heals about 60% of it for about the same mana; a long one is
-   slightly less efficient than the anchor. Heals on a cooldown longer than a turn, party heals and HoTs are left to
-   the table: they are their own decisions.
+   slightly less efficient than the anchor. A single-target HoT is priced at HOT_HPM of the anchor (its up-front heal
+   and every tick counted). Heals on longer cooldowns and party heals are left to the table: their own decisions.
 """
 
 HEAL_TIGHTEN = 1.25
@@ -36,6 +36,20 @@ ANCHOR_SPEED = 0.75
 
 def tighten(effect_type):
     return HEAL_TIGHTEN if effect_type in ("heal", "hot", "damage_and_heal") else DAMAGE_TIGHTEN
+
+
+#: a single-target HoT's healing per mana against the anchor, counting its up-front heal and every tick. Before the
+#: ladder took them in (27 Nov 2026) HoTs ran 1.7-2x the anchor's efficiency (Renew 4.1 healing a mana against Heal's
+#: 2.4) on top of the table's own costs, which is how a healer never ran dry rolling HoTs.
+HOT_HPM = 1.3
+
+
+def _is_ladder_hot(a):
+    return (a.effect_type == "hot" and (a.cooldown or 0) <= 2
+            and getattr(a, "target_type", None) not in ("party", "all_allies")
+            and getattr(a, "heal_scope", None) != "party"
+            and getattr(getattr(a, "resource_type", None), "value", None) == "mana"
+            and a.ranks and all(r.get("cost") for r in a.ranks))
 
 
 def _is_ladder_heal(a):
@@ -52,19 +66,24 @@ def _speed_key(speed):
 
 def apply_heal_ladder(abilities):
     heals = [a for a in abilities if _is_ladder_heal(a)]
-    if len(heals) < 2:
+    if not heals or len(heals) + sum(1 for a in abilities if _is_ladder_hot(a)) < 2:
         return
     anchors = [a for a in heals if _speed_key(getattr(a, "cast_speed", ANCHOR_SPEED)) == ANCHOR_SPEED] or heals
     anchor = max(anchors, key=lambda a: (len(a.ranks), a.ranks[-1].get("level_req", 1)))
     aranks = sorted(anchor.ranks, key=lambda r: r.get("level_req", 1))
     a_hpm = HPM[_speed_key(getattr(anchor, "cast_speed", ANCHOR_SPEED))]
-    for a in heals:
+    hots = [a for a in abilities if _is_ladder_hot(a)]
+    for a in heals + hots:
         if a is anchor:
             continue
-        hpm = HPM[_speed_key(getattr(a, "cast_speed", ANCHOR_SPEED))] / a_hpm
+        if a.effect_type == "hot":
+            hpm = HOT_HPM
+        else:
+            hpm = HPM[_speed_key(getattr(a, "cast_speed", ANCHOR_SPEED))] / a_hpm
         for r in a.ranks:
             lv = r.get("level_req", 1)
             ref = next((x for x in reversed(aranks) if x.get("level_req", 1) <= lv), aranks[0])
-            if not ref.get("effect_value") or not r.get("effect_value"):
+            size = (r.get("effect_value") or 0) + (r.get("heal_value") or 0)
+            if not ref.get("effect_value") or not size:
                 continue
-            r["cost"] = max(1, int(round(ref["cost"] * (r["effect_value"] / ref["effect_value"]) / hpm)))
+            r["cost"] = max(1, int(round(ref["cost"] * (size / ref["effect_value"]) / hpm)))
