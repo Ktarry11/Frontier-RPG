@@ -1864,9 +1864,11 @@ class OverworldScreen(BaseScreen):
             self.arg_modal = {"ask": ask, "options": opts, "reply": None, "line": said.strip('"')}
 
     def _close_party_talk(self):
+        from world.conversations import get_conversations
         if self.arg_modal and self.arg_modal.get("reply") is None:
-            from world.conversations import get_conversations
             get_conversations().wallflower(self.arg_modal["ask"])
+        if self.talk is not None and self.talk.get("reply") is None:
+            get_conversations().not_now(self.talk["conv"]["rid"])
         self.talk = None
         self.arg_modal = None
 
@@ -1877,6 +1879,8 @@ class OverworldScreen(BaseScreen):
             if not rect.collidepoint(pos):
                 continue
             if choice == "close":
+                if self.talk is not None and self.talk.get("reply") is None:
+                    cv.not_now(self.talk["conv"]["rid"])     # set aside, so it doesn't reopen on the same line
                 self.talk, self.arg_modal = None, None
                 return
             if self.talk is not None:

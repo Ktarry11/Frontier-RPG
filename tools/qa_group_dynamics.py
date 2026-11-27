@@ -149,8 +149,11 @@ def findings():
             if n % 7 == 6:
                 cv.pending_ask = None
                 cv.start_argument(party)
-            while True:
-                item = rm.pop_beat(99)
+            # at most one scene per outing: the panel waits relationship_manager.GAP between scenes and lets the small
+            # talk behind it go (Kyle, 26 Nov 2026: talk "should feel special, not being spammed every 2 seconds")
+            for _once in range(1):
+                from world import relationship_manager as _RM
+                item = rm.pop_beat(_RM.GAP)
                 if not item:
                     break
                 for rid, text in item:

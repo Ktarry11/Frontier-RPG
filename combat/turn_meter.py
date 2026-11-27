@@ -94,7 +94,8 @@ class TurnMeter:
                 and not hasattr(char, "_recalculate_derived_stats")):
             haste_pct += char.get_status_stat_mod("haste")
 
-        char.turn_speed = base_speed * (1.0 + haste_pct / 100.0)
+        # enemy tempo (CombatEngine._enemy_tempo): an outnumbered enemy acts more often, each hit smaller
+        char.turn_speed = base_speed * (1.0 + haste_pct / 100.0) * getattr(char, "_tempo", 1.0)
     
     def update(self, dt):
         """Advance turn meters. Returns character who should act next (or None)."""
@@ -120,10 +121,18 @@ class TurnMeter:
         #
         # The duration is a number of TURNS, so the turn has to actually
         # happen for the stun to mean anything at all.
+        # NOBODY FILLS WHILE A TURN IS WAITING. The meter used to keep filling everyone on every tick, then hand the
+        # turn to the single fullest meter. Whoever filled fastest then pulled further ahead each tick than one turn
+        # could spend, and the slower side was starved outright: found 26 Nov 2026 when enemy tempo made a boss 2.5x
+        # and its adds 3.75x, and a party of five took zero turns in a whole fight with every meter past 1,000. Holding
+        # the fill while anyone is ready settles the waiting turns in order first, so the turn order depends only on
+        # speed, never on how big a tick the caller happened to take.
+        ready = any(c.is_alive() and c.turn_meter >= TURN_THRESHOLD for c in self.combatants)
         for char in self.combatants:
             if char.is_alive():
                 self._refresh_turn_speed(char)
-                char.turn_meter += (char.turn_speed * AGI_TO_TURN_SPEED * 100.0 * dt)
+                if not ready:
+                    char.turn_meter += (char.turn_speed * AGI_TO_TURN_SPEED * 100.0 * dt)
         
         # Find next character to act
         next_char = None

@@ -399,6 +399,7 @@ PET_TEMPLATES = {
     },
     "voidwalker": {
         "display_name": "Voidwalker",
+        "tank": True,   # keeps full threat (CombatEngine.PET_THREAT is for the rest)
         "pet_type": "warlock",
         "base_hp": 220,
         "base_armor": 22,
@@ -698,6 +699,7 @@ PET_TEMPLATES = {
     },
     "mechano_bear": {
         "display_name": "Mechano-Bear",
+        "tank": True,   # keeps full threat (CombatEngine.PET_THREAT is for the rest)
         "pet_type": "tinker",
         "base_hp": 260,
         "base_armor": 42,

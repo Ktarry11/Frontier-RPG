@@ -60,12 +60,14 @@ BAD = ("grating", "rivals")
 NEIGHBOUR_START = 6
 
 #: chance of one ordinary conversation at the end of an outing, and at a town rest
-AMBIENT_CHANCE = 0.55
-REST_CHANCE = 0.30
+AMBIENT_CHANCE = 0.30   # 0.55 until 26 Nov 2026 (talk should feel special)
+REST_CHANCE = 0.20      # 0.30 until 26 Nov 2026
 #: chance a shared bit of Earth comes up, per outing, for a pair that hasn't found it yet
-TAG_CHANCE = 0.35
+TAG_CHANCE = 0.20       # 0.35 until 26 Nov 2026
 #: seconds after the last beat before a queued relationship beat is shown
-GAP = 12.0
+#: seconds of play between two party scenes. 12 until 26 Nov 2026, when Kyle: "Should also not talk as much. Talking
+#: should be something that should feel special, not being spammed every 2 seconds."
+GAP = 150.0
 #: beats waiting longer than this many outings are dropped; nobody wants an old conversation
 STALE = 2
 
@@ -813,6 +815,9 @@ class RelationshipManager:
         if not self.queue:
             return None
         item = self.queue.pop(0)
+        # one scene per gap, and what was waiting behind it is let go rather than banked: a backlog played out one
+        # after another is exactly the spam (the queue is sorted by priority, so what's dropped is the small talk)
+        self.queue = [q for q in self.queue if q[0] >= 2]
         self.last_ask = item[3] if len(item) > 3 else None
         return item[2]
 

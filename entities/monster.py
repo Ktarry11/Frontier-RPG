@@ -431,7 +431,18 @@ class MonsterAbility:
         if not self.is_available(caster):
             return False, f"{self.name} unavailable"
 
-        self.turns_remaining = self.cooldown
+        # ENEMY TEMPO (CombatEngine._enemy_tempo): a sped-up monster acts up to 3x as often and every hit shrinks to
+        # match. Its abilities keep their real rhythm: each cooldown stretches by the tempo, so a boss acting three
+        # times as often doesn't sleep the healer, summon, or throw its big special three times as often.
+        tempo = max(1.0, getattr(caster, "_tempo", 1.0))
+        cd = self.cooldown
+        # every ability, damage too: measured, a damage special left on its own cooldown came round 2.5x as often in
+        # real time against Lord Pythas (Thorn Burst and Lightning Bolt), and his damage per party turn went from
+        # 127 to 280. So the specials keep their rhythm and the extra turns are the smaller everyday swings.
+        if tempo > 1.0:
+            import math as _m
+            cd = int(_m.ceil(self.cooldown * tempo)) if self.cooldown else int(_m.ceil(tempo)) - 1
+        self.turns_remaining = cd
         if self.mana_cost > 0 and hasattr(caster, "current_mana"):
             caster.current_mana = max(0, caster.current_mana - self.mana_cost)
 
@@ -450,7 +461,7 @@ class MonsterAbility:
             return self._summon(caster, engine)
 
         if self.kind == "heal":
-            healed = self.amount + power
+            healed = int((self.amount + power) / tempo)      # more turns, smaller heals (enemy tempo)
             caster.heal(healed)
             return True, f"{caster.name} casts {self.name} and heals {healed}!"
 
@@ -1064,7 +1075,8 @@ class Monster(StatusEffectMixin):
         pct = self.get_status_stat_mod("damage_dealt_pct") or 0.0
         # Global difficulty for where this monster stands (world/difficulty.py, 14 Nov 2026).
         from world.difficulty import factor
-        return max(0.0, 1.0 + pct / 100.0) * factor(self, "damage")
+        # enemy tempo: acting up to 3x as often against a big party, each hit is that much smaller
+        return max(0.0, 1.0 + pct / 100.0) * factor(self, "damage") / max(1.0, getattr(self, "_tempo", 1.0))
 
     def is_alive(self):
         return self.current_health > 0

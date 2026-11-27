@@ -734,7 +734,7 @@ class CombatScreen(BaseScreen):
             self.targeting_valid_targets = valid
             self.targeting_hovered = valid[0]
             self.message_log.append(
-                f"{ability.name} — click an enemy to hit their row (ESC to cancel)")
+                f"{ability.name}: click an enemy to hit their row (ESC to cancel)")
             return
 
         # Manually targetable: pick between allies or enemies
@@ -777,7 +777,7 @@ class CombatScreen(BaseScreen):
         self.targeting_mode = (ability_id, slot_index, ability, actor)
         self.targeting_valid_targets = valid
         self.targeting_hovered = valid[0]
-        self.message_log.append(f"{ability.name} — click target (ESC to cancel)")
+        self.message_log.append(f"{ability.name}: click a target (ESC to cancel)")
 
     def _execute_ability(self, actor, ability_id, target):
         """Cast an ability after targeting is done."""

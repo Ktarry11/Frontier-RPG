@@ -94,6 +94,17 @@ class CombatEngine:
 
         self.combatants = self.allies + self.pets + self.enemies
 
+        # ENEMY TEMPO (Kyle, 26 Nov 2026: "enemies NEVER go before us? ... so its either omfg one shot or nothing?";
+        # chose "more, smaller turns"). The meter is fair per combatant, but five heroes and two pets against one
+        # boss is seven turns to its one, so a boss tuned to threaten a party had to put all of it into a rare,
+        # enormous swing (a 1,000-damage Whirlwind on everyone). Enemies outnumbered more than two to one now act
+        # proportionally more often, up to 3x, and every hit shrinks by the same factor (Monster.
+        # damage_output_multiplier reads _tempo): the same damage over a fight, delivered as steady pressure. A solo
+        # player, or a fair fight, is untouched (the balance sims fight solo, so their numbers don't move).
+        self.enemy_tempo = self._enemy_tempo()
+        for m in self.enemies:
+            m._tempo = self.enemy_tempo
+
         # Combat state
         self.turn_meter = TurnMeter(self.combatants)
         self.current_actor = None
@@ -198,6 +209,7 @@ class CombatEngine:
                 m.row = getattr(summoner, "row", None) or "front"
             self.enemies.append(m)
             self.combatants.append(m)
+            m._tempo = getattr(self, "enemy_tempo", 1.0)
             self.turn_meter.add_combatant(m, head_start=head_start)
             added.append(m)
         return added
@@ -219,6 +231,30 @@ class CombatEngine:
     def get_threat(self, enemy, ally):
         """Current threat `ally` has on `enemy`'s table (0 if never generated any)."""
         return self.threat_tables.get(enemy, {}).get(ally, 0)
+
+    #: what a non-tank pet's threat is multiplied by (see _apply_threat)
+    PET_THREAT = 0.5
+    #: the most extra turns enemy tempo can give, and the odds below which it gives none (allies per enemy)
+    TEMPO_MAX = 3.0
+    TEMPO_FREE_RATIO = 2.0
+
+    def _aoe_victims(self, ability):
+        """Who a monster's area attack lands on. A PHYSICAL one (Whirlwind, Cleave, Tail Sweep, a stomp) is a melee
+        swing and reaches the front row only (Kyle, 26 Nov 2026, after a Whirlwind hit his whole party for about a
+        thousand each: front row only). A spell (Thundercrack, a breath, a nova) still reaches everyone. With nobody
+        left standing in front, the swing falls on the back row, as a single-target melee hit already does."""
+        living = self.living_allies()
+        if getattr(ability, "school", "physical") != "physical":
+            return living
+        from entities.party import FRONT_ROW
+        front = [a for a in living if getattr(a, "row", FRONT_ROW) == FRONT_ROW]
+        return front or living
+
+    def _enemy_tempo(self):
+        """How much faster the enemy side acts, from how badly it's outnumbered at the start (pets count)."""
+        allies = len([a for a in self.allies + self.pets if a.is_alive()])
+        enemies = max(1, len([e for e in self.enemies if e.is_alive()]))
+        return max(1.0, min(self.TEMPO_MAX, allies / (self.TEMPO_FREE_RATIO * enemies)))
 
     def highest_threat_target(self, enemy):
         """Living ally with the most threat on `enemy`'s table, or None if
@@ -769,6 +805,13 @@ class CombatEngine:
                 if (actor.current_health / actor.health) < threshold:
                     threat_mult *= (1.0 + low_threat_pct)
 
+        # PETS BUILD HALF THREAT (Kyle, 26 Nov 2026: "i dont think tanks are working....pets do too much damage and
+        # enemies just go at them always"). A pet's damage counted 1:1 like a player's, so a hard-hitting pet topped
+        # every table and drew the pack off the tank. The tank pets (template "tank": the Voidwalker and the
+        # Mechano-Bear, built to hold a hit) keep full threat; every other pet builds half.
+        if getattr(actor, "is_pet", False) and not (getattr(actor, "template", None) or {}).get("tank"):
+            threat_mult *= self.PET_THREAT
+
         for enemy, amount, is_damage in events:
             if amount <= 0:
                 continue
@@ -815,7 +858,7 @@ class CombatEngine:
         # rather than just whichever single target choose_action() picked,
         # matching the player-side enemy_aoe handling in execute_ability().
         if getattr(chosen_ability, "is_aoe", False):
-            success, message = chosen_ability.use(enemy, self.living_allies(), engine=self)
+            success, message = chosen_ability.use(enemy, self._aoe_victims(chosen_ability), engine=self)
         else:
             success, message = chosen_ability.use(enemy, target, engine=self)
 
@@ -1009,7 +1052,17 @@ class CombatEngine:
             self._land_delayed(actor)
 
         # Tick DoTs/HoTs/buffs riding on the actor who just acted.
-        if hasattr(actor, "tick_status_effects"):
+        # A SPED-UP MONSTER'S EFFECTS KEEP REAL TIME (enemy tempo): a sunder, a stun or a DoT the party put on it
+        # counts in its turns, so at 2.5x tempo it would wear off 2.5x sooner. Ticked once per `tempo` of its
+        # turns instead, carried as a fraction, so a three-turn debuff lasts as long as it does on anyone.
+        tempo = max(1.0, getattr(actor, "_tempo", 1.0))
+        tick_now = True
+        if tempo > 1.0:
+            actor._tempo_tick = getattr(actor, "_tempo_tick", 0.0) + 1.0 / tempo
+            tick_now = actor._tempo_tick >= 1.0 - 1e-9
+            if tick_now:
+                actor._tempo_tick -= 1.0
+        if tick_now and hasattr(actor, "tick_status_effects"):
             for msg in actor.tick_status_effects():
                 self.combat_log.append(msg)
         # A RAISED PET'S TIME RUNS OUT (Wave 4, Stelios): laid to rest after its last turn.

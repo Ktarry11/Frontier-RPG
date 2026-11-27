@@ -55,7 +55,7 @@ TRIGGERS = (
 #: 150 was right when every eligible trigger fired; with TRIGGER_CHANCE gating on top of it the two
 #: compounded and a measured 45-minute session produced five beats with a 28-minute silence in the
 #: middle. That is not restraint, that is an empty party. 75 lets the chance table do the shaping.
-BEAT_COOLDOWN = 75.0
+BEAT_COOLDOWN = 120.0   # 75 until 26 Nov 2026: Kyle, "Talking should be something that should feel special"
 
 #: And the same person should not be the voice of the party. Once someone speaks they go to the back
 #: of the queue; this is how many OTHER speakers have to go before they come up again.

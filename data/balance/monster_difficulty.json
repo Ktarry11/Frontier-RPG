@@ -153,5 +153,13 @@
         "Scarlet Crypt"
       ]
     }
+  },
+  "level_band": {
+    "from_level": 10,
+    "to_level": 25,
+    "fade_to": 28,
+    "health": 1.75,
+    "damage": 1.75,
+    "_why": "Kyle, 26 Nov 2026: 'in terms of difficulty, the 10-25 band can be boosted 1.75x hp and 1.75x damage. Party of 5 stomps it... just stomping wailing caverns with 2x hp and 2x damage.' Every creature from level 10 to 25, on top of its own row; it fades back to 1x by fade_to so level 26 is not a cliff. Below 10 the low_level row still applies."
   }
 }

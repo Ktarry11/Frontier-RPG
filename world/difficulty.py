@@ -157,6 +157,18 @@ def factor(monster, what):
     # elite on top of whatever row it already has.
     if getattr(monster, "_heroic", False):
         f *= float((table().get("heroic") or {}).get(what, 1.0))
+    # THE 10-25 BAND (Kyle, 26 Nov 2026: "the 10-25 band can be boosted 1.75x hp and 1.75x damage. Party of 5 stomps
+    # it"): every creature in it, on top of its row, easing back to 1x between to_level and fade_to.
+    band = table().get("level_band") or {}
+    if what in band:
+        lv = getattr(monster, "level", 1) or 1
+        lo, hi = int(band.get("from_level", 10)), int(band.get("to_level", 25))
+        fade = int(band.get("fade_to", hi))
+        full = float(band[what])
+        if lo <= lv <= hi:
+            f *= full
+        elif hi < lv < fade:
+            f *= full + (1.0 - full) * (lv - hi) / float(fade - hi)
     low = table().get("low_level") or {}
     if (getattr(monster, "level", 99) or 99) < int(low.get("below_level", 0)):
         f *= float(low.get(what, 1.0))

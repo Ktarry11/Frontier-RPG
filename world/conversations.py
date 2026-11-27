@@ -92,6 +92,7 @@ class Conversations:
         self.grumbles = []          # [(due outing, rid, other)]
         self.args_heard = []        # argument ids already played, newest last
         self.history_done = {}      # rid -> [conversation ids]
+        self.history_later = {}     # rid -> outing count before a set-aside history chat can come back (not_now)
         self.milestones_done = {}   # rid -> [milestone kinds]
         self.ignored = {}           # rid -> times an emotional request lapsed
         self.pending_ask = None     # the argument the player is being asked about right now
@@ -359,16 +360,16 @@ class Conversations:
             if not conv:
                 self.wants.pop(rid, None)
                 return None
-            return {"rid": rid, "kind": kind, "id": conv["id"], "line": conv["open"],
-                    "options": [(o["text"], i) for i, o in enumerate(conv["options"])]}
+            return {"rid": rid, "kind": kind, "id": conv["id"], "line": self._fill(conv["open"]),
+                    "options": [(self._fill(o["text"]), i) for i, o in enumerate(conv["options"])]}
         if kind == "milestone":
             m = (self.milestones.get(rid) or {}).get(sub)
             if not m:
                 self.wants.pop(rid, None)
                 return None
-            text = m["open"].replace("{name}", self.name(about) if about else "")
+            text = self._fill(m["open"].replace("{name}", self.name(about) if about else ""))
             return {"rid": rid, "kind": kind, "sub": sub, "line": text,
-                    "options": [(o["text"], i) for i, o in enumerate(m["options"])]}
+                    "options": [(self._fill(o["text"]), i) for i, o in enumerate(m["options"])]}
         opener = self.say(rid, f"talk_{kind}_{sub}", about) or self.say(rid, f"talk_{kind}", about)
         if not opener:
             self.wants.pop(rid, None)
@@ -393,13 +394,13 @@ class Conversations:
             self.trust(rid, o.get("trust", 1))
             if o.get("impression"):
                 self.impress(rid, o["impression"])
-            return o.get("reply", "")
+            return self._fill(o.get("reply", ""))
         if kind == "milestone":
             m = (self.milestones.get(rid) or {}).get(sub) or {}
             o = (m.get("options") or [{}])[choice]
             self.milestones_done.setdefault(rid, []).append(sub)
             self.trust(rid, o.get("trust", 2))
-            return o.get("reply", "")
+            return self._fill(o.get("reply", ""))
         approach = choice
         f = self.fit(rid, approach, kind, sub)
         self.trust(rid, FIT_TRUST[f])
@@ -437,7 +438,28 @@ class Conversations:
             self.bm()._mood(self.bm().bonds[rid], -3) if self.bm().bonds.get(rid) else None
         return reply
 
+    def _fill(self, text):
+        """{player} in an authored line becomes the hero's name. The history and milestone talks were written with
+        it and shown raw (Kyle, 26 Nov 2026: "they dont use my name lol...sometimes")."""
+        try:
+            name = self.bm().rel.groups._player_name()
+        except Exception:
+            name = "friend"
+        return (text or "").replace("{player}", name)
+
+    def not_now(self, rid):
+        """The player closed the window without answering. The talk is set aside rather than left waiting, so the
+        next time he's looked at he doesn't open with the very same line (Kyle, 26 Nov 2026: "the characters keep
+        repeating their opening lines"). A history chat comes back later, after the usual gap; no trust is lost for
+        a polite not now."""
+        w = self.wants.pop(rid, None)
+        if w and w.get("kind") == "history":
+            self.history_later[rid] = self.outings + NEW_GAP
+        self.last_new = self.outings
+
     def _next_history(self, rid):
+        if self.outings < self.history_later.get(rid, 0):
+            return None
         done = set(self.history_done.get(rid, []))
         try:
             stage = self.bm().bonds[rid].stage
@@ -576,11 +598,12 @@ class Conversations:
     def to_dict(self):
         return {k: getattr(self, k) for k in ("wants", "last_new", "outings", "impressions", "backed", "seeds",
                                               "grumbles", "args_heard", "history_done", "milestones_done", "ignored",
-                                              "favour", "benched")}
+                                              "favour", "benched", "history_later")}
 
     def load_state(self, d):
         d = d or {}
-        for k in ("wants", "impressions", "backed", "history_done", "milestones_done", "ignored", "favour", "benched"):
+        for k in ("wants", "impressions", "backed", "history_done", "milestones_done", "ignored", "favour", "benched",
+                  "history_later"):
             setattr(self, k, dict(d.get(k) or {}))
         for k in ("seeds", "args_heard"):
             setattr(self, k, list(d.get(k) or []))
