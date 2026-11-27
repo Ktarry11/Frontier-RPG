@@ -340,8 +340,12 @@
           "item_level": 5,
           "rarity": "common",
           "required_level": 3,
-          "primary_stats": {},
-          "label": "Necklace (Int/Sta)"
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "label": "Necklace (Int/Sta)",
+          "secondary_stats": {}
         },
         {
           "name": "Taint-Warded Leggings",
@@ -752,9 +756,13 @@
           "item_level": 5,
           "rarity": "uncommon",
           "required_level": 2,
-          "primary_stats": {},
+          "primary_stats": {
+            "agility": 1,
+            "spirit": 1
+          },
           "label": "Cloak (Agi/Spi)",
-          "armor_value": 3
+          "armor_value": 3,
+          "secondary_stats": {}
         },
         {
           "name": "Scavenger's Cord",
@@ -836,10 +844,14 @@
           "item_level": 3,
           "rarity": "uncommon",
           "required_level": 1,
-          "primary_stats": {},
+          "primary_stats": {
+            "stamina": 1,
+            "spirit": 1
+          },
           "armor_type": "cloth",
           "armor_value": 1,
-          "label": "Cloth Bracers (Sta/Spi)"
+          "label": "Cloth Bracers (Sta/Spi)",
+          "secondary_stats": {}
         },
         {
           "name": "Skimmer-Silk Sash",
@@ -847,10 +859,14 @@
           "item_level": 3,
           "rarity": "uncommon",
           "required_level": 1,
-          "primary_stats": {},
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
           "armor_type": "cloth",
           "armor_value": 1,
-          "label": "Cloth Belt (Int/Spi)"
+          "label": "Cloth Belt (Int/Spi)",
+          "secondary_stats": {}
         },
         {
           "name": "Springstone Charm",
@@ -869,10 +885,14 @@
           "item_level": 3,
           "rarity": "uncommon",
           "required_level": 1,
-          "primary_stats": {},
+          "primary_stats": {
+            "strength": 1,
+            "spirit": 1
+          },
           "armor_type": "mail",
           "armor_value": 4,
-          "label": "Mail Boots (Str/Spi)"
+          "label": "Mail Boots (Str/Spi)",
+          "secondary_stats": {}
         }
       ],
       "gear_reward_gear_level": 3
@@ -1132,11 +1152,15 @@
           "rarity": "uncommon",
           "required_level": 3,
           "weapon_type": "wand",
-          "primary_stats": {},
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
           "weapon_damage_min": 11,
           "weapon_damage_max": 15,
           "attack_speed": 1.9,
-          "label": "Wand (Int/Spi)"
+          "label": "Wand (Int/Spi)",
+          "secondary_stats": {}
         }
       ],
       "gear_reward_gear_level": 5
@@ -1428,11 +1452,15 @@
           "rarity": "uncommon",
           "required_level": 3,
           "weapon_type": "gun",
-          "primary_stats": {},
+          "primary_stats": {
+            "agility": 1,
+            "stamina": 1
+          },
           "weapon_damage_min": 11,
           "weapon_damage_max": 15,
           "attack_speed": 2.6,
-          "label": "Gun (Agi/Sta)"
+          "label": "Gun (Agi/Sta)",
+          "secondary_stats": {}
         },
         {
           "name": "Goggles of Questionable Safety",
@@ -1468,8 +1496,12 @@
           "item_level": 5,
           "rarity": "uncommon",
           "required_level": 3,
-          "primary_stats": {},
-          "label": "Ring (Int/Sta)"
+          "primary_stats": {
+            "intellect": 1,
+            "stamina": 1
+          },
+          "label": "Ring (Int/Sta)",
+          "secondary_stats": {}
         }
       ],
       "gear_reward_gear_level": 5,
@@ -1528,10 +1560,14 @@
           "item_level": 4,
           "rarity": "uncommon",
           "required_level": 2,
-          "primary_stats": {},
+          "primary_stats": {
+            "intellect": 1,
+            "spirit": 1
+          },
           "armor_type": "cloth",
           "armor_value": 1,
-          "label": "Cloth Boots (Int/Spi)"
+          "label": "Cloth Boots (Int/Spi)",
+          "secondary_stats": {}
         },
         {
           "name": "Silk-Laced Marching Boots",
@@ -1539,10 +1575,14 @@
           "item_level": 4,
           "rarity": "uncommon",
           "required_level": 2,
-          "primary_stats": {},
+          "primary_stats": {
+            "agility": 1,
+            "spirit": 1
+          },
           "armor_type": "leather",
           "armor_value": 3,
-          "label": "Leather Boots (Agi/Spi)"
+          "label": "Leather Boots (Agi/Spi)",
+          "secondary_stats": {}
         }
       ],
       "gear_reward_gear_level": 4,
