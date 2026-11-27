@@ -160,6 +160,9 @@ class CombatEngine:
         # below is untouched for them - existing non-tank content keeps
         # working exactly as it did before this system existed.
         self.threat_tables = {}
+        #: each enemy's current target, for sticky aggro (see threat_weighted_target)
+        self._aggro = {}
+        self._seed_pull_threat()
 
     # ------------------------------------------------------------------
     # Combatant queries
@@ -259,6 +262,69 @@ class CombatEngine:
         enemies = max(1, len([e for e in self.enemies if e.is_alive()]))
         return max(1.0, min(self.TEMPO_MAX, allies / (self.TEMPO_FREE_RATIO * enemies)))
 
+    # ---- AGGRO (Kyle, 27 Nov 2026: tanks weren't holding anything) -------------------------------------------------
+    # Measured on 30 level-20 fights, a Protection warrior and a rogue in front, three mobs: the tank took 57% of the
+    # hits and the rogue 43%, and tripling the tank's threat changed neither number. 70% of every enemy's target
+    # picks came from a mob nobody had hit yet, with an empty table, so they fell back to a coin flip between the
+    # front row. Aggro on pull fills those tables; sticky aggro keeps a mob on its target unless somebody really
+    # out-threats it.
+    #: threat each front-row ally starts with on every enemy, per enemy level (x3 for a tank posture)
+    PULL_THREAT_PER_LEVEL = 10
+    #: threat Defend makes in a tank posture on every enemy, per enemy level (already x3 from the posture)
+    DEFEND_THREAT_PER_LEVEL = 15
+    #: how much threat it takes to pull a mob off its target: 110% from the front row, 130% from the back (Classic)
+    STICKY_FRONT, STICKY_BACK = 1.10, 1.30
+    #: Kyle: "moderately effective unless dps outgear tank or go wild". The odds a swing strays off the current
+    #: target to anyone it can reach, so a tank is reliable but never a wall the DPS can ignore. 0.20 measured: a
+    #: tank in stance takes about 90% of the hits beside a rogue in the front row (a threat-weighted stray, tried
+    #: first at 0.12, left the tank at 96-100%, since the tank's own threat decided most strays too).
+    STRAY_CHANCE = 0.20
+
+    def _posture_mult(self, ally):
+        """x3 for a tank posture (tank_stance, form, Defensive Stance or Earthen Guardian), else 1."""
+        from combat.tank_stance import in_tank_posture
+        return 3.0 if in_tank_posture(ally) else 1.0
+
+    def _seed_pull_threat(self):
+        """Aggro on pull: every enemy starts with the front row on its table, a tank posture on top."""
+        from entities.party import FRONT_ROW
+        front = [a for a in self.allies if a.is_alive() and getattr(a, "row", FRONT_ROW) == FRONT_ROW]
+        for enemy in self.enemies:
+            if not enemy.is_alive():
+                continue
+            base = self.PULL_THREAT_PER_LEVEL * max(1, getattr(enemy, "level", 1) or 1)
+            for ally in front:
+                self.gain_threat(ally, enemy, base * self._posture_mult(ally))
+
+    def aggro_target(self, enemy):
+        """Who this enemy is on right now, for the UI: its sticky target, else the top of its table. Rolls nothing."""
+        cur = self._aggro.get(enemy)
+        if cur is not None and cur.is_alive():
+            return cur
+        return self.highest_threat_target(enemy)
+
+    #: how close to pulling counts as a warning on a party card (share of the threat that would pull)
+    NEAR_PULL = 0.80
+
+    def aggro_summary(self, ally):
+        """(enemies on this ally, enemies alive, close to pulling one off somebody else) for a party card."""
+        from combat import rows as _rows
+        living = self.living_enemies()
+        holding, near = 0, False
+        for enemy in living:
+            cur = self.aggro_target(enemy)
+            if cur is ally:
+                holding += 1
+                continue
+            if cur is None:
+                continue
+            table = self.threat_tables.get(enemy) or {}
+            mine = table.get(ally, 0.0)
+            bar = table.get(cur, 0.0) * (self.STICKY_FRONT if _rows.row_of(ally) == _rows.FRONT_ROW else self.STICKY_BACK)
+            if mine > 0 and bar > 0 and mine >= bar * self.NEAR_PULL:
+                near = True
+        return holding, len(living), near
+
     def highest_threat_target(self, enemy):
         """Living ally with the most threat on `enemy`'s table, or None if
         that enemy has no threat table yet (nobody's generated any threat
@@ -274,7 +340,7 @@ class CombatEngine:
             return None
         return max(living_entries, key=lambda pair: pair[1])[0]
 
-    def default_target_for(self, actor):
+    def default_target_for(self, actor, commit=True):
         """
         Sensible auto-target: enemies attack allies, allies attack enemies.
 
@@ -295,7 +361,7 @@ class CombatEngine:
         if not living:
             return None
 
-        return self.threat_weighted_target(actor, living)
+        return self.threat_weighted_target(actor, living, commit=commit)
 
     #: How much of a share the lowest-threat ally still gets, relative to the highest. Threat
     #: should DECIDE who gets hit, not DICTATE it - see threat_weighted_target.
@@ -306,7 +372,7 @@ class CombatEngine:
     #: threat to feel like they are holding anything.
     THREAT_FLOOR = 0.10
 
-    def threat_weighted_target(self, enemy, living):
+    def threat_weighted_target(self, enemy, living, commit=True):
         """Who this enemy swings at: usually whoever holds the most threat, not always.
 
         Kyle, 2026-10-31: "All 4 enemies just hit the exact same player and kill him. Then next
@@ -346,9 +412,28 @@ class CombatEngine:
             # random pick, unchanged.
             front = [a for a in living if getattr(a, "row", FRONT_ROW) == FRONT_ROW]
             return random.choice(front or living)
-        floor = top * self.THREAT_FLOOR
-        weights = [max(floor, t) for _, t in entries]
-        return random.choices([a for a, _ in entries], weights=weights, k=1)[0]
+        # STICKY AGGRO (Kyle, 27 Nov 2026): the mob stays on its current target until somebody passes that target's
+        # threat by 110% from the front row or 130% from the back, Classic's rule. Its first target is the top of the
+        # table. A taunt's huge threat spike passes the bar, so a taunt still pulls it straight over.
+        from combat import rows as _rows
+        threat = dict(entries)
+        current = self._aggro.get(enemy)
+        if current not in threat:
+            current = max(entries, key=lambda e: e[1])[0]
+        else:
+            bar = threat[current]
+            passing = [(a, t) for a, t in entries if a is not current
+                       and t > bar * (self.STICKY_FRONT if _rows.row_of(a) == _rows.FRONT_ROW else self.STICKY_BACK)]
+            if passing:
+                current = max(passing, key=lambda e: e[1])[0]
+        pick = current
+        if commit:
+            self._aggro[enemy] = current
+            # A stray swing, at anyone this mob can reach. THREAT_FLOOR is no longer what keeps a low-threat ally
+            # hittable; this is.
+            if len(entries) > 1 and random.random() < self.STRAY_CHANCE:
+                pick = random.choice([a for a, _ in entries])
+        return pick
 
     def _enemy_attack_profile(self, enemy):
         """A stand-in ability describing how far this enemy can reach.
@@ -757,13 +842,13 @@ class CombatEngine:
         if hasattr(actor, "get_status_stat_mod"):
             buff_pct = actor.get_status_stat_mod("threat_generation_pct") or 0.0
             threat_mult *= (1.0 + buff_pct / 100.0)
-        # a FORM's threat (the Bloodmage's Eternal Curse), same percent-point convention as the buff above
-        if getattr(actor, "current_form", None):
-            from combat.forms import get_form as _gf
-            _form = _gf(actor.current_form) or {}
-            form_pct = (_form.get("stat_mods") or {}).get("threat_generation_pct", 0) or 0
-            if form_pct:
-                threat_mult *= (1.0 + form_pct / 100.0)
+        # THE TANK POSTURE (combat/tank_stance.py): Defensive Stance, a tank form, or a class's tank stance, x3.
+        # Read here and only here; it used to come off the form's stat_mods, which the talent branch below also
+        # read as a fraction, so Eternal Curse counted twice (about 97x threat).
+        from combat.tank_stance import posture_threat_pct
+        _posture = posture_threat_pct(actor)
+        if _posture:
+            threat_mult *= (1.0 + _posture / 100.0)
 
         # TALENT-sourced threat, same key but a DIFFERENT NUMERIC CONVENTION,
         # which is why it needs its own branch rather than folding into the
@@ -967,6 +1052,13 @@ class CombatEngine:
     def execute_defend(self, actor):
         """Execute defend action."""
         log_entry = f"{actor.name} takes a defensive stance!"
+        # In a tank posture, Defend is a shout: threat on every enemy (Kyle, 27 Nov 2026).
+        from combat.tank_stance import in_tank_posture
+        if in_tank_posture(actor):
+            for enemy in self.living_enemies():
+                amount = self.DEFEND_THREAT_PER_LEVEL * max(1, getattr(enemy, "level", 1) or 1)
+                self.gain_threat(actor, enemy, amount * self._posture_mult(actor))
+            log_entry = f"{actor.name} braces and roars a challenge at every enemy!"
         self.combat_log.append(log_entry)
         self._end_turn(actor)
 
@@ -1618,7 +1710,7 @@ class CombatEngine:
         try:
             if getattr(enemy, "is_stunned", False):
                 return "nothing (stunned)"
-            target = self.default_target_for(enemy)
+            target = self.default_target_for(enemy, commit=False)
             if target is None:
                 return None
             chosen = enemy.choose_action(target)

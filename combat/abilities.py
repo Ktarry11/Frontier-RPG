@@ -238,7 +238,7 @@ CLASS_RESOURCE_MAP = {
 #: point at. The failure mode being fixed is a damaging ability leaking through, so a new
 #: effect_type added later must default to "not castable out here" rather than to "fine".
 OUT_OF_COMBAT_EFFECTS = frozenset({
-    "heal", "hot", "buff", "dispel", "restore_resource", "shapeshift",
+    "heal", "hot", "buff", "dispel", "restore_resource", "shapeshift", "tank_stance",
     "summon_pet", "revive", "reset_cooldowns", "enable_instant_cast", "totem_loadout",
 })
 
@@ -1565,6 +1565,7 @@ class Ability:
             "dispel": "Removes an effect from", "revive": "Revives",
             "summon_pet": "Summons an ally for", "restore_resource": "Restores resource to",
             "shapeshift": "Changes the form of",
+            "tank_stance": "Changes the stance of",
             "damage_and_heal": "Damages", "damage_and_restore_mana": "Damages",
             "reset_cooldowns": "Resets cooldowns for",
             "enable_instant_cast": "Grants an instant cast to",
@@ -5548,6 +5549,16 @@ class Ability:
                 success, msg = caster.revert_form()
                 return msg
             success, msg = caster.shift_form(self.shapeshift_form_id)
+            if not success:
+                self._refund_failed_cast(caster, cost=cost)
+            return msg
+
+        elif self.effect_type == "tank_stance":
+            # A TANK POSTURE TOGGLE (combat/tank_stance.py; Kyle 27 Nov 2026: "all tank classes should get a
+            # 'stance' which reduces damage but improving threat"). Persistent like a form: on until cast again.
+            if not hasattr(caster, "toggle_tank_stance"):
+                return f"{caster.name} cannot take a tank stance."
+            success, msg = caster.toggle_tank_stance()
             if not success:
                 self._refund_failed_cast(caster, cost=cost)
             return msg

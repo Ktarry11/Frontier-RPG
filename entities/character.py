@@ -303,6 +303,9 @@ class Character(StatusEffectMixin):
         # Shaman (mirrors current_form's "None for classes that don't use
         # it" pattern rather than restricting the attribute's existence).
         self.guardian_stance_active = False
+        # A TANK STANCE (combat/tank_stance.TANK_STANCES): the id of the class's tank toggle while it's on, else
+        # None. Persistent and saved, like guardian_stance_active (Kyle 27 Nov 2026).
+        self.tank_stance = None
 
         # The one active pet (Hunter tame / Warlock summon - see
         # entities/pet.py), or None. Only one pet can be active at a time
@@ -710,6 +713,13 @@ class Character(StatusEffectMixin):
             form = get_form(self.current_form)
             if form:
                 for key, value in form["stat_mods"].items():
+                    totals[key] = totals.get(key, 0) + value
+
+        if getattr(self, "tank_stance", None):
+            from combat.tank_stance import stance_by_id
+            _ts = stance_by_id(self.tank_stance)
+            if _ts:
+                for key, value in _ts["stat_mods"].items():
                     totals[key] = totals.get(key, 0) + value
 
         if getattr(self, "guardian_stance_active", False):
@@ -1242,6 +1252,23 @@ class Character(StatusEffectMixin):
         self.guardian_stance_active = True
         self._recalculate_derived_stats()
         return True, f"{self.name} becomes an Earthen Guardian!"
+
+    def toggle_tank_stance(self):
+        """Turn this class's tank stance on or off (combat/tank_stance.py). Free, and it keeps your resource: it's a
+        posture, not a new pool. Returns (success, message)."""
+        from combat.tank_stance import stance_for_class
+        stance = stance_for_class(self.char_class)
+        if not stance:
+            return False, f"{self.name} has no tank stance."
+        if self.level < stance["level_req"]:
+            return False, f"{stance['name']} requires level {stance['level_req']}."
+        if self.tank_stance:
+            self.tank_stance = None
+            self._recalculate_derived_stats()
+            return True, f"{self.name} drops {stance['name']}."
+        self.tank_stance = stance["id"]
+        self._recalculate_derived_stats()
+        return True, f"{self.name} takes up {stance['name']}!"
 
     def _apply_level_scaling(self):
         """Apply level-based stat scaling.
@@ -4528,6 +4555,7 @@ class Character(StatusEffectMixin):
             # per-fight, which is the distinction the __init__ comment draws.
             "current_form": self.current_form,
             "guardian_stance_active": bool(self.guardian_stance_active),
+            "tank_stance": self.tank_stance,
             "consumable_cooldown": self.consumable_cooldown,
             # A buff slot holds (Consumable, seconds left). Written as plain data: the Consumable
             # object itself made json.dump raise half way through writing the save file, so
@@ -4717,7 +4745,9 @@ class Character(StatusEffectMixin):
             char.current_form = saved_form
         if data.get("guardian_stance_active"):
             char.guardian_stance_active = True
-        if saved_form or data.get("guardian_stance_active"):
+        if data.get("tank_stance"):
+            char.tank_stance = data["tank_stance"]
+        if saved_form or data.get("guardian_stance_active") or data.get("tank_stance"):
             char._recalculate_derived_stats()
 
         if "training_enabled" in data:

@@ -1235,15 +1235,22 @@ class CombatScreen(BaseScreen):
         # FIVE FIT ACROSS (Kyle, 16 Nov 2026, with a fifth Jaedenar Felhound cut off at the right edge: "i like 5
         # enemies but we need to ensure they fit!"). Cards were a fixed 260 wide, so five ran 100px off the screen;
         # they now shrink to fit, the way the party strip's cards do.
+        # FRONT ROW ON THE LEFT, BACK ROW ON THE RIGHT (Kyle, 27 Nov 2026: "it's hard to tell who's in what row"),
+        # the same order as the party strip, with a gap between. Each card says its row under the bar.
+        from combat import rows as _rows
+        e_front = [e for e in enemies if _rows.row_of(e) == _rows.FRONT_ROW]
+        e_back = [e for e in enemies if e not in e_front]
+        enemies = e_front + e_back
+        e_gap = 30 if e_front and e_back else 0
         card_gap = 20 if len(enemies) <= 4 else 14
-        card_w = min(260, (SCREEN_WIDTH - 40 - (len(enemies) - 1) * card_gap) // len(enemies))
-        total_w = len(enemies) * card_w + (len(enemies) - 1) * card_gap
+        card_w = min(260, (SCREEN_WIDTH - 40 - (len(enemies) - 1) * card_gap - e_gap) // len(enemies))
+        total_w = len(enemies) * card_w + (len(enemies) - 1) * card_gap + e_gap
         start_x = max(20, (SCREEN_WIDTH - total_w) // 2)
         y = 8          # was 20 - "shift the enemy stuff up" (Kyle, 2026-10-31)
         max_bottom = y  # tracks the lowest pixel any card actually reaches
 
         for i, foe in enumerate(enemies):
-            x = start_x + i * (card_w + card_gap)
+            x = start_x + i * (card_w + card_gap) + (e_gap if foe in e_back else 0)
             alive = foe.is_alive()
             is_acting = self.combat_engine.current_actor is foe
 
@@ -1284,6 +1291,24 @@ class CombatScreen(BaseScreen):
                                           bar_color=COLOR_GREEN if alive else (70, 70, 70))
 
             card_bottom = bar_y + 22
+
+            # ROW AND TARGET, one small line: what row it stands in, and who it's on (sticky aggro, Kyle 27 Nov 2026).
+            if alive:
+                is_back = foe in e_back
+                row_txt = "Back row" if is_back else "Front row"
+                self.renderer.draw_text(screen, row_txt, (x, card_bottom - 4), font_size=12,
+                                        color=(150, 185, 235) if is_back else (235, 170, 100))
+                on = self.combat_engine.aggro_target(foe) if hasattr(self.combat_engine, "aggro_target") else None
+                if on is not None:
+                    from combat.tank_stance import in_tank_posture
+                    on_txt = f"on {on.name}"
+                    font = self.renderer._get_font(None, 12)
+                    while len(on_txt) > 4 and font.size(on_txt)[0] > card_w // 2:
+                        on_txt = on_txt[:-1]
+                    self.renderer.draw_text(screen, on_txt, (x + card_w - font.size(on_txt)[0], card_bottom - 4),
+                                            font_size=12,
+                                            color=(120, 220, 120) if in_tank_posture(on) else (255, 140, 110))
+                card_bottom += 12
 
             # Mana bar - only for casters (max_mana > 0). Thinner than the
             # HP bar and no numeric overlay so a row of mixed melee/caster
@@ -1407,6 +1432,8 @@ class CombatScreen(BaseScreen):
         return min(r.top for r in self.hotbar_positions) - 10
 
     PARTY_CARD_H = 140
+    #: the FRONT ROW / BACK ROW band over the party cards (Kyle, 27 Nov 2026: "it's hard to tell who's in what row")
+    ROW_HEADER_H = 18
 
     def _party_strip_top(self):
         """The top edge of the party cards, or the hotbar's top when there are none.
@@ -1421,7 +1448,7 @@ class CombatScreen(BaseScreen):
         party = self.state_manager.get_party()
         if not party or not party.members:
             return self._hotbar_panel_top()
-        top = self._hotbar_panel_top() - 10 - self.PARTY_CARD_H
+        top = self._hotbar_panel_top() - 10 - self.PARTY_CARD_H - self.ROW_HEADER_H
         rows = self._pet_chip_rows()
         if rows:
             top -= rows * (self.PET_CHIP_H + 4) + 2
@@ -1463,7 +1490,7 @@ class CombatScreen(BaseScreen):
             return
         rows = self._pet_chip_rows()
         per_row = -(-len(pets) // rows)
-        top = (self._hotbar_panel_top() - 10 - self.PARTY_CARD_H
+        top = (self._hotbar_panel_top() - 10 - self.PARTY_CARD_H - self.ROW_HEADER_H
                - rows * (self.PET_CHIP_H + 4) - 2)
         for i, pet in enumerate(pets):
             r, c = divmod(i, per_row)
@@ -1505,13 +1532,36 @@ class CombatScreen(BaseScreen):
         strip_bottom = self._hotbar_panel_top() - 10  # clears the real hotbar panel top with a small gap
         card_h = self.PARTY_CARD_H
         card_gap = 12
-        card_w = min(240, (SCREEN_WIDTH - 40 - (len(members) - 1) * card_gap) // len(members))
-        total_w = len(members) * card_w + (len(members) - 1) * card_gap
+        # TWO GROUPS, FRONT THEN BACK (Kyle, 27 Nov 2026: "it's hard to tell who's in what row"). The cards used to
+        # sit in party order with only a border colour and a small tag to tell the rows apart. Now the front row
+        # stands on the left under its own band, the back row on the right under its own, with a gap between.
+        fronts = [m for m in members if getattr(m, "row", FRONT_ROW) == FRONT_ROW]
+        backs = [m for m in members if m not in fronts]
+        ordered = fronts + backs
+        group_gap = 40 if fronts and backs else 0
+        card_w = min(240, (SCREEN_WIDTH - 40 - (len(members) - 1) * card_gap - group_gap) // len(members))
+        total_w = len(members) * card_w + (len(members) - 1) * card_gap + group_gap
         start_x = max(20, (SCREEN_WIDTH - total_w) // 2)
         y = strip_bottom - card_h
+        xs = [start_x + i * (card_w + card_gap) + (group_gap if m in backs else 0) for i, m in enumerate(ordered)]
 
-        for i, member in enumerate(members):
-            x = start_x + i * (card_w + card_gap)
+        for group, label, band, text_c in ((fronts, "FRONT ROW", (70, 40, 18), (235, 170, 100)),
+                                           (backs, "BACK ROW", (22, 36, 64), (150, 185, 235))):
+            if not group:
+                continue
+            gx0 = xs[ordered.index(group[0])]
+            gx1 = xs[ordered.index(group[-1])] + card_w
+            band_rect = pygame.Rect(gx0, y - self.ROW_HEADER_H, gx1 - gx0, self.ROW_HEADER_H - 3)
+            pygame.draw.rect(screen, band, band_rect)
+            pygame.draw.rect(screen, text_c, band_rect, 1)
+            self.renderer.draw_text(screen, label, (band_rect.centerx, band_rect.y + 1), font_size=12,
+                                    color=text_c, center=True)
+
+        aggro = getattr(self.combat_engine, "aggro_summary", None)
+        from combat.tank_stance import posture_name
+
+        for i, member in enumerate(ordered):
+            x = xs[i]
             is_acting = member is acting and self._acting_member() is not None
             is_front = getattr(member, "row", FRONT_ROW) == FRONT_ROW
 
@@ -1545,8 +1595,19 @@ class CombatScreen(BaseScreen):
             ty = card_rect.y + 6
 
             name_color = (120, 120, 120) if not member.is_alive() else (COLOR_GREEN if is_acting else COLOR_WHITE)
-            row_tag = "\u25b2 FRONT" if is_front else "\u25bc BACK"
-            row_color = (200, 130, 60) if is_front else (110, 150, 210)
+            # The row is in the band above now, so this line says what matters in a fight: the tank posture, and
+            # how many enemies are on this character (Kyle, 27 Nov 2026: show threat).
+            posture = posture_name(member)
+            # plain words: the game font has no arrow glyphs, so the old \u25b2/\u25bc drew as empty boxes
+            row_tag = posture or ("Front row" if is_front else "Back row")
+            row_color = (150, 200, 255) if posture else ((200, 130, 60) if is_front else (110, 150, 210))
+            aggro_txt, aggro_c = "", None
+            if aggro is not None and member.is_alive():
+                holding, total, near = aggro(member)
+                if holding:
+                    aggro_txt, aggro_c = f"AGGRO {holding}/{total}", ((120, 220, 120) if posture else (255, 110, 90))
+                elif near:
+                    aggro_txt, aggro_c = "NEAR PULL", (255, 210, 80)
 
             # Name and row tag get their own lines (rather than squeezed
             # side by side) so neither gets clipped or overlaps the next
@@ -1554,6 +1615,9 @@ class CombatScreen(BaseScreen):
             self.renderer.draw_text(screen, member.name, (tx, ty), font_size=16, color=name_color)
             ty += 18
             self.renderer.draw_text(screen, row_tag, (tx, ty), font_size=13, color=row_color)
+            if aggro_txt:
+                aw = self.renderer._get_font(None, 13).size(aggro_txt)[0]
+                self.renderer.draw_text(screen, aggro_txt, (card_rect.right - 8 - aw, ty), font_size=13, color=aggro_c)
             ty += 16
 
             bar_w = card_rect.width - 16
@@ -2419,7 +2483,11 @@ class CombatScreen(BaseScreen):
                 pygame.draw.rect(screen, (80, 40, 40), rect)  # red tint
                 if is_hovered:
                     pygame.draw.rect(screen, COLOR_GOLD, rect, 3)  # gold border
-            self._draw_target_row(screen, foe, rect, color, COLOR_RED, f"Lv {foe.level}")
+            from combat import rows as _rows
+            tag = f"Lv {foe.level}  {'BACK' if _rows.row_of(foe) == _rows.BACK_ROW else 'FRONT'}"
+            if foe.is_alive() and not is_valid:
+                tag += "  - out of reach"
+            self._draw_target_row(screen, foe, rect, color, COLOR_RED, tag)
             self._targeting_rects.append((foe, rect))
 
         # Instructions

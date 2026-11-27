@@ -55,13 +55,14 @@ STANCES = {
         "name": "Defensive Stance",
         "level_req": 10,
         "description": (
-            "Reduces damage taken by 10% and damage dealt by 5%. Real WOTLK "
-            "also grants +45% threat generation - dropped entirely since "
-            "this engine has no threat/aggro system for it to affect."
+            "Reduces damage taken by 10%. A tank posture: threat generated "
+            "x3 and damage dealt -15% (combat/tank_stance.py)."
         ),
         "stat_mods": {
             "damage_taken_pct": -0.10,
-            "all_damage": -0.05,
+            # the tank posture's damage trade (combat/tank_stance.TANK_DAMAGE); its threat is read from
+            # tank_stance.posture_threat_pct, not from here (Kyle 27 Nov 2026)
+            "all_damage": -0.15,
         },
         "gated_abilities": [],
     },

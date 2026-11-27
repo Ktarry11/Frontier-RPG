@@ -218,7 +218,7 @@ FORMS = {
         "resource_type": ResourceType.RAGE,
         "keeps_resource": True,
         "description": "The Eternal's tank curse. Stamina +25%, armor from items +200%, more armor and threat, for less damage.",
-        "stat_mods": {"stamina_pct": 25.0, "armor_pct": 200.0, "armor": 300, "threat_generation_pct": 60.0, "attack_power_pct": -8.0},
+        "stat_mods": {"stamina_pct": 25.0, "armor_pct": 200.0, "armor": 300},
     },
 }
 
@@ -226,6 +226,16 @@ FORMS = {
 CURSED_FORMS = ["cursed", "accursed", "eternal"]
 #: the pseudo-form for "not shapeshifted": a Bloodmage's spells require it
 MORTAL = "mortal"
+
+
+# THE TANK FORMS ARE TANK POSTURES (combat/tank_stance.py, Kyle 27 Nov 2026): threat x3 and 15% less damage dealt,
+# the same trade every tank class makes. The threat is read from tank_stance.posture_threat_pct, never from these
+# stat_mods; the damage is an all_damage fraction folded in here.
+from combat.tank_stance import TANK_FORMS as _TANK_FORMS, TANK_DAMAGE as _TANK_DAMAGE
+for _fid in _TANK_FORMS:
+    if _fid in FORMS:
+        FORMS[_fid]["stat_mods"]["all_damage"] = FORMS[_fid]["stat_mods"].get("all_damage", 0) + _TANK_DAMAGE
+        FORMS[_fid]["tank_posture"] = True
 
 
 def get_form(form_id):

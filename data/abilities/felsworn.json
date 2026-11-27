@@ -1743,6 +1743,28 @@
         "17 Nov 2026: every class brings a long party buff, mana buffs give mp5 (tools/build_long_party_buffs.py)"
       ],
       "cast_speed": "medium"
+    },
+    {
+      "ability_id": "felsworn_tyrants_mantle",
+      "name": "Tyrant's Mantle",
+      "resource_type": "felfury",
+      "cooldown": 0,
+      "effect_type": "tank_stance",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Take up the mantle of a fel tyrant, and dare them to come at you. Threat generated x3, damage dealt -15%. Stays on until you cast it again.",
+      "_source": "Tank posture (combat/tank_stance.py). Kyle, 27 Nov 2026: 'all tank classes should get a stance which reduces damage but improving threat'. Threat x3 and damage dealt -15%, the same trade for every tank class; persistent until cast again.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "cast_speed": "medium"
     }
   ]
 }

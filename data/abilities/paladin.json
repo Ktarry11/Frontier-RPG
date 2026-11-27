@@ -1216,6 +1216,28 @@
       "buff_scope": "combat",
       "_design_note": "Not learned from level alone - granted by the Seal of Command talent in the Retribution tree. Real proc: your melee attacks have a chance to deal a burst of Holy damage on the same hit. Judgement consumes this Seal for a bigger detonation than Seal of Righteousness, matching Seal of Command's real WOTLK identity as the harder-hitting, lower-uptime Retribution Seal.",
       "cast_speed": "medium"
+    },
+    {
+      "ability_id": "paladin_righteous_fury",
+      "name": "Righteous Fury",
+      "resource_type": "mana",
+      "cooldown": 0,
+      "effect_type": "tank_stance",
+      "duration": 0,
+      "stat_mods": {},
+      "description": "Holy fury draws every enemy's eye. Threat generated x3, damage dealt -15%. Stays on until you cast it again.",
+      "_source": "Tank posture (combat/tank_stance.py). Kyle, 27 Nov 2026: 'all tank classes should get a stance which reduces damage but improving threat'. Threat x3 and damage dealt -15%, the same trade for every tank class; persistent until cast again.",
+      "target_type": "self",
+      "ranks": [
+        {
+          "rank": 1,
+          "level_req": 10,
+          "cost": 0,
+          "effect_value": 0
+        }
+      ],
+      "icon_id": null,
+      "cast_speed": "medium"
     }
   ]
 }

@@ -139,7 +139,8 @@ def main():
             before_hp, before_mana = c.current_health, c.current_mana
             if not c.shift_form(form_id)[0]:
                 break
-            if c.mana <= 0 and form["class"] != "Warrior":
+            # a form that keeps its class's own pool (a Bloodmage's Rage in the worgen curses) has no mana to lose
+            if c.mana <= 0 and form["class"] != "Warrior" and not form.get("keeps_resource"):
                 fails.append(f"{form_id}: mana pool vanished while shifted")
             c.revert_form()
             if c.current_health != before_hp:
