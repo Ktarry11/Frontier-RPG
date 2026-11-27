@@ -1692,17 +1692,24 @@ class CombatScreen(BaseScreen):
         # Wrap each message to fit the available width, then take the last N
         # wrapped lines so the log still shows recent history even if some
         # messages spanned multiple lines.
-        all_wrapped_lines = []
-        for msg in self.message_log:
-            if msg.startswith(player.name):
-                msg_color = COLOR_GREEN
-            elif msg.startswith(enemy.name):
-                msg_color = COLOR_RED
-            else:
-                msg_color = COLOR_WHITE
-
-            for line in self.renderer.wrap_text(msg, log_width):
-                all_wrapped_lines.append((line, msg_color))
+        # Each message coloured for what it is, its numbers brighter, an area attack split into a short list
+        # (ui/combat_log_format.py; Kyle, 26 Nov 2026: "Can we make combat text easier to read").
+        from ui.combat_log_format import format_message, segments
+        eng = self.combat_engine
+        allies = [c.name for c in list(getattr(eng, "allies", [])) + list(getattr(eng, "pets", []))]
+        enemies = [e.name for e in getattr(eng, "enemies", [])]
+        all_wrapped_lines = []      # (text, palette, message index, is_continuation)
+        for i, msg in enumerate(self.message_log):
+            if msg.strip() == "---":
+                continue
+            palette, lines = format_message(msg, allies, enemies)
+            first = True
+            for raw in lines:
+                indent = raw.startswith("    ")
+                for k, line in enumerate(self.renderer.wrap_text(raw.strip(), log_width - (24 if indent else 0)
+                                                                 - (18 if not first else 0))):
+                    all_wrapped_lines.append((line, palette, i, not first or indent or k > 0))
+                    first = False
 
         total = len(all_wrapped_lines)
         self._log_max_scroll = max(0, total - max_visible_lines)
@@ -1710,9 +1717,24 @@ class CombatScreen(BaseScreen):
         log_start = max(0, total - max_visible_lines - self.log_scroll)
         self._log_rect = pygame.Rect(log_left_edge - 10, center_y - 48, log_width + 20,
                                      40 + max_visible_lines * LOG_LINE_H + 18)
-        for line, msg_color in all_wrapped_lines[log_start:log_start + max_visible_lines]:
-            self.renderer.draw_text(screen, line, (center_x, center_y), size="normal", color=msg_color)
-            center_y += 25
+        shown = all_wrapped_lines[log_start:log_start + max_visible_lines]
+        newest = shown[-1][2] if shown else None
+        font = self.renderer._get_font("normal")
+        for line, palette, idx, cont in shown:
+            # every other message sits on a faint band, so where one ends and the next begins is plain
+            if idx % 2 == 0:
+                band = pygame.Surface((log_width + 8, LOG_LINE_H), pygame.SRCALPHA)
+                band.fill((255, 255, 255, 14))
+                screen.blit(band, (center_x - 4, center_y - 2))
+            if idx == newest:
+                pygame.draw.rect(screen, palette[1], (center_x - 8, center_y, 3, LOG_LINE_H - 6))
+            x = center_x + (18 if cont else 0)
+            for text, color in segments(line, palette):
+                if not text:
+                    continue
+                self.renderer.draw_text(screen, text, (x, center_y), size="normal", color=color)
+                x += font.size(text)[0]
+            center_y += LOG_LINE_H
         if self._log_max_scroll:
             # a slim bar down the right of the log: where the view sits in the whole fight
             track = pygame.Rect(log_right_edge + 2, self._log_rect.y + 44, 6, max_visible_lines * LOG_LINE_H)
