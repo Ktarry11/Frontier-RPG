@@ -383,5 +383,101 @@
      ["ivan_warrior", "Cristobal, we leave at first light, which is five hours from now. In five hours I want everyone asleep, not dancing."],
      ["cristobal_knight", "Hermano, the village invited us to their fiesta! You don't say no to a fiesta, it's rude, my mother would disown me."],
      ["ivan_warrior", "Your mother is not driving this tram, my friend. One dance, then bed, and if you are late tomorrow I leave you here to dance alone."]
+   ]},
+  {"id": "fair_or_kind", "between": ["adrian_templar", "tarek_templar"], "asker": "tarek_templar", "stakes": "medium",
+   "sides": {"tarek_templar": "the boy who stole bread was hungry, feed him and let it go", "adrian_templar": "the rule is the same for everyone, he pays for the bread"},
+   "third": "The boy works an afternoon for the baker, and Tarek feeds him at the end of it.",
+   "lines": [
+     ["tarek_templar", "Adrian, habibi, he took one loaf because he hadn't eaten in two days. Feed him, and nobody needs a ruling."],
+     ["adrian_templar", "If I let him off because I feel sorry for him, Tarek, the next one gets off because I like him. The rule has to be the same, properly."],
+     ["tarek_templar", "Then make the rule fair and kind at once, my friend. He works the afternoon for the baker, and I cook his dinner myself."]
+   ]},
+  {"id": "the_seal", "between": ["emre_rogue", "owen_cultist"], "asker": "emre_rogue", "stakes": "medium",
+   "sides": {"emre_rogue": "a door that old deserves to be opened and read", "owen_cultist": "a sealed door in the dark is sealed for a reason"},
+   "third": "Emre studies the lock for an hour without opening it, and Owen keeps watch and hums.",
+   "lines": [
+     ["emre_rogue", "Look at this door, my friends, older than the walls around it. Somebody very serious made this, Owen, and I'd like to hear what they had to say."],
+     ["owen_cultist", "Now then, Emre, I know a bit about things that wait in the dark. Somebody sealed it, bach, and they didn't do that for fun."],
+     ["emre_rogue", "Tamam, then I'll only read it, I won't open it. Even a closed door tells you who it's afraid of, and you can stand guard and hum."]
+   ]},
+  {"id": "the_safe", "between": ["emre_rogue", "marco_paladin"], "asker": "marco_paladin", "stakes": "low",
+   "sides": {"marco_paladin": "a good safe is opened slowly, by feel, one wheel at a time", "emre_rogue": "listen to it first, the safe tells you where it's weak"},
+   "third": "Marco feels the wheels while Emre listens with his ear to the door, and they open it in half the time.",
+   "lines": [
+     ["marco_paladin", "Allora, Emre, a safe like this, you go piano, piano. One wheel, then the next, you feel it in the fingers. Thirty one years, this is how."],
+     ["emre_rogue", "Your fingers are very good, Marco, but you're not listening. Put your ear to it, the safe has been telling us where it's tired for five minutes."],
+     ["marco_paladin", "Madonna, two locksmiths and one safe, we will be here until morning. Va bene, I feel, you listen, and nobody tells the ragazzi how long it took."]
+   ]},
+  {"id": "tea_or_coffee", "between": ["berat_tinker", "emre_rogue"], "asker": "berat_tinker", "stakes": "low",
+   "sides": {"berat_tinker": "proper Turkish tea, all day, in little glasses", "emre_rogue": "Turkish coffee, strong, once, and done properly"},
+   "third": "Tea all day and one coffee after dinner, and they argue about whose grandmother made it better.",
+   "lines": [
+     ["berat_tinker", "Emre, brother, family, it's tea, all day, little glasses, twenty of them! In Izmir nobody trusts a man who drinks coffee before noon."],
+     ["emre_rogue", "Twenty glasses of tea is a tea house, Berat, not a drink. One coffee, very strong, and a man can think until sunset."],
+     ["berat_tinker", "Tea all day, then, and your one coffee after dinner, and I'll fix the stains on your teeth for free afterwards. Open wide, you'll need it."]
+   ]},
+  {"id": "barry_or_ponty", "between": ["owen_cultist", "rhodri_knight"], "asker": "rhodri_knight", "stakes": "low",
+   "sides": {"rhodri_knight": "the valleys are the heart of Wales, everybody knows it", "owen_cultist": "the coast is where Wales breathes, Barry and the sea"},
+   "third": "They agree Cardiff is too posh for either of them, and sing the same hymn badly.",
+   "lines": [
+     ["rhodri_knight", "Owen, butt, you're from Barry, isn't it? Lovely, but the valleys are the real Wales, Ponty and the rugby and the chapels on every hill."],
+     ["owen_cultist", "Duw, Rhodri, the valleys are lovely if you like rain sideways. Barry's got the sea, mind, and the chips, and the island in the fog."],
+     ["rhodri_knight", "Fair play, the chips are tidy, I'll give you that. We can both agree Cardiff's too posh for us, can't we, and sing something together."]
+   ]},
+  {"id": "night_people", "between": ["minh_chronomancer", "owen_cultist"], "asker": "owen_cultist", "stakes": "low",
+   "sides": {"owen_cultist": "three in the morning is the loneliest hour", "minh_chronomancer": "three in the morning is the calmest hour"},
+   "third": "They take the late watch together, Minh calls out the stars like traffic, and Owen says it's the least lonely he's been at that hour.",
+   "lines": [
+     ["owen_cultist", "Three in the morning, Minh, that's the loneliest hour there is. Eight years in a cab, I'd know, the whole country asleep but me."],
+     ["minh_chronomancer", "For me it was the calmest hour, Owen. Two aircraft on the scope, a quiet frequency, nobody shouting. I liked it very much."],
+     ["owen_cultist", "Then we'll take the late watch together, bach. You call out the stars like your aircraft, and I'll find out if it's lonely with company."]
+   ]},
+  {"id": "the_drag", "between": ["liam_suncleric", "nicolas_bloodmage"], "asker": "liam_suncleric", "stakes": "medium",
+   "sides": {"liam_suncleric": "if you go down, I'm dragging you out, promise or no promise", "nicolas_bloodmage": "get everyone else out first, and don't drag me"},
+   "third": "They agree the medic who's still standing decides, and both of them know who that will be.",
+   "lines": [
+     ["liam_suncleric", "Mate, this rule of yours, don't drag me, it's rubbish and you know it. You go down, I'm dragging you out, and you can complain about it at the barbie."],
+     ["nicolas_bloodmage", "Pata, you know the job. You get the others out first, then me. I've watched people die because somebody wasted a minute on the wrong patient."],
+     ["liam_suncleric", "Fine, here's the deal, whoever's still standing calls it. And we both know that's going to be me, so start practising your complaining."]
+   ]},
+  {"id": "the_stream", "between": ["tarek_templar", "yiannis_paladin"], "asker": "yiannis_paladin", "stakes": "low",
+   "sides": {"yiannis_paladin": "the stream is running and cold, drink, it's fine", "tarek_templar": "running and cold means nothing, check it first"},
+   "third": "Tarek checks it, it's clean, and Yiannis is unbearable about it for the rest of the day.",
+   "lines": [
+     ["yiannis_paladin", "Ela, Tarek, look, the water is running and cold and singing over the stones. A good stream, my friend, drink, it's a gift."],
+     ["tarek_templar", "Running and cold tells me nothing, Yiannis. The worst spring I ever mapped was running and cold, and it made a camp sick for a week."],
+     ["yiannis_paladin", "Then check it, child, check it, and when it's clean I'll be very gracious. Not too gracious, I'll be a little unbearable."]
+   ]},
+  {"id": "the_ref", "between": ["adrian_templar", "rhodri_knight"], "asker": "rhodri_knight", "stakes": "low",
+   "sides": {"rhodri_knight": "referees ruin the game, let the boys play", "adrian_templar": "without a referee it isn't a game, it's a brawl"},
+   "third": "They mark out a rough pitch, Rhodri plays, and Adrian blows the whistle exactly twice.",
+   "lines": [
+     ["rhodri_knight", "Adrian, butt, I've had a referee ruin every final I ever played. Let the boys sort it out on the pitch, that's proper rugby, isn't it."],
+     ["adrian_templar", "With respect, Rhodri, without a referee it isn't a game, it's a brawl with a ball in it. Somebody has to stay neutral when nobody else wants to be."],
+     ["rhodri_knight", "Duw, there's a speech, I nearly cried. Go on, then, mark out a pitch, and you can blow that whistle twice, and not one more time."]
+   ]},
+  {"id": "the_straggler", "between": ["adrian_templar", "nicolas_bloodmage"], "asker": "adrian_templar", "stakes": "high",
+   "sides": {"adrian_templar": "fall back to the ridge as planned, everyone, now", "nicolas_bloodmage": "not without the one who's still down there"},
+   "third": "Adrian holds the ridge with the rest, and Nicolas goes down for the straggler with one other person, not alone.",
+   "lines": [
+     ["adrian_templar", "Squad, the plan is the ridge, now, together. Nicolas, I know, but if we stay we lose four to save one, and I've done the sum."],
+     ["nicolas_bloodmage", "Then I'm the one who doesn't do the sum, Adrian. There's somebody still down there, and I don't leave people. Not for a plan, not for anything."],
+     ["adrian_templar", "Then you don't go alone, that's my condition. Take one more with you, and the rest of us hold the ridge until you're back, properly."]
+   ]},
+  {"id": "the_spring", "between": ["giorgi_primalist", "tarek_templar"], "asker": "tarek_templar", "stakes": "low",
+   "sides": {"tarek_templar": "dig a well by the camp, it's safer and it lasts", "giorgi_primalist": "the sheep know a good spring, follow the flock and drink there"},
+   "third": "They follow the animals to the spring, and Tarek sinks a well beside it so the water stays clean.",
+   "lines": [
+     ["tarek_templar", "Giorgi, if we dig a well here by the camp, it lasts for years. Give me a few days and some stone, and nobody needs to walk for water."],
+     ["giorgi_primalist", "Twenty summers I follow the sheep, my friend. They find good water before any man. Follow them, and the spring is already there."],
+     ["tarek_templar", "Then we follow your sheep and I build at the spring they choose. Your animals do the surveying, and I do the stone, a fair split."]
+   ]},
+  {"id": "lane_splitting", "between": ["ivan_warrior", "nicolas_bloodmage"], "asker": "ivan_warrior", "stakes": "low",
+   "sides": {"ivan_warrior": "stay on the road in line, like a tram, steady and safe", "nicolas_bloodmage": "weave through, the gap is there, take it"},
+   "third": "Ivan leads the slow way with the carts, Nicolas scouts ahead through the gaps, and they meet at the far side within a minute.",
+   "lines": [
+     ["ivan_warrior", "Nicolas, a road is a road, my friend. You stay in line, steady, like Route 13, and everybody arrives. Weaving is how passengers get hurt."],
+     ["nicolas_bloodmage", "Pata, nine years on a moto in Lima, if I waited in line people died in the back of taxis. The gap is there, you take it."],
+     ["ivan_warrior", "Fine, you weave, I drive the carts, and we see who is late. I am never late, my friend, eleven years and never."]
    ]}
 ]

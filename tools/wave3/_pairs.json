@@ -6478,5 +6478,287 @@
     ]
    }
   ]
+ },
+ {
+  "a": "adrian_templar",
+  "b": "tarek_templar",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 4,
+    "lines": [
+     [
+      "tarek_templar",
+      "Have you eaten, Adrian? You've been standing at the edge of the camp for twenty minutes with your hands behind your back."
+     ],
+     [
+      "adrian_templar",
+      "I was waiting to be asked, Tarek, it's a habit. And no, I haven't, I usually eat last."
+     ],
+     [
+      "tarek_templar",
+      "Then I'm asking, sit down, there's bread and lentils. In Cairo we'd call standing at the edge an insult to the cook."
+     ],
+     [
+      "adrian_templar",
+      "Then I apologise to the cook properly, and I'll sit. Thank you, that's kind of you."
+     ]
+    ]
+   },
+   {
+    "when": "gap:6",
+    "affinity": 3,
+    "lines": [
+     [
+      "adrian_templar",
+      "You told me last week to be nicer to the quartermaster, Tarek. I was right about the supply tent, you know."
+     ],
+     [
+      "tarek_templar",
+      "You were right, habibi, and you were also unbearable about it. Both things can be true at once."
+     ],
+     [
+      "adrian_templar",
+      "That's a fair ruling, and I'll accept it. I'll be right more quietly next time."
+     ],
+     [
+      "tarek_templar",
+      "That's all I ask, my friend, right and quiet. And then come and eat, because you forgot again."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "tarek_templar",
+      "Here, sit, I'll draw you why the second well failed. It's the joints, Adrian, it's always the joints."
+     ],
+     [
+      "adrian_templar",
+      "I'll listen properly, but if this takes an hour I'm timing you. I used to time added time for a living."
+     ],
+     [
+      "tarek_templar",
+      "An hour is generous, it'll be ninety minutes at least. You can show me a yellow card if I go over."
+     ],
+     [
+      "adrian_templar",
+      "I'd never book you for a good explanation, Tarek. Carry on, I want to know about the joints now."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 3,
+    "lines": [
+     [
+      "adrian_templar",
+      "You're the first person here who's ever waved me over before I asked, Tarek. I've never told you that, and I should have."
+     ],
+     [
+      "tarek_templar",
+      "I noticed you at the edge every night, my friend. Somebody who carries everyone's pack shouldn't have to wait for dinner."
+     ],
+     [
+      "adrian_templar",
+      "I don't wait now, not with you. I sit down and you pass me the bread, and that's the whole thing."
+     ],
+     [
+      "tarek_templar",
+      "And I always will, habibi, every night. That's a promise from an engineer, and we build things to last."
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "a": "liam_suncleric",
+  "b": "nicolas_bloodmage",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 4,
+    "lines": [
+     [
+      "liam_suncleric",
+      "You checked my colour before you said hello, mate. Only one sort of person does that, so where did you work?"
+     ],
+     [
+      "nicolas_bloodmage",
+      "Nine years on a motorbike ambulance in Lima, pata, lane splitting to the calls. You check colour before names, it's faster."
+     ],
+     [
+      "liam_suncleric",
+      "Seventeen years on the trucks in the Blue Mountains, me. We had the opposite problem, no traffic at all and an hour to anywhere."
+     ],
+     [
+      "nicolas_bloodmage",
+      "Then between us we've covered every bad road in the world. Chevere, I'm glad there's another one of us out here."
+     ]
+    ]
+   },
+   {
+    "when": "gap:6",
+    "affinity": 3,
+    "lines": [
+     [
+      "nicolas_bloodmage",
+      "In Lima the worst part was the traffic, causa, a man dying in a taxi that couldn't move. That's why they gave us bikes."
+     ],
+     [
+      "liam_suncleric",
+      "Out our way it was the drive, forty minutes of fog and bends with someone bleeding in the back. I used to talk the whole way."
+     ],
+     [
+      "nicolas_bloodmage",
+      "I never talked, I just rode, and my partner did the swearing for both of us. She was very good at it."
+     ],
+     [
+      "liam_suncleric",
+      "Ha, we'd have got on, then, she and I. I'll do the talking and she'll do the swearing, and you can just ride."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "liam_suncleric",
+      "Mate, that rule of yours about not dragging you, I've been thinking about it all week. I still think it's rubbish."
+     ],
+     [
+      "nicolas_bloodmage",
+      "I know you do, pata, and you'll drag me anyway. Everybody does, they never listen to the rule."
+     ],
+     [
+      "liam_suncleric",
+      "Too right, I will, and you'll do the same for me, so don't pretend otherwise. That's what a crew is."
+     ],
+     [
+      "nicolas_bloodmage",
+      "Ya, fine, I'll drag you too, but slowly, so you have time to complain about it."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 3,
+    "lines": [
+     [
+      "nicolas_bloodmage",
+      "You're the only one I can talk shop with, Liam, the bad calls and the quiet drives back. It helps more than I expected."
+     ],
+     [
+      "liam_suncleric",
+      "Same, mate, honest, I'd stopped thinking anybody understood. You get it without me explaining any of it."
+     ],
+     [
+      "nicolas_bloodmage",
+      "A crew of two, then, on the medical side. You talk them down and I stand in front of them."
+     ],
+     [
+      "liam_suncleric",
+      "Good on ya, that's the best crew I've had in years. Now come and have a beer, and that's an order from your senior medic."
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "a": "owen_cultist",
+  "b": "minh_chronomancer",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 4,
+    "lines": [
+     [
+      "minh_chronomancer",
+      "You're awake at three in the morning again, Owen. I've noticed, because so am I, every night."
+     ],
+     [
+      "owen_cultist",
+      "Eight years of night driving, Minh, the body doesn't forget. What's your excuse, now then?"
+     ],
+     [
+      "minh_chronomancer",
+      "Twenty three years in a radar room at Tan Son Nhat, mostly the night shift. The quiet hours were always mine."
+     ],
+     [
+      "owen_cultist",
+      "Then we're the night people, the pair of us. I'll put the kettle on, and you can tell me what you see up there."
+     ]
+    ]
+   },
+   {
+    "when": "gap:6",
+    "affinity": 3,
+    "lines": [
+     [
+      "owen_cultist",
+      "On the M4 at four in the morning I'd talk to the other drivers on the CB, Minh. Never names, only handles."
+     ],
+     [
+      "minh_chronomancer",
+      "On my frequency it was call signs, never faces, and I knew some of them for years. It's a strange kind of friendship."
+     ],
+     [
+      "owen_cultist",
+      "It is, isn't it? Close and far at the same time, and you're never sure they're real."
+     ],
+     [
+      "minh_chronomancer",
+      "They were real, I think, the voices always are. I'd know your voice on any frequency now, my friend."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "minh_chronomancer",
+      "I've started calling out the stars on watch, Owen, like traffic. Two bright ones on a converging heading, I'll keep them separated."
+     ],
+     [
+      "owen_cultist",
+      "Duw, that's lovely, that is, and very daft. Keep them separated, mind, I don't want a crash over the camp."
+     ],
+     [
+      "minh_chronomancer",
+      "They'll be fine, I've never lost one yet in twenty three years. Your turn, tell me a story from the motorway."
+     ],
+     [
+      "owen_cultist",
+      "Right, now then, there was a sheep in a layby near Membury one night, and it wouldn't get out of my way."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 3,
+    "lines": [
+     [
+      "owen_cultist",
+      "I used to think three in the morning was the loneliest hour, Minh. With you on watch it isn't, not any more."
+     ],
+     [
+      "minh_chronomancer",
+      "For me it was always the calmest hour, Owen, and now it's the calmest and the best. You've improved my shift."
+     ],
+     [
+      "owen_cultist",
+      "Ha, that's high praise from a man who ran a whole sky. I'll take it, and I'll keep the kettle on."
+     ],
+     [
+      "minh_chronomancer",
+      "Copy that, my friend, kettle on, and I'll keep watch over the sky for both of us."
+     ]
+    ]
+   }
+  ]
  }
 ]
