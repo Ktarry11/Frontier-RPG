@@ -6102,5 +6102,381 @@
     ]
    }
   ]
+ },
+ {
+  "a": "sebastian_bloodmage",
+  "b": "orlando_witchdoctor",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 4,
+    "lines": [
+     [
+      "orlando_witchdoctor",
+      "Sebastian, you've got the hands of a man who feeds people for a living. I cut hair for eleven years, I can read hands."
+     ],
+     [
+      "sebastian_bloodmage",
+      "Twelve years on the grill in Palermo, che, and my grandmother's grill before that. What gave me away, the burns or the size?"
+     ],
+     [
+      "orlando_witchdoctor",
+      "The way you looked at the fire before you looked at me. A barber looks at the chair first, so I recognise it."
+     ],
+     [
+      "sebastian_bloodmage",
+      "Then we're the same animal, Orlando. One of us feeds the neighbourhood and the other one makes them look sharp for dinner."
+     ]
+    ]
+   },
+   {
+    "when": "gap:6",
+    "affinity": 3,
+    "lines": [
+     [
+      "sebastian_bloodmage",
+      "In Buenos Aires the asado is the whole Sunday, chicos. You start at noon and you finish when the wine says so."
+     ],
+     [
+      "orlando_witchdoctor",
+      "In Santurce it's the shop on a Saturday, papi. Nobody needed a haircut that badly, they came for the talk and the radio."
+     ],
+     [
+      "sebastian_bloodmage",
+      "So your chairs were my grill, and your radio was my smoke. I like that more than I expected to."
+     ],
+     [
+      "orlando_witchdoctor",
+      "Ay, and you'd have been my best customer, you talk so much I'd have had time to do your eyebrows."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "orlando_witchdoctor",
+      "Sit down, Sebastian, I'm fixing that beard tonight, it's been bothering me for a week and I'm a professional."
+     ],
+     [
+      "sebastian_bloodmage",
+      "Fine by me, but only if I'm cooking for you afterwards. That's the deal in my family, nobody works for free at the table."
+     ],
+     [
+      "orlando_witchdoctor",
+      "Then we've got ourselves a little shop, mi amor. Haircuts at the front and your grill out the back."
+     ],
+     [
+      "sebastian_bloodmage",
+      "The whole camp would come, and half of them wouldn't even need anything. That's how you know it's a good place."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 3,
+    "lines": [
+     [
+      "sebastian_bloodmage",
+      "You know what I miss most, Orlando? The noise of a full table, everybody talking over everybody, and the meat getting cold."
+     ],
+     [
+      "orlando_witchdoctor",
+      "I know that noise, papi. It's the same in a barber shop at four on a Saturday, and I miss it like a person."
+     ],
+     [
+      "sebastian_bloodmage",
+      "Then we make it here, the two of us, until somebody tells us to stop. Nobody has told me to stop in thirty years."
+     ],
+     [
+      "orlando_witchdoctor",
+      "And nobody's going to start now, not while I'm around. Your grill, my chairs, and the spirits can stay up late too."
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "a": "yiannis_paladin",
+  "b": "giorgi_primalist",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 4,
+    "lines": [
+     [
+      "yiannis_paladin",
+      "You walk like a man who has climbed a lot of mountains, my friend, slow at the start and steady all day."
+     ],
+     [
+      "giorgi_primalist",
+      "Twenty years taking sheep up the Caucasus to summer pasture. You learn that the mountain isn't in a hurry."
+     ],
+     [
+      "yiannis_paladin",
+      "And I've spent nearly forty years in the sea off Chania, which is also never in a hurry. We'll get along, I think."
+     ],
+     [
+      "giorgi_primalist",
+      "Good, then neither of us will try to rush the other, and we'll both arrive at the same time anyway."
+     ]
+    ]
+   },
+   {
+    "when": "gap:6",
+    "affinity": 3,
+    "lines": [
+     [
+      "giorgi_primalist",
+      "In Kazbegi the shepherds sing to the flock at night. The sheep don't care, but the dogs listen very carefully."
+     ],
+     [
+      "yiannis_paladin",
+      "Ela, the octopus doesn't care for my singing either, and believe me, I tried for years with a lovely voice."
+     ],
+     [
+      "giorgi_primalist",
+      "Maybe that's why it hides from you. A sheep at least has the decency to pretend."
+     ],
+     [
+      "yiannis_paladin",
+      "Panagia mou, a shepherd with jokes, nobody warned me. Sing for me one night, re, and I'll tell you if the dogs were right."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "yiannis_paladin",
+      "Giorgi, come and eat, the fish is grilled and the lemon is waiting. A man who walks all day needs his supper."
+     ],
+     [
+      "giorgi_primalist",
+      "In my village we would bring cheese and bread, and wine from somebody's cousin. Here I've only got my appetite."
+     ],
+     [
+      "yiannis_paladin",
+      "Bring the appetite, that's the most important part. Children who eat well are children who live long."
+     ],
+     [
+      "giorgi_primalist",
+      "I'm thirty-six years old, Yiannis, and I'll still accept the compliment. Pass the lemon."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 3,
+    "lines": [
+     [
+      "giorgi_primalist",
+      "Do you miss the sea at night, Yiannis? I miss the mountain at night, the quiet and the stars sitting very low."
+     ],
+     [
+      "yiannis_paladin",
+      "Every night, my friend, the sound of it on the stones. I fall asleep listening for something that isn't here."
+     ],
+     [
+      "giorgi_primalist",
+      "Then we keep each other company while we listen. You tell me about the sea, and I'll tell you about the snow."
+     ],
+     [
+      "yiannis_paladin",
+      "A fisherman and a shepherd, keeping watch together. My grandmother would have made a song of it, and so will I."
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "a": "leif_primalist",
+  "b": "callum_venomancer",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 4,
+    "lines": [
+     [
+      "callum_venomancer",
+      "Mate, you just moved that snake off the path with a stick and didn't even blink. Most people scream first."
+     ],
+     [
+      "leif_primalist",
+      "Twenty-five years falling timber in the Coast Range. You meet a few snakes, and a few bears, pretty much every week."
+     ],
+     [
+      "callum_venomancer",
+      "Sixteen years in a reptile sanctuary in Queensland, me, so that's my kind of week. We're going to get on fine."
+     ],
+     [
+      "leif_primalist",
+      "Yep, I figure we will. You keep the snakes off me, and I'll keep the trees off you."
+     ]
+    ]
+   },
+   {
+    "when": "gap:6",
+    "affinity": 3,
+    "lines": [
+     [
+      "leif_primalist",
+      "Back home a falling tree gives you about three seconds to get out of the way, if you're listening for it."
+     ],
+     [
+      "callum_venomancer",
+      "A taipan gives you less than that, mate, and it doesn't make a crack first. You have to watch where you put your feet."
+     ],
+     [
+      "leif_primalist",
+      "So we both spent our lives watching for the thing that kills you quiet. That's a funny thing to have in common."
+     ],
+     [
+      "callum_venomancer",
+      "Funny and useful, Leif. Out here I reckon it makes us the two least surprised people in the camp."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "callum_venomancer",
+      "Leif, I've been watching you read that forest, and you see things I don't. Teach me what the trees are saying, would you?"
+     ],
+     [
+      "leif_primalist",
+      "Sure, if you show me how you knew that lizard wasn't venomous before you picked it up. I was about to yell."
+     ],
+     [
+      "callum_venomancer",
+      "No worries, it's the head shape and the way it moved. Ten minutes and you'll be picking them up too."
+     ],
+     [
+      "leif_primalist",
+      "Nope, I'll be watching you pick them up, which is a different skill. Okay, the first tree, look at that lean."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 3,
+    "lines": [
+     [
+      "leif_primalist",
+      "I don't talk much, Callum, you've probably noticed. Out there I mostly talked to the saw and it didn't answer."
+     ],
+     [
+      "callum_venomancer",
+      "I talked to snakes for sixteen years and they didn't answer either, mate. You're the first one who listens back."
+     ],
+     [
+      "leif_primalist",
+      "Huh, that's a nice thing to say. I'll take it, and I'll try to say a few more words, maybe."
+     ],
+     [
+      "callum_venomancer",
+      "A few more is plenty, Leif, there's no rush. Out here we've got all the time in the world to get to it."
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "a": "marcus_stormbringer",
+  "b": "pavlo_knight",
+  "steps": [
+   {
+    "when": "met",
+    "affinity": 4,
+    "lines": [
+     [
+      "pavlo_knight",
+      "You explain things like a teacher, Marcus, and you check if anyone is following. I taught history for sixteen years in Lviv."
+     ],
+     [
+      "marcus_stormbringer",
+      "Fifteen years forecasting in Toronto, and writing warnings the public had to actually read. Sorry, anyway, it's the same muscle."
+     ],
+     [
+      "pavlo_knight",
+      "Exactly the same muscle, I think. A good warning and a good lesson both have to get through to someone half asleep."
+     ],
+     [
+      "marcus_stormbringer",
+      "Oh, that's lovely, I'm stealing that. Most of my readers were half asleep, and the rest were looking for the weekend."
+     ]
+    ]
+   },
+   {
+    "when": "gap:6",
+    "affinity": 3,
+    "lines": [
+     [
+      "marcus_stormbringer",
+      "Did you know the worst storms in history got remembered by the year, not the name? People remember what it did to them."
+     ],
+     [
+      "pavlo_knight",
+      "And why do you think that is, I wonder? Because history is mostly what happened to ordinary people, not to kings."
+     ],
+     [
+      "marcus_stormbringer",
+      "So you'd teach a storm the way I'd forecast a battle, from the ground up. I think we've invented a new subject, Pavlo."
+     ],
+     [
+      "pavlo_knight",
+      "Historical meteorology, and we'd have two very confused students in the first year. I would enjoy every minute of it."
+     ]
+    ]
+   },
+   {
+    "when": "friendly",
+    "affinity": 3,
+    "lines": [
+     [
+      "pavlo_knight",
+      "Marcus, the young ones were asking about the stars last night, and I only know the history. Will you take the science?"
+     ],
+     [
+      "marcus_stormbringer",
+      "Gladly, team, I mean Pavlo, sorry, the office habit. You do the old names, I'll do why they twinkle, and we split the class."
+     ],
+     [
+      "pavlo_knight",
+      "A shared lesson, then, the way we did it on exam weeks. They'll pretend to be bored and remember every word."
+     ],
+     [
+      "marcus_stormbringer",
+      "That's all a teacher can ask for, isn't it? Bored faces now, and somebody quoting you back ten years later."
+     ]
+    ]
+   },
+   {
+    "when": "close",
+    "affinity": 3,
+    "lines": [
+     [
+      "marcus_stormbringer",
+      "Pavlo, can I say something earnest? I spent years shouting into the weather and hoping somebody listened."
+     ],
+     [
+      "pavlo_knight",
+      "You can always say something earnest to me, my friend. I spent years asking questions to the back row."
+     ],
+     [
+      "marcus_stormbringer",
+      "Well, out here somebody listens, and it's mostly you. I'm grateful for that, and I wanted to actually say it."
+     ],
+     [
+      "pavlo_knight",
+      "Then I'll say it back, so it's written down properly. A good student is rare, and a good colleague is rarer."
+     ]
+    ]
+   }
+  ]
  }
 ]
