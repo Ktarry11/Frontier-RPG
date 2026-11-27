@@ -28,10 +28,21 @@ STAGES = ["stranger", "acquaintance", "companion", "friend", "sworn"]
 STAGE_NAMES = {"stranger": "Stranger", "acquaintance": "Acquaintance", "companion": "Companion",
                "friend": "Friend", "sworn": "Sworn"}
 #: trust needed for each stage. Sworn also needs their personal quest done (flag goal_done).
-THRESHOLDS = [0, 20, 60, 130, 220]
+#: STRETCHED, AND GAIN HALVED (Kyle, 27 Nov 2026: "everyone is sworn by lvl 10 it feels like lol. We can drop relationship
+#: gain and expand out relationship levels so sworn isn't reached at 220 points"). It was [0, 20, 60, 130, 220] at full
+#: gain: a starting zone alone has over two hundred quests at 3 trust each, so Sworn was within reach by the low teens.
+#: Now every gain is halved (TRUST_RATE) and Sworn needs 400, so a recruit met around 15 is a Friend around 30 and
+#: ready to swear around 45. A save already past a stage keeps it: stages never drop.
+THRESHOLDS = [0, 40, 110, 230, 400]
+#: every positive trust gain is multiplied by this (quests, dungeons, bosses, gifts, rests, talk choices)
+TRUST_RATE = 0.5
 #: outings with you before they want to go home, by stage. Kyle, 21 Nov 2026 (a tester's whole party left at once after
 #: three quests and a death): it was [3, 5, 8, 12, 16], ten minutes of a starting zone, and he said "Yes" to longer.
 STINT = [6, 8, 11, 14, 18]
+#: THREE MORE OUTINGS AT EVERY STAGE, for everyone (Kyle, 27 Nov 2026: "raise minimum number of activities each recruit
+#: can do per relationship level. So if someone starts at 7 tasks as strangers and ends at 18 on sworn. That'd change to
+#: 10 as strangers and 21 at sworn"). Added after the restless dial, so it's exactly +3 whoever it is.
+STINT_BONUS = 3
 #: outings you do without them before they're back, by stage
 BREAK = [4, 4, 3, 3, 2]
 #: A BREAK IS ONE COUNTER EVERYTHING TICKS (Kyle, 23 Nov 2026: "we dont have our main healer to DO the dungeon lol.
@@ -190,7 +201,7 @@ class BondManager:
     def _trust(self, b, amount):
         """Trust moves; the stage only ever moves up. A dip can't take them below their stage."""
         if amount > 0:
-            amount *= b.dial("warmth")
+            amount *= b.dial("warmth") * TRUST_RATE
         b.trust = max(THRESHOLDS[b.stage], b.trust + amount)
         top = len(STAGES) - 1 if "goal_done" in b.flags else len(STAGES) - 2
         while b.stage < top and b.trust >= THRESHOLDS[b.stage + 1]:
@@ -303,7 +314,7 @@ class BondManager:
         elif "asked_to_stay" in b.flags:
             n = round(n * 1.5)
         # restless people go sooner; 1.0 is ordinary
-        return max(2, round(n / max(0.4, b.dial("restless"))))
+        return max(2, round(n / max(0.4, b.dial("restless")))) + STINT_BONUS
 
     # ------------------------------------------------------------ joining and leaving
     def can_hire(self, rid):

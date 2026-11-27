@@ -119,7 +119,7 @@ def main(argv):
                 bm.rel.on_gear_moved(g.recruit_id, t.recruit_id, True)
             bm.on_deed(random.choice(["quest", "dungeon"]), party)
             while True:
-                lines = rm.pop_beat(99)
+                lines = rm.pop_beat(__import__("world.relationship_manager", fromlist=["GAP"]).GAP)
                 if not lines:
                     break
                 beats += 1
@@ -227,7 +227,7 @@ def sample(real):
             if random.random() < 0.2:
                 bm.on_close_call(party, [random.choice(party.members)])
             bm.on_deed("dungeon", party)
-            while (lines := rm.pop_beat(99)):
+            while (lines := rm.pop_beat(__import__("world.relationship_manager", fromlist=["GAP"]).GAP)):
                 print("---", " / ".join(f"{bm.name_of(a)}+{bm.name_of(b)}:{rm.state(a, b)}"
                                        for a, b in rm.pairs_in({x for x, _ in lines})))
                 for rid, text in lines:
@@ -256,7 +256,7 @@ def pair_sample(real, a, b, outings=90):
         bm.on_deed("dungeon", party)
         if n % 7 == 6:
             rm.on_rest({a, b})
-        while (lines := rm.pop_beat(99)):
+        while (lines := rm.pop_beat(__import__("world.relationship_manager", fromlist=["GAP"]).GAP)):
             r = rm.rel(a, b)
             print(f"--- outing {r.outings} {r.state} {r.affinity:.0f} sig {r.sig_step}")
             for rid, text in lines:

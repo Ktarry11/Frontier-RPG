@@ -54,7 +54,11 @@ COLOR_HEADER = (200, 200, 110)
 class PartyScreen(BaseScreen):
     """Roster management: rows, bench, gearing, talents."""
 
-    TABS = (("details", "Details"), ("stats", "Stats"), ("buffs", "Party Buffs"))
+    TABS = (("details", "Details"), ("stats", "Stats"), ("buffs", "Party Buffs"), ("relations", "Relationships"))
+    #: how a pair's state reads on the Relationships tab (Kyle, 27 Nov 2026: "Friends, rivals, best friends etc")
+    REL_LABELS = {"strangers": ("Strangers", (140, 140, 150)), "nodding": ("Acquainted", (200, 200, 205)),
+                  "friendly": ("Friends", (170, 225, 140)), "close": ("Best friends", (110, 235, 130)),
+                  "grating": ("Grating", (240, 170, 90)), "rivals": ("Rivals", (240, 95, 85))}
 
     def __init__(self, state_manager):
         super().__init__(state_manager)
@@ -616,6 +620,9 @@ class PartyScreen(BaseScreen):
         if self.tab == "stats":
             self._render_stats(screen, member, panel, top)
             return
+        if self.tab == "relations":
+            self._render_relations(screen, member, party, panel, top)
+            return
 
         x = panel.x + 16
         y = top
@@ -863,6 +870,99 @@ class PartyScreen(BaseScreen):
         except Exception:
             return "-"
         return f"{self._num(rating)}  ({pct:.1f}%)"
+
+    def _render_relations(self, screen, member, party, panel, top):
+        """How this recruit gets on with you and with the other recruits (Kyle, 27 Nov 2026: "a new tab in party menu
+        indicates the recruits relationship with others. (Friends, rivals, best friends etc)"). With the hero
+        selected, every pair in the current party instead."""
+        try:
+            from world.bond_manager import get_bond_manager, STAGE_NAMES, STAGES, THRESHOLDS
+            bm = get_bond_manager()
+            rm = bm.rel
+        except Exception:                                      # noqa: BLE001
+            self.renderer.draw_text(screen, "No relationships yet.", (panel.x + 16, top), font_size=15,
+                                    color=COLOR_MUTED)
+            return
+        x, y = panel.x + 16, top + 4
+        width = panel.width - 32
+        bottom = panel.bottom - 120                 # the action buttons sit below this
+        rid = getattr(member, "recruit_id", None)
+        in_party = [getattr(m, "recruit_id", None) for m in party.members if getattr(m, "recruit_id", None)]
+
+        def row(name, state, affinity, note, yy):
+            label, colour = self.REL_LABELS.get(state, (state.title(), COLOR_MUTED))
+            self.renderer.draw_text(screen, name, (x, yy), font_size=15, color=COLOR_WHITE)
+            self.renderer.draw_text(screen, label, (x + 210, yy), font_size=15, color=colour)
+            # affinity, -100 to 100, from the middle of the bar
+            bx, bw = x + 340, max(120, width - 340 - 220)
+            bar = pygame.Rect(bx, yy + 4, bw, 10)
+            pygame.draw.rect(screen, (28, 28, 34), bar)
+            mid = bar.centerx
+            v = max(-100.0, min(100.0, float(affinity or 0)))
+            span = int(abs(v) / 100 * (bw // 2))
+            fill = pygame.Rect(mid, bar.y, span, bar.h) if v >= 0 else pygame.Rect(mid - span, bar.y, span, bar.h)
+            pygame.draw.rect(screen, colour, fill)
+            pygame.draw.line(screen, (90, 90, 100), (mid, bar.y - 2), (mid, bar.bottom + 1))
+            pygame.draw.rect(screen, (70, 70, 80), bar, 1)
+            if note:
+                self.renderer.draw_text(screen, note, (bar.right + 12, yy + 1), font_size=13, color=COLOR_MUTED)
+
+        if rid and rid in bm.bonds:
+            b = bm.bonds[rid]
+            nxt = THRESHOLDS[b.stage + 1] if b.stage + 1 < len(STAGES) else None
+            stage = STAGE_NAMES[b.stage_key]
+            toward = f"  -  trust {int(b.trust)}/{nxt} to {STAGE_NAMES[STAGES[b.stage + 1]]}" if nxt else ""
+            self.renderer.draw_text(screen, f"With you: {stage}{toward}", (x, y), font_size=16, color=COLOR_GOLD)
+            y += 30
+        if rid and rm.has(rid):
+            self.renderer.draw_text(screen, f"{member.name} and the others", (x, y), font_size=14, color=COLOR_HEADER)
+            y += 24
+            others = set(r for r in in_party if r != rid)
+            for r in rm.rels.values():
+                if rid in (r.a, r.b):
+                    others.add(r.other(rid))
+            others = [o for o in others if o and rm.has(o)]
+            # the party first, then the closest and the bitterest before the strangers
+            def order(o):
+                r = rm.rels.get(rm.key(rid, o))
+                return (o not in in_party, -abs(r.affinity) if r else 0, bm.name_of(o))
+            others.sort(key=order)
+            if not others:
+                self.renderer.draw_text(screen, "Hasn't spent time with any other recruit yet.", (x, y),
+                                        font_size=14, color=COLOR_MUTED)
+            shown = 0
+            for o in others:
+                if y + 24 > bottom:
+                    self.renderer.draw_text(screen, f"... and {len(others) - shown} more", (x, y), font_size=13,
+                                            color=COLOR_MUTED)
+                    break
+                r = rm.rels.get(rm.key(rid, o))
+                state = r.state if r else rm.state(rid, o)
+                bits = []
+                if o in in_party:
+                    bits.append("in party")
+                if r and r.outings:
+                    bits.append(f"{r.outings} outing{'s' if r.outings != 1 else ''} together")
+                row(bm.name_of(o), state, r.affinity if r else 0, ", ".join(bits), y)
+                y += 26
+                shown += 1
+            return
+        # the hero (or anyone without a recruit record): every pair in the party
+        self.renderer.draw_text(screen, "How your party gets on", (x, y), font_size=16, color=COLOR_GOLD)
+        y += 30
+        pairs = [(a, c) for i, a in enumerate(in_party) for c in in_party[i + 1:] if rm.has(a) and rm.has(c)]
+        if not pairs:
+            self.renderer.draw_text(screen, "Bring two recruits along to see how they get on.", (x, y), font_size=14,
+                                    color=COLOR_MUTED)
+            return
+        for a, c in pairs:
+            if y + 24 > bottom:
+                break
+            r = rm.rels.get(rm.key(a, c))
+            state = r.state if r else rm.state(a, c)
+            note = f"{r.outings} outing{'s' if r.outings != 1 else ''} together" if r and r.outings else ""
+            row(f"{bm.name_of(a)} & {bm.name_of(c)}", state, r.affinity if r else 0, note, y)
+            y += 26
 
     def _render_party_buffs(self, screen, party, panel, top):
         """Every member's buffs on one page, so a missing one is visible.
