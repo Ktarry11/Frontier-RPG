@@ -248,38 +248,100 @@ class Renderer:
         y_offset += 25
         self.draw_text(screen, f"Mana: {char.display_mana}/{round(char.mana)}", (pos[0] + 10, y_offset))
     
+    def bold(self, font_size):
+        """The bold face at a pixel size (names and headings)."""
+        key = ("bold", int(font_size))
+        font = self._font_cache.get(key)
+        if font is None:
+            font = pygame.font.Font(theme.FONT_BOLD, int(font_size))
+            self._font_cache[key] = font
+        return font
+
+    def draw_text_shadow(self, screen, text, pos, font, color=COLOR_WHITE, center=False):
+        """Text with a one-pixel dark shadow, for anything drawn over a bar or art."""
+        shadow = font.render(str(text), True, (8, 8, 10))
+        face = font.render(str(text), True, color)
+        r = face.get_rect(center=pos) if center else face.get_rect(topleft=pos)
+        screen.blit(shadow, r.move(1, 1))
+        screen.blit(face, r)
+        return r
+
     def draw_health_bar(self, screen, pos, current, max_val, width=100, height=20, bar_color=None, show_text=True):
         """
         Draw a health/resource bar with the current/max numbers overlaid by
         default. bar_color lets callers use the right color per resource
         (green=HP, blue=mana, red=rage, yellow=energy); falls back to green
         if not specified, matching prior behavior.
+
+        RESTYLED 27 Nov 2026 (Kyle: "the general UI isn't nice with character names, levels, resources"). It was a flat
+        grey box, a flat fill and a light-grey outline with 14px numbers on top, on every screen. Now: a dark rounded
+        trough, the fill shaded top to bottom with a thin highlight, and the numbers sized to the bar with a shadow.
+        One function, so every screen's bars change together.
         """
-        bar_rect = pygame.Rect(pos[0], pos[1], width, height)
-        
-        # Background
-        self.draw_rect(screen, bar_rect, COLOR_DARK_GRAY)
-        
-        # Filled portion
+        x, y = int(pos[0]), int(pos[1])
+        width, height = max(4, int(width)), max(3, int(height))
+        bar_rect = pygame.Rect(x, y, width, height)
+        radius = min(4, height // 2)
         fill_color = bar_color if bar_color is not None else COLOR_GREEN
-        if max_val > 0:
-            fill_width = int(width * (current / max_val))
-            fill_rect = pygame.Rect(pos[0], pos[1], fill_width, height)
-            self.draw_rect(screen, fill_rect, fill_color)
-        
-        # Border
-        self.draw_rect(screen, bar_rect, COLOR_LIGHT_GRAY, fill=False)
+
+        pygame.draw.rect(screen, (16, 15, 19), bar_rect, border_radius=radius)
+        frac = 0.0 if max_val <= 0 else max(0.0, min(1.0, current / max_val))
+        fill_w = int(round(width * frac))
+        if fill_w > 0:
+            fill = pygame.Surface((fill_w, height), pygame.SRCALPHA)
+            top = tuple(min(255, int(c * 1.18 + 18)) for c in fill_color[:3])
+            bottom = tuple(int(c * 0.62) for c in fill_color[:3])
+            for row in range(height):
+                t = row / max(1, height - 1)
+                col = tuple(int(top[i] + (bottom[i] - top[i]) * t) for i in range(3))
+                pygame.draw.line(fill, col, (0, row), (fill_w - 1, row))
+            if height >= 6:
+                pygame.draw.line(fill, (*[min(255, c + 60) for c in top], 120), (1, 1), (max(1, fill_w - 2), 1))
+            mask = pygame.Surface((fill_w, height), pygame.SRCALPHA)
+            pygame.draw.rect(mask, (255, 255, 255, 255), mask.get_rect(), border_radius=radius)
+            fill.blit(mask, (0, 0), special_flags=pygame.BLEND_RGBA_MIN)
+            screen.blit(fill, (x, y))
+        pygame.draw.rect(screen, (74, 68, 60), bar_rect, 1, border_radius=radius)
 
         # Numeric overlay (e.g. "196/196"), centered on the bar. round()
         # not int() - current can be a real float (out-of-combat regen
         # ticks fractional HP every frame), and truncating would visibly
         # undercount by up to ~1 point vs. the character sheet's own
         # display_health, which rounds (see StatusEffectMixin.display_health).
-        if show_text:
+        if show_text and height >= 9:
             text = f"{max(0, round(current))}/{round(max_val)}"      # overkill leaves health below 0
-            text_surface = self.font_normal.render(text, True, COLOR_WHITE)
-            text_rect = text_surface.get_rect(center=bar_rect.center)
-            screen.blit(text_surface, text_rect)
+            font = self._get_font(None, max(9, min(14, height - 3)))
+            self.draw_text_shadow(screen, text, bar_rect.center, font, color=(244, 242, 236), center=True)
+
+    def draw_tabs(self, screen, tabs, active, x, y, width=None):
+        """A row of tabs: names in the serif, the active one bright with a gold underline and a soft glow, the rest
+        dim, over a thin rule the width of the panel. tabs is [(name, label)]; returns [(name, rect)] for clicks.
+        Replaces the grey boxed buttons the tabbed screens used (Kyle, 27 Nov 2026: "make the tabs look more
+        elegant")."""
+        rects = []
+        font = self.bold(15)
+        cx = x
+        h = 30
+        for name, label in tabs:
+            tw = font.size(label)[0]
+            rect = pygame.Rect(cx, y, tw + 28, h)
+            on = name == active
+            hover = rect.collidepoint(pygame.mouse.get_pos())
+            if on:
+                glow = pygame.Surface(rect.size, pygame.SRCALPHA)
+                for row in range(h):
+                    a = int(34 * (row / h))
+                    pygame.draw.line(glow, (214, 180, 96, a), (0, row), (rect.w, row))
+                screen.blit(glow, rect.topleft)
+                pygame.draw.line(screen, theme.FRAME_CORNER, (rect.x + 6, rect.bottom - 2),
+                                 (rect.right - 6, rect.bottom - 2), 2)
+            colour = theme.TEXT_HEADING if on else ((214, 206, 190) if hover else theme.TEXT_DIM)
+            self.draw_text_shadow(screen, label, (rect.centerx, rect.centery - 1), font, color=colour, center=True)
+            rects.append((name, rect))
+            cx = rect.right + 4
+        rule_w = (width if width else cx - x)
+        pygame.draw.line(screen, theme.FRAME_INNER, (x, y + h), (x + rule_w, y + h), 1)
+        return rects
 
     def draw_class_portrait(self, screen, center, radius, icon_surface,
                             border_color=None, border_width=3,

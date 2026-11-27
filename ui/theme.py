@@ -55,15 +55,18 @@ FONT_SIZE_NORMAL = 14
 FONT_SIZE_SMALL = 12
 
 # ── Palette ───────────────────────────────────────────────────────────────
+#: BLUE AND GOLD (Kyle, 27 Nov 2026: "frontier uses blue and gold", "Elegant but not tacky"). The panels, buttons and
+#: background moved from charcoal to a deep navy; gold stays the frame and accent colour, used for edges and the one
+#: thing that's active, not for fills.
 #: Window body, top and bottom of its vertical gradient. The gradient is what
 #: separates this from the old flat pygame.draw.rect fill more than any other
 #: single thing.
-PANEL_TOP = (38, 36, 44)
-PANEL_BOTTOM = (20, 19, 25)
+PANEL_TOP = (30, 38, 60)
+PANEL_BOTTOM = (14, 18, 33)
 #: A darker body for panels that sit INSIDE another panel (a list row inside a
 #: list), so nesting reads without a second frame.
-PANEL_INSET_TOP = (28, 27, 33)
-PANEL_INSET_BOTTOM = (16, 15, 20)
+PANEL_INSET_TOP = (24, 30, 50)
+PANEL_INSET_BOTTOM = (12, 15, 28)
 
 FRAME = (150, 124, 62)          # the gold frame line
 FRAME_INNER = (92, 76, 40)      # the dimmer inner keyline
@@ -71,11 +74,11 @@ FRAME_CORNER = (214, 180, 96)   # corner studs
 FRAME_SELECTED = (236, 206, 130)  # frame colour when a row is selected
 FRAME_DISABLED = (78, 74, 70)
 
-SCREEN_BG = (14, 13, 17)
+SCREEN_BG = (10, 13, 24)
 
 TEXT = (222, 218, 210)          # body
 TEXT_HEADING = (236, 214, 158)  # panel titles, warm off-gold
-TEXT_DIM = (140, 134, 124)      # secondary / requirements / flavour
+TEXT_DIM = (136, 146, 168)      # secondary / requirements / flavour
 TEXT_DISABLED = (96, 92, 88)
 ACCENT = (214, 180, 96)         # gold, for emphasis and currency
 
@@ -84,12 +87,15 @@ WARN = (236, 196, 110)
 BAD = (240, 140, 140)
 
 #: Button fills, by state.
-BTN_TOP = (48, 45, 54)
-BTN_BOTTOM = (28, 26, 33)
-BTN_TOP_HOVER = (64, 60, 70)
-BTN_BOTTOM_HOVER = (38, 36, 44)
+BTN_TOP = (34, 42, 66)
+BTN_BOTTOM = (18, 22, 38)
+BTN_TOP_HOVER = (46, 56, 86)
+BTN_BOTTOM_HOVER = (26, 32, 52)
 
 # ── Metrics ───────────────────────────────────────────────────────────────
 PANEL_PAD = 14          # inside a panel, from frame to content
 ROW_H = 44              # a standard list row
 CORNER_STUD = 3         # radius of the corner dots
+
+#: a muted steel blue for secondary frames (the side menu's buttons), so gold is kept for what matters
+STEEL = (74, 98, 140)

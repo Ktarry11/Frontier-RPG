@@ -1274,7 +1274,8 @@ class TilemapRenderer:
             self._draw_light(screen, viewport_rect, tilemap.light)
 
         # Draw viewport border
-        pygame.draw.rect(screen, (100, 150, 100), viewport_rect, 2)
+        from ui import theme as _theme
+        pygame.draw.rect(screen, _theme.FRAME_INNER, viewport_rect, 2)   # gold keyline (blue and gold, 27 Nov 2026)
 
     # ------------------------------------------------------------------ the sky
     # docs/worldtree_brief.md, "How it's drawn": a sky map stands over the cloud sea. Its baked ground is see-through

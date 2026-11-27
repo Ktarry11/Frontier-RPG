@@ -1545,8 +1545,8 @@ class CombatScreen(BaseScreen):
         y = strip_bottom - card_h
         xs = [start_x + i * (card_w + card_gap) + (group_gap if m in backs else 0) for i, m in enumerate(ordered)]
 
-        for group, label, band, text_c in ((fronts, "FRONT ROW", (70, 40, 18), (235, 170, 100)),
-                                           (backs, "BACK ROW", (22, 36, 64), (150, 185, 235))):
+        for group, label, band, text_c in ((fronts, "FRONT ROW", (40, 36, 26), (222, 190, 120)),
+                                           (backs, "BACK ROW", (20, 28, 48), (150, 175, 220))):
             if not group:
                 continue
             gx0 = xs[ordered.index(group[0])]
@@ -1572,13 +1572,15 @@ class CombatScreen(BaseScreen):
             # up close); back row cards get a cooler border and are inset
             # a few px, reading as "standing further back" without needing
             # a legend or text label.
+            # navy for both rows; the edge says the row: gold in front, steel blue behind (blue and gold, 27 Nov)
+            from ui import theme as _theme
             if is_front:
-                border_color = (200, 130, 60) if not is_acting else COLOR_GOLD
-                fill = (42, 32, 24)
+                border_color = (176, 142, 72) if not is_acting else COLOR_GOLD
+                fill = (24, 30, 48)
                 inset = 0
             else:
-                border_color = (70, 110, 170) if not is_acting else COLOR_GOLD
-                fill = (24, 30, 42)
+                border_color = _theme.STEEL if not is_acting else COLOR_GOLD
+                fill = (18, 23, 38)
                 inset = 6
 
             card_rect = pygame.Rect(x + inset, y + inset, card_w - inset * 2, card_h - inset * 2)
@@ -1612,7 +1614,7 @@ class CombatScreen(BaseScreen):
             # Name and row tag get their own lines (rather than squeezed
             # side by side) so neither gets clipped or overlaps the next
             # card at small card widths (4-5 person parties).
-            self.renderer.draw_text(screen, member.name, (tx, ty), font_size=16, color=name_color)
+            self.renderer.draw_text_shadow(screen, member.name, (tx, ty - 1), self.renderer.bold(16), color=name_color)
             ty += 18
             self.renderer.draw_text(screen, row_tag, (tx, ty), font_size=13, color=row_color)
             if aggro_txt:
@@ -1846,8 +1848,10 @@ class CombatScreen(BaseScreen):
         panel_right = max(r.right for r in self.stance_positions.values()) + 15 \
             if self.stance_positions else max(r.right for r in self.extra_slot_positions) + 15
         hotbar_bg = pygame.Rect(20, panel_top, panel_right - 20, panel_bottom - panel_top)
-        pygame.draw.rect(screen, COLOR_DARK_GRAY, hotbar_bg)
-        pygame.draw.rect(screen, COLOR_WHITE, hotbar_bg, 2)
+        # navy body and a gold keyline (blue and gold, Kyle 27 Nov 2026), not grey with a white border
+        from ui import theme as _theme
+        self.renderer.draw_vgradient(screen, hotbar_bg, _theme.PANEL_TOP, _theme.PANEL_BOTTOM)
+        pygame.draw.rect(screen, _theme.FRAME_INNER, hotbar_bg, 2, border_radius=4)
 
         # Thin divider between the real hotbar and the extra-slot block so
         # the two read as related-but-distinct at a glance, without needing

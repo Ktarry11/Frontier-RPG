@@ -185,7 +185,8 @@ def main():
         # Render current state to the fixed logical surface (unchanged
         # geometry), then scale that whole finished frame onto whatever
         # size the real display surface actually is.
-        logical_screen.fill((20, 20, 20))  # Dark background
+        from ui import theme as _theme
+        logical_screen.fill(_theme.SCREEN_BG)  # deep navy (Kyle, 27 Nov 2026: "frontier uses blue and gold")
         state_manager.render(logical_screen)
 
         if display_screen.get_size() == (SCREEN_WIDTH, SCREEN_HEIGHT):

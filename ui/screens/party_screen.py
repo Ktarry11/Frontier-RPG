@@ -45,8 +45,8 @@ FACE = 48
 DETAIL_X = 430
 DETAIL_Y = 90
 
-COLOR_PANEL = (38, 38, 46)
-COLOR_PANEL_SEL = (72, 66, 42)
+COLOR_PANEL = (22, 28, 46)      # navy (Kyle, 27 Nov 2026: blue and gold)
+COLOR_PANEL_SEL = (54, 52, 44)
 COLOR_MUTED = (150, 150, 160)
 COLOR_HEADER = (200, 200, 110)
 
@@ -481,16 +481,15 @@ class PartyScreen(BaseScreen):
         if benched:
             name_color = COLOR_MUTED
 
-        label = f"[{row_tag}] {member.name}"
-        if member is party.player:
-            label += "  (you)"
-        self.renderer.draw_text(screen, label, (tx, rect.y + 6),
-                                color=name_color)
+        # the name in bold, and the row in words on the line under it (it was a "[F]" / "[B]" code before the name)
+        label = member.name + ("  (you)" if member is party.player else "")
+        self.renderer.draw_text_shadow(screen, label, (tx, rect.y + 5), self.renderer.bold(15), color=name_color)
 
-        sub = f"Lv {member.level} {member.char_class}"
+        sub = f"Lv {member.level} {member.char_class}  -  {'Front' if row_tag == 'F' else 'Back'} row"
         locked = getattr(member, "locked_spec", None)
         if locked:
             sub += f" - {self._spec_label(member, locked)}"
+        sub = self.renderer.truncate(sub, rect.right - 140 - tx, font_size=14)   # stop short of the health bar
         self.renderer.draw_text(screen, sub, (tx, rect.y + 30),
                                 font_size=14, color=COLOR_MUTED)
 
@@ -566,23 +565,11 @@ class PartyScreen(BaseScreen):
                       ("Shadow", "shadow"), ("Nature", "nature"), ("Holy", "holy"))
 
     def _render_tabs(self, screen, panel):
-        self.tab_rects = []
-        x = panel.x + 10
-        y = panel.y + 8
-        for name, label in self.TABS:
-            w = self.renderer._get_font(font_size=14).size(label)[0] + 22
-            rect = pygame.Rect(x, y, w, 26)
-            active = name == self.tab
-            self.renderer.draw_rect(screen, rect,
-                                    COLOR_PANEL_SEL if active else (30, 30, 36))
-            self.renderer.draw_rect(screen, rect,
-                                    COLOR_GOLD if active else (70, 70, 80), fill=False)
-            self.renderer.draw_text(screen, label, (rect.x + 11, rect.y + 5),
-                                    font_size=14,
-                                    color=COLOR_GOLD if active else COLOR_MUTED)
-            self.tab_rects.append((name, rect))
-            x += w + 6
-        return y + 34
+        """The tab strip (Renderer.draw_tabs): serif names, the active one gold-underlined (Kyle, 27 Nov 2026: "make
+        the tabs look more elegant"). They were grey boxed buttons."""
+        self.tab_rects = self.renderer.draw_tabs(screen, self.TABS, self.tab, panel.x + 12, panel.y + 8,
+                                                 width=panel.width - 24)
+        return panel.y + 8 + 30 + 12
 
     def _render_detail(self, screen, party):
         self.action_rects = []

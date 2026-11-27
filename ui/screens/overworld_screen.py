@@ -1250,7 +1250,8 @@ class OverworldScreen(BaseScreen):
         ]
 
         y = menu_rect.bottom + 14
-        tab_blue = (30, 90, 110)
+        from ui import theme as _theme
+        tab_blue = _theme.STEEL
         for action, label in entries:
             rect = pygame.Rect(self.tab_column_x, y, self.tab_w, self.tab_h)
             # No "active" highlight needed any more - Cast (like Map,
@@ -2038,9 +2039,19 @@ class OverworldScreen(BaseScreen):
         # CENTRED PROPERLY, not offset by a guessed 80px. The old position assumed a short name;
         # adding "- Level 44-47" to it made every long zone name run off toward the tab column.
         # draw_text already takes center=True, which measures the surface.
-        self.renderer.draw_text(screen, zone_levels.banner(zone.name),
-                                (SCREEN_WIDTH // 2, 10), size="large", color=(200, 200, 100),
-                                center=True)
+        # Centred on the MAP, not the screen (it sat 220px right of the map's middle), on a soft dark band inside
+        # the map's top edge rather than over its frame (Kyle, 27 Nov 2026, UI pass).
+        _banner = zone_levels.banner(zone.name)
+        _bf = self.renderer._get_font("large", None)
+        _bw = _bf.size(_banner)[0]
+        _cx = VIEWPORT_X + VIEWPORT_WIDTH // 2
+        _band = pygame.Surface((_bw + 60, _bf.get_height() + 8), pygame.SRCALPHA)
+        for _i in range(_band.get_width()):
+            _edge = min(_i, _band.get_width() - _i) / 30.0
+            pygame.draw.line(_band, (8, 12, 26, int(150 * min(1.0, _edge))), (_i, 0), (_i, _band.get_height()))
+        screen.blit(_band, (_cx - _band.get_width() // 2, VIEWPORT_Y + 4))
+        self.renderer.draw_text_shadow(screen, _banner, (_cx, VIEWPORT_Y + 8 + _bf.get_height() // 2), _bf,
+                                       color=(232, 206, 140), center=True)
         # A HIDDEN ZONE WEARS A SKULL beside its name (world/hidden_zones.py). Kyle, 14 Nov:
         # "These new zones will still have the level range but maybe a skull next to them."
         # A FRONTIER ZONE (a hidden zone inside a hidden zone) wears two on each side.
@@ -2052,8 +2063,8 @@ class OverworldScreen(BaseScreen):
             mark = skull(28)
             mw = mark.get_width()
             for i in range(n_sk):
-                screen.blit(mark, (SCREEN_WIDTH // 2 - w // 2 - (mw + 8) * (i + 1), 12))
-                screen.blit(mark, (SCREEN_WIDTH // 2 + w // 2 + 8 + (mw + 8) * i, 12))
+                screen.blit(mark, (_cx - w // 2 - (mw + 8) * (i + 1), VIEWPORT_Y + 8))
+                screen.blit(mark, (_cx + w // 2 + 8 + (mw + 8) * i, VIEWPORT_Y + 8))
         
         # MAIL AND ENCOUNTERS, bottom left under the action buttons (Kyle, 16 Nov 2026: "Lets make the new mail
         # icon a bit more noticable this can be both moved to the bottom left. The Mail icon in the bottom left and
@@ -2069,24 +2080,15 @@ class OverworldScreen(BaseScreen):
         # tab was removed in favor of this single consistent column.
         self._render_tab_column(screen)
         
-        # Draw info panel (right side). Portrait (class icon in a round
-        # frame) sits top-left of the panel; name/level and the bars shift
-        # right to sit beside it, WoW-unit-frame style. Bars themselves are
-        # unchanged - Kyle asked to keep them as-is, just add the portrait.
-        info_x = VIEWPORT_X + VIEWPORT_WIDTH + 20
-        info_y = VIEWPORT_Y + 40
-
-        portrait_radius = 28
-        portrait_center = (info_x + portrait_radius, info_y + portrait_radius)
-        from ui.class_portrait import get_class_icon
-        icon = get_class_icon(player.char_class, size=portrait_radius * 2)
-        self.renderer.draw_class_portrait(screen, portrait_center, portrait_radius, icon)
-
-        bars_x = info_x + portrait_radius * 2 + 14
-        text_y = info_y
-        self.renderer.draw_text(screen, f"{player.name}", (bars_x, text_y), size="large")
-        text_y += 28
-        # a Collection title (world/collection.py) goes under the name, in gold
+        # THE PARTY PANEL (Kyle, 27 Nov 2026: "the general UI isn't nice with character names, levels, resources" and
+        # "There's a lot of wasted space on the right"). It showed the hero alone, "HP: 559/559" over a bar that said
+        # 559/559 again, and an empty column under it. Now the hero's frame and one for every party member, in one
+        # style (ui/unit_frame.py), filling the column between the top of the map and the Difficulty button.
+        from ui.unit_frame import draw_unit_frame
+        info_x = VIEWPORT_X + VIEWPORT_WIDTH + 14
+        panel_w = 236
+        info_y = VIEWPORT_Y
+        subtitle = None
         try:
             from world.travel_manager import get_travel_manager
             from world.collection import titled_name
@@ -2094,48 +2096,25 @@ class OverworldScreen(BaseScreen):
             if _t:
                 shown = titled_name(player.name, _t)
                 if shown != player.name:
-                    self.renderer.draw_text(screen, self.renderer.truncate(shown, 300, font_size=15), (bars_x, text_y),
-                                            font_size=15, color=(230, 200, 120))
-                    text_y += 20
+                    subtitle = shown
         except Exception:
             pass
-        self.renderer.draw_text(screen, f"Level {player.level}  |  Prestige {player.prestige_level}", (bars_x, text_y))
+        hero_rect = draw_unit_frame(self.renderer, screen, player, info_x, info_y, panel_w, big=True,
+                                    subtitle=subtitle)
+        info_y = hero_rect.bottom + 12
+        party = self.state_manager.get_party()
+        mates = [m for m in party.members if m is not player] if party else []
+        if mates:
+            from ui import theme as _theme
+            self.renderer.draw_text(screen, "PARTY", (info_x + 2, info_y), font_size=11, color=_theme.TEXT_DIM)
+            pygame.draw.line(screen, _theme.FRAME_INNER, (info_x + 46, info_y + 8), (info_x + panel_w, info_y + 8))
+            info_y += 18
+            for m in mates:
+                r = draw_unit_frame(self.renderer, screen, m, info_x, info_y, panel_w)
+                info_y = r.bottom + 6
+        info_y += 4
 
-        # Bars start below the portrait once the portrait is taller than the
-        # name/level text block, so nothing overlaps regardless of which is
-        # taller at this width.
-        info_y = max(text_y + 28, portrait_center[1] + portrait_radius + 10)
-
-        # HP plus the class's actual resource, so you can see whether you're
-        # ready for a fight without opening the character sheet. Resource is
-        # driven by CLASS_RESOURCE_MAP rather than hardcoded class checks.
-        self.renderer.draw_text(screen, f"HP: {player.display_health}/{round(player.health)}", (info_x, info_y))
-        info_y += 22
-        self.renderer.draw_health_bar(screen, (info_x, info_y),
-                                      player.current_health, player.health,
-                                      width=160, height=14, bar_color=COLOR_GREEN)
-        info_y += 26
-
-        from combat.abilities import get_class_resource, ResourceType
-        resource = get_class_resource(player.char_class)
-        resource_row = [
-            (ResourceType.MANA, "Mana", player.current_mana, player.mana, COLOR_BLUE),
-            (ResourceType.RAGE, "Rage", player.current_rage, player.max_rage, COLOR_RED),
-            (ResourceType.ENERGY, "Energy", player.current_energy, player.max_energy, COLOR_YELLOW),
-        ]
-        for res_type, label, current, maximum, color in resource_row:
-            if resource == res_type and maximum:
-                self.renderer.draw_text(
-                    screen, f"{label}: {round(current)}/{round(maximum)}",
-                    (info_x, info_y))
-                info_y += 22
-                self.renderer.draw_health_bar(screen, (info_x, info_y),
-                                              current, maximum,
-                                              width=160, height=14, bar_color=color)
-                info_y += 26
-                break
-
-        self._render_talk_faces(screen, info_x, info_y + 6)
+        self._render_talk_faces(screen, info_x, info_y)
 
         # NO TILE-COLOUR LEGEND HERE ANY MORE. Grass/Water/Stone/NPC/Portal/Boss swatches were a
         # key to the placeholder colours from before the world had art. Kyle, 10 Nov: "I think
