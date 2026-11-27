@@ -89,6 +89,9 @@ def form_tag(member):
 
 FRACTION_WORDS = {"all_damage": "damage dealt", "healing_done": "healing done",
                   "physical_damage": "physical damage dealt"}
+#: cost cuts, shown as a cut (a positive fraction means cheaper)
+COST_WORDS = {"hot_cost_pct": "heal-over-time Mana cost", "heal_cost_pct": "healing Mana cost",
+              "all_ability_cost_pct": "ability costs"}
 
 
 def describe_mods(mods):
@@ -101,6 +104,9 @@ def describe_mods(mods):
             continue
         if k in FRACTION_WORDS:
             out.append(f"{v * 100:+.0f}% {FRACTION_WORDS[k]}")
+            continue
+        if k in COST_WORDS:
+            out.append(f"{-v * 100:+.0f}% {COST_WORDS[k]}")
             continue
         try:
             out.append(stat_text(k, v, value_first=True))

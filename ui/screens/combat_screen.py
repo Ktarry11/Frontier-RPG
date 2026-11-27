@@ -1601,6 +1601,10 @@ class CombatScreen(BaseScreen):
             # The row is in the band above now, so this line says what matters in a fight: the tank posture, and
             # how many enemies are on this character (Kyle, 27 Nov 2026: show threat).
             posture = posture_name(member)
+            if not posture:
+                # any form or stance, not only a tank's (combat/form_buff.py): Accursed Form, Shadowform, Tree of Life
+                from combat.form_buff import form_tag
+                posture = form_tag(member)
             # plain words: the game font has no arrow glyphs, so the old \u25b2/\u25bc drew as empty boxes
             row_tag = posture or ("Front row" if is_front else "Back row")
             row_color = (150, 200, 255) if posture else ((200, 130, 60) if is_front else (110, 150, 210))

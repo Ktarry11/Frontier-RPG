@@ -109,8 +109,8 @@ FORMS = {
         "class": "Druid",
         "level_req": 50,  # talent-gated capstone in real WOTLK
         "resource_type": ResourceType.MANA,
-        "description": "Increases healing done and reduces HoT Mana costs.",
-        "stat_mods": {"healing_done": 0.06},
+        "description": "Increases healing done by 6% and reduces the Mana cost of your heal-over-time spells by 20%.",
+        "stat_mods": {"healing_done": 0.06, "hot_cost_pct": 0.20},
     },
     "shadowform": {
         "name": "Shadowform",

@@ -1902,6 +1902,9 @@ class Ability:
         if self.effect_type in ("heal", "hot"):
             pct += self._talent(caster, "heal_cost_pct")
             pct += self._talent(caster, "healing_spell_cost_pct")
+        if self.effect_type == "hot":
+            # Tree of Life's "reduces HoT Mana costs" (27 Nov 2026: the form said it and nothing did it)
+            pct += self._talent(caster, "hot_cost_pct")
         # Clamped so a stack of reductions discounts rather than inverts.
         pct = min(0.90, max(-0.90, pct))
         cost = cost * (1.0 - pct)
@@ -5423,6 +5426,14 @@ class Ability:
             # personal kits began authoring real trade-off buffs.
             mod_text = ", ".join(self._stat_mod_text(k, v)
                                  for k, v in mods.items() if v)
+            # THE SHIELD'S SIZE IN THE LOG TOO (27 Nov 2026): Power Word: Shield read "(Armor +366, Magic Resistance
+            # +57)" and never said what it absorbed
+            if self.absorb or self.absorb_pct_max_health:
+                held = [getattr(e, "absorb", 0) for r in recipients for e in r._effects()
+                        if getattr(e, "effect_id", None) == self.ability_id]
+                if held:
+                    sh = f"absorbs {max(held)} damage"
+                    mod_text = f"{sh}, {mod_text}" if mod_text else sh
             if len(recipients) > 1:
                 return (f"{caster.name} uses {self.name} on the party "
                         f"({mod_text})!")
