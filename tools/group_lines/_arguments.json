@@ -479,5 +479,93 @@
      ["ivan_warrior", "Nicolas, a road is a road, my friend. You stay in line, steady, like Route 13, and everybody arrives. Weaving is how passengers get hurt."],
      ["nicolas_bloodmage", "Pata, nine years on a moto in Lima, if I waited in line people died in the back of taxis. The gap is there, you take it."],
      ["ivan_warrior", "Fine, you weave, I drive the carts, and we see who is late. I am never late, my friend, eleven years and never."]
+   ]},
+  {"id": "the_pace", "between": ["iker_guardian", "pasang_primalist"], "asker": "iker_guardian", "stakes": "low",
+   "sides": {"iker_guardian": "push the pace, we'll be at the top by noon", "pasang_primalist": "slowly, or half of us won't reach the top at all"},
+   "third": "Pasang sets the pace, and Iker runs up and down the line encouraging everybody, which tires only Iker.",
+   "lines": [
+     ["iker_guardian", "Pasang, champion, at this speed we'll reach the top next week! Come on, double time, everybody can do it, I believe in them!"],
+     ["pasang_primalist", "Iker, everybody can do it once, yes. Then on day four they sit down and don't get up. Bistarai, slowly, and they all arrive."],
+     ["iker_guardian", "Okay, okay, your pace, the mountain expert wins. But I'm allowed to cheer, that's not running, that's coaching!"]
+   ]},
+  {"id": "night_road", "between": ["driss_shaman", "mateo_starcaller"], "asker": "mateo_starcaller", "stakes": "low",
+   "sides": {"mateo_starcaller": "travel by night, the stars are clear and I can navigate", "driss_shaman": "travel at dawn, the ground is safer when you can see it"},
+   "third": "They leave two hours before dawn, Mateo navigating by the stars and Driss reading the ground as the light comes.",
+   "lines": [
+     ["mateo_starcaller", "Driss, po, look at that sky, not a cloud, every star exactly where I mapped it. We could walk all night and never lose the road."],
+     ["driss_shaman", "The stars are beautiful, my friend, but the ground has holes in it, and holes don't show in starlight. In the desert we start at dawn."],
+     ["mateo_starcaller", "Then we split it, ya. Two hours before dawn, I steer by the stars, and you take over when you can see your holes."]
+   ]},
+  {"id": "the_shouting", "between": ["iker_guardian", "rhys_ranger"], "asker": "rhys_ranger", "stakes": "low",
+   "sides": {"rhys_ranger": "quiet in the woods, Tegan can't hunt with shouting", "iker_guardian": "the team needs encouragement, loud encouragement"},
+   "third": "Iker coaches in sign language in the woods, badly, and Tegan catches three rabbits.",
+   "lines": [
+     ["rhys_ranger", "Iker, please, I'm asking nicely, can you stop shouting come on in the woods? Every animal for a mile has run off, and Tegan's sulking."],
+     ["iker_guardian", "Rhys, champion, the team needs energy! If I stop shouting, they'll slow down, I know these people!"],
+     ["rhys_ranger", "Then shout with your hands, cariad, wave, point, anything. Tegan will love you for it, and she doesn't love anybody."]
+   ]},
+  {"id": "eagle_or_hawk", "between": ["bakyt_hunter", "rhys_ranger"], "asker": "bakyt_hunter", "stakes": "low",
+   "sides": {"bakyt_hunter": "an eagle is the true hunting bird, strong enough for a wolf", "rhys_ranger": "a hawk is quicker and smarter, and she works with you"},
+   "third": "They fly both birds together at dusk, and argue for an hour about which one actually caught the hare.",
+   "lines": [
+     ["bakyt_hunter", "Rhys, my friend, your hawk is very pretty. But my eagle takes a fox, a wolf even. That is a hunting bird, jakshy."],
+     ["rhys_ranger", "Your eagle's lovely, Bakyt, honest. But Tegan turns on a coin and comes back when I whistle. Yours comes back when she's finished thinking about it."],
+     ["bakyt_hunter", "Ha, this is true, she thinks a lot, like a grandmother. Tonight we fly both, and the hare decides who is best."]
+   ]},
+  {"id": "the_short_route", "between": ["cristobal_knight", "pasang_primalist"], "asker": "cristobal_knight", "stakes": "medium",
+   "sides": {"cristobal_knight": "straight up the gully, it's quicker, I've climbed worse", "pasang_primalist": "the gully is where the stones come down in the afternoon"},
+   "third": "They take the gully at dawn, before the sun loosens the stones, and Cristobal admits it was very loud up there.",
+   "lines": [
+     ["cristobal_knight", "Pasang, hermano, straight up that gully and we're at the top in an hour. I've climbed burning hillsides worse than that."],
+     ["pasang_primalist", "Burning hills don't throw rocks at you, Cristobal. That gully does, every afternoon, when the sun warms the ice. I've watched it all week."],
+     ["cristobal_knight", "Okay, okay, you've watched it, I've only looked at it. Dawn, then, before the rocks wake up, and I'll stop calling you slow."]
+   ]},
+  {"id": "coach_or_ref", "between": ["adrian_templar", "iker_guardian"], "asker": "iker_guardian", "stakes": "low",
+   "sides": {"iker_guardian": "let them play, the game needs energy, not whistles", "adrian_templar": "without rules the game is a brawl, and somebody gets hurt"},
+   "third": "Adrian referees the match properly, Iker coaches both sides at once, and nobody's quite sure who won.",
+   "lines": [
+     ["iker_guardian", "Adrian, my friend, you've blown that whistle nine times in ten minutes! Let them play, venga, the game's dying of boredom."],
+     ["adrian_templar", "Nine fouls, Iker, nine. If I let them play like that, somebody's going to the healer with a broken ankle, and it'll be a farmhand."],
+     ["iker_guardian", "Okay, you keep the whistle, I keep the shouting, and between us we'll make a real team. Spain against Spain, the referee always wins."]
+   ]},
+  {"id": "cloud_cover", "between": ["marcus_stormbringer", "mateo_starcaller"], "asker": "mateo_starcaller", "stakes": "low",
+   "sides": {"mateo_starcaller": "the sky will clear by midnight, stay up and observe", "marcus_stormbringer": "that front isn't clearing tonight, go to sleep"},
+   "third": "They both stay up, the sky clears at three in the morning, and they each insist it was their forecast.",
+   "lines": [
+     ["mateo_starcaller", "Marcus, po, those clouds are moving east, it'll be clear by midnight. Stay up with me, it's going to be a beautiful night."],
+     ["marcus_stormbringer", "Sorry, Mateo, but that's a slow front with a lot of moisture behind it. Clear by three at the earliest, and I'd bet on dawn."],
+     ["mateo_starcaller", "Then we both stay up and see who's right, ya, with tea. I'll bring the star chart, you bring your terrible weather jokes."]
+   ]},
+  {"id": "the_pasta_water", "between": ["driss_shaman", "sebastian_bloodmage"], "asker": "driss_shaman", "stakes": "low",
+   "sides": {"driss_shaman": "ration the water, we have three days to the next spring", "sebastian_bloodmage": "a proper meal needs a proper pot of water"},
+   "third": "Sebastian grills instead of boiling, and Driss lets him have one pot for the tea.",
+   "lines": [
+     ["driss_shaman", "Sebastian, my friend, that pot is half our water, and the next spring is three days away. Forgive me, but the pasta can wait."],
+     ["sebastian_bloodmage", "Che, Driss, you can't feed people on rations and good manners! They need a hot meal, a big one, it's medicine."],
+     ["driss_shaman", "Then grill the meat, my friend, which needs no water at all, and leave me one pot for tea. Everyone eats, and everyone drinks."]
+   ]},
+  {"id": "the_contract", "between": ["driss_shaman", "ryan_warlock"], "asker": "ryan_warlock", "stakes": "medium",
+   "sides": {"ryan_warlock": "take the goblins' contract, the money's good, sort the details later", "driss_shaman": "not without a proper water allowance written in"},
+   "third": "Ryan rewrites the contract with a water clause, Driss reads it twice, and the goblins sign it, grumbling.",
+   "lines": [
+     ["ryan_warlock", "Driss, lads, the goblins are offering double for this run. Sign it, we'll sort the small print once we're moving."],
+     ["driss_shaman", "The small print is where the water lives, Ryan. I've refused two contracts over the water allowance, and both came back with a better one."],
+     ["ryan_warlock", "Jesus, a man after my own heart, you're right, it's always the clause they hide. Give it here, I'll write the water in myself."]
+   ]},
+  {"id": "the_stargazer", "between": ["ivan_warrior", "mateo_starcaller"], "asker": "ivan_warrior", "stakes": "low",
+   "sides": {"ivan_warrior": "everybody sleeps by midnight, we leave at six", "mateo_starcaller": "the best sky is at three in the morning, and I'll be fine"},
+   "third": "Mateo sleeps until two, Ivan wakes him with a tram bell, and they watch the sky together for an hour.",
+   "lines": [
+     ["ivan_warrior", "Mateo, it's midnight, and you are still lying in the grass looking up. We leave at six, and I don't wait for passengers."],
+     ["mateo_starcaller", "Ivan, po, the best part of the night is at three, the dark between the moons. Half an hour, I promise, I'll be fresh as anything."],
+     ["ivan_warrior", "You said half an hour last night, and it was three hours. Fine, sleep now, I wake you at two, and then you look, and I look too."]
+   ]},
+  {"id": "the_noisy_machine", "between": ["diego_tinker", "rhys_ranger"], "asker": "rhys_ranger", "stakes": "low",
+   "sides": {"rhys_ranger": "turn that machine off, it's terrifying the hawk", "diego_tinker": "it's nearly working, she just needs five more minutes"},
+   "third": "Diego works on it inside the tent, and Tegan watches him through the flap with great suspicion.",
+   "lines": [
+     ["rhys_ranger", "Diego, please, cariad, that machine's been clanking for an hour, and Tegan's pulling her feathers out. Turn it off, I'm begging you."],
+     ["diego_tinker", "Five minutes, my friend, she's nearly working, I can hear it, sure, sure! When she's done she'll be very quiet, I promise."],
+     ["rhys_ranger", "Then finish her inside the tent, with the flap shut. Tegan can glare at you from out here, and she will, mind."]
    ]}
 ]
