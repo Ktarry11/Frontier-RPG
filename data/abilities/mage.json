@@ -720,7 +720,7 @@
       "name": "Cone of Cold",
       "resource_type": "mana",
       "cooldown": 3,
-      "effect_type": "damage",
+      "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
       "description": "A frontal cone of frost, damaging and slowing all enemies.",
@@ -753,14 +753,15 @@
       "target_type": "enemy_aoe",
       "is_instant": true,
       "icon_id": null,
-      "damage_school": "frost"
+      "damage_school": "frost",
+      "_spell_fix": "27 Nov 2026: was effect_type 'damage', so it scaled from attack power and rolled the Mage's staff through the physical weapon pipeline. A Mage spell scales from spell power."
     },
     {
       "ability_id": "mage_fire_blast",
       "name": "Fire Blast",
       "resource_type": "mana",
       "cooldown": 3,
-      "effect_type": "damage",
+      "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
       "description": "An instant burst of Fire damage.",
@@ -808,7 +809,8 @@
       "cast_speed": "instant",
       "_tuning": [
         "15 Nov 2026: a quick cast (Kyle: \"Speed sets next turn\"), sized 0.65x for 0.85x the cost (tools/apply_cast_speeds.py)"
-      ]
+      ],
+      "_spell_fix": "27 Nov 2026: was effect_type 'damage', so it scaled from attack power and rolled the Mage's staff through the physical weapon pipeline. A Mage spell scales from spell power."
     },
     {
       "ability_id": "mage_mage_armor",
