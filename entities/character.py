@@ -1134,8 +1134,9 @@ class Character(StatusEffectMixin):
         form = get_form(form_id)
         old_max_health, old_current_health = self.health, self.current_health
         self.current_form = form_id
-        self.current_rage = 0
-        self.current_energy = 0
+        if not form.get("keeps_resource"):      # a Bloodmage's Rage is its own pool in either shape
+            self.current_rage = 0
+            self.current_energy = 0
         self._recalculate_derived_stats()
         self._carry_health_through_max_change(old_max_health, old_current_health)
         return True, f"{self.name} shifts into {form['name']}."
@@ -1182,9 +1183,12 @@ class Character(StatusEffectMixin):
         if self.current_form is None:
             return False, f"{self.name} is not shapeshifted."
         old_max_health, old_current_health = self.health, self.current_health
+        from combat.forms import get_form
+        keeps = (get_form(self.current_form) or {}).get("keeps_resource")
         self.current_form = None
-        self.current_rage = 0
-        self.current_energy = 0
+        if not keeps:
+            self.current_rage = 0
+            self.current_energy = 0
         self._recalculate_derived_stats()
         self._carry_health_through_max_change(old_max_health, old_current_health)
         return True, f"{self.name} reverts to normal form."

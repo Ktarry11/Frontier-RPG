@@ -514,6 +514,12 @@ class CombatEngine:
                 reverted, revert_msg = actor.revert_form()
                 if reverted:
                     self.combat_log.append(revert_msg)
+            # a Bloodmage's Shadow spell (requires_form ["mortal"]) drops the worgen first, the same rule
+            elif "mortal" in (getattr(ability, "requires_form", None) or []) \
+                    and getattr(ability, "effect_type", None) != "shapeshift":
+                reverted, revert_msg = actor.revert_form()
+                if reverted:
+                    self.combat_log.append(revert_msg)
 
         # enemy_aoe abilities (Arcane Explosion, Chain Lightning,
         # Consecration, Multi-Shot, ...) hit every living enemy regardless
@@ -712,6 +718,13 @@ class CombatEngine:
         if hasattr(actor, "get_status_stat_mod"):
             buff_pct = actor.get_status_stat_mod("threat_generation_pct") or 0.0
             threat_mult *= (1.0 + buff_pct / 100.0)
+        # a FORM's threat (the Bloodmage's Eternal Curse), same percent-point convention as the buff above
+        if getattr(actor, "current_form", None):
+            from combat.forms import get_form as _gf
+            _form = _gf(actor.current_form) or {}
+            form_pct = (_form.get("stat_mods") or {}).get("threat_generation_pct", 0) or 0
+            if form_pct:
+                threat_mult *= (1.0 + form_pct / 100.0)
 
         # TALENT-sourced threat, same key but a DIFFERENT NUMERIC CONVENTION,
         # which is why it needs its own branch rather than folding into the

@@ -42,7 +42,7 @@ from combat.abilities import ResourceType
 #:
 #:     plate + shield tank        52%   and blocks, parries and dodges on top
 #:     beetle (mail)              66%
-#:     eternal curse (Bloodmage)  65%   armor_pct lives on the ability, data/abilities/bloodmage.json
+#:     eternal curse (Bloodmage)  60%   a real form since 26 Nov (the "eternal" entry below)
 #:     dire bear (leather)        68%   before any Feral armour talents; the cap is 75%
 #:
 #: Dire Bear's multiplier is the largest because leather starts lowest; Beetle's the smallest
@@ -183,7 +183,49 @@ FORMS = {
         "description": "Increases healing done and reduces healing ability Mana costs.",
         "stat_mods": {"healing_done": 0.06},
     },
+    # BLOODMAGE: MORTAL AND CURSED (Kyle, 26 Nov 2026: "bloodmage doesnt have it's worgen form... theyre supposed to
+    # have 'mortal' and 'cursed' forms... mortal is casting and cursed is shapeshifted (like druid bear)"). Mortal is
+    # no form at all, where the Shadow bolts and heals live (requires_form ["mortal"]); the three curses are the
+    # worgen, where the claws and bites live (CURSED_FORMS). Blood Curse is every Bloodmage's baseline worgen;
+    # Accursed Form is the Accursed spec's improved one (the melee bruiser) and Eternal Curse the Eternal spec's tank.
+    # Rage is the class's own pool in either shape, so a curse keeps it (keeps_resource) rather than zeroing it the
+    # way Bear Form zeroes a druid's.
+    "cursed": {
+        "name": "Blood Curse",
+        "class": "Bloodmage",
+        "level_req": 10,
+        "resource_type": ResourceType.RAGE,
+        "keeps_resource": True,
+        "description": "Gives in to the worgen curse. Increases attack power and haste; Shadow spells need your mortal form.",
+        "stat_mods": {"attack_power_pct": 10.0, "haste": 4.0},
+    },
+    "accursed": {
+        "name": "Accursed Form",
+        "class": "Bloodmage",
+        "level_req": 20,
+        "resource_type": ResourceType.RAGE,
+        "keeps_resource": True,
+        "description": "The improved curse of the Accursed. A melee bruiser: more attack power, crit and armor.",
+        "stat_mods": {"attack_power_pct": 22.0, "crit_chance_physical": 4.0, "armor_pct": 10.0},
+    },
+    # CoA's Eternal Curse: "+25% total Stamina and +200% armor-from-items, so Stamina is doubly amplified" (Kyle
+    # quoting it, 26 Nov 2026). Threat up and damage down, as the spec text has it. armor_pct multiplies armour,
+    # which on a Bloodmage is all from items; it cannot block or parry, so armour is its whole defence.
+    "eternal": {
+        "name": "Eternal Curse",
+        "class": "Bloodmage",
+        "level_req": 20,
+        "resource_type": ResourceType.RAGE,
+        "keeps_resource": True,
+        "description": "The Eternal's tank curse. Stamina +25%, armor from items +200%, more armor and threat, for less damage.",
+        "stat_mods": {"stamina_pct": 25.0, "armor_pct": 200.0, "armor": 300, "threat_generation_pct": 60.0, "attack_power_pct": -8.0},
+    },
 }
+
+#: every worgen shape; a Bloodmage claw or bite requires any of them
+CURSED_FORMS = ["cursed", "accursed", "eternal"]
+#: the pseudo-form for "not shapeshifted": a Bloodmage's spells require it
+MORTAL = "mortal"
 
 
 def get_form(form_id):

@@ -163,8 +163,8 @@ SPEC_ROLES = {
 #: caster, and Cultist Dreadnought's whole chassis is Void Monstrosity (armour 160, stamina 35,
 #: -10% damage taken). Best first - Dire Bear before Bear - and only if the character can use it.
 ROLE_FORMS = {
-    "tank": ["dire_bear", "void_monstrosity", "bear", "beetle"],
-    "melee_dps": ["cat", "spider"],
+    "tank": ["dire_bear", "void_monstrosity", "bear", "beetle", "eternal"],
+    "melee_dps": ["cat", "spider", "accursed"],
     "healer": ["tree_of_life", "vizier_form"],
     "ranged_dps": ["moonkin", "shadowform", "weaver"],
 }

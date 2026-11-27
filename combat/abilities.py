@@ -1049,6 +1049,10 @@ class Ability:
         """
         if not self.requires_form:
             return True
+        # "mortal" (a Bloodmage's spells, combat/forms.py): castable out of form, and from a curse too, the way a
+        # druid casts from Bear Form - the combat engine drops the caster out of the curse first (execute_ability)
+        if "mortal" in self.requires_form:
+            return True
         current = getattr(character, "current_form", None) or getattr(character, "current_stance", None)
         if current in self.requires_form:
             return True
