@@ -107,8 +107,8 @@
   ],
   "_field_boss": "Kyle, 14 Nov 2026, after a pair at level 17 beat Tidelord Gharesh (5,618 health) in the Echo Isles grotto: 'keep Dungeons around 3x health and 3x damage. So harder than [1.5x] but easier than they were [4.4x]. He did it with 2 people. So why the fuck not.' Every boss, dungeon or cave or named rare, is 3x health and 3x damage. 'boss' (the 97 in real dungeons) and 'field_boss' stay separate keys so they can be split again.",
   "hidden_layer": {
-    "damage": 4.0,
-    "health": 4.0,
+    "damage": 3.0,
+    "health": 3.5,
     "loot_ilvl_bonus": 5
   },
   "skull_zone": {
@@ -137,6 +137,7 @@
     "damage": 0.8,
     "health": 0.85
   },
+  "_hidden_27nov": "Kyle, 27 Nov 2026, after tools/sim_tank_survival.py had a same-level tank in greens or blues slaughtered (dead within three hits) in 41% of 5-man hidden-layer fights, party winning 67%: 'Drop the hidden zone damage by 1x and hp by 0.5x'. Hidden layers 4.0/4.0 -> 3.0 damage / 3.5 health.",
   "_hidden_18nov": "Kyle, 18 Nov 2026, after a tester's druid went from 1439 to 109 in one hit from Amberheart, the Sap-Mother: 'So lets drop down skull zone by 1x for hp and damage and frontier zones by 1.5x and 1.5x hp and damage'. Skull zones 2.5 -> 1.5; frontier deep 5.0/5.5 -> 3.5/4.0; frontier open 3.5/3.5 -> 2.0/2.0. Hidden layers stay 4/4.5. Then: 'Drop damage to 3.5x for frontier caves and dungeons. Drop hidden layers to 4x as well': frontier deep damage 4.0 -> 3.5, hidden layer damage 4.5 -> 4.0.",
   "heroic": {
     "damage": 1.15,

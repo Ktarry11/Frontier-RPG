@@ -47,8 +47,18 @@ from combat.abilities import ResourceType
 #:
 #: Dire Bear's multiplier is the largest because leather starts lowest; Beetle's the smallest
 #: because mail starts closest and Fortitude's own talents already add to it.
+# HEALTH IS BAKED INTO THE SHAPESHIFTS, AND A BEAR DODGES (Kyle, 27 Nov 2026: "Bears should be high armor dodge
+# tanks. Also there should be hp baked into forms as well as armor boosts (bear, beetle, cursed etc)", with WotLK's
+# Dire Bear Form: "armor contribution from items by 360%, and health by 1240"). max_health_pct is a FRACTION of max
+# health, so it scales with level where a flat 1240 would be enormous at 40 and small at 80. Tank forms: Bear +25%,
+# Dire Bear +30% (1240 is about 27% of a level-60 druid), Beetle and Void Monstrosity +20%, Eternal Curse +10% on top
+# of its +25% Stamina. The Bloodmage's two melee curses +10%. Bears add dodge (+8, Dire +12): armour is their wall
+# and dodge their avoidance, since they cannot block or parry.
 FORMS = {
     "bear": {
+        "no_parry": True,          # an armour form: no parry, no block (entities/character.py)
+        # agility buys dodge 1.5x as fast in this form (entities/character.py, the dodge formula)
+        "agility_dodge_mult": 1.5,
         "name": "Bear Form",
         "class": "Druid",
         "level_req": 10,
@@ -57,9 +67,12 @@ FORMS = {
             "Shifts into a bear, trading your normal Mana pool for Rage. "
             "Increases Armor and Stamina."
         ),
-        "stat_mods": {"armor": 90, "stamina": 25, "armor_pct": 250},
+        "stat_mods": {"armor": 90, "stamina": 25, "armor_pct": 250, "max_health_pct": 0.25, "dodge": 8.0},
     },
     "dire_bear": {
+        "no_parry": True,          # an armour form: no parry, no block (entities/character.py)
+        # agility buys dodge 1.75x as fast in this form (entities/character.py, the dodge formula)
+        "agility_dodge_mult": 1.75,
         "name": "Dire Bear Form",
         "class": "Druid",
         "level_req": 40,
@@ -68,7 +81,7 @@ FORMS = {
             "An improved Bear Form - more Armor, Stamina, and Attack "
             "Power than the base form."
         ),
-        "stat_mods": {"armor": 150, "stamina": 40, "attack_power": 60, "armor_pct": 400},
+        "stat_mods": {"armor": 150, "stamina": 40, "attack_power": 60, "armor_pct": 400, "max_health_pct": 0.30, "dodge": 12.0},
     },
     "cat": {
         "name": "Cat Form",
@@ -127,7 +140,7 @@ FORMS = {
             "Sheds your mortal shape for something from the deep. Greatly "
             "increases Armor and Stamina and reduces damage taken."
         ),
-        "stat_mods": {"armor": 160, "stamina": 35, "damage_taken_pct": -0.10},
+        "stat_mods": {"armor": 160, "stamina": 35, "damage_taken_pct": -0.10, "max_health_pct": 0.20},
     },
     # Venomancer - Druid-equivalent form system per Kyle ("basically a
     # Druid... Spider is energy, beetle is rage, Rot and Vizier are caster
@@ -153,6 +166,7 @@ FORMS = {
         "stat_mods": {"agility": 20, "crit_chance_physical": 5.0},
     },
     "beetle": {
+        "no_parry": True,          # an armour form: no parry, no block (entities/character.py)
         "name": "Beetle Form",
         "class": "Venomancer",
         "level_req": 10,
@@ -161,7 +175,7 @@ FORMS = {
             "Shifts into an armored beetle, trading your normal Mana pool "
             "for Rage. Increases Armor and Stamina."
         ),
-        "stat_mods": {"armor": 90, "stamina": 25, "armor_pct": 140},
+        "stat_mods": {"armor": 90, "stamina": 25, "armor_pct": 140, "max_health_pct": 0.20},
     },
     "weaver": {
         "name": "Weaver Form",
@@ -197,7 +211,7 @@ FORMS = {
         "resource_type": ResourceType.RAGE,
         "keeps_resource": True,
         "description": "Gives in to the worgen curse. Increases attack power and haste; Shadow spells need your mortal form.",
-        "stat_mods": {"attack_power_pct": 10.0, "haste": 4.0},
+        "stat_mods": {"attack_power_pct": 10.0, "haste": 4.0, "max_health_pct": 0.10},
     },
     "accursed": {
         "name": "Accursed Form",
@@ -206,19 +220,20 @@ FORMS = {
         "resource_type": ResourceType.RAGE,
         "keeps_resource": True,
         "description": "The improved curse of the Accursed. A melee bruiser: more attack power, crit and armor.",
-        "stat_mods": {"attack_power_pct": 22.0, "crit_chance_physical": 4.0, "armor_pct": 10.0},
+        "stat_mods": {"attack_power_pct": 22.0, "crit_chance_physical": 4.0, "armor_pct": 10.0, "max_health_pct": 0.10},
     },
     # CoA's Eternal Curse: "+25% total Stamina and +200% armor-from-items, so Stamina is doubly amplified" (Kyle
     # quoting it, 26 Nov 2026). Threat up and damage down, as the spec text has it. armor_pct multiplies armour,
     # which on a Bloodmage is all from items; it cannot block or parry, so armour is its whole defence.
     "eternal": {
+        "no_parry": True,          # an armour form: no parry, no block (entities/character.py)
         "name": "Eternal Curse",
         "class": "Bloodmage",
         "level_req": 10,
         "resource_type": ResourceType.RAGE,
         "keeps_resource": True,
         "description": "The Eternal's tank curse. Stamina +25%, armor from items +200%, more armor and threat, for less damage.",
-        "stat_mods": {"stamina_pct": 25.0, "armor_pct": 200.0, "armor": 300},
+        "stat_mods": {"stamina_pct": 25.0, "armor_pct": 200.0, "armor": 300, "max_health_pct": 0.10},
     },
 }
 

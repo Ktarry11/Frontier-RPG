@@ -1730,8 +1730,15 @@ class Character(StatusEffectMixin):
         # the two: it is a number a player can be told ("dodge and parry
         # together cap at 60%") rather than a curve that quietly shaves every
         # point by a different amount.
+        # A BEAR TURNS AGILITY INTO DODGE FASTER (Kyle, 27 Nov 2026: "Bears should be high armor dodge tanks", and "My
+        # friend always geared his bear with pure agi and got insane dodge rate"): a form's agility_dodge_mult scales
+        # the agility share of dodge. AVOIDANCE_COMBINED_CAP still holds dodge and parry together at 50%.
+        _agi_mult = 1.0
+        if getattr(self, "current_form", None):
+            from combat.forms import get_form as _gf
+            _agi_mult = float((_gf(self.current_form) or {}).get("agility_dodge_mult", 1.0))
         self.dodge = (self.BASE_DODGE
-                      + self._from_stat(self.AGI_PER_DODGE, eff_agility)
+                      + self._from_stat(self.AGI_PER_DODGE, eff_agility) * _agi_mult
                       + bonuses.get("dodge", 0)
                       + bonuses.get("dodge_rating", 0)
                       + defense_bonus)
@@ -1783,6 +1790,15 @@ class Character(StatusEffectMixin):
         # keeps leaning on parry instead of having whichever stat is checked
         # second silently zeroed. Block is excluded - it reduces a hit by
         # 30%, it does not erase it, and it has its own cap.
+        # THE ARMOUR FORMS CANNOT PARRY OR BLOCK (Kyle, 26 Oct and 12 Nov 2026: bears, beetles and the Eternal "can
+        # block OR parry" none of it, which is why their armour runs past the plate tanks'; and 27 Nov: "is that parry
+        # I see in bear form"). A form with no_parry zeroes both, before the avoidance cap, so all of a bear's cap is
+        # dodge.
+        if getattr(self, "current_form", None):
+            from combat.forms import get_form as _gf2
+            if (_gf2(self.current_form) or {}).get("no_parry"):
+                self.parry = 0.0
+                self.block_chance = 0.0
         total_avoid = self.dodge + self.parry
         if total_avoid > self.AVOIDANCE_COMBINED_CAP:
             scale = self.AVOIDANCE_COMBINED_CAP / total_avoid
