@@ -230,19 +230,22 @@ class QuestJournalScreen(BaseScreen):
                 self.selected_faction_id = None
             return
 
-        for i, rect in enumerate(self.quest_row_rects):
-            # Intersect against the viewport, not just the row's own
-            # rect - a row can be scrolled partially behind the tab
-            # buttons (or, before this screen existed, the bottom hint
-            # bar) and still occupy real on-screen pixel coordinates
-            # there even though set_clip() prevented it from actually
-            # being drawn. Without this check a click on, say, the tab
-            # button area could double as a click on a clipped-but-
-            # coordinate-present row underneath it.
+        for name, rect in getattr(self, "_section_buttons", []):
+            if rect.collidepoint(mouse_pos):
+                for zone_label, _qs in self._sections():
+                    self._toggle_section(zone_label, open_=(name == "expand"))
+                return
+
+        # Rows are (rect, kind, payload): a zone header toggles its section, a quest row opens the quest.
+        # Intersect against the viewport, not just the row's own rect - a row can be scrolled partially behind
+        # the tabs and still occupy real on-screen pixel coordinates there even though set_clip() kept it from
+        # being drawn.
+        for rect, kind, payload in getattr(self, "_rows", []):
             if rect.collidepoint(mouse_pos) and self._list_viewport.collidepoint(mouse_pos):
-                quests = self._current_list()
-                if i < len(quests):
-                    self.selected_quest_id = quests[i].quest_id
+                if kind == "header":
+                    self._toggle_section(payload)
+                else:
+                    self.selected_quest_id = payload
                 return
 
     def _drag_scrollbar_to(self, mouse_y):
@@ -252,6 +255,48 @@ class QuestJournalScreen(BaseScreen):
             return
         frac = (mouse_y - track.top) / track.height
         self.scroll_offset = int(max(0.0, min(1.0, frac)) * max_scroll)
+
+    # ---- ZONE SECTIONS (Kyle, 27 Nov 2026: "for quest log (current and completed) can we have almost like collapsible
+    # sections based on zone. So if I leave ashenvale I can just collapse these but not drop them and have them
+    # flooding my quest log?"). Quests are grouped under a header per zone; a header click opens or closes it. Your
+    # current zone comes first, the rest in level order. On Active every zone starts open, on Completed only the
+    # current one; anything you open or close is kept in the save (QuestManager.journal_sections).
+    HEADER_H = 36
+
+    @staticmethod
+    def _zone_label(zone):
+        return (zone or "elsewhere").replace("_", " ").title()
+
+    def _here(self):
+        try:
+            z = self.state_manager.zone_manager.current_zone
+            return (getattr(z, "name", "") or "").replace("_", " ").title()
+        except Exception:                                      # noqa: BLE001
+            return ""
+
+    def _section_open(self, zone_label):
+        saved = getattr(self.quest_mgr, "journal_sections", {}).get(self.active_tab, {})
+        if zone_label in saved:
+            return saved[zone_label]
+        return self.active_tab == "active" or zone_label == self._here()
+
+    def _toggle_section(self, zone_label, open_=None):
+        qm = self.quest_mgr
+        if not hasattr(qm, "journal_sections"):
+            qm.journal_sections = {}
+        tab = qm.journal_sections.setdefault(self.active_tab, {})
+        tab[zone_label] = (not self._section_open(zone_label)) if open_ is None else bool(open_)
+
+    def _sections(self):
+        """[(zone label, [quests])], current zone first, then by the lowest quest level in each zone."""
+        groups = {}
+        for q in self._current_list():
+            groups.setdefault(self._zone_label(getattr(q, "zone", "")), []).append(q)
+        here = self._here()
+        for qs in groups.values():
+            qs.sort(key=lambda q: (getattr(q, "quest_level", 0), q.title))
+        return sorted(groups.items(), key=lambda kv: (kv[0] != here,
+                                                      min(getattr(q, "quest_level", 0) for q in kv[1]), kv[0]))
 
     def _current_list(self):
         if self.active_tab == "active":
@@ -329,102 +374,106 @@ class QuestJournalScreen(BaseScreen):
         viewport = pygame.Rect(20, list_top, SCREEN_WIDTH - 40, list_bottom - list_top)
         self._list_viewport = viewport
 
-        content_height = len(quests) * row_h
+        sections = self._sections()
+        content_height = sum(self.HEADER_H + (len(qs) * row_h if self._section_open(z) else 0) + 6
+                             for z, qs in sections)
         self._list_content_height = content_height
 
-        # Clamp AFTER computing content_height for the CURRENT quest list -
-        # this is the one place scroll_offset's valid range is enforced,
-        # so a stale offset from a longer list (or a list that shrank
-        # since last render, e.g. a quest just got completed and moved
-        # tabs) always gets pulled back in bounds instead of leaving a
-        # dead scroll position pointing at nothing.
+        # Collapse all / Expand all, right of the tabs
+        self._section_buttons = []
+        bx = SCREEN_WIDTH - 20
+        for name, label in (("expand", "Expand all"), ("collapse", "Collapse all")):
+            w = self.renderer._get_font(None, 13).size(label)[0] + 18
+            r = pygame.Rect(bx - w, 84, w, 24)
+            bx = r.x - 8
+            hover = r.collidepoint(pygame.mouse.get_pos())
+            pygame.draw.rect(screen, (34, 42, 66) if hover else (22, 28, 46), r, border_radius=4)
+            pygame.draw.rect(screen, (92, 76, 40), r, 1, border_radius=4)
+            self.renderer.draw_text(screen, label, (r.centerx, r.y + 4), font_size=13, color=(214, 206, 190),
+                                    center=True)
+            self._section_buttons.append((name, r))
+
+        # Clamp AFTER computing content_height for the CURRENT list - this is the one place scroll_offset's
+        # valid range is enforced, so a stale offset from a longer list always gets pulled back in bounds.
         max_scroll = max(0, content_height - viewport.height)
         self.scroll_offset = max(0, min(self.scroll_offset, max_scroll))
 
-        # Clip drawing to the viewport rect so a row that's fully or
-        # partially scrolled out of view is actually cut off cleanly
-        # (not just "happens to land off the real screen edge", which
-        # is what let rows silently disappear past SCREEN_HEIGHT before -
-        # this makes the visible boundary explicit and intentional, and
-        # also means a row can't visually bleed into the tab buttons or
-        # hint bar above/below the list).
         screen.set_clip(viewport)
-
+        from ui.scrollbar import GUTTER
+        self._rows = []
         y = list_top - self.scroll_offset
-        for quest in quests:
-            # rows stop short of the scrollbar's gutter (ui/scrollbar.py) so the bar never sits on them
-            from ui.scrollbar import GUTTER
-            row_rect = pygame.Rect(20, y, SCREEN_WIDTH - 40 - GUTTER, row_h - 8)
+        for zone_label, quests_in in sections:
+            is_open = self._section_open(zone_label)
+            head = pygame.Rect(20, y, SCREEN_WIDTH - 40 - GUTTER, self.HEADER_H - 4)
+            self._rows.append((head, "header", zone_label))
+            if head.bottom >= viewport.top and head.top <= viewport.bottom:
+                hover = head.collidepoint(pygame.mouse.get_pos())
+                self.renderer.draw_vgradient(screen, head, (34, 42, 68) if hover else (28, 35, 58), (16, 20, 36))
+                pygame.draw.line(screen, (150, 124, 62), (head.x, head.bottom - 1), (head.right, head.bottom - 1))
+                sign = "-" if is_open else "+"
+                self.renderer.draw_text_shadow(screen, sign, (head.x + 16, head.centery - 1), self.renderer.bold(18),
+                                               color=(214, 180, 96), center=True)
+                self.renderer.draw_text_shadow(screen, zone_label, (head.x + 32, head.y + 5), self.renderer.bold(16),
+                                               color=(236, 214, 158))
+                ready = sum(1 for q in quests_in if q.status == QuestStatus.READY_TO_TURN_IN) \
+                    if self.active_tab == "active" else 0
+                note = f"{len(quests_in)} quest{'s' if len(quests_in) != 1 else ''}"
+                if ready:
+                    note += f"  -  {ready} ready to turn in"
+                if zone_label == self._here():
+                    note = "you are here  -  " + note
+                nw = self.renderer._get_font(None, 14).size(note)[0]
+                self.renderer.draw_text(screen, note, (head.right - 12 - nw, head.y + 8), font_size=14,
+                                        color=(214, 180, 96) if ready else (136, 146, 168))
+            y += self.HEADER_H
+            if not is_open:
+                y += 6
+                continue
+            for quest in quests_in:
+                row_rect = pygame.Rect(36, y, SCREEN_WIDTH - 56 - GUTTER, row_h - 8)
+                self._rows.append((row_rect, "quest", quest.quest_id))
+                if row_rect.bottom >= viewport.top and row_rect.top <= viewport.bottom:
+                    pygame.draw.rect(screen, (20, 25, 42), row_rect, border_radius=3)
+                    pygame.draw.rect(screen, (52, 60, 84), row_rect, 1, border_radius=3)
 
-            # Rows fully above or below the viewport contribute nothing
-            # visible - skip drawing them (cheap, and set_clip would hide
-            # them anyway) but DO still record a rect for click hit-testing
-            # below, at their real (possibly off-viewport) position, so
-            # index alignment with quests[] never shifts based on scroll
-            # position - handle_event's collidepoint check against a
-            # rect outside the viewport simply never matches a real
-            # on-screen mouse click, so this is safe without extra
-            # bookkeeping.
-            self.quest_row_rects.append(row_rect)
+                    # Title takes the quest's con colour, as WoW's own log does; "Ready to turn in" wins.
+                    band = difficulty.band_for(quest.quest_level, party_level)
+                    title_color = difficulty.BAND_COLORS[band]
+                    if self.active_tab == "active" and quest.status == QuestStatus.READY_TO_TURN_IN:
+                        title_color = COLOR_GOLD
+                    self.renderer.draw_text(screen, quest.title, (row_rect.x + 12, row_rect.y + 8), color=title_color)
 
-            if row_rect.bottom >= viewport.top and row_rect.top <= viewport.bottom:
-                pygame.draw.rect(screen, (24, 24, 30), row_rect)
-                pygame.draw.rect(screen, (70, 70, 80), row_rect, 1)
+                    # Difficulty badge, right-aligned, measured in the font it's drawn in.
+                    badge = f"Lv {quest.quest_level}  {difficulty.BAND_LABELS[band]}"
+                    badge_w = row_font.size(badge)[0]
+                    self.renderer.draw_text(screen, badge,
+                                            (row_rect.right - 12 - badge_w, row_rect.y + 10),
+                                            color=difficulty.BAND_COLORS[band], font_size=16)
 
-                # Title takes the quest's con colour, as WoW's own log does.
-                # "Ready to turn in" still wins, because that is the thing the
-                # player is scanning the list FOR - and difficulty is not lost
-                # when it does, since the badge on the right always carries it.
-                band = difficulty.band_for(quest.quest_level, party_level)
-                title_color = difficulty.BAND_COLORS[band]
-                if self.active_tab == "active" and quest.status == QuestStatus.READY_TO_TURN_IN:
-                    title_color = COLOR_GOLD
-                self.renderer.draw_text(screen, quest.title, (row_rect.x + 12, row_rect.y + 8), color=title_color)
-
-                # Difficulty badge, right-aligned: "Lv 24  Normal", in the band
-                # colour. Kyle, 4 Nov: the journal has to show difficulty and
-                # zone. The level is spelled out rather than left implicit in
-                # the colour, so a player can tell a green quest two levels
-                # under them from one eight levels under.
-                badge = f"Lv {quest.quest_level}  {difficulty.BAND_LABELS[band]}"
-                # Measure with the SAME font the text is drawn in. font_small is
-                # not the font_size=16 font, so measuring with one and drawing
-                # with the other pushed the badge off the right edge ("Very Ha")
-                # and ran the zone label straight through the objective summary.
-                badge_w = row_font.size(badge)[0]
-                self.renderer.draw_text(screen, badge,
-                                        (row_rect.right - 12 - badge_w, row_rect.y + 10),
-                                        color=difficulty.BAND_COLORS[band], font_size=16)
-
-                # Second line: zone on BOTH tabs now. It used to appear only on
-                # the completed tab, which is the tab where it matters least -
-                # "where do I go for this" is an active-quest question.
-                zone_text = quest.zone.replace("_", " ").title()
-                if self.active_tab == "active":
-                    summary = self._objective_summary(quest)
-                    status_note = "  (ready to turn in)" if quest.status == QuestStatus.READY_TO_TURN_IN else ""
-                    self.renderer.draw_text(screen, zone_text, (row_rect.x + 12, row_rect.y + 32),
-                                            color=(190, 170, 120), font_size=16)
-                    zone_w = row_font.size(zone_text)[0]
-                    self.renderer.draw_text(screen, "  -  " + summary + status_note,
-                                            (row_rect.x + 12 + zone_w, row_rect.y + 32),
-                                            color=(170, 170, 170), font_size=16)
-                else:
-                    self.renderer.draw_text(screen, zone_text,
-                                            (row_rect.x + 12, row_rect.y + 32), color=(140, 140, 140), font_size=16)
-
-            y += row_h
+                    # Second line: the objective (the zone is the section header now)
+                    if self.active_tab == "active":
+                        summary = self._objective_summary(quest)
+                        status_note = "  (ready to turn in)" if quest.status == QuestStatus.READY_TO_TURN_IN else ""
+                        self.renderer.draw_text(screen, summary + status_note, (row_rect.x + 12, row_rect.y + 32),
+                                                color=(170, 176, 190), font_size=16)
+                    else:
+                        self.renderer.draw_text(screen, "Completed", (row_rect.x + 12, row_rect.y + 32),
+                                                color=(136, 146, 168), font_size=16)
+                y += row_h
+            y += 6
 
         screen.set_clip(None)
 
         self._render_scrollbar(screen, viewport, content_height)
 
     def _render_tabs(self, screen):
-        for rect, key, label in ((self.active_tab_button, "active", "Active"),
-                                 (self.completed_tab_button, "completed", "Completed"),
-                                 (self.reputation_tab_button, "reputation", "Reputation")):
-            colour = (60, 55, 30) if self.active_tab == key else (30, 30, 35)
-            self.renderer.draw_button(screen, rect, label, color=colour)
+        """The serif tab strip (Renderer.draw_tabs), whose rects become the three tab buttons' hit areas."""
+        rects = dict(self.renderer.draw_tabs(screen, (("active", "Active"), ("completed", "Completed"),
+                                                      ("reputation", "Reputation")),
+                                             self.active_tab, 20, 78, width=SCREEN_WIDTH - 40))
+        self.active_tab_button = rects["active"]
+        self.completed_tab_button = rects["completed"]
+        self.reputation_tab_button = rects["reputation"]
 
     #: Standing colours, Hostile red through Exalted gold. Keyed by tier id so a faction that is only ever
     #: Neutral still reads as deliberately neutral rather than as an unstyled default.
@@ -453,6 +502,8 @@ class QuestJournalScreen(BaseScreen):
         from world.faction_manager import get_faction_manager
         self._render_tabs(screen)
         self.quest_row_rects = []          # stop stale quest rows hit-testing on this tab
+        self._rows = []
+        self._section_buttons = []
         self.faction_row_rects = []
 
         factions = get_faction_manager().all_factions()

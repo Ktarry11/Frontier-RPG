@@ -699,9 +699,13 @@ class QuestManager:
         progress) - authored fields always reload from the JSON
         definition on the next launch, see Quest.apply_saved_state."""
         return {"quest_states": [q.to_dict() for q in self.quests.values()
-                                  if q.status != QuestStatus.NOT_STARTED]}
+                                  if q.status != QuestStatus.NOT_STARTED],
+                "journal_sections": {tab: dict(v) for tab, v in getattr(self, "journal_sections", {}).items()}}
 
     def load_from_dict(self, data):
+        # which zone sections of the journal you opened or closed, per tab (ui/screens/quest_journal_screen.py)
+        self.journal_sections = {tab: {z: bool(o) for z, o in (v or {}).items()}
+                                 for tab, v in (data.get("journal_sections") or {}).items()}
         for q_state in data.get("quest_states", []):
             quest = self.quests.get(q_state["quest_id"])
             if quest:
