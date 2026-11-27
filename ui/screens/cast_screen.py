@@ -442,7 +442,9 @@ class CastScreen(BaseScreen):
                 # the row is 104 tall: name, health, two pools and the buffs fit with 14 a bar
                 self.renderer.draw_text(screen, self._pool_name(rtype), (bar_x + 4, res_y - 1),
                                         font_size=11, color=(235, 235, 240))
-                txt = f"{max(0, round(cur))}/{round(mx)}"
+                from combat.abilities import shows_combo_points, combo_points, COMBO_POINTS_MAX
+                txt = (f"{combo_points(cur)}/{COMBO_POINTS_MAX}" if shows_combo_points(member.char_class, rtype)
+                       else f"{max(0, round(cur))}/{round(mx)}")
                 tw = self.renderer._get_font(font_size=11).size(txt)[0]
                 self.renderer.draw_text(screen, txt, (bar_x + bar_w - tw - 4, res_y - 1),
                                         font_size=11, color=(235, 235, 240))

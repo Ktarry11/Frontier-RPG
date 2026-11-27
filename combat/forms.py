@@ -214,7 +214,7 @@ FORMS = {
     "eternal": {
         "name": "Eternal Curse",
         "class": "Bloodmage",
-        "level_req": 20,
+        "level_req": 10,
         "resource_type": ResourceType.RAGE,
         "keeps_resource": True,
         "description": "The Eternal's tank curse. Stamina +25%, armor from items +200%, more armor and threat, for less damage.",

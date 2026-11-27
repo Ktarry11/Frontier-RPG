@@ -1656,6 +1656,19 @@ class CombatScreen(BaseScreen):
                     label = getattr(rtype, "value", str(rtype)).replace("_", " ").title()
                 if not maximum:
                     return
+                from combat.abilities import shows_combo_points, combo_points, COMBO_POINTS_MAX
+                if shows_combo_points(member.char_class, rtype):
+                    # five pips, not a 0-100 bar (Kyle, 27 Nov 2026: "Combo points should only go to 5")
+                    pts = combo_points(current)
+                    self.renderer.draw_text(screen, f"Combo points {pts}/{COMBO_POINTS_MAX}", (tx, ty),
+                                            font_size=11, color=color)
+                    pip_w = (bar_w - (COMBO_POINTS_MAX - 1) * 4) // COMBO_POINTS_MAX
+                    for k in range(COMBO_POINTS_MAX):
+                        r = pygame.Rect(tx + k * (pip_w + 4), ty + 13, pip_w, 12)
+                        pygame.draw.rect(screen, color if k < pts else (40, 34, 30), r)
+                        pygame.draw.rect(screen, (90, 80, 70), r, 1)
+                    ty += 29
+                    return
                 self.renderer.draw_text(screen, label, (tx, ty), font_size=11, color=color)
                 self.renderer.draw_health_bar(screen, (tx, ty + 12), current, maximum,
                                               width=bar_w, height=14,

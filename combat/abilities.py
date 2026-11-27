@@ -160,6 +160,23 @@ class ResourceType(Enum):
 # pass. No combat logic consumes secondary resources yet; Character just
 # tracks a pool for each so the UI and future ability system have something
 # real to read from instead of needing another rework.
+#: ONE COMBO POINT on the 100-point bar (Kyle, 27 Nov 2026: "Combo points should only go to 5"). A Rogue's or a cat
+#: Druid's generators grant 20 and the pool caps at 100, so it always held 0-5 points; it now SAYS 0-5 everywhere
+#: instead of 0-100. A Templar's combo is its own chain currency (costs of 30 and 48), so it keeps the bar.
+COMBO_POINT = 20
+COMBO_POINTS_MAX = 5
+
+
+def shows_combo_points(char_class, rtype):
+    """True when this pool should read as 0-5 combo points rather than a 0-100 bar."""
+    return getattr(rtype, "value", rtype) == "combo" and char_class != "Templar"
+
+
+def combo_points(value):
+    """Whole combo points in a combo pool value."""
+    return max(0, min(COMBO_POINTS_MAX, int(round((value or 0) / COMBO_POINT))))
+
+
 CLASS_RESOURCE_MAP = {
     # Original 9
     "Warrior": (ResourceType.RAGE, None),
@@ -1330,7 +1347,19 @@ class Ability:
             gen_amount = self.generates.get("amount", 0)
             if gen_resource and gen_amount:
                 gen_label = str(gen_resource).replace("_", " ").title()
-                lines.append(f"Generates {int(gen_amount)} {gen_label}")
+                if gen_resource == "combo" and not str(self.ability_id).startswith("templar_"):
+                    n = combo_points(gen_amount)
+                    lines.append(f"Generates {n} combo point{'s' if n != 1 else ''}")
+                else:
+                    lines.append(f"Generates {int(gen_amount)} {gen_label}")
+        # a finisher's combo cost, in points (Kyle, 27 Nov 2026: "Combo points should only go to 5")
+        if self.secondary_cost and not str(self.ability_id).startswith("templar_"):
+            from combat.abilities import get_class_secondary_resource as _sec
+            _cls = getattr(caster, "char_class", None)
+            if _cls is None or getattr(_sec(_cls), "value", None) == "combo" \
+                    or getattr(caster, "current_form", None) == "cat":
+                n = combo_points(self.secondary_cost)
+                lines.append(f"Spends {n} combo point{'s' if n != 1 else ''}")
 
         # Real base-value line(s), phrased per effect_type - the actual
         # "before modifiers" numbers Kyle asked for.
@@ -2706,7 +2735,10 @@ class Ability:
                 if self.secondary_cost and not self._has_secondary_resource(caster):
                     sec = self._secondary_resource_type(caster)
                     name = getattr(sec, "value", "combo").replace("_", " ")
-                    return False, f"Not enough {'combo points' if name == 'combo' else name} (need {self.secondary_cost})"
+                    if name == "combo" and getattr(caster, "char_class", None) != "Templar":
+                        n = combo_points(self.secondary_cost)
+                        return False, f"Not enough combo points (need {n})"
+                    return False, f"Not enough {name} (need {self.secondary_cost})"
                 return False, f"Not enough {self.resource_type.value} (need {cost})"
 
             # Consume resource
