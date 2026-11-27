@@ -6,7 +6,7 @@ import os
 import pygame
 from world.tiles import get_tile_color
 from world.tile_textures import TILE_SIZE, get_biome_for_zone, get_texture_entry, get_subzone_biome
-from ui.sprite_loader import (get_walk_sprite, get_tile_sprite, get_tile_sprite_smooth, get_landmark_sprite,
+from ui.sprite_loader import (get_walk_sprite, walk_frame_count, get_tile_sprite, get_tile_sprite_smooth, get_landmark_sprite,
                              get_feathered_chunk_sprite, get_npc_sprite, get_mount_sprite,
                              get_creature_sprite)
 from world.race_registry import sprite_base_path
@@ -377,7 +377,14 @@ class TilemapRenderer:
     WALK_CYCLE = (1, 2, 3, 2)
     WALK_IDLE_MS = 220
 
-    def _walk_frame(self, player_pos):
+    #: 8-frame looks (claude/walk_cycle_8frame_prompts.md) play by distance, not by step: one full cycle per
+    #: WALK8_TILES tiles, so at 10 tiles a second the legs keep pace with the ground (about 20 fps)
+    WALK8_TILES = 4
+
+    def _walk_frame(self, player_pos, frames=3, draw_pos=None):
+        """The walk frame to draw. 3-frame looks: left, stand, right, stand, one per step. 8-frame looks: the
+        frame for how far along the cycle the player is, counting the part of a tile the current step has slid;
+        None at rest, so the caller draws the standing pose."""
         now = pygame.time.get_ticks()
         last = getattr(self, "_walk_pos", None)
         if last != player_pos:
@@ -386,7 +393,16 @@ class TilemapRenderer:
                 self._walk_step = getattr(self, "_walk_step", 0) + 1
                 self._walk_t = now
             self._walk_pos = player_pos
-        if now - getattr(self, "_walk_t", -10**9) > self.WALK_IDLE_MS:
+        idle = now - getattr(self, "_walk_t", -10**9) > self.WALK_IDLE_MS
+        if frames == 8:
+            if idle:
+                return None
+            slid = 1.0
+            if draw_pos is not None and player_pos is not None:
+                slid = max(0.0, 1.0 - abs(draw_pos[0] - player_pos[0]) - abs(draw_pos[1] - player_pos[1]))
+            dist = (self._walk_step - 1) + slid
+            return int(dist * 8 / self.WALK8_TILES) % 8 + 1
+        if idle:
             return 2
         return self.WALK_CYCLE[(self._walk_step - 1) % 4]
 
@@ -886,7 +902,8 @@ class TilemapRenderer:
                     getattr(player, "appearance_variant", 0))
                 if base_path:
                     th = int(self.tile_size * self.npc_sprite_scale)
-                    frame = self._walk_frame(player_pos)       # always, so a mount's gait keeps time too
+                    # always, so a mount's gait keeps time too
+                    frame = self._walk_frame(player_pos, walk_frame_count(base_path), player_draw_pos)
                     # RIDING, THE RIDER SITS (Kyle, 20 Nov 2026: "when we mount up, we still 'walk'... our character
                     # moves and the wolf slides around"): the standing frame on the saddle, and the mount carries the
                     # motion (_ride_bob)

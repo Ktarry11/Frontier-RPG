@@ -10,6 +10,10 @@ A 6x6 sheet holds four 3x3 blocks (tl, tr, bl, br); a 3x3 sheet holds one (one).
 row 1 walking down, row 2 walking up, row 3 walking right; column 1 left foot forward, column 2
 standing, column 3 right foot forward. Left is the right side mirrored.
 
+An 8-FRAME sheet (8 columns x 4 rows, one character: rows down, up, right, left; columns the 8-frame cycle):
+    PYTHONPATH=. python3 tools/slice_walk_sheet.py SHEET eight=orc/orc_p2
+writes walk_<dir>_1..8.png and leaves the standing down/up/right/left.png alone.
+
 A FOUR-WAY sheet (6x6 for three characters, 6x4 landscape for two) gives each character two full rows (r1 = rows 1-2, r2 = rows 3-4,
 r3 = rows 5-6): first row down 1-3 then up 1-3, second row right 1-3 then left 1-3. Its left side
 is drawn, not mirrored, so whatever a character wears on one side stays there. Add --mirror-left
@@ -32,6 +36,7 @@ from pathlib import Path
 
 import numpy as np
 from PIL import Image
+from scipy import ndimage
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
@@ -45,7 +50,13 @@ FOUR_WAY = {"down": (0, 0), "up": (0, 3), "right": (1, 0), "left": (1, 3)}
 PAD = 4
 
 
+#: the 8-frame sheet (claude/walk_cycle_8frame_prompts.md): 8 columns x 4 rows, one character, rows down/up/right/left
+EIGHT_ROWS = ("down", "up", "right", "left")
+
+
 def _cells(r0, c0, four_way):
+    if four_way == "eight":
+        return [(d, j, i, j) for i, d in enumerate(EIGHT_ROWS) for j in range(8)]
     if four_way:
         return [(d, j, r0 + dr, dc + j) for d, (dr, dc) in FOUR_WAY.items() for j in range(3)]
     return [(d, j, r0 + i, c0 + j) for i, d in enumerate(ROWS) for j in range(3)]
@@ -58,7 +69,13 @@ def _frames(rgba, grid, r0, c0, four_way=False):
     out = {}
     for d, j, r, c in _cells(r0, c0, four_way):
         y0, x0 = int(r * ch), int(c * cw)
-        cell = rgba[y0:int(y0 + ch), x0:int(x0 + cw)]
+        cell = rgba[y0:int(y0 + ch), x0:int(x0 + cw)].copy()
+        # drop stray specks (a neighbour's toe, a fleck of key noise): they'd stretch the crop and shift the figure
+        lab, n = ndimage.label(cell[..., 3] > 128)
+        if n > 1:
+            sizes = ndimage.sum(np.ones_like(lab), lab, range(1, n + 1))
+            keep = np.isin(lab, 1 + np.nonzero(sizes >= sizes.max() * 0.04)[0])
+            cell[..., 3] = np.where(keep | (lab == 0) & (cell[..., 3] <= 128), cell[..., 3], 0)
         a = cell[..., 3]
         ys, xs = np.nonzero(a > 128)
         if len(ys) < 50:
@@ -88,7 +105,7 @@ def slice_block(rgba, grid, r0, c0, four_way=False, mirror_left=False):
         y = chh - f.shape[0]
         canvas[y:y + f.shape[0], x:x + f.shape[1]] = f
         imgs[(d, n)] = Image.fromarray(np.clip(canvas, 0, 255).astype(np.uint8), "RGBA")
-    for n in (1, 2, 3):
+    for n in sorted({n for _, n in imgs}):
         if ("left", n) not in imgs:
             imgs[("left", n)] = imgs[("right", n)].transpose(Image.FLIP_LEFT_RIGHT)
     return imgs
@@ -103,14 +120,15 @@ def main(argv):
     mirror_left = "--mirror-left" in argv
     argv = [a for a in argv if a != "--mirror-left"]
     sheet, jobs = argv[0], dict(a.split("=", 1) for a in argv[1:])
-    four_way = any(k.startswith("r") for k in jobs)
+    eight = "eight" in jobs
+    four_way = "eight" if eight else any(k.startswith("r") for k in jobs)
     rgba = key_magenta(np.asarray(Image.open(sheet).convert("RGB")).astype(np.float64))
     # Square cells: a 6-wide sheet is 6 rows tall when square, 4 when it's 3:2 (two characters).
     cols = 3 if "one" in jobs else 6
-    grid = (cols, int(round(cols * rgba.shape[0] / rgba.shape[1])))
+    grid = (8, 4) if eight else (cols, int(round(cols * rgba.shape[0] / rgba.shape[1])))
     strips = []
     for block, folder in jobs.items():
-        r0, c0 = BLOCKS[block]
+        r0, c0 = (0, 0) if block == "eight" else BLOCKS[block]
         # folder:mirror throws away one character's drawn left side and mirrors its right instead
         folder, _, opt = folder.partition(":")
         imgs = slice_block(rgba, grid, r0, c0, four_way, mirror_left or opt == "mirror")
@@ -122,11 +140,11 @@ def main(argv):
             raise SystemExit(f"no such sprite folder: {out}")
         for (d, n), im in imgs.items():
             im.save(out / f"walk_{d}_{n}.png")
-            if n == 2:
+            if n == 2 and not eight:        # an 8-frame sheet has no standing pose: the folder keeps its own
                 im.save(out / f"{d}.png")
-        print(f"{folder}: 12 walk frames, {imgs[('down', 2)].size[0]}x{imgs[('down', 2)].size[1]}")
+        print(f"{folder}: {len(imgs)} walk frames, {imgs[('down', 2)].size[0]}x{imgs[('down', 2)].size[1]}")
     if preview:
-        order = [(d, n) for d in ("down", "up", "right", "left") for n in (1, 2, 3)]
+        order = [(d, n) for d in ("down", "up", "right", "left") for n in range(1, (8 if eight else 3) + 1)]
         w = max(im.size[0] for s in strips for im in s.values())
         h = max(im.size[1] for s in strips for im in s.values())
         sheet_img = Image.new("RGBA", (w * len(order), h * len(strips)), (70, 70, 70, 255))
