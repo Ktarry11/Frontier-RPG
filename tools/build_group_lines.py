@@ -121,6 +121,14 @@ def load():
 def check(data, args, orient):
     bad = []
     grams = {}
+    seen_ids = set()
+    for a in args:
+        if a.get("id") in seen_ids:
+            bad.append(f"argument id '{a.get('id')}' is used twice; ids must be unique")
+        seen_ids.add(a.get("id"))
+        for side in a.get("between", []):
+            if side not in (a.get("sides") or {}):
+                bad.append(f"argument {a.get('id')}: no side written for {side}")
     for rid, d in data.items():
         if not (SRC / f"{rid}.voice.md").exists():
             bad.append(f"{rid}: no voice sheet ({rid}.voice.md) - write the voice before the lines")

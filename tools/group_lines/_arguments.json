@@ -143,5 +143,53 @@
      ["sebastian_bloodmage", "Che, Esteban, a little blood off the boar and a little off the boys, it's all the same in the pan, the fire doesn't ask questions!"],
      ["esteban_bloodmage", "The fire may not, Sebastian. I do, every time, and I'd ask you to start before somebody objects after the fact."],
      ["sebastian_bloodmage", "After the fact they're eating, boludo, and nobody objects with a full plate. Ask anyone at my table."]
+   ]},
+  {"id": "brew_time", "between": ["dan_warrior", "ivan_warrior"], "asker": "ivan_warrior", "stakes": "low",
+   "sides": {"ivan_warrior": "tea is black, strong, and it stews for as long as it needs", "dan_warrior": "builder's tea, milk in, bag out, done in two minutes"},
+   "third": "Two pots, one black and one milky, and they both drink from the wrong one by accident.",
+   "lines": [
+     ["ivan_warrior", "Dan, you're pouring milk into tea that's been in the water for ninety seconds. In Novosibirsk this would be a police matter."],
+     ["dan_warrior", "It's a brew, lad, not a ceremony. Bag in, bag out, splash of milk, and you're back on the floor before the foreman notices."],
+     ["ivan_warrior", "Tea should be so dark you can't see the bottom of the glass, my friend. Yours looks like the water from washing a tram."]
+   ]},
+  {"id": "coin_or_clause", "between": ["ryan_warlock", "silas_rogue"], "asker": "ryan_warlock", "stakes": "low",
+   "sides": {"ryan_warlock": "agree the split in writing before anybody opens the chest", "silas_rogue": "flip for it, it's faster and nobody can argue with a coin"},
+   "third": "Ryan writes it down, and Silas flips the coin to decide who signs first.",
+   "lines": [
+     ["ryan_warlock", "Silas, before anyone touches that chest, let's put the split on paper. Shares, terms, signatures, and it takes five minutes."],
+     ["silas_rogue", "Five minutes is a long time with a chest that size, mate. I flip, heads it's yours, tails it's mine, and we all go home happy."],
+     ["ryan_warlock", "I've watched you flip that coin for a week, and it lands tails a suspicious amount. I'd like that clause in writing too."]
+   ]},
+  {"id": "bedside_manner", "between": ["berat_tinker", "esteban_bloodmage"], "asker": "berat_tinker", "stakes": "medium",
+   "sides": {"berat_tinker": "talk them through it, a scared patient bleeds faster", "esteban_bloodmage": "work fast and quiet, the talking can come after"},
+   "third": "Esteban works and Berat talks, and the patient says it's the best care they've ever had.",
+   "lines": [
+     ["berat_tinker", "Esteban, canim, you can't just put your hands on a frightened man and start. Tell him what you're doing first, the fear makes everything worse."],
+     ["esteban_bloodmage", "With the bleeding he had, Berat, every sentence costs him a little more. I'd rather he lived to complain about my manners."],
+     ["berat_tinker", "Aman, thirty years of frightened people in my chair, and the ones I talked to never bit me once. Give me the first minute, that's all."]
+   ]},
+  {"id": "budge_up", "between": ["dan_warrior", "marco_paladin"], "asker": "dan_warrior", "stakes": "medium",
+   "sides": {"dan_warrior": "the big lad takes the front, that's what he's for", "marco_paladin": "the front belongs to whoever has the Light to hold it"},
+   "third": "They take the front together, shoulder to shoulder, and argue about it the whole fight.",
+   "lines": [
+     ["dan_warrior", "Marco, love, I'm stood at the front, and that's where I'm staying. You go and do your glowing from behind me."],
+     ["marco_paladin", "Thirty-one years I've stood at a door, Dan, and I'll stand at this one. The Light holds better than a shield, ragazzo."],
+     ["dan_warrior", "Your Light's very nice, but my shield's the one getting hit. Sod it, there's room for two, budge up then."]
+   ]},
+  {"id": "on_time", "between": ["diego_tinker", "ivan_warrior"], "asker": "ivan_warrior", "stakes": "low",
+   "sides": {"ivan_warrior": "we leave at first light, which means first light", "diego_tinker": "we leave when the thing I'm building is finished"},
+   "third": "Ivan gives Diego ten minutes, and Diego builds a clock in eleven.",
+   "lines": [
+     ["ivan_warrior", "Diego, the sun came up twenty minutes ago. In my world, twenty minutes late is a disciplinary hearing, and here it's breakfast."],
+     ["diego_tinker", "Listen, listen, Ivan, ten more minutes and this thing tells us exactly when the sun comes up. We'll never be late again!"],
+     ["ivan_warrior", "I already know when the sun comes up, my friend, I watched it happen. It happened without you, and it was very rude."]
+   ]},
+  {"id": "who_feeds", "between": ["berat_tinker", "sebastian_bloodmage"], "asker": "berat_tinker", "stakes": "low",
+   "sides": {"berat_tinker": "a guest never cooks, it's an insult to the house", "sebastian_bloodmage": "the man with the fire and the meat feeds the table"},
+   "third": "Sebastian cooks the meat, Berat makes everything else, and the table can't move after.",
+   "lines": [
+     ["berat_tinker", "Sebastian, sit, sit, you're my guest tonight. In Izmir, a guest who cooks is a guest who's been insulted."],
+     ["sebastian_bloodmage", "Che, Berat, in Buenos Aires the man with the fire feeds the people, and look, I have the fire. Sit down yourself!"],
+     ["berat_tinker", "Mashallah, so stubborn, you'd fight a grandmother for the kitchen. Fine, you take the meat, and I'll feed everyone else until they cry."]
    ]}
 ]
