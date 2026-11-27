@@ -191,5 +191,53 @@
      ["berat_tinker", "Sebastian, sit, sit, you're my guest tonight. In Izmir, a guest who cooks is a guest who's been insulted."],
      ["sebastian_bloodmage", "Che, Berat, in Buenos Aires the man with the fire feeds the people, and look, I have the fire. Sit down yourself!"],
      ["berat_tinker", "Mashallah, so stubborn, you'd fight a grandmother for the kitchen. Fine, you take the meat, and I'll feed everyone else until they cry."]
+   ]},
+  {"id": "the_shortcut", "between": ["diego_tinker", "haruto_runemaster"], "asker": "haruto_runemaster", "stakes": "low",
+   "sides": {"haruto_runemaster": "cut the rune properly, however long it takes", "diego_tinker": "a quick fix now beats a perfect one tomorrow"},
+   "third": "Diego builds his quick fix, and Haruto cuts the proper rune under it while it holds.",
+   "lines": [
+     ["haruto_runemaster", "Diego, that gadget will fail the first time anyone leans on it. A rune cut properly would hold for a hundred years."],
+     ["diego_tinker", "Listen, listen, Haruto, a hundred years is lovely, but the wolves are coming tonight! Mine works in ten minutes."],
+     ["haruto_runemaster", "Then it will fail in eleven, on whoever is standing closest. Careless work always picks the wrong person."]
+   ]},
+  {"id": "the_rota", "between": ["dan_warrior", "minh_chronomancer"], "asker": "minh_chronomancer", "stakes": "low",
+   "sides": {"minh_chronomancer": "a proper watch rota, written down, everyone takes a turn", "dan_warrior": "the big lad takes first watch and the rest sleep"},
+   "third": "Minh writes the rota, and Dan takes first watch on it, officially.",
+   "lines": [
+     ["minh_chronomancer", "Dan, I have drawn up a watch rota, four shifts, rotating. You are on third, and I would like you to sleep until then."],
+     ["dan_warrior", "Give over, love, I'll take first and second, I'm awake anyway. You need your kip more than I do."],
+     ["minh_chronomancer", "That is precisely what I tell myself every night, and look where it got me. Third shift, Dan, please, and I will try to sleep too."]
+   ]},
+  {"id": "the_tent", "between": ["bakyt_hunter", "tomas_warrior"], "asker": "tomas_warrior", "stakes": "low",
+   "sides": {"tomas_warrior": "retie the tent ropes with proper knots before the storm", "bakyt_hunter": "six generations of felt tents never needed new knots"},
+   "third": "Tomas reties two ropes his way, Bakyt leaves the rest his way, and they compare in the morning.",
+   "lines": [
+     ["tomas_warrior", "Bakyt, mate, those tent ropes are tied with a knot I've never seen, and I've seen every knot there is. Let me retie them before the wind."],
+     ["bakyt_hunter", "My grandfather's grandfather tied this knot, friend, on the high pasture in worse wind than this. Drink your tea, it will hold."],
+     ["tomas_warrior", "Your grandfather's grandfather didn't have my shoulder telling him a storm's coming. Two ropes, my way, and we see who's dry tomorrow."]
+   ]},
+  {"id": "the_trader", "between": ["matias_reaper", "silas_rogue"], "asker": "matias_reaper", "stakes": "low",
+   "sides": {"matias_reaper": "the quiet one at the back is the thief", "silas_rogue": "the loud one at the counter is the thief"},
+   "third": "They watch both, and it turns out the two traders are working together.",
+   "lines": [
+     ["matias_reaper", "Silas, the thief is the quiet one by the door, I am sure. On the bus, the quiet ones by the door were always the problem."],
+     ["silas_rogue", "Amai, no, mate, it's the loud one at the counter, sixty percent. All that noise is cargo with the wrong label on it."],
+     ["matias_reaper", "Ya, okay, we watch both, and we see. Loser buys the empanadas, cachai."]
+   ]},
+  {"id": "dead_hung", "between": ["diego_tinker", "tomas_warrior"], "asker": "tomas_warrior", "stakes": "medium",
+   "sides": {"tomas_warrior": "nothing hangs over the camp without a safety line", "diego_tinker": "the lantern contraption is perfectly balanced, it needs no line"},
+   "third": "Diego's lantern stays up, with Tomas's safety line on it, and Diego paints the line gold so it looks deliberate.",
+   "lines": [
+     ["tomas_warrior", "Diego, there's a forty-pound lantern machine hanging over where people sleep, on one rope. Do haje, nothing goes up without a safety."],
+     ["diego_tinker", "My friend, my friend, it is perfectly balanced, I did the numbers twice! A safety line would ruin the whole look."],
+     ["tomas_warrior", "Numbers don't stop a rope fraying at three in the morning. A safety line, or it comes down, and I'm not arguing during the lift."]
+   ]},
+  {"id": "one_praise", "between": ["haruto_runemaster", "pavlo_knight"], "asker": "pavlo_knight", "stakes": "low",
+   "sides": {"pavlo_knight": "praise a student often, and the work grows", "haruto_runemaster": "praise rarely, so it means something when it comes"},
+   "third": "Haruto agrees to praise his students once a month, and Pavlo agrees to make it count.",
+   "lines": [
+     ["pavlo_knight", "Haruto, tell your students when they do well, please, and often. A fourteen-year-old who hears it once a year stops trying."],
+     ["haruto_runemaster", "My master praised me once in eleven years, Pavlo, and I have remembered that sentence for thirty. Rare praise is never forgotten."],
+     ["pavlo_knight", "And how many of his other students stayed long enough to hear it, do you think? I would guess very few, my friend."]
    ]}
 ]

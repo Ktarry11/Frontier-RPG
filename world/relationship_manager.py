@@ -56,6 +56,9 @@ LEAVE = {"friendly": 15, "close": 48, "grating": -14, "rivals": -42}
 STATE_NAMES = {"strangers": "Strangers", "nodding": "On nodding terms", "friendly": "Friendly",
                "close": "Close friends", "grating": "Grating", "rivals": "Rivals"}
 GOOD = ("friendly", "close")
+#: pair lines that carry what a recruit keeps from the player until Friend, and the stage they wait for (see _beat)
+PRIVATE_KEYS = frozenset({"confide", "turn_friends"})
+PRIVATE_STAGE = 3
 BAD = ("grating", "rivals")
 NEIGHBOUR_START = 6
 
@@ -367,6 +370,14 @@ class RelationshipManager:
         row from the same two people, even when the same thing has happened twice."""
         out, ids = [], []
         for rid, key, who in parts:
+            # A CONFIDENCE WAITS FOR THE PLAYER'S FRIENDSHIP TOO (27 Nov 2026). Two recruits confide in each other once
+            # they're close, but the player is standing right there, and these lines tell the secrets a recruit keeps
+            # from the player until Friend (Matias's father, Dan's four years, Ivan's fear). So a confidence plays only
+            # once the speaker is at least a Friend of the player's.
+            if key in PRIVATE_KEYS and self.bm is not None:
+                b = getattr(self.bm, "bonds", {}).get(rid)
+                if b is not None and b.stage < PRIVATE_STAGE:
+                    return False
             t = (self.lines.get(rid) or {}).get(key)
             if not t:
                 return False
