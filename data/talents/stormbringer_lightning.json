@@ -631,6 +631,24 @@
         }
       },
       "_source": "CoA verbatim: 'Storm Ascendance now additionally grants you Lord of Lightning for 20 seconds. Increases the damage dealt by Forked Lightning, Call Lightning, and Electrocute by an additional 30% and allows Electrocute to strike 3 additional enemies.' Both halves are built: CoA's 30% on the three abilities (Conjure Storm standing in for Call Lightning), and the three extra enemies as splash_damage, since no key adds targets. What is lost is the gate - CoA grants this only while Storm Ascendance is up, and nothing reads whether a buff is active - so it is permanent. Stated rather than hidden; priced as a capstone accordingly."
+    },
+    {
+      "talent_id": "stormbringer_lightning_lightning_cage",
+      "name": "Lightning Cage",
+      "description": "Learn Lightning Cage: cage yourself in lightning: your spells hit harder for a few turns and your Static surges.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 5,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "stormbringer_lightning_cage"
+      },
+      "connected_to": [
+        "stormbringer_lightning_stormy_days"
+      ],
+      "_source": "27 Nov 2026, Kyle: 'a lot of these things you're seeing are talents. Are you making them talent unlocks?' A talent node in the CoA client's spec tree (coa-preservation-data), so it is a talent here too."
     }
   ]
 }

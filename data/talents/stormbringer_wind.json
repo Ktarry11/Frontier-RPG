@@ -580,6 +580,24 @@
         "stormbringer_wind_hurricanes"
       ],
       "_source": "Authored 6 Nov. Kyle: 'all caster classes should have a 5 point talent that increases their spell crit damage by 100%.' Mirrors priest_shadow's Shadow Power and shaman_elemental's Elemental Fury, both of which are WoW-accurate at 5 x 20%. Placed on tier 4 beside the existing tier-4 block; connected_to is cosmetic (it draws the edge), spending is gated by tier_requirements."
+    },
+    {
+      "talent_id": "stormbringer_wind_windsurf",
+      "name": "Windsurf",
+      "description": "Learn Windsurf: your Air Elemental shields you, absorbing damage, and your haste is increased by 10% for 3 turns.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 6,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "stormbringer_windsurf"
+      },
+      "connected_to": [
+        "stormbringer_wind_hurricanes"
+      ],
+      "_source": "27 Nov 2026, Kyle: 'a lot of these things you're seeing are talents. Are you making them talent unlocks?' A talent node in the CoA client's spec tree (coa-preservation-data), so it is a talent here too."
     }
   ]
 }

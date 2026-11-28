@@ -1366,7 +1366,7 @@
     {
       "ability_id": "stormbringer_deluge",
       "name": "Deluge",
-      "resource_type": "mana",
+      "resource_type": "static",
       "cooldown": 4,
       "effect_type": "spell_damage",
       "duration": 1,
@@ -1380,25 +1380,25 @@
         {
           "rank": 1,
           "level_req": 28,
-          "cost": 63,
+          "cost": 50,
           "effect_value": 90
         },
         {
           "rank": 2,
           "level_req": 38,
-          "cost": 77,
+          "cost": 50,
           "effect_value": 110
         },
         {
           "rank": 3,
           "level_req": 50,
-          "cost": 92,
+          "cost": 50,
           "effect_value": 131
         },
         {
           "rank": 4,
           "level_req": 58,
-          "cost": 102,
+          "cost": 50,
           "effect_value": 145
         }
       ],
@@ -1407,7 +1407,8 @@
       "_tuning": [
         "15 Nov 2026, class pass: a top rank at 58 added - its last rank came at 50, leaving it standing still while the world grows ~30% (Classic's main buttons rank at 56-60). tools/add_top_ranks.py"
       ],
-      "cast_speed": "medium"
+      "cast_speed": "medium",
+      "_static_source": "27 Nov 2026, Kyle: switch to Static. CoA's Deluge 'Depletes 50 Static' - a spender in the builder/spender loop (mana builds Static; Static spends on damage or mana)."
     },
     {
       "ability_id": "stormbringer_storm_ascendance",
@@ -1479,9 +1480,9 @@
       ],
       "cast_speed": "medium",
       "specs": [
-        "stormbringer_maelstrom"
+        "stormbringer_wind"
       ],
-      "_spec_source": "27 Nov 2026, the CoA spec split (combat/spec_kits.py): spec from the live client's CharacterAdvancementData tabs and tooltips (github.com/Bharph/coa-preservation-data). Maelstrom is the tab the old client calls Gifts (renamed from Thunder in 2024)."
+      "_spec_source": "27 Nov 2026: follows the spec whose talent tree teaches it (tools/qa_spec_kits.py)."
     },
     {
       "ability_id": "stormbringer_tailwind",
@@ -1634,7 +1635,7 @@
       "ability_id": "stormbringer_call_lightning",
       "name": "Call Lightning",
       "resource_type": "static",
-      "cooldown": 2,
+      "cooldown": 3,
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
@@ -1644,96 +1645,50 @@
           "rank": 1,
           "level_req": 10,
           "cost": 50,
-          "effect_value": 199
+          "effect_value": 133
         },
         {
           "rank": 2,
           "level_req": 18,
           "cost": 50,
-          "effect_value": 243
+          "effect_value": 162
         },
         {
           "rank": 3,
           "level_req": 26,
           "cost": 50,
-          "effect_value": 286
+          "effect_value": 191
         },
         {
           "rank": 4,
           "level_req": 34,
           "cost": 50,
-          "effect_value": 330
+          "effect_value": 220
         },
         {
           "rank": 5,
           "level_req": 42,
           "cost": 50,
-          "effect_value": 374
+          "effect_value": 249
         },
         {
           "rank": 6,
           "level_req": 50,
           "cost": 50,
-          "effect_value": 417
+          "effect_value": 278
         },
         {
           "rank": 7,
           "level_req": 58,
           "cost": 50,
-          "effect_value": 461
+          "effect_value": 307
         }
       ],
       "damage_school": "nature",
       "cast_speed": "long",
       "icon_id": null,
-      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line."
-    },
-    {
-      "ability_id": "stormbringer_eye_of_the_storm",
-      "name": "Eye of the Storm",
-      "resource_type": "mana",
-      "cooldown": 4,
-      "effect_type": "spell_dot",
-      "duration": 2,
-      "stat_mods": {},
-      "description": "Mark an enemy: the storm deals Nature damage to every enemy around it for 2 turns.",
-      "target_type": "enemy_aoe",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 16,
-          "cost": 40,
-          "effect_value": 263
-        },
-        {
-          "rank": 2,
-          "level_req": 26,
-          "cost": 55,
-          "effect_value": 325
-        },
-        {
-          "rank": 3,
-          "level_req": 36,
-          "cost": 69,
-          "effect_value": 386
-        },
-        {
-          "rank": 4,
-          "level_req": 46,
-          "cost": 84,
-          "effect_value": 448
-        },
-        {
-          "rank": 5,
-          "level_req": 56,
-          "cost": 98,
-          "effect_value": 510
-        }
-      ],
-      "damage_school": "nature",
-      "cast_speed": "instant",
-      "icon_id": null,
-      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line."
+      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line.",
+      "_resized": "27 Nov 2026: resized against the class's own spells on the authored rank line (Shock is 58 at level 1); first pass had Megawatt Missile at 5x Shock and the Maelstrom out-damaging Frost Mage two to one."
     },
     {
       "ability_id": "stormbringer_body_of_lightning",
@@ -1762,7 +1717,7 @@
       "ability_id": "stormbringer_updraft",
       "name": "Updraft",
       "resource_type": "static",
-      "cooldown": 3,
+      "cooldown": 5,
       "effect_type": "spell_dot",
       "duration": 3,
       "stat_mods": {},
@@ -1773,37 +1728,39 @@
           "rank": 1,
           "level_req": 25,
           "cost": 20,
-          "effect_value": 393
+          "effect_value": 225
         },
         {
           "rank": 2,
           "level_req": 35,
           "cost": 20,
-          "effect_value": 470
+          "effect_value": 268
         },
         {
           "rank": 3,
           "level_req": 45,
           "cost": 20,
-          "effect_value": 546
+          "effect_value": 312
         },
         {
           "rank": 4,
           "level_req": 55,
           "cost": 20,
-          "effect_value": 622
+          "effect_value": 356
         }
       ],
       "damage_school": "nature",
       "cast_speed": "instant",
       "icon_id": null,
-      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line."
+      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line.",
+      "_trim": "27 Nov 2026: cooldown 3 -> 5. Measured, the Stormbringer had a big spender or DoT ready every turn; a turn-based kit needs gaps (Kyle: 'don't take EVERYTHING. This is turn based').",
+      "_resized": "27 Nov 2026: resized against the class's own spells on the authored rank line (Shock is 58 at level 1); first pass had Megawatt Missile at 5x Shock and the Maelstrom out-damaging Frost Mage two to one."
     },
     {
       "ability_id": "stormbringer_gale",
       "name": "Gale",
       "resource_type": "mana",
-      "cooldown": 1,
+      "cooldown": 2,
       "effect_type": "spell_damage",
       "duration": 0,
       "stat_mods": {},
@@ -1815,37 +1772,37 @@
           "rank": 1,
           "level_req": 20,
           "cost": 40,
-          "effect_value": 161
+          "effect_value": 101
         },
         {
           "rank": 2,
           "level_req": 28,
           "cost": 52,
-          "effect_value": 188
+          "effect_value": 119
         },
         {
           "rank": 3,
           "level_req": 36,
           "cost": 63,
-          "effect_value": 216
+          "effect_value": 136
         },
         {
           "rank": 4,
           "level_req": 44,
           "cost": 75,
-          "effect_value": 244
+          "effect_value": 154
         },
         {
           "rank": 5,
           "level_req": 52,
           "cost": 87,
-          "effect_value": 271
+          "effect_value": 171
         },
         {
           "rank": 6,
           "level_req": 60,
           "cost": 98,
-          "effect_value": 299
+          "effect_value": 189
         }
       ],
       "generates": {
@@ -1858,7 +1815,9 @@
       "specs": [
         "stormbringer_maelstrom"
       ],
-      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line."
+      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line.",
+      "_trim": "27 Nov 2026: cooldown 1 -> 2, so Shock stays the main builder and Gale is the AoE one.",
+      "_resized": "27 Nov 2026: resized against the class's own spells on the authored rank line (Shock is 58 at level 1); first pass had Megawatt Missile at 5x Shock and the Maelstrom out-damaging Frost Mage two to one."
     },
     {
       "ability_id": "stormbringer_stormcloud",
@@ -1885,7 +1844,8 @@
       "specs": [
         "stormbringer_maelstrom"
       ],
-      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line."
+      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line.",
+      "requires_talent": true
     },
     {
       "ability_id": "stormbringer_megawatt_missile",
@@ -1901,19 +1861,19 @@
           "rank": 1,
           "level_req": 45,
           "cost": 70,
-          "effect_value": 780
+          "effect_value": 286
         },
         {
           "rank": 2,
           "level_req": 52,
           "cost": 88,
-          "effect_value": 856
+          "effect_value": 314
         },
         {
           "rank": 3,
           "level_req": 59,
           "cost": 106,
-          "effect_value": 933
+          "effect_value": 342
         }
       ],
       "generates": {
@@ -1926,73 +1886,9 @@
       "specs": [
         "stormbringer_maelstrom"
       ],
-      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line."
-    },
-    {
-      "ability_id": "stormbringer_thunder_king",
-      "name": "Thunder King",
-      "resource_type": "mana",
-      "cooldown": 10,
-      "effect_type": "buff",
-      "duration": 3,
-      "stat_mods": {
-        "damage_dealt_pct": 15,
-        "haste": 10.0
-      },
-      "description": "Crown yourself in thunder: more damage and faster casting for a few turns.",
-      "target_type": "self",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 50,
-          "cost": 60,
-          "effect_value": 100
-        }
-      ],
-      "buff_scope": "combat",
-      "is_instant": true,
-      "icon_id": null,
-      "specs": [
-        "stormbringer_maelstrom"
-      ],
-      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line."
-    },
-    {
-      "ability_id": "stormbringer_fluxblast",
-      "name": "Fluxblast",
-      "resource_type": "static",
-      "cooldown": 2,
-      "effect_type": "spell_damage",
-      "duration": 0,
-      "stat_mods": {},
-      "description": "Blast an enemy with unstable flux, dealing Arcane damage.",
-      "ranks": [
-        {
-          "rank": 1,
-          "level_req": 48,
-          "cost": 20,
-          "effect_value": 623
-        },
-        {
-          "rank": 2,
-          "level_req": 54,
-          "cost": 20,
-          "effect_value": 673
-        },
-        {
-          "rank": 3,
-          "level_req": 60,
-          "cost": 20,
-          "effect_value": 723
-        }
-      ],
-      "damage_school": "arcane",
-      "cast_speed": "instant",
-      "icon_id": null,
-      "specs": [
-        "stormbringer_lightning"
-      ],
-      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line."
+      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line.",
+      "_resized": "27 Nov 2026: resized against the class's own spells on the authored rank line (Shock is 58 at level 1); first pass had Megawatt Missile at 5x Shock and the Maelstrom out-damaging Frost Mage two to one.",
+      "requires_talent": true
     },
     {
       "ability_id": "stormbringer_lightning_cage",
@@ -2024,7 +1920,8 @@
       "specs": [
         "stormbringer_lightning"
       ],
-      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line."
+      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line.",
+      "requires_talent": true
     },
     {
       "ability_id": "stormbringer_windsurf",
@@ -2053,7 +1950,8 @@
       "specs": [
         "stormbringer_wind"
       ],
-      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line."
+      "_source": "27 Nov 2026, Kyle: 'fleshing out some of our empty CoA classes'. A CoA Stormbringer spell from the live tooltips (coa-preservation-data), shaped for our turn-based scale: its role, cost type and cooldown kept, numbers on our rank line.",
+      "requires_talent": true
     }
   ]
 }

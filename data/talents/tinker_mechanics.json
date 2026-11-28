@@ -641,6 +641,24 @@
       },
       "connected_to": [],
       "_source": "The suit's area attack and the deepest of the three, so it is the last of the kit you can reach. Was tier 4."
+    },
+    {
+      "talent_id": "tinker_mechanics_curb_stomp",
+      "name": "Bot: C.U.R.B. Stomp",
+      "description": "Learn Bot: C.U.R.B. Stomp: your bot stomps the ground, dealing Physical damage to the enemy front line and stunning them.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 7,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "tinker_curb_stomp"
+      },
+      "connected_to": [
+        "tinker_mechanics_turbo_guns"
+      ],
+      "_source": "27 Nov 2026, Kyle: 'a lot of these things you're seeing are talents. Are you making them talent unlocks?' A talent node in the CoA client's spec tree (coa-preservation-data), so it is a talent here too."
     }
   ]
 }

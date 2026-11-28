@@ -604,6 +604,42 @@
         "smart_heal_pct": 90
       },
       "_source": "CoA: 'Zap! now causes your active Build abilities to zap the lowest health nearby ally, healing them for 990 + 90% healing.' smart_heal_pct is the payload for 'heal the lowest-health ally' and this is almost a literal port - the only cut is the flat 990, which is a level-60 raid number. PERCENT, so 90 means 90% of the Zap! that triggered it."
+    },
+    {
+      "talent_id": "tinker_invention_battery_swap",
+      "name": "Battery Swap",
+      "description": "Learn Battery Swap: swap in a fresh battery, restoring 20% of your maximum Mana.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 5,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "tinker_battery_swap"
+      },
+      "connected_to": [
+        "tinker_invention_macro_designer"
+      ],
+      "_source": "27 Nov 2026, Kyle: 'a lot of these things you're seeing are talents. Are you making them talent unlocks?' A talent node in the CoA client's spec tree (coa-preservation-data), so it is a talent here too."
+    },
+    {
+      "talent_id": "tinker_invention_combat_symbiosis",
+      "name": "Combat Symbiosis",
+      "description": "Learn Combat Symbiosis: electrify an ally, increasing their haste by 20% for 3 turns.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 6,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "tinker_combat_symbiosis"
+      },
+      "connected_to": [
+        "tinker_invention_battery_swap"
+      ],
+      "_source": "27 Nov 2026, Kyle: 'a lot of these things you're seeing are talents. Are you making them talent unlocks?' A talent node in the CoA client's spec tree (coa-preservation-data), so it is a talent here too."
     }
   ]
 }

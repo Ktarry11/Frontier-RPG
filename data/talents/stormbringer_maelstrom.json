@@ -605,6 +605,42 @@
         }
       },
       "_source": "CoA verbatim: 'Depletes 50 Static. Summon a flurry of rain, wind, and lightning from the sky for 20 seconds. Every 2 sec, enemies within 30 yds of the caster are zapped with lightning, dealing Nature damage.' A persistent area effect centred on the caster has no mechanism - there is no ground placement and no periodic trigger - so the capstone pays the same damage two ways instead: an immediate strike plus a dot, both off the frost kit, with a 1-turn internal cooldown so casting two frost spells in a turn does not double it. This is the one payload combination that gets close to 'a storm that keeps hitting', and both halves are live: damage_flat with a school, and apply_effect carrying a dot."
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_megawatt_missile",
+      "name": "Megawatt Missile",
+      "description": "Learn Megawatt Missile: a slow, crushing bolt of storm energy that builds your Static.",
+      "node_type": "active",
+      "tier": 4,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 5,
+      "hex_y": 2,
+      "effects": {
+        "unlock_ability": "stormbringer_megawatt_missile"
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_amped_flow"
+      ],
+      "_source": "27 Nov 2026, Kyle: 'a lot of these things you're seeing are talents. Are you making them talent unlocks?' A talent node in the CoA client's spec tree (coa-preservation-data), so it is a talent here too."
+    },
+    {
+      "talent_id": "stormbringer_maelstrom_stormcloud",
+      "name": "Stormcloud",
+      "description": "Learn Stormcloud: hang a storm cloud over an enemy, increasing the magic damage it takes by 15% for 3 turns.",
+      "node_type": "active",
+      "tier": 3,
+      "max_points": 1,
+      "cost_per_point": 1,
+      "hex_x": 4,
+      "hex_y": 0,
+      "effects": {
+        "unlock_ability": "stormbringer_stormcloud"
+      },
+      "connected_to": [
+        "stormbringer_maelstrom_kinetic_energy"
+      ],
+      "_source": "27 Nov 2026, Kyle: 'a lot of these things you're seeing are talents. Are you making them talent unlocks?' A talent node in the CoA client's spec tree (coa-preservation-data), so it is a talent here too."
     }
   ]
 }
